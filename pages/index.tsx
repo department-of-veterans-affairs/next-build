@@ -22,7 +22,6 @@ export const Core = ({ nodes }) => {
   );
 };
 
-
 const HomePage = ({ nodes }) => {
   if (nodes.length === 0) {
     return <div>No nodes found</div>;

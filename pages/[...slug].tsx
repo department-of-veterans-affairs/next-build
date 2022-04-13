@@ -8,7 +8,6 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
 import { Core, FIELDS } from '@/pages/index';
 
 export default function NodePage({ node }) {
-    console.log(node)
     if (!node) return null;
     return (
         <>
