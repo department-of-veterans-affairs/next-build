@@ -22,15 +22,14 @@ jobs:
       - name: Install Npm Dependencies
         run: yarn install
 
-      - name: Build App
-        run: yarn build
+      # - name: Build App
+      #   run: yarn build
 
       - name: Run tests with jest
         run: yarn test:ci
 
-      - name: Cypress.io
-        uses: cypress-io/github-action@v2
-        with:
-          start: yarn start
-          wait-on: 'http://localhost:3000'
-          
+      # - name: Cypress.io
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     start: yarn start
+      #     wait-on: 'http://localhost:3000'
