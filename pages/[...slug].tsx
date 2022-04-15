@@ -5,16 +5,15 @@ import {
     getResourceTypeFromContext,
 } from 'next-drupal';
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
-import { Core, FIELDS } from '@/pages/index';
+import { FIELDS } from '@/lib/constants';
 
 export default function NodePage({ node }) {
     if (!node) return null;
     return (
         <>
             <div>
-                {node.type === 'node--q_a' && <Core nodes={node} />}
+                {node.type === 'node--q_a' && <h2>{node.title}</h2>}
             </div>
-
         </>
     );
 }
@@ -49,7 +48,6 @@ export async function getStaticProps(context) {
         props: {
             node: node || null,
         },
-        revalidate: 900,
     };
 }
 

@@ -1,13 +1,8 @@
-/** @type {import('next').NextConfig} */
-
+/**
+ * @type {import('next').NextConfig}
+ */
 
 const nextConfig = {
-    reactStrictMode: true,
-    swcMinify: true,
-    i18n: {
-      locales: ["en"],
-      defaultLocale: "en",
-    },
    images: {
         domains: [
             `${process.env.NEXT_IMAGE_DOMAIN}`,
@@ -19,6 +14,8 @@ const nextConfig = {
     env: {
         NEXT_PUBLIC_DRUPAL_BASE_URL: process.env.NEXT_PUBLIC_DRUPAL_BASE_URL,
     },
+   reactStrictMode: true,
+   swcMinify: true,
 }
 
 module.exports = nextConfig

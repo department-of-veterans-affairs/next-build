@@ -22,7 +22,8 @@
     "next": "v12.1.5-canary.7",
     "next-drupal": "^1.2.2",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",

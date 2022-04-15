@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import { getResourceCollectionFromContext } from 'next-drupal';
 import { v4 as uuidv4 } from 'uuid';
-
-export const FIELDS =
-  'field_answer,field_alert_single,field_buttons,field_tags,field_related_information,field_related_benefit_hubs,field_contact_information';
-
+import { FIELDS } from '@/lib/constants';
+import Layout from '@/components/layout';
 
 export const Core = ({ nodes }) => {
   if (!nodes) return null;
@@ -22,16 +20,21 @@ export const Core = ({ nodes }) => {
   );
 };
 
+
+
 const HomePage = ({ nodes }) => {
   if (nodes.length === 0) {
     return <div>No nodes found</div>;
   }
-  return (<Core nodes={nodes} />);
+  return (<Layout><Core nodes={nodes} /></Layout>);
 }
+
+
+
 export default HomePage
 
-
 export async function getStaticProps(context) {
+
   const nodes = await getResourceCollectionFromContext('node--q_a', context, {
     params: {
       include: FIELDS,
@@ -47,4 +50,5 @@ export async function getStaticProps(context) {
     },
   };
 }
+
 

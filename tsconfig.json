@@ -17,16 +17,19 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "allowSyntheticDefaultImports": true,
     "types": ["jest", "node", "@types/testing-library__jest-dom"],
     "baseUrl": ".",
     "paths": {
+        "@/styles/*": ["styles/*"],
         "@/components/*": ["components/*"],
         "@/pages/*": ["pages/*"],
         "@/api/*": ["pages/api/*"],
-        "@/utils/*": ["utils/*"],
+        "@/lib/*": ["lib/*"],
+        "@/hooks/*": ["hooks/*"],
         "@/types/*": ["types/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/utils/recordEvent.js"],
   "exclude": ["node_modules", "cypress"]
 }
