@@ -1,8 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import { getResourceCollectionFromContext } from 'next-drupal';
-import { v4 as uuidv4 } from 'uuid';
-import { FIELDS } from '@/lib/constants';
 import Layout from '@/components/layout';
+import { FIELDS } from '@/lib/constants/';
+
+
 
 export const Core = ({ nodes }) => {
   if (!nodes) return null;

@@ -47,4 +47,3 @@ export const DesktopLinks = ({ links, visible }) => {
     );
 }
 
-//             {desktop[FOOTER_COLUMNS.SUPERLINKS]}
