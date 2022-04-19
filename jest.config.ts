@@ -14,4 +14,4 @@ const customJestConfig = {
   modulePathIgnorePatterns: ["cypress"],
 };
 
-module.exports = createJestConfig(customJestConfig);
+module.exports = createJestConfig(customJestConfig); 

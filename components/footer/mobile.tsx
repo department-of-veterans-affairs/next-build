@@ -81,7 +81,6 @@ export const MobileLinks = ({ links, visible }) => {
                         {mobile[FOOTER_COLUMNS.CONNECT]}
                     </div>
                 </li>
-
             </ul>
         </div>
     );

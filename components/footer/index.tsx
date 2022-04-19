@@ -1,11 +1,13 @@
 
 import Link from 'next/link'
+import Image from '@/components/image';
 import { DesktopLinks } from './desktop'
 import { MobileLinks } from './mobile'
-import Image from '@/components/image';
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { FOOTER_COLUMNS } from './helpers';
 import { VA_WRAPPER_IMAGES } from '@/lib/constants';
+import { useMediaQuery } from '@/hooks/useMediaQuery'
+
+
 
 export const renderColumns = (columnLinks) => {
     const render = columnLinks.map(column => {

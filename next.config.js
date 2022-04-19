@@ -1,7 +1,6 @@
 /**
  * @type {import('next').NextConfig}
  */
-
 const nextConfig = {
    images: {
         domains: [
@@ -19,4 +18,5 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
 

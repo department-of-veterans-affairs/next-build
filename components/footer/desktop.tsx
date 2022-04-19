@@ -1,4 +1,4 @@
-import recordEvent from '@/lib/utils/recordEvent';
+import { recordEvent } from '@/lib/utils/recordEvent';
 import { FOOTER_EVENTS, FOOTER_COLUMNS, FOOTER_CONTENT } from './helpers';
 import { createLinkGroups } from '.';
 
@@ -43,7 +43,7 @@ export const DesktopLinks = ({ links, visible }) => {
                 </h2>
                 {desktop[FOOTER_COLUMNS.CONTACT]}
             </div>
-        </div>
+        </div >
     );
 }
 
