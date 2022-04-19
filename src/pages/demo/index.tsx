@@ -1,7 +1,7 @@
 import { getResource } from 'next-drupal'
 import Layout from '@/components/layout';
-import Table from '@/components/table';
-import { buildColumns } from '@/components/table/helpers'
+import Table from '@/components/paragraphs/table';
+import { buildColumns } from '@/components/paragraphs/table/helpers'
 
 const DemoPage = ({ data }) => {
     if (!data) data = {}
@@ -14,7 +14,7 @@ export default DemoPage
 export async function getStaticProps() {
     const data = await getResource(
         "paragraph--table",
-        "f3bccd24-a1f4-46f2-94a5-ef04a35ce810"
+        "fe33b703-5ff0-4681-93fc-bc46d44ffbba"
     )
     return {
         props: {

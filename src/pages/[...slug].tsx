@@ -26,24 +26,29 @@ export async function getStaticPaths(context) {
 }
 
 export async function getStaticProps(context) {
+
     const type = await getResourceTypeFromContext(context);
     if (!type) {
         return {
             notFound: true,
         };
     }
+
     const params = new DrupalJsonApiParams();
     if (type === 'node--q_a') {
         params.addInclude([FIELDS]);
     }
+
     const node = await getResourceFromContext(type, context, {
         params: params.getQueryObject(),
     });
+
     if (!node?.status) {
         return {
             notFound: true,
         };
     }
+
     return {
         props: {
             node: node || null,
