@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "noImplicitAny": false,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -15,19 +14,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "allowSyntheticDefaultImports": true,
-    "types": ["jest", "node"],
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-        "@/styles/*": ["styles/*"],
-        "@/components/*": ["components/*"],
-        "@/pages/*": ["pages/*"],
         "@/api/*": ["pages/api/*"],
-        "@/lib/*": ["lib/*"],
+        "@/components/*": ["components/*"],
         "@/hooks/*": ["hooks/*"],
+        "@/lib/*": ["lib/*"],
+        "@/pages/*": ["pages/*"],
+        "@/styles/*": ["styles/*"],
         "@/types/*": ["types/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/utils/recordEvent.js", "jest.config.ts"],
+  "types": ["node", "jest", "cypress"],
+  "include": ["next-envsrc/types/* ", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
   "exclude": ["node_modules", "cypress"]
-}
+} 
