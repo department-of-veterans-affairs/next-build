@@ -1,6 +1,6 @@
 import { getResource } from 'next-drupal'
 import Layout from '@/components/layout';
-import Table from '@/components/table/table';
+import Table from '@/components/table';
 import { buildColumns } from '@/components/table/helpers'
 
 const DemoPage = ({ data }) => {
