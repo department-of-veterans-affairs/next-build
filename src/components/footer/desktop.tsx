@@ -1,4 +1,4 @@
-import { recordEvent } from '@/lib/utils/recordEvent';
+import { recordEvent } from '@/utils/recordEvent';
 import { FOOTER_EVENTS, FOOTER_COLUMNS, FOOTER_CONTENT, createLinkGroups } from './helpers';
 
 
