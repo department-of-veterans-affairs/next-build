@@ -20,7 +20,7 @@ const fetcher = (input: RequestInfo, init?: RequestInit) => {
 }
 
 export const drupalClient = new DrupalClient(
-  process.env.NEXT_PUBLIC_DRUPAL_BASE_URL,
+  baseUrl,
   {
     fetcher,
   }
