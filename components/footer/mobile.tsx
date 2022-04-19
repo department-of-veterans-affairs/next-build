@@ -1,6 +1,5 @@
 
-import { createLinkGroups } from './';
-import { FOOTER_COLUMNS } from './helpers';
+import { FOOTER_COLUMNS, createLinkGroups } from './helpers';
 
 export const MobileLinks = ({ links, visible }) => {
     const mobile = createLinkGroups(links)

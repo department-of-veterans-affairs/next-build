@@ -5,7 +5,6 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 
 
-
 const Table = ({ columns, data }) => {
     data = useMemo(() => data, [data]);
     columns = useMemo(() => columns, [columns]);
@@ -28,9 +27,9 @@ const Table = ({ columns, data }) => {
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
-                        <tr key={uuidv4()} {...headerGroup.getHeaderGroupProps()}>
+                        <tr {...headerGroup.getHeaderGroupProps()} key={uuidv4()} >
                             {headerGroup.headers.map(column => (
-                                <th key={uuidv4()} {...column.getHeaderProps()}>
+                                <th  {...column.getHeaderProps()} key={uuidv4()}>
                                     {column.render('Header')}
                                 </th>
                             ))}
@@ -41,12 +40,12 @@ const Table = ({ columns, data }) => {
                     {rows.map((row) => {
                         prepareRow(row);
                         return (
-                            <tr key={uuidv4()} {...row.getRowProps()}>
+                            <tr  {...row.getRowProps()} key={uuidv4()}>
                                 {row.cells.map(cell => {
 
 
                                     return (
-                                        <td key={uuidv4()} {...cell.getCellProps()}>
+                                        <td {...cell.getCellProps()} key={uuidv4()}>
                                             {cell.render('Cell')}
                                         </td>
                                     );
@@ -57,13 +56,12 @@ const Table = ({ columns, data }) => {
                 </tbody>
             </table>
 
-
             <table {...getTableProps()} className="va-table va-table--responsive">
                 <thead>
                     {headerGroups.map(headerGroup => (
-                        <tr role='row' key={uuidv4()} {...headerGroup.getHeaderGroupProps()}>
+                        <tr role='row'  {...headerGroup.getHeaderGroupProps()} key={uuidv4()}>
                             {headerGroup.headers.map(column => (
-                                <th role="columnheader" scope="col" key={uuidv4()} {...column.getHeaderProps()}>
+                                <th role="columnheader" scope="col"  {...column.getHeaderProps()} key={uuidv4()}>
                                     {column.render('Header')}
                                 </th>
                             ))}
@@ -74,7 +72,7 @@ const Table = ({ columns, data }) => {
                     {rows.map(row => {
                         prepareRow(row)
                         return (
-                            <tr className="vads-u-padding-top--5" role="row" key={uuidv4()} {...row.getRowProps()}>
+                            <tr className="vads-u-padding-top--5" role="row"  {...row.getRowProps()} key={uuidv4()}>
                                 {row.cells.map(cell => {
                                     return (
                                         <td key={uuidv4()} className="column-value" role="cell">

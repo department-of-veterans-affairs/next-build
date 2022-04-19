@@ -43,7 +43,7 @@ export const DesktopLinks = ({ links, visible }) => {
                 </h2>
                 {desktop[FOOTER_COLUMNS.CONTACT]}
             </div>
-        </div>
+        </div >
     );
 }
 
