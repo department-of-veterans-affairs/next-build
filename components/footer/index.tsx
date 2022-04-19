@@ -6,56 +6,15 @@ import { MobileLinks } from './mobile'
 import { FOOTER_COLUMNS } from './helpers';
 import { VA_WRAPPER_IMAGES } from '@/lib/constants';
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { createLinkGroups } from './helpers';
 
 
 
-export const renderColumns = (columnLinks) => {
-    const render = columnLinks.map(column => {
-        return (
-            <>
-                <ul className="va-footer-links">
-                    {column.links.map(link => {
-                        return (
-                            <li key={link.title}>
-                                <span className="va-footer-link-text"><a href={link.href}>{link.title}</a></span>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </>
-        )
-    });
-    return render;
-}
-
-export const generateLinkItems = (allColumns) => {
-    const linkColumns = Object.keys(allColumns).map(key => {
-        return {
-            columns: key,
-            links: allColumns[key]
-        }
-    });
-    return renderColumns(linkColumns)
-}
-
-export const createLinkGroups = (links) => {
-    const allGroups = links.reduce((acc, link) => {
-        if (!acc[link.column]) {
-            acc[link.column] = [];
-        }
-        acc[link.column].push({
-            href: link.href,
-            title: link.title
-        });
-        return acc;
-    }, {});
-    return generateLinkItems(allGroups);
-}
 
 
 
 const Footer = ({ links }) => {
-    const desktop = createLinkGroups(links)
+    const superlinks = createLinkGroups(links)
     const isBreakpoint = useMediaQuery(768)
 
     if (!links) return null;
@@ -80,7 +39,7 @@ const Footer = ({ links }) => {
                         </Link>
                     </div>
                     <div className="usa-grid usa-grid-full va-footer-links-bottom">
-                        {desktop[FOOTER_COLUMNS?.SUPERLINKS]}
+                        {superlinks[FOOTER_COLUMNS?.SUPERLINKS]}
                     </div>
                 </div>
             </footer>
