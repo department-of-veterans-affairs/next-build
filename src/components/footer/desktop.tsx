@@ -1,9 +1,7 @@
-import { recordEvent } from '@/utils/recordEvent';
-import { FOOTER_EVENTS, FOOTER_COLUMNS, FOOTER_CONTENT, createLinkGroups } from './helpers';
+import { recordEvent } from '@/utils/recordEvent'
+import { FOOTER_EVENTS, FOOTER_COLUMNS, FOOTER_CONTENT } from './helpers'
 
-
-export const DesktopLinks = ({ links, visible }) => {
-    const desktop = createLinkGroups(links)
+export const DesktopLinks = ({ desktop, visible }) => {
     return (
         <div
             aria-hidden={visible ? 'false' : 'true'}
@@ -16,11 +14,15 @@ export const DesktopLinks = ({ links, visible }) => {
                 {desktop[FOOTER_COLUMNS.PROGRAMS]}
             </div>
             <div className="va-footer-linkgroup" id="footer-services">
-                <h2 className="va-footer-linkgroup-title">{FOOTER_CONTENT.RESOURCES}</h2>
+                <h2 className="va-footer-linkgroup-title">
+                    {FOOTER_CONTENT.RESOURCES}
+                </h2>
                 {desktop[FOOTER_COLUMNS.RESOURCES]}
             </div>
             <div className="va-footer-linkgroup" id="footer-popular">
-                <h2 className="va-footer-linkgroup-title">{FOOTER_CONTENT.CONNECT}</h2>
+                <h2 className="va-footer-linkgroup-title">
+                    {FOOTER_CONTENT.CONNECT}
+                </h2>
                 {desktop[FOOTER_COLUMNS.CONNECT]}
             </div>
             <div className="va-footer-linkgroup" id="veteran-crisis">
@@ -30,7 +32,11 @@ export const DesktopLinks = ({ links, visible }) => {
                 <ul className="va-footer-links">
                     <li>
                         <button
-                            onClick={() => recordEvent({ event: FOOTER_EVENTS.CRISIS_LINE })}
+                            onClick={() =>
+                                recordEvent({
+                                    event: FOOTER_EVENTS.CRISIS_LINE,
+                                })
+                            }
                             className="va-button-link va-overlay-trigger"
                             data-show="#modal-crisisline"
                         >
@@ -43,7 +49,6 @@ export const DesktopLinks = ({ links, visible }) => {
                 </h2>
                 {desktop[FOOTER_COLUMNS.CONTACT]}
             </div>
-        </div >
-    );
+        </div>
+    )
 }
-

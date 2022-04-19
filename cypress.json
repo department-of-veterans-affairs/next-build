@@ -1,13 +1,11 @@
-{  
-  "capabilities": {
-    "browserName": "chrome"
-  },
-  "framework": "jasmine",
-  "jasmineNodeOpts": {
-    "showColors": true,
-    "defaultTimeoutInterval": 30000
-  },
-  "specs": [
-    "./e2e/specs/**/*.js"
-  ]
+{
+    "capabilities": {
+        "browserName": "chrome"
+    },
+    "framework": "jasmine",
+    "jasmineNodeOpts": {
+        "showColors": true,
+        "defaultTimeoutInterval": 30000
+    },
+    "specs": ["./e2e/specs/**/*.js"]
 }

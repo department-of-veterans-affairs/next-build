@@ -1,14 +1,55 @@
 {
-  "plugins": ["@typescript-eslint"],
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-    "plugin:jest-dom/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@next/next/recommended",
-    "prettier"
-  ],
-  "rules": {
-    "@typescript-eslint/no-unused-vars": "error"
-  }
-} 
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "next",
+        "airbnb-typescript",
+        "eslint:recommended",
+        "plugin:@next/next/recommended",
+        "plugin:jest/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:prettier/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "project": ["./tsconfig.json"]
+    },
+    "plugins": ["react", "@typescript-eslint", "jest", "prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "@typescript-eslint/no-unused-vars": "off",
+        "react/display-name": "off",
+        "react/prop-types": "off",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": [
+                    "**/*.test.tsx",
+                    "**/*.test.ts",
+                    "src/test-utils.tsx",
+                    "src/setupTests.ts",
+                    "src/mocks/*"
+                ]
+            }
+        ]
+    }
+}

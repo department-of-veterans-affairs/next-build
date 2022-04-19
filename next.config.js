@@ -2,7 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-   images: {
+    images: {
         domains: [
             `${process.env.NEXT_IMAGE_DOMAIN}`,
             'va-gov-cms.ddev.site',
@@ -13,10 +13,8 @@ const nextConfig = {
     env: {
         NEXT_PUBLIC_DRUPAL_BASE_URL: process.env.NEXT_PUBLIC_DRUPAL_BASE_URL,
     },
-   reactStrictMode: true,
-   swcMinify: true,
+    reactStrictMode: true,
+    swcMinify: true,
 }
 
 module.exports = nextConfig
-
-

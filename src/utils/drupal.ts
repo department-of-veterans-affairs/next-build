@@ -1,5 +1,5 @@
-import { Experiment_DrupalClient } from "next-drupal"
-import crossFetch from "cross-fetch"
+import { Experiment_DrupalClient } from 'next-drupal'
+import crossFetch from 'cross-fetch'
 
 // We create a custom fetcher that we can pass to the Experiment_DrupalClient.
 const fetcher = (url, options) => {
@@ -12,10 +12,7 @@ const fetcher = (url, options) => {
         ...opts,
     })
 }
-const path: string = process.env.NEXT_PUBLIC_DRUPAL_BASE_UR ?? '';
-export const drupal = new Experiment_DrupalClient(
-    path,
-    {
-        fetcher,
-    }
-)
+const path: string = process.env.NEXT_PUBLIC_DRUPAL_BASE_UR ?? ''
+export const drupal = new Experiment_DrupalClient(path, {
+    fetcher,
+})

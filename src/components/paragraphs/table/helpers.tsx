@@ -1,4 +1,3 @@
-
 export const buildColumns = (rows) => {
     const columns = Object.keys(rows[0]).map((key) => {
         for (const row of rows) {
@@ -12,7 +11,7 @@ export const buildColumns = (rows) => {
                                 __html: cell.value,
                             }}
                         />
-                    );
+                    )
                 },
             }
         }
