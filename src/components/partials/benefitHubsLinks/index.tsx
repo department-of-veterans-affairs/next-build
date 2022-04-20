@@ -1,7 +1,9 @@
-// Noting that landing_page is Benefit Hub Landing Page.
-import BenefitHubLink from '@/components/node/landing_page'
+// Noting that landing_page is Benefits Hub Landing Page.
+import BenefitsHubLink from '@/components/node/landing_page'
 
-const benefitsHubLinks = ({ nodes }) => {
+// Partial outputting a list of benefits related to a given page. Typically used
+// on a resource page.
+const BenefitsHubLinks = ({ nodes }) => {
   if (nodes) {
     return (
       <>
@@ -13,7 +15,7 @@ const benefitsHubLinks = ({ nodes }) => {
           <ul className="usa-unstyled-list" role="list">
             {nodes.map((node, index) => (
               <li key={index} className="vads-u-margin-y--2">
-                <BenefitHubLink node={node} />
+                <BenefitsHubLink node={node} />
               </li>
             ))}
           </ul>
@@ -24,4 +26,4 @@ const benefitsHubLinks = ({ nodes }) => {
 }
 
 // This should not be the default; we will have a full display eventually.
-export default benefitsHubLinks
+export default BenefitsHubLinks

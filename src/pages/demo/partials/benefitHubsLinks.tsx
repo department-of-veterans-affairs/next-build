@@ -5,7 +5,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 const DemoPage = ({ nodes }) => {
   return nodes.map((node) => (
     <>
-      (for <strong>{node.title}</strong>)
+      (on <strong>{node.title}</strong>)
       <BenefitsHubLinks
         key={node.uuid}
         nodes={node.field_related_benefit_hubs}
