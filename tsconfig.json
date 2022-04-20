@@ -28,6 +28,12 @@
       "@/utils/*": ["utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "src/**/*", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/*.d.ts", "cypress", "__tests__"]
+  "include": [
+    "next-env.d.ts",
+    "additional.d.ts",
+    "src/**/*",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": ["node_modules", "cypress", "__tests__"]
 }
