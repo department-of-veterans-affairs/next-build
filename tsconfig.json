@@ -28,6 +28,13 @@
             "@/utils/*": ["utils/*"]
         }
     },
-    "include": ["next-env.d.ts", "src/**/*", "**/*.ts", "**/*.tsx"],
+    "include": [
+        "next-env.d.ts",
+        "additional.d.ts",
+        "src/react-app-env.d",
+        "src/**/*",
+        "**/*.ts",
+        "**/*.tsx"
+    ],
     "exclude": ["node_modules", "**/*.d.ts", "cypress", "__tests__"]
 }
