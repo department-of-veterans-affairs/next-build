@@ -25,5 +25,4 @@ const BenefitsHubLinks = ({ nodes }) => {
     }
 }
 
-// This should not be the default; we will have a full display eventually.
 export default BenefitsHubLinks
