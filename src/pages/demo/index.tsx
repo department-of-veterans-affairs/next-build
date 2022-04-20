@@ -1,6 +1,6 @@
-import { getResource } from 'next-drupal'
+import { drupalClient } from '@/utils/drupalClient'
 import Layout from '@/components/layout'
-import TableComponent from '@/components/paragraphs/table'
+import Table from '@/components/paragraphs/table'
 
 const DemoPage = ({ data }) => {
     if (!data) data = {}
@@ -9,14 +9,14 @@ const DemoPage = ({ data }) => {
     } = data
     return (
         <Layout>
-            <TableComponent data={rows} />
+            <Table data={rows} />
         </Layout>
     )
 }
 export default DemoPage
 
 export async function getStaticProps() {
-    const data = await getResource(
+    const data = await drupalClient.getResource(
         'paragraph--table',
         'fe33b703-5ff0-4681-93fc-bc46d44ffbba'
     )

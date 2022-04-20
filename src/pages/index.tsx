@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import Link from 'next/link'
-import { getResourceCollectionFromContext } from 'next-drupal'
+import { drupalClient } from '@/utils/drupalClient'
 import Layout from '@/components/layout'
 import { FIELDS } from '@/lib/constants/'
 
@@ -29,14 +29,18 @@ const HomePage = ({ nodes }) => {
 export default HomePage
 
 export async function getStaticProps(context) {
-    const nodes = await getResourceCollectionFromContext('node--q_a', context, {
-        params: {
-            include: FIELDS,
-            sort: '-created',
-            'filter[field_standalone_page]': '1',
-            'filter[status][value]': '1',
-        },
-    })
+    const nodes = await drupalClient.getResourceCollectionFromContext(
+        'node--q_a',
+        context,
+        {
+            params: {
+                include: FIELDS,
+                sort: '-created',
+                'filter[field_standalone_page]': '1',
+                'filter[status][value]': '1',
+            },
+        }
+    )
 
     return {
         props: {

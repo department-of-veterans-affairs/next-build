@@ -1,9 +1,5 @@
 import * as React from 'react'
-import {
-    getPathsFromContext,
-    getResourceFromContext,
-    getResourceTypeFromContext,
-} from 'next-drupal'
+import { drupalClient } from '@/utils/drupalClient'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { FIELDS } from '@/lib/constants'
 
@@ -18,25 +14,20 @@ export default function NodePage({ node }) {
 
 export async function getStaticPaths(context) {
     return {
-        paths: await getPathsFromContext(['node--q_a'], context),
+        paths: await drupalClient.getPathsFromContext(['node--q_a'], context),
         fallback: false,
     }
 }
 
 export async function getStaticProps(context) {
-    const type = await getResourceTypeFromContext(context)
-    if (!type) {
-        return {
-            notFound: true,
-        }
-    }
+    const type = 'node--q_a'
 
     const params = new DrupalJsonApiParams()
     if (type === 'node--q_a') {
         params.addInclude([FIELDS])
     }
 
-    const node = await getResourceFromContext(type, context, {
+    const node = await drupalClient.getResourceFromContext(type, context, {
         params: params.getQueryObject(),
     })
 
