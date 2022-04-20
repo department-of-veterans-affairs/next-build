@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import Table from '@department-of-veterans-affairs/component-library/Table'
+import { Table } from '@department-of-veterans-affairs/component-library/Table'
 
 const prepareRow = (row) => {
     const [school, email, location] = row.map((item) => {
