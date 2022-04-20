@@ -1,15 +1,8 @@
-import Link from 'next/link'
 import { useMemo } from 'react'
-
-import { useTable } from 'react-table'
-import { v4 as uuidv4 } from 'uuid'
 import Table from '@department-of-veterans-affairs/component-library/Table'
 
 const prepareRow = (row) => {
     const [school, email, location] = row.map((item) => {
-        if (Array.isArray(item)) {
-            return item.filter((i) => i)
-        }
         return item
     })
     return {
