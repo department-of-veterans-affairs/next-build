@@ -1,8 +1,6 @@
+import { FOOTER_COLUMNS } from './helpers'
 
-import { FOOTER_COLUMNS, createLinkGroups } from './helpers';
-
-export const MobileLinks = ({ links, visible }) => {
-    const mobile = createLinkGroups(links)
+export const MobileLinks = ({ mobile, visible }) => {
     return (
         <div
             aria-hidden={visible ? 'false' : 'true'}
@@ -82,5 +80,5 @@ export const MobileLinks = ({ links, visible }) => {
                 </li>
             </ul>
         </div>
-    );
+    )
 }

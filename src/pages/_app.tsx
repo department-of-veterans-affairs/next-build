@@ -4,20 +4,20 @@ import type { ReactElement, ReactNode } from 'react'
 import '@/styles/globals.css'
 
 type NextPageWithLayout = NextPage & {
-  getLayout?: (page: ReactElement) => ReactNode
+    getLayout?: (page: ReactElement) => ReactNode
 }
 
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
+    Component: NextPageWithLayout
 }
 
 export function reportWebVitals(metric: object) {
-  console.log(metric);
+    console.log(metric)
 }
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout ?? ((page) => page)
+    // Use the layout defined at the page level, if available
+    const getLayout = Component.getLayout ?? ((page) => page)
 
-  return getLayout(<Component {...pageProps} />)
+    return getLayout(<Component {...pageProps} />)
 }

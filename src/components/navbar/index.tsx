@@ -1,3 +1,3 @@
 export const navBar = () => {
-    return 'navbar';
+    return 'navbar'
 }
