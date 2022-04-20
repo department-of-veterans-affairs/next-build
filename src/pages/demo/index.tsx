@@ -1,6 +1,6 @@
 import { drupalClient } from '@/utils/drupalClient'
 import Layout from '@/components/layout'
-import Table from '@/components/paragraphs/table'
+import Table from '@/components/paragraph/table'
 
 const DemoPage = ({ data }) => {
     if (!data) data = {}
