@@ -23,9 +23,10 @@
         "@/pages/*": ["pages/*"],
         "@/styles/*": ["styles/*"],
         "@/types/*": ["types/*"],
-    }
+        "@/utils/*": ["utils/*"],
+      }
   },
   "types": ["node", "jest", "cypress"],
   "include": ["next-envsrc/types/* ", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
   "exclude": ["node_modules", "cypress"]
-} 
+}

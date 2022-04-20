@@ -1,4 +1,4 @@
-import { getResource } from 'next-drupal'
+import { drupalClient } from '@/utils/drupalClient';
 import Layout from '@/components/layout';
 import Table from '@/components/paragraphs/table';
 import { buildColumns } from '@/components/paragraphs/table/helpers'
@@ -12,7 +12,7 @@ export default DemoPage
 
 
 export async function getStaticProps() {
-    const data = await getResource(
+    const data = await drupalClient.getResource(
         "paragraph--table",
         "fe33b703-5ff0-4681-93fc-bc46d44ffbba"
     )
