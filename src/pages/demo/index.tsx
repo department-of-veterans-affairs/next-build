@@ -1,6 +1,6 @@
 import { getResource } from 'next-drupal'
 import Layout from '@/components/layout'
-import Table from '@/components/paragraphs/table'
+import TableComponent from '@/components/paragraphs/table'
 import { buildColumns } from '@/components/paragraphs/table/helpers'
 
 const DemoPage = ({ data }) => {
@@ -10,7 +10,7 @@ const DemoPage = ({ data }) => {
     } = data
     return (
         <Layout>
-            <Table columns={buildColumns(rows)} data={rows} />
+            <TableComponent data={rows} />
         </Layout>
     )
 }
