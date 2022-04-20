@@ -31,7 +31,6 @@
     "include": [
         "next-env.d.ts",
         "additional.d.ts",
-        "src/react-app-env.d",
         "src/**/*",
         "**/*.ts",
         "**/*.tsx"
