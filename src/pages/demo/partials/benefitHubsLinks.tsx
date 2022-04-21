@@ -3,16 +3,18 @@ import BenefitsHubLinks from '@/components/partials/benefitHubsLinks'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 const DemoPage = ({ nodes }) => {
-  return nodes.map((node) => (
-    <>
-      (on <strong>{node.title}</strong>)
-      <BenefitsHubLinks
-        key={node.uuid}
-        nodes={node.field_related_benefit_hubs}
-      />
-      <hr />
-    </>
-  ))
+  if (nodes) {
+    return nodes.map((node) => (
+      <>
+        (on <strong>{node.title}</strong>)
+        <BenefitsHubLinks
+          key={node.uuid}
+          nodes={node.field_related_benefit_hubs}
+        />
+        <hr />
+      </>
+    ))
+  }
 }
 export default DemoPage
 
