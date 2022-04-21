@@ -13,8 +13,8 @@ const BenefitsHubLinks = ({ nodes }) => {
           </h2>
 
           <ul className="usa-unstyled-list" role="list">
-            {nodes.map((node, index) => (
-              <li key={index} className="vads-u-margin-y--2">
+            {nodes.map((node) => (
+              <li key={node.id} className="vads-u-margin-y--2">
                 <BenefitsHubLink node={node} />
               </li>
             ))}
