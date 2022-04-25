@@ -33,7 +33,9 @@
     "additional.d.ts",
     "src/**/*",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx"
   ],
-  "exclude": ["node_modules", "cypress", "__tests__"]
+  "exclude": ["node_modules", "cypress", "./src/__tests__"]
 }

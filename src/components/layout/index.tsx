@@ -3,7 +3,11 @@ import { fetcher } from '@/utils/fetcher'
 import Footer from '@/components/footer'
 import { HEADER_FOOTER_PATH } from '@/lib/constants'
 
-export default function Layout({ children }) {
+interface LayoutProps {
+  children: React.ReactNode
+}
+
+export default function Layout({ children }: LayoutProps) {
   const { data, error } = useSWR(HEADER_FOOTER_PATH, fetcher)
 
   if (error || !data) return null

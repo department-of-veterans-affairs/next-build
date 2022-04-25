@@ -1,9 +1,25 @@
+import { v4 as uuidv4 } from 'uuid'
 import { useMemo } from 'react'
 import Table from '@department-of-veterans-affairs/component-library/Table'
 
-const prepareRow = (row) => {
+interface TableProps {
+  data: object[]
+}
+interface RowProps {
+  school: string
+  email: string
+  location: string
+}
+
+const prepareRow = (row): RowProps => {
   const [school, email, location] = row.map((item) => {
-    return item
+    return (
+      <div
+        key={uuidv4()}
+        className="vads-u-margin-bottom--0"
+        dangerouslySetInnerHTML={{ __html: item }}
+      />
+    )
   })
   return {
     school,
@@ -12,7 +28,7 @@ const prepareRow = (row) => {
   }
 }
 
-const TableComponent = ({ data }) => {
+const TableComponent = ({ data }: TableProps) => {
   data = useMemo(() => data, [data])
   return (
     <>
@@ -31,7 +47,9 @@ const TableComponent = ({ data }) => {
             value: 'location',
           },
         ]}
-        data={data.map((table) => prepareRow(table))}
+        data={data.map((table) => {
+          return prepareRow(table)
+        })}
       />
     </>
   )
