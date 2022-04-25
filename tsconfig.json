@@ -1,39 +1,41 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strict": false,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "incremental": true,
-        "baseUrl": "./src",
-        "typeRoots": ["node_modules/@types"],
-        "types": ["node", "jest", "cypress"],
-        "paths": {
-            "@/api/*": ["pages/api/*"],
-            "@/components/*": ["components/*"],
-            "@/hooks/*": ["hooks/*"],
-            "@/lib/*": ["lib/*"],
-            "@/pages/*": ["pages/*"],
-            "@/styles/*": ["styles/*"],
-            "@/types/*": ["types/*"],
-            "@/utils/*": ["utils/*"]
-        }
-    },
-    "include": [
-        "next-env.d.ts",
-        "additional.d.ts",
-        "src/**/*",
-        "**/*.ts",
-        "**/*.tsx"
-    ],
-    "exclude": ["node_modules", "cypress", "__tests__"]
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": "./src",
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node", "jest", "cypress"],
+    "paths": {
+      "@/api/*": ["pages/api/*"],
+      "@/components/*": ["components/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/lib/*": ["lib/*"],
+      "@/pages/*": ["pages/*"],
+      "@/styles/*": ["styles/*"],
+      "@/types/*": ["types/*"],
+      "@/utils/*": ["utils/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "additional.d.ts",
+    "src/**/*",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx"
+  ],
+  "exclude": ["node_modules", "cypress", "./src/__tests__"]
 }

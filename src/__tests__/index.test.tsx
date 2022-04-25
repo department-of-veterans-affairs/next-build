@@ -1,12 +1,14 @@
 import { render, screen } from '@testing-library/react'
-import HomePage from '@/pages/index'
+import HomePage from '../pages/index'
 import '@testing-library/jest-dom'
 
-describe('HomePage', () => {
-    it('renders a heading', () => {
-        const nodes = [{ title: 'Home' }]
-        render(<HomePage nodes={nodes} />)
-        const heading = screen.getByRole('header')
-        expect(heading).toBeInTheDocument()
-    })
+// HomePage renders without crashing
+test('HomePage renders without crashing', () => {
+  render(<HomePage nodes />)
+})
+
+// shallow render homepage with nodes
+test('HomePage renders a list of nodes', () => {
+  const { container } = render(<HomePage nodes={[{ title: 'Test' }]} />)
+  expect(container.firstChild).toMatchSnapshot()
 })

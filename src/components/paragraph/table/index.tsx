@@ -1,40 +1,58 @@
+import { v4 as uuidv4 } from 'uuid'
 import { useMemo } from 'react'
 import Table from '@department-of-veterans-affairs/component-library/Table'
 
-const prepareRow = (row) => {
-    const [school, email, location] = row.map((item) => {
-        return item
-    })
-    return {
-        school,
-        email,
-        location,
-    }
+interface TableProps {
+  data: object[]
+}
+interface RowProps {
+  school: string
+  email: string
+  location: string
 }
 
-const TableComponent = ({ data }) => {
-    data = useMemo(() => data, [data])
+const prepareRow = (row): RowProps => {
+  const [school, email, location] = row.map((item) => {
     return (
-        <>
-            <Table
-                fields={[
-                    {
-                        label: 'School',
-                        value: 'school',
-                    },
-                    {
-                        label: 'Email',
-                        value: 'email',
-                    },
-                    {
-                        label: 'Location',
-                        value: 'location',
-                    },
-                ]}
-                data={data.map((table) => prepareRow(table))}
-            />
-        </>
+      <div
+        key={uuidv4()}
+        className="vads-u-margin-bottom--0"
+        dangerouslySetInnerHTML={{ __html: item }}
+      />
     )
+  })
+  return {
+    school,
+    email,
+    location,
+  }
+}
+
+const TableComponent = ({ data }: TableProps) => {
+  data = useMemo(() => data, [data])
+  return (
+    <>
+      <Table
+        fields={[
+          {
+            label: 'School',
+            value: 'school',
+          },
+          {
+            label: 'Email',
+            value: 'email',
+          },
+          {
+            label: 'Location',
+            value: 'location',
+          },
+        ]}
+        data={data.map((table) => {
+          return prepareRow(table)
+        })}
+      />
+    </>
+  )
 }
 
 export default TableComponent

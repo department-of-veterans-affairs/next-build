@@ -3,17 +3,21 @@ import { fetcher } from '@/utils/fetcher'
 import Footer from '@/components/footer'
 import { HEADER_FOOTER_PATH } from '@/lib/constants'
 
-export default function Layout({ children }) {
-    const { data, error } = useSWR(HEADER_FOOTER_PATH, fetcher)
+interface LayoutProps {
+  children: React.ReactNode
+}
 
-    if (error || !data) return null
+export default function Layout({ children }: LayoutProps) {
+  const { data, error } = useSWR(HEADER_FOOTER_PATH, fetcher)
 
-    const { footerData } = data
+  if (error || !data) return null
 
-    return (
-        <>
-            <main>{children} </main>
-            <Footer links={footerData} />
-        </>
-    )
+  const { footerData } = data
+
+  return (
+    <>
+      <main>{children} </main>
+      <Footer links={footerData} />
+    </>
+  )
 }

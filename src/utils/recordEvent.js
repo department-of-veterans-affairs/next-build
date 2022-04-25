@@ -6,7 +6,7 @@
  */
 
 export const recordEvent = (data) => {
-    return window.dataLayer && window.dataLayer.push(data)
+  return window.dataLayer && window.dataLayer.push(data)
 }
 
 /**
@@ -19,11 +19,11 @@ export const recordEvent = (data) => {
  *                     existing matches in the dataLayer
  */
 export const recordEventOnce = (event, key) => {
-    const alreadyRecorded =
-        window.dataLayer &&
-        !!window.dataLayer.find((item) => item[key] === event[key])
+  const alreadyRecorded =
+    window.dataLayer &&
+    !!window.dataLayer.find((item) => item[key] === event[key])
 
-    if (!alreadyRecorded) {
-        recordEvent(event)
-    }
+  if (!alreadyRecorded) {
+    recordEvent(event)
+  }
 }
