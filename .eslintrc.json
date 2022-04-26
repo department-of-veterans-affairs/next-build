@@ -6,16 +6,17 @@
     "jest": true
   },
   "extends": [
-    "next",
+    "next/core-web-vitals",
     "airbnb-typescript",
     "eslint:recommended",
-    "plugin:@next/next/recommended",
+    "plugin:cypress/recommended",
     "plugin:jest/recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
+    "plugin:@next/next/recommended",
     "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -26,17 +27,16 @@
   },
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true,
       "modules": true
     },
-    "ecmaVersion": 12,
     "sourceType": "module",
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["react", "@typescript-eslint", "jest", "prettier"],
+  "plugins": ["testing-library", "unused-imports", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "react/display-name": "off",
     "react/prop-types": "off",
     "import/no-extraneous-dependencies": [

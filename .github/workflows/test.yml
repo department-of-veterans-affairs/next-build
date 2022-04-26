@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: '16.6.2'
+          node-version: '16.13.0'
           check-latest: true
 
       - name: Install Npm Dependencies
@@ -25,8 +25,8 @@ jobs:
       - name: Run Lint
         run: yarn lint
 
-      # - name: Run tests with jest
-      # run: yarn test:ci
+      - name: Run tests with jest
+        run: yarn test:ci
 
       # - name: Cypress.io
       #   uses: cypress-io/github-action@v2

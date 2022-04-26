@@ -1,5 +1,8 @@
 /// <reference types="react-scripts" />
 
+declare module '@cypress/react'
+declare module '@testing-library/cypress'
+declare module '@testing-library/react'
 declare module '@department-of-veterans-affairs/component-library'
 declare module '@department-of-veterans-affairs/component-library/Table'
 declare module '@department-of-veterans-affairs/component-library/LoadingIndicator'

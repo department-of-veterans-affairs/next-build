@@ -1,20 +1,21 @@
 import { drupalClient } from '@/utils/drupalClient'
 import BenefitsHubLinks from '@/components/partials/benefitHubsLinks'
+import Container from '@/components/container'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 const DemoPage = ({ nodes }) => {
-  if (nodes) {
-    return nodes.map((node) => (
-      <>
+  return nodes.map((node) => (
+    <>
+      <Container className="container">
         (on <strong>{node.title}</strong>)
         <BenefitsHubLinks
           key={node.uuid}
           nodes={node.field_related_benefit_hubs}
         />
         <hr />
-      </>
-    ))
-  }
+      </Container>
+    </>
+  ))
 }
 export default DemoPage
 

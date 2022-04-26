@@ -15,7 +15,7 @@ const Footer = ({ links }) => {
     <section role="contentinfo">
       <div id="announcement-root"></div>
       <footer className="footer">
-        <div id="footerNav">
+        <div id="footerNav" data-testid="footer">
           <div className="footer-inner">
             {isBreakpoint ? (
               <MobileLinks mobile={linkItems} visible />

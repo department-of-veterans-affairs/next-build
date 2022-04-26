@@ -7,7 +7,7 @@ import { FIELDS } from '@/lib/constants/'
 export const Core = ({ nodes }) => {
   if (!nodes) return null
   return nodes.map((node) => (
-    <h2 role="header" key={uuidv4()}>
+    <h2 key={uuidv4()}>
       <Link href={node.path?.alias ? node.path?.alias : ' '} passHref>
         <a>{node?.title}</a>
       </Link>
