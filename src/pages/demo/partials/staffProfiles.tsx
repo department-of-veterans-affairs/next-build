@@ -34,7 +34,6 @@ export async function getStaticProps(context) {
     .addFilter('status', '1')
     .addFilter('field_office', null, 'IS NOT NULL')
     .addFilter('field_media', null, 'IS NOT NULL')
-    .addFilter('field_staff_profile', null, 'IS NOT NULL')
     .addInclude(['field_office', 'field_media'])
 
   const nodes = await drupalClient.getResourceCollectionFromContext(
