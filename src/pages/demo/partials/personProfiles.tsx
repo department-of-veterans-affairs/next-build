@@ -1,9 +1,9 @@
 import { drupalClient } from '@/utils/drupalClient'
-import { StaffProfile } from '@/components/paragraph/staff_profile'
+import { PersonProfile } from '@/components/node/person_profile'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 
-const StaffProfilePage = ({ nodes }) => {
+const PersonProfilePage = ({ nodes }) => {
   if (!nodes) return
   return (
     <>
@@ -14,7 +14,7 @@ const StaffProfilePage = ({ nodes }) => {
               <div className="usa-width-three-fourths">
                 {nodes.map((node, index) => (
                   <div key={index}>
-                    <StaffProfile node={node} />
+                    <PersonProfile node={node} />
                   </div>
                 ))}
               </div>
@@ -26,7 +26,7 @@ const StaffProfilePage = ({ nodes }) => {
   )
 }
 
-export default StaffProfilePage
+export default PersonProfilePage
 
 export async function getStaticProps(context) {
   const params = new DrupalJsonApiParams()
@@ -34,7 +34,6 @@ export async function getStaticProps(context) {
     .addFilter('status', '1')
     .addFilter('field_office', null, 'IS NOT NULL')
     .addFilter('field_media', null, 'IS NOT NULL')
-    .addFilter('field_staff_profile', null, 'IS NOT NULL')
     .addInclude(['field_office', 'field_media'])
 
   const nodes = await drupalClient.getResourceCollectionFromContext(
@@ -43,7 +42,7 @@ export async function getStaticProps(context) {
     {
       params: {
         include:
-          'field_office, field_media, field_media.thumbnail, field_media.image ',
+          'field_office, field_media, field_media.thumbnail, field_media.image',
         sort: '-created',
         'filter[status][value]': '1',
       },

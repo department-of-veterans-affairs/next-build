@@ -1,6 +1,6 @@
-import { StaffProfiles } from '../../partials/staffProfiles'
+import { PersonProfiles } from '../../partials/personProfiles'
 
 export const PersonProfile = ({ node }): JSX.Element => {
   if (!node) return
-  return <StaffProfiles node={node} />
+  return <PersonProfiles node={node} />
 }
