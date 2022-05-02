@@ -105,11 +105,6 @@ export const StaffNewsProfiles = ({ node }): JSX.Element => {
       <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
         {title} {fieldDescription ? fieldDescription : null}
       </div>
-      {fieldDescription && (
-        <p className="vads-u-font-size--lg vads-u-margin-bottom--0p5">
-          {fieldDescription}
-        </p>
-      )}
       <hr />
     </div>
   )
