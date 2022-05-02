@@ -1,5 +1,8 @@
 import { drupalClient } from '@/utils/drupalClient'
-import { StaffProfile } from '@/components/paragraph/staff_profile'
+import {
+  StaffProfiles,
+  StaffNewsProfiles,
+} from '@/components/paragraph/staff_profile'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 
@@ -14,7 +17,8 @@ const StaffProfilePage = ({ nodes }) => {
               <div className="usa-width-three-fourths">
                 {nodes.map((node, index) => (
                   <div key={index}>
-                    <StaffProfile node={node} />
+                    <StaffProfiles node={node} />
+                    <StaffNewsProfiles node={node} />
                   </div>
                 ))}
               </div>
