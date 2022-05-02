@@ -4,7 +4,6 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 
 const PersonProfilePage = ({ nodes }) => {
-  console.log(nodes)
   if (!nodes) return
   return (
     <>
