@@ -1,10 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
-import {
-  StaffProfiles,
-  StaffNewsProfiles,
-} from '@/components/paragraph/staff_profile'
+import { StaffProfiles } from '@/components/paragraph/staff_profile'
 
 export const PersonProfile = ({ node }): JSX.Element => {
   if (!node) return
@@ -123,20 +120,27 @@ export const PersonProfile = ({ node }): JSX.Element => {
   )
 }
 
-export const StaffProfile = ({ node }) => {
+export const StaffNewsProfile = ({ node }): JSX.Element => {
+  if (!node) return
+  const { id, title, field_description: fieldDescription } = node
+
   return (
-    <div key={uuidv4()}>
-      <h3>Staff Profile</h3>
-      <StaffProfiles node={node} />
+    <div key={id}>
+      <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
+        <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
+          {title} {fieldDescription ? fieldDescription : null}
+        </div>
+      </div>
+      <hr />
     </div>
   )
 }
 
-export const StaffNewsProfile = ({ node }) => {
+export const StaffProfile = ({ paragraph }) => {
   return (
     <div key={uuidv4()}>
-      <h3>Staff News Profile</h3>
-      <StaffNewsProfiles node={node} />
+      <h3>Staff Profile</h3>
+      <StaffProfiles paragraph={paragraph} />
     </div>
   )
 }

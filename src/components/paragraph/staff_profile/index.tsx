@@ -2,10 +2,9 @@ import { v4 as uuidv4 } from 'uuid'
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
 
-export const StaffProfiles = ({ node }): JSX.Element => {
-  if (!node) return
+export const StaffProfiles = ({ paragraph }): JSX.Element => {
+  if (!paragraph) return
   const {
-    id,
     field_first_name: fieldFirstName,
     field_last_name: fieldLastName,
     field_email_address: fieldEmailAddress,
@@ -14,7 +13,7 @@ export const StaffProfiles = ({ node }): JSX.Element => {
     field_description: fieldDescription,
     field_complete_biography_create: fieldCompleteBiographyCreate,
     field_media: fieldMedia,
-  } = node
+  } = paragraph.field_staff_profile
 
   const thumbnail = DEV_PATH + fieldMedia?.thumbnail?.uri?.url
   const meta = fieldMedia?.thumbnail?.resourceIdObjMeta
@@ -92,22 +91,6 @@ export const StaffProfiles = ({ node }): JSX.Element => {
           </div>
         </div>
       </article>
-      <hr />
-    </div>
-  )
-}
-
-export const StaffNewsProfiles = ({ node }): JSX.Element => {
-  if (!node) return
-  const { id, title, field_description: fieldDescription } = node
-
-  return (
-    <div key={id}>
-      <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
-        <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
-          {title} {fieldDescription ? fieldDescription : null}
-        </div>
-      </div>
       <hr />
     </div>
   )

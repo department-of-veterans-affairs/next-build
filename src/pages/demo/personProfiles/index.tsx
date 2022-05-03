@@ -8,18 +8,26 @@ import {
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 
-const PersonProfilePage = ({ nodes }) => {
-  if (!nodes) return
+const PersonProfilePage = ({ staffProfiles, personProfiles }) => {
   return (
     <>
       <Container className="container">
-        {nodes.map((node) => (
-          <div key={uuidv4()}>
-            <PersonProfile node={node} />
-            <StaffProfile node={node} />
-            <StaffNewsProfile node={node} />
-          </div>
-        ))}
+        {personProfiles
+          ? personProfiles.map((node) => (
+              <div key={uuidv4()}>
+                <PersonProfile node={node} />
+                <StaffNewsProfile node={node} />
+              </div>
+            ))
+          : null}
+
+        {staffProfiles
+          ? staffProfiles.map((paragraph) => (
+              <div key={uuidv4()}>
+                <StaffProfile paragraph={paragraph} />
+              </div>
+            ))
+          : null}
       </Container>
     </>
   )
@@ -35,21 +43,39 @@ export async function getStaticProps(context) {
     .addFilter('field_media', null, 'IS NOT NULL')
     .addInclude(['field_office', 'field_media'])
 
-  const nodes = await drupalClient.getResourceCollectionFromContext(
+  const personProfiles = await drupalClient.getResourceCollectionFromContext(
     'node--person_profile',
     context,
     {
       params: {
         include:
           'field_office, field_media, field_media.thumbnail, field_media.image',
-        sort: '-created',
-        'filter[status][value]': '1',
+
+        page: {
+          limit: 5,
+        },
       },
     }
   )
+
+  const staffProfiles = await drupalClient.getResourceCollectionFromContext(
+    'paragraph--staff_profile',
+    context,
+    {
+      params: {
+        include:
+          'field_staff_profile, field_staff_profile.field_media, field_staff_profile.field_media.thumbnail, field_staff_profile.field_media.image',
+        page: {
+          limit: 5,
+        },
+      },
+    }
+  )
+
   return {
     props: {
-      nodes: nodes || null,
+      personProfiles: personProfiles || null,
+      staffProfiles: staffProfiles || null,
     },
   }
 }
