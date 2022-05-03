@@ -19,7 +19,12 @@ export const VA_WRAPPER_IMAGES = {
   dotIcon: `${S3_URL}/img/icon-dot-gov.svg`,
   metaImg: `https://www.va.gov/img/design/logo/va-og-image.png`,
 }
-
 // content
 export const US_FLAG_MSG =
   ' An official website of the United States government'
+
+export const RESOURCE_TYPES = [
+  'node--q_a',
+  'node--person_profile',
+  'paragraph--staff_profile',
+]

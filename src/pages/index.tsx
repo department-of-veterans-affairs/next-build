@@ -38,6 +38,9 @@ export async function getStaticProps(context) {
         sort: '-created',
         'filter[field_standalone_page]': '1',
         'filter[status][value]': '1',
+        page: {
+          limit: 5,
+        },
       },
     }
   )

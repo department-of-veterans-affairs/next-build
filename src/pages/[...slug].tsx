@@ -1,8 +1,21 @@
-import * as React from 'react'
-import { getResourceFromContext } from 'next-drupal'
+import {
+  GetStaticPathsContext,
+  GetStaticPathsResult,
+  GetStaticPropsContext,
+  GetStaticPropsResult,
+} from 'next'
+import {
+  DrupalNode,
+  JsonApiResource,
+  getResourceFromContext,
+} from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { FIELDS } from '@/lib/constants'
+import { getParams } from '@/lib/get-params'
+import { RESOURCE_TYPES } from '@/lib/constants'
+
+interface PageProps {
+  node: JsonApiResource
+}
 
 export default function NodePage({ node }) {
   if (!node) return null
@@ -13,26 +26,50 @@ export default function NodePage({ node }) {
   )
 }
 
-export async function getStaticPaths(context) {
+export async function getStaticPaths(
+  context: GetStaticPathsContext
+): Promise<GetStaticPathsResult> {
   return {
-    paths: await drupalClient.getPathsFromContext(['node--q_a'], context),
-    fallback: false,
+    // Build static paths for all resource types.
+    paths: await drupalClient.getStaticPathsFromContext(
+      RESOURCE_TYPES,
+      context,
+      {
+        params: {
+          filter: {
+            'field_site.meta.drupal_internal__target_id':
+              process.env.DRUPAL_SITE_ID,
+          },
+        },
+      }
+    ),
+
+    // If a path is requested and is not static, Next.js will call getStaticProps and try to find it.
+    fallback: 'blocking',
   }
 }
 
-export async function getStaticProps(context) {
-  const type = 'node--q_a'
+export async function getStaticProps(
+  context: GetStaticPropsContext
+): Promise<GetStaticPropsResult<PageProps>> {
+  const path = await drupalClient.translatePathFromContext(context)
+  const type = path?.jsonapi.resourceName
 
-  const params = new DrupalJsonApiParams()
-  if (type === 'node--q_a') {
-    params.addInclude([FIELDS])
+  if (!RESOURCE_TYPES.includes(type)) {
+    return {
+      notFound: true,
+    }
   }
 
-  const node = await drupalClient.getResourceFromContext(type, context, {
-    params: params.getQueryObject(),
+  const node = await getResourceFromContext<JsonApiResource>(type, context, {
+    params: getParams(type),
   })
 
-  if (!node?.status) {
+  if (!node) {
+    throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`)
+  }
+
+  if (!context.preview && node?.status === false) {
     return {
       notFound: true,
     }
