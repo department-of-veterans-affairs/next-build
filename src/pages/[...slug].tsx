@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { getResourceFromContext } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { FIELDS } from '@/lib/constants'

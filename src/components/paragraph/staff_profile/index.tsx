@@ -1,10 +1,11 @@
+import { v4 as uuidv4 } from 'uuid'
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
 
 export const StaffProfiles = ({ node }): JSX.Element => {
   if (!node) return
   const {
-    uuid,
+    id,
     field_first_name: fieldFirstName,
     field_last_name: fieldLastName,
     field_email_address: fieldEmailAddress,
@@ -19,7 +20,7 @@ export const StaffProfiles = ({ node }): JSX.Element => {
   const meta = fieldMedia?.thumbnail?.resourceIdObjMeta
 
   return (
-    <div key={uuid}>
+    <div key={uuidv4()}>
       <article className="usa-content">
         <div className="vads-u-display--flex vads-u-margin-bottom--4 vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
           {!fieldMedia?.thumbnail ? (
@@ -40,7 +41,7 @@ export const StaffProfiles = ({ node }): JSX.Element => {
               />
             </div>
           )}
-          <div className="vads-u-flex--1">
+          <div className="vads-u-display--flex vads-u-flex-direction--column">
             <p
               className="
             vads-u-margin-top--0
@@ -98,12 +99,14 @@ export const StaffProfiles = ({ node }): JSX.Element => {
 
 export const StaffNewsProfiles = ({ node }): JSX.Element => {
   if (!node) return
-  const { uuid, title, field_description: fieldDescription } = node
+  const { id, title, field_description: fieldDescription } = node
 
   return (
-    <div key={uuid}>
-      <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
-        {title} {fieldDescription ? fieldDescription : null}
+    <div key={id}>
+      <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
+        <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
+          {title} {fieldDescription ? fieldDescription : null}
+        </div>
       </div>
       <hr />
     </div>

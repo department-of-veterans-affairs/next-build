@@ -1,5 +1,10 @@
+import { v4 as uuidv4 } from 'uuid'
 import { drupalClient } from '@/utils/drupalClient'
-import { PersonProfile } from '@/components/node/person_profile'
+import {
+  PersonProfile,
+  StaffProfile,
+  StaffNewsProfile,
+} from '@/components/node/person_profile'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 
@@ -8,19 +13,13 @@ const PersonProfilePage = ({ nodes }) => {
   return (
     <>
       <Container className="container">
-        <div id="content" className="interior">
-          <main className="va-l-detail-page va-facility-page">
-            <div className="usa-grid usa-grid-full">
-              <div className="usa-width-three-fourths">
-                {nodes.map((node, index) => (
-                  <div key={index}>
-                    <PersonProfile node={node} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </main>
-        </div>
+        {nodes.map((node) => (
+          <div key={uuidv4()}>
+            <PersonProfile node={node} />
+            <StaffProfile node={node} />
+            <StaffNewsProfile node={node} />
+          </div>
+        ))}
       </Container>
     </>
   )
