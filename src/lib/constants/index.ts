@@ -4,6 +4,8 @@ export const HEADER_FOOTER_PATH =
 export const S3_URL =
   'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov'
 
+export const DEV_PATH = 'https://dev.cms.va.gov'
+
 // Build Page nodes: params
 export const FIELDS =
   'field_answer,field_alert_single.field_alert_non_reusable_ref.field_va_paragraphs,field_buttons,field_tags.field_audience_beneficiares,field_related_information,field_related_benefit_hubs,field_contact_information.field_contact_default'
@@ -17,7 +19,12 @@ export const VA_WRAPPER_IMAGES = {
   dotIcon: `${S3_URL}/img/icon-dot-gov.svg`,
   metaImg: `https://www.va.gov/img/design/logo/va-og-image.png`,
 }
-
 // content
 export const US_FLAG_MSG =
   ' An official website of the United States government'
+
+export const RESOURCE_TYPES = [
+  'node--q_a',
+  'node--person_profile',
+  'paragraph--staff_profile',
+]
