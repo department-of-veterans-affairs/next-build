@@ -1,7 +1,16 @@
 import Link from 'next/link'
+import React from 'react'
+import { NodeLandingPage } from '@/types/node/landing_page'
+
+export interface BenefitsHubLinkArgs {
+  /**
+   * Expects a Benefits Hub Landing Page node (landing_page).
+   */
+  node: NodeLandingPage
+}
 
 // Output a landing_page node as a link to itself, plus its teaser text.
-const BenefitsHubLink = ({ node }) => {
+export const BenefitsHubLink: React.FC<BenefitsHubLinkArgs> = ({ node }) => {
   if (node) {
     return (
       <>
@@ -17,7 +26,3 @@ const BenefitsHubLink = ({ node }) => {
     )
   }
 }
-
-// This should not be the default; we will have a full display eventually.
-// Only here to meet required default rules.
-export default BenefitsHubLink
