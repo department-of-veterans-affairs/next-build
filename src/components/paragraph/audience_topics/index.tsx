@@ -12,7 +12,7 @@ const AudienceTopics = ({ paragraph }) => {
   const tagsList = tags.map((tag) => (
     <div key={uuidv4()}>
       <div className="vads-u-margin-right--1 vads-u-margin-bottom--1 medium-screen:vads-u-margin-bottom--0">
-        <Link href={`/tags/${tag.name}`}>
+        <Link href={`${tag.path.alias}/${tag.name}`}>
           <a className="vads-u-margin-bottom--1p5 usa-button-secondary vads-u-font-size--sm vads-u-border--1px vads-u-border-color--primary vads-u-padding--0p25 vads-u-padding-x--0p5 vads-u-margin-left--1p5 vads-u-text-decoration--none vads-u-color--base">
             {tag.name}
           </a>
