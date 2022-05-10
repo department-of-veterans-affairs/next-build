@@ -51,24 +51,17 @@ The **Next-Build** project is a fully-modern Javascript project (read: complex, 
 We'll address this challenge with the following high-level approach:
 
 - **Codebase Quality**: Assist developers and reviewers by maintaining a consistent level of quality.
-  - **Static Testing**: Use type checking, linting, and other forms of static analysis to reduce the prevalence of common programming bugs, enforce stylistic consistency to guard against developer confusion, and prevent the accumulation of cruft.
-  - **Unit Testing**: Make writing unit tests easy, clean, and intuitive.  Reducing the burden of writing unit tests should have dramatic positive effects on confidence in the codebase.
-  - **Integration Testing**: Support and encourage writing integration tests for improving confidence in internal systems.
-  - **Test Coverage**: Aim for 100% test coverage for unit and integration tests.  Accept no less than the current coverage, minus a percentage point or two.
-  - **Regression Testing**: Require that bugfixes include regression tests to prevent the bug from emerging again.
 
 - **Product Integrity**: Protect downstream consumers and users by testing our output.
-  - **End-to-End Testing**: Make writing end-to-end tests straightforward, efficient, and effective.  We should never fear that merging a PR will have an adverse effect on our users.
-  - **Behavioral Testing**: Insist on tests covering adherence to behavioral contracts.  We must be able to confirm consistency of the end user experience without manual testing.
-  - **Accessibility Testing**: We have a legal and moral responsibility to adhere to guidelines and best practices.
-  - **Load Testing**: Guard against performance regressions and identify bottlenecks before they cause issues.
 
 - **Documentation and Transparency**: Document our assumptions about third-party modules, report our metrics, and stay transparent.
-  - **Learning Testing**: When a new module or API is added to the codebase, learn it by writing tests rather than in throwaway scripts or playgrounds, and keep them in the codebase!
-  - **Boundary Testing**: Identify critical functionality, API schemas, and so forth, and write tests to confirm their content and behavior.
-  - **Reporting and Logging**: Metrics should be reported upstream and stored so that we can directly perceive and compare performance of the tests and the application itself over time.
 
 ### Codebase Quality
+- **Static Testing**: Use type checking, linting, and other forms of static analysis to reduce the prevalence of common programming bugs, enforce stylistic consistency to guard against developer confusion, and prevent the accumulation of cruft.
+- **Unit Testing**: Make writing unit tests easy, clean, and intuitive.  Reducing the burden of writing unit tests should have dramatic positive effects on confidence in the codebase.
+- **Integration Testing**: Support and encourage writing integration tests for improving confidence in internal systems.
+- **Test Coverage**: Aim for 100% test coverage for unit and integration tests.  Accept no less than the current coverage, minus a percentage point or two.
+- **Regression Testing**: Require that bugfixes include regression tests to prevent the bug from emerging again.
 
 #### Static Testing
 
@@ -76,11 +69,44 @@ We'll address this challenge with the following high-level approach:
 
 #### Integration Testing
 
+
+
 #### Test Coverage
+
+Coverage metrics helps us in a few ways.  It gives us an objective figure we can use to describe the breadth of our automated test coverage, identifies areas where we're lacking tests, and can inform how we allocate our QA resources.
+
+More coverage is generally better, although there may be diminishing returns to testing certain pieces of code due to factors like lack of complexity, the contexts in which that code is executed, etc.
+
+Coverage measurement and reporting is included in Jest via Istanbul.  Istanbul measures code coverage for statements, branches, functions, and lines, and reports uncovered lines.  Coverage can be configured via Jest's [`collectCoverageFrom`](https://jestjs.io/docs/configuration#collectcoveragefrom-array) and [`coverageThreshold`](https://jestjs.io/docs/configuration#coveragethreshold-object) options.  The coverage thresholds should generally be set to about 2% under the current values, with the idea that these numbers will increase over time.
+
+We should consider carefully before lowering code coverage thresholds.  If we have a large section of code where coverage is substantially less or substantially more important, we should add a new path and thresholds to `collectCoverageFrom`, like so:
+
+```json
+    "coverageThreshold": {
+      "global": {
+        "branches": 85,
+        "functions": 80,
+        "lines": 90,
+        "statements": 80
+      },
+      "./src/components/": {
+        "branches": 40,
+        "statements": 40
+      }
+    }
+```
+
+This should allow us some flexibility in dealing with more and less critical sections of code.  Note that this will affect `global` coverage metrics, throwing off recorded values and probably necessitating adjustment to the thresholds, so this should be used thoughtfully.
 
 #### Regression Testing
 
+Regression testing is not a separate class or suite of tests, but rather a general guideline; when we fix a bug, we should not only fix the causes of the bug but also add or extend tests to guard against their reappearance.  Bugs can be embarrassing, and a recurring bug is very embarrassing.  We can't really automate a check for adding regression tests for bug fixes, but we can agree to expect them as a matter of policy.
+
 ### Product Integrity
+- **End-to-End Testing**: Make writing end-to-end tests straightforward, efficient, and effective.  We should never fear that merging a PR will have an adverse effect on our users.
+- **Behavioral Testing**: Insist on tests covering adherence to behavioral contracts.  We must be able to confirm consistency of the end user experience without manual testing.
+- **Accessibility Testing**: We have a legal and moral responsibility to adhere to guidelines and best practices.
+- **Load Testing**: Guard against performance regressions and identify bottlenecks before they cause issues.
 
 #### End-to-End Testing
 
@@ -91,10 +117,21 @@ We'll address this challenge with the following high-level approach:
 #### Load Testing
 
 ### Documentation and Transparency
+- **Learning Testing**: When a new module or API is added to the codebase, learn it by writing tests rather than in throwaway scripts or playgrounds, and keep them in the codebase!
+- **Boundary Testing**: Identify critical functionality, API schemas, and so forth, and write tests to confirm their content and behavior.
+- **Reporting and Logging**: Metrics should be reported upstream and stored so that we can directly perceive and compare performance of the tests and the application itself over time.
 
 #### Learning Testing
 
 #### Boundary Testing
 
 #### Reporting and Logging
+
+## Roles and Responsibilities
+
+## Risks
+
+## Scheduling
+
+## Release Control
 
