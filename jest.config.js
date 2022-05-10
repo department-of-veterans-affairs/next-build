@@ -18,18 +18,15 @@ const customJestConfig = {
     '^@/hooks/(.*)$': '<rootDir>/src/hooks/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
-  collectCoverageFrom: [
-    "src/**/*.{js,jsx,ts,tsx}",
-    "!**/__tests__/**",
-  ],
+  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!**/__tests__/**'],
   coverageThreshold: {
     global: {
       statements: 100,
       branches: 100,
       functions: 100,
-      lines: 100
-    }
-  }
+      lines: 100,
+    },
+  },
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
