@@ -23,3 +23,28 @@ export function formatDate(input: string): string {
 export function isRelative(url: string) {
   return !new RegExp('^(?:[a-z]+:)?//', 'i').test(url)
 }
+
+export const getTagsList = (fieldTags) => {
+  if (!fieldTags) return null
+
+  const {
+    field_topics: fieldTopics = [],
+    field_audience_beneficiares: fieldAudienceBeneficiares,
+  } = fieldTags
+
+  const topics = fieldTopics.map((topic) => ({
+    ...topic,
+    categoryLabel: 'Topics',
+  }))
+
+  const audiences = [fieldAudienceBeneficiares]
+    .filter((tag) => !!tag)
+    .map((audience) => ({
+      ...audience,
+      categoryLabel: 'Audience',
+    }))
+
+  const tagList = [...topics, ...audiences]
+
+  return tagList.sort((a, b) => a.categoryLabel.localeCompare(b.categoryLabel))
+}
