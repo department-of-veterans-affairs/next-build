@@ -3,17 +3,19 @@
 Front-end templating, build, and deploy for VA.gov CMS content. General documentation will be here: https://vfs.atlassian.net/wiki/spaces/PCMS/pages/2166063172/next-build
 
 ## Local setup
+
 Prerequisites
 
-* [VA SOCKS access](https://depo-platform-documentation.scrollhelp.site/getting-started/Internal-tools-access-via-SOCKS-proxy.1821081710.html)
-* [NVM](https://github.com/nvm-sh/nvm) for node version management
-* [Yarn](https://yarnpkg.com/getting-started/install) for package management
+- [VA SOCKS access](https://depo-platform-documentation.scrollhelp.site/getting-started/Internal-tools-access-via-SOCKS-proxy.1821081710.html)
+- [NVM](https://github.com/nvm-sh/nvm) for node version management
+- [Yarn](https://yarnpkg.com/getting-started/install) for package management
 
 You should set these up before attempting to install the repo.
 
 ### Basic local installation
+
 1. Clone the repo if you haven't.
-    `git@github.com:department-of-veterans-affairs/next-build.git`
+   `git@github.com:department-of-veterans-affairs/next-build.git`
 
 1. Run `yarn install`.
 
