@@ -11,8 +11,8 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
-    "e2e": "cypress run",
-    "cy:open": "cypress open"
+    "test:cypress": "cypress run -e \"TAGS=not @ignore\"",
+    "test:cypress:interactive": "cypress open -e \"TAGS=not @ignore\""
   },
   "husky": {
     "hooks": {
