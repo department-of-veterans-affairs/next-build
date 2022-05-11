@@ -46,6 +46,8 @@ The following terms are defined as they will be used within this document.
 
 - **Unit Testing**: Tests that cover our smallest relevant units of logic, generally functions. Unit tests should not involve third-party code or services; these should be mocked, stubbed, or monkey-patched out.
 
+- **Visual Difference Testing**: Tests that use actual images to compare the result of an operation to previous results. This can be used in a variety of situations, but can be rather tiresome to implement and maintain. This is probably best used to valide the output of very specific operations, e.g. cropping and scaling an imagine in a web UI. We don't envision many scenarios involving this sort of operation, but we should be prepared to incorporate it if it becomes advisable.
+
 ## Approach
 
 The **Next-Build** project is a fully-modern Javascript project (read: complex, with transpilation, numerous modules, React components, CSS-in-JS, etc). This and the breadth and importance of its mission lead to a substantial QA challenge.
@@ -82,9 +84,13 @@ Static testing generally poses little risk or frustration, provided that the tea
 
 #### Unit Testing
 
-The team has landed on Jest as the primary tool for unit testing. Jest is easier to install, configure, and use than its primary competitor in the space, Mocha. Generally speaking, the burden of writing unit tests in Jest is very, very low. We should expect near-100% coverage of any code added or revised within the codebase.
+The team has landed on Jest as the primary tool for unit testing. Jest is easier to install, configure, and use than its primary competitor in the space, Mocha. Generally speaking, the burden of writing unit tests in Jest is very, very low. We should expect near-100% coverage of any code added or revised within the codebase. Over time, as well-covered code is added to the codebase, we should expect to be able to raise our coverage thresholds.
+
+In my experience, mocking tends to be the most labor-intensive and irritating part of writing unit tests, but JavaScript's natural strengths and ease of techniques like monkey-patching can make this a lot more pleasant.
 
 #### Integration Testing
+
+Integration Testing, as used in this document, is really "unit testing beyond the unit," expanding the focus to collections of units that work together. Some developers historically refered to this as a system test. As the boundary between this and unit testing is fairly blurry, we can expect to use the same tools for this purpose as we use in Unit Testing, and the same general patterns and ideas should apply.
 
 #### Test Coverage
 
@@ -129,11 +135,31 @@ Regression testing is not a separate class or suite of tests, but rather a gener
 
 #### End-to-End Testing
 
+This strategy uses **End-to-End** tests to cover complete code paths through the project whose output and side effects can be best processed programmatically.
+
+For instance, imagine we have a code path that 1) makes a request to the CMS for all navigational menus, 2) filters that data structure according to a supplied context, 3) processes that data structure to make it easier and more consistent for consumers to use, and 4) serializes that data structure in a new form. The output is probably quite easy to test programmatically. Does it adhere to a specified schema? Does it contain things we know it should not contain, or not contain things we know it should contain? Does it have a non-zero length? Do all items' paths match a specific regex?
+
+This sort of test is best performed using a system like Jest, and will benefit from the other tests and tooling already constructed to handle subsets of the code path in the form of unit tests, integration tests, etc. It will presumably be slower, because of the involvement of upstream servers. It is also likely to be less reliable. One way of handling this is to parameterize end-to-end tests so that they may use fixtures/snapshots or a raw response from the upstream server. This can make tests faster to perform locally, but runs the risk of permitting discrepancies between the expected and actual test dependencies.
+
+One approach would be to use fixtures for PR tests, but use raw responses in tests prior to packaging a release. This should improve speed and reliability of the automated tests while ensuring that only fully-compatible builds are packaged and released. (This concerns incompatibilities introduced unexpectedly from upstream; at any time, a developer can update these snapshots simply by running `jest -u`)
+
 #### Behavioral Testing
+
+This strategy uses **Behavioral** tests to cover code paths through the project whose output is best processed via a web browser. The best tool for this at this time seems to be **Cypress**.
+
+A useful addition to Cypress is `cypress-cucumber-preprocessor`. This uses the Cucumber DSL to transform behavioral scenarios, written very much like user stories, into meaningful test instructions. This can involve a non-trivial investment of time because of the time involved in creating these step definitions.
+
+There is also some risk involved in the step definitions themselves, e.g. what it means for an element to be "visible," and flakiness introduced by variations in the time that different DOM modifications may take to be reflected in the document.
+
+Also, as these tests are designed to replicate the experience of a human being, there is some manual review necessary to verify that the test yields a reasonable facsimile of human interaction.
+
+Finally, as these tests involve an actual web browser loading actual pages, each test is comparatively resource-intensive.
+
+For these reasons, we should work to minimize the amount of behavioral tests, restricting them to testing specific critical contracts. Where possible, functionality should be tested in another way.
 
 #### Accessibility Testing
 
-Accessibility testing can be trivially added to any Cypress test by using `cypress-axe`; when a test step is executed that visually affects the DOM, we should make a point of checking the affected area of the DOM. This should probably be used with any substantial component we generate.
+Accessibility testing can be trivially added to any Cypress test by using `cypress-axe`; when a test step is executed that visually affects the DOM, we should make a point of checking the affected area of the DOM. This should probably be used with any substantial component we generate, and any non-trivial step definition we create. This further impacts resource use, but the importance of accessibility to our mission necessitates it.
 
 #### Load Testing
 
