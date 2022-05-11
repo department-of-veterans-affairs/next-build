@@ -147,9 +147,17 @@ Accessibility testing can be trivially added to any Cypress test by using `cypre
 
 #### Learning Testing
 
+A common part of investigating and learning about a new module, service, upstream dependency, etc is to read something like a "Quickstart" or "Getting Started" guide and follow along with some trivial examples of how to use it.
+
+Frequently, what then follows is a substantial amount of experimentation as the developer works to learn the API and how to use it to accomplish what they're setting out to do. This might involve a substantial amount of trial and error, possibly benchmarking a few different approaches or comparing how the data is structured differently when retrieved in different ways. This work should be captured! It will help other developers on the project in dealing with that system.
+
+We should normalize and encourage adding tests that don't serve any immediate purpose within the codebase but serve to document how we learn and come to use these resources.
+
 #### Boundary Testing
 
 Boundary tests aren't always practical, but might be in this case; we're retrieving content from a very specific CMS with a constantly evolving content and structure. It would be nice to be able to validate the CMS' response to various API queries against stored responses. Fortunately, Jest's [snapshots](https://jestjs.io/docs/snapshot-testing) make this straightforward. We can perform an API call, replace a few variable values (e.g. date of request), and have a reasonable expectation that we will not be caught unawares by these changes.
+
+Learning Tests, mentioned above, can also serve as Boundary Tests by sketching out what we expect from the portions of third-party code and services that we use.
 
 #### Reporting and Logging
 
