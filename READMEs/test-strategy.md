@@ -174,17 +174,18 @@ This traceability matrix correlates the types of concerns we anticipate with the
 
 The following is a traceability matrix correlating the types of tests we want to perform with the tools we may use to perform them. In some cases, multiple tools will be used to address a single type of test. For instance, TypeScript expands ESLint's ability to lint our code.
 
-| Type\Tool           | TypeScript | ESLint | Prettier | Jest | Cypress |
-| ------------------- | ---------- | ------ | -------- | ---- | ------- |
-| Static Analysis     | ✓          |        |          |      |         |
-| Linting             | ✓          | ✓      |          |      |         |
-| Code Style          |            | ✓      | ✓        |      |         |
-| Unit Tests          |            |        |          | ✓    |         |
-| Integration Tests   |            |        |          | ✓    |         |
-| Test Coverage       |            |        |          | ✓    |         |
-| End-to-End Tests    |            |        |          | ✓    |         |
-| Behavioral Tests    |            |        |          |      | ✓       |
-| Accessibility Tests |            |        |          |      | ✓       |
+| Type\Tool           | TypeScript | ESLint | Prettier | Jest | Cypress | DataDog |
+| ------------------- | ---------- | ------ | -------- | ---- | ------- | ------- |
+| Static Analysis     | ✓          |        |          |      |         |         |
+| Linting             | ✓          | ✓      |          |      |         |         |
+| Code Style          |            | ✓      | ✓        |      |         |         |
+| Unit Tests          |            |        |          | ✓    |         |         |
+| Integration Tests   |            |        |          | ✓    |         |         |
+| Test Coverage       |            |        |          | ✓    |         |         |
+| End-to-End Tests    |            |        |          | ✓    |         |         |
+| Behavioral Tests    |            |        |          |      | ✓       |         |
+| Accessibility Tests |            |        |          |      | ✓       |         |
+| Reporting / Logging |            |        |          |      |         | ✓       |
 
 ## Roles and Responsibilities
 
