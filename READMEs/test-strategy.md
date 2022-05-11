@@ -157,36 +157,6 @@ The duration of test runs, both severally and singly, should be recorded and rep
 
 On the CMS side, we're using Datadog fairly heavily; we should ensure that any GitHub action that runs a test suite reports relevant metrics to Datadog.
 
-## Concern Traceability Matrix
-
-This traceability matrix correlates the types of concerns we anticipate with the tactics we may use to address them. In most cases, multiple tactics may be used to address a single concern. For instance, a developer's confidence in the code they produce is linked to
-
-| Concern\Tactic         | Static Analysis | Linting | Code Style | Unit | Integration | Test Coverage | End-to-End | Behavioral | Accessibility | Learning | Boundary | Reporting/Logging |
-| ---------------------- | --------------- | ------- | ---------- | ---- | ----------- | ------------- | ---------- | ---------- | ------------- | -------- | -------- | ----------------- |
-| Developer Confidence   | ✓               | ✓       |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |
-| Reviewer Confidence    |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |
-| Maintainer Confidence  |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        | ✓                 |
-| Stakeholder Confidence |                 |         |            |      |             | ✓             | ✓          | ✓          | ✓             |          |          | ✓                 |
-| Developer experience   | ✓               | ✓       | ✓          |      |             |               |            |            |               | ✓        |          |                   |
-| Accessibility          |                 |         |            |      |             |               |            |            | ✓             |          |          |                   |
-
-## Tool Traceability Matrix
-
-The following is a traceability matrix correlating the types of tests we want to perform with the tools we may use to perform them. In some cases, multiple tools will be used to address a single type of test. For instance, TypeScript expands ESLint's ability to lint our code.
-
-| Type\Tool           | TypeScript | ESLint | Prettier | Jest | Cypress | DataDog |
-| ------------------- | ---------- | ------ | -------- | ---- | ------- | ------- |
-| Static Analysis     | ✓          |        |          |      |         |         |
-| Linting             | ✓          | ✓      |          |      |         |         |
-| Code Style          |            | ✓      | ✓        |      |         |         |
-| Unit Tests          |            |        |          | ✓    |         |         |
-| Integration Tests   |            |        |          | ✓    |         |         |
-| Test Coverage       |            |        |          | ✓    |         |         |
-| End-to-End Tests    |            |        |          | ✓    |         |         |
-| Behavioral Tests    |            |        |          |      | ✓       |         |
-| Accessibility Tests |            |        |          |      | ✓       |         |
-| Reporting / Logging |            |        |          |      |         | ✓       |
-
 ## Roles and Responsibilities
 
 These roles should not be expected to map directly to job titles; rather, they are assumed by a person as they work in a specific capacity. Any developer might act as a test engineer if they make a non-trivial change to a GitHub workflow, and correspondingly they assume the responsibility for that change and its effects (within reason).
@@ -219,6 +189,7 @@ A **Developer** MUST:
   - end-to-end tests to verify correctness of systems that have downstream consumers
   - behavioral tests to verify correctness of user interfaces in browser environments
 - write a regression test, if warranted, to guard against the recurrence of a defect.
+- take into account testing when estimating tickets.
 
 A **Developer** MUST NOT:
 
@@ -245,8 +216,57 @@ A **Reviewer** MUST NOT:
 
 - approve changes prior to passing all tests, except in the case of emergency.
 
-## Risks
+## Risks and Mitigation
 
-## Scheduling
+The success of a testing strategy is wholly dependent upon buy-in from the team, individually and severally, in all roles.
 
-## Release Control
+Buy-in is contingent upon a number of factors: acceptance of the role of testing in quality assurance, understanding how the tools and strategies will improve developer experience, the coherence of the strategy, and the removal or minimization of practical impediments in day-to-day work.
+
+Consequently, I'll list some risk factors to this test strategy and discuss how each might be mitigated.
+
+## Concern Traceability Matrix
+
+This traceability matrix correlates the types of concerns we anticipate with the tactics we may use to address them. In most cases, multiple tactics may be used to address a single concern. For instance, a developer's confidence in the code they produce is linked to
+
+| Concern\Tactic         | Static Analysis | Linting | Code Style | Unit | Integration | Test Coverage | End-to-End | Behavioral | Accessibility | Learning | Boundary | Reporting/Logging |
+| ---------------------- | --------------- | ------- | ---------- | ---- | ----------- | ------------- | ---------- | ---------- | ------------- | -------- | -------- | ----------------- |
+| Developer Confidence   | ✓               | ✓       |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |
+| Reviewer Confidence    |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |
+| Maintainer Confidence  |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        | ✓                 |
+| Stakeholder Confidence |                 |         |            |      |             | ✓             | ✓          | ✓          | ✓             |          |          | ✓                 |
+| Developer experience   | ✓               | ✓       | ✓          |      |             |               |            |            |               | ✓        |          |                   |
+| Accessibility          |                 |         |            |      |             |               |            |            | ✓             |          |          |                   |
+
+## Tool Traceability Matrix
+
+The following is a traceability matrix correlating the types of tests we want to perform with the tools we may use to perform them. In some cases, multiple tools will be used to address a single type of test. For instance, TypeScript expands ESLint's ability to lint our code.
+
+| Type\Tool           | TypeScript | ESLint | Prettier | Jest | Cypress | DataDog |
+| ------------------- | ---------- | ------ | -------- | ---- | ------- | ------- |
+| Static Analysis     | ✓          |        |          |      |         |         |
+| Linting             | ✓          | ✓      |          |      |         |         |
+| Code Style          |            | ✓      | ✓        |      |         |         |
+| Unit Tests          |            |        |          | ✓    |         |         |
+| Integration Tests   |            |        |          | ✓    |         |         |
+| Test Coverage       |            |        |          | ✓    |         |         |
+| End-to-End Tests    |            |        |          | ✓    |         |         |
+| Behavioral Tests    |            |        |          |      | ✓       |         |
+| Accessibility Tests |            |        |          |      | ✓       |         |
+| Reporting / Logging |            |        |          |      |         | ✓       |
+
+## Scheduling & Environment
+
+The following correlates the tests we'll perform with how and when they are executed. In some cases, tests will be performed at multiple stages for auditability or other reasons.
+
+| Type\Environment    | IDE | Interactive | Pre-Commit Hook | GitHub PR |
+| ------------------- | --- | ----------- | --------------- | --------- |
+| TypeScript          | ✓   |             |                 |           |
+| ESLint              | ✓   | ✓           | ✓               | ✓         |
+| Prettier            | ✓   | ✓           | ✓               | ✓         |
+| Unit Tests          |     | ✓           |                 | ✓         |
+| Integration Tests   |     | ✓           |                 | ✓         |
+| Test Coverage       |     | ✓           |                 | ✓         |
+| End-to-End Tests    |     | ✓           |                 | ✓         |
+| Behavioral Tests    |     | ✓           |                 | ✓         |
+| Accessibility Tests |     | ✓           |                 | ✓         |
+| Reporting / Logging |     |             |                 | ✓         |
