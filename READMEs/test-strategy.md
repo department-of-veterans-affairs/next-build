@@ -2,7 +2,7 @@
 
 This is a living document describing the scope, approach, resources, and schedule for the testing activities of the [Next-Build project](https://github.com/department-of-veterans-affairs/next-build/). In it, we'll define our goals, what will be tested, what will be used to test, when and by whom these tests will be executed, and why these choices have been made.
 
-The **Next-Build** project is a new, React-based content build system intended to provide a modern frontend development framework to support the accelerated publishing initiative. There are numerous stakeholders here: frontend engineers, CMS engineers, engineers on other teams, editors, and of course, veterans and caregivers. This project is expected to serve these stakeholders in many ways, and to do so reliably and consistently.
+The **Next-Build** project is a new, React-based content build system intended to provide a modern frontend development framework to support the accelerated publishing initiative. There are numerous stakeholders here: frontend engineers, CMS engineers, engineers on other teams, editors, and of course, veterans and caregivers. This project is expected to serve these stakeholders in many ways, and to do so reliably and consistently. Furthermore, the team itself should be confident in what it produces.
 
 Pushing a new commit to the `main` branch implies a statement about quality; that the team has engaged in a reasonable amount of effort to ensure that this new commit doesn't cause any new issues, reintroduce any old ones, violate any standards, flout any best practices, or in any other way introduce new unpleasantness to life or work. This test strategy is geared at helping us achieve and maintain a consistent level of quality through automated tests, the tooling needed for those tests, and following best practices.
 
@@ -16,7 +16,7 @@ The following terms are defined as they will be used within this document.
 
 - **Behavior-Driven Development**: An approach to development built around specifying behavioral contracts for a system and developing the system to function in strict adherence to those contracts. This should be restricted to user-facing behaviors such as the UI, as these tests are costly in terms of resources.
 
-- **Behavioral Testing**: Tests that determine whether the system's output acts in accordance with a behavioral contract. These tests are often specified in a syntax that is more friendly to non-engineers, like Cucumber, as part of Behavior-Driven Development.
+- **Behavioral Testing**: Tests that determine whether the system's output acts in accordance with a behavioral contract. These tests are often specified in a syntax that is more friendly to non-engineers, like Cucumber, as part of Behavior-Driven Development. Here, these are restricted to behaviors as we would experience them with a browser.
 
 - **Boundary Testing**: (not to be confused with **Boundary Value Testing**) Similar to Learning Testing, tests that cover the specific surface of a third-party module's API that is actually in use. Very useful for testing module updates and as sanity checks, sources of minimally reproducible examples, etc.
 
@@ -155,21 +155,38 @@ On the CMS side, we're using Datadog fairly heavily; we should ensure that any G
 
 ## Concern Traceability Matrix
 
-The following is a traceability matrix correlating concerns with the types of tests that may be used to address them. In some cases,
+This traceability matrix correlates the types of concerns we anticipate with the tactics we may use to address them. In most cases, multiple tactics may be used to address a single concern. For instance, a developer's confidence in the code they produce is linked to
 
-| Concern\Type | Static Analysis |
-| ------------ | --------------- |
-| Header       | Title           |
-| Paragraph    | Text            |
+| Concern\Tactic          | Static Analysis | Linting | Code Style | Unit | Integration | Test Coverage | End-to-End | Behavioral | Accessibility | Learning | Boundary | Reporting/Logging |
+| ----------------------- | --------------- | ------- | ---------- | ---- | ----------- | ------------- | ---------- | ---------- | ------------- | -------- | -------- | ----------------- |
+| Confidence - Developers | ✅              | ✅      |            | ✅   | ✅          | ✅            | ✅         | ✅         |               | ✅       | ✅       |                   |
+| - Reviewers             |                 |         |            | ✅   | ✅          | ✅            | ✅         | ✅         |               | ✅       | ✅       |                   |
+| - Maintainers           |                 |         |            | ✅   | ✅          | ✅            | ✅         | ✅         |               | ✅       | ✅       | ✅                |
+| - Stakeholders          |                 |         |            |      |             | ✅            | ✅         | ✅         | ✅            |          |          | ✅                |
+| Developer experience    | ✅              | ✅      | ✅         |      |             |               |            |            |               | ✅       |          |                   |
+| Accessibility           |                 |         |            |      |             |               |            |            | ✅            |          |          |                   |
+| Regression              |                 |         |            |      |             |               |            |            |               |          |          |                   |
+| Unit Tests              |                 |         |            |      |             |               |            |            |               |          |          |                   |
+| Integration Tests       |                 |         |            |      |             |               |            |            |               |          |          |                   |
+| Test Coverage           |                 |         |            |      |             |               |            |            |               |          |          |                   |
+| End-to-End Tests        |                 |         |            |      |             |               |            |            |               |          |          |                   |
+| Behavioral Tests        |                 |         |            |      |             |               |            |            |               |          |          |                   |
 
-## Tool Matrix
+## Tool Traceability Matrix
 
-The following is a traceability matrix correlating the types of tests we want to perform with the tools we may use to perform them. In some cases, multiple tools will be used to address a single type of test. For instance, TypeScript expands ESLint's ability to lint our code, and we might use Jest or Cypress to perform a specific End-to-End test.
+The following is a traceability matrix correlating the types of tests we want to perform with the tools we may use to perform them. In some cases, multiple tools will be used to address a single type of test. For instance, TypeScript expands ESLint's ability to lint our code.
 
-| Type\Tool   | TypeScript | ESLint |
-| ----------- | ---------- | ------ |
-| Type safety | X          |        |
-| Linting     | X          | X      |
+| Type\Tool           | TypeScript | ESLint | Prettier | Jest | Cypress |
+| ------------------- | ---------- | ------ | -------- | ---- | ------- |
+| Static Analysis     | ✅         |        |          |      |         |
+| Linting             | ✅         | ✅     |          |      |         |
+| Code Style          |            | ✅     | ✅       |      |         |
+| Unit Tests          |            |        |          | ✅   |         |
+| Integration Tests   |            |        |          | ✅   |         |
+| Test Coverage       |            |        |          | ✅   |         |
+| End-to-End Tests    |            |        |          | ✅   |         |
+| Behavioral Tests    |            |        |          |      | ✅      |
+| Accessibility Tests |            |        |          |      | ✅      |
 
 ## Roles and Responsibilities
 
