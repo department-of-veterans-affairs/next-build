@@ -188,7 +188,61 @@ The following is a traceability matrix correlating the types of tests we want to
 
 ## Roles and Responsibilities
 
+These roles should not be expected to map directly to job titles; rather, they are assumed by a person as they work in a specific capacity. Any developer might act as a test engineer if they make a non-trivial change to a GitHub workflow, and correspondingly they assume the responsibility for that change and its effects (within reason).
+
+### Test Engineers
+
+A **Test Engineer** MUST:
+
+- ensure that the testing environment is correctly configured to run, via Yarn commands, when the project is freshly checked out.
+- ensure that pre-commit and other Git hooks are configured to run accurately and appropriately.
+- ensure that any GitHub actions fire as expected and function correctly, without inappropriately modifying the codebase, leaking secrets, or otherwise misbehaving.
+
+A **Test Engineer** SHOULD:
+
+- regularly review tests, regardless of type or area of concern, and refactor them to improve their design.
+- regularly check for and perform updates on dependencies, and update tests as necessary to conform to changes.
+- regularly review coverage, identify problem areas of the codebase, and raise awareness of those areas.
+- regularly increase the coverage thresholds to maintain continual improvement.
+- monitor developer sentiment and improve it by addressing concerns, barriers, and other issues.
+
 ### Developers
+
+Developers bear the primary responsibility for maintaining and expanding test coverage within the project.
+
+A **Developer** MUST:
+
+- write tests at an appropriate level to automate correctness-checking for the code they create:
+  - unit tests to verify correctness of functions and objects
+  - integration tests to verify correctness of non-trivial systems of functions and objects
+  - end-to-end tests to verify correctness of systems that have downstream consumers
+  - behavioral tests to verify correctness of user interfaces in browser environments
+- write a regression test, if warranted, to guard against the recurrence of a defect.
+
+A **Developer** MUST NOT:
+
+- interfere in the normal execution of a test or check, e.g. bypassing Git hooks with `--no-verify`.
+- alter, remove, or disable any test or threshold without first discussing it with the team and determining whether a followup action is necessary.
+
+A **Developer** SHOULD:
+
+- voice any frustrations or obstacles they face in writing or executing tests.
+- contribute "learning tests" that document their experiments with an upstream dependency or module, within reason.
+- contribute "boundary tests" that represent and document the project's understanding of upstream APIs, within reason.
+
+### Reviewers
+
+A **Reviewer** MUST:
+
+- verify that tests are meaningful, are well-written and maintainable, accomplish the intended objectives, and function as expected.
+- verify that the developer has not in any way bypassed the existing tests and thresholds.
+- verify that behavioral tests and their step definitions do and will continue to suffice as replacements for manual reviews.
+- verify that the developer is adding sufficient new tests to thoroughly cover their modifications.
+- verify that regression tests are added when appropriate.
+
+A **Reviewer** MUST NOT:
+
+- approve changes prior to passing all tests, except in the case of emergency.
 
 ## Risks
 
