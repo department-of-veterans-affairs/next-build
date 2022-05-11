@@ -292,15 +292,18 @@ The following is a traceability matrix correlating the types of tests we want to
 
 The following correlates the tests we'll perform with how and when they are executed. In some cases, tests will be performed at multiple stages for auditability or other reasons.
 
-| Type\Environment    | IDE | Interactive | Pre-Commit Hook | GitHub PR |
-| ------------------- | --- | ----------- | --------------- | --------- |
-| TypeScript          | ✓   |             |                 |           |
-| ESLint              | ✓   | ✓           | ✓               | ✓         |
-| Prettier            | ✓   | ✓           | ✓               | ✓         |
-| Unit Tests          |     | ✓           |                 | ✓         |
-| Integration Tests   |     | ✓           |                 | ✓         |
-| Test Coverage       |     | ✓           |                 | ✓         |
-| End-to-End Tests    |     | ✓           |                 | ✓         |
-| Behavioral Tests    |     | ✓           |                 | ✓         |
-| Accessibility Tests |     | ✓           |                 | ✓         |
-| Reporting / Logging |     |             |                 | ✓         |
+| Type\Environment    | IDE | Interactive | Pre-Commit Hook | GitHub PR | Release |
+| ------------------- | --- | ----------- | --------------- | --------- | ------- |
+| TypeScript          | ✓   |             | ✓               | ✓         | ✓       |
+| ESLint              | ✓   | ✓           | ✓               | ✓         | ✓       |
+| Prettier            | ✓   | ✓           | ✓               | ✓         | ✓       |
+| Unit Tests          |     | ✓           |                 | ✓         | ✓       |
+| Integration Tests   |     | ✓           |                 | ✓         | ✓       |
+| Test Coverage       |     | ✓           |                 | ✓         | ✓       |
+| End-to-End Tests    |     | ✓           |                 | ✓†        | ✓‡      |
+| Behavioral Tests    |     | ✓           |                 | ✓         | ✓       |
+| Accessibility Tests |     | ✓           |                 | ✓         | ✓       |
+| Reporting / Logging |     |             |                 | ✓         | ✓       |
+
+- † using fixtures in place of actual upstream calls
+- ‡ using actual upstream calls and rejecting if the responses do not match fixtures
