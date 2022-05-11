@@ -165,12 +165,6 @@ This traceability matrix correlates the types of concerns we anticipate with the
 | - Stakeholders          |                 |         |            |      |             | ✅            | ✅         | ✅         | ✅            |          |          | ✅                |
 | Developer experience    | ✅              | ✅      | ✅         |      |             |               |            |            |               | ✅       |          |                   |
 | Accessibility           |                 |         |            |      |             |               |            |            | ✅            |          |          |                   |
-| Regression              |                 |         |            |      |             |               |            |            |               |          |          |                   |
-| Unit Tests              |                 |         |            |      |             |               |            |            |               |          |          |                   |
-| Integration Tests       |                 |         |            |      |             |               |            |            |               |          |          |                   |
-| Test Coverage           |                 |         |            |      |             |               |            |            |               |          |          |                   |
-| End-to-End Tests        |                 |         |            |      |             |               |            |            |               |          |          |                   |
-| Behavioral Tests        |                 |         |            |      |             |               |            |            |               |          |          |                   |
 
 ## Tool Traceability Matrix
 
