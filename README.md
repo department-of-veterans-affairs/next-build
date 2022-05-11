@@ -17,7 +17,7 @@ You should set these up before attempting to install the repo.
 
 1. Run `yarn install`.
 
-1. Copy .env.example to .env.local. This is a reasonable set of environment defaults for local development.
+1. Copy `.env.example` to `.env.local`. This is a reasonable set of environment defaults for local development.
 
 1. Make sure your SOCKS access is running.
 

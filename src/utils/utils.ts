@@ -1,0 +1,50 @@
+import config from '../../config'
+
+export function truncate(value: string, length: number, suffix = '...') {
+  if (value.length < length) {
+    return value
+  }
+  return value.slice(0, length) + suffix
+}
+
+export function absoluteURL(uri: string) {
+  return `${config.drupalBaseUrl}${uri}`
+}
+
+export function formatDate(input: string): string {
+  const date = new Date(input)
+  return date.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
+export function isRelative(url: string) {
+  return !new RegExp('^(?:[a-z]+:)?//', 'i').test(url)
+}
+
+export const getTagsList = (fieldTags) => {
+  if (!fieldTags) return null
+
+  const {
+    field_topics: fieldTopics = [],
+    field_audience_beneficiares: fieldAudienceBeneficiares,
+  } = fieldTags
+
+  const topics = fieldTopics.map((topic) => ({
+    ...topic,
+    categoryLabel: 'Topics',
+  }))
+
+  const audiences = [fieldAudienceBeneficiares]
+    .filter((tag) => !!tag)
+    .map((audience) => ({
+      ...audience,
+      categoryLabel: 'Audience',
+    }))
+
+  const tagList = [...topics, ...audiences]
+
+  return tagList.sort((a, b) => a.categoryLabel.localeCompare(b.categoryLabel))
+}
