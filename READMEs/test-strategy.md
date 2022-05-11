@@ -74,11 +74,15 @@ Controlling codebase quality and confirming functional correctness is the most i
 
 #### Static Testing
 
-The project has adopted **TypeScript**, which tremendously increases the information that developers and their tools are able to glean from a piece of code. Type checking, type inference, etc, enable efficient validation of code as the developer writes it. The expectation already seems to be that we will use TypeScript as the primary development language, but we should consider expanding on this by listing additional tools, e.g. VSCode extensions, that we find to be useful in our daily work.
+The project has adopted **TypeScript**, which tremendously increases the information that developers and their tools are able to glean from a piece of code. Type checking, type inference, etc, enable efficient validation of code as the developer writes it. We have also adopted **ESLint** for linting and general static analysis. ESLint is tremendously flexible, powerful, and configurable, and we expect that the details of its use will evolve over time. Similarly, we've adopted **Prettier** for formatting code, docs, etc.
 
-The project has adopted **ESLint** for linting and general static analysis. ESLint is tremendously flexible, powerful, and configurable, and we expect that the details of its use will evolve over time.
+These tools have already been integrated via Husky, `lint-staged`, etc into the project, but we should consider expanding on this by listing additional tools, e.g. VSCode extensions, that we find to be useful in our daily work.
+
+Static testing generally poses little risk or frustration, provided that the team is agreed upon e.g. code style guidelines. Some developers will be frustrated by analysis techniques like cyclomatic complexity, but this tends to be a problem only when static analysis is implemented later in a project's development.
 
 #### Unit Testing
+
+The team has landed on Jest as the primary tool for unit testing. Jest is easier to install, configure, and use than its primary competitor in the space, Mocha. Generally speaking, the burden of writing unit tests in Jest is very, very low. We should expect near-100% coverage of any code added or revised within the codebase.
 
 #### Integration Testing
 
@@ -157,14 +161,14 @@ On the CMS side, we're using Datadog fairly heavily; we should ensure that any G
 
 This traceability matrix correlates the types of concerns we anticipate with the tactics we may use to address them. In most cases, multiple tactics may be used to address a single concern. For instance, a developer's confidence in the code they produce is linked to
 
-| Concern\Tactic          | Static Analysis | Linting | Code Style | Unit | Integration | Test Coverage | End-to-End | Behavioral | Accessibility | Learning | Boundary | Reporting/Logging |
-| ----------------------- | --------------- | ------- | ---------- | ---- | ----------- | ------------- | ---------- | ---------- | ------------- | -------- | -------- | ----------------- |
-| Confidence - Developers | ✅              | ✅      |            | ✅   | ✅          | ✅            | ✅         | ✅         |               | ✅       | ✅       |                   |
-| - Reviewers             |                 |         |            | ✅   | ✅          | ✅            | ✅         | ✅         |               | ✅       | ✅       |                   |
-| - Maintainers           |                 |         |            | ✅   | ✅          | ✅            | ✅         | ✅         |               | ✅       | ✅       | ✅                |
-| - Stakeholders          |                 |         |            |      |             | ✅            | ✅         | ✅         | ✅            |          |          | ✅                |
-| Developer experience    | ✅              | ✅      | ✅         |      |             |               |            |            |               | ✅       |          |                   |
-| Accessibility           |                 |         |            |      |             |               |            |            | ✅            |          |          |                   |
+| Concern\Tactic         | Static Analysis | Linting | Code Style | Unit | Integration | Test Coverage | End-to-End | Behavioral | Accessibility | Learning | Boundary | Reporting/Logging |
+| ---------------------- | --------------- | ------- | ---------- | ---- | ----------- | ------------- | ---------- | ---------- | ------------- | -------- | -------- | ----------------- |
+| Developer Confidence   | ✓               | ✓       |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |
+| Reviewer Confidence    |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |
+| Maintainer Confidence  |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        | ✓                 |
+| Stakeholder Confidence |                 |         |            |      |             | ✓             | ✓          | ✓          | ✓             |          |          | ✓                 |
+| Developer experience   | ✓               | ✓       | ✓          |      |             |               |            |            |               | ✓        |          |                   |
+| Accessibility          |                 |         |            |      |             |               |            |            | ✓             |          |          |                   |
 
 ## Tool Traceability Matrix
 
@@ -172,17 +176,19 @@ The following is a traceability matrix correlating the types of tests we want to
 
 | Type\Tool           | TypeScript | ESLint | Prettier | Jest | Cypress |
 | ------------------- | ---------- | ------ | -------- | ---- | ------- |
-| Static Analysis     | ✅         |        |          |      |         |
-| Linting             | ✅         | ✅     |          |      |         |
-| Code Style          |            | ✅     | ✅       |      |         |
-| Unit Tests          |            |        |          | ✅   |         |
-| Integration Tests   |            |        |          | ✅   |         |
-| Test Coverage       |            |        |          | ✅   |         |
-| End-to-End Tests    |            |        |          | ✅   |         |
-| Behavioral Tests    |            |        |          |      | ✅      |
-| Accessibility Tests |            |        |          |      | ✅      |
+| Static Analysis     | ✓          |        |          |      |         |
+| Linting             | ✓          | ✓      |          |      |         |
+| Code Style          |            | ✓      | ✓        |      |         |
+| Unit Tests          |            |        |          | ✓    |         |
+| Integration Tests   |            |        |          | ✓    |         |
+| Test Coverage       |            |        |          | ✓    |         |
+| End-to-End Tests    |            |        |          | ✓    |         |
+| Behavioral Tests    |            |        |          |      | ✓       |
+| Accessibility Tests |            |        |          |      | ✓       |
 
 ## Roles and Responsibilities
+
+### Developers
 
 ## Risks
 
