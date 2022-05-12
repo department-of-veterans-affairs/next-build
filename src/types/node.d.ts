@@ -2,6 +2,7 @@ import { DrupalFile, DrupalNode } from 'next-drupal'
 
 import { BlockAlert, BlockPromo } from './block'
 import {
+  FieldAddress,
   FieldFormattedText,
   FieldFormattedTextWithSummary,
   FieldLink,
@@ -15,6 +16,7 @@ import {
   ParagraphContactInformation,
   ParagraphLinkTeaser,
   ParagraphListOfLinks,
+  ParagraphPhoneNumber,
   ParagraphQAGroup,
   ParagraphReactWidget,
   ParagraphRichTextCharLimit1000,
@@ -64,8 +66,46 @@ export interface NodeFaqMultipleQA extends NodeAbstractResource {
   field_buttons_repeat: boolean
 }
 
+export interface NodeHealthCareLocalFacility extends DrupalNode {
+  field_address: FieldAddress
+  field_facility_classification: string
+  field_operating_status_more_info: string
+  field_facility_locator_api_id: string
+  field_local_health_care_service_: NodeHealthCareLocalHealthService[]
+  field_facility_hours: FieldTable // @todo
+  // @todo finish this.
+}
+
+export interface NodeHealthCareLocalHealthService extends DrupalNode {
+  field_hservice_appt_intro_select: string
+  field_hservice_appt_leadin: string
+  field_walk_ins_accepted: string
+  field_facility_location: NodeHealthCareLocalFacility // @todo
+  field_referral_required: string
+  field_online_scheduling_availabl: string
+  field_phone_numbers_paragraph: ParagraphPhoneNumber[]
+  field_service_location: ParagraphServiceLocation[]
+  field_regional_health_service: NodeRegionalHealthCareServiceDes // @todo
+}
 export interface NodeHealthCareRegionPage extends DrupalNode {
-  foo: string // @todo
+  field_appointments_online: boolean
+  field_media: MediaImage
+  field_related_links: ParagraphListOfLinks
+  field_vamc_ehr_system: string
+  field_facebook: FieldLink
+  field_flickr: FieldLink
+  field_govdelivery_id_emerg: string
+  field_govdelivery_id_news: string
+  field_instagram: FieldLink
+  field_description: string
+  field_meta_tags: any
+  field_operating_status: FieldLink
+  field_other_va_locations: string
+  field_intro_text: string
+  field_clinical_health_services: NodeHealthCareLocalHealthService[]
+  field_twitter: FieldLink
+  field_va_health_connect_phone: string
+  field_vamc_system_official_name: string
 }
 
 export interface NodeLandingPage extends DrupalNode {

@@ -1,5 +1,10 @@
 import { DrupalBlock } from 'next-drupal'
-import { ParagraphExpandableText, ParagraphWysiwyg } from './paragraph'
+import { MediaImage } from './media'
+import {
+  ParagraphExpandableText,
+  ParagraphLinkTeaser,
+  ParagraphWysiwyg,
+} from './paragraph'
 
 export interface BlockAlert extends DrupalBlock {
   field_alert_title: string
@@ -9,5 +14,6 @@ export interface BlockAlert extends DrupalBlock {
 }
 
 export interface BlockPromo extends DrupalBlock {
-  foo: string //@todo
+  field_image: MediaImage
+  field_promo_link: ParagraphLinkTeaser
 }

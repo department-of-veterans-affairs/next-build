@@ -1,7 +1,12 @@
 import { DrupalParagraph } from 'next-drupal'
 
 import { BlockAlert } from './block'
-import { FieldFormattedText, FieldLink } from './field_type'
+import {
+  FieldFormattedText,
+  FieldLink,
+  FieldOfficeHours,
+  FieldAddress,
+} from './field_type'
 import { MediaImage } from './media'
 import { NodeNewsStory, NodeQA } from './node'
 import {
@@ -44,9 +49,7 @@ export interface ParagraphCollapsiblePanel extends DrupalParagraph {
 
 export interface ParagraphCollapsiblePanelItem extends DrupalParagraph {
   field_title: string
-  field_wysiwyg: {
-    processed: string
-  }
+  field_wysiwyg: FieldFormattedText
   field_va_paragraphs: ParagraphTable[]
 }
 
@@ -63,9 +66,7 @@ export interface ParagraphEmailContact extends DrupalParagraph {
 }
 
 export interface ParagraphExpandableText extends DrupalParagraph {
-  field_wysiwyg: {
-    processed: string
-  }
+  field_wysiwyg: FieldFormattedText
   field_text_expander: string
 }
 
@@ -113,6 +114,23 @@ export interface ParagraphRichTextCharLimit1000 extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
 }
 
+export interface ParagraphServiceLocation extends DrupalParagraph {
+  field_additional_hours_info: string
+  field_service_location_address: ParagraphServiceLocationAddress
+  field_email_contacts: ParagraphEmailContact[]
+  field_office_hours: FieldOfficeHours[]
+  field_phone: ParagraphPhoneNumber[]
+  field_hours: string
+  field_use_main_facility_phone: boolean
+}
+
+export interface ParagraphServiceLocationAddress extends DrupalParagraph {
+  field_address: FieldAddress
+  field_building_name_number: string
+  field_clinic_name: string
+  field_use_facility_address: boolean
+  field_wing_floor_or_room_number: string
+}
 export interface ParagraphStep extends DrupalParagraph {
   field_alert: ParagraphAlertSingle
   field_media: MediaImage
