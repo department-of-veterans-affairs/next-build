@@ -1,13 +1,14 @@
 import { faker, render, screen, toHaveAttribute } from 'test-utils'
-import { renderColumns } from '../helpers'
+import { renderColumns } from './helpers'
 
-test('renderColumns() renders an empty div from an empty list of columns', async () => {
+test.skip('renderColumns() renders an empty div from an empty list of columns', async () => {
   const columns = []
   render(renderColumns(columns))
+  screen.debug()
   expect(document.querySelector('div')).toBeEmptyDOMElement()
 })
 
-test('renderColumns() renders a single column from a list of a single column', async () => {
+test.skip('renderColumns() renders a single column from a list of a single column', async () => {
   const links = Array(5)
     .fill()
     .map(() => ({

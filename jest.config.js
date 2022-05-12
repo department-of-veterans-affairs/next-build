@@ -20,7 +20,10 @@ const customJestConfig = {
     '^@/hooks/(.*)$': '<rootDir>/src/hooks/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!**/__tests__/**'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!**/__tests__/**.test.{js,jsx,ts,tsx}',
+  ],
   coverageThreshold: {
     global: {
       statements: 100,
