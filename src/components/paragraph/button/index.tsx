@@ -1,8 +1,15 @@
 import { v4 as uuidv4 } from 'uuid'
 import Link from 'next/link'
 
+function isRequestValid(paragraph: any) {
+  return (
+    paragraph.field_button_label !== null &&
+    paragraph.field_button_link.uri !== null
+  )
+}
+
 const Button = ({ paragraph }): JSX.Element => {
-  if (!paragraph) return
+  if (!paragraph || !isRequestValid(paragraph)) return
 
   const {
     field_button_label: fieldButtonLabel,
