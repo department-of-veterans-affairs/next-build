@@ -163,6 +163,8 @@ Accessibility testing can be trivially added to any Cypress test by using `cypre
 
 #### Load Testing
 
+Load testing can be very resource-intensive, so it should be performed sparingly. Based on the current objectives of the project, load testing can probably be performed best simply by performing large numbers of end-to-end tests with fixtures/snapshots. If this involved, the primary role of these tests would likely be to accumulate data in order to assist in debugging issues with scalability, so these might be performed solely during the release/packaging process and reported upstream for posterity.
+
 ### Documentation and Transparency
 
 - **Learning Testing**: When a new module or API is added to the codebase, learn it by writing tests rather than in throwaway scripts or playgrounds, and keep them in the codebase!
@@ -258,18 +260,23 @@ Buy-in is contingent upon a number of factors: acceptance of the role of testing
 
 Consequently, I'll list some risk factors to this test strategy and discuss how each might be mitigated.
 
+- **Developer Resistance**: A testing strategy is hard to get right. Issues with the strategy will manifest in increased developer resistance. The strategy must be treated as a first-class software product in its own right; bugs must be quickly addressed, communication must be open and honest, and overall quality has to be high. There's no real shortcut here. Indeed, most of the following risks impact the project at least partially through increasing developer resistance.
+
+- **High Barrier to Entry**: The burden
+
 ## Concern Traceability Matrix
 
 This traceability matrix correlates the types of concerns we anticipate with the tactics we may use to address them. In most cases, multiple tactics may be used to address a single concern. For instance, a developer's confidence in the code they produce is linked to
 
-| Concern\Tactic         | Static Analysis | Linting | Code Style | Unit | Integration | Test Coverage | End-to-End | Behavioral | Accessibility | Learning | Boundary | Reporting/Logging |
-| ---------------------- | --------------- | ------- | ---------- | ---- | ----------- | ------------- | ---------- | ---------- | ------------- | -------- | -------- | ----------------- |
-| Developer Confidence   | ✓               | ✓       |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |
-| Reviewer Confidence    |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |
-| Maintainer Confidence  |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        | ✓                 |
-| Stakeholder Confidence |                 |         |            |      |             | ✓             | ✓          | ✓          | ✓             |          |          | ✓                 |
-| Developer experience   | ✓               | ✓       | ✓          |      |             |               |            |            |               | ✓        |          |                   |
-| Accessibility          |                 |         |            |      |             |               |            |            | ✓             |          |          |                   |
+| Concern\Tactic         | Static Analysis | Linting | Code Style | Unit | Integration | Test Coverage | End-to-End | Behavioral | Accessibility | Learning | Boundary | Reporting/Logging | Load Testing |
+| ---------------------- | --------------- | ------- | ---------- | ---- | ----------- | ------------- | ---------- | ---------- | ------------- | -------- | -------- | ----------------- | ------------ |
+| Developer Confidence   | ✓               | ✓       |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |              |
+| Reviewer Confidence    |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        |                   |              |
+| Maintainer Confidence  |                 |         |            | ✓    | ✓           | ✓             | ✓          | ✓          |               | ✓        | ✓        | ✓                 |              |
+| Stakeholder Confidence |                 |         |            |      |             | ✓             | ✓          | ✓          | ✓             |          |          | ✓                 |              |
+| Developer experience   | ✓               | ✓       | ✓          |      |             |               |            |            |               | ✓        |          |                   |              |
+| Accessibility          |                 |         |            |      |             |               |            |            | ✓             |          |          |                   |              |
+| Scalability            |                 |         |            |      |             |               |            |            |               |          |          |                   | ✓            |
 
 ## Tool Traceability Matrix
 
@@ -286,6 +293,7 @@ The following is a traceability matrix correlating the types of tests we want to
 | End-to-End Tests    |            |        |          | ✓    |         |         |
 | Behavioral Tests    |            |        |          |      | ✓       |         |
 | Accessibility Tests |            |        |          |      | ✓       |         |
+| Load Testing        |            |        |          | ✓    |         |         |
 | Reporting / Logging |            |        |          |      |         | ✓       |
 
 ## Scheduling & Environment
@@ -303,6 +311,7 @@ The following correlates the tests we'll perform with how and when they are exec
 | End-to-End Tests    |     | ✓           |                 | ✓†        | ✓‡      |
 | Behavioral Tests    |     | ✓           |                 | ✓         | ✓       |
 | Accessibility Tests |     | ✓           |                 | ✓         | ✓       |
+| Load Testing        |     | ✓           |                 |           | ✓       |
 | Reporting / Logging |     |             |                 | ✓         | ✓       |
 
 - † using fixtures in place of actual upstream calls
