@@ -14,10 +14,8 @@ test('renderColumns() renders a single column from a list of a single column', a
       title: faker.lorem.sentence(3),
       href: faker.internet.url(),
     }))
-  console.log(links)
   const columns = [{ links }]
   render(renderColumns(columns))
-  screen.debug()
   expect(screen.getByRole('list')).toHaveAttribute('class', 'va-footer-links')
 })
 
