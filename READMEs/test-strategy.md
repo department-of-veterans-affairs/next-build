@@ -311,7 +311,7 @@ The following correlates the tests we'll perform with how and when they are exec
 | TypeScript          | ✓   |             | ✓               | ✓         | ✓       |
 | ESLint              | ✓   | ✓           | ✓               | ✓         | ✓       |
 | Prettier            | ✓   | ✓           | ✓               | ✓         | ✓       |
-| Unit Tests          |     | ✓           |                 | ✓         | ✓       |
+| Unit Tests          |     | ✓           | ✓\*             | ✓         | ✓       |
 | Integration Tests   |     | ✓           |                 | ✓         | ✓       |
 | Test Coverage       |     | ✓           |                 | ✓         | ✓       |
 | End-to-End Tests    |     | ✓           |                 | ✓†        | ✓‡      |
@@ -320,5 +320,6 @@ The following correlates the tests we'll perform with how and when they are exec
 | Load Testing        |     | ✓           |                 |           | ✓       |
 | Reporting / Logging |     |             |                 | ✓         | ✓       |
 
+- \* using `jest --findRelatedTests` to limit tests executed to those actually affected by changes
 - † using fixtures in place of actual upstream calls
 - ‡ using actual upstream calls and rejecting if the responses do not match fixtures
