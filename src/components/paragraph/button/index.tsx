@@ -1,7 +1,16 @@
 import { v4 as uuidv4 } from 'uuid'
 import Link from 'next/link'
 
-function isRequestValid(paragraph: any) {
+interface ButtonProps {
+  paragraph: object
+  field_button_label: string
+  field_button_link: {
+    uri: string
+  }
+}
+
+function isRequestValid(paragraph: ButtonProps): boolean {
+  console.log(typeof paragraph.field_button_label)
   return (
     paragraph.field_button_label !== null &&
     paragraph.field_button_link !== null &&
