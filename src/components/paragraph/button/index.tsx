@@ -4,7 +4,8 @@ import Link from 'next/link'
 function isRequestValid(paragraph: any) {
   return (
     paragraph.field_button_label !== null &&
-    paragraph.field_button_link.uri !== null
+    paragraph.field_button_link !== null &&
+    paragraph.field_button_link?.uri !== null
   )
 }
 
@@ -18,10 +19,8 @@ const Button = ({ paragraph }): JSX.Element => {
 
   return (
     <div key={uuidv4()}>
-      <Link href={fieldButtonLink ? fieldButtonLink.uri : ''} passHref>
-        <a className="vads-c-action-link--blue">
-          {fieldButtonLabel ? fieldButtonLabel : ''}
-        </a>
+      <Link href={fieldButtonLink?.uri} passHref>
+        <a className="vads-c-action-link--blue">{fieldButtonLabel}</a>
       </Link>
     </div>
   )
