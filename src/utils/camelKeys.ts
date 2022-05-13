@@ -3,10 +3,11 @@
  * @param {string} str A string to transform.
  * @returns {string} The transformed string.
  */
-export const toCamelCase = (str: string) =>
-  str
+export const toCamelCase = (str: string) => {
+  return str
     .toLowerCase()
     .replace(/[-_\s.]+(.)?/g, (_, char) => (char ? char.toUpperCase() : ''))
+}
 
 /**
  * Camel-case the keys of an object, the objects within an array, or the objects within an object.
