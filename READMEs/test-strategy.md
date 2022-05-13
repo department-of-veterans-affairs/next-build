@@ -123,6 +123,8 @@ This should allow us some flexibility in dealing with more and less critical sec
 
 Regression testing is not a separate class or suite of tests, but rather a general guideline; when we fix a bug, we should not only fix the causes of the bug but also add or extend tests to guard against their reappearance. Bugs can be embarrassing, and a recurring bug is very embarrassing. We can't really automate a check for adding regression tests for bug fixes, but we can agree to expect them as a matter of policy.
 
+The general pattern for this is to add a new test which fails due to the defect, then fix the defect, thereby allowing the test to pass.
+
 ### Product Integrity
 
 - **End-to-End Testing**: Make writing end-to-end tests straightforward, efficient, and effective. We should never fear that merging a PR will have an adverse effect on our users.
@@ -262,7 +264,9 @@ Consequently, I'll list some risk factors to this test strategy and discuss how 
 
 - **Developer Resistance**: A testing strategy is hard to get right. Issues with the strategy will manifest in increased developer resistance. The strategy must be treated as a first-class software product in its own right; bugs must be quickly addressed, communication must be open and honest, and overall quality has to be high. There's no real shortcut here. Indeed, most of the following risks impact the project at least partially through increasing developer resistance.
 
-- **High Barrier to Entry**: The burden
+- **High Barrier to Entry**: Learning _how_ to create tests is non-trivial and poses a significant additional frustration on top of that presented by development in general. It can't be eliminated, but we can reduce the burden by ensuring there's a simple test case covering each of the myriad patterns that the project will contain. For instance, tests for simple and complex algorithms, tests for React components demonstrating how rendering can be validated, tests snapshotting requests and responses to external services, etc.
+
+- **Additional Cost**: Testing incurs additional costs in time and energy from developers and reviewers. This can be unwelcome, especially in the early phases of a project. As above, this can be remediated to some degree by providing examples, but it is also important to allocate capacity for testing at both the level of the individual tasks and at the level of the team as a whole.
 
 ## Concern Traceability Matrix
 
