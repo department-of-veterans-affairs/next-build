@@ -31,3 +31,30 @@ export interface FieldAddress {
   address_line1: string
   address_line2: string
 }
+
+export interface FieldTable {
+  value: [string[]]
+  caption: string
+}
+
+export interface FieldSocialMediaLinks {
+  platform: string
+  value: string
+  platform_values: {
+    twitter: {
+      value: string
+    }
+    facebook: {
+      value: string
+    }
+    youtube: {
+      value: string
+    }
+    instagram: {
+      value: string
+    }
+    linkedin: {
+      value: string
+    }
+  }
+}

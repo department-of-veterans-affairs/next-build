@@ -2,13 +2,19 @@ import { DrupalParagraph } from 'next-drupal'
 
 import { BlockAlert } from './block'
 import {
+  FieldAddress,
   FieldFormattedText,
   FieldLink,
   FieldOfficeHours,
-  FieldAddress,
+  FieldTable,
 } from './field_type'
 import { MediaImage } from './media'
-import { NodeNewsStory, NodeQA } from './node'
+import {
+  NodeLandingPage,
+  NodeNewsStory,
+  NodeQA,
+  NodeSupportService,
+} from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
   TaxonomyTermAudienceNonBeneficiaries,
@@ -68,6 +74,12 @@ export interface ParagraphEmailContact extends DrupalParagraph {
 export interface ParagraphExpandableText extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
   field_text_expander: string
+}
+
+export interface ParagraphHealthCareLocalFacilityService
+  extends DrupalParagraph {
+  field_title: string
+  field_wysiwyg: FieldFormattedText
 }
 
 export interface ParagraphLinkTeaser extends DrupalParagraph {
@@ -143,10 +155,7 @@ export interface ParagraphStepByStep extends DrupalParagraph {
 }
 
 export interface ParagraphTable extends DrupalParagraph {
-  field_table: {
-    value: [string[]]
-    caption: string
-  }
+  field_table: FieldTable
 }
 
 export interface ParagraphWysiwyg extends DrupalParagraph {

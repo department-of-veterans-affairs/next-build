@@ -16,3 +16,17 @@ export interface TaxonomyTermTopics extends DrupalTaxonomyTerm {}
 // Allow this for consistency, even though no fields are present.
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface TaxonomyTermLcCategories extends DrupalTaxonomyTerm {}
+
+export interface TaxonomyTermHealthCareServiceTaxonomy
+  extends DrupalTaxonomyTerm {
+  field_vet_center_com_conditions: string
+  field_commonly_treated_Condition: string
+  field_health_service_api_id: string
+  field_also_known_as: string
+  field_vet_center_friendly_name: string
+  field_vet_center_service_descrip: string
+  field_vet_center_required_servic: boolean
+  field_service_type_of_care: string
+  field_vet_center_type_of_care: string
+  field_vha_healthservice_stopcode: number
+}

@@ -6,25 +6,34 @@ import {
   FieldFormattedText,
   FieldFormattedTextWithSummary,
   FieldLink,
+  FieldOfficeHours,
+  FieldSocialMediaLinks,
+  FieldTable,
 } from './field_type'
 import { MediaImage } from './media'
 import {
   ParagraphAlert,
+  ParagraphAlertSingle,
   ParagraphAudienceTopics,
   ParagraphButton,
   ParagraphCollapsiblePanel,
   ParagraphContactInformation,
+  ParagraphHealthCareLocalFacilityService,
   ParagraphLinkTeaser,
   ParagraphListOfLinks,
   ParagraphPhoneNumber,
   ParagraphQAGroup,
   ParagraphReactWidget,
   ParagraphRichTextCharLimit1000,
+  ParagraphServiceLocation,
   ParagraphStepByStep,
   ParagraphTable,
   ParagraphWysiwyg,
 } from './paragraph'
-import { TaxonomyTermLcCategories } from './taxonomy_term'
+import {
+  TaxonomyTermLcCategories,
+  TaxonomyTermHealthCareServiceTaxonomy,
+} from './taxonomy_term'
 
 // Several resource node types share fields.
 export interface NodeAbstractResource extends DrupalNode {
@@ -72,20 +81,30 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_operating_status_more_info: string
   field_facility_locator_api_id: string
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
-  field_facility_hours: FieldTable // @todo
-  // @todo finish this.
+  field_facility_hours: FieldTable
+  field_office_hours: FieldOfficeHours[]
+  field_media: MediaImage
+  field_location_services: ParagraphHealthCareLocalFacilityService[]
+  field_main_location: boolean
+  field_mental_health_phone: string
+  field_description: string
+  field_mobile: boolean
+  field_intro_text: string
+  field_phone_number: string
+  field_operating_status_facility: string
+  field_region_page: NodeHealthCareRegionPage
 }
 
 export interface NodeHealthCareLocalHealthService extends DrupalNode {
   field_hservice_appt_intro_select: string
   field_hservice_appt_leadin: string
   field_walk_ins_accepted: string
-  field_facility_location: NodeHealthCareLocalFacility // @todo
+  field_facility_location: NodeHealthCareLocalFacility
   field_referral_required: string
   field_online_scheduling_availabl: string
   field_phone_numbers_paragraph: ParagraphPhoneNumber[]
   field_service_location: ParagraphServiceLocation[]
-  field_regional_health_service: NodeRegionalHealthCareServiceDes // @todo
+  field_regional_health_service: NodeRegionalHealthCareServiceDes
 }
 export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
@@ -98,7 +117,6 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_govdelivery_id_news: string
   field_instagram: FieldLink
   field_description: string
-  field_meta_tags: any
   field_operating_status: FieldLink
   field_other_va_locations: string
   field_intro_text: string
@@ -116,7 +134,6 @@ export interface NodeLandingPage extends DrupalNode {
   field_teaser_text: string
   field_links: FieldLink[]
   field_description: string
-  field_meta_tags: any
   field_meta_title: string
   field_intro_text: string
   field_plainlanguage_date: any
@@ -133,9 +150,19 @@ export interface NodeNewsStory extends DrupalNode {
   field_featured: boolean
   field_intro_text: string
   field_media: MediaImage
-  field_meta_tags: any
   field_order: number
   field_listing: NodeStoryListing
+}
+
+export interface NodeOffice extends DrupalNode {
+  field_body: string
+  field_email_updates_link: FieldLink
+  field_external_link: FieldLink
+  field_description: string
+  field_meta_title: string
+  field_office_id: string
+  field_parent_office: NodeOffice
+  field_social_media_links: FieldSocialMediaLinks
 }
 
 export interface NodePersonProfile extends DrupalNode {
@@ -148,7 +175,6 @@ export interface NodePersonProfile extends DrupalNode {
   field_photo_allow_hires_download: boolean
   field_description: string
   field_last_name: string
-  field_meta_tags: any
   field_phone_number: string
   field_media: MediaImage
   field_office: NodeOffice | NodeHealthCareRegionPage
@@ -167,6 +193,12 @@ export interface NodeQA extends NodeAbstractResource {
   field_q_a_groups: ParagraphQAGroup[]
 }
 
+export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
+  field_local_health_care_service_: NodeHealthCareLocalHealthService[]
+  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy[] //@todo
+  field_region_page: NodeHealthCareRegionPage
+  field_body: string
+}
 export interface NodeStepByStep extends NodeAbstractResource {
   field_buttons_repeat: boolean
   field_steps: ParagraphStepByStep[]
@@ -174,7 +206,6 @@ export interface NodeStepByStep extends NodeAbstractResource {
 
 export interface NodeStoryListing extends DrupalNode {
   field_description: string
-  field_meta_tags: any
   field_office: NodeOffice | NodeHealthCareRegionPage
   field_intro_text: string
 }
