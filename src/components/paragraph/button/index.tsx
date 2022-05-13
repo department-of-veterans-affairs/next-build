@@ -12,15 +12,12 @@ function isRequestValid(paragraph: any) {
 const Button = ({ paragraph }): JSX.Element => {
   if (!paragraph || !isRequestValid(paragraph)) return
 
-  const {
-    field_button_label: fieldButtonLabel,
-    field_button_link: fieldButtonLink,
-  } = paragraph
-
   return (
-    <div key={uuidv4()}>
-      <Link href={fieldButtonLink?.uri} passHref>
-        <a className="vads-c-action-link--blue">{fieldButtonLabel}</a>
+    <div key={paragraph.id}>
+      <Link href={paragraph.field_button_link?.uri} passHref>
+        <a className="vads-c-action-link--blue">
+          {paragraph.field_button_label}
+        </a>
       </Link>
     </div>
   )
