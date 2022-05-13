@@ -1,25 +1,3 @@
-export interface FieldLink {
-  uri: string
-  title: string
-}
-
-export interface FieldFormattedText {
-  value: string
-  format: string
-  processed: string
-}
-
-export interface FieldFormattedTextWithSummary extends FieldFormattedText {
-  summary: string
-}
-
-export interface FieldOfficeHours {
-  day: number
-  starthours: number
-  endhours: number
-  comment: string
-}
-
 export interface FieldAddress {
   langcode: string
   country_code: string
@@ -32,9 +10,25 @@ export interface FieldAddress {
   address_line2: string
 }
 
-export interface FieldTable {
-  value: [string[]]
-  caption: string
+export interface FieldFormattedText {
+  value: string
+  format: string
+  processed: string
+}
+
+export interface FieldFormattedTextWithSummary extends FieldFormattedText {
+  summary: string
+}
+export interface FieldLink {
+  uri: string
+  title: string
+}
+
+export interface FieldOfficeHours {
+  day: number
+  starthours: number
+  endhours: number
+  comment: string
 }
 
 export interface FieldSocialMediaLinks {
@@ -57,4 +51,8 @@ export interface FieldSocialMediaLinks {
       value: string
     }
   }
+}
+export interface FieldTable {
+  value: [string[]]
+  caption: string
 }

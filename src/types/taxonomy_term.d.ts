@@ -4,19 +4,11 @@ export interface TaxonomyTermAudienceBeneficiaries extends DrupalTaxonomyTerm {
   field_audience_rs_homepage: boolean
 }
 
+
 export interface TaxonomyTermAudienceNonBeneficiaries
   extends DrupalTaxonomyTerm {
   field_audience_rs_homepage: boolean
 }
-
-// Allow this for consistency, even though no fields are present.
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface TaxonomyTermTopics extends DrupalTaxonomyTerm {}
-
-// Allow this for consistency, even though no fields are present.
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface TaxonomyTermLcCategories extends DrupalTaxonomyTerm {}
-
 export interface TaxonomyTermHealthCareServiceTaxonomy
   extends DrupalTaxonomyTerm {
   field_vet_center_com_conditions: string
@@ -30,3 +22,12 @@ export interface TaxonomyTermHealthCareServiceTaxonomy
   field_vet_center_type_of_care: string
   field_vha_healthservice_stopcode: number
 }
+
+// Allow this for consistency, even though no fields are present.
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface TaxonomyTermLcCategories extends DrupalTaxonomyTerm {}
+
+
+// Allow this for consistency, even though no fields are present.
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface TaxonomyTermTopics extends DrupalTaxonomyTerm {}
