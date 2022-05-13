@@ -1,9 +1,15 @@
 import { drupalClient } from '@/utils/drupalClient'
+import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
+import { DrupalNode } from 'next-drupal'
 import BenefitsHubLinks from '@/components/partials/benefitHubsLinks'
 import Container from '@/components/container'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
-const DemoPage = ({ nodes }) => {
+interface BenefitsHubLinksProps {
+  nodes: DrupalNode[]
+}
+
+const DemoPage = ({ nodes }: BenefitsHubLinksProps) => {
   return nodes.map((node) => (
     <>
       <Container className="container">
@@ -19,24 +25,21 @@ const DemoPage = ({ nodes }) => {
 }
 export default DemoPage
 
-export async function getStaticProps(context) {
+export async function getStaticProps(
+  context: GetStaticPropsContext
+): Promise<GetStaticPropsResult<BenefitsHubLinksProps>> {
   const params = new DrupalJsonApiParams()
   params
     .addFilter('status', '1')
     .addFilter('field_related_benefit_hubs', null, 'IS NOT NULL')
+    .addSort('created', 'DESC')
     .addInclude(['field_related_benefit_hubs'])
 
-  const nodes = await drupalClient.getResourceCollectionFromContext(
-    'node--support_resources_detail_page',
-    context,
-    {
-      params: {
-        include: 'field_related_benefit_hubs',
-        sort: '-created',
-        'filter[status][value]': '1',
-      },
-    }
-  )
+  const nodes = await drupalClient.getResourceCollectionFromContext<
+    DrupalNode[]
+  >('node--support_resources_detail_page', context, {
+    params: params.getQueryObject(),
+  })
   return {
     props: {
       nodes: nodes || null,

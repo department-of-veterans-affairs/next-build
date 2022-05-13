@@ -6,7 +6,6 @@ import { StaffProfiles } from '@/components/paragraph/staff_profile'
 export const PersonProfile = ({ node }): JSX.Element => {
   if (!node) return
   const {
-    id,
     title,
     field_body: fieldBody,
     field_email_address: fieldEmailAddress,
