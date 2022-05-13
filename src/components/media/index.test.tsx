@@ -36,22 +36,26 @@ const media = {
   },
 }
 
-test('<MediaImage> renders', () => {
-  render(<MediaImage media={media} imageStyle="full_content_width" />)
-  expect(screen.getByAltText('pension')).toBeInTheDocument()
+describe('Media Image component renders with valid data', () => {
+  test('<MediaImage> renders', () => {
+    render(<MediaImage media={media} imageStyle="full_content_width" />)
+    expect(screen.getByAltText('pension')).toBeInTheDocument()
+  })
 })
 
-test('<MediaImage> does not render', () => {
-  render(<MediaImage media={null} imageStyle="full_content_width" />)
-  expect(screen.queryByAltText('pension')).not.toBeInTheDocument()
-})
+describe('Media Image renders correct image imageStyle prop', () => {
+  test('<MediaImage> does not render', () => {
+    render(<MediaImage media={null} imageStyle="full_content_width" />)
+    expect(screen.queryByAltText('pension')).not.toBeInTheDocument()
+  })
 
-test('MediaImage renders with no image style', () => {
-  render(<MediaImage media={media} imageStyle={null} />)
-  expect(screen.queryByAltText('pension')).toBeInTheDocument()
-})
+  test('MediaImage renders with no image style', () => {
+    render(<MediaImage media={media} imageStyle={null} />)
+    expect(screen.queryByAltText('pension')).toBeInTheDocument()
+  })
 
-test('MediaImage renders with large image', () => {
-  render(<MediaImage media={media} imageStyle="large" />)
-  expect(screen.queryByAltText('pension')).toBeInTheDocument()
+  test('MediaImage renders with large image', () => {
+    render(<MediaImage media={media} imageStyle="large" />)
+    expect(screen.queryByAltText('pension')).toBeInTheDocument()
+  })
 })
