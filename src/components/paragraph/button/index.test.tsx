@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import Button from './index'
 
-const MOCK_PARAGRAPH = {
+const paragraph = {
   type: 'paragraph--button',
   created: '2020-10-16T20:09:53+00:00',
   parent_id: '8475',
@@ -16,7 +16,7 @@ const MOCK_PARAGRAPH = {
 
 describe('Button with valid data', () => {
   test('renders Button component', () => {
-    render(<Button paragraph={MOCK_PARAGRAPH} />)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).toBeInTheDocument()
     expect(screen.getByRole('link')).toHaveAttribute(
@@ -26,31 +26,31 @@ describe('Button with valid data', () => {
   })
 })
 
-describe('Button with inValid data', () => {
+describe('Button with invalid data', () => {
   test('does not render Button component when label and link are not present', () => {
-    MOCK_PARAGRAPH.field_button_label = null
-    MOCK_PARAGRAPH.field_button_link = null
+    paragraph.field_button_label = null
+    paragraph.field_button_link = null
 
-    render(<Button paragraph={MOCK_PARAGRAPH} />)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
 
   test('does not render Button component when label is not present', () => {
-    MOCK_PARAGRAPH.field_button_label = null
-    MOCK_PARAGRAPH.field_button_link = {
+    paragraph.field_button_label = null
+    paragraph.field_button_link = {
       uri: 'https://www.va.gov/?next=sign-in-faq',
     }
-    render(<Button paragraph={MOCK_PARAGRAPH} />)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
 
   test('does not render Button component when link is not present', () => {
-    MOCK_PARAGRAPH.field_button_link = null
-    MOCK_PARAGRAPH.field_button_label = 'Sign in now'
-    console.log('MOCK_PARAGRAPH ', MOCK_PARAGRAPH)
-    render(<Button paragraph={MOCK_PARAGRAPH} />)
+    paragraph.field_button_link = null
+    paragraph.field_button_label = 'Sign in now'
+    console.log('paragraph ', paragraph)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
