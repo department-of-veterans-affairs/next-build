@@ -266,7 +266,9 @@ Consequently, I'll list some risk factors to this test strategy and discuss how 
 
 - **High Barrier to Entry**: Learning _how_ to create tests is non-trivial and poses a significant additional frustration on top of that presented by development in general. It can't be eliminated, but we can reduce the burden by ensuring there's a simple test case covering each of the myriad patterns that the project will contain. For instance, tests for simple and complex algorithms, tests for React components demonstrating how rendering can be validated, tests snapshotting requests and responses to external services, etc.
 
-- **Additional Cost**: Testing incurs additional costs in time and energy from developers and reviewers. This can be unwelcome, especially in the early phases of a project. As above, this can be remediated to some degree by providing examples, but it is also important to allocate capacity for testing at both the level of the individual tasks and at the level of the team as a whole.
+- **Additional Cost**: Testing incurs additional costs in time and energy from developers and reviewers. This can be unwelcome, especially in the early phases of a project. As above, this can be remediated to some degree by providing examples, but it is also important to allocate sprint capacity for testing at both the level of the individual tasks and at the level of the team as a whole.
+
+- **Differences Across Test Environments**: Sometimes, differences in test environments can impact testing; for instance, GitHub tests can take place on a self-hosted runner, which introduces points of departure that might be difficult to anticipate, resulting in frustrating bugs and long feedback cycles during development. It is probably best to avoid running anything in environments like GitHub Actions that can't be run easily and reliably in a local development environment.
 
 ## Concern Traceability Matrix
 
