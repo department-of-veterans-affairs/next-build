@@ -9,8 +9,7 @@ interface ButtonProps {
   }
 }
 
-function isRequestValid(paragraph: ButtonProps): boolean {
-  console.log(typeof paragraph.field_button_label)
+function isRequestValid(paragraph: ButtonProps) {
   return (
     paragraph.field_button_label !== null &&
     paragraph.field_button_link !== null &&
