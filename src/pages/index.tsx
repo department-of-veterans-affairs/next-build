@@ -27,7 +27,7 @@ export const Core = () => {
           <Link href="/demo/table">Table</Link>
         </li>
         <li>
-          <Link href="/core/hooks/useRef">Media Image</Link>
+          <Link href="/demo/media">Media Image</Link>
         </li>
       </ul>
     </Container>
