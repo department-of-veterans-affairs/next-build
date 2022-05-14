@@ -8,6 +8,9 @@ export function getParams(name: string) {
     case 'node--q_a':
       params.addFields('node', [FIELDS])
       break
+    case 'node--news_story':
+      params.addInclude(['field_media', 'field_media.image', 'field_author'])
+      break
     default:
       console.log(`sorry, no params for ${name}`)
   }

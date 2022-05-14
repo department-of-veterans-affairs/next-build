@@ -136,7 +136,7 @@ export interface NodeLandingPage extends DrupalNode {
   field_description: string
   field_meta_title: string
   field_intro_text: string
-  field_plainlanguage_date: any
+  field_plainlanguage_date: string
   field_promo: BlockPromo
   field_related_links: ParagraphListOfLinks
   field_spokes: ParagraphListOfLinks

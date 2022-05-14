@@ -26,5 +26,6 @@ export const US_FLAG_MSG =
 export const RESOURCE_TYPES = [
   'node--q_a',
   'node--person_profile',
+  'node--news_story',
   'paragraph--staff_profile',
 ]

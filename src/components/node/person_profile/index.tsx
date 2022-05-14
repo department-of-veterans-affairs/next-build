@@ -121,16 +121,14 @@ export const PersonProfile = ({ node }): JSX.Element => {
 
 export const StaffNewsProfile = ({ node }): JSX.Element => {
   if (!node) return
+
   const { id, title, field_description: fieldDescription } = node
 
   return (
-    <div key={id}>
-      <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
-        <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
-          {title} {fieldDescription ? fieldDescription : null}
-        </div>
+    <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
+      <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
+        By {title}{fieldDescription ? `, ${fieldDescription}` : null}
       </div>
-      <hr />
     </div>
   )
 }

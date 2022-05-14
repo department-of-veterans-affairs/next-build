@@ -12,64 +12,54 @@ import {
 import { drupalClient } from '@/utils/drupalClient'
 import { getParams } from '@/lib/get-params'
 import { RESOURCE_TYPES } from '@/lib/constants'
+import NodeNewsStoryPage from '@/components/node/news_story'
 
-interface PageProps {
-  node: JsonApiResource
+interface NodeProps {
+  node: DrupalNode
 }
 
-export default function NodePage({ node }) {
+export default function NodePage({ node }: NodeProps) {
   if (!node) return null
-  return (
-    <>
-      <div>{node.type === 'node--q_a' && <h2>{node.title}</h2>}</div>
-    </>
-  )
+  return <NodeNewsStoryPage node={node} />
 }
 
 export async function getStaticPaths(
   context: GetStaticPathsContext
 ): Promise<GetStaticPathsResult> {
   return {
-    // Build static paths for all resource types.
     paths: await drupalClient.getStaticPathsFromContext(
       RESOURCE_TYPES,
       context,
       {
-        params: {
-          filter: {
-            'field_site.meta.drupal_internal__target_id':
-              process.env.DRUPAL_SITE_ID,
-          },
-        },
+        params: {},
       }
     ),
-
-    // If a path is requested and is not static, Next.js will call getStaticProps and try to find it.
     fallback: 'blocking',
   }
 }
 
 export async function getStaticProps(
   context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<PageProps>> {
+): Promise<GetStaticPropsResult<NodeProps>> {
   const path = await drupalClient.translatePathFromContext(context)
-  const type = path?.jsonapi.resourceName
 
-  if (!RESOURCE_TYPES.includes(type)) {
+  if (!path || !RESOURCE_TYPES.includes(path.jsonapi.resourceName)) {
     return {
       notFound: true,
     }
   }
 
-  const node = await getResourceFromContext<JsonApiResource>(type, context, {
-    params: getParams(type),
-  })
+  const type = path.jsonapi.resourceName
 
-  if (!node) {
-    throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`)
-  }
+  const node = await drupalClient.getResourceFromContext<DrupalNode>(
+    path,
+    context,
+    {
+      params: getParams(type),
+    }
+  )
 
-  if (!context.preview && node?.status === false) {
+  if (!node || (!context.preview && node?.status === false)) {
     return {
       notFound: true,
     }
@@ -77,7 +67,7 @@ export async function getStaticProps(
 
   return {
     props: {
-      node: node || null,
+      node,
     },
   }
 }
