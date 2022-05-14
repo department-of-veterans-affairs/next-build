@@ -4,31 +4,29 @@ import {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from 'next'
-import {
-  DrupalNode,
-  JsonApiResource,
-  getResourceFromContext,
-} from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
-import { getParams } from '@/lib/get-params'
-import { RESOURCE_TYPES } from '@/lib/constants'
-import NodeNewsStoryPage from '@/components/node/news_story'
+import { Node, nodeMeta } from '@/components/node'
+import { NodeTypes } from '@/types/node'
 
 interface NodeProps {
-  node: DrupalNode
+  node: NodeTypes
 }
 
-export default function NodePage({ node }: NodeProps) {
+/** This passes any retrieved node to the generalized Node component. */
+export default function NodePage({ node }: NodeTypes) {
   if (!node) return null
-  return <NodeNewsStoryPage node={node} />
+  return <Node node={node} />
 }
+
+/** All active node types are identified by the keys of the collected node meta info. */
+const resourceTypes = Object.keys(nodeMeta)
 
 export async function getStaticPaths(
   context: GetStaticPathsContext
 ): Promise<GetStaticPathsResult> {
   return {
     paths: await drupalClient.getStaticPathsFromContext(
-      RESOURCE_TYPES,
+      resourceTypes,
       context,
       {
         params: {},
@@ -38,12 +36,13 @@ export async function getStaticPaths(
   }
 }
 
+/** @todo This cannot handle non-node urls yet. */
 export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<NodeProps>> {
   const path = await drupalClient.translatePathFromContext(context)
 
-  if (!path || !RESOURCE_TYPES.includes(path.jsonapi.resourceName)) {
+  if (!path || !resourceTypes.includes(path.jsonapi.resourceName)) {
     return {
       notFound: true,
     }
@@ -51,11 +50,11 @@ export async function getStaticProps(
 
   const type = path.jsonapi.resourceName
 
-  const node = await drupalClient.getResourceFromContext<DrupalNode>(
+  const node = await drupalClient.getResourceFromContext<NodeTypes>(
     path,
     context,
     {
-      params: getParams(type),
+      params: nodeMeta[type].params.getQueryObject(),
     }
   )
 

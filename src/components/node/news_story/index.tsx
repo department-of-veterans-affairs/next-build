@@ -1,12 +1,16 @@
-import { JsonApiResource } from 'next-drupal'
+/** These types/packages will import into all node components. */
+import { NodeMetaInfo } from '@/components/node'
+import { NodeProps } from '@/types/node'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
+/** These component includes are specific to this component. */
 import { MediaImage } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 
-interface NodeProps {
-  node: JsonApiResource
-}
-
-const FullPage = ({ node }: NodeProps) => {
+/** Full page news story. */
+export const NewsStoryFull = ({ node }: NodeProps) => {
+  /** Type narrowing; if we've managed to end up here with the wrong data, return. */
+  if (node.type !== 'node--news_story') return
   const dateTime = new Date(node.created).toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'long',
@@ -55,4 +59,26 @@ const FullPage = ({ node }: NodeProps) => {
   )
 }
 
-export default FullPage
+/** General News Story component. Allows choice of different display components by the caller. */
+export const NewsStory = ({ node, viewMode, ...props }: NodeProps) => {
+  switch (viewMode) {
+    case 'full':
+      return <NewsStoryFull node={node} {...props} />
+      break
+
+    default:
+      return null
+  }
+}
+
+/** All nodes end with NodeMetaInfo: the name of the resource, the name of the component, and the parameters necessary for calling the resource. */
+const params = new DrupalJsonApiParams().addInclude([
+  'field_media',
+  'field_media.image',
+  'field_author',
+])
+export const Meta: NodeMetaInfo = {
+  resource: 'node--news_story',
+  component: NewsStory,
+  params: params,
+}
