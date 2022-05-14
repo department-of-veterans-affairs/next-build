@@ -10,11 +10,7 @@ interface ButtonProps {
 }
 
 function isRequestValid(paragraph: ButtonProps) {
-  return (
-    paragraph.field_button_label !== null &&
-    paragraph.field_button_link !== null &&
-    paragraph.field_button_link?.uri !== null
-  )
+  return paragraph?.field_button_label && paragraph?.field_button_link?.uri
 }
 
 const Button = ({ paragraph }): JSX.Element => {
