@@ -35,7 +35,7 @@ import {
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 
-/* NodeTypes should contain all node interfaces. */
+/** Union of all node types.  */
 export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
