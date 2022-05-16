@@ -49,7 +49,6 @@ describe('Button with invalid data', () => {
   test('does not render Button component when link is not present', () => {
     paragraph.field_button_link = null
     paragraph.field_button_label = 'Sign in now'
-    console.log('paragraph ', paragraph)
     render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()

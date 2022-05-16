@@ -77,8 +77,8 @@ test('createLinkGroups() renders columns from a list of links', () => {
     .map(() => faker.lorem.words(1))
   const links = Array(20)
     .fill()
-    .map(() => {
-      const columnName = faker.helpers.arrayElement(columnNames)
+    .map((item, index) => {
+      const columnName = columnNames[index % 3]
       const link = {}
       link.column = columnName
       link.href = faker.internet.url()

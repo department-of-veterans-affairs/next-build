@@ -22,11 +22,18 @@ jobs:
       - name: Install Npm Dependencies
         run: yarn install
 
+      - name: Check TypeScript
+        run: yarn tsc --noEmit
+
       - name: Run Lint
         run: yarn lint
 
+      - name: Check format
+        run: yarn format:check
+
       - name: Run tests with jest
         run: yarn test:ci
+
 
       # - name: Cypress.io
       #   uses: cypress-io/github-action@v2
