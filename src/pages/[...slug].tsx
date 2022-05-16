@@ -4,72 +4,61 @@ import {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from 'next'
-import {
-  DrupalNode,
-  JsonApiResource,
-  getResourceFromContext,
-} from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
-import { getParams } from '@/lib/get-params'
-import { RESOURCE_TYPES } from '@/lib/constants'
+import { Node, nodeMeta } from '@/components/node'
+import { NodeTypes } from '@/types/node'
 
-interface PageProps {
-  node: JsonApiResource
+interface NodeProps {
+  node: NodeTypes
 }
 
-export default function NodePage({ node }) {
+/** This passes any retrieved node to the generalized Node component. */
+export default function NodePage({ node }: NodeTypes) {
   if (!node) return null
-  return (
-    <>
-      <div>{node.type === 'node--q_a' && <h2>{node.title}</h2>}</div>
-    </>
-  )
+  return <Node node={node} />
 }
+
+/** All active node types are identified by the keys of the collected node meta info. */
+const resourceTypes = Object.keys(nodeMeta)
 
 export async function getStaticPaths(
   context: GetStaticPathsContext
 ): Promise<GetStaticPathsResult> {
   return {
-    // Build static paths for all resource types.
     paths: await drupalClient.getStaticPathsFromContext(
-      RESOURCE_TYPES,
+      resourceTypes,
       context,
       {
-        params: {
-          filter: {
-            'field_site.meta.drupal_internal__target_id':
-              process.env.DRUPAL_SITE_ID,
-          },
-        },
+        params: {},
       }
     ),
-
-    // If a path is requested and is not static, Next.js will call getStaticProps and try to find it.
     fallback: 'blocking',
   }
 }
 
+/** @todo This cannot handle non-node urls yet. */
 export async function getStaticProps(
   context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<PageProps>> {
+): Promise<GetStaticPropsResult<NodeProps>> {
   const path = await drupalClient.translatePathFromContext(context)
-  const type = path?.jsonapi.resourceName
 
-  if (!RESOURCE_TYPES.includes(type)) {
+  if (!path || !resourceTypes.includes(path.jsonapi.resourceName)) {
     return {
       notFound: true,
     }
   }
 
-  const node = await getResourceFromContext<JsonApiResource>(type, context, {
-    params: getParams(type),
-  })
+  const type = path.jsonapi.resourceName
 
-  if (!node) {
-    throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`)
-  }
+  const node = await drupalClient.getResourceFromContext<NodeTypes>(
+    path,
+    context,
+    {
+      params: nodeMeta[type].params.getQueryObject(),
+    }
+  )
 
-  if (!context.preview && node?.status === false) {
+  if (!node || (!context.preview && node?.status === false)) {
     return {
       notFound: true,
     }
@@ -77,7 +66,7 @@ export async function getStaticProps(
 
   return {
     props: {
-      node: node || null,
+      node,
     },
   }
 }

@@ -22,9 +22,3 @@ export const VA_WRAPPER_IMAGES = {
 // content
 export const US_FLAG_MSG =
   ' An official website of the United States government'
-
-export const RESOURCE_TYPES = [
-  'node--q_a',
-  'node--person_profile',
-  'paragraph--staff_profile',
-]
