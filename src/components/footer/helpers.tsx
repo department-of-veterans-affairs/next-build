@@ -35,7 +35,7 @@ export const renderColumns = (columnLinks) => {
         <ul className="va-footer-links">
           {column.links.map((link) => {
             return (
-              <li key={link.title}>
+              <li key={link.title + link.href}>
                 <span className="va-footer-link-text">
                   <a href={link.href}>{link.title}</a>
                 </span>

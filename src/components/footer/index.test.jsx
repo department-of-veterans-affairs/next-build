@@ -29,7 +29,6 @@ describe('Footer with meaningful links', () => {
       }))
     const content = [links]
     const { container } = render(<Footer links={content} />)
-    screen.debug()
     await waitFor(async () => expect(await axe(container)).toHaveNoViolations())
   })
 })

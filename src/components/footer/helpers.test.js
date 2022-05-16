@@ -74,7 +74,7 @@ test('generateLinkItems() renders columns from a list with multiple columns', ()
 test('createLinkGroups() renders columns from a list of links', () => {
   const columnNames = Array(3)
     .fill()
-    .map(() => faker.lorem.words(1))
+    .map(() => faker.lorem.words(2))
   const links = Array(20)
     .fill()
     .map((item, index) => {
