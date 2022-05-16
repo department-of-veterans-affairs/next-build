@@ -7,3 +7,4 @@
 export * from '@testing-library/jest-dom'
 export * from '@testing-library/react'
 export { faker } from '@faker-js/faker'
+export { axe } from 'jest-axe'

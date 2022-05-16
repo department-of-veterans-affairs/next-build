@@ -161,7 +161,9 @@ For these reasons, we should work to minimize the amount of behavioral tests, re
 
 #### Accessibility Testing
 
-Accessibility testing can be trivially added to any Cypress test by using `cypress-axe`; when a test step is executed that visually affects the DOM, we should make a point of checking the affected area of the DOM. This should probably be used with any substantial component we generate, and any non-trivial step definition we create. This further impacts resource use, but the importance of accessibility to our mission necessitates it.
+React components should generally be tested using `jest-axe`; this is fairly lightweight and should integrate well with our unit and integration tests.
+
+Accessibility testing can be trivially added to any Cypress behavioral test by using `cypress-axe`; when a test step is executed that visually affects the DOM, we should make a point of checking the affected area of the DOM. This should probably be used with any substantial component we generate, and any non-trivial step definition we create. This further impacts resource use, but the importance of accessibility to our mission necessitates it.
 
 #### Load Testing
 
@@ -298,7 +300,7 @@ The following is a traceability matrix correlating the types of tests we want to
 | Test Coverage       |            |        |          | ✓    |         |         |
 | End-to-End Tests    |            |        |          | ✓    |         |         |
 | Behavioral Tests    |            |        |          |      | ✓       |         |
-| Accessibility Tests |            |        |          |      | ✓       |         |
+| Accessibility Tests |            |        |          | ✓    | ✓       |         |
 | Load Testing        |            |        |          | ✓    |         |         |
 | Reporting / Logging |            |        |          |      |         | ✓       |
 
