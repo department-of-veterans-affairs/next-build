@@ -8,14 +8,10 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const { data, error } = useSWR(HEADER_FOOTER_PATH, fetcher)
-  if (error || !data) return null
-  const { footerData } = data
 
   return (
     <>
-      <main>{children} </main>
-      <Footer links={footerData} />
+      <main>{children}</main>
     </>
   )
 }

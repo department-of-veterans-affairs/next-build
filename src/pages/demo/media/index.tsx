@@ -11,15 +11,14 @@ interface ImagePageProps {
 }
 const ImagePage = ({ media }: ImagePageProps) => {
   if (!media) return null
-
   return (
     <Layout>
       <Container className="container">
-        {media.map((image) => (
+        {media.map((media) => (
           <MediaImage
             key={uuidv4()}
-            imageStyle="1_1_square_medium_thumbnail"
-            media={image}
+            imageStyle="2_1_medium_thumbnail"
+            media={media}
           />
         ))}
       </Container>
@@ -40,7 +39,7 @@ export async function getStaticProps(
         params: {
           include: 'image, thumbnail',
           page: {
-            limit: 6,
+            limit: 20,
           },
         },
       }

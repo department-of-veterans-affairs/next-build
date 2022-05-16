@@ -25,6 +25,7 @@ export const PersonProfile = ({ node }): JSX.Element => {
 
   return (
     <div key={uuidv4()}>
+      <hr />
       <h3>Person Profile</h3>
       <article className="usa-content">
         <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
@@ -42,8 +43,7 @@ export const PersonProfile = ({ node }): JSX.Element => {
           )}
           <div className="vads-u-display--flex vads-u-flex-direction--column">
             <h1 className="vads-u-font-size--xl vads-u-margin-bottom--0p5">
-              {title}
-              {suffix && [suffix]}
+              {title} {suffix && [suffix]}
             </h1>
             {fieldDescription && (
               <p className="vads-u-font-size--lg vads-u-margin-bottom--0p5">
@@ -114,7 +114,6 @@ export const PersonProfile = ({ node }): JSX.Element => {
           </div>
         )}
       </article>
-      <hr />
     </div>
   )
 }
