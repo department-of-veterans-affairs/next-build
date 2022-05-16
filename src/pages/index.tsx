@@ -1,53 +1,45 @@
-import { v4 as uuidv4 } from 'uuid'
 import Link from 'next/link'
-import { drupalClient } from '@/utils/drupalClient'
 import Layout from '@/components/layout'
-import { FIELDS } from '@/lib/constants/'
+import Container from '@/components/container'
 
-export const Core = ({ nodes }) => {
-  if (!nodes) return null
-  return nodes.map((node) => (
-    <h2 key={uuidv4()}>
-      <Link href={node.path?.alias ? node.path?.alias : ' '} passHref>
-        <a>{node?.title}</a>
-      </Link>
-    </h2>
-  ))
+export const Core = () => {
+  return (
+    <Container className="container">
+      <h2>Components</h2>
+      <ul>
+        <li>
+          <Link href="/demo/audienceTopics">Audience Topics</Link>
+        </li>
+        <li>
+          <Link href="/demo/partials/benefitHubsLinks">Benefit Hubs Links</Link>
+        </li>
+        <li>
+          <Link href="/demo/button">Button</Link>
+        </li>
+        <li>
+          <Link href="/demo/personProfiles">Person Profile</Link>
+        </li>
+
+        <li>
+          <Link href="/demo/paragraph">Paragraph</Link>
+        </li>
+        <li>
+          <Link href="/demo/table">Table</Link>
+        </li>
+        <li>
+          <Link href="/demo/media">Media Image</Link>
+        </li>
+      </ul>
+    </Container>
+  )
 }
 
-const HomePage = ({ nodes }) => {
-  if (nodes.length === 0) {
-    return <div>No nodes found</div>
-  }
+const DemoPage = () => {
   return (
     <Layout>
-      <Core nodes={nodes} />
+      <Core />
     </Layout>
   )
 }
 
-export default HomePage
-
-export async function getStaticProps(context) {
-  const nodes = await drupalClient.getResourceCollectionFromContext(
-    'node--q_a',
-    context,
-    {
-      params: {
-        include: FIELDS,
-        sort: '-created',
-        'filter[field_standalone_page]': '1',
-        'filter[status][value]': '1',
-        page: {
-          limit: 5,
-        },
-      },
-    }
-  )
-
-  return {
-    props: {
-      nodes: nodes || null,
-    },
-  }
-}
+export default DemoPage
