@@ -127,7 +127,8 @@ export const StaffNewsProfile = ({ node }): JSX.Element => {
   return (
     <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
       <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
-        By {title}{fieldDescription ? `, ${fieldDescription}` : null}
+        By {title}
+        {fieldDescription ? `, ${fieldDescription}` : null}
       </div>
     </div>
   )
