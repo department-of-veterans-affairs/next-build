@@ -52,11 +52,6 @@ export type NodeTypes =
   | NodeSupportResourcesDetailPage
   | NodeSupportService
 
-type NodeProps = {
-  node: NodeTypes
-  viewMode?: string
-}
-
 // Several resource node types share fields.
 export type NodeAbstractResource = DrupalNode & {
   field_other_categories: TaxonomyTermLcCategories[]

@@ -3,7 +3,7 @@ import { NodeTypes } from '@/types/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** General NodeProps to pass nodes into node components. */
-export interface NodeProps {
+interface NodeProps {
   node: NodeTypes
   viewMode?: string
 }
@@ -11,7 +11,7 @@ export interface NodeProps {
 /** We expect each Node component to define and export information about itself to help with discoverability. */
 export interface NodeMetaInfo {
   resource: string
-  component: ({ node }: NodeProps) => JSX.Element
+  component: ({ node, viewMode, ...props }: NodeProps) => JSX.Element
   params: DrupalJsonApiParams
 }
 
