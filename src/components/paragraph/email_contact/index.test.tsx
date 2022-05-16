@@ -58,16 +58,17 @@ describe('EmailContact with invalid data', () => {
     expect(
       screen.queryByText(/Minority Veterans Program/)
     ).not.toBeInTheDocument()
+    expect(screen.queryAllByRole('link')).toHaveLength(0)
   })
 
   test('does not render EmailContact component when email address is not present', () => {
-    paragraph.field_email_label = null
-    paragraph.field_email_address = 'test.veteran@va.gov'
+    paragraph.field_email_address = null
     console.log('paragraph ', paragraph)
     render(<EmailContact paragraph={paragraph} />)
 
     expect(
       screen.queryByText(/Minority Veterans Program/)
     ).not.toBeInTheDocument()
+    expect(screen.queryAllByRole('link')).toHaveLength(0)
   })
 })
