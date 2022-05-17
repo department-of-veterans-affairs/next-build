@@ -18,7 +18,7 @@ The following terms are defined as they will be used within this document.
 
 - **Behavioral Testing**: Tests that determine whether the system's output acts in accordance with a behavioral contract. These tests are often specified in a syntax that is more friendly to non-engineers, like Cucumber, as part of Behavior-Driven Development. Here, these are restricted to behaviors as we would experience them with a browser.
 
-- **Boundary Testing**: (not to be confused with **Boundary Value Testing**) Similar to Learning Testing, tests that cover the specific surface of a third-party module's API that is actually in use. Very useful for testing module updates and as sanity checks, sources of minimally reproducible examples, etc.
+- **Boundary Testing**: (not to be confused with Boundary Value Testing) Similar to Learning Testing, tests that cover the specific surface of a third-party module's API actually in use. Very useful for testing module updates and as sanity checks, sources of minimally reproducible examples, etc.
 
 - **Boundary Value Analysis** or **Boundary Value Testing**: Ensuring that values that form "boundaries" of different behaviors are included in test data, to guard against off-by-one errors, margin issues, and other defects that can occur when execution paths branch.
 
@@ -36,9 +36,9 @@ The following terms are defined as they will be used within this document.
 
 - **Regression Testing**: Tests that guard against the recurrence of a previously encountered defect or performance issue.
 
-- **Static Analysis**: Automated inspection of the codebase that does not involve execution of code. For instance, analyzing the cyclomatic complexity of a function, ensuring that a variable will be defined before it is accessed along all possible code paths, **linting**, and so forth.
+- **Static Analysis**: Automated inspection of the codebase that does not involve execution of code. For instance, analyzing the cyclomatic complexity of a function, ensuring that a variable will be defined before it is accessed along all possible code paths, linting, and so forth.
 
-- **Static Testing**: Tests using **Static Analysis** to assess the quality of the codebase and identify issues.
+- **Static Testing**: Tests using Static Analysis to assess the quality of the codebase and identify issues.
 
 - **Test Coverage**: A metric indicating what percentage of lines, statements, expressions, logical branches, etc are exercised by a test suite.
 
@@ -80,13 +80,15 @@ The project has adopted **TypeScript**, which tremendously increases the informa
 
 These tools have already been integrated via Husky, `lint-staged`, etc into the project, but we should consider expanding on this by listing additional tools, e.g. VSCode extensions, that we find to be useful in our daily work.
 
-Static testing generally poses little risk or frustration, provided that the team is agreed upon e.g. code style guidelines. Some developers will be frustrated by analysis techniques like cyclomatic complexity, but this tends to be a problem only when static analysis is implemented later in a project's development.
+Static testing generally poses little risk or frustration, provided that the team is agreed upon e.g. code style guidelines. Some developers will be frustrated by analysis techniques like cyclomatic complexity, but this tends to be a problem only when static analysis is implemented later in a project's development and large, complicated functions have formed organically.
 
 #### Unit Testing
 
-The team has landed on Jest as the primary tool for unit testing. Jest is easier to install, configure, and use than its primary competitor in the space, Mocha. Generally speaking, the burden of writing unit tests in Jest is very, very low. We should expect near-100% coverage of any code added or revised within the codebase. Over time, as well-covered code is added to the codebase, we should expect to be able to raise our coverage thresholds.
+The team has landed on **Jest** as the primary tool for unit testing. Jest is easier to install, configure, and use than its primary competitor in the space, Mocha. Generally speaking, the burden of writing unit tests in Jest is very, very low. We should expect near-100% coverage of any code added or revised within the codebase. Over time, as well-covered code is added to the codebase, we should expect to be able to raise our coverage thresholds.
 
-In my experience, mocking tends to be the most labor-intensive and irritating part of writing unit tests, but JavaScript's natural strengths and ease of techniques like monkey-patching can make this a lot more pleasant.
+In my experience, mocking tends to be the most labor-intensive and irritating part of writing unit tests, but JavaScript's natural strengths and ease of techniques like monkey-patching can make this a lot more pleasant.  Jest's spying and mocking systems are well-developed and should be easy to integrate.
+
+Jest can also incorporate **Axe** for simple accessibility tests.  If we regularly check accessibility in our unit tests for components, we can largely eliminate that from behavioral tests.
 
 #### Integration Testing
 
@@ -94,11 +96,11 @@ Integration Testing, as used in this document, is really "unit testing beyond th
 
 #### Test Coverage
 
-Coverage metrics helps us in a few ways. It gives us an objective figure we can use to describe the breadth of our automated test coverage, identifies areas where we're lacking tests, and can inform how we allocate our QA resources.
+Coverage metrics give us an objective figure we can use to describe the breadth of our automated test coverage, identify areas where we're lacking tests, and can inform how we allocate our QA resources.
 
 More coverage is generally better, although there may be diminishing returns to testing certain pieces of code due to factors like lack of complexity, the contexts in which that code is executed, etc.
 
-Coverage measurement and reporting is included in Jest via Istanbul. Istanbul measures code coverage for statements, branches, functions, and lines, and reports uncovered lines. Coverage can be configured via Jest's [`collectCoverageFrom`](https://jestjs.io/docs/configuration#collectcoveragefrom-array) and [`coverageThreshold`](https://jestjs.io/docs/configuration#coveragethreshold-object) options. The coverage thresholds should generally be set to about 2% under the current values, with the idea that these numbers will increase over time.
+Coverage measurement and reporting is included in Jest via Istanbul. Istanbul measures code coverage for statements, branches, functions, and lines, and reports uncovered lines. Coverage can be configured via Jest's [`collectCoverageFrom`](https://jestjs.io/docs/configuration#collectcoveragefrom-array) and [`coverageThreshold`](https://jestjs.io/docs/configuration#coveragethreshold-object) options. The coverage thresholds should generally be set to about 2-4% under the current values, with the idea that these numbers will increase over time but may dip very slightly in the course of work on a given PR.
 
 We should consider carefully before lowering code coverage thresholds. If we have a large section of code where coverage is substantially less or substantially more important, we should add a new path and thresholds to `collectCoverageFrom`, like so:
 
@@ -131,7 +133,7 @@ The general pattern for this is to add a new test which fails due to the defect,
 
 - **Behavioral Testing**: Insist on tests covering adherence to behavioral contracts. We must be able to confirm consistency of the end user experience without manual testing.
 
-- **Accessibility Testing**: We have a legal and moral responsibility to adhere to guidelines and best practices.
+- **Accessibility Testing**: We have a responsibility to adhere to guidelines and best practices.
 
 - **Load Testing**: Guard against performance regressions and identify bottlenecks before they cause issues.
 
@@ -141,7 +143,7 @@ This strategy uses **End-to-End** tests to cover complete code paths through the
 
 For instance, imagine we have a code path that 1) makes a request to the CMS for all navigational menus, 2) filters that data structure according to a supplied context, 3) processes that data structure to make it easier and more consistent for consumers to use, and 4) serializes that data structure in a new form. The output is probably quite easy to test programmatically. Does it adhere to a specified schema? Does it contain things we know it should not contain, or not contain things we know it should contain? Does it have a non-zero length? Do all items' paths match a specific regex?
 
-This sort of test is best performed using a system like Jest, and will benefit from the other tests and tooling already constructed to handle subsets of the code path in the form of unit tests, integration tests, etc. It will presumably be slower, because of the involvement of upstream servers. It is also likely to be less reliable. One way of handling this is to parameterize end-to-end tests so that they may use fixtures/snapshots or a raw response from the upstream server. This can make tests faster to perform locally, but runs the risk of permitting discrepancies between the expected and actual test dependencies.
+This sort of test is best performed using a system like **Jest**, and will benefit from the other tests and tooling already constructed to handle subsets of the code path in the form of unit tests, integration tests, etc. It will presumably be slower, because of the involvement of upstream servers. It is also likely to be less reliable. One way of handling this is to parameterize end-to-end tests so that they may use fixtures/snapshots or a raw response from the upstream server. This can make tests faster to perform locally, but runs the risk of permitting discrepancies between the expected and actual test dependencies.
 
 One approach would be to use fixtures for PR tests, but use raw responses in tests prior to packaging a release. This should improve speed and reliability of the automated tests while ensuring that only fully-compatible builds are packaged and released. (This concerns incompatibilities introduced unexpectedly from upstream; at any time, a developer can update these snapshots simply by running `jest -u`)
 
@@ -224,10 +226,10 @@ Developers bear the primary responsibility for maintaining and expanding test co
 A **Developer** MUST:
 
 - write tests at an appropriate level to automate correctness-checking for the code they create:
-  - unit tests to verify correctness of functions and objects
-  - integration tests to verify correctness of non-trivial systems of functions and objects
+  - unit tests to verify correctness of functions and objects, incorporating accessibility tests where appropriate
+  - integration tests to verify correctness of non-trivial systems of functions and objects, incorporating accessibility tests where appropriate
   - end-to-end tests to verify correctness of systems that have downstream consumers
-  - behavioral tests to verify correctness of user interfaces in browser environments
+  - behavioral tests to verify correctness of user interfaces in browser environments, if not sufficiently testable through another method
 - write a regression test, if warranted, to guard against the recurrence of a defect.
 - take into account testing when estimating tickets.
 
@@ -266,7 +268,7 @@ Consequently, I'll list some risk factors to this test strategy and discuss how 
 
 - **Developer Resistance**: A testing strategy is hard to get right. Issues with the strategy will manifest in increased developer resistance. The strategy must be treated as a first-class software product in its own right; bugs must be quickly addressed, communication must be open and honest, and overall quality has to be high. There's no real shortcut here. Indeed, most of the following risks impact the project at least partially through increasing developer resistance.
 
-- **High Barrier to Entry**: Learning _how_ to create tests is non-trivial and poses a significant additional frustration on top of that presented by development in general. It can't be eliminated, but we can reduce the burden by ensuring there's a simple test case covering each of the myriad patterns that the project will contain. For instance, tests for simple and complex algorithms, tests for React components demonstrating how rendering can be validated, tests snapshotting requests and responses to external services, etc.
+- **High Barrier to Entry**: Learning _how_ to create tests is non-trivial and poses a significant additional frustration on top of that presented by development in general. It can't be eliminated, but we can reduce the burden by ensuring there's a simple test case covering each of the myriad patterns that the project will contain. For instance, tests for simple and complex algorithms, tests for React components demonstrating how rendering can be validated and checked against accessibility guidelines, tests snapshotting requests and responses to external services, etc.
 
 - **Additional Cost**: Testing incurs additional costs in time and energy from developers and reviewers. This can be unwelcome, especially in the early phases of a project. As above, this can be remediated to some degree by providing examples, but it is also important to allocate sprint capacity for testing at both the level of the individual tasks and at the level of the team as a whole.
 
@@ -274,7 +276,7 @@ Consequently, I'll list some risk factors to this test strategy and discuss how 
 
 ## Concern Traceability Matrix
 
-This traceability matrix correlates the types of concerns we anticipate with the tactics we may use to address them. In most cases, multiple tactics may be used to address a single concern. For instance, a developer's confidence in the code they produce is linked to
+This traceability matrix correlates the types of concerns we anticipate with the tactics we may use to address them. In most cases, multiple tactics may be used to address a single concern.
 
 | Concern\Tactic         | Static Analysis | Linting | Code Style | Unit | Integration | Test Coverage | End-to-End | Behavioral | Accessibility | Learning | Boundary | Reporting/Logging | Load Testing |
 | ---------------------- | --------------- | ------- | ---------- | ---- | ----------- | ------------- | ---------- | ---------- | ------------- | -------- | -------- | ----------------- | ------------ |
@@ -288,7 +290,7 @@ This traceability matrix correlates the types of concerns we anticipate with the
 
 ## Tool Traceability Matrix
 
-The following is a traceability matrix correlating the types of tests we want to perform with the tools we may use to perform them. In some cases, multiple tools will be used to address a single type of test. For instance, TypeScript expands ESLint's ability to lint our code.
+The following is a traceability matrix correlating the types of tests we want to perform with the tools we may use to perform them. In some cases, multiple tools will be used to address a single type of test.
 
 | Type\Tool           | TypeScript | ESLint | Prettier | Jest | Cypress | DataDog |
 | ------------------- | ---------- | ------ | -------- | ---- | ------- | ------- |
