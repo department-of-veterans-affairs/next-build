@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import Link from 'next/link'
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
 
@@ -13,6 +14,7 @@ export const StaffProfiles = ({ paragraph }): JSX.Element => {
     field_description: fieldDescription,
     field_complete_biography_create: fieldCompleteBiographyCreate,
     field_media: fieldMedia,
+    field_entity: fieldEntity,
   } = paragraph.field_staff_profile
 
   const thumbnail = DEV_PATH + fieldMedia?.thumbnail?.uri?.url
@@ -51,12 +53,12 @@ export const StaffProfiles = ({ paragraph }): JSX.Element => {
             vads-u-font-size--md"
             >
               {fieldCompleteBiographyCreate ? (
-                <a className="bioLink" href="{{ bio.entityUrl.path }}">
+                <a className="bioLink" href={fieldEntity?.entityUrl.path}>
                   {fieldFirstName} {fieldLastName} {fieldSuffix}
                 </a>
               ) : (
                 <span>
-                  {fieldFirstName} {fieldLastName} {fieldSuffix}
+                  {fieldFirstName} {fieldLastName} {fieldSuffix}{' '}
                 </span>
               )}
             </p>
@@ -73,7 +75,7 @@ export const StaffProfiles = ({ paragraph }): JSX.Element => {
                 vads-u-margin-bottom--1"
               >
                 <span className="vads-u-font-weight--bold">Phone: </span>
-                <a href="tel:{{ fieldPhoneNumber }}">{fieldPhoneNumber}</a>
+                <a href={`tel:${fieldPhoneNumber}`}>{fieldPhoneNumber}</a>
               </p>
             )}
             {fieldEmailAddress && (
@@ -83,7 +85,11 @@ export const StaffProfiles = ({ paragraph }): JSX.Element => {
               vads-u-margin-bottom--1"
               >
                 <span className="vads-u-font-weight--bold">Email: </span>
-                <a target="blank" href="mailto:{{ fieldEmailAddress }}">
+                <a
+                  href={`mailto:${fieldEmailAddress}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {fieldEmailAddress}
                 </a>
               </p>

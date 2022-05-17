@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalNode } from 'next-drupal'
@@ -17,7 +16,7 @@ const ButtonPage = ({ buttons }: ButtonPageProps) => {
     <>
       <Container className="container">
         {buttons.map((paragraph) => (
-          <Button key={uuidv4()} paragraph={paragraph} />
+          <Button key={paragraph.id} paragraph={paragraph} />
         ))}
       </Container>
     </>
