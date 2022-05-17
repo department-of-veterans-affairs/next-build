@@ -42,6 +42,7 @@ export type NodeTypes =
   | NodeFaqMultipleQA
   | NodeHealthCareLocalFacility
   | NodeLandingPage
+  | NodeNewsStory
   | NodeOffice
   | NodePersonProfile
   | NodePromoBanner
