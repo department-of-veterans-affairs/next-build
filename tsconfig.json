@@ -37,5 +37,11 @@
     "**/*.js",
     "**/*.jsx"
   ],
-  "exclude": ["node_modules", "cypress", "./src/__tests__"]
+  "exclude": ["node_modules", "cypress", "./src/__tests__"],
+  "typedocOptions": {
+    "entryPoints": ["src/"],
+    "out": "docs",
+    "entryPointStrategy": "expand",
+    "readme": "none"
+  }
 }

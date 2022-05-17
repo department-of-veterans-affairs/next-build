@@ -1,5 +1,6 @@
+import * as React from 'react'
 import { Meta as NewsStoryMeta } from '@/components/node/news_story'
-import { NodeTypes } from '@/types/node'
+import { NodeBasicLandingPage, NodeNewsStory, NodeTypes } from '@/types/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** General NodeProps to pass nodes into node components. */

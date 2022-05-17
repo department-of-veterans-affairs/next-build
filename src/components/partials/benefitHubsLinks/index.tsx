@@ -1,5 +1,5 @@
 // Noting that landing_page is Benefits Hub Landing Page.
-import BenefitsHubLink from '@/components/node/landing_page'
+import { BenefitsHubLink } from '@/components/node/landing_page'
 
 // Partial outputting a list of benefits related to a given page. Typically used
 // on a resource page.
