@@ -34,6 +34,15 @@ const media = {
       width: '456',
     },
   },
+  drupal_internal__mid: 'string',
+  drupal_internal__vid: 'string',
+  changed: 'string',
+  created: 'string',
+  name: 'string',
+  id: 'string',
+  type: 'string',
+  langcode: 'string',
+  status: true,
 }
 
 describe('Media Image component renders with valid data', () => {

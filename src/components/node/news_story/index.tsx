@@ -5,8 +5,11 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /** These component includes are specific to this component. */
 import { MediaImage } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
-import { NodeNewsStory } from '@/types/node'
+import { NodeNewsStory, NodeTypes } from '@/types/node'
 
+/**
+ * These components expect NodeNewsStory as their input.
+ */
 type NodeNewsStoryProps = {
   node: NodeNewsStory
   viewMode?: string

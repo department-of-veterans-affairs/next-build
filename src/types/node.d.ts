@@ -42,6 +42,7 @@ export type NodeTypes =
   | NodeFaqMultipleQA
   | NodeHealthCareLocalFacility
   | NodeLandingPage
+  | NodeNewsStory
   | NodeOffice
   | NodePersonProfile
   | NodePromoBanner
@@ -52,8 +53,8 @@ export type NodeTypes =
   | NodeSupportResourcesDetailPage
   | NodeSupportService
 
-// Several resource node types share fields.
-export type NodeAbstractResource = DrupalNode & {
+/** Shared type structure for resource nodes. */
+export interface NodeAbstractResource extends DrupalNode {
   field_other_categories: TaxonomyTermLcCategories[]
   field_alert_single: ParagraphAlertSingle
   field_buttons: ParagraphButton[]
@@ -65,14 +66,14 @@ export type NodeAbstractResource = DrupalNode & {
   field_related_benefit_hubs: NodeLandingPage[]
 }
 
-export type NodeBanner = DrupalNode & {
+export interface NodeBanner extends DrupalNode {
   field_alert_type: string
   body: FieldFormattedTextWithSummary
   field_target_paths: string[]
   field_dismissible_option: string
 }
 
-export type NodeBasicLandingPage = DrupalNode & {
+export interface NodeBasicLandingPage extends DrupalNode {
   field_table_of_contents_boolean: boolean
   field_content_block: (
     | ParagraphWysiwyg
@@ -86,13 +87,13 @@ export type NodeBasicLandingPage = DrupalNode & {
   field_intro_text_limited_html: FieldFormattedText
 }
 
-export type NodeFaqMultipleQA = NodeAbstractResource & {
+export interface NodeFaqMultipleQA extends NodeAbstractResource {
   field_q_a_groups: ParagraphQAGroup[]
   field_table_of_content_boolean: boolean
   field_buttons_repeat: boolean
 }
 
-export type NodeHealthCareLocalFacility = DrupalNode & {
+export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_address: FieldAddress
   field_facility_classification: string
   field_operating_status_more_info: string
@@ -112,7 +113,7 @@ export type NodeHealthCareLocalFacility = DrupalNode & {
   field_region_page: NodeHealthCareRegionPage
 }
 
-export type NodeHealthCareLocalHealthService = DrupalNode & {
+export interface NodeHealthCareLocalHealthService extends DrupalNode {
   field_hservice_appt_intro_select: string
   field_hservice_appt_leadin: string
   field_walk_ins_accepted: string
@@ -123,7 +124,7 @@ export type NodeHealthCareLocalHealthService = DrupalNode & {
   field_service_location: ParagraphServiceLocation[]
   field_regional_health_service: NodeRegionalHealthCareServiceDes
 }
-export type NodeHealthCareRegionPage = DrupalNode & {
+export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
   field_media: MediaImage
   field_related_links: ParagraphListOfLinks
@@ -143,7 +144,7 @@ export type NodeHealthCareRegionPage = DrupalNode & {
   field_vamc_system_official_name: string
 }
 
-export type NodeLandingPage = DrupalNode & {
+export interface NodeLandingPage extends DrupalNode {
   field_related_office: NodeOffice
   field_alert: BlockAlert
   field_title_icon: string
@@ -160,18 +161,32 @@ export type NodeLandingPage = DrupalNode & {
   field_support_services: NodeSupportService[]
 }
 
-export type NodeNewsStory = DrupalNode & {
+/**
+ * An individual story published by a Facility.
+ *
+ * @see https://prod.cms.va.gov/admin/structure/types/manage/news_story/fields */
+export interface NodeNewsStory extends DrupalNode {
+  /** The credited author of the story. {@link NodePersonProfile} */
   field_author: NodePersonProfile
+  /** The primary story text. */
   field_full_story: FieldFormattedText
+  /** Caption for the attached image. */
   field_image_caption: string
+  /** Whether this story is floated to the top of its listing. */
   field_featured: boolean
+  /** Lede text that is printed larger. */
   field_intro_text: string
+  /** An attached image for the story. */
   field_media: MediaImage
+  /** Where in the story listing this story should display. */
   field_order: number
+  /** Which Story Listing page this story should display on. */
   field_listing: NodeStoryListing
+  /** When the node was created. */
+  created: string
 }
 
-export type NodeOffice = DrupalNode & {
+export interface NodeOffice extends DrupalNode {
   field_body: string
   field_email_updates_link: FieldLink
   field_external_link: FieldLink
@@ -182,7 +197,8 @@ export type NodeOffice = DrupalNode & {
   field_social_media_links: FieldSocialMediaLinks
 }
 
-export type NodePersonProfile = DrupalNode & {
+/** A representation of a staff member of the VA or a VA facility. */
+export interface NodePersonProfile extends DrupalNode {
   field_body: string
   field_complete_biography: DrupalFile
   field_complete_biography_create: boolean
@@ -198,36 +214,36 @@ export type NodePersonProfile = DrupalNode & {
   field_suffix: string
 }
 
-export type NodePromoBanner = DrupalNode & {
+export interface NodePromoBanner extends DrupalNode {
   field_target_paths: string[]
   field_promo_type: string
   field_link: FieldLink
 }
 
-export type NodeQA = NodeAbstractResource & {
+export interface NodeQA extends NodeAbstractResource {
   field_answer: ParagraphRichTextCharLimit1000
   field_standalone_page: boolean
   field_q_a_groups: ParagraphQAGroup[]
 }
 
-export type NodeRegionalHealthCareServiceDes = NodeAbstractResource & {
+export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy[] //@todo
   field_region_page: NodeHealthCareRegionPage
   field_body: string
 }
-export type NodeStepByStep = NodeAbstractResource & {
+export interface NodeStepByStep extends NodeAbstractResource {
   field_buttons_repeat: boolean
   field_steps: ParagraphStepByStep[]
 }
 
-export type NodeStoryListing = DrupalNode & {
+export interface NodeStoryListing extends DrupalNode {
   field_description: string
   field_office: NodeOffice | NodeHealthCareRegionPage
   field_intro_text: string
 }
 
-export type NodeSupportResourcesDetailPage = NodeAbstractResource & {
+export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
   field_table_of_content_boolean: boolean
   field_content_block: (
     | ParagraphWysiwyg
@@ -238,7 +254,7 @@ export type NodeSupportResourcesDetailPage = NodeAbstractResource & {
   field_buttons_repeat: boolean
 }
 
-export type NodeSupportService = DrupalNode & {
+export interface NodeSupportService extends DrupalNode {
   field_link: FieldLink
   field_phone_number: string
   field_office: NodeOffice

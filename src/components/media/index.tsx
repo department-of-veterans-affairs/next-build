@@ -1,5 +1,5 @@
 import Image from '@/components/image'
-import { DrupalFile } from 'next-drupal'
+import { DrupalFile, DrupalMedia } from 'next-drupal'
 import { absoluteURL } from '@/utils/utils'
 
 interface ImageProps {
@@ -12,7 +12,7 @@ interface ImageProps {
 }
 
 interface MediaProps {
-  media: DrupalFile
+  media: DrupalMedia
   imageStyle: string
 }
 
@@ -29,7 +29,7 @@ export function formatImage(file: DrupalFile): ImageProps {
 
 export const MediaImage = ({ media, imageStyle }: MediaProps) => {
   if (!media) return null
-  const { styles, url, alt, title, width, height } = formatImage(media)
+  const { styles, url, alt, title, width, height } = formatImage(media.image)
 
   if (!imageStyle) imageStyle = 'full_content_width'
 
