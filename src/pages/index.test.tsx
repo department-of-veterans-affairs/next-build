@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import HomePage from '../pages/index'
+import HomePage from './'
 import '@testing-library/jest-dom'
 
 // HomePage renders without crashing
