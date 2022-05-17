@@ -1,14 +1,7 @@
 import Link from 'next/link'
+import { ParagraphButton } from '@/types/paragraph'
 
-interface ButtonProps {
-  paragraph: object
-  field_button_label: string
-  field_button_link: {
-    uri: string
-  }
-}
-
-function isRequestValid(paragraph: ButtonProps) {
+function isRequestValid(paragraph: ParagraphButton) {
   return paragraph?.field_button_label && paragraph?.field_button_link?.uri
 }
 

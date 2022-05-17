@@ -1,0 +1,49 @@
+import { drupalClient } from '@/utils/drupalClient'
+import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
+import { DrupalNode } from 'next-drupal'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import Container from '@/components/container'
+import ExpandableText from '@/components/paragraph/expandable_text'
+
+interface ExpandableTextPageProps {
+  expandableTextCollection: DrupalNode[]
+}
+
+const ExpandableTextPage = ({
+  expandableTextCollection,
+}: ExpandableTextPageProps) => {
+  if (!expandableTextCollection) expandableTextCollection = []
+
+  return (
+    <>
+      <Container className="container">
+        {expandableTextCollection.map((paragraph) => (
+          <ExpandableText key={paragraph.id} paragraph={paragraph} />
+        ))}
+      </Container>
+    </>
+  )
+}
+
+export default ExpandableTextPage
+
+export async function getStaticProps(
+  context: GetStaticPropsContext
+): Promise<GetStaticPropsResult<ExpandableTextPageProps>> {
+  const params = new DrupalJsonApiParams()
+  params.addPageLimit(20)
+
+  const expandableTextCollection =
+    await drupalClient.getResourceCollectionFromContext<DrupalNode[]>(
+      'paragraph--expandable_text',
+      context,
+      {
+        params: params.getQueryObject(),
+      }
+    )
+  return {
+    props: {
+      expandableTextCollection: expandableTextCollection || null,
+    },
+  }
+}
