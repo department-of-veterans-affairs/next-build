@@ -53,7 +53,7 @@ export const PersonProfile = ({ node }): JSX.Element => {
             {fieldEmailAddress && (
               <p className="vads-u-font-size--lg vads-u-margin-bottom--0p5">
                 <span className="vads-u-font-weight--bold">Email: </span>
-                <a target="blank" href="mailto:{{ fieldEmailAddress }}">
+                <a target="blank" href={`mailto:${fieldEmailAddress}`}>
                   {fieldEmailAddress}
                 </a>
               </p>
@@ -66,7 +66,7 @@ export const PersonProfile = ({ node }): JSX.Element => {
                 vads-u-margin-bottom--0p5"
               >
                 <span className="vads-u-font-weight--bold">Phone: </span>
-                <a href="tel:{{ fieldPhoneNumber }}">{fieldPhoneNumber}</a>
+                <a href={`tel:${fieldPhoneNumber}`}>{fieldPhoneNumber}</a>
               </p>
             )}
           </div>
@@ -136,7 +136,7 @@ export const StaffNewsProfile = ({ node }): JSX.Element => {
 
 export const StaffProfile = ({ paragraph }) => {
   return (
-    <div key={uuidv4()}>
+    <div key={paragraph.id}>
       <h3>Staff Profile</h3>
       <StaffProfiles paragraph={paragraph} />
     </div>

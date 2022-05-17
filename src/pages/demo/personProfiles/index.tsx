@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalNode } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
@@ -23,7 +22,7 @@ const PersonProfilePage = ({
       <Container className="container">
         {personProfiles
           ? personProfiles.map((node) => (
-              <div key={uuidv4()}>
+              <div key={node.id}>
                 <PersonProfile node={node} />
                 <StaffNewsProfile node={node} />
               </div>
@@ -32,7 +31,7 @@ const PersonProfilePage = ({
 
         {staffProfiles
           ? staffProfiles.map((paragraph) => (
-              <div key={uuidv4()}>
+              <div key={paragraph.id}>
                 <StaffProfile paragraph={paragraph} />
               </div>
             ))
