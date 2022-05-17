@@ -7,16 +7,17 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write .",
-    "format:check": "prettier --list-different .",
     "lint": "next lint",
     "postinstall": "husky install",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
     "test:ci": "jest --ci --coverage",
+    "test:coverage": "jest --coverage",
     "test:cypress": "cypress run -e \"TAGS=not @ignore\"",
     "test:cypress:interactive": "cypress open -e \"TAGS=not @ignore\"",
-    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch"
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
+    "test:format": "prettier --list-different .",
+    "test:types": "tsc --noEmit",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@department-of-veterans-affairs/component-library": "^8.5.0",

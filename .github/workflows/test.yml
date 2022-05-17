@@ -21,13 +21,13 @@ jobs:
         run: yarn install
 
       - name: Check TypeScript
-        run: yarn tsc --noEmit
+        run: yarn test:types
 
       - name: Run Lint
         run: yarn lint
 
       - name: Check format
-        run: yarn format:check
+        run: yarn test:format
 
       - name: Run tests with jest
         run: yarn test:ci
