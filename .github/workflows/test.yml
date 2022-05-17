@@ -32,7 +32,6 @@ jobs:
       - name: Run tests with jest
         run: yarn test:ci
 
-
       # - name: Cypress.io
       #   uses: cypress-io/github-action@v2
       #   with:
