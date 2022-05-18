@@ -86,9 +86,9 @@ Static testing generally poses little risk or frustration, provided that the tea
 
 The team has landed on **Jest** as the primary tool for unit testing. Jest is easier to install, configure, and use than its primary competitor in the space, Mocha. Generally speaking, the burden of writing unit tests in Jest is very, very low. We should expect near-100% coverage of any code added or revised within the codebase. Over time, as well-covered code is added to the codebase, we should expect to be able to raise our coverage thresholds.
 
-In my experience, mocking tends to be the most labor-intensive and irritating part of writing unit tests, but JavaScript's natural strengths and ease of techniques like monkey-patching can make this a lot more pleasant.  Jest's spying and mocking systems are well-developed and should be easy to integrate.
+In my experience, mocking tends to be the most labor-intensive and irritating part of writing unit tests, but JavaScript's natural strengths and ease of techniques like monkey-patching can make this a lot more pleasant. Jest's spying and mocking systems are well-developed and should be easy to integrate.
 
-Jest can also incorporate **Axe** for simple accessibility tests.  If we regularly check accessibility in our unit tests for components, we can largely eliminate that from behavioral tests.
+Jest can also incorporate **Axe** for simple accessibility tests. If we regularly check accessibility in our unit tests for components, we can largely eliminate that from behavioral tests.
 
 #### Integration Testing
 

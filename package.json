@@ -15,7 +15,7 @@
     "test:cypress": "cypress run -e \"TAGS=not @ignore\"",
     "test:cypress:interactive": "cypress open -e \"TAGS=not @ignore\"",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
-    "test:format": "prettier --list-different .",
+    "test:format": "prettier --check .",
     "test:types": "tsc --noEmit",
     "test:watch": "jest --watch"
   },
