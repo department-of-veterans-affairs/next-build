@@ -1,3 +1,17 @@
+/**
+ * ### Overview
+ * News Story represents an individual story within a Facility. These are used for human-interest articles.
+ *
+ * News Story expects nodes of type {@link NodeNewsStory}.
+ *
+ * ### View modes
+ * Full page: {@link NewsStoryFull}
+ *
+ * ### Examples
+ * @see https://va.gov/pittsburgh-health-care/stories/we-honor-outstanding-doctors
+ *
+ */
+
 /** These types/packages will import into all node components. */
 import { NodeMetaInfo } from '@/components/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
@@ -5,8 +19,11 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /** These component includes are specific to this component. */
 import { MediaImage } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
-import { NodeNewsStory } from '@/types/node'
+import { NodeNewsStory, NodeTypes } from '@/types/node'
 
+/**
+ * These components expect NodeNewsStory as their input.
+ */
 type NodeNewsStoryProps = {
   node: NodeNewsStory
   viewMode?: string
@@ -82,6 +99,9 @@ const params = new DrupalJsonApiParams().addInclude([
   'field_media.image',
   'field_author',
 ])
+/** Export information necessary to identify the component and query it.
+ * See {@link NodeMetaInfo}
+ */
 export const Meta: NodeMetaInfo = {
   resource: 'node--news_story',
   component: NewsStory,
