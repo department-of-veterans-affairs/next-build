@@ -43,3 +43,11 @@ There are JSDoc and Typedoc tags that you can use to augment your annotations:
 
 - [Typedoc tag documentation](https://typedoc.org/guides/doccomments/)
 - [JSDoc documentation](https://jsdoc.app/)
+
+Typedoc docs can be generated at any time:
+
+```
+yarn typedoc
+```
+
+This will output the docs to `docs/` at the root of the repository. @todo figure out what this looks like from a CI perspective, etc.
