@@ -1,13 +1,13 @@
 import { v4 as uuidv4 } from 'uuid'
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalNode } from 'next-drupal'
+import { DrupalParagraph } from 'next-drupal'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import Button from '@/components/paragraph/button'
 
 interface ButtonPageProps {
-  buttons: DrupalNode[]
+  buttons: DrupalParagraph[]
 }
 
 const ButtonPage = ({ buttons }: ButtonPageProps) => {
@@ -33,7 +33,7 @@ export async function getStaticProps(
   params.addPageLimit(30)
 
   const buttons = await drupalClient.getResourceCollectionFromContext<
-    DrupalNode[]
+    DrupalParagraph[]
   >('paragraph--button', context, {
     params: params.getQueryObject(),
   })

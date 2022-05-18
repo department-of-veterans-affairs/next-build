@@ -1,12 +1,12 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalNode } from 'next-drupal'
+import { DrupalParagraph } from 'next-drupal'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import ExpandableText from '@/components/paragraph/expandable_text'
 
 interface ExpandableTextPageProps {
-  expandableTextCollection: DrupalNode[]
+  expandableTextCollection: DrupalParagraph[]
 }
 
 const ExpandableTextPage = ({
@@ -34,7 +34,7 @@ export async function getStaticProps(
   params.addPageLimit(20)
 
   const expandableTextCollection =
-    await drupalClient.getResourceCollectionFromContext<DrupalNode[]>(
+    await drupalClient.getResourceCollectionFromContext<DrupalParagraph[]>(
       'paragraph--expandable_text',
       context,
       {
