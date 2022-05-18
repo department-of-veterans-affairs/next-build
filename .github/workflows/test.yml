@@ -20,8 +20,8 @@ jobs:
       - name: Install Npm Dependencies
         run: yarn install
 
-      - name: Check TypeScript
-        run: yarn test:types
+      # - name: Check TypeScript
+      #   run: yarn test:types
 
       - name: Run Lint
         run: yarn lint
