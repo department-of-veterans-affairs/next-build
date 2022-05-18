@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { recordEvent } from '@/utils/recordEvent'
+import { ParagraphEmailContact } from '@/types/paragraph'
 
-function isRequestValid(paragraph: any) {
+function isRequestValid(paragraph: ParagraphEmailContact) {
   return (
     paragraph.field_email_label !== null &&
     paragraph.field_email_address !== null

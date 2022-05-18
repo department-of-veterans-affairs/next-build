@@ -53,6 +53,7 @@ describe('EmailContact with invalid data', () => {
 
   test('does not render EmailContact component when label is not present', () => {
     paragraph.field_email_label = null
+    paragraph.field_email_address = 'test.veteran@va.gov'
     render(<EmailContact paragraph={paragraph} />)
 
     expect(
@@ -62,6 +63,7 @@ describe('EmailContact with invalid data', () => {
   })
 
   test('does not render EmailContact component when email address is not present', () => {
+    paragraph.field_email_label = 'Test'
     paragraph.field_email_address = null
     console.log('paragraph ', paragraph)
     render(<EmailContact paragraph={paragraph} />)
