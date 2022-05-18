@@ -11,6 +11,7 @@ const paragraph = {
   field_button_label: 'Sign in now',
   field_button_link: {
     uri: 'https://www.va.gov/?next=sign-in-faq',
+    title: 'test',
   },
 }
 
@@ -40,6 +41,7 @@ describe('Button with invalid data', () => {
     paragraph.field_button_label = null
     paragraph.field_button_link = {
       uri: 'https://www.va.gov/?next=sign-in-faq',
+      title: 'test',
     }
     render(<Button paragraph={paragraph} />)
 
@@ -48,6 +50,17 @@ describe('Button with invalid data', () => {
 
   test('does not render Button component when link is not present', () => {
     paragraph.field_button_link = null
+    paragraph.field_button_label = 'Sign in now'
+    render(<Button paragraph={paragraph} />)
+
+    expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
+  })
+
+  test('does not render Button component when uri is not present', () => {
+    paragraph.field_button_link = {
+      uri: null,
+      title: 'test',
+    }
     paragraph.field_button_label = 'Sign in now'
     console.log('paragraph ', paragraph)
     render(<Button paragraph={paragraph} />)

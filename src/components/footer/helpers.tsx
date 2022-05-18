@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const FOOTER_COLUMNS = {
   PROGRAMS: '1',
   RESOURCES: '2',
@@ -27,13 +29,13 @@ export const FOOTER_CONTENT = {
 }
 
 export const renderColumns = (columnLinks) => {
-  const render = columnLinks.map((column) => {
+  const render = columnLinks.map((column, index) => {
     return (
-      <>
+      <React.Fragment key={index}>
         <ul className="va-footer-links">
           {column.links.map((link) => {
             return (
-              <li key={link.title}>
+              <li key={link.title + link.href}>
                 <span className="va-footer-link-text">
                   <a href={link.href}>{link.title}</a>
                 </span>
@@ -41,7 +43,7 @@ export const renderColumns = (columnLinks) => {
             )
           })}
         </ul>
-      </>
+      </React.Fragment>
     )
   })
   return render

@@ -21,6 +21,11 @@
   ],
   "parser": "@typescript-eslint/parser",
   "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "test"]
+      }
+    },
     "react": {
       "version": "detect"
     }
@@ -47,7 +52,8 @@
           "**/*.test.ts",
           "src/test-utils.tsx",
           "src/setupTests.ts",
-          "src/mocks/*"
+          "src/mocks/*",
+          "test/*"
         ]
       }
     ]
