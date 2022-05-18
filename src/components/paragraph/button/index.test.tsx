@@ -62,7 +62,6 @@ describe('Button with invalid data', () => {
       title: 'test',
     }
     paragraph.field_button_label = 'Sign in now'
-    console.log('paragraph ', paragraph)
     render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()

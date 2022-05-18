@@ -1,61 +1,65 @@
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import '@testing-library/jest-dom'
-import { MediaImage } from '.'
+import { MediaImageComponent } from '.'
 
 // Language: typescript
 // Path: src/components/media/index.test.tsx
 
-const media = {
-  image: {
-    uri: {
-      url: '/sites/default/files/hub_promos/pension.png',
-    },
-    links: {
-      full_content_width: {
-        href: 'https://prod.cms.va.gov/sites/default/files/styles/full_content_width/public/hub_promos/pension.png',
-        meta: {
-          height: '304',
-          width: '456',
+const data = {
+  media: {
+    type: 'media--image',
+    url: 'https://www.example.com/image.jpg',
+    id: '1',
+    imageStyle: 'string',
+    image: {
+      uri: {
+        url: 'https://www.example.com/image.jpg',
+      },
+      resourceIdObjMeta: {
+        alt: 'pension',
+        height: '100',
+        title: 'title',
+        width: '100',
+      },
+      links: {
+        '1_1_square_medium_thumbnail': {
+          href: 'https://www.example.com/image.jpg',
+          meta: {
+            height: '100',
+            width: '100',
+          },
         },
       },
-      large: {
-        href: 'https://prod.cms.va.gov/sites/default/files/styles/large/public/hub_promos/pension.png',
-        meta: {
-          height: '304',
-          width: '456',
-        },
-      },
-    },
-    resourceIdObjMeta: {
-      alt: 'pension',
-      title: 'pension',
-      height: '304',
-      width: '456',
     },
   },
 }
 
 describe('Media Image component renders with valid data', () => {
   test('<MediaImage> renders', () => {
-    render(<MediaImage media={media} imageStyle="full_content_width" />)
+    render(
+      <MediaImageComponent
+        image={data?.media}
+        imageStyle="full_content_width"
+      />
+    )
     expect(screen.getByAltText('pension')).toBeInTheDocument()
   })
 })
 
 describe('Media Image renders correct image imageStyle prop', () => {
   test('<MediaImage> does not render', () => {
-    render(<MediaImage media={null} imageStyle="full_content_width" />)
+    render(<MediaImageComponent image={null} imageStyle="full_content_width" />)
     expect(screen.queryByAltText('pension')).not.toBeInTheDocument()
   })
 
   test('MediaImage renders with no image style', () => {
-    render(<MediaImage media={media} imageStyle={null} />)
+    render(<MediaImageComponent image={data?.media} imageStyle={null} />)
     expect(screen.queryByAltText('pension')).toBeInTheDocument()
   })
 
   test('MediaImage renders with large image', () => {
-    render(<MediaImage media={media} imageStyle="large" />)
+    render(<MediaImageComponent image={data?.media} imageStyle="large" />)
     expect(screen.queryByAltText('pension')).toBeInTheDocument()
   })
 })

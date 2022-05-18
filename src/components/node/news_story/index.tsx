@@ -17,7 +17,7 @@ import { NodeMetaInfo } from '@/components/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** These component includes are specific to this component. */
-import { MediaImage } from '@/components/media'
+import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory, NodeTypes } from '@/types/node'
 
@@ -47,7 +47,10 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
             <div className="usa-width-three-fourths">
               <article className="usa-content">
                 <h1>{node.title}</h1>
-                <MediaImage media={node.field_media} imageStyle={'2_1_large'} />
+                <MediaImageComponent
+                  image={node.field_media}
+                  imageStyle={'2_1_large'}
+                />
                 <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                   {node.field_image_caption}
                 </div>

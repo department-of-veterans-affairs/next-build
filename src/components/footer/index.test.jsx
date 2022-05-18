@@ -1,12 +1,4 @@
-import { clearScreenDown } from 'readline'
-import {
-  axe,
-  faker,
-  render,
-  screen,
-  toHaveAttribute,
-  waitFor,
-} from 'test-utils'
+import { axe, faker, render, waitFor } from 'test-utils'
 import 'window-matchmedia-polyfill'
 import Footer from '.'
 

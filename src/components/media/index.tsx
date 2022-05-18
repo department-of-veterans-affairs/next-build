@@ -1,7 +1,6 @@
 import Image from '@/components/image'
-import { DrupalFile } from 'next-drupal'
+import { DrupalMedia } from 'next-drupal'
 import { absoluteURL } from '@/utils/utils'
-import { privateEncrypt } from 'crypto'
 
 interface ImageProps {
   url: string
@@ -13,26 +12,25 @@ interface ImageProps {
 }
 
 interface MediaProps {
-  media: DrupalFile
-  imageStyle: string
+  image: DrupalMedia
 }
 
-export function formatImage(file: DrupalFile): ImageProps {
+export function formatImage(file: MediaProps): ImageProps {
+  if (!file) return null
   return {
-    url: absoluteURL(file?.image?.uri?.url),
-    styles: file?.image?.links,
-    alt: file?.image?.resourceIdObjMeta?.alt,
-    title: file?.image?.resourceIdObjMeta?.title,
-    width: file?.image?.resourceIdObjMeta?.width,
-    height: file?.image?.resourceIdObjMeta?.height,
+    url: absoluteURL(file.image?.uri?.url),
+    styles: file.image?.links || 'full_content_width',
+    alt: file.image?.resourceIdObjMeta?.alt,
+    title: file.image?.resourceIdObjMeta?.title,
+    width: file.image?.resourceIdObjMeta?.width,
+    height: file.image?.resourceIdObjMeta?.height,
   }
 }
 
-export const MediaImage = ({ media, imageStyle }: MediaProps) => {
-  if (!media) return null
-  const { styles, url, alt, title, width, height } = formatImage(media)
+export const MediaImageComponent = ({ image, imageStyle }) => {
+  if (!image) return null
 
-  if (!imageStyle) imageStyle = 'full_content_width'
+  const { styles, url, alt, title, width, height } = formatImage(image)
 
   const imageStyles = {
     url: styles[imageStyle]?.href,
@@ -42,11 +40,11 @@ export const MediaImage = ({ media, imageStyle }: MediaProps) => {
 
   return (
     <Image
-      src={imageStyles ? imageStyles.url : url}
-      alt={alt}
-      title={title}
-      width={imageStyles ? imageStyles.width : width}
-      height={imageStyles ? imageStyles.height : height}
+      src={imageStyles?.url || url}
+      alt={alt || ''}
+      title={title || ''}
+      width={imageStyles?.width || width}
+      height={imageStyles?.height || height}
     />
   )
 }
