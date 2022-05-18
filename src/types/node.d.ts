@@ -197,20 +197,36 @@ export interface NodeOffice extends DrupalNode {
   field_social_media_links: FieldSocialMediaLinks
 }
 
-/** A representation of a staff member of the VA or a VA facility. */
+/** A representation of a staff member of the VA or a VA facility.
+ *
+ *  @see https://prod.cms.va.gov/admin/structure/types/manage/person_profile/fields
+ */
 export interface NodePersonProfile extends DrupalNode {
+  /** The bio text displayed on the page. */
   field_body: string
+  /** A PDF containing an official biography for distribution. */
   field_complete_biography: DrupalFile
+  /** Whether to create a biography. */
   field_complete_biography_create: boolean
+  /** The email address of the person. */
   field_email_address: string
+  /** First name. */
   field_name_first: string
+  /** Introductory text. */
   field_intro_text: string
+  /** Whether this person's photo is allowed to be downloaded. */
   field_photo_allow_hires_download: boolean
+  /** A brief description of this person's role. */
   field_description: string
+  /** Last name. */
   field_last_name: string
+  /** Phone number. */
   field_phone_number: string
+  /** A photo of the person. */
   field_media: MediaImage
+  /** The office or facility which this person is associated with. */
   field_office: NodeOffice | NodeHealthCareRegionPage
+  /** Any honorific suffix, i.e. MD, LCSW, PhD, etc. */
   field_suffix: string
 }
 

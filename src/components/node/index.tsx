@@ -9,10 +9,29 @@ interface NodeProps {
   viewMode?: string
 }
 
-/** We expect each Node component to define and export information about itself to help with discoverability. */
+/** Each Node component must export a NodeMetaInfo object `Meta`. This information helps next-build associate Drupal resource types with information for rendering them.
+ *
+ * Example, from {@link NewsStory}:
+ * ```
+ const params = new DrupalJsonApiParams().addInclude([
+    'field_media',
+    'field_media.image',
+    'field_author',
+])
+
+export const Meta: NodeMetaInfo = {
+  resource: 'node--news_story',
+  component: NewsStory,
+  params: params,
+}
+ * ```
+ */
 export interface NodeMetaInfo {
+  /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
   resource: string
+  /** The component responsible for rendering or delegating rendering this data object. */
   component: ({ node, viewMode, ...props }: NodeProps) => JSX.Element
+  /** A DrupalJsonApiParams object containing information necessary for the API query for this data object. */
   params: DrupalJsonApiParams
 }
 

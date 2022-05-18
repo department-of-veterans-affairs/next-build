@@ -16,7 +16,7 @@ interface MediaProps {
   imageStyle: string
 }
 
-export function formatImage(file: DrupalFile): ImageProps {
+export function formatImage(file: DrupalMedia): ImageProps {
   return {
     url: absoluteURL(file?.image?.uri?.url),
     styles: file?.image?.links,
@@ -29,10 +29,9 @@ export function formatImage(file: DrupalFile): ImageProps {
 
 export const MediaImage = ({ media, imageStyle }: MediaProps) => {
   if (!media) return null
-  const { styles, url, alt, title, width, height } = formatImage(media.image)
+  const { styles, url, alt, title, width, height } = formatImage(media)
 
   if (!imageStyle) imageStyle = 'full_content_width'
-
   const imageStyles = {
     url: styles[imageStyle]?.href,
     height: styles[imageStyle]?.meta?.height,
