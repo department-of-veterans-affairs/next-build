@@ -1,11 +1,16 @@
 module.exports = {
   // Type check TypeScript files
-  '**/*.(ts|tsx)': () => 'yarn tsc --noEmit',
+  '**/*.(ts|tsx)': () => 'yarn test:types',
 
   // Lint then format TypeScript and JavaScript files
-  '**/*.(ts|tsx|js)': (filenames) => [
+  '**/*.(ts|tsx|js|jsx)': (filenames) => [
     `yarn eslint --fix ${filenames.join(' ')}`,
     `yarn prettier --write ${filenames.join(' ')}`,
+  ],
+
+  // Run unit tests relating to modified files
+  '**/*.(ts|tsx|js|jsx)': (filenames) => [
+    `jest --findRelatedTests ${filenames.join(' ')}`,
   ],
 
   // Format MarkDown and JSON

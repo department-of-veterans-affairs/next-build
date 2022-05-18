@@ -2,10 +2,8 @@ name: CI - Test
 on:
   push:
     branches:
-      - '*'
+      - 'main'
   pull_request:
-    branches:
-      - '*'
 
 jobs:
   test:
@@ -22,8 +20,14 @@ jobs:
       - name: Install Npm Dependencies
         run: yarn install
 
+      # - name: Check TypeScript
+      #   run: yarn test:types
+
       - name: Run Lint
         run: yarn lint
+
+      - name: Check format
+        run: yarn test:format
 
       - name: Run tests with jest
         run: yarn test:ci

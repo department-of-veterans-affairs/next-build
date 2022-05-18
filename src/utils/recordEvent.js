@@ -4,7 +4,6 @@
  * @see https://developers.google.com/tag-manager/devguide
  * @param {object} data - The event data that will be sent to GA.
  */
-
 export const recordEvent = (data) => {
   return window.dataLayer && window.dataLayer.push(data)
 }

@@ -1,9 +1,24 @@
 {
-  "testFiles": "cypress/integration/*.spec.js",
+  "env": {
+    "failSilently": false
+  },
+  "e2e": {
+    "integrationFolder": "cypress/integration",
+    "testFiles": [
+      "cypress/integration/**/*.{feature,features}",
+      "cypress/integration/**/*.spec.js"
+    ]
+  },
   "component": {
     "componentFolder": "src",
-    "testFiles": ".*/__tests__/.*spec.tsx",
-    "viewportHeight": 500,
-    "viewportWidth": 700
-  }
+    "testFiles": ".*/__tests__/.*spec.tsx"
+  },
+  "pluginsFile": "cypress/plugins/index.js",
+  "supportFile": "cypress/support/index.js",
+  "screenshotsFolder": "cypress/screenshots/actual",
+  "trashAssetsBeforeRuns": true,
+  "videoCompression": false,
+  "videosFolder": "cypress/videos",
+  "videoUploadOnPasses": false,
+  "viewportHeight": 900
 }
