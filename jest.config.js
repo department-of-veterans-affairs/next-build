@@ -26,10 +26,10 @@ const customJestConfig = {
   ],
   coverageThreshold: {
     global: {
-      statements: 32,
+      statements: 29,
       branches: 28,
       functions: 26,
-      lines: 30,
+      lines: 29,
     },
   },
   watchPlugins: [
