@@ -8,11 +8,15 @@ import { NewsStory } from './'
 describe('NewsStory component renders', () => {
   test('<NewsStory> renders with valid data', () => {
     render(<NewsStory node={data as any} viewMode="full" />)
-    expect(screen.queryByText(/We honor outstanding doctors/)).toBeInTheDocument()
+    expect(
+      screen.queryByText(/We honor outstanding doctors/)
+    ).toBeInTheDocument()
   })
   test('NewsStory component does not render with invalid data', () => {
     render(<NewsStory node={null} viewMode="full" />)
-    expect(screen.queryByText(/We honor outstanding doctors/)).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/We honor outstanding doctors/)
+    ).not.toBeInTheDocument()
   })
 })
 describe('NewsStory component does not render with invalid viewMode', () => {
