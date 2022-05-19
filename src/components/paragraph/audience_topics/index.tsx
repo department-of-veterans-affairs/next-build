@@ -1,6 +1,30 @@
 import { v4 as uuidv4 } from 'uuid'
 import Link from 'next/link'
-import { getTagsList } from '@/utils/utils'
+
+export const getTagsList = (fieldTags) => {
+  if (!fieldTags) return null
+
+  const {
+    field_topics: fieldTopics = [],
+    field_audience_beneficiares: fieldAudienceBeneficiares,
+  } = fieldTags
+
+  const topics = fieldTopics.map((topic) => ({
+    ...topic,
+    categoryLabel: 'Topics',
+  }))
+
+  const audiences = [fieldAudienceBeneficiares]
+    .filter((tag) => !!tag)
+    .map((audience) => ({
+      ...audience,
+      categoryLabel: 'Audience',
+    }))
+
+  const tagList = [...topics, ...audiences]
+
+  return tagList.sort((a, b) => a.categoryLabel.localeCompare(b.categoryLabel))
+}
 
 const AudienceTopics = ({ paragraph }) => {
   if (!paragraph) paragraph = []

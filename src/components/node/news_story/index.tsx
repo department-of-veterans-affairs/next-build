@@ -19,7 +19,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /** These component includes are specific to this component. */
 import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
-import { NodeNewsStory, NodeTypes } from '@/types/node'
+import { NodeNewsStory } from '@/types/node'
 
 /**
  * These components expect NodeNewsStory as their input.
@@ -32,7 +32,7 @@ type NodeNewsStoryProps = {
 /** Full page news story. */
 export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
   /** Type narrowing; if we've managed to end up here with the wrong data, return. */
-  if (node.type !== 'node--news_story') return
+  if (node?.type !== 'node--news_story') return
   const dateTime = new Date(node.created).toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'long',
@@ -68,7 +68,7 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
                   <div
                     className="full-story"
                     dangerouslySetInnerHTML={{
-                      __html: node.field_full_story.processed,
+                      __html: node.field_full_story?.processed,
                     }}
                   ></div>
                 </div>
@@ -101,6 +101,7 @@ const params = new DrupalJsonApiParams().addInclude([
   'field_media',
   'field_media.image',
   'field_author',
+  'field_listing',
 ])
 /** Export information necessary to identify the component and query it.
  * See {@link NodeMetaInfo}
