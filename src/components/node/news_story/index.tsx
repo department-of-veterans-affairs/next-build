@@ -24,7 +24,7 @@ import { NodeNewsStory } from '@/types/node'
 /**
  * These components expect NodeNewsStory as their input.
  */
-export type NodeNewsStoryProps = {
+type NodeNewsStoryProps = {
   node: NodeNewsStory
   viewMode?: string
 }
