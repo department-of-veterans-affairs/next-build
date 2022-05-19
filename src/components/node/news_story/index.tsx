@@ -32,7 +32,7 @@ type NodeNewsStoryProps = {
 /** Full page news story. */
 export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
   /** Type narrowing; if we've managed to end up here with the wrong data, return. */
-  if (node.type !== 'node--news_story') return
+  if (node?.type !== 'node--news_story') return
   const dateTime = new Date(node.created).toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'long',
@@ -68,7 +68,7 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
                   <div
                     className="full-story"
                     dangerouslySetInnerHTML={{
-                      __html: node.field_full_story.processed,
+                      __html: node.field_full_story?.processed,
                     }}
                   ></div>
                 </div>

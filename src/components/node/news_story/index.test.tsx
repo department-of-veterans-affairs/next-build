@@ -1,20 +1,23 @@
+/* eslint-disable */
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import '@testing-library/jest-dom'
 import * as data from './mock.json'
 import { NewsStory } from './'
 
-describe('NewsStory component renders with valid data', () => {
-  test('<NewsStory> renders', () => {
-    //eslint-disable-next-line
+describe('NewsStory component renders', () => {
+  test('<NewsStory> renders with valid data', () => {
     render(<NewsStory node={data as any} viewMode="full" />)
-    expect(screen.getByText(/We honor outstanding doctors/)).toBeInTheDocument()
+    expect(screen.queryByText(/We honor outstanding doctors/)).toBeInTheDocument()
+  })
+  test('NewsStory component does not render with invalid data', () => {
+    render(<NewsStory node={null} viewMode="full" />)
+    expect(screen.queryByText(/We honor outstanding doctors/)).not.toBeInTheDocument()
   })
 })
-
-describe('NewsStory component does not render with invalid data', () => {
+describe('NewsStory component does not render with invalid viewMode', () => {
   test('<NewsStory> does not render', () => {
-    render(<NewsStory node={null} viewMode={null} />)
+    render(<NewsStory node={data as any} viewMode={null} />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).not.toBeInTheDocument()
