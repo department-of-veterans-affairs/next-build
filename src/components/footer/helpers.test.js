@@ -1,4 +1,4 @@
-import { faker, render, screen, toHaveAttribute } from 'test-utils'
+import { faker, render, screen } from 'test-utils'
 import { createLinkGroups, generateLinkItems, renderColumns } from './helpers'
 
 const getLinks = (count = 5) =>
