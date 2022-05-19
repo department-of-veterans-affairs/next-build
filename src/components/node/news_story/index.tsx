@@ -19,12 +19,12 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /** These component includes are specific to this component. */
 import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
-import { NodeNewsStory, NodeTypes } from '@/types/node'
+import { NodeNewsStory } from '@/types/node'
 
 /**
  * These components expect NodeNewsStory as their input.
  */
-type NodeNewsStoryProps = {
+export type NodeNewsStoryProps = {
   node: NodeNewsStory
   viewMode?: string
 }
@@ -101,6 +101,7 @@ const params = new DrupalJsonApiParams().addInclude([
   'field_media',
   'field_media.image',
   'field_author',
+  'field_listing',
 ])
 /** Export information necessary to identify the component and query it.
  * See {@link NodeMetaInfo}

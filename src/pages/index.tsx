@@ -29,6 +29,9 @@ export const Core = () => {
         <li>
           <Link href="/demo/media">Media Image</Link>
         </li>
+        <li>
+          <Link href="news/[...slug]">News Image</Link>
+        </li>
       </ul>
     </Container>
   )
