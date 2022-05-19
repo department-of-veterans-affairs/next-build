@@ -4,7 +4,7 @@ import { DrupalMedia } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
-import { MediaImage } from '@/components/media'
+import { MediaImageComponent } from '@/components/media'
 
 interface ImagePageProps {
   media: DrupalMedia
@@ -16,10 +16,10 @@ const ImagePage = ({ media }: ImagePageProps) => {
     <Layout>
       <Container className="container">
         {media.map((image) => (
-          <MediaImage
+          <MediaImageComponent
             key={uuidv4()}
             imageStyle="1_1_square_medium_thumbnail"
-            media={image}
+            image={image}
           />
         ))}
       </Container>
@@ -38,9 +38,9 @@ export async function getStaticProps(
       context,
       {
         params: {
-          include: 'image, thumbnail',
+          include: 'image',
           page: {
-            limit: 6,
+            limit: 10,
           },
         },
       }
