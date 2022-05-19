@@ -20,8 +20,8 @@ describe('NewsStory component renders', () => {
   })
 })
 describe('NewsStory component does not render with invalid viewMode', () => {
-  test('<NewsStory> does not render', () => {
-    render(<NewsStory node={data as any} viewMode={null} />)
+  test('<NewsStory> does not render when viewmode does not have full as a prop', () => {
+    render(<NewsStory node={data as any} viewMode='large' />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).not.toBeInTheDocument()
