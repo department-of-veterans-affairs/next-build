@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalParagraph } from 'next-drupal'
@@ -17,7 +16,7 @@ const EmailContactsPage = ({ emailContacts }: EmailContactsPageProps) => {
     <>
       <Container className="container">
         {emailContacts.map((paragraph) => (
-          <EmailContact key={uuidv4()} paragraph={paragraph} />
+          <EmailContact key={paragraph?.id} paragraph={paragraph} />
         ))}
       </Container>
     </>

@@ -11,16 +11,13 @@ interface BenefitsHubLinksProps {
 
 const DemoPage = ({ nodes }: BenefitsHubLinksProps) => {
   return nodes.map((node) => (
-    <>
+    <div key={node?.id}>
       <Container className="container">
-        (on <strong>{node.title}</strong>)
-        <BenefitsHubLinks
-          key={node.uuid}
-          nodes={node.field_related_benefit_hubs}
-        />
+        (on <strong>{node?.title}</strong>)
+        <BenefitsHubLinks nodes={node?.field_related_benefit_hubs} />
         <hr />
       </Container>
-    </>
+    </div>
   ))
 }
 export default DemoPage

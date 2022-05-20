@@ -1,11 +1,10 @@
-import { v4 as uuidv4 } from 'uuid'
-import Link from 'next/link'
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
 
 export const StaffProfiles = ({ paragraph }): JSX.Element => {
   if (!paragraph) return
   const {
+    id,
     field_first_name: fieldFirstName,
     field_last_name: fieldLastName,
     field_email_address: fieldEmailAddress,
@@ -21,7 +20,7 @@ export const StaffProfiles = ({ paragraph }): JSX.Element => {
   const meta = fieldMedia?.thumbnail?.resourceIdObjMeta
 
   return (
-    <div key={uuidv4()}>
+    <div key={id}>
       <article className="usa-content">
         <div className="vads-u-display--flex vads-u-margin-bottom--4 vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
           {!fieldMedia?.thumbnail ? (

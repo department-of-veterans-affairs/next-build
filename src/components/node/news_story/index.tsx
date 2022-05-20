@@ -97,12 +97,14 @@ export const NewsStory = ({ node, viewMode, ...props }: NodeNewsStoryProps) => {
 }
 
 /** All nodes end with NodeMetaInfo: the name of the resource, the name of the component, and the parameters necessary for calling the resource. */
-const params = new DrupalJsonApiParams().addInclude([
-  'field_media',
-  'field_media.image',
-  'field_author',
-  'field_listing',
-])
+const params = new DrupalJsonApiParams()
+  .addInclude([
+    'field_media',
+    'field_media.image',
+    'field_author',
+    'field_listing',
+  ])
+  .addPageLimit(10)
 /** Export information necessary to identify the component and query it.
  * See {@link NodeMetaInfo}
  */
