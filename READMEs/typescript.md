@@ -13,7 +13,7 @@ Every time we are working with a Drupal entity - what Drupal considers a data ob
 Our Drupal Typescript types should extend the basic types provided by Next-Drupal. For example, Next-Drupal provides a type `DrupalNode` which provides a defined structure that is shared by any node data. Our defined types for our Drupal nodes should extend that basic type, adding information about the specific fields the node makes use of. Example:
 
 ```
-export type NodeBasicLandingPage = DrupalNode & {
+export interface NodeBasicLandingPage extends DrupalNode {
   field_table_of_contents_boolean: boolean
   field_content_block: (
     | ParagraphWysiwyg
