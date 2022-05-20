@@ -3,10 +3,11 @@ import { render, screen } from '@testing-library/react'
 import Button from './index'
 
 const paragraph = {
+  id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   type: 'paragraph--button',
   created: '2020-10-16T20:09:53+00:00',
   parent_id: '8475',
-  parent_type: 'node',
+  parent_type: 'paragraph',
   parent_field_name: 'field_buttons',
   field_button_label: 'Sign in now',
   field_button_link: {

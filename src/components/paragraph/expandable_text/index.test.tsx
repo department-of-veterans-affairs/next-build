@@ -6,7 +6,7 @@ const paragraph = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   created: '2020-10-16T20:09:53+00:00',
   parent_id: '8475',
-  parent_type: 'node',
+  parent_type: 'paragraph',
   field_text_expander: 'Show more',
   field_wysiwyg: {
     format: 'rich_text',
