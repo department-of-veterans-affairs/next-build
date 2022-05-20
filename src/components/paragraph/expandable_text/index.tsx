@@ -18,7 +18,7 @@ const ExpandableText = ({ paragraph }): JSX.Element => {
 
       {paragraph.field_wysiwyg && (
         <div className="additional-info-content usa-alert-text" hidden>
-          {paragraph.field_wysiwyg.processed}
+          {paragraph.field_wysiwyg?.processed}
         </div>
       )}
     </div>

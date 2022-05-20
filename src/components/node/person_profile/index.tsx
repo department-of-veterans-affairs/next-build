@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
 import { StaffProfiles } from '@/components/paragraph/staff_profile'
@@ -6,6 +5,7 @@ import { StaffProfiles } from '@/components/paragraph/staff_profile'
 export const PersonProfile = ({ node }): JSX.Element => {
   if (!node) return
   const {
+    id,
     title,
     field_body: fieldBody,
     field_email_address: fieldEmailAddress,
@@ -24,7 +24,7 @@ export const PersonProfile = ({ node }): JSX.Element => {
   const meta = fieldMedia?.thumbnail?.resourceIdObjMeta
 
   return (
-    <div key={uuidv4()}>
+    <div key={id}>
       <h3>Person Profile</h3>
       <article className="usa-content">
         <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">

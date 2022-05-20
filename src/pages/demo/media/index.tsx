@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalMedia } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
@@ -17,7 +16,7 @@ const ImagePage = ({ media }: ImagePageProps) => {
       <Container className="container">
         {media.map((image) => (
           <MediaImageComponent
-            key={uuidv4()}
+            key={image?.id}
             imageStyle="1_1_square_medium_thumbnail"
             image={image}
           />
