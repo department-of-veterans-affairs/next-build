@@ -8,7 +8,7 @@ const paragraph = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   created: '2020-10-16T20:09:53+00:00',
   parent_id: '8475',
-  parent_type: 'node',
+  parent_type: 'paragraph',
   field_email_address: 'test.veteran@va.gov',
   field_email_label: 'Minority Veterans Program',
 }
@@ -65,7 +65,6 @@ describe('EmailContact with invalid data', () => {
   test('does not render EmailContact component when email address is not present', () => {
     paragraph.field_email_label = 'Test'
     paragraph.field_email_address = null
-    console.log('paragraph ', paragraph)
     render(<EmailContact paragraph={paragraph} />)
 
     expect(

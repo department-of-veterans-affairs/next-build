@@ -3,7 +3,7 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalParagraph } from 'next-drupal'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import LinkTeaser from '@/components/paragraph/button'
+import LinkTeaser from '@/components/paragraph/link_teaser'
 
 interface LinkTeaserPageProps {
   linkTeasers: DrupalParagraph[]
@@ -16,7 +16,14 @@ const LinkTeaserPage = ({ linkTeasers }: LinkTeaserPageProps) => {
     <>
       <Container className="container">
         {linkTeasers.map((paragraph) => (
-          <LinkTeaser key={paragraph.id} paragraph={paragraph} />
+          <ul key={paragraph.id} className="usa-unstyled-list">
+            <LinkTeaser
+              key={paragraph.id}
+              paragraph={paragraph}
+              boldTitle={false}
+              sectionHeader="" //TODO: currently being passed in from entity.fieldTitle
+            />
+          </ul>
         ))}
       </Container>
     </>
@@ -29,7 +36,7 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<LinkTeaserPageProps>> {
   const params = new DrupalJsonApiParams()
-  params.addPageLimit(30)
+  params.addPageLimit(3)
 
   const linkTeasers = await drupalClient.getResourceCollectionFromContext<
     DrupalParagraph[]

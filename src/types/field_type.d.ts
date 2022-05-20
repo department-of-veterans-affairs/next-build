@@ -22,6 +22,7 @@ export interface FieldFormattedTextWithSummary extends FieldFormattedText {
 export interface FieldLink {
   uri: string
   title: string
+  options: [string[]]
 }
 
 export interface FieldOfficeHours {
