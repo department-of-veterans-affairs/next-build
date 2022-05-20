@@ -15,16 +15,16 @@ const LinkTeaserPage = ({ linkTeasers }: LinkTeaserPageProps) => {
   return (
     <>
       <Container className="container">
-        {linkTeasers.map((paragraph) => (
-          <ul key={paragraph.id} className="usa-unstyled-list">
+        <ul className="usa-unstyled-list">
+          {linkTeasers.map((paragraph) => (
             <LinkTeaser
               key={paragraph.id}
               paragraph={paragraph}
               boldTitle={false}
-              sectionHeader="" //TODO: currently being passed in from entity.fieldTitle
+              sectionHeader=""
             />
-          </ul>
-        ))}
+          ))}
+        </ul>
       </Container>
     </>
   )

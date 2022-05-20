@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import LinkTeaser from './index'
+import { fireEvent, getByRole } from '@testing-library/dom'
+import * as recordEvent from '@/utils/recordEvent'
 
 describe('<LinkTeaser> component renders without field_spokes', () => {
   const MOCK_PARAGRAPH = {
@@ -16,6 +18,25 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
     },
     field_link_summary: 'Find out if you can get VA health care benefits.',
   }
+
+  test('and click event sends correct params to recordEvent', () => {
+    const { container } = render(
+      <LinkTeaser
+        paragraph={MOCK_PARAGRAPH}
+        boldTitle={true}
+        sectionHeader="This is the section header"
+      />
+    )
+    const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
+    const liEl = container.querySelector('li')
+
+    fireEvent.click(liEl)
+    expect(spyRecordEvent).toHaveBeenCalledWith({
+      event: 'nav-linkslist',
+      'links-list-header': 'Health%20Care%20Benefits%20Eligibility',
+      'links-list-section-header': 'This%20is%20the%20section%20header',
+    })
+  })
 
   test('and without boldTitle', () => {
     const { container } = render(
@@ -94,6 +115,25 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
     },
     field_link_summary: 'Find out if you can get VA health care benefits.',
   }
+
+  test('and click event sends correct params to recordEvent', () => {
+    const { container } = render(
+      <LinkTeaser
+        paragraph={MOCK_PARAGRAPH}
+        boldTitle={false}
+        sectionHeader="This is the section header"
+      />
+    )
+    const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
+    const liEl = container.querySelector('li')
+
+    fireEvent.click(liEl)
+    expect(spyRecordEvent).toHaveBeenCalledWith({
+      event: 'nav-linkslist',
+      'links-list-header': 'Health%20Care%20Benefits%20Eligibility',
+      'links-list-section-header': 'This%20is%20the%20section%20header',
+    })
+  })
 
   test('and without boldTitle', () => {
     const { container } = render(

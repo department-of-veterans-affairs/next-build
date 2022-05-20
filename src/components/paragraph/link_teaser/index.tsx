@@ -1,5 +1,6 @@
 import { ParagraphLinkTeaser } from '@/types/paragraph'
 import { get } from 'lodash'
+import { recordEvent } from '@/utils/recordEvent'
 
 function isRequestValid(paragraph: ParagraphLinkTeaser) {
   return paragraph.field_link?.uri
@@ -8,12 +9,22 @@ function isRequestValid(paragraph: ParagraphLinkTeaser) {
 const LinkTeaser = ({ paragraph, boldTitle, sectionHeader }): JSX.Element => {
   if (!paragraph || !isRequestValid(paragraph)) return
 
+  const analytic = {
+    event: 'nav-linkslist',
+    'links-list-header': encodeURIComponent(paragraph.field_link?.title),
+    'links-list-section-header': encodeURIComponent(sectionHeader),
+  }
+
   const isFieldSpokes = paragraph.parent_field_name === 'field_spokes'
   const fieldLinkOption = get(paragraph.field_link.options, ['target'], '')
 
   if (isFieldSpokes || boldTitle) {
     return (
-      <li key={paragraph.id} className="hub-page-link-list__item">
+      <li
+        key={paragraph.id}
+        className="hub-page-link-list__item"
+        onClick={() => recordEvent(analytic)}
+      >
         <a
           href={paragraph.field_link?.uri}
           className="vads-u-text-decoration--underline"
@@ -46,7 +57,7 @@ const LinkTeaser = ({ paragraph, boldTitle, sectionHeader }): JSX.Element => {
   }
 
   return (
-    <li key={paragraph.id}>
+    <li key={paragraph.id} onClick={() => recordEvent(analytic)}>
       {paragraph.field_link.title !== '' && (
         <h3 className="va-nav-linkslist-title vads-u-font-size--h4">
           <a
