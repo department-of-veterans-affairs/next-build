@@ -1,7 +1,7 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalNode } from 'next-drupal'
-import BenefitsHubLinks from '@/components/partials/benefitHubsLinks'
+import { BenefitsHubLinks } from '@/components/partials/benefitHubsLinks'
 import Container from '@/components/container'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
