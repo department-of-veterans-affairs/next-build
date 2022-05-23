@@ -26,3 +26,9 @@ You should set these up before attempting to install the repo.
 1. Run `yarn dev`.
 
 You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your local environment.
+
+### Documentation
+
+- [Code Guidelines](READMEs/code-guidelines.md)
+- [Testing](READMEs/testing.md)
+- [TypeScript](READMEs/typescript.md)
