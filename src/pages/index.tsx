@@ -46,6 +46,11 @@ export const Core = () => {
             News Story Example 3
           </Link>
         </li>
+        <li>
+          <Link href="/demo/newsStory/0">
+            News story teaser with paginiation
+          </Link>
+        </li>
       </ul>
     </Container>
   )
