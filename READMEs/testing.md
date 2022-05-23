@@ -15,9 +15,10 @@ This document outlines expectations for contributors to this project with regard
 ```javascript
 import { axe, render, waitFor } from 'test-utils'
 
-test('Footer correctly renders a column when provided with links', async () => {
+test('correctly renders SomeComponent', async () => {
   ....
   const { container } = render(<SomeComponent />)
   await waitFor(async () => expect(await axe(container)).toHaveNoViolations())
+  ....
 })
 ```
