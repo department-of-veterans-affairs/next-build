@@ -31,7 +31,8 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<NewsStoryTeaserPageProps>> {
   const params = new DrupalJsonApiParams()
-  params.addPageLimit(10)
+  params.addInclude(['field_media', 'field_media.image'])
+  params.addPageLimit(20)
 
   const nodeNewsStory =
     await drupalClient.getResourceCollectionFromContext<NodeNewsStory>(

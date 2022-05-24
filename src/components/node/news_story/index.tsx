@@ -21,7 +21,8 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
-import { formatDate, truncate } from '@/utils/utils'
+import { formatDate, truncateWordsOrChar } from '@/utils/utils'
+import React from 'react'
 
 /**
  * These components expect NodeNewsStory as their input.
@@ -85,25 +86,26 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
   )
 }
 
+/** Teaser news story. */
 export const NewsStoryTeaser = ({ node, header }: NodeNewsStoryProps) => {
-  // if (node?.type !== 'node--news_story') return
+  if (node?.type !== 'node--news_story') return
 
-  const HeaderTag = header === isEmpty ? 'h2' : header
+  //TODO: header needs to be dynamic
 
   return (
     <div className="usa-grid usa-grid-full vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
       <div className="usa-width-two-thirds">
         <h2 className="vads-u-font-size--md medium-screen:vads-u-font-size--lg medium-screen:vads-u-margin-bottom--0p5">
-          <a href={node.entityUrl?.path}>{node.title}</a>
+          <a href={node.path?.alias}>{node.title}</a>
         </h2>
         <p className="vads-u-margin-y--0">
-          {truncate(node.field_intro_text, 60)}
+          {truncateWordsOrChar(node.field_intro_text, 60, true)}
         </p>
       </div>
       <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
         <MediaImageComponent
-          image={node.field_media?.image}
-          imageStyle={'1_1_square_medium_thumbnail'}
+          image={node.field_media}
+          imageStyle={'2_1_medium_thumbnail'}
         />
       </div>
     </div>
