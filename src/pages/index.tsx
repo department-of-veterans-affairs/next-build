@@ -32,6 +32,9 @@ export const Core = () => {
           <Link href="/demo/media">Media Image</Link>
         </li>
         <li>
+          <Link href="/demo/newsStoryTeasers">News Story Teasers</Link>
+        </li>
+        <li>
           <Link href="/pittsburgh-health-care/stories/we-honor-outstanding-doctors">
             News Story Example 1
           </Link>

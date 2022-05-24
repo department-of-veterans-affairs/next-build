@@ -11,6 +11,7 @@
  * @see https://va.gov/pittsburgh-health-care/stories/we-honor-outstanding-doctors
  *
  */
+import { isEmpty } from 'lodash'
 
 /** These types/packages will import into all node components. */
 import { NodeMetaInfo } from '@/components/node'
@@ -20,6 +21,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
+import { formatDate, truncate } from '@/utils/utils'
 
 /**
  * These components expect NodeNewsStory as their input.
@@ -27,17 +29,14 @@ import { NodeNewsStory } from '@/types/node'
 type NodeNewsStoryProps = {
   node: NodeNewsStory
   viewMode?: string
+  header?: string
 }
 
 /** Full page news story. */
 export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
   /** Type narrowing; if we've managed to end up here with the wrong data, return. */
   if (node?.type !== 'node--news_story') return
-  const dateTime = new Date(node.created).toLocaleDateString('en-us', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+
   return (
     <>
       <div id="content" className="interior">
@@ -56,7 +55,9 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
                 </div>
                 <StaffNewsProfile node={node.field_author} />
                 <div className="created-line vads-u-margin-bottom--2p5">
-                  <time dateTime="{ dateTime }">{dateTime}</time>
+                  <time dateTime={formatDate(node.created)}>
+                    {formatDate(node.created)}
+                  </time>
                 </div>
 
                 {/* {% include "src/site/facilities/story_social_share.drupal.liquid" %} */}
@@ -84,11 +85,39 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
   )
 }
 
+export const NewsStoryTeaser = ({ node, header }: NodeNewsStoryProps) => {
+  // if (node?.type !== 'node--news_story') return
+
+  const HeaderTag = header === isEmpty ? 'h2' : header
+
+  return (
+    <div className="usa-grid usa-grid-full vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
+      <div className="usa-width-two-thirds">
+        <h2 className="vads-u-font-size--md medium-screen:vads-u-font-size--lg medium-screen:vads-u-margin-bottom--0p5">
+          <a href={node.entityUrl?.path}>{node.title}</a>
+        </h2>
+        <p className="vads-u-margin-y--0">
+          {truncate(node.field_intro_text, 60)}
+        </p>
+      </div>
+      <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
+        <MediaImageComponent
+          image={node.field_media?.image}
+          imageStyle={'1_1_square_medium_thumbnail'}
+        />
+      </div>
+    </div>
+  )
+}
+
 /** General News Story component. Allows choice of different display components by the caller. */
 export const NewsStory = ({ node, viewMode, ...props }: NodeNewsStoryProps) => {
   switch (viewMode) {
     case 'full':
       return <NewsStoryFull node={node} {...props} />
+      break
+    case 'teaser':
+      return <NewsStoryTeaser node={node} header={''} {...props} />
       break
 
     default:
