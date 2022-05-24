@@ -30,11 +30,16 @@ describe('<NewsStory> component does not render', () => {
 })
 
 describe('<NewsStoryTeaser> component renders', () => {
-  test('<NewsStoryTeaser> renders with valid data', () => {
+  test('with valid data', () => {
     const { container } = render(
-      <NewsStoryTeaser node={data[0] as any} viewMode="teaser" />
+      <NewsStoryTeaser
+        node={data[0] as any}
+        viewMode="teaser"
+        headingLevel={null}
+      />
     )
     const aEl = container.querySelector('a')
+    const titleEl = container.querySelector('h2')
 
     expect(
       screen.queryByText(/We honor outstanding doctors/)
@@ -49,9 +54,10 @@ describe('<NewsStoryTeaser> component renders', () => {
       'href',
       '/pittsburgh-health-care/stories/we-honor-outstanding-doctors'
     )
+    expect(titleEl).toBeInTheDocument()
   })
 
-  test('<NewsStoryTeaser> should truncate into text if more than 60 words', () => {
+  test('and should truncate into text if more than 60 words', () => {
     const { container } = render(
       <NewsStoryTeaser node={data[1] as any} viewMode="teaser" />
     )
@@ -62,7 +68,22 @@ describe('<NewsStoryTeaser> component renders', () => {
     )
   })
 
-  test('<NewsStoryTeaser> component does not render with invalid data', () => {
+  test('with correct headingLevel', () => {
+    const { container } = render(
+      <NewsStoryTeaser
+        node={data[0] as any}
+        viewMode="teaser"
+        headingLevel={'h1'}
+      />
+    )
+    const titleEl = container.querySelector('h1')
+
+    expect(titleEl).toBeInTheDocument()
+  })
+})
+
+describe('<NewsStoryTeaser> component doen not render', () => {
+  test('with invalid data', () => {
     render(<NewsStoryTeaser node={null} viewMode="teaser" />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)

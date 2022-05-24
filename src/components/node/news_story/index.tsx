@@ -22,7 +22,7 @@ import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
 import { formatDate, truncateWordsOrChar } from '@/utils/utils'
-import React from 'react'
+import React, { ComponentType } from 'react'
 
 /**
  * These components expect NodeNewsStory as their input.
@@ -30,7 +30,7 @@ import React from 'react'
 type NodeNewsStoryProps = {
   node: NodeNewsStory
   viewMode?: string
-  header?: string
+  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
 }
 
 /** Full page news story. */
@@ -87,17 +87,20 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
 }
 
 /** Teaser news story. */
-export const NewsStoryTeaser = ({ node, header }: NodeNewsStoryProps) => {
+export const NewsStoryTeaser = ({ node, headingLevel }: NodeNewsStoryProps) => {
   if (node?.type !== 'node--news_story') return
 
-  //TODO: header needs to be dynamic
+  const TitleTag = ({ children, className }) => {
+    const Heading = headingLevel ? headingLevel : 'h2'
+    return <Heading className={className}>{children}</Heading>
+  }
 
   return (
     <div className="usa-grid usa-grid-full vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
       <div className="usa-width-two-thirds">
-        <h2 className="vads-u-font-size--md medium-screen:vads-u-font-size--lg medium-screen:vads-u-margin-bottom--0p5">
+        <TitleTag className="vads-u-font-size--md medium-screen:vads-u-font-size--lg medium-screen:vads-u-margin-bottom--0p5">
           <a href={node.path?.alias}>{node.title}</a>
-        </h2>
+        </TitleTag>
         <p className="vads-u-margin-y--0">
           {truncateWordsOrChar(node.field_intro_text, 60, true)}
         </p>
@@ -113,13 +116,20 @@ export const NewsStoryTeaser = ({ node, header }: NodeNewsStoryProps) => {
 }
 
 /** General News Story component. Allows choice of different display components by the caller. */
-export const NewsStory = ({ node, viewMode, ...props }: NodeNewsStoryProps) => {
+export const NewsStory = ({
+  node,
+  viewMode,
+  headingLevel,
+  ...props
+}: NodeNewsStoryProps) => {
   switch (viewMode) {
     case 'full':
       return <NewsStoryFull node={node} {...props} />
       break
     case 'teaser':
-      return <NewsStoryTeaser node={node} header={''} {...props} />
+      return (
+        <NewsStoryTeaser node={node} headingLevel={headingLevel} {...props} />
+      )
       break
 
     default:

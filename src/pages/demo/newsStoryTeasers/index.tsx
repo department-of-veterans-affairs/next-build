@@ -17,7 +17,12 @@ const NewsStoryTeaserPage = ({ nodes }: NewsStoryTeaserPageProps) => {
       <Container className="container">
         <ul className="usa-unstyled-list">
           {nodes.map((node) => (
-            <NewsStoryTeaser key={node.id} node={node} viewMode={'teaser'} />
+            <NewsStoryTeaser
+              key={node.id}
+              node={node}
+              viewMode={'teaser'}
+              headingLevel={null}
+            />
           ))}
         </ul>
       </Container>
