@@ -32,11 +32,7 @@ describe('<NewsStory> component does not render', () => {
 describe('<NewsStoryTeaser> component renders', () => {
   test('with valid data', () => {
     const { container } = render(
-      <NewsStoryTeaser
-        node={data[0] as any}
-        viewMode="teaser"
-        headingLevel={null}
-      />
+      <NewsStoryTeaser node={data[0] as any} viewMode="teaser" />
     )
     const aEl = container.querySelector('a')
     const titleEl = container.querySelector('h2')
