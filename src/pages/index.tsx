@@ -17,19 +17,25 @@ export const Core = () => {
           <Link href="/demo/button">Button</Link>
         </li>
         <li>
-          <Link href="/demo/personProfiles">Person Profile</Link>
-        </li>
-        <li>
           <Link href="/demo/emailContacts">Email Contacts</Link>
         </li>
         <li>
           <Link href="/demo/expandableText">Expandable Text</Link>
         </li>
         <li>
-          <Link href="/demo/table">Table</Link>
+          <Link href="/demo/linkTeasers">Link Teasers</Link>
         </li>
         <li>
           <Link href="/demo/media">Media Image</Link>
+        </li>
+        <li>
+          <Link href="/demo/personProfiles">Person Profile</Link>
+        </li>
+        <li>
+          <Link href="/demo/table">Table</Link>
+        </li>
+        <li>
+          <Link href="/demo/newsStoryTeasers">News Story Teasers</Link>
         </li>
         <li>
           <Link href="/pittsburgh-health-care/stories/we-honor-outstanding-doctors">

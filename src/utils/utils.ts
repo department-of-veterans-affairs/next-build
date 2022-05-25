@@ -1,10 +1,19 @@
 import config from '../../config'
 
-export function truncate(value: string, length: number, suffix = '...') {
-  if (value.length < length) {
-    return value
+export function truncateWordsOrChar(
+  str: string,
+  length: number,
+  truncateWords: boolean,
+  suffix = '...'
+) {
+  if (truncateWords) {
+    return str.split(' ').splice(0, length).join(' ') + suffix
+  } else {
+    if (str.length < length) {
+      return str
+    }
+    return str.slice(0, length) + suffix
   }
-  return value.slice(0, length) + suffix
 }
 
 export function absoluteURL(uri: string) {

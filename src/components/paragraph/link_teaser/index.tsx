@@ -1,6 +1,8 @@
-import { ParagraphLinkTeaser } from '@/types/paragraph'
+import Image from '@/components/image'
 import { get } from 'lodash'
+import { ParagraphLinkTeaser } from '@/types/paragraph'
 import { recordEvent } from '@/utils/recordEvent'
+import { DEV_PATH } from '@/lib/constants'
 
 function isRequestValid(paragraph: ParagraphLinkTeaser) {
   return paragraph.field_link?.uri
@@ -17,6 +19,7 @@ const LinkTeaser = ({ paragraph, boldTitle, sectionHeader }): JSX.Element => {
 
   const isFieldSpokes = paragraph.parent_field_name === 'field_spokes'
   const fieldLinkOption = get(paragraph.field_link.options, ['target'], '')
+  const thumbnail = DEV_PATH + '/img/arrow-right-blue.svg'
 
   if (isFieldSpokes || boldTitle) {
     return (
@@ -37,11 +40,13 @@ const LinkTeaser = ({ paragraph, boldTitle, sectionHeader }): JSX.Element => {
                   <span className="hub-page-link-list__header">
                     {paragraph.field_link?.title}
                   </span>
-                  <img
+                  <Image
                     className="all-link-arrow"
-                    src="/img/arrow-right-blue.svg"
+                    src={thumbnail}
                     alt="right-arrow"
-                  ></img>
+                    width="15px"
+                    height="15px"
+                  ></Image>
                 </>
               ) : (
                 <b>{paragraph.field_link?.title}</b>
