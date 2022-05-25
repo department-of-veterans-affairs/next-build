@@ -11,6 +11,7 @@
  * @see https://va.gov/pittsburgh-health-care/stories/we-honor-outstanding-doctors
  *
  */
+import { ComponentType } from 'react'
 
 /** These types/packages will import into all node components. */
 import { NodeMetaInfo } from '@/components/node'
@@ -20,6 +21,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
+import { formatDate, truncateWordsOrChar } from '@/utils/utils'
 
 /**
  * These components expect NodeNewsStory as their input.
@@ -27,17 +29,14 @@ import { NodeNewsStory } from '@/types/node'
 export type NodeNewsStoryProps = {
   node: NodeNewsStory
   viewMode?: string
+  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
 }
 
 /** Full page news story. */
 export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
   /** Type narrowing; if we've managed to end up here with the wrong data, return. */
   if (node?.type !== 'node--news_story') return
-  const dateTime = new Date(node.created).toLocaleDateString('en-us', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+
   return (
     <>
       <div id="content" className="interior">
@@ -56,7 +55,9 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
                 </div>
                 <StaffNewsProfile node={node.field_author} />
                 <div className="created-line vads-u-margin-bottom--2p5">
-                  <time dateTime="{ dateTime }">{dateTime}</time>
+                  <time dateTime={formatDate(node.created)}>
+                    {formatDate(node.created)}
+                  </time>
                 </div>
 
                 {/* {% include "src/site/facilities/story_social_share.drupal.liquid" %} */}
@@ -84,56 +85,52 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
   )
 }
 
-export const NewsStoryTeaser = ({ node }: NodeNewsStoryProps) => {
+/** Teaser news story. */
+export const NewsStoryTeaser = ({ node, headingLevel }: NodeNewsStoryProps) => {
+  if (node?.type !== 'node--news_story') return
+
+  const TitleTag = ({ children, className }) => {
+    const Heading = headingLevel ? headingLevel : 'h2'
+    return <Heading className={className}>{children}</Heading>
+  }
+
   return (
-    <article
-      data-template="teasers/news_story_page_feature"
-      id={`featured-content-${node.id}`}
-      className="featured-story
-      usa-grid
-      usa-grid-full
-      vads-u-margin-bottom--3
-      medium-screen:vads-u-margin-bottom--4
-      vads-u-display--flex
-      vads-u-flex-direction--column
-      medium-screen:vads-u-flex-direction--row
-      vads-u-border-left--7px
-      vads-u-border-color--primary-alt-lightest"
-    >
-      <div className="usa-width-one-half medium-screen:vads-u-padding-left--2">
-        <span className="vads-u-font-weight--bold vads-u-display--block">
-          In the spotlight at
-        </span>
-        <h2 className="vads-u-font-size--md medium-screen:vads-u-font-size--lg vads-u-margin-top--0 medium-screen:vads-u-margin-bottom--0p5">
-          {node.title}
-        </h2>
-        <div className="vads-l-grid-container--full">
-          <div className="va-introtext">
-            <p className="events-show" id="office-events-description">
-              {node.field_intro_text}
-            </p>
-          </div>
-        </div>
-        <div className="usa-width-one-half vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
-          <MediaImageComponent
-            image={node.field_media}
-            imageStyle={'1_1_square_medium_thumbnail'}
-          />
-        </div>
+    <div className="usa-grid usa-grid-full vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
+      <div className="usa-width-two-thirds">
+        <TitleTag className="vads-u-font-size--md medium-screen:vads-u-font-size--lg medium-screen:vads-u-margin-bottom--0p5">
+          <a href={node?.path?.alias}>{node?.title}</a>
+        </TitleTag>
+        <p className="vads-u-margin-y--0">
+          {truncateWordsOrChar(node?.field_intro_text, 60, true)}
+        </p>
       </div>
-    </article>
+      <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
+        <MediaImageComponent
+          image={node?.field_media}
+          imageStyle={'2_1_medium_thumbnail'}
+        />
+      </div>
+    </div>
   )
 }
 
 /** General News Story component. Allows choice of different display components by the caller. */
-export const NewsStory = ({ node, viewMode, ...props }: NodeNewsStoryProps) => {
+export const NewsStory = ({
+  node,
+  viewMode,
+  headingLevel,
+  ...props
+}: NodeNewsStoryProps) => {
   switch (viewMode) {
     case 'full':
       return <NewsStoryFull node={node} {...props} />
       break
     case 'teaser':
-      return <NewsStoryTeaser node={node} {...props} />
+      return (
+        <NewsStoryTeaser node={node} headingLevel={headingLevel} {...props} />
+      )
       break
+
     default:
       return null
   }

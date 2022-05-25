@@ -1,123 +1,54 @@
-{
-  "type": "node--news_story",
-  "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
-  "path": {
-    "alias": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
-    "pid": 562,
-    "langcode": "en"
-  },
-  "drupal_internal__nid": 377,
-  "drupal_internal__vid": 17354,
-  "langcode": "en",
-  "revision_timestamp": "2020-03-24T20:10:28+00:00",
-  "revision_log": "VACMS Team: Synced field_listing with field_office for upcoming content model updates.",
-  "status": true,
-  "title": "We honor outstanding doctors",
-  "created": "2019-05-14T15:35:12+00:00",
-  "changed": "2020-03-24T20:10:28+00:00",
-  "promote": false,
-  "sticky": false,
-  "default_langcode": true,
-  "revision_translation_affected": true,
-  "moderation_state": "published",
-  "metatag": null,
-  "field_featured": true,
-  "field_full_story": {
-    "value": "<p>VA Pittsburgh's Outstanding Physicians of the Year for 2019, Drs. Brooke Decker and Aref M. Rahman, stand out for expertly filling critical medical facility roles while fostering a collaborative spirit among staff in caring for Veterans.</p>\r\n\r\n<p>Dr. Decker, director of Infection Prevention, sees herself as a problem solver.</p>\r\n\r\n<p>\"The problems that cause infections are incredibly varied and sometimes challenging,\" said Decker. \"My job involves getting the right people together to help solve these problems.\"</p>\r\n\r\n<p>Recent examples include ensuring hand sanitizers are plentiful and optimally located to support hand hygiene; safe disposal of needles and syringes; and developing the safest way to shut down and perform maintenance on an air handler in a patient-care area that is always open.</p>\r\n\r\n<p>Dr. Rahman, a cardiologist, has been director of the Cardiac Cath Lab for the past six years. He credits his dedicated and skilled team for the lab's success, but he says one other factor plays a big role in that success.</p>\r\n\r\n<p>\"The icing on top is the staff's eagerness to help our Veterans,\" said Rahman. \"All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity.\"</p>\r\n\r\n<p>Decker said she likens her investigative work to that of the fictional private detective Sherlock Holmes or Dr. Gregory House, a fictional doctor who solved medical mysteries on television's \"House\" series.</p>\r\n\r\n<p>\"For every issue, there may be layers and layers of additional clues to unravel,\" said Decker. \"The 'aha moment' when it all comes together is very gratifying.\"</p>\r\n\r\n<p>Even so, Decker says preventing illness in the first place is even more gratifying.</p>\r\n\r\n<p>\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers,\" said Decker. \"Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention.\"</p>\r\n\r\n<p>Rahman said he's been fascinated since childhood with how the human body works.</p>\r\n\r\n<p>\"I would read all kinds of articles about new discoveries in medicine and I found myself being drawn more and more toward what is literally the 'heart' of our bodies,\" he said. \"Cardiology is not just a career choice, but a calling, and I think it found me.\"</p>\r\n\r\n<p>Both doctors said the best part of working at VA is listening to Veterans' stories.</p>\r\n\r\n<p>\"I love sitting down at the bedside and hearing about someone's family, pets, adventures,\" said Decker. \"I've met some truly great people working at VA.\"</p>\r\n\r\n<p>Rahman said Veterans' stories make every day at work interesting.</p>\r\n\r\n<p>\"As I interact with my patients, I get to hear a lot of fascinating stories of their experiences all over the world,\" said Rahman. \"It's never a dull day at work.\"</p>\r\n\r\n<p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>\r\n",
-    "format": "rich_text",
-    "processed": "<p>VA Pittsburgh's Outstanding Physicians of the Year for 2019, Drs. Brooke Decker and Aref M. Rahman, stand out for expertly filling critical medical facility roles while fostering a collaborative spirit among staff in caring for Veterans.</p>\n\n<p>Dr. Decker, director of Infection Prevention, sees herself as a problem solver.</p>\n\n<p>\"The problems that cause infections are incredibly varied and sometimes challenging,\" said Decker. \"My job involves getting the right people together to help solve these problems.\"</p>\n\n<p>Recent examples include ensuring hand sanitizers are plentiful and optimally located to support hand hygiene; safe disposal of needles and syringes; and developing the safest way to shut down and perform maintenance on an air handler in a patient-care area that is always open.</p>\n\n<p>Dr. Rahman, a cardiologist, has been director of the Cardiac Cath Lab for the past six years. He credits his dedicated and skilled team for the lab's success, but he says one other factor plays a big role in that success.</p>\n\n<p>\"The icing on top is the staff's eagerness to help our Veterans,\" said Rahman. \"All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity.\"</p>\n\n<p>Decker said she likens her investigative work to that of the fictional private detective Sherlock Holmes or Dr. Gregory House, a fictional doctor who solved medical mysteries on television's \"House\" series.</p>\n\n<p>\"For every issue, there may be layers and layers of additional clues to unravel,\" said Decker. \"The 'aha moment' when it all comes together is very gratifying.\"</p>\n\n<p>Even so, Decker says preventing illness in the first place is even more gratifying.</p>\n\n<p>\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers,\" said Decker. \"Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention.\"</p>\n\n<p>Rahman said he's been fascinated since childhood with how the human body works.</p>\n\n<p>\"I would read all kinds of articles about new discoveries in medicine and I found myself being drawn more and more toward what is literally the 'heart' of our bodies,\" he said. \"Cardiology is not just a career choice, but a calling, and I think it found me.\"</p>\n\n<p>Both doctors said the best part of working at VA is listening to Veterans' stories.</p>\n\n<p>\"I love sitting down at the bedside and hearing about someone's family, pets, adventures,\" said Decker. \"I've met some truly great people working at VA.\"</p>\n\n<p>Rahman said Veterans' stories make every day at work interesting.</p>\n\n<p>\"As I interact with my patients, I get to hear a lot of fascinating stories of their experiences all over the world,\" said Rahman. \"It's never a dull day at work.\"</p>\n\n<p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>"
-  },
-  "field_image_caption": "\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers.\" - Dr. Brooke Decker",
-  "field_intro_text": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
-  "field_meta_tags": null,
-  "field_order": null,
-  "links": {
-    "self": {
-      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/news_story/bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980?resourceVersion=id%3A17354"
-    }
-  },
-  "node_type": {
-    "type": "node_type--node_type",
-    "id": "6cd5ac14-3c82-479e-88d9-47f92c4ad850",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": "news_story"
-    }
-  },
-  "revision_uid": {
-    "type": "user--user",
-    "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 1
-    }
-  },
-  "uid": {
-    "type": "user--user",
-    "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 86
-    }
-  },
-  "field_administration": {
-    "type": "taxonomy_term--administration",
-    "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 12
-    }
-  },
-  "field_author": {
-    "type": "node--person_profile",
-    "id": "c76037be-ebb0-4338-9b31-973a76958929",
-    "drupal_internal__nid": 378,
-    "drupal_internal__vid": 9455,
+[
+  {
+    "type": "node--news_story",
+    "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
+    "path": {
+      "alias": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
+      "pid": 562,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 377,
+    "drupal_internal__vid": 17354,
     "langcode": "en",
-    "revision_timestamp": "2019-08-27T17:50:21+00:00",
-    "revision_log": "Bulk operation publish revision",
+    "revision_timestamp": "2020-03-24T20:10:28+00:00",
+    "revision_log": "VACMS Team: Synced field_listing with field_office for upcoming content model updates.",
     "status": true,
-    "title": "Keith Gottschalk",
-    "created": "2019-05-14T16:10:51+00:00",
-    "changed": "2019-08-27T17:50:21+00:00",
+    "title": "We honor outstanding doctors",
+    "created": "2019-05-14T15:35:12+00:00",
+    "changed": "2020-03-24T20:10:28+00:00",
     "promote": false,
     "sticky": false,
     "default_langcode": true,
     "revision_translation_affected": true,
     "moderation_state": "published",
     "metatag": null,
-    "path": {
-      "alias": "/pittsburgh-health-care/staff-profiles/keith-gottschalk",
-      "pid": 563,
-      "langcode": "en"
+    "field_featured": true,
+    "field_full_story": {
+      "value": "<p>VA Pittsburgh's Outstanding Physicians of the Year for 2019, Drs. Brooke Decker and Aref M. Rahman, stand out for expertly filling critical medical facility roles while fostering a collaborative spirit among staff in caring for Veterans.</p>\r\n\r\n<p>Dr. Decker, director of Infection Prevention, sees herself as a problem solver.</p>\r\n\r\n<p>\"The problems that cause infections are incredibly varied and sometimes challenging,\" said Decker. \"My job involves getting the right people together to help solve these problems.\"</p>\r\n\r\n<p>Recent examples include ensuring hand sanitizers are plentiful and optimally located to support hand hygiene; safe disposal of needles and syringes; and developing the safest way to shut down and perform maintenance on an air handler in a patient-care area that is always open.</p>\r\n\r\n<p>Dr. Rahman, a cardiologist, has been director of the Cardiac Cath Lab for the past six years. He credits his dedicated and skilled team for the lab's success, but he says one other factor plays a big role in that success.</p>\r\n\r\n<p>\"The icing on top is the staff's eagerness to help our Veterans,\" said Rahman. \"All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity.\"</p>\r\n\r\n<p>Decker said she likens her investigative work to that of the fictional private detective Sherlock Holmes or Dr. Gregory House, a fictional doctor who solved medical mysteries on television's \"House\" series.</p>\r\n\r\n<p>\"For every issue, there may be layers and layers of additional clues to unravel,\" said Decker. \"The 'aha moment' when it all comes together is very gratifying.\"</p>\r\n\r\n<p>Even so, Decker says preventing illness in the first place is even more gratifying.</p>\r\n\r\n<p>\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers,\" said Decker. \"Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention.\"</p>\r\n\r\n<p>Rahman said he's been fascinated since childhood with how the human body works.</p>\r\n\r\n<p>\"I would read all kinds of articles about new discoveries in medicine and I found myself being drawn more and more toward what is literally the 'heart' of our bodies,\" he said. \"Cardiology is not just a career choice, but a calling, and I think it found me.\"</p>\r\n\r\n<p>Both doctors said the best part of working at VA is listening to Veterans' stories.</p>\r\n\r\n<p>\"I love sitting down at the bedside and hearing about someone's family, pets, adventures,\" said Decker. \"I've met some truly great people working at VA.\"</p>\r\n\r\n<p>Rahman said Veterans' stories make every day at work interesting.</p>\r\n\r\n<p>\"As I interact with my patients, I get to hear a lot of fascinating stories of their experiences all over the world,\" said Rahman. \"It's never a dull day at work.\"</p>\r\n\r\n<p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>\r\n",
+      "format": "rich_text",
+      "processed": "<p>VA Pittsburgh's Outstanding Physicians of the Year for 2019, Drs. Brooke Decker and Aref M. Rahman, stand out for expertly filling critical medical facility roles while fostering a collaborative spirit among staff in caring for Veterans.</p>\n\n<p>Dr. Decker, director of Infection Prevention, sees herself as a problem solver.</p>\n\n<p>\"The problems that cause infections are incredibly varied and sometimes challenging,\" said Decker. \"My job involves getting the right people together to help solve these problems.\"</p>\n\n<p>Recent examples include ensuring hand sanitizers are plentiful and optimally located to support hand hygiene; safe disposal of needles and syringes; and developing the safest way to shut down and perform maintenance on an air handler in a patient-care area that is always open.</p>\n\n<p>Dr. Rahman, a cardiologist, has been director of the Cardiac Cath Lab for the past six years. He credits his dedicated and skilled team for the lab's success, but he says one other factor plays a big role in that success.</p>\n\n<p>\"The icing on top is the staff's eagerness to help our Veterans,\" said Rahman. \"All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity.\"</p>\n\n<p>Decker said she likens her investigative work to that of the fictional private detective Sherlock Holmes or Dr. Gregory House, a fictional doctor who solved medical mysteries on television's \"House\" series.</p>\n\n<p>\"For every issue, there may be layers and layers of additional clues to unravel,\" said Decker. \"The 'aha moment' when it all comes together is very gratifying.\"</p>\n\n<p>Even so, Decker says preventing illness in the first place is even more gratifying.</p>\n\n<p>\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers,\" said Decker. \"Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention.\"</p>\n\n<p>Rahman said he's been fascinated since childhood with how the human body works.</p>\n\n<p>\"I would read all kinds of articles about new discoveries in medicine and I found myself being drawn more and more toward what is literally the 'heart' of our bodies,\" he said. \"Cardiology is not just a career choice, but a calling, and I think it found me.\"</p>\n\n<p>Both doctors said the best part of working at VA is listening to Veterans' stories.</p>\n\n<p>\"I love sitting down at the bedside and hearing about someone's family, pets, adventures,\" said Decker. \"I've met some truly great people working at VA.\"</p>\n\n<p>Rahman said Veterans' stories make every day at work interesting.</p>\n\n<p>\"As I interact with my patients, I get to hear a lot of fascinating stories of their experiences all over the world,\" said Rahman. \"It's never a dull day at work.\"</p>\n\n<p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>"
     },
-    "field_body": null,
-    "field_complete_biography_create": null,
-    "field_description": null,
-    "field_email_address": null,
-    "field_intro_text": null,
-    "field_last_name": "Gottschalk",
+    "field_image_caption": "\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers.\" - Dr. Brooke Decker",
+    "field_intro_text": "When a hospital has a host of great doctors, honoring just two every year is challenging.",
     "field_meta_tags": null,
-    "field_name_first": "Keith",
-    "field_phone_number": null,
-    "field_photo_allow_hires_download": false,
-    "field_suffix": null,
+    "field_order": null,
     "links": {
       "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/person_profile/c76037be-ebb0-4338-9b31-973a76958929?resourceVersion=id%3A9455"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/news_story/bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980?resourceVersion=id%3A17354"
       }
-    },
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 378
     },
     "node_type": {
       "type": "node_type--node_type",
-      "id": "89b07673-7fd5-4292-8fba-58cc10c4e3ec",
+      "id": "6cd5ac14-3c82-479e-88d9-47f92c4ad850",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": "person_profile"
+        "drupal_internal__target_id": "news_story"
       }
     },
     "revision_uid": {
       "type": "user--user",
-      "id": "fd71292f-3dc7-409d-b0e8-500204cb005a",
+      "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 65
+        "drupal_internal__target_id": 1
       }
     },
     "uid": {
@@ -134,79 +65,548 @@
         "drupal_internal__target_id": 12
       }
     },
-    "field_complete_biography": null,
-    "field_media": null,
-    "field_office": {
-      "type": "node--health_care_region_page",
-      "id": "2bddb1a7-6fb1-4503-838d-9c2fcb51c46a",
+    "field_author": {
+      "type": "node--person_profile",
+      "id": "c76037be-ebb0-4338-9b31-973a76958929",
+      "drupal_internal__nid": 378,
+      "drupal_internal__vid": 9455,
+      "langcode": "en",
+      "revision_timestamp": "2019-08-27T17:50:21+00:00",
+      "revision_log": "Bulk operation publish revision",
+      "status": true,
+      "title": "Keith Gottschalk",
+      "created": "2019-05-14T16:10:51+00:00",
+      "changed": "2019-08-27T17:50:21+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "moderation_state": "published",
+      "metatag": null,
+      "path": {
+        "alias": "/pittsburgh-health-care/staff-profiles/keith-gottschalk",
+        "pid": 563,
+        "langcode": "en"
+      },
+      "field_body": null,
+      "field_complete_biography_create": null,
+      "field_description": null,
+      "field_email_address": null,
+      "field_intro_text": null,
+      "field_last_name": "Gottschalk",
+      "field_meta_tags": null,
+      "field_name_first": "Keith",
+      "field_phone_number": null,
+      "field_photo_allow_hires_download": false,
+      "field_suffix": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/person_profile/c76037be-ebb0-4338-9b31-973a76958929?resourceVersion=id%3A9455"
+        }
+      },
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 318
-      }
+        "drupal_internal__target_id": 378
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "89b07673-7fd5-4292-8fba-58cc10c4e3ec",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "person_profile"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "fd71292f-3dc7-409d-b0e8-500204cb005a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 65
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 86
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 12
+        }
+      },
+      "field_complete_biography": null,
+      "field_media": null,
+      "field_office": {
+        "type": "node--health_care_region_page",
+        "id": "2bddb1a7-6fb1-4503-838d-9c2fcb51c46a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 318
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_complete_biography",
+        "field_media",
+        "field_office"
+      ]
+    },
+    "field_listing": {
+      "type": "node--story_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36",
+      "drupal_internal__nid": 2806,
+      "drupal_internal__vid": 16489,
+      "langcode": "en",
+      "revision_timestamp": "2020-03-11T20:37:01+00:00",
+      "revision_log": null,
+      "status": true,
+      "title": "Stories",
+      "created": "2020-03-02T21:36:30+00:00",
+      "changed": "2020-03-11T20:37:01+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "moderation_state": "published",
+      "metatag": null,
+      "path": {
+        "alias": "/pittsburgh-health-care/stories",
+        "pid": 3592,
+        "langcode": "en"
+      },
+      "field_description": "Read about what's happening in our VA Pittsburgh health care community.",
+      "field_enforce_unique_combo": null,
+      "field_intro_text": "Read about what's happening in our VA Pittsburgh health care community.",
+      "field_meta_tags": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/story_listing/a75c369c-a7f5-402b-aeb9-74ad8d24fd36?resourceVersion=id%3A16489"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2806
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "f28cd2f7-2819-4dfa-a768-72d269cf68ff",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "story_listing"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 197
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 197
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 12
+        }
+      },
+      "field_office": {
+        "type": "node--health_care_region_page",
+        "id": "2bddb1a7-6fb1-4503-838d-9c2fcb51c46a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 318
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_office"
+      ]
+    },
+    "field_media": {
+      "type": "media--image",
+      "id": "5aa01b90-7156-45b1-85fb-95f82465409c",
+      "drupal_internal__mid": 78,
+      "drupal_internal__vid": 78,
+      "langcode": "en",
+      "revision_created": "2019-05-15T20:20:32+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "doctor-year2019-decker-480.jpg",
+      "created": "2019-05-15T20:20:03+00:00",
+      "changed": "2019-05-15T20:20:03+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "metatag": null,
+      "path": {
+        "alias": null,
+        "pid": null,
+        "langcode": "en"
+      },
+      "field_description": null,
+      "field_media_in_library": true,
+      "field_media_submission_guideline": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/5aa01b90-7156-45b1-85fb-95f82465409c?resourceVersion=id%3A78"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 78
+      },
+      "bundle": {
+        "type": "media_type--media_type",
+        "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "image"
+        }
+      },
+      "revision_user": null,
+      "uid": {
+        "type": "user--user",
+        "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 86
+        }
+      },
+      "thumbnail": {
+        "type": "file--file",
+        "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
+        "drupal_internal__fid": 103,
+        "langcode": "en",
+        "filename": "doctor-year2019-decker-480.jpg",
+        "uri": {
+          "value": "public://2019-05/doctor-year2019-decker-480_0.jpg",
+          "url": "/sites/default/files/2019-05/doctor-year2019-decker-480_0.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 112705,
+        "status": true,
+        "created": "2019-05-15T20:20:03+00:00",
+        "changed": "2019-05-15T20:20:32+00:00",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "240",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "1024",
+              "height": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "320",
+              "height": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "1050",
+              "height": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/c85b7882-f035-4b55-8b71-fcf81fade350"
+          },
+          "viewport_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Dr. Brooke Decker",
+          "title": null,
+          "width": 480,
+          "height": 330,
+          "drupal_internal__target_id": 103
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 86
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "field_owner": null,
+      "image": {
+        "type": "file--file",
+        "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
+        "drupal_internal__fid": 103,
+        "langcode": "en",
+        "filename": "doctor-year2019-decker-480.jpg",
+        "uri": {
+          "value": "public://2019-05/doctor-year2019-decker-480_0.jpg",
+          "url": "/sites/default/files/2019-05/doctor-year2019-decker-480_0.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 112705,
+        "status": true,
+        "created": "2019-05-15T20:20:03+00:00",
+        "changed": "2019-05-15T20:20:32+00:00",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "240",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "1024",
+              "height": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "320",
+              "height": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "1050",
+              "height": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/c85b7882-f035-4b55-8b71-fcf81fade350"
+          },
+          "viewport_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Dr. Brooke Decker",
+          "title": null,
+          "width": 480,
+          "height": 330,
+          "drupal_internal__target_id": 103
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 86
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "relationshipNames": [
+        "bundle",
+        "revision_user",
+        "uid",
+        "thumbnail",
+        "field_owner",
+        "image"
+      ]
     },
     "relationshipNames": [
       "node_type",
       "revision_uid",
       "uid",
       "field_administration",
-      "field_complete_biography",
-      "field_media",
-      "field_office"
+      "field_author",
+      "field_listing",
+      "field_media"
     ]
   },
-  "field_listing": {
-    "type": "node--story_listing",
-    "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36",
-    "drupal_internal__nid": 2806,
-    "drupal_internal__vid": 16489,
+  {
+    "type": "node--news_story",
+    "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
+    "path": {
+      "alias": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
+      "pid": 562,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 377,
+    "drupal_internal__vid": 17354,
     "langcode": "en",
-    "revision_timestamp": "2020-03-11T20:37:01+00:00",
-    "revision_log": null,
+    "revision_timestamp": "2020-03-24T20:10:28+00:00",
+    "revision_log": "VACMS Team: Synced field_listing with field_office for upcoming content model updates.",
     "status": true,
-    "title": "Stories",
-    "created": "2020-03-02T21:36:30+00:00",
-    "changed": "2020-03-11T20:37:01+00:00",
+    "title": "We honor outstanding doctors",
+    "created": "2019-05-14T15:35:12+00:00",
+    "changed": "2020-03-24T20:10:28+00:00",
     "promote": false,
     "sticky": false,
     "default_langcode": true,
     "revision_translation_affected": true,
     "moderation_state": "published",
     "metatag": null,
-    "path": {
-      "alias": "/pittsburgh-health-care/stories",
-      "pid": 3592,
-      "langcode": "en"
+    "field_featured": true,
+    "field_full_story": {
+      "value": "<p>VA Pittsburgh's Outstanding Physicians of the Year for 2019, Drs. Brooke Decker and Aref M. Rahman, stand out for expertly filling critical medical facility roles while fostering a collaborative spirit among staff in caring for Veterans.</p>\r\n\r\n<p>Dr. Decker, director of Infection Prevention, sees herself as a problem solver.</p>\r\n\r\n<p>\"The problems that cause infections are incredibly varied and sometimes challenging,\" said Decker. \"My job involves getting the right people together to help solve these problems.\"</p>\r\n\r\n<p>Recent examples include ensuring hand sanitizers are plentiful and optimally located to support hand hygiene; safe disposal of needles and syringes; and developing the safest way to shut down and perform maintenance on an air handler in a patient-care area that is always open.</p>\r\n\r\n<p>Dr. Rahman, a cardiologist, has been director of the Cardiac Cath Lab for the past six years. He credits his dedicated and skilled team for the lab's success, but he says one other factor plays a big role in that success.</p>\r\n\r\n<p>\"The icing on top is the staff's eagerness to help our Veterans,\" said Rahman. \"All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity.\"</p>\r\n\r\n<p>Decker said she likens her investigative work to that of the fictional private detective Sherlock Holmes or Dr. Gregory House, a fictional doctor who solved medical mysteries on television's \"House\" series.</p>\r\n\r\n<p>\"For every issue, there may be layers and layers of additional clues to unravel,\" said Decker. \"The 'aha moment' when it all comes together is very gratifying.\"</p>\r\n\r\n<p>Even so, Decker says preventing illness in the first place is even more gratifying.</p>\r\n\r\n<p>\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers,\" said Decker. \"Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention.\"</p>\r\n\r\n<p>Rahman said he's been fascinated since childhood with how the human body works.</p>\r\n\r\n<p>\"I would read all kinds of articles about new discoveries in medicine and I found myself being drawn more and more toward what is literally the 'heart' of our bodies,\" he said. \"Cardiology is not just a career choice, but a calling, and I think it found me.\"</p>\r\n\r\n<p>Both doctors said the best part of working at VA is listening to Veterans' stories.</p>\r\n\r\n<p>\"I love sitting down at the bedside and hearing about someone's family, pets, adventures,\" said Decker. \"I've met some truly great people working at VA.\"</p>\r\n\r\n<p>Rahman said Veterans' stories make every day at work interesting.</p>\r\n\r\n<p>\"As I interact with my patients, I get to hear a lot of fascinating stories of their experiences all over the world,\" said Rahman. \"It's never a dull day at work.\"</p>\r\n\r\n<p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>\r\n",
+      "format": "rich_text",
+      "processed": "<p>VA Pittsburgh's Outstanding Physicians of the Year for 2019, Drs. Brooke Decker and Aref M. Rahman, stand out for expertly filling critical medical facility roles while fostering a collaborative spirit among staff in caring for Veterans.</p>\n\n<p>Dr. Decker, director of Infection Prevention, sees herself as a problem solver.</p>\n\n<p>\"The problems that cause infections are incredibly varied and sometimes challenging,\" said Decker. \"My job involves getting the right people together to help solve these problems.\"</p>\n\n<p>Recent examples include ensuring hand sanitizers are plentiful and optimally located to support hand hygiene; safe disposal of needles and syringes; and developing the safest way to shut down and perform maintenance on an air handler in a patient-care area that is always open.</p>\n\n<p>Dr. Rahman, a cardiologist, has been director of the Cardiac Cath Lab for the past six years. He credits his dedicated and skilled team for the lab's success, but he says one other factor plays a big role in that success.</p>\n\n<p>\"The icing on top is the staff's eagerness to help our Veterans,\" said Rahman. \"All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity.\"</p>\n\n<p>Decker said she likens her investigative work to that of the fictional private detective Sherlock Holmes or Dr. Gregory House, a fictional doctor who solved medical mysteries on television's \"House\" series.</p>\n\n<p>\"For every issue, there may be layers and layers of additional clues to unravel,\" said Decker. \"The 'aha moment' when it all comes together is very gratifying.\"</p>\n\n<p>Even so, Decker says preventing illness in the first place is even more gratifying.</p>\n\n<p>\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers,\" said Decker. \"Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention.\"</p>\n\n<p>Rahman said he's been fascinated since childhood with how the human body works.</p>\n\n<p>\"I would read all kinds of articles about new discoveries in medicine and I found myself being drawn more and more toward what is literally the 'heart' of our bodies,\" he said. \"Cardiology is not just a career choice, but a calling, and I think it found me.\"</p>\n\n<p>Both doctors said the best part of working at VA is listening to Veterans' stories.</p>\n\n<p>\"I love sitting down at the bedside and hearing about someone's family, pets, adventures,\" said Decker. \"I've met some truly great people working at VA.\"</p>\n\n<p>Rahman said Veterans' stories make every day at work interesting.</p>\n\n<p>\"As I interact with my patients, I get to hear a lot of fascinating stories of their experiences all over the world,\" said Rahman. \"It's never a dull day at work.\"</p>\n\n<p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>"
     },
-    "field_description": "Read about what's happening in our VA Pittsburgh health care community.",
-    "field_enforce_unique_combo": null,
-    "field_intro_text": "Read about what's happening in our VA Pittsburgh health care community.",
+    "field_image_caption": "\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers.\" - Dr. Brooke Decker",
+    "field_intro_text": "When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two every year is challenging.",
     "field_meta_tags": null,
+    "field_order": null,
     "links": {
       "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/story_listing/a75c369c-a7f5-402b-aeb9-74ad8d24fd36?resourceVersion=id%3A16489"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/news_story/bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980?resourceVersion=id%3A17354"
       }
-    },
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 2806
     },
     "node_type": {
       "type": "node_type--node_type",
-      "id": "f28cd2f7-2819-4dfa-a768-72d269cf68ff",
+      "id": "6cd5ac14-3c82-479e-88d9-47f92c4ad850",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": "story_listing"
+        "drupal_internal__target_id": "news_story"
       }
     },
     "revision_uid": {
       "type": "user--user",
-      "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+      "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 197
+        "drupal_internal__target_id": 1
       }
     },
     "uid": {
       "type": "user--user",
-      "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+      "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 197
+        "drupal_internal__target_id": 86
       }
     },
     "field_administration": {
@@ -216,336 +616,489 @@
         "drupal_internal__target_id": 12
       }
     },
-    "field_office": {
-      "type": "node--health_care_region_page",
-      "id": "2bddb1a7-6fb1-4503-838d-9c2fcb51c46a",
+    "field_author": {
+      "type": "node--person_profile",
+      "id": "c76037be-ebb0-4338-9b31-973a76958929",
+      "drupal_internal__nid": 378,
+      "drupal_internal__vid": 9455,
+      "langcode": "en",
+      "revision_timestamp": "2019-08-27T17:50:21+00:00",
+      "revision_log": "Bulk operation publish revision",
+      "status": true,
+      "title": "Keith Gottschalk",
+      "created": "2019-05-14T16:10:51+00:00",
+      "changed": "2019-08-27T17:50:21+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "moderation_state": "published",
+      "metatag": null,
+      "path": {
+        "alias": "/pittsburgh-health-care/staff-profiles/keith-gottschalk",
+        "pid": 563,
+        "langcode": "en"
+      },
+      "field_body": null,
+      "field_complete_biography_create": null,
+      "field_description": null,
+      "field_email_address": null,
+      "field_intro_text": null,
+      "field_last_name": "Gottschalk",
+      "field_meta_tags": null,
+      "field_name_first": "Keith",
+      "field_phone_number": null,
+      "field_photo_allow_hires_download": false,
+      "field_suffix": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/person_profile/c76037be-ebb0-4338-9b31-973a76958929?resourceVersion=id%3A9455"
+        }
+      },
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 318
-      }
+        "drupal_internal__target_id": 378
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "89b07673-7fd5-4292-8fba-58cc10c4e3ec",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "person_profile"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "fd71292f-3dc7-409d-b0e8-500204cb005a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 65
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 86
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 12
+        }
+      },
+      "field_complete_biography": null,
+      "field_media": null,
+      "field_office": {
+        "type": "node--health_care_region_page",
+        "id": "2bddb1a7-6fb1-4503-838d-9c2fcb51c46a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 318
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_complete_biography",
+        "field_media",
+        "field_office"
+      ]
+    },
+    "field_listing": {
+      "type": "node--story_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36",
+      "drupal_internal__nid": 2806,
+      "drupal_internal__vid": 16489,
+      "langcode": "en",
+      "revision_timestamp": "2020-03-11T20:37:01+00:00",
+      "revision_log": null,
+      "status": true,
+      "title": "Stories",
+      "created": "2020-03-02T21:36:30+00:00",
+      "changed": "2020-03-11T20:37:01+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "moderation_state": "published",
+      "metatag": null,
+      "path": {
+        "alias": "/pittsburgh-health-care/stories",
+        "pid": 3592,
+        "langcode": "en"
+      },
+      "field_description": "Read about what's happening in our VA Pittsburgh health care community.",
+      "field_enforce_unique_combo": null,
+      "field_intro_text": "Read about what's happening in our VA Pittsburgh health care community.",
+      "field_meta_tags": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/story_listing/a75c369c-a7f5-402b-aeb9-74ad8d24fd36?resourceVersion=id%3A16489"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2806
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "f28cd2f7-2819-4dfa-a768-72d269cf68ff",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "story_listing"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 197
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 197
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 12
+        }
+      },
+      "field_office": {
+        "type": "node--health_care_region_page",
+        "id": "2bddb1a7-6fb1-4503-838d-9c2fcb51c46a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 318
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_office"
+      ]
+    },
+    "field_media": {
+      "type": "media--image",
+      "id": "5aa01b90-7156-45b1-85fb-95f82465409c",
+      "drupal_internal__mid": 78,
+      "drupal_internal__vid": 78,
+      "langcode": "en",
+      "revision_created": "2019-05-15T20:20:32+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "doctor-year2019-decker-480.jpg",
+      "created": "2019-05-15T20:20:03+00:00",
+      "changed": "2019-05-15T20:20:03+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "metatag": null,
+      "path": {
+        "alias": null,
+        "pid": null,
+        "langcode": "en"
+      },
+      "field_description": null,
+      "field_media_in_library": true,
+      "field_media_submission_guideline": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/5aa01b90-7156-45b1-85fb-95f82465409c?resourceVersion=id%3A78"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 78
+      },
+      "bundle": {
+        "type": "media_type--media_type",
+        "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "image"
+        }
+      },
+      "revision_user": null,
+      "uid": {
+        "type": "user--user",
+        "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 86
+        }
+      },
+      "thumbnail": {
+        "type": "file--file",
+        "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
+        "drupal_internal__fid": 103,
+        "langcode": "en",
+        "filename": "doctor-year2019-decker-480.jpg",
+        "uri": {
+          "value": "public://2019-05/doctor-year2019-decker-480_0.jpg",
+          "url": "/sites/default/files/2019-05/doctor-year2019-decker-480_0.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 112705,
+        "status": true,
+        "created": "2019-05-15T20:20:03+00:00",
+        "changed": "2019-05-15T20:20:32+00:00",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "240",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "1024",
+              "height": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "320",
+              "height": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "1050",
+              "height": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/c85b7882-f035-4b55-8b71-fcf81fade350"
+          },
+          "viewport_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Dr. Brooke Decker",
+          "title": null,
+          "width": 480,
+          "height": 330,
+          "drupal_internal__target_id": 103
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 86
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "field_owner": null,
+      "image": {
+        "type": "file--file",
+        "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
+        "drupal_internal__fid": 103,
+        "langcode": "en",
+        "filename": "doctor-year2019-decker-480.jpg",
+        "uri": {
+          "value": "public://2019-05/doctor-year2019-decker-480_0.jpg",
+          "url": "/sites/default/files/2019-05/doctor-year2019-decker-480_0.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 112705,
+        "status": true,
+        "created": "2019-05-15T20:20:03+00:00",
+        "changed": "2019-05-15T20:20:32+00:00",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "240",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "1024",
+              "height": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_1_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "2_3_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "320",
+              "height": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "3_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "7_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "1050",
+              "height": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "full_content_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/c85b7882-f035-4b55-8b71-fcf81fade350"
+          },
+          "viewport_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
+            "meta": {
+              "width": "480",
+              "height": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            }
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Dr. Brooke Decker",
+          "title": null,
+          "width": 480,
+          "height": 330,
+          "drupal_internal__target_id": 103
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 86
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "relationshipNames": [
+        "bundle",
+        "revision_user",
+        "uid",
+        "thumbnail",
+        "field_owner",
+        "image"
+      ]
     },
     "relationshipNames": [
       "node_type",
       "revision_uid",
       "uid",
       "field_administration",
-      "field_office"
+      "field_author",
+      "field_listing",
+      "field_media"
     ]
-  },
-  "field_media": {
-    "type": "media--image",
-    "id": "5aa01b90-7156-45b1-85fb-95f82465409c",
-    "drupal_internal__mid": 78,
-    "drupal_internal__vid": 78,
-    "langcode": "en",
-    "revision_created": "2019-05-15T20:20:32+00:00",
-    "revision_log_message": null,
-    "status": true,
-    "name": "doctor-year2019-decker-480.jpg",
-    "created": "2019-05-15T20:20:03+00:00",
-    "changed": "2019-05-15T20:20:03+00:00",
-    "default_langcode": true,
-    "revision_translation_affected": true,
-    "metatag": null,
-    "path": {
-      "alias": null,
-      "pid": null,
-      "langcode": "en"
-    },
-    "field_description": null,
-    "field_media_in_library": true,
-    "field_media_submission_guideline": null,
-    "links": {
-      "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/5aa01b90-7156-45b1-85fb-95f82465409c?resourceVersion=id%3A78"
-      }
-    },
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 78
-    },
-    "bundle": {
-      "type": "media_type--media_type",
-      "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": "image"
-      }
-    },
-    "revision_user": null,
-    "uid": {
-      "type": "user--user",
-      "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 86
-      }
-    },
-    "thumbnail": {
-      "type": "file--file",
-      "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
-      "drupal_internal__fid": 103,
-      "langcode": "en",
-      "filename": "doctor-year2019-decker-480.jpg",
-      "uri": {
-        "value": "public://2019-05/doctor-year2019-decker-480_0.jpg",
-        "url": "/sites/default/files/2019-05/doctor-year2019-decker-480_0.jpg"
-      },
-      "filemime": "image/jpeg",
-      "filesize": 112705,
-      "status": true,
-      "created": "2019-05-15T20:20:03+00:00",
-      "changed": "2019-05-15T20:20:32+00:00",
-      "links": {
-        "1_1_square_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "240",
-            "height": "240",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "2_1_large": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "1024",
-            "height": "512",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "2_1_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "240",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "2_3_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "320",
-            "height": "480",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "3_2_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "320",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "7_2_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "1050",
-            "height": "300",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "full_content_width": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "330",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "large": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "330",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/c85b7882-f035-4b55-8b71-fcf81fade350"
-        },
-        "viewport_width": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "330",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        }
-      },
-      "resourceIdObjMeta": {
-        "alt": "Dr. Brooke Decker",
-        "title": null,
-        "width": 480,
-        "height": 330,
-        "drupal_internal__target_id": 103
-      },
-      "uid": {
-        "type": "user--user",
-        "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 86
-        }
-      },
-      "relationshipNames": ["uid"]
-    },
-    "field_owner": null,
-    "image": {
-      "type": "file--file",
-      "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
-      "drupal_internal__fid": 103,
-      "langcode": "en",
-      "filename": "doctor-year2019-decker-480.jpg",
-      "uri": {
-        "value": "public://2019-05/doctor-year2019-decker-480_0.jpg",
-        "url": "/sites/default/files/2019-05/doctor-year2019-decker-480_0.jpg"
-      },
-      "filemime": "image/jpeg",
-      "filesize": 112705,
-      "status": true,
-      "created": "2019-05-15T20:20:03+00:00",
-      "changed": "2019-05-15T20:20:32+00:00",
-      "links": {
-        "1_1_square_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "240",
-            "height": "240",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "2_1_large": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "1024",
-            "height": "512",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "2_1_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "240",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "2_3_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "320",
-            "height": "480",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "3_2_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "320",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "7_2_medium_thumbnail": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "1050",
-            "height": "300",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "full_content_width": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "330",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "large": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "330",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        },
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/c85b7882-f035-4b55-8b71-fcf81fade350"
-        },
-        "viewport_width": {
-          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
-          "meta": {
-            "width": "480",
-            "height": "330",
-            "rel": [
-              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-            ]
-          }
-        }
-      },
-      "resourceIdObjMeta": {
-        "alt": "Dr. Brooke Decker",
-        "title": null,
-        "width": 480,
-        "height": 330,
-        "drupal_internal__target_id": 103
-      },
-      "uid": {
-        "type": "user--user",
-        "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 86
-        }
-      },
-      "relationshipNames": ["uid"]
-    },
-    "relationshipNames": [
-      "bundle",
-      "revision_user",
-      "uid",
-      "thumbnail",
-      "field_owner",
-      "image"
-    ]
-  },
-  "relationshipNames": [
-    "node_type",
-    "revision_uid",
-    "uid",
-    "field_administration",
-    "field_author",
-    "field_listing",
-    "field_media"
-  ]
-}
+  }
+]

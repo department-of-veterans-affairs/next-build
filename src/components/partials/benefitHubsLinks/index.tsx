@@ -3,7 +3,7 @@ import BenefitsHubLink from '@/components/node/landing_page'
 
 // Partial outputting a list of benefits related to a given page. Typically used
 // on a resource page.
-const BenefitsHubLinks = ({ nodes }) => {
+export const BenefitsHubLinks = ({ nodes }) => {
   if (nodes) {
     return (
       <>
@@ -24,6 +24,3 @@ const BenefitsHubLinks = ({ nodes }) => {
     )
   }
 }
-
-// This should not be the default; we will have a full display eventually.
-export default BenefitsHubLinks

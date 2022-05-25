@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Meta as NewsStoryMeta } from '@/components/node/news_story'
-import { NodeBasicLandingPage, NodeNewsStory, NodeTypes } from '@/types/node'
+import { Meta as QaMeta } from '@/components/node/q_a'
+import { NodeTypes } from '@/types/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** General NodeProps to pass nodes into node components. */
@@ -36,7 +37,7 @@ export interface NodeMetaInfo {
 }
 
 /** Collect all imported node meta information. */
-const nodeMetaIn: NodeMetaInfo[] = [NewsStoryMeta]
+const nodeMetaIn: NodeMetaInfo[] = [NewsStoryMeta, QaMeta]
 
 /** This interface enforces that the Node meta information is indexable by type. */
 interface NodeMetaOut {
