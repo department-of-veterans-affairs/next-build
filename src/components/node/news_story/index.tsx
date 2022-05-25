@@ -11,7 +11,7 @@
  * @see https://va.gov/pittsburgh-health-care/stories/we-honor-outstanding-doctors
  *
  */
-import { isEmpty } from 'lodash'
+import { ComponentType } from 'react'
 
 /** These types/packages will import into all node components. */
 import { NodeMetaInfo } from '@/components/node'
@@ -22,7 +22,6 @@ import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
 import { formatDate, truncateWordsOrChar } from '@/utils/utils'
-import React, { ComponentType } from 'react'
 
 /**
  * These components expect NodeNewsStory as their input.
