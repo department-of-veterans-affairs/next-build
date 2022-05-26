@@ -1,33 +1,37 @@
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPathsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { NewsStory } from '@/components/node/news_story'
-import Pagination from '@department-of-veterans-affairs/component-library/Pagination'
+import Pager from '@/components/pager'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3
 export const TOTAL = 20
 
-const NewsStoryPage = ({ node, page }) => {
-  const router = useRouter()
+const NewsStoryPage = ({ page, node }) => {
   if (!node) node = []
 
   return (
     <>
       <Container className="container">
+        <h1 className="vads-u-margin--0">{node[0]?.field_listing?.title}</h1>
+        <h2 className="vads-b-margin--4">
+          {node[0]?.field_listing?.field_description}
+        </h2>
         {node.map((news) => (
           <NewsStory key={news.id} node={news} viewMode="teaser" />
         ))}
 
         {page ? (
-          <Pagination
-            page={page?.current}
-            pages={page?.total}
-            onPageSelect={(paginate) =>
-              router.push(`/demo/newsStory/${paginate}`)
+          <Pager
+            current={page.current}
+            total={page.total}
+            href={(pager) =>
+              pager === 0
+                ? `/demo/pagination/exampleB/0`
+                : `/demo/pagination/exampleB/${pager}`
             }
+            className="va-pagination-b"
           />
         ) : null}
       </Container>
@@ -43,9 +47,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const paths = Array(TOTAL)
     .fill(0)
     .map((_, page) => ({
-      params: {
-        page: `${page + 1}`,
-      },
+      params: { page: page.toString() },
     }))
 
   return {
@@ -63,6 +65,12 @@ export async function getStaticProps(context) {
       'field_author',
       'field_listing',
     ])
+
+    .addFields('node--field_listing', [
+      'id',
+      'drupal_internal__nid',
+      'field_description',
+    ])
     .addPageLimit(TOTAL)
 
   const node = await drupalClient.getResourceCollectionFromContext(
@@ -73,7 +81,8 @@ export async function getStaticProps(context) {
         ...params.getQueryObject(),
         page: {
           limit: NUMBER_OF_POSTS_PER_PAGE,
-          offset: context.params?.page ? NUMBER_OF_POSTS_PER_PAGE * current : 0,
+          offset:
+            context.params?.page + 1 ? NUMBER_OF_POSTS_PER_PAGE * current : 0,
         },
       },
     }
