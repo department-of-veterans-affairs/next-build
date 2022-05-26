@@ -29,6 +29,23 @@ const StoryListingPage = ({
 
 export default StoryListingPage
 
+function filterNewsStoryTeasersById(nodeStoryListing, nodeNewsStoryTeasers) {
+  let matchingNewsStories: NodeNewsStory = null
+
+  nodeStoryListing.map((storyListing) => {
+    const storyListingId = storyListing.drupal_internal__nid
+
+    matchingNewsStories = filter(nodeNewsStoryTeasers, function (newsStory) {
+      const newsStoryTeaserId =
+        newsStory.field_listing.resourceIdObjMeta.drupal_internal__target_id
+
+      return newsStoryTeaserId === storyListingId
+    })
+  })
+
+  return matchingNewsStories
+}
+
 export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<StoryListingPageProps>> {
@@ -60,21 +77,12 @@ export async function getStaticProps(
       }
     )
 
-  let matchingNewsStories: NodeNewsStory = null
-
-  nodeStoryListing.map((storyListing) => {
-    const nid = storyListing.drupal_internal__nid
-    matchingNewsStories = filter(nodeNewsStoryTeasers, function (newsStory) {
-      const targetId =
-        newsStory.field_listing.resourceIdObjMeta.drupal_internal__target_id
-      return targetId === nid
-    })
-  })
-
   return {
     props: {
       nodeStoryListing: nodeStoryListing || null,
-      nodeNewsStoryTeasers: matchingNewsStories || null,
+      nodeNewsStoryTeasers:
+        filterNewsStoryTeasersById(nodeStoryListing, nodeNewsStoryTeasers) ||
+        null,
     },
   }
 }
