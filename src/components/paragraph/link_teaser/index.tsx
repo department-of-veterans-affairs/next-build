@@ -2,7 +2,7 @@ import Image from '@/components/image'
 import { get } from 'lodash'
 import { ParagraphLinkTeaser } from '@/types/paragraph'
 import { recordEvent } from '@/utils/recordEvent'
-import { DEV_PATH } from '@/lib/constants'
+import { DEV_PATH, IMAGE_PATH_TEMP } from '@/lib/constants'
 
 function isRequestValid(paragraph: ParagraphLinkTeaser) {
   return paragraph.field_link?.uri
@@ -19,7 +19,7 @@ const LinkTeaser = ({ paragraph, boldTitle, sectionHeader }): JSX.Element => {
 
   const isFieldSpokes = paragraph.parent_field_name === 'field_spokes'
   const fieldLinkOption = get(paragraph.field_link.options, ['target'], '')
-  const thumbnail = DEV_PATH + '/img/arrow-right-blue.svg'
+  const thumbnail = IMAGE_PATH_TEMP + '/img/arrow-right-blue.svg'
 
   if (isFieldSpokes || boldTitle) {
     return (

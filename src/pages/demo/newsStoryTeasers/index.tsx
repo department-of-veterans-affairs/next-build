@@ -47,6 +47,7 @@ export async function getStaticProps(
         params: params.getQueryObject(),
       }
     )
+
   return {
     props: {
       nodes: nodeNewsStory || null,

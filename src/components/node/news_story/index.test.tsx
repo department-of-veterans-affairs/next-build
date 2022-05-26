@@ -78,7 +78,7 @@ describe('<NewsStoryTeaser> component renders', () => {
   })
 })
 
-describe('<NewsStoryTeaser> component doen not render', () => {
+describe('<NewsStoryTeaser> component does not render', () => {
   test('with invalid data', () => {
     render(<NewsStoryTeaser node={null} viewMode="teaser" />)
     expect(
