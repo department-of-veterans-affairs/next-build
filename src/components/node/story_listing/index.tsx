@@ -1,5 +1,6 @@
 import { NewsStoryTeaser } from '@/components/node/news_story'
 import Container from '@/components/container'
+import { ViewMode } from '@/utils/enums'
 
 const StoryListing = ({
   nodeStoryListing,
@@ -28,7 +29,7 @@ const StoryListing = ({
                     <NewsStoryTeaser
                       key={newsStoryTeaser.id}
                       node={newsStoryTeaser}
-                      viewMode={'teaser'}
+                      viewMode={ViewMode.TEASER}
                       headingLevel={null}
                     />
                   ))}

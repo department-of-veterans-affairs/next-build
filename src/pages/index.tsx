@@ -47,9 +47,6 @@ export const Core = () => {
           <Link href="/demo/storyListing">News Story Listing</Link>
         </li>
         <li>
-          <Link href="/demo/newsStoryTeasers">News Story Teasers</Link>
-        </li>
-        <li>
           <Link href="/demo/personProfiles">Person Profile</Link>
         </li>
         <li>

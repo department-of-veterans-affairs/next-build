@@ -4,6 +4,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { NewsStoryTeaser } from '@/components/node/news_story/index'
 import { NodeNewsStory } from '@/types/node'
+import { ViewMode } from '@/utils/enums'
 
 type NewsStoryTeaserPageProps = {
   nodes: NodeNewsStory
@@ -20,7 +21,7 @@ const NewsStoryTeaserPage = ({ nodes }: NewsStoryTeaserPageProps) => {
             <NewsStoryTeaser
               key={node.id}
               node={node}
-              viewMode={'teaser'}
+              viewMode={ViewMode.TEASER}
               headingLevel={null}
             />
           ))}

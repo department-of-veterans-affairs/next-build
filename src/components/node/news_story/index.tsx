@@ -22,13 +22,14 @@ import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
 import { formatDate, truncateWordsOrChar } from '@/utils/utils'
+import { ViewMode } from '@/utils/enums'
 
 /**
  * These components expect NodeNewsStory as their input.
  */
 type NodeNewsStoryProps = {
   node: NodeNewsStory
-  viewMode?: string
+  viewMode?: ViewMode
   headingLevel?: ComponentType | keyof JSX.IntrinsicElements
 }
 
@@ -122,10 +123,10 @@ export const NewsStory = ({
   ...props
 }: NodeNewsStoryProps) => {
   switch (viewMode) {
-    case 'full':
+    case ViewMode.FULL:
       return <NewsStoryFull node={node} {...props} />
       break
-    case 'teaser':
+    case ViewMode.TEASER:
       return (
         <NewsStoryTeaser node={node} headingLevel={headingLevel} {...props} />
       )
