@@ -11,7 +11,7 @@ type NewsStoryTeaserPageProps = {
 }
 
 const NewsStoryTeaserPage = ({ nodes }: NewsStoryTeaserPageProps) => {
-  if (!nodes) return null
+  if (!nodes.length) return null
 
   return (
     <>

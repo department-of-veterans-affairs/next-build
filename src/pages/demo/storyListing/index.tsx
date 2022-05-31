@@ -14,8 +14,6 @@ const StoryListingPage = ({
   nodeStoryListings,
   nodeNewsStoryTeasers,
 }: StoryListingPageProps) => {
-  if (!nodeStoryListings) return null
-
   return (
     <>
       <StoryListing
@@ -32,7 +30,6 @@ function filterNewsStoryTeasersById(nodeStoryListings, nodeNewsStoryTeasers) {
   let matchingNewsStories: NodeNewsStory = null
   const storyListing = nodeStoryListings[0]
 
-  // TODO should we be returning the story listings with their associated news stories? Currently this doesnt do that.
   const storyListingId = storyListing.drupal_internal__nid
 
   matchingNewsStories = filter(nodeNewsStoryTeasers, function (newsStory) {
@@ -68,7 +65,7 @@ export async function getStaticProps(
   const newsStoryTeaserParams = new DrupalJsonApiParams()
   newsStoryTeaserParams
     .addFilter('status', '1')
-    .addInclude(['field_media, field_media.image, field_listing'])
+    .addInclude(['field_media, field_listing'])
     .addPageLimit(5)
 
   const nodeNewsStoryTeasers =

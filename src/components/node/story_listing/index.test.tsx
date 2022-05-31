@@ -1,22 +1,46 @@
 import { render, screen } from '@testing-library/react'
 import StoryListing from '@/components/node/story_listing'
-import * as mock_story_listing from './nodeStoryListing.json'
-import * as mock_news_story from './nodeNewsStory.json'
+import mock_story_listing from './nodeStoryListing.json'
+import mock_news_story from './nodeNewsStory.json'
 
 describe('<StoryListing> component renders', () => {
   test('with valid data', () => {
-    // render(
-    //   <StoryListing
-    //     nodeStoryListings={mock_story_listing}
-    //     nodeNewsStoryTeasers={mock_news_story}
-    //   />
-    // )
-    // expect(screen.queryByText(/Stories/)).toBeInTheDocument()
-    // expect(
-    //   screen.queryByText(/Read about our VA Pittsburgh health care community./)
-    // ).toBeInTheDocument()
-    // expect(
-    //   screen.queryByText(/Grand opening held for relocated Belmont Clinic/)
-    // ).toBeInTheDocument()
+    render(
+      <StoryListing
+        nodeStoryListings={mock_story_listing}
+        nodeNewsStoryTeasers={mock_news_story}
+      />
+    )
+    expect(screen.queryByText(/Stories/)).toBeInTheDocument()
+    expect(
+      screen.queryByText(/We honor outstanding doctors/)
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/Grand opening held for relocated Belmont Clinic/)
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/I CARE Award winners recognized/)
+    ).toBeInTheDocument()
+  })
+})
+
+describe('<StoryListing> component does not render', () => {
+  test('without story listings data', () => {
+    render(
+      <StoryListing
+        nodeStoryListings={[]}
+        nodeNewsStoryTeasers={mock_news_story}
+      />
+    )
+    expect(screen.queryByText(/Stories/)).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/We honor outstanding doctors/)
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/Grand opening held for relocated Belmont Clinic/)
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/I CARE Award winners recognized/)
+    ).not.toBeInTheDocument()
   })
 })

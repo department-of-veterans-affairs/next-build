@@ -40,7 +40,18 @@
       "revision_created": "2019-05-15T20:20:32+00:00",
       "revision_log_message": null,
       "status": true,
-      "name": "doctor-year2019-decker-480.jpg"
+      "name": "doctor-year2019-decker-480.jpg",
+      "image": {
+        "type": "file--file",
+        "id": "3a8a2401-3687-49d8-8a61-1a5d78bd57f0",
+        "resourceIdObjMeta": {
+          "alt": "A Veteran shoots a small paper basketball towards a hoop while a referee watches",
+          "title": "",
+          "width": 480,
+          "height": 330,
+          "drupal_internal__target_id": 89
+        }
+      }
     }
   },
   {
@@ -89,7 +100,18 @@
       "status": true,
       "name": "Belmont21a.jpg",
       "created": "2019-05-14T16:29:16+00:00",
-      "changed": "2019-05-14T16:29:16+00:00"
+      "changed": "2019-05-14T16:29:16+00:00",
+      "image": {
+        "type": "file--file",
+        "id": "57fb3415-16bb-42ff-bbee-4c12212650f5",
+        "resourceIdObjMeta": {
+          "alt": "Pharmacist explaining prescription medicine to attentive senior couple",
+          "title": "",
+          "width": 480,
+          "height": 330,
+          "drupal_internal__target_id": 91
+        }
+      }
     }
   },
   {
@@ -110,7 +132,7 @@
     "field_listing": {
       "type": "node--story_listing",
       "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36",
-      "drupal_internal__nid": 2807,
+      "drupal_internal__nid": 2806,
       "drupal_internal__vid": 16489,
       "langcode": "en",
       "status": true,
@@ -129,7 +151,18 @@
       "status": true,
       "name": "Gyory_ICARE-Award_20190221_Main.jpg",
       "created": "2019-05-14T16:36:09+00:00",
-      "changed": "2019-05-14T16:36:09+00:00"
+      "changed": "2019-05-14T16:36:09+00:00",
+      "image": {
+        "type": "file--file",
+        "id": "bc24529f-a9db-4059-96a8-27be0713442c",
+        "resourceIdObjMeta": {
+          "alt": "Interim Medical Center Director Barbara Forsha with I CARE Award winner Samantha Gyory",
+          "title": "",
+          "width": 480,
+          "height": 330,
+          "drupal_internal__target_id": 92
+        }
+      }
     }
   }
 ]
