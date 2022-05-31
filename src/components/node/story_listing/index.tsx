@@ -3,14 +3,14 @@ import Container from '@/components/container'
 import { ViewMode } from '@/utils/enums'
 
 const StoryListing = ({
-  nodeStoryListing,
+  nodeStoryListings,
   nodeNewsStoryTeasers,
 }): JSX.Element => {
-  if (!nodeStoryListing) return
+  if (!nodeStoryListings.length) return null
 
   return (
     <>
-      {nodeStoryListing.map((storyListing) => (
+      {nodeStoryListings.map((storyListing) => (
         <div key={storyListing.id} className="usa-grid usa-grid-full">
           {/*<div className="usa-width-three-fourths">*/}
           <h1>{storyListing.title}</h1>
