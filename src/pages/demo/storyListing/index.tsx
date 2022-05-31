@@ -1,26 +1,25 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalNode } from 'next-drupal'
 import StoryListing from '@/components/node/story_listing'
-import { NodeNewsStory } from '@/types/node'
-import { filter } from 'lodash'
+import { NodeNewsStory, NodeStoryListing } from '@/types/node'
+import { filter, forEach } from 'lodash'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 interface StoryListingPageProps {
-  nodeStoryListing: DrupalNode[]
+  nodeStoryListings: NodeStoryListing
   nodeNewsStoryTeasers: NodeNewsStory
 }
 
 const StoryListingPage = ({
-  nodeStoryListing,
+  nodeStoryListings,
   nodeNewsStoryTeasers,
 }: StoryListingPageProps) => {
-  if (!nodeStoryListing) return null
+  if (!nodeStoryListings) return null
 
   return (
     <>
       <StoryListing
-        nodeStoryListing={nodeStoryListing}
+        nodeStoryListings={nodeStoryListings}
         nodeNewsStoryTeasers={nodeNewsStoryTeasers}
       />
     </>
@@ -29,18 +28,18 @@ const StoryListingPage = ({
 
 export default StoryListingPage
 
-function filterNewsStoryTeasersById(nodeStoryListing, nodeNewsStoryTeasers) {
+function filterNewsStoryTeasersById(nodeStoryListings, nodeNewsStoryTeasers) {
   let matchingNewsStories: NodeNewsStory = null
+  const storyListing = nodeStoryListings[0]
 
-  nodeStoryListing.map((storyListing) => {
-    const storyListingId = storyListing.drupal_internal__nid
+  // TODO should we be returning the story listings with their associated news stories? Currently this doesnt do that.
+  const storyListingId = storyListing.drupal_internal__nid
 
-    matchingNewsStories = filter(nodeNewsStoryTeasers, function (newsStory) {
-      const newsStoryTeaserId =
-        newsStory.field_listing.resourceIdObjMeta.drupal_internal__target_id
+  matchingNewsStories = filter(nodeNewsStoryTeasers, function (newsStory) {
+    const newsStoryTeaserId =
+      newsStory.field_listing.resourceIdObjMeta.drupal_internal__target_id
 
-      return newsStoryTeaserId === storyListingId
-    })
+    return newsStoryTeaserId === storyListingId
   })
 
   return matchingNewsStories
@@ -55,18 +54,22 @@ export async function getStaticProps(
     .addFilter('status', '1')
     .addFilter('drupal_internal__nid', '2806')
     .addSort('created', 'DESC')
+    .addPageLimit(1)
 
-  const nodeStoryListing = await drupalClient.getResourceCollectionFromContext<
-    DrupalNode[]
-  >('node--story_listing', context, {
-    params: storyListingParams.getQueryObject(),
-  })
+  const nodeStoryListings =
+    await drupalClient.getResourceCollectionFromContext<NodeStoryListing>(
+      'node--story_listing',
+      context,
+      {
+        params: storyListingParams.getQueryObject(),
+      }
+    )
 
   const newsStoryTeaserParams = new DrupalJsonApiParams()
   newsStoryTeaserParams
     .addFilter('status', '1')
     .addInclude(['field_media, field_media.image, field_listing'])
-    .addPageLimit(100)
+    .addPageLimit(5)
 
   const nodeNewsStoryTeasers =
     await drupalClient.getResourceCollectionFromContext<NodeNewsStory>(
@@ -79,9 +82,9 @@ export async function getStaticProps(
 
   return {
     props: {
-      nodeStoryListing: nodeStoryListing || null,
+      nodeStoryListings: nodeStoryListings || null,
       nodeNewsStoryTeasers:
-        filterNewsStoryTeasersById(nodeStoryListing, nodeNewsStoryTeasers) ||
+        filterNewsStoryTeasersById(nodeStoryListings, nodeNewsStoryTeasers) ||
         null,
     },
   }

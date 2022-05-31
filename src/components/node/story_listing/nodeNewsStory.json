@@ -1,0 +1,135 @@
+[
+  {
+    "type": "node--news_story",
+    "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
+    "path": {
+      "alias": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
+      "pid": 562,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 377,
+    "status": true,
+    "title": "We honor outstanding doctors",
+    "created": "2019-05-14T15:35:12+00:00",
+    "changed": "2020-03-24T20:10:28+00:00",
+    "field_intro_text": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
+    "uid": {
+      "type": "user--user",
+      "id": "c0745381-8e20-40da-9540-5a7d2eee1b35"
+    },
+    "field_listing": {
+      "type": "node--story_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36",
+      "drupal_internal__nid": 2806,
+      "drupal_internal__vid": 16489,
+      "status": true,
+      "title": "Stories",
+      "field_description": "Read about what/'s happening in our VA Pittsburgh health care community.",
+      "field_enforce_unique_combo": null,
+      "field_intro_text": "Read about what/'s happening in our VA Pittsburgh health care community.",
+      "field_meta_tags": null,
+      "links": [{}],
+      "uid": [{}]
+    },
+    "field_media": {
+      "type": "media--image",
+      "id": "5aa01b90-7156-45b1-85fb-95f82465409c",
+      "drupal_internal__mid": 78,
+      "drupal_internal__vid": 78,
+      "langcode": "en",
+      "revision_created": "2019-05-15T20:20:32+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "doctor-year2019-decker-480.jpg"
+    }
+  },
+  {
+    "type": "node--news_story",
+    "id": "33725b3a-ab55-42ab-b160-e7d8c22a711e",
+    "path": {
+      "alias": "/pittsburgh-health-care/stories/grand-opening-held-for-relocated-belmont-clinic",
+      "pid": 566,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 380,
+    "drupal_internal__vid": 17355,
+    "langcode": "en",
+    "status": true,
+    "title": "Grand opening held for relocated Belmont Clinic",
+    "field_intro_text": "Nearly 150 Veterans and their families joined VA Pittsburgh Healthcare System on April 12 for the grand opening and dedication of the relocated Belmont County outpatient clinic.",
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "6cd5ac14-3c82-479e-88d9-47f92c4ad850"
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "c0745381-8e20-40da-9540-5a7d2eee1b35"
+    },
+    "field_listing": {
+      "type": "node--story_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36",
+      "drupal_internal__nid": 2806,
+      "drupal_internal__vid": 16489,
+      "langcode": "en",
+      "status": true,
+      "title": "Stories",
+      "created": "2020-03-02T21:36:30+00:00",
+      "changed": "2020-03-11T20:37:01+00:00",
+      "field_description": "Read about what/'s happening in our VA Pittsburgh health care community.",
+      "field_intro_text": "Read about what/'s happening in our VA Pittsburgh health care community."
+    },
+    "field_media": {
+      "type": "media--image",
+      "id": "9f457438-d003-42fe-84f2-06a4e449f0ae",
+      "drupal_internal__mid": 62,
+      "drupal_internal__vid": 62,
+      "langcode": "en",
+      "revision_created": "2019-05-14T16:30:27+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "Belmont21a.jpg",
+      "created": "2019-05-14T16:29:16+00:00",
+      "changed": "2019-05-14T16:29:16+00:00"
+    }
+  },
+  {
+    "type": "node--news_story",
+    "id": "7984050a-dca6-46ef-835a-1b0976095c50",
+    "path": {
+      "alias": "/pittsburgh-health-care/stories/i-care-award-winners-recognized",
+      "pid": 568,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 381,
+    "drupal_internal__vid": 17356,
+    "status": true,
+    "title": "I CARE Award winners recognized",
+    "created": "2019-05-14T16:33:41+00:00",
+    "changed": "2020-03-24T20:10:28+00:00",
+    "field_intro_text": "VA Pittsburgh Healthcare System presents I CARE awards to VA employees whose actions demonstrate the Department of Veterans Affairs I CARE Core Values of Integrity, Commitment, Advocacy, Respect and Excellence",
+    "field_listing": {
+      "type": "node--story_listing",
+      "id": "a75c369c-a7f5-402b-aeb9-74ad8d24fd36",
+      "drupal_internal__nid": 2807,
+      "drupal_internal__vid": 16489,
+      "langcode": "en",
+      "status": true,
+      "title": "Stories",
+      "created": "2020-03-02T21:36:30+00:00",
+      "changed": "2020-03-11T20:37:01+00:00",
+      "field_description": "Read about what/'s happening in our VA Pittsburgh health care community.",
+      "field_intro_text": "Read about what/'s happening in our VA Pittsburgh health care community."
+    },
+    "field_media": {
+      "type": "media--image",
+      "id": "0fd52779-02f8-4a41-b2f2-2b79749051db",
+      "drupal_internal__mid": 63,
+      "drupal_internal__vid": 63,
+      "langcode": "en",
+      "status": true,
+      "name": "Gyory_ICARE-Award_20190221_Main.jpg",
+      "created": "2019-05-14T16:36:09+00:00",
+      "changed": "2019-05-14T16:36:09+00:00"
+    }
+  }
+]
