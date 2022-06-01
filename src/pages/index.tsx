@@ -23,10 +23,17 @@ export const Core = () => {
           <Link href="/demo/expandableText">Expandable Text</Link>
         </li>
         <li>
-          <Link href="/demo/linkTeasers">Link Teasers</Link>
+          <Link href="/demo/media">Media Image</Link>
         </li>
         <li>
-          <Link href="/demo/media">Media Image</Link>
+          <Link href="/pittsburgh-health-care/stories/">
+            News Story Listing
+          </Link>
+        </li>
+        <li>
+          <Link href="/pittsburgh-health-care/stories/we-honor-outstanding-doctors">
+            News Story Full Page Example
+          </Link>
         </li>
         <li>
           <Link href="/demo/personProfiles">Person Profile</Link>
@@ -35,28 +42,14 @@ export const Core = () => {
           <Link href="/demo/table">Table</Link>
         </li>
         <li>
-          <Link href="/demo/newsStoryTeasers">News Story Teasers</Link>
-        </li>
-        <li>
-          <Link href="/pittsburgh-health-care/stories/we-honor-outstanding-doctors">
-            News Story Example 1
+          <Link href="/demo/pagination/exampleA/0">
+            Paginiation design system example
           </Link>
         </li>
         <li>
-          <Link href="/pittsburgh-health-care/stories/vietnam-veterans-gift-honors-fallen-soldier-son">
-            News Story Example 2
+          <Link href="/demo/pagination/exampleB/0">
+            Pagination hook example
           </Link>
-        </li>
-        <li>
-          <Link href="/pittsburgh-health-care/stories/2022-outstanding-physician-of-the-year">
-            News Story Example 3
-          </Link>
-        </li>
-        <li>
-          <Link href="/demo/pagination/exampleA/0">paginiation example A</Link>
-        </li>
-        <li>
-          <Link href="/demo/pagination/exampleB/0">paginiation example B</Link>
         </li>
       </ul>
     </Container>

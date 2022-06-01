@@ -22,6 +22,7 @@ import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
 import { formatDate, truncateWordsOrChar } from '@/utils/utils'
+import { recordEvent } from '@/utils/recordEvent'
 
 /**
  * These components expect NodeNewsStory as their input.
@@ -73,9 +74,20 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
                     }}
                   ></div>
                 </div>
-                {/* {% if fieldListing.entity.entityUrl.path %}
-                        <a onClick="recordEvent({ event: 'nav-secondary-button-click' });" className="vads-u-display--block vads-u-margin-bottom--7" href="{{ fieldListing.entity.entityUrl.path }}" id="news-stories-listing-link">See all stories</a>
-                    {% endif %} */}
+                {node.field_listing?.path?.alias && (
+                  <a
+                    onClick={() =>
+                      recordEvent({
+                        event: 'nav-secondary-button-click',
+                      })
+                    }
+                    className="vads-u-display--block vads-u-margin-bottom--7"
+                    href={node.field_listing?.path?.alias}
+                    id="news-stories-listing-link"
+                  >
+                    See all stories
+                  </a>
+                )}
               </article>
             </div>
           </div>
@@ -124,13 +136,10 @@ export const NewsStory = ({
   switch (viewMode) {
     case 'full':
       return <NewsStoryFull node={node} {...props} />
-      break
     case 'teaser':
       return (
         <NewsStoryTeaser node={node} headingLevel={headingLevel} {...props} />
       )
-      break
-
     default:
       return null
   }
