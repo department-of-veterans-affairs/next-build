@@ -29,13 +29,13 @@ type NodeQaProps = {
   node: NodeQA
 }
 
-export const ResouceWrapper = ({
+export const ResourceWrapper = ({
   title,
   fieldAnswer,
   buttons,
   tags,
   linkTeaser,
-  benifits,
+  benefits: benefits,
 }) => {
   return (
     <div id="content" className="interior" data-template="node-q_a">
@@ -53,7 +53,7 @@ export const ResouceWrapper = ({
                   </ul>
                   {tags}
                   <ul className="usa-unstyled-list">{linkTeaser}</ul>
-                  {benifits}
+                  {benefits}
                 </article>
               </div>
             </div>
@@ -69,7 +69,7 @@ export const Resources = ({ node }: NodeQaProps) => {
   if (node?.type !== 'node--q_a') return
 
   const resources = {
-    benifits: <BenefitsHubLinks nodes={node?.field_related_benefit_hubs} />,
+    benefits: <BenefitsHubLinks nodes={node?.field_related_benefit_hubs} />,
     tags: <AudienceTopics paragraph={node?.field_tags} />,
     teaser: node?.field_related_information.map((paragraph) => (
       <LinkTeaser
@@ -85,16 +85,16 @@ export const Resources = ({ node }: NodeQaProps) => {
   }
 
   return (
-    <ResouceWrapper
+    <ResourceWrapper
       title={node?.title}
       tags={resources?.tags}
-      benifits={resources?.benifits}
+      benefits={resources?.benefits}
       buttons={resources?.buttons}
       fieldAnswer={{
         __html: node?.field_answer?.field_wysiwyg?.processed,
       }}
       linkTeaser={resources?.teaser}
-    ></ResouceWrapper>
+    ></ResourceWrapper>
   )
 }
 

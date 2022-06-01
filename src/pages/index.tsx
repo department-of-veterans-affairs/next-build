@@ -23,19 +23,7 @@ export const Core = () => {
           <Link href="/demo/expandableText">Expandable Text</Link>
         </li>
         <li>
-          <Link href="/demo/linkTeasers">Link Teasers</Link>
-        </li>
-        <li>
           <Link href="/demo/media">Media Image</Link>
-        </li>
-        <li>
-          <Link href="/demo/personProfiles">Person Profile</Link>
-        </li>
-        <li>
-          <Link href="/demo/table">Table</Link>
-        </li>
-        <li>
-          <Link href="/demo/newsStoryTeasers">News Story Teasers</Link>
         </li>
         <li>
           <Link href="/pittsburgh-health-care/stories/we-honor-outstanding-doctors">
@@ -51,6 +39,17 @@ export const Core = () => {
           <Link href="/pittsburgh-health-care/stories/2022-outstanding-physician-of-the-year">
             News Story Example 3
           </Link>
+        </li>
+        <li>
+          <Link href="/pittsburgh-health-care/stories/">
+            News Story Listing
+          </Link>
+        </li>
+        <li>
+          <Link href="/demo/personProfiles">Person Profile</Link>
+        </li>
+        <li>
+          <Link href="/demo/table">Table</Link>
         </li>
       </ul>
     </Container>

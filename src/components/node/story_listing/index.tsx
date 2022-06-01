@@ -21,10 +21,10 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
  */
 
 import Container from '@/components/container'
-import { NewsStoryTeaser } from '@/components/node/news_story'
+import { NewsStoryTeaser } from '@/components/node/news_story/'
 
 /** General Story Listing component. Allows choice of different display components by the caller. */
-const StoryListing = ({ node, additionalNode, context }): JSX.Element => {
+const StoryListing = ({ node, additionalNode }): JSX.Element => {
   if (!node) return
 
   return (
