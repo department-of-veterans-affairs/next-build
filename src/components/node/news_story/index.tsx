@@ -22,6 +22,7 @@ import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
 import { formatDate, truncateWordsOrChar } from '@/utils/utils'
+import { SocialLinks } from '@/components/partials/socialLinks'
 
 /**
  * These components expect NodeNewsStory as their input.
@@ -60,7 +61,7 @@ export const NewsStoryFull = ({ node }: NodeNewsStoryProps) => {
                   </time>
                 </div>
 
-                {/* {% include "src/site/facilities/story_social_share.drupal.liquid" %} */}
+                <SocialLinks node={node}></SocialLinks>
 
                 <div className="usa-grid usa-grid-full vads-u-margin-bottom--2">
                   <div className="va-introtext">
