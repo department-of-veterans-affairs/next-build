@@ -39,3 +39,40 @@ a {
     width: 1024px;
   }
 }
+.va-pagination-b {
+  border-top: 1px solid #f1f1f1;
+  font-size: 0.9em;
+  overflow: hidden;
+  padding: 2rem 0 1rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.va-pagination-b a {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.va-pagination-prev-b,
+.va-pagination-next-b,
+.va-pagination-inner-b {
+  padding: 0;
+}
+@media (min-width: 1201px) {
+  .va-pagination-inner-b {
+    width: 60px;
+    justify-content: center;
+  }
+}
+.va-pagination-prev-b,
+.va-pagination-next-b {
+  padding: 0 1rem;
+}
+.va-pagination-prev-b,
+.va-pagination-next-b {
+  position: relative;
+}
