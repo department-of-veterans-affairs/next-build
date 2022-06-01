@@ -42,9 +42,7 @@ export async function getStaticPaths(
 export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<NodeProps>> {
-  console.log('context', context)
   const path = await drupalClient.translatePathFromContext(context)
-  console.log(path)
   if (!path || !resourceTypes.includes(path.jsonapi.resourceName)) {
     return {
       notFound: true,
