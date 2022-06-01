@@ -1,14 +1,14 @@
 /**
  * ### Overview
- * News Story represents an individual story within a Facility. These are used for human-interest articles.
+ * Story Listing represents an individual story within a Facility. These are used for human-interest articles.
  *
- * News Story expects nodes of type {@link NodeNewsStory}.
+ * Story Listing expects nodes of type {@link NodeStoryListing}.
  *
  * ### View modes
- * Full page: {@link NewsStoryFull}
+ * Teaser: {@link StoryListing}
  *
  * ### Examples
- * @see https://va.gov/pittsburgh-health-care/stories/we-honor-outstanding-doctors
+ * @see https://va.gov/pittsburgh-health-care/stories/
  *
 
 
@@ -17,12 +17,12 @@ import { NodeMetaInfo } from '@/components/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /**
- * These components expect NodeNewsStory as their input.
+ * These components expect NodeStoryListing as their input.
  */
 import Container from '@/components/container'
 import { NewsStoryTeaser } from '@/components/node/news_story'
 
-/** General News Story component. Allows choice of different display components by the caller. */
+/** General Story Listing component. Allows choice of different display components by the caller. */
 const StoryListing = ({ node, additional }): JSX.Element => {
   if (!node) return
 
