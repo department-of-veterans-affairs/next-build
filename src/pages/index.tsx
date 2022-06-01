@@ -50,6 +50,10 @@ export const Core = () => {
         </li>
         <li>
           <Link href="/demo/table">Table</Link>
+          <Link href="/demo/pagination/exampleA/0">paginiation example A</Link>
+        </li>
+        <li>
+          <Link href="/demo/pagination/exampleB/0">paginiation example B</Link>
         </li>
       </ul>
     </Container>

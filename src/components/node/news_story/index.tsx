@@ -27,7 +27,7 @@ import { recordEvent } from '@/utils/recordEvent'
 /**
  * These components expect NodeNewsStory as their input.
  */
-type NodeNewsStoryProps = {
+export type NodeNewsStoryProps = {
   node: NodeNewsStory
   viewMode?: string
   headingLevel?: ComponentType | keyof JSX.IntrinsicElements
