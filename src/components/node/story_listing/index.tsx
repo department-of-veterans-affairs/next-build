@@ -19,11 +19,12 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /**
  * These components expect NodeStoryListing as their input.
  */
+
 import Container from '@/components/container'
 import { NewsStoryTeaser } from '@/components/node/news_story'
 
 /** General Story Listing component. Allows choice of different display components by the caller. */
-const StoryListing = ({ node, additional }): JSX.Element => {
+const StoryListing = ({ node, additionalNode, context }): JSX.Element => {
   if (!node) return
 
   return (
@@ -37,13 +38,13 @@ const StoryListing = ({ node, additional }): JSX.Element => {
               {storyListing.field_intro_text && (
                 <p className="events-show">{storyListing.field_intro_text}</p>
               )}
-              {additional.length === 0 ||
-                (additional.length === null && (
+              {additionalNode.length === 0 ||
+                (additionalNode.length === null && (
                   <div className="clearfix-text">No stories at this time.</div>
                 ))}
               <Container className="container">
                 <ul className="usa-unstyled-list">
-                  {additional.map((newsStoryTeaser) => (
+                  {additionalNode.map((newsStoryTeaser) => (
                     <NewsStoryTeaser
                       key={newsStoryTeaser.id}
                       node={newsStoryTeaser}
@@ -72,16 +73,17 @@ const params = new DrupalJsonApiParams()
 
 const newsStory = new DrupalJsonApiParams()
   .addInclude(['field_media', 'field_media.image', 'field_listing'])
-  .addPageLimit(20)
+  .addPageLimit(10)
 
 /** Export information necessary to identify the component and query it.
  * See {@link NodeMetaInfo}
  */
+
 export const Meta: NodeMetaInfo = {
   resource: 'node--story_listing',
   component: StoryListing,
   params: params,
+  additionalNode: 'node--news_story',
+  additionalParams: newsStory,
   collection: true,
-  additional: 'node--news_story',
-  extra: newsStory,
 }

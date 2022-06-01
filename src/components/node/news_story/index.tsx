@@ -124,13 +124,10 @@ export const NewsStory = ({
   switch (viewMode) {
     case 'full':
       return <NewsStoryFull node={node} {...props} />
-      break
     case 'teaser':
       return (
         <NewsStoryTeaser node={node} headingLevel={headingLevel} {...props} />
       )
-      break
-
     default:
       return null
   }

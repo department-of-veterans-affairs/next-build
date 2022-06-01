@@ -8,9 +8,9 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /** General NodeProps to pass nodes into node components. */
 interface NodeProps {
   node: NodeTypes
-  additional?: NodeTypes
+  additionalNode?: NodeTypes
   collection?: boolean
-  extra?: DrupalJsonApiParams
+  additionalParams?: DrupalJsonApiParams
   viewMode?: string
 }
 
@@ -28,6 +28,8 @@ export const Meta: NodeMetaInfo = {
   resource: 'node--news_story',
   component: NewsStory,
   params: params,
+  collection: true, // optional -  If true, the component will be rendered as a collection of nodes.
+  additionalNode: 'node--news_story', // optional - If the component is rendered as a collection, this is the name of the resource to query for additional nodes.
 }
  * ```
  */
@@ -38,11 +40,11 @@ export interface NodeMetaInfo {
   component: ({ node, viewMode, ...props }: NodeProps) => JSX.Element
   /** A DrupalJsonApiParams object containing information necessary for the API query for this data object. */
   params: DrupalJsonApiParams
-
-  additional?: string
-
-  extra?: DrupalJsonApiParams
-
+  /** Identifier for an additional Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story`. */
+  additionalNode?: string
+  /** Additional DrupalJsonApiParams object containing information necessary for the API query for this data object. */
+  additionalParams?: DrupalJsonApiParams
+  /** If true, the component will render a collection of nodes. */
   collection?: boolean
 }
 
@@ -54,21 +56,28 @@ interface NodeMetaOut {
   [resource: string]: {
     component: ({ node }: NodeProps) => JSX.Element
     params: DrupalJsonApiParams
-    additional?: string
-    extra?: DrupalJsonApiParams
+    additionalNode?: string
+    additionalParams?: DrupalJsonApiParams
     collection?: boolean
   }
 }
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */
 export const nodeMeta: NodeMetaOut = nodeMetaIn.reduce((acc, current) => {
-  const { resource, component, params, additional, extra, collection } = current
+  const {
+    resource,
+    component,
+    params,
+    additionalNode,
+    additionalParams,
+    collection,
+  } = current
   acc[resource] = {
     component: component,
     params: params,
-    additional: additional,
+    additionalNode: additionalNode,
     collection: collection,
-    extra: extra,
+    additionalParams: additionalParams,
   }
   return acc
 }, {})
@@ -76,7 +85,7 @@ export const nodeMeta: NodeMetaOut = nodeMetaIn.reduce((acc, current) => {
 /** Generalized component. Look up the component the data requires and use it to render. */
 export function Node({
   node,
-  additional,
+  additionalNode,
   viewMode = 'full',
   ...props
 }: NodeProps) {
@@ -86,8 +95,8 @@ export function Node({
   const type =
     node?.type ||
     node?.map((data) => data.type) ||
-    additional?.type ||
-    additional?.map((data) => data.type)
+    additionalNode?.type ||
+    additionalNode?.map((data) => data.type)
 
   const Component = nodeMeta[type]?.component
 
@@ -98,7 +107,7 @@ export function Node({
   return (
     <Component
       node={node}
-      additional={additional}
+      additionalNode={additionalNode}
       viewMode={viewMode}
       {...props}
     />
