@@ -5,6 +5,7 @@ export const S3_URL =
   'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov'
 
 export const DEV_PATH = 'https://dev.cms.va.gov'
+export const IMAGE_PATH_TEMP = 'https://www.va.gov'
 
 // Build Page nodes: params
 export const FIELDS =

@@ -6,7 +6,7 @@ import { NewsStory, NewsStoryTeaser } from './'
 
 describe('<NewsStory> component renders', () => {
   test('with valid data', () => {
-    render(<NewsStory node={data[0] as any} viewMode="full" />)
+    render(<NewsStory node={data[0] as any} viewMode={'full'} />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
@@ -15,14 +15,14 @@ describe('<NewsStory> component renders', () => {
 
 describe('<NewsStory> component does not render', () => {
   test('with invalid data', () => {
-    render(<NewsStory node={null} viewMode="full" />)
+    render(<NewsStory node={null} viewMode={'full'} />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).not.toBeInTheDocument()
   })
 
-  test('when viewmode does not have full as a prop', () => {
-    render(<NewsStory node={data[0] as any} viewMode="large" />)
+  test('when viewmode is not defined', () => {
+    render(<NewsStory node={data[0] as any} />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).not.toBeInTheDocument()
@@ -32,7 +32,7 @@ describe('<NewsStory> component does not render', () => {
 describe('<NewsStoryTeaser> component renders', () => {
   test('with valid data', () => {
     const { container } = render(
-      <NewsStoryTeaser node={data[0] as any} viewMode="teaser" />
+      <NewsStoryTeaser node={data[0] as any} viewMode={'teaser'} />
     )
     const aEl = container.querySelector('a')
     const titleEl = container.querySelector('h2')
@@ -55,7 +55,7 @@ describe('<NewsStoryTeaser> component renders', () => {
 
   test('and should truncate into text if more than 60 words', () => {
     const { container } = render(
-      <NewsStoryTeaser node={data[1] as any} viewMode="teaser" />
+      <NewsStoryTeaser node={data[1] as any} viewMode={'teaser'} />
     )
     const pEl = container.querySelector('p')
 
@@ -68,7 +68,7 @@ describe('<NewsStoryTeaser> component renders', () => {
     const { container } = render(
       <NewsStoryTeaser
         node={data[0] as any}
-        viewMode="teaser"
+        viewMode={'teaser'}
         headingLevel={'h1'}
       />
     )
@@ -78,9 +78,9 @@ describe('<NewsStoryTeaser> component renders', () => {
   })
 })
 
-describe('<NewsStoryTeaser> component doen not render', () => {
+describe('<NewsStoryTeaser> component does not render', () => {
   test('with invalid data', () => {
-    render(<NewsStoryTeaser node={null} viewMode="teaser" />)
+    render(<NewsStoryTeaser node={null} viewMode={'teaser'} />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).not.toBeInTheDocument()
