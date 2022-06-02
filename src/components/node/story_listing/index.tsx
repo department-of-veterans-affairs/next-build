@@ -15,7 +15,7 @@
 /** These types/packages will import into all node components. */
 import { NodeMetaInfo } from '@/components/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-
+import { useRouter } from 'next/router'
 /**
  * These components expect NodeStoryListing as their input.
  */
@@ -68,8 +68,6 @@ export default StoryListing
 /** All nodes end with NodeMetaInfo: the name of the resource, the name of the component, and the parameters necessary for calling the resource. */
 const params = new DrupalJsonApiParams()
   .addFilter('status', '1')
-  .addFilter('drupal_internal__nid', '2806')
-  .addSort('created', 'DESC')
 
 const newsStory = new DrupalJsonApiParams()
   .addInclude(['field_media', 'field_media.image', 'field_listing'])

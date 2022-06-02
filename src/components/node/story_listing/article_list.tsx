@@ -31,7 +31,7 @@ const NodeListOnly = () => {
     // applications embedded in a Drupal theme or module this could also be set
     // to a relative path.
     const API_ROOT = `${config.drupalBaseUrl}/jsonapi/`
-    const url = `${API_ROOT}node/news_story?fields[node--news_story]=id,path,drupal_internal__nid,title&sort=-created&page[limit]=10`
+    const url = `${API_ROOT}node/news_story?fields[node--news_story]=id,path,drupal_internal__nid,title&sort=-created&page[limit]=100`
 
     const headers = new Headers({
       Accept: 'application/vnd.api+json',

@@ -56,29 +56,48 @@ export async function getStaticProps(
   const addResourceToCollection = nodeMeta[type]?.additionalNode
 
   /** Check for is collection variable and determines if it is a collection or a single resource */
-
   if (!isCollection) {
     node = await drupalClient.getResourceFromContext<NodeTypes>(path, context, {
-      params: nodeMeta[type].params.getQueryObject(),
+      params: {
+        ...nodeMeta[type].params.getQueryObject(),
+      },
     })
   }
+  debugger
   if (isCollection) {
     node = await drupalClient.getResourceCollectionFromContext<NodeTypes>(
       type,
       context,
-      { params: nodeMeta[type].params.getQueryObject() }
+      {
+        params: {
+          'filter[drupal_internal__nid][value]': path.entity.id,
+          ...nodeMeta[type].params.getQueryObject(),
+        },
+      }
     )
+debugger
+    console.log("ADDITIONAL PARAMS", nodeMeta[type].additionalParams.getQueryObject())
     /** Check for is additionalNode variable and returns data for additional collection or single resource */
     if (addResourceToCollection) {
       additionalNode =
         await drupalClient.getResourceCollectionFromContext<NodeTypes>(
           addResourceToCollection,
           context,
-          { params: nodeMeta[type].additionalParams.getQueryObject() }
+          {
+            params: {
+              ...nodeMeta[type].additionalParams.getQueryObject(),
+              // 'filter[drupal_internal__nid][value]': path.entity.id,
+              // 'filter[field_listing][value]': path.entity.id,
+            },
+            
+          }
         )
     }
   }
 
+
+  // console.log(additionalNode)
+  // console.log(node)
   if (!node || (!context.preview && node?.status === false)) {
     return {
       notFound: true,
