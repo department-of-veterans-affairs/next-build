@@ -12,9 +12,11 @@ function isValidData(data) {
   return true
 }
 
-const NodeItem = ({drupal_internal__nid, path, title }) => (
+const NodeItem = ({ drupal_internal__nid, path, title }) => (
   <li id={drupal_internal__nid}>
-    <Link href={`${path.alias}`} passHref><a>{title}</a></Link>
+    <Link href={`${path.alias}`} passHref>
+      <a>{title}</a>
+    </Link>
   </li>
 )
 
@@ -28,7 +30,7 @@ const NodeListOnly = () => {
     // This should point to your local Drupal instance. Alternatively, for React
     // applications embedded in a Drupal theme or module this could also be set
     // to a relative path.
-    const API_ROOT =`${config.drupalBaseUrl}/jsonapi/`
+    const API_ROOT = `${config.drupalBaseUrl}/jsonapi/`
     const url = `${API_ROOT}node/news_story?fields[node--news_story]=id,path,drupal_internal__nid,title&sort=-created&page[limit]=10`
 
     const headers = new Headers({
@@ -59,22 +61,22 @@ const NodeListOnly = () => {
           />
           <hr />
           <ul>
-          {content
-          .filter((item) => {
-              if (!filter) {
-                return item
-              }
-              if (
-                filter &&
-                item.attributes.title.toLowerCase().includes(filter)
-              ) {
-                return item
-              }
-            })
-            .map((item) => (
-              <NodeItem key={item.id} {...item.attributes} />
-            ))}
-            </ul>
+            {content
+              .filter((item) => {
+                if (!filter) {
+                  return item
+                }
+                if (
+                  filter &&
+                  item.attributes.title.toLowerCase().includes(filter)
+                ) {
+                  return item
+                }
+              })
+              .map((item) => (
+                <NodeItem key={item.id} {...item.attributes} />
+              ))}
+          </ul>
         </>
       ) : (
         <NoData />
