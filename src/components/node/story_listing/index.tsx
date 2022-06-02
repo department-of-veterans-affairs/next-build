@@ -24,7 +24,6 @@ import { NewsStoryTeaser } from '@/components/node/news_story/'
 
 /** General Story Listing component. Allows choice of different display components by the caller. */
 const StoryListing = ({ node, additionalNode }): JSX.Element => {
-
   if (!node) return
 
   return (
@@ -69,7 +68,7 @@ export default StoryListing
 const params = new DrupalJsonApiParams()
   .addFilter('status', '1')
   .addSort('created', 'DESC')
- 
+
 const newsStory = new DrupalJsonApiParams()
   .addInclude(['field_media', 'field_media.image', 'field_listing'])
   .addPageLimit(10)

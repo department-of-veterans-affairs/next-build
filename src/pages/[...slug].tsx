@@ -69,7 +69,7 @@ export async function getStaticProps(
       type,
       context,
       {
-        params: {  
+        params: {
           'filter[drupal_internal__nid][value]': path.entity.id,
           ...nodeMeta[type].params.getQueryObject(),
         },
@@ -84,13 +84,14 @@ export async function getStaticProps(
           context,
           {
             params: {
-              'filter[field_listing.drupal_internal__nid][value]' : path.entity.id, // Todo make the filter option dynamic
+              'filter[field_listing.drupal_internal__nid][value]':
+                path.entity.id, // Todo make the filter option dynamic
               ...nodeMeta[type].additionalParams.getQueryObject(),
             },
           }
         )
-      }
-   }
+    }
+  }
 
   if (!node || (!context.preview && node?.status === false)) {
     return {
