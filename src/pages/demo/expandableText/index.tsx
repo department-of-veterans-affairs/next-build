@@ -1,12 +1,12 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalParagraph } from 'next-drupal'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import ExpandableText from '@/components/paragraph/expandable_text'
+import { ParagraphExpandableText } from '@/types/paragraph'
+import { Paragraph } from '@/components/paragraph'
 
 interface ExpandableTextPageProps {
-  expandableTextCollection: DrupalParagraph[]
+  expandableTextCollection: ParagraphExpandableText[]
 }
 
 const ExpandableTextPage = ({
@@ -17,8 +17,11 @@ const ExpandableTextPage = ({
   return (
     <>
       <Container className="container">
-        {expandableTextCollection.map((paragraph) => (
-          <ExpandableText key={paragraph.id} paragraph={paragraph} />
+        {expandableTextCollection.map((paragraphExpandableText) => (
+          <Paragraph
+            key={paragraphExpandableText.id}
+            paragraph={paragraphExpandableText}
+          />
         ))}
       </Container>
     </>
@@ -34,16 +37,14 @@ export async function getStaticProps(
   params.addPageLimit(20)
 
   const expandableTextCollection =
-    await drupalClient.getResourceCollectionFromContext<DrupalParagraph[]>(
-      'paragraph--expandable_text',
-      context,
-      {
-        params: params.getQueryObject(),
-      }
-    )
+    await drupalClient.getResourceCollectionFromContext<
+      ParagraphExpandableText[]
+    >('paragraph--expandable_text', context, {
+      params: params.getQueryObject(),
+    })
   return {
     props: {
-      expandableTextCollection: expandableTextCollection || null,
+      expandableTextCollection,
     },
   }
 }

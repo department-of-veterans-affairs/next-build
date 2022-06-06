@@ -3,12 +3,18 @@ import { get } from 'lodash'
 import { ParagraphLinkTeaser } from '@/types/paragraph'
 import { recordEvent } from '@/utils/recordEvent'
 import { IMAGE_PATH_TEMP } from '@/lib/constants'
+import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
+import { StaffProfiles } from '@/components/paragraph/staff_profile'
 
-function isRequestValid(paragraph: ParagraphLinkTeaser) {
+function isRequestValid(paragraph) {
   return paragraph.field_link?.uri
 }
 
-const LinkTeaser = ({ paragraph, boldTitle, sectionHeader }): JSX.Element => {
+export function LinkTeaser({
+  paragraph,
+  boldTitle,
+  sectionHeader,
+}: ParagraphProps) {
   if (!paragraph || !isRequestValid(paragraph)) return
 
   const analytic = {
@@ -81,4 +87,7 @@ const LinkTeaser = ({ paragraph, boldTitle, sectionHeader }): JSX.Element => {
   )
 }
 
-export default LinkTeaser
+export const Meta: ParagraphMetaInfo = {
+  resource: 'paragraph--link_teaser',
+  component: LinkTeaser,
+}

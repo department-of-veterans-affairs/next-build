@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
+import { Paragraph } from '@/components/paragraph'
+import { ParagraphButton } from '@/types/paragraph'
 
-import Button from './index'
-
-const paragraph = {
+const paragraph: ParagraphButton = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   type: 'paragraph--button',
   created: '2020-10-16T20:09:53+00:00',
@@ -13,12 +13,17 @@ const paragraph = {
   field_button_link: {
     uri: 'https://www.va.gov/?next=sign-in-faq',
     title: 'test',
+    options: null,
   },
+  drupal_internal__id: 123,
+  drupal_internal__revision_id: 1,
+  langcode: 'en',
+  status: true,
 }
 
 describe('Button with valid data', () => {
   test('renders Button component', () => {
-    render(<Button paragraph={paragraph} />)
+    render(<Paragraph paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).toBeInTheDocument()
     expect(screen.getByRole('link')).toHaveAttribute(
@@ -33,7 +38,7 @@ describe('Button with invalid data', () => {
     paragraph.field_button_label = null
     paragraph.field_button_link = null
 
-    render(<Button paragraph={paragraph} />)
+    render(<Paragraph paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
@@ -43,8 +48,9 @@ describe('Button with invalid data', () => {
     paragraph.field_button_link = {
       uri: 'https://www.va.gov/?next=sign-in-faq',
       title: 'test',
+      options: null,
     }
-    render(<Button paragraph={paragraph} />)
+    render(<Paragraph paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
@@ -52,7 +58,7 @@ describe('Button with invalid data', () => {
   test('does not render Button component when link is not present', () => {
     paragraph.field_button_link = null
     paragraph.field_button_label = 'Sign in now'
-    render(<Button paragraph={paragraph} />)
+    render(<Paragraph paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
@@ -61,9 +67,10 @@ describe('Button with invalid data', () => {
     paragraph.field_button_link = {
       uri: null,
       title: 'test',
+      options: null,
     }
     paragraph.field_button_label = 'Sign in now'
-    render(<Button paragraph={paragraph} />)
+    render(<Paragraph paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })

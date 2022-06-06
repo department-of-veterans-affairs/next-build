@@ -23,6 +23,9 @@ export const Core = () => {
           <Link href="/demo/expandableText">Expandable Text</Link>
         </li>
         <li>
+          <Link href="/demo/linkTeasers">Link Teasers</Link>
+        </li>
+        <li>
           <Link href="/demo/media">Media Image</Link>
         </li>
         <li>

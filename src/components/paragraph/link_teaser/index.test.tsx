@@ -1,10 +1,11 @@
 import { render, screen } from '@testing-library/react'
-import LinkTeaser from './index'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import * as recordEvent from '@/utils/recordEvent'
+import { Paragraph } from '@/components/paragraph'
+import { ParagraphLinkTeaser } from '@/types/paragraph'
 
 describe('<LinkTeaser> component renders without field_spokes', () => {
-  const MOCK_PARAGRAPH = {
+  const MOCK_PARAGRAPH: ParagraphLinkTeaser = {
     id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
     type: 'paragraph--link_teaser',
     created: '2020-10-16T20:09:53+00:00',
@@ -14,14 +15,18 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
     field_link: {
       uri: '/health-care/eligibility/',
       title: 'Health Care Benefits Eligibility',
-      options: [],
+      options: null,
     },
     field_link_summary: 'Find out if you can get VA health care benefits.',
+    drupal_internal__id: 123,
+    drupal_internal__revision_id: 1,
+    langcode: 'en',
+    status: true,
   }
 
   test('and click event sends correct params to recordEvent', () => {
     const { container } = render(
-      <LinkTeaser
+      <Paragraph
         paragraph={MOCK_PARAGRAPH}
         boldTitle={true}
         sectionHeader="This is the section header"
@@ -40,7 +45,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 
   test('and without boldTitle', () => {
     const { container } = render(
-      <LinkTeaser
+      <Paragraph
         paragraph={MOCK_PARAGRAPH}
         boldTitle={false}
         sectionHeader=""
@@ -62,11 +67,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 
   test('and with boldTitle and title', () => {
     const { container } = render(
-      <LinkTeaser
-        paragraph={MOCK_PARAGRAPH}
-        boldTitle={true}
-        sectionHeader=""
-      />
+      <Paragraph paragraph={MOCK_PARAGRAPH} boldTitle={true} sectionHeader="" />
     )
     const aEl = container.querySelector('a')
 
@@ -82,11 +83,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
   test('and with boldTitle and without title', () => {
     MOCK_PARAGRAPH.field_link.title = ''
     const { container } = render(
-      <LinkTeaser
-        paragraph={MOCK_PARAGRAPH}
-        boldTitle={true}
-        sectionHeader=""
-      />
+      <Paragraph paragraph={MOCK_PARAGRAPH} boldTitle={true} sectionHeader="" />
     )
     const aEl = container.querySelector('a')
 
@@ -101,7 +98,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 })
 
 describe('<LinkTeaser> component renders with field_spokes', () => {
-  const MOCK_PARAGRAPH = {
+  const MOCK_PARAGRAPH: ParagraphLinkTeaser = {
     id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
     type: 'paragraph--link_teaser',
     created: '2020-10-16T20:09:53+00:00',
@@ -111,14 +108,18 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
     field_link: {
       uri: '/health-care/eligibility/',
       title: 'Health Care Benefits Eligibility',
-      options: [],
+      options: null,
     },
     field_link_summary: 'Find out if you can get VA health care benefits.',
+    drupal_internal__id: 123,
+    drupal_internal__revision_id: 1,
+    langcode: 'en',
+    status: true,
   }
 
   test('and click event sends correct params to recordEvent', () => {
     const { container } = render(
-      <LinkTeaser
+      <Paragraph
         paragraph={MOCK_PARAGRAPH}
         boldTitle={false}
         sectionHeader="This is the section header"
@@ -137,7 +138,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
   test('and without boldTitle', () => {
     const { container } = render(
-      <LinkTeaser
+      <Paragraph
         paragraph={MOCK_PARAGRAPH}
         boldTitle={false}
         sectionHeader=""
@@ -163,11 +164,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
   test('and with boldTitle', () => {
     const { container } = render(
-      <LinkTeaser
-        paragraph={MOCK_PARAGRAPH}
-        boldTitle={true}
-        sectionHeader=""
-      />
+      <Paragraph paragraph={MOCK_PARAGRAPH} boldTitle={true} sectionHeader="" />
     )
     const aEl = container.querySelector('a')
     const spanEl = container.querySelector('span')
@@ -190,7 +187,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
   test('and without boldTitle and without title', () => {
     MOCK_PARAGRAPH.field_link.title = ''
     const { container } = render(
-      <LinkTeaser
+      <Paragraph
         paragraph={MOCK_PARAGRAPH}
         boldTitle={false}
         sectionHeader=""
@@ -214,15 +211,22 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
 describe('LinkTeaser with invalid data', () => {
   test('does not render <LinkTeaser> component when uri is not present', () => {
-    const MOCK_PARAGRAPH = {
+    const MOCK_PARAGRAPH: ParagraphLinkTeaser = {
+      id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
+      type: 'paragraph--link_teaser',
+      field_link_summary: 'Find out if you can get VA health care benefits.',
       field_link: {
         uri: null,
         title: 'Health Care Benefits Eligibility',
-        options: [],
+        options: null,
       },
+      drupal_internal__id: 123,
+      drupal_internal__revision_id: 1,
+      langcode: 'en',
+      status: true,
     }
     const { container } = render(
-      <LinkTeaser
+      <Paragraph
         paragraph={MOCK_PARAGRAPH}
         boldTitle={false}
         sectionHeader=""

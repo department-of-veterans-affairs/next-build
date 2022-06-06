@@ -3,13 +3,14 @@ import { DrupalNode } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
 import {
   PersonProfile,
-  StaffProfile,
   StaffNewsProfile,
 } from '@/components/node/person_profile'
 import Container from '@/components/container'
+import { Paragraph } from '@/components/paragraph'
+import { ParagraphStaffProfile } from '@/types/paragraph'
 
 interface ProfilePageProps {
-  staffProfiles: DrupalNode[]
+  staffProfiles: ParagraphStaffProfile[]
   personProfiles: DrupalNode[]
 }
 
@@ -30,9 +31,12 @@ const PersonProfilePage = ({
           : null}
 
         {staffProfiles
-          ? staffProfiles.map((paragraph) => (
-              <div key={paragraph.id}>
-                <StaffProfile paragraph={paragraph} />
+          ? staffProfiles.map((paragraphStaffProfile) => (
+              <div key={paragraphStaffProfile.id}>
+                <Paragraph
+                  key={paragraphStaffProfile.id}
+                  paragraph={paragraphStaffProfile}
+                />
               </div>
             ))
           : null}
@@ -61,7 +65,7 @@ export async function getStaticProps(
   })
 
   const staffProfiles = await drupalClient.getResourceCollectionFromContext<
-    DrupalNode[]
+    ParagraphStaffProfile[]
   >('paragraph--staff_profile', context, {
     params: {
       include:

@@ -1,6 +1,6 @@
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
-import { StaffProfiles } from '@/components/paragraph/staff_profile'
+import { Paragraph } from '@/components/paragraph'
 
 export const PersonProfile = ({ node }): JSX.Element => {
   if (!node) return
@@ -134,11 +134,14 @@ export const StaffNewsProfile = ({ node }): JSX.Element => {
   )
 }
 
-export const StaffProfile = ({ paragraph }) => {
+export const StaffProfile = ({ paragraphStaffProfile }) => {
   return (
-    <div key={paragraph.id}>
+    <div key={paragraphStaffProfile.id}>
       <h3>Staff Profile</h3>
-      <StaffProfiles paragraph={paragraph} />
+      <Paragraph
+        key={paragraphStaffProfile.id}
+        paragraph={paragraphStaffProfile}
+      />
     </div>
   )
 }

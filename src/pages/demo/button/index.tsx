@@ -1,12 +1,12 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalParagraph } from 'next-drupal'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import Button from '@/components/paragraph/button'
+import { Paragraph } from '@/components/paragraph'
+import { ParagraphButton } from '@/types/paragraph'
 
 interface ButtonPageProps {
-  buttons: DrupalParagraph[]
+  buttons: ParagraphButton[]
 }
 
 const ButtonPage = ({ buttons }: ButtonPageProps) => {
@@ -15,8 +15,8 @@ const ButtonPage = ({ buttons }: ButtonPageProps) => {
   return (
     <>
       <Container className="container">
-        {buttons.map((paragraph) => (
-          <Button key={paragraph.id} paragraph={paragraph} />
+        {buttons.map((paragraphButton) => (
+          <Paragraph key={paragraphButton.id} paragraph={paragraphButton} />
         ))}
       </Container>
     </>
@@ -32,13 +32,13 @@ export async function getStaticProps(
   params.addPageLimit(30)
 
   const buttons = await drupalClient.getResourceCollectionFromContext<
-    DrupalParagraph[]
+    ParagraphButton[]
   >('paragraph--button', context, {
     params: params.getQueryObject(),
   })
   return {
     props: {
-      buttons: buttons || null,
+      buttons,
     },
   }
 }

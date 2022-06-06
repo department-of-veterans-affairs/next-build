@@ -1,15 +1,16 @@
 import Link from 'next/link'
 import { recordEvent } from '@/utils/recordEvent'
-import { ParagraphEmailContact } from '@/types/paragraph'
+import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
+import { Button } from '@/components/paragraph/button'
 
-function isRequestValid(paragraph: ParagraphEmailContact) {
+function isRequestValid(paragraph) {
   return (
     paragraph.field_email_label !== null &&
     paragraph.field_email_address !== null
   )
 }
 
-const EmailContact = ({ paragraph }): JSX.Element => {
+export function EmailContact({ paragraph }: ParagraphProps) {
   if (!paragraph || !isRequestValid(paragraph)) return
 
   const analytic = {
@@ -30,4 +31,7 @@ const EmailContact = ({ paragraph }): JSX.Element => {
   )
 }
 
-export default EmailContact
+export const Meta: ParagraphMetaInfo = {
+  resource: 'paragraph--email_contact',
+  component: EmailContact,
+}
