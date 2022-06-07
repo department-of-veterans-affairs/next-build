@@ -79,7 +79,7 @@ export const StaffProfiles = ({ paragraph }): JSX.Element => {
             )}
             {fieldEmailAddress && (
               <p
-                className="  vads-u-font-weight--normal
+                className="vads-u-font-weight--normal
               vads-u-margin--0
               vads-u-margin-bottom--1"
               >

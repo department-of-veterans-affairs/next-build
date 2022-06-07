@@ -19,6 +19,7 @@ export interface FieldFormattedText {
 export interface FieldFormattedTextWithSummary extends FieldFormattedText {
   summary: string
 }
+
 export interface FieldLink {
   uri: string
   title: string
