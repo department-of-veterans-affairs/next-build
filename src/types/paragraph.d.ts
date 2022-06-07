@@ -9,23 +9,7 @@ import {
   FieldTable,
 } from './field_type'
 import { MediaImage } from './media'
-import {
-  NodeBanner,
-  NodeBasicLandingPage,
-  NodeFaqMultipleQA,
-  NodeHealthCareLocalFacility,
-  NodeLandingPage,
-  NodeNewsStory,
-  NodeOffice,
-  NodePersonProfile,
-  NodePromoBanner,
-  NodeQA,
-  NodeRegionalHealthCareServiceDes,
-  NodeStepByStep,
-  NodeStoryListing,
-  NodeSupportResourcesDetailPage,
-  NodeSupportService,
-} from './node'
+import { NodeLandingPage, NodeQA, NodeSupportService } from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
   TaxonomyTermAudienceNonBeneficiaries,
