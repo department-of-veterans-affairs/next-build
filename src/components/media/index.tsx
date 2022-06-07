@@ -1,6 +1,6 @@
 import Image from '@/components/image'
 import { DrupalMedia } from 'next-drupal'
-import { absoluteURL } from '@/utils/utils'
+import { absoluteURL } from '@/utils/helpers'
 
 interface ImageProps {
   url: string

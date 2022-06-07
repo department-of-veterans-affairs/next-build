@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import config from '../../../../config'
-
-function isValidData(data) {
-  if (data === null) {
-    return false
-  }
-  if (data.data === undefined || data.data === null || data.data.length === 0) {
-    return false
-  }
-  return true
-}
+import { isValidData } from '@/utils/helpers'
 
 const NodeItem = ({ drupal_internal__nid, path, title }) => (
   <li id={drupal_internal__nid}>
@@ -20,9 +11,10 @@ const NodeItem = ({ drupal_internal__nid, path, title }) => (
   </li>
 )
 
-const NoData = () => <div>No articles found.</div>
+const NoData = () => <div>No news articles found.</div>
 
-const NodeListOnly = () => {
+// This is a list of story titles for testing purposes only
+const StoryListOnly = () => {
   const [content, setContent] = useState(null)
   const [filter, setFilter] = useState(null)
 
@@ -85,4 +77,4 @@ const NodeListOnly = () => {
   )
 }
 
-export default NodeListOnly
+export default StoryListOnly
