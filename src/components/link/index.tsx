@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 import type { LinkProps as NextLinkProps } from 'next/link'
 import { useRouter } from 'next/router'
 
-import { isRelative } from '@/utils/utils'
+import { isRelative } from '@/utils/helpers'
 
 interface LinkProps extends NextLinkProps {
   href: string

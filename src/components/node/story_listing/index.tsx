@@ -22,10 +22,13 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 import Container from '@/components/container'
 import { NewsStoryTeaser } from '@/components/node/news_story/'
+import { isValidData } from '@/utils/helpers'
 
 /** General Story Listing component. Allows choice of different display components by the caller. */
 const StoryListing = ({ node, additionalNode }): JSX.Element => {
-  if (!node) return
+  if (!isValidData(node || additionalNode)) {
+    return
+  }
 
   return (
     <>
@@ -68,7 +71,6 @@ export default StoryListing
 /** All nodes end with NodeMetaInfo: the name of the resource, the name of the component, and the parameters necessary for calling the resource. */
 const params = new DrupalJsonApiParams()
   .addFilter('status', '1')
-  .addFilter('drupal_internal__nid', '2806')
   .addSort('created', 'DESC')
 
 const newsStory = new DrupalJsonApiParams()

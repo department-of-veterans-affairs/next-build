@@ -21,7 +21,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { MediaImageComponent } from '@/components/media'
 import { StaffNewsProfile } from '@/components/node/person_profile'
 import { NodeNewsStory } from '@/types/node'
-import { formatDate, truncateWordsOrChar } from '@/utils/utils'
+import { formatDate, truncateWordsOrChar } from '@/utils/helpers'
 import { recordEvent } from '@/utils/recordEvent'
 import { SocialLinks } from '@/components/partials/socialLinks'
 
