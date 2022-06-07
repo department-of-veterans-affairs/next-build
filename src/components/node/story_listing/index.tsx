@@ -15,16 +15,19 @@
 /** These types/packages will import into all node components. */
 import { NodeMetaInfo } from '@/components/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-
+import { useRouter } from 'next/router'
 /**
  * These components expect NodeStoryListing as their input.
  */
 
 import Container from '@/components/container'
 import { NewsStoryTeaser } from '@/components/node/news_story/'
+import Pagination from '@department-of-veterans-affairs/component-library/Pagination'
 
+export const NUMBER_OF_POSTS_PER_PAGE = 3
+export const TOTAL = 20
 /** General Story Listing component. Allows choice of different display components by the caller. */
-const StoryListing = ({ node, additionalNode }): JSX.Element => {
+const StoryListing = ({ node, additionalNode, page = 1 }): JSX.Element => {
   if (!node) return
 
   return (
@@ -54,6 +57,15 @@ const StoryListing = ({ node, additionalNode }): JSX.Element => {
                   ))}
                 </ul>
               </Container>
+              {page ? (
+                <Pagination
+                  page={page}
+                  pages={TOTAL}
+                  onPageSelect={(pageNumber: number) => {
+                    pageNumber = 1
+                  }}
+                />
+              ) : null}
             </div>
           </div>
           {/*</div>*/}
@@ -68,7 +80,6 @@ export default StoryListing
 /** All nodes end with NodeMetaInfo: the name of the resource, the name of the component, and the parameters necessary for calling the resource. */
 const params = new DrupalJsonApiParams()
   .addFilter('status', '1')
-  .addFilter('drupal_internal__nid', '2806')
   .addSort('created', 'DESC')
 
 const newsStory = new DrupalJsonApiParams()

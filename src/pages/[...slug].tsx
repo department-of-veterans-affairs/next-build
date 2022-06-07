@@ -10,7 +10,7 @@ import { NodeTypes } from '@/types/node'
 
 interface NodeProps {
   node: NodeTypes
-  additionalNode: NodeTypes
+  additionalNode?: NodeTypes
 }
 
 /** This passes any retrieved node to the generalized Node component. */
@@ -43,41 +43,44 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<NodeProps>> {
   const path = await drupalClient.translatePathFromContext(context)
+  const type = path.jsonapi.resourceName
+  const isCollection = nodeMeta[type]?.collection
+  const addResourceToCollection = nodeMeta[type]?.additionalNode
+
   if (!path || !resourceTypes.includes(path.jsonapi.resourceName)) {
     return {
       notFound: true,
     }
   }
+  /** Check for isCollection variable to determine if its a single resource or collection*/
+  const node = isCollection
+    ? await drupalClient.getResourceCollectionFromContext<NodeTypes>(
+        type,
+        context,
+        {
+          params: {
+            'filter[drupal_internal__nid][value]': path.entity.id,
+            ...nodeMeta[type].params.getQueryObject(),
+          },
+        }
+      )
+    : await drupalClient.getResourceFromContext<NodeTypes>(path, context, {
+        params: nodeMeta[type].params.getQueryObject(),
+      })
 
-  let node
-  let additionalNode
-  const type = path.jsonapi.resourceName
-  const isCollection = nodeMeta[type]?.collection
-  const addResourceToCollection = nodeMeta[type]?.additionalNode
-
-  /** Check for is collection variable and determines if it is a collection or a single resource */
-
-  if (!isCollection) {
-    node = await drupalClient.getResourceFromContext<NodeTypes>(path, context, {
-      params: nodeMeta[type].params.getQueryObject(),
-    })
-  }
-  if (isCollection) {
-    node = await drupalClient.getResourceCollectionFromContext<NodeTypes>(
-      type,
-      context,
-      { params: nodeMeta[type].params.getQueryObject() }
-    )
-    /** Check for is additionalNode variable and returns data for additional collection or single resource */
-    if (addResourceToCollection) {
-      additionalNode =
-        await drupalClient.getResourceCollectionFromContext<NodeTypes>(
-          addResourceToCollection,
-          context,
-          { params: nodeMeta[type].additionalParams.getQueryObject() }
-        )
-    }
-  }
+  /** Check for isCollection and additionalResource */
+  const additionalNode = addResourceToCollection
+    ? await drupalClient.getResourceCollectionFromContext<NodeTypes>(
+        addResourceToCollection,
+        context,
+        {
+          params: {
+            'filter[field_listing.drupal_internal__nid][value]': path.entity.id, // Todo make the filter option dynamic
+            ...nodeMeta[type].additionalParams.getQueryObject(),
+          },
+        }
+      )
+    : null
 
   if (!node || (!context.preview && node?.status === false)) {
     return {
