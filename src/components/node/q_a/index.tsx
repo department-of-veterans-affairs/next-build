@@ -1,6 +1,6 @@
 /**
  * ### Overview
- * Resouce QA is a node that displays a question and answer section.
+ * Resource QA is a node that displays a question and answer section.
  *
  * Resources QA expects nodes of type {@link NodeQA}.
  *
@@ -18,10 +18,8 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /** These component includes are specific to this component. */
 import Container from '@/components/container'
 import { NodeQA } from '@/types/node'
-import Button from '@/components/paragraph/button'
-import AudienceTopics from '@/components/paragraph/audience_topics'
-import LinkTeaser from '@/components/paragraph/link_teaser'
 import { BenefitsHubLinks } from '@/components/partials/benefitHubsLinks'
+import { Paragraph } from '@/components/paragraph'
 /**
  * These components expect NodeQA as their input.
  */
@@ -35,7 +33,7 @@ export const ResourceWrapper = ({
   buttons,
   tags,
   linkTeaser,
-  benefits: benefits,
+  benefits,
 }) => {
   return (
     <div id="content" className="interior" data-template="node-q_a">
@@ -52,6 +50,11 @@ export const ResourceWrapper = ({
                     {buttons}
                   </ul>
                   {tags}
+                  {/*Section title*/}
+                  <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">
+                    Related information
+                  </h2>
+                  {/*Links*/}
                   <ul className="usa-unstyled-list">{linkTeaser}</ul>
                   {benefits}
                 </article>
@@ -70,17 +73,16 @@ export const Resources = ({ node }: NodeQaProps) => {
 
   const resources = {
     benefits: <BenefitsHubLinks nodes={node?.field_related_benefit_hubs} />,
-    tags: <AudienceTopics paragraph={node?.field_tags} />,
-    teaser: node?.field_related_information.map((paragraph) => (
-      <LinkTeaser
-        key={paragraph?.id}
-        paragraph={paragraph || ''}
-        boldTitle={false}
-        sectionHeader=""
+    tags: <Paragraph paragraph={node?.field_tags} />,
+    teaser: node?.field_related_information.map((paragraphLinkTeaser) => (
+      <Paragraph
+        key={paragraphLinkTeaser?.id}
+        paragraph={paragraphLinkTeaser}
+        componentParams={[{ boldTitle: false }, { sectionHeader: '' }]}
       />
     )),
-    buttons: node.field_buttons.map((button) => (
-      <Button key={button?.id} paragraph={button || ''} />
+    buttons: node.field_buttons.map((paragraphButton) => (
+      <Paragraph key={paragraphButton.id} paragraph={paragraphButton} />
     )),
   }
 

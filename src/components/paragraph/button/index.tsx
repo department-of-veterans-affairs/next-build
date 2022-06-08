@@ -1,11 +1,16 @@
 import Link from 'next/link'
-import { ParagraphButton } from '@/types/paragraph'
+import validator from 'validator'
+import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
 
-function isRequestValid(paragraph: ParagraphButton) {
-  return paragraph?.field_button_label && paragraph?.field_button_link?.uri
+function isRequestValid(paragraph) {
+  return (
+    paragraph?.field_button_label &&
+    paragraph?.field_button_link?.uri &&
+    validator.isURL(paragraph?.field_button_link?.uri)
+  )
 }
 
-const Button = ({ paragraph }): JSX.Element => {
+export function Button({ paragraph }: ParagraphProps) {
   if (!paragraph || !isRequestValid(paragraph)) return
 
   return (
@@ -19,4 +24,7 @@ const Button = ({ paragraph }): JSX.Element => {
   )
 }
 
-export default Button
+export const Meta: ParagraphMetaInfo = {
+  resource: 'paragraph--button',
+  component: Button,
+}

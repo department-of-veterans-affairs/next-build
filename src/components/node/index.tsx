@@ -89,9 +89,8 @@ export function Node({
   viewMode = 'full',
   ...props
 }: NodeProps) {
-  if (!node) {
-    return null
-  }
+  if (!node) return null
+
   const type =
     node?.type ||
     node?.map((data) => data.type) ||
@@ -100,9 +99,7 @@ export function Node({
 
   const Component = nodeMeta[type]?.component
 
-  if (!Component) {
-    return null
-  }
+  if (!Component) return null
 
   return (
     <Component

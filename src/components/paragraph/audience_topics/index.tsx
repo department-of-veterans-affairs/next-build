@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { ParagraphProps, ParagraphMetaInfo } from '@/components/paragraph'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 export const getTagsList = (fieldTags) => {
   if (!fieldTags) return null
@@ -25,8 +27,8 @@ export const getTagsList = (fieldTags) => {
   return tagList.sort((a, b) => a.categoryLabel.localeCompare(b.categoryLabel))
 }
 
-const AudienceTopics = ({ paragraph }) => {
-  if (!paragraph) paragraph = []
+export function AudienceTopics({ paragraph }: ParagraphProps) {
+  if (!paragraph) return null
   // Build tag list
   const tags = getTagsList(paragraph)
   // only render tags where length is greater than 0
@@ -48,7 +50,7 @@ const AudienceTopics = ({ paragraph }) => {
     <div className="vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
       <div className="vads-u-padding-top--3 vads-u-padding-bottom--1p5 vads-u-border-top--1px vads-u-border-bottom--1px vads-u-border-color--gray-light vads-u-display--flex vads-u-align-items--flex-start vads-u-flex-direction--row">
         <strong className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
-          Tags:
+          Tags
         </strong>
         <div className="vads-u-display--flex vads-u-flex-wrap--wrap">
           {tagsList}
@@ -58,4 +60,14 @@ const AudienceTopics = ({ paragraph }) => {
   )
 }
 
-export default AudienceTopics
+const audienceTopicsParams = new DrupalJsonApiParams().addInclude([
+  'field_audience_beneficiares',
+  'field_non_beneficiares',
+  'field_topics',
+])
+
+export const Meta: ParagraphMetaInfo = {
+  resource: 'paragraph--audience_topics',
+  component: AudienceTopics,
+  params: audienceTopicsParams,
+}

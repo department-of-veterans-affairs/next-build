@@ -1,12 +1,14 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalParagraph } from 'next-drupal'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import LinkTeaser from '@/components/paragraph/link_teaser'
+import { ParagraphLinkTeaser } from '@/types/paragraph'
+import { Paragraph } from '@/components/paragraph'
+
+const linkTeaserParams = [{ boldTitle: false }, { sectionHeader: '' }]
 
 interface LinkTeaserPageProps {
-  linkTeasers: DrupalParagraph[]
+  linkTeasers: ParagraphLinkTeaser[]
 }
 
 const LinkTeaserPage = ({ linkTeasers }: LinkTeaserPageProps) => {
@@ -17,11 +19,10 @@ const LinkTeaserPage = ({ linkTeasers }: LinkTeaserPageProps) => {
       <Container className="container">
         <ul className="usa-unstyled-list">
           {linkTeasers.map((paragraph) => (
-            <LinkTeaser
+            <Paragraph
               key={paragraph.id}
               paragraph={paragraph}
-              boldTitle={false}
-              sectionHeader=""
+              componentParams={linkTeaserParams}
             />
           ))}
         </ul>
@@ -39,13 +40,13 @@ export async function getStaticProps(
   params.addPageLimit(3)
 
   const linkTeasers = await drupalClient.getResourceCollectionFromContext<
-    DrupalParagraph[]
+    ParagraphLinkTeaser[]
   >('paragraph--link_teaser', context, {
     params: params.getQueryObject(),
   })
   return {
     props: {
-      linkTeasers: linkTeasers || null,
+      linkTeasers,
     },
   }
 }

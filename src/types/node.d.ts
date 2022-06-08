@@ -124,6 +124,7 @@ export interface NodeHealthCareLocalHealthService extends DrupalNode {
   field_service_location: ParagraphServiceLocation[]
   field_regional_health_service: NodeRegionalHealthCareServiceDes
 }
+
 export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
   field_media: MediaImage
@@ -248,6 +249,7 @@ export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_region_page: NodeHealthCareRegionPage
   field_body: string
 }
+
 export interface NodeStepByStep extends NodeAbstractResource {
   field_buttons_repeat: boolean
   field_steps: ParagraphStepByStep[]

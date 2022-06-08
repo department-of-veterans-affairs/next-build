@@ -1,12 +1,12 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalNode } from 'next-drupal'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
-import AudienceTopics from '@/components/paragraph/audience_topics'
+import { Paragraph } from '@/components/paragraph'
+import { ParagraphAudienceTopics } from '@/types/paragraph'
 
 interface AudienceTopicsPageProps {
-  tags: DrupalNode[]
+  tags: ParagraphAudienceTopics[]
 }
 
 const AudienceTopicsPage = ({ tags }: AudienceTopicsPageProps) => {
@@ -16,7 +16,7 @@ const AudienceTopicsPage = ({ tags }: AudienceTopicsPageProps) => {
     <Layout>
       <Container className="container">
         {tags.map((paragraph) => (
-          <AudienceTopics key={paragraph.id} paragraph={paragraph} />
+          <Paragraph key={paragraph.id} paragraph={paragraph} />
         ))}
       </Container>
     </Layout>
@@ -29,7 +29,7 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<AudienceTopicsPageProps>> {
   const tags = await drupalClient.getResourceCollectionFromContext<
-    DrupalNode[]
+    ParagraphAudienceTopics[]
   >('paragraph--audience_topics', context, {
     params: {
       include:
