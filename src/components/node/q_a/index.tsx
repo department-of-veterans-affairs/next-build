@@ -78,8 +78,7 @@ export const Resources = ({ node }: NodeQaProps) => {
       <Paragraph
         key={paragraphLinkTeaser?.id}
         paragraph={paragraphLinkTeaser}
-        boldTitle={false}
-        sectionHeader=""
+        componentParams={[{ boldTitle: false }, { sectionHeader: '' }]}
       />
     )),
     buttons: node.field_buttons.map((paragraphButton) => (

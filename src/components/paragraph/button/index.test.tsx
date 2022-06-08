@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import { Paragraph } from '@/components/paragraph'
 import { ParagraphButton } from '@/types/paragraph'
+import { Button } from './index'
 
 const paragraph: ParagraphButton = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
@@ -23,7 +23,7 @@ const paragraph: ParagraphButton = {
 
 describe('Button with valid data', () => {
   test('renders Button component', () => {
-    render(<Paragraph paragraph={paragraph} />)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).toBeInTheDocument()
     expect(screen.getByRole('link')).toHaveAttribute(
@@ -38,7 +38,7 @@ describe('Button with invalid data', () => {
     paragraph.field_button_label = null
     paragraph.field_button_link = null
 
-    render(<Paragraph paragraph={paragraph} />)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
@@ -50,7 +50,7 @@ describe('Button with invalid data', () => {
       title: 'test',
       options: null,
     }
-    render(<Paragraph paragraph={paragraph} />)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
@@ -58,7 +58,7 @@ describe('Button with invalid data', () => {
   test('does not render Button component when link is not present', () => {
     paragraph.field_button_link = null
     paragraph.field_button_label = 'Sign in now'
-    render(<Paragraph paragraph={paragraph} />)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })
@@ -70,7 +70,7 @@ describe('Button with invalid data', () => {
       options: null,
     }
     paragraph.field_button_label = 'Sign in now'
-    render(<Paragraph paragraph={paragraph} />)
+    render(<Button paragraph={paragraph} />)
 
     expect(screen.queryByText(/Sign in now/)).not.toBeInTheDocument()
   })

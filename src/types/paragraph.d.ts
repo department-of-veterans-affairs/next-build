@@ -167,7 +167,7 @@ export interface ParagraphServiceLocationAddress extends DrupalParagraph {
 }
 
 export interface ParagraphStaffProfile extends DrupalParagraph {
-  field_first_name: fieldFirstName
+  field_name_first: fieldFirstName
   field_last_name: fieldLastName
   field_email_address: fieldEmailAddress
   field_phone_number: fieldPhoneNumber

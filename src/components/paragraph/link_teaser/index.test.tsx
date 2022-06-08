@@ -28,8 +28,10 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
     const { container } = render(
       <Paragraph
         paragraph={MOCK_PARAGRAPH}
-        boldTitle={true}
-        sectionHeader="This is the section header"
+        componentParams={[
+          { boldTitle: true },
+          { sectionHeader: 'This is the section header' },
+        ]}
       />
     )
     const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
@@ -47,8 +49,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
     const { container } = render(
       <Paragraph
         paragraph={MOCK_PARAGRAPH}
-        boldTitle={false}
-        sectionHeader=""
+        componentParams={[{ boldTitle: false }, { sectionHeader: '' }]}
       />
     )
 
@@ -67,7 +68,10 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 
   test('and with boldTitle and title', () => {
     const { container } = render(
-      <Paragraph paragraph={MOCK_PARAGRAPH} boldTitle={true} sectionHeader="" />
+      <Paragraph
+        paragraph={MOCK_PARAGRAPH}
+        componentParams={[{ boldTitle: true }, { sectionHeader: '' }]}
+      />
     )
     const aEl = container.querySelector('a')
 
@@ -82,8 +86,12 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 
   test('and with boldTitle and without title', () => {
     MOCK_PARAGRAPH.field_link.title = ''
+
     const { container } = render(
-      <Paragraph paragraph={MOCK_PARAGRAPH} boldTitle={true} sectionHeader="" />
+      <Paragraph
+        paragraph={MOCK_PARAGRAPH}
+        componentParams={[{ boldTitle: true }, { sectionHeader: '' }]}
+      />
     )
     const aEl = container.querySelector('a')
 
@@ -121,8 +129,10 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
     const { container } = render(
       <Paragraph
         paragraph={MOCK_PARAGRAPH}
-        boldTitle={false}
-        sectionHeader="This is the section header"
+        componentParams={[
+          { boldTitle: false },
+          { sectionHeader: 'This is the section header' },
+        ]}
       />
     )
     const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
@@ -140,8 +150,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
     const { container } = render(
       <Paragraph
         paragraph={MOCK_PARAGRAPH}
-        boldTitle={false}
-        sectionHeader=""
+        componentParams={[{ boldTitle: false }, { sectionHeader: '' }]}
       />
     )
     const aEl = container.querySelector('a')
@@ -164,7 +173,10 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
   test('and with boldTitle', () => {
     const { container } = render(
-      <Paragraph paragraph={MOCK_PARAGRAPH} boldTitle={true} sectionHeader="" />
+      <Paragraph
+        paragraph={MOCK_PARAGRAPH}
+        componentParams={[{ boldTitle: true }, { sectionHeader: '' }]}
+      />
     )
     const aEl = container.querySelector('a')
     const spanEl = container.querySelector('span')
@@ -189,8 +201,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
     const { container } = render(
       <Paragraph
         paragraph={MOCK_PARAGRAPH}
-        boldTitle={false}
-        sectionHeader=""
+        componentParams={[{ boldTitle: false }, { sectionHeader: '' }]}
       />
     )
     const aEl = container.querySelector('a')
@@ -228,8 +239,7 @@ describe('LinkTeaser with invalid data', () => {
     const { container } = render(
       <Paragraph
         paragraph={MOCK_PARAGRAPH}
-        boldTitle={false}
-        sectionHeader=""
+        componentParams={[{ boldTitle: false }, { sectionHeader: '' }]}
       />
     )
     const liEl = container.querySelector('li')

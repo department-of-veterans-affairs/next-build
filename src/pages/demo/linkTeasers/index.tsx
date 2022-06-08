@@ -5,6 +5,8 @@ import Container from '@/components/container'
 import { ParagraphLinkTeaser } from '@/types/paragraph'
 import { Paragraph } from '@/components/paragraph'
 
+const linkTeaserParams = [{ boldTitle: false }, { sectionHeader: '' }]
+
 interface LinkTeaserPageProps {
   linkTeasers: ParagraphLinkTeaser[]
 }
@@ -20,8 +22,7 @@ const LinkTeaserPage = ({ linkTeasers }: LinkTeaserPageProps) => {
             <Paragraph
               key={paragraph.id}
               paragraph={paragraph}
-              boldTitle={false}
-              sectionHeader=""
+              componentParams={linkTeaserParams}
             />
           ))}
         </ul>

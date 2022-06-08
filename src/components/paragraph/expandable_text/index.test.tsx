@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { ParagraphExpandableText } from '@/types/paragraph'
-import { Paragraph } from '@/components/paragraph'
+import { ExpandableText } from '@/components/paragraph/expandable_text/index'
 
 const paragraph: ParagraphExpandableText = {
   type: 'paragraph--expandable_text',
@@ -22,7 +22,7 @@ const paragraph: ParagraphExpandableText = {
 
 describe('ExpandableText with valid data', () => {
   test('renders ExpandableText component', () => {
-    render(<Paragraph paragraph={paragraph} />)
+    render(<ExpandableText paragraph={paragraph} />)
 
     expect(screen.queryByText(/Show more/)).toBeInTheDocument()
     expect(screen.queryByText(/If you need support.../)).toBeInTheDocument()
@@ -33,7 +33,7 @@ describe('ExpandableText with invalid data', () => {
   test('does not render ExpandableText component when field_text_expander is not present', () => {
     paragraph.field_text_expander = null
 
-    render(<Paragraph paragraph={paragraph} />)
+    render(<ExpandableText paragraph={paragraph} />)
 
     expect(screen.queryByText(/Show more/)).not.toBeInTheDocument()
   })
@@ -41,7 +41,7 @@ describe('ExpandableText with invalid data', () => {
   test('does not render the field_wysiwyg info when field_wysiwyg is not present', () => {
     paragraph.field_text_expander = 'Show more'
     paragraph.field_wysiwyg = null
-    render(<Paragraph paragraph={paragraph} />)
+    render(<ExpandableText paragraph={paragraph} />)
 
     expect(screen.queryByText(/Show more/)).toBeInTheDocument()
     expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
@@ -54,7 +54,7 @@ describe('ExpandableText with invalid data', () => {
       processed: null,
       value: 'If you need support...',
     }
-    render(<Paragraph paragraph={paragraph} />)
+    render(<ExpandableText paragraph={paragraph} />)
 
     expect(screen.queryByText(/Show more/)).toBeInTheDocument()
     expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()

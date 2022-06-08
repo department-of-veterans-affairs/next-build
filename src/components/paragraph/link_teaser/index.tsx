@@ -10,12 +10,11 @@ function isRequestValid(paragraph) {
   return paragraph.field_link?.uri
 }
 
-export function LinkTeaser({
-  paragraph,
-  boldTitle,
-  sectionHeader,
-}: ParagraphProps) {
+export function LinkTeaser({ paragraph, componentParams }: ParagraphProps) {
   if (!paragraph || !isRequestValid(paragraph)) return
+
+  const boldTitle = componentParams[0].boldTitle
+  const sectionHeader = componentParams[1].sectionHeader
 
   const analytic = {
     event: 'nav-linkslist',

@@ -11,8 +11,7 @@ import { Meta as LinkTeaserMeta } from '@/components/paragraph/link_teaser'
 /** General ParagraphProps to pass paragraphs into paragraph components. */
 export interface ParagraphProps {
   paragraph: ParagraphTypes
-  boldTitle?: boolean
-  sectionHeader?: string
+  componentParams?
 }
 
 /** Each Paragraph component must export a ParagraphMetaInfo object `Meta`. This information helps next-build associate Drupal resource types with information for rendering them.
@@ -53,7 +52,7 @@ const paragraphMetaIn: ParagraphMetaInfo[] = [
 /** This interface enforces that the Paragraph meta information is indexable by type. */
 interface ParagraphMetaOut {
   [resource: string]: {
-    component: ({ paragraph }: ParagraphProps) => JSX.Element
+    component: ({ paragraph, componentParams }: ParagraphProps) => JSX.Element
     params?: DrupalJsonApiParams
   }
 }
@@ -71,12 +70,22 @@ export const paragraphMeta: ParagraphMetaOut = paragraphMetaIn.reduce(
   {}
 )
 
-export function Paragraph({ paragraph, ...props }: ParagraphProps) {
+export function Paragraph({
+  paragraph,
+  componentParams,
+  ...props
+}: ParagraphProps) {
   if (!paragraph) return null
 
   const Component = paragraphMeta[paragraph.type].component
 
   if (!Component) return null
 
-  return <Component paragraph={paragraph} {...props} />
+  return (
+    <Component
+      paragraph={paragraph}
+      componentParams={componentParams}
+      {...props}
+    />
+  )
 }

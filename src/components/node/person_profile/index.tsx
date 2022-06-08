@@ -1,6 +1,5 @@
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
-import { Paragraph } from '@/components/paragraph'
 
 export const PersonProfile = ({ node }): JSX.Element => {
   if (!node) return
@@ -130,18 +129,6 @@ export const StaffNewsProfile = ({ node }): JSX.Element => {
         By {title}
         {fieldDescription ? `, ${fieldDescription}` : null}
       </div>
-    </div>
-  )
-}
-
-export const StaffProfile = ({ paragraphStaffProfile }) => {
-  return (
-    <div key={paragraphStaffProfile.id}>
-      <h3>Staff Profile</h3>
-      <Paragraph
-        key={paragraphStaffProfile.id}
-        paragraph={paragraphStaffProfile}
-      />
     </div>
   )
 }
