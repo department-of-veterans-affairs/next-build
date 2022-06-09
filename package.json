@@ -14,6 +14,8 @@
     "test:coverage": "jest --coverage",
     "test:cypress": "cypress run -e \"TAGS=not @ignore\"",
     "test:cypress:interactive": "cypress open -e \"TAGS=not @ignore\"",
+    "test:examples": "jest --rootDir ./example_tests --config ./example_tests/jest.config.js",
+    "test:example": "yarn test:examples example_tests/${1}/",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "test:format": "prettier --check .",
     "test:types": "tsc --noEmit",

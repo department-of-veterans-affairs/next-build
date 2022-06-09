@@ -32,3 +32,4 @@ You will now have a Next.js development server running at http://localhost:3000,
 - [Code Guidelines](READMEs/code-guidelines.md)
 - [Testing](READMEs/testing.md)
 - [TypeScript](READMEs/typescript.md)
+- [Example Tests](example_tests/README.md)
