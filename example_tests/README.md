@@ -13,3 +13,7 @@ This is an extremely basic "Hello, world!" sort of application, and has a corres
 ## 02. Hello, world! (but asynchronously)
 
 Promises can complicate testing. This shows two simple ways of dealing with that.
+
+## 03. More Matchers
+
+Matchers are functions that verify that some value (`received`) matches some condition exists in some relationship with a comparison value (`expected`). This set of tests demonstrates a variety of matchers, how they are used, and some possible surprises in using them.
