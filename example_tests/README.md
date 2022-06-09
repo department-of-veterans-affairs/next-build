@@ -9,3 +9,7 @@ To run
 ## 01. Hello, world!
 
 This is an extremely basic "Hello, world!" sort of application, and has a correspondingly simple test.
+
+## 02. Hello, world! (but asynchronously)
+
+Promises can complicate testing. This shows two simple ways of dealing with that.
