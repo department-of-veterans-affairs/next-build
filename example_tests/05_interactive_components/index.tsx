@@ -38,7 +38,7 @@ function FavoritePokemon(props): JSX.Element {
   props.options.forEach((name) => {
     pokemonMap.set(getPokemonKey(name), name)
   })
-  const defaultValue = getPokemonKey(props.options[0]);
+  const defaultValue = getPokemonKey(props.options[0])
   // React.useState() is used to set a sort of persistent variable that will
   // remain between function calls.
   // In this case, we can use the `favorite` variable to access the current

@@ -23,3 +23,5 @@ Matchers are functions that verify that some value (`received`) matches some con
 This covers simple tests for a simple component, for developers new to React or Jest.
 
 ## 05. [An Interactive React Component](./05_interactive_components/)
+
+This component is more complex; it renders a header, `<select>` element, and a conditional `<div>` displaying an alert. It maintains internal state and reacts to user events.
