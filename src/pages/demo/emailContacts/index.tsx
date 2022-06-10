@@ -1,12 +1,12 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalParagraph } from 'next-drupal'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import EmailContact from '@/components/paragraph/email_contact'
+import { Paragraph } from '@/components/paragraph'
+import { ParagraphEmailContact } from '@/types/paragraph'
 
 interface EmailContactsPageProps {
-  emailContacts: DrupalParagraph[]
+  emailContacts: ParagraphEmailContact[]
 }
 
 const EmailContactsPage = ({ emailContacts }: EmailContactsPageProps) => {
@@ -15,8 +15,11 @@ const EmailContactsPage = ({ emailContacts }: EmailContactsPageProps) => {
   return (
     <>
       <Container className="container">
-        {emailContacts.map((paragraph) => (
-          <EmailContact key={paragraph?.id} paragraph={paragraph} />
+        {emailContacts.map((paragraphEmailContact) => (
+          <Paragraph
+            key={paragraphEmailContact.id}
+            paragraph={paragraphEmailContact}
+          />
         ))}
       </Container>
     </>
@@ -32,13 +35,13 @@ export async function getStaticProps(
   params.addPageLimit(30)
 
   const emailContacts = await drupalClient.getResourceCollectionFromContext<
-    DrupalParagraph[]
+    ParagraphEmailContact[]
   >('paragraph--email_contact', context, {
     params: params.getQueryObject(),
   })
   return {
     props: {
-      emailContacts: emailContacts || null,
+      emailContacts,
     },
   }
 }

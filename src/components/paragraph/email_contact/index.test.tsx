@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import EmailContact from './index'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import * as recordEvent from '@/utils/recordEvent'
+import { ParagraphEmailContact } from '@/types/paragraph'
+import { EmailContact } from '@/components/paragraph/email_contact/index'
 
-const paragraph = {
+const paragraph: ParagraphEmailContact = {
   type: 'paragraph--email_contact',
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   created: '2020-10-16T20:09:53+00:00',
@@ -11,6 +12,10 @@ const paragraph = {
   parent_type: 'paragraph',
   field_email_address: 'test.veteran@va.gov',
   field_email_label: 'Minority Veterans Program',
+  drupal_internal__id: 123,
+  drupal_internal__revision_id: 1,
+  langcode: 'en',
+  status: true,
 }
 
 describe('Email with valid data', () => {

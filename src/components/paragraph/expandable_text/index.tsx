@@ -1,10 +1,10 @@
-import { ParagraphExpandableText } from '@/types/paragraph'
+import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
 
-function isRequestValid(paragraph: ParagraphExpandableText) {
+function isRequestValid(paragraph) {
   return paragraph.field_text_expander !== null
 }
 
-const ExpandableText = ({ paragraph }): JSX.Element => {
+export function ExpandableText({ paragraph }: ParagraphProps) {
   if (!paragraph || !isRequestValid(paragraph)) return
 
   return (
@@ -25,4 +25,7 @@ const ExpandableText = ({ paragraph }): JSX.Element => {
   )
 }
 
-export default ExpandableText
+export const Meta: ParagraphMetaInfo = {
+  resource: 'paragraph--expandable_text',
+  component: ExpandableText,
+}

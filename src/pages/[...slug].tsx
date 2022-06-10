@@ -43,15 +43,17 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<NodeProps>> {
   const path = await drupalClient.translatePathFromContext(context)
-  const type = path.jsonapi.resourceName
-  const isCollection = nodeMeta[type]?.collection
-  const addResourceToCollection = nodeMeta[type]?.additionalNode
 
   if (!path || !resourceTypes.includes(path.jsonapi.resourceName)) {
     return {
       notFound: true,
     }
   }
+
+  const type = path.jsonapi.resourceName
+  const isCollection = nodeMeta[type]?.collection
+  const addResourceToCollection = nodeMeta[type]?.additionalNode
+
   /** Check for isCollection variable to determine if its a single resource or collection*/
   const node = isCollection
     ? await drupalClient.getResourceCollectionFromContext<NodeTypes>(

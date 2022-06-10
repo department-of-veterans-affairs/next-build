@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
+import NodeListOnly from '@/components/node/story_listing/article_list'
 
 export const Core = () => {
   return (
@@ -21,6 +22,9 @@ export const Core = () => {
         </li>
         <li>
           <Link href="/demo/expandableText">Expandable Text</Link>
+        </li>
+        <li>
+          <Link href="/demo/linkTeasers">Link Teasers</Link>
         </li>
         <li>
           <Link href="/demo/media">Media Image</Link>
@@ -51,6 +55,7 @@ export const Core = () => {
             Pagination hook example
           </Link>
         </li>
+        <NodeListOnly />
       </ul>
     </Container>
   )

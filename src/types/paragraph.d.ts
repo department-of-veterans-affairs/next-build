@@ -9,17 +9,39 @@ import {
   FieldTable,
 } from './field_type'
 import { MediaImage } from './media'
-import {
-  NodeLandingPage,
-  NodeNewsStory,
-  NodeQA,
-  NodeSupportService,
-} from './node'
+import { NodeLandingPage, NodeQA, NodeSupportService } from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
   TaxonomyTermAudienceNonBeneficiaries,
   TaxonomyTermTopics,
 } from './taxonomy_term'
+
+/** Union of all paragraph types.  */
+export type ParagraphTypes =
+  | ParagraphAlert
+  | ParagraphAlertSingle
+  | ParagraphAudienceTopics
+  | ParagraphButton
+  | ParagraphCollapsiblePanel
+  | ParagraphCollapsiblePanelItem
+  | ParagraphContactInformation
+  | ParagraphEmailContact
+  | ParagraphExpandableText
+  | ParagraphHealthCareLocalFacilityService
+  | ParagraphLinkTeaser
+  | ParagraphListOfLinks
+  | ParagraphNonReusableAlert
+  | ParagraphPhoneNumber
+  | ParagraphQAGroup
+  | ParagraphReactWidget
+  | ParagraphRichTextCharLimit1000
+  | ParagraphServiceLocation
+  | ParagraphServiceLocationAddress
+  | ParagraphStaffProfile
+  | ParagraphStep
+  | ParagraphStepByStep
+  | ParagraphTable
+  | ParagraphWysiwyg
 
 export interface ParagraphAlert extends DrupalParagraph {
   field_alert_heading: string
@@ -143,6 +165,19 @@ export interface ParagraphServiceLocationAddress extends DrupalParagraph {
   field_use_facility_address: boolean
   field_wing_floor_or_room_number: string
 }
+
+export interface ParagraphStaffProfile extends DrupalParagraph {
+  field_name_first: fieldFirstName
+  field_last_name: fieldLastName
+  field_email_address: fieldEmailAddress
+  field_phone_number: fieldPhoneNumber
+  field_suffix: fieldSuffix
+  field_description: fieldDescription
+  field_complete_biography_create: fieldCompleteBiographyCreate
+  field_media: fieldMedia
+  field_entity: fieldEntity
+}
+
 export interface ParagraphStep extends DrupalParagraph {
   field_alert: ParagraphAlertSingle
   field_media: MediaImage

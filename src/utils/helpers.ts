@@ -1,4 +1,5 @@
 import config from '../../config'
+import isNil from 'lodash/isNil'
 
 export function truncateWordsOrChar(
   str: string,
@@ -31,4 +32,11 @@ export function formatDate(input: string): string {
 
 export function isRelative(url: string) {
   return !new RegExp('^(?:[a-z]+:)?//', 'i').test(url)
+}
+
+export function isValidData(data) {
+  if (isNil(data)) {
+    return false
+  }
+  return true
 }
