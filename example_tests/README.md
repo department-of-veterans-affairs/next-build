@@ -25,3 +25,7 @@ This covers simple tests for a simple component, for developers new to React or 
 ## 05. [An Interactive React Component](./05_interactive_components/)
 
 This component is more complex; it renders a header, `<select>` element, and a conditional `<div>` displaying an alert. It maintains internal state and reacts to user events.
+
+## 06. [Accessibility Tests](./06_accessibility_tests/)
+
+This shows how to perform accessibility tests within unit tests.

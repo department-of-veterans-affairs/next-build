@@ -131,12 +131,12 @@ describe('expect.objectContaining(object)', () => {
 
 describe('expect.stringContaining(string) and expect.stringMatching(string | regexp)', () => {
   test('expect.stringContaining() will match a received string containing the expected string', () => {
-    const received = faker.datatype.string()
+    const received = faker.datatype.string(20)
     expect(received).toEqual(expect.stringContaining(received))
-    expect(received).toEqual(expect.stringContaining(received.substring(1, 4)))
+    expect(received).toEqual(expect.stringContaining(received.substring(1, 8)))
     expect(received).toEqual(
       expect.not.stringContaining(
-        received.substring(1, 4).split('').reverse().join('')
+        received.substring(1, 15).split('').reverse().join('')
       )
     )
   })
