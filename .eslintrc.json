@@ -47,7 +47,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["**/*.test.{js|jsx|ts|tsx}", "test/*"]
+        "devDependencies": ["**/*.test.*", "test/*"]
       }
     ]
   }
