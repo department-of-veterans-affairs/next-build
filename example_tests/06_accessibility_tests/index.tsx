@@ -44,7 +44,7 @@ function Component3({ colors }): JSX.Element {
   return (
     <div
       style={{
-        backgroundColor: `#${color}`,
+        backgroundColor: color,
         color: '#330000',
       }}
     >

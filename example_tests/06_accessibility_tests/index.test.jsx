@@ -64,9 +64,9 @@ describe('<Component3/>', () => {
     */
     const colors = {
       // eslint-disable-next-line prettier/prettier
-      ffffff: 'White',
-      '000000': 'Black',
-      '00008B': 'Dark Blue',
+      '#ffffff': 'White',
+      '#000000': 'Black',
+      '#00008B': 'Dark Blue',
     }
     const { container } = render(<Component3 colors={colors} />)
     // This is normal; black text on a white background shouldn't cause issues.
