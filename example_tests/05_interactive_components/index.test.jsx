@@ -9,12 +9,18 @@ describe('<FavoritePokemon/>', () => {
     */
     const options = ['Pikachu', 'Squirtle', 'Mr. Mime']
     render(<FavoritePokemon options={options} />)
-    // `screen.getByRole()` will throw if it can't find a result,
+    /*
+    `screen.getByRole()` will throw if it can't find a result and gives us
+    informative error messages.
+    */
     expect(screen.getByRole('heading')).toHaveTextContent(options[0])
     expect(screen.getByLabelText(/favorite pokemon/i)).toHaveTextContent(
       options[0]
     )
-    // When we
+    /*
+    `screen.queryByRole()` will _not_ throw if it can't find a result, instead
+    returning NULL.
+    */
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
 
     // We can fire an event simulating a change in the select...
