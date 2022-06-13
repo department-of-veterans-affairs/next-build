@@ -3,15 +3,18 @@ import FavoritePokemon from '.'
 
 describe('<FavoritePokemon/>', () => {
   test('allows selection from a variety of Pokemon', async () => {
-    // The initial configuration should have a select with three options,
-    // the first of which is selected.  Its name should appear in the
-    // heading.
+    /*
+    The initial configuration should have a select with three options, the 
+    first of which is selected.  Its name should appear in the heading.
+    */
     const options = ['Pikachu', 'Squirtle', 'Mr. Mime']
     render(<FavoritePokemon options={options} />)
+    // `screen.getByRole()` will throw if it can't find a result,
     expect(screen.getByRole('heading')).toHaveTextContent(options[0])
     expect(screen.getByLabelText(/favorite pokemon/i)).toHaveTextContent(
       options[0]
     )
+    // When we
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
 
     // We can fire an event simulating a change in the select...

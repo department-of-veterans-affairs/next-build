@@ -1,4 +1,4 @@
-import faker from '@faker-js/faker'
+import { faker } from 'test-utils'
 import { responseSymbol } from 'next/dist/server/web/spec-compliant/fetch-event'
 
 const resolvingPromiseCreator = (value) => {
@@ -26,8 +26,10 @@ describe('expect.anything() and expect.any(constructor)', () => {
     expect(faker.datatype.boolean()).toEqual(expect.anything())
     expect(faker.datatype.datetime()).toEqual(expect.anything())
     expect(faker.datatype.float()).toEqual(expect.anything())
-    // This is probably most useful in testing whether an object follows
-    // a general schema.
+    /*
+    This is probably most useful in testing whether an object follows a general
+    schema.
+    */
     expect({
       key1: faker.datatype.number(),
       key2: faker.datatype.array(),
@@ -47,8 +49,10 @@ describe('expect.anything() and expect.any(constructor)', () => {
     expect(faker.datatype.bigInt()).toEqual(expect.any(BigInt))
     expect(faker.datatype.boolean()).toEqual(expect.any(Boolean))
     expect(faker.datatype.datetime()).toEqual(expect.any(Date))
-    // This is probably most useful in testing whether an object follows
-    // a general schema.
+    /*
+    This is probably most useful in testing whether an object follows a general 
+    schema.
+    */
     expect({
       key1: faker.datatype.number(),
       key2: faker.datatype.array(),
@@ -144,8 +148,10 @@ describe('expect.stringContaining(string) and expect.stringMatching(string | reg
 })
 
 describe('expect.assertions(number) and expect.hasAssertions()', () => {
-  // Mostly useful for verifying that a heavily asynchronous test is
-  // executing everything as expected.
+  /*
+  Mostly useful for verifying that a heavily asynchronous test is executing 
+  everything as expected.
+  */
   describe('expect.assertions() verifies that a certain number of assertions are called during a test', () => {
     test('a test with no assertions', () => {
       expect.assertions(0)

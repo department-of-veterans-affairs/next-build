@@ -32,17 +32,22 @@ function getPokemonKey(name: string): string {
  * @returns {Component} A component allowing you to select a Pokemon from a dropdown.
  */
 function FavoritePokemon(props): JSX.Element {
-  // Create a map from each Pokemon's "key" name to its full, proper name, for
-  // display purposes.
+  /* 
+  Create a map from each Pokemon's "key" name to its full, proper name, for
+  display purposes.
+  */
   const pokemonMap = new Map()
   props.options.forEach((name) => {
     pokemonMap.set(getPokemonKey(name), name)
   })
   const defaultValue = getPokemonKey(props.options[0])
-  // React.useState() is used to set a sort of persistent variable that will
-  // remain between function calls.
-  // In this case, we can use the `favorite` variable to access the current
-  // favorite Pokemon, and the `setFavorite()` function to update the value.
+  /* 
+  React.useState() is used to set a sort of persistent variable that will 
+  remain between function calls.
+  
+  In this case, we can use the `favorite` variable to access the current
+  favorite Pokemon, and the `setFavorite()` function to update the value.
+  */
   const [favorite, setFavorite] = React.useState(defaultValue)
   // Mr. Mime is nightmare fuel.
   const isNotMrMime = favorite !== getPokemonKey('Mr. Mime')
