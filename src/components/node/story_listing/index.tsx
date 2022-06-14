@@ -13,9 +13,11 @@
 
 
 /** These types/packages will import into all node components. */
+import { useState } from 'react'
 import { NodeMetaInfo } from '@/components/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { useRouter } from 'next/router'
+
 /**
  * These components expect NodeStoryListing as their input.
  */
@@ -24,11 +26,21 @@ import Container from '@/components/container'
 import { NewsStoryTeaser } from '@/components/node/news_story/'
 import Pagination from '@department-of-veterans-affairs/component-library/Pagination'
 
-export const NUMBER_OF_POSTS_PER_PAGE = 3
-export const TOTAL = 20
+export const TOTAL = 10
 /** General Story Listing component. Allows choice of different display components by the caller. */
-const StoryListing = ({ node, additionalNode, page = 1 }): JSX.Element => {
+const StoryListing = ({ node, additionalNode }): JSX.Element => {
+  const [page, setPage] = useState(0)
+  const router = useRouter()
+  const path = router?.asPath
+
   if (!node) return
+
+  const handlePageChange = (count: number) => {
+    setPage(count - 1)
+    router.push(`${path}`, `${path}/${count}/`, {
+      shallow: true,
+    })
+  }
 
   return (
     <>
@@ -57,15 +69,11 @@ const StoryListing = ({ node, additionalNode, page = 1 }): JSX.Element => {
                   ))}
                 </ul>
               </Container>
-              {page ? (
-                <Pagination
-                  page={page}
-                  pages={TOTAL}
-                  onPageSelect={(pageNumber: number) => {
-                    pageNumber = 1
-                  }}
-                />
-              ) : null}
+              <Pagination
+                page={page + 1}
+                pages={TOTAL}
+                onPageSelect={handlePageChange}
+              />
             </div>
           </div>
           {/*</div>*/}
@@ -84,7 +92,7 @@ const params = new DrupalJsonApiParams()
 
 const newsStory = new DrupalJsonApiParams()
   .addInclude(['field_media', 'field_media.image', 'field_listing'])
-  .addPageLimit(10)
+  .addPageLimit(3)
 
 /** Export information necessary to identify the component and query it.
  * See {@link NodeMetaInfo}
