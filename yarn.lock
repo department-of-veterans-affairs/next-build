@@ -7950,10 +7950,10 @@ neo-async@^2.6.2:
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-drupal@^1.4.0-rc.0:
-  version "1.4.0-rc.0"
-  resolved "https://registry.yarnpkg.com/next-drupal/-/next-drupal-1.4.0-rc.0.tgz#1fa39cdf75575935d4263860a761fa82bc6a5f1c"
-  integrity sha512-xEcOgXBNJyB5TwyPT06ATp5qTim5wqslUKoyCURqY3mfYC4NiuTc3GsMzByglXLVBozJITN0+I2lqPAXkJPGdA==
+next-drupal@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/next-drupal/-/next-drupal-1.4.0.tgz#6f7ccb2125f4db6b3285e759d4d6b6c0223bbca7"
+  integrity sha512-LBKh5VFUNwsTeiq1PmvzMzLIUX7kyrUFkhQwDaoxDBgu1lOA+DB2OO6qjBb5xj7YiLIJ3yY+8fuOHZGQhKwEtQ==
   dependencies:
     jsona "^1.9.7"
     next "^12.0.0"
