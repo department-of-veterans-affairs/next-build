@@ -1,4 +1,5 @@
 import NextDocument, { Html, Main, NextScript, Head } from 'next/document'
+import { GtagInit } from '@/lib/google-analytics/gtag_init'
 
 export default class Document extends NextDocument {
   render() {
@@ -6,23 +7,7 @@ export default class Document extends NextDocument {
       <Html lang="en" dir="ltr">
         <Head>
           {/*Global site tag (gtag.js) - Google Analytics*/}
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-          />
-          <script
-            id="gtag-init"
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {page_path: window.location.pathname,
-            });
-          `,
-            }}
-          ></script>
-          {/*End Google Tag Manager*/}
+          <GtagInit />
           <meta charSet="utf-8" />
           <link
             rel="stylesheet"
