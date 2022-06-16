@@ -1,33 +1,31 @@
+import TagManager from 'react-gtm-module'
+
+export const GTM_ID = process.env.GOOGLE_TAG_MANAGER_ID
+export const TAG_MANAGER_ARGS = {
+  gtmId: process.env.GOOGLE_TAG_MANAGER_ID,
+  auth: process.env.GOOGLE_TAG_MANAGER_AUTH,
+  preview: process.env.GOOGLE_TAG_MANAGER_PREVIEW,
+}
+
 /**
  * ### Overview
  * log the pageview with its URL
- *
  **/
-export const pageview = (url, pageTitle) => {
-  if (window && window.gtag) {
-    window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
-      page_title: pageTitle,
-      page_path: url,
-    })
-  }
+export const pageview = (url) => {
+  TagManager.dataLayer({
+    dataLayer: {
+      event: 'pageview',
+      page: url,
+    },
+  })
 }
 
 /**
  * ### Overview
  * log specific event
- *
- * ### Example
- *
-    window.gtag('event', 'Navigation Secondary Button - ', {
-      event_category: 'Interactions',
-      event_label: 'nav-secondary-button-click',
-      value: value || '',
-    })
  **/
-export const event = ({ action, category, label, value }) => {
-  window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value: value,
+export const event = (data) => {
+  TagManager.dataLayer({
+    dataLayer: data,
   })
 }

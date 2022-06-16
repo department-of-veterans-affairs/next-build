@@ -1,5 +1,4 @@
-import * as ga from '@/lib/google-analytics'
-
+import { event } from '@/lib/google-analytics'
 /**
  * Helper function for reporting events to Google Analytics. An alias for window.dataLayer.push.
  * @module platform/monitoring/record-event
@@ -8,8 +7,7 @@ import * as ga from '@/lib/google-analytics'
  */
 
 export const recordEvent = (data) => {
-  // ga.event({ action: data.event, params: null })
-  window.gtag('event', data.event, data)
+  event(data)
 }
 
 /**
