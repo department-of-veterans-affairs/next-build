@@ -12,6 +12,9 @@ const nextConfig = {
   },
   env: {
     NEXT_PUBLIC_DRUPAL_BASE_URL: process.env.NEXT_PUBLIC_DRUPAL_BASE_URL,
+    GOOGLE_TAG_MANAGER_AUTH: process.env.GOOGLE_TAG_MANAGER_AUTH,
+    GOOGLE_TAG_MANAGER_PREVIEW: process.env.GOOGLE_TAG_MANAGER_PREVIEW,
+    GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID,
   },
   reactStrictMode: true,
   swcMinify: true,
