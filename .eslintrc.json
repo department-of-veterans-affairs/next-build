@@ -47,14 +47,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/*.test.tsx",
-          "**/*.test.ts",
-          "src/test-utils.tsx",
-          "src/setupTests.ts",
-          "src/mocks/*",
-          "test/*"
-        ]
+        "devDependencies": ["**/*.test.*", "test/*"]
       }
     ]
   }
