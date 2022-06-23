@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import config from '../../../../config'
 import { isValidData } from '@/utils/helpers'
+import { ResourceType } from '@/components/node'
 
 const NodeItem = ({ drupal_internal__nid, path, title }) => (
   <li id={drupal_internal__nid}>
@@ -23,7 +24,7 @@ const StoryListOnly = () => {
     // applications embedded in a Drupal theme or module this could also be set
     // to a relative path.
     const API_ROOT = `${config.drupalBaseUrl}/jsonapi/`
-    const url = `${API_ROOT}node/news_story?fields[node--news_story]=id,path,drupal_internal__nid,title&sort=-created&page[limit]=50`
+    const url = `${API_ROOT}node/news_story?fields[${ResourceType.NewsStory}]=id,path,drupal_internal__nid,title&sort=-created&page[limit]=50`
 
     const headers = new Headers({
       Accept: 'application/vnd.api+json',

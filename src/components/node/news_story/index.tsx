@@ -25,6 +25,8 @@ import { formatDate, truncateWordsOrChar } from '@/utils/helpers'
 import { recordEvent } from '@/utils/recordEvent'
 import { SocialLinks } from '@/components/partials/socialLinks'
 
+import { ResourceType } from '@/lib/constants'
+
 /**
  * These components expect NodeNewsStory as their input.
  */
@@ -155,11 +157,12 @@ const params = new DrupalJsonApiParams()
     'field_listing',
   ])
   .addPageLimit(10)
+
 /** Export information necessary to identify the component and query it.
  * See {@link NodeMetaInfo}
  */
 export const Meta: NodeMetaInfo = {
-  resource: 'node--news_story',
+  resource: ResourceType.NewsStory,
   component: NewsStory,
   params: params,
 }

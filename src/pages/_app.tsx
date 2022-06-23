@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import type { ReactElement, ReactNode } from 'react'
-import { TAG_MANAGER_ARGS, pageview } from '@/lib/google-analytics'
+import { TAG_MANAGER_ARGS } from '@/lib/google-analytics'
 import '@/styles/globals.css'
 import { useRouter } from 'next/router'
 import route from 'next/dist/server/router'
@@ -26,13 +26,8 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const router = useRouter()
   useEffect(() => {
-    TagManager.initialize(TAG_MANAGER_ARGS)
-
-    router.events.on('routeChangeComplete', pageview)
-    return () => {
-      router.events.off('routeChangeComplete', pageview)
-    }
-  }, [router.events])
+    // TagManager.initialize(TAG_MANAGER_ARGS)
+  })
 
   return getLayout(
     <>

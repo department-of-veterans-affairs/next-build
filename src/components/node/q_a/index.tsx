@@ -13,7 +13,7 @@
  */
 
 /** These types/packages will import into all node components. */
-import { NodeMetaInfo } from '@/components/node'
+import { NodeMetaInfo, ResourceType } from '@/components/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /** These component includes are specific to this component. */
 import Container from '@/components/container'
@@ -69,7 +69,7 @@ export const ResourceWrapper = ({
 
 export const Resources = ({ node }: NodeQaProps) => {
   /** Type narrowing; if we've managed to end up here with the wrong data, return. */
-  if (node?.type !== 'node--q_a') return
+  if (node?.type !== ResourceType.QuestionAnswer) return
 
   const resources = {
     benefits: <BenefitsHubLinks nodes={node?.field_related_benefit_hubs} />,
