@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { recordEvent } from '@/utils/recordEvent'
 import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
-import { Button } from '@/components/paragraph/button'
 
 function isRequestValid(paragraph) {
   return (

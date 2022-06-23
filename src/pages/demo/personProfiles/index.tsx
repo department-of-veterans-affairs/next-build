@@ -8,6 +8,7 @@ import {
 import Container from '@/components/container'
 import { Paragraph } from '@/components/paragraph'
 import { ParagraphStaffProfile } from '@/types/paragraph'
+import { ResourceType } from '@/components/node'
 
 interface ProfilePageProps {
   staffProfiles: ParagraphStaffProfile[]
@@ -52,7 +53,7 @@ export async function getStaticProps(
 ): Promise<GetStaticPropsResult<ProfilePageProps>> {
   const personProfiles = await drupalClient.getResourceCollectionFromContext<
     DrupalNode[]
-  >('node--person_profile', context, {
+  >(ResourceType.PersonProfile, context, {
     params: {
       include:
         'field_office, field_media, field_media.thumbnail, field_media.image',

@@ -13,7 +13,7 @@
 
 
 /** These types/packages will import into all node components. */
-import { NodeMetaInfo } from '@/components/node'
+import { NodeMetaInfo, ResourceType } from '@/components/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /**

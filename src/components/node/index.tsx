@@ -5,6 +5,18 @@ import { Meta as StoryListingMeta } from '@/components/node/story_listing'
 import { NodeTypes } from '@/types/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
+/** Node resource types. */
+export const enum ResourceType {
+  Banner = 'node--banner',
+  NewsStory = 'node--news_story',
+  FieldListing = 'node--field_listing',
+  PersonProfile = 'node--person_profile',
+  PromoBanner = 'node--promo_banner',
+  QuestionAnswer = 'node--q_a',
+  StoryListing = 'node--story_listing',
+  SupportResourcesDetailPage = 'node--support_resources_detail_page',
+}
+
 /** General NodeProps to pass nodes into node components. */
 interface NodeProps {
   node: NodeTypes
