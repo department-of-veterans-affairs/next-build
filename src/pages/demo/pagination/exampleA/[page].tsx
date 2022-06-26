@@ -5,7 +5,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { NewsStory } from '@/components/node/news_story'
 import Pagination from '@department-of-veterans-affairs/component-library/Pagination'
-import { ResourceType } from '@/components/node'
+import { NodeResourceType } from '@/types/node'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3
 export const TOTAL = 20
@@ -66,7 +66,7 @@ export async function getStaticProps(context) {
     .addPageLimit(TOTAL)
 
   const node = await drupalClient.getResourceCollectionFromContext(
-    ResourceType.NewsStory,
+    NodeResourceType.NewsStory,
     context,
     {
       params: {

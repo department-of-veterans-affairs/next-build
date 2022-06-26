@@ -15,6 +15,7 @@ import {
   TaxonomyTermAudienceNonBeneficiaries,
   TaxonomyTermTopics,
 } from './taxonomy_term'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** Union of all paragraph types.  */
 export type ParagraphTypes =
@@ -42,6 +43,17 @@ export type ParagraphTypes =
   | ParagraphStepByStep
   | ParagraphTable
   | ParagraphWysiwyg
+
+/** Paragraph resource types. */
+export const enum ParagraphResourceType {
+  AudienceTopics = 'paragraph--audience_topics',
+  Button = 'paragraph--button',
+  EmailContact = 'paragraph--email_contact',
+  ExpandableText = 'paragraph--expandable_text',
+  LinkTeaser = 'paragraph--link_teaser',
+  StaffProfile = 'paragraph--staff_profile',
+  Table = 'paragraph--table',
+}
 
 export interface ParagraphAlert extends DrupalParagraph {
   field_alert_heading: string
@@ -167,15 +179,15 @@ export interface ParagraphServiceLocationAddress extends DrupalParagraph {
 }
 
 export interface ParagraphStaffProfile extends DrupalParagraph {
-  field_name_first: fieldFirstName
-  field_last_name: fieldLastName
-  field_email_address: fieldEmailAddress
-  field_phone_number: fieldPhoneNumber
-  field_suffix: fieldSuffix
-  field_description: fieldDescription
-  field_complete_biography_create: fieldCompleteBiographyCreate
-  field_media: fieldMedia
-  field_entity: fieldEntity
+  field_name_first: string
+  field_last_name: string
+  field_email_address: string
+  field_phone_number: string
+  field_suffix: string
+  field_description: string
+  field_complete_biography_create: boolean
+  field_media: MediaImage
+  field_entity: null
 }
 
 export interface ParagraphStep extends DrupalParagraph {
@@ -195,4 +207,43 @@ export interface ParagraphTable extends DrupalParagraph {
 
 export interface ParagraphWysiwyg extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
+}
+
+/** General ParagraphProps to pass paragraphs into paragraph components. */
+export interface ParagraphProps {
+  paragraph: ParagraphTypes
+  componentParams?
+}
+
+/** Each Paragraph component must export a ParagraphMetaInfo object `Meta`. This information helps next-build associate Drupal resource types with information for rendering them.
+ *
+ * Example, from {@link AudienceTopics}:
+ * ```
+ const params = new DrupalJsonApiParams().addInclude([
+ 'field_topics',
+ 'field_audience_beneficiares.image',
+ ])
+
+ export const Meta: ParagraphMetaInfo = {
+  resource: 'paragraph--audience_topics',
+  component: AudienceTopics,
+  params: params,
+}
+ * ```
+ */
+export interface ParagraphMetaInfo {
+  /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `paragraph--audience_topics`. */
+  resource: string
+  /** The component responsible for rendering or delegating rendering this data object. */
+  component: ({ paragraph, ...props }: ParagraphProps) => JSX.Element
+  /** A DrupalJsonApiParams object containing information necessary for the API query for this data object. */
+  params?: DrupalJsonApiParams
+}
+
+/** This interface enforces that the Paragraph meta information is indexable by type. */
+export interface ParagraphMetaOut {
+  [resource: string]: {
+    component: ({ paragraph, componentParams }: ParagraphProps) => JSX.Element
+    params?: DrupalJsonApiParams
+  }
 }

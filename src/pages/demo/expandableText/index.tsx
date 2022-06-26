@@ -2,7 +2,10 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import { ParagraphExpandableText } from '@/types/paragraph'
+import {
+  ParagraphExpandableText,
+  ParagraphResourceType,
+} from '@/types/paragraph'
 import { Paragraph } from '@/components/paragraph'
 
 interface ExpandableTextPageProps {
@@ -39,7 +42,7 @@ export async function getStaticProps(
   const expandableTextCollection =
     await drupalClient.getResourceCollectionFromContext<
       ParagraphExpandableText[]
-    >('paragraph--expandable_text', context, {
+    >(ParagraphResourceType.ExpandableText, context, {
       params: params.getQueryObject(),
     })
   return {
