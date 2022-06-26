@@ -1,4 +1,8 @@
-import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
+import {
+  ParagraphMetaInfo,
+  ParagraphProps,
+  ParagraphResourceType,
+} from '@/types/paragraph'
 
 function isRequestValid(paragraph) {
   return paragraph.field_text_expander !== null
@@ -26,6 +30,6 @@ export function ExpandableText({ paragraph }: ParagraphProps) {
 }
 
 export const Meta: ParagraphMetaInfo = {
-  resource: 'paragraph--expandable_text',
+  resource: ParagraphResourceType.ExpandableText,
   component: ExpandableText,
 }

@@ -1,6 +1,10 @@
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
-import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
+import {
+  ParagraphMetaInfo,
+  ParagraphProps,
+  ParagraphResourceType,
+} from '@/types/paragraph'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 export function StaffProfiles({ paragraph }: ParagraphProps) {
@@ -115,7 +119,7 @@ const staffProfileParams = new DrupalJsonApiParams().addInclude([
 ])
 
 export const Meta: ParagraphMetaInfo = {
-  resource: 'paragraph--staff_profile',
+  resource: ParagraphResourceType.StaffProfile,
   component: StaffProfiles,
   params: staffProfileParams,
 }

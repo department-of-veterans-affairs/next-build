@@ -13,7 +13,7 @@
 
 
 /** These types/packages will import into all node components. */
-import { NodeMetaInfo, ResourceType } from '@/components/node'
+import { NodeMetaInfo, NodeResourceType } from '@/types/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /**
@@ -82,10 +82,10 @@ const newsStory = new DrupalJsonApiParams()
  */
 
 export const Meta: NodeMetaInfo = {
-  resource: 'node--story_listing',
+  resource: NodeResourceType.StoryListing,
   component: StoryListing,
   params: params,
-  additionalNode: 'node--news_story',
+  additionalNode: NodeResourceType.NewsStory,
   additionalParams: newsStory,
   collection: true,
 }

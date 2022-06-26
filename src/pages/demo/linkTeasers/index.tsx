@@ -2,7 +2,7 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import { ParagraphLinkTeaser } from '@/types/paragraph'
+import { ParagraphLinkTeaser, ParagraphResourceType } from '@/types/paragraph'
 import { Paragraph } from '@/components/paragraph'
 
 const linkTeaserParams = [{ boldTitle: false }, { sectionHeader: '' }]
@@ -41,7 +41,7 @@ export async function getStaticProps(
 
   const linkTeasers = await drupalClient.getResourceCollectionFromContext<
     ParagraphLinkTeaser[]
-  >('paragraph--link_teaser', context, {
+  >(ParagraphResourceType.LinkTeaser, context, {
     params: params.getQueryObject(),
   })
   return {

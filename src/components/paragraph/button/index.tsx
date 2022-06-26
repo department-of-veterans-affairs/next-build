@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import validator from 'validator'
-import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
+import {
+  ParagraphMetaInfo,
+  ParagraphProps,
+  ParagraphResourceType,
+} from '@/types/paragraph'
 
 function isRequestValid(paragraph) {
   return (
@@ -25,6 +29,6 @@ export function Button({ paragraph }: ParagraphProps) {
 }
 
 export const Meta: ParagraphMetaInfo = {
-  resource: 'paragraph--button',
+  resource: ParagraphResourceType.Button,
   component: Button,
 }

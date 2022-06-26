@@ -8,6 +8,10 @@ describe('<PromoBanner> component renders', () => {
     expect(
       screen.queryByText(/Help for Afghanistan Veterans and families/)
     ).toBeInTheDocument()
+    expect(screen.getByRole('va-promoBanner')).toHaveAttribute(
+      'text',
+      'Help for Afghanistan Veterans and families'
+    )
   })
 })
 

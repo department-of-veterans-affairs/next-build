@@ -3,7 +3,7 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { Paragraph } from '@/components/paragraph'
-import { ParagraphButton } from '@/types/paragraph'
+import { ParagraphButton, ParagraphResourceType } from '@/types/paragraph'
 
 interface ButtonPageProps {
   buttons: ParagraphButton[]
@@ -33,7 +33,7 @@ export async function getStaticProps(
 
   const buttons = await drupalClient.getResourceCollectionFromContext<
     ParagraphButton[]
-  >('paragraph--button', context, {
+  >(ParagraphResourceType.Button, context, {
     params: params.getQueryObject(),
   })
   return {

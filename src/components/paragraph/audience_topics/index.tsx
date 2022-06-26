@@ -1,6 +1,10 @@
 import Link from 'next/link'
-import { ParagraphProps, ParagraphMetaInfo } from '@/components/paragraph'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import {
+  ParagraphResourceType,
+  ParagraphProps,
+  ParagraphMetaInfo,
+} from '@/types/paragraph'
 
 export const getTagsList = (fieldTags) => {
   if (!fieldTags) return null
@@ -67,7 +71,7 @@ const audienceTopicsParams = new DrupalJsonApiParams().addInclude([
 ])
 
 export const Meta: ParagraphMetaInfo = {
-  resource: 'paragraph--audience_topics',
+  resource: ParagraphResourceType.AudienceTopics,
   component: AudienceTopics,
   params: audienceTopicsParams,
 }

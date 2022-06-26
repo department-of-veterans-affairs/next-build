@@ -26,7 +26,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const router = useRouter()
   useEffect(() => {
-    // TagManager.initialize(TAG_MANAGER_ARGS)
+    TagManager.initialize(TAG_MANAGER_ARGS)
   })
 
   return getLayout(

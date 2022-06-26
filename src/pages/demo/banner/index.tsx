@@ -1,11 +1,10 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeBanner, NodePromoBanner } from '@/types/node'
+import { NodeBanner, NodePromoBanner, NodeResourceType } from '@/types/node'
 import Container from '@/components/container'
 import Banner from '@/components/node/banner'
 import PromoBanner from '@/components/node/promo_banner'
-import { ResourceType } from '@/components/node'
 
 interface BannerPageProps {
   banners: NodeBanner[]
@@ -53,13 +52,13 @@ export async function getStaticProps(
 
   const banners = await drupalClient.getResourceCollectionFromContext<
     NodeBanner[]
-  >(ResourceType.Banner, context, {
+  >(NodeResourceType.Banner, context, {
     params: params.getQueryObject(),
   })
 
   const promoBanners = await drupalClient.getResourceCollectionFromContext<
     NodePromoBanner[]
-  >(ResourceType.PromoBanner, context, {
+  >(NodeResourceType.PromoBanner, context, {
     params: params.getQueryObject(),
   })
 
