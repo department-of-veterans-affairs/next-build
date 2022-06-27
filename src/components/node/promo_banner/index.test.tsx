@@ -9,8 +9,8 @@ describe('<PromoBanner> component renders', () => {
       screen.queryByText(/Help for Afghanistan Veterans and families/)
     ).toBeInTheDocument()
     expect(screen.getByRole('va-promoBanner')).toHaveAttribute(
-      'text',
-      'Help for Afghanistan Veterans and families'
+      'href',
+      'https://blogs.va.gov/VAntage/help-for-afghanistan-veterans-families/'
     )
   })
 })
