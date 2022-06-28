@@ -6,6 +6,7 @@ const PromoBannerComponent = ({ node }): JSX.Element => {
 
   return (
     <VaPromoBanner
+      id={node.id}
       role="va-promoBanner"
       href={node.field_link.uri}
       type={node.field_promo_type}

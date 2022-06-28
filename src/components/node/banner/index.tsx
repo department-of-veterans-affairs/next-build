@@ -6,6 +6,7 @@ const BannerComponent = ({ node }): JSX.Element => {
 
   return (
     <VaBanner
+      id={node.id}
       role="va-banner"
       showClose={node.field_dismissible_option != 'perm'}
       headline={node.title}
