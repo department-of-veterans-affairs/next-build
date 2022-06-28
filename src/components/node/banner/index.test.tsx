@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from 'test-utils'
 import Banner from '@/components/node/banner'
 import mock_banner from './nodeBanner.json'
 
