@@ -58,8 +58,8 @@ export interface ParagraphAlertSingle extends DrupalParagraph {
 
 export interface ParagraphAudienceTopics extends DrupalParagraph {
   field_audience_selection: string | null
-  field_audience_beneficiaries: TaxonomyTermAudienceBeneficiaries
-  field_non_beneficiaries: TaxonomyTermAudienceNonBeneficiaries
+  field_audience_beneficiares: TaxonomyTermAudienceBeneficiares
+  field_non_beneficiares: TaxonomyTermAudienceNonBeneficiares
   field_topics: TaxonomyTermTopics[] // Up to 4; can this be typed?
 }
 
