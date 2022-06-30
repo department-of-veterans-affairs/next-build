@@ -3,7 +3,7 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { Paragraph } from '@/components/paragraph'
-import { ParagraphEmailContact } from '@/types/paragraph'
+import { ParagraphEmailContact, ParagraphResourceType } from '@/types/paragraph'
 
 interface EmailContactsPageProps {
   emailContacts: ParagraphEmailContact[]
@@ -36,7 +36,7 @@ export async function getStaticProps(
 
   const emailContacts = await drupalClient.getResourceCollectionFromContext<
     ParagraphEmailContact[]
-  >('paragraph--email_contact', context, {
+  >(ParagraphResourceType.EmailContact, context, {
     params: params.getQueryObject(),
   })
   return {

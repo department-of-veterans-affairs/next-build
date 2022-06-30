@@ -4,6 +4,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { NewsStory } from '@/components/node/news_story'
 import Pager from '@/components/pager'
+import { NodeResourceType } from '@/types/node'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3
 export const TOTAL = 20
@@ -66,7 +67,7 @@ export async function getStaticProps(context) {
       'field_listing',
     ])
 
-    .addFields('node--field_listing', [
+    .addFields(NodeResourceType.FieldListing, [
       'id',
       'drupal_internal__nid',
       'field_description',
@@ -74,7 +75,7 @@ export async function getStaticProps(context) {
     .addPageLimit(TOTAL)
 
   const node = await drupalClient.getResourceCollectionFromContext(
-    'node--news_story',
+    NodeResourceType.NewsStory,
     context,
     {
       params: {

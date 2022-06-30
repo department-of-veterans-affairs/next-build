@@ -24,6 +24,7 @@
   "dependencies": {
     "@department-of-veterans-affairs/component-library": "^10.3.0",
     "@department-of-veterans-affairs/formation": "^7.0.1",
+    "@department-of-veterans-affairs/web-components": "^4.5.2",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",

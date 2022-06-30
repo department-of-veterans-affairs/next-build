@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { SocialLinks } from '@/components/partials/socialLinks/index'
+import { NodeResourceType } from '@/types/node'
 
 const node = {
-  type: 'node--news_story',
+  type: NodeResourceType.NewsStory,
   id: 'bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980',
   title: 'We honor outstanding doctors',
   path: {
