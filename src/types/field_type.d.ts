@@ -54,6 +54,7 @@ export interface FieldSocialMediaLinks {
     }
   }
 }
+
 export interface FieldTable {
   value: [string[]]
   caption: string

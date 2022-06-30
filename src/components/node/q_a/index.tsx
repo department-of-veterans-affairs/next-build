@@ -13,13 +13,14 @@
  */
 
 /** These types/packages will import into all node components. */
-import { NodeMetaInfo } from '@/components/node'
+import { NodeQA, NodeResourceType, NodeMetaInfo } from '@/types/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
 /** These component includes are specific to this component. */
 import Container from '@/components/container'
-import { NodeQA } from '@/types/node'
 import { BenefitsHubLinks } from '@/components/partials/benefitHubsLinks'
 import { Paragraph } from '@/components/paragraph'
+
 /**
  * These components expect NodeQA as their input.
  */
@@ -69,7 +70,7 @@ export const ResourceWrapper = ({
 
 export const Resources = ({ node }: NodeQaProps) => {
   /** Type narrowing; if we've managed to end up here with the wrong data, return. */
-  if (node?.type !== 'node--q_a') return
+  if (node?.type !== NodeResourceType.QuestionAnswer) return
 
   const resources = {
     benefits: <BenefitsHubLinks nodes={node?.field_related_benefit_hubs} />,
@@ -114,7 +115,7 @@ const params = new DrupalJsonApiParams().addInclude([
  * See {@link NodeMetaInfo}
  */
 export const Meta: NodeMetaInfo = {
-  resource: 'node--q_a',
+  resource: NodeResourceType.QuestionAnswer,
   component: Resources,
   params: params,
 }

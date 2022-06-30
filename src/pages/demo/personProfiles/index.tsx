@@ -7,11 +7,12 @@ import {
 } from '@/components/node/person_profile'
 import Container from '@/components/container'
 import { Paragraph } from '@/components/paragraph'
-import { ParagraphStaffProfile } from '@/types/paragraph'
+import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/paragraph'
+import { NodePersonProfile, NodeResourceType } from '@/types/node'
 
 interface ProfilePageProps {
   staffProfiles: ParagraphStaffProfile[]
-  personProfiles: DrupalNode[]
+  personProfiles: NodePersonProfile[]
 }
 
 const PersonProfilePage = ({
@@ -51,11 +52,10 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<ProfilePageProps>> {
   const personProfiles = await drupalClient.getResourceCollectionFromContext<
-    DrupalNode[]
-  >('node--person_profile', context, {
+    NodePersonProfile[]
+  >(NodeResourceType.PersonProfile, context, {
     params: {
-      include:
-        'field_office, field_media, field_media.thumbnail, field_media.image',
+      include: 'field_media, field_media.thumbnail, field_media.image',
       sort: '-created',
       'filter[status][value]': '1',
       page: {
@@ -66,7 +66,7 @@ export async function getStaticProps(
 
   const staffProfiles = await drupalClient.getResourceCollectionFromContext<
     ParagraphStaffProfile[]
-  >('paragraph--staff_profile', context, {
+  >(ParagraphResourceType.StaffProfile, context, {
     params: {
       include:
         'field_staff_profile, field_staff_profile.field_media, field_staff_profile.field_media.thumbnail, field_staff_profile.field_media.image',

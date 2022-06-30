@@ -1,7 +1,10 @@
 import Link from 'next/link'
 import { recordEvent } from '@/utils/recordEvent'
-import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
-import { Button } from '@/components/paragraph/button'
+import {
+  ParagraphMetaInfo,
+  ParagraphProps,
+  ParagraphResourceType,
+} from '@/types//paragraph'
 
 function isRequestValid(paragraph) {
   return (
@@ -32,6 +35,6 @@ export function EmailContact({ paragraph }: ParagraphProps) {
 }
 
 export const Meta: ParagraphMetaInfo = {
-  resource: 'paragraph--email_contact',
+  resource: ParagraphResourceType.EmailContact,
   component: EmailContact,
 }

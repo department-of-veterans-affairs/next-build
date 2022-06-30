@@ -4,6 +4,7 @@ import { DrupalNode } from 'next-drupal'
 import { BenefitsHubLinks } from '@/components/partials/benefitHubsLinks'
 import Container from '@/components/container'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { NodeResourceType } from '@/types/node'
 
 interface BenefitsHubLinksProps {
   nodes: DrupalNode[]
@@ -34,7 +35,7 @@ export async function getStaticProps(
 
   const nodes = await drupalClient.getResourceCollectionFromContext<
     DrupalNode[]
-  >('node--support_resources_detail_page', context, {
+  >(NodeResourceType.SupportResourcesDetailPage, context, {
     params: params.getQueryObject(),
   })
   return {
