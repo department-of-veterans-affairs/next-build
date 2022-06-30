@@ -4,7 +4,7 @@ export interface TaxonomyTermAudienceBeneficiaries extends DrupalTaxonomyTerm {
   field_audience_rs_homepage: boolean
 }
 
-export interface TaxonomyTermAudienceNonBeneficiaries
+export interface TaxonomyTermAudienceNonBeneficiares
   extends DrupalTaxonomyTerm {
   field_audience_rs_homepage: boolean
 }
