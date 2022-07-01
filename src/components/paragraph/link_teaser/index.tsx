@@ -4,7 +4,6 @@ import { ParagraphLinkTeaser } from '@/types/paragraph'
 import { recordEvent } from '@/utils/recordEvent'
 import { IMAGE_PATH_TEMP } from '@/lib/constants'
 import { ParagraphMetaInfo, ParagraphProps } from '@/components/paragraph'
-import { StaffProfiles } from '@/components/paragraph/staff_profile'
 
 function isRequestValid(paragraph) {
   return paragraph.field_link?.uri

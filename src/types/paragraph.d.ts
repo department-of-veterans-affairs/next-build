@@ -9,7 +9,12 @@ import {
   FieldTable,
 } from './field_type'
 import { MediaImage } from './media'
-import { NodeLandingPage, NodeQA, NodeSupportService } from './node'
+import {
+  NodeLandingPage,
+  NodePersonProfile,
+  NodeQA,
+  NodeSupportService,
+} from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
   TaxonomyTermAudienceNonBeneficiaries,
@@ -167,15 +172,7 @@ export interface ParagraphServiceLocationAddress extends DrupalParagraph {
 }
 
 export interface ParagraphStaffProfile extends DrupalParagraph {
-  field_name_first: fieldFirstName
-  field_last_name: fieldLastName
-  field_email_address: fieldEmailAddress
-  field_phone_number: fieldPhoneNumber
-  field_suffix: fieldSuffix
-  field_description: fieldDescription
-  field_complete_biography_create: fieldCompleteBiographyCreate
-  field_media: fieldMedia
-  field_entity: fieldEntity
+  field_staff_profile: NodePersonProfile
 }
 
 export interface ParagraphStep extends DrupalParagraph {
