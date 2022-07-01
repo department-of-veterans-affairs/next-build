@@ -9,7 +9,12 @@ import {
   FieldTable,
 } from './field_type'
 import { MediaImage } from './media'
-import { NodeLandingPage, NodeQA, NodeSupportService } from './node'
+import {
+  NodeLandingPage,
+  NodePersonProfile,
+  NodeQA,
+  NodeSupportService,
+} from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
   TaxonomyTermAudienceNonBeneficiaries,
@@ -70,8 +75,8 @@ export interface ParagraphAlertSingle extends DrupalParagraph {
 
 export interface ParagraphAudienceTopics extends DrupalParagraph {
   field_audience_selection: string | null
-  field_audience_beneficiares: TaxonomyTermAudienceBeneficiares
-  field_non_beneficiares: TaxonomyTermAudienceNonBeneficiares
+  field_audience_beneficiares: TaxonomyTermAudienceBeneficiaries
+  field_non_beneficiares: TaxonomyTermAudienceNonBeneficiaries
   field_topics: TaxonomyTermTopics[] // Up to 4; can this be typed?
 }
 
@@ -179,15 +184,7 @@ export interface ParagraphServiceLocationAddress extends DrupalParagraph {
 }
 
 export interface ParagraphStaffProfile extends DrupalParagraph {
-  field_name_first: string
-  field_last_name: string
-  field_email_address: string
-  field_phone_number: string
-  field_suffix: string
-  field_description: string
-  field_complete_biography_create: boolean
-  field_media: MediaImage
-  field_entity: null
+  field_staff_profile: NodePersonProfile
 }
 
 export interface ParagraphStep extends DrupalParagraph {

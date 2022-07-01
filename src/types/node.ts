@@ -217,7 +217,7 @@ export interface NodeOffice extends DrupalNode {
  */
 export interface NodePersonProfile extends DrupalNode {
   /** The bio text displayed on the page. */
-  field_body: string
+  field_body: FieldFormattedText
   /** A PDF containing an official biography for distribution. */
   field_complete_biography: DrupalFile
   /** Whether to create a biography. */

@@ -1,0 +1,359 @@
+{
+  "type": "node--person_profile",
+  "id": "1cd874d1-bca2-4e1e-9aec-ac814e836ecb",
+  "drupal_internal__nid": 47417,
+  "drupal_internal__vid": 661654,
+  "langcode": "en",
+  "revision_timestamp": "2022-06-29T20:30:33+00:00",
+  "revision_log": null,
+  "status": true,
+  "title": "Michael Buchanan",
+  "created": "2022-06-29T20:29:08+00:00",
+  "changed": "2022-06-29T20:30:33+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "moderation_state": "published",
+  "metatag": null,
+  "path": {
+    "alias": "/north-texas-health-care/staff-profiles/michael-buchanan",
+    "pid": 63512,
+    "langcode": "en"
+  },
+  "field_body": {
+    "processed": "The body is here",
+    "value": "This is the value",
+    "format": "The body is here"
+  },
+  "field_complete_biography_create": true,
+  "field_description": "Outreach and community engagement specialist, host of Charlie Mike VA podcast ",
+  "field_email_address": "michael.buchannan@va.gov",
+  "field_intro_text": "Intro text",
+  "field_last_name": "Buchanan",
+  "field_meta_tags": null,
+  "field_name_first": "Michael",
+  "field_phone_number": "412-551-9651",
+  "field_photo_allow_hires_download": true,
+  "field_suffix": "Mr",
+  "field_complete_biography": {
+    "type": "file",
+    "id": "01b74446-de33-41b7-8a14-41806e82333d",
+    "langcode": "en",
+    "url": "https://bio.com",
+    "drupal_internal__fid": "17611",
+    "created": "2022-06-29T20:29:18+00:00",
+    "changed": "2022-06-29T20:29:18+00:00",
+    "filename": "Buchanan.jpg",
+    "uri": {
+      "value": "public://2022-06/Buchanan.jpg",
+      "url": "/sites/default/files/2022-06/Buchanan.jpg"
+    },
+    "filesize": 54192,
+    "status": true,
+    "filemime": "image/jpeg"
+  },
+  "field_media": {
+    "type": "media--image",
+    "id": "01b74446-de33-41b7-8a14-41806e82333d",
+    "drupal_internal__mid": "15225",
+    "drupal_internal__vid": "16067",
+    "langcode": "en",
+    "revision_created": "2022-06-29T20:30:19+00:00",
+    "revision_log_message": null,
+    "status": true,
+    "name": "Buchanan.jpg",
+    "created": "2022-06-29T20:29:18+00:00",
+    "changed": "2022-06-29T20:29:18+00:00",
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "metatag": null,
+    "path": {
+      "alias": "/media/image/15225",
+      "pid": 63511,
+      "langcode": "en"
+    },
+    "field_description": "Michael Buchanan outreach and community engagement specialist ",
+    "field_media_in_library": true,
+    "field_media_submission_guideline": null,
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 15225
+    },
+    "revision_user": null,
+    "uid": {
+      "type": "user--user",
+      "id": "b8e96048-0b71-4d54-906d-ecc6612290c9",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 3335
+      }
+    },
+    "thumbnail": {
+      "type": "file--file",
+      "id": "5f651034-0265-4be1-8114-71019881c674",
+      "drupal_internal__fid": "17611",
+      "langcode": "en",
+      "filename": "Buchanan.jpg",
+      "uri": {
+        "value": "public://2022-06/Buchanan.jpg",
+        "url": "/sites/default/files/2022-06/Buchanan.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 54192,
+      "status": true,
+      "created": "2022-06-29T20:29:18+00:00",
+      "changed": "2022-06-29T20:30:19+00:00",
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "240",
+            "height": "240",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "1024",
+            "height": "512",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "480",
+            "height": "240",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "320",
+            "height": "480",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "480",
+            "height": "320",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "1050",
+            "height": "300",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "533",
+            "height": "799",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "320",
+            "height": "480",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/5f651034-0265-4be1-8114-71019881c674"
+        },
+        "viewport_width": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "533",
+            "height": "799",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Michael Buchanan outreach and community engagement specialist ",
+        "title": "Michael Buchanan",
+        "width": 533,
+        "height": 799,
+        "drupal_internal__target_id": 17611
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "b8e96048-0b71-4d54-906d-ecc6612290c9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3335
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "field_owner": {
+      "type": "taxonomy_term--administration",
+      "id": "33af76cc-fe8f-467b-bde0-c294e5326592",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 364
+      }
+    },
+    "image": {
+      "type": "file--file",
+      "id": "5f651034-0265-4be1-8114-71019881c674",
+      "drupal_internal__fid": "17611",
+      "langcode": "en",
+      "filename": "Buchanan.jpg",
+      "uri": {
+        "value": "public://2022-06/Buchanan.jpg",
+        "url": "/sites/default/files/2022-06/Buchanan.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 54192,
+      "status": true,
+      "created": "2022-06-29T20:29:18+00:00",
+      "changed": "2022-06-29T20:30:19+00:00",
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "240",
+            "height": "240",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "1024",
+            "height": "512",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "480",
+            "height": "240",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "320",
+            "height": "480",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "480",
+            "height": "320",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "1050",
+            "height": "300",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "533",
+            "height": "799",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "320",
+            "height": "480",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/5f651034-0265-4be1-8114-71019881c674"
+        },
+        "viewport_width": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2022-06/Buchanan.jpg",
+          "meta": {
+            "width": "533",
+            "height": "799",
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Michael Buchanan outreach and community engagement specialist ",
+        "title": "Michael Buchanan",
+        "width": 533,
+        "height": 799,
+        "drupal_internal__target_id": 17611
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "b8e96048-0b71-4d54-906d-ecc6612290c9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3335
+        }
+      },
+      "relationshipNames": ["uid"]
+    }
+  },
+  "field_office": null,
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_complete_biography",
+    "field_media",
+    "field_administration"
+  ]
+}

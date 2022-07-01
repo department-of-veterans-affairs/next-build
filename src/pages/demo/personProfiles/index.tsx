@@ -8,11 +8,11 @@ import {
 import Container from '@/components/container'
 import { Paragraph } from '@/components/paragraph'
 import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/paragraph'
-import { NodeResourceType } from '@/types/node'
+import { NodePersonProfile, NodeResourceType } from '@/types/node'
 
 interface ProfilePageProps {
   staffProfiles: ParagraphStaffProfile[]
-  personProfiles: DrupalNode[]
+  personProfiles: NodePersonProfile[]
 }
 
 const PersonProfilePage = ({
@@ -52,11 +52,10 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<ProfilePageProps>> {
   const personProfiles = await drupalClient.getResourceCollectionFromContext<
-    DrupalNode[]
+    NodePersonProfile[]
   >(NodeResourceType.PersonProfile, context, {
     params: {
-      include:
-        'field_office, field_media, field_media.thumbnail, field_media.image',
+      include: 'field_media, field_media.thumbnail, field_media.image',
       sort: '-created',
       'filter[status][value]': '1',
       page: {
