@@ -58,6 +58,9 @@ export const Core = () => {
             Pagination hook example
           </Link>
         </li>
+        <li>
+          <Link href="/demo/wysiwyg">Wysiwyg example</Link>
+        </li>
         <NodeListOnly />
       </ul>
     </Container>

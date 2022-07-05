@@ -58,6 +58,7 @@ export const enum ParagraphResourceType {
   LinkTeaser = 'paragraph--link_teaser',
   StaffProfile = 'paragraph--staff_profile',
   Table = 'paragraph--table',
+  Wysiwyg = 'paragraph--wysiwyg',
 }
 
 export interface ParagraphAlert extends DrupalParagraph {
