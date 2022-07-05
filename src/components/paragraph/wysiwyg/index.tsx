@@ -1,15 +1,12 @@
 import {
-  ParagraphMetaInfo,
   ParagraphProps,
   ParagraphResourceType,
+  ParagraphMetaInfo,
 } from '@/types/paragraph'
+import { isValidData } from '@/utils/helpers'
 
-function isRequestValid(paragraph) {
-  return paragraph.field_wysiwyg !== null
-}
-
-export function Wysiwyg({ paragraph, className }: ParagraphProps) {
-  if (!paragraph || !isRequestValid(paragraph)) return
+function Wysiwyg({ paragraph, className }: ParagraphProps) {
+  if (!paragraph || !isValidData(paragraph)) return
 
   function createMarkup() {
     return {
@@ -30,3 +27,5 @@ export const Meta: ParagraphMetaInfo = {
   resource: ParagraphResourceType.Wysiwyg,
   component: Wysiwyg,
 }
+
+export default Wysiwyg

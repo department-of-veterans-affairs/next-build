@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { ParagraphWysiwyg } from '@/types/paragraph'
-import { Wysiwyg } from '@/components/paragraph/wysiwyg/index'
+import Wysiwyg from '@/components/paragraph/wysiwyg/index'
 
 const paragraph: ParagraphWysiwyg = {
   type: 'paragraph--wysiwyg',
