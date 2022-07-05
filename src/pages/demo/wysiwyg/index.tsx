@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
@@ -8,15 +7,20 @@ import { Paragraph } from '@/components/paragraph'
 
 interface WysiwygPageProps {
   wysiwygCollection: ParagraphWysiwyg[]
+  className: string
 }
 
-const WysiwygPage = ({ wysiwygCollection }: WysiwygPageProps) => {
+const WysiwygPage = ({ wysiwygCollection, className }: WysiwygPageProps) => {
   if (!wysiwygCollection) wysiwygCollection = []
 
   return (
     <Container className="container">
       {wysiwygCollection.map((fieldWysiwyg) => (
-        <Paragraph key={fieldWysiwyg.id} paragraph={fieldWysiwyg} />
+        <Paragraph
+          key={fieldWysiwyg.id}
+          className={className}
+          paragraph={fieldWysiwyg}
+        />
       ))}
     </Container>
   )
@@ -28,7 +32,7 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<WysiwygPageProps>> {
   const params = new DrupalJsonApiParams()
-  params.addPageLimit(20)
+  params.addPageLimit(10)
 
   const wysiwygCollection = await drupalClient.getResourceCollectionFromContext<
     ParagraphWysiwyg[]
@@ -39,6 +43,7 @@ export async function getStaticProps(
   return {
     props: {
       wysiwygCollection,
+      className: 'processed-content',
     },
   }
 }

@@ -8,7 +8,7 @@ function isRequestValid(paragraph) {
   return paragraph.field_wysiwyg !== null
 }
 
-export function Wysiwyg({ paragraph }: ParagraphProps) {
+export function Wysiwyg({ paragraph, className }: ParagraphProps) {
   if (!paragraph || !isRequestValid(paragraph)) return
 
   function createMarkup() {
@@ -20,7 +20,7 @@ export function Wysiwyg({ paragraph }: ParagraphProps) {
   return (
     <div
       key={paragraph.id}
-      className="processed-content"
+      className={className}
       dangerouslySetInnerHTML={createMarkup()}
     />
   )
