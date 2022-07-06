@@ -32,7 +32,7 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<WysiwygPageProps>> {
   const params = new DrupalJsonApiParams()
-  params.addPageLimit(10)
+  params.addPageLimit(20)
 
   const wysiwygCollection = await drupalClient.getResourceCollectionFromContext<
     ParagraphWysiwyg[]

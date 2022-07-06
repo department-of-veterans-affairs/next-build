@@ -3,14 +3,18 @@ import {
   ParagraphResourceType,
   ParagraphMetaInfo,
 } from '@/types/paragraph'
-import { isValidData, drupalToVaPath } from '@/utils/helpers'
+import { isValidData, drupalToVaPath, phoneLinks } from '@/utils/helpers'
 
 function Wysiwyg({ paragraph, className }: ParagraphProps) {
-  if (!paragraph || !isValidData(paragraph)) return
+  if (!isValidData(paragraph)) return
 
   function createMarkup() {
+    const data = [paragraph.field_wysiwyg?.processed]
+    const filters = [phoneLinks, drupalToVaPath]
+    const filteredData = filters.reduce((d, f) => d.filter(f), data)
+
     return {
-      __html: drupalToVaPath(paragraph.field_wysiwyg?.processed),
+      __html: filteredData || filteredData[0],
     }
   }
 

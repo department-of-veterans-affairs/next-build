@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { ParagraphWysiwyg } from '@/types/paragraph'
 import Wysiwyg from '@/components/paragraph/wysiwyg/index'
-import { drupalToVaPath } from '@/utils/helpers'
+import { drupalToVaPath, phoneLinks } from '@/utils/helpers'
 
 const paragraph: ParagraphWysiwyg = {
   type: 'paragraph--wysiwyg',
@@ -42,6 +42,33 @@ describe('drupalToVaPath converts document url to /files/', () => {
       '<a href="https://prod.cms.va.gov/sites/default/files/cat.doc">document</a>'
     const content = drupalToVaPath(paragraph.field_wysiwyg?.processed)
     expect(content).toContain('/files/cat.doc')
+  })
+})
+
+describe('phoneLinks', () => {
+  test('wraps text phone numbers in a link', () => {
+    paragraph.field_wysiwyg.processed =
+      'Here is a phone number: 123-456-7890. Pretty cool!'
+    const expected =
+      'Here is a phone number: <a target="_blank" href="tel:123-456-7890">123-456-7890</a>. Pretty cool!'
+    console.log('phoneLinks', phoneLinks(paragraph.field_wysiwyg?.processed))
+    expect(phoneLinks(paragraph.field_wysiwyg?.processed)).toEqual(expected)
+  })
+
+  test('wraps phone numbers with parentheses around the area code', () => {
+    paragraph.field_wysiwyg.processed =
+      'Here is a phone number: (123)-456-7890. Pretty cool!'
+    const expected =
+      'Here is a phone number: <a target="_blank" href="tel:123-456-7890">123-456-7890</a>. Pretty cool!'
+    expect(phoneLinks(paragraph.field_wysiwyg?.processed)).toEqual(expected)
+  })
+
+  test('wraps phone numbers with space after the area code', () => {
+    paragraph.field_wysiwyg.processed =
+      'Here is a phone number: (123) 456-7890. Pretty cool!'
+    const expected =
+      'Here is a phone number: <a target="_blank" href="tel:123-456-7890">123-456-7890</a>. Pretty cool!'
+    expect(phoneLinks(paragraph.field_wysiwyg?.processed)).toEqual(expected)
   })
 })
 

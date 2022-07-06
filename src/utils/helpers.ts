@@ -40,7 +40,20 @@ export function isValidData(data) {
   }
   return true
 }
-// Carried over from content-build do we need this? This
+
+export const phoneLinks = (data) => {
+  // Change phone to tap to dial.
+  const replacePattern =
+    /\(?(\d{3})\)?[- ]?(\d{3}-\d{4})(?!([^<]*>)|(((?!<a).)*<\/a>))/g
+  if (data) {
+    return data.replace(
+      replacePattern,
+      '<a target="_blank" href="tel:$1-$2">$1-$2</a>'
+    )
+  }
+  return data
+}
+
 export const drupalToVaPath = (content) => {
   let replaced = content
   if (content) {
