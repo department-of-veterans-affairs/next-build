@@ -3,14 +3,14 @@ import {
   ParagraphResourceType,
   ParagraphMetaInfo,
 } from '@/types/paragraph'
-import { isValidData } from '@/utils/helpers'
+import { isValidData, drupalToVaPath } from '@/utils/helpers'
 
 function Wysiwyg({ paragraph, className }: ParagraphProps) {
   if (!paragraph || !isValidData(paragraph)) return
 
   function createMarkup() {
     return {
-      __html: paragraph.field_wysiwyg?.processed,
+      __html: drupalToVaPath(paragraph.field_wysiwyg?.processed),
     }
   }
 
