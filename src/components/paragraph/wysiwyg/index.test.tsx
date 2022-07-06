@@ -21,27 +21,24 @@ const paragraph: ParagraphWysiwyg = {
 }
 
 describe('ParagraphWysiwyg with valid data', () => {
-  test('renders ParagraphWysiwyg component', () => {
+  test('correctly renders ParagraphWysiwyg component', () => {
     render(<Wysiwyg paragraph={paragraph} />)
     expect(screen.queryByText(/If you need support.../)).toBeInTheDocument()
   })
 })
 
-describe('drupalToVaPath converts image url to /img/', () => {
-  test('renders ParagraphWysiwyg component', () => {
+describe('drupalToVaPath', () => {
+  test('converts image url to /img/', () => {
     paragraph.field_wysiwyg.processed =
       '<a href="http://staging.cms.va.gov/sites/default/files/cat.jpg">jpg image</a>'
     const content = drupalToVaPath(paragraph.field_wysiwyg?.processed)
-    expect(content).toContain('/img/cat.jpg')
+    expect(content).toEqual('<a href="/img/cat.jpg">jpg image</a>')
   })
-})
-
-describe('drupalToVaPath converts document url to /files/', () => {
-  test('renders ParagraphWysiwyg component', () => {
+  test('converts document url to /files/', () => {
     paragraph.field_wysiwyg.processed =
       '<a href="https://prod.cms.va.gov/sites/default/files/cat.doc">document</a>'
     const content = drupalToVaPath(paragraph.field_wysiwyg?.processed)
-    expect(content).toContain('/files/cat.doc')
+    expect(content).toEqual('<a href="/files/cat.doc">document</a>')
   })
 })
 
@@ -71,8 +68,8 @@ describe('phoneLinks', () => {
   })
 })
 
-describe('ParagraphWysiwyg does not render with invalid data', () => {
-  test('does not render ParagraphWysiwyg component when field_wysiwyg is null', () => {
+describe('ParagraphWysiwyg with invalid data', () => {
+  test('does not render ParagraphWysiwyg when data is null', () => {
     paragraph.field_wysiwyg = null
     render(<Wysiwyg paragraph={paragraph} />)
     expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
