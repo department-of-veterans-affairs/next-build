@@ -51,7 +51,6 @@ describe('phoneLinks', () => {
       'Here is a phone number: 123-456-7890. Pretty cool!'
     const expected =
       'Here is a phone number: <a target="_blank" href="tel:123-456-7890">123-456-7890</a>. Pretty cool!'
-    console.log('phoneLinks', phoneLinks(paragraph.field_wysiwyg?.processed))
     expect(phoneLinks(paragraph.field_wysiwyg?.processed)).toEqual(expected)
   })
 
