@@ -51,10 +51,4 @@ describe('ParagraphWysiwyg does not render with invalid data', () => {
     render(<Wysiwyg paragraph={paragraph} />)
     expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
   })
-
-  test('does not render the field_wysiwyg info when field_wysiwyg is not present', () => {
-    paragraph.field_wysiwyg = null
-    render(<Wysiwyg paragraph={paragraph} />)
-    expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
-  })
 })
