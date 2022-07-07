@@ -5,16 +5,14 @@ import { HEADER_FOOTER_PATH } from '@/lib/constants'
 
 interface LayoutProps {
   children: React.ReactNode
+  footerData?: object
 }
 
-export default function Layout({ children }: LayoutProps) {
-  const { data, error } = useSWR(HEADER_FOOTER_PATH, fetcher)
-  if (error || !data) return null
-  const { footerData } = data
-
+export default function Layout({ children, footerData }: LayoutProps) {
+  if (!footerData) footerData = []
   return (
     <>
-      <main>{children} </main>
+      <main>{children}</main>
       <Footer links={footerData} />
     </>
   )

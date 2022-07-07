@@ -67,12 +67,29 @@ export const Core = () => {
   )
 }
 
-const DemoPage = () => {
+const DemoPage = ({ footerData }) => {
   return (
-    <Layout>
+    <Layout footerData={footerData}>
       <Core />
     </Layout>
   )
 }
 
 export default DemoPage
+
+export async function getStaticProps(context) {
+  const res = await fetch(`https://www.va.gov/generated/headerFooter.json`)
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+  const { footerData } = data
+  return {
+    props: {
+      footerData,
+    }, // will be passed to the page component as props
+  }
+}
