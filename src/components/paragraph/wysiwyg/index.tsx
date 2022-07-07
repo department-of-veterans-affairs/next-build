@@ -14,7 +14,7 @@ function Wysiwyg({ paragraph, className }: ParagraphProps) {
     const filteredData = filters.reduce((d, f) => d.filter(f), data)
 
     return {
-      __html: filteredData || filteredData[0],
+      __html: filteredData || [filteredData[0]] || '',
     }
   }
 
