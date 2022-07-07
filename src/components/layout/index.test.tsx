@@ -11,6 +11,5 @@ describe('Layout renders with valid data', () => {
   test('<Layout> renders', () => {
     render(<Layout>{children}</Layout>)
     expect(screen.getByText(/Get answers/i)).toBeInTheDocument()
-    screen.debug()
   })
 })
