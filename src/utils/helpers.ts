@@ -59,24 +59,22 @@ export const drupalToVaPath = (content) => {
   if (content) {
     replaced = content.replace(/href="(.*?)(png|jpg|jpeg|svg|gif)"/g, (img) =>
       img
-        .replace('http://va-gov-cms.lndo.site/sites/default/files', '/img')
-        .replace('http://dev.cms.va.gov/sites/default/files', '/img')
-        .replace('http://staging.cms.va.gov/sites/default/files', '/img')
-        .replace('http://prod.cms.va.gov/sites/default/files', '/img')
-        .replace('https://prod.cms.va.gov/sites/default/files', '/img')
-        .replace('http://cms.va.gov/sites/default/files', '/img')
-        .replace('https://cms.va.gov/sites/default/files', '/img')
+        .replace(
+          /https?:\/\/(test\.)?(dev.|staging.|prod.)?cms\.va\.gov\/sites\/default\/files/,
+          '/img'
+        )
+        .replace('http://va-gov-cms.ddev.site/sites/default/files', '/img')
+        .replace('https://va-gov-cms.ddev.site/sites/default/files', '/img')
     )
 
     replaced = replaced.replace(/href="(.*?)(doc|docx|pdf|txt)"/g, (file) =>
       file
-        .replace('http://va-gov-cms.lndo.site/sites/default/files', '/files')
-        .replace('http://dev.cms.va.gov/sites/default/files', '/files')
-        .replace('http://staging.cms.va.gov/sites/default/files', '/files')
-        .replace('http://prod.cms.va.gov/sites/default/files', '/files')
-        .replace('https://prod.cms.va.gov/sites/default/files', '/files')
-        .replace('http://cms.va.gov/sites/default/files', '/files')
-        .replace('https://cms.va.gov/sites/default/files', '/files')
+        .replace(
+          /https?:\/\/(test\.)?(dev.|staging.|prod.)?cms\.va\.gov\/sites\/default\/files/,
+          '/files'
+        )
+        .replace('http://va-gov-cms.ddev.site/sites/default/files', '/files')
+        .replace('https://va-gov-cms.ddev.site/sites/default/files', '/files')
     )
   }
 
