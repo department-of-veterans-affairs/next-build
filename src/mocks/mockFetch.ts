@@ -1,7 +1,7 @@
 import { faker } from 'test-utils'
 
 const links = Array(5)
-  .fill()
+  .fill(null)
   .map(() => ({
     columns: faker.datatype.number({ min: 1, max: 4 }),
     title: faker.lorem.sentence(3),
