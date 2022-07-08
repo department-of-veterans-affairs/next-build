@@ -11,6 +11,7 @@ import { Meta as ExpandableTextMeta } from '@/components/paragraph/expandable_te
 import { Meta as StaffProfileMeta } from '@/components/paragraph/staff_profile'
 import { Meta as LinkTeaserMeta } from '@/components/paragraph/link_teaser'
 import { Meta as WysiwygMeta } from '@/components/paragraph/wysiwyg'
+import { Meta as RichTextCharLimit1000Meta } from '@/components/paragraph/rich_text_char_limit_1000'
 /** Collect all imported paragraph meta information. */
 const paragraphMetaIn: ParagraphMetaInfo[] = [
   AudienceTopicsMeta,
@@ -20,6 +21,7 @@ const paragraphMetaIn: ParagraphMetaInfo[] = [
   StaffProfileMeta,
   LinkTeaserMeta,
   WysiwygMeta,
+  RichTextCharLimit1000Meta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. */

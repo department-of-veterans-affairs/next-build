@@ -61,6 +61,11 @@ export const Core = () => {
         <li>
           <Link href="/demo/wysiwyg">Wysiwyg example</Link>
         </li>
+        <li>
+          <Link href="/demo/richTextCharLimit1000">
+            Rich Text Char Limit 1000 example
+          </Link>
+        </li>
         <NodeListOnly />
       </ul>
     </Container>
@@ -77,7 +82,7 @@ const DemoPage = ({ footerData }) => {
 
 export default DemoPage
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const res = await fetch(`https://www.va.gov/generated/headerFooter.json`)
   const data = await res.json()
 
