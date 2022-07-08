@@ -14,10 +14,8 @@ describe('Footer without any links', () => {
 
 describe('Footer with meaningful links', () => {
   test('Footer correctly renders a column when provided with links', async () => {
-    let links = await mockFetch(
-      'https://www.va.gov/generated/headerFooter.json'
-    ).then((res) => res.json())
-    const content = [links]
+    let links = await mockFetch('FOOTER_LINKS').then((res) => res.json())
+    const content = links
     const { container } = render(<Footer links={content} />)
     await waitFor(async () => expect(await axe(container)).toHaveNoViolations())
   })
