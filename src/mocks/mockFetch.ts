@@ -1,5 +1,5 @@
 import { faker } from 'test-utils'
-
+// Mock links for footer
 const links = Array(5)
   .fill(null)
   .map(() => ({
@@ -12,11 +12,11 @@ const footerResponse = links
 
 export default async function mockFetch(url) {
   switch (url) {
-    case 'https://www.va.gov/generated/headerFooter.json': {
+    case 'FOOTER_LINKS': {
       return {
         ok: true,
         status: 200,
-        json: async () => footerResponse,
+        json: async () => [footerResponse],
       }
     }
     default: {
