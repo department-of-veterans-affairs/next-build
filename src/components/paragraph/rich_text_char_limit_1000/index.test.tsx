@@ -22,7 +22,9 @@ const paragraph: ParagraphRichTextCharLimit1000 = {
 
 describe('ParagraphWysiwyg with valid data', () => {
   test('correctly renders ParagraphWysiwyg component', () => {
-    render(<RichTextCharLimit1000 paragraph={paragraph} />)
+    if (paragraph.type === 'paragraph--rich_text_char_limit_1000') {
+      render(<RichTextCharLimit1000 paragraph={paragraph} />)
+    }
     expect(
       screen.queryByText(
         /A medical record that shows you have an Agent Orange‒related/
@@ -34,7 +36,9 @@ describe('ParagraphWysiwyg with valid data', () => {
 describe('ParagraphWysiwyg with invalid data', () => {
   test('does not render ParagraphWysiwyg when data is null', () => {
     paragraph.field_wysiwyg = null
-    render(<RichTextCharLimit1000 paragraph={paragraph} />)
+    if (paragraph.type === 'paragraph--rich_text_char_limit_1000') {
+      render(<RichTextCharLimit1000 paragraph={paragraph} />)
+    }
     expect(
       screen.queryByText(
         /A medical record that shows you have an Agent Orange‒related/
