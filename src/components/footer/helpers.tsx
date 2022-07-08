@@ -60,7 +60,7 @@ export const generateLinkItems = (allColumns) => {
 }
 
 export const createLinkGroups = (links) => {
-  const allGroups = links.reduce((acc, link) => {
+  const allGroups = links?.reduce((acc, link) => {
     if (!acc[link.column]) {
       acc[link.column] = []
     }

@@ -10,7 +10,7 @@ import { Meta as EmailContactMeta } from '@/components/paragraph/email_contact'
 import { Meta as ExpandableTextMeta } from '@/components/paragraph/expandable_text'
 import { Meta as StaffProfileMeta } from '@/components/paragraph/staff_profile'
 import { Meta as LinkTeaserMeta } from '@/components/paragraph/link_teaser'
-
+import { Meta as WysiwygMeta } from '@/components/paragraph/wysiwyg'
 /** Collect all imported paragraph meta information. */
 const paragraphMetaIn: ParagraphMetaInfo[] = [
   AudienceTopicsMeta,
@@ -19,6 +19,7 @@ const paragraphMetaIn: ParagraphMetaInfo[] = [
   ExpandableTextMeta,
   StaffProfileMeta,
   LinkTeaserMeta,
+  WysiwygMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. */

@@ -58,6 +58,7 @@ export const enum ParagraphResourceType {
   LinkTeaser = 'paragraph--link_teaser',
   StaffProfile = 'paragraph--staff_profile',
   Table = 'paragraph--table',
+  Wysiwyg = 'paragraph--wysiwyg',
 }
 
 export interface ParagraphAlert extends DrupalParagraph {
@@ -210,6 +211,7 @@ export interface ParagraphWysiwyg extends DrupalParagraph {
 export interface ParagraphProps {
   paragraph: ParagraphTypes
   componentParams?
+  className?: string
 }
 
 /** Each Paragraph component must export a ParagraphMetaInfo object `Meta`. This information helps next-build associate Drupal resource types with information for rendering them.

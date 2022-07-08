@@ -40,3 +40,43 @@ export function isValidData(data) {
   }
   return true
 }
+
+export const phoneLinks = (data) => {
+  // Change phone to tap to dial.
+  const replacePattern =
+    /\(?(\d{3})\)?[- ]?(\d{3}-\d{4})(?!([^<]*>)|(((?!<a).)*<\/a>))/g
+  if (data) {
+    return data.replace(
+      replacePattern,
+      '<a target="_blank" href="tel:$1-$2">$1-$2</a>'
+    )
+  }
+  return data
+}
+
+export const drupalToVaPath = (content) => {
+  let replaced = content
+  if (content) {
+    replaced = content.replace(/href="(.*?)(png|jpg|jpeg|svg|gif)"/g, (img) =>
+      img
+        .replace(
+          /https?:\/\/(test\.)?(dev.|staging.|prod.)?cms\.va\.gov\/sites\/default\/files/,
+          '/img'
+        )
+        .replace('http://va-gov-cms.ddev.site/sites/default/files', '/img')
+        .replace('https://va-gov-cms.ddev.site/sites/default/files', '/img')
+    )
+
+    replaced = replaced.replace(/href="(.*?)(doc|docx|pdf|txt)"/g, (file) =>
+      file
+        .replace(
+          /https?:\/\/(test\.)?(dev.|staging.|prod.)?cms\.va\.gov\/sites\/default\/files/,
+          '/files'
+        )
+        .replace('http://va-gov-cms.ddev.site/sites/default/files', '/files')
+        .replace('https://va-gov-cms.ddev.site/sites/default/files', '/files')
+    )
+  }
+
+  return replaced
+}
