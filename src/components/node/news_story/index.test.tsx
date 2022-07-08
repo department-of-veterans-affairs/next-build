@@ -2,14 +2,36 @@ import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
 import * as data from './mock.json'
-import { NewsStory, NewsStoryTeaser } from './'
+import { NewsStory, NewsStoryTeaser, Meta } from './'
+import { drupalClient } from '@/utils/drupalClient'
+import { nock, nockBack } from 'test-utils'
+import { NodeMetaInfo, NodeNewsStory, NodeResourceType } from '@/types/node'
+
+nockBack.fixtures = __dirname
+
+const getNewsStories = async () => {
+  const options = {
+    params: Meta.params.getQueryObject(),
+  }
+  return drupalClient.getResourceCollection<NodeNewsStory[]>(
+    Meta.resource,
+    options
+  )
+}
+
+afterAll(async () => {
+  nock.restore()
+})
 
 describe('<NewsStory> component renders', () => {
-  test('with valid data', () => {
-    render(<NewsStory node={data[0] as never} viewMode={'full'} />)
+  test('with valid data', async () => {
+    const { nockDone, context } = await nockBack('news_story_listing_mock.json')
+    const newsStories = await getNewsStories()
+    render(<NewsStory node={newsStories[0] as never} viewMode={'full'} />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
+    nockDone()
   })
 })
 
