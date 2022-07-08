@@ -20,8 +20,8 @@ const paragraph: ParagraphRichTextCharLimit1000 = {
   status: true,
 }
 
-describe('ParagraphWysiwyg with valid data', () => {
-  test('correctly renders ParagraphWysiwyg component', () => {
+describe('ParagraphRichTextCharLimit1000 with valid data', () => {
+  test('correctly renders ParagraphRichTextCharLimit1000 component', () => {
     if (paragraph.type === 'paragraph--rich_text_char_limit_1000') {
       render(<RichTextCharLimit1000 paragraph={paragraph} />)
     }
@@ -33,8 +33,8 @@ describe('ParagraphWysiwyg with valid data', () => {
   })
 })
 
-describe('ParagraphWysiwyg with invalid data', () => {
-  test('does not render ParagraphWysiwyg when data is null', () => {
+describe('ParagraphRichTextCharLimit1000 with invalid data', () => {
+  test('does not render ParagraphRichTextCharLimit1000 when data is null', () => {
     paragraph.field_wysiwyg = null
     if (paragraph.type === 'paragraph--rich_text_char_limit_1000') {
       render(<RichTextCharLimit1000 paragraph={paragraph} />)
