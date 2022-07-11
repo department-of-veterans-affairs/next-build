@@ -11,10 +11,7 @@ function RichTextCharLimit1000({ paragraph, className }: ParagraphProps) {
   if (!isValidData(paragraph)) return
 
   return (
-    <div
-      data-template="paragraphs/rich_text_char_limit_1000"
-      data-entity-id={paragraph.id}
-    >
+    <div data-entity-id={paragraph.id}>
       <Wysiwyg key={paragraph.id} className={className} paragraph={paragraph} />
     </div>
   )
