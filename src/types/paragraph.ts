@@ -59,6 +59,7 @@ export const enum ParagraphResourceType {
   StaffProfile = 'paragraph--staff_profile',
   Table = 'paragraph--table',
   Wysiwyg = 'paragraph--wysiwyg',
+  RichTextCharLimit1000 = 'paragraph--rich_text_char_limit_1000',
 }
 
 export interface ParagraphAlert extends DrupalParagraph {
