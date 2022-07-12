@@ -1,7 +1,6 @@
 import { screen, render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
-import * as data from './mock.json'
 import { NewsStory, NewsStoryTeaser, Meta } from './'
 import { drupalClient } from '@/utils/drupalClient'
 import { nock, nockBack } from 'test-utils'
@@ -25,7 +24,7 @@ afterAll(async () => {
 
 describe('<NewsStory> component renders', () => {
   test('with valid data', async () => {
-    const { nockDone, context } = await nockBack('news_story_listing_mock.json')
+    const { nockDone, context } = await nockBack('listing_mock.json')
     const newsStories = await getNewsStories()
     render(<NewsStory node={newsStories[0] as never} viewMode={'full'} />)
     expect(
@@ -43,18 +42,23 @@ describe('<NewsStory> component does not render', () => {
     ).not.toBeInTheDocument()
   })
 
-  test('when viewmode is not defined', () => {
-    render(<NewsStory node={data[0] as never} />)
+  test('when viewmode is not defined', async () => {
+    const { nockDone, context } = await nockBack('listing_mock.json')
+    const newsStories = await getNewsStories()
+    render(<NewsStory node={newsStories[0] as never} />)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).not.toBeInTheDocument()
+    nockDone()
   })
 })
 
 describe('<NewsStoryTeaser> component renders', () => {
-  test('with valid data', () => {
+  test('with valid data', async () => {
+    const { nockDone, context } = await nockBack('listing_mock.json')
+    const newsStories = await getNewsStories()
     const { container } = render(
-      <NewsStoryTeaser node={data[0] as never} viewMode={'teaser'} />
+      <NewsStoryTeaser node={newsStories[0] as never} viewMode={'teaser'} />
     )
     const aEl = container.querySelector('a')
     const titleEl = container.querySelector('h2')
@@ -73,23 +77,32 @@ describe('<NewsStoryTeaser> component renders', () => {
       '/pittsburgh-health-care/stories/we-honor-outstanding-doctors'
     )
     expect(titleEl).toBeInTheDocument()
+    nockDone()
   })
 
-  test('and should truncate into text if more than 60 words', () => {
+  test('and should truncate into text if more than 60 words', async () => {
+    const { nockDone, context } = await nockBack('listing_mock.json')
+    const newsStories = await getNewsStories()
+    // Long (>60 words) text.
+    newsStories[1].field_intro_text =
+      'When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two every year is challenging.'
     const { container } = render(
-      <NewsStoryTeaser node={data[1] as never} viewMode={'teaser'} />
+      <NewsStoryTeaser node={newsStories[1] as never} viewMode={'teaser'} />
     )
     const pEl = container.querySelector('p')
 
     expect(pEl).toHaveTextContent(
       'When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two every year is challenging. When a hospital has a host of great doctors, honoring just two...'
     )
+    nockDone()
   })
 
-  test('with correct headingLevel', () => {
+  test('with correct headingLevel', async () => {
+    const { nockDone, context } = await nockBack('listing_mock.json')
+    const newsStories = await getNewsStories()
     const { container } = render(
       <NewsStoryTeaser
-        node={data[0] as never}
+        node={newsStories[0] as never}
         viewMode={'teaser'}
         headingLevel={'h1'}
       />
@@ -97,6 +110,7 @@ describe('<NewsStoryTeaser> component renders', () => {
     const titleEl = container.querySelector('h1')
 
     expect(titleEl).toBeInTheDocument()
+    nockDone()
   })
 })
 

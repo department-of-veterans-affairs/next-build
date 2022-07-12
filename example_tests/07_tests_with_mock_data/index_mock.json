@@ -1,0 +1,23 @@
+[
+  {
+    "scope": "http://localhost:54447",
+    "method": "GET",
+    "path": "/",
+    "body": "",
+    "status": 200,
+    "response": {
+      "title": "If There Is Something",
+      "author": "Roxy Music",
+      "body": "If there is something that I might find / Look around corners / Try to find peace of mind I say / Where would you go if you were me / Try to keep a straight course not easy / Somebody special looking at me / A certain reaction we find / What should it try to be I mean / If there are many / Meaning the same / Be specific just a game"
+    },
+    "rawHeaders": [
+      "Date",
+      "Tue, 12 Jul 2022 13:35:46 GMT",
+      "Connection",
+      "close",
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    "responseIsBinary": false
+  }
+]
