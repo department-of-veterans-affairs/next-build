@@ -13,3 +13,5 @@ export { axe } from 'jest-axe'
 import 'range-getclientrects-polyfill'
 import 'window-computedstyle-polyfill'
 import 'window-matchmedia-polyfill'
+import nock, { back as nockBack } from 'nock'
+export { nock, nockBack }

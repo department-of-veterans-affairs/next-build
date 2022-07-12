@@ -29,3 +29,7 @@ This component is more complex; it renders a header, `<select>` element, and a c
 ## 06. [Accessibility Tests](./06_accessibility_tests/)
 
 This shows how to perform accessibility tests within unit tests.
+
+## 07. [Tests With Mock Data](./07_tests_with_mock_data/)
+
+Mocks are only useful if they accurately mirror production responses; this example shows how to use `nock`, which is used to record and play back network requests and responses for use as mock fixtures.

@@ -47,7 +47,12 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["**/*.test.*", "test/*"]
+        "devDependencies": [
+          "**/*.test.*",
+          "test/*",
+          "jest.config.js",
+          "jest.setup.js"
+        ]
       }
     ]
   }
