@@ -1,0 +1,3 @@
+[submodule "vets-website"]
+	path = vets-website
+	url = git@github.com:department-of-veterans-affairs/vets-website.git

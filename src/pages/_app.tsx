@@ -8,6 +8,7 @@ import { TAG_MANAGER_ARGS } from '@/lib/google-analytics'
 import TagManager from 'react-gtm-module'
 import route from 'next/dist/server/router'
 import '@/styles/globals.css'
+import '../../vets-website/src/platform/site-wide/sass/style.scss'
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
