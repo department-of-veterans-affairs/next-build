@@ -11,9 +11,13 @@ export interface LayoutProps {
   }
 }
 
-export default function Layout({ children, props }: LayoutProps) {
-  const { footerData, bannerData } = props
-  console.log('bannerDataLayout', bannerData)
+export default function Layout({
+  children,
+  props: { bannerData, footerData },
+}: LayoutProps) {
+  if (!bannerData) return null
+  if (!footerData) return null
+
   return (
     <>
       <main>{children}</main>

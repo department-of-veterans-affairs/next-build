@@ -16,15 +16,10 @@ interface NodeProps {
 }
 
 /** This passes any retrieved node to the generalized Node component. */
-export default function NodePage({
-  node,
-  additionalNode,
-  props,
-  footerData,
-}: NodeTypes) {
-  console.log('data', props)
+export default function NodePage({ node, additionalNode, props }: NodeTypes) {
   if (!node) return null
-
+  if (!props) return null
+  console.log('props', props)
   return (
     <Layout props={props}>
       <Node node={node} additionalNode={additionalNode} />
