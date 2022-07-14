@@ -11,17 +11,14 @@ export interface LayoutProps {
   }
 }
 
-export default function Layout({
-  children,
-  props: { bannerData, footerData },
-}: LayoutProps) {
-  if (!bannerData) return null
-  if (!footerData) return null
+export default function Layout({ children, props }: LayoutProps) {
+  if (!props?.bannerData) return null
+  if (!props?.footerData) return null
 
   return (
     <>
       <main>{children}</main>
-      <Footer links={footerData} />
+      <Footer links={props?.footerData} />
     </>
   )
 }
