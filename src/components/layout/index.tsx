@@ -1,7 +1,7 @@
 import Footer from '@/components/footer'
 import { NodeBanner } from '@/types/node'
 import { Node } from '@/components/node'
-import Banner from '@/components/node/banner'
+
 export interface LayoutProps {
   children?: React.ReactNode
   data?: NodeBanner[]
