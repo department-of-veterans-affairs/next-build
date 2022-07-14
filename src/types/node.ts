@@ -57,6 +57,7 @@ export type NodeTypes =
 /** Node resource types. */
 export const enum NodeResourceType {
   Banner = 'node--banner',
+  BannerAlert = 'node--full_width_banner_alert',
   NewsStory = 'node--news_story',
   FieldListing = 'node--field_listing',
   PersonProfile = 'node--person_profile',
@@ -84,6 +85,35 @@ export interface NodeBanner extends DrupalNode {
   body: FieldFormattedTextWithSummary
   field_target_paths: string[]
   field_dismissible_option: string
+}
+
+export interface NodeBannerAlert extends DrupalNode {
+  field_body: FieldFormattedText
+  field_alert_dismissable: boolean
+  field_alert_type: string
+  field_banner_alert_situationinfo: FieldFormattedText
+  field_alert_find_facilities_cta: boolean
+  field_alert_operating_status_cta: boolean
+  field_alert_email_updates_button: boolean
+  field_alert_inheritance_subpages: boolean
+  field_operating_status_sendemail: boolean
+  field_banner_alert_vamcs: NodeBannerAlertVAMCS
+}
+
+export interface NodeBannerAlertVAMCS extends DrupalNode {
+  field_appointments_online: boolean
+  field_media: MediaImage
+  field_facebook: FieldLink
+  field_flickr: FieldLink
+  field_instagram: FieldLink
+  field_operating_status: FieldLink
+  field_twitter: FieldLink
+  field_govdelivery_id_emerg: FieldFormattedText
+  field_govdelivery_id_news: FieldFormattedText
+  field_other_va_locations: FieldFormattedText
+  field_intro_text: FieldFormattedTextWithSummary
+  field_va_health_connect_phone: string
+  field_vamc_system_official_name: FieldFormattedTextWithSummary
 }
 
 export interface NodeBasicLandingPage extends DrupalNode {

@@ -15,6 +15,9 @@ export const Core = () => {
           <Link href="/demo/banner">Banners</Link>
         </li>
         <li>
+          <Link href="/demo/bannerAlert">Banners Alert</Link>
+        </li>
+        <li>
           <Link href="/demo/partials/benefitHubsLinks">Benefit Hubs Links</Link>
         </li>
         <li>

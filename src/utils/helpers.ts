@@ -1,5 +1,6 @@
 import config from '../../config'
 import isNil from 'lodash/isNil'
+import { recordEvent } from '@/utils/recordEvent'
 
 export function truncateWordsOrChar(
   str: string,
@@ -19,6 +20,11 @@ export function truncateWordsOrChar(
 
 export function absoluteURL(uri: string) {
   return `${config.drupalBaseUrl}${uri}`
+}
+
+// used to get a base url path of a health care region from entityUrl.path
+export function regionBaseURL(path: string) {
+  return path.split('/')[1]
 }
 
 export function formatDate(input: string): string {
@@ -49,6 +55,22 @@ export const phoneLinks = (data) => {
     return data.replace(
       replacePattern,
       '<a target="_blank" href="tel:$1-$2">$1-$2</a>'
+    )
+  }
+  return data
+}
+
+export const trackLinks = (data, eventData) => {
+  // Add calls to "recordEvent" to all links found in html
+  const replacePattern = /<a(.*)>(.*)<\/a>/g
+
+  if (data) {
+    return data.replace(
+      replacePattern,
+      `<a onClick='recordEvent(${JSON.stringify({
+        ...eventData,
+        'alert-box-click-label': '$2',
+      })})'$1>$2</a>`
     )
   }
   return data
