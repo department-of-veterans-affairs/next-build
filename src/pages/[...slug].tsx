@@ -19,7 +19,7 @@ interface NodeProps {
 export default function NodePage({ node, additionalNode, props }: NodeTypes) {
   if (!node) return null
   if (!props) return null
-  console.log('props', props)
+
   return (
     <Layout props={props}>
       <Node node={node} additionalNode={additionalNode} />

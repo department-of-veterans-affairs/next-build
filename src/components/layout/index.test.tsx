@@ -6,12 +6,6 @@ import Layout from '.'
 // Path: src/components/Layout/index.test.tsx
 
 const children = <div></div>
-const props = {
-  footerData: {
-    title: 'Get answers',
-    href: '/',
-  },
-}
 
 describe('<Layout> renders', () => {
   test('body', () => {
@@ -27,7 +21,7 @@ describe('<Layout> renders', () => {
   })
 
   test('Footer data', () => {
-    render(<Layout props={props}>{children}</Layout>)
+    render(<Layout>{children}</Layout>)
     expect(screen.queryByText(/Get answers/i)).not.toBeInTheDocument()
   })
 })
