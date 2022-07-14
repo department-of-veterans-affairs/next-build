@@ -2,10 +2,17 @@ import * as React from 'react'
 import { Meta as NewsStoryMeta } from '@/components/node/news_story'
 import { Meta as QaMeta } from '@/components/node/q_a'
 import { Meta as StoryListingMeta } from '@/components/node/story_listing'
+import { Meta as BannerMeta } from '@/components/node/banner'
+
 import { NodeMetaInfo, NodeMetaOut, NodeProps } from '@/types/node'
 
 /** Collect all imported node meta information. */
-const nodeMetaIn: NodeMetaInfo[] = [NewsStoryMeta, QaMeta, StoryListingMeta]
+const nodeMetaIn: NodeMetaInfo[] = [
+  NewsStoryMeta,
+  QaMeta,
+  StoryListingMeta,
+  BannerMeta,
+]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */
 export const nodeMeta: NodeMetaOut = nodeMetaIn.reduce((acc, current) => {
