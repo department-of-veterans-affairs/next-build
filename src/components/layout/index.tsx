@@ -15,13 +15,12 @@ export default function Layout({ children, props }: LayoutProps) {
   if (!props?.bannerData) return null
   if (!props?.footerData) return null
 
-  const banners = props.bannerData.map((banner) => {
-    return <Node key={banner.id} node={banner} />
-  })
-
   return (
     <>
-      {banners}
+      {props.bannerData &&
+        props.bannerData.map((banner) => (
+          <Node key={banner.id} node={banner} />
+        ))}
       <main>{children}</main>
       <Footer links={props?.footerData} />
     </>
