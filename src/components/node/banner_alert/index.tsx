@@ -1,15 +1,23 @@
-import Link from 'next/link'
 import { isEmpty } from 'lodash'
+import { useRef, useEffect, useState } from 'react'
 import { recordEvent } from '@/utils/recordEvent'
-import {
-  drupalToVaPath,
-  phoneLinks,
-  regionBaseURL,
-  trackLinks,
-} from '@/utils/helpers'
+import { regionBaseURL, trackLinks } from '@/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
 const BannerAlert = ({ node }): JSX.Element => {
+  const [isClicked, setIsClicked] = useState(false)
+  const analyticsRef = useRef(null)
+
+  useEffect(() => {
+    function handler(event) {
+      if (analyticsRef.current?.contains(event.target)) {
+        setIsClicked(true)
+      }
+    }
+    window.addEventListener('click', handler)
+    return () => window.removeEventListener('click', handler)
+  }, [])
+
   if (isEmpty(node)) return
 
   const hideOnSubpages = node.field_alert_inheritance_subpages
@@ -17,7 +25,6 @@ const BannerAlert = ({ node }): JSX.Element => {
     node.field_alert_type === 'information' ? 'info' : node.field_alert_type
   const region = '/' + regionBaseURL(node.path.alias)
   const lastArg = node.path.alias.substring(node.path.alias.lastIndexOf('/'))
-  // const emailUpdates = ''
   const eventData = {
     event: 'nav-alert-box-link-click',
     'alert-box-status': alertType,
@@ -26,9 +33,18 @@ const BannerAlert = ({ node }): JSX.Element => {
     'alert-box-background-only': 'false',
     'alert-box-closeable': 'false',
   }
+  // const emailUpdates = ''
   let body = trackLinks(node.field_body.processed, eventData)
   let outputStatus = true //This needs to be false
   let statusUrl = ''
+
+  if (isClicked) {
+    recordEvent({
+      eventCategory: 'Banner',
+      eventAction: 'View',
+      eventLabel: node.title,
+    })
+  }
 
   node.field_banner_alert_vamcs.map((vamcs) => {
     if (region == vamcs.field_office.path.alias) {
@@ -41,31 +57,22 @@ const BannerAlert = ({ node }): JSX.Element => {
     statusUrl = vamcs.path.alias
   })
 
-  function createMarkup() {
+  if (node.field_alert_operating_status_cta && statusUrl.length) {
     const analytic = {
       event: 'nav-warning-alert-box-content-link-click',
       alertBoxHeading: `${node.title}`,
     }
 
-    const content = (
-      <>
-        {/*<div dangerouslySetInnerHTML={{ __html: body }} />*/}
-        {node.field_alert_operating_status_cta && statusUrl.length && (
-          <p>
-            <Link href={statusUrl}>
-              <a onClick={() => recordEvent(JSON.stringify(analytic))}>
-                Get updates on affected services and facilities
-              </a>
-            </Link>
-          </p>
-        )}
-      </>
-    )
-
-    return {
-      __html: content,
-    }
+    body += `<p>
+          <a href='${statusUrl}' onClick='recordEvent(${JSON.stringify(
+      analytic
+    )})'>
+            Get updates on affected services and facilities
+          </a>
+      </p>`
   }
+
+  // fieldAlertEmailUpdatesButton logic goes here if applicable
 
   if (node.field_alert_find_facilities_cta) {
     body += `
@@ -84,7 +91,7 @@ const BannerAlert = ({ node }): JSX.Element => {
       visible={outputStatus}
       windowSession={node.field_alert_dismissable == 'dismiss-session'}
     >
-      <div dangerouslySetInnerHTML={createMarkup()} />
+      <div ref={analyticsRef} dangerouslySetInnerHTML={{ __html: body }} />
     </VaBanner>
   )
 }
