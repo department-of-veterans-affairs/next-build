@@ -25,7 +25,7 @@ const BannerAlert = ({ node }): JSX.Element => {
     node.field_alert_type === 'information' ? 'info' : node.field_alert_type
   const region = '/' + regionBaseURL(node.path.alias)
   const lastArg = node.path.alias.substring(node.path.alias.lastIndexOf('/'))
-  const eventData = {
+  const bodyEventData = {
     event: 'nav-alert-box-link-click',
     'alert-box-status': alertType,
     'alert-box-headline': node.title,
@@ -33,9 +33,8 @@ const BannerAlert = ({ node }): JSX.Element => {
     'alert-box-background-only': 'false',
     'alert-box-closeable': 'false',
   }
-  // const emailUpdates = ''
-  let body = trackLinks(node.field_body.processed, eventData)
-  let outputStatus = true //This needs to be false
+  let body = trackLinks(node.field_body.processed, bodyEventData)
+  let outputStatus = false
   let statusUrl = ''
 
   if (isClicked) {
@@ -46,38 +45,35 @@ const BannerAlert = ({ node }): JSX.Element => {
     })
   }
 
-  node.field_banner_alert_vamcs.map((vamcs) => {
+  node.field_banner_alert_vamcs?.map((vamcs) => {
     if (region == vamcs.field_office.path.alias) {
       outputStatus = true
     }
     if (hideOnSubpages && lastArg != region && lastArg != '/operating-status') {
       outputStatus = false
     }
-    // emailUpdates = vamcs.field_office.field_email_updates_link
     statusUrl = vamcs.path.alias
   })
 
   if (node.field_alert_operating_status_cta && statusUrl.length) {
-    const analytic = {
+    const ctaEventData = {
       event: 'nav-warning-alert-box-content-link-click',
       alertBoxHeading: `${node.title}`,
     }
 
     body += `<p>
           <a href='${statusUrl}' onClick='recordEvent(${JSON.stringify(
-      analytic
+      ctaEventData
     )})'>
             Get updates on affected services and facilities
           </a>
       </p>`
   }
 
-  // fieldAlertEmailUpdatesButton logic goes here if applicable
-
   if (node.field_alert_find_facilities_cta) {
     body += `
       <p>
-        <Link href="/find-locations">Find other VA facilities near you</Link>
+        <a href="/find-locations">Find other VA facilities near you</a>
       </p>`
   }
 

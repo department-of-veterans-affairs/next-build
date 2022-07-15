@@ -97,23 +97,15 @@ export interface NodeBannerAlert extends DrupalNode {
   field_alert_email_updates_button: boolean
   field_alert_inheritance_subpages: boolean
   field_operating_status_sendemail: boolean
-  field_banner_alert_vamcs: NodeBannerAlertVAMCS
+  field_banner_alert_vamcs: NodeBannerAlertVAMCS[]
 }
 
 export interface NodeBannerAlertVAMCS extends DrupalNode {
-  field_appointments_online: boolean
-  field_media: MediaImage
-  field_facebook: FieldLink
-  field_flickr: FieldLink
-  field_instagram: FieldLink
-  field_operating_status: FieldLink
-  field_twitter: FieldLink
-  field_govdelivery_id_emerg: FieldFormattedText
-  field_govdelivery_id_news: FieldFormattedText
-  field_other_va_locations: FieldFormattedText
-  field_intro_text: FieldFormattedTextWithSummary
-  field_va_health_connect_phone: string
-  field_vamc_system_official_name: FieldFormattedTextWithSummary
+  field_administration: any
+  field_banner_alert: string[]
+  field_facility_operating_status: NodeHealthCareLocalFacility
+  field_office: any
+  field_operating_status_emerg_inf: FieldFormattedText
 }
 
 export interface NodeBasicLandingPage extends DrupalNode {
