@@ -1,7 +1,7 @@
 import { isEmpty } from 'lodash'
 import { useRef, useEffect, useState } from 'react'
 import { recordEvent } from '@/utils/recordEvent'
-import { regionBaseURL, trackLinks } from '@/utils/helpers'
+import { regionBaseURL } from '@/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
 const BannerAlert = ({ node }): JSX.Element => {
@@ -25,25 +25,10 @@ const BannerAlert = ({ node }): JSX.Element => {
     node.field_alert_type === 'information' ? 'info' : node.field_alert_type
   const region = '/' + regionBaseURL(node.path.alias)
   const lastArg = node.path.alias.substring(node.path.alias.lastIndexOf('/'))
-  const bodyEventData = {
-    event: 'nav-alert-box-link-click',
-    'alert-box-status': alertType,
-    'alert-box-headline': node.title,
-    'alert-box-headline-level': '3',
-    'alert-box-background-only': 'false',
-    'alert-box-closeable': 'false',
-  }
-  let body = trackLinks(node.field_body.processed, bodyEventData)
+
+  let body = node.field_body.processed
   let outputStatus = false
   let statusUrl = ''
-
-  if (isClicked) {
-    recordEvent({
-      eventCategory: 'Banner',
-      eventAction: 'View',
-      eventLabel: node.title,
-    })
-  }
 
   node.field_banner_alert_vamcs?.map((vamcs) => {
     if (region == vamcs.field_office.path.alias) {
@@ -56,15 +41,8 @@ const BannerAlert = ({ node }): JSX.Element => {
   })
 
   if (node.field_alert_operating_status_cta && statusUrl.length) {
-    const ctaEventData = {
-      event: 'nav-warning-alert-box-content-link-click',
-      alertBoxHeading: `${node.title}`,
-    }
-
     body += `<p>
-          <a href='${statusUrl}' onClick='recordEvent(${JSON.stringify(
-      ctaEventData
-    )})'>
+          <a href='${statusUrl}'>
             Get updates on affected services and facilities
           </a>
       </p>`
@@ -75,6 +53,29 @@ const BannerAlert = ({ node }): JSX.Element => {
       <p>
         <a href="/find-locations">Find other VA facilities near you</a>
       </p>`
+  }
+
+  if (isClicked) {
+    let eventData = {}
+
+    if (node.field_alert_operating_status_cta && statusUrl.length) {
+      eventData = {
+        event: 'nav-warning-alert-box-content-link-click',
+        alertBoxHeading: `${node.title}`,
+      }
+    } else {
+      eventData = {
+        event: 'nav-alert-box-link-click',
+        'alert-box-status': alertType,
+        'alert-box-headline': node.title,
+        'alert-box-headline-level': '3',
+        'alert-box-background-only': 'false',
+        'alert-box-closeable': 'false',
+        'alert-box-click-label': '$2',
+      }
+    }
+    recordEvent(eventData)
+    setIsClicked(false)
   }
 
   return (

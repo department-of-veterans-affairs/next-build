@@ -22,14 +22,18 @@ describe('<BannerAlert> component renders', () => {
       'href',
       '/wilkes-barre-health-care/programs/covid-19-vaccines'
     )
-    expect(aEl[0]).toHaveAttribute(
-      'onclick',
-      'recordEvent({"event":"nav-alert-box-link-click","alert-box-status":"warning","alert-box-headline":"Coronavirus","alert-box-headline-level":"3","alert-box-background-only":"false","alert-box-closeable":"false","alert-box-click-label":"Visit our vaccine information page"})'
-    )
+    expect(aEl[0]).toHaveAttribute('data-entity-substitution', 'canonical')
     expect(aEl[0]).toHaveAttribute('title', 'COVID-19 vaccines')
+    expect(
+      screen.queryByText(/Visit our vaccine information page/)
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/Get updates on affected services and facilities/)
+    ).toBeInTheDocument()
     expect(
       screen.queryByText(/Find other VA facilities near you/)
     ).toBeInTheDocument()
+    screen.debug(container)
   })
 
   test('region == vamcs.field_office.path.alias', () => {
@@ -50,10 +54,6 @@ describe('<BannerAlert> component renders', () => {
       '/wilkes-barre-health-care/programs/covid-19-vaccines'
     )
     expect(screen.getByRole('va-banner')).toHaveAttribute('visible', 'true')
-    expect(aEl[0]).toHaveAttribute(
-      'onclick',
-      'recordEvent({"event":"nav-alert-box-link-click","alert-box-status":"warning","alert-box-headline":"Coronavirus","alert-box-headline-level":"3","alert-box-background-only":"false","alert-box-closeable":"false","alert-box-click-label":"Visit our vaccine information page"})'
-    )
     expect(aEl[0]).toHaveAttribute('title', 'COVID-19 vaccines')
     expect(
       screen.queryByText(/Find other VA facilities near you/)
@@ -77,10 +77,6 @@ describe('<BannerAlert> component renders', () => {
       'href',
       '/wilkes-barre-health-care/programs/covid-19-vaccines'
     )
-    expect(aEl[0]).toHaveAttribute(
-      'onclick',
-      'recordEvent({"event":"nav-alert-box-link-click","alert-box-status":"warning","alert-box-headline":"Coronavirus","alert-box-headline-level":"3","alert-box-background-only":"false","alert-box-closeable":"false","alert-box-click-label":"Visit our vaccine information page"})'
-    )
     expect(aEl[0]).toHaveAttribute('title', 'COVID-19 vaccines')
   })
 
@@ -100,10 +96,6 @@ describe('<BannerAlert> component renders', () => {
     expect(aEl[0]).toHaveAttribute(
       'href',
       '/wilkes-barre-health-care/programs/covid-19-vaccines'
-    )
-    expect(aEl[0]).toHaveAttribute(
-      'onclick',
-      'recordEvent({"event":"nav-alert-box-link-click","alert-box-status":"warning","alert-box-headline":"Coronavirus","alert-box-headline-level":"3","alert-box-background-only":"false","alert-box-closeable":"false","alert-box-click-label":"Visit our vaccine information page"})'
     )
     expect(aEl[0]).toHaveAttribute('title', 'COVID-19 vaccines')
   })

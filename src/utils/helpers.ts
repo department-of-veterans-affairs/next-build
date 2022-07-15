@@ -60,22 +60,6 @@ export const phoneLinks = (data) => {
   return data
 }
 
-export const trackLinks = (data, eventData) => {
-  // Add calls to "recordEvent" to all links found in html
-  const replacePattern = /<a(.*)>(.*)<\/a>/g
-
-  if (data) {
-    return data.replace(
-      replacePattern,
-      `<a onClick='recordEvent(${JSON.stringify({
-        ...eventData,
-        'alert-box-click-label': '$2',
-      })})'$1>$2</a>`
-    )
-  }
-  return data
-}
-
 export const drupalToVaPath = (content) => {
   let replaced = content
   if (content) {
