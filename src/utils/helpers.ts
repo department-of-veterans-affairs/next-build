@@ -1,6 +1,5 @@
 import config from '../../config'
 import isNil from 'lodash/isNil'
-import { recordEvent } from '@/utils/recordEvent'
 
 export function truncateWordsOrChar(
   str: string,
