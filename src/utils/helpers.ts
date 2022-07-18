@@ -21,6 +21,11 @@ export function absoluteURL(uri: string) {
   return `${config.drupalBaseUrl}${uri}`
 }
 
+// used to get a base url path of a health care region from entityUrl.path
+export function regionBaseURL(path: string) {
+  return path.split('/')[1]
+}
+
 export function formatDate(input: string): string {
   const date = new Date(input)
   return date.toLocaleDateString('en-US', {
