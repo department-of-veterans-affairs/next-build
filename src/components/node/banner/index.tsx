@@ -1,5 +1,8 @@
+import { useRef, useEffect, useState } from 'react'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { isEmpty } from 'lodash'
+import { recordEvent } from '@/utils/recordEvent'
+import { NodeMetaInfo, NodeResourceType } from '@/types/node'
 
 const BannerComponent = ({ node }): JSX.Element => {
   if (isEmpty(node)) return
@@ -14,8 +17,15 @@ const BannerComponent = ({ node }): JSX.Element => {
       visible={true}
       windowSession={node.field_dismissible_option == 'dismiss-session'}
     >
-      <div dangerouslySetInnerHTML={{ __html: node.body.processed }} />
+      <div dangerouslySetInnerHTML={{ __html: node?.body?.processed }} />
     </VaBanner>
   )
 }
 export default BannerComponent
+
+export const Meta: NodeMetaInfo = {
+  resource: NodeResourceType.Banner,
+  component: BannerComponent,
+  params: null,
+  collection: true,
+}

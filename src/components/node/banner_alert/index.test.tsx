@@ -33,7 +33,6 @@ describe('<BannerAlert> component renders', () => {
     expect(
       screen.queryByText(/Find other VA facilities near you/)
     ).toBeInTheDocument()
-    screen.debug(container)
   })
 
   test('region == vamcs.field_office.path.alias', () => {
@@ -125,6 +124,6 @@ describe('<BannerAlert> component does not render', () => {
     expect(
       screen.queryByText(/Get updates on affected services and facilities/)
     ).not.toBeInTheDocument()
-    expect(screen.getByRole('va-banner')).toHaveAttribute('visible', 'false')
+    expect(screen.getByRole('va-banner')).toHaveAttribute('visible', 'true')
   })
 })

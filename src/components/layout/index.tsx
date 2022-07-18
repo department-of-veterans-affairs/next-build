@@ -1,19 +1,28 @@
-import useSWR from 'swr'
-import { fetcher } from '@/utils/fetcher'
 import Footer from '@/components/footer'
-import { HEADER_FOOTER_PATH } from '@/lib/constants'
+import { NodeBanner } from '@/types/node'
+import { Node } from '@/components/node'
 
-interface LayoutProps {
-  children: React.ReactNode
-  footerData?: object
+export interface LayoutProps {
+  children?: React.ReactNode
+  data?: NodeBanner[]
+  props?: {
+    bannerData?: any
+    footerData?: object
+  }
 }
 
-export default function Layout({ children, footerData }: LayoutProps) {
-  if (!footerData) footerData = []
+export default function Layout({ children, props }: LayoutProps) {
+  if (!props?.bannerData) return null
+  if (!props?.footerData) return null
+
   return (
     <>
+      {props.bannerData &&
+        props.bannerData.map((banner) => (
+          <Node key={banner.id} node={banner} />
+        ))}
       <main>{children}</main>
-      <Footer links={footerData} />
+      <Footer links={props?.footerData} />
     </>
   )
 }

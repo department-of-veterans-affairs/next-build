@@ -1,7 +1,16 @@
 import Link from 'next/link'
+import {
+  GetStaticPathsContext,
+  GetStaticPathsResult,
+  GetStaticPropsContext,
+  GetStaticPropsResult,
+} from 'next'
+import { drupalClient } from '@/utils/drupalClient'
+import { nodeMeta } from '@/components/node'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
 import NodeListOnly from '@/components/node/story_listing/article_list'
+import { getGlobalElements } from '@/lib/context/getGlobalElements'
 
 export const Core = () => {
   return (
@@ -69,15 +78,14 @@ export const Core = () => {
             Rich Text Char Limit 1000 example
           </Link>
         </li>
-        <NodeListOnly />
       </ul>
     </Container>
   )
 }
 
-const DemoPage = ({ footerData }) => {
+const DemoPage = ({ props }) => {
   return (
-    <Layout footerData={footerData}>
+    <Layout props={props}>
       <Core />
     </Layout>
   )
@@ -85,19 +93,10 @@ const DemoPage = ({ footerData }) => {
 
 export default DemoPage
 
-export async function getStaticProps() {
-  const res = await fetch(`https://www.va.gov/generated/headerFooter.json`)
-  const data = await res.json()
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-  const { footerData } = data
+export async function getStaticProps(context) {
   return {
     props: {
-      footerData,
+      ...(await getGlobalElements(context)),
     }, // will be passed to the page component as props
   }
 }
