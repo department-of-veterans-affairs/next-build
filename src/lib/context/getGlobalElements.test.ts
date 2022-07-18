@@ -1,9 +1,11 @@
-import { drupalClient } from '@/utils/drupalClient'
+import axios from 'axios'
 import nock from 'nock'
 
+axios.defaults.adapter = require('axios/lib/adapters/http')
+
 const getData = async () => {
-  const res = await drupalClient.fetch('http://localhost:3000/api/')
-  const data = res.json()
+  const res = await axios.get('http://localhost:3000/api/')
+  const data = res.data
   return data
 }
 
@@ -38,7 +40,7 @@ const homeRoute = async () => {
 }
 
 describe('drupalClient renders home data', () => {
-  it('if path alias matches home', async () => {
+  test('if path alias matches home', async () => {
     await homeRoute()
     const results = await getData()
     // eslint-disable-next-line
