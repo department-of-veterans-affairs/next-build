@@ -24,24 +24,24 @@ const BannerAlert = ({ node }): JSX.Element => {
   const hideOnSubpages = node.field_alert_inheritance_subpages
   const alertType =
     node.field_alert_type === 'information' ? 'info' : node.field_alert_type
-  const region = '/' + regionBaseURL(node.path.alias)
-  const lastArg = node.path.alias.substring(node.path.alias.lastIndexOf('/'))
+  const region = '/' + regionBaseURL(node.path?.alias)
+  const lastArg = node.path?.alias.substring(node.path?.alias.lastIndexOf('/'))
 
-  let body = node.field_body.processed
+  let body = node.field_body?.processed
   let outputStatus = false
   let statusUrl = ''
 
   node.field_banner_alert_vamcs?.map((vamcs) => {
-    if (region == vamcs.field_office.path.alias) {
+    if (region == vamcs?.field_office?.path?.alias) {
       outputStatus = true
     }
     if (hideOnSubpages && lastArg != region && lastArg != '/operating-status') {
       outputStatus = false
     }
-    statusUrl = vamcs.path.alias
+    statusUrl = vamcs?.path?.alias
   })
 
-  if (node.field_alert_operating_status_cta && statusUrl.length) {
+  if (node.field_alert_operating_status_cta && statusUrl?.length) {
     body += `<p>
           <a href='${statusUrl}'>
             Get updates on affected services and facilities
@@ -59,7 +59,7 @@ const BannerAlert = ({ node }): JSX.Element => {
   if (isClicked) {
     let eventData = {}
 
-    if (node.field_alert_operating_status_cta && statusUrl.length) {
+    if (node.field_alert_operating_status_cta && statusUrl?.length) {
       eventData = {
         event: 'nav-warning-alert-box-content-link-click',
         alertBoxHeading: `${node.title}`,
@@ -86,7 +86,7 @@ const BannerAlert = ({ node }): JSX.Element => {
       showClose={node.field_alert_dismissable}
       headline={node.title}
       type={node.field_alert_type}
-      visible={outputStatus}
+      visible={true}
       windowSession={node.field_alert_dismissable == 'dismiss-session'}
     >
       <div ref={analyticsRef} dangerouslySetInnerHTML={{ __html: body }} />

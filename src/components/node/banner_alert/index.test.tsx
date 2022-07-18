@@ -125,6 +125,6 @@ describe('<BannerAlert> component does not render', () => {
     expect(
       screen.queryByText(/Get updates on affected services and facilities/)
     ).not.toBeInTheDocument()
-    expect(screen.getByRole('va-banner')).toHaveAttribute('visible', 'false')
+    expect(screen.getByRole('va-banner')).toHaveAttribute('visible', 'true')
   })
 })

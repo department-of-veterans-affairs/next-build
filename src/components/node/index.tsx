@@ -3,6 +3,7 @@ import { Meta as NewsStoryMeta } from '@/components/node/news_story'
 import { Meta as QaMeta } from '@/components/node/q_a'
 import { Meta as StoryListingMeta } from '@/components/node/story_listing'
 import { Meta as BannerMeta } from '@/components/node/banner'
+import { Meta as BannerAlertMeta } from '@/components/node/banner_alert'
 
 import { NodeMetaInfo, NodeMetaOut, NodeProps } from '@/types/node'
 
@@ -12,6 +13,7 @@ const nodeMetaIn: NodeMetaInfo[] = [
   QaMeta,
   StoryListingMeta,
   BannerMeta,
+  BannerAlertMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */
