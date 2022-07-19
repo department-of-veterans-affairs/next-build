@@ -19,6 +19,7 @@ cypress/videos
 
 # misc
 .DS_Store
+.idea/
 
 # debug
 npm-debug.log*
