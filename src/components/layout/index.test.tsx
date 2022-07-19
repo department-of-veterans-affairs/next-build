@@ -10,9 +10,11 @@ const children = <div></div>
 describe('<Layout> renders', () => {
   test('body', () => {
     render(
-      <Layout>
-        <div>This is the layout</div>
-      </Layout>
+      <>
+        <Layout>
+          <div>This is the layout</div>
+        </Layout>
+      </>
     )
 
     expect(document.querySelector('body')).toBeInTheDocument()
@@ -20,6 +22,6 @@ describe('<Layout> renders', () => {
 
   test('Footer data', () => {
     render(<Layout>{children}</Layout>)
-    expect(screen.getByText(/Get answers/i)).toBeInTheDocument()
+    expect(screen.queryByText(/Get answers/i)).not.toBeInTheDocument()
   })
 })

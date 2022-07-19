@@ -57,6 +57,7 @@ export type NodeTypes =
 /** Node resource types. */
 export const enum NodeResourceType {
   Banner = 'node--banner',
+  BannerAlert = 'node--full_width_banner_alert',
   NewsStory = 'node--news_story',
   FieldListing = 'node--field_listing',
   PersonProfile = 'node--person_profile',
@@ -84,6 +85,27 @@ export interface NodeBanner extends DrupalNode {
   body: FieldFormattedTextWithSummary
   field_target_paths: string[]
   field_dismissible_option: string
+}
+
+export interface NodeBannerAlert extends DrupalNode {
+  field_body: FieldFormattedText
+  field_alert_dismissable: boolean
+  field_alert_type: string
+  field_banner_alert_situationinfo: FieldFormattedText
+  field_alert_find_facilities_cta: boolean
+  field_alert_operating_status_cta: boolean
+  field_alert_email_updates_button: boolean
+  field_alert_inheritance_subpages: boolean
+  field_operating_status_sendemail: boolean
+  field_banner_alert_vamcs: NodeBannerAlertVAMCS[]
+}
+
+export interface NodeBannerAlertVAMCS extends DrupalNode {
+  field_administration: any
+  field_banner_alert: string[]
+  field_facility_operating_status: NodeHealthCareLocalFacility
+  field_office: any
+  field_operating_status_emerg_inf: FieldFormattedText
 }
 
 export interface NodeBasicLandingPage extends DrupalNode {

@@ -1,5 +1,6 @@
 /// <reference types="react-scripts" />
 
+declare module 'nock'
 declare module 'test-utils'
 declare module '@cypress/react'
 declare module '@testing-library/cypress'

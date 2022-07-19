@@ -7,6 +7,8 @@ import {
 import { drupalClient } from '@/utils/drupalClient'
 import { Node, nodeMeta } from '@/components/node'
 import { NodeTypes } from '@/types/node'
+import { getGlobalElements } from '@/lib/context/getGlobalElements'
+import Layout from '@/components/layout'
 
 interface NodeProps {
   node: NodeTypes
@@ -14,10 +16,15 @@ interface NodeProps {
 }
 
 /** This passes any retrieved node to the generalized Node component. */
-export default function NodePage({ node, additionalNode }: NodeTypes) {
+export default function NodePage({ node, additionalNode, props }: NodeTypes) {
   if (!node) return null
+  if (!props) return null
 
-  return <Node node={node} additionalNode={additionalNode} />
+  return (
+    <Layout props={props}>
+      <Node node={node} additionalNode={additionalNode} />
+    </Layout>
+  )
 }
 
 /** All active node types are identified by the keys of the collected node meta info. */
@@ -92,6 +99,7 @@ export async function getStaticProps(
 
   return {
     props: {
+      ...(await getGlobalElements(context)),
       node,
       additionalNode: additionalNode || null,
     },
