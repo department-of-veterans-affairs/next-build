@@ -8,7 +8,7 @@ type GlobalElements = LayoutProps
 export function getParams(name: string): DrupalJsonApiParams {
   const params = new DrupalJsonApiParams()
   if (name === 'node--story_listing') {
-    return params.addInclude(['field_office', 'field_office.field_system_menu'])
+    return params.addInclude(['field_office'])
   }
 }
 // This is a helper function to fetch global elements for layout.
@@ -17,12 +17,12 @@ export function getParams(name: string): DrupalJsonApiParams {
 export async function getGlobalElements(
   context: GetStaticPropsContext | GetServerSidePropsContext
 ): Promise<GlobalElements> {
+  // build the params for the request
   const menuOpts = {
     params: getParams('node--story_listing').getQueryObject(),
     locale: context.locale,
     defaultLocale: context.defaultLocale,
   }
-
   // global context
   const slug = await drupalClient.getPathFromContext(context)
   const path = await drupalClient.translatePathFromContext(context)
@@ -43,7 +43,7 @@ export async function getGlobalElements(
   const footer = await requestFooter.json()
   const { footerData } = footer
 
-  // // Fetch menu items.
+  // Fetch menu items.
   const sideNavData = await drupalClient.getResourceCollectionFromContext(
     'node--story_listing',
     context,
@@ -51,7 +51,7 @@ export async function getGlobalElements(
       ...menuOpts,
     }
   )
-  console.log('GLOBAL SECONDARY MENU', sideNavData)
+
   return {
     props: { bannerData, footerData, sideNavData },
   }
