@@ -8,13 +8,15 @@ type GlobalElements = LayoutProps
 
 function getParams(name: string): DrupalJsonApiParams {
   const params = new DrupalJsonApiParams()
-  if (name === 'node--story_listing') {
-    return params.addInclude(['field_office'])
-  }
+
+  return params
+    .addInclude(['field_office', 'field_office.field_system_menu'])
+    .addFilter('field_office.field_system_menu', name)
 }
 // This is a helper function to fetch global elements for layout.
 // This is going to be run for every pages on build.
 // To make this fast, you could cache the results example on Redis.
+
 export async function getMenus(
   context: GetStaticPropsContext | GetServerSidePropsContext
 ): Promise<GlobalElements> {
@@ -51,6 +53,13 @@ export async function getMenus(
     fieldOffice?.field_system_menu.id
   )
   console.log('Menu', menu)
+
+  // Fetch menu items.
+  const mainMenu = await drupalClient.getMenu('main', menuOpts)
+  const footerMenu = await drupalClient.getMenu('footer', menuOpts)
+
+  console.log('Main Menu', mainMenu)
+  console.log('Footer Menu', footerMenu)
 
   return {
     props: {},
