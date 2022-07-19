@@ -8,6 +8,7 @@ import { drupalClient } from '@/utils/drupalClient'
 import { Node, nodeMeta } from '@/components/node'
 import { NodeTypes } from '@/types/node'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
+import { getMenus } from '@/lib/context/getMenus'
 import Layout from '@/components/layout'
 
 interface NodeProps {
@@ -100,6 +101,7 @@ export async function getStaticProps(
   return {
     props: {
       ...(await getGlobalElements(context)),
+      ...(await getMenus(context)),
       node,
       additionalNode: additionalNode || null,
     },

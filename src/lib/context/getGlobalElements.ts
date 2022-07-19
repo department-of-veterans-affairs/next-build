@@ -5,12 +5,6 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 type GlobalElements = LayoutProps
 
-export function getParams(name: string): DrupalJsonApiParams {
-  const params = new DrupalJsonApiParams()
-  if (name === 'node--story_listing') {
-    return params.addInclude(['field_office'])
-  }
-}
 // This is a helper function to fetch global elements for layout.
 // This is going to be run for every pages on build.
 // To make this fast, you could cache the results example on Redis.
@@ -18,11 +12,7 @@ export async function getGlobalElements(
   context: GetStaticPropsContext | GetServerSidePropsContext
 ): Promise<GlobalElements> {
   // build the params for the request
-  const menuOpts = {
-    params: getParams('node--story_listing').getQueryObject(),
-    locale: context.locale,
-    defaultLocale: context.defaultLocale,
-  }
+
   // global context
   const slug = await drupalClient.getPathFromContext(context)
   const path = await drupalClient.translatePathFromContext(context)
@@ -43,16 +33,7 @@ export async function getGlobalElements(
   const footer = await requestFooter.json()
   const { footerData } = footer
 
-  // Fetch menu items.
-  const sideNavData = await drupalClient.getResourceCollectionFromContext(
-    'node--story_listing',
-    context,
-    {
-      ...menuOpts,
-    }
-  )
-
   return {
-    props: { bannerData, footerData, sideNavData },
+    props: { bannerData, footerData },
   }
 }

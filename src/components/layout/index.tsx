@@ -8,16 +8,15 @@ export interface LayoutProps {
   props?: {
     bannerData?: any
     footerData?: object
-    sideNavData?: any
+    facilitySideNavData?: any
   }
 }
 
 export default function Layout({ children, props }: LayoutProps) {
   if (!props?.bannerData) return null
   if (!props?.footerData) return null
-  if (!props?.sideNavData) return null
+  if (!props?.facilitySideNavData) return null
 
-  console.log('LAYOUT SECONDARY MENU', props.sideNavData)
   return (
     <>
       {props.bannerData &&
