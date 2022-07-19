@@ -1,15 +1,28 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
 import { drupalClient } from '@/utils/drupalClient'
 import { LayoutProps } from 'components/layout'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 type GlobalElements = LayoutProps
 
+export function getParams(name: string): DrupalJsonApiParams {
+  const params = new DrupalJsonApiParams()
+  if (name === 'node--story_listing') {
+    return params.addInclude(['field_office', 'field_office.field_system_menu'])
+  }
+}
 // This is a helper function to fetch global elements for layout.
 // This is going to be run for every pages on build.
 // To make this fast, you could cache the results example on Redis.
 export async function getGlobalElements(
   context: GetStaticPropsContext | GetServerSidePropsContext
 ): Promise<GlobalElements> {
+  const menuOpts = {
+    params: getParams('node--story_listing').getQueryObject(),
+    locale: context.locale,
+    defaultLocale: context.defaultLocale,
+  }
+
   // global context
   const slug = await drupalClient.getPathFromContext(context)
   const path = await drupalClient.translatePathFromContext(context)
@@ -30,7 +43,16 @@ export async function getGlobalElements(
   const footer = await requestFooter.json()
   const { footerData } = footer
 
+  // // Fetch menu items.
+  const sideNavData = await drupalClient.getResourceCollectionFromContext(
+    'node--story_listing',
+    context,
+    {
+      ...menuOpts,
+    }
+  )
+  console.log('GLOBAL SECONDARY MENU', sideNavData)
   return {
-    props: { bannerData, footerData },
+    props: { bannerData, footerData, sideNavData },
   }
 }
