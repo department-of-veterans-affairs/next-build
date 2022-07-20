@@ -18,6 +18,9 @@ export const Core = () => {
       <h2>Components</h2>
       <ul>
         <li>
+          <Link href="/demo/blockAlert">Alert Block</Link>
+        </li>
+        <li>
           <Link href="/demo/audienceTopics">Audience Topics</Link>
         </li>
         <li>
