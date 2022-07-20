@@ -33,7 +33,6 @@ describe('<BannerAlert> component renders', () => {
     expect(
       screen.queryByText(/Find other VA facilities near you/)
     ).toBeInTheDocument()
-    screen.debug(container)
   })
 
   test('region == vamcs.field_office.path.alias', () => {
