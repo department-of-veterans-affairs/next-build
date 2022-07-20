@@ -70,16 +70,24 @@ const blockContent: BlockAlert = {
   ],
 }
 
-describe('<Alert> with valid data', () => {
+describe('<Alert> with valid data and with field_text_expander', () => {
   test('renders info <Alert> component', () => {
+    blockContent.field_alert_type = 'info'
     render(<Alert blockContent={blockContent} />)
 
+    const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
+    expect(vaAlertExpandableEl).toHaveAttribute(
+      'trigger',
+      'Learn how to sign in'
+    )
     expect(
       screen.queryByText(
         /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
       )
     ).toBeInTheDocument()
-    expect(screen.queryByText(/Learn how to sign in/)).toBeInTheDocument()
+    expect(
+      screen.queryByText(/To use this feature, you'll need a Premium/)
+    ).toBeInTheDocument()
     expect(screen.getByRole('alert')).toHaveAttribute('status', 'info')
   })
 
@@ -87,45 +95,137 @@ describe('<Alert> with valid data', () => {
     blockContent.field_alert_type = 'error'
     render(<Alert blockContent={blockContent} />)
 
-    expect(screen.queryByText(/Learn how to sign in/)).toBeInTheDocument()
-    expect(screen.getByRole('alert')).toHaveAttribute('status', 'error')
-  })
-
-  test('renders success <Alert> component', () => {
-    blockContent.field_alert_type = 'success'
-    render(<Alert blockContent={blockContent} />)
-
-    expect(screen.queryByText(/Learn how to sign in/)).toBeInTheDocument()
-    expect(screen.getByRole('alert')).toHaveAttribute('status', 'success')
-  })
-
-  test('renders <Alert> component without field_text_expander', () => {
-    blockContent.field_alert_content.field_text_expander = null
-    render(<Alert blockContent={blockContent} />)
-
+    const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
+    expect(vaAlertExpandableEl).toHaveAttribute(
+      'trigger',
+      'Learn how to sign in'
+    )
     expect(
       screen.queryByText(
         /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
       )
     ).toBeInTheDocument()
-    expect(screen.queryByText(/Learn how to sign in/)).not.toBeInTheDocument()
     expect(
       screen.queryByText(/To use this feature, you'll need a Premium/)
     ).toBeInTheDocument()
+    expect(screen.getByRole('alert')).toHaveAttribute('status', 'error')
   })
 
-  test('renders <Alert> component with field_text_expander and without field_wysiwyg', () => {
+  test('renders success <Alert> component', () => {
+    blockContent.field_alert_content.field_text_expander =
+      'Learn how to sign in'
+    blockContent.field_alert_type = 'success'
+    render(<Alert blockContent={blockContent} />)
+
+    const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
+    expect(vaAlertExpandableEl).toHaveAttribute(
+      'trigger',
+      'Learn how to sign in'
+    )
+    expect(
+      screen.queryByText(
+        /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
+      )
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/To use this feature, you'll need a Premium/)
+    ).toBeInTheDocument()
+    expect(screen.getByRole('alert')).toHaveAttribute('status', 'success')
+  })
+
+  test('renders <Alert> component without field_wysiwyg', () => {
     blockContent.field_alert_content.field_text_expander =
       'Learn how to sign in'
     blockContent.field_alert_content.field_wysiwyg = null
     render(<Alert blockContent={blockContent} />)
 
+    const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
+    expect(vaAlertExpandableEl).toHaveAttribute(
+      'trigger',
+      'Learn how to sign in'
+    )
     expect(
       screen.queryByText(
         /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
       )
     ).toBeInTheDocument()
-    expect(screen.queryByText(/Learn how to sign in/)).toBeInTheDocument()
+    expect(
+      screen.queryByText(/To use this feature, you'll need a Premium/)
+    ).not.toBeInTheDocument()
+  })
+})
+
+describe('<Alert> with valid data and without field_text_expander', () => {
+  test('renders info <Alert> component', () => {
+    blockContent.field_alert_content.field_text_expander = null
+    blockContent.field_alert_type = 'info'
+    render(<Alert blockContent={blockContent} />)
+
+    expect(
+      document.querySelector('va-alert-expandable')
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
+      )
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/To use this feature, you'll need a Premium/)
+    ).not.toBeInTheDocument()
+    expect(screen.getByRole('alert')).toHaveAttribute('status', 'info')
+  })
+
+  test('renders error <Alert> component', () => {
+    blockContent.field_alert_content.field_text_expander = null
+    blockContent.field_alert_type = 'error'
+    render(<Alert blockContent={blockContent} />)
+
+    expect(
+      document.querySelector('va-alert-expandable')
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
+      )
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/To use this feature, you'll need a Premium/)
+    ).not.toBeInTheDocument()
+    expect(screen.getByRole('alert')).toHaveAttribute('status', 'error')
+  })
+
+  test('renders success <Alert> component', () => {
+    blockContent.field_alert_content.field_text_expander = null
+    blockContent.field_alert_type = 'success'
+    render(<Alert blockContent={blockContent} />)
+
+    expect(
+      document.querySelector('va-alert-expandable')
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
+      )
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/To use this feature, you'll need a Premium/)
+    ).not.toBeInTheDocument()
+    expect(screen.getByRole('alert')).toHaveAttribute('status', 'success')
+  })
+
+  test('renders <Alert> component without field_wysiwyg', () => {
+    blockContent.field_alert_content.field_text_expander = null
+    blockContent.field_alert_content.field_wysiwyg = null
+    render(<Alert blockContent={blockContent} />)
+
+    expect(
+      document.querySelector('va-alert-expandable')
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
+      )
+    ).toBeInTheDocument()
     expect(
       screen.queryByText(/To use this feature, you'll need a Premium/)
     ).not.toBeInTheDocument()
