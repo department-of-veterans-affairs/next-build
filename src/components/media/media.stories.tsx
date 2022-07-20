@@ -33,12 +33,8 @@ const data = {
 }
 
 export default {
-  title: 'Example/Media',
+  title: 'Components/Media',
   component: MediaImageComponent,
-  parameters: {
-    // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'fullscreen',
-  },
 } as ComponentMeta<typeof MediaImageComponent>
 
 const Template: ComponentStory<typeof MediaImageComponent> = (args) => (
