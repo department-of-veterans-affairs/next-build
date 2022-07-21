@@ -7,5 +7,6 @@ source $NVM_DIR/nvm.sh;
 npx husky install
 git submodule update --init --recursive
 cd vets-website
-nvm use
+nvm use 14.15.0
 yarn install
+nvm use 16.13.0
