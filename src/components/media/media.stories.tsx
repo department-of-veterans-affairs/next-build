@@ -41,8 +41,8 @@ const Template: ComponentStory<typeof MediaImageComponent> = (args) => (
   <MediaImageComponent {...args} />
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const FullContentWidth = Template.bind({})
+FullContentWidth.args = {
   image: data.media,
   imageStyle: 'full_content_width',
 }
