@@ -23,6 +23,7 @@ export async function getGlobalElements(
   // Request Banners
   const requestBanner = await drupalClient.fetch(`${bannerPath}`)
   const bannerData = drupalClient.deserialize(await requestBanner.json())
+
   // Request Footer
   const requestFooter = await drupalClient.fetch(
     `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/generated/headerFooter.json`

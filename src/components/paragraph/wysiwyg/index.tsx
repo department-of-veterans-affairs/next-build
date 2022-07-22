@@ -2,14 +2,26 @@ import {
   ParagraphProps,
   ParagraphResourceType,
   ParagraphMetaInfo,
+  ParagraphWysiwyg,
 } from '@/types/paragraph'
 import { isValidData, drupalToVaPath, phoneLinks } from '@/utils/helpers'
+import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
-function Wysiwyg({ paragraph, className }: ParagraphProps) {
+export interface WysiwygPageProps extends ParagraphWysiwyg {
+  dangerouslySetInnerHTML: {
+    __html:
+      | DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+      | string
+  }
+}
+
+const Wysiwyg: React.FC<ParagraphProps> = ({ paragraph, className }) => {
   if (!isValidData(paragraph)) return
 
-  function createMarkup() {
-    const data = [paragraph.field_wysiwyg?.processed]
+  function createMarkup(): WysiwygPageProps[
+    | 'dangerouslySetInnerHTML'
+    | '__html'] {
+    const data = [paragraph?.field_wysiwyg?.processed]
     const filters = [phoneLinks, drupalToVaPath]
     const filteredData = filters.reduce((d, f) => d.filter(f), data)
 
@@ -27,9 +39,9 @@ function Wysiwyg({ paragraph, className }: ParagraphProps) {
   )
 }
 
+export default Wysiwyg
+
 export const Meta: ParagraphMetaInfo = {
   resource: ParagraphResourceType.Wysiwyg,
   component: Wysiwyg,
 }
-
-export default Wysiwyg
