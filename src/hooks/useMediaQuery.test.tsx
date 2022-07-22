@@ -1,7 +1,8 @@
 import { render, screen, waitFor } from 'test-utils'
 import 'window-matchmedia-polyfill'
 import { useMediaQuery } from './useMediaQuery'
-import { fireEvent } from '@testing-library/dom'
+import matchMediaPolyfill from 'mq-polyfill'
+import { fireEvent } from '@testing-library/react'
 
 const TestElement = ({ width }) => {
   const isBreakpoint = useMediaQuery(width)
@@ -25,34 +26,59 @@ window.resizeTo = function resizeTo(width, height) {
   }).dispatchEvent(new this.Event('resize'))
 }
 
+matchMediaPolyfill(window)
+
 describe('useMediaQuery()', () => {
+  beforeEach(() => {
+    window.resizeTo(1024, 500)
+  })
+
   test('matches snapshot', () => {
     const { container } = render(<TestElement width={100} />)
     expect(container).toMatchSnapshot()
   })
 
-  test('has a reasonable initial state when window is full width', async () => {
-    window.resizeTo(500, 500)
+  test('sets isBreakpoint to false when window width is > max width', async () => {
+    expect(window.innerWidth).toBe(1024)
+    window.resizeTo(868, 500)
+    fireEvent(window, new Event('resize'))
+    render(<TestElement width={768} />)
 
-    render(<TestElement width={100} />)
-    await waitFor(async () =>
+    await waitFor(async () => {
       expect(
         screen.queryByText(/Not at the breakpoint! - DesktopLinks/i)
       ).toBeInTheDocument()
-    )
-    screen.debug()
+      expect(window.innerWidth).toBe(868)
+    })
   })
 
-  test.only('has a reasonable initial state when window is', async () => {
-    render(<TestElement width={768} />)
-    // fireEvent.change(window.resizeTo(50, 500))
+  test('sets isBreakpoint to true when window width is < max width', async () => {
+    expect(window.innerWidth).toBe(1024)
     window.resizeTo(50, 500)
-    window.dispatchEvent(new Event('resize'))
-    expect(window.innerWidth).toBe(50)
-    // await waitFor()
-    // expect(
-    //   screen.queryByText(/At the breakpoint! - MobileLinks/i)
-    // ).toBeInTheDocument()
-    screen.debug()
+    fireEvent(window, new Event('resize'))
+    render(<TestElement width={768} />)
+
+    await waitFor(async () => {
+      expect(
+        screen.queryByText(/At the breakpoint! - MobileLinks/i)
+      ).toBeInTheDocument()
+      expect(window.innerWidth).toBe(50)
+    })
+  })
+
+  test('sets isBreakpoint to false after resizing window < max width and then > max width', async () => {
+    expect(window.innerWidth).toBe(1024)
+    window.resizeTo(50, 500)
+    fireEvent(window, new Event('resize'))
+    window.resizeTo(769, 500)
+    fireEvent(window, new Event('resize'))
+    render(<TestElement width={768} />)
+
+    await waitFor(async () => {
+      expect(
+        screen.queryByText(/Not at the breakpoint! - DesktopLinks/i)
+      ).toBeInTheDocument()
+      expect(window.innerWidth).toBe(769)
+    })
   })
 })
