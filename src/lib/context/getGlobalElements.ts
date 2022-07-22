@@ -1,6 +1,7 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
 import { drupalClient } from '@/utils/drupalClient'
 import { LayoutProps } from 'components/layout'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 type GlobalElements = LayoutProps
 
@@ -10,6 +11,8 @@ type GlobalElements = LayoutProps
 export async function getGlobalElements(
   context: GetStaticPropsContext | GetServerSidePropsContext
 ): Promise<GlobalElements> {
+  // build the params for the request
+
   // global context
   const slug = await drupalClient.getPathFromContext(context)
   const path = await drupalClient.translatePathFromContext(context)

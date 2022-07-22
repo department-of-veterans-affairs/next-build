@@ -8,12 +8,14 @@ export interface LayoutProps {
   props?: {
     bannerData?: any
     footerData?: object
+    facilitySideNavData?: any
   }
 }
 
 export default function Layout({ children, props }: LayoutProps) {
   if (!props?.bannerData) return null
   if (!props?.footerData) return null
+  if (!props?.facilitySideNavData) return null
 
   return (
     <>
