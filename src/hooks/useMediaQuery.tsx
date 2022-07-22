@@ -13,14 +13,28 @@ export const useMediaQuery = (width) => {
 
   useEffect(() => {
     const media = window.matchMedia(`(max-width: ${width}px)`)
-    media.addEventListener('change', (e) => updateTarget(e))
+    try {
+      // Chrome & Firefox
+      media.addEventListener('change', (e) => updateTarget(e))
+    } catch {
+      // Safari
+      media.addListener((e) => updateTarget(e))
+    }
 
     // Check on mount (callback is not called until a change occurs)
     if (media.matches) {
       setTargetReached(true)
     }
 
-    return () => media.removeEventListener('change', (e) => updateTarget(e))
+    return () => {
+      try {
+        // Chrome & Firefox
+        media.removeEventListener('catch', (e) => updateTarget(e))
+      } catch {
+        // Safari
+        media.removeListener((e) => updateTarget(e))
+      }
+    }
   }, [updateTarget, width])
 
   return targetReached

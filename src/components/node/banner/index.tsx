@@ -17,7 +17,7 @@ const BannerComponent = ({ node }): JSX.Element => {
       visible={true}
       windowSession={node.field_dismissible_option == 'dismiss-session'}
     >
-      <div dangerouslySetInnerHTML={{ __html: node?.body?.processed }} />
+      <div dangerouslySetInnerHTML={{ __html: node.body?.processed }} />
     </VaBanner>
   )
 }
