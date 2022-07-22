@@ -19,6 +19,7 @@ export const recordEvent = (data) => {
  * @param {string} key the property in the event object to use when looking for
  *                     existing matches in the dataLayer
  */
+/* eslint-disable-next-line typescript-eslint/no-shadow */
 export const recordEventOnce = (event, key) => {
   const alreadyRecorded =
     window.dataLayer &&
