@@ -11,13 +11,8 @@ export const parameters = {
   },
   options: {
     storySort: {
-    method: 'alphabetical',
-      order: [
-        'Introduction',
-        'Components',
-        'Paragraphs',
-        'Node'
-      ],
-    }
-  }
+      method: 'alphabetical',
+      order: ['Introduction', 'Components', 'Paragraphs', 'Node'],
+    },
+  },
 }

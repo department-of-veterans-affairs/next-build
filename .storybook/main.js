@@ -14,9 +14,11 @@ module.exports = {
     builder: '@storybook/builder-webpack5',
   },
   webpackFinal: async (config, { configType }) => {
-    config.resolve.plugins = [new TsconfigPathsPlugin({
+    config.resolve.plugins = [
+      new TsconfigPathsPlugin({
         extensions: config.resolve.extensions,
-    })]
+      }),
+    ]
     return config
   },
 }
