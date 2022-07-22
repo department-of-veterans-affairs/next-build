@@ -33,11 +33,6 @@ describe('useMediaQuery()', () => {
     window.resizeTo(1024, 500)
   })
 
-  test('matches snapshot', () => {
-    const { container } = render(<TestElement width={100} />)
-    expect(container).toMatchSnapshot()
-  })
-
   test('sets isBreakpoint to false when window width is > max width', async () => {
     expect(window.innerWidth).toBe(1024)
     window.resizeTo(868, 500)
