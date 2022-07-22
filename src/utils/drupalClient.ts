@@ -14,6 +14,7 @@ export const fetcher = (input: RequestInfo, init?: RequestInit) => {
     agent: useProxy ? agent : null,
     ...init,
   }
+
   return crossFetch(input, {
     ...options,
   })

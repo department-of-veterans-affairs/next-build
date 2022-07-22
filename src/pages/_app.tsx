@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import type { ReactElement, ReactNode } from 'react'
-import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 import { TAG_MANAGER_ARGS } from '@/lib/google-analytics'
