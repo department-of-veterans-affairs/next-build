@@ -2,7 +2,6 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeBannerAlert, NodeResourceType } from '@/types/node'
-import safeJsonStringify from 'safe-json-stringify'
 import Container from '@/components/container'
 import BannerAlert from '@/components/node/banner_alert'
 
