@@ -6,7 +6,7 @@ export interface LayoutProps {
   children?: React.ReactNode
   props?: {
     // eslint-disable-next-line
-    bannerData?: any 
+    bannerData?: any
     footerData: object
   }
 }
