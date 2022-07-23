@@ -4,6 +4,7 @@ import {
   GetStaticPropsContext,
   GetStaticPropsResult,
 } from 'next'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { drupalClient } from '@/utils/drupalClient'
 import { Node, nodeMeta } from '@/components/node'
 import { NodeTypes } from '@/types/node'
@@ -49,6 +50,7 @@ export async function getStaticPaths(
 export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<NodeProps>> {
+  const params = new DrupalJsonApiParams()
   const path = await drupalClient.translatePathFromContext(context)
 
   if (!path || !resourceTypes.includes(path.jsonapi.resourceName)) {
@@ -60,6 +62,7 @@ export async function getStaticProps(
   const type = path.jsonapi.resourceName
   const isCollection = nodeMeta[type]?.collection
   const addResourceToCollection = nodeMeta[type]?.additionalNode
+  const defaultProps = nodeMeta[type]?.params?.addFilter('status', '1')
 
   /** Check for isCollection variable to determine if its a single resource or collection*/
   const node = isCollection
@@ -69,12 +72,12 @@ export async function getStaticProps(
         {
           params: {
             'filter[drupal_internal__nid][value]': path.entity.id,
-            ...nodeMeta[type].params.getQueryObject(),
+            ...nodeMeta[type]?.params?.getQueryObject(),
           },
         }
       )
     : await drupalClient.getResourceFromContext<NodeTypes>(path, context, {
-        params: nodeMeta[type].params.getQueryObject(),
+        params: nodeMeta[type]?.params?.getQueryObject() || defaultProps,
       })
 
   /** Check for isCollection and additionalResource */
@@ -85,7 +88,7 @@ export async function getStaticProps(
         {
           params: {
             'filter[field_listing.drupal_internal__nid][value]': path.entity.id, // Todo make the filter option dynamic
-            ...nodeMeta[type].additionalParams.getQueryObject(),
+            ...nodeMeta[type]?.additionalParams?.getQueryObject(),
           },
         }
       )

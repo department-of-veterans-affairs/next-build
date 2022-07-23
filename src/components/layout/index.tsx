@@ -1,13 +1,13 @@
 import Footer from '@/components/footer'
-import { NodeBanner } from '@/types/node'
+import { NodeBannerAlert } from '@/types/node'
 import { Node } from '@/components/node'
 
 export interface LayoutProps {
   children?: React.ReactNode
-  data?: NodeBanner[]
   props?: {
+    // eslint-disable-next-line
     bannerData?: any
-    footerData?: object
+    footerData: object
   }
 }
 

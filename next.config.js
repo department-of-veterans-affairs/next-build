@@ -10,6 +10,11 @@ const nextConfig = {
       'va.gov',
     ],
   },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
   env: {
     NEXT_PUBLIC_DRUPAL_BASE_URL: process.env.NEXT_PUBLIC_DRUPAL_BASE_URL,
     GOOGLE_TAG_MANAGER_AUTH: process.env.GOOGLE_TAG_MANAGER_AUTH,
