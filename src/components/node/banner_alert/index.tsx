@@ -4,6 +4,7 @@ import { recordEvent } from '@/utils/recordEvent'
 import { regionBaseURL } from '@/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { NodeResourceType, NodeMetaInfo } from '@/types/node'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 const BannerAlert = ({ node }): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false)
@@ -97,10 +98,15 @@ const BannerAlert = ({ node }): JSX.Element => {
 /** Export information necessary to identify the component and query it.
  * See {@link NodeMetaInfo}
  */
+const params = new DrupalJsonApiParams()
+
+params.addFilter('status', '1')
+params.addPageLimit(3)
+
 export const Meta: NodeMetaInfo = {
   resource: NodeResourceType.BannerAlert,
   component: BannerAlert,
-  params: null,
+  params: params,
 }
 
 export default BannerAlert
