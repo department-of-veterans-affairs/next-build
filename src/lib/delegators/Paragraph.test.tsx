@@ -85,8 +85,8 @@ describe('<Paragraph> component renders', () => {
     }
 
     render(<ExpandableText paragraph={MOCK_PARAGRAPH} />)
-
-    expect(screen.queryByText(/Show more/)).toBeInTheDocument()
+    const vaAccordionItemEl = document.querySelector('va-accordion-item')
+    expect(vaAccordionItemEl).toHaveAttribute('header', 'Show more')
     expect(screen.queryByText(/If you need support.../)).toBeInTheDocument()
   })
 
