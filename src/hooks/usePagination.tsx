@@ -31,7 +31,7 @@ const usePagination = ({
     let pagerFirst = pagerCurrent - pagerMiddle + 1
     let pagerLast = pagerCurrent + show - pagerMiddle
 
-    // Adjust start end end based on position.
+    // Adjust start and end based on position.
     if (pagerLast > total) {
       pagerFirst = pagerFirst + (total - pagerLast)
       pagerLast = total
