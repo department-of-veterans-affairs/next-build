@@ -16,9 +16,11 @@ cypress/videos
 
 # production
 /build
+/storybook-static
 
 # misc
 .DS_Store
+.idea/
 
 # debug
 npm-debug.log*
