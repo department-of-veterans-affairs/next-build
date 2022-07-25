@@ -26,7 +26,7 @@ const Wysiwyg: React.FC<ParagraphProps> = ({ paragraph, className }) => {
     const filteredData = filters.reduce((d, f) => d.filter(f), data)
 
     return {
-      __html: filteredData || [filteredData[0]] || '',
+      __html: filteredData || filteredData[0] || '',
     }
   }
 
