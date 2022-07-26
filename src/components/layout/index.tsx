@@ -21,9 +21,10 @@ export default function Layout({ children, props }: LayoutProps) {
 
       <main>{children}</main>
 
-      {props?.footerData && !isEmpty(props?.footerData) && (
-        <Footer links={props?.footerData} />
-      )}
+
+      {props?.footerData && !isEmpty(props?.footerData) &&
+          <Footer links={props?.footerData} />
+      }
     </>
   )
 }
