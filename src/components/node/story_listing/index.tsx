@@ -21,7 +21,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
  */
 
 import Container from '@/components/container'
-import { NewsStoryTeaser } from '@/components/node/news_story/'
+import { NewsStory } from '@/components/node/news_story'
 import { isValidData } from '@/utils/helpers'
 
 /** General Story Listing component. Allows choice of different display components by the caller. */
@@ -48,11 +48,10 @@ const StoryListing = ({ node, additionalNode }): JSX.Element => {
               <Container className="container">
                 <ul className="usa-unstyled-list">
                   {additionalNode.map((newsStoryTeaser) => (
-                    <NewsStoryTeaser
-                      key={newsStoryTeaser.id}
+                    <NewsStory
                       node={newsStoryTeaser}
-                      viewMode={'teaser'}
-                      headingLevel={null}
+                      key={newsStoryTeaser.id}
+                      viewMode="teaser"
                     />
                   ))}
                 </ul>
