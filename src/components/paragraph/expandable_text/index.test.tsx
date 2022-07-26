@@ -24,7 +24,8 @@ describe('ExpandableText with valid data', () => {
   test('renders ExpandableText component', () => {
     render(<ExpandableText paragraph={paragraph} />)
 
-    expect(screen.queryByText(/Show more/)).toBeInTheDocument()
+    const vaAccordionItemEl = document.querySelector('va-accordion-item')
+    expect(vaAccordionItemEl).toHaveAttribute('header', 'Show more')
     expect(screen.queryByText(/If you need support.../)).toBeInTheDocument()
   })
 })
@@ -35,7 +36,8 @@ describe('ExpandableText with invalid data', () => {
 
     render(<ExpandableText paragraph={paragraph} />)
 
-    expect(screen.queryByText(/Show more/)).not.toBeInTheDocument()
+    const vaAccordionItemEl = document.querySelector('va-accordion-item')
+    expect(vaAccordionItemEl).toBeFalsy()
   })
 
   test('does not render the field_wysiwyg info when field_wysiwyg is not present', () => {
@@ -43,7 +45,8 @@ describe('ExpandableText with invalid data', () => {
     paragraph.field_wysiwyg = null
     render(<ExpandableText paragraph={paragraph} />)
 
-    expect(screen.queryByText(/Show more/)).toBeInTheDocument()
+    const vaAccordionItemEl = document.querySelector('va-accordion-item')
+    expect(vaAccordionItemEl).toHaveAttribute('header', 'Show more')
     expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
   })
 
@@ -56,7 +59,8 @@ describe('ExpandableText with invalid data', () => {
     }
     render(<ExpandableText paragraph={paragraph} />)
 
-    expect(screen.queryByText(/Show more/)).toBeInTheDocument()
+    const vaAccordionItemEl = document.querySelector('va-accordion-item')
+    expect(vaAccordionItemEl).toHaveAttribute('header', 'Show more')
     expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
   })
 })

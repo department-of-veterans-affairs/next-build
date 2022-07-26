@@ -3,29 +3,25 @@ import {
   ParagraphProps,
   ParagraphResourceType,
 } from '@/types/paragraph'
-
-function isRequestValid(paragraph) {
-  return paragraph.field_text_expander !== null
-}
+import {
+  VaAccordion,
+  VaAccordionItem,
+} from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+import { isEmpty } from 'lodash'
 
 export function ExpandableText({ paragraph }: ParagraphProps) {
-  if (!paragraph || !isRequestValid(paragraph)) return
+  if (!paragraph || isEmpty(paragraph.field_text_expander)) return
 
   return (
-    <div
-      key={paragraph.id}
-      className="form-expanding-group borderless-alert additional-info-container"
-    >
-      <div className="additional-info-title">
-        {paragraph.field_text_expander}
-      </div>
-
-      {paragraph.field_wysiwyg && (
-        <div className="additional-info-content usa-alert-text" hidden>
-          {paragraph.field_wysiwyg?.processed}
-        </div>
-      )}
-    </div>
+    <VaAccordion open-single>
+      <VaAccordionItem
+        header={paragraph.field_text_expander}
+        id={paragraph.id}
+        dangerouslySetInnerHTML={{
+          __html: paragraph.field_wysiwyg?.processed,
+        }}
+      ></VaAccordionItem>
+    </VaAccordion>
   )
 }
 
