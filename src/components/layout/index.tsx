@@ -1,6 +1,6 @@
 import Footer from '@/components/footer'
-import { NodeBannerAlert } from '@/types/node'
 import { Node } from '@/components/node'
+import { isEmpty } from 'lodash'
 
 export interface LayoutProps {
   children?: React.ReactNode
@@ -12,17 +12,18 @@ export interface LayoutProps {
 }
 
 export default function Layout({ children, props }: LayoutProps) {
-  if (!props?.bannerData) return null
-  if (!props?.footerData) return null
-
   return (
     <>
-      {props.bannerData &&
+      {props?.bannerData && !isEmpty(props?.bannerData) &&
         props.bannerData.map((banner) => (
           <Node key={banner.id} node={banner} />
         ))}
+
       <main>{children}</main>
-      <Footer links={props?.footerData} />
+
+      {props?.footerData && !isEmpty(props?.footerData) &&
+          <Footer links={props?.footerData} />
+      }
     </>
   )
 }
