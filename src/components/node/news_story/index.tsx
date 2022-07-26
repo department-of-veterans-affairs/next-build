@@ -36,6 +36,9 @@ export const NewsStory = ({
   headingLevel,
   ...props
 }: NodeNewsStoryProps) => {
+  /** Type narrowing; if we've managed to end up here with the wrong data, return. */
+  if (node?.type !== NodeResourceType.NewsStory) return
+
   switch (viewMode) {
     case 'full':
       return (
