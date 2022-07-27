@@ -16,6 +16,8 @@ describe('<Banner> component renders', () => {
 describe('<Banner> component does not render', () => {
   test('without node data', () => {
     render(<Banner node={[]} />)
-    expect(screen.queryByText(/This is the banner body/)).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/This is the banner body/)
+    ).not.toBeInTheDocument()
   })
 })
