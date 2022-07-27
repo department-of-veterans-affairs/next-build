@@ -4,7 +4,13 @@ import Layout from '.'
 import mock_banner from '../node/banner/nodeBanner.json'
 
 const children = <div></div>
-const footerData = {column:1,href:"https://www.va.gov/homeless/",order:1,target:"",title:"Homeless Veterans"}
+const footerData = {
+  column: 1,
+  href: 'https://www.va.gov/homeless/',
+  order: 1,
+  target: '',
+  title: 'Homeless Veterans',
+}
 
 describe('<Layout> renders', () => {
   test('body', () => {
@@ -25,7 +31,7 @@ describe('<Layout> renders', () => {
   })
 
   test('<Banner> when bannerData and footerData exist', () => {
-    const props = {bannerData: [mock_banner], footerData: [footerData]}
+    const props = { bannerData: [mock_banner], footerData: [footerData] }
 
     render(<Layout props={props}>{children}</Layout>)
     expect(screen.getByRole('va-banner')).toHaveAttribute(
@@ -38,18 +44,24 @@ describe('<Layout> renders', () => {
 
 describe('<Layout> does not render', () => {
   test('<Banner> when bannerData does not exist', () => {
-    const props = {bannerData: null, footerData: [footerData]}
+    const props = { bannerData: null, footerData: [footerData] }
 
     render(<Layout props={props}>{children}</Layout>)
-    expect(screen.queryByText(/This is the banner body/)).not.toBeInTheDocument()
-    expect(screen.queryByText(/Veteran programs and services/)).toBeInTheDocument()
+    expect(
+      screen.queryByText(/This is the banner body/)
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/Veteran programs and services/)
+    ).toBeInTheDocument()
   })
 
   test('<Footer> when footerData does not exist', () => {
-    const props = {bannerData: [mock_banner], footerData: []}
+    const props = { bannerData: [mock_banner], footerData: [] }
 
     render(<Layout props={props}>{children}</Layout>)
     expect(screen.queryByText(/This is the banner body/)).toBeInTheDocument()
-    expect(screen.queryByText(/Veteran programs and services/)).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/Veteran programs and services/)
+    ).not.toBeInTheDocument()
   })
 })
