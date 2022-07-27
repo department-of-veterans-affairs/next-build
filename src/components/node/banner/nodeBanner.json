@@ -12,9 +12,9 @@
     "langcode": "en"
   },
   "body": {
-    "value": "This is the body",
+    "value": "This is the banner body",
     "format": "rich_text_limited",
-    "processed": "This is the body",
+    "processed": "This is the banner body",
     "summary": ""
   },
   "field_alert_type": "success",
