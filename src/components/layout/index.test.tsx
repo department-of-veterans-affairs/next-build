@@ -51,7 +51,7 @@ describe('<Layout> renders', () => {
 
 describe('<Layout> does not render', () => {
   test('<Banner> when bannerData does not exist', () => {
-    const props = { bannerData: [], footerData: [footerData] }
+    const props = { bannerData: null, footerData: [footerData] }
 
     render(<Layout props={props}>{children}</Layout>)
     expect(
@@ -70,6 +70,5 @@ describe('<Layout> does not render', () => {
     expect(
       screen.queryByText(/Veteran programs and services/)
     ).not.toBeInTheDocument()
-    screen.debug()
   })
 })
