@@ -3,11 +3,7 @@ export interface SocialLinksProps {
   title: string
 }
 
-export const SocialLinks = ({
-  path,
-  title
- }: SocialLinksProps): JSX.Element => {
-
+export const SocialLinks = ({ path, title }: SocialLinksProps): JSX.Element => {
   return (
     <div className="vads-u-margin-bottom--0p5 medium-screen:vads-u-margin-bottom--2">
       <ul className="usa-unstyled-list vads-u-display--flex" role="list">
