@@ -1,10 +1,7 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalNode } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
-import {
-  PersonProfile,
-  StaffNewsProfile,
-} from '@/components/person_profile'
+import { PersonProfile, StaffNewsProfile } from '@/components/person_profile'
 import Container from '@/components/container'
 import { Paragraph } from '@/lib/delegators/Paragraph'
 import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/paragraph'

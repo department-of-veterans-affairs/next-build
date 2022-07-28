@@ -1,4 +1,3 @@
-
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
@@ -6,14 +5,16 @@ import { NodePersonProfile, NodeResourceType } from '@/types/node'
 
 import { PersonProfile } from '@/components/person_profile'
 
-
-export const personProfileDataService = function(entity: NodePersonProfile, viewMode: string) {
+export const personProfileDataService = function (
+  entity: NodePersonProfile,
+  viewMode: string
+) {
   switch (viewMode) {
     case 'teaser':
       return {
-         // headingLevel: headingLevel,
-          title: entity.title,
-          description: entity.field_description
+        // headingLevel: headingLevel,
+        title: entity.title,
+        description: entity.field_description,
       }
 
     case 'full':
