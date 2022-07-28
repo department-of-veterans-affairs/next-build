@@ -1,6 +1,7 @@
+import { ComponentType } from 'react'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory, NodeResourceType } from '@/types/node'
 import {
   NewsStoryFull,
@@ -10,12 +11,13 @@ import {
 
 export const newsStoryDataService = function (
   entity: NodeNewsStory,
-  viewMode: string
+  viewMode: string,
+  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
 ): NewsStoryProps | NewsStoryTeaserProps {
   switch (viewMode) {
     case 'teaser':
       return {
-        // headingLevel: headingLevel,
+        headingLevel: headingLevel,
         title: entity.title,
         image: entity.field_media,
         link: entity.path.alias,
@@ -27,7 +29,7 @@ export const newsStoryDataService = function (
       return {
         title: entity.title,
         // @todo convert MediaImage to decoupled component/data format
-        image: entity.field_media,
+        image: generalEntityDataService(entity.field_media),
         caption: entity.field_image_caption,
         author: generalEntityDataService(entity.field_author, 'teaser'),
         introText: entity.field_intro_text,
