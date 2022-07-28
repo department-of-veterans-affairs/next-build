@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { ParagraphExpandableText } from '@/types/paragraph'
-import { ExpandableText } from '@/components/paragraph/expandable_text/index'
+import { ExpandableText } from '@/components/expandable_text/index'
 
 const paragraph: ParagraphExpandableText = {
   type: 'paragraph--expandable_text',

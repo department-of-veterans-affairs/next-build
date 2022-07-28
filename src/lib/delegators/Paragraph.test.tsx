@@ -9,7 +9,7 @@ import {
   ParagraphLinkTeaser,
   ParagraphStaffProfile,
 } from '@/types/paragraph'
-import { ExpandableText } from '@/components/paragraph/expandable_text'
+import { ExpandableText } from '@/components/expandable_text'
 import { LinkTeaser } from '@/components/paragraph/link_teaser'
 
 describe('<Paragraph> component renders', () => {

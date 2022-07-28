@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { BlockAlert } from '@/types/block'
-import { Alert } from './index'
+import { AlertBlock } from './index'
 
 const blockContent: BlockAlert = {
   type: 'block_content--alert',
@@ -73,7 +73,7 @@ const blockContent: BlockAlert = {
 describe('<Alert> with valid data and with field_text_expander', () => {
   test('renders info <Alert> component', () => {
     blockContent.field_alert_type = 'info'
-    render(<Alert blockContent={blockContent} />)
+    render(<AlertBlock blockContent={blockContent} />)
 
     const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
     expect(vaAlertExpandableEl).toHaveAttribute(
@@ -93,7 +93,7 @@ describe('<Alert> with valid data and with field_text_expander', () => {
 
   test('renders error <Alert> component', () => {
     blockContent.field_alert_type = 'error'
-    render(<Alert blockContent={blockContent} />)
+    render(<AlertBlock blockContent={blockContent} />)
 
     const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
     expect(vaAlertExpandableEl).toHaveAttribute(
@@ -115,7 +115,7 @@ describe('<Alert> with valid data and with field_text_expander', () => {
     blockContent.field_alert_content.field_text_expander =
       'Learn how to sign in'
     blockContent.field_alert_type = 'success'
-    render(<Alert blockContent={blockContent} />)
+    render(<AlertBlock blockContent={blockContent} />)
 
     const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
     expect(vaAlertExpandableEl).toHaveAttribute(
@@ -137,7 +137,7 @@ describe('<Alert> with valid data and with field_text_expander', () => {
     blockContent.field_alert_content.field_text_expander =
       'Learn how to sign in'
     blockContent.field_alert_content.field_wysiwyg = null
-    render(<Alert blockContent={blockContent} />)
+    render(<AlertBlock blockContent={blockContent} />)
 
     const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
     expect(vaAlertExpandableEl).toHaveAttribute(
@@ -159,7 +159,7 @@ describe('<Alert> with valid data and without field_text_expander', () => {
   test('renders info <Alert> component', () => {
     blockContent.field_alert_content.field_text_expander = null
     blockContent.field_alert_type = 'info'
-    render(<Alert blockContent={blockContent} />)
+    render(<AlertBlock blockContent={blockContent} />)
 
     expect(
       document.querySelector('va-alert-expandable')
@@ -178,7 +178,7 @@ describe('<Alert> with valid data and without field_text_expander', () => {
   test('renders error <Alert> component', () => {
     blockContent.field_alert_content.field_text_expander = null
     blockContent.field_alert_type = 'error'
-    render(<Alert blockContent={blockContent} />)
+    render(<AlertBlock blockContent={blockContent} />)
 
     expect(
       document.querySelector('va-alert-expandable')
@@ -197,7 +197,7 @@ describe('<Alert> with valid data and without field_text_expander', () => {
   test('renders success <Alert> component', () => {
     blockContent.field_alert_content.field_text_expander = null
     blockContent.field_alert_type = 'success'
-    render(<Alert blockContent={blockContent} />)
+    render(<AlertBlock blockContent={blockContent} />)
 
     expect(
       document.querySelector('va-alert-expandable')
@@ -216,7 +216,7 @@ describe('<Alert> with valid data and without field_text_expander', () => {
   test('renders <Alert> component without field_wysiwyg', () => {
     blockContent.field_alert_content.field_text_expander = null
     blockContent.field_alert_content.field_wysiwyg = null
-    render(<Alert blockContent={blockContent} />)
+    render(<AlertBlock blockContent={blockContent} />)
 
     expect(
       document.querySelector('va-alert-expandable')
@@ -234,7 +234,7 @@ describe('<Alert> with valid data and without field_text_expander', () => {
 
 describe('<Alert> with invalid data', () => {
   test('does not render <Alert> component when deta is not present', () => {
-    render(<Alert blockContent={null} />)
+    render(<AlertBlock blockContent={null} />)
 
     expect(
       screen.queryByText(
