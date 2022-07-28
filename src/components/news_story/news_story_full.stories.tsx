@@ -3,6 +3,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { NewsStoryFull } from './index'
 import mediaImage from '@/components/media/media_example.json'
+import { mediaImageDataService } from '@/components/media/dataService'
+
+const image = mediaImageDataService(mediaImage)
 
 export default {
   title: 'News Story/Full',
@@ -16,10 +19,12 @@ const Template: ComponentStory<typeof NewsStoryFull> = (args) => (
 export const Full = Template.bind({})
 Full.args = {
   title: 'We honor outstanding doctors\n',
-  image: mediaImage,
+  image: image,
   caption:
     '"Caring for a single patient and solving that one patient\'s illness is our honor and privilege as health care providers." - Dr. Brooke Decker',
-  author: 'Keith Gottschalk',
+  author: {
+    title: 'Keith Gottschalk',
+  },
   introText:
     'When a hospital has a host of great doctors, honoring just two every year is challenging.',
   bodyContent:

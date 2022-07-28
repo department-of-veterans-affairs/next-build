@@ -7,7 +7,7 @@ export type ImageProps = {
   height?: number
   alt?: string
   title?: string
-  styles?: object
+  styles?: object //todo: do we need to type this more strongly?
 }
 
 export type MediaImageProps = {

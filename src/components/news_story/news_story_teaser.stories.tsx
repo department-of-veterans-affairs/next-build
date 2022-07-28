@@ -3,6 +3,9 @@ import React from 'react'
 
 import { NewsStoryTeaser } from '@/components/news_story'
 import mediaImage from '@/components/media/media_example.json'
+import { mediaImageDataService } from '@/components/media/dataService'
+
+const image = mediaImageDataService(mediaImage)
 
 export default {
   title: 'News Story/Teaser',
@@ -20,5 +23,5 @@ Teaser.args = {
   introText:
     'When a hospital has a host of great doctors, honoring just two every year is challenging.',
   link: '#',
-  image: mediaImage,
+  image: image,
 }
