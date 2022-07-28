@@ -1,6 +1,7 @@
 import { ComponentType } from 'react'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import { mediaImageDataService } from '@/components/media/dataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { NodeNewsStory, NodeResourceType } from '@/types/node'
 import {
@@ -19,7 +20,7 @@ export const newsStoryDataService = function (
       return {
         headingLevel: headingLevel,
         title: entity.title,
-        image: entity.field_media,
+        image: mediaImageDataService(entity.field_media),
         link: entity.path.alias,
         introText: entity.field_intro_text,
       }
@@ -28,8 +29,7 @@ export const newsStoryDataService = function (
     default:
       return {
         title: entity.title,
-        // @todo convert MediaImage to decoupled component/data format
-        image: generalEntityDataService(entity.field_media),
+        image: mediaImageDataService(entity.field_media),
         caption: entity.field_image_caption,
         author: generalEntityDataService(entity.field_author, 'teaser'),
         introText: entity.field_intro_text,
