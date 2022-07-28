@@ -1,19 +1,13 @@
 import { render, screen } from '@testing-library/react'
-import { SocialLinks } from '@/components/partials/socialLinks/index'
-import { NodeResourceType } from '@/types/node'
+import { SocialLinks } from '@/components/socialLinks/index'
 
-const node = {
-  type: NodeResourceType.NewsStory,
-  id: 'bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980',
+const socialLinks = {
   title: 'We honor outstanding doctors',
-  path: {
-    alias: '/pittsburgh-health-care/stories/we-honor-outstanding-doctors',
-    pid: 123,
-  },
+  path: '/pittsburgh-health-care/stories/we-honor-outstanding-doctors',
 }
 
 test('<SocialLinks> component renders', () => {
-  const { container } = render(<SocialLinks node={node} />)
+  const { container } = render(<SocialLinks {...socialLinks} />)
 
   const aEl = container.querySelectorAll('a')
   const iEl = container.querySelectorAll('i')

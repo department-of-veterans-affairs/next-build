@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import StoryListing from '@/components/node/story_listing'
+import { StoryListing } from '@/components/story_listing'
 import mock_story_listing from './nodeStoryListing.json'
 import mock_news_story from './nodeNewsStory.json'
 

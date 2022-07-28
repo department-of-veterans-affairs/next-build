@@ -2,7 +2,7 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
-import { Paragraph } from '@/components/paragraph'
+import { Paragraph } from '@/lib/delegators/Paragraph'
 import {
   ParagraphAudienceTopics,
   ParagraphResourceType,

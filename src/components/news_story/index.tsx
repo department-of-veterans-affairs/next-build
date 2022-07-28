@@ -1,26 +1,24 @@
 import { ComponentType } from 'react'
 import { MediaImage } from '@/types/media'
 import {
-  NodeNewsStory,
-  NodePersonProfile,
   NodeStoryListing,
 } from '@/types/node'
 import { MediaImageComponent } from '@/components/media'
-import { StaffNewsProfile } from '@/components/node/person_profile'
+import { PersonProfileTeaserProps, StaffNewsProfile } from '@/components/person_profile'
 import { formatDate, truncateWordsOrChar } from '@/utils/helpers'
-import { SocialLinks } from '@/components/partials/socialLinks'
-import { recordEvent } from '@/utils/recordEvent'
+import { SocialLinks, SocialLinksProps } from '@/components/socialLinks'
+import { StoryListingTeaser } from '../story_listing'
 
 export type NewsStoryProps = {
   title: string
   image: MediaImage
   caption: string
-  author: NodePersonProfile
+  author: PersonProfileTeaserProps | any
   introText: string
   bodyContent: string
   date: string
-  socialLinks: NodeNewsStory
-  listing: NodeStoryListing
+  socialLinks: SocialLinksProps
+  listing: string
 }
 
 export type NewsStoryTeaserProps = {
@@ -55,12 +53,12 @@ export const NewsStoryFull = ({
                 <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                   {caption}
                 </div>
-                <StaffNewsProfile node={author} />
+                <StaffNewsProfile {...author} />
                 <div className="created-line vads-u-margin-bottom--2p5">
                   <time dateTime={formatDate(date)}>{formatDate(date)}</time>
                 </div>
 
-                <SocialLinks node={socialLinks} />
+                <SocialLinks {...socialLinks} />
 
                 <div className="usa-grid usa-grid-full vads-u-margin-bottom--2">
                   <div className="va-introtext">
@@ -73,20 +71,7 @@ export const NewsStoryFull = ({
                     }}
                   />
                 </div>
-                {listing?.path?.alias && (
-                  <a
-                    onClick={() =>
-                      recordEvent({
-                        event: 'nav-secondary-button-click',
-                      })
-                    }
-                    className="vads-u-display--block vads-u-margin-bottom--7"
-                    href={listing.path.alias}
-                    id="news-stories-listing-link"
-                  >
-                    See all stories
-                  </a>
-                )}
+                <StoryListingTeaser path={listing} />
               </article>
             </div>
           </div>

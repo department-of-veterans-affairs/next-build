@@ -1,6 +1,6 @@
 import Footer from '@/components/footer'
 import { NodeBannerAlert } from '@/types/node'
-import { Node } from '@/components/node'
+import { Node } from '@/lib/delegators/Node'
 
 export interface LayoutProps {
   children?: React.ReactNode

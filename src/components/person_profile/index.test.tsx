@@ -1,6 +1,6 @@
 import { render, screen } from 'test-utils'
 import mockNode from './mock.json'
-import { PersonProfile } from '@/components/node/person_profile/index'
+import { PersonProfile } from '@/components/person_profile/index'
 import { NodePersonProfile } from '@/types/node'
 
 const nodePersonProfile: NodePersonProfile = mockNode
