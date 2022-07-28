@@ -15,24 +15,28 @@ export interface WysiwygPageProps extends ParagraphWysiwyg {
   }
 }
 
-const Wysiwyg: React.FC<ParagraphProps> = ({ paragraph, className }) => {
-  if (!isValidData(paragraph)) return
+export interface WysiwygProps {
+  html:
+    | DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+    | string
+  id: number
+  className?: string
+}
+
+const Wysiwyg: React.FC = ({ html, id, className }: WysiwygProps) => {
+  if (!isValidData(html)) return
 
   function createMarkup(): WysiwygPageProps[
     | 'dangerouslySetInnerHTML'
     | '__html'] {
-    const data = [paragraph?.field_wysiwyg?.processed]
-    const filters = [phoneLinks, drupalToVaPath]
-    const filteredData = filters.reduce((d, f) => d.filter(f), data)
-
     return {
-      __html: filteredData || filteredData[0] || '',
+      __html: html,
     }
   }
 
   return (
     <div
-      key={paragraph.id}
+      key={id}
       className={className}
       dangerouslySetInnerHTML={createMarkup()}
     />
@@ -40,8 +44,3 @@ const Wysiwyg: React.FC<ParagraphProps> = ({ paragraph, className }) => {
 }
 
 export default Wysiwyg
-
-export const Meta: ParagraphMetaInfo = {
-  resource: ParagraphResourceType.Wysiwyg,
-  component: Wysiwyg,
-}

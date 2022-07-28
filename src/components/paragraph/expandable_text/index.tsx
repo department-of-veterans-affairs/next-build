@@ -1,3 +1,4 @@
+import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import {
   ParagraphMetaInfo,
   ParagraphProps,
@@ -25,7 +26,8 @@ export function ExpandableText({ paragraph }: ParagraphProps) {
   )
 }
 
-export const Meta: ParagraphMetaInfo = {
+export const Meta: EntityMetaInfo = {
   resource: ParagraphResourceType.ExpandableText,
   component: ExpandableText,
+  dataService
 }

@@ -13,7 +13,7 @@ export type BlockContentTypes = BlockAlert | BlockPromo
 /** Block content resource types. */
 export const enum BlockContentResourceType {
   Alert = 'block_content--alert',
-  Promo = '',
+  Promo = 'block_content--promo',
 }
 
 export interface BlockAlert extends DrupalBlock {

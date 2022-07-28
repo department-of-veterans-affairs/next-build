@@ -1,7 +1,7 @@
 import { entityMeta } from '@/lib/delegators/entityMetaProvider'
 import debug from 'debug'
 
-export const generalEntityDataService = function(entity, viewMode = 'full') {
+const entityDataServiceLookup = function (entity, viewMode) {
   const entityType = entity.type
   if (entity.type) {
     const entityDataService = entityMeta[entityType].dataService
@@ -10,12 +10,21 @@ export const generalEntityDataService = function(entity, viewMode = 'full') {
         ...entityDataService(entity, viewMode),
         type: entity.type,
       }
+    } else {
+      debug('No dataService found for {entity}')
     }
-    else {
-      debug("No dataService found for {entity}")
-    }
+  } else {
+    debug('No valid entity type found on {entity}')
   }
-  else {
-    debug("No valid entity type found on {entity}")
+}
+
+export const generalEntityDataService = function (data, viewMode = 'full') {
+  if (!Array.isArray(data)) {
+    return entityDataServiceLookup(data, viewMode)
   }
+  const processedData = []
+  for (const index in data) {
+    processedData.push(entityDataServiceLookup(data[index], viewMode))
+  }
+  return processedData
 }

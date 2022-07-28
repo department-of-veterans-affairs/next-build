@@ -42,7 +42,7 @@ export const StoryListing = ({ node, additionalNode }): JSX.Element => {
               <Container className="container">
                 <ul className="usa-unstyled-list">
                   {additionalNode.map((newsStoryTeaser) => (
-                    <NewsStory
+                    <NewsStoryTeaser
                       node={newsStoryTeaser}
                       key={newsStoryTeaser.id}
                       viewMode="teaser"
