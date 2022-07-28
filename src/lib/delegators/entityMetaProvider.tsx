@@ -10,6 +10,7 @@ import { Meta as PersonProfileMeta } from '@/components/person_profile/dataServi
 import { Meta as AlertBlockMeta } from '@/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
+import { Meta as MediaImageMeta } from '@/components/media/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -51,6 +52,8 @@ const EntityMetaIn: EntityMetaInfo[] = [
   // paragraphs
   WysiwygMeta,
   ExpandableTextMeta,
+  // media
+  MediaImageMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */
