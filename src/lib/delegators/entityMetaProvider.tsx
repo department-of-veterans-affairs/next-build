@@ -7,8 +7,9 @@ import { Meta as StoryListingMeta } from '@/components/story_listing/dataService
 import { Meta as BannerMeta } from '@/components/node/banner'
 import { Meta as BannerAlertMeta } from '@/components/node/banner_alert'
 import { Meta as PersonProfileMeta } from '@/components/person_profile/dataService'
-import { Meta as AlertBlockMeta } from '@/components/block/alert/dataService'
+import { Meta as AlertBlockMeta } from '@/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
+import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -30,7 +31,7 @@ export interface EntityMetaInfo {
 /** This interface enforces that the Node meta information is indexable by type. */
 export interface EntityMetaOut {
   [resource: string]: {
-    component: ({ node }: NodeProps) => JSX.Element
+    component: ({ any }) => JSX.Element
     dataService: (entity: any, viewMode: string) => object
     params: DrupalJsonApiParams
     additionalNode?: string
@@ -49,6 +50,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   AlertBlockMeta,
   // paragraphs
   WysiwygMeta,
+  ExpandableTextMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */

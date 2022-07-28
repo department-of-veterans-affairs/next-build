@@ -2,7 +2,6 @@ import * as React from 'react'
 import { NodeProps } from '@/types/node'
 import { entityMeta } from '@/lib/delegators/entityMetaProvider'
 
-
 /** Generalized component. Look up the component the data requires and use it to render. */
 export function Node({
   node,

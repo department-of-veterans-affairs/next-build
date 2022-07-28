@@ -1,7 +1,7 @@
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { BlockAlert, BlockContentResourceType } from '@/types/block'
-import { AlertBlock } from '@/components/block/alert'
+import { AlertBlock } from '@/components/alert'
 
 const alertBlockDataService = function (entity: BlockAlert, viewMode: string) {
   switch (viewMode) {

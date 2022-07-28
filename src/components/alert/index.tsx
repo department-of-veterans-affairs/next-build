@@ -8,7 +8,10 @@ export interface AlertBlockProps {
   alertType: string
   id: string
   title: string
-  content: any
+  content: {
+    header: string
+    text: string
+  }
 }
 
 export function AlertBlock({ alertType, id, title, content }: AlertBlockProps) {
@@ -25,24 +28,20 @@ export function AlertBlock({ alertType, id, title, content }: AlertBlockProps) {
           {title}
         </h2>
 
-        {isEmpty(blockContent.field_alert_content.field_text_expander) && (
+        {isEmpty(content.header) && (
           <div
             dangerouslySetInnerHTML={{
-              __html: blockContent.field_alert_content.field_wysiwyg?.processed,
+              __html: content.text,
             }}
           />
         )}
 
-        {!isEmpty(blockContent.field_alert_content.field_text_expander) && (
-          <VaAlertExpandable
-            id={id}
-            trigger={blockContent.field_alert_content.field_text_expander}
-          >
-            {blockContent.field_alert_content.field_wysiwyg && (
+        {content.header && (
+          <VaAlertExpandable id={id} trigger={content.header}>
+            {content.text && (
               <div
                 dangerouslySetInnerHTML={{
-                  __html:
-                    blockContent.field_alert_content.field_wysiwyg?.processed,
+                  __html: content.text,
                 }}
               />
             )}
