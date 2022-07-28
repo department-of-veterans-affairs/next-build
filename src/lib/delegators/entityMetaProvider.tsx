@@ -7,7 +7,8 @@ import { Meta as StoryListingMeta } from '@/components/story_listing/dataService
 import { Meta as BannerMeta } from '@/components/node/banner'
 import { Meta as BannerAlertMeta } from '@/components/node/banner_alert'
 import { Meta as PersonProfileMeta } from '@/components/person_profile/dataService'
-
+import { Meta as AlertBlockMeta } from '@/components/block/alert/dataService'
+import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -17,7 +18,7 @@ export interface EntityMetaInfo {
   /** The component responsible for rendering or delegating rendering this data object. */
   component: any
   /** A DrupalJsonApiParams object containing information necessary for the API query for this data object. */
-  params: DrupalJsonApiParams
+  params?: DrupalJsonApiParams
   /** Identifier for an additional Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story`. */
   additionalNode?: string
   /** Additional DrupalJsonApiParams object containing information necessary for the API query for this data object. */
@@ -40,9 +41,14 @@ export interface EntityMetaOut {
 
 /** Collect all imported node meta information. */
 const EntityMetaIn: EntityMetaInfo[] = [
+  // nodes
   NewsStoryMeta,
   PersonProfileMeta,
   StoryListingMeta,
+  // blocks
+  AlertBlockMeta,
+  // paragraphs
+  WysiwygMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */

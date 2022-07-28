@@ -20,3 +20,4 @@ declare module '@department-of-veterans-affairs/component-library/ProgressButton
 declare module '@department-of-veterans-affairs/component-library/PromoBanner'
 declare module '@department-of-veterans-affairs/component-library/dist/react-bindings'
 declare module 'mq-polyfill'
+declare module 'debug'

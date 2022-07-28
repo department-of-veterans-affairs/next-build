@@ -1,32 +1,28 @@
 import { isEmpty } from 'lodash'
 import {
-  BlockContentMetaInfo,
-  BlockContentProps,
-  BlockContentResourceType,
-} from '@/types/block'
-import {
   VaAlert,
   VaAlertExpandable,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
-export function Alert({ blockContent }: BlockContentProps) {
-  if (isEmpty(blockContent)) return
+export interface AlertBlockProps {
+  alertType: string
+  id: string
+  title: string
+  content: any
+}
 
-  const alertType =
-    blockContent.field_alert_type === 'information'
-      ? 'info'
-      : blockContent.field_alert_type
-
+export function AlertBlock({ alertType, id, title, content }: AlertBlockProps) {
+  if (isEmpty(content)) return
   return (
     <>
       <VaAlert
-        id={blockContent.id}
+        id={id}
         status={alertType}
         class="vads-u-margin-top--3"
         role="alert"
       >
         <h2 slot="headline" className="vads-u-font-size--h3">
-          {blockContent.field_alert_title}
+          {title}
         </h2>
 
         {isEmpty(blockContent.field_alert_content.field_text_expander) && (
@@ -39,7 +35,7 @@ export function Alert({ blockContent }: BlockContentProps) {
 
         {!isEmpty(blockContent.field_alert_content.field_text_expander) && (
           <VaAlertExpandable
-            id={blockContent.id}
+            id={id}
             trigger={blockContent.field_alert_content.field_text_expander}
           >
             {blockContent.field_alert_content.field_wysiwyg && (
@@ -55,9 +51,4 @@ export function Alert({ blockContent }: BlockContentProps) {
       </VaAlert>
     </>
   )
-}
-
-export const Meta: BlockContentMetaInfo = {
-  resource: BlockContentResourceType.Alert,
-  component: Alert,
 }
