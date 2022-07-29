@@ -1,7 +1,7 @@
 import { entityMeta } from '@/lib/delegators/entityMetaProvider'
 import debug from 'debug'
 
-const entityDataServiceLookup = function (entity, viewMode) {
+export const entityDataServiceLookup = function (entity, viewMode = 'full') {
   const entityType = entity.type
   if (entity.type) {
     const entityDataService = entityMeta[entityType].dataService

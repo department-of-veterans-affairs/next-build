@@ -1,7 +1,10 @@
 import { ComponentType } from 'react'
 import { MediaImageComponent, ImageProps } from '@/components/media'
 import { NodeStoryListing } from '@/types/node'
-import { PersonProfileTeaserProps, StaffNewsProfile } from '@/components/person_profile'
+import {
+  PersonProfileTeaserProps,
+  StaffNewsProfile,
+} from '@/components/person_profile'
 import { formatDate, truncateWordsOrChar } from '@/utils/helpers'
 import { SocialLinks, SocialLinksProps } from '@/components/socialLinks'
 import { StoryListingTeaser } from '../story_listing'
