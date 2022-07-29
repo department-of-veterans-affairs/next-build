@@ -32,6 +32,7 @@ describe('<Layout> renders', () => {
 
   test('<Banner> when bannerData and footerData exist', () => {
     const props = { bannerData: [mock_banner], footerData: [footerData] }
+
     render(<Layout props={props}>{children}</Layout>)
     expect(screen.getByRole('va-banner')).toHaveAttribute(
       'headline',
@@ -49,6 +50,19 @@ describe('<Layout> does not render', () => {
     expect(
       screen.queryByText(/This is the banner body/)
     ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/Veteran programs and services/)
+    ).toBeInTheDocument()
+  })
+
+  test('<Footer> when footerData exists', () => {
+    const props = { bannerData: [], footerData: [footerData] }
+
+    render(<Layout props={props}>{children}</Layout>)
+    expect(
+      screen.queryByText(/This is the banner body/)
+    ).not.toBeInTheDocument()
+
     expect(
       screen.queryByText(/Veteran programs and services/)
     ).toBeInTheDocument()
