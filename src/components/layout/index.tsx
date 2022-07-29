@@ -1,5 +1,4 @@
 import Footer from '@/components/footer'
-import { NodeBannerAlert } from '@/types/node'
 import { Node } from '@/lib/delegators/Node'
 import { isEmpty } from 'lodash'
 export interface LayoutProps {

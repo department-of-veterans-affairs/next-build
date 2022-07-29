@@ -4,6 +4,7 @@ import Layout from '.'
 import mock_banner from '../node/banner/nodeBanner.json'
 
 const children = <div></div>
+
 const footerData = {
   column: 1,
   href: 'https://www.va.gov/homeless/',
@@ -32,7 +33,6 @@ describe('<Layout> renders', () => {
 
   test('<Banner> when bannerData and footerData exist', () => {
     const props = { bannerData: [mock_banner], footerData: [footerData] }
-
     render(<Layout props={props}>{children}</Layout>)
     expect(screen.getByRole('va-banner')).toHaveAttribute(
       'headline',
