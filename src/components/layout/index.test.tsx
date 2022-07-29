@@ -4,13 +4,7 @@ import Layout from './index'
 import mock_banner from '../node/banner/nodeBanner.json'
 
 const children = <div></div>
-const footerData = {
-  column: 1,
-  href: 'https://www.va.gov/homeless/',
-  order: 1,
-  target: '',
-  title: 'Homeless Veterans',
-}
+const footerData = {column:1,href:"https://www.va.gov/homeless/",order:1,target:"",title:"Homeless Veterans"}
 
 describe('<Layout> renders', () => {
   test('body', () => {
@@ -31,7 +25,11 @@ describe('<Layout> renders', () => {
   })
 
   test('<Banner> when bannerData and footerData exist', () => {
+<<<<<<< HEAD
     const props = { bannerData: [mock_banner], footerData: [footerData] }
+=======
+    const props = {bannerData:[mock_banner], footerData: [footerData]}
+>>>>>>> 4ec9b2d (VACMS-9911 Update the layout unit tests to get to 100% coverage)
 
     render(<Layout props={props}>{children}</Layout>)
     expect(screen.getByRole('va-banner')).toHaveAttribute(
@@ -44,6 +42,7 @@ describe('<Layout> renders', () => {
 
 describe('<Layout> does not render', () => {
   test('<Banner> when bannerData does not exist', () => {
+<<<<<<< HEAD
     const props = { bannerData: null, footerData: [footerData] }
 
     render(<Layout props={props}>{children}</Layout>)
@@ -63,5 +62,21 @@ describe('<Layout> does not render', () => {
     expect(
       screen.queryByText(/Veteran programs and services/)
     ).not.toBeInTheDocument()
+=======
+    const props = {bannerData:[], footerData: [footerData]}
+
+    render(<Layout props={props}>{children}</Layout>)
+    expect(screen.queryByText(/This is the banner body/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Veteran programs and services/)).toBeInTheDocument()
+  })
+
+  test('<Footer> when footerData does not exist', () => {
+    const props = {bannerData:[mock_banner], footerData: []}
+
+    render(<Layout props={props}>{children}</Layout>)
+    expect(screen.queryByText(/This is the banner body/)).toBeInTheDocument()
+    expect(screen.queryByText(/Veteran programs and services/)).not.toBeInTheDocument()
+    screen.debug()
+>>>>>>> 4ec9b2d (VACMS-9911 Update the layout unit tests to get to 100% coverage)
   })
 })
