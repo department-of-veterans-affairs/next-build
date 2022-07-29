@@ -10,22 +10,16 @@
  * ### Examples
  * @see https://va.gov/pittsburgh-health-care/stories/
  *
-
-
-/** These types/packages will import into all node components. */
-import { NodeMetaInfo, NodeResourceType } from '@/types/node'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-
-/**
- * These components expect NodeStoryListing as their input.
  */
 
 import Container from '@/components/container'
-import { NewsStory } from '@/components/node/news_story'
+import { NewsStoryTeaser } from '@/components/news_story'
 import { isValidData } from '@/utils/helpers'
+import Link from 'next/link'
+import { recordEvent } from '@/utils/recordEvent'
 
 /** General Story Listing component. Allows choice of different display components by the caller. */
-const StoryListing = ({ node, additionalNode }): JSX.Element => {
+export const StoryListing = ({ node, additionalNode }): JSX.Element => {
   if (!isValidData(node || additionalNode)) {
     return
   }
@@ -58,33 +52,26 @@ const StoryListing = ({ node, additionalNode }): JSX.Element => {
               </Container>
             </div>
           </div>
-          {/*</div>*/}
         </div>
       ))}
     </>
   )
 }
 
-export default StoryListing
-
-/** All nodes end with NodeMetaInfo: the name of the resource, the name of the component, and the parameters necessary for calling the resource. */
-const params = new DrupalJsonApiParams()
-  .addFilter('status', '1')
-  .addSort('created', 'DESC')
-
-const newsStory = new DrupalJsonApiParams()
-  .addInclude(['field_media', 'field_media.image', 'field_listing'])
-  .addPageLimit(10)
-
-/** Export information necessary to identify the component and query it.
- * See {@link NodeMetaInfo}
- */
-
-export const Meta: NodeMetaInfo = {
-  resource: NodeResourceType.StoryListing,
-  component: StoryListing,
-  params: params,
-  additionalNode: NodeResourceType.NewsStory,
-  additionalParams: newsStory,
-  collection: true,
+export const StoryListingTeaser = ({ path }) => {
+  return (
+    // @todo can <Link /> be used here?
+    <a
+      onClick={() =>
+        recordEvent({
+          event: 'nav-secondary-button-click',
+        })
+      }
+      className="vads-u-display--block vads-u-margin-bottom--7"
+      href={path}
+      id="news-stories-listing-link"
+    >
+      See all stories
+    </a>
+  )
 }

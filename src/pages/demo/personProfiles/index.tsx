@@ -4,9 +4,9 @@ import { drupalClient } from '@/utils/drupalClient'
 import {
   PersonProfile,
   StaffNewsProfile,
-} from '@/components/node/person_profile'
+} from '@/components/person_profile'
 import Container from '@/components/container'
-import { Paragraph } from '@/components/paragraph'
+import { Paragraph } from '@/lib/delegators/Paragraph'
 import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/paragraph'
 import { NodePersonProfile, NodeResourceType } from '@/types/node'
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import config from '../../../../config'
+import config from '../../../config'
 import { isValidData } from '@/utils/helpers'
 import { NodeResourceType } from '@/types/node'
 

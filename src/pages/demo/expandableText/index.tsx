@@ -6,7 +6,7 @@ import {
   ParagraphExpandableText,
   ParagraphResourceType,
 } from '@/types/paragraph'
-import { Paragraph } from '@/components/paragraph'
+import { Paragraph } from '@/lib/delegators/Paragraph'
 
 interface ExpandableTextPageProps {
   expandableTextCollection: ParagraphExpandableText[]

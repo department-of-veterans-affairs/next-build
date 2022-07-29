@@ -1,6 +1,23 @@
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
 
+export type PersonProfileProps = {
+  // title: string
+  // image: MediaImage
+  // caption: string
+  // author: NodePersonProfile
+  // introText: string
+  // bodyContent: string
+  // date: string
+  // socialLinks: NodeNewsStory
+  // listing: NodeStoryListing
+}
+
+export type PersonProfileTeaserProps = {
+  title: string
+  description: string
+}
+
 export const PersonProfile = ({ node }): JSX.Element => {
   if (!node) return
   const {
@@ -17,7 +34,6 @@ export const PersonProfile = ({ node }): JSX.Element => {
     field_photo_allow_hires_download: fieldPhotoAllowHiresDownload,
     field_complete_biography: fieldCompleteBiography,
   } = node
-
   const thumbnail = DEV_PATH + fieldMedia?.thumbnail?.uri?.url
   const image = DEV_PATH + fieldMedia?.image?.uri?.url
   const meta = fieldMedia?.thumbnail?.resourceIdObjMeta
@@ -118,16 +134,15 @@ export const PersonProfile = ({ node }): JSX.Element => {
   )
 }
 
-export const StaffNewsProfile = ({ node }): JSX.Element => {
-  if (!node) return
-
-  const { id, title, field_description: fieldDescription } = node
-
+export const StaffNewsProfile = ({
+  title,
+  description,
+ }:PersonProfileTeaserProps): JSX.Element => {
   return (
     <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
       <div className="authored-by-line vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
         By {title}
-        {fieldDescription ? `, ${fieldDescription}` : null}
+        {description ? `, ${description}` : null}
       </div>
     </div>
   )

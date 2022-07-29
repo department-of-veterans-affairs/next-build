@@ -1,15 +1,6 @@
 import Link from 'next/link'
-import {
-  GetStaticPathsContext,
-  GetStaticPathsResult,
-  GetStaticPropsContext,
-  GetStaticPropsResult,
-} from 'next'
-import { drupalClient } from '@/utils/drupalClient'
-import { nodeMeta } from '@/components/node'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
-import NodeListOnly from '@/components/node/story_listing/article_list'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 
 export const Core = () => {
