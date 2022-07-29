@@ -3,24 +3,23 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { ParagraphWysiwyg, ParagraphResourceType } from '@/types/paragraph'
-import { Paragraph } from '@/components/paragraph'
+import { Paragraph } from '@/lib/delegators/Paragraph'
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import Wysiwyg from '@/components/wysiwyg'
 
 interface WysiwygPageProps {
-  wysiwygCollection: ParagraphWysiwyg[]
+  wysiwygCollectionProps: any
   className: string
 }
 
-const WysiwygPage = ({ wysiwygCollection, className }: WysiwygPageProps) => {
-  if (!wysiwygCollection) wysiwygCollection = []
-
+const WysiwygPage = ({
+  wysiwygCollectionProps,
+  className,
+}: WysiwygPageProps) => {
   return (
     <Container className="container">
-      {wysiwygCollection.map((fieldWysiwyg) => (
-        <Paragraph
-          key={fieldWysiwyg.id}
-          className={className}
-          paragraph={fieldWysiwyg}
-        />
+      {wysiwygCollectionProps.map((wysiwygProps) => (
+        <Wysiwyg key={wysiwygProps.id} {...wysiwygProps} />
       ))}
     </Container>
   )
@@ -39,10 +38,10 @@ export async function getStaticProps(
   >(ParagraphResourceType.Wysiwyg, context, {
     params: params.getQueryObject(),
   })
-
+  const wysiwygCollectionProps = generalEntityDataService(wysiwygCollection)
   return {
     props: {
-      wysiwygCollection,
+      wysiwygCollectionProps,
       className: 'processed-content',
     },
   }

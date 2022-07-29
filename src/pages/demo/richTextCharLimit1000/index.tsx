@@ -6,7 +6,7 @@ import {
   ParagraphRichTextCharLimit1000,
   ParagraphResourceType,
 } from '@/types/paragraph'
-import { Paragraph } from '@/components/paragraph'
+import { Paragraph } from '@/lib/delegators/Paragraph'
 
 interface RichTextCharLimit1000PageProps {
   richTextCharLimit1000Collection: ParagraphRichTextCharLimit1000[]

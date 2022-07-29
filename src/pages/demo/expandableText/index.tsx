@@ -6,26 +6,31 @@ import {
   ParagraphExpandableText,
   ParagraphResourceType,
 } from '@/types/paragraph'
-import { Paragraph } from '@/components/paragraph'
+
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import { ExpandableText } from '@/components/expandable_text'
+import { Paragraph } from '@/lib/delegators/Paragraph'
 
 interface ExpandableTextPageProps {
-  expandableTextCollection: ParagraphExpandableText[]
+  expandableTextCollectionProps: any
 }
 
 const ExpandableTextPage = ({
-  expandableTextCollection,
+  expandableTextCollectionProps,
 }: ExpandableTextPageProps) => {
-  if (!expandableTextCollection) expandableTextCollection = []
-
   return (
     <>
       <Container className="container">
-        {expandableTextCollection.map((paragraphExpandableText) => (
-          <Paragraph
-            key={paragraphExpandableText.id}
-            paragraph={paragraphExpandableText}
-          />
-        ))}
+        {expandableTextCollectionProps.map((expandableTextProps) => {
+          return (
+            <>
+              <ExpandableText
+                key={expandableTextProps.id}
+                {...expandableTextProps}
+              />
+            </>
+          )
+        })}
       </Container>
     </>
   )
@@ -45,9 +50,13 @@ export async function getStaticProps(
     >(ParagraphResourceType.ExpandableText, context, {
       params: params.getQueryObject(),
     })
+
+  const expandableTextCollectionProps = generalEntityDataService(
+    expandableTextCollection
+  )
   return {
     props: {
-      expandableTextCollection,
+      expandableTextCollectionProps,
     },
   }
 }

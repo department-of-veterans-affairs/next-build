@@ -5,7 +5,7 @@ import {
 } from '@/types/paragraph'
 
 import { isValidData } from '@/utils/helpers'
-import Wysiwyg from '@/components/paragraph/wysiwyg'
+import Wysiwyg from '@/components/wysiwyg'
 
 function RichTextCharLimit1000({ paragraph, className }: ParagraphProps) {
   if (!isValidData(paragraph)) return

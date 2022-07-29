@@ -2,38 +2,13 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { MediaImageComponent } from './index'
+import { mediaImageDataService } from './dataService'
+import mediaImage from './media_example.json'
 
-const data = {
-  media: {
-    type: 'media--image',
-    url: 'https://www.example.com/image.jpg',
-    id: '1',
-    imageStyle: 'string',
-    image: {
-      uri: {
-        url: 'https://www.example.com/image.jpg',
-      },
-      resourceIdObjMeta: {
-        alt: 'pension',
-        height: '100',
-        title: 'title',
-        width: '100',
-      },
-      links: {
-        '1_1_square_medium_thumbnail': {
-          href: 'https://www.example.com/image.jpg',
-          meta: {
-            height: '100',
-            width: '100',
-          },
-        },
-      },
-    },
-  },
-}
+const image = mediaImageDataService(mediaImage)
 
 export default {
-  title: 'Components/Media',
+  title: 'Components/Media Image',
   component: MediaImageComponent,
 } as ComponentMeta<typeof MediaImageComponent>
 
@@ -43,6 +18,18 @@ const Template: ComponentStory<typeof MediaImageComponent> = (args) => (
 
 export const FullContentWidth = Template.bind({})
 FullContentWidth.args = {
-  image: data.media,
+  image,
   imageStyle: 'full_content_width',
+}
+
+export const SevenTwoMediumThumbnail = Template.bind({})
+SevenTwoMediumThumbnail.args = {
+  image,
+  imageStyle: '7_2_medium_thumbnail',
+}
+
+export const TwoOneLarge = Template.bind({})
+TwoOneLarge.args = {
+  image,
+  imageStyle: '2_1_large',
 }

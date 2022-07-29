@@ -3,7 +3,7 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { ParagraphLinkTeaser, ParagraphResourceType } from '@/types/paragraph'
-import { Paragraph } from '@/components/paragraph'
+import { Paragraph } from '@/lib/delegators/Paragraph'
 
 const linkTeaserParams = [{ boldTitle: false }, { sectionHeader: '' }]
 

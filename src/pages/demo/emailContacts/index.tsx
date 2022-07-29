@@ -2,7 +2,7 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import { Paragraph } from '@/components/paragraph'
+import { Paragraph } from '@/lib/delegators/Paragraph'
 import { ParagraphEmailContact, ParagraphResourceType } from '@/types/paragraph'
 
 interface EmailContactsPageProps {

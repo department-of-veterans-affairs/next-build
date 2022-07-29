@@ -19,7 +19,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 /** These component includes are specific to this component. */
 import Container from '@/components/container'
 import { BenefitsHubLinks } from '@/components/partials/benefitHubsLinks'
-import { Paragraph } from '@/components/paragraph'
+import { Paragraph } from '@/lib/delegators/Paragraph'
 
 /**
  * These components expect NodeQA as their input.
