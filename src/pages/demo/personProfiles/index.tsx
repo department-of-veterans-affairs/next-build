@@ -1,7 +1,14 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalNode } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
+<<<<<<< HEAD
 import { PersonProfile, StaffNewsProfile } from '@/components/person_profile'
+=======
+import {
+  PersonProfile,
+  StaffNewsProfile,
+} from '@/components/person_profile'
+>>>>>>> 89f8e04 (Refactor splitting components from data layer, first pass (fails tests).)
 import Container from '@/components/container'
 import { Paragraph } from '@/lib/delegators/Paragraph'
 import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/paragraph'

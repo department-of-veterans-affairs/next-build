@@ -1,6 +1,6 @@
 import Footer from '@/components/footer'
-import { Node } from '@/lib/delegators/Node'
 import { isEmpty } from 'lodash'
+import { Node } from '@/lib/delegators/Node'
 export interface LayoutProps {
   children?: React.ReactNode
   props?: {

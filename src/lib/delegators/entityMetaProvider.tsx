@@ -47,6 +47,9 @@ const EntityMetaIn: EntityMetaInfo[] = [
   NewsStoryMeta,
   PersonProfileMeta,
   StoryListingMeta,
+  NewsStoryMeta,
+  PersonProfileMeta,
+  StoryListingMeta,
   // blocks
   AlertBlockMeta,
   // paragraphs
