@@ -6,12 +6,10 @@ import {
   ParagraphExpandableText,
   ParagraphResourceType,
 } from '@/types/paragraph'
-<<<<<<< HEAD
+
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { ExpandableText } from '@/components/expandable_text'
-=======
 import { Paragraph } from '@/lib/delegators/Paragraph'
->>>>>>> 89f8e04 (Refactor splitting components from data layer, first pass (fails tests).)
 
 interface ExpandableTextPageProps {
   expandableTextCollectionProps: any

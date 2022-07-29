@@ -3,13 +3,9 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { ParagraphWysiwyg, ParagraphResourceType } from '@/types/paragraph'
-<<<<<<< HEAD
 import { Paragraph } from '@/lib/delegators/Paragraph'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import Wysiwyg from '@/components/wysiwyg'
-=======
-import { Paragraph } from '@/components/paragraph/Paragraph'
->>>>>>> 89f8e04 (Refactor splitting components from data layer, first pass (fails tests).)
 
 interface WysiwygPageProps {
   wysiwygCollectionProps: any

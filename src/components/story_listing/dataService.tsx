@@ -17,7 +17,10 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { StoryListing } from '@/components/story_listing'
 import { NodeResourceType, NodeStoryListing } from '@/types/node'
 
-export const storyListingDataService = function(entity: NodeStoryListing, viewMode: string) {
+export const storyListingDataService = function (
+  entity: NodeStoryListing,
+  viewMode: string
+) {
   switch (viewMode) {
     case 'teaser':
       return {
@@ -40,6 +43,7 @@ export const storyListingDataService = function(entity: NodeStoryListing, viewMo
         date: entity.created,
         socialLinks: {
           path: entity.path.alias,
+          title: entity.title,
         },
         listing: entity.field_listing,
       }
