@@ -112,7 +112,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
     created: '2020-10-16T20:09:53+00:00',
     parent_id: '8475',
     parent_type: 'paragraph',
-    parent_field_name: 'field_va_paragraphs',
+    parent_field_name: 'field_spokes',
     field_link: {
       uri: '/health-care/eligibility/',
       title: 'Health Care Benefits Eligibility',
@@ -130,14 +130,13 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
       <Paragraph
         paragraph={MOCK_PARAGRAPH}
         componentParams={[
-          { boldTitle: false },
+          { boldTitle: true },
           { sectionHeader: 'This is the section header' },
         ]}
       />
     )
     const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
     const liEl = container.querySelector('li')
-
     fireEvent.click(liEl)
     expect(spyRecordEvent).toHaveBeenCalledWith({
       event: 'nav-linkslist',
@@ -225,17 +224,22 @@ describe('LinkTeaser with invalid data', () => {
     const MOCK_PARAGRAPH: ParagraphLinkTeaser = {
       id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
       type: 'paragraph--link_teaser',
-      field_link_summary: 'Find out if you can get VA health care benefits.',
+      created: '2020-10-16T20:09:53+00:00',
+      parent_id: '8475',
+      parent_type: 'paragraph',
+      parent_field_name: 'field_va_paragraphs',
       field_link: {
-        uri: null,
+        uri: '/health-care/eligibility/',
         title: 'Health Care Benefits Eligibility',
         options: null,
       },
+      field_link_summary: 'Find out if you can get VA health care benefits.',
       drupal_internal__id: 123,
       drupal_internal__revision_id: 1,
       langcode: 'en',
       status: true,
     }
+
     const { container } = render(
       <Paragraph
         paragraph={MOCK_PARAGRAPH}
@@ -243,7 +247,6 @@ describe('LinkTeaser with invalid data', () => {
       />
     )
     const liEl = container.querySelector('li')
-
     expect(liEl).not.toBeInTheDocument()
   })
 })
