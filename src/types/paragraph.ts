@@ -243,7 +243,7 @@ export interface ParagraphMetaInfo {
 /** This interface enforces that the Paragraph meta information is indexable by type. */
 export interface ParagraphMetaOut {
   [resource: string]: {
-    component: ({ paragraph, componentParams }: ParagraphProps) => JSX.Element
+    component: ({ paragraph }: ParagraphProps) => JSX.Element
     params?: DrupalJsonApiParams
   }
 }

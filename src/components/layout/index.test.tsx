@@ -1,6 +1,6 @@
 import { screen, render } from 'test-utils'
 import '@testing-library/jest-dom'
-import Layout from '.'
+import Layout from './index'
 import mock_banner from '../node/banner/nodeBanner.json'
 
 const children = <div></div>
@@ -50,6 +50,19 @@ describe('<Layout> does not render', () => {
     expect(
       screen.queryByText(/This is the banner body/)
     ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/Veteran programs and services/)
+    ).toBeInTheDocument()
+  })
+
+  test('<Footer> when footerData exists', () => {
+    const props = { bannerData: [], footerData: [footerData] }
+
+    render(<Layout props={props}>{children}</Layout>)
+    expect(
+      screen.queryByText(/This is the banner body/)
+    ).not.toBeInTheDocument()
+
     expect(
       screen.queryByText(/Veteran programs and services/)
     ).toBeInTheDocument()

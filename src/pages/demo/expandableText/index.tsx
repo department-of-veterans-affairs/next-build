@@ -6,6 +6,7 @@ import {
   ParagraphExpandableText,
   ParagraphResourceType,
 } from '@/types/paragraph'
+
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { ExpandableText } from '@/components/expandable_text'
 

@@ -6,6 +6,7 @@ import { Meta as PersonProfileMeta } from '@/components/person_profile/dataServi
 import { Meta as AlertBlockMeta } from '@/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
+import { Meta as MediaImageMeta } from '@/components/media/dataService'
 import { Meta as AudienceTopicsMeta } from '@/components/audience_topics/dataService'
 
 export interface EntityMetaInfo {
@@ -43,11 +44,16 @@ const EntityMetaIn: EntityMetaInfo[] = [
   NewsStoryMeta,
   PersonProfileMeta,
   StoryListingMeta,
+  NewsStoryMeta,
+  PersonProfileMeta,
+  StoryListingMeta,
   // blocks
   AlertBlockMeta,
   // paragraphs
   WysiwygMeta,
   ExpandableTextMeta,
+  // media
+  MediaImageMeta,
   AudienceTopicsMeta,
 ]
 

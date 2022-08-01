@@ -32,7 +32,7 @@ export async function getGlobalElements(
   // const { footerData } = footer
 
   return {
-    // props: { bannerData, footerData },
     props: { bannerData, footerData: {} },
+    // props: { bannerData, footerData },
   }
 }

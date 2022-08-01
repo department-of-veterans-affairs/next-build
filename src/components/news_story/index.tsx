@@ -1,6 +1,5 @@
 import { ComponentType } from 'react'
-import { MediaImage } from '@/types/media'
-import { MediaImageComponent } from '@/components/media'
+import { ImageProps, MediaImageComponent } from '@/components/media'
 import {
   PersonProfileTeaserProps,
   StaffNewsProfile,
@@ -11,7 +10,7 @@ import { StoryListingTeaser } from '../story_listing'
 
 export type NewsStoryProps = {
   title: string
-  image: MediaImage
+  image: ImageProps
   caption: string
   author: PersonProfileTeaserProps | any
   introText: string
@@ -25,7 +24,7 @@ export type NewsStoryTeaserProps = {
   headingLevel?: ComponentType | keyof JSX.IntrinsicElements
   link: string
   title: string
-  image: MediaImage
+  image: ImageProps
   introText: string
 }
 

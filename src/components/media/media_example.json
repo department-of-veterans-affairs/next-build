@@ -47,7 +47,7 @@
   "thumbnail": {
     "type": "file--file",
     "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
-    "drupal_internal__fid": 103,
+    "drupal_internal__fid": "103",
     "langcode": "en",
     "filename": "doctor-year2019-decker-480.jpg",
     "uri": {
@@ -174,7 +174,7 @@
   "image": {
     "type": "file--file",
     "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
-    "drupal_internal__fid": 103,
+    "drupal_internal__fid": "103",
     "langcode": "en",
     "filename": "doctor-year2019-decker-480.jpg",
     "uri": {

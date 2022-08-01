@@ -1,36 +1,24 @@
 import Image from '@/components/image'
-import { DrupalMedia } from 'next-drupal'
-import { absoluteURL } from '@/utils/helpers'
 
-interface ImageProps {
+// Different from the ImageProps that are imported in image/index.tsx
+export type ImageProps = {
   url: string
-  width?: string
-  height?: string
+  width?: number
+  height?: number
   alt?: string
   title?: string
-  styles?: object
+  styles?: object //todo: do we need to type this more strongly?
 }
 
-interface MediaProps {
-  image: DrupalMedia
+export type MediaImageProps = {
+  image: ImageProps
+  imageStyle: string
 }
 
-export function formatImage(file: MediaProps): ImageProps {
-  if (!file) return null
-  return {
-    url: absoluteURL(file.image?.uri?.url),
-    styles: file.image?.links || 'full_content_width',
-    alt: file.image?.resourceIdObjMeta?.alt,
-    title: file.image?.resourceIdObjMeta?.title,
-    width: file.image?.resourceIdObjMeta?.width,
-    height: file.image?.resourceIdObjMeta?.height,
-  }
-}
-
-export const MediaImageComponent = ({ image, imageStyle }) => {
+export const MediaImageComponent = ({ image, imageStyle }: MediaImageProps) => {
   if (!image) return null
 
-  const { styles, url, alt, title, width, height } = formatImage(image)
+  const { url, alt, title, width, height, styles } = image
 
   const imageStyles = {
     url: styles[imageStyle]?.href,

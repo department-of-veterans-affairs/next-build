@@ -11,7 +11,6 @@ interface AlertPageProps {
 }
 
 const AlertPage = ({ alerts }: AlertPageProps) => {
-
   return (
     <>
       <Container className="container">
