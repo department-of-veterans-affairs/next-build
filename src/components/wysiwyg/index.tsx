@@ -1,34 +1,19 @@
-import {
-  ParagraphProps,
-  ParagraphResourceType,
-  ParagraphMetaInfo,
-  ParagraphWysiwyg,
-} from '@/types/paragraph'
-import { isValidData, drupalToVaPath, phoneLinks } from '@/utils/helpers'
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
+import { isValidData } from '@/utils/helpers'
 
-export interface WysiwygPageProps extends ParagraphWysiwyg {
-  dangerouslySetInnerHTML: {
-    __html:
-      | DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-      | string
-  }
+export interface HtmlProps {
+  __html: string
 }
 
 export interface WysiwygProps {
-  html:
-    | DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-    | string
+  html: string
   id: number
   className?: string
 }
 
-const Wysiwyg: React.FC = ({ html, id, className }: WysiwygProps) => {
+const Wysiwyg = ({ html, id, className }: WysiwygProps) => {
   if (!isValidData(html)) return
 
-  function createMarkup(): WysiwygPageProps[
-    | 'dangerouslySetInnerHTML'
-    | '__html'] {
+  function createMarkup(): HtmlProps {
     return {
       __html: html,
     }

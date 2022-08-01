@@ -1,4 +1,3 @@
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePersonProfile, NodeResourceType } from '@/types/node'

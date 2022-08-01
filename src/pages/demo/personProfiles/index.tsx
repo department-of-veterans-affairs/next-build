@@ -1,5 +1,4 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalNode } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
 import { PersonProfile, StaffNewsProfile } from '@/components/person_profile'
 import Container from '@/components/container'
@@ -23,7 +22,10 @@ const PersonProfilePage = ({
           ? personProfiles.map((node) => (
               <div key={node.id}>
                 <PersonProfile node={node} />
-                <StaffNewsProfile node={node} />
+                <StaffNewsProfile
+                  title={node.title}
+                  description={node.field_description}
+                />
               </div>
             ))
           : null}

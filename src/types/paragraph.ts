@@ -211,7 +211,7 @@ export interface ParagraphWysiwyg extends DrupalParagraph {
 /** General ParagraphProps to pass paragraphs into paragraph components. */
 export interface ParagraphProps {
   paragraph: ParagraphTypes
-  // componentParams? @todo What are these for?
+  componentParams?
   className?: string
 }
 

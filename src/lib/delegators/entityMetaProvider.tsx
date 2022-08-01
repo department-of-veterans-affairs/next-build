@@ -1,16 +1,13 @@
-import { NodeProps, NodeTypes } from '@/types/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 import { Meta as NewsStoryMeta } from '@/components/news_story/dataService'
-import { Meta as QaMeta } from '@/components/node/q_a'
 import { Meta as StoryListingMeta } from '@/components/story_listing/dataService'
-import { Meta as BannerMeta } from '@/components/node/banner'
-import { Meta as BannerAlertMeta } from '@/components/node/banner_alert'
 import { Meta as PersonProfileMeta } from '@/components/person_profile/dataService'
 import { Meta as AlertBlockMeta } from '@/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
 import { Meta as MediaImageMeta } from '@/components/media/dataService'
+import { Meta as AudienceTopicsMeta } from '@/components/audience_topics/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -57,6 +54,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   ExpandableTextMeta,
   // media
   MediaImageMeta,
+  AudienceTopicsMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */

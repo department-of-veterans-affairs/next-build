@@ -1,6 +1,5 @@
 import { ComponentType } from 'react'
-import { MediaImageComponent, ImageProps } from '@/components/media'
-import { NodeStoryListing } from '@/types/node'
+import { ImageProps, MediaImageComponent } from '@/components/media'
 import {
   PersonProfileTeaserProps,
   StaffNewsProfile,

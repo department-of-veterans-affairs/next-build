@@ -9,7 +9,6 @@ import {
 
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { ExpandableText } from '@/components/expandable_text'
-import { Paragraph } from '@/lib/delegators/Paragraph'
 
 interface ExpandableTextPageProps {
   expandableTextCollectionProps: any
