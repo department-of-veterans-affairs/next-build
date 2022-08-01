@@ -2,18 +2,12 @@ import { ParagraphWysiwyg } from '@/types/paragraph'
 import { isValidData } from '@/utils/helpers'
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
-export interface WysiwygPageProps extends ParagraphWysiwyg {
-  dangerouslySetInnerHTML: {
-    __html:
-      | DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-      | string
-  }
+export interface HtmlProps {
+  __html: string
 }
 
 export interface WysiwygProps {
-  html:
-    | DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-    | string
+  html: string
   id: number
   className?: string
 }
@@ -21,9 +15,7 @@ export interface WysiwygProps {
 const Wysiwyg: React.FC = ({ html, id, className }: WysiwygProps) => {
   if (!isValidData(html)) return
 
-  function createMarkup(): WysiwygPageProps[
-    | 'dangerouslySetInnerHTML'
-    | '__html'] {
+  function createMarkup(): HtmlProps {
     return {
       __html: html,
     }
