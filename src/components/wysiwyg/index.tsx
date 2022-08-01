@@ -10,7 +10,7 @@ export interface WysiwygProps {
   className?: string
 }
 
-const Wysiwyg: React.FC = ({ html, id, className }: WysiwygProps) => {
+const Wysiwyg = ({ html, id, className }: WysiwygProps) => {
   if (!isValidData(html)) return
 
   function createMarkup(): HtmlProps {
