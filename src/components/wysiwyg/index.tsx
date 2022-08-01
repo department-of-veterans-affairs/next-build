@@ -1,10 +1,5 @@
-import {
-  ParagraphProps,
-  ParagraphResourceType,
-  ParagraphMetaInfo,
-  ParagraphWysiwyg,
-} from '@/types/paragraph'
-import { isValidData, drupalToVaPath, phoneLinks } from '@/utils/helpers'
+import { ParagraphWysiwyg } from '@/types/paragraph'
+import { isValidData } from '@/utils/helpers'
 import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 export interface WysiwygPageProps extends ParagraphWysiwyg {

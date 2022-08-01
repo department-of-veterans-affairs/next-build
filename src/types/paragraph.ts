@@ -211,7 +211,7 @@ export interface ParagraphWysiwyg extends DrupalParagraph {
 /** General ParagraphProps to pass paragraphs into paragraph components. */
 export interface ParagraphProps {
   paragraph: ParagraphTypes
-  // componentParams? @todo What are these for?
+  componentParams?
   className?: string
 }
 
@@ -243,7 +243,7 @@ export interface ParagraphMetaInfo {
 /** This interface enforces that the Paragraph meta information is indexable by type. */
 export interface ParagraphMetaOut {
   [resource: string]: {
-    component: ({ paragraph }: ParagraphProps) => JSX.Element
+    component: ({ paragraph, componentParams }: ParagraphProps) => JSX.Element
     params?: DrupalJsonApiParams
   }
 }

@@ -1,5 +1,3 @@
-import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
-import { ParagraphProps } from '@/types/paragraph'
 import {
   VaAccordion,
   VaAccordionItem,
