@@ -12,6 +12,7 @@ import { Meta as LinkTeaserMeta } from '@/components/link_teaser/dataService'
 import { Meta as ButtonMeta } from '@/components/button/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/components/rich_text_char_limit_1000/dataService'
 import { Meta as EmailContactMeta } from '@/components/email_contact/dataService'
+import { Meta as StaffProfileMeta } from '@/components/staffProfile/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -58,6 +59,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   ExpandableTextMeta,
   LinkTeaserMeta,
   RichTextCharLimit1000Meta,
+  StaffProfileMeta,
   // media
   MediaImageMeta,
   AudienceTopicsMeta,
