@@ -3,25 +3,30 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
 import { ParagraphLinkTeaser, ParagraphResourceType } from '@/types/paragraph'
-import { Paragraph } from '@/lib/delegators/Paragraph'
-
-const linkTeaserParams = [{ boldTitle: false }, { sectionHeader: '' }]
+import { LinkTeaser } from '@/components/link_teaser'
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+const linkTeaserParams = { boldTitle: false, sectionHeader: '' }
 
 interface LinkTeaserPageProps {
-  linkTeasers: ParagraphLinkTeaser[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  LinkTeaserCollectionProps: any
+  componentParams?: {
+    boldTitle: boolean
+    sectionHeader: string
+  }
 }
 
-const LinkTeaserPage = ({ linkTeasers }: LinkTeaserPageProps) => {
-  if (!linkTeasers) linkTeasers = []
+const LinkTeaserPage = ({ LinkTeaserCollectionProps }: LinkTeaserPageProps) => {
+  if (!LinkTeaserCollectionProps) LinkTeaserCollectionProps = []
 
   return (
     <>
       <Container className="container">
         <ul className="usa-unstyled-list">
-          {linkTeasers.map((paragraph) => (
-            <Paragraph
-              key={paragraph.id}
-              paragraph={paragraph}
+          {LinkTeaserCollectionProps.map((LinkTeaserProps) => (
+            <LinkTeaser
+              key={LinkTeaserProps.id}
+              {...LinkTeaserProps}
               componentParams={linkTeaserParams}
             />
           ))}
@@ -39,14 +44,21 @@ export async function getStaticProps(
   const params = new DrupalJsonApiParams()
   params.addPageLimit(3)
 
-  const linkTeasers = await drupalClient.getResourceCollectionFromContext<
-    ParagraphLinkTeaser[]
-  >(ParagraphResourceType.LinkTeaser, context, {
-    params: params.getQueryObject(),
-  })
+  const LinkTeaserCollection =
+    await drupalClient.getResourceCollectionFromContext<ParagraphLinkTeaser[]>(
+      ParagraphResourceType.LinkTeaser,
+      context,
+      {
+        params: params.getQueryObject(),
+      }
+    )
+
+  const LinkTeaserCollectionProps =
+    generalEntityDataService(LinkTeaserCollection)
+
   return {
     props: {
-      linkTeasers,
+      LinkTeaserCollectionProps,
     },
   }
 }

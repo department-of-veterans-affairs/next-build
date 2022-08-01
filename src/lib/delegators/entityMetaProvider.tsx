@@ -8,6 +8,7 @@ import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
 import { Meta as MediaImageMeta } from '@/components/media/dataService'
 import { Meta as AudienceTopicsMeta } from '@/components/audience_topics/dataService'
+import { Meta as LinkTeaserMeta } from '@/components/link_teaser/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -52,6 +53,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   // paragraphs
   WysiwygMeta,
   ExpandableTextMeta,
+  LinkTeaserMeta,
   // media
   MediaImageMeta,
   AudienceTopicsMeta,

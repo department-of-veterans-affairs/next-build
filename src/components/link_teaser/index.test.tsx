@@ -107,12 +107,12 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 
 describe('<LinkTeaser> component renders with field_spokes', () => {
   const MOCK_PARAGRAPH: ParagraphLinkTeaser = {
-    id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
+    id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     type: 'paragraph--link_teaser',
     created: '2020-10-16T20:09:53+00:00',
     parent_id: '8475',
     parent_type: 'paragraph',
-    parent_field_name: 'field_spokes',
+    parent_field_name: 'field_va_paragraphs',
     field_link: {
       uri: '/health-care/eligibility/',
       title: 'Health Care Benefits Eligibility',
