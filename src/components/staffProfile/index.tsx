@@ -1,4 +1,5 @@
 import { MediaImageComponent, ImageProps } from '@/components/media'
+import Image from '@/components/image'
 
 export type StaffProfileProps = {
   id: string
