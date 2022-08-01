@@ -10,10 +10,14 @@ export type ImageProps = {
   styles?: object //todo: do we need to type this more strongly?
 }
 
+// latter portion allows us to pass className to the component
 export type MediaImageProps = {
   image: ImageProps
   imageStyle: string
-}
+} & React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>
 
 export const MediaImageComponent = ({ image, imageStyle }: MediaImageProps) => {
   if (!image) return null
