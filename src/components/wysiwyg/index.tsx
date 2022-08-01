@@ -1,6 +1,4 @@
-import { ParagraphWysiwyg } from '@/types/paragraph'
 import { isValidData } from '@/utils/helpers'
-import { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 export interface HtmlProps {
   __html: string
