@@ -9,7 +9,7 @@ function isRequestValid(paragraph) {
 
 export const transformStaffProfileData = function (
   entity: ParagraphStaffProfile,
-  viewMode: string
+  viewMode?: string
 ): StaffProfileProps {
   if (!entity || !isRequestValid(entity)) return
 
