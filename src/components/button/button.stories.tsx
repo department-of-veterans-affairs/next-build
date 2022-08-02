@@ -1,5 +1,5 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { Button } from './index'
 
@@ -12,11 +12,7 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const Example = Template.bind({})
 Example.args = {
-  paragraph: {
-    id: 1,
-    field_button_label: 'foo',
-    field_button_link: {
-      uri: 'https://www.example.com',
-    },
-  },
+  id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
+  label: 'Sign in now',
+  url: 'https://www.va.gov/?next=sign-in-faq',
 }
