@@ -5,7 +5,7 @@ import {
   ParagraphProps,
 } from '@/types/paragraph'
 import { Meta as AudienceTopicsMeta } from '@/components/audience_topics/dataService'
-import { Meta as ButtonMeta } from '@/components/button'
+import { Meta as ButtonMeta } from '@/components/button/dataService'
 import { Meta as EmailContactMeta } from '@/components/paragraph/email_contact'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
 import { Meta as StaffProfileMeta } from '@/components/paragraph/staff_profile'
