@@ -1,3 +1,4 @@
+import { PersonProfileTeaserProps } from '@/types/index'
 import Image from '@/components/image'
 import { DEV_PATH } from '@/lib/constants'
 
@@ -11,11 +12,6 @@ export type PersonProfileProps = {
   // date: string
   // socialLinks: NodeNewsStory
   // listing: NodeStoryListing
-}
-
-export type PersonProfileTeaserProps = {
-  title: string
-  description: string
 }
 
 export const PersonProfile = ({ node }): JSX.Element => {

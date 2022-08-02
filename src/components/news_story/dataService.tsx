@@ -5,16 +5,15 @@ import { mediaImageDataService } from '@/components/media/dataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { NodeNewsStory, NodeResourceType } from '@/types/node'
 import {
-  NewsStoryFull,
-  NewsStoryProps,
-  NewsStoryTeaserProps,
+  NewsStoryFull
 } from '@/components/news_story'
+import { NewsStoryPageProps, NewsStoryTeaserProps } from '@/types/index'
 
 export const newsStoryDataService = function (
   entity: NodeNewsStory,
   viewMode: string,
   headingLevel?: ComponentType | keyof JSX.IntrinsicElements
-): NewsStoryProps | NewsStoryTeaserProps {
+): NewsStoryPageProps | NewsStoryTeaserProps {
   switch (viewMode) {
     case 'teaser':
       return {

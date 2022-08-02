@@ -1,14 +1,6 @@
+import { ImageProps } from '@/types/index'
 import Image from '@/components/image'
 
-// Different from the ImageProps that are imported in image/index.tsx
-export type ImageProps = {
-  url: string
-  width?: number
-  height?: number
-  alt?: string
-  title?: string
-  styles?: object //todo: do we need to type this more strongly?
-}
 
 export type MediaImageProps = {
   image: ImageProps

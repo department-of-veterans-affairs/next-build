@@ -1,7 +1,4 @@
-export interface SocialLinksProps {
-  path: string
-  title: string
-}
+import { SocialLinksProps } from "@/types/index"
 
 export const SocialLinks = ({ path, title }: SocialLinksProps): JSX.Element => {
   return (

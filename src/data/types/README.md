@@ -1,0 +1,1 @@
+Files in this directory should define the data structures that will be returned by their data source. These structures are specific to the data source in question. They will be used in queries and mappings to ensure that data received is of the expected type.

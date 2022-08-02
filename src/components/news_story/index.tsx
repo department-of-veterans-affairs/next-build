@@ -1,32 +1,12 @@
 import { ComponentType } from 'react'
-import { ImageProps, MediaImageComponent } from '@/components/media'
-import {
-  PersonProfileTeaserProps,
-  StaffNewsProfile,
-} from '@/components/person_profile'
 import { formatDate, truncateWordsOrChar } from '@/utils/helpers'
-import { SocialLinks, SocialLinksProps } from '@/components/socialLinks'
+/* Types these components implement. */
+import { NewsStoryPageProps, NewsStoryTeaserProps } from '@/types/index'
+/* Components used within these components. */
+import { MediaImageComponent } from '@/components/media'
+import { StaffNewsProfile } from '@/components/person_profile'
+import { SocialLinks } from '@/components/socialLinks'
 import { StoryListingTeaser } from '../story_listing'
-
-export type NewsStoryProps = {
-  title: string
-  image: ImageProps
-  caption: string
-  author: PersonProfileTeaserProps | any
-  introText: string
-  bodyContent: string
-  date: string
-  socialLinks: SocialLinksProps
-  listing: string
-}
-
-export type NewsStoryTeaserProps = {
-  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
-  link: string
-  title: string
-  image: ImageProps
-  introText: string
-}
 
 export const NewsStoryFull = ({
   title,
@@ -38,7 +18,7 @@ export const NewsStoryFull = ({
   date,
   socialLinks,
   listing,
-}: NewsStoryProps) => {
+}: NewsStoryPageProps) => {
   return (
     <>
       <div id="content" className="interior">
