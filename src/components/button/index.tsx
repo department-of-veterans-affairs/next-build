@@ -8,7 +8,7 @@ export type ButtonProps = {
   url: string
 }
 
-function isRequestValid(button) {
+function isRequestInvalid(button) {
   return (
     isEmpty(button.label) ||
     (isEmpty(button.url) &&
@@ -17,7 +17,7 @@ function isRequestValid(button) {
 }
 
 export function Button(button: ButtonProps) {
-  if (isRequestValid(button)) return
+  if (isRequestInvalid(button)) return
 
   return (
     <div key={button.id}>
