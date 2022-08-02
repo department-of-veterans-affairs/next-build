@@ -8,7 +8,10 @@ import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
 import { Meta as MediaImageMeta } from '@/components/media/dataService'
 import { Meta as AudienceTopicsMeta } from '@/components/audience_topics/dataService'
+<<<<<<< HEAD
 import { Meta as LinkTeaserMeta } from '@/components/link_teaser/dataService'
+=======
+>>>>>>> 5583357 (VACMS-10005 Refactor: button component)
 import { Meta as ButtonMeta } from '@/components/button/dataService'
 
 export interface EntityMetaInfo {
