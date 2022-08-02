@@ -2,21 +2,22 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import { Paragraph } from '@/lib/delegators/Paragraph'
 import { ParagraphButton, ParagraphResourceType } from '@/types/paragraph'
+import { Button } from '@/components/button'
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 
 interface ButtonPageProps {
-  buttons: ParagraphButton[]
+  buttonsCollectionProps: any
 }
 
-const ButtonPage = ({ buttons }: ButtonPageProps) => {
-  if (!buttons) buttons = []
+const ButtonPage = ({ buttonsCollectionProps }: ButtonPageProps) => {
+  if (!buttonsCollectionProps) buttonsCollectionProps = []
 
   return (
     <>
       <Container className="container">
-        {buttons.map((paragraphButton) => (
-          <Paragraph key={paragraphButton.id} paragraph={paragraphButton} />
+        {buttonsCollectionProps.map((button) => (
+          <Button key={button.id} {...button} />
         ))}
       </Container>
     </>
@@ -31,14 +32,17 @@ export async function getStaticProps(
   const params = new DrupalJsonApiParams()
   params.addPageLimit(30)
 
-  const buttons = await drupalClient.getResourceCollectionFromContext<
+  const buttonsCollection = await drupalClient.getResourceCollectionFromContext<
     ParagraphButton[]
   >(ParagraphResourceType.Button, context, {
     params: params.getQueryObject(),
   })
+
+  const buttonsCollectionProps = generalEntityDataService(buttonsCollection)
+
   return {
     props: {
-      buttons,
+      buttonsCollectionProps,
     },
   }
 }
