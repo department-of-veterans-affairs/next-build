@@ -6,7 +6,7 @@ import {
   ParagraphRichTextCharLimit1000,
   ParagraphResourceType,
 } from '@/types/paragraph'
-import { Paragraph } from '@/lib/delegators/Paragraph'
+import RichTextCharLimit1000 from '@/components/rich_text_char_limit_1000'
 
 interface RichTextCharLimit1000PageProps {
   richTextCharLimit1000Collection: ParagraphRichTextCharLimit1000[]
@@ -16,16 +16,16 @@ interface RichTextCharLimit1000PageProps {
 const RichTextCharLimit1000Page = ({
   richTextCharLimit1000Collection,
   className,
-}: RichTextCharLimit1000PageProps) => {
+}) => {
   if (!richTextCharLimit1000Collection) richTextCharLimit1000Collection = []
 
   return (
     <Container className="container">
       {richTextCharLimit1000Collection.map((fieldWysiwyg) => (
-        <Paragraph
+        <RichTextCharLimit1000
           key={fieldWysiwyg.id}
+          {...fieldWysiwyg}
           className={className}
-          paragraph={fieldWysiwyg}
         />
       ))}
     </Container>

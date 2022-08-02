@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { ParagraphRichTextCharLimit1000 } from '@/types/paragraph'
-import RichTextCharLimit1000 from '@/components/paragraph/rich_text_char_limit_1000/index'
+import RichTextCharLimit1000 from '@/components/rich_text_char_limit_1000/index'
 
 const paragraph: ParagraphRichTextCharLimit1000 = {
   type: 'paragraph--rich_text_char_limit_1000',
@@ -23,7 +23,7 @@ const paragraph: ParagraphRichTextCharLimit1000 = {
 describe('ParagraphRichTextCharLimit1000 with valid data', () => {
   test('correctly renders ParagraphRichTextCharLimit1000 component', () => {
     if (paragraph.type === 'paragraph--rich_text_char_limit_1000') {
-      render(<RichTextCharLimit1000 paragraph={paragraph} />)
+      render(<RichTextCharLimit1000 {...paragraph} />)
     }
     expect(
       screen.queryByText(
@@ -37,7 +37,7 @@ describe('ParagraphRichTextCharLimit1000 with invalid data', () => {
   test('does not render ParagraphRichTextCharLimit1000 when data is null', () => {
     paragraph.field_wysiwyg = null
     if (paragraph.type === 'paragraph--rich_text_char_limit_1000') {
-      render(<RichTextCharLimit1000 paragraph={paragraph} />)
+      render(<RichTextCharLimit1000 {...paragraph} />)
     }
     expect(
       screen.queryByText(
