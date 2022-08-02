@@ -6,7 +6,7 @@ export type StaffProfileProps = {
   name: string
   thumbnail?: ImageProps
   linkToBio?: boolean
-  path?: string
+  path?: string | null
   description?: string
   phone?: string
   email?: string
