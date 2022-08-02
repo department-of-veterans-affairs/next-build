@@ -4,9 +4,7 @@ import {
   ParagraphMetaOut,
   ParagraphProps,
 } from '@/types/paragraph'
-import { Meta as AudienceTopicsMeta } from '@/components/audience_topics/dataService'
 import { Meta as ButtonMeta } from '@/components/paragraph/button'
-import { Meta as EmailContactMeta } from '@/components/paragraph/email_contact'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
 import { Meta as StaffProfileMeta } from '@/components/paragraph/staff_profile'
 import { Meta as LinkTeaserMeta } from '@/components/paragraph/link_teaser'
@@ -15,9 +13,7 @@ import { Meta as RichTextCharLimit1000Meta } from '@/components/paragraph/rich_t
 
 /** Collect all imported paragraph meta information. */
 const paragraphMetaIn: ParagraphMetaInfo[] = [
-  AudienceTopicsMeta,
   ButtonMeta,
-  EmailContactMeta,
   ExpandableTextMeta,
   StaffProfileMeta,
   LinkTeaserMeta,

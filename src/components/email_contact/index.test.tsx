@@ -1,26 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import * as recordEvent from '@/utils/recordEvent'
-import { ParagraphEmailContact } from '@/types/paragraph'
-import { EmailContact } from '@/components/paragraph/email_contact/index'
+import { EmailContact, EmailContactProps } from '@/components/email_contact'
 
-const paragraph: ParagraphEmailContact = {
-  type: 'paragraph--email_contact',
+const emailContact: EmailContactProps = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
-  created: '2020-10-16T20:09:53+00:00',
-  parent_id: '8475',
-  parent_type: 'paragraph',
-  field_email_address: 'test.veteran@va.gov',
-  field_email_label: 'Minority Veterans Program',
-  drupal_internal__id: 123,
-  drupal_internal__revision_id: 1,
-  langcode: 'en',
-  status: true,
+  address: 'test.veteran@va.gov',
+  label: 'Minority Veterans Program',
 }
 
 describe('Email with valid data', () => {
   test('renders EmailContact component', () => {
-    render(<EmailContact paragraph={paragraph} />)
+    render(<EmailContact key={emailContact.id} {...emailContact} />)
 
     expect(screen.queryByText(/Minority Veterans Program/)).toBeInTheDocument()
     expect(screen.getByRole('link')).toHaveAttribute(
@@ -30,8 +21,10 @@ describe('Email with valid data', () => {
   })
 
   test('click event sends correct params to recordEvent', () => {
-    paragraph.field_email_address = 't$st.vet=ran@va.gov'
-    const { container } = render(<EmailContact paragraph={paragraph} />)
+    emailContact.address = 't$st.vet=ran@va.gov'
+    const { container } = render(
+      <EmailContact key={emailContact.id} {...emailContact} />
+    )
     const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
     const link = getByRole(container, 'link')
 
@@ -46,10 +39,10 @@ describe('Email with valid data', () => {
 
 describe('EmailContact with invalid data', () => {
   test('does not render EmailContact component when label and email address are not present', () => {
-    paragraph.field_email_label = null
-    paragraph.field_email_address = null
+    emailContact.label = null
+    emailContact.address = null
 
-    render(<EmailContact paragraph={paragraph} />)
+    render(<EmailContact key={emailContact.id} {...emailContact} />)
 
     expect(
       screen.queryByText(/Minority Veterans Program/)
@@ -57,9 +50,9 @@ describe('EmailContact with invalid data', () => {
   })
 
   test('does not render EmailContact component when label is not present', () => {
-    paragraph.field_email_label = null
-    paragraph.field_email_address = 'test.veteran@va.gov'
-    render(<EmailContact paragraph={paragraph} />)
+    emailContact.label = null
+    emailContact.address = 'test.veteran@va.gov'
+    render(<EmailContact key={emailContact.id} {...emailContact} />)
 
     expect(
       screen.queryByText(/Minority Veterans Program/)
@@ -68,9 +61,9 @@ describe('EmailContact with invalid data', () => {
   })
 
   test('does not render EmailContact component when email address is not present', () => {
-    paragraph.field_email_label = 'Test'
-    paragraph.field_email_address = null
-    render(<EmailContact paragraph={paragraph} />)
+    emailContact.label = 'Test'
+    emailContact.address = null
+    render(<EmailContact key={emailContact.id} {...emailContact} />)
 
     expect(
       screen.queryByText(/Minority Veterans Program/)
