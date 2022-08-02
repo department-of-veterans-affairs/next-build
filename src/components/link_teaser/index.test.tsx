@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import * as recordEvent from '@/utils/recordEvent'
 import { LinkTeaser, LinkTeaserProps } from './index'
-import { ParagraphLinkTeaser } from '@/types/paragraph'
 
 describe('<LinkTeaser> component renders without field_spokes', () => {
   const LinkTeaserCollectionProps: LinkTeaserProps = {
