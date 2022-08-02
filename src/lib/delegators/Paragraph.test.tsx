@@ -6,11 +6,10 @@ import {
   ParagraphButton,
   ParagraphEmailContact,
   ParagraphExpandableText,
-  ParagraphLinkTeaser,
   ParagraphStaffProfile,
 } from '@/types/paragraph'
 import { ExpandableText } from '@/components/expandable_text'
-import { LinkTeaser } from '@/components/paragraph/link_teaser'
+import { LinkTeaser, LinkTeaserProps } from '@/components/link_teaser'
 
 describe('<Paragraph> component renders', () => {
   test('<Button> component', () => {
@@ -91,29 +90,25 @@ describe('<Paragraph> component renders', () => {
   })
 
   test('<LinkTeaser> component', () => {
-    const MOCK_PARAGRAPH: ParagraphLinkTeaser = {
-      id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
-      type: 'paragraph--link_teaser',
-      created: '2020-10-16T20:09:53+00:00',
-      parent_id: '8475',
-      parent_type: 'paragraph',
-      parent_field_name: 'field_spokes',
-      field_link: {
-        uri: '/health-care/eligibility/',
-        title: 'Health Care Benefits Eligibility',
-        options: null,
+    const LinkTeaserCollectionProps: LinkTeaserProps = {
+      id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
+      uri: '/health-care/eligibility/',
+      title: 'Health Care Benefits Eligibility',
+      options: null,
+      summary:
+        'Not sure if you qualify? Find out if you can get VA health care benefits.',
+      parentField: 'field_va_paragraphs',
+      componentParams: {
+        boldTitle: false,
+        sectionHeader: '',
       },
-      field_link_summary: 'Find out if you can get VA health care benefits.',
-      drupal_internal__id: 123,
-      drupal_internal__revision_id: 1,
-      langcode: 'en',
-      status: true,
     }
+    const linkTeaserParams = { boldTitle: false, sectionHeader: '' }
 
     const { container } = render(
       <LinkTeaser
-        paragraph={MOCK_PARAGRAPH}
-        componentParams={[{ boldTitle: false }, { sectionHeader: '' }]}
+        {...LinkTeaserCollectionProps}
+        componentParams={linkTeaserParams}
       />
     )
 
