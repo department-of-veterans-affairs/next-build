@@ -1,9 +1,17 @@
 import Image from '@/components/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/utils/recordEvent'
-import { ParagraphLinkTeaser } from '@/types/paragraph'
+import { IMAGE_PATH_TEMP } from '@/lib/constants'
 
-export interface LinkTeaserProps extends ParagraphLinkTeaser {
+export const thumbnail = IMAGE_PATH_TEMP + '/img/arrow-right-blue.svg'
+
+export interface LinkTeaserProps {
+  id: string
+  title: string
+  summary: string
+  uri: string
+  parentField: string
+  options: [string[]]
   componentParams: {
     boldTitle: boolean
     sectionHeader: string
@@ -14,7 +22,6 @@ export const LinkTeaser = ({
   id,
   title,
   summary,
-  thumbnail,
   uri,
   parentField,
   componentParams,
