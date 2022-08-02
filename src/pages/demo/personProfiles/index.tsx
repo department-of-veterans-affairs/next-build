@@ -1,13 +1,14 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { drupalClient } from '@/utils/drupalClient'
 import { PersonProfile, StaffNewsProfile } from '@/components/person_profile'
+import { StaffProfile, StaffProfileProps } from '@/components/staffProfile'
+import { transformStaffProfileData } from '@/components/staffProfile/dataService'
 import Container from '@/components/container'
-import { Paragraph } from '@/lib/delegators/Paragraph'
 import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/paragraph'
 import { NodePersonProfile, NodeResourceType } from '@/types/node'
 
 interface ProfilePageProps {
-  staffProfiles: ParagraphStaffProfile[]
+  staffProfiles: StaffProfileProps[]
   personProfiles: NodePersonProfile[]
 }
 
@@ -33,10 +34,7 @@ const PersonProfilePage = ({
         {staffProfiles
           ? staffProfiles.map((paragraphStaffProfile) => (
               <div key={paragraphStaffProfile.id}>
-                <Paragraph
-                  key={paragraphStaffProfile.id}
-                  paragraph={paragraphStaffProfile}
-                />
+                <StaffProfile {...paragraphStaffProfile} />
               </div>
             ))
           : null}
@@ -75,10 +73,14 @@ export async function getStaticProps(
     },
   })
 
+  const transformed = staffProfiles.map((profile) =>
+    transformStaffProfileData(profile)
+  )
+
   return {
     props: {
       personProfiles,
-      staffProfiles,
+      staffProfiles: transformed,
     },
   }
 }

@@ -4,7 +4,11 @@ import { MediaImage, MediaResourceType } from '@/types/media'
 import { MediaImageComponent, ImageProps } from '@/components/media'
 import { absoluteURL } from '@/utils/helpers'
 
-export const mediaImageDataService = function (entity: MediaImage): ImageProps {
+export const mediaImageDataService = function (
+  entity: MediaImage
+): ImageProps | null {
+  if (!entity) return null
+
   return {
     url: absoluteURL(entity.image?.uri?.url),
     styles: entity.image?.links || 'full_content_width',
