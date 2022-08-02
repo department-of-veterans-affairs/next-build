@@ -14,8 +14,9 @@ export const transformStaffProfileData = function (
   if (!entity || !isRequestValid(entity)) return
 
   const name =
-    `${entity.field_staff_profile.field_name_first} ${entity.field_staff_profile.field_last_name} ${entity.field_staff_profile.field_suffix}`.trim() ||
-    ''
+    `${entity.field_staff_profile.field_name_first} ${
+      entity.field_staff_profile.field_last_name
+    } ${entity.field_staff_profile.field_suffix || ''}`.trim() || ''
 
   switch (viewMode) {
     default:
@@ -26,7 +27,7 @@ export const transformStaffProfileData = function (
           entity.field_staff_profile.field_media
         ),
         linkToBio: entity.field_staff_profile.field_complete_biography_create,
-        path: entity.field_staff_profile.field_entity?.entityUrl.path,
+        path: entity.field_staff_profile.field_entity?.entityUrl.path || null,
         description: entity.field_staff_profile.field_description,
         phone: entity.field_staff_profile.field_phone_number,
         email: entity.field_staff_profile.field_email_address,
