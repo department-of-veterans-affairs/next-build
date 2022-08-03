@@ -6,12 +6,8 @@ import {
   ParagraphRichTextCharLimit1000,
   ParagraphResourceType,
 } from '@/types/paragraph'
-<<<<<<< HEAD
 import { RichTextCharLimit1000 } from '@/components/rich_text_char_limit_1000'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
-=======
-import RichTextCharLimit1000 from '@/components/rich_text_char_limit_1000'
->>>>>>> 16a8e29 (RichTextCharLimit1000 refactor merge with main)
 
 interface RichTextCharLimit1000PageProps {
   richTextCharLimit1000CollectionProps: any
@@ -22,7 +18,6 @@ const RichTextCharLimit1000Page = ({
   richTextCharLimit1000CollectionProps,
   className,
 }) => {
-<<<<<<< HEAD
   if (!richTextCharLimit1000CollectionProps)
     richTextCharLimit1000CollectionProps = []
 
@@ -32,16 +27,6 @@ const RichTextCharLimit1000Page = ({
         <RichTextCharLimit1000
           key={richTextCharLimit1000.id}
           {...richTextCharLimit1000}
-=======
-  if (!richTextCharLimit1000Collection) richTextCharLimit1000Collection = []
-
-  return (
-    <Container className="container">
-      {richTextCharLimit1000Collection.map((fieldWysiwyg) => (
-        <RichTextCharLimit1000
-          key={fieldWysiwyg.id}
-          {...fieldWysiwyg}
->>>>>>> 16a8e29 (RichTextCharLimit1000 refactor merge with main)
           className={className}
         />
       ))}
