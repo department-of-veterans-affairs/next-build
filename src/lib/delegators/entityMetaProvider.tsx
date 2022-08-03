@@ -8,11 +8,14 @@ import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
 import { Meta as MediaImageMeta } from '@/components/media/dataService'
 import { Meta as AudienceTopicsMeta } from '@/components/audience_topics/dataService'
+import { Meta as StaffProfileMeta } from '@/components/staffProfile/dataService'
 import { Meta as LinkTeaserMeta } from '@/components/link_teaser/dataService'
 import { Meta as ButtonMeta } from '@/components/button/dataService'
 import { Meta as EmailContactMeta } from '@/components/email_contact/dataService'
 import { Meta as StaffProfileMeta } from '@/components/staffProfile/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/components/rich_text_char_limit_1000/dataService'
+
+
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -57,6 +60,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   // paragraphs
   WysiwygMeta,
   ExpandableTextMeta,
+  StaffProfileMeta,
   LinkTeaserMeta,
   RichTextCharLimit1000Meta,
   StaffProfileMeta,
