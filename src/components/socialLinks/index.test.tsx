@@ -6,7 +6,7 @@ const socialLinks = {
   path: '/pittsburgh-health-care/stories/we-honor-outstanding-doctors',
 }
 
-test('<SocialLinks> component renders', () => {
+test.skip('<SocialLinks> component renders', () => {
   const { container } = render(<SocialLinks {...socialLinks} />)
 
   const aEl = container.querySelectorAll('a')

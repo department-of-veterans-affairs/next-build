@@ -1,4 +1,3 @@
-import { isEmpty } from 'lodash'
 import {
   VaAlert,
   VaAlertExpandable,
@@ -15,7 +14,6 @@ export interface AlertBlockProps {
 }
 
 export function AlertBlock({ alertType, id, title, content }: AlertBlockProps) {
-  if (isEmpty(content)) return
   return (
     <>
       <VaAlert
@@ -28,7 +26,7 @@ export function AlertBlock({ alertType, id, title, content }: AlertBlockProps) {
           {title}
         </h2>
 
-        {isEmpty(content.header) && (
+        {!content.header && (
           <div
             dangerouslySetInnerHTML={{
               __html: content.text,

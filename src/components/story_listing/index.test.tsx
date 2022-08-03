@@ -4,7 +4,7 @@ import mock_story_listing from './nodeStoryListing.json'
 import mock_news_story from './nodeNewsStory.json'
 
 describe('<StoryListing> component renders', () => {
-  test('with valid data', () => {
+  test.skip('with valid data', () => {
     render(
       <StoryListing
         node={mock_story_listing}

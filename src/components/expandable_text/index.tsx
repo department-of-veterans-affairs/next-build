@@ -5,19 +5,19 @@ import {
 import { isEmpty } from 'lodash'
 
 export interface ExpandableTextProps {
+  id: string
   header: string
-  id: number
   text: string
 }
 
-export function ExpandableText({ header, id, text }: ExpandableTextProps) {
+export function ExpandableText({ id, header, text }: ExpandableTextProps) {
   if (isEmpty(header)) return
 
   return (
     <VaAccordion open-single>
       <VaAccordionItem
-        header={header}
         id={id}
+        header={header}
         dangerouslySetInnerHTML={{
           __html: text,
         }}
