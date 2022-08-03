@@ -6,26 +6,28 @@ import {
   ParagraphRichTextCharLimit1000,
   ParagraphResourceType,
 } from '@/types/paragraph'
-import { Paragraph } from '@/lib/delegators/Paragraph'
+import { RichTextCharLimit1000 } from '@/components/rich_text_char_limit_1000'
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 
 interface RichTextCharLimit1000PageProps {
-  richTextCharLimit1000Collection: ParagraphRichTextCharLimit1000[]
+  richTextCharLimit1000CollectionProps: any
   className: string
 }
 
 const RichTextCharLimit1000Page = ({
-  richTextCharLimit1000Collection,
+  richTextCharLimit1000CollectionProps,
   className,
-}: RichTextCharLimit1000PageProps) => {
-  if (!richTextCharLimit1000Collection) richTextCharLimit1000Collection = []
+}) => {
+  if (!richTextCharLimit1000CollectionProps)
+    richTextCharLimit1000CollectionProps = []
 
   return (
     <Container className="container">
-      {richTextCharLimit1000Collection.map((fieldWysiwyg) => (
-        <Paragraph
-          key={fieldWysiwyg.id}
+      {richTextCharLimit1000CollectionProps.map((richTextCharLimit1000) => (
+        <RichTextCharLimit1000
+          key={richTextCharLimit1000.id}
+          {...richTextCharLimit1000}
           className={className}
-          paragraph={fieldWysiwyg}
         />
       ))}
     </Container>
@@ -47,9 +49,13 @@ export async function getStaticProps(
       params: params.getQueryObject(),
     })
 
+  const richTextCharLimit1000CollectionProps = generalEntityDataService(
+    richTextCharLimit1000Collection
+  )
+
   return {
     props: {
-      richTextCharLimit1000Collection,
+      richTextCharLimit1000CollectionProps,
       className: 'processed-content',
     },
   }

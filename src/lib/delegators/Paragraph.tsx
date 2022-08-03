@@ -11,10 +11,12 @@ import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataSer
 import { Meta as StaffProfileMeta } from '@/components/staffProfile/dataService'
 import { Meta as LinkTeaserMeta } from '@/components/link_teaser/dataService'
 import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
-import { Meta as RichTextCharLimit1000Meta } from '@/components/paragraph/rich_text_char_limit_1000'
+import { Meta as RichTextCharLimit1000Meta } from '@/components/rich_text_char_limit_1000/dataService'
 
 /** Collect all imported paragraph meta information. */
 const paragraphMetaIn: ParagraphMetaInfo[] = [
+  AudienceTopicsMeta,
+  EmailContactMeta,
   ButtonMeta,
   ExpandableTextMeta,
   StaffProfileMeta,
