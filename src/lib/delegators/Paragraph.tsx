@@ -4,10 +4,12 @@ import {
   ParagraphMetaOut,
   ParagraphProps,
 } from '@/types/paragraph'
-import { Meta as ButtonMeta } from '@/components/paragraph/button'
+import { Meta as AudienceTopicsMeta } from '@/components/audience_topics/dataService'
+import { Meta as ButtonMeta } from '@/components/button/dataService'
+import { Meta as EmailContactMeta } from '@/components/email_contact/dataService'
 import { Meta as ExpandableTextMeta } from '@/components/expandable_text/dataService'
-import { Meta as StaffProfileMeta } from '@/components/paragraph/staff_profile'
-import { Meta as LinkTeaserMeta } from '@/components/paragraph/link_teaser'
+import { Meta as StaffProfileMeta } from '@/components/staffProfile/dataService'
+import { Meta as LinkTeaserMeta } from '@/components/link_teaser/dataService'
 import { Meta as WysiwygMeta } from '@/components/wysiwyg/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/components/paragraph/rich_text_char_limit_1000'
 

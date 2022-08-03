@@ -13,9 +13,14 @@ export type ImageProps = {
 export type MediaImageProps = {
   image: ImageProps
   imageStyle: string
+  className?: string | undefined
 }
 
-export const MediaImageComponent = ({ image, imageStyle }: MediaImageProps) => {
+export const MediaImageComponent = ({
+  image,
+  imageStyle,
+  className,
+}: MediaImageProps) => {
   if (!image) return null
 
   const { url, alt, title, width, height, styles } = image
@@ -33,6 +38,7 @@ export const MediaImageComponent = ({ image, imageStyle }: MediaImageProps) => {
       title={title || ''}
       width={imageStyles?.width || width}
       height={imageStyles?.height || height}
+      className={className}
     />
   )
 }

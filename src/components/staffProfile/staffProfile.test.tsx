@@ -1,13 +1,27 @@
 import { render, screen } from 'test-utils'
-import { ParagraphStaffProfile } from '@/types/paragraph'
-import { StaffProfiles } from '@/components/paragraph/staff_profile/index'
-import mockParagraph from './mock.json'
+import { StaffProfile } from '@/components/staffProfile/index'
 
-const paragraph: ParagraphStaffProfile = mockParagraph
+const props = {
+  id: '7783e76f-5aca-4d14-9f5e-fb00cc11e4da',
+  name: 'Mr William Smathers',
+  thumbnail: {
+    url: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/2019-08/William_W_Smathers.jpg',
+    alt: 'William W Smathers Headshot',
+    title: 'William W Smathers',
+    width: 110,
+    height: 136,
+    styles: {},
+  },
+  linkToBio: true,
+  path: 'http:va.gov',
+  description: 'OEF Transition Patient Advocate',
+  phone: '412-551-9651',
+  email: 'william.smathers@aol.com',
+}
 
-describe('StaffProfiles with valid data', () => {
-  test('renders StaffProfiles component', () => {
-    const { container } = render(<StaffProfiles paragraph={paragraph} />)
+describe('StaffProfile with valid data', () => {
+  test('renders StaffProfile component', () => {
+    const { container } = render(<StaffProfile {...props} />)
     const imageMeta = screen.getByRole('img')
     const aEl = container.querySelectorAll('a')
 
@@ -34,54 +48,54 @@ describe('StaffProfiles with valid data', () => {
   })
 })
 
-describe('StaffProfiles with invalid data', () => {
-  test('does not render Thumbnail when field_media is null', () => {
-    paragraph.field_staff_profile.field_media = null
-    const { container } = render(<StaffProfiles paragraph={paragraph} />)
+describe('StaffProfile with invalid data', () => {
+  test('does not render thumbnail image when prop is null', () => {
+    props.thumbnail = null
+    const { container } = render(<StaffProfile {...props} />)
     const imageEl = container.querySelectorAll('img')
 
     expect(imageEl).toHaveLength(0)
   })
 
-  test('does not render href when field_complete_biography_create is false', () => {
-    paragraph.field_staff_profile.field_complete_biography_create = false
-    const { container } = render(<StaffProfiles paragraph={paragraph} />)
+  test('does not render href when linkToBio is false', () => {
+    props.linkToBio = false
+    const { container } = render(<StaffProfile {...props} />)
     const aEl = container.querySelectorAll('a')
 
     expect(aEl).toHaveLength(2)
   })
 
-  test('does not render field_description when null', () => {
-    paragraph.field_staff_profile.field_description = null
-    render(<StaffProfiles paragraph={paragraph} />)
+  test('does not render description when prop is null', () => {
+    props.description = null
+    render(<StaffProfile {...props} />)
 
     expect(
       screen.queryByText(/OEF Transition Patient Advocate/)
     ).not.toBeInTheDocument()
   })
 
-  test('does not render field_phone_number when null or empty', () => {
-    paragraph.field_staff_profile.field_phone_number = null
-    render(<StaffProfiles paragraph={paragraph} />)
+  test('does not render phone number when prop is null or empty', () => {
+    props.phone = null
+    render(<StaffProfile {...props} />)
 
     expect(screen.queryByText(/412-551-9651/)).not.toBeInTheDocument()
 
-    paragraph.field_staff_profile.field_phone_number = ''
-    render(<StaffProfiles paragraph={paragraph} />)
+    props.phone = ''
+    render(<StaffProfile {...props} />)
 
     expect(screen.queryByText(/412-551-9651/)).not.toBeInTheDocument()
   })
 
-  test('does not render field_email_address when null or empty', () => {
-    paragraph.field_staff_profile.field_email_address = null
-    render(<StaffProfiles paragraph={paragraph} />)
+  test('does not render email address when prop is null or empty', () => {
+    props.email = null
+    render(<StaffProfile {...props} />)
 
     expect(
       screen.queryByText(/william.smathers@aol.com/)
     ).not.toBeInTheDocument()
 
-    paragraph.field_staff_profile.field_email_address = ''
-    render(<StaffProfiles paragraph={paragraph} />)
+    props.email = ''
+    render(<StaffProfile {...props} />)
 
     expect(
       screen.queryByText(/william.smathers@aol.com/)
