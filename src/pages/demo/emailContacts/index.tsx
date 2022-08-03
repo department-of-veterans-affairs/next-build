@@ -2,24 +2,22 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import { Paragraph } from '@/lib/delegators/Paragraph'
 import { ParagraphEmailContact, ParagraphResourceType } from '@/types/paragraph'
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import { EmailContact } from '@/components/email_contact'
 
 interface EmailContactsPageProps {
-  emailContacts: ParagraphEmailContact[]
+  emailContactsProps: any
 }
 
-const EmailContactsPage = ({ emailContacts }: EmailContactsPageProps) => {
-  if (!emailContacts) emailContacts = []
+const EmailContactsPage = ({ emailContactsProps }: EmailContactsPageProps) => {
+  if (!emailContactsProps) emailContactsProps = []
 
   return (
     <>
       <Container className="container">
-        {emailContacts.map((paragraphEmailContact) => (
-          <Paragraph
-            key={paragraphEmailContact.id}
-            paragraph={paragraphEmailContact}
-          />
+        {emailContactsProps.map((emailContact) => (
+          <EmailContact key={emailContact.id} {...emailContact} />
         ))}
       </Container>
     </>
@@ -34,14 +32,18 @@ export async function getStaticProps(
   const params = new DrupalJsonApiParams()
   params.addPageLimit(30)
 
-  const emailContacts = await drupalClient.getResourceCollectionFromContext<
-    ParagraphEmailContact[]
-  >(ParagraphResourceType.EmailContact, context, {
-    params: params.getQueryObject(),
-  })
+  const emailContactsCollection =
+    await drupalClient.getResourceCollectionFromContext<
+      ParagraphEmailContact[]
+    >(ParagraphResourceType.EmailContact, context, {
+      params: params.getQueryObject(),
+    })
+
+  const emailContactsProps = generalEntityDataService(emailContactsCollection)
+
   return {
     props: {
-      emailContacts,
+      emailContactsProps,
     },
   }
 }
