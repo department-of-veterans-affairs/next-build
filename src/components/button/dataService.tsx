@@ -6,9 +6,9 @@ export const buttonDataService = function (
   entity: ParagraphButton
 ): ButtonProps {
   return {
-    id: entity.id,
-    url: entity.field_button_link?.uri || null,
-    label: entity.field_button_label || null,
+    id: entity?.id,
+    url: entity?.field_button_link?.uri || null,
+    label: entity?.field_button_label || null,
   }
 }
 
