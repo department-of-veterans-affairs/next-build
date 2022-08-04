@@ -16,18 +16,18 @@ export const getTagsList = (fieldTags) => {
   } = fieldTags
 
   const topics = fieldTopics.map((topic) => ({
-    id: topic?.id,
-    href: topic?.path?.alias,
-    name: topic?.name,
+    id: topic.id,
+    href: topic.path?.alias,
+    name: topic.name,
     categoryLabel: 'Topics',
   }))
 
   const audiences = [fieldAudienceBeneficiares, fieldNonBeneficiares]
     .filter((tag) => !!tag)
     .map((audience) => ({
-      id: audience?.id,
-      href: audience?.path?.alias,
-      name: audience?.name,
+      id: audience.id,
+      href: audience.path?.alias,
+      name: audience.name,
       categoryLabel: 'Audience',
     }))
 
@@ -43,7 +43,7 @@ export const transformAudienceTopicsData = function (
   switch (viewMode) {
     default:
       return {
-        id: entity?.id,
+        id: entity.id,
         tags: getTagsList(entity),
       }
   }
