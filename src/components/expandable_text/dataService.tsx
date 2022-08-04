@@ -14,12 +14,13 @@ export const expandableTextDataService = function (
   viewMode: string
 ) {
   if (!entity || !isRequestValid(entity)) return
+
   switch (viewMode) {
     default:
       return {
         id: entity.id,
-        header: entity.field_text_expander,
-        text: entity.field_wysiwyg?.processed,
+        header: entity.field_text_expander || null,
+        text: entity.field_wysiwyg?.processed || null,
       }
   }
 }

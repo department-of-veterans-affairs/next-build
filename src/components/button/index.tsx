@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import validator from 'validator'
-import { isEmpty, isNull } from 'lodash'
+import { isNull } from 'lodash'
 
 export type ButtonProps = {
   id: string
@@ -10,9 +10,8 @@ export type ButtonProps = {
 
 function isRequestInvalid(button) {
   return (
-    isEmpty(button.label) ||
-    (isEmpty(button.url) &&
-      (!isNull(button.url) ?? validator.isURL(button.url)))
+    !button.label ||
+    (!button.url && (!isNull(button.url) ?? validator.isURL(button.url)))
   )
 }
 

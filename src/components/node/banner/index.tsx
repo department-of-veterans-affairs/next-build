@@ -1,7 +1,5 @@
-import { useRef, useEffect, useState } from 'react'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { isEmpty } from 'lodash'
-import { recordEvent } from '@/utils/recordEvent'
 import { NodeMetaInfo, NodeResourceType } from '@/types/node'
 
 const BannerComponent = ({ node }): JSX.Element => {
