@@ -1,6 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import { fireEvent, getByRole } from '@testing-library/dom'
-import * as recordEvent from '@/utils/recordEvent'
 import { QuestionAnswer, QuestionAnswerProps } from './index'
 
 describe('<QuestionAnswerData> component renders with data', () => {
