@@ -13,17 +13,13 @@
  */
 
 /** These types/packages will import into all node components. */
-import { NodeQA, NodeResourceType, NodeMetaInfo } from '@/types/node'
+import { NodeQA } from '@/types/node'
 import map from 'lodash/map'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** These component includes are specific to this component. */
-import Container from '@/components/container'
-import { Button } from '@/components/button'
-import { AudienceTopics } from '@/components/audience_topics'
-import { LinkTeaser } from '@/components/link_teaser'
-import { BenefitsHubLinks } from '@/components/partials/benefitHubsLinks'
-import { Paragraph } from '@/lib/delegators/Paragraph'
+import { Button, ButtonProps } from '@/components/button'
+import { AudienceTopics, AudienceTopicProp } from '@/components/audience_topics'
+import { LinkTeaser, LinkTeaserProps } from '@/components/linkTeaser'
 
 /**
  * These components expect NodeQA as their input.
@@ -36,10 +32,10 @@ export interface HtmlProps {
 export interface QuestionAnswerProps {
   id: number
   title: string
-  answers: any
-  buttons: any
-  tags: any
-  teasers: any
+  answers: string
+  buttons: ButtonProps[]
+  tags: AudienceTopicProp
+  teasers: LinkTeaserProps[]
   className?: string
 }
 
@@ -50,13 +46,19 @@ export const QuestionAnswer = ({
   tags,
   teasers,
 }: QuestionAnswerProps) => {
-  const button = map(buttons, (data) => (data ? <Button {...data} /> : null))
-  function createMarkup(): HtmlProps {
+  const tag = tags ? <AudienceTopics {...tags} /> : null
+
+  const button = map(buttons, (data) =>
+    data ? <Button key={data.id} {...data} /> : null
+  )
+  const teaser = map(teasers, (data) =>
+    data ? <LinkTeaser key={data.id} {...data} /> : null
+  )
+  const createAnswersMarkup = (): HtmlProps => {
     return {
       __html: answers,
     }
   }
-
   return (
     <div id="content" className="interior" data-template="node-q_a">
       <main className="va-l-detail-page">
@@ -65,25 +67,17 @@ export const QuestionAnswer = ({
             <div className="usa-content">
               <article className="vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
                 <h1>{title}</h1>
-                {answers && <div dangerouslySetInnerHTML={createMarkup()} />}
+                {answers && (
+                  <div dangerouslySetInnerHTML={createAnswersMarkup()} />
+                )}
                 <ul className="vads-u-margin-top--3 vads-u-margin-bottom--3 usa-unstyled-list">
                   {button}
                 </ul>
-                <AudienceTopics {...tags} />
+                {tag}
                 <h2 className="vads-u-margin-y--3 vads-u-font-size--h3">
                   Related information
                 </h2>
-                <ul className="usa-unstyled-list">
-                  {teasers
-                    ? teasers.map((LinkTeaserProps) => (
-                        <LinkTeaser
-                          key={LinkTeaserProps.id}
-                          {...LinkTeaserProps}
-                          componentParams
-                        />
-                      ))
-                    : null}
-                </ul>
+                <ul className="usa-unstyled-list">{teaser}</ul>
               </article>
             </div>
           </div>

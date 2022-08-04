@@ -1,7 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
-import { buttonDataService } from '@/components/button/dataService'
 import { NodeQA, NodeResourceType } from '@/types/node'
 import { QuestionAnswer } from '@/components/questionAnswer'
 
