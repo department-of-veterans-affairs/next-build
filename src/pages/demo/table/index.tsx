@@ -1,20 +1,20 @@
 import { drupalClient } from '@/utils/drupalClient'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
-import Table from '@/components/paragraph/table'
+import { Table } from '@/components/table'
 import { ParagraphResourceType } from '@/types/paragraph'
 
 const TablePage = ({ data }) => {
   if (!data) data = {}
 
   const {
-    field_table: { value: rows },
+    field_table: { value: tableData },
   } = data
 
   return (
     <Layout>
       <Container className="container">
-        <Table data={rows} />
+        <Table data={tableData} />
       </Container>
     </Layout>
   )
