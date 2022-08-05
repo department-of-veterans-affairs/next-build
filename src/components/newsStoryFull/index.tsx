@@ -43,7 +43,7 @@ export const NewsStoryFull = ({
                 <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                   {caption}
                 </div>
-                <StaffNewsProfile {...author} />
+                {author && <StaffNewsProfile {...author} />}
                 <div className="created-line vads-u-margin-bottom--2p5">
                   <time dateTime={formatDate(date)}>{formatDate(date)}</time>
                 </div>

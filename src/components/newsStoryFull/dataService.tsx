@@ -12,7 +12,6 @@ export const transformNewsStoryData = function (
   return {
     title: entity.title,
     image: mediaImageDataService(entity.field_media),
-
     caption: entity.field_image_caption,
     author: generalEntityDataService(entity.field_author, 'teaser'),
     introText: entity.field_intro_text,

@@ -8,6 +8,8 @@ export const personProfileDataService = function (
   entity: NodePersonProfile,
   viewMode: string
 ) {
+  if (!entity) return null
+
   switch (viewMode) {
     case 'teaser':
       return {
