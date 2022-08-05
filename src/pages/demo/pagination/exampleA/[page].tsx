@@ -20,12 +20,6 @@ const NewsStoryPage = ({ page, node }) => {
       <Container className="container">
         <h1>{node[0]?.field_listing?.title}</h1>
         <h2>{node[0]?.field_listing?.field_description}</h2>
-        {node.map((news) => (
-          <NewsStoryTeaser
-            key={news.id}
-            {...transformNewsStoryTeaserData(news)}
-          />
-        ))}
 
         {node.map((news) => (
           <NewsStoryTeaser
