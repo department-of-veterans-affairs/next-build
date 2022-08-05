@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { LinkTeaser } from './index'
 
 export default {
-  title: 'Paragraphs/LinkTeaser',
+  title: 'Paragraphs/Link Teaser',
   component: LinkTeaser,
 } as ComponentMeta<typeof LinkTeaser>
 

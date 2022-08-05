@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import {
   RichTextCharLimit1000,
   RichTextCharLimit1000Props,
-} from '@/components/rich_text_char_limit_1000/index'
+} from '@/components/richTextCharLimit1000/index'
 
 const richTextCharLimitProps: RichTextCharLimit1000Props = {
   id: 1,

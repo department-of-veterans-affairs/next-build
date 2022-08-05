@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { RichTextCharLimit1000 } from './index'
 
 export default {
-  title: 'Paragraphs/RichTextCharLimit1000',
+  title: 'Paragraphs/Rich Text 1000',
   component: RichTextCharLimit1000,
 } as ComponentMeta<typeof RichTextCharLimit1000>
 

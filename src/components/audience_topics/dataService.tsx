@@ -12,6 +12,7 @@ export const getTagsList = (fieldTags) => {
   const {
     field_topics: fieldTopics = [],
     field_audience_beneficiares: fieldAudienceBeneficiares,
+    fieldNonBeneficiares: fieldNonBeneficiares,
   } = fieldTags
 
   const topics = fieldTopics.map((topic) => ({
@@ -21,7 +22,7 @@ export const getTagsList = (fieldTags) => {
     categoryLabel: 'Topics',
   }))
 
-  const audiences = [fieldAudienceBeneficiares]
+  const audiences = [fieldAudienceBeneficiares, fieldNonBeneficiares]
     .filter((tag) => !!tag)
     .map((audience) => ({
       id: audience.id,

@@ -1,5 +1,5 @@
 import NextDocument, { Html, Main, NextScript, Head } from 'next/document'
-import { GTM_ID } from '@/lib/google-analytics'
+import { GTM_ID } from '@/lib/analytics'
 
 export default class Document extends NextDocument {
   render() {

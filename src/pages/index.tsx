@@ -72,6 +72,11 @@ export const Core = () => {
             Rich Text Char Limit 1000 example
           </Link>
         </li>
+        <li>
+          <Link href="/resources/how-do-i-change-my-name-in-my-deers-record">
+            Questions and answers example
+          </Link>
+        </li>
       </ul>
     </Container>
   )
