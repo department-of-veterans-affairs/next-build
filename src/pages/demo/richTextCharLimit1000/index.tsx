@@ -6,7 +6,7 @@ import {
   ParagraphRichTextCharLimit1000,
   ParagraphResourceType,
 } from '@/types/paragraph'
-import { RichTextCharLimit1000 } from '@/components/rich_text_char_limit_1000'
+import { RichTextCharLimit1000 } from '@/components/richTextCharLimit1000'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 
 interface RichTextCharLimit1000PageProps {

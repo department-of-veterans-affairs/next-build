@@ -19,6 +19,7 @@ export const entityDataServiceLookup = function (entity, viewMode = 'full') {
 }
 
 export const generalEntityDataService = function (data, viewMode = 'full') {
+  if (!data) return null
   if (!Array.isArray(data)) {
     return entityDataServiceLookup(data, viewMode)
   }

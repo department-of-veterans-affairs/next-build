@@ -2,7 +2,7 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPathsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import { NewsStory } from '@/components/node/news_story'
+import { NewsStoryTeaser } from '@/components/news_story'
 import Pager from '@/components/pager'
 import { NodeResourceType } from '@/types/node'
 
@@ -20,7 +20,7 @@ const NewsStoryPage = ({ page, node }) => {
           {node[0]?.field_listing?.field_description}
         </h2>
         {node.map((news) => (
-          <NewsStory key={news.id} node={news} viewMode="teaser" />
+          <NewsStoryTeaser key={news.id} {...news} viewMode="teaser" />
         ))}
 
         {page ? (
