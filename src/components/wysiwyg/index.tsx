@@ -5,12 +5,12 @@ export interface HtmlProps {
 }
 
 export interface WysiwygProps {
+  id: string
   html: string
-  id: number
   className?: string
 }
 
-const Wysiwyg = ({ html, id, className }: WysiwygProps) => {
+export function Wysiwyg({ id, html, className }: WysiwygProps) {
   if (!isValidData(html)) return
 
   function createMarkup(): HtmlProps {
@@ -27,5 +27,3 @@ const Wysiwyg = ({ html, id, className }: WysiwygProps) => {
     />
   )
 }
-
-export default Wysiwyg

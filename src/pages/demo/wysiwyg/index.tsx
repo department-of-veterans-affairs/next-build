@@ -2,10 +2,9 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import { ParagraphWysiwyg, ParagraphResourceType } from '@/types/paragraph'
-import { Paragraph } from '@/lib/delegators/Paragraph'
+import { ParagraphResourceType, ParagraphWysiwyg } from '@/types/paragraph'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
-import Wysiwyg from '@/components/wysiwyg'
+import { Wysiwyg } from '@/components/wysiwyg'
 
 interface WysiwygPageProps {
   wysiwygCollectionProps: any
