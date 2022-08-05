@@ -13,10 +13,10 @@
  */
 
 import Container from '@/components/container'
-import { NewsStoryTeaser } from '@/components/news_story'
+import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
 import { isValidData } from '@/utils/helpers'
-import Link from 'next/link'
 import { recordEvent } from '@/utils/recordEvent'
+import { transformNewsStoryTeaserData } from '@/components/newsStoryTeaser/dataService'
 
 /** General Story Listing component. Allows choice of different display components by the caller. */
 export const StoryListing = ({ node, additionalNode }): JSX.Element => {
@@ -39,17 +39,15 @@ export const StoryListing = ({ node, additionalNode }): JSX.Element => {
                 (additionalNode.length === null && (
                   <div className="clearfix-text">No stories at this time.</div>
                 ))}
-              <Container className="container">
-                <ul className="usa-unstyled-list">
-                  {additionalNode.map((newsStoryTeaser) => (
+              {additionalNode.length && (
+                <Container className="container">
+                  <ul className="usa-unstyled-list">
                     <NewsStoryTeaser
-                      node={newsStoryTeaser}
-                      key={newsStoryTeaser.id}
-                      viewMode="teaser"
+                      {...transformNewsStoryTeaserData(additionalNode)}
                     />
-                  ))}
-                </ul>
-              </Container>
+                  </ul>
+                </Container>
+              )}
             </div>
           </div>
         </div>

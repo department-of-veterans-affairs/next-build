@@ -1,14 +1,14 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { NewsStoryFull } from './index'
+import { NewsStoryFull } from '@/components/newsStoryFull/index'
 import mediaImage from '@/components/media/media_example.json'
 import { mediaImageDataService } from '@/components/media/dataService'
 
 const image = mediaImageDataService(mediaImage)
 
 export default {
-  title: 'News Story/Full',
+  title: 'Layouts/News Story',
   component: NewsStoryFull,
 } as ComponentMeta<typeof NewsStoryFull>
 
@@ -62,6 +62,9 @@ Full.args = {
     '\n' +
     "Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.",
   date: 'May 14, 2019',
-  socialLinks: '',
+  socialLinks: {
+    path: '/foo',
+    title: 'We honor outstanding doctors',
+  },
   listing: '/pittsburgh-health-care/stories',
 }
