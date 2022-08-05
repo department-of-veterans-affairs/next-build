@@ -2,7 +2,7 @@
 import '../src/styles/globals.css'
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  actions: {argTypesRegex: '^on[A-Z].*'},
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -12,7 +12,7 @@ export const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
-      order: ['Introduction', 'Components', 'Paragraphs', 'Node'],
+      order: ['Introduction', 'Common', 'Globals', 'Components', 'Layouts'],
     },
   },
 }

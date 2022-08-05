@@ -8,7 +8,7 @@ import mediaImage from './media_example.json'
 const image = mediaImageDataService(mediaImage)
 
 export default {
-  title: 'Components/Media Image',
+  title: 'Common/Media Image',
   component: MediaImageComponent,
 } as ComponentMeta<typeof MediaImageComponent>
 
