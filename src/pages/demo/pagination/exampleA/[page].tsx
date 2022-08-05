@@ -28,7 +28,10 @@ const NewsStoryPage = ({ page, node }) => {
         ))}
 
         {node.map((news) => (
-          <NewsStoryTeaser key={news.id} {...news} viewMode="teaser" />
+          <NewsStoryTeaser
+            key={news.id}
+            {...transformNewsStoryTeaserData(news)}
+          />
         ))}
         {page ? (
           <Pagination
