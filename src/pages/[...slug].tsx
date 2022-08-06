@@ -21,7 +21,7 @@ export default function Page({ entityProps, props }) {
   const Component = entityMeta[entityProps.type].component
 
   return (
-    <Layout props={props}>
+    <Layout {...props}>
       <Component {...entityProps} />
     </Layout>
   )

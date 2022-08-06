@@ -3,25 +3,20 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeBanner, NodePromoBanner, NodeResourceType } from '@/types/node'
 import Container from '@/components/container'
-import Banner from '@/components/node/banner'
+import { Banner, BannerProps } from '@/components/banner'
 import PromoBanner from '@/components/node/promo_banner'
-
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import { transformBannerDataService } from '@/components/banner/dataService'
 interface BannerPageProps {
-  banners: NodeBanner[]
+  banner: BannerProps
   promoBanners: NodePromoBanner[]
 }
 
-const BannerPage = ({ banners, promoBanners }: BannerPageProps) => {
+const BannerPage = ({ banner, promoBanners }: BannerPageProps) => {
   return (
     <>
       <Container className="container">
-        {banners
-          ? banners.map((node) => (
-              <div key={node.id}>
-                <Banner node={node} />
-              </div>
-            ))
-          : null}
+        {banner ? <Banner {...transformBannerDataService({ banner })} /> : null}
 
         {/*Maintenance banner*/}
         <div
@@ -48,7 +43,6 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<BannerPageProps>> {
   const params = new DrupalJsonApiParams()
-  params.addFilter('status', '1')
 
   const banners = await drupalClient.getResourceCollectionFromContext<
     NodeBanner[]
@@ -61,10 +55,10 @@ export async function getStaticProps(
   >(NodeResourceType.PromoBanner, context, {
     params: params.getQueryObject(),
   })
-
+  const banner = generalEntityDataService(banners)
   return {
     props: {
-      banners,
+      banner,
       promoBanners,
     },
   }

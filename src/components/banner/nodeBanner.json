@@ -1,24 +1,9 @@
 {
   "type": "node--banner",
-  "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
-  "langcode": "en",
-  "status": true,
-  "title": "COVID-19 vaccines at VA",
-  "created": "2021-08-09T18:14:02+00:00",
-  "changed": "2022-01-10T17:54:28+00:00",
-  "path": {
-    "alias": "/banner/covid-19-vaccines-at-va",
-    "pid": 39461,
-    "langcode": "en"
-  },
-  "body": {
-    "value": "This is the banner body",
-    "format": "rich_text_limited",
-    "processed": "This is the banner body",
-    "summary": ""
-  },
-  "field_alert_type": "success",
-  "field_dismissible_option": "dismiss",
+  "id": "ccd9d30f-78f9-4358-80d7-191f99b18d43",
+  "title": "Help Limit the Spread of COVID-19 and other Illnesses",
+  "path": "/va-pittsburgh-health-care/vamc-banner-alert/2021-01-08/help-limit-the-spread-of-covid-19-and-other",
+  "alertType": "information",
   "field_target_paths": [
     "/about-va-health-benefits/*",
     "/burials-memorials",

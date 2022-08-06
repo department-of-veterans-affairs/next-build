@@ -1,10 +1,10 @@
 import { render, screen } from 'test-utils'
-import Banner from '@/components/node/banner'
+import { Banner } from '@/components/banner'
 import mock_banner from './nodeBanner.json'
 
 describe('<Banner> component renders', () => {
   test('with valid data', () => {
-    render(<Banner node={mock_banner} />)
+    render(<Banner {...mock_banner} />)
     expect(screen.queryByText(/This is the banner body/)).toBeInTheDocument()
     expect(screen.getByRole('va-banner')).toHaveAttribute(
       'headline',
@@ -15,7 +15,7 @@ describe('<Banner> component renders', () => {
 
 describe('<Banner> component does not render', () => {
   test('without node data', () => {
-    render(<Banner node={[]} />)
+    render(<Banner />)
     expect(
       screen.queryByText(/This is the banner body/)
     ).not.toBeInTheDocument()
