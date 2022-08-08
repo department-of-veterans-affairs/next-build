@@ -9,12 +9,12 @@ export const transformBannerDataService = (entity): BannerProps => {
   }
   const [banner] = entity.bannerData
   const resources = {
-    id: banner.id || '',
-    title: banner.title || '',
-    path: banner.path?.alias || '',
-    body: banner.body?.processed || '',
-    alertType: banner.field_alert_type || '',
-    dismiss: banner.field_dismissible_option || true,
+    id: banner.id,
+    title: banner.title,
+    path: banner.path?.alias,
+    body: banner.body?.processed || null,
+    alertType: banner.field_alert_type,
+    dismiss: banner.field_dismissible_option || null,
   }
 
   return {
