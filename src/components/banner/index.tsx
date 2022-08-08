@@ -2,10 +2,10 @@ import { VaBanner } from '@department-of-veterans-affairs/component-library/dist
 
 export interface BannerProps {
   id: string
-  title: any
-  body: any
-  alertType: any
-  dismiss: any
+  title: string
+  body: string
+  alertType: string
+  dismiss: boolean
 }
 
 export const Banner = ({

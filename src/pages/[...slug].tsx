@@ -79,20 +79,6 @@ export async function getStaticProps(
         params: entityMeta[type]?.params?.getQueryObject() || defaultProps,
       })
 
-  // /** Check for isCollection and additionalResource */
-  // const additionalNode = addResourceToCollection
-  //   ? await drupalClient.getResourceCollectionFromContext<NodeTypes>(
-  //       addResourceToCollection,
-  //       context,
-  //       {
-  //         params: {
-  //           'filter[field_listing.drupal_internal__nid][value]': path.entity.id, // Todo make the filter option dynamic
-  //           ...nodeMeta[type]?.additionalParams?.getQueryObject(),
-  //         },
-  //       }
-  //     )
-  //   : null
-
   if (!entity || (!context.preview && entity?.status === false)) {
     return {
       notFound: true,

@@ -8,14 +8,14 @@ export const transformBannerDataService = (entity): BannerProps => {
   if (!entity.bannerData) {
     return null
   }
-  entity = entity.bannerData[0]
+  const [banner] = entity.bannerData
   const resources = {
-    id: entity.id,
-    title: entity.title,
-    path: entity.path?.alias,
-    body: entity.body?.processed,
-    alertType: entity.field_alert_type,
-    dismiss: entity.field_dismissible_option,
+    id: banner.id || '',
+    title: banner.title || '',
+    path: banner.path?.alias || '',
+    body: banner.body?.processed || '',
+    alertType: banner.field_alert_type || '',
+    dismiss: banner.field_dismissible_option || true,
   }
 
   return {
