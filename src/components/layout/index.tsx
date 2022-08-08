@@ -1,4 +1,3 @@
-import { Node } from '@/lib/delegators/Node'
 import { Banner, BannerProps } from '@/components/banner'
 export interface LayoutProps {
   children?: React.ReactNode

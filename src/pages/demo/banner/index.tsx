@@ -3,6 +3,7 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePromoBanner, NodeResourceType } from '@/types/node'
 import Container from '@/components/container'
+import Layout from '@/components/layout'
 import { Banner } from '@/components/banner'
 import PromoBanner from '@/components/node/promo_banner'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
@@ -12,13 +13,14 @@ interface BannerPageProps {
   props?: any
 }
 
-const BannerPage = (props, { promoBanners }: BannerPageProps) => {
-  const { bannerData } = props.props
-  return (
-    <>
-      <Container className="container">
-        {bannerData ? <Banner {...bannerData} /> : null}
+const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
+  const { bannerData } = props
 
+  return (
+    <Layout {...props}>
+      <Container className="container">
+        <h1>Default Banner</h1>
+        {bannerData ? <Banner {...bannerData} /> : null}
         {/*Maintenance banner*/}
         <div
           aria-label="Maintenance banner"
@@ -34,7 +36,7 @@ const BannerPage = (props, { promoBanners }: BannerPageProps) => {
             ))
           : null}
       </Container>
-    </>
+    </Layout>
   )
 }
 
@@ -53,8 +55,8 @@ export async function getStaticProps(
 
   return {
     props: {
-      promoBanners,
       ...(await getGlobalElements(context)),
+      promoBanners,
     },
     // will be passed to the page component as promoBanners,
   }

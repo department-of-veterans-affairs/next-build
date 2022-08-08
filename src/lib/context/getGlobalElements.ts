@@ -1,8 +1,8 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
-
 import { drupalClient } from '@/utils/drupalClient'
 import { LayoutProps } from 'components/layout'
 import { transformBannerDataService } from '@/components/banner/dataService'
+
 type GlobalElements = LayoutProps
 
 // This is a helper function to fetch global elements for layout.

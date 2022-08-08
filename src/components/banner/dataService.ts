@@ -1,5 +1,4 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-// import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { NodeResourceType } from '@/types/node'
 import { Banner, BannerProps } from '@/components/banner'
