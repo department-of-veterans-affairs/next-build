@@ -1,5 +1,5 @@
 import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
-import { ParagraphStaffProfile, ParagraphResourceType } from '@/types/paragraph'
+import { ParagraphStaffProfile, ParagraphResourceType } from '@/types/data-types/drupal/paragraph'
 import { StaffProfile, StaffProfileProps } from './index'
 import { mediaImageDataService } from 'templates/common/media/dataService'
 

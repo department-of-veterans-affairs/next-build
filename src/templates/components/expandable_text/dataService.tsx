@@ -2,7 +2,7 @@ import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
 import {
   ParagraphExpandableText,
   ParagraphResourceType,
-} from '@/types/paragraph'
+} from '@/types/data-types/drupal/paragraph'
 import { ExpandableText } from '.'
 
 function isRequestValid(paragraph) {

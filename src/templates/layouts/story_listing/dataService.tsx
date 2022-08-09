@@ -15,8 +15,11 @@ import { generalEntityDataService } from 'data/delegators/generalEntityDataServi
 import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { StoryListing } from 'templates/layouts/story_listing'
-import { NodeResourceType, NodeStoryListing } from '@/types/node'
 import { mediaImageDataService } from '@/components/media/dataService'
+import {
+  NodeResourceType,
+  NodeStoryListing,
+} from '@/types/data-types/drupal/node'
 
 export const storyListingDataService = function (
   entity: NodeStoryListing,

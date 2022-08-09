@@ -1,5 +1,5 @@
 import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
-import { ParagraphResourceType, ParagraphWysiwyg } from '@/types/paragraph'
+import { ParagraphResourceType, ParagraphWysiwyg } from '@/types/data-types/drupal/paragraph'
 import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
 import Wysiwyg from 'templates/components/wysiwyg'
 

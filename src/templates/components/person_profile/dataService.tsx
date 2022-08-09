@@ -1,6 +1,6 @@
 import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodePersonProfile, NodeResourceType } from '@/types/node'
+import { NodePersonProfile, NodeResourceType } from '@/types/data-types/drupal/node'
 
 import { PersonProfile } from 'templates/components/person_profile'
 

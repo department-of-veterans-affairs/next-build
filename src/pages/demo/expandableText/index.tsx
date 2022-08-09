@@ -5,7 +5,7 @@ import Container from 'templates/common/container'
 import {
   ParagraphExpandableText,
   ParagraphResourceType,
-} from '@/types/paragraph'
+} from '@/types/data-types/drupal/paragraph'
 
 import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
 import { ExpandableText } from 'templates/components/expandable_text'

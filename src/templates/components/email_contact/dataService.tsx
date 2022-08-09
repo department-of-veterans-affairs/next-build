@@ -1,4 +1,4 @@
-import { ParagraphEmailContact, ParagraphResourceType } from '@/types/paragraph'
+import { ParagraphEmailContact, ParagraphResourceType } from '@/types/data-types/drupal/paragraph'
 import { EmailContact, EmailContactProps } from 'templates/components/email_contact'
 import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
 

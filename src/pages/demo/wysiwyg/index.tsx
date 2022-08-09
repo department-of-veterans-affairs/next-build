@@ -2,7 +2,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from 'templates/common/container'
-import { ParagraphResourceType, ParagraphWysiwyg } from '@/types/paragraph'
+import { ParagraphResourceType, ParagraphWysiwyg } from '@/types/data-types/drupal/paragraph'
 import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
 import { Wysiwyg } from 'templates/components/wysiwyg'
 

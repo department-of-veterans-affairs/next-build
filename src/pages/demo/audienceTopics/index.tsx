@@ -5,7 +5,7 @@ import Container from 'templates/common/container'
 import {
   ParagraphAudienceTopics,
   ParagraphResourceType,
-} from '@/types/paragraph'
+} from '@/types/data-types/drupal/paragraph'
 import { AudienceTopics } from 'templates/components/audience_topics'
 import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
 
