@@ -29,7 +29,7 @@ export const MediaImageComponent = ({
   const imageStyles = isEmpty(styles)
     ? null
     : {
-        url: isEmpty(styles[imageStyle]) ? null : styles[imageStyle]?.href,
+        url: isEmpty(styles[imageStyle]) ? '' : styles[imageStyle]?.href,
         height: styles[imageStyle]?.meta?.height,
         width: styles[imageStyle]?.meta?.width,
       }
