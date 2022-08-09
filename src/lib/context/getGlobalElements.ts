@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
-import { drupalClient } from '@/utils/drupalClient'
-import { LayoutProps } from 'components/layout'
+import { drupalClient } from '@/lib/utils/drupalClient'
+import { LayoutProps } from 'templates/layout'
 
 type GlobalElements = LayoutProps
 

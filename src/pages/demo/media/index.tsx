@@ -1,9 +1,9 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalMedia } from 'next-drupal'
-import { drupalClient } from '@/utils/drupalClient'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
-import { MediaImageComponent } from '@/components/media'
+import { drupalClient } from '@/lib/utils/drupalClient'
+import Layout from 'templates/layout'
+import Container from 'templates/container'
+import { MediaImageComponent } from 'templates/media'
 
 interface MediaPageProps {
   media: DrupalMedia

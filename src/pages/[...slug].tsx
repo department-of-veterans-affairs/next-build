@@ -5,12 +5,12 @@ import {
   GetStaticPropsResult,
 } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/utils/drupalClient'
-import { entityMeta } from '@/lib/delegators/entityMetaProvider'
+import { drupalClient } from '@/lib/utils/drupalClient'
+import { entityMeta } from 'data/delegators/entityMetaProvider'
 import { NodeTypes } from '@/types/node'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
-import Layout from '@/components/layout'
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import Layout from 'templates/layout'
+import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
 
 interface EntityProps {
   entityProps: any

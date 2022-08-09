@@ -1,13 +1,13 @@
-import { drupalClient } from '@/utils/drupalClient'
+import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import Container from '@/components/container'
+import Container from 'templates/container'
 import {
   ParagraphRichTextCharLimit1000,
   ParagraphResourceType,
 } from '@/types/paragraph'
-import { RichTextCharLimit1000 } from '@/components/richTextCharLimit1000'
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import { RichTextCharLimit1000 } from 'templates/richTextCharLimit1000'
+import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
 
 interface RichTextCharLimit1000PageProps {
   richTextCharLimit1000CollectionProps: any

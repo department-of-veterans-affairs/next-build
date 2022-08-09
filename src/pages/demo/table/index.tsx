@@ -1,7 +1,7 @@
-import { drupalClient } from '@/utils/drupalClient'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
-import { Table } from '@/components/table'
+import { drupalClient } from '@/lib/utils/drupalClient'
+import Layout from 'templates/layout'
+import Container from 'templates/container'
+import { Table } from 'templates/table'
 import { ParagraphResourceType } from '@/types/paragraph'
 
 const TablePage = ({ data }) => {

@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
+import Layout from 'templates/layout'
+import Container from 'templates/container'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 
 export const Core = () => {

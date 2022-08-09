@@ -1,14 +1,14 @@
-import { drupalClient } from '@/utils/drupalClient'
+import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import Container from '@/components/container'
+import Container from 'templates/container'
 import {
   ParagraphExpandableText,
   ParagraphResourceType,
 } from '@/types/paragraph'
 
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
-import { ExpandableText } from '@/components/expandable_text'
+import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
+import { ExpandableText } from 'templates/expandable_text'
 
 interface ExpandableTextPageProps {
   expandableTextCollectionProps: any
