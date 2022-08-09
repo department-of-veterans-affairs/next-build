@@ -3,9 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { DrupalMedia } from 'next-drupal'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
-import Layout from 'templates/layout'
-import Container from 'templates/container'
-import { MediaImageComponent } from 'templates/media'
+import { MediaImageComponent } from 'templates/common/media'
 
 interface MediaPageProps {
   mediaProps: any
