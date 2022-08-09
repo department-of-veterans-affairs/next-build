@@ -9,7 +9,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { entityMeta } from 'data/delegators/entityMetaProvider'
 import { NodeTypes } from '@/types/node'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
-import Layout from 'templates/layout'
+import Layout from 'templates/globals/layout'
 import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
 
 interface EntityProps {

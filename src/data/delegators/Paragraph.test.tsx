@@ -7,7 +7,7 @@ import {
   ParagraphEmailContact,
   ParagraphStaffProfile,
 } from '@/types/paragraph'
-import { LinkTeaser, LinkTeaserProps } from 'templates/linkTeaser'
+import { LinkTeaser, LinkTeaserProps } from 'templates/components/linkTeaser'
 
 describe.skip('<Paragraph> component renders', () => {
   test('<Button> component', () => {
