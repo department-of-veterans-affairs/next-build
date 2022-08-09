@@ -4,7 +4,7 @@ import { DrupalNode } from 'next-drupal'
 import { BenefitsHubLinks } from 'templates/components/benefitHubsLinks'
 import Container from 'templates/common/container'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeResourceType } from '@/types/node'
+import { NodeResourceType } from '@/types/data-types/drupal/node'
 
 interface BenefitsHubLinksProps {
   nodes: DrupalNode[]

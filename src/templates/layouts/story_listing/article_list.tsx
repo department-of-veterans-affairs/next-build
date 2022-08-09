@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import config from '../../../../config'
 import { isValidData } from '@/lib/utils/helpers'
-import { NodeResourceType } from '@/types/node'
+import { NodeResourceType } from '@/types/data-types/drupal/node'
 
 const NodeItem = ({ drupal_internal__nid, path, title }) => (
   <li id={drupal_internal__nid}>

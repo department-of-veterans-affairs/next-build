@@ -1,4 +1,4 @@
-import { ParagraphResourceType } from '@/types/paragraph'
+import { ParagraphResourceType } from '@/types/data-types/drupal/paragraph'
 import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
 import { wysiwygDataService } from 'templates/components/wysiwyg/dataService'
 import { RichTextCharLimit1000 } from '.'

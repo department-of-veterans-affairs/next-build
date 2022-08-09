@@ -1,110 +1,75 @@
-import {
-  GetStaticPathsContext,
-  GetStaticPathsResult,
-  GetStaticPropsContext,
-  GetStaticPropsResult,
-} from 'next'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/utils/drupalClient'
-import { entityMeta } from 'data/delegators/entityMetaProvider'
-import { NodeTypes } from '@/types/node'
-import { getGlobalElements } from '@/lib/context/getGlobalElements'
-import Layout from 'templates/globals/layout'
-import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
+import * as React from 'react'
+import { GetStaticPathsResult } from 'next'
 
-interface EntityProps {
-  entityProps: any
+import { drupalClient } from '@/lib/utils/drupalClient'
+import { queries } from '@/data/queries'
+import { NewsStoryFullType } from '@/types/index'
+import Layout from '@/templates/globals/layout'
+import { NewsStoryFull } from '@/templates/layouts/news_story'
+
+const RESOURCE_TYPES = ['node--news_story'] as const
+
+interface ResourcePageProps {
+  resource: NewsStoryFullType
 }
 
-/** Return the layout and primary component and props. */
-export default function Page({ entityProps, props }) {
-  const Component = entityMeta[entityProps.type].component
+export default function ResourcePage({ resource }: ResourcePageProps) {
+  if (!resource) return null
 
   return (
-    <Layout props={props}>
-      <Component {...entityProps} />
+    <Layout>
+      {resource.type === 'node--news_story' && <NewsStoryFull {...resource} />}
     </Layout>
   )
 }
 
-/** All active node types are identified by the keys of the collected node meta info. */
-const resourceTypes = Object.keys(entityMeta)
-
-export async function getStaticPaths(
-  context: GetStaticPathsContext
-): Promise<GetStaticPathsResult> {
+export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
   return {
     paths: await drupalClient.getStaticPathsFromContext(
-      resourceTypes,
-      context,
-      {
-        params: {},
-      }
+      Array.from(RESOURCE_TYPES),
+      context
     ),
     fallback: 'blocking',
   }
 }
 
-/** @todo This cannot handle non-node urls yet. */
-export async function getStaticProps(
-  context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<EntityProps>> {
-  const params = new DrupalJsonApiParams()
+export async function getStaticProps(context) {
   const path = await drupalClient.translatePathFromContext(context)
 
-  if (!path || !resourceTypes.includes(path.jsonapi.resourceName)) {
+  if (!path) {
     return {
       notFound: true,
     }
   }
 
-  const type = path.jsonapi.resourceName
-  const isCollection = entityMeta[type]?.collection
-  // const addResourceToCollection = entityMeta[type]?.additionalNode
-  const defaultProps = entityMeta[type]?.params?.addFilter('status', '1')
+  const type = path.jsonapi.resourceName as typeof RESOURCE_TYPES[number]
 
-  /** Check for isCollection variable to determine if its a single resource or collection*/
-  const entity = isCollection
-    ? await drupalClient.getResourceCollectionFromContext<NodeTypes>(
-        type,
-        context,
-        {
-          params: {
-            'filter[drupal_internal__nid][value]': path.entity.id,
-            ...entityMeta[type]?.params?.getQueryObject(),
-          },
-        }
-      )
-    : await drupalClient.getResourceFromContext<NodeTypes>(path, context, {
-        params: entityMeta[type]?.params?.getQueryObject() || defaultProps,
-      })
-
-  // /** Check for isCollection and additionalResource */
-  // const additionalNode = addResourceToCollection
-  //   ? await drupalClient.getResourceCollectionFromContext<NodeTypes>(
-  //       addResourceToCollection,
-  //       context,
-  //       {
-  //         params: {
-  //           'filter[field_listing.drupal_internal__nid][value]': path.entity.id, // Todo make the filter option dynamic
-  //           ...entityMeta[type]?.additionalParams?.getQueryObject(),
-  //         },
-  //       }
-  //     )
-  //   : null
-
-  if (!entity || (!context.preview && entity?.status === false)) {
+  if (!RESOURCE_TYPES.includes(type)) {
     return {
       notFound: true,
     }
   }
 
-  const entityProps = generalEntityDataService(entity)
+  const resource = await queries.getData(type, {
+    context,
+    id: path.entity.uuid,
+  })
+
+  if (!resource) {
+    throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`)
+  }
+
+  // If we're not in preview mode and the resource is not published,
+  // Return page not found.
+  if (!context.preview && resource?.published === false) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: {
-      entityProps,
-      ...(await getGlobalElements(context)),
+      resource,
     },
   }
 }

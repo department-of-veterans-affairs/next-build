@@ -4,8 +4,8 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from 'templates/common/container'
 import { NewsStoryTeaser } from 'templates/layouts/news_story'
 import Pager from 'templates/common/pager'
-import { NodeResourceType } from '@/types/node'
 import { transformNewsStoryTeaserData } from '@/components/newsStoryTeaser/dataService'
+import { NodeResourceType } from '@/types/data-types/drupal/node'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3
 export const TOTAL = 20

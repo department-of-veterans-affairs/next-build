@@ -5,7 +5,7 @@ import Container from 'templates/common/container'
 import {
   ParagraphRichTextCharLimit1000,
   ParagraphResourceType,
-} from '@/types/paragraph'
+} from '@/types/data-types/drupal/paragraph'
 import { RichTextCharLimit1000 } from 'templates/components/richTextCharLimit1000'
 import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
 

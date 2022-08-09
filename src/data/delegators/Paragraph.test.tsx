@@ -6,7 +6,7 @@ import {
   ParagraphButton,
   ParagraphEmailContact,
   ParagraphStaffProfile,
-} from '@/types/paragraph'
+} from '@/types/data-types/drupal/paragraph'
 import { LinkTeaser, LinkTeaserProps } from 'templates/components/linkTeaser'
 
 describe.skip('<Paragraph> component renders', () => {

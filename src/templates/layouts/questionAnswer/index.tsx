@@ -13,7 +13,7 @@
  */
 
 /** These types/packages will import into all node components. */
-import { NodeQA } from '@/types/node'
+import { NodeQA } from '@/types/data-types/drupal/node'
 import map from 'lodash/map'
 
 /** These component includes are specific to this component. */

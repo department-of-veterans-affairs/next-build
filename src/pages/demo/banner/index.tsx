@@ -1,7 +1,7 @@
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeBanner, NodePromoBanner, NodeResourceType } from '@/types/node'
+import { NodeBanner, NodePromoBanner, NodeResourceType } from '@/types/data-types/drupal/node'
 import Container from 'templates/common/container'
 import { Banner } from 'templates/banner'
 import Layout from '@/templates/globals/layout'
