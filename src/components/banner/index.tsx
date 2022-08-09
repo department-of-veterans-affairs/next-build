@@ -22,7 +22,7 @@ export const Banner = ({
       showClose={dismiss != 'perm'}
       headline={title}
       type={alertType}
-      visible={true}
+      visible={id ? true : false}
       windowSession={dismiss == 'dismiss-session'}
     >
       <div dangerouslySetInnerHTML={{ __html: body }} />

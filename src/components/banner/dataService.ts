@@ -7,15 +7,15 @@ export const transformBannerDataService = (entity): BannerProps => {
   if (!entity.bannerData) {
     return null
   }
-  const [banner] = entity.bannerData
-  const resources = {
-    id: banner.id,
-    title: banner.title,
-    path: banner.path?.alias,
-    body: banner.body?.processed || null,
-    alertType: banner.field_alert_type,
-    dismiss: banner.field_dismissible_option || null,
-  }
+  const [resources] = entity.bannerData.map((banner) => {
+    return {
+      id: banner.id,
+      title: banner.title,
+      body: banner.body?.processed || null,
+      alertType: banner.field_alert_type,
+      dismiss: banner.field_dismissible_option || null,
+    }
+  })
 
   return {
     ...resources,
@@ -23,7 +23,7 @@ export const transformBannerDataService = (entity): BannerProps => {
 }
 
 /** All nodes end with NodeMetaInfo: the name of the resource, the name of the component, and the parameters necessary for calling the resource. */
-const params = new DrupalJsonApiParams().addPageLimit(10)
+const params = new DrupalJsonApiParams()
 
 /** Export information necessary to identify the component and query it.
  * See {@link EntityMetaInfo}

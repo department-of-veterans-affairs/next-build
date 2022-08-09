@@ -1,7 +1,7 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodePromoBanner, NodeResourceType } from '@/types/node'
+import { NodePromoBanner, NodeResourceType, NodeBanner } from '@/types/node'
 import Container from '@/components/container'
 import Layout from '@/components/layout'
 import { Banner } from '@/components/banner'
@@ -11,6 +11,7 @@ interface BannerPageProps {
   promoBanners?: NodePromoBanner[]
   bannerData?: any
   props?: any
+  entity?: any
 }
 
 const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
@@ -20,7 +21,9 @@ const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
     <Layout {...props}>
       <Container className="container">
         <h1>Default Banner</h1>
-        {bannerData ? <Banner {...bannerData} /> : null}
+        {bannerData
+          ? [bannerData].map((banner) => <Banner key={banner.id} {...banner} />)
+          : null}
         {/*Maintenance banner*/}
         <div
           aria-label="Maintenance banner"
