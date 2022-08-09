@@ -1,9 +1,9 @@
-import { drupalClient } from '@/utils/drupalClient'
+import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPathsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import Container from '@/components/container'
-import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
-import Pager from '@/components/pager'
+import Container from 'templates/container'
+import { NewsStoryTeaser } from 'templates/news_story'
+import Pager from 'templates/pager'
 import { NodeResourceType } from '@/types/node'
 import { transformNewsStoryTeaserData } from '@/components/newsStoryTeaser/dataService'
 
