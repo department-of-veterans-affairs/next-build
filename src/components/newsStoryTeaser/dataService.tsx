@@ -1,4 +1,3 @@
-import { ComponentType } from 'react'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { mediaImageDataService } from '@/components/media/dataService'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
@@ -14,7 +13,7 @@ export const transformNewsStoryTeaserData = function (
   return {
     title: entity.title,
     image: mediaImageDataService(entity.field_media),
-    link: entity.path.alias,
+    link: entity.path?.alias,
     introText: entity.field_intro_text,
   }
 }

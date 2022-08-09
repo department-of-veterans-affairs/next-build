@@ -1,41 +1,29 @@
 import { render, screen } from '@testing-library/react'
-import { StoryListing } from '@/components/story_listing'
-import mock_story_listing from './nodeStoryListing.json'
-import mock_news_story from './nodeNewsStory.json'
+import { StoryListing, StoryListingProps } from '@/components/story_listing'
+
+let storyListingProps: StoryListingProps = {
+  id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
+  title: 'Stories',
+  introText: 'We honor outstanding doctors',
+}
 
 describe('<StoryListing> component renders', () => {
-  test.skip('with valid data', () => {
-    render(
-      <StoryListing
-        node={mock_story_listing}
-        additionalNode={mock_news_story}
-      />
-    )
+  test('with valid data', () => {
+    render(<StoryListing {...storyListingProps} />)
     expect(screen.queryByText(/Stories/)).toBeInTheDocument()
     expect(
       screen.queryByText(/We honor outstanding doctors/)
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/Grand opening held for relocated Belmont Clinic/)
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/I CARE Award winners recognized/)
     ).toBeInTheDocument()
   })
 })
 
 describe('<StoryListing> component does not render', () => {
   test('without story listings data', () => {
-    render(<StoryListing node={[]} additionalNode={mock_news_story} />)
+    storyListingProps = null
+    render(<StoryListing {...storyListingProps} />)
     expect(screen.queryByText(/Stories/)).not.toBeInTheDocument()
     expect(
       screen.queryByText(/We honor outstanding doctors/)
-    ).not.toBeInTheDocument()
-    expect(
-      screen.queryByText(/Grand opening held for relocated Belmont Clinic/)
-    ).not.toBeInTheDocument()
-    expect(
-      screen.queryByText(/I CARE Award winners recognized/)
     ).not.toBeInTheDocument()
   })
 })

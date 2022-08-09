@@ -60,7 +60,7 @@ export async function getStaticProps(
 
   const type = path.jsonapi.resourceName
   const isCollection = entityMeta[type]?.collection
-  // const addResourceToCollection = nodeMeta[type]?.additionalNode
+  // const addResourceToCollection = entityMeta[type]?.additionalNode
   const defaultProps = entityMeta[type]?.params?.addFilter('status', '1')
 
   /** Check for isCollection variable to determine if its a single resource or collection*/
@@ -87,7 +87,7 @@ export async function getStaticProps(
   //       {
   //         params: {
   //           'filter[field_listing.drupal_internal__nid][value]': path.entity.id, // Todo make the filter option dynamic
-  //           ...nodeMeta[type]?.additionalParams?.getQueryObject(),
+  //           ...entityMeta[type]?.additionalParams?.getQueryObject(),
   //         },
   //       }
   //     )

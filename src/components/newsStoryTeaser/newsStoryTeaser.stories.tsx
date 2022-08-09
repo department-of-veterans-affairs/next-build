@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
 
 import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
-import mediaImage from '@/components/media/media_example.json'
+import mediaImage from '../media/mockMedia.json'
 import { mediaImageDataService } from '@/components/media/dataService'
 
 const image = mediaImageDataService(mediaImage)

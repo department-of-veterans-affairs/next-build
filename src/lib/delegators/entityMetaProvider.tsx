@@ -1,7 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 import { Meta as NewsStoryMeta } from '@/components/newsStoryFull/dataService'
-import { Meta as NewsStoryTeaserMeta } from '@/components/newsStoryTeaser/dataService'
 import { Meta as StoryListingMeta } from '@/components/story_listing/dataService'
 import { Meta as PersonProfileMeta } from '@/components/person_profile/dataService'
 import { Meta as AlertBlockMeta } from '@/components/alert/dataService'
@@ -49,10 +48,7 @@ export interface EntityMetaOut {
 const EntityMetaIn: EntityMetaInfo[] = [
   // nodes
   NewsStoryMeta,
-  NewsStoryTeaserMeta,
-  PersonProfileMeta,
-  StoryListingMeta,
-  NewsStoryMeta,
+  // NewsStoryTeaserMeta,
   PersonProfileMeta,
   StoryListingMeta,
   QuestionAnswerMeta,

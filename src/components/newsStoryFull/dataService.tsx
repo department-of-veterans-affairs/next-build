@@ -1,4 +1,3 @@
-import { ComponentType } from 'react'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 import { mediaImageDataService } from '@/components/media/dataService'

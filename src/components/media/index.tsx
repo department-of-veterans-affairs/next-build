@@ -1,4 +1,5 @@
 import Image from '@/components/image'
+import { isEmpty } from 'lodash'
 
 // Different from the ImageProps that are imported in image/index.tsx
 export type ImageProps = {
@@ -13,7 +14,7 @@ export type ImageProps = {
 export type MediaImageProps = {
   image: ImageProps
   imageStyle: string
-  className?: string | undefined
+  className?: string | ''
 }
 
 export const MediaImageComponent = ({
@@ -25,11 +26,13 @@ export const MediaImageComponent = ({
 
   const { url, alt, title, width, height, styles } = image
 
-  const imageStyles = {
-    url: styles[imageStyle]?.href,
-    height: styles[imageStyle]?.meta?.height,
-    width: styles[imageStyle]?.meta?.width,
-  }
+  const imageStyles = isEmpty(styles)
+    ? null
+    : {
+        url: isEmpty(styles[imageStyle]) ? null : styles[imageStyle]?.href,
+        height: styles[imageStyle]?.meta?.height,
+        width: styles[imageStyle]?.meta?.width,
+      }
 
   return (
     <Image

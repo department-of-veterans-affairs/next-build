@@ -1,9 +1,9 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { MediaImageComponent } from './index'
 import { mediaImageDataService } from './dataService'
-import mediaImage from './media_example.json'
+import mediaImage from './mockMedia.json'
 
 const image = mediaImageDataService(mediaImage)
 

@@ -5,10 +5,11 @@ import Layout from '@/components/layout'
 import Container from '@/components/container'
 import { MediaImageComponent } from '@/components/media'
 
-interface ImagePageProps {
+interface MediaPageProps {
   media: DrupalMedia
 }
-const ImagePage = ({ media }: ImagePageProps) => {
+
+const ImagePage = ({ media }: MediaPageProps) => {
   if (!media) return null
 
   return (
@@ -17,8 +18,8 @@ const ImagePage = ({ media }: ImagePageProps) => {
         {media.map((image) => (
           <MediaImageComponent
             key={image?.id}
-            imageStyle="1_1_square_medium_thumbnail"
             image={image}
+            imageStyle="1_1_square_medium_thumbnail"
           />
         ))}
       </Container>
@@ -30,7 +31,7 @@ export default ImagePage
 
 export async function getStaticProps(
   context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<ImagePageProps>> {
+): Promise<GetStaticPropsResult<MediaPageProps>> {
   const media =
     await drupalClient.getResourceCollectionFromContext<DrupalMedia>(
       'media--image',
