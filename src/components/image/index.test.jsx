@@ -14,7 +14,7 @@ describe('Image Component', () => {
     const originalError = console.error
     console.error = jest.fn()
     // eslint-disable-next-line
-    expect(() => render(<Image />)).toThrow(
+        expect(() => render(<Image/>)).toThrow(
       /image is missing required "src" property/i
     )
     console.error = originalError
@@ -24,7 +24,7 @@ describe('Image Component', () => {
     console.error = jest.fn()
     let url = getUrl(mock_media_image)
     // eslint-disable-next-line
-    expect(() => render(<Image src={url} />)).toThrow(
+        expect(() => render(<Image src={url}/>)).toThrow(
       /image with src "([^"]*)" must use "width" and "height" properties/i
     )
     console.error = originalError
@@ -32,7 +32,7 @@ describe('Image Component', () => {
   test('triggers an accessibility error if no alt text is passed in', async () => {
     let url = getUrl(mock_media_image)
     // eslint-disable-next-line
-    const { container } = render(<Image src={url} layout={'fill'} />)
+        const {container} = render(<Image src={url} layout={'fill'}/>)
     await waitFor(async () =>
       expect(await axe(container)).toEqual(
         expect.objectContaining({
@@ -57,7 +57,7 @@ describe('Image Component', () => {
       height: 400,
     }
     // eslint-disable-next-line
-    const { container } = render(<Image {...props} />)
+        const {container} = render(<Image {...props} />)
     await waitFor(async () => expect(await axe(container)).toHaveNoViolations())
     let imgElement
 
