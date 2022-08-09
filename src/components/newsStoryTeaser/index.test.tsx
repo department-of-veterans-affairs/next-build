@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
 
 const image = {
@@ -17,6 +17,35 @@ const teaserData = {
   image: image,
 }
 
-test('<NewsStoryTeaser> component renders', () => {
-  const { container } = render(<NewsStoryTeaser {...teaserData} />)
+describe('<NewsStoryTeaser> with valid data', () => {
+  test('renders component', () => {
+    const { container } = render(<NewsStoryTeaser {...teaserData} />)
+    const imgEl = container.querySelectorAll('img')
+
+    expect(imgEl.length).toBe(2)
+    expect(
+      screen.queryByText(/We honor outstanding doctors/)
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /When a hospital has a host of great doctors, honoring just two every year is challenging./
+      )
+    ).toBeInTheDocument()
+  })
+
+  test('renders component without image', () => {
+    teaserData.image = null
+    const { container } = render(<NewsStoryTeaser {...teaserData} />)
+    const imgEl = container.querySelectorAll('img')
+
+    expect(imgEl.length).toBe(0)
+    expect(
+      screen.queryByText(/We honor outstanding doctors/)
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /When a hospital has a host of great doctors, honoring just two every year is challenging./
+      )
+    ).toBeInTheDocument()
+  })
 })
