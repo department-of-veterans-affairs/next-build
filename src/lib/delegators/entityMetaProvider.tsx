@@ -1,6 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
-import { Meta as NewsStoryMeta } from '@/components/news_story/dataService'
+import { Meta as NewsStoryMeta } from '@/components/newsStoryFull/dataService'
 import { Meta as StoryListingMeta } from '@/components/story_listing/dataService'
 import { Meta as PersonProfileMeta } from '@/components/person_profile/dataService'
 import { Meta as AlertBlockMeta } from '@/components/alert/dataService'
@@ -49,9 +49,7 @@ export interface EntityMetaOut {
 const EntityMetaIn: EntityMetaInfo[] = [
   // nodes
   NewsStoryMeta,
-  PersonProfileMeta,
-  StoryListingMeta,
-  NewsStoryMeta,
+  // NewsStoryTeaserMeta,
   PersonProfileMeta,
   StoryListingMeta,
   QuestionAnswerMeta,
@@ -64,12 +62,11 @@ const EntityMetaIn: EntityMetaInfo[] = [
   StaffProfileMeta,
   LinkTeaserMeta,
   RichTextCharLimit1000Meta,
-  StaffProfileMeta,
-  // media
-  MediaImageMeta,
   AudienceTopicsMeta,
   ButtonMeta,
   EmailContactMeta,
+  // media
+  MediaImageMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */

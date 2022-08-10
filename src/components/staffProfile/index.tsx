@@ -1,10 +1,9 @@
-import { MediaImageComponent, ImageProps } from '@/components/media'
-import Image from '@/components/image'
+import { MediaImageComponent } from '@/components/media'
 
 export type StaffProfileProps = {
   id: string
   name: string
-  thumbnail?: ImageProps
+  thumbnail?: any
   linkToBio?: boolean
   path?: string | null
   description?: string
@@ -35,8 +34,7 @@ export function StaffProfile({
           <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
             <MediaImageComponent
               className="circular-profile-image bio-paragraph-image max-width-100"
-              image={thumbnail}
-              imageStyle="thumbnail"
+              {...thumbnail}
             />
           </div>
         )}

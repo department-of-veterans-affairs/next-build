@@ -12,49 +12,50 @@
  *
  */
 
-import Container from '@/components/container'
-import { NewsStoryTeaser } from '@/components/news_story'
-import { isValidData } from '@/utils/helpers'
-import Link from 'next/link'
 import { recordEvent } from '@/utils/recordEvent'
 
+export type StoryListingProps = {
+  id: string
+  title: string
+  introText: string
+}
+
+function isRequestInvalid(storyListing) {
+  return !storyListing.title || !storyListing.introText
+}
+
 /** General Story Listing component. Allows choice of different display components by the caller. */
-export const StoryListing = ({ node, additionalNode }): JSX.Element => {
-  if (!isValidData(node || additionalNode)) {
-    return
-  }
+export function StoryListing(storyListing: StoryListingProps) {
+  if (isRequestInvalid(storyListing)) return
 
   return (
-    <>
-      {node.map((storyListing) => (
-        <div key={storyListing.id} className="usa-grid usa-grid-full">
-          {/*<div className="usa-width-three-fourths">*/}
-          <h1>{storyListing.title}</h1>
-          <div className="vads-l-grid-container--full">
-            <div className="va-introtext">
-              {storyListing.field_intro_text && (
-                <p className="events-show">{storyListing.field_intro_text}</p>
-              )}
-              {additionalNode.length === 0 ||
-                (additionalNode.length === null && (
-                  <div className="clearfix-text">No stories at this time.</div>
-                ))}
-              <Container className="container">
-                <ul className="usa-unstyled-list">
-                  {additionalNode.map((newsStoryTeaser) => (
-                    <NewsStoryTeaser
-                      node={newsStoryTeaser}
-                      key={newsStoryTeaser.id}
-                      viewMode="teaser"
-                    />
-                  ))}
-                </ul>
-              </Container>
-            </div>
-          </div>
+    <div key={storyListing.id} className="usa-grid usa-grid-full">
+      {/*<div className="usa-width-three-fourths">*/}
+      <h1>{storyListing.title}</h1>
+      <div className="vads-l-grid-container--full">
+        <div className="va-introtext">
+          {storyListing.introText && (
+            <p className="events-show">{storyListing.introText}</p>
+          )}
+          {/*{storyListing.additionalNode.length === 0 ||*/}
+          {/*  (storyListing.additionalNode.length === null && (*/}
+          <div className="clearfix-text">No stories at this time.</div>
+          {/*))}*/}
+          {/*{additionalNode.length && (*/}
+          {/*  <Container className="container">*/}
+          {/*    <ul className="usa-unstyled-list">*/}
+          {/*      {additionalNode.map((newsStoryTeaser) => (*/}
+          {/*        <NewsStoryTeaser*/}
+          {/*          key={newsStoryTeaser.id}*/}
+          {/*          {...transformNewsStoryTeaserData(newsStoryTeaser)}*/}
+          {/*        />*/}
+          {/*      ))}*/}
+          {/*    </ul>*/}
+          {/*  </Container>*/}
+          {/*)}*/}
         </div>
-      ))}
-    </>
+      </div>
+    </div>
   )
 }
 

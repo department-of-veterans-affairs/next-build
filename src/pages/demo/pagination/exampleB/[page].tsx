@@ -2,9 +2,10 @@ import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPathsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/components/container'
-import { NewsStoryTeaser } from '@/components/news_story'
+import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
 import Pager from '@/components/pager'
 import { NodeResourceType } from '@/types/node'
+import { transformNewsStoryTeaserData } from '@/components/newsStoryTeaser/dataService'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3
 export const TOTAL = 20
@@ -20,7 +21,10 @@ const NewsStoryPage = ({ page, node }) => {
           {node[0]?.field_listing?.field_description}
         </h2>
         {node.map((news) => (
-          <NewsStoryTeaser key={news.id} {...news} viewMode="teaser" />
+          <NewsStoryTeaser
+            key={news.id}
+            {...transformNewsStoryTeaserData(news)}
+          />
         ))}
 
         {page ? (

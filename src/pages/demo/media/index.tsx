@@ -1,28 +1,27 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
+import { v4 as uuidv4 } from 'uuid'
 import { DrupalMedia } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
-import { MediaImageComponent } from '@/components/media'
+import { MediaImageComponent, MediaImageProps } from '@/components/media'
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 
-interface ImagePageProps {
-  media: DrupalMedia
+interface MediaPageProps {
+  mediaProps: any
 }
-const ImagePage = ({ media }: ImagePageProps) => {
-  if (!media) return null
+
+const ImagePage = ({ mediaProps }: MediaPageProps) => {
+  if (!mediaProps) return null
 
   return (
-    <Layout>
-      <Container className="container">
-        {media.map((image) => (
-          <MediaImageComponent
-            key={image?.id}
-            imageStyle="1_1_square_medium_thumbnail"
-            image={image}
-          />
-        ))}
-      </Container>
-    </Layout>
+    <>
+      {mediaProps.map((image) => (
+        <MediaImageComponent
+          key={image.id}
+          {...image}
+          imageStyle="1_1_square_medium_thumbnail"
+        />
+      ))}
+    </>
   )
 }
 
@@ -30,7 +29,7 @@ export default ImagePage
 
 export async function getStaticProps(
   context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<ImagePageProps>> {
+): Promise<GetStaticPropsResult<MediaPageProps>> {
   const media =
     await drupalClient.getResourceCollectionFromContext<DrupalMedia>(
       'media--image',
@@ -44,9 +43,11 @@ export async function getStaticProps(
         },
       }
     )
+  const mediaProps = generalEntityDataService(media)
+
   return {
     props: {
-      media,
+      mediaProps,
     },
   }
 }

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Table } from './index'
 
 const tableData = [
@@ -39,6 +39,5 @@ describe('<Table> with inValid data', () => {
     render(<Table data={[]} />)
     const vaTableEl = document.querySelector('va-table')
     expect(vaTableEl).toBeFalsy()
-    screen.debug()
   })
 })
