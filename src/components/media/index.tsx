@@ -22,14 +22,15 @@ export const MediaImageComponent = ({
   imageStyle,
   className,
 }: MediaImageProps) => {
+  if (!styles) return null
   const imageStyles = {
-    url: styles[imageStyle]?.href,
+    url: styles ? styles[imageStyle]?.href : url,
     height: styles[imageStyle]?.meta?.height,
     width: styles[imageStyle]?.meta?.width,
   }
   return (
     <Image
-      src={imageStyles.url || url}
+      src={imageStyles?.url || url}
       alt={alt || ''}
       title={title || ''}
       width={imageStyles.width || width}

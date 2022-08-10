@@ -3,10 +3,12 @@ import { NewsStoryFull } from '.'
 
 const image = {
   url: 'https://www.example.com/image.jpg',
-  alt: 'pension',
-  height: 100,
-  title: 'title',
   width: 100,
+  height: 100,
+  alt: 'pension',
+  title: 'title',
+  styles: '',
+  imageStyle: '2_1_large',
 }
 
 const data = {
