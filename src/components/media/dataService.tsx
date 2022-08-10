@@ -1,21 +1,21 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { MediaImage, MediaResourceType } from '@/types/media'
-import { MediaImageComponent, ImageProps } from '@/components/media'
+import { ImageProps, MediaImageComponent } from '@/components/media'
 import { absoluteURL } from '@/utils/helpers'
 
 export const mediaImageDataService = function (
   entity: MediaImage
 ): ImageProps | null {
-  if (!entity) return null
+  if (!entity || !entity.image) return null
 
   return {
-    url: absoluteURL(entity.image?.uri?.url),
-    styles: entity.image?.links || 'full_content_width',
-    alt: entity.image?.resourceIdObjMeta?.alt,
-    title: entity.image?.resourceIdObjMeta?.title,
-    width: entity.image?.resourceIdObjMeta?.width,
-    height: entity.image?.resourceIdObjMeta?.height,
+    url: absoluteURL(entity.image.uri?.url) || '',
+    styles: entity.image.links || 'full_content_width',
+    alt: entity.image.resourceIdObjMeta?.alt,
+    title: entity.image.resourceIdObjMeta?.title,
+    width: entity.image.resourceIdObjMeta?.width,
+    height: entity.image.resourceIdObjMeta?.height,
   }
 }
 

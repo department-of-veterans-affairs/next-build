@@ -1,14 +1,14 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { MediaImageComponent } from './index'
 import { mediaImageDataService } from './dataService'
-import mediaImage from './media_example.json'
+import mediaImage from './mockMedia.json'
 
 const image = mediaImageDataService(mediaImage)
 
 export default {
-  title: 'Components/Media Image',
+  title: 'Common/Media Image',
   component: MediaImageComponent,
 } as ComponentMeta<typeof MediaImageComponent>
 

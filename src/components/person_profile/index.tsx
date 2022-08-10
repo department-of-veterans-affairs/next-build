@@ -15,7 +15,7 @@ export type PersonProfileProps = {
 
 export type PersonProfileTeaserProps = {
   title: string
-  description: string
+  description?: string
 }
 
 export const PersonProfile = ({ node }): JSX.Element => {

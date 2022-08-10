@@ -1,14 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
 
-import { NewsStoryTeaser } from '@/components/news_story'
-import mediaImage from '@/components/media/media_example.json'
+import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
+import mediaImage from '../media/mockMedia.json'
 import { mediaImageDataService } from '@/components/media/dataService'
 
 const image = mediaImageDataService(mediaImage)
 
 export default {
-  title: 'News Story/Teaser',
+  title: 'Components/News Story Teaser',
   component: NewsStoryTeaser,
 } as ComponentMeta<typeof NewsStoryTeaser>
 
