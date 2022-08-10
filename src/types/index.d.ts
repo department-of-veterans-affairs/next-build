@@ -21,3 +21,11 @@ export type NewsStoryFullType = PublishedEntity & {
   socialLinks: SocialLinksProps
   listing: string
 }
+
+export type NewsStoryTeaserType = PublishedEntity & {
+  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
+  link: string
+  title: string
+  image: ImageProps
+  introText: string
+}
