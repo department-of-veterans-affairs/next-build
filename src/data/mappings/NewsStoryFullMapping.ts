@@ -1,7 +1,7 @@
 import { NewsStoryFullType } from '@/types/index'
 import { NodeNewsStory } from '@/types/data-types/drupal/node'
 import { mediaImageDataService } from '@/templates/common/media/dataService'
-import { generalEntityDataService } from '@//data/delegators/generalEntityDataService'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 export const NewsStoryFullMapping = function (
   entity: NodeNewsStory

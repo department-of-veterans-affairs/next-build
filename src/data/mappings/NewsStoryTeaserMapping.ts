@@ -2,7 +2,7 @@ import { NewsStoryTeaserType } from '@/types/index'
 import { NodeNewsStory } from '@/types/data-types/drupal/node'
 import { mediaImageDataService } from '@/templates/common/media/dataService'
 
-export const NewsStoryFullMapping = function (
+export const NewsStoryTeaserMapping = function (
   entity: NodeNewsStory
 ): NewsStoryTeaserType {
   return {

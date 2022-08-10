@@ -14,7 +14,7 @@
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { StoryListing } from '@/templates/layouts/story_listing'
+import { StoryListing } from '@/templates/layouts/storyListingFull'
 import { mediaImageDataService } from '@/templates/common/media/dataService'
 import {
   NodeResourceType,
@@ -26,14 +26,6 @@ export const storyListingDataService = function (
   viewMode: string
 ) {
   switch (viewMode) {
-    case 'teaser':
-      return {
-        // headingLevel: headingLevel,
-        title: entity.title,
-        image: mediaImageDataService(entity.field_media) || null,
-        link: entity.path.alias,
-        introText: entity.field_intro_text,
-      }
 
     case 'full':
     default:

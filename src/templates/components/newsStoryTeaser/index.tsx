@@ -1,14 +1,6 @@
-import { ComponentType } from 'react'
-import { ImageProps, MediaImageComponent } from '@/components/media'
-import { truncateWordsOrChar } from '@/utils/helpers'
-
-export type NewsStoryTeaserProps = {
-  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
-  link: string
-  title: string
-  image: ImageProps
-  introText: string
-}
+import { MediaImageComponent } from '@/templates/common/media'
+import { truncateWordsOrChar } from '@/lib/utils/helpers'
+import { NewsStoryTeaserType } from '@/types/index'
 
 /** Teaser news story. */
 export const NewsStoryTeaser = ({
@@ -17,7 +9,7 @@ export const NewsStoryTeaser = ({
   image,
   link,
   introText,
-}: NewsStoryTeaserProps) => {
+}: NewsStoryTeaserType) => {
   const TitleTag = ({ children, className }) => {
     const Heading = headingLevel ? headingLevel : 'h2'
     return <Heading className={className}>{children}</Heading>
