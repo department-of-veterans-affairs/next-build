@@ -6,13 +6,12 @@ export interface LayoutProps {
   bannerData?: any
 }
 
-export default function Layout({ bannerData, children }: LayoutProps) {
-  const banners = bannerData
-    ? bannerData.map((banner) => <Banner key={banner.id} {...banner} />)
-    : null
+export default function Layout({ props, bannerData, children }: LayoutProps) {
+  if(!bannerData) bannerData = props.bannerData || null
+
   return (
     <>
-      {banners}
+      {bannerData?.map((banner) => <Banner key={banner.id} {...banner} />) || null}
       {children}
     </>
   )

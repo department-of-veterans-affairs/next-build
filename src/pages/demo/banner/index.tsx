@@ -1,10 +1,9 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodePromoBanner, NodeResourceType, NodeBanner } from '@/types/node'
-import Container from '@/components/container'
+import { NodePromoBanner, NodeResourceType } from '@/types/node'
+
 import Layout from '@/components/layout'
-import { Banner } from '@/components/banner'
 import PromoBanner from '@/components/node/promo_banner'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 interface BannerPageProps {
@@ -16,6 +15,7 @@ interface BannerPageProps {
 const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
   return (
     <Layout {...props}>
+  
       {/*Maintenance banner*/}
       <div
         aria-label="Maintenance banner"
