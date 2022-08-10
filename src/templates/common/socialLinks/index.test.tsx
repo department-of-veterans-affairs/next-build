@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { SocialLinks } from 'templates/common/socialLinks/index'
+import { SocialLinks } from '@/templates/common/socialLinks/index'
 
 const socialLinks = {
   title: 'We honor outstanding doctors',

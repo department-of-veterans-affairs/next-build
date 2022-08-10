@@ -17,9 +17,9 @@ import { NodeQA } from '@/types/data-types/drupal/node'
 import map from 'lodash/map'
 
 /** These component includes are specific to this component. */
-import { Button, ButtonProps } from 'templates/common/button'
-import { AudienceTopics, AudienceTopicProp } from 'templates/components/audience_topics'
-import { LinkTeaser, LinkTeaserProps } from 'templates/components/linkTeaser'
+import { Button, ButtonProps } from '@/templates/common/button'
+import { AudienceTopics, AudienceTopicProp } from '@/templates/components/audience_topics'
+import { LinkTeaser, LinkTeaserProps } from '@/templates/components/linkTeaser'
 
 /**
  * These components expect NodeQA as their input.

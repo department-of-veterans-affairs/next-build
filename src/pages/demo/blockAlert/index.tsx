@@ -2,9 +2,9 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { BlockAlert, BlockContentResourceType } from '@/types/data-types/drupal/block'
-import Container from 'templates/common/container'
-import { AlertBlock } from 'templates/components/alert'
-import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
+import Container from '@/templates/common/container'
+import { AlertBlock } from '@/templates/components/alert'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 interface AlertPageProps {
   alerts: any

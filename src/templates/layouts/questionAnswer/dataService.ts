@@ -1,8 +1,8 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { NodeQA, NodeResourceType } from '@/types/data-types/drupal/node'
-import { QuestionAnswer } from 'templates/layouts/questionAnswer'
+import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 
 export const questionAnswerDataService = function (entity: NodeQA) {
   const resources = {

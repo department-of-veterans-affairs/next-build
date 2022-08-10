@@ -1,4 +1,4 @@
-import Image from 'templates/common/image'
+import Image from '@/templates/common/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/utils/recordEvent'
 import { IMAGE_PATH_TEMP } from '@/lib/constants'

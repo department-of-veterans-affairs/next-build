@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
+import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 
 const image = {
   url: 'https://www.example.com/image.jpg',

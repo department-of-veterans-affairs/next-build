@@ -3,7 +3,7 @@ import {
   ParagraphResourceType,
 } from '@/types/data-types/drupal/paragraph'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { AudienceTopics } from './index'
 
 export const getTagsList = (fieldTags) => {

@@ -2,10 +2,10 @@ import { useRouter } from 'next/router'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPathsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import Container from 'templates/common/container'
-import { NewsStoryTeaser } from 'templates/layouts/news_story'
+import Container from '@/templates/common/container'
+import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import Pagination from '@department-of-veterans-affairs/component-library/Pagination'
-import { transformNewsStoryTeaserData } from '@/components/newsStoryTeaser/dataService'
+import { transformNewsStoryTeaserData } from '@/templates/components/newsStoryTeaser/dataService'
 import { NodeResourceType } from '@/types/data-types/drupal/node'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3

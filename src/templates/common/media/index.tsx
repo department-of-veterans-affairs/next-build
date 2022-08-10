@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash'
-import Image from 'templates/common/image'
+import Image from '@/templates/common/image'
 
 // Different from the ImageProps that are imported in image/index.tsx
 export type ImageProps = {

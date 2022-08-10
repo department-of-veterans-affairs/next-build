@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import usePagination, { UsePaginationProps } from '../../../hooks/usePagination'
-import Link from 'templates/common/link'
+import Link from '@/templates/common/link'
 
 export interface PagerProps extends React.HTMLAttributes<HTMLElement> {
   current: number

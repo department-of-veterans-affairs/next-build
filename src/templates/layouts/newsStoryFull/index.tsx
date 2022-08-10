@@ -1,12 +1,12 @@
 
 import { ComponentType } from 'react'
-import { ImageProps, MediaImageComponent } from 'templates/common/media'
+import { ImageProps, MediaImageComponent } from '@/templates/common/media'
 import {
   PersonProfileTeaserProps,
   StaffNewsProfile,
-} from 'templates/components/person_profile'
+} from '@/templates/components/person_profile'
 import { formatDate, truncateWordsOrChar } from '@/lib/utils/helpers'
-import { SocialLinks, SocialLinksProps } from 'templates/common/socialLinks'
+import { SocialLinks, SocialLinksProps } from '@/templates/common/socialLinks'
 import { StoryListingTeaser } from '../story_listing'
 
 export type NewsStoryProps = {

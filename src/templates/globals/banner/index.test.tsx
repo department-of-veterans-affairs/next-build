@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils'
-import Banner from 'templates/node/banner'
+import Banner from '@/templates/node/banner'
 import mock_banner from './nodeBanner.json'
 
 describe('<Banner> component renders', () => {

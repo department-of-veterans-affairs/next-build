@@ -1,4 +1,4 @@
-import { Wysiwyg } from 'templates/components/wysiwyg'
+import { Wysiwyg } from '@/templates/components/wysiwyg'
 
 export interface RichTextCharLimit1000Props {
   id: string

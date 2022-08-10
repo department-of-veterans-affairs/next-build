@@ -1,10 +1,10 @@
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPathsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import Container from 'templates/common/container'
-import { NewsStoryTeaser } from 'templates/layouts/news_story'
-import Pager from 'templates/common/pager'
-import { transformNewsStoryTeaserData } from '@/components/newsStoryTeaser/dataService'
+import Container from '@/templates/common/container'
+import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
+import Pager from '@/templates/common/pager'
+import { transformNewsStoryTeaserData } from '@/templates/components/newsStoryTeaser/dataService'
 import { NodeResourceType } from '@/types/data-types/drupal/node'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3

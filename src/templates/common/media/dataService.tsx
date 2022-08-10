@@ -1,9 +1,9 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { MediaImage, MediaResourceType } from '@/types/data-types/drupal/media'
-import { MediaImageComponent, ImageProps } from 'templates/common/media'
+import { MediaImageComponent, ImageProps } from '@/templates/common/media'
 import { absoluteURL } from '@/lib/utils/helpers'
-t
+
 export const mediaImageDataService = function (
   entity: MediaImage
 ): ImageProps | null {

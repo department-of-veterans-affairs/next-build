@@ -5,7 +5,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
 import { NewsStoryFullType } from '@/types/index'
 import Layout from '@/templates/globals/layout'
-import { NewsStoryFull } from '@/templates/layouts/news_story'
+import { NewsStoryFull } from '@/templates/layouts/newsStoryFull'
 
 const RESOURCE_TYPES = ['node--news_story'] as const
 

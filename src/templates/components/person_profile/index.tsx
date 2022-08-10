@@ -1,4 +1,4 @@
-import Image from 'templates/common/image'
+import Image from '@/templates/common/image'
 import { DEV_PATH } from '@/lib/constants'
 
 export type PersonProfileProps = {

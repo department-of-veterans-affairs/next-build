@@ -2,9 +2,9 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeBanner, NodePromoBanner, NodeResourceType } from '@/types/data-types/drupal/node'
-import Container from 'templates/common/container'
-import Banner from 'templates/node/banner'
-import PromoBanner from 'templates/globals/promo_banner'
+import Container from '@/templates/common/container'
+import Banner from '@/templates/node/banner'
+import PromoBanner from '@/templates/globals/promo_banner'
 
 interface BannerPageProps {
   banners: NodeBanner[]

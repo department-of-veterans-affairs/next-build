@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'templates/common/image'
+import Image from '@/templates/common/image'
 import { DesktopLinks } from './desktop'
 import { MobileLinks } from './mobile'
 import { FOOTER_COLUMNS, createLinkGroups } from './helpers'
