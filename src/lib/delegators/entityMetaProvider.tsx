@@ -52,6 +52,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   PersonProfileMeta,
   StoryListingMeta,
   QuestionAnswerMeta,
+
   // blocks
   AlertBlockMeta,
   // paragraphs
@@ -60,12 +61,11 @@ const EntityMetaIn: EntityMetaInfo[] = [
   StaffProfileMeta,
   LinkTeaserMeta,
   RichTextCharLimit1000Meta,
-  StaffProfileMeta,
-  // media
-  MediaImageMeta,
   AudienceTopicsMeta,
   ButtonMeta,
   EmailContactMeta,
+  // media
+  MediaImageMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */

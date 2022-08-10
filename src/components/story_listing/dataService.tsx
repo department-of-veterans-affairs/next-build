@@ -27,7 +27,10 @@ export const storyListingDataService = function (
       return {
         // headingLevel: headingLevel,
         title: entity.title,
-        image: mediaImageDataService(entity.field_media) || null,
+        image: mediaImageDataService(
+          entity.field_media,
+          '1_1_square_medium_thumbnail '
+        ),
         link: entity.path.alias,
         introText: entity.field_intro_text,
       }
@@ -36,7 +39,7 @@ export const storyListingDataService = function (
     default:
       return {
         title: entity.title,
-        image: mediaImageDataService(entity.field_media) || null,
+        image: mediaImageDataService(entity.field_media, 'full_content_width'),
         caption: entity.field_image_caption || '',
         author: generalEntityDataService(entity.field_author, 'teaser'),
         introText: entity.field_intro_text,

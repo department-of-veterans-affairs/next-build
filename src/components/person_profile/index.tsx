@@ -57,8 +57,7 @@ export const PersonProfile = ({ node }): JSX.Element => {
           )}
           <div className="vads-u-display--flex vads-u-flex-direction--column">
             <h1 className="vads-u-font-size--xl vads-u-margin-bottom--0p5">
-              {title}
-              {suffix && [suffix]}
+              {title} {suffix}
             </h1>
             {fieldDescription && (
               <p className="vads-u-font-size--lg vads-u-margin-bottom--0p5">

@@ -10,7 +10,7 @@ export const transformNewsStoryData = function (
 ): NewsStoryProps {
   return {
     title: entity.title,
-    image: mediaImageDataService(entity.field_media),
+    image: mediaImageDataService(entity.field_media, 'full_content_width'),
     caption: entity.field_image_caption,
     author: generalEntityDataService(entity.field_author, 'teaser'),
     introText: entity.field_intro_text,

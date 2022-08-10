@@ -1,17 +1,18 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { MediaImage, MediaResourceType } from '@/types/media'
-import { ImageProps, MediaImageComponent } from '@/components/media'
+import { MediaImageProps, MediaImageComponent } from '@/components/media'
 import { absoluteURL } from '@/utils/helpers'
 
 export const mediaImageDataService = function (
-  entity: MediaImage
-): ImageProps | null {
+  entity: MediaImage,
+  imageStyle
+): MediaImageProps | null {
   if (!entity || !entity.image) return null
 
   return {
-    url: absoluteURL(entity.image.uri?.url) || '',
-    styles: entity.image.links || 'full_content_width',
+    url: absoluteURL(entity.image?.uri?.url),
+    styles: entity.image.links || imageStyle,
     alt: entity.image.resourceIdObjMeta?.alt,
     title: entity.image.resourceIdObjMeta?.title,
     width: entity.image.resourceIdObjMeta?.width,
@@ -20,7 +21,9 @@ export const mediaImageDataService = function (
 }
 
 /** All nodes end with NodeMetaInfo: the name of the resource, the name of the component, and the parameters necessary for calling the resource. */
-const params = new DrupalJsonApiParams().addInclude(['image']).addPageLimit(10)
+const params = new DrupalJsonApiParams()
+  .addInclude(['image', 'image.thumbnail'])
+  .addPageLimit(10)
 
 /** Export information necessary to identify the component and query it.
  * See {@link EntityMetaInfo}
