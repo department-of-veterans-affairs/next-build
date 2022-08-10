@@ -1,5 +1,6 @@
 import { Node } from '@/lib/delegators/Node'
 import { Banner, BannerProps } from '@/components/banner'
+import { isEmpty } from 'lodash'
 export interface LayoutProps {
   children?: React.ReactNode
   props?: any
@@ -7,12 +8,13 @@ export interface LayoutProps {
 }
 
 export default function Layout({ props, bannerData, children }: LayoutProps) {
-  if (!bannerData) bannerData = props.bannerData || null
+  if (isEmpty(bannerData)) bannerData = props.bannerData
 
   return (
     <>
-      {bannerData?.map((banner) => <Banner key={banner.id} {...banner} />) ||
-        null}
+      {bannerData &&
+        bannerData?.map((banner) => <Banner key={banner.id} {...banner} />)}
+
       {children}
     </>
   )
