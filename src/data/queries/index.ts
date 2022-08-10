@@ -1,4 +1,4 @@
-import { createQueries } from '@next-drupal/query'
+import { createQueries } from 'next-drupal-query'
 import * as NewsStoryFull from './NewsStoryFull'
 import * as StoryListingFull from './StoryListingFull'
 import * as StoryListingNewsStories from './StoryListingNewsStories'

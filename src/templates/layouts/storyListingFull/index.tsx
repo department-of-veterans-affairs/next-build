@@ -20,7 +20,9 @@ export function StoryListingFull({
   stories,
 }: StoryListingFullType) {
   const storyTeasers = stories.map((story: NewsStoryTeaserType) => (
-    <NewsStoryTeaser key={story.id} {...story} />
+    <li key={story.id}>
+      <NewsStoryTeaser {...story} />
+    </li>
   ))
   return (
     <div key={id} className="usa-grid usa-grid-full">

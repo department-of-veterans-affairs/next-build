@@ -1,4 +1,4 @@
-import { QueryData, QueryOpts, QueryParams } from '@next-drupal/query'
+import { QueryData, QueryOpts, QueryParams } from 'next-drupal-query'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
 import { NodeStoryListing } from '@/types/data-types/drupal/node'
