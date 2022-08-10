@@ -1,4 +1,4 @@
-import { Banner } from 'templates/banner'
+import { Banner } from '@/templates/globals/banner'
 import { isEmpty } from 'lodash'
 export interface LayoutProps {
   children?: React.ReactNode

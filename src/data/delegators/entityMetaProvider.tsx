@@ -11,7 +11,7 @@ import { Meta as EmailContactMeta } from '@/templates/components/email_contact/d
 import { Meta as StaffProfileMeta } from '@/templates/layouts/staffProfile/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/templates/components/richTextCharLimit1000/dataService'
 import { Meta as QuestionAnswerMeta } from '@/templates/layouts/questionAnswer/dataService'
-import { Meta as BannerMeta } from '@/templates/banner/dataService'
+import { Meta as BannerMeta } from '@/templates/globals/banner/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */

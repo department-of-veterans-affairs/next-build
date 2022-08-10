@@ -1,4 +1,5 @@
 import { render, screen } from 'test-utils'
+import { Banner } from '@/templates/globals/banner'
 
 const banner = {
   id: 'ccd9d30f-78f9-4358-80d7-191f99b18d43',
@@ -7,7 +8,6 @@ const banner = {
   alertType: 'information',
   dismiss: true,
 }
-import Banner from './index'
 
 describe('<Banner> component renders', () => {
   test('with valid data', () => {
