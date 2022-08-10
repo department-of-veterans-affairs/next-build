@@ -1,5 +1,4 @@
-import { Node } from '@/lib/delegators/Node'
-import { Banner, BannerProps } from '@/components/banner'
+import { Banner } from '@/components/banner'
 import { isEmpty } from 'lodash'
 export interface LayoutProps {
   children?: React.ReactNode
