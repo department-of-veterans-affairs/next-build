@@ -24,7 +24,7 @@ export const MediaImageComponent = ({
 }: MediaImageProps) => {
   if (!styles) return null
   const imageStyles = {
-    url: styles ? styles[imageStyle]?.href : url,
+    url: styles[imageStyle]?.href,
     height: styles[imageStyle]?.meta?.height,
     width: styles[imageStyle]?.meta?.width,
   }

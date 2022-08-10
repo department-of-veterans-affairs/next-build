@@ -12,11 +12,12 @@ export const mediaImageDataService = function (
 
   return {
     url: absoluteURL(entity.image?.uri?.url),
-    styles: entity.image.links || imageStyle,
+    styles: entity.image.links || entity.thumbnail.links,
     alt: entity.image.resourceIdObjMeta?.alt,
     title: entity.image.resourceIdObjMeta?.title,
     width: entity.image.resourceIdObjMeta?.width,
     height: entity.image.resourceIdObjMeta?.height,
+    imageStyle: imageStyle,
   }
 }
 
