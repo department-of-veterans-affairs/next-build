@@ -1,4 +1,4 @@
-import { ImageProps, MediaImageComponent } from '@/components/media'
+import { MediaImageComponent, MediaImageProps } from '@/components/media'
 import {
   PersonProfileTeaserProps,
   StaffNewsProfile,
@@ -6,10 +6,11 @@ import {
 import { formatDate } from '@/utils/helpers'
 import { SocialLinks, SocialLinksProps } from '@/components/socialLinks'
 import { StoryListingTeaser } from '../story_listing'
+import { stubArray } from 'lodash'
 
 export type NewsStoryProps = {
   title: string
-  image: ImageProps
+  image: MediaImageProps
   caption: string
   author: PersonProfileTeaserProps | any
   introText: string
@@ -30,6 +31,7 @@ export const NewsStoryFull = ({
   socialLinks,
   listing,
 }: NewsStoryProps) => {
+  const { styles } = image
   return (
     <>
       <div id="content" className="interior">
@@ -39,7 +41,7 @@ export const NewsStoryFull = ({
             <div className="usa-width-three-fourths">
               <article className="usa-content">
                 <h1>{title}</h1>
-                <MediaImageComponent image={image} imageStyle={'2_1_large'} />
+                <MediaImageComponent {...image} imageStyle={styles} />
                 <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                   {caption}
                 </div>

@@ -6,16 +6,13 @@ import { MediaImageComponent, MediaImageProps } from '.'
 // Language: typescript
 // Path: src/components/media/index.test.tsx
 
-const data: MediaImageProps = {
-  image: {
-    url: 'https://www.example.com/image.jpg',
-    width: 100,
-    height: 100,
-    alt: 'pension',
-    title: 'title',
-    styles: {},
-  },
-  imageStyle: 'string',
+let data: MediaImageProps = {
+  url: 'https://www.example.com/image.jpg',
+  width: 100,
+  height: 100,
+  alt: 'pension',
+  title: 'title',
+  styles: 'thumbnail',
 }
 
 describe('Media Image component renders with valid data', () => {
@@ -26,8 +23,9 @@ describe('Media Image component renders with valid data', () => {
 })
 
 describe('Media Image renders correct image imageStyle prop', () => {
+  data = null
   test('<MediaImage> does not render', () => {
-    render(<MediaImageComponent image={null} imageStyle="full_content_width" />)
+    render(<MediaImageComponent {...data} imageStyle="full_content_width" />)
     expect(screen.queryByAltText('pension')).not.toBeInTheDocument()
   })
 

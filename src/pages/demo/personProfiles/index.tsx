@@ -34,6 +34,7 @@ const PersonProfilePage = ({
         {staffProfiles
           ? staffProfiles.map((paragraphStaffProfile) => (
               <div key={paragraphStaffProfile.id}>
+                <h1>Staff Profile</h1>
                 <StaffProfile {...paragraphStaffProfile} />
               </div>
             ))

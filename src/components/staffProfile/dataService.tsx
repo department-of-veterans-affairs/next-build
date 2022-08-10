@@ -1,3 +1,4 @@
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { EntityMetaInfo } from '@/lib/delegators/entityMetaProvider'
 import { ParagraphStaffProfile, ParagraphResourceType } from '@/types/paragraph'
 import { StaffProfile, StaffProfileProps } from './index'
@@ -24,7 +25,8 @@ export const transformStaffProfileData = function (
         id: entity.field_staff_profile.id,
         name: name,
         thumbnail: mediaImageDataService(
-          entity.field_staff_profile.field_media
+          entity.field_staff_profile.field_media,
+          '1_1_square_medium_thumbnail'
         ),
         linkToBio: entity.field_staff_profile.field_complete_biography_create,
         path: entity.field_staff_profile.field_entity?.entityUrl.path || null,
@@ -35,8 +37,15 @@ export const transformStaffProfileData = function (
   }
 }
 
+const params = new DrupalJsonApiParams().addInclude([
+  'field_media',
+  'field_media.image',
+  'field_media.image.thumbnail',
+])
+
 export const Meta: EntityMetaInfo = {
   resource: ParagraphResourceType.StaffProfile,
   component: StaffProfile,
   dataService: transformStaffProfileData,
+  params: params,
 }

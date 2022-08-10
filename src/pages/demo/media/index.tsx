@@ -3,22 +3,23 @@ import { DrupalMedia } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
 import Layout from '@/components/layout'
 import Container from '@/components/container'
-import { MediaImageComponent } from '@/components/media'
+import { MediaImageComponent, MediaImageProps } from '@/components/media'
+import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 
 interface MediaPageProps {
-  media: DrupalMedia
+  mediaProps: any
 }
 
-const ImagePage = ({ media }: MediaPageProps) => {
-  if (!media) return null
+const ImagePage = ({ mediaProps }: MediaPageProps) => {
+  if (!mediaProps) return null
 
   return (
     <Layout>
       <Container className="container">
-        {media.map((image) => (
+        {mediaProps.map((image) => (
           <MediaImageComponent
             key={image?.id}
-            image={image}
+            {...image}
             imageStyle="1_1_square_medium_thumbnail"
           />
         ))}
@@ -45,9 +46,11 @@ export async function getStaticProps(
         },
       }
     )
+  const mediaProps = generalEntityDataService(media)
+
   return {
     props: {
-      media,
+      mediaProps,
     },
   }
 }
