@@ -3,7 +3,7 @@ import { MediaImageComponent, MediaImageProps } from '@/templates/common/media'
 export type StaffProfileProps = {
   id: string
   name: string
-  thumbnail?: any
+  thumbnail?: MediaImageProps
   linkToBio?: boolean
   path?: string | null
   description?: string
@@ -32,10 +32,11 @@ export function StaffProfile({
           </div>
         ) : (
           <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
-            <MediaImageComponent
-              className="circular-profile-image bio-paragraph-image max-width-100"
-              {...thumbnail}
-            />
+            {/*<MediaImageComponent*/}
+            {/*  className="circular-profile-image bio-paragraph-image max-width-100"*/}
+            {/*  image={thumbnail}*/}
+            {/*  imageStyle="thumbnail"*/}
+            {/*/>*/}
           </div>
         )}
         <div className="vads-u-display--flex vads-u-flex-direction--column">

@@ -2,8 +2,8 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeBannerAlert, NodeResourceType } from '@/types/data-types/drupal/node'
-import Container from 'templates/common/container'
-import BannerAlert from 'templates/node/banner_alert'
+import Container from '@/templates/common/container'
+import BannerAlert from '@/templates/node/banner_alert'
 
 interface BannerAlertPageProps {
   bannerAlerts: NodeBannerAlert[]

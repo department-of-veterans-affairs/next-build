@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils'
-import { StaffProfile } from 'templates/layouts/staffProfile/index'
+import { StaffProfile } from '@/templates/layouts/staffProfile/index'
 
 const props = {
   id: '7783e76f-5aca-4d14-9f5e-fb00cc11e4da',

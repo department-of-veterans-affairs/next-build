@@ -11,11 +11,11 @@
  * @see https://va.gov/pittsburgh-health-care/stories/
  *
  */
-import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { StoryListing } from 'templates/layouts/story_listing'
-import { mediaImageDataService } from '@/components/media/dataService'
+import { StoryListing } from '@/templates/layouts/story_listing'
+import { mediaImageDataService } from '@/templates/common/media/dataService'
 import {
   NodeResourceType,
   NodeStoryListing,

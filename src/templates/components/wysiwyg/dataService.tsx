@@ -1,7 +1,10 @@
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
-import { ParagraphResourceType, ParagraphWysiwyg } from '@/types/data-types/drupal/paragraph'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
+import {
+  ParagraphResourceType,
+  ParagraphWysiwyg,
+} from '@/types/data-types/drupal/paragraph'
 import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
-import Wysiwyg from 'templates/components/wysiwyg'
+import { Wysiwyg } from '@/templates/components/wysiwyg'
 
 export const wysiwygDataService = (entity: ParagraphWysiwyg) => {
   const data = [entity.field_wysiwyg?.processed]

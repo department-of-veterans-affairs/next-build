@@ -1,6 +1,4 @@
 import { Banner } from 'templates/banner'
-import Footer from 'templates/globals/footer'
-import { Node } from 'data/delegators/Node'
 import { isEmpty } from 'lodash'
 export interface LayoutProps {
   children?: React.ReactNode

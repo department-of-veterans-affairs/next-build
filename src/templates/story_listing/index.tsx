@@ -12,10 +12,6 @@
  *
  */
 
-import Container from '@/templates/common/container'
-import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
-import { isValidData } from '@/lib/utils/helpers'
-import Link from 'next/link'
 import { recordEvent } from '@/lib/utils/recordEvent'
 
 export type StoryListingProps = {

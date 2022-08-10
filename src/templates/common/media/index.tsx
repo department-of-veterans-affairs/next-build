@@ -1,6 +1,6 @@
 
 import { isEmpty } from 'lodash'
-import Image from 'templates/common/image'
+import Image from '@/templates/common/image'
 
 export type MediaImageProps = {
   id: string

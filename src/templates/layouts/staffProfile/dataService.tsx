@@ -1,8 +1,11 @@
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
-import { ParagraphStaffProfile, ParagraphResourceType } from '@/types/data-types/drupal/paragraph'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
+import {
+  ParagraphStaffProfile,
+  ParagraphResourceType,
+} from '@/types/data-types/drupal/paragraph'
 import { StaffProfile, StaffProfileProps } from './index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { mediaImageDataService } from 'templates/common/media/dataService'
+import { mediaImageDataService } from '@/templates/common/media/dataService'
 
 function isRequestValid(paragraph) {
   return paragraph.field_staff_profile !== null

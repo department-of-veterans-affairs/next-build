@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
-import { StaffProfile } from 'templates/layouts/staffProfile'
+import { StaffProfile } from '@/templates/layouts/staffProfile'
 
 export default {
   title: 'Paragraphs/Staff Profile',

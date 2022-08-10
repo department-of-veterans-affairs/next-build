@@ -1,4 +1,4 @@
-import { entityMeta } from 'data/delegators/entityMetaProvider'
+import { entityMeta } from '@/data/delegators/entityMetaProvider'
 import debug from 'debug'
 
 export const entityDataServiceLookup = function (entity, viewMode = 'full') {

@@ -1,6 +1,6 @@
 import { ParagraphButton, ParagraphResourceType } from '@/types/data-types/drupal/paragraph'
-import { Button, ButtonProps } from 'templates/common/button'
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
+import { Button, ButtonProps } from '@/templates/common/button'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 
 export const buttonDataService = function (
   entity: ParagraphButton

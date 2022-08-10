@@ -1,4 +1,4 @@
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { mediaImageDataService } from '@/templates/common/media/dataService'
 import {
@@ -6,7 +6,7 @@ import {
   NodeResourceType,
 } from '@/types/data-types/drupal/node'
 
-import { PersonProfile } from 'templates/components/person_profile'
+import { PersonProfile } from '@/templates/components/person_profile'
 
 export const personProfileDataService = function (
   entity: NodePersonProfile,

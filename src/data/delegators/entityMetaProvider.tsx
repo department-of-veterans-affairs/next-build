@@ -1,18 +1,18 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { Meta as StoryListingMeta } from 'templates/layouts/story_listing/dataService'
-import { Meta as PersonProfileMeta } from 'templates/components/person_profile/dataService'
-import { Meta as AlertBlockMeta } from 'templates/components/alert/dataService'
-import { Meta as WysiwygMeta } from 'templates/components/wysiwyg/dataService'
-import { Meta as ExpandableTextMeta } from 'templates/components/expandable_text/dataService'
-import { Meta as MediaImageMeta } from 'templates/common/media/dataService'
-import { Meta as AudienceTopicsMeta } from 'templates/components/audience_topics/dataService'
-import { Meta as LinkTeaserMeta } from 'templates/components/linkTeaser/dataService'
-import { Meta as ButtonMeta } from 'templates/common/button/dataService'
-import { Meta as EmailContactMeta } from 'templates/components/email_contact/dataService'
-import { Meta as StaffProfileMeta } from 'templates/layouts/staffProfile/dataService'
-import { Meta as RichTextCharLimit1000Meta } from 'templates/components/richTextCharLimit1000/dataService'
-import { Meta as QuestionAnswerMeta } from 'templates/layouts/questionAnswer/dataService'
-import { Meta as BannerMeta } from 'templates/banner/dataService'
+import { Meta as StoryListingMeta } from '@/templates/layouts/story_listing/dataService'
+import { Meta as PersonProfileMeta } from '@/templates/components/person_profile/dataService'
+import { Meta as AlertBlockMeta } from '@/templates/components/alert/dataService'
+import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
+import { Meta as ExpandableTextMeta } from '@/templates/components/expandable_text/dataService'
+import { Meta as MediaImageMeta } from '@/templates/common/media/dataService'
+import { Meta as AudienceTopicsMeta } from '@/templates/components/audience_topics/dataService'
+import { Meta as LinkTeaserMeta } from '@/templates/components/linkTeaser/dataService'
+import { Meta as ButtonMeta } from '@/templates/common/button/dataService'
+import { Meta as EmailContactMeta } from '@/templates/components/email_contact/dataService'
+import { Meta as StaffProfileMeta } from '@/templates/layouts/staffProfile/dataService'
+import { Meta as RichTextCharLimit1000Meta } from '@/templates/components/richTextCharLimit1000/dataService'
+import { Meta as QuestionAnswerMeta } from '@/templates/layouts/questionAnswer/dataService'
+import { Meta as BannerMeta } from '@/templates/banner/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -45,7 +45,6 @@ export interface EntityMetaOut {
 
 /** Collect all imported node meta information. */
 const EntityMetaIn: EntityMetaInfo[] = [
-  // nodes
   PersonProfileMeta,
   StoryListingMeta,
   QuestionAnswerMeta,
@@ -63,7 +62,6 @@ const EntityMetaIn: EntityMetaInfo[] = [
   EmailContactMeta,
   // media
   MediaImageMeta,
-  BannerMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */

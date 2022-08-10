@@ -1,5 +1,5 @@
 import { ParagraphResourceType, ParagraphLinkTeaser } from '@/types/data-types/drupal/paragraph'
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { LinkTeaser, LinkTeaserProps } from './index'
 
 export const transformLinkTeaserData = function (

@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
-import { mediaImageDataService } from '@/components/media/dataService'
-import mediaImage from '@/components/media/mockMedia.json'
+import { mediaImageDataService } from '@/templates/common/media/dataService'
+import mediaImage from '@/templates/common/media/mockMedia.json'
 // Language: typescript
 // Path: src/components/media/index.test.tsx
 const image = mediaImageDataService(mediaImage, 'full_content_width')
+import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 
 const images = {
   id: image.id,

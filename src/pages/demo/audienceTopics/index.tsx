@@ -1,13 +1,13 @@
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import Layout from 'templates/globals/layout'
-import Container from 'templates/common/container'
+import Layout from '@/templates/globals/layout'
+import Container from '@/templates/common/container'
 import {
   ParagraphAudienceTopics,
   ParagraphResourceType,
 } from '@/types/data-types/drupal/paragraph'
-import { AudienceTopics } from 'templates/components/audience_topics'
-import { generalEntityDataService } from 'data/delegators/generalEntityDataService'
+import { AudienceTopics } from '@/templates/components/audience_topics'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 interface AudienceTopicsPageProps {
   audienceTopicsCollectionProps: any

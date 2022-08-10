@@ -1,4 +1,4 @@
-import { EntityMetaInfo } from 'data/delegators/entityMetaProvider'
+import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import {
   ParagraphExpandableText,
   ParagraphResourceType,

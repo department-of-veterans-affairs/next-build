@@ -2,8 +2,8 @@ import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { NewsStoryFull } from './index'
-import mediaImage from 'templates/common/media/media_example.json'
-import { mediaImageDataService } from 'templates/common/media/dataService'
+import mediaImage from '@/templates/common/media/media_example.json'
+import { mediaImageDataService } from '@/templates/common/media/dataService'
 
 const image = mediaImageDataService(mediaImage)
 

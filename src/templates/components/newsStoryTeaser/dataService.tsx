@@ -5,7 +5,7 @@ import { NodeNewsStory, NodeResourceType } from '@/types/node'
 import {
   NewsStoryTeaser,
   NewsStoryTeaserProps,
-} from '@/components/newsStoryTeaser'
+} from '@/templates/components/newsStoryTeaser'
 
 export const transformNewsStoryTeaserData = function (
   entity: NodeNewsStory
