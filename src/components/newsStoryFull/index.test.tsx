@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { NewsStoryFull } from '.'
 
 const image = {
+  id: '1',
   url: 'https://www.example.com/image.jpg',
   width: 100,
   height: 100,

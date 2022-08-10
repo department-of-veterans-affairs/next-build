@@ -1,6 +1,7 @@
 import Image from '@/components/image'
 
 export type MediaImageProps = {
+  id: string
   url: string
   width?: number
   height?: number
@@ -13,6 +14,7 @@ export type MediaImageProps = {
 // Different from the ImageProps that are imported in image/index.tsx
 
 export const MediaImageComponent = ({
+  id,
   url,
   alt,
   title,
@@ -30,6 +32,7 @@ export const MediaImageComponent = ({
   }
   return (
     <Image
+      id={id}
       src={imageStyles?.url || url}
       alt={alt || ''}
       title={title || ''}

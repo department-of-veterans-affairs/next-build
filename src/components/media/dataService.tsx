@@ -11,7 +11,8 @@ export const mediaImageDataService = function (
   if (!entity || !entity.image) return null
 
   return {
-    url: absoluteURL(entity.image?.uri?.url),
+    id: entity.image.id,
+    url: absoluteURL(entity.image.uri?.url),
     styles: entity.image.links || entity.thumbnail.links,
     alt: entity.image.resourceIdObjMeta?.alt,
     title: entity.image.resourceIdObjMeta?.title,

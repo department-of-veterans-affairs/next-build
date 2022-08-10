@@ -2,7 +2,7 @@ import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { v4 as uuidv4 } from 'uuid'
 import { DrupalMedia } from 'next-drupal'
 import { drupalClient } from '@/utils/drupalClient'
-import { MediaImageComponent } from '@/components/media'
+import { MediaImageComponent, MediaImageProps } from '@/components/media'
 import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
 
 interface MediaPageProps {
@@ -16,7 +16,7 @@ const ImagePage = ({ mediaProps }: MediaPageProps) => {
     <>
       {mediaProps.map((image) => (
         <MediaImageComponent
-          key={uuidv4()}
+          key={image.id}
           {...image}
           imageStyle="1_1_square_medium_thumbnail"
         />

@@ -1,20 +1,27 @@
 import { render, screen } from '@testing-library/react'
 import { NewsStoryTeaser } from '@/components/newsStoryTeaser'
+import { mediaImageDataService } from '@/components/media/dataService'
+import mediaImage from '@/components/media/mockMedia.json'
+// Language: typescript
+// Path: src/components/media/index.test.tsx
+const image = mediaImageDataService(mediaImage, 'full_content_width')
 
-const image = {
-  url: 'https://www.example.com/image.jpg',
-  alt: 'pension',
-  height: 100,
-  title: 'title',
-  width: 100,
+const images = {
+  id: image.id,
+  url: image.url,
+  width: image.width,
+  height: image.height,
+  alt: image.alt,
+  title: image.title,
+  styles: image.styles,
+  imageStyle: null,
 }
-
 const teaserData = {
   title: 'We honor outstanding doctors',
   introText:
     'When a hospital has a host of great doctors, honoring just two every year is challenging.',
   link: '#',
-  image: image,
+  image: images,
 }
 
 describe('<NewsStoryTeaser> with valid data', () => {

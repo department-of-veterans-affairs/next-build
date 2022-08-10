@@ -9,6 +9,7 @@ import mediaImage from './mockMedia.json'
 const image = mediaImageDataService(mediaImage, 'full_content_width')
 
 let data: MediaImageProps = {
+  id: image.id,
   url: image.url,
   width: image.width,
   height: image.height,
