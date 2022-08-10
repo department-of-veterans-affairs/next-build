@@ -29,3 +29,13 @@ export type NewsStoryTeaserType = PublishedEntity & {
   image: ImageProps
   introText: string
 }
+
+export type StoryListingFullType = PublishedEntity & {
+  title: string
+  introText: string
+  stories: NewsStoryTeaserType[]
+}
+
+export type StoryListingLinkType = {
+  path: string
+}

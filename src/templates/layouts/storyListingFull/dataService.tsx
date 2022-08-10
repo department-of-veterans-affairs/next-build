@@ -14,7 +14,7 @@
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { StoryListing } from '@/templates/layouts/story_listing'
+import { StoryListingFull } from '@/templates/layouts/storyListingFull'
 import { mediaImageDataService } from '@/templates/common/media/dataService'
 import {
   NodeResourceType,
@@ -26,17 +26,6 @@ export const storyListingDataService = function (
   viewMode: string
 ) {
   switch (viewMode) {
-    case 'teaser':
-      return {
-        // headingLevel: headingLevel,
-        title: entity.title,
-        image: mediaImageDataService(
-          entity.field_media,
-          '1_1_square_medium_thumbnail '
-        ),
-        link: entity.path.alias,
-        introText: entity.field_intro_text,
-      }
 
     case 'full':
     default:
@@ -72,7 +61,7 @@ const newsStory = new DrupalJsonApiParams()
 
 export const Meta: EntityMetaInfo = {
   resource: NodeResourceType.StoryListing,
-  component: StoryListing,
+  component: StoryListingFull,
   dataService: storyListingDataService,
   params: params,
   additionalNode: NodeResourceType.NewsStory,

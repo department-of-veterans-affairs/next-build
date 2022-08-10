@@ -3,14 +3,15 @@ import { GetStaticPathsResult } from 'next'
 
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
-import { NewsStoryFullType } from '@/types/index'
+import { NewsStoryFullType, StoryListingFullType } from '@/types/index'
 import Layout from '@/templates/globals/layout'
 import { NewsStoryFull } from '@/templates/layouts/newsStoryFull'
+import { StoryListingFull } from '@/templates/layouts/storyListingFull'
 
-const RESOURCE_TYPES = ['node--news_story'] as const
+const RESOURCE_TYPES = ['node--news_story', 'node--story_listing'] as const
 
 interface ResourcePageProps {
-  resource: NewsStoryFullType
+  resource: NewsStoryFullType | StoryListingFullType
 }
 
 export default function ResourcePage({ resource }: ResourcePageProps) {
@@ -19,6 +20,9 @@ export default function ResourcePage({ resource }: ResourcePageProps) {
   return (
     <Layout>
       {resource.type === 'node--news_story' && <NewsStoryFull {...resource} />}
+      {resource.type === 'node--story_listing' && (
+        <StoryListingFull {...resource} />
+      )}
     </Layout>
   )
 }

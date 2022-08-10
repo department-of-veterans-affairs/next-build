@@ -13,6 +13,9 @@ const image = {
 }
 
 const data = {
+  id: 'a1b2c3',
+  published: true,
+  type: 'node--news_story',
   title: 'We honor outstanding doctors\n',
   image: image,
   caption:

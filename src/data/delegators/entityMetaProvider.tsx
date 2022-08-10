@@ -1,5 +1,4 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { Meta as StoryListingMeta } from '@/templates/layouts/story_listing/dataService'
 import { Meta as PersonProfileMeta } from '@/templates/components/person_profile/dataService'
 import { Meta as AlertBlockMeta } from '@/templates/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
@@ -46,7 +45,6 @@ export interface EntityMetaOut {
 /** Collect all imported node meta information. */
 const EntityMetaIn: EntityMetaInfo[] = [
   PersonProfileMeta,
-  StoryListingMeta,
   QuestionAnswerMeta,
   BannerMeta,
   // blocks

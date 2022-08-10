@@ -1,24 +1,9 @@
-import { ComponentType } from 'react'
-import { MediaImageProps, MediaImageComponent } from '@/templates/common/media'
-import {
-  PersonProfileTeaserProps,
-  StaffNewsProfile,
-} from '@/templates/components/person_profile'
-import { formatDate, truncateWordsOrChar } from '@/lib/utils/helpers'
-import { SocialLinks, SocialLinksProps } from '@/templates/common/socialLinks'
-import { StoryListingTeaser } from '../story_listing'
-
-export type NewsStoryProps = {
-  title: string
-  image: MediaImageProps
-  caption: string
-  author: PersonProfileTeaserProps | any
-  introText: string
-  bodyContent: string
-  date: string
-  socialLinks: SocialLinksProps
-  listing: string
-}
+import { MediaImageComponent } from '@/templates/common/media'
+import { StaffNewsProfile } from '@/templates/components/person_profile'
+import { formatDate } from '@/lib/utils/helpers'
+import { SocialLinks } from '@/templates/common/socialLinks'
+import { StoryListingLink } from '@/templates/components/storyListingLink'
+import { NewsStoryFullType } from '@/types/index'
 
 export const NewsStoryFull = ({
   title,
@@ -30,7 +15,7 @@ export const NewsStoryFull = ({
   date,
   socialLinks,
   listing,
-}: NewsStoryProps) => {
+}: NewsStoryFullType) => {
   return (
     <>
       <div id="content" className="interior">
@@ -62,7 +47,7 @@ export const NewsStoryFull = ({
                     }}
                   />
                 </div>
-                <StoryListingTeaser path={listing} />
+                <StoryListingLink path={listing} />
               </article>
             </div>
           </div>
