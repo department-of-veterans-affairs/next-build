@@ -1,12 +1,12 @@
 import { ComponentType } from 'react'
-import { ImageProps, MediaImageComponent } from '@/components/media'
+import { MediaImageComponent, MediaImageProps } from '@/components/media'
 import { truncateWordsOrChar } from '@/utils/helpers'
 
 export type NewsStoryTeaserProps = {
   headingLevel?: ComponentType | keyof JSX.IntrinsicElements
   link: string
   title: string
-  image: ImageProps
+  image: MediaImageProps
   introText: string
 }
 
@@ -34,12 +34,11 @@ export const NewsStoryTeaser = ({
             {truncateWordsOrChar(introText, 60, true)}
           </p>
         </div>
-        <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
-          <MediaImageComponent
-            image={image}
-            imageStyle={'2_1_medium_thumbnail'}
-          />
-        </div>
+        {image ? (
+          <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
+            <MediaImageComponent {...image} />
+          </div>
+        ) : null}
       </div>
     </>
   )

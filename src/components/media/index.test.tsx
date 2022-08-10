@@ -2,42 +2,40 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import '@testing-library/jest-dom'
 import { MediaImageComponent, MediaImageProps } from '.'
-
+import { mediaImageDataService } from './dataService'
+import mediaImage from './mockMedia.json'
 // Language: typescript
 // Path: src/components/media/index.test.tsx
+const image = mediaImageDataService(mediaImage, 'full_content_width')
 
-const data: MediaImageProps = {
-  image: {
-    url: 'https://www.example.com/image.jpg',
-    width: 100,
-    height: 100,
-    alt: 'pension',
-    title: 'title',
-    styles: {},
-  },
-  imageStyle: 'string',
+let data: MediaImageProps = {
+  id: image.id,
+  url: image.url,
+  width: image.width,
+  height: image.height,
+  alt: image.alt,
+  title: image.title,
+  styles: image.styles,
+  imageStyle: null,
 }
 
 describe('Media Image component renders with valid data', () => {
   test('<MediaImage> renders', () => {
-    render(<MediaImageComponent {...data} imageStyle="full_content_width" />)
-    expect(screen.getByAltText('pension')).toBeInTheDocument()
+    render(<MediaImageComponent {...data} />)
+    expect(screen.getByAltText('Dr. Brooke Decker')).toBeInTheDocument()
   })
-})
-
-describe('Media Image renders correct image imageStyle prop', () => {
-  test('<MediaImage> does not render', () => {
-    render(<MediaImageComponent image={null} imageStyle="full_content_width" />)
-    expect(screen.queryByAltText('pension')).not.toBeInTheDocument()
-  })
-
-  test('MediaImage renders with no image style', () => {
-    render(<MediaImageComponent {...data} imageStyle={null} />)
-    expect(screen.queryByAltText('pension')).toBeInTheDocument()
-  })
-
   test('MediaImage renders with large image', () => {
     render(<MediaImageComponent {...data} imageStyle="large" />)
-    expect(screen.queryByAltText('pension')).toBeInTheDocument()
+    expect(screen.queryByAltText('Dr. Brooke Decker')).toBeInTheDocument()
+  })
+  test('MediaImage renders when image style is defined', () => {
+    data.imageStyle = null
+    render(<MediaImageComponent {...data} />)
+    expect(screen.queryByAltText('Dr. Brooke Decker')).toBeInTheDocument()
+  })
+  test('MediaImage does not render with null data', () => {
+    data = null
+    render(<MediaImageComponent {...data} />)
+    expect(screen.queryByAltText('Dr. Brooke Decker')).not.toBeInTheDocument()
   })
 })
