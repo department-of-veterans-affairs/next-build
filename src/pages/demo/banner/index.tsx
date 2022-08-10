@@ -15,7 +15,6 @@ interface BannerPageProps {
 const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
   return (
     <Layout {...props}>
-  
       {/*Maintenance banner*/}
       <div
         aria-label="Maintenance banner"

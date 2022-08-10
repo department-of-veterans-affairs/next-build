@@ -7,11 +7,12 @@ export interface LayoutProps {
 }
 
 export default function Layout({ props, bannerData, children }: LayoutProps) {
-  if(!bannerData) bannerData = props.bannerData || null
+  if (!bannerData) bannerData = props.bannerData || null
 
   return (
     <>
-      {bannerData?.map((banner) => <Banner key={banner.id} {...banner} />) || null}
+      {bannerData?.map((banner) => <Banner key={banner.id} {...banner} />) ||
+        null}
       {children}
     </>
   )
