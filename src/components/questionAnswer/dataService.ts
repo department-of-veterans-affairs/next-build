@@ -15,7 +15,7 @@ export const questionAnswerDataService = function (entity: NodeQA) {
     //  alert: entity.field_alert_single, || component is available to frontend
     //  benefits: entity.field_related_benefit_hubs, || component is available to frontend
   }
-  console.log(resources)
+
   return {
     ...resources,
   }

@@ -84,7 +84,7 @@ export const Core = () => {
 
 const DemoPage = ({ props }) => {
   return (
-    <Layout props={props}>
+    <Layout {...props}>
       <Core />
     </Layout>
   )
