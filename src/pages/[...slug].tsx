@@ -21,7 +21,7 @@ export default function Page({ entityProps, props }) {
   const Component = entityMeta[entityProps.type].component
 
   return (
-    <Layout {...props}>
+    <Layout props={props}>
       <Component {...entityProps} />
     </Layout>
   )
@@ -60,7 +60,7 @@ export async function getStaticProps(
 
   const type = path.jsonapi.resourceName
   const isCollection = entityMeta[type]?.collection
-  // const addResourceToCollection = nodeMeta[type]?.additionalNode
+  // const addResourceToCollection = entityMeta[type]?.additionalNode
   const defaultProps = entityMeta[type]?.params?.addFilter('status', '1')
 
   /** Check for isCollection variable to determine if its a single resource or collection*/
@@ -78,6 +78,20 @@ export async function getStaticProps(
     : await drupalClient.getResourceFromContext<NodeTypes>(path, context, {
         params: entityMeta[type]?.params?.getQueryObject() || defaultProps,
       })
+
+  // /** Check for isCollection and additionalResource */
+  // const additionalNode = addResourceToCollection
+  //   ? await drupalClient.getResourceCollectionFromContext<NodeTypes>(
+  //       addResourceToCollection,
+  //       context,
+  //       {
+  //         params: {
+  //           'filter[field_listing.drupal_internal__nid][value]': path.entity.id, // Todo make the filter option dynamic
+  //           ...entityMeta[type]?.additionalParams?.getQueryObject(),
+  //         },
+  //       }
+  //     )
+  //   : null
 
   if (!entity || (!context.preview && entity?.status === false)) {
     return {

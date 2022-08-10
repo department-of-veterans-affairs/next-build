@@ -11,34 +11,25 @@ interface BannerPageProps {
   promoBanners?: NodePromoBanner[]
   bannerData?: any
   props?: any
-  entity?: any
 }
 
 const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
-  const { bannerData } = props
-
   return (
     <Layout {...props}>
-      <Container className="container">
-        <h1>Default Banner</h1>
-        {bannerData
-          ? [bannerData].map((banner) => <Banner key={banner.id} {...banner} />)
-          : null}
-        {/*Maintenance banner*/}
-        <div
-          aria-label="Maintenance banner"
-          data-widget-type="maintenance-banner"
-          role="region"
-        ></div>
+      {/*Maintenance banner*/}
+      <div
+        aria-label="Maintenance banner"
+        data-widget-type="maintenance-banner"
+        role="region"
+      ></div>
 
-        {promoBanners
-          ? promoBanners.map((node) => (
-              <div key={node.id}>
-                <PromoBanner node={node} />
-              </div>
-            ))
-          : null}
-      </Container>
+      {promoBanners
+        ? promoBanners.map((node) => (
+            <div key={node.id}>
+              <PromoBanner node={node} />
+            </div>
+          ))
+        : null}
     </Layout>
   )
 }
