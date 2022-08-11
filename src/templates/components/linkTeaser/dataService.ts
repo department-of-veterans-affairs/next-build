@@ -7,7 +7,7 @@ export const transformLinkTeaserData = function (
 ): LinkTeaserProps {
   return {
     id: entity.id,
-    uri: entity.field_link.uri,
+    uri: entity.field_link?.uri,
     title: entity.field_link?.title,
     options: entity.field_link?.options,
     summary: entity.field_link_summary,

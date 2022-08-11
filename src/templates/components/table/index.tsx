@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 import {
   VaTable,
   VaTableRow,
-} from '@department-of-veterans-affairs/web-components/react-bindings'
+} from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
 interface TableProps {
   data: object[]
