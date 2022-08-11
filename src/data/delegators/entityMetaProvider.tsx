@@ -33,7 +33,7 @@ export interface EntityMetaInfo {
 /** This interface enforces that the Node meta information is indexable by type. */
 export interface EntityMetaOut {
   [resource: string]: {
-    component: ({ any }) => JSX.Element
+    component: any
     dataService: (entity: any, viewMode: string) => object
     params: DrupalJsonApiParams
     additionalNode?: string

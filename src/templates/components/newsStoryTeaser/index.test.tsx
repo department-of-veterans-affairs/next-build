@@ -22,6 +22,9 @@ const teaserData = {
     'When a hospital has a host of great doctors, honoring just two every year is challenging.',
   link: '#',
   image: images,
+  id: '12345',
+  published: true,
+  type: 'node--news_story',
 }
 
 describe('<NewsStoryTeaser> with valid data', () => {

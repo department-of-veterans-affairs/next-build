@@ -10,11 +10,8 @@ import { StoryListingFull } from '@/templates/layouts/storyListingFull'
 
 const RESOURCE_TYPES = ['node--news_story', 'node--story_listing'] as const
 
-interface ResourcePageProps {
-  resource: NewsStoryFullType | StoryListingFullType
-}
 
-export default function ResourcePage({ resource }: ResourcePageProps) {
+export default function ResourcePage({ resource }) {
   if (!resource) return null
 
   return (

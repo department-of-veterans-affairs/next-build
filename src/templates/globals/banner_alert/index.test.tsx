@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils'
-import BannerAlert from '@/templates/node/banner_alert'
+import BannerAlert from '@/templates/globals/banner_alert'
 import mock_banner_alert from './nodeBannerAlert.json'
 import { NodeBannerAlert } from '@/types/data-types/drupal/node'
 

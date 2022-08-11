@@ -3,11 +3,8 @@ import { Node } from '@/data/delegators/Node'
 import { isEmpty } from 'lodash'
 export interface LayoutProps {
   children?: React.ReactNode
-  props?: {
-    // eslint-disable-next-line
-    bannerData?: any
-    footerData: object
-  }
+  props?: any
+  bannerData?: any
 }
 
 export default function Layout({ children, props }: LayoutProps) {
