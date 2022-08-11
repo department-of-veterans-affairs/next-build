@@ -3,18 +3,18 @@ import { GetStaticPathsResult } from 'next'
 
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
-import { NewsStoryType, StoryListingType } from '@/types/index'
+import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/NewsStory'
 import { StoryListing } from '@/templates/layouts/StoryListing'
 
 const RESOURCE_TYPES = ['node--news_story', 'node--story_listing'] as const
 
-export default function ResourcePage({ resource }) {
+export default function ResourcePage({ resource, props }) {
   if (!resource) return null
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       {resource.type === 'node--news_story' && <NewsStory {...resource} />}
       {resource.type === 'node--story_listing' && (
         <StoryListing {...resource} />
@@ -70,6 +70,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       resource,
+      ...(await getGlobalElements(context)),
     },
   }
 }
