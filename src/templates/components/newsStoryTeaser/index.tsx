@@ -1,4 +1,3 @@
-
 import { MediaImageComponent } from '@/templates/common/media'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { NewsStoryTeaserType } from '@/types/index'

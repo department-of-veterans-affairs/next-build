@@ -1,31 +1,29 @@
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+import { isEmpty } from 'lodash'
+import { NodeMetaInfo, NodeResourceType } from '@/types/data-types/drupal/node'
 
-export interface BannerProps {
-  id: string
-  title: string
-  body: string
-  alertType: string
-  dismiss: boolean
-}
+const BannerComponent = ({ node }): JSX.Element => {
+  if (isEmpty(node)) return
 
-export const Banner = ({
-  id,
-  title,
-  body,
-  alertType,
-  dismiss,
-}): JSX.Element => {
   return (
     <VaBanner
-      id={id}
+      id={node.id}
       role="va-banner"
-      showClose={dismiss != 'perm'}
-      headline={title}
-      type={alertType}
-      visible={id ? true : false}
-      windowSession={dismiss == 'dismiss-session'}
+      showClose={node.field_dismissible_option != 'perm'}
+      headline={node.title}
+      type={node.field_alert_type}
+      visible={true}
+      windowSession={node.field_dismissible_option == 'dismiss-session'}
     >
-      <div dangerouslySetInnerHTML={{ __html: body }} />
+      <div dangerouslySetInnerHTML={{ __html: node.body?.processed }} />
     </VaBanner>
   )
+}
+export default BannerComponent
+
+export const Meta: NodeMetaInfo = {
+  resource: NodeResourceType.Banner,
+  component: BannerComponent,
+  params: null,
+  collection: true,
 }

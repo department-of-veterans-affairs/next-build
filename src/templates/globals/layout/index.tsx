@@ -1,20 +1,29 @@
-import { Banner } from '@/templates/globals/banner'
+import Footer from '@/templates/globals/footer'
+import { Node } from '@/data/delegators/Node'
 import { isEmpty } from 'lodash'
 export interface LayoutProps {
   children?: React.ReactNode
-  props?: any
-  bannerData?: any
+  props?: {
+    // eslint-disable-next-line
+    bannerData?: any
+    footerData: object
+  }
 }
 
-export default function Layout({ props, bannerData, children }: LayoutProps) {
-  if (isEmpty(bannerData)) bannerData = props.bannerData
-
+export default function Layout({ children, props }: LayoutProps) {
   return (
     <>
-      {bannerData &&
-        bannerData?.map((banner) => <Banner key={banner.id} {...banner} />)}
+      {props?.bannerData &&
+        !isEmpty(props?.bannerData) &&
+        props.bannerData.map((banner) => (
+          <Node key={banner.id} node={banner} />
+        ))}
 
-      {children}
+      <main>{children}</main>
+
+      {props?.footerData && !isEmpty(props?.footerData) && (
+        <Footer links={props?.footerData} />
+      )}
     </>
   )
 }

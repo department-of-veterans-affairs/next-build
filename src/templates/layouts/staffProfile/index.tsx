@@ -1,4 +1,4 @@
-import { MediaImageComponent, MediaImageProps } from '@/templates/common/media'
+import { MediaImageComponent } from '@/templates/common/media'
 
 export type StaffProfileProps = {
   id: string
