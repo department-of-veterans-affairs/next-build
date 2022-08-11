@@ -14,6 +14,7 @@ import { Meta as EmailContactMeta } from '@/components/email_contact/dataService
 import { Meta as StaffProfileMeta } from '@/components/staffProfile/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/components/richTextCharLimit1000/dataService'
 import { Meta as QuestionAnswerMeta } from '@/components/questionAnswer/dataService'
+import { Meta as BenefitsHubLandingPageMeta } from '@/components/benefitsHubLandingPage/dataService'
 import { Meta as BannerMeta } from '@/components/banner/dataService'
 
 export interface EntityMetaInfo {
@@ -53,6 +54,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   PersonProfileMeta,
   StoryListingMeta,
   QuestionAnswerMeta,
+  BenefitsHubLandingPageMeta,
   BannerMeta,
   // blocks
   AlertBlockMeta,

@@ -21,7 +21,9 @@ export const Core = () => {
           <Link href="/demo/bannerAlert">Banners Alert</Link>
         </li>
         <li>
-          <Link href="/demo/partials/benefitHubsLinks">Benefit Hubs Links</Link>
+          <Link href="/demo/benefitsHubLandingPage">
+            Benefits Hub Landing Page
+          </Link>
         </li>
         <li>
           <Link href="/demo/button">Button</Link>
