@@ -1,5 +1,5 @@
 import { drupalClient } from '@/lib/utils/drupalClient'
-import Layout from '@/templates/globals/layout'
+import { Wrapper } from '@/templates/globals/wrapper'
 import Container from '@/templates/common/container'
 import { Table } from '@/templates/components/table'
 import { ParagraphResourceType } from '@/types/dataTypes/drupal/paragraph'
@@ -12,11 +12,11 @@ const TablePage = ({ data }) => {
   } = data
 
   return (
-    <Layout>
+    <Wrapper>
       <Container className="container">
         <Table data={tableData} />
       </Container>
-    </Layout>
+    </Wrapper>
   )
 }
 

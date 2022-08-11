@@ -6,7 +6,7 @@ import {
   NodeResourceType,
 } from '@/types/dataTypes/drupal/node'
 
-import { PersonProfile } from '@/templates/components/person_profile'
+import { PersonProfile } from '@/templates/components/personProfile'
 
 export const personProfileDataService = function (
   entity: NodePersonProfile,

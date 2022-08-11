@@ -6,7 +6,7 @@ import {
   NodePromoBanner,
   NodeResourceType,
 } from '@/types/dataTypes/drupal/node'
-import Layout from '@/templates/globals/layout'
+import { Wrapper } from '@/templates/globals/wrapper'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import PromoBanner from '@/templates/globals/promo_banner'
 
@@ -18,7 +18,7 @@ interface BannerPageProps {
 
 const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
   return (
-    <Layout {...props}>
+    <Wrapper {...props}>
       {/*Maintenance banner*/}
       <div
         aria-label="Maintenance banner"
@@ -33,7 +33,7 @@ const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
             </div>
           ))
         : null}
-    </Layout>
+    </Wrapper>
   )
 }
 

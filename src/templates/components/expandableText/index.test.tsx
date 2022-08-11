@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import {
   ExpandableText,
   ExpandableTextProps,
-} from '@/templates/components/expandable_text/index'
+} from '@/templates/components/expandableText/index'
 
 const expandableTextProps: ExpandableTextProps = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',

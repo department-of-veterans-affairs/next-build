@@ -18,7 +18,7 @@ import map from 'lodash/map'
 
 /** These component includes are specific to this component. */
 import { Button, ButtonProps } from '@/templates/common/button'
-import { AudienceTopics, AudienceTopicProp } from '@/templates/components/audience_topics'
+import { AudienceTopics, AudienceTopicProp } from '@/templates/components/audienceTopics'
 import { LinkTeaser, LinkTeaserProps } from '@/templates/components/linkTeaser'
 
 /**

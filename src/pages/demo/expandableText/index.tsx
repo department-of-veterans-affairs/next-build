@@ -8,7 +8,7 @@ import {
 } from '@/types/dataTypes/drupal/paragraph'
 
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
-import { ExpandableText } from '@/templates/components/expandable_text'
+import { ExpandableText } from '@/templates/components/expandableText'
 
 interface ExpandableTextPageProps {
   expandableTextCollectionProps: any

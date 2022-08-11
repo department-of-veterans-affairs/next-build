@@ -4,7 +4,7 @@ import { GetStaticPathsResult } from 'next'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
 import { NewsStoryType, StoryListingType } from '@/types/index'
-import Layout from '@/templates/globals/layout'
+import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/NewsStory'
 import { StoryListing } from '@/templates/layouts/StoryListing'
 
@@ -14,12 +14,12 @@ export default function ResourcePage({ resource }) {
   if (!resource) return null
 
   return (
-    <Layout>
+    <Wrapper>
       {resource.type === 'node--news_story' && <NewsStory {...resource} />}
       {resource.type === 'node--story_listing' && (
         <StoryListing {...resource} />
       )}
-    </Layout>
+    </Wrapper>
   )
 }
 

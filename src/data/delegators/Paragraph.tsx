@@ -4,10 +4,10 @@ import {
   ParagraphMetaOut,
   ParagraphProps,
 } from '@/types/dataTypes/drupal/paragraph'
-import { Meta as AudienceTopicsMeta } from '@/templates/components/audience_topics/dataService'
+import { Meta as AudienceTopicsMeta } from '@/templates/components/audienceTopics/dataService'
 import { Meta as ButtonMeta } from '@/templates/common/button/dataService'
-import { Meta as EmailContactMeta } from '@/templates/components/email_contact/dataService'
-import { Meta as ExpandableTextMeta } from '@/templates/components/expandable_text/dataService'
+import { Meta as EmailContactMeta } from '@/templates/components/emailContact/dataService'
+import { Meta as ExpandableTextMeta } from '@/templates/components/expandableText/dataService'
 import { Meta as StaffProfileMeta } from '@/templates/layouts/staffProfile/dataService'
 import { Meta as LinkTeaserMeta } from '@/templates/components/linkTeaser/dataService'
 import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'

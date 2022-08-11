@@ -1,5 +1,5 @@
 import { MediaImageComponent } from '@/templates/common/media'
-import { StaffNewsProfile } from '@/templates/components/person_profile'
+import { StaffNewsProfile } from '@/templates/components/personProfile'
 import { formatDate } from '@/lib/utils/helpers'
 import { SocialLinks } from '@/templates/common/socialLinks'
 import { StoryListingLink } from '@/templates/components/storyListingLink'

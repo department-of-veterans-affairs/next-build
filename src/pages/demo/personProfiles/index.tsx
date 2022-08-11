@@ -1,6 +1,6 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { drupalClient } from '@/lib/utils/drupalClient'
-import { PersonProfile, StaffNewsProfile } from '@/templates/components/person_profile'
+import { PersonProfile, StaffNewsProfile } from '@/templates/components/personProfile'
 import { StaffProfile, StaffProfileProps } from '@/templates/layouts/staffProfile'
 import { transformStaffProfileData } from '@/templates/layouts/staffProfile/dataService'
 import Container from '@/templates/common/container'

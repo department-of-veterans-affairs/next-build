@@ -6,7 +6,7 @@ export interface LayoutProps {
   bannerData?: any
 }
 
-export default function Layout({ props, bannerData, children }: LayoutProps) {
+export function Wrapper({ props, bannerData, children }: LayoutProps) {
   if (isEmpty(bannerData)) bannerData = props?.bannerData
 
   return (

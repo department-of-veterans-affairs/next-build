@@ -4,7 +4,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/templates/common/container'
 import { ParagraphEmailContact, ParagraphResourceType } from '@/types/dataTypes/drupal/paragraph'
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
-import { EmailContact } from '@/templates/components/email_contact'
+import { EmailContact } from '@/templates/components/emailContact'
 
 interface EmailContactsPageProps {
   emailContactsProps: any

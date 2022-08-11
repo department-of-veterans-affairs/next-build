@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { EmailContact } from '@/templates/components/email_contact/index'
+import { EmailContact } from '@/templates/components/emailContact/index'
 
 export default {
   title: 'Paragraphs/EmailContact',

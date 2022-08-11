@@ -1,6 +1,6 @@
 import { render, screen } from 'test-utils'
 import '@testing-library/jest-dom'
-import Layout from './index'
+import { Wrapper } from './index'
 import mock_banner from '@/templates/globals/banner/nodeBanner.json'
 
 const children = <div></div>
@@ -20,13 +20,13 @@ const banner = {
   dismiss: true,
 }
 
-describe('<Layout> renders', () => {
+describe('<Wrapper> renders', () => {
   test.skip('body', () => {
     render(
       <>
-        <Layout>
+        <Wrapper>
           <div>This is the layout</div>
-        </Layout>
+        </Wrapper>
       </>
     )
 
@@ -34,14 +34,14 @@ describe('<Layout> renders', () => {
   })
 
   test.skip('Footer data', () => {
-    render(<Layout>{children}</Layout>)
+    render(<Wrapper>{children}</Wrapper>)
     expect(screen.queryByText(/Get answers/i)).not.toBeInTheDocument()
   })
 
   test.skip('<Banner> when bannerData and footerData exist', () => {
     const props = { bannerData: [banner], footerData: [footerData] }
 
-    render(<Layout props={props}>{children}</Layout>)
+    render(<Wrapper props={props}>{children}</Wrapper>)
     expect(screen.getByRole('va-banner')).toHaveAttribute(
       'headline',
       'COVID-19 vaccines at VA'
@@ -50,11 +50,11 @@ describe('<Layout> renders', () => {
   })
 })
 
-describe('<Layout> does not render', () => {
+describe('<Wrapper> does not render', () => {
   test.skip('<Banner> when bannerData does not exist', () => {
     const props = { bannerData: null, footerData: [footerData] }
 
-    render(<Layout props={props}>{children}</Layout>)
+    render(<Wrapper props={props}>{children}</Wrapper>)
     expect(
       screen.queryByText(/This is the banner body/)
     ).not.toBeInTheDocument()
@@ -66,7 +66,7 @@ describe('<Layout> does not render', () => {
   test.skip('<Footer> when footerData exists', () => {
     const props = { bannerData: [], footerData: [footerData] }
 
-    render(<Layout props={props}>{children}</Layout>)
+    render(<Wrapper props={props}>{children}</Wrapper>)
     expect(
       screen.queryByText(/This is the banner body/)
     ).not.toBeInTheDocument()
@@ -79,7 +79,7 @@ describe('<Layout> does not render', () => {
   test.skip('<Footer> when footerData does not exist', () => {
     const props = { bannerData: [mock_banner], footerData: [] }
 
-    render(<Layout props={props}>{children}</Layout>)
+    render(<Wrapper props={props}>{children}</Wrapper>)
     expect(screen.queryByText(/This is the banner body/)).toBeInTheDocument()
     expect(
       screen.queryByText(/Veteran programs and services/)

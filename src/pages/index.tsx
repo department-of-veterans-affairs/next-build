@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Layout from '@/templates/globals/layout'
+import { Wrapper } from '@/templates/globals/wrapper'
 import Container from '@/templates/common/container'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 
@@ -86,9 +86,9 @@ export const Core = () => {
 
 const DemoPage = ({ props }) => {
   return (
-    <Layout {...props}>
+    <Wrapper {...props}>
       <Core />
-    </Layout>
+    </Wrapper>
   )
 }
 

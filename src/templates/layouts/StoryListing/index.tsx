@@ -23,7 +23,7 @@ export function StoryListing({
     <li key={story.id}>
       <NewsStoryTeaser {...story} />
     </li>
-  )) || <div className="clearfix-text">No stories at this time.</div>
+  )) || <li className="clearfix-text">No stories at this time.</li>
   return (
     <div key={id} className="usa-grid usa-grid-full">
       <div className="usa-width-three-fourths">
