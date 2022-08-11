@@ -1,4 +1,4 @@
-import { ParagraphButton, ParagraphResourceType } from '@/types/data-types/drupal/paragraph'
+import { ParagraphButton, ParagraphResourceType } from '@/types/dataTypes/drupal/paragraph'
 import { Button, ButtonProps } from '@/templates/common/button'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 

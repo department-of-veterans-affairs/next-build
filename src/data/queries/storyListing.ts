@@ -6,7 +6,7 @@ import {
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
-import { NodeStoryListing } from '@/types/data-types/drupal/node'
+import { NodeStoryListing } from '@/types/dataTypes/drupal/node'
 import { NewsStoryTeaserType, StoryListingType } from '@/types/index'
 
 // Define the query params for fetching node--news_story.

@@ -4,7 +4,7 @@ import { mediaImageDataService } from '@/templates/common/media/dataService'
 import {
   NodePersonProfile,
   NodeResourceType,
-} from '@/types/data-types/drupal/node'
+} from '@/types/dataTypes/drupal/node'
 
 import { PersonProfile } from '@/templates/components/person_profile'
 

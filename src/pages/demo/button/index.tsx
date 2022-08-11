@@ -2,7 +2,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/templates/common/container'
-import { ParagraphButton, ParagraphResourceType } from '@/types/data-types/drupal/paragraph'
+import { ParagraphButton, ParagraphResourceType } from '@/types/dataTypes/drupal/paragraph'
 import { Button } from '@/templates/common/button'
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 

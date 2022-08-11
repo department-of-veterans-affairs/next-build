@@ -1,7 +1,7 @@
 import { render, screen } from 'test-utils'
 import BannerAlert from '@/templates/globals/banner_alert'
 import mock_banner_alert from './nodeBannerAlert.json'
-import { NodeBannerAlert } from '@/types/data-types/drupal/node'
+import { NodeBannerAlert } from '@/types/dataTypes/drupal/node'
 
 const nodeBannerAlert: NodeBannerAlert = mock_banner_alert
 

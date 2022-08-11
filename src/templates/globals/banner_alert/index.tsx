@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react'
 import { recordEvent } from '@/lib/utils/recordEvent'
 import { regionBaseURL } from '@/lib/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { NodeResourceType, NodeMetaInfo } from '@/types/data-types/drupal/node'
+import { NodeResourceType, NodeMetaInfo } from '@/types/dataTypes/drupal/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 const BannerAlert = ({ node }): JSX.Element => {

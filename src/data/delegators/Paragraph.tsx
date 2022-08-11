@@ -3,7 +3,7 @@ import {
   ParagraphMetaInfo,
   ParagraphMetaOut,
   ParagraphProps,
-} from '@/types/data-types/drupal/paragraph'
+} from '@/types/dataTypes/drupal/paragraph'
 import { Meta as AudienceTopicsMeta } from '@/templates/components/audience_topics/dataService'
 import { Meta as ButtonMeta } from '@/templates/common/button/dataService'
 import { Meta as EmailContactMeta } from '@/templates/components/email_contact/dataService'

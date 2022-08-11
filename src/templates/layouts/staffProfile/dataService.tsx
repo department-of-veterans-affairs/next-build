@@ -2,7 +2,7 @@ import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import {
   ParagraphStaffProfile,
   ParagraphResourceType,
-} from '@/types/data-types/drupal/paragraph'
+} from '@/types/dataTypes/drupal/paragraph'
 import { StaffProfile, StaffProfileProps } from './index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { mediaImageDataService } from '@/templates/common/media/dataService'

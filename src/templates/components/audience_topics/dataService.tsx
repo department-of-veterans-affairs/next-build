@@ -1,7 +1,7 @@
 import {
   ParagraphAudienceTopics,
   ParagraphResourceType,
-} from '@/types/data-types/drupal/paragraph'
+} from '@/types/dataTypes/drupal/paragraph'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { AudienceTopics } from './index'

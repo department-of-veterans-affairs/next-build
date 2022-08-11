@@ -1,6 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
-import { MediaImage, MediaResourceType } from '@/types/data-types/drupal/media'
+import { MediaImage, MediaResourceType } from '@/types/dataTypes/drupal/media'
 import { MediaImageProps, MediaImageComponent } from '@/templates/common/media'
 import { absoluteURL } from '@/lib/utils/helpers'
 

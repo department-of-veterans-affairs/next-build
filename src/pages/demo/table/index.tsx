@@ -2,7 +2,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import Layout from '@/templates/globals/layout'
 import Container from '@/templates/common/container'
 import { Table } from '@/templates/components/table'
-import { ParagraphResourceType } from '@/types/data-types/drupal/paragraph'
+import { ParagraphResourceType } from '@/types/dataTypes/drupal/paragraph'
 
 const TablePage = ({ data }) => {
   if (!data) data = {}

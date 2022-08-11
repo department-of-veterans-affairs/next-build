@@ -5,7 +5,7 @@ import {
   NodeBanner,
   NodePromoBanner,
   NodeResourceType,
-} from '@/types/data-types/drupal/node'
+} from '@/types/dataTypes/drupal/node'
 import Layout from '@/templates/globals/layout'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import PromoBanner from '@/templates/globals/promo_banner'

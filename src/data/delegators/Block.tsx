@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { BlockContentProps } from '@/types/data-types/drupal/block'
+import { BlockContentProps } from '@/types/dataTypes/drupal/block'
 import { entityMeta } from './entityMetaProvider'
 
 export function BlockContent({

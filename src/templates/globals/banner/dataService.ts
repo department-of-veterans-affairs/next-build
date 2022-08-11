@@ -1,6 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
-import { NodeResourceType } from '@/types/data-types/drupal/node'
+import { NodeResourceType } from '@/types/dataTypes/drupal/node'
 import { Banner, BannerProps } from '@/templates/globals/banner'
 
 export const transformBannerDataService = (entity): BannerProps => {

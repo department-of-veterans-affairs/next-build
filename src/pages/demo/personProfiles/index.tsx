@@ -4,8 +4,8 @@ import { PersonProfile, StaffNewsProfile } from '@/templates/components/person_p
 import { StaffProfile, StaffProfileProps } from '@/templates/layouts/staffProfile'
 import { transformStaffProfileData } from '@/templates/layouts/staffProfile/dataService'
 import Container from '@/templates/common/container'
-import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/data-types/drupal/paragraph'
-import { NodePersonProfile, NodeResourceType } from '@/types/data-types/drupal/node'
+import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/dataTypes/drupal/paragraph'
+import { NodePersonProfile, NodeResourceType } from '@/types/dataTypes/drupal/node'
 
 interface ProfilePageProps {
   staffProfiles: StaffProfileProps[]

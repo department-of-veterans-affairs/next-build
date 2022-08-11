@@ -6,7 +6,7 @@ import {
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
-import { NodeNewsStory } from '@/types/data-types/drupal/node'
+import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryType } from '@/types/index'
 import { mediaImageDataService } from '@/templates/common/media/dataService'
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'

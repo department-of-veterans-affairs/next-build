@@ -1,7 +1,7 @@
 import { render, screen } from 'test-utils'
 import mockNode from './mock.json'
 import { PersonProfile } from '@/templates/components/person_profile/index'
-import { NodePersonProfile } from '@/types/data-types/drupal/node'
+import { NodePersonProfile } from '@/types/dataTypes/drupal/node'
 
 const nodePersonProfile: NodePersonProfile = mockNode
 

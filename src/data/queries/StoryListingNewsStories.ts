@@ -7,7 +7,7 @@ import {
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
-import { NodeNewsStory } from '@/types/data-types/drupal/node'
+import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryTeaserType } from '@/types/index'
 
 type ParamOpts = QueryOptsWithPagination<{

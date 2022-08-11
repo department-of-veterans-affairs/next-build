@@ -4,7 +4,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/templates/common/container'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import Pager from '@/templates/common/pager'
-import { NodeResourceType } from '@/types/data-types/drupal/node'
+import { NodeResourceType } from '@/types/dataTypes/drupal/node'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3
 export const TOTAL = 20

@@ -1,6 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
-import { NodeResourceType, NodeSupportResourcesDetailPage } from '@/types/data-types/drupal/node'
+import { NodeResourceType, NodeSupportResourcesDetailPage } from '@/types/dataTypes/drupal/node'
 import { BenefitsHubLandingPage, RelatedBenefitHubProp } from './index'
 
 export const transformBenefitsHubLandingPageDataService = function (

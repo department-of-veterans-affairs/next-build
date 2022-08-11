@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { NodeProps } from '@/types/data-types/drupal/node'
+import { NodeProps } from '@/types/dataTypes/drupal/node'
 import { entityMeta } from '@/data/delegators/entityMetaProvider'
 
 /** Generalized component. Look up the component the data requires and use it to render. */
