@@ -1,7 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { fireEvent, getByRole } from '@testing-library/dom'
 import * as recordEvent from '@/lib/utils/recordEvent'
-import { EmailContact, EmailContactProps } from '@/templates/components/emailContact'
+import {
+  EmailContact,
+  EmailContactProps,
+} from '@/templates/components/emailContact'
 
 const emailContact: EmailContactProps = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',

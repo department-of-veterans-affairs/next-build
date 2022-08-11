@@ -1,6 +1,9 @@
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
-import { BlockAlert, BlockContentResourceType } from '@/types/dataTypes/drupal/block'
+import {
+  BlockAlert,
+  BlockContentResourceType,
+} from '@/types/dataTypes/drupal/block'
 import { AlertBlock } from '@/templates/components/alert'
 
 const alertBlockDataService = function (entity: BlockAlert, viewMode: string) {

@@ -1,11 +1,23 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { drupalClient } from '@/lib/utils/drupalClient'
-import { PersonProfile, StaffNewsProfile } from '@/templates/components/personProfile'
-import { StaffProfile, StaffProfileProps } from '@/templates/layouts/staffProfile'
+import {
+  PersonProfile,
+  StaffNewsProfile,
+} from '@/templates/components/personProfile'
+import {
+  StaffProfile,
+  StaffProfileProps,
+} from '@/templates/layouts/staffProfile'
 import { transformStaffProfileData } from '@/templates/layouts/staffProfile/dataService'
 import Container from '@/templates/common/container'
-import { ParagraphResourceType, ParagraphStaffProfile } from '@/types/dataTypes/drupal/paragraph'
-import { NodePersonProfile, NodeResourceType } from '@/types/dataTypes/drupal/node'
+import {
+  ParagraphResourceType,
+  ParagraphStaffProfile,
+} from '@/types/dataTypes/drupal/paragraph'
+import {
+  NodePersonProfile,
+  NodeResourceType,
+} from '@/types/dataTypes/drupal/node'
 
 interface ProfilePageProps {
   staffProfiles: StaffProfileProps[]

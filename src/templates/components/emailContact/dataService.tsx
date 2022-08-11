@@ -1,5 +1,11 @@
-import { ParagraphEmailContact, ParagraphResourceType } from '@/types/dataTypes/drupal/paragraph'
-import { EmailContact, EmailContactProps } from '@/templates/components/emailContact'
+import {
+  ParagraphEmailContact,
+  ParagraphResourceType,
+} from '@/types/dataTypes/drupal/paragraph'
+import {
+  EmailContact,
+  EmailContactProps,
+} from '@/templates/components/emailContact'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 
 export const emailContactDataService = function (
