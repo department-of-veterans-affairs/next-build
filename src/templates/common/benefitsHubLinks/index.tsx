@@ -16,7 +16,7 @@ export type RelatedBenefitHubProp = {
 
 // Partial outputting a list of benefits related to a given page.
 // Typically, used on a resource page.
-export function BenefitsHubLandingPage({
+export function BenefitsHubLinks({
   title,
   relatedBenefitHubs,
 }: BenefitHubProps) {

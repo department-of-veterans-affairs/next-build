@@ -2,8 +2,11 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import Container from '@/templates/common/container'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeResourceType, NodeSupportResourcesDetailPage } from '@/types/dataTypes/drupal/node'
-import { BenefitsHubLandingPage } from '@/templates/common/benefitsHubLandingPage'
+import {
+  NodeResourceType,
+  NodeSupportResourcesDetailPage,
+} from '@/types/dataTypes/drupal/node'
+import { BenefitsHubLinks } from '@/templates/common/benefitsHubLinks'
 import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 interface BenefitsHubLandingPageProps {
@@ -18,7 +21,7 @@ const BenefitsHubPage = ({
   return benefitsHubCollectionProps.map((benefitsHubProp) => (
     <>
       <Container className="container">
-        <BenefitsHubLandingPage {...benefitsHubProp} />
+        <BenefitsHubLinks {...benefitsHubProp} />
         <hr />
       </Container>
     </>

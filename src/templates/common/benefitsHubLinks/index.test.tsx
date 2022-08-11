@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { BenefitHubProps, BenefitsHubLandingPage } from './index'
+import { BenefitHubProps, BenefitsHubLinks } from './index'
 
 const benefitHubProps: BenefitHubProps = {
   title: 'Deciding how much life insurance to get',
@@ -25,9 +25,7 @@ const benefitHubProps: BenefitHubProps = {
 
 describe('<BenefitsHubLandingPage> with valid data', () => {
   test('renders component', () => {
-    const { container } = render(
-      <BenefitsHubLandingPage {...benefitHubProps} />
-    )
+    const { container } = render(<BenefitsHubLinks {...benefitHubProps} />)
 
     const aEl = container.querySelectorAll('a')
 

@@ -1,14 +1,14 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { BenefitsHubLandingPage } from './index'
+import { BenefitsHubLinks } from './index'
 
 export default {
   title: 'Paragraphs/Benefits Hub Landing Page',
-  component: BenefitsHubLandingPage,
-} as ComponentMeta<typeof BenefitsHubLandingPage>
+  component: BenefitsHubLinks,
+} as ComponentMeta<typeof BenefitsHubLinks>
 
-const Template: ComponentStory<typeof BenefitsHubLandingPage> = (args) => (
-  <BenefitsHubLandingPage {...args} />
+const Template: ComponentStory<typeof BenefitsHubLinks> = (args) => (
+  <BenefitsHubLinks {...args} />
 )
 
 export const Example = Template.bind({})

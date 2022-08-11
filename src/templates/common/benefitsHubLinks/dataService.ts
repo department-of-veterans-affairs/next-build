@@ -1,7 +1,10 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
-import { NodeResourceType, NodeSupportResourcesDetailPage } from '@/types/dataTypes/drupal/node'
-import { BenefitsHubLandingPage, RelatedBenefitHubProp } from './index'
+import {
+  NodeResourceType,
+  NodeSupportResourcesDetailPage,
+} from '@/types/dataTypes/drupal/node'
+import { BenefitsHubLinks, RelatedBenefitHubProp } from './index'
 
 export const transformBenefitsHubLandingPageDataService = function (
   entity: NodeSupportResourcesDetailPage
@@ -38,7 +41,7 @@ const params = new DrupalJsonApiParams()
  */
 export const Meta: EntityMetaInfo = {
   resource: NodeResourceType.SupportResourcesDetailPage,
-  component: BenefitsHubLandingPage,
+  component: BenefitsHubLinks,
   dataService: transformBenefitsHubLandingPageDataService,
   params: params,
 }
