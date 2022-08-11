@@ -1,10 +1,13 @@
-import { drupalClient } from '@/utils/drupalClient'
+import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import Container from '@/components/container'
-import { ParagraphLinkTeaser, ParagraphResourceType } from '@/types/paragraph'
-import { LinkTeaser } from '@/components/linkTeaser'
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import Container from '@/templates/common/container'
+import {
+  ParagraphLinkTeaser,
+  ParagraphResourceType,
+} from '@/types/dataTypes/drupal/paragraph'
+import { LinkTeaser } from '@/templates/components/linkTeaser'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 const linkTeaserParams = { boldTitle: false, sectionHeader: '' }
 
 interface LinkTeaserPageProps {

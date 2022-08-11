@@ -6,7 +6,7 @@ import { defineCustomElements } from '@department-of-veterans-affairs/web-compon
 import { TAG_MANAGER_ARGS } from '@/lib/analytics'
 import TagManager from 'react-gtm-module'
 import route from 'next/dist/server/router'
-import '@/styles/globals.css'
+import '@/assets/styles/globals.css'
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode

@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
+import { Wrapper } from '@/templates/globals/wrapper'
+import Container from '@/templates/common/container'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 
 export const Core = () => {
@@ -21,9 +21,7 @@ export const Core = () => {
           <Link href="/demo/bannerAlert">Banners Alert</Link>
         </li>
         <li>
-          <Link href="/demo/benefitsHubLandingPage">
-            Benefits Hub Landing Page
-          </Link>
+          <Link href="/demo/benefitsHubLinks">Benefits Hub Links</Link>
         </li>
         <li>
           <Link href="/demo/button">Button</Link>
@@ -56,7 +54,7 @@ export const Core = () => {
         <li>
           <Link href="/demo/table">Table</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/demo/pagination/exampleA/0">
             Paginiation design system example
           </Link>
@@ -65,7 +63,7 @@ export const Core = () => {
           <Link href="/demo/pagination/exampleB/0">
             Pagination hook example
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/demo/wysiwyg">Wysiwyg example</Link>
         </li>
@@ -86,9 +84,9 @@ export const Core = () => {
 
 const DemoPage = ({ props }) => {
   return (
-    <Layout {...props}>
+    <Wrapper {...props}>
       <Core />
-    </Layout>
+    </Wrapper>
   )
 }
 

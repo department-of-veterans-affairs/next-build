@@ -1,11 +1,15 @@
-import { drupalClient } from '@/utils/drupalClient'
+import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodePromoBanner, NodeResourceType } from '@/types/node'
-
-import Layout from '@/components/layout'
-import PromoBanner from '@/components/node/promo_banner'
+import {
+  NodeBanner,
+  NodePromoBanner,
+  NodeResourceType,
+} from '@/types/dataTypes/drupal/node'
+import { Wrapper } from '@/templates/globals/wrapper'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
+import PromoBanner from '@/templates/globals/promo_banner'
+
 interface BannerPageProps {
   promoBanners?: NodePromoBanner[]
   bannerData?: any
@@ -14,7 +18,7 @@ interface BannerPageProps {
 
 const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
   return (
-    <Layout {...props}>
+    <Wrapper {...props}>
       {/*Maintenance banner*/}
       <div
         aria-label="Maintenance banner"
@@ -29,7 +33,7 @@ const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
             </div>
           ))
         : null}
-    </Layout>
+    </Wrapper>
   )
 }
 

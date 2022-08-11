@@ -1,9 +1,8 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { v4 as uuidv4 } from 'uuid'
 import { DrupalMedia } from 'next-drupal'
-import { drupalClient } from '@/utils/drupalClient'
-import { MediaImageComponent, MediaImageProps } from '@/components/media'
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import { drupalClient } from '@/lib/utils/drupalClient'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
+import { MediaImageComponent } from '@/templates/common/media'
 
 interface MediaPageProps {
   mediaProps: any

@@ -1,8 +1,8 @@
-import { drupalClient } from '@/utils/drupalClient'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
-import { Table } from '@/components/table'
-import { ParagraphResourceType } from '@/types/paragraph'
+import { drupalClient } from '@/lib/utils/drupalClient'
+import { Wrapper } from '@/templates/globals/wrapper'
+import Container from '@/templates/common/container'
+import { Table } from '@/templates/components/table'
+import { ParagraphResourceType } from '@/types/dataTypes/drupal/paragraph'
 
 const TablePage = ({ data }) => {
   if (!data) data = {}
@@ -12,11 +12,11 @@ const TablePage = ({ data }) => {
   } = data
 
   return (
-    <Layout>
+    <Wrapper>
       <Container className="container">
         <Table data={tableData} />
       </Container>
-    </Layout>
+    </Wrapper>
   )
 }
 

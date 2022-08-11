@@ -1,10 +1,13 @@
-import { drupalClient } from '@/utils/drupalClient'
+import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import Container from '@/components/container'
-import { ParagraphEmailContact, ParagraphResourceType } from '@/types/paragraph'
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
-import { EmailContact } from '@/components/email_contact'
+import Container from '@/templates/common/container'
+import {
+  ParagraphEmailContact,
+  ParagraphResourceType,
+} from '@/types/dataTypes/drupal/paragraph'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
+import { EmailContact } from '@/templates/components/emailContact'
 
 interface EmailContactsPageProps {
   emailContactsProps: any

@@ -1,13 +1,13 @@
-import { drupalClient } from '@/utils/drupalClient'
+import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import Layout from '@/components/layout'
-import Container from '@/components/container'
+import { Wrapper } from '@/templates/globals/wrapper'
+import Container from '@/templates/common/container'
 import {
   ParagraphAudienceTopics,
   ParagraphResourceType,
-} from '@/types/paragraph'
-import { AudienceTopics } from '@/components/audience_topics'
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+} from '@/types/dataTypes/drupal/paragraph'
+import { AudienceTopics } from '@/templates/components/audienceTopics'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 interface AudienceTopicsPageProps {
   audienceTopicsCollectionProps: any
@@ -19,13 +19,13 @@ const AudienceTopicsPage = ({
   if (!audienceTopicsCollectionProps) audienceTopicsCollectionProps = []
 
   return (
-    <Layout>
+    <Wrapper>
       <Container className="container">
         {audienceTopicsCollectionProps.map((audienceTopicProp) => (
           <AudienceTopics key={audienceTopicProp.id} {...audienceTopicProp} />
         ))}
       </Container>
-    </Layout>
+    </Wrapper>
   )
 }
 

@@ -1,10 +1,13 @@
-import { drupalClient } from '@/utils/drupalClient'
+import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import Container from '@/components/container'
-import { ParagraphButton, ParagraphResourceType } from '@/types/paragraph'
-import { Button } from '@/components/button'
-import { generalEntityDataService } from '@/lib/delegators/generalEntityDataService'
+import Container from '@/templates/common/container'
+import {
+  ParagraphButton,
+  ParagraphResourceType,
+} from '@/types/dataTypes/drupal/paragraph'
+import { Button } from '@/templates/common/button'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 interface ButtonPageProps {
   buttonsCollectionProps: any
