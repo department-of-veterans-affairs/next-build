@@ -14,6 +14,7 @@ import { Meta as EmailContactMeta } from '@/components/email_contact/dataService
 import { Meta as StaffProfileMeta } from '@/components/staffProfile/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/components/richTextCharLimit1000/dataService'
 import { Meta as QuestionAnswerMeta } from '@/components/questionAnswer/dataService'
+import { Meta as BenefitsHubLandingPageMeta } from '@/components/benefitsHubLandingPage/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -52,6 +53,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   PersonProfileMeta,
   StoryListingMeta,
   QuestionAnswerMeta,
+  BenefitsHubLandingPageMeta,
   // blocks
   AlertBlockMeta,
   // paragraphs
