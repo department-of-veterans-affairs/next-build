@@ -21,9 +21,7 @@ export const Core = () => {
           <Link href="/demo/bannerAlert">Banners Alert</Link>
         </li>
         <li>
-          <Link href="/demo/benefitsHubLandingPage">
-            Benefits Hub Landing Page
-          </Link>
+          <Link href="/demo/benefitsHubLinks">Benefits Hub Links</Link>
         </li>
         <li>
           <Link href="/demo/button">Button</Link>
@@ -56,7 +54,7 @@ export const Core = () => {
         <li>
           <Link href="/demo/table">Table</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/demo/pagination/exampleA/0">
             Paginiation design system example
           </Link>
@@ -65,7 +63,7 @@ export const Core = () => {
           <Link href="/demo/pagination/exampleB/0">
             Pagination hook example
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/demo/wysiwyg">Wysiwyg example</Link>
         </li>
