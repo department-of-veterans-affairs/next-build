@@ -5,7 +5,10 @@ import { MediaImageComponent } from './index'
 import { mediaImageDataService } from './dataService'
 import mediaImage from './mockMedia.json'
 
-const image = mediaImageDataService(mediaImage)
+const { url, alt, title, width, height, styles } = mediaImageDataService(
+  mediaImage,
+  'full_content_width'
+)
 
 export default {
   title: 'Common/Media Image',
@@ -18,18 +21,33 @@ const Template: ComponentStory<typeof MediaImageComponent> = (args) => (
 
 export const FullContentWidth = Template.bind({})
 FullContentWidth.args = {
-  image,
+  url,
+  alt,
+  title,
+  width,
+  height,
+  styles,
   imageStyle: 'full_content_width',
 }
 
 export const SevenTwoMediumThumbnail = Template.bind({})
 SevenTwoMediumThumbnail.args = {
-  image,
+  url,
+  alt,
+  title,
+  width,
+  height,
+  styles,
   imageStyle: '7_2_medium_thumbnail',
 }
 
 export const TwoOneLarge = Template.bind({})
 TwoOneLarge.args = {
-  image,
+  url,
+  alt,
+  title,
+  width,
+  height,
+  styles,
   imageStyle: '2_1_large',
 }

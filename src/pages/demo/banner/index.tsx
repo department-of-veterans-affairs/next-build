@@ -1,44 +1,35 @@
 import { drupalClient } from '@/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeBanner, NodePromoBanner, NodeResourceType } from '@/types/node'
-import Container from '@/components/container'
-import Banner from '@/components/node/banner'
-import PromoBanner from '@/components/node/promo_banner'
+import { NodePromoBanner, NodeResourceType } from '@/types/node'
 
+import Layout from '@/components/layout'
+import PromoBanner from '@/components/node/promo_banner'
+import { getGlobalElements } from '@/lib/context/getGlobalElements'
 interface BannerPageProps {
-  banners: NodeBanner[]
-  promoBanners: NodePromoBanner[]
+  promoBanners?: NodePromoBanner[]
+  bannerData?: any
+  props?: any
 }
 
-const BannerPage = ({ banners, promoBanners }: BannerPageProps) => {
+const BannerPage = ({ props, promoBanners }: BannerPageProps) => {
   return (
-    <>
-      <Container className="container">
-        {banners
-          ? banners.map((node) => (
-              <div key={node.id}>
-                <Banner node={node} />
-              </div>
-            ))
-          : null}
+    <Layout {...props}>
+      {/*Maintenance banner*/}
+      <div
+        aria-label="Maintenance banner"
+        data-widget-type="maintenance-banner"
+        role="region"
+      ></div>
 
-        {/*Maintenance banner*/}
-        <div
-          aria-label="Maintenance banner"
-          data-widget-type="maintenance-banner"
-          role="region"
-        ></div>
-
-        {promoBanners
-          ? promoBanners.map((node) => (
-              <div key={node.id}>
-                <PromoBanner node={node} />
-              </div>
-            ))
-          : null}
-      </Container>
-    </>
+      {promoBanners
+        ? promoBanners.map((node) => (
+            <div key={node.id}>
+              <PromoBanner node={node} />
+            </div>
+          ))
+        : null}
+    </Layout>
   )
 }
 
@@ -48,13 +39,6 @@ export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<BannerPageProps>> {
   const params = new DrupalJsonApiParams()
-  params.addFilter('status', '1')
-
-  const banners = await drupalClient.getResourceCollectionFromContext<
-    NodeBanner[]
-  >(NodeResourceType.Banner, context, {
-    params: params.getQueryObject(),
-  })
 
   const promoBanners = await drupalClient.getResourceCollectionFromContext<
     NodePromoBanner[]
@@ -64,8 +48,9 @@ export async function getStaticProps(
 
   return {
     props: {
-      banners,
+      ...(await getGlobalElements(context)),
       promoBanners,
     },
+    // will be passed to the page component as promoBanners,
   }
 }

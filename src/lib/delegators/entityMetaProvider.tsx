@@ -15,6 +15,7 @@ import { Meta as StaffProfileMeta } from '@/components/staffProfile/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/components/richTextCharLimit1000/dataService'
 import { Meta as QuestionAnswerMeta } from '@/components/questionAnswer/dataService'
 import { Meta as BenefitsHubLandingPageMeta } from '@/components/benefitsHubLandingPage/dataService'
+import { Meta as BannerMeta } from '@/components/banner/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -54,6 +55,7 @@ const EntityMetaIn: EntityMetaInfo[] = [
   StoryListingMeta,
   QuestionAnswerMeta,
   BenefitsHubLandingPageMeta,
+  BannerMeta,
   // blocks
   AlertBlockMeta,
   // paragraphs
@@ -62,12 +64,11 @@ const EntityMetaIn: EntityMetaInfo[] = [
   StaffProfileMeta,
   LinkTeaserMeta,
   RichTextCharLimit1000Meta,
-  StaffProfileMeta,
-  // media
-  MediaImageMeta,
   AudienceTopicsMeta,
   ButtonMeta,
   EmailContactMeta,
+  // media
+  MediaImageMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */
