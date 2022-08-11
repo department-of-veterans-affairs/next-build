@@ -5,7 +5,7 @@ import { NewsStoryFull } from './index'
 import mediaImage from '@/templates/common/media/mockMedia.json'
 import { mediaImageDataService } from '@/templates/common/media/dataService'
 
-const image = mediaImageDataService(mediaImage)
+const image = mediaImageDataService(mediaImage, 'full_content_width')
 
 export default {
   title: 'Layouts/News Story',

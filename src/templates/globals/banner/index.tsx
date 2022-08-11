@@ -2,7 +2,7 @@ import { VaBanner } from '@department-of-veterans-affairs/component-library/dist
 import { isEmpty } from 'lodash'
 import { NodeMetaInfo, NodeResourceType } from '@/types/data-types/drupal/node'
 
-const BannerComponent = ({ node }): JSX.Element => {
+export const BannerComponent = ({ node }): JSX.Element => {
   if (isEmpty(node)) return
 
   return (
@@ -19,7 +19,6 @@ const BannerComponent = ({ node }): JSX.Element => {
     </VaBanner>
   )
 }
-export default BannerComponent
 
 export const Meta: NodeMetaInfo = {
   resource: NodeResourceType.Banner,

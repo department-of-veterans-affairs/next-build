@@ -1,6 +1,6 @@
-import { axe, faker, render, screen, waitFor } from 'test-utils'
+import { axe, faker, render, waitFor } from 'test-utils'
 import Image from '.'
-import mediaImageIndividual from './mediaImageIndividual.json'
+import mock_media_image from './mediaImageIndividual.json'
 
 const getUrl = (data) =>
   data.included.filter((obj) => obj.type == 'file--file')[0].attributes.uri.url
@@ -14,7 +14,7 @@ describe('Image Component', () => {
     const originalError = console.error
     console.error = jest.fn()
     // eslint-disable-next-line
-    expect(() => render(<Image />)).toThrow(
+        expect(() => render(<Image/>)).toThrow(
       /image is missing required "src" property/i
     )
     console.error = originalError
@@ -22,17 +22,17 @@ describe('Image Component', () => {
   test('throws an error if no height/width properties are passed in', async () => {
     const originalError = console.error
     console.error = jest.fn()
-    let url = getUrl(mediaImageIndividual)
+    let url = getUrl(mock_media_image)
     // eslint-disable-next-line
-    expect(() => render(<Image src={url} />)).toThrow(
+        expect(() => render(<Image src={url}/>)).toThrow(
       /image with src "([^"]*)" must use "width" and "height" properties/i
     )
     console.error = originalError
   })
   test('triggers an accessibility error if no alt text is passed in', async () => {
-    let url = getUrl(mediaImageIndividual)
+    let url = getUrl(mock_media_image)
     // eslint-disable-next-line
-    const { container } = render(<Image src={url} layout={'fill'} />)
+        const {container} = render(<Image src={url} layout={'fill'}/>)
     await waitFor(async () =>
       expect(await axe(container)).toEqual(
         expect.objectContaining({
@@ -48,8 +48,8 @@ describe('Image Component', () => {
     )
   })
   test('renders if sufficient properties are provided', async () => {
-    let url = getUrl(mediaImageIndividual)
-    let altText = getAltText(mediaImageIndividual)
+    let url = getUrl(mock_media_image)
+    let altText = getAltText(mock_media_image)
     let props = {
       alt: altText,
       src: url,
@@ -57,7 +57,7 @@ describe('Image Component', () => {
       height: 400,
     }
     // eslint-disable-next-line
-    const { container } = render(<Image {...props} />)
+        const {container} = render(<Image {...props} />)
     await waitFor(async () => expect(await axe(container)).toHaveNoViolations())
     let imgElement
 

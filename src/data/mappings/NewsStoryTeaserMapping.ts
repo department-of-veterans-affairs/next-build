@@ -11,7 +11,7 @@ export const NewsStoryTeaserMapping = function (
     published: entity.status,
     headingLevel: 'foo', //headingLevel,
     title: entity.title,
-    image: mediaImageDataService(entity.field_media),
+    image: mediaImageDataService(entity.field_media, 'full_content_width'),
     link: entity.path.alias,
     introText: entity.field_intro_text,
   }

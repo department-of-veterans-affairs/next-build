@@ -2,10 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
 
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
-import mediaImage from '@/templates/common/media/media_example.json'
+import mediaImage from '@/templates/common/media/mockMedia.json
 import { mediaImageDataService } from '@/templates/common/media/dataService'
 
-const image = mediaImageDataService(mediaImage)
+const image = mediaImageDataService(mediaImage, 'full_content_width')
 
 export default {
   title: 'Components/News Story Teaser',

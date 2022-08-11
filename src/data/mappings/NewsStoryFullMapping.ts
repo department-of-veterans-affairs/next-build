@@ -11,7 +11,7 @@ export const NewsStoryFullMapping = function (
     type: entity.type,
     published: entity.status,
     title: entity.title,
-    image: mediaImageDataService(entity.field_media),
+    image: mediaImageDataService(entity.field_media, 'full_width_content'),
 
     caption: entity.field_image_caption,
     author: generalEntityDataService(entity.field_author, 'teaser'),
