@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { NewsStoryFull } from './index'
+import { NewsStory } from '.'
 import mediaImage from '@/templates/common/media/mockMedia.json'
 import { mediaImageDataService } from '@/templates/common/media/dataService'
 
@@ -9,11 +9,11 @@ const image = mediaImageDataService(mediaImage, 'full_content_width')
 
 export default {
   title: 'Layouts/News Story',
-  component: NewsStoryFull,
-} as ComponentMeta<typeof NewsStoryFull>
+  component: NewsStory,
+} as ComponentMeta<typeof NewsStory>
 
-const Template: ComponentStory<typeof NewsStoryFull> = (args) => (
-  <NewsStoryFull {...args} />
+const Template: ComponentStory<typeof NewsStory> = (args) => (
+  <NewsStory {...args} />
 )
 
 export const Full = Template.bind({})

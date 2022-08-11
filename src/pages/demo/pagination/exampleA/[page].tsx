@@ -5,7 +5,6 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/templates/common/container'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import Pagination from '@department-of-veterans-affairs/component-library/Pagination'
-import { NewsStoryTeaserMapping } from '@/data/mappings/NewsStoryTeaserMapping'
 import { NodeResourceType } from '@/types/data-types/drupal/node'
 
 export const NUMBER_OF_POSTS_PER_PAGE = 3
@@ -20,12 +19,12 @@ const NewsStoryPage = ({ page, node }) => {
       <Container className="container">
         <h1>{node[0]?.field_listing?.title}</h1>
         <h2>{node[0]?.field_listing?.field_description}</h2>
-        {node.map((news) => (
+        {/* {node.map((news) => (
           <NewsStoryTeaser
             key={news.id}
             {...NewsStoryTeaserMapping(news)}
           />
-        ))}
+        ))} */}
 
         {page ? (
           <Pagination

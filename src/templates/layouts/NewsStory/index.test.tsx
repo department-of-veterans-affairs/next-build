@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { NewsStoryFull } from '.'
+import { NewsStory } from '.'
 
 const image = {
   id: '1',
@@ -37,9 +37,9 @@ const data = {
   listing: '/pittsburgh-health-care/stories',
 }
 
-describe('<NewsStoryFull> with valid data', () => {
+describe('<newsStory> with valid data', () => {
   test('renders component', () => {
-    const { container } = render(<NewsStoryFull {...data} />)
+    const { container } = render(<NewsStory {...data} />)
     const imgEl = container.querySelectorAll('img')
 
     expect(imgEl).toBeTruthy()
@@ -51,7 +51,7 @@ describe('<NewsStoryFull> with valid data', () => {
 
   test('renders component without image', () => {
     data.image = null
-    const { container } = render(<NewsStoryFull {...data} />)
+    const { container } = render(<NewsStory {...data} />)
     const imgEl = container.querySelectorAll('img')
 
     expect(imgEl.length).toBe(0)

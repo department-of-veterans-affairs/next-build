@@ -3,9 +3,9 @@ import { StaffNewsProfile } from '@/templates/components/person_profile'
 import { formatDate } from '@/lib/utils/helpers'
 import { SocialLinks } from '@/templates/common/socialLinks'
 import { StoryListingLink } from '@/templates/components/storyListingLink'
-import { NewsStoryFullType } from '@/types/index'
+import { NewsStoryType } from '@/types/index'
 
-export const NewsStoryFull = ({
+export const NewsStory = ({
   title,
   image,
   caption,
@@ -15,7 +15,7 @@ export const NewsStoryFull = ({
   date,
   socialLinks,
   listing,
-}: NewsStoryFullType) => {
+}: NewsStoryType) => {
   return (
     <>
       <div id="content" className="interior">

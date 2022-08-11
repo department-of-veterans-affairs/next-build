@@ -7,7 +7,7 @@ export interface LayoutProps {
 }
 
 export default function Layout({ props, bannerData, children }: LayoutProps) {
-  if (isEmpty(bannerData)) bannerData = props.bannerData
+  if (isEmpty(bannerData)) bannerData = props?.bannerData
 
   return (
     <>

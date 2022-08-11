@@ -1,5 +1,6 @@
 import {
   QueryData,
+  QueryFormatter,
   QueryParams,
   QueryOptsWithPagination,
   withPagination,
@@ -8,7 +9,6 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/data-types/drupal/node'
 import { NewsStoryTeaserType } from '@/types/index'
-import { NewsStoryTeaserMapping } from '@/data/mappings/NewsStoryTeaserMapping'
 
 type ParamOpts = QueryOptsWithPagination<{
   listingId?: string
@@ -16,7 +16,7 @@ type ParamOpts = QueryOptsWithPagination<{
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<ParamOpts> = (opts) => {
-  const parameters = queries.getParams('node--news_story')
+  const parameters = queries.getParams('node--news_story--teaser')
 
   if (opts?.listingId) {
     params().addFilter('field_listing.id', opts.listingId)
@@ -25,18 +25,24 @@ export const params: QueryParams<ParamOpts> = (opts) => {
 }
 
 // Implement the data loader.
-export const data: QueryData<ParamOpts, NewsStoryTeaserType[]> = async (
+export const data: QueryData<ParamOpts, NodeNewsStory[]> = async (
   opts
-): Promise<NewsStoryTeaserType[]> => {
-  const entities = await drupalClient.getResourceCollection<NodeNewsStory>(
+): Promise<NodeNewsStory[]> => {
+  const entities = await drupalClient.getResourceCollection<NodeNewsStory[]>(
     'node--news_story',
     {
       params: params(opts).getQueryObject(),
     }
   )
 
-  const mappedEntities = entities.map((entity: NodeNewsStory) => {
-    return NewsStoryTeaserMapping(entity)
+  return entities
+}
+
+export const formatter: QueryFormatter<
+  NodeNewsStory[],
+  NewsStoryTeaserType[]
+> = (entities: NodeNewsStory[]) => {
+  return entities.map((entity) => {
+    return queries.formatData('node--news_story--teaser', entity)
   })
-  return mappedEntities
 }

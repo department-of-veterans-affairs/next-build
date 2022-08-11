@@ -10,7 +10,7 @@ export interface PublishedEntity {
   published: boolean
 }
 
-export type NewsStoryFullType = PublishedEntity & {
+export type NewsStoryType = PublishedEntity & {
   title: string
   image: ImageProps
   caption: string
@@ -30,7 +30,7 @@ export type NewsStoryTeaserType = PublishedEntity & {
   introText: string
 }
 
-export type StoryListingFullType = PublishedEntity & {
+export type StoryListingType = PublishedEntity & {
   title: string
   introText: string
   stories: NewsStoryTeaserType[]

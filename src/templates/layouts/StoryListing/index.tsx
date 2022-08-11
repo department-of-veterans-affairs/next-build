@@ -2,30 +2,28 @@
  * ### Overview
  * Story Listing represents an individual story within a Facility. These are used for human-interest articles.
  *
- * Story Listing expects datca of type {@link StoryListingFullType}.
+ * Story Listing expects datca of type {@link StoryListingType}.
  *
  * ### Examples
  * @see https://va.gov/pittsburgh-health-care/stories/
  *
  */
 
-import { NewsStoryTeaserType, StoryListingFullType } from '@/types/index'
+import { NewsStoryTeaserType, StoryListingType } from '@/types/index'
 import Container from '@/templates/common/container'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 
-export function StoryListingFull({
+export function StoryListing({
   id,
   title,
   introText,
   stories,
-}: StoryListingFullType) {
+}: StoryListingType) {
   const storyTeasers = stories?.map((story: NewsStoryTeaserType) => (
     <li key={story.id}>
       <NewsStoryTeaser {...story} />
     </li>
-  )) || (
-    <div className="clearfix-text">No stories at this time.</div>
-  )
+  )) || <div className="clearfix-text">No stories at this time.</div>
   return (
     <div key={id} className="usa-grid usa-grid-full">
       <div className="usa-width-three-fourths">
