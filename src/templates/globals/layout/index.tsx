@@ -1,5 +1,4 @@
-import Footer from '@/templates/globals/footer'
-import { Node } from '@/data/delegators/Node'
+import { Banner } from '@/templates/globals/banner'
 import { isEmpty } from 'lodash'
 export interface LayoutProps {
   children?: React.ReactNode
@@ -7,20 +6,15 @@ export interface LayoutProps {
   bannerData?: any
 }
 
-export default function Layout({ children, props }: LayoutProps) {
+export default function Layout({ props, bannerData, children }: LayoutProps) {
+  if (isEmpty(bannerData)) bannerData = props.bannerData
+
   return (
     <>
-      {props?.bannerData &&
-        !isEmpty(props?.bannerData) &&
-        props.bannerData.map((banner) => (
-          <Node key={banner.id} node={banner} />
-        ))}
+      {bannerData &&
+        bannerData?.map((banner) => <Banner key={banner.id} {...banner} />)}
 
-      <main>{children}</main>
-
-      {props?.footerData && !isEmpty(props?.footerData) && (
-        <Footer links={props?.footerData} />
-      )}
+      {children}
     </>
   )
 }
