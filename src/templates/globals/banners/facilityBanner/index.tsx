@@ -6,7 +6,7 @@ import { VaBanner } from '@department-of-veterans-affairs/component-library/dist
 import { NodeResourceType, NodeMetaInfo } from '@/types/dataTypes/drupal/node'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
-const BannerAlert = ({ node }): JSX.Element => {
+export const BannerAlert = ({ node }): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false)
   const analyticsRef = useRef(null)
 
@@ -108,5 +108,3 @@ export const Meta: NodeMetaInfo = {
   component: BannerAlert,
   params: params,
 }
-
-export default BannerAlert

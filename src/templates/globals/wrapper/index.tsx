@@ -1,4 +1,4 @@
-import { Banner } from '@/templates/globals/banner'
+import { Banner } from '@/templates/globals/banners/banner'
 import { isEmpty } from 'lodash'
 export interface LayoutProps {
   children?: React.ReactNode
@@ -13,7 +13,6 @@ export function Wrapper({ props, bannerData, children }: LayoutProps) {
     <>
       {bannerData &&
         bannerData?.map((banner) => <Banner key={banner.id} {...banner} />)}
-
       {children}
     </>
   )

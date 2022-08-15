@@ -8,7 +8,7 @@ import {
 } from '@/types/dataTypes/drupal/node'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
-import PromoBanner from '@/templates/globals/promo_banner'
+import PromoBanner from '@/templates/globals/banners/promoBanner'
 
 interface BannerPageProps {
   promoBanners?: NodePromoBanner[]

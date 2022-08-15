@@ -1,7 +1,7 @@
 import { render, screen } from 'test-utils'
 import '@testing-library/jest-dom'
 import { Wrapper } from './index'
-import mock_banner from '@/templates/globals/banner/nodeBanner.json'
+import mock_banner from '@/templates/globals/banners/banner/nodeBanner.json'
 
 const children = <div></div>
 const footerData = {

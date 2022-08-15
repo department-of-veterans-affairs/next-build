@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import PromoBanner from '@/templates/globals/promo_banner'
+import PromoBanner from '@/templates/globals/banners/promoBanner'
 import mock_promo_banner from './nodePromoBanner.json'
 
 describe('<PromoBanner> component renders', () => {

@@ -6,7 +6,7 @@ import {
   NodeResourceType,
 } from '@/types/dataTypes/drupal/node'
 import Container from '@/templates/common/container'
-import BannerAlert from '@/templates/globals/banner_alert'
+import { BannerAlert } from '@/templates/globals/banners/facilityBanner'
 
 interface BannerAlertPageProps {
   bannerAlerts: NodeBannerAlert[]

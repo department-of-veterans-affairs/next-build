@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils'
-import { Banner } from '@/templates/globals/banner'
+import { Banner } from '@/templates/globals/banners/banner'
 
 const banner = {
   id: 'ccd9d30f-78f9-4358-80d7-191f99b18d43',

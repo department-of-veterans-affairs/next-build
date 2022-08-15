@@ -9,7 +9,7 @@ import { Meta as EmailContactMeta } from '@/templates/components/emailContact/da
 import { Meta as StaffProfileMeta } from '@/templates/layouts/staffProfile/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/templates/components/richTextCharLimit1000/dataService'
 import { Meta as QuestionAnswerMeta } from '@/templates/layouts/questionAnswer/dataService'
-import { Meta as BannerMeta } from '@/templates/globals/banner/dataService'
+import { Meta as BannerMeta } from '@/templates/globals/banners/banner/dataService'
 import { Meta as BenefitsHubLinksMeta } from '@/templates/common/benefitsHubLinks/dataService'
 
 export interface EntityMetaInfo {
