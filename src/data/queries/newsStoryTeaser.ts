@@ -1,10 +1,4 @@
-import {
-  QueryData,
-  QueryFormatter,
-  QueryOpts,
-  QueryParams,
-} from 'next-drupal-query'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryTeaserType } from '@/types/index'

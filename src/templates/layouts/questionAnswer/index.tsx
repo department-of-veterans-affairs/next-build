@@ -19,10 +19,11 @@ import map from 'lodash/map'
 /** These component includes are specific to this component. */
 import { Button, ButtonProps } from '@/templates/common/button'
 import {
-  AudienceTopics,
   AudienceTopicProp,
+  AudienceTopics,
 } from '@/templates/components/audienceTopics'
-import { LinkTeaser, LinkTeaserProps } from '@/templates/components/linkTeaser'
+import { LinkTeaser } from '@/templates/components/linkTeaser'
+import { LinkTeaserType } from '@/types/index'
 
 /**
  * These components expect NodeQA as their input.
@@ -38,7 +39,7 @@ export interface QuestionAnswerProps {
   answers: string
   buttons: ButtonProps[]
   tags: AudienceTopicProp
-  teasers: LinkTeaserProps[]
+  teasers: LinkTeaserType[]
   className?: string
 }
 

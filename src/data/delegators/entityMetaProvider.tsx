@@ -5,7 +5,6 @@ import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
 import { Meta as ExpandableTextMeta } from '@/templates/components/expandableText/dataService'
 import { Meta as MediaImageMeta } from '@/templates/common/media/dataService'
 import { Meta as AudienceTopicsMeta } from '@/templates/components/audienceTopics/dataService'
-import { Meta as LinkTeaserMeta } from '@/templates/components/linkTeaser/dataService'
 import { Meta as ButtonMeta } from '@/templates/common/button/dataService'
 import { Meta as EmailContactMeta } from '@/templates/components/emailContact/dataService'
 import { Meta as StaffProfileMeta } from '@/templates/layouts/staffProfile/dataService'
@@ -55,7 +54,6 @@ const EntityMetaIn: EntityMetaInfo[] = [
   WysiwygMeta,
   ExpandableTextMeta,
   StaffProfileMeta,
-  LinkTeaserMeta,
   RichTextCharLimit1000Meta,
   AudienceTopicsMeta,
   ButtonMeta,
