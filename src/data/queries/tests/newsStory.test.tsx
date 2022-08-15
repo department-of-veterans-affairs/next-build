@@ -1,6 +1,6 @@
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from './mocks/newsStory.mock.json'
+import mockData from '@/mocks/newsStory.mock.json'
 
 const nodeNewsStoryMock: NodeNewsStory = mockData
 
