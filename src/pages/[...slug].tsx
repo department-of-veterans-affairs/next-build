@@ -50,8 +50,6 @@ export async function getStaticProps(context) {
     }
   }
 
-  console.log('context ', context)
-  console.log('path.entity.uuid ', path.entity.uuid)
   const resource = await queries.getData(type, {
     context,
     id: path.entity.uuid,
