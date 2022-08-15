@@ -20,20 +20,14 @@
     },
     "field_link_summary": "Not sure if you qualify? Find out if you can get VA health care benefits.",
     "links": {
-      "self": [
-        null
-      ]
+      "self": [null]
     },
     "paragraph_type": {
       "type": "paragraphs_type--paragraphs_type",
       "id": "072db7a4-476e-41a6-ab49-c44184281451",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
-    "relationshipNames": [
-      "paragraph_type"
-    ]
+    "relationshipNames": ["paragraph_type"]
   },
   {
     "type": "paragraph--link_teaser",
@@ -56,20 +50,14 @@
     },
     "field_link_summary": "Ready to apply? Get started now.",
     "links": {
-      "self": [
-        null
-      ]
+      "self": [null]
     },
     "paragraph_type": {
       "type": "paragraphs_type--paragraphs_type",
       "id": "072db7a4-476e-41a6-ab49-c44184281451",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
-    "relationshipNames": [
-      "paragraph_type"
-    ]
+    "relationshipNames": ["paragraph_type"]
   },
   {
     "type": "paragraph--link_teaser",
@@ -92,19 +80,13 @@
     },
     "field_link_summary": "Find out how to access VA services for mental health, women’s health, and other specific needs.",
     "links": {
-      "self": [
-        null
-      ]
+      "self": [null]
     },
     "paragraph_type": {
       "type": "paragraphs_type--paragraphs_type",
       "id": "072db7a4-476e-41a6-ab49-c44184281451",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
-    "relationshipNames": [
-      "paragraph_type"
-    ]
+    "relationshipNames": ["paragraph_type"]
   }
 ]
