@@ -4,6 +4,7 @@ import * as NewsStoryTeaser from './newsStoryTeaser'
 import * as StoryListing from './storyListing'
 import * as LinkTeaser from './linkTeaser'
 import * as ExpandableText from './expandableText'
+import * as LinkTeaser from './linkTeaser'
 
 export const queries = createQueries({
   'node--news_story': NewsStory,
@@ -11,4 +12,5 @@ export const queries = createQueries({
   'node--story_listing': StoryListing,
   'paragraph--link_teaser': LinkTeaser,
   'paragraph--expandable_text': ExpandableText,
+  'paragraph--link_teaser': LinkTeaser,
 })
