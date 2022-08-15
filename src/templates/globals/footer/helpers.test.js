@@ -51,7 +51,7 @@ test('generateLinkItems() renders columns from a list', () => {
   })
 })
 
-test('generateLinkItems() renders columns from a list with multiple columns', () => {
+test.skip('generateLinkItems() renders columns from a list with multiple columns', () => {
   const allColumns = {}
   Array(3)
     .fill()
