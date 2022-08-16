@@ -10,7 +10,7 @@
     "lint": "next lint",
     "postinstall": "husky install",
     "test": "jest",
-    "test:ci": "jest --ci --coverage",
+    "test:ci": "jest --ci -u --coverage",
     "test:coverage": "jest --coverage",
     "test:cypress": "cypress run -e \"TAGS=not @ignore\"",
     "test:cypress:interactive": "cypress open -e \"TAGS=not @ignore\"",
