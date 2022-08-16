@@ -5,8 +5,8 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
-import { NewsStory } from '@/templates/layouts/NewsStory'
-import { StoryListing } from '@/templates/layouts/StoryListing'
+import { NewsStory } from '@/templates/layouts/newsStory'
+import { StoryListing } from '@/templates/layouts/storyListing'
 
 const RESOURCE_TYPES = ['node--news_story', 'node--story_listing'] as const
 

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { StoryListing } from '@/templates/layouts/StoryListing'
+import { StoryListing } from '@/templates/layouts/storyListing'
 import { StoryListingType } from '@/types/index'
 
 let storyListingProps: StoryListingType = {
