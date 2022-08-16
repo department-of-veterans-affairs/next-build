@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import PromoBanner from '@/templates/globals/banners/promoBanner'
+import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import mock_promo_banner from './nodePromoBanner.json'
 
 describe('<PromoBanner> component renders', () => {
   test('with valid data', () => {
-    render(<PromoBanner node={mock_promo_banner} />)
+    render(<PromoBanner {...mock_promo_banner} />)
     expect(
       screen.queryByText(/Help for Afghanistan Veterans and families/)
     ).toBeInTheDocument()
@@ -17,7 +17,7 @@ describe('<PromoBanner> component renders', () => {
 
 describe('<PromoBanner> component does not render', () => {
   test('without node data', () => {
-    render(<PromoBanner node={[]} />)
+    render(<PromoBanner {...mock_promo_banner} />)
     expect(
       screen.queryByText(/Help for Afghanistan Veterans and families/)
     ).not.toBeInTheDocument()

@@ -1,18 +1,22 @@
 import { VaPromoBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { isEmpty } from 'lodash'
 
-const PromoBannerComponent = ({ node }): JSX.Element => {
-  if (isEmpty(node)) return
+export interface PromoBannerProps {
+  id: string
+  title: string
+  href?: string
+  alertType?: string
+  type?: string
+}
 
+export const PromoBanner = ({ id, href, title, alertType }): JSX.Element => {
   return (
     <VaPromoBanner
-      id={node.id}
+      id={id}
       role="va-promoBanner"
-      href={node.field_link.uri}
-      type={node.field_promo_type}
+      href={href}
+      alertType={alertType}
     >
-      {node.title}
+      {title}
     </VaPromoBanner>
   )
 }
-export default PromoBannerComponent

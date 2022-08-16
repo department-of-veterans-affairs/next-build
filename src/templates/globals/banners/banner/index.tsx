@@ -6,6 +6,7 @@ export interface BannerProps {
   body: string
   alertType: string
   dismiss: boolean
+  type: string
 }
 
 export const Banner = ({

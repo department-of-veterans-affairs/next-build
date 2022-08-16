@@ -1,13 +1,37 @@
-import { isEmpty } from 'lodash'
 import { useRef, useEffect, useState } from 'react'
 import { recordEvent } from '@/lib/utils/recordEvent'
 import { regionBaseURL } from '@/lib/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { NodeResourceType, NodeMetaInfo } from '@/types/dataTypes/drupal/node'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { NodeMetaInfo } from '@/types/dataTypes/drupal/node'
 
-export const BannerAlert = ({ node }): JSX.Element => {
+export interface FacilityBannerProps {
+  id: string
+  title: string
+  body?: string
+  fieldAlertType?: string
+  dismiss?: string
+  path?: any
+  type?: string
+  operatingStatus?: boolean
+  findFacilities?: string
+  inheritanceSubpages?: string
+  bannerAlertVacms?: any
+}
+
+export const FacilityBanner = ({
+  id,
+  title,
+  body,
+  path,
+  fieldAlertType,
+  findFacilities,
+  operatingStatus,
+  inheritanceSubpages,
+  bannerAlertVacms,
+  dismiss,
+}: FacilityBannerProps): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false)
+  const [outputStatus, setOutputStatus] = useState(true)
   const analyticsRef = useRef(null)
 
   useEffect(() => {
@@ -20,38 +44,37 @@ export const BannerAlert = ({ node }): JSX.Element => {
     return () => window.removeEventListener('click', handler)
   }, [])
 
-  if (isEmpty(node)) return
+  const hideOnSubpages = inheritanceSubpages
+  const alertType = fieldAlertType === 'information' ? 'info' : fieldAlertType
 
-  const hideOnSubpages = node.field_alert_inheritance_subpages
-  const alertType =
-    node.field_alert_type === 'information' ? 'info' : node.field_alert_type
-  const region = '/' + regionBaseURL(node.path?.alias)
-  const lastArg = node.path?.alias.substring(node.path?.alias.lastIndexOf('/'))
+  const region = '/' + regionBaseURL(path?.alias)
+  const lastArg = path?.alias?.substring(path?.alias?.lastIndexOf('/'))
 
-  let body = node.field_body?.processed
-  let outputStatus = false
+  let content = body
   let statusUrl = ''
 
-  node.field_banner_alert_vamcs?.map((vamcs) => {
-    if (region == vamcs?.field_office?.path?.alias) {
-      outputStatus = true
+  bannerAlertVacms?.map((vamc) => {
+    if (region == vamc?.field_office?.path?.alias) {
+      setOutputStatus(true)
+      return outputStatus
     }
     if (hideOnSubpages && lastArg != region && lastArg != '/operating-status') {
-      outputStatus = false
+      setOutputStatus(false)
+      return outputStatus
     }
-    statusUrl = vamcs?.path?.alias
+    statusUrl = vamc?.path?.alias
   })
 
-  if (node.field_alert_operating_status_cta && statusUrl?.length) {
-    body += `<p>
+  if (operatingStatus && statusUrl?.length) {
+    content += `<p>
           <a href='${statusUrl}'>
             Get updates on affected services and facilities
           </a>
       </p>`
   }
 
-  if (node.field_alert_find_facilities_cta) {
-    body += `
+  if (findFacilities) {
+    content += `
       <p>
         <a href="/find-locations">Find other VA facilities near you</a>
       </p>`
@@ -60,16 +83,16 @@ export const BannerAlert = ({ node }): JSX.Element => {
   if (isClicked) {
     let eventData = {}
 
-    if (node.field_alert_operating_status_cta && statusUrl?.length) {
+    if (operatingStatus && statusUrl?.length) {
       eventData = {
         event: 'nav-warning-alert-box-content-link-click',
-        alertBoxHeading: `${node.title}`,
+        alertBoxHeading: `${title}`,
       }
     } else {
       eventData = {
         event: 'nav-alert-box-link-click',
         'alert-box-status': alertType,
-        'alert-box-headline': node.title,
+        'alert-box-headline': title,
         'alert-box-headline-level': '3',
         'alert-box-background-only': 'false',
         'alert-box-closeable': 'false',
@@ -81,30 +104,27 @@ export const BannerAlert = ({ node }): JSX.Element => {
   }
 
   return (
-    <VaBanner
-      id={node.id}
-      role="va-banner"
-      showClose={node.field_alert_dismissable}
-      headline={node.title}
-      type={node.field_alert_type}
-      visible={true}
-      windowSession={node.field_alert_dismissable == 'dismiss-session'}
-    >
-      <div ref={analyticsRef} dangerouslySetInnerHTML={{ __html: body }} />
-    </VaBanner>
+    <>
+      {outputStatus && (
+        <VaBanner
+          id={id}
+          role="va-banner"
+          showClose={dismiss}
+          headline={title}
+          type={alertType}
+          visible={true}
+          windowSession={dismiss == 'dismiss-session'}
+        >
+          <div
+            ref={analyticsRef}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </VaBanner>
+      )}
+    </>
   )
 }
 
 /** Export information necessary to identify the component and query it.
  * See {@link NodeMetaInfo}
  */
-const params = new DrupalJsonApiParams()
-
-params.addFilter('status', '1')
-params.addPageLimit(3)
-
-export const Meta: NodeMetaInfo = {
-  resource: NodeResourceType.BannerAlert,
-  component: BannerAlert,
-  params: params,
-}

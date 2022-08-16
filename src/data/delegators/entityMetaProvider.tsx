@@ -10,6 +10,8 @@ import { Meta as StaffProfileMeta } from '@/templates/layouts/staffProfile/dataS
 import { Meta as RichTextCharLimit1000Meta } from '@/templates/components/richTextCharLimit1000/dataService'
 import { Meta as QuestionAnswerMeta } from '@/templates/layouts/questionAnswer/dataService'
 import { Meta as BannerMeta } from '@/templates/globals/banners/banner/dataService'
+import { Meta as PromoBannerMeta } from '@/templates/globals/banners/promoBanner/dataService'
+import { Meta as BannerAlertMeta } from '@/templates/globals/banners/facilityBanner/dataService'
 import { Meta as BenefitsHubLinksMeta } from '@/templates/common/benefitsHubLinks/dataService'
 
 export interface EntityMetaInfo {
@@ -47,6 +49,8 @@ const EntityMetaIn: EntityMetaInfo[] = [
   QuestionAnswerMeta,
   BenefitsHubLinksMeta,
   BannerMeta,
+  PromoBannerMeta,
+  BannerAlertMeta,
   // blocks
   AlertBlockMeta,
   // paragraphs

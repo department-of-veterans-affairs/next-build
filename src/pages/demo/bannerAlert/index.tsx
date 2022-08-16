@@ -6,10 +6,15 @@ import {
   NodeResourceType,
 } from '@/types/dataTypes/drupal/node'
 import Container from '@/templates/common/container'
-import { BannerAlert } from '@/templates/globals/banners/facilityBanner'
+import { BannerProps } from '@/templates/globals/banners/banner'
+
+import {
+  FacilityBanner,
+  FacilityBannerProps,
+} from '@/templates/globals/banners/facilityBanner'
 
 interface BannerAlertPageProps {
-  bannerAlerts: NodeBannerAlert[]
+  bannerAlerts: FacilityBannerProps[]
 }
 
 const BannerAlertPage = ({ bannerAlerts }: BannerAlertPageProps) => {
@@ -18,9 +23,7 @@ const BannerAlertPage = ({ bannerAlerts }: BannerAlertPageProps) => {
       <Container className="container">
         {bannerAlerts
           ? bannerAlerts.map((node) => (
-              <div key={node.id}>
-                <BannerAlert node={node} />
-              </div>
+              <FacilityBanner key={node.id} {...node} />
             ))
           : null}
       </Container>
