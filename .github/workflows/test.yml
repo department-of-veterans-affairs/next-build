@@ -30,7 +30,7 @@ jobs:
         run: yarn test:format
 
       - name: Run tests with jest
-        run: yarn test:ci -u
+        run: yarn test:ci
 
       - name: Run tests on examples
         run: yarn test:examples
