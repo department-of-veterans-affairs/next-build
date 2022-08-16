@@ -9,7 +9,7 @@
     "format": "prettier --write .",
     "lint": "next lint",
     "postinstall": "husky install",
-    "test": "jest",
+    "test": "jest -u",
     "test:ci": "jest --ci -u --coverage",
     "test:coverage": "jest --coverage",
     "test:cypress": "cypress run -e \"TAGS=not @ignore\"",

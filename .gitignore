@@ -39,3 +39,4 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+/src/data/queries/tests/__snapshots__/
