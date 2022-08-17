@@ -3,14 +3,9 @@ import {
   VaAccordionItem,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { isEmpty } from 'lodash'
+import { ExpandableTextType } from '@/types/index'
 
-export interface ExpandableTextProps {
-  id: string
-  header: string
-  text: string
-}
-
-export function ExpandableText({ id, header, text }: ExpandableTextProps) {
+export function ExpandableText({ id, header, text }: ExpandableTextType) {
   if (isEmpty(header)) return
 
   return (

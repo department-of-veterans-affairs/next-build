@@ -1,0 +1,92 @@
+[
+  {
+    "type": "paragraph--expandable_text",
+    "id": "e422fb0a-e050-4941-8192-b05c7055e5c0",
+    "drupal_internal__id": 2824,
+    "drupal_internal__revision_id": 3580,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-03-15T14:11:10+00:00",
+    "parent_id": "17",
+    "parent_type": "block_content",
+    "parent_field_name": "field_alert_content",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_text_expander": "Show more",
+    "field_wysiwyg": {
+      "value": "\n\nIf you need support for a specific mental health problem—or if you’re having problems sleeping, controlling your anger, or readjusting to civilian life—you are not alone. And we can help.\n\n**To access free VA mental health services right away:**\n- **Call or walk in to any VA medical center**—anytime, day or night. <br/><a href=\"https://www.va.gov/find-locations/?zoomLevel=4&amp;page=1&amp;address=&amp;facilityType=health&amp;serviceType\">Find your nearest VA health facility</a>\n- **Call or walk in to any Vet Center** during clinic hours. <br/><a href=\"https://www.va.gov/find-locations/?zoomLevel=4&amp;page=1&amp;address=&amp;facilityType=health&amp;serviceType\">Find your nearest Vet Center</a>\n- **Call us at 1-877-222-VETS (<a href=\"tel:+18772228387\">1-877-222-8387</a>).** We’re here Monday through Friday, 8:00 a.m. to 8:00 p.m. ET. If you have hearing loss, call TTY: 1-800-877-8339.\n\nYou don’t need to be enrolled in VA health care to get care.\n\n**To connect with other resources for Veterans and transitioning service members:**\n- <a href=\"https://www.militaryonesource.mil/\">Visit the Department of Defense (DoD) Military OneSource website</a>\n- <a href=\"https://www.mentalhealth.va.gov/transitioning-service/programs.asp\">Visit our mental health site for transitioning service members</a>\n- <a href=\"https://www.whitehouse.gov/presidential-actions/presidential-executive-order-supporting-veterans-transition-uniformed-service-civilian-life/\">Read about our commitment to supporting transitioning Veterans</a>\n\n",
+      "format": "rich_text",
+      "processed": "If you need support for a specific mental health problem—or if you’re having problems sleeping, controlling your anger, or readjusting to civilian life—you are not alone. And we can help.\n\n**To access free VA mental health services right away:**\n- **Call or walk in to any VA medical center**—anytime, day or night. <br /><a href=\"https://www.va.gov/find-locations/?zoomLevel=4&amp;page=1&amp;address=&amp;facilityType=health&amp;serviceType\">Find your nearest VA health facility</a>\n- **Call or walk in to any Vet Center** during clinic hours. <br /><a href=\"https://www.va.gov/find-locations/?zoomLevel=4&amp;page=1&amp;address=&amp;facilityType=health&amp;serviceType\">Find your nearest Vet Center</a>\n- **Call us at 1-877-222-VETS (<a href=\"tel:+18772228387\">1-877-222-8387</a>).** We’re here Monday through Friday, 8:00 a.m. to 8:00 p.m. ET. If you have hearing loss, call TTY: 1-800-877-8339.\n\nYou don’t need to be enrolled in VA health care to get care.\n\n**To connect with other resources for Veterans and transitioning service members:**\n- <a href=\"https://www.militaryonesource.mil/\">Visit the Department of Defense (DoD) Military OneSource website</a>\n- <a href=\"https://www.mentalhealth.va.gov/transitioning-service/programs.asp\">Visit our mental health site for transitioning service members</a>\n- <a href=\"https://www.whitehouse.gov/presidential-actions/presidential-executive-order-supporting-veterans-transition-uniformed-service-civilian-life/\">Read about our commitment to supporting transitioning Veterans</a>"
+    },
+    "links": {
+      "self": [null]
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "0a249911-a230-46ae-8af2-e3752bb2c46e",
+      "resourceIdObjMeta": [null]
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--expandable_text",
+    "id": "15f56857-83c4-46b7-a381-eb8192e5f03e",
+    "drupal_internal__id": 4035,
+    "drupal_internal__revision_id": 14580,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-06-03T21:48:28+00:00",
+    "parent_id": "5",
+    "parent_type": "block_content",
+    "parent_field_name": "field_alert_content",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_text_expander": "Learn how to sign in",
+    "field_wysiwyg": {
+      "value": "<p>To use this feature, you'll need a Premium <strong>DS Logon</strong> account. Your My HealtheVet or ID.me credentials won’t work on the eBenefits website. Go to eBenefits to sign in, register, or upgrade your <strong>DS Logon</strong> account to Premium.<br />\r\n<a class=\"usa-button-primary\" href=\"https://www.ebenefits.va.gov/ebenefits/about/feature?feature=hearing-aid-batteries-and-prosthetic-socks\">Go to eBenefits to Order Items Online</a></p>\r\n",
+      "format": "rich_text",
+      "processed": "<p>To use this feature, you'll need a Premium <strong>DS Logon</strong> account. Your My HealtheVet or ID.me credentials won’t work on the eBenefits website. Go to eBenefits to sign in, register, or upgrade your <strong>DS Logon</strong> account to Premium.<br /><a class=\"usa-button-primary\" href=\"https://www.ebenefits.va.gov/ebenefits/about/feature?feature=hearing-aid-batteries-and-prosthetic-socks\">Go to eBenefits to Order Items Online</a></p>"
+    },
+    "links": {
+      "self": [null]
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "0a249911-a230-46ae-8af2-e3752bb2c46e",
+      "resourceIdObjMeta": [null]
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--expandable_text",
+    "id": "a4996639-adb4-4ab5-bd47-35b535f77886",
+    "drupal_internal__id": 4036,
+    "drupal_internal__revision_id": 14581,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-06-03T22:20:50+00:00",
+    "parent_id": "3",
+    "parent_type": "block_content",
+    "parent_field_name": "field_alert_content",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_text_expander": "Learn how to sign in",
+    "field_wysiwyg": {
+      "value": "<p>To use this feature, you'll need a Premium <strong>DS Logon</strong> account. Your My HealtheVet or ID.me credentials won’t work on the eBenefits website. Go to eBenefits to sign in, register, or upgrade your <strong>DS Logon</strong> account to Premium.<br />\r\n<a class=\"usa-button-primary\" href=\"https://www.ebenefits.va.gov/ebenefits/vapii\">Go to eBenefits</a></p>\r\n",
+      "format": "rich_text",
+      "processed": "<p>To use this feature, you'll need a Premium <strong>DS Logon</strong> account. Your My HealtheVet or ID.me credentials won’t work on the eBenefits website. Go to eBenefits to sign in, register, or upgrade your <strong>DS Logon</strong> account to Premium.<br /><a class=\"usa-button-primary\" href=\"https://www.ebenefits.va.gov/ebenefits/vapii\">Go to eBenefits</a></p>"
+    },
+    "links": {
+      "self": [null]
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "0a249911-a230-46ae-8af2-e3752bb2c46e",
+      "resourceIdObjMeta": [null]
+    },
+    "relationshipNames": ["paragraph_type"]
+  }
+]

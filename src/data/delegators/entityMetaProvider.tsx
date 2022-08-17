@@ -2,7 +2,6 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Meta as PersonProfileMeta } from '@/templates/components/personProfile/dataService'
 import { Meta as AlertBlockMeta } from '@/templates/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
-import { Meta as ExpandableTextMeta } from '@/templates/components/expandableText/dataService'
 import { Meta as MediaImageMeta } from '@/templates/common/media/dataService'
 import { Meta as AudienceTopicsMeta } from '@/templates/components/audienceTopics/dataService'
 import { Meta as LinkTeaserMeta } from '@/templates/components/linkTeaser/dataService'
@@ -53,7 +52,6 @@ const EntityMetaIn: EntityMetaInfo[] = [
   AlertBlockMeta,
   // paragraphs
   WysiwygMeta,
-  ExpandableTextMeta,
   StaffProfileMeta,
   LinkTeaserMeta,
   RichTextCharLimit1000Meta,

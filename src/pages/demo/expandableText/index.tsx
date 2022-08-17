@@ -1,32 +1,22 @@
-import { drupalClient } from '@/lib/utils/drupalClient'
-import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/templates/common/container'
-import {
-  ParagraphExpandableText,
-  ParagraphResourceType,
-} from '@/types/dataTypes/drupal/paragraph'
-
-import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 import { ExpandableText } from '@/templates/components/expandableText'
+import { ExpandableTextType } from '@/types/index'
+import { queries } from '@/data/queries'
 
 interface ExpandableTextPageProps {
-  expandableTextCollectionProps: any
+  expandableTextCollectionProps: ExpandableTextType[]
 }
 
-const ExpandableTextPage = ({
+export default function ExpandableTextPage({
   expandableTextCollectionProps,
-}: ExpandableTextPageProps) => {
+}: ExpandableTextPageProps) {
   return (
     <>
       <Container className="container">
-        {expandableTextCollectionProps.map((expandableTextProps) => {
+        {expandableTextCollectionProps.map((expandableText) => {
           return (
             <>
-              <ExpandableText
-                key={expandableTextProps.id}
-                {...expandableTextProps}
-              />
+              <ExpandableText key={expandableText.id} {...expandableText} />
             </>
           )
         })}
@@ -35,27 +25,16 @@ const ExpandableTextPage = ({
   )
 }
 
-export default ExpandableTextPage
-
-export async function getStaticProps(
-  context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<ExpandableTextPageProps>> {
-  const params = new DrupalJsonApiParams()
-  params.addPageLimit(20)
-
-  const expandableTextCollection =
-    await drupalClient.getResourceCollectionFromContext<
-      ParagraphExpandableText[]
-    >(ParagraphResourceType.ExpandableText, context, {
-      params: params.getQueryObject(),
-    })
-
-  const expandableTextCollectionProps = generalEntityDataService(
-    expandableTextCollection
+export async function getStaticProps() {
+  const expandableTextCollection = await queries.getData(
+    'paragraph--expandable_text'
   )
+
   return {
     props: {
-      expandableTextCollectionProps,
+      expandableTextCollectionProps: JSON.parse(
+        JSON.stringify(expandableTextCollection)
+      ),
     },
   }
 }
