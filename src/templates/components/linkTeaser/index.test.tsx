@@ -1,10 +1,11 @@
 import { render, screen } from '@testing-library/react'
-import { fireEvent, getByRole } from '@testing-library/dom'
+import { fireEvent } from '@testing-library/dom'
 import * as recordEvent from '@/lib/utils/recordEvent'
-import { LinkTeaser, LinkTeaserProps } from './index'
+import { LinkTeaser } from './index'
+import { LinkTeaserType } from '@/types/index'
 
 describe('<LinkTeaser> component renders without field_spokes', () => {
-  const LinkTeaserCollectionProps: LinkTeaserProps = {
+  const LinkTeaserCollectionProps: LinkTeaserType = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
@@ -105,7 +106,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 })
 
 describe('<LinkTeaser> component renders with field_spokes', () => {
-  const LinkTeaserCollectionProps: LinkTeaserProps = {
+  const LinkTeaserCollectionProps: LinkTeaserType = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
@@ -215,7 +216,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
 describe('LinkTeaser with invalid data', () => {
   test('does render <LinkTeaser> component when uri is not present', () => {
-    const LinkTeaserCollectionProps: LinkTeaserProps = {
+    const LinkTeaserCollectionProps: LinkTeaserType = {
       id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
       uri: '/health-care/eligibility/',
       title: 'Health Care Benefits Eligibility',

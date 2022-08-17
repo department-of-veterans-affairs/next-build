@@ -1,0 +1,92 @@
+[
+  {
+    "type": "paragraph--link_teaser",
+    "id": "cb0c2019-0f48-448f-98ca-205d80c8f6fe",
+    "drupal_internal__id": 3,
+    "drupal_internal__revision_id": 3,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-01-10T17:56:40+00:00",
+    "parent_id": "2",
+    "parent_type": "paragraph",
+    "parent_field_name": "field_va_paragraphs",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_link": {
+      "uri": "/health-care/eligibility/",
+      "title": "Health Care Benefits Eligibility",
+      "options": []
+    },
+    "field_link_summary": "Not sure if you qualify? Find out if you can get VA health care benefits.",
+    "links": {
+      "self": [null]
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "072db7a4-476e-41a6-ab49-c44184281451",
+      "resourceIdObjMeta": [null]
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--link_teaser",
+    "id": "18e73277-6d82-4391-a33e-4ddf118fb3b0",
+    "drupal_internal__id": 4,
+    "drupal_internal__revision_id": 4,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-01-10T17:56:40+00:00",
+    "parent_id": "2",
+    "parent_type": "paragraph",
+    "parent_field_name": "field_va_paragraphs",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_link": {
+      "uri": "/health-care/how-to-apply/",
+      "title": "How to Apply for Health Care Benefits",
+      "options": []
+    },
+    "field_link_summary": "Ready to apply? Get started now.",
+    "links": {
+      "self": [null]
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "072db7a4-476e-41a6-ab49-c44184281451",
+      "resourceIdObjMeta": [null]
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--link_teaser",
+    "id": "42b1db7c-8ee2-4fcd-933c-df8affa95117",
+    "drupal_internal__id": 5,
+    "drupal_internal__revision_id": 5,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-01-10T17:56:40+00:00",
+    "parent_id": "2",
+    "parent_type": "paragraph",
+    "parent_field_name": "field_va_paragraphs",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_link": {
+      "uri": "/health-care/health-needs-conditions/",
+      "title": "Health Needs and Conditions",
+      "options": []
+    },
+    "field_link_summary": "Find out how to access VA services for mental health, women’s health, and other specific needs.",
+    "links": {
+      "self": [null]
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "072db7a4-476e-41a6-ab49-c44184281451",
+      "resourceIdObjMeta": [null]
+    },
+    "relationshipNames": ["paragraph_type"]
+  }
+]

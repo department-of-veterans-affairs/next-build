@@ -2,21 +2,9 @@ import Image from '@/templates/common/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/utils/recordEvent'
 import { IMAGE_PATH_TEMP } from '@/lib/constants'
+import { LinkTeaserType } from '@/types/index'
 
 export const thumbnail = IMAGE_PATH_TEMP + '/img/arrow-right-blue.svg'
-
-export interface LinkTeaserProps {
-  id: string
-  title: string
-  summary: string
-  uri: string
-  parentField: string
-  options: [string[]]
-  componentParams: {
-    boldTitle: boolean
-    sectionHeader: string
-  }
-}
 
 export const LinkTeaser = ({
   id,
@@ -26,7 +14,7 @@ export const LinkTeaser = ({
   parentField,
   componentParams,
   options,
-}: LinkTeaserProps) => {
+}: LinkTeaserType) => {
   const { boldTitle, sectionHeader } = componentParams
 
   const analytic = {

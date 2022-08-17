@@ -1,35 +1,32 @@
-import { drupalClient } from '@/lib/utils/drupalClient'
-import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import Container from '@/templates/common/container'
-import {
-  ParagraphLinkTeaser,
-  ParagraphResourceType,
-} from '@/types/dataTypes/drupal/paragraph'
 import { LinkTeaser } from '@/templates/components/linkTeaser'
-import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
+import { queries } from '@/data/queries'
+import { ParagraphResourceType } from '@/types/dataTypes/drupal/paragraph'
+import { LinkTeaserType } from '@/types/index'
+
 const linkTeaserParams = { boldTitle: false, sectionHeader: '' }
 
 interface LinkTeaserPageProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  LinkTeaserCollectionProps: any
+  LinkTeaserCollectionProps: LinkTeaserType[]
   componentParams?: {
     boldTitle: boolean
     sectionHeader: string
   }
 }
 
-const LinkTeaserPage = ({ LinkTeaserCollectionProps }: LinkTeaserPageProps) => {
+export default function LinkTeaserPage({
+  LinkTeaserCollectionProps,
+}: LinkTeaserPageProps) {
   if (!LinkTeaserCollectionProps) LinkTeaserCollectionProps = []
 
   return (
     <>
       <Container className="container">
         <ul className="usa-unstyled-list">
-          {LinkTeaserCollectionProps.map((LinkTeaserProps) => (
+          {LinkTeaserCollectionProps.map((linkTeaser) => (
             <LinkTeaser
-              key={LinkTeaserProps.id}
-              {...LinkTeaserProps}
+              key={linkTeaser.id}
+              {...linkTeaser}
               componentParams={linkTeaserParams}
             />
           ))}
@@ -39,29 +36,16 @@ const LinkTeaserPage = ({ LinkTeaserCollectionProps }: LinkTeaserPageProps) => {
   )
 }
 
-export default LinkTeaserPage
-
-export async function getStaticProps(
-  context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<LinkTeaserPageProps>> {
-  const params = new DrupalJsonApiParams()
-  params.addPageLimit(3)
-
-  const LinkTeaserCollection =
-    await drupalClient.getResourceCollectionFromContext<ParagraphLinkTeaser[]>(
-      ParagraphResourceType.LinkTeaser,
-      context,
-      {
-        params: params.getQueryObject(),
-      }
-    )
-
-  const LinkTeaserCollectionProps =
-    generalEntityDataService(LinkTeaserCollection)
+export async function getStaticProps() {
+  const linkTeaserCollection = await queries.getData(
+    ParagraphResourceType.LinkTeaser
+  )
 
   return {
     props: {
-      LinkTeaserCollectionProps,
+      LinkTeaserCollectionProps: JSON.parse(
+        JSON.stringify(linkTeaserCollection)
+      ),
     },
   }
 }
