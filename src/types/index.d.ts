@@ -34,19 +34,6 @@ export type StoryListingLinkType = {
   path: string
 }
 
-export type LinkTeaserType = {
-  id: string
-  title: string
-  summary: string
-  uri: string
-  parentField: string
-  options: any[]
-  componentParams: {
-    boldTitle: boolean
-    sectionHeader: string
-  }
-}
-
 export type ExpandableTextType = {
   id: string
   header: string
