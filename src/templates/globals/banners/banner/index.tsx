@@ -24,7 +24,7 @@ export const Banner = ({
       headline={title}
       type={alertType}
       visible={id ? true : false}
-      windowSession={dismiss == 'dismiss-session'}
+      windowSession={dismiss ? 'dismiss-session' : null}
     >
       <div dangerouslySetInnerHTML={{ __html: body }} />
     </VaBanner>

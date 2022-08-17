@@ -1,29 +1,16 @@
 {
-  "type": "node--full_width_banner_alert",
-    "id": "ccd9d30f-78f9-4358-80d7-191f99b18d43",
-    "title": "Help Limit the Spread of COVID-19 and other Illnesses",
-    "body": "<p><strong>IMPORTANT UPDATES FROM VA PITTSBURGH</strong></p>\n\n<p>In-person visitation for COVID-negative inpatients at University Drive is limited to two visitors per patient during specified hours. Outpatients can bring a support person to clinic appointments and procedures. We require all entrants to wear a VA-provided procedure mask. For more information, please see <a href=\"https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.va.gov%2Fpittsburgh-health-care%2Foperating-statu...",
-    "alertType": "information",
-    "dismiss": true,
-    "operatingStatus": true,
-    "inheritanceSubpages": null,
-    "path": "/va-pittsburgh-health-care/vamc-banner-alert/2021-01-08/help-limit-the-spread-of-covid-19-and-other",
-    "bannerAlertVacms": [
+    "bannerData": [
       {
-        "type": "node--vamc_operating_status_and_alerts",
-        "id": "8822bbdd-f5f8-4700-8abb-5566431bd705",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 1010
-        }
+        "id": "ccd9d30f-78f9-4358-80d7-191f99b18d43",
+        "title": "Help Limit the Spread of COVID-19 and other Illnesses",
+        "body": "<p><strong>IMPORTANT UPDATES FROM VA PITTSBURGH</strong></p>\n\n<p>In-person visitation for COVID-negative inpatients at University Drive is limited to two visitors per patient during specified hours. Outpatients can bring a support person to clinic appointments and procedures. We require all entrants to wear a VA-provided procedure mask. For more information, please see <a href=\"https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.va.gov%2Fpittsburgh-health-care%2Foperating-statu...",
+        "alertType": "information",
+        "dismiss": true,
+        "operatingStatus": true,
+        "inheritanceSubpages": null,
+        "path": "/va-pittsburgh-health-care/vamc-banner-alert/2021-01-08/help-limit-the-spread-of-covid-19-and-other",
+        "bannerAlertVacms": "[{…}]",
+        "type": "node--full_width_banner_alert"
       }
-    ],
-  "field_situation_updates": [],
-  "relationshipNames": [
-    "node_type",
-    "revision_uid",
-    "uid",
-    "field_administration",
-    "field_banner_alert_vamcs",
-    "field_situation_updates"
-  ]
-}
+    ]
+  }

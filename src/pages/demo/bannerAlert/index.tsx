@@ -2,7 +2,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import {
-  NodeBannerAlert,
+  NodeFullWidthBannerAlert,
   NodeResourceType,
 } from '@/types/dataTypes/drupal/node'
 import Container from '@/templates/common/container'
@@ -46,7 +46,7 @@ export async function getStaticProps(
   params.addPageLimit(3)
 
   let bannerAlerts = await drupalClient.getResourceCollectionFromContext<
-    NodeBannerAlert[]
+    NodeFullWidthBannerAlert[]
   >(NodeResourceType.BannerAlert, context, {
     params: params.getQueryObject(),
   })

@@ -53,7 +53,7 @@ export type LinkTeaserType = {
   }
 }
 
-export type BannerType = PublishedEntity & {
+export type BannerType = {
   id: string
   title: string
   body: string
@@ -62,7 +62,7 @@ export type BannerType = PublishedEntity & {
   type: string
 }
 
-export type PromoBannerType = PublishedEntity & {
+export type PromoBannerType = {
   id: string
   title: string
   alertType: string
@@ -70,18 +70,16 @@ export type PromoBannerType = PublishedEntity & {
   type: string
 }
 
-export type FacilityBannerType = PublishedEntity & {
+export type FacilityBannerType = {
   id: string
   title: string
   body?: string
   fieldAlertType?: string
-  dismiss?: string
+  dismiss?: boolean
   path?: string
   type?: string
   operatingStatus?: boolean
   findFacilities?: string
-  inheritanceSubpages?: string
-  bannerAlertVacms?: string
+  inheritanceSubpages?: boolean
+  bannerAlertVacms?: any
 }
-
-export type GlobalElements = LayoutProps

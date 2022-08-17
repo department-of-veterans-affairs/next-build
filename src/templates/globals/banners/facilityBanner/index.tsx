@@ -9,12 +9,12 @@ export interface FacilityBannerProps {
   title: string
   body?: string
   fieldAlertType?: string
-  dismiss?: string
-  path?: any
+  dismiss?: boolean
+  path?: string
   type?: string
   operatingStatus?: boolean
   findFacilities?: string
-  inheritanceSubpages?: string
+  inheritanceSubpages?: boolean
   bannerAlertVacms?: any
 }
 
@@ -47,8 +47,8 @@ export const FacilityBanner = ({
   const hideOnSubpages = inheritanceSubpages
   const alertType = fieldAlertType === 'information' ? 'info' : fieldAlertType
 
-  const region = '/' + regionBaseURL(path?.alias)
-  const lastArg = path?.alias?.substring(path?.alias?.lastIndexOf('/'))
+  const region = '/' + regionBaseURL(path)
+  const lastArg = path?.substring(path?.lastIndexOf('/'))
 
   let content = body
   let statusUrl = ''
@@ -113,7 +113,7 @@ export const FacilityBanner = ({
           headline={title}
           type={alertType}
           visible={true}
-          windowSession={dismiss == 'dismiss-session'}
+          windowSession={dismiss ? 'dismiss-session' : null}
         >
           <div
             ref={analyticsRef}
