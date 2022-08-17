@@ -30,7 +30,7 @@ jobs:
         run: yarn test:format
 
       - name: Run tests with jest
-        run: NEXT_PUBLIC_DRUPAL_BASE_URL=unused yarn test:ci
+        run: yarn test:ci
 
       - name: Run tests on examples
         run: yarn test:examples
