@@ -1,10 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import {
-  ExpandableText,
-  ExpandableTextProps,
-} from '@/templates/components/expandableText/index'
+import { ExpandableText } from '@/templates/components/expandableText/index'
 
-const expandableTextProps: ExpandableTextProps = {
+const expandableTextProps = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   header: 'Show more',
   text: 'If you need support...',

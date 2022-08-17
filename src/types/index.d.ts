@@ -46,3 +46,9 @@ export type LinkTeaserType = {
     sectionHeader: string
   }
 }
+
+export type ExpandableTextType = {
+  id: string
+  header: string
+  text: string
+}
