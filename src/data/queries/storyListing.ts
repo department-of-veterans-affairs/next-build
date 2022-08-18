@@ -46,12 +46,13 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
     }
   )
 
+  // Fetch facility menu (sidebar navigation)
   const menuOpts = {
     params: new DrupalJsonApiParams()
       .addFields('menu_items', ['title,url'])
       .getQueryObject(),
   }
-
+  // todo: figure out how to dynamically get this name... entity.field_office.field_system_menu ... drupal_internal__target_id
   const menu = await drupalClient.getMenu('pittsburgh-health-care', menuOpts)
 
   return {
