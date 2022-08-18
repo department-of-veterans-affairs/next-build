@@ -1,18 +1,19 @@
 import clsx from 'clsx'
 import { useState } from 'react'
-import { FacilityMenuType } from '@/types/index'
+import { Menu } from '@/types/dataTypes/drupal/menu'
 
 const renderChildItems = (items) => {
   return items.map((item) => {
-    return (
-      <a key={item.id} href={item.url} className="va-sidenav-item-label">
-        {item.label}
-      </a>
-    )
+    if (item.enabled)
+      return (
+        <a key={item.id} href={item.url} className="va-sidenav-item-label">
+          {item.title}
+        </a>
+      )
   })
 }
 
-export const FacilityMenu = ({ items }: FacilityMenuType) => {
+export const FacilityMenu = ({ items, tree }: Menu) => {
   const [active, setActive] = useState(false)
 
   return (
