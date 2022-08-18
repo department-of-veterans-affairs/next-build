@@ -37,11 +37,15 @@ export default function LinkTeaserPage({
 }
 
 export async function getStaticProps() {
-  const test = await queries.getData(ParagraphResourceType.LinkTeaser)
+  const linkTeaserCollection = await queries.getData(
+    ParagraphResourceType.LinkTeaser
+  )
 
   return {
     props: {
-      LinkTeaserCollectionProps: JSON.parse(JSON.stringify(test)),
+      LinkTeaserCollectionProps: JSON.parse(
+        JSON.stringify(linkTeaserCollection)
+      ),
     },
   }
 }

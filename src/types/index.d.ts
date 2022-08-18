@@ -34,6 +34,12 @@ export type StoryListingLinkType = {
   path: string
 }
 
+export type ExpandableTextType = {
+  id: string
+  header: string
+  text: string
+}
+
 export type LinkTeaserType = {
   id: string
   title: string
