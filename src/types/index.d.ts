@@ -1,3 +1,5 @@
+import { Menu } from '@/types/dataTypes/drupal/menu'
+
 export global {
   interface Window {
     gtag: any
@@ -34,8 +36,14 @@ export type StoryListingType = PublishedEntity & {
   title: string
   introText: string
   stories: NewsStoryTeaserType[]
+  menu: Menu
 }
 
 export type StoryListingLinkType = {
   path: string
+}
+
+export type MenuLink = {
+  title: string
+  url: string
 }
