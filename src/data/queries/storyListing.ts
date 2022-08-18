@@ -7,7 +7,9 @@ import {
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
 import { NodeStoryListing, NodeNewsStory } from '@/types/dataTypes/drupal/node'
+import { Menu } from '@/types/dataTypes/drupal/menu'
 import { StoryListingType } from '@/types/index'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -22,6 +24,7 @@ type DataOpts = QueryOpts<{
 type StoryListingData = {
   entity: NodeStoryListing
   stories: NodeNewsStory[]
+  menu: Menu
 }
 
 // Implement the data loader.
@@ -42,15 +45,26 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
         .getQueryObject(),
     }
   )
+
+  const menuOpts = {
+    params: new DrupalJsonApiParams()
+      .addFields('menu_items', ['title,url'])
+      .getQueryObject(),
+  }
+
+  const menu = await drupalClient.getMenu('pittsburgh-health-care', menuOpts)
+
   return {
     entity,
     stories,
+    menu,
   }
 }
 
 export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
   entity,
   stories,
+  menu,
 }) => {
   const formattedStories = stories.map((story) => {
     return queries.formatData('node--news_story--teaser', story)
@@ -62,5 +76,6 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
     title: entity.title,
     introText: entity.field_intro_text,
     stories: formattedStories,
+    menu,
   }
 }

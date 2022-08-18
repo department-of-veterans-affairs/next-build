@@ -1,3 +1,9 @@
+export global {
+  interface Window {
+    gtag: any
+  }
+}
+
 export interface PublishedEntity {
   id: string
   type: string
@@ -28,6 +34,7 @@ export type StoryListingType = PublishedEntity & {
   title: string
   introText: string
   stories: NewsStoryTeaserType[]
+  menu: Menu
 }
 
 export type StoryListingLinkType = {
