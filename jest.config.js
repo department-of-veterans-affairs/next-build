@@ -9,7 +9,11 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  moduleDirectories: ['node_modules', path.join(__dirname, 'test')],
+  moduleDirectories: [
+    'node_modules',
+    '<rootDir>/',
+    path.join(__dirname, 'test'),
+  ],
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)
     '^@/__tests__/(.*)$': '<rootDir>/src/__tests__/$1',
@@ -42,6 +46,8 @@ const customJestConfig = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/example_tests'],
+  transformIgnorePatterns: ['/dist/.+\\.js'],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
