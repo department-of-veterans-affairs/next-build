@@ -3,19 +3,19 @@ import { recordEvent } from '@/lib/utils/recordEvent'
 import { regionBaseURL } from '@/lib/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { NodeMetaInfo } from '@/types/dataTypes/drupal/node'
-
+import { BannerAlertVacms, Path } from '@/types/index'
 export interface FacilityBannerProps {
   id: string
   title: string
   body?: string
   fieldAlertType?: string
   dismiss?: boolean
-  path?: string
+  path?: Path
   type?: string
   operatingStatus?: boolean
   findFacilities?: string
   inheritanceSubpages?: boolean
-  bannerAlertVacms?: any
+  bannerAlertVacms?: BannerAlertVacms[]
 }
 
 export const FacilityBanner = ({
@@ -44,26 +44,34 @@ export const FacilityBanner = ({
     return () => window.removeEventListener('click', handler)
   }, [])
 
+  const findPath = path?.alias
   const hideOnSubpages = inheritanceSubpages
   const alertType = fieldAlertType === 'information' ? 'info' : fieldAlertType
 
-  const region = '/' + regionBaseURL(path)
-  const lastArg = path?.substring(path?.lastIndexOf('/'))
+  const region = '/' + regionBaseURL(findPath)
+  const lastArg = findPath?.substring(findPath?.lastIndexOf('/'))
 
   let content = body
   let statusUrl = ''
 
-  bannerAlertVacms?.map((vamc) => {
-    if (region == vamc?.field_office?.path?.alias) {
-      setOutputStatus(true)
-      return outputStatus
-    }
-    if (hideOnSubpages && lastArg != region && lastArg != '/operating-status') {
-      setOutputStatus(false)
-      return outputStatus
-    }
-    statusUrl = vamc?.path?.alias
-  })
+  if (bannerAlertVacms) {
+    // TODO: Banner AlertVACMS data is a special case. we need to call a relationship which our current banner endpoint does not support. node--vamc_operating_status_and_alerts
+    bannerAlertVacms?.map((vamc) => {
+      if (region == vamc?.field_office?.path?.alias) {
+        setOutputStatus(true)
+        return outputStatus
+      }
+      if (
+        hideOnSubpages &&
+        lastArg != region &&
+        lastArg != '/operating-status'
+      ) {
+        setOutputStatus(false)
+        return outputStatus
+      }
+      statusUrl = vamc?.path?.alias
+    })
+  }
 
   if (operatingStatus && statusUrl?.length) {
     content += `<p>
@@ -113,7 +121,7 @@ export const FacilityBanner = ({
           headline={title}
           type={alertType}
           visible={true}
-          windowSession={dismiss ? 'dismiss-session' : null}
+          windowSession={dismiss === true ? 'dismiss-session' : null}
         >
           <div
             ref={analyticsRef}
