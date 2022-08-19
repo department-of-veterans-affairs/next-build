@@ -1,7 +1,6 @@
 import { DrupalClient } from 'next-drupal'
 import crossFetch from 'cross-fetch'
 import { SocksProxyAgent } from 'socks-proxy-agent'
-import pRetry from 'p-retry'
 
 export const baseUrl = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'cms.va.gov'
 export const useProxy = baseUrl.includes('cms.va.gov')
@@ -23,7 +22,8 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
       ...options,
     })
   }
-  return pRetry(wrappedCrossFetch, {
+  const pRetry = await import('p-retry')
+  return pRetry.default(wrappedCrossFetch, {
     retries: 5,
   })
 }

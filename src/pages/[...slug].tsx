@@ -50,29 +50,29 @@ export async function getStaticProps(context) {
     }
   }
 
-  const formattedResource = await queries.getData(type, {
+  const resource = await queries.getData(type, {
     context,
     id: path.entity.uuid,
   })
 
-  if (!formattedResource) {
+  if (!resource) {
     throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`)
   }
 
   // If we're not in preview mode and the resource is not published,
   // Return page not found.
-  if (!context.preview && formattedResource?.published === false) {
+  if (!context.preview && resource?.published === false) {
     return {
       notFound: true,
     }
   }
-  // getStaticProps fails if any values returned are undefined, but undefined
-  // values are a reality. This JSON dance converts undefined to null.
-  // See discussion: https://github.com/vercel/next.js/discussions/11209
-  const resource = JSON.parse(JSON.stringify(formattedResource))
+
   return {
     props: {
-      resource,
+      // getStaticProps fails if any values returned are undefined, but undefined
+      // values are a reality. This JSON dance converts undefined to null.
+      // See discussion: https://github.com/vercel/next.js/discussions/11209
+      resource: JSON.parse(JSON.stringify(resource)),
       ...(await getGlobalElements(context)),
     },
   }
