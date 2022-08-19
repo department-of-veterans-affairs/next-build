@@ -69,7 +69,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      resource,
+      resource: JSON.parse(JSON.stringify(resource)),
       ...(await getGlobalElements(context)),
     },
   }
