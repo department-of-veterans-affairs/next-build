@@ -24,7 +24,6 @@ describe('<FacilityBanner> component renders', () => {
   test('with valid data', () => {
     const { container } = render(<FacilityBanner {...bannerData} />)
     const aEl = container.querySelectorAll('a')
-    screen.debug()
     expect(
       screen.queryByText(/IMPORTANT UPDATES FROM VA PITTSBURGH/)
     ).toBeInTheDocument()
