@@ -42,8 +42,3 @@ export type StoryListingType = PublishedEntity & {
 export type StoryListingLinkType = {
   path: string
 }
-
-export type MenuLink = {
-  title: string
-  url: string
-}
