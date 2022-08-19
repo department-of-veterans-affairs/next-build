@@ -16,7 +16,8 @@ const alertBlockDataService = function (entity: BlockAlert, viewMode: string) {
             : entity.field_alert_type,
         id: entity.id,
         title: entity.field_alert_title,
-        content: generalEntityDataService(entity.field_alert_content),
+        // commented out while we're finishing up the queries refactor.
+        content: {}, //generalEntityDataService(entity.field_alert_content),
       }
   }
 }
