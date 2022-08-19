@@ -13,18 +13,18 @@ export type Path = {
 export type BannerType = {
   id: string
   title: string
-  body: string
-  alertType: string
-  dismiss: boolean
-  type: string
+  body?: string
+  alertType?: string
+  dismiss?: boolean
+  type?: string
 }
 
 export type PromoBannerType = {
   id: string
-  title: string
-  alertType: string
-  dismiss: boolean
-  type: string
+  title?: string
+  alertType?: string
+  dismiss?: boolean
+  type?: string
 }
 
 export type BannerAlertVacms = {

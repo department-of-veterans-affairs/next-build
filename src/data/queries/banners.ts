@@ -1,18 +1,26 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerType, FacilityBannerType, PromoBannerType } from '@/types/index'
-import { BannerProps } from '@/templates/globals/banners/banner'
-import { PromoBannerProps } from '@/templates/globals/banners/promoBanner'
-import { FacilityBannerProps } from '@/templates/globals/banners/facilityBanner'
-// Define the query params for fetching node--news_story.
+
+export const BannerDisplayType = {
+  PROMO_BANNER: 'promoBanner',
+  FACILITY_BANNER: 'facilityBanner',
+  BANNER: 'banner',
+}
+
+export const BannerTypeMapping = {
+  [BannerDisplayType.PROMO_BANNER]: 'node--promo_banner',
+  [BannerDisplayType.FACILITY_BANNER]: 'node--full_width_banner_alert',
+  [BannerDisplayType.BANNER]: 'node--banner',
+}
 
 export const formatter: QueryFormatter<
   NodeBanner,
   PromoBannerType | BannerType | FacilityBannerType
 > = (entity: NodeBanner) => {
-  return entity.bannerData.map(
-    (banner): PromoBannerProps | BannerProps | FacilityBannerProps => {
-      if (banner.type === 'node--banner') {
+  return entity.bannerData.map((banner) => {
+    switch (banner?.type as string) {
+      case BannerTypeMapping[BannerDisplayType.BANNER]:
         return {
           id: banner.id,
           title: banner.title,
@@ -21,17 +29,15 @@ export const formatter: QueryFormatter<
           dismiss: banner.field_dismissible_option || null,
           type: banner.type,
         }
-      }
-      if (banner.type === 'node--promo_banner') {
+      case BannerTypeMapping[BannerDisplayType.PROMO_BANNER]:
         return {
           id: banner.id,
           title: banner.title,
-          href: banner.field_link.uri || null,
+          href: banner.field_link?.uri || null,
           alertType: banner.field_promo_type || null,
           type: banner.type,
         }
-      }
-      if (banner.type === 'node--full_width_banner_alert') {
+      case BannerTypeMapping[BannerDisplayType.FACILITY_BANNER]:
         return {
           id: banner.id,
           title: banner.title,
@@ -44,7 +50,8 @@ export const formatter: QueryFormatter<
           bannerAlertVacms: banner.field_banner_alert_vamcs || null,
           type: banner.type,
         }
-      }
+      default:
+        return null
     }
-  )
+  })
 }
