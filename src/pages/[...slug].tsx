@@ -69,9 +69,6 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      // getStaticProps fails if any values returned are undefined, but undefined
-      // values are a reality. This JSON dance converts undefined to null.
-      // See discussion: https://github.com/vercel/next.js/discussions/11209
       resource,
       ...(await getGlobalElements(context)),
     },
