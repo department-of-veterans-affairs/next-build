@@ -10,7 +10,7 @@ export const queries = createQueries({
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
   'node--story_listing': StoryListing,
-  'node--banner': Banner,
+  'banner--alerts_lookup': Banner,
   'paragraph--expandable_text': ExpandableText,
   'paragraph--link_teaser': LinkTeaser,
 })
