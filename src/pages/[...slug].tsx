@@ -7,7 +7,6 @@ import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 const RESOURCE_TYPES = ['node--news_story', 'node--story_listing'] as const
 
