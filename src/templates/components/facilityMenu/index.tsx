@@ -1,16 +1,69 @@
 import clsx from 'clsx'
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import { Menu } from '@/types/dataTypes/drupal/menu'
 
-const renderChildItems = (items) => {
-  return items.map((item) => {
-    if (item.enabled)
-      return (
-        <a key={item.id} href={item.url} className="va-sidenav-item-label">
-          {item.title}
-        </a>
-      )
-  })
+interface MenuItemProps {
+  readonly id: string
+  readonly url: string
+  readonly title: string
+  items?: Tree
+  children?: any
+}
+
+type Tree = ReadonlyArray<MenuItemProps>
+
+const MenuItem = ({ id, url, title, items }: MenuItemProps) => {
+  if (items) {
+    return (
+      <li key={id}>
+        <h2
+          className={
+            'va-sidenav-item-label vads-u-font-family--sans va-sidenav-item-label-bold'
+          }
+        >
+          {title}
+        </h2>
+        {items.map((item, i) => (
+          <MenuItem {...item} key={i} />
+        ))}
+      </li>
+    )
+  } else {
+    return (
+      <li key={id}>
+        <a href={url}>{title}</a>
+      </li>
+    )
+  }
+}
+
+const RecursiveMenuTree = ({ items, tree }: Menu) => {
+  const [obj] = tree
+
+  const renderMenuTree = (branch: MenuItemProps) => {
+    return (
+      <MenuItem
+        id={branch.id}
+        key={branch.id}
+        url={branch.url}
+        title={branch.title}
+        items={branch.items}
+      >
+        {branch.items &&
+          branch.items.map((innerBranch: MenuItemProps, i: number) => {
+            return <Fragment key={i}>{renderMenuTree(innerBranch)}</Fragment>
+          })}
+      </MenuItem>
+    )
+  }
+
+  return (
+    <>
+      {obj.items.map((branch: MenuItemProps) => (
+        <>{renderMenuTree(branch)}</>
+      ))}
+    </>
+  )
 }
 
 export const FacilityMenu = ({ items, tree }: Menu) => {
@@ -56,7 +109,7 @@ export const FacilityMenu = ({ items, tree }: Menu) => {
         )}
       >
         {/* Render all the items recursively. */}
-        {renderChildItems(items)}
+        <RecursiveMenuTree items={items} tree={tree} />
       </ul>
     </div>
   )

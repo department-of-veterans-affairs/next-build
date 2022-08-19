@@ -14,6 +14,10 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
   return queries.getParams()
+  // .addFields('node--story_listing', [
+  //   'field_office',
+  //   'field_office.field_system_menu',
+  // ])
 }
 
 // Define the option types for the data loader.
@@ -53,6 +57,7 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
       .getQueryObject(),
   }
   // todo: figure out how to dynamically get this name... entity.field_office.field_system_menu ... drupal_internal__target_id
+  // console.log(entity.field_office)
   const menu = await drupalClient.getMenu('pittsburgh-health-care', menuOpts)
 
   return {
@@ -77,6 +82,6 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
     title: entity.title,
     introText: entity.field_intro_text,
     stories: formattedStories,
-    menu,
+    menu: menu,
   }
 }
