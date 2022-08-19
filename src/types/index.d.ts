@@ -22,6 +22,7 @@ export type BannerType = {
 export type PromoBannerType = {
   id: string
   title?: string
+  href?: string
   alertType?: string
   dismiss?: boolean
   type?: string

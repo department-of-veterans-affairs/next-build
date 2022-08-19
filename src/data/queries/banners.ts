@@ -18,7 +18,7 @@ export const formatter: QueryFormatter<
   NodeBanner,
   PromoBannerType | BannerType | FacilityBannerType
 > = (entity: NodeBanner) => {
-  return entity.bannerData.map((banner) => {
+  return entity?.bannerData?.map((banner) => {
     switch (banner?.type as string) {
       case BannerTypeMapping[BannerDisplayType.BANNER]:
         return {

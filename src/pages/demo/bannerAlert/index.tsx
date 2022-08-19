@@ -6,15 +6,11 @@ import {
   NodeResourceType,
 } from '@/types/dataTypes/drupal/node'
 import Container from '@/templates/common/container'
-import { BannerProps } from '@/templates/globals/banners/banner'
-
-import {
-  FacilityBanner,
-  FacilityBannerProps,
-} from '@/templates/globals/banners/facilityBanner'
+import { FacilityBannerType } from '@/types/index'
+import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 
 interface BannerAlertPageProps {
-  bannerAlerts: FacilityBannerProps[]
+  bannerAlerts: FacilityBannerType[]
 }
 
 const BannerAlertPage = ({ bannerAlerts }: BannerAlertPageProps) => {

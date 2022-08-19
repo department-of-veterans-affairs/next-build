@@ -1,13 +1,5 @@
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-
-export interface BannerProps {
-  id: string
-  title: string
-  body: string
-  alertType: string
-  dismiss: boolean
-  type: string
-}
+import { BannerType } from '@/types/index'
 
 export const Banner = ({
   id,
@@ -15,12 +7,12 @@ export const Banner = ({
   body,
   alertType,
   dismiss,
-}): JSX.Element => {
+}: BannerType): JSX.Element => {
   return (
     <VaBanner
       id={id}
       role="va-banner"
-      showClose={dismiss != 'perm'}
+      showClose={dismiss ? 'perm' : false}
       headline={title}
       type={alertType}
       visible={id ? true : false}

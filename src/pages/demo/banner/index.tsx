@@ -1,10 +1,10 @@
 import { Wrapper } from '@/templates/globals/wrapper'
 import { isEmpty } from 'lodash'
-import { BannerProps } from '@/templates/globals/banners/banner'
+import { BannerType } from '@/types/index'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
 
 interface BannerPageProps {
-  props?: BannerProps | null
+  props?: BannerType | null
 }
 
 const BannerPage = ({ props }: BannerPageProps) => {

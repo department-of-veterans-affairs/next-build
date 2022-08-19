@@ -1,14 +1,12 @@
 import { VaPromoBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+import { PromoBannerType } from '@/types/index'
 
-export interface PromoBannerProps {
-  id: string
-  title: string
-  href?: string
-  alertType?: string
-  type?: string
-}
-
-export const PromoBanner = ({ id, href, title, alertType }): JSX.Element => {
+export const PromoBanner = ({
+  id,
+  href,
+  title,
+  alertType,
+}: PromoBannerType): JSX.Element => {
   return (
     <VaPromoBanner
       id={id}

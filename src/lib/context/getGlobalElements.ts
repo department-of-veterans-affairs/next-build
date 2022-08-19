@@ -1,15 +1,20 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
 import { formatter } from '@/data/queries/banners'
 import { drupalClient } from '@/lib/utils/drupalClient'
+import { LayoutProps } from '@/templates/globals/wrapper'
+import { NodeBanner } from '@/types/dataTypes/drupal/node'
+import { BannerType, PromoBannerType, FacilityBannerType } from '@/types/index'
 
 // This is a helper function to fetch global elements for layout.
 // This is going to be run for every pages on build.
 // To make this fast, you could cache the results example on Redis.
 const nonSlugRoute = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/banner-alerts?item-path=/`
 
+type GlobalElements = LayoutProps
+
 export async function getGlobalElements(
   context: GetStaticPropsContext | GetServerSidePropsContext
-) {
+): Promise<GlobalElements> {
   // global context
   const slug = await drupalClient.getPathFromContext(context)
   const path = await drupalClient.translatePathFromContext(context)
@@ -23,6 +28,8 @@ export async function getGlobalElements(
 
   const requestBanner = await drupalClient.fetch(`${bannerPath}`)
   const bannerData = drupalClient.deserialize(await requestBanner.json())
+
+  //eslint-disable-next-line
   const banner = formatter({ bannerData } as any)
 
   return {
