@@ -1,5 +1,4 @@
 import { faker } from 'test-utils'
-import { responseSymbol } from 'next/dist/server/web/spec-compliant/fetch-event'
 
 const resolvingPromiseCreator = (value) => {
   return new Promise((resolve) => {
@@ -50,7 +49,7 @@ describe('expect.anything() and expect.any(constructor)', () => {
     expect(faker.datatype.boolean()).toEqual(expect.any(Boolean))
     expect(faker.datatype.datetime()).toEqual(expect.any(Date))
     /*
-    This is probably most useful in testing whether an object follows a general 
+    This is probably most useful in testing whether an object follows a general
     schema.
     */
     expect({
@@ -149,7 +148,7 @@ describe('expect.stringContaining(string) and expect.stringMatching(string | reg
 
 describe('expect.assertions(number) and expect.hasAssertions()', () => {
   /*
-  Mostly useful for verifying that a heavily asynchronous test is executing 
+  Mostly useful for verifying that a heavily asynchronous test is executing
   everything as expected.
   */
   describe('expect.assertions() verifies that a certain number of assertions are called during a test', () => {

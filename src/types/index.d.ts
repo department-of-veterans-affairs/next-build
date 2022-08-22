@@ -12,6 +12,50 @@ export interface PublishedEntity {
   published: boolean
 }
 
+export type Path = {
+  pid?: number
+  alias?: string
+  langcode?: string
+}
+
+export type BannerType = {
+  id: string
+  title: string
+  body?: string
+  alertType?: string
+  dismiss?: boolean
+  type?: string
+}
+
+export type PromoBannerType = {
+  id: string
+  title?: string
+  href?: string
+  alertType?: string
+  dismiss?: boolean
+  type?: string
+}
+
+export type BannerAlertVacms = {
+  id: string
+  path?: { alias?: string }
+  field_office?: { path: Path }
+}
+
+export type FacilityBannerType = {
+  id: string
+  title: string
+  body?: string
+  fieldAlertType?: string
+  dismiss?: boolean
+  path?: Path
+  type?: string
+  operatingStatus?: boolean
+  findFacilities?: string
+  inheritanceSubpages?: boolean
+  bannerAlertVacms?: BannerAlertVacms[]
+}
+
 export type NewsStoryType = PublishedEntity & {
   title: string
   image: ImageProps

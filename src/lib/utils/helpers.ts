@@ -23,6 +23,7 @@ export function absoluteURL(uri: string) {
 
 // used to get a base url path of a health care region from entityUrl.path
 export function regionBaseURL(path: string) {
+  if (!path) return
   return path.split('/')[1]
 }
 

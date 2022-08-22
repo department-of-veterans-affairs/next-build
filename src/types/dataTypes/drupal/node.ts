@@ -87,7 +87,7 @@ export interface NodeBanner extends DrupalNode {
   field_dismissible_option: string
 }
 
-export interface NodeBannerAlert extends DrupalNode {
+export interface NodeFullWidthBannerAlert extends DrupalNode {
   field_body: FieldFormattedText
   field_alert_dismissable: boolean
   field_alert_type: string
