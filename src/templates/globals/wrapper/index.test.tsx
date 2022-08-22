@@ -1,7 +1,6 @@
 import { render, screen } from 'test-utils'
 import '@testing-library/jest-dom'
 import { Wrapper } from './index'
-import mock_banner from '@/templates/globals/banner/nodeBanner.json'
 
 const children = <div></div>
 const footerData = {
@@ -77,7 +76,7 @@ describe('<Wrapper> does not render', () => {
   })
 
   test.skip('<Footer> when footerData does not exist', () => {
-    const props = { bannerData: [mock_banner], footerData: [] }
+    const props = { bannerData: [banner], footerData: [] }
 
     render(<Wrapper props={props}>{children}</Wrapper>)
     expect(screen.queryByText(/This is the banner body/)).toBeInTheDocument()

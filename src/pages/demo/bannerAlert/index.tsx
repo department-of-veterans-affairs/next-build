@@ -2,14 +2,15 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import {
-  NodeBannerAlert,
+  NodeFullWidthBannerAlert,
   NodeResourceType,
 } from '@/types/dataTypes/drupal/node'
 import Container from '@/templates/common/container'
-import BannerAlert from '@/templates/globals/banner_alert'
+import { FacilityBannerType } from '@/types/index'
+import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 
 interface BannerAlertPageProps {
-  bannerAlerts: NodeBannerAlert[]
+  bannerAlerts: FacilityBannerType[]
 }
 
 const BannerAlertPage = ({ bannerAlerts }: BannerAlertPageProps) => {
@@ -18,9 +19,7 @@ const BannerAlertPage = ({ bannerAlerts }: BannerAlertPageProps) => {
       <Container className="container">
         {bannerAlerts
           ? bannerAlerts.map((node) => (
-              <div key={node.id}>
-                <BannerAlert node={node} />
-              </div>
+              <FacilityBanner key={node.id} {...node} />
             ))
           : null}
       </Container>
@@ -43,7 +42,7 @@ export async function getStaticProps(
   params.addPageLimit(3)
 
   let bannerAlerts = await drupalClient.getResourceCollectionFromContext<
-    NodeBannerAlert[]
+    NodeFullWidthBannerAlert[]
   >(NodeResourceType.BannerAlert, context, {
     params: params.getQueryObject(),
   })
