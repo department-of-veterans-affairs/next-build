@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useState, Fragment } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { RecursiveMenu, MenuItemProps } from '@/types/index'
 
 const MenuItem = ({
@@ -10,6 +10,12 @@ const MenuItem = ({
   enabled,
   items,
 }: MenuItemProps) => {
+  const [isSelected, setIsSelected] = useState(false)
+
+  useEffect(() => {
+    setIsSelected(window.location.pathname === url)
+  }, [])
+
   if (!enabled) return
 
   if (items && expanded) {
@@ -32,7 +38,13 @@ const MenuItem = ({
   } else {
     return (
       <li key={id} className={'va-sidenav-level-2'}>
-        <a className={'va-sidenav-item-label'} href={url}>
+        <a
+          aria-current={isSelected ? 'page' : undefined}
+          aria-label={title}
+          className={clsx('va-sidenav-item-label', isSelected && 'open')}
+          rel={'noopener noreferrer'}
+          href={url}
+        >
           {title}
         </a>
       </li>
