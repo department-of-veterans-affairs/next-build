@@ -28,13 +28,13 @@ export const formatBannerType = (bannerData) => {
 export function Wrapper({ bannerData, children }: LayoutProps) {
   const [showBanners, setShowBanners] = useState(false)
   const [mapBanners, setMapBanners] = useState([])
+
   useEffect(() => {
     if (isEmpty(bannerData)) {
       return setShowBanners(false)
-    }
-    if (bannerData) {
-      setShowBanners(true)
+    } else {
       setMapBanners(bannerData.map(formatBannerType))
+      return setShowBanners(true)
     }
   }, [bannerData, showBanners])
 
