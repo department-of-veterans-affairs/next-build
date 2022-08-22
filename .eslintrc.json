@@ -24,7 +24,10 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "moduleDirectory": ["node_modules", "test"]
+        "moduleDirectory": [
+          "node_modules",
+          "test"
+        ]
       }
     },
     "react": {
@@ -36,11 +39,19 @@
       "modules": true
     },
     "sourceType": "module",
-    "project": ["./tsconfig.json"]
+    "project": [
+      "./tsconfig.json"
+    ]
   },
-  "plugins": ["testing-library", "unused-imports", "prettier"],
+  "plugins": [
+    "testing-library",
+    "unused-imports",
+    "prettier"
+  ],
   "rules": {
     "prettier/prettier": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/display-name": "off",
@@ -59,7 +70,9 @@
   },
   "overrides": [
     {
-      "files": ["**/*.stories.*"],
+      "files": [
+        "**/*.stories.*"
+      ],
       "rules": {
         "import/no-anonymous-default-export": "off"
       }

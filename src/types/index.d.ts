@@ -1,3 +1,5 @@
+import { Menu } from '@/types/dataTypes/drupal/menu'
+
 export global {
   interface Window {
     gtag: any
@@ -59,3 +61,20 @@ export type LinkTeaserType = {
     sectionHeader: string
   }
 }
+
+export interface RecursiveMenu extends Menu {
+  depth?: number
+  maxDepth?: number
+}
+
+interface MenuItemProps {
+  readonly id: string
+  readonly url: string
+  readonly title: string
+  expanded: boolean
+  enabled: boolean
+  items?: Tree
+  children?: any
+}
+
+type Tree = ReadonlyArray<MenuItemProps>

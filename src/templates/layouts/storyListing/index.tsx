@@ -29,7 +29,7 @@ export function StoryListing({
 
   return (
     <div key={id} className="usa-grid usa-grid-full">
-      <FacilityMenu {...menu} />
+      <FacilityMenu {...menu} depth={0} maxDepth={2} />
       <div className="usa-width-three-fourths">
         <h1>{title}</h1>
         <div className="vads-l-grid-container--full">

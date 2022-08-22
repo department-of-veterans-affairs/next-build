@@ -1,21 +1,20 @@
 import clsx from 'clsx'
 import { useState, Fragment } from 'react'
-import { Menu } from '@/types/dataTypes/drupal/menu'
+import { RecursiveMenu, MenuItemProps } from '@/types/index'
 
-interface MenuItemProps {
-  readonly id: string
-  readonly url: string
-  readonly title: string
-  items?: Tree
-  children?: any
-}
+const MenuItem = ({
+  id,
+  url,
+  title,
+  expanded,
+  enabled,
+  items,
+}: MenuItemProps) => {
+  if (!enabled) return
 
-type Tree = ReadonlyArray<MenuItemProps>
-
-const MenuItem = ({ id, url, title, items }: MenuItemProps) => {
-  if (items) {
+  if (items && expanded) {
     return (
-      <li key={id}>
+      <li key={id} className={'va-sidenav-level-1'}>
         <h2
           className={
             'va-sidenav-item-label vads-u-font-family--sans va-sidenav-item-label-bold'
@@ -23,36 +22,44 @@ const MenuItem = ({ id, url, title, items }: MenuItemProps) => {
         >
           {title}
         </h2>
-        {items.map((item, i) => (
-          <MenuItem {...item} key={i} />
-        ))}
+        <ul>
+          {items.map((item, i) => (
+            <MenuItem {...item} key={item.id} />
+          ))}
+        </ul>
       </li>
     )
   } else {
     return (
-      <li key={id}>
-        <a href={url}>{title}</a>
+      <li key={id} className={'va-sidenav-level-2'}>
+        <a className={'va-sidenav-item-label'} href={url}>
+          {title}
+        </a>
       </li>
     )
   }
 }
 
-const RecursiveMenuTree = ({ items, tree }: Menu) => {
+const RecursiveMenuTree = ({ items, tree, depth, maxDepth }: RecursiveMenu) => {
   const [obj] = tree
 
-  const renderMenuTree = (branch: MenuItemProps) => {
+  const renderMenuTree = (branch: MenuItemProps, depth) => {
+    if (branch.items) depth++
+    if (depth > maxDepth) return
+    if (depth == maxDepth) branch.expanded = false
+
     return (
-      <MenuItem
-        id={branch.id}
-        key={branch.id}
-        url={branch.url}
-        title={branch.title}
-        items={branch.items}
-      >
-        {branch.items &&
-          branch.items.map((innerBranch: MenuItemProps, i: number) => {
-            return <Fragment key={i}>{renderMenuTree(innerBranch)}</Fragment>
-          })}
+      <MenuItem {...branch}>
+        <ul>
+          {branch.items &&
+            branch.items.map((innerBranch: MenuItemProps, i: number) => {
+              return (
+                <Fragment key={i}>
+                  {renderMenuTree(innerBranch, depth)}
+                </Fragment>
+              )
+            })}
+        </ul>
       </MenuItem>
     )
   }
@@ -60,13 +67,18 @@ const RecursiveMenuTree = ({ items, tree }: Menu) => {
   return (
     <>
       {obj.items.map((branch: MenuItemProps) => (
-        <>{renderMenuTree(branch)}</>
+        <Fragment key={branch.id}>{renderMenuTree(branch, depth)}</Fragment>
       ))}
     </>
   )
 }
 
-export const FacilityMenu = ({ items, tree }: Menu) => {
+export const FacilityMenu = ({
+  items,
+  tree,
+  depth,
+  maxDepth,
+}: RecursiveMenu) => {
   const [active, setActive] = useState(false)
 
   return (
@@ -109,7 +121,12 @@ export const FacilityMenu = ({ items, tree }: Menu) => {
         )}
       >
         {/* Render all the items recursively. */}
-        <RecursiveMenuTree items={items} tree={tree} />
+        <RecursiveMenuTree
+          items={items}
+          tree={tree}
+          depth={depth}
+          maxDepth={maxDepth}
+        />
       </ul>
     </div>
   )
