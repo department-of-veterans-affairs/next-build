@@ -1,4 +1,4 @@
-name: CI - Test
+name: Continuous Integration
 on:
   push:
     branches:
@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  setup:
     name: Setup
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -20,8 +20,13 @@ jobs:
       - name: Install Npm Dependencies
         run: yarn install
 
-      # - name: Check TypeScript
-      #   run: yarn test:types
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check TypeScript
+        run: yarn test:types
 
       - name: Run Lint
         run: yarn lint
