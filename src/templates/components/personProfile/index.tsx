@@ -1,4 +1,4 @@
-import Image from '@/templates/common/image'
+import { ImageComponent } from '@/templates/common/image'
 import { DEV_PATH } from '@/lib/constants'
 
 export type PersonProfileProps = {
@@ -45,7 +45,8 @@ export const PersonProfile = ({ node }): JSX.Element => {
         <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
           {fieldMedia?.thumbnail && (
             <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
-              <Image
+              <ImageComponent
+                id={id}
                 className="person-profile-detail-page-image"
                 src={thumbnail}
                 alt={meta?.alt}

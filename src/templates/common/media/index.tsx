@@ -1,4 +1,4 @@
-import Image from '@/templates/common/image'
+import { ImageComponent } from '../image'
 
 export type MediaImageProps = {
   id: string
@@ -10,6 +10,7 @@ export type MediaImageProps = {
   styles?: string
   imageStyle?: string
   className?: string | ''
+  loader?: () => void
 }
 // Different from the ImageProps that are imported in image/index.tsx
 
@@ -25,13 +26,15 @@ export const MediaImageComponent = ({
   className,
 }: MediaImageProps) => {
   if (!styles) return null
+
   const imageStyles = {
     url: styles[imageStyle]?.href,
-    height: styles[imageStyle]?.meta?.height,
-    width: styles[imageStyle]?.meta?.width,
+    height: styles[imageStyle]?.meta?.linkParams?.height,
+    width: styles[imageStyle]?.meta?.linkParams?.width,
   }
+
   return (
-    <Image
+    <ImageComponent
       id={id}
       src={imageStyles?.url || url}
       alt={alt || ''}

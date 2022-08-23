@@ -1,4 +1,4 @@
-import Image from '@/templates/common/image'
+import { ImageComponent } from '@/templates/common/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/utils/recordEvent'
 import { IMAGE_PATH_TEMP } from '@/lib/constants'
@@ -43,13 +43,15 @@ export const LinkTeaser = ({
               {isFieldSpokes ? (
                 <>
                   <span className="hub-page-link-list__header">{title}</span>
-                  <Image
+                  <ImageComponent
+                    id={id}
                     className="all-link-arrow"
                     src={thumbnail}
                     alt="right-arrow"
                     width="15px"
                     height="15px"
-                  ></Image>
+                    title="right-arrow"
+                  ></ImageComponent>
                 </>
               ) : (
                 <strong>{title}</strong>
