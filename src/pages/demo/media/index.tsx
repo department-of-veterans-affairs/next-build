@@ -17,7 +17,7 @@ const ImagePage = ({ mediaProps }: MediaPageProps) => {
         <MediaImageComponent
           key={image.id}
           {...image}
-          imageStyle="1_1_square_medium_thumbnail"
+          imageStyle="full_content_width"
         />
       ))}
     </>

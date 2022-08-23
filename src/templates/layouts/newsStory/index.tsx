@@ -25,7 +25,7 @@ export const NewsStory = ({
             <div className="usa-width-three-fourths">
               <article className="usa-content">
                 <h1>{title}</h1>
-                <MediaImageComponent {...image} imageStyle="large" />
+                <MediaImageComponent {...image} imageStyle="2_1_large" />
                 <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                   {caption}
                 </div>

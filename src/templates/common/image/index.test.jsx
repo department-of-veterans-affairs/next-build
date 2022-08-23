@@ -1,5 +1,5 @@
 import { axe, faker, render, waitFor } from 'test-utils'
-import Image from '.'
+import { ImageComponent } from '.'
 import mock_media_image from './mediaImageIndividual.json'
 
 const getUrl = (data) =>
@@ -10,31 +10,26 @@ const getWidth = (data) => data.data.relationships.image.data.meta.width
 const getHeight = (data) => data.data.relationships.image.data.meta.height
 
 describe('Image Component', () => {
-  test('throws an error if URL is empty', async () => {
-    const originalError = console.error
-    console.error = jest.fn()
+  test('throws an error if no URL is passed in', () => {
     // eslint-disable-next-line
-    expect(() => render(<Image src={url} />)).toThrowError(
+    expect(() => render(<ImageComponent src={url} alt="" />)).toThrowError(
       /url is not defined/i
     )
-    console.error = originalError
   })
-
   test('throws an error if no height/width properties are passed in', async () => {
     const originalError = console.error
     console.error = jest.fn()
     let url = getUrl(mock_media_image)
     // eslint-disable-next-line
-    expect(() => render(<Image src={url} />)).toThrow(
+    expect(() => render(<ImageComponent src={url} alt="" />)).toThrow(
       /image with src "([^"]*)" must use "width" and "height" properties/i
     )
     console.error = originalError
   })
-
   test('triggers an accessibility error if no alt text is passed in', async () => {
     let url = getUrl(mock_media_image)
     // eslint-disable-next-line
-    const { container } = render(<Image src={url} layout={'fill'} />)
+    const { container } = render(<ImageComponent src={url} layout={'fill'} />)
     await waitFor(async () =>
       expect(await axe(container)).toEqual(
         expect.objectContaining({
@@ -49,7 +44,6 @@ describe('Image Component', () => {
       )
     )
   })
-
   test('renders if sufficient properties are provided', async () => {
     let url = getUrl(mock_media_image)
     let altText = getAltText(mock_media_image)
@@ -60,7 +54,7 @@ describe('Image Component', () => {
       height: 400,
     }
     // eslint-disable-next-line
-    const { container } = render(<Image {...props} />)
+    const { container } = render(<ImageComponent {...props} />)
     await waitFor(async () => expect(await axe(container)).toHaveNoViolations())
     let imgElement
 
