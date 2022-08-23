@@ -9,28 +9,80 @@ const MenuItem = ({
   expanded,
   enabled,
   items,
+  depth,
 }: MenuItemProps) => {
   const [isSelected, setIsSelected] = useState(false)
 
+  // inside a hook so that window is available when the component is mounted
   useEffect(() => {
     setIsSelected(window.location.pathname === url)
   }, [])
 
+  // derive depth booleans
+  const isFirstLevel = depth === 1
+  const isDeeperThanSecondLevel = depth >= 2
+
+  // Calculate the indentation for the child items.
+  const indentation = isDeeperThanSecondLevel ? 20 * (depth - 1) : 20
+
+  // Expanded not selected
+  const isExpanded = expanded && depth === 2 && !isSelected
+  // Expanded beyond level 2 expanded and selected
+  const moreThanLevel2SelectedExpanded = expanded && depth > 2 && isSelected
+  const isLevelFourOrDeeper = depth >= 4
+
+  // can't do this before the hook logic or it errors
   if (!enabled) return
 
-  if (items && expanded) {
+  if (isFirstLevel) {
     return (
       <li key={id} className={'va-sidenav-level-1'}>
         <h2
           className={
             'va-sidenav-item-label vads-u-font-family--sans va-sidenav-item-label-bold'
           }
+          style={{
+            paddingLeft: indentation,
+            fontSize: '14px',
+            textTransform: 'uppercase',
+          }}
         >
           {title}
         </h2>
         <ul>
           {items.map((item, i) => (
-            <MenuItem {...item} key={item.id} />
+            <MenuItem {...item} key={item.id} depth={depth + 1} />
+          ))}
+        </ul>
+      </li>
+    )
+  }
+
+  if (items && expanded) {
+    return (
+      <li key={id} className={`va-sidenav-level-${depth}`}>
+        <a
+          aria-current={isSelected ? 'page' : undefined}
+          aria-label={title}
+          className={clsx('va-sidenav-item-label', isSelected && 'open')}
+          rel={'noopener noreferrer'}
+          href={url}
+          style={{
+            paddingLeft: indentation,
+          }}
+        >
+          <span
+            className={clsx({
+              'grandchild-left-line': isLevelFourOrDeeper && !isSelected,
+            })}
+          >
+            {' '}
+            {title}{' '}
+          </span>
+        </a>
+        <ul>
+          {items.map((item, i) => (
+            <MenuItem {...item} key={item.id} depth={depth + 1} />
           ))}
         </ul>
       </li>
@@ -44,8 +96,18 @@ const MenuItem = ({
           className={clsx('va-sidenav-item-label', isSelected && 'open')}
           rel={'noopener noreferrer'}
           href={url}
+          style={{
+            paddingLeft: indentation,
+          }}
         >
-          {title}
+          <span
+            className={clsx({
+              'grandchild-left-line': isLevelFourOrDeeper && !isSelected,
+            })}
+          >
+            {' '}
+            {title}{' '}
+          </span>
         </a>
       </li>
     )
@@ -58,10 +120,10 @@ const RecursiveMenuTree = ({ items, tree, depth, maxDepth }: RecursiveMenu) => {
   const renderMenuTree = (branch: MenuItemProps, depth) => {
     if (branch.items) depth++
     if (depth > maxDepth) return
-    if (depth == maxDepth) branch.expanded = false
+    if (maxDepth && depth === maxDepth) branch.expanded = false
 
     return (
-      <MenuItem {...branch}>
+      <MenuItem {...branch} depth={depth}>
         <ul>
           {branch.items &&
             branch.items.map((innerBranch: MenuItemProps, i: number) => {

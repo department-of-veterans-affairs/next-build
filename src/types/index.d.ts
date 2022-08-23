@@ -74,6 +74,7 @@ interface MenuItemProps {
   expanded: boolean
   enabled: boolean
   items?: Tree
+  depth?: number
   children?: any
 }
 

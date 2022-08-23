@@ -9,6 +9,7 @@ let storyListingProps: StoryListingType = {
   type: 'node--story_listing',
   published: true,
   stories: [],
+  menu: { items: [], tree: [] },
 }
 
 describe('<StoryListing> component renders', () => {

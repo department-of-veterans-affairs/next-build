@@ -2,6 +2,7 @@ import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { FacilityMenu } from './index'
+import MockMenu from './facilityMenu.json'
 
 export default {
   title: 'Components/Facility Menu',
@@ -14,22 +15,16 @@ const Template: ComponentStory<typeof FacilityMenu> = (args) => (
 
 export const Example = Template.bind({})
 Example.args = {
-  items: [
-    {
-      id: '386eb70d-696c-4af3-8986-306ce63d90de',
-      url: '/resources/tag/all-veterans',
-      label: 'All Veterans',
-      enabled: true,
-      expanded: false,
-      weight: -65,
-    },
-    {
-      id: '8360523e-a4bb-4d36-851f-1c445501c8bf',
-      url: '/resources/tag/payments-and-debt',
-      label: 'Payments and debt',
-      enabled: true,
-      expanded: false,
-      weight: -50,
-    },
-  ],
+  items: MockMenu.items,
+  tree: MockMenu.tree,
+  depth: 0,
+  maxDepth: undefined,
+}
+
+export const MaxDepth = Template.bind({})
+MaxDepth.args = {
+  items: MockMenu.items,
+  tree: MockMenu.tree,
+  depth: 0,
+  maxDepth: 2,
 }
