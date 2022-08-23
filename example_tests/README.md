@@ -4,7 +4,7 @@ This directory contains example tests. Their purpose is to give a gentle introdu
 
 To run _all_ of the tests on _all_ of the examples, run `yarn test:examples` from the root directory.
 
-To run
+These tests are intended to run on CI, as it keeps them working in the context of changes to the surrounding project. If any of these tests start to fail, please correct the underlying issue rather than disabling the test or example_tests entirely. 
 
 ## 01. [Hello, world!](./01_hello_world/)
 
