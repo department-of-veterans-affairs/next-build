@@ -62,11 +62,6 @@ export type LinkTeaserType = {
   }
 }
 
-export interface RecursiveMenu extends Menu {
-  depth?: number
-  maxDepth?: number
-}
-
 interface MenuItemProps {
   readonly id: string
   readonly url: string

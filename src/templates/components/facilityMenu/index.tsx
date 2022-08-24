@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { useState, useEffect, Fragment } from 'react'
-import { RecursiveMenu, MenuItemProps } from '@/types/index'
+import { MenuItemProps } from '@/types/index'
+import { Menu } from '@/types/dataTypes/drupal/menu'
 
 const MenuItem = ({
   id,
@@ -12,11 +13,19 @@ const MenuItem = ({
   depth,
 }: MenuItemProps) => {
   const [isSelected, setIsSelected] = useState(false)
+  const [rootPath, setRootPath] = useState('')
 
   // inside a hook so that window is available when the component is mounted
   useEffect(() => {
+    // sets active state ("open" class)
     setIsSelected(window.location.pathname === url)
+
+    // used to determine which children should show
+    setRootPath(window.location.pathname)
   }, [])
+
+  // can't do this before the hook logic or it errors
+  if (!enabled) return
 
   // derive depth booleans
   const isFirstLevel = depth === 1
@@ -26,13 +35,10 @@ const MenuItem = ({
   const indentation = isDeeperThanSecondLevel ? 20 * (depth - 1) : 20
 
   // Expanded not selected
-  const isExpanded = expanded && depth === 2 && !isSelected
+  // const isExpanded = expanded && depth === 2 && !isSelected
   // Expanded beyond level 2 expanded and selected
-  const moreThanLevel2SelectedExpanded = expanded && depth > 2 && isSelected
+  // const moreThanLevel2SelectedExpanded = expanded && depth > 2 && isSelected
   const isLevelFourOrDeeper = depth >= 4
-
-  // can't do this before the hook logic or it errors
-  if (!enabled) return
 
   if (isFirstLevel) {
     return (
@@ -58,7 +64,8 @@ const MenuItem = ({
     )
   }
 
-  if (items && expanded) {
+  // only show deep children (>=3 levels) when on a page that should see them.
+  if (items && rootPath.includes(url)) {
     return (
       <li key={id} className={`va-sidenav-level-${depth}`}>
         <a
@@ -114,13 +121,12 @@ const MenuItem = ({
   }
 }
 
-const RecursiveMenuTree = ({ items, tree, depth, maxDepth }: RecursiveMenu) => {
+const RecursiveMenuTree = ({ items, tree }: Menu) => {
   const [obj] = tree
+  const depth = 0
 
   const renderMenuTree = (branch: MenuItemProps, depth) => {
     if (branch.items) depth++
-    if (depth > maxDepth) return
-    if (maxDepth && depth === maxDepth) branch.expanded = false
 
     return (
       <MenuItem {...branch} depth={depth}>
@@ -147,12 +153,7 @@ const RecursiveMenuTree = ({ items, tree, depth, maxDepth }: RecursiveMenu) => {
   )
 }
 
-export const FacilityMenu = ({
-  items,
-  tree,
-  depth,
-  maxDepth,
-}: RecursiveMenu) => {
+export const FacilityMenu = ({ items, tree }: Menu) => {
   const [active, setActive] = useState(false)
 
   return (
@@ -195,12 +196,7 @@ export const FacilityMenu = ({
         )}
       >
         {/* Render all the items recursively. */}
-        <RecursiveMenuTree
-          items={items}
-          tree={tree}
-          depth={depth}
-          maxDepth={maxDepth}
-        />
+        <RecursiveMenuTree items={items} tree={tree} />
       </ul>
     </div>
   )
