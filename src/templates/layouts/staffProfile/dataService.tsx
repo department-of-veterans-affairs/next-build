@@ -5,7 +5,7 @@ import {
 } from '@/types/dataTypes/drupal/paragraph'
 import { StaffProfile, StaffProfileProps } from './index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { mediaImageDataService } from '@/templates/common/media/dataService'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 function isRequestValid(paragraph) {
   return paragraph.field_staff_profile !== null
@@ -27,10 +27,7 @@ export const transformStaffProfileData = function (
       return {
         id: entity.field_staff_profile.id,
         name: name,
-        thumbnail: mediaImageDataService(
-          entity.field_staff_profile.field_media,
-          '1_1_square_medium_thumbnail'
-        ),
+        thumbnail: entity.field_staff_profile.field_media,
         linkToBio: entity.field_staff_profile.field_complete_biography_create,
         path: entity.field_staff_profile.field_entity?.entityUrl.path || null,
         description: entity.field_staff_profile.field_description,
