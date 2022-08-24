@@ -10,15 +10,16 @@ const getWidth = (data) => data.data.relationships.image.data.meta.width
 const getHeight = (data) => data.data.relationships.image.data.meta.height
 
 describe('Image Component', () => {
-  test('throws an error if no URL is passed in', () => {
+  test('throws an error if URL is empty', async () => {
     const originalError = console.error
     console.error = jest.fn()
     // eslint-disable-next-line
-    expect(() => render(<Image />)).toThrow(
-      /image is missing required "src" property/i
+    expect(() => render(<Image src={url} />)).toThrowError(
+      /url is not defined/i
     )
     console.error = originalError
   })
+
   test('throws an error if no height/width properties are passed in', async () => {
     const originalError = console.error
     console.error = jest.fn()
@@ -29,6 +30,7 @@ describe('Image Component', () => {
     )
     console.error = originalError
   })
+
   test('triggers an accessibility error if no alt text is passed in', async () => {
     let url = getUrl(mock_media_image)
     // eslint-disable-next-line
@@ -47,6 +49,7 @@ describe('Image Component', () => {
       )
     )
   })
+
   test('renders if sufficient properties are provided', async () => {
     let url = getUrl(mock_media_image)
     let altText = getAltText(mock_media_image)

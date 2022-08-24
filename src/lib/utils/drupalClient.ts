@@ -16,8 +16,15 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
     ...init,
   }
 
-  return crossFetch(input, {
-    ...options,
+  // Wrap fetching in p-retry for resilience.
+  const wrappedCrossFetch = async () => {
+    return crossFetch(input, {
+      ...options,
+    })
+  }
+  const pRetry = await import('p-retry')
+  return pRetry.default(wrappedCrossFetch, {
+    retries: 5,
   })
 }
 
