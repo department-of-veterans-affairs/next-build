@@ -1,18 +1,5 @@
 import { ImageComponent } from '../image'
-
-export type MediaImageProps = {
-  id: string
-  url: string
-  width?: number
-  height?: number
-  alt?: string
-  title?: string
-  styles?: string
-  imageStyle?: string
-  className?: string | ''
-  loader?: () => void
-}
-// Different from the ImageProps that are imported in image/index.tsx
+import { MediaImageType } from '@/types/index'
 
 export const MediaImageComponent = ({
   id,
@@ -21,27 +8,27 @@ export const MediaImageComponent = ({
   title,
   width,
   height,
-  styles,
-  imageStyle,
+  link,
   className,
-}: MediaImageProps) => {
-  if (!styles) return null
+  imageStyle,
+}: MediaImageType) => {
+  if (!link) return null
 
-  const imageStyles = {
-    url: styles[imageStyle]?.href,
-    height: styles[imageStyle]?.meta?.linkParams?.height,
-    width: styles[imageStyle]?.meta?.linkParams?.width,
+  const image = {
+    url: link[imageStyle]?.href,
+    height: link[imageStyle]?.meta?.linkParams?.height,
+    width: link[imageStyle]?.meta?.linkParams?.width,
   }
 
   return (
     <ImageComponent
       id={id}
-      src={imageStyles?.url || url}
-      alt={alt || ''}
-      title={title || ''}
-      width={imageStyles.width || width}
-      height={imageStyles.height || height}
+      alt={alt}
+      title={title}
       className={className}
+      src={image?.url || url}
+      width={image?.width || width}
+      height={image?.height || height}
     />
   )
 }

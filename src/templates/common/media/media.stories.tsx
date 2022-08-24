@@ -1,14 +1,13 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
 import { MediaImageComponent } from './index'
-import { mediaImageDataService } from './dataService'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
+import { MediaImageType } from '@/types/index'
 import mediaImage from './mockMedia.json'
 
-const { url, alt, title, width, height, styles } = mediaImageDataService(
-  mediaImage,
-  'full_content_width'
-)
+const { url, alt, title, width, height, link } = generalEntityDataService(
+  mediaImage
+) as MediaImageType
 
 export default {
   title: 'Common/Media Image',
@@ -26,7 +25,7 @@ FullContentWidth.args = {
   title,
   width,
   height,
-  styles,
+  link,
   imageStyle: 'full_content_width',
 }
 
@@ -37,7 +36,7 @@ SevenTwoMediumThumbnail.args = {
   title,
   width,
   height,
-  styles,
+  link,
   imageStyle: '7_2_medium_thumbnail',
 }
 
@@ -48,6 +47,6 @@ TwoOneLarge.args = {
   title,
   width,
   height,
-  styles,
+  link,
   imageStyle: '2_1_large',
 }

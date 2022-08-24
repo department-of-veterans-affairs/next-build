@@ -2,7 +2,7 @@ import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryTeaserType } from '@/types/index'
-import { mediaImageDataService } from '@/templates/common/media/dataService'
+import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -20,10 +20,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryTeaserType> = (
     published: entity.status,
     headingLevel: 'h2', //@todo fix headingLevel,
     title: entity.title,
-    image: mediaImageDataService(
-      entity.field_media,
-      '1_1_square_medium_thumbnail '
-    ),
+    image: generalEntityDataService(entity.field_media),
     link: entity.path.alias,
     introText: entity.field_intro_text,
   }
