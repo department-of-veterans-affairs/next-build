@@ -2,16 +2,6 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  experimental: {
-    swcPlugins: [
-      [
-        'next-superjson-plugin',
-        {
-          excluded: [],
-        },
-      ],
-    ],
-  },
   images: {
     domains: [
       `${process.env.NEXT_IMAGE_DOMAIN}`,
