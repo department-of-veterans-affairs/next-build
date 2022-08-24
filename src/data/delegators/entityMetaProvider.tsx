@@ -2,7 +2,6 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Meta as PersonProfileMeta } from '@/templates/components/personProfile/dataService'
 import { Meta as AlertBlockMeta } from '@/templates/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
-import { Meta as MediaImageMeta } from '@/templates/common/media/dataService'
 import { Meta as AudienceTopicsMeta } from '@/templates/components/audienceTopics/dataService'
 import { Meta as ButtonMeta } from '@/templates/common/button/dataService'
 import { Meta as EmailContactMeta } from '@/templates/components/emailContact/dataService'
@@ -54,8 +53,6 @@ const EntityMetaIn: EntityMetaInfo[] = [
   AudienceTopicsMeta,
   ButtonMeta,
   EmailContactMeta,
-  // media
-  MediaImageMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */
