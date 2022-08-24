@@ -9,11 +9,7 @@ const nextConfig = {
       's3-us-gov-west-1.amazonaws.com',
       'va.gov',
     ],
-  },
-  experimental: {
-    images: {
-      unoptimized: true,
-    },
+    loader: 'custom',
   },
   env: {
     NEXT_PUBLIC_DRUPAL_BASE_URL: process.env.NEXT_PUBLIC_DRUPAL_BASE_URL,
@@ -22,6 +18,7 @@ const nextConfig = {
     GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID,
   },
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: false,
+  trailingSlash: true,
 }
 module.exports = nextConfig

@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
+jest.mock('@/lib/utils/recordEvent')
 import * as recordEvent from '@/lib/utils/recordEvent'
 import { LinkTeaser } from './index'
 import { LinkTeaserType } from '@/types/index'
@@ -31,11 +32,10 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
         componentParams={linkTeaserParams}
       />
     )
-    const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
     const liEl = container.querySelector('li')
 
     fireEvent.click(liEl)
-    expect(spyRecordEvent).toHaveBeenCalledWith({
+    expect(recordEvent.recordEvent).toHaveBeenCalledWith({
       event: 'nav-linkslist',
       'links-list-header': 'Health%20Care%20Benefits%20Eligibility',
       'links-list-section-header': 'This%20is%20the%20section%20header',
@@ -128,10 +128,9 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
         componentParams={linkTeaserParams}
       />
     )
-    const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
     const liEl = container.querySelector('li')
     fireEvent.click(liEl)
-    expect(spyRecordEvent).toHaveBeenCalledWith({
+    expect(recordEvent.recordEvent).toHaveBeenCalledWith({
       event: 'nav-linkslist',
       'links-list-header': 'Health%20Care%20Benefits%20Eligibility',
       'links-list-section-header': 'This%20is%20the%20section%20header',
@@ -212,6 +211,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
       screen.queryByText(/Find out if you can get VA health care benefits./)
     ).toBeInTheDocument()
   })
+  jest.restoreAllMocks()
 })
 
 describe('LinkTeaser with invalid data', () => {

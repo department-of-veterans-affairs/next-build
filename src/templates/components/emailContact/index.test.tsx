@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { fireEvent, getByRole } from '@testing-library/dom'
+jest.mock('@/lib/utils/recordEvent')
 import * as recordEvent from '@/lib/utils/recordEvent'
 import {
   EmailContact,
@@ -28,15 +29,15 @@ describe('Email with valid data', () => {
     const { container } = render(
       <EmailContact key={emailContact.id} {...emailContact} />
     )
-    const spyRecordEvent = jest.spyOn(recordEvent, 'recordEvent')
     const link = getByRole(container, 'link')
 
     fireEvent.click(link)
-    expect(spyRecordEvent).toHaveBeenCalledWith({
+    expect(recordEvent.recordEvent).toHaveBeenCalledWith({
       event: 'nav-linkslist',
       'links-list-header': 't%24st.vet%3Dran%40va.gov',
       'links-list-section-header': 'Need more help?',
     })
+    jest.restoreAllMocks()
   })
 })
 
