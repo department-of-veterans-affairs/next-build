@@ -4,6 +4,7 @@ import * as NewsStoryTeaser from './newsStoryTeaser'
 import * as StoryListing from './storyListing'
 import * as ExpandableText from './expandableText'
 import * as LinkTeaser from './linkTeaser'
+import * as MediaImage from './mediaImage'
 import * as Banner from './banners'
 
 export const queries = createQueries({
@@ -12,6 +13,7 @@ export const queries = createQueries({
   'node--story_listing': StoryListing,
   'paragraph--expandable_text': ExpandableText,
   'paragraph--link_teaser': LinkTeaser,
+  'media--image': MediaImage,
 
   // Custom Lookups
   'banner--alerts_lookup': Banner,
