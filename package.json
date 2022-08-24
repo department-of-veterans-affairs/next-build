@@ -12,7 +12,7 @@
     "lint": "next lint",
     "postinstall": "husky install",
     "test": "NODE_ENV=test jest",
-    "test:ci": "RUST_BACKTRACE=1 NODE_ENV=test jest --ci --coverage",
+    "test:ci": "RUST_BACKTRACE=full NODE_ENV=test jest --ci --coverage",
     "test:coverage": "RUST_BACKTRACE=1 NODE_ENV=test jest --coverage",
     "test:cypress": "NODE_ENV=test cypress run -e \"TAGS=not @ignore\"",
     "test:cypress:interactive": "NODE_ENV=test cypress open -e \"TAGS=not @ignore\"",
