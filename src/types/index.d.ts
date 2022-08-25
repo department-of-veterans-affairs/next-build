@@ -1,3 +1,5 @@
+import { Menu } from '@/types/dataTypes/drupal/menu'
+
 export interface PublishedEntity {
   id: string
   type: string
@@ -72,6 +74,7 @@ export type StoryListingType = PublishedEntity & {
   title: string
   introText: string
   stories: NewsStoryTeaserType[]
+  menu: Menu
 }
 
 export type StoryListingLinkType = {
@@ -96,3 +99,16 @@ export type LinkTeaserType = {
     sectionHeader: string
   }
 }
+
+interface MenuItemProps {
+  readonly id: string
+  readonly url: string
+  readonly title: string
+  expanded: boolean
+  enabled: boolean
+  items?: Tree
+  depth?: number
+  children?: any
+}
+
+type Tree = ReadonlyArray<MenuItemProps>
