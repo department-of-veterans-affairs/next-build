@@ -18,7 +18,10 @@ const MenuItem = ({
   // inside a hook so that window is available when the component is mounted
   useEffect(() => {
     // sets active state ("open" class)
-    setIsSelected(window.location.pathname === url)
+    setIsSelected(
+      window.location.pathname === url ||
+        window.location.pathname.slice(0, -1) === url
+    )
 
     // used to determine which children should show
     setRootPath(window.location.pathname)
