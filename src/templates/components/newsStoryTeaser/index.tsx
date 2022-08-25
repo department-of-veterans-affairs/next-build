@@ -28,7 +28,7 @@ export const NewsStoryTeaser = ({
         </div>
         {image ? (
           <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
-            <MediaImageComponent {...image} />
+            <MediaImageComponent {...image} imageStyle="2_1_large" />
           </div>
         ) : null}
       </div>

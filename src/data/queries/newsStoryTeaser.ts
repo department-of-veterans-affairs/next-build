@@ -19,7 +19,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryTeaserType> = (
     published: entity.status,
     headingLevel: 'h2', //@todo fix headingLevel,
     title: entity.title,
-    image: entity.field_media,
+    image: queries.formatData('media--image', [entity.field_media]),
     link: entity.path.alias,
     introText: entity.field_intro_text,
   }

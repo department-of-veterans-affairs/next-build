@@ -1,19 +1,11 @@
 import Image from 'next/image'
 
-// opt-out of image optimization, no-op
+// custom image optimization, no-op
 const customLoader = ({ src }) => {
   return src
 }
 
-export const ImageComponent = ({
-  id,
-  src,
-  width,
-  height,
-  alt,
-  title,
-  className,
-}) => {
+export const ImageComponent = ({ id, src, width, height, alt, className }) => {
   return (
     <Image
       loader={customLoader}
@@ -22,7 +14,6 @@ export const ImageComponent = ({
       width={width}
       height={height}
       alt={alt}
-      title={title}
       className={className}
     />
   )

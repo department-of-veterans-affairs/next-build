@@ -1,13 +1,11 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { MediaImageComponent } from './index'
-import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
+import { queries } from '@/data/queries'
 import { MediaImageType } from '@/types/index'
 import mediaImage from './mockMedia.json'
 
-const { url, alt, title, width, height, link } = generalEntityDataService(
-  mediaImage
-) as MediaImageType
+const { id, alt, title, link } = mediaImage[0]
 
 export default {
   title: 'Common/Media Image',
@@ -20,33 +18,27 @@ const Template: ComponentStory<typeof MediaImageComponent> = (args) => (
 
 export const FullContentWidth = Template.bind({})
 FullContentWidth.args = {
-  url,
+  id,
   alt,
   title,
-  width,
-  height,
   link,
   imageStyle: 'full_content_width',
 }
 
 export const SevenTwoMediumThumbnail = Template.bind({})
 SevenTwoMediumThumbnail.args = {
-  url,
+  id,
   alt,
   title,
-  width,
-  height,
   link,
   imageStyle: '7_2_medium_thumbnail',
 }
 
 export const TwoOneLarge = Template.bind({})
 TwoOneLarge.args = {
-  url,
+  id,
   alt,
   title,
-  width,
-  height,
   link,
   imageStyle: '2_1_large',
 }

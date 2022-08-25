@@ -8,7 +8,6 @@ import { queries } from '.'
 import { MediaImage } from '@/types/dataTypes/drupal/media'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { MediaImageType } from '@/types/index'
-import { absoluteURL } from '@/lib/utils/helpers'
 
 // Define query params for queryData.
 export const params: QueryParams<null> = () => {
@@ -35,13 +34,11 @@ export const formatter: QueryFormatter<MediaImage[], MediaImageType[]> = (
 ) => {
   if (!entities) return null
 
-  return entities.map((entity) => ({
-    id: entity.image.id,
-    url: absoluteURL(entity.image.uri?.url),
-    alt: entity.image.resourceIdObjMeta?.alt,
-    title: entity.image.resourceIdObjMeta?.title,
-    width: entity.image.resourceIdObjMeta?.width,
-    height: entity.image.resourceIdObjMeta?.height,
-    link: entity.image.links,
+  return entities?.map((entity) => ({
+    id: entity?.image?.id,
+    link: entity?.image?.links,
+    alt: entity?.image?.resourceIdObjMeta?.alt,
+    title: entity?.image?.resourceIdObjMeta?.title,
+    imageStyle: '',
   }))
 }

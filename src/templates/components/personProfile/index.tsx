@@ -1,6 +1,3 @@
-import { ImageComponent } from '@/templates/common/image'
-import { DEV_PATH } from '@/lib/constants'
-
 export type PersonProfileProps = {
   // title: string
   // image: MediaImage
@@ -34,28 +31,19 @@ export const PersonProfile = ({ node }): JSX.Element => {
     field_photo_allow_hires_download: fieldPhotoAllowHiresDownload,
     field_complete_biography: fieldCompleteBiography,
   } = node
-  const thumbnail = DEV_PATH + fieldMedia?.thumbnail?.uri?.url
-  const image = DEV_PATH + fieldMedia?.image?.uri?.url
-  const meta = fieldMedia?.thumbnail?.resourceIdObjMeta
 
   return (
     <div key={id}>
       <h3>Person Profile</h3>
       <article className="usa-content">
         <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
-          {fieldMedia?.thumbnail && (
-            <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
-              <ImageComponent
-                id={id}
-                className="person-profile-detail-page-image"
-                src={thumbnail}
-                alt={meta?.alt}
-                title={meta.title}
-                width={meta?.width}
-                height={meta?.height}
-              />
-            </div>
-          )}
+          <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
+            {/* <MediaImageComponent
+            //     className="person-profile-detail-page-image"
+            //     {...images}
+            //     imageStyle="2_1_large"
+            //   /> */}
+          </div>
           <div className="vads-u-display--flex vads-u-flex-direction--column">
             <h1 className="vads-u-font-size--xl vads-u-margin-bottom--0p5">
               {title} {suffix}
@@ -106,9 +94,9 @@ export const PersonProfile = ({ node }): JSX.Element => {
               className="va-c-social-icon fas fa-download"
               aria-hidden="true"
             ></i>
-            <a href={image} download>
+            {/* <a href={image} download>
               Download full size photo
-            </a>
+            </a> */}
           </div>
         )}
         {fieldCompleteBiography && (

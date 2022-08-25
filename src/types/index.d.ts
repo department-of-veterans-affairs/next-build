@@ -51,15 +51,12 @@ export type FacilityBannerType = {
 }
 
 export type MediaImageType = {
-  id?: string
-  url?: string
-  width?: number
-  height?: number
+  id: string
   alt?: string
   title?: string
-  link?: string
-  imageStyle?: string
   className?: string | ''
+  link: string
+  imageStyle: string
   loader?: () => void
 }
 
