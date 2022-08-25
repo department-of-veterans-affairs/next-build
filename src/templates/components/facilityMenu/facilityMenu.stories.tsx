@@ -13,18 +13,8 @@ const Template: ComponentStory<typeof FacilityMenu> = (args) => (
   <FacilityMenu {...args} />
 )
 
-export const Example = Template.bind({})
-Example.args = {
+export const Default = Template.bind({})
+Default.args = {
   items: MockMenu.items,
   tree: MockMenu.tree,
-  depth: 0,
-  maxDepth: undefined,
-}
-
-export const MaxDepth = Template.bind({})
-MaxDepth.args = {
-  items: MockMenu.items,
-  tree: MockMenu.tree,
-  depth: 0,
-  maxDepth: 2,
 }

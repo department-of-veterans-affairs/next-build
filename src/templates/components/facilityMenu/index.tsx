@@ -156,6 +156,9 @@ const RecursiveMenuTree = ({ items, tree }: Menu) => {
 export const FacilityMenu = ({ items, tree }: Menu) => {
   const [active, setActive] = useState(false)
 
+  // bail early if there's no menu
+  if (!tree || tree.length === 0) return null
+
   return (
     <div
       className={clsx(
