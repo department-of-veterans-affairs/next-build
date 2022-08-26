@@ -121,18 +121,15 @@ Object {
   ",
   "date": "2019-05-14T15:35:12+00:00",
   "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
-  "image": Object {
-    "alt": undefined,
-    "height": undefined,
-    "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
-    "imageStyle": "full_width_content",
-    "styles": Array [
-      null,
-    ],
-    "title": undefined,
-    "url": "undefined",
-    "width": undefined,
-  },
+  "image": Array [
+    Object {
+      "alt": undefined,
+      "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
+      "link": null,
+      "title": undefined,
+      "url": undefined,
+    },
+  ],
   "introText": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
   "listing": "/pittsburgh-health-care/stories",
   "published": true,

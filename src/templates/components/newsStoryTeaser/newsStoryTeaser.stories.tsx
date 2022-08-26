@@ -1,11 +1,17 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
-
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
-import mediaImage from '@/templates/common/media/mockMedia.json'
-import { mediaImageDataService } from '@/templates/common/media/dataService'
 
-const image = mediaImageDataService(mediaImage, 'full_content_width')
+const image = {
+  id: '1',
+  url: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
+  width: 100,
+  height: 100,
+  alt: 'pension',
+  title: 'title',
+  styles: '',
+  imageStyle: '2_1_large',
+}
 
 export default {
   title: 'Components/News Story Teaser',

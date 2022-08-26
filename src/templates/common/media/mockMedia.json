@@ -1,148 +1,294 @@
-[
-  {
-    "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
-    "link": {
-      "1_1_square_medium_thumbnail": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta": {
+      "links": {
+        "self": {
+          "href": "http://jsonapi.org/format/1.0/"
+        }
+      }
+    }
+  },
+  "data": {
+    "type": "media--image",
+    "id": "ffd0a3fd-1a61-4d4e-b275-6af6882168ab",
+    "links": {
+      "self": {
+        "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab?resourceVersion=id%3A15904"
+      }
+    },
+    "attributes": {
+      "drupal_internal__mid": 15070,
+      "drupal_internal__vid": 15904,
+      "langcode": "en",
+      "revision_created": "2022-06-23T13:41:05+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "Wilmington VA Mobile Clinic ",
+      "created": "2022-06-23T13:40:48+00:00",
+      "changed": "2022-06-23T13:41:05+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "metatag": null,
+      "path": {
+        "alias": "/media/image/15070",
+        "pid": 63231,
+        "langcode": "en"
+      },
+      "field_description": "Mobile Clinic",
+      "field_media_in_library": true,
+      "field_media_submission_guideline": null
+    },
+    "relationships": {
+      "bundle": {
+        "data": {
+          "type": "media_type--media_type",
+          "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+          "meta": {
+            "drupal_internal__target_id": "image"
+          }
+        },
+        "links": {
+          "related": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/bundle?resourceVersion=id%3A15904"
+          },
+          "self": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/relationships/bundle?resourceVersion=id%3A15904"
+          }
+        }
+      },
+      "revision_user": {
+        "data": {
+          "type": "user--user",
+          "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+          "meta": {
+            "drupal_internal__target_id": 1486
+          }
+        },
+        "links": {
+          "related": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/revision_user?resourceVersion=id%3A15904"
+          },
+          "self": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/relationships/revision_user?resourceVersion=id%3A15904"
+          }
+        }
+      },
+      "uid": {
+        "data": {
+          "type": "user--user",
+          "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+          "meta": {
+            "drupal_internal__target_id": 1486
+          }
+        },
+        "links": {
+          "related": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/uid?resourceVersion=id%3A15904"
+          },
+          "self": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/relationships/uid?resourceVersion=id%3A15904"
+          }
+        }
+      },
+      "thumbnail": {
+        "data": {
+          "type": "file--file",
+          "id": "79e21eb7-9b34-421a-a4b2-7b6626814ce0",
+          "meta": {
+            "alt": "Wilmington VA Mobile Clinic ",
+            "title": null,
+            "width": 1430,
+            "height": 950,
+            "drupal_internal__target_id": 17425
+          }
+        },
+        "links": {
+          "related": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/thumbnail?resourceVersion=id%3A15904"
+          },
+          "self": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/relationships/thumbnail?resourceVersion=id%3A15904"
+          }
+        }
+      },
+      "field_owner": {
+        "data": {
+          "type": "taxonomy_term--administration",
+          "id": "f55a34b8-f0cc-41f1-a6a3-8375160003ab",
+          "meta": {
+            "drupal_internal__target_id": 188
+          }
+        },
+        "links": {
+          "related": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/field_owner?resourceVersion=id%3A15904"
+          },
+          "self": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/relationships/field_owner?resourceVersion=id%3A15904"
+          }
+        }
+      },
+      "image": {
+        "data": {
+          "type": "file--file",
+          "id": "79e21eb7-9b34-421a-a4b2-7b6626814ce0",
+          "meta": {
+            "alt": "Wilmington VA Mobile Clinic ",
+            "title": "",
+            "width": 1430,
+            "height": 950,
+            "drupal_internal__target_id": 17425
+          }
+        },
+        "links": {
+          "related": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/image?resourceVersion=id%3A15904"
+          },
+          "self": {
+            "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab/relationships/image?resourceVersion=id%3A15904"
+          }
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "file--file",
+      "id": "79e21eb7-9b34-421a-a4b2-7b6626814ce0",
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2022-06/mobile_clinic.jpg",
+          "meta": {
             "width": "240",
             "height": "240",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
-        }
-      },
-      "2_1_large": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
+          }
+        },
+        "2_1_large": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2022-06/mobile_clinic.jpg",
+          "meta": {
             "width": "1024",
             "height": "512",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
-        }
-      },
-      "2_1_medium_thumbnail": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2022-06/mobile_clinic.jpg",
+          "meta": {
             "width": "480",
             "height": "240",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
-        }
-      },
-      "2_3_medium_thumbnail": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2022-06/mobile_clinic.jpg",
+          "meta": {
             "width": "320",
             "height": "480",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
-        }
-      },
-      "3_2_medium_thumbnail": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2022-06/mobile_clinic.jpg",
+          "meta": {
             "width": "480",
             "height": "320",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
-        }
-      },
-      "7_2_medium_thumbnail": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2022-06/mobile_clinic.jpg",
+          "meta": {
             "width": "1050",
             "height": "300",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
-        }
-      },
-      "full_content_width": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
-            "width": "480",
-            "height": "330",
+          }
+        },
+        "full_content_width": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/full_content_width/public/2022-06/mobile_clinic.jpg",
+          "meta": {
+            "width": "1400",
+            "height": "930",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
-        }
-      },
-      "large": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
+          }
+        },
+        "large": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/large/public/2022-06/mobile_clinic.jpg",
+          "meta": {
             "width": "480",
-            "height": "330",
+            "height": "319",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
-          },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
-        }
-      },
-      "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/c85b7882-f035-4b55-8b71-fcf81fade350"
-      },
-      "viewport_width": {
-        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-05/doctor-year2019-decker-480_0.jpg",
-        "meta": {
-          "linkParams": {
-            "width": "480",
-            "height": "330",
+          }
+        },
+        "self": {
+          "href": "https://prod.cms.va.gov/jsonapi/file/file/79e21eb7-9b34-421a-a4b2-7b6626814ce0"
+        },
+        "viewport_width": {
+          "href": "https://prod.cms.va.gov/sites/default/files/styles/viewport_width/public/2022-06/mobile_clinic.jpg",
+          "meta": {
+            "width": "1430",
+            "height": "950",
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
             ]
+          }
+        }
+      },
+      "attributes": {
+        "drupal_internal__fid": 17425,
+        "langcode": "en",
+        "filename": "mobile_clinic.jpg",
+        "uri": {
+          "value": "public://2022-06/mobile_clinic.jpg",
+          "url": "/sites/default/files/2022-06/mobile_clinic.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 370481,
+        "status": true,
+        "created": "2022-06-23T13:40:48+00:00",
+        "changed": "2022-06-23T13:41:05+00:00"
+      },
+      "relationships": {
+        "uid": {
+          "data": {
+            "type": "user--user",
+            "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+            "meta": {
+              "drupal_internal__target_id": 1486
+            }
           },
-          "rel": [
-            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
-          ]
+          "links": {
+            "related": {
+              "href": "https://prod.cms.va.gov/jsonapi/file/file/79e21eb7-9b34-421a-a4b2-7b6626814ce0/uid"
+            },
+            "self": {
+              "href": "https://prod.cms.va.gov/jsonapi/file/file/79e21eb7-9b34-421a-a4b2-7b6626814ce0/relationships/uid"
+            }
+          }
         }
       }
-    },
-    "alt": "Dr. Brooke Decker",
-    "title": "",
-    "imageStyle": ""
+    }
+  ],
+  "links": {
+    "self": {
+      "href": "https://prod.cms.va.gov/jsonapi/media/image/ffd0a3fd-1a61-4d4e-b275-6af6882168ab?include=image"
+    }
   }
-]
+}

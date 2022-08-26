@@ -50,14 +50,22 @@ export type FacilityBannerType = {
   bannerAlertVacms?: BannerAlertVacms[]
 }
 
+export type MediaImageLink = {
+  href: string
+  width: string
+  height: string
+}
+
 export type MediaImageType = {
   id: string
-  alt?: string
-  title?: string
-  className?: string | ''
-  link: string
-  imageStyle: string
-  loader?: () => void
+  alt: string
+  title: string
+  url: string
+  width: string
+  height: string
+  link: MediaImageLink[]
+  imageStyle?: string
+  className?: string
 }
 
 export type NewsStoryType = PublishedEntity & {
