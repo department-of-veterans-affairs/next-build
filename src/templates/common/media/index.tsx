@@ -3,14 +3,13 @@ import Image from '../image'
 import { MediaImageType } from '@/types/index'
 
 export const MediaImageComponent = (props: MediaImageType) => {
-  const [showImage, setShowImages] = useState(false)
-  // if props is single object return else iterate over all objects
   const { id, title, alt, link, url, width, height } = props[0]
     ? props[0]
     : props
-  // default image style
+  // define default image style
   const imageStyle = props.imageStyle ?? '2_1_large'
-
+  // Image state
+  const [showImage, setShowImages] = useState(false)
   useEffect(() => {
     if (link) {
       setShowImages(true)
