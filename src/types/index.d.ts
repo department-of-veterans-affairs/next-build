@@ -52,8 +52,8 @@ export type FacilityBannerType = {
 
 export type MediaImageLink = {
   href: string
-  width: string
-  height: string
+  width: number
+  height: number
 }
 
 export type MediaImageType = {
@@ -61,8 +61,8 @@ export type MediaImageType = {
   alt: string
   title: string
   url: string
-  width: string
-  height: string
+  width: number
+  height: number
   link: MediaImageLink[]
   imageStyle?: string
   className?: string

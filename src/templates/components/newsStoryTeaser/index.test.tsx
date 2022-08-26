@@ -8,20 +8,19 @@ const mediaImage: MediaImageType = {
   id: '1',
   alt: 'Dr. Brooke Decker ',
   title: 'test',
-  url: 'https://picsum.photos/200/300',
-  width: '23',
-  height: '23',
+  url: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
+  width: 23,
+  height: 23,
   link: [
     {
-      href: 'https://picsum.photos/200/300',
-      width: '23',
-      height: '23',
+      href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
+      width: 23,
+      height: 23,
     },
   ],
   imageStyle: '1_1_square_medium_thumbnail',
   className: 'test',
 }
-
 // const images = {
 //   id: image.id,
 //   url: image.url,

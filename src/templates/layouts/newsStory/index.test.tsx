@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { NewsStory } from '.'
+import { NewsStory } from './index'
 
 const image = {
   id: '1',

@@ -39,6 +39,8 @@ export const formatter: QueryFormatter<MediaImage[], MediaImageType[]> = (
     link: entity?.image?.links,
     alt: entity?.image?.resourceIdObjMeta?.alt,
     title: entity?.image?.resourceIdObjMeta?.title,
+    width: entity?.image?.resourceIdObjMeta?.width,
+    height: entity?.image?.resourceIdObjMeta?.height,
     url: entity?.image?.uri?.url,
   }))
 }

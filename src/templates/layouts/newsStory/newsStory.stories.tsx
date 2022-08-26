@@ -1,11 +1,25 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { MediaImageType } from '@/types/index'
+import { NewsStory } from './index'
 
-import { NewsStory } from '.'
-import mediaImage from '@/templates/common/media/mockMedia.json'
-import { mediaImageDataService } from '@/templates/common/media/dataService'
-
-const image = mediaImageDataService(mediaImage, 'full_content_width')
+const mediaImage: MediaImageType = {
+  id: '1',
+  alt: 'Dr. Brooke Decker ',
+  title: 'test',
+  url: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
+  width: 23,
+  height: 23,
+  link: [
+    {
+      href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
+      width: 23,
+      height: 23,
+    },
+  ],
+  imageStyle: '1_1_square_medium_thumbnail',
+  className: 'test',
+}
 
 export default {
   title: 'Layouts/News Story',
@@ -19,7 +33,7 @@ const Template: ComponentStory<typeof NewsStory> = (args) => (
 export const Full = Template.bind({})
 Full.args = {
   title: 'We honor outstanding doctors\n',
-  image: image,
+  image: mediaImage,
   caption:
     '"Caring for a single patient and solving that one patient\'s illness is our honor and privilege as health care providers." - Dr. Brooke Decker',
   author: {
