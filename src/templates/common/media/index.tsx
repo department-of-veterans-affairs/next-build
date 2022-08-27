@@ -2,36 +2,51 @@ import { useState, useEffect } from 'react'
 import Image from '../image'
 import { MediaImageType } from '@/types/index'
 
+export const assignBy = (key) => {
+  return (data, item) => {
+    data[item[key]] = item
+    return data
+  }
+}
+
 export const MediaImageComponent = (props: MediaImageType) => {
-  const { id, title, alt, link, url, width, height } = props[0]
-    ? props[0]
-    : props
-  // define default image style
-  const imageStyle = props.imageStyle ?? '2_1_large'
-  // Image state
+  const imageProps = props[0] ?? props
+  const optimizedData = [imageProps].reduce(assignBy('id'), {})
+  const [imageStyle, setImageStyle] = useState('2_1_large')
   const [showImage, setShowImages] = useState(false)
+
   useEffect(() => {
-    if (link) {
-      setShowImages(true)
+    if (!props) {
+      setShowImages(false)
+      return null
     }
     return () => {
-      setShowImages(false)
+      setImageStyle(props?.imageStyle)
+      setShowImages(true)
     }
-  }, [link])
+  }, [optimizedData, props])
 
+  const image = optimizedData[imageProps?.id]
+
+  if (!image) {
+    return null
+  }
+  console.log('Image', image)
   return (
-    showImage && (
-      <>
+    <>
+      {showImage && (
         <Image
-          id={id}
-          alt={alt}
-          className={props.className}
-          src={link ? link[imageStyle]?.href : url}
-          height={link ? link[imageStyle]?.meta.linkParams?.height : width}
-          width={link ? link[imageStyle]?.meta.linkParams?.width : height}
+          src={image?.link[imageStyle]?.href || props.url}
+          alt={image?.alt}
+          width={
+            image?.link[imageStyle]?.meta?.linkParams?.width || props.width
+          }
+          height={
+            image?.link[imageStyle]?.meta?.linkParams?.height || props.height
+          }
+          className={props?.className}
         />
-        <span>{title}</span>
-      </>
-    )
+      )}
+    </>
   )
 }

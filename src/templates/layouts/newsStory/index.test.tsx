@@ -1,15 +1,22 @@
 import { render, screen } from '@testing-library/react'
+import { MediaImageType } from '@/types/index'
 import { NewsStory } from './index'
-
-const image = {
-  id: '1',
-  url: 'https://www.example.com/image.jpg',
-  width: 100,
-  height: 100,
-  alt: 'pension',
-  title: 'title',
-  styles: '',
-  imageStyle: '2_1_large',
+const mediaImage: MediaImageType = {
+  id: '3d6716b3-fb66-4e63-9b21-bb9c024129d3',
+  link: {
+    href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
+    meta: {
+      linkParams: {
+        width: 100,
+        height: 100,
+      },
+    },
+  },
+  alt: 'Smiling man in glasses.',
+  title: '',
+  width: 1299,
+  height: 1512,
+  url: '/sites/default/files/2020-08/Raab.jpg',
 }
 
 const data = {
@@ -17,7 +24,7 @@ const data = {
   published: true,
   type: 'node--news_story',
   title: 'We honor outstanding doctors\n',
-  image: image,
+  image: mediaImage,
   caption:
     '"Caring for a single patient and solving that one patient\'s illness is our honor and privilege as health care providers." - Dr. Brooke Decker',
   author: {

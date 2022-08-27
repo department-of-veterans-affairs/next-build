@@ -4,21 +4,21 @@ import { MediaImageType } from '@/types/index'
 import { NewsStory } from './index'
 
 const mediaImage: MediaImageType = {
-  id: '1',
-  alt: 'Dr. Brooke Decker ',
-  title: 'test',
-  url: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
-  width: 23,
-  height: 23,
-  link: [
-    {
-      href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
-      width: 23,
-      height: 23,
+  id: '3d6716b3-fb66-4e63-9b21-bb9c024129d3',
+  link: {
+    href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
+    meta: {
+      linkParams: {
+        width: 100,
+        height: 100,
+      },
     },
-  ],
-  imageStyle: '1_1_square_medium_thumbnail',
-  className: 'test',
+  },
+  alt: 'Smiling man in glasses.',
+  title: '',
+  width: 1299,
+  height: 1512,
+  url: '/sites/default/files/2020-08/Raab.jpg',
 }
 
 export default {
