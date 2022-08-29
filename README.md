@@ -1,7 +1,6 @@
 # next-build
 
-Front-end templating, build, and deploy for VA.gov CMS content. General documentation will be
-here: https://vfs.atlassian.net/wiki/spaces/PCMS/pages/2166063172/next-build
+Front-end templating, build, and deploy for VA.gov CMS content.
 
 ## Local setup
 
