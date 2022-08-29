@@ -45,7 +45,7 @@ export async function getStaticProps() {
   const mediaImageCollection = await queries.getData(MediaResourceType.Image)
   return {
     props: {
-      MediaCollectionProps: JSON.parse(JSON.stringify(mediaImageCollection)),
+      MediaCollectionProps: mediaImageCollection,
     },
   }
 }

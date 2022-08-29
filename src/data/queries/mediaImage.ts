@@ -34,18 +34,6 @@ export const formatter: QueryFormatter<MediaImage[], MediaImageType[]> = (
   entities: MediaImage[]
 ) => {
   if (!entities) return null
-  console.log(
-    'entities',
-    entities?.map((entity) => ({
-      id: entity?.image?.id,
-      link: entity?.image?.links,
-      alt: entity?.image?.resourceIdObjMeta?.alt,
-      title: entity?.image?.resourceIdObjMeta?.title,
-      width: entity?.image?.resourceIdObjMeta?.width,
-      height: entity?.image?.resourceIdObjMeta?.height,
-      url: entity?.image?.uri?.url,
-    }))
-  )
   return entities?.map((entity) => ({
     id: entity?.image?.id,
     link: entity?.image?.links,

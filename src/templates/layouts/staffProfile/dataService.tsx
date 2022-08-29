@@ -5,7 +5,6 @@ import {
 } from '@/types/dataTypes/drupal/paragraph'
 import { StaffProfile, StaffProfileProps } from './index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
 
 function isRequestValid(paragraph) {
   return paragraph.field_staff_profile !== null

@@ -31,7 +31,7 @@ export const MediaImageComponent = (props: MediaImageType) => {
   if (!image) {
     return null
   }
-  console.log('Image', image)
+
   return (
     <>
       {showImage && (
