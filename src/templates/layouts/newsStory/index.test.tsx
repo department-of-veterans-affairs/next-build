@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { MediaImageType } from '@/types/index'
 import { NewsStory } from './index'
+
 const mediaImage: MediaImageType = {
-  id: '3d6716b3-fb66-4e63-9b21-bb9c024129d3',
+  id: '3',
   link: {
     href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
     meta: {

@@ -49,8 +49,6 @@ describe('<NewsStoryTeaser> with valid data', () => {
     const imgEl = container.querySelectorAll('img')
 
     expect(imgEl.length).toBe(0) // fix this
-
-    screen.debug()
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()

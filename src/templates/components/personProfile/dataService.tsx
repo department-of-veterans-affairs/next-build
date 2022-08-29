@@ -25,7 +25,7 @@ export const personProfileDataService = function (
     default:
       return {
         title: entity.title,
-        image: queries.formatData('media--image', [entity.field_media]),
+        image: queries.formatData('media--image', entity.field_media),
         caption: entity.field_image_caption,
         author: entity.field_author,
         introText: entity.field_intro_text,

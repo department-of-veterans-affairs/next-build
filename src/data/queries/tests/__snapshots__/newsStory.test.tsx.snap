@@ -125,9 +125,10 @@ Object {
     Object {
       "alt": undefined,
       "height": undefined,
-      "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
+      "id": "5aa01b90-7156-45b1-85fb-95f82465409c",
       "link": null,
       "title": undefined,
+      "type": "media--image",
       "url": undefined,
       "width": undefined,
     },
