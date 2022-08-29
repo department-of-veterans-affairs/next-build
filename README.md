@@ -1,7 +1,6 @@
 # next-build
 
-Front-end templating, build, and deploy for VA.gov CMS content. General documentation will be
-here: https://vfs.atlassian.net/wiki/spaces/PCMS/pages/2166063172/next-build
+Front-end templating, build, and deploy for VA.gov CMS content.
 
 ## Local setup
 
@@ -29,7 +28,7 @@ You should set these up before attempting to install the repo.
 You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your
 local environment.
 
-### Documentation
+### Documentation (WIP)
 
 - [Code Guidelines](docs/code-guidelines.md)
 - [Testing](docs/testing.md)
