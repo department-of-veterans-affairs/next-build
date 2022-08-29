@@ -1,4 +1,4 @@
-import { MediaImageComponent } from '@/templates/common/media'
+import { MediaImageComponent } from '@/templates/common/mediaImage'
 import { StaffNewsProfile } from '@/templates/components/personProfile'
 import { formatDate } from '@/lib/utils/helpers'
 import { SocialLinks } from '@/templates/common/socialLinks'

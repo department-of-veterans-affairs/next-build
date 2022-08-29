@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { queries } from '@/data/queries'
 import Container from '@/templates/common/container'
-import { MediaImageComponent } from '@/templates/common/media'
+import { MediaImageComponent } from '@/templates/common/mediaImage'
 import { MediaResourceType } from '@/types/dataTypes/drupal/media'
 import { MediaImageType } from '@/types/index'
 
