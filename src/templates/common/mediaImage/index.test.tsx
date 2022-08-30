@@ -23,65 +23,59 @@ const mediaImage: MediaImageType = {
 }
 
 describe('Media Image component renders', () => {
-  describe('Media Image component renders with a title', () => {
-    test('<MediaImage> renders', () => {
-      render(<MediaImageComponent {...mediaImage} />)
-      waitFor(() =>
-        expect(screen.getByText('Cats or Dogs?')).toBeInTheDocument()
-      )
-    })
+  test('<MediaImage> renders', () => {
+    render(<MediaImageComponent {...mediaImage} />)
+    waitFor(() => expect(screen.getByText('Cats or Dogs?')).toBeInTheDocument())
+  })
 
-    test('<MediaImage> renders with new title', () => {
-      mediaImage.title = 'COVID-19 vaccines'
-      render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
-      waitFor(() =>
-        expect(screen.getByText('COVID-19 vaccines')).toBeInTheDocument()
-      )
-    })
+  test('<MediaImage> renders with new title', () => {
+    mediaImage.title = 'COVID-19 vaccines'
+    render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+    waitFor(() =>
+      expect(screen.getByText('COVID-19 vaccines')).toBeInTheDocument()
+    )
+  })
 
-    test('MediaImage renders with correct alt text', () => {
-      render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
-      const imgElement = document.querySelector('img[alt=""]')
-      // Loading element
-      waitFor(() => expect(imgElement).toHaveAttribute('alt', ''))
-      waitFor(() =>
-        expect(screen.getByText('Smiling man in glasses.')).toBeInTheDocument()
-      )
-    })
+  test('MediaImage renders with correct alt text', () => {
+    render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+    const imgElement = document.querySelector('img[alt=""]')
+    // Loading element
+    waitFor(() => expect(imgElement).toHaveAttribute('alt', ''))
+    waitFor(() =>
+      expect(screen.getByText('Smiling man in glasses.')).toBeInTheDocument()
+    )
+  })
 
-    test('MediaImage renders when image style is defined', () => {
-      render(
-        <MediaImageComponent
-          key={mediaImage.id}
-          {...mediaImage}
-          imageStyle="1_1_small"
-        />
-      )
-      waitFor(() => expect(screen.getByText('1_1_small')).toBeInTheDocument())
-    })
+  test('MediaImage renders when image style is defined', () => {
+    render(
+      <MediaImageComponent
+        key={mediaImage.id}
+        {...mediaImage}
+        imageStyle="1_1_small"
+      />
+    )
+    waitFor(() => expect(screen.getByText('1_1_small')).toBeInTheDocument())
+  })
 
-    test('MediaImage renders when the image style is not defined', () => {
-      mediaImage.imageStyle = null
-      render(
-        <MediaImageComponent
-          key={mediaImage.id}
-          {...mediaImage}
-          imageStyle={mediaImage.imageStyle}
-        />
-      )
-      waitFor(() =>
-        expect(screen.getByText('Smiling man in glasses.')).toBeInTheDocument()
-      )
-    })
+  test('MediaImage renders when the image style is not defined', () => {
+    mediaImage.imageStyle = null
+    render(
+      <MediaImageComponent
+        key={mediaImage.id}
+        {...mediaImage}
+        imageStyle={mediaImage.imageStyle}
+      />
+    )
+    waitFor(() =>
+      expect(screen.getByText('Smiling man in glasses.')).toBeInTheDocument()
+    )
+  })
 
-    test('MediaImage does not render with null data', () => {
-      mediaImage.link = null
-      render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
-      waitFor(() =>
-        expect(
-          screen.getByText('Smiling man in glasses.')
-        ).notToBeInTheDocument()
-      )
-    })
+  test('MediaImage does not render with null data', () => {
+    mediaImage.link = null
+    render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+    waitFor(() =>
+      expect(screen.getByText('Smiling man in glasses.')).notToBeInTheDocument()
+    )
   })
 })
