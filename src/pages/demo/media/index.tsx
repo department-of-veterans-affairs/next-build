@@ -1,52 +1,51 @@
-import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { DrupalMedia } from 'next-drupal'
-import { drupalClient } from '@/lib/utils/drupalClient'
-import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
-import { MediaImageComponent } from '@/templates/common/media'
+import { useState, useEffect } from 'react'
+import { queries } from '@/data/queries'
+import Container from '@/templates/common/container'
+import { MediaImageComponent } from '@/templates/common/mediaImage'
+import { MediaResourceType } from '@/types/dataTypes/drupal/media'
+import { MediaImageType } from '@/types/index'
 
 interface MediaPageProps {
-  mediaProps: any
+  MediaCollectionProps: MediaImageType[]
 }
 
-const ImagePage = ({ mediaProps }: MediaPageProps) => {
-  if (!mediaProps) return null
+export default function MediaImageDemo({
+  MediaCollectionProps,
+}: MediaPageProps) {
+  const [images, setImages] = useState([])
+  const [showImages, setShowImages] = useState(false)
+
+  useEffect(() => {
+    if (MediaCollectionProps) {
+      setImages(MediaCollectionProps)
+      setShowImages(true)
+    }
+    return () => {
+      setShowImages(false)
+    }
+  }, [MediaCollectionProps])
 
   return (
-    <>
-      {mediaProps.map((image) => (
-        <MediaImageComponent
-          key={image.id}
-          {...image}
-          imageStyle="1_1_square_medium_thumbnail"
-        />
-      ))}
-    </>
+    <Container className="container">
+      <ul className="usa-unstyled-list">
+        {showImages &&
+          images.map((image) => (
+            <MediaImageComponent
+              key={image.id}
+              {...image}
+              imageStyle="1_1_square_medium_thumbnail"
+            />
+          ))}
+      </ul>
+    </Container>
   )
 }
 
-export default ImagePage
-
-export async function getStaticProps(
-  context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<MediaPageProps>> {
-  const media =
-    await drupalClient.getResourceCollectionFromContext<DrupalMedia>(
-      'media--image',
-      context,
-      {
-        params: {
-          include: 'image',
-          page: {
-            limit: 10,
-          },
-        },
-      }
-    )
-  const mediaProps = generalEntityDataService(media)
-
+export async function getStaticProps() {
+  const mediaImageCollection = await queries.getData(MediaResourceType.Image)
   return {
     props: {
-      mediaProps,
+      MediaCollectionProps: mediaImageCollection,
     },
   }
 }

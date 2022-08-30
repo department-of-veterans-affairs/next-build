@@ -44,11 +44,13 @@ export const LinkTeaser = ({
                 <>
                   <span className="hub-page-link-list__header">{title}</span>
                   <Image
+                    id={id}
                     className="all-link-arrow"
                     src={thumbnail}
                     alt="right-arrow"
                     width="15px"
                     height="15px"
+                    title="right-arrow"
                   ></Image>
                 </>
               ) : (
