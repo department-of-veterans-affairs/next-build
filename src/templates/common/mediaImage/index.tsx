@@ -23,9 +23,9 @@ export const MediaImageComponent = (props: MediaImageType) => {
   }, [image, cropImage])
 
   const imagePath = {
-    href: imageSrc ? imageSrc?.href : image?.url,
-    height: imageSrc ? imageSrc?.meta?.linkParams?.height : image.height, // fallback height
-    width: imageSrc ? imageSrc?.meta?.linkParams?.width : image?.width, // fallback width
+    href: imageSrc ? imageSrc.href : image.url,
+    height: imageSrc ? imageSrc.meta?.linkParams?.height : image.height, // fallback height
+    width: imageSrc ? imageSrc.meta?.linkParams?.width : image.width, // fallback width
   }
 
   return (
@@ -33,11 +33,11 @@ export const MediaImageComponent = (props: MediaImageType) => {
       {showImage && (
         <>
           <Image
-            id={image?.id}
-            alt={image?.alt}
-            src={imagePath?.href || image?.url}
-            width={imagePath?.width || image?.width}
-            height={imagePath?.height || image?.height}
+            id={image.id}
+            alt={image.alt}
+            src={imagePath.href || image.url}
+            width={imagePath.width || image.width}
+            height={imagePath.height || image.height}
             className={props?.className}
           />
           <div>{image.title}</div>
