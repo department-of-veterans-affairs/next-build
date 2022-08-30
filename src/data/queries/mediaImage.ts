@@ -35,19 +35,16 @@ export const formatter: QueryFormatter<MediaImage, MediaImageType[]> = (
 ) => {
   if (!entities) return null
 
-  // const mediaData = compactObject(entities)
   const castArray = (val) => (Array.isArray(val) ? val : [val])
-  const media = castArray(entities).map((item) => {
-    return {
-      id: item.id,
-      type: item.type,
-      link: item.image?.links,
-      alt: item.image?.resourceIdObjMeta?.alt,
-      width: item.image?.resourceIdObjMeta?.width,
-      height: item.image?.resourceIdObjMeta?.height,
-      title: item.image?.resourceIdObjMeta?.title,
-      url: item.image?.uri?.url,
-    }
-  })
+  const media = castArray(entities).map((entity) => ({
+    id: entity.id,
+    type: entity.type,
+    link: entity.image?.links,
+    alt: entity.image?.resourceIdObjMeta?.alt,
+    width: entity.image?.resourceIdObjMeta?.width,
+    height: entity.image?.resourceIdObjMeta?.height,
+    title: entity.image?.resourceIdObjMeta?.title,
+    url: entity.image?.uri?.url,
+  }))
   return media
 }

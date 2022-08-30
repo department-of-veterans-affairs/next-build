@@ -40,7 +40,7 @@ export const MediaImageComponent = (props: MediaImageType) => {
             height={imagePath.height || image.height}
             className={props?.className}
           />
-          <div>{image.title}</div>
+          <span>{image.title}</span>
         </>
       )}
     </>
