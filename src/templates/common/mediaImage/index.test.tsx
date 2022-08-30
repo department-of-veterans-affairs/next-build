@@ -1,14 +1,16 @@
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
-import '@testing-library/jest-dom'
+import { render, screen, waitFor } from '@testing-library/react'
 import { MediaImageType } from '@/types/index'
-import Image from '../image'
-
+import { MediaImageComponent } from '@/templates/common/mediaImage'
 // Language: typescript
 // Path: src/components/media/index.test.tsx
 
 const mediaImage: MediaImageType = {
-  id: '3d6716b3-fb66-4e63-9b21-bb9c024129d3',
+  id: '3',
+  alt: 'Smiling man in glasses.',
+  title: 'Cats or Dogs?',
+  width: 1299,
+  height: 1512,
+  url: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
   link: {
     href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
     meta: {
@@ -18,50 +20,68 @@ const mediaImage: MediaImageType = {
       },
     },
   },
-
-  alt: 'Smiling man in glasses.',
-  title: '',
-  width: 1299,
-  height: 1512,
-  url: '/sites/default/files/2020-08/Raab.jpg',
 }
 
-function MediaImageComponent({ imageStyle }: MediaImageType) {
-  return (
-    <div className={imageStyle}>
-      <Image
-        id={mediaImage.id}
-        alt={mediaImage.alt}
-        title={mediaImage.title}
-        className="sub"
-        width={100}
-        height={100}
-        src={mediaImage.url}
-      />
-    </div>
-  )
-}
+describe('Media Image component renders', () => {
+  describe('Media Image component renders with a title', () => {
+    test('<MediaImage> renders', () => {
+      render(<MediaImageComponent {...mediaImage} />)
+      waitFor(() =>
+        expect(screen.getByText('Cats or Dogs?')).toBeInTheDocument()
+      )
+    })
 
-describe('Media Image component renders with valid data', () => {
-  test('<MediaImage> renders', () => {
-    render(<MediaImageComponent {...mediaImage} />)
-    expect(screen.getByAltText('Smiling man in glasses.')).toBeInTheDocument()
-  })
-  test('MediaImage renders with large image', () => {
-    render(<MediaImageComponent {...mediaImage} imageStyle="2_1_large" />)
-    expect(screen.queryByAltText('Smiling man in glasses.')).toBeInTheDocument()
-  })
-  test('MediaImage renders when image style is defined', () => {
-    render(
-      <MediaImageComponent {...mediaImage} imageStyle={mediaImage.imageStyle} />
-    )
-    expect(screen.queryByAltText('Smiling man in glasses.')).toBeInTheDocument()
-  })
-  test('MediaImage does not render with null data', () => {
-    mediaImage.alt = null
-    render(<MediaImageComponent {...mediaImage[0]} imageStyle="2_1_large" />)
-    expect(
-      screen.queryByAltText('Smiling man in glasses.')
-    ).not.toBeInTheDocument()
+    test('<MediaImage> renders with new title', () => {
+      mediaImage.title = 'COVID-19 vaccines'
+      render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+      waitFor(() =>
+        expect(screen.getByText('COVID-19 vaccines')).toBeInTheDocument()
+      )
+    })
+
+    test('MediaImage renders with correct alt text', () => {
+      render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+      const imgElement = document.querySelector('img[alt=""]')
+      // Loading element
+      waitFor(() => expect(imgElement).toHaveAttribute('alt', ''))
+      waitFor(() =>
+        expect(screen.getByText('Smiling man in glasses.')).toBeInTheDocument()
+      )
+    })
+
+    test('MediaImage renders when image style is defined', () => {
+      render(
+        <MediaImageComponent
+          key={mediaImage.id}
+          {...mediaImage}
+          imageStyle="1_1_small"
+        />
+      )
+      waitFor(() => expect(screen.getByText('1_1_small')).toBeInTheDocument())
+    })
+
+    test('MediaImage renders when the image style is not defined', () => {
+      mediaImage.imageStyle = null
+      render(
+        <MediaImageComponent
+          key={mediaImage.id}
+          {...mediaImage}
+          imageStyle={mediaImage.imageStyle}
+        />
+      )
+      waitFor(() =>
+        expect(screen.getByText('Smiling man in glasses.')).toBeInTheDocument()
+      )
+    })
+
+    test('MediaImage does not render with null data', () => {
+      mediaImage.link = null
+      render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+      waitFor(() =>
+        expect(
+          screen.getByText('Smiling man in glasses.')
+        ).notToBeInTheDocument()
+      )
+    })
   })
 })
