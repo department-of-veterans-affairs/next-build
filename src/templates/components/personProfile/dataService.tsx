@@ -1,13 +1,12 @@
 import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { mediaImageDataService } from '@/templates/common/media/dataService'
 import {
   NodePersonProfile,
   NodeResourceType,
 } from '@/types/dataTypes/drupal/node'
 
 import { PersonProfile } from '@/templates/components/personProfile'
-
+import { queries } from '@/data/queries'
 export const personProfileDataService = function (
   entity: NodePersonProfile,
   viewMode: string
@@ -26,7 +25,7 @@ export const personProfileDataService = function (
     default:
       return {
         title: entity.title,
-        image: mediaImageDataService(entity.field_media, 'full_content_width'),
+        image: queries.formatData('media--image', entity.field_media),
         caption: entity.field_image_caption,
         author: entity.field_author,
         introText: entity.field_intro_text,

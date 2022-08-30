@@ -1,4 +1,4 @@
-import { MediaImageComponent } from '@/templates/common/media'
+import { MediaImageComponent } from '@/templates/common/mediaImage'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { NewsStoryTeaserType } from '@/types/index'
 
@@ -26,11 +26,9 @@ export const NewsStoryTeaser = ({
             {truncateWordsOrChar(introText, 60, true)}
           </p>
         </div>
-        {image ? (
-          <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
-            <MediaImageComponent {...image} />
-          </div>
-        ) : null}
+        <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
+          <MediaImageComponent {...image} imageStyle="2_1_large" />
+        </div>
       </div>
     </>
   )

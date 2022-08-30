@@ -1,4 +1,4 @@
-import { MediaImageComponent } from '@/templates/common/media'
+import { MediaImageComponent } from '@/templates/common/mediaImage'
 
 export type StaffProfileProps = {
   id: string
@@ -32,10 +32,10 @@ export function StaffProfile({
           </div>
         ) : (
           <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
-            <MediaImageComponent
+            {/* <MediaImageComponent
               className="circular-profile-image bio-paragraph-image max-width-100"
               {...thumbnail}
-            />
+            /> */}
           </div>
         )}
         <div className="vads-u-display--flex vads-u-flex-direction--column">
