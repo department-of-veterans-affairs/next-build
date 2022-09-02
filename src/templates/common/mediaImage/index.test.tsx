@@ -51,7 +51,7 @@ describe('Media Image component renders', () => {
       <MediaImageComponent
         key={mediaImage.id}
         {...mediaImage}
-        imageStyle="1_1_small"
+        imageStyle="1_1_square_medium_thumbnail"
       />
     )
     waitFor(() => expect(screen.getByText('1_1_small')).toBeInTheDocument())

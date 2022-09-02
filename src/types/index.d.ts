@@ -65,6 +65,7 @@ export type MediaImageType = {
   link: MediaImageLink
   imageStyle?: string
   className?: string
+  style?: string
 }
 
 export type NewsStoryType = PublishedEntity & {
@@ -85,6 +86,25 @@ export type NewsStoryTeaserType = PublishedEntity & {
   title: string
   image: ImageProps
   introText: string
+}
+
+export type PersonProfileType = {
+  id: string
+  title: string
+  path: Path
+  body: FieldFormattedText
+  completeBiography: DrupalFile
+  completeBiographyCreate: boolean
+  emailAddress: string
+  firstName: string
+  introText: string
+  photoAllowHiresDownload: boolean
+  description: string
+  lastName: string
+  phoneNumber: string
+  media: MediaImageType
+  office: NodeOffice | NodeHealthCareRegionPage
+  suffix: string
 }
 
 export type StoryListingType = PublishedEntity & {

@@ -22,16 +22,6 @@ const mediaImage: MediaImageType = {
   url: '/sites/default/files/2020-08/Raab.jpg',
 }
 
-const images = {
-  id: mediaImage.id,
-  url: mediaImage.url,
-  width: mediaImage.width,
-  height: mediaImage.height,
-  alt: mediaImage.alt,
-  title: mediaImage.title,
-  imageStyle: mediaImage.imageStyle,
-}
-
 const teaserData = {
   title: 'We honor outstanding doctors',
   introText:
@@ -48,7 +38,7 @@ describe('<NewsStoryTeaser> with valid data', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelectorAll('img')
 
-    expect(imgEl.length).toBe(0) // fix this
+    expect(imgEl.length).toBe(2) // fix this
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
@@ -64,7 +54,7 @@ describe('<NewsStoryTeaser> with valid data', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelectorAll('img')
 
-    expect(imgEl.length).toBe(0)
+    expect(imgEl.length).toBe(2)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()

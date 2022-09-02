@@ -34,10 +34,9 @@ export const formatter: QueryFormatter<MediaImage, MediaImageType[]> = (
   entities: MediaImage
 ) => {
   if (!entities) return null
-
   const castArray = (val) => (Array.isArray(val) ? val : [val])
   const media = castArray(entities).map((entity) => ({
-    id: entity.id,
+    id: entity.image.id,
     type: entity.type,
     link: entity.image?.links,
     alt: entity.image?.resourceIdObjMeta?.alt,
@@ -45,6 +44,7 @@ export const formatter: QueryFormatter<MediaImage, MediaImageType[]> = (
     height: entity.image?.resourceIdObjMeta?.height,
     title: entity.image?.resourceIdObjMeta?.title,
     url: entity.image?.uri?.url,
+    highRes: entity.image?.resourceIdObjMeta?.highRes,
   }))
   return media
 }

@@ -1,11 +1,9 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { Meta as PersonProfileMeta } from '@/templates/components/personProfile/dataService'
 import { Meta as AlertBlockMeta } from '@/templates/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
 import { Meta as AudienceTopicsMeta } from '@/templates/components/audienceTopics/dataService'
 import { Meta as ButtonMeta } from '@/templates/common/button/dataService'
 import { Meta as EmailContactMeta } from '@/templates/components/emailContact/dataService'
-import { Meta as StaffProfileMeta } from '@/templates/layouts/staffProfile/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/templates/components/richTextCharLimit1000/dataService'
 import { Meta as QuestionAnswerMeta } from '@/templates/layouts/questionAnswer/dataService'
 import { Meta as BenefitsHubLinksMeta } from '@/templates/common/benefitsHubLinks/dataService'
@@ -41,14 +39,12 @@ export interface EntityMetaOut {
 
 /** Collect all imported node meta information. */
 const EntityMetaIn: EntityMetaInfo[] = [
-  PersonProfileMeta,
   QuestionAnswerMeta,
   BenefitsHubLinksMeta,
   // blocks
   AlertBlockMeta,
   // paragraphs
   WysiwygMeta,
-  StaffProfileMeta,
   RichTextCharLimit1000Meta,
   AudienceTopicsMeta,
   ButtonMeta,

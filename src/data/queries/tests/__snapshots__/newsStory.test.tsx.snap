@@ -3,9 +3,87 @@
 exports[`node--news_story formatData outputs formatted data 1`] = `
 Object {
   "author": Object {
-    "description": null,
+    "changed": "2019-08-27T17:50:21+00:00",
+    "created": "2019-05-14T16:10:51+00:00",
+    "default_langcode": true,
+    "drupal_internal__nid": 378,
+    "drupal_internal__vid": 9455,
+    "field_administration": Object {
+      "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
+      "resourceIdObjMeta": Array [
+        null,
+      ],
+      "type": "taxonomy_term--administration",
+    },
+    "field_body": null,
+    "field_complete_biography": null,
+    "field_complete_biography_create": null,
+    "field_description": null,
+    "field_email_address": null,
+    "field_intro_text": null,
+    "field_last_name": "Gottschalk",
+    "field_media": null,
+    "field_meta_tags": null,
+    "field_name_first": "Keith",
+    "field_office": null,
+    "field_phone_number": null,
+    "field_photo_allow_hires_download": false,
+    "field_suffix": null,
+    "id": "c76037be-ebb0-4338-9b31-973a76958929",
+    "langcode": "en",
+    "links": Object {
+      "self": Array [
+        null,
+      ],
+    },
+    "metatag": null,
+    "moderation_state": "published",
+    "node_type": Object {
+      "id": "89b07673-7fd5-4292-8fba-58cc10c4e3ec",
+      "resourceIdObjMeta": Array [
+        null,
+      ],
+      "type": "node_type--node_type",
+    },
+    "path": Object {
+      "alias": "/pittsburgh-health-care/staff-profiles/keith-gottschalk",
+      "langcode": "en",
+      "pid": 563,
+    },
+    "promote": false,
+    "relationshipNames": Array [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_complete_biography",
+      "field_media",
+      "field_office",
+    ],
+    "resourceIdObjMeta": Object {
+      "drupal_internal__target_id": 378,
+    },
+    "revision_log": "Bulk operation publish revision",
+    "revision_timestamp": "2019-08-27T17:50:21+00:00",
+    "revision_translation_affected": true,
+    "revision_uid": Object {
+      "id": "fd71292f-3dc7-409d-b0e8-500204cb005a",
+      "resourceIdObjMeta": Array [
+        null,
+      ],
+      "type": "user--user",
+    },
+    "status": true,
+    "sticky": false,
     "title": "Keith Gottschalk",
     "type": "node--person_profile",
+    "uid": Object {
+      "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
+      "resourceIdObjMeta": Array [
+        null,
+      ],
+      "type": "user--user",
+    },
   },
   "bodyContent": "<p>VA Pittsburgh's Outstanding Physicians of the Year for 2019, Drs. Brooke Decker and Aref M. Rahman, stand out for expertly filling critical medical facility roles while fostering a collaborative spirit among staff in caring for Veterans.</p>
 
@@ -125,7 +203,8 @@ Object {
     Object {
       "alt": undefined,
       "height": undefined,
-      "id": "5aa01b90-7156-45b1-85fb-95f82465409c",
+      "highRes": undefined,
+      "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
       "link": null,
       "title": undefined,
       "type": "media--image",

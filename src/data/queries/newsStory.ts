@@ -8,7 +8,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryType } from '@/types/index'
-import { generalEntityDataService } from '@/data/delegators/generalEntityDataService'
+
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
   return queries
@@ -51,7 +51,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
     title: entity.title,
     image: queries.formatData('media--image', entity.field_media),
     caption: entity.field_image_caption,
-    author: generalEntityDataService(entity.field_author, 'teaser'),
+    author: entity.field_author,
     introText: entity.field_intro_text,
     bodyContent: entity.field_full_story?.processed,
     date: entity.created,
