@@ -203,6 +203,7 @@ Object {
     Object {
       "alt": undefined,
       "height": undefined,
+      "highRes": undefined,
       "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
       "link": null,
       "title": undefined,

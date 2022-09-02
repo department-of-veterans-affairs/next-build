@@ -107,6 +107,7 @@ export const PersonProfile = ({
                       className="va-c-social-icon fas fa-download"
                       aria-hidden="true"
                     ></i>
+
                     <a
                       href={absoluteURL(media ? media[0]?.url : null)}
                       download

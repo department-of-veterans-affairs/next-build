@@ -37,8 +37,7 @@ describe('<NewsStoryTeaser> with valid data', () => {
   test('renders component', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelectorAll('img')
-
-    expect(imgEl.length).toBe(2) // fix this
+    expect(imgEl.length).toBe(2)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()

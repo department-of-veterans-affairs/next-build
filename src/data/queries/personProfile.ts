@@ -40,6 +40,7 @@ export const formatter: QueryFormatter<
   PersonProfileType[]
 > = (entities: NodePersonProfile) => {
   if (!entities) return null
+
   return entities.map((entity) => ({
     id: entity.id,
     type: entity.type,

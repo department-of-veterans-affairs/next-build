@@ -49,7 +49,6 @@ describe('<newsStory> with valid data', () => {
   test('renders component', () => {
     const { container } = render(<NewsStory {...data} />)
     const imgEl = container.querySelectorAll('img')
-
     expect(imgEl).toBeTruthy()
     expect(
       screen.queryByText(/We honor outstanding doctors/)
@@ -61,7 +60,6 @@ describe('<newsStory> with valid data', () => {
     data.image = null
     const { container } = render(<NewsStory {...data} />)
     const imgEl = container.querySelectorAll('img')
-
     expect(imgEl.length).toBe(2)
     expect(
       screen.queryByText(/We honor outstanding doctors/)

@@ -44,6 +44,7 @@ export const formatter: QueryFormatter<MediaImage, MediaImageType[]> = (
     height: entity.image?.resourceIdObjMeta?.height,
     title: entity.image?.resourceIdObjMeta?.title,
     url: entity.image?.uri?.url,
+    highRes: entity.image?.resourceIdObjMeta?.highRes,
   }))
   return media
 }

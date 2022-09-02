@@ -23,6 +23,7 @@ const mediaImage: MediaImageType = {
 
 const personProfileData: PersonProfileType = {
   id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
+
   type: 'node--person-profile',
   title: 'Heather Steele',
   path: {
@@ -72,7 +73,6 @@ describe('PersonProfile with valid data', () => {
     expect(aEl[0]).toHaveAttribute('href', 'mailto:heather.steele@va.gov')
     expect(screen.queryByText(/412-822-3537/)).toBeInTheDocument()
     expect(aEl[1]).toHaveAttribute('href', 'tel:412-822-3537')
-
     expect(screen.queryByText(/412-822-3537/)).toBeInTheDocument()
     expect(screen.queryByText(/Download full bio/)).toBeInTheDocument()
   })

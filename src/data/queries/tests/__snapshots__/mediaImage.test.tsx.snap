@@ -5,6 +5,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "e638fd17-9090-442b-a724-5113133b4d0f",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -154,6 +155,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "0f5ca563-6d09-4fda-b5ff-137318eb4c96",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -303,6 +305,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "5ffe0dd8-4d72-430e-ac76-cecdef167e05",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -452,6 +455,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "709f9b0f-40bc-4156-9c78-dcc0e0c4e600",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -601,6 +605,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "75861733-d7f3-4bdb-a4c8-04af0439d266",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -750,6 +755,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "57fe1037-64c0-43bc-bb32-8d111d1c8228",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -899,6 +905,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "18990d80-b850-4d42-81a2-d0c8421f9b30",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -1048,6 +1055,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "cddaeac2-3bb5-42c7-8d2b-248838dc2932",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -1197,6 +1205,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
+    "highRes": undefined,
     "id": "63ab88b7-ab8d-4a52-b59e-b93b63056cd2",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -1346,6 +1355,7 @@ Array [
   Object {
     "alt": "Example image alt text",
     "height": 3264,
+    "highRes": undefined,
     "id": "79d5a202-3d40-45bb-98b7-53e97dd32702",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -1495,6 +1505,7 @@ Array [
   Object {
     "alt": "Heinz campus of the VA hospital system in Pittsburgh",
     "height": 330,
+    "highRes": undefined,
     "id": "31a4ecd6-8648-4237-8d1f-45a18f2c4b60",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
@@ -1644,6 +1655,7 @@ Array [
   Object {
     "alt": "During a one-time, hourlong session, Opioid Use Review clinic staff talk with Veterans about their pain, discuss ways to improve quality of life and provide opioid safety education, either in person in Pittsburgh or via telehealth at regional VA outpatient clinics.",
     "height": 489,
+    "highRes": undefined,
     "id": "7f013f73-980a-4f8a-9e24-96e19aeb358a",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {

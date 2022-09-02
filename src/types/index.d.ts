@@ -68,6 +68,7 @@ export type MediaImageType = {
   link: MediaImageLink
   imageStyle?: string
   className?: string
+  style?: string
 }
 
 export type NewsStoryType = PublishedEntity & {
