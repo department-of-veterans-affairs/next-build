@@ -1,5 +1,6 @@
 import { MediaImageComponent } from '@/templates/common/mediaImage'
 import { PersonProfileType } from '@/types/index'
+import { absoluteURL } from '@/lib/utils/helpers'
 
 export type PersonProfileTeaserProps = {
   title: string
@@ -7,20 +8,21 @@ export type PersonProfileTeaserProps = {
 }
 
 export const PersonProfile = ({
+  firstName,
+  lastName,
+  suffix,
+  emailAddress,
+  phoneNumber,
+  introText,
+  description,
   body,
   completeBiography,
   completeBiographyCreate,
-  emailAddress,
-  firstName,
-  introText,
   photoAllowHiresDownload,
-  description,
-  lastName,
-  phoneNumber,
+  vamcOfficalName,
   media,
   office,
-  suffix,
-}): JSX.Element => {
+}: PersonProfileType): JSX.Element => {
   return (
     <div id="content" className="interior">
       <main className="va-l-detail-page va-facility-page">
@@ -56,7 +58,7 @@ export const PersonProfile = ({
                              vads-u-font-family--serif
                              vads-u-font-size--lg"
                       >
-                        {office && office?.field_vamc_system_official_name}
+                        {vamcOfficalName}
                       </p>
                     ) : null}
 
@@ -105,26 +107,22 @@ export const PersonProfile = ({
                       className="va-c-social-icon fas fa-download"
                       aria-hidden="true"
                     ></i>
-                    <a href={media[0]?.link?.self?.href} download>
+                    <a
+                      href={absoluteURL(media ? media[0]?.url : null)}
+                      download
+                    >
+                      {' '}
                       Download full size photo
                     </a>
                   </div>
                 )}
                 {completeBiography && (
-                  <div
-                    className="vads-u-align-content--flex-end va-c-margin-top--auto vads-u-margin-bottom--2"
-                    id="download-full-size-photo-link"
-                  >
-                    <i
-                      className="va-c-social-icon fas fa-download"
-                      aria-hidden="true"
-                    ></i>
-                    <div className="vads-u-align-content--flex-end va-c-margin-top--auto vads-u-margin-bottom--2">
-                      <i className="va-c-social-icon fas fa-download"></i>
-                      <a href={completeBiography.url} download>
-                        Download full bio (PDF)
-                      </a>
-                    </div>
+                  <div className="vads-u-align-content--flex-end va-c-margin-top--auto vads-u-margin-bottom--2">
+                    <i className="va-c-social-icon fas fa-download"></i>
+                    <a href={completeBiography?.url} download>
+                      {' '}
+                      Download full bio (PDF)
+                    </a>
                   </div>
                 )}
               </article>

@@ -5,19 +5,19 @@ import { NewsStory } from './index'
 const mediaImage: MediaImageType = {
   id: '3',
   link: {
-    href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
+    href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
     meta: {
       linkParams: {
-        width: 100,
-        height: 100,
+        width: 700,
+        height: 350,
       },
     },
   },
   alt: 'Smiling man in glasses.',
   title: '',
-  width: 1299,
-  height: 1512,
-  url: '/sites/default/files/2020-08/Raab.jpg',
+  width: 700,
+  height: 350,
+  url: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
 }
 
 const data = {

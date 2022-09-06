@@ -11,7 +11,13 @@ import { PersonProfileType } from '@/types/index'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
-  return queries.getParams().addInclude(['field_media.image', 'field_office'])
+  return queries
+    .getParams()
+    .addInclude([
+      'field_media.image',
+      'field_office',
+      'field_complete_biography',
+    ])
 }
 
 // Define the option types for the data loader.
@@ -34,22 +40,24 @@ export const formatter: QueryFormatter<
   PersonProfileType[]
 > = (entities: NodePersonProfile) => {
   if (!entities) return null
-
   return entities.map((entity) => ({
     id: entity.id,
     type: entity.type,
-    body: entity.field_body?.processed,
+    path: entity.path.alias,
+    title: entity.title,
+    firstName: entity.field_name_first,
+    lastName: entity.field_last_name,
+    suffix: entity.field_suffix,
+    emailAddress: entity.field_email_address,
+    phoneNumber: entity.field_phone_number,
+    description: entity.field_description,
+    introText: entity.field_intro_text,
+    body: entity.field_body?.processed || null,
+    media: queries.formatData('media--image', entity.field_media),
     completeBiography: entity.field_complete_biography,
     completeBiographyCreate: entity.field_complete_biography_create,
-    emailAddress: entity.field_email_address,
-    firstName: entity.field_name_first,
-    introText: entity.field_intro_text,
     photoAllowHiresDownload: entity.field_photo_allow_hires_download,
-    description: entity.field_description,
-    lastName: entity.field_last_name,
-    phoneNumber: entity.field_phone_number,
-    media: queries.formatData('media--image', entity.field_media),
+    vamcOfficalName: entity.field_vamc_system_official_name,
     office: entity.field_office,
-    suffix: entity.field_suffix,
   }))
 }

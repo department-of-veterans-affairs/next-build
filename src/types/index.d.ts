@@ -1,5 +1,8 @@
 import { Menu } from '@/types/dataTypes/drupal/menu'
-
+import {
+  NodeOffice,
+  NodeHealthCareRegionPage,
+} from '@/types/dataTypes/drupal/node'
 export interface PublishedEntity {
   id: string
   type: string
@@ -65,7 +68,6 @@ export type MediaImageType = {
   link: MediaImageLink
   imageStyle?: string
   className?: string
-  style?: string
 }
 
 export type NewsStoryType = PublishedEntity & {
@@ -90,21 +92,23 @@ export type NewsStoryTeaserType = PublishedEntity & {
 
 export type PersonProfileType = {
   id: string
-  title: string
+  type: string
   path: Path
-  body: FieldFormattedText
-  completeBiography: DrupalFile
-  completeBiographyCreate: boolean
-  emailAddress: string
+  title?: string
   firstName: string
-  introText: string
-  photoAllowHiresDownload: boolean
-  description: string
   lastName: string
-  phoneNumber: string
-  media: MediaImageType
+  suffix?: string
+  emailAddress?: string
+  phoneNumber?: string
+  description?: string
+  introText: string
+  body: string
+  media?: MediaImageType
+  completeBiography?: { url: string }
+  completeBiographyCreate?: boolean
+  photoAllowHiresDownload?: boolean
+  vamcOfficalName: string
   office: NodeOffice | NodeHealthCareRegionPage
-  suffix: string
 }
 
 export type StoryListingType = PublishedEntity & {

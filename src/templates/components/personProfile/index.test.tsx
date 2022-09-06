@@ -6,16 +6,16 @@ const mediaImage: MediaImageType = {
   id: '3',
   alt: 'Heather Steele outreach and community engagement specialist',
   title: 'Heather Steele',
-  width: 1299,
-  height: 1512,
+  width: 151,
+  height: 227,
   imageStyle: '1_1_square_medium_thumbnail',
-  url: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
+  url: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
   link: {
-    href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
+    href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
     meta: {
       linkParams: {
-        width: 100,
-        height: 100,
+        width: 151,
+        height: 227,
       },
     },
   },
@@ -23,25 +23,27 @@ const mediaImage: MediaImageType = {
 
 const personProfileData: PersonProfileType = {
   id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
+  type: 'node--person-profile',
+  title: 'Heather Steele',
   path: {
     alias: '/pittsburgh-health-care/staff-profiles/raab-john',
   },
-  body: {
-    processed: 'Intro text',
-  },
-  title: 'Heather Steele',
-  completeBiography: 'Intro text',
-  completeBiographyCreate: true,
-  emailAddress: 'heather.steele@va.gov',
   firstName: 'Heather',
-  introText: 'Intro text',
-  photoAllowHiresDownload: false,
-  description: 'Program coordinator for minority Veterans',
   lastName: 'Steele',
-  phoneNumber: '412-822-3537',
-  media: mediaImage,
-  office: null,
   suffix: null,
+  emailAddress: 'heather.steele@va.gov',
+  phoneNumber: '412-822-3537',
+  description: 'Program coordinator for minority Veterans',
+  introText: 'Intro text',
+  body: 'Intro text',
+  media: mediaImage,
+  completeBiography: {
+    url: '/pittsburgh-health-care/staff-profiles/raab-john',
+  },
+  completeBiographyCreate: true,
+  photoAllowHiresDownload: false,
+  vamcOfficalName: 'Pittsburgh VA Medical Center',
+  office: null,
 }
 
 describe('PersonProfile with valid data', () => {
@@ -71,7 +73,7 @@ describe('PersonProfile with valid data', () => {
     expect(screen.queryByText(/412-822-3537/)).toBeInTheDocument()
     expect(aEl[1]).toHaveAttribute('href', 'tel:412-822-3537')
 
-    expect(screen.queryByText(/Intro text/)).toBeInTheDocument()
+    expect(screen.queryByText(/412-822-3537/)).toBeInTheDocument()
     expect(screen.queryByText(/Download full bio/)).toBeInTheDocument()
   })
 })
