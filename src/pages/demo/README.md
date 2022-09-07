@@ -1,0 +1,1 @@
+Demo pages previously existed to provide a way to test components against live data and to show our work, prior to Storybook implementation. They have been removed but can be found in git history if there is need.
