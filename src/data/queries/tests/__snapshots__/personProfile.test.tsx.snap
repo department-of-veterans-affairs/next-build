@@ -1,0 +1,691 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Person profile returns formatted data outputs formatted data 1`] = `
+Array [
+  Object {
+    "body": null,
+    "completeBiography": null,
+    "completeBiographyCreate": null,
+    "description": "Director, Audiology and Speech Pathology Program Associate Director for Research, GRECC",
+    "emailAddress": null,
+    "firstName": "Patrick J.",
+    "id": "fe42bc63-0933-40bb-978a-ef951fa75684",
+    "introText": null,
+    "lastName": "Doyle",
+    "media": Array [
+      Object {
+        "alt": "Patrick J. Doyle",
+        "height": 129,
+        "id": "5bcbdaee-f93f-4b2f-8af5-963e4a547d93",
+        "link": Object {
+          "1_1_square_medium_thumbnail": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-08/pat_doyle_0.jpg?h=46bc4a38",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "240",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_large": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-08/pat_doyle_0.jpg",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "512",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "1024",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_medium_thumbnail": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "240",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "480",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_3_medium_thumbnail": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "480",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "320",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "3_2_medium_thumbnail": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "320",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "480",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "7_2_medium_thumbnail": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "300",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "1050",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "full_content_width": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-08/pat_doyle_0.jpg",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "129",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "100",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "large": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-08/pat_doyle_0.jpg",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "129",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "100",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "self": Object {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/5bcbdaee-f93f-4b2f-8af5-963e4a547d93",
+          },
+          "viewport_width": Object {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-08/pat_doyle_0.jpg",
+            "meta": Object {
+              "linkParams": Object {
+                "height": "129",
+                "rel": Array [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "100",
+              },
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+        },
+        "title": "",
+        "type": "media--image",
+        "url": "/sites/default/files/2019-08/pat_doyle_0.jpg",
+        "width": 100,
+      },
+    ],
+    "office": Object {
+      "changed": "2022-08-31T15:49:34+00:00",
+      "created": "2019-05-06T03:30:18+00:00",
+      "default_langcode": true,
+      "drupal_internal__nid": 318,
+      "drupal_internal__vid": 679006,
+      "field_administration": Object {
+        "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
+        "resourceIdObjMeta": Object {
+          "drupal_internal__target_id": 12,
+        },
+        "type": "taxonomy_term--administration",
+      },
+      "field_appointments_online": true,
+      "field_clinical_health_services": Array [
+        Object {
+          "id": "a502e932-d460-436e-a67b-83eefdef3a7b",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 324,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "7ab831f3-b998-413d-beb9-c17ccf514514",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 325,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "a192dca3-0ebd-44a5-8cdb-d70c2d8cc4bc",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 96,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "077bad0f-e9f1-4f6b-94cc-fb021b287f0e",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 326,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "e1b68b35-f5f7-44ec-9808-9a642d669ce5",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 229,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "e65f031a-ad46-47ed-aa0a-9e923bc34f9e",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 327,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "fc92e5b2-a387-4421-8943-246140fd497f",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 328,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "8bd98812-e275-4740-8d96-a4d293e856b7",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 329,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "b6717638-7c4b-4b8e-a7ce-c76f37aff4bf",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 330,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "94177aa5-4a5e-4a66-97d5-e721b8f02f92",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 331,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "ffa5121a-9775-4825-9f9b-27a20c599f1f",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 332,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "c8ea6d96-9263-4d1d-ac90-c90b55ba13c9",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 362,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "02e024f0-e9c8-4d11-8d71-6a4f3e91366d",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 333,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "c57b1ff5-d845-4862-9dfc-427823485e06",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 222,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "e453f2c1-fe99-427f-a256-92fd1f103c25",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 742,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "04b5f49e-4a46-481c-a494-bd43a8598094",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 334,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "5483b3ee-eeb5-4286-9ff1-2d463784031b",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 259,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "f105e35d-b374-4405-a867-6e2e18f80732",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 264,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "b516b8f9-af49-4402-8a42-5e4428bfdda0",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 335,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "6d59f042-c372-436c-a8ff-7a8f017ad89f",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 477,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "a3dbd92d-9e31-4766-962c-5cb52b8353fe",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 743,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "a27c5805-47de-4dc1-917c-4e3855fbd3cb",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 257,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "54d15687-aac6-4457-8560-5d93fe233967",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 260,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "27a7587b-c51b-4eea-956b-587819b1b630",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 336,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "c88adf39-6ca4-4859-8877-ad6b5706257e",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 267,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "cbd42261-56b9-4bd3-8e95-317797682663",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 337,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "45fa1aaa-22f3-44a9-944d-0aef13efbc9a",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 338,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "c1bf3481-50a8-4984-a383-37bdcfbe6b0f",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 363,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "85ecc815-a3fc-4978-9e7a-2cfd55dc9b72",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 592,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "929402f4-2a85-4659-a1bf-900264984903",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 269,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "4cad2f34-1e07-49b9-a021-dd0d10016149",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 340,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "8c838193-be61-48ea-8f1c-a1839b57f1fc",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 270,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "c4f23a23-0885-4e1a-b282-48c421fb9203",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 613,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "4aa8d80c-c3b0-4e10-9b0b-e22d71b3d6d4",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 101,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "19810ce7-1e0d-4548-92da-5d261bccb75c",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 620,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "84515c3f-69da-41ed-81d1-083c995c0642",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 341,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "72ff4ca7-0310-4786-b7ff-502486b88efc",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 624,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "0a618bda-2a2f-4450-88f2-30d21109d39d",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 739,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "3e92eaa8-bbf8-4173-84f8-d187b281d548",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 265,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "ddd4532d-9c31-4f87-af7f-ecbc83116592",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 342,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "ba3fd7af-1793-4f16-afb4-868edb12537d",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 261,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "f88a91dc-918b-40da-a76d-baa3bd19c4ac",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 343,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "d6a14b35-382e-4df7-bd42-b3572f0727e9",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 99,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "5c2a855e-39b0-4413-8232-1aa143ff5747",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 344,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "7bc4ce20-f573-4ea6-b361-b3060be2e2ea",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 638,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "f25b7f27-0320-404a-b116-dc2b21178818",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 641,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "993ca7e5-e745-4add-890d-66da2f52a52d",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 339,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "fa8d2d15-0e41-4ef0-a606-c0da352fe76d",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 364,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "fa9fd27d-aa1c-4cc0-b31b-569e779c034d",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 346,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "26bd1dc9-e9f5-44eb-a029-73eb54842237",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 266,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "1fdda7ec-a660-4fa7-86be-ef2421cb4e6f",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 262,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "b2fa010f-4012-4ba2-9faf-4e2ea07b8eaa",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 15058,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "ca7bea88-16c7-4d67-b9e6-975e4f5a1a69",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 38986,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "471171a1-a82b-4726-a994-d88583778623",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 48422,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+        Object {
+          "id": "bcd2c502-d4b3-4308-9175-c52b7126215f",
+          "resourceIdObjMeta": Object {
+            "drupal_internal__target_id": 49003,
+          },
+          "type": "node--regional_health_care_service_des",
+        },
+      ],
+      "field_description": "Find a health facility near you at VA Pittsburgh health care, and manage your health online. Our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers.",
+      "field_facebook": Object {
+        "options": Array [],
+        "title": "VA Pittsburgh health care Facebook",
+        "uri": "https://www.facebook.com/VAPHS",
+      },
+      "field_flickr": Object {
+        "options": Array [],
+        "title": "VA Pittsburgh health care Flickr",
+        "uri": "https://www.flickr.com/photos/vapittsburgh/sets",
+      },
+      "field_govdelivery_id_emerg": "USVHA_396",
+      "field_govdelivery_id_news": "USVHA_94",
+      "field_instagram": null,
+      "field_intro_text": "At VA Pittsburgh Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+      "field_media": Object {
+        "id": "de919547-d935-46da-a220-9f0646f2c0e9",
+        "resourceIdObjMeta": Object {
+          "drupal_internal__target_id": 57,
+        },
+        "type": "media--image",
+      },
+      "field_meta_tags": null,
+      "field_operating_status": Object {
+        "options": Array [],
+        "title": "VA Pittsburgh health care operating status",
+        "uri": "entity:node/1010",
+      },
+      "field_other_va_locations": Array [
+        "vc_0211V",
+        "vc_0233V",
+        "vc_0220V",
+        "nca_925",
+        "vba_311",
+      ],
+      "field_related_links": Object {
+        "id": "c47aaf53-cd32-47b7-84af-9c004926b211",
+        "resourceIdObjMeta": Object {
+          "drupal_internal__target_id": 3943,
+          "target_revision_id": 694430,
+        },
+        "type": "paragraph--list_of_link_teasers",
+      },
+      "field_system_menu": Object {
+        "id": "83b58096-0fa0-4e12-895b-6dc58a2b9c88",
+        "resourceIdObjMeta": Object {
+          "drupal_internal__target_id": "pittsburgh-health-care",
+        },
+        "type": "menu--menu",
+      },
+      "field_twitter": Object {
+        "options": Array [],
+        "title": "VA Pittsburgh health care Twitter",
+        "uri": "https://twitter.com/VAPittsburgh",
+      },
+      "field_va_health_connect_phone": null,
+      "field_vamc_ehr_system": "vista",
+      "field_vamc_system_official_name": "VA Pittsburgh Healthcare System",
+      "id": "2bddb1a7-6fb1-4503-838d-9c2fcb51c46a",
+      "langcode": "en",
+      "links": Object {
+        "self": Object {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/2bddb1a7-6fb1-4503-838d-9c2fcb51c46a?resourceVersion=id%3A679006",
+        },
+      },
+      "metatag": null,
+      "moderation_state": "published",
+      "node_type": Object {
+        "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
+        "resourceIdObjMeta": Object {
+          "drupal_internal__target_id": "health_care_region_page",
+        },
+        "type": "node_type--node_type",
+      },
+      "path": Object {
+        "alias": "/pittsburgh-health-care",
+        "langcode": "en",
+        "pid": 503,
+      },
+      "promote": false,
+      "relationshipNames": Array [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_clinical_health_services",
+        "field_media",
+        "field_related_links",
+        "field_system_menu",
+      ],
+      "resourceIdObjMeta": Object {
+        "drupal_internal__target_id": 318,
+      },
+      "revision_log": "Set \\"System Menu\\" field accordingly (see va.gov-cms/#9520).",
+      "revision_timestamp": "2022-07-18T13:30:31+00:00",
+      "revision_translation_affected": true,
+      "revision_uid": Object {
+        "id": "183f10f5-b0dc-4a10-9955-cfa65b6f15af",
+        "resourceIdObjMeta": Object {
+          "drupal_internal__target_id": 1454,
+        },
+        "type": "user--user",
+      },
+      "status": true,
+      "sticky": false,
+      "title": "VA Pittsburgh health care",
+      "type": "node--health_care_region_page",
+      "uid": Object {
+        "id": "fd71292f-3dc7-409d-b0e8-500204cb005a",
+        "resourceIdObjMeta": Object {
+          "drupal_internal__target_id": 65,
+        },
+        "type": "user--user",
+      },
+    },
+    "path": "/pittsburgh-health-care/staff-profiles/patrick-j-doyle",
+    "phoneNumber": null,
+    "photoAllowHiresDownload": false,
+    "suffix": "Ph.D.",
+    "title": "Patrick J. Doyle",
+    "type": "node--person_profile",
+    "vamcOfficalName": undefined,
+  },
+]
+`;

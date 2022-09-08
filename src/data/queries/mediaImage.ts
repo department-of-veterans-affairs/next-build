@@ -11,7 +11,7 @@ import { MediaImageType } from '@/types/index'
 
 // Define query params for queryData.
 export const params: QueryParams<null> = () => {
-  return queries.getParams().addPageLimit(12).addInclude(['image'])
+  return queries.getParams().addInclude(['image'])
 }
 // Define the option types for the data loader.
 type DataOpts = QueryOpts<null>
@@ -34,10 +34,9 @@ export const formatter: QueryFormatter<MediaImage, MediaImageType[]> = (
   entities: MediaImage
 ) => {
   if (!entities) return null
-
   const castArray = (val) => (Array.isArray(val) ? val : [val])
   const media = castArray(entities).map((entity) => ({
-    id: entity.id,
+    id: entity.image.id,
     type: entity.type,
     link: entity.image?.links,
     alt: entity.image?.resourceIdObjMeta?.alt,

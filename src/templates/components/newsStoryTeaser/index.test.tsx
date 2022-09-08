@@ -7,29 +7,19 @@ import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 const mediaImage: MediaImageType = {
   id: '3d6716b3-fb66-4e63-9b21-bb9c024129d3',
   link: {
-    href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
+    href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
     meta: {
       linkParams: {
-        width: 100,
-        height: 100,
+        width: 318,
+        height: 159,
       },
     },
   },
   alt: 'Smiling man in glasses.',
   title: '',
-  width: 1299,
-  height: 1512,
-  url: '/sites/default/files/2020-08/Raab.jpg',
-}
-
-const images = {
-  id: mediaImage.id,
-  url: mediaImage.url,
-  width: mediaImage.width,
-  height: mediaImage.height,
-  alt: mediaImage.alt,
-  title: mediaImage.title,
-  imageStyle: mediaImage.imageStyle,
+  width: 318,
+  height: 159,
+  url: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
 }
 
 const teaserData = {
@@ -47,8 +37,7 @@ describe('<NewsStoryTeaser> with valid data', () => {
   test('renders component', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelectorAll('img')
-
-    expect(imgEl.length).toBe(0) // fix this
+    expect(imgEl.length).toBe(2)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
@@ -64,7 +53,7 @@ describe('<NewsStoryTeaser> with valid data', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelectorAll('img')
 
-    expect(imgEl.length).toBe(0)
+    expect(imgEl.length).toBe(2)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()

@@ -1,126 +1,152 @@
 import { render, screen } from 'test-utils'
-import mockNode from './mock.json'
 import { PersonProfile } from '@/templates/components/personProfile/index'
-import { NodePersonProfile } from '@/types/dataTypes/drupal/node'
+import { PersonProfileType, MediaImageType } from '@/types/index'
 
-const nodePersonProfile: NodePersonProfile = mockNode
+const mediaImage: MediaImageType = {
+  id: '3',
+  alt: 'Heather Steele outreach and community engagement specialist',
+  title: 'Heather Steele',
+  width: 151,
+  height: 227,
+  imageStyle: '1_1_square_medium_thumbnail',
+  url: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
+  link: {
+    href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
+    meta: {
+      linkParams: {
+        width: 151,
+        height: 227,
+      },
+    },
+  },
+}
+
+const personProfileData: PersonProfileType = {
+  id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
+
+  type: 'node--person-profile',
+  title: 'Heather Steele',
+  path: {
+    alias: '/pittsburgh-health-care/staff-profiles/raab-john',
+  },
+  firstName: 'Heather',
+  lastName: 'Steele',
+  suffix: null,
+  emailAddress: 'heather.steele@va.gov',
+  phoneNumber: '412-822-3537',
+  description: 'Program coordinator for minority Veterans',
+  introText: 'Intro text',
+  body: 'Intro text',
+  media: mediaImage,
+  completeBiography: {
+    url: '/pittsburgh-health-care/staff-profiles/raab-john',
+  },
+  completeBiographyCreate: true,
+  photoAllowHiresDownload: false,
+  vamcOfficalName: 'Pittsburgh VA Medical Center',
+  office: null,
+}
 
 describe('PersonProfile with valid data', () => {
   test('renders PersonProfile component', () => {
-    const { container } = render(<PersonProfile node={nodePersonProfile} />)
+    const { container } = render(<PersonProfile {...personProfileData} />)
     const imageMeta = screen.getByRole('img')
     const aEl = container.querySelectorAll('a')
 
-    expect(aEl).toHaveLength(4)
+    expect(aEl).toHaveLength(3)
 
     //Thumbnail
     expect(imageMeta).toBeVisible()
     expect(imageMeta).toHaveAttribute(
       'alt',
-      'Michael Buchanan outreach and community engagement specialist '
+      'Heather Steele outreach and community engagement specialist'
     )
-    expect(imageMeta).toHaveAttribute('title', 'Michael Buchanan')
+    expect(imageMeta).toHaveAttribute('title', 'Heather Steele')
 
     //Bio
-    expect(screen.queryByText(/Mr/)).toBeInTheDocument()
-    expect(screen.queryByText(/Michael Buchanan/)).toBeInTheDocument()
+    expect(screen.queryByText(/Heather Steele/)).toBeInTheDocument()
 
     expect(
-      screen.queryByText(
-        /Outreach and community engagement specialist, host of Charlie Mike VA podcast/
-      )
+      screen.queryByText(/Program coordinator for minority Veterans/)
     ).toBeInTheDocument()
-    expect(screen.queryByText(/michael.buchannan@va.gov/)).toBeInTheDocument()
-    expect(aEl[0]).toHaveAttribute('href', 'mailto:michael.buchannan@va.gov')
-    expect(screen.queryByText(/412-551-9651/)).toBeInTheDocument()
-    expect(aEl[1]).toHaveAttribute('href', 'tel:412-551-9651')
-
-    expect(screen.queryByText(/Intro text/)).toBeInTheDocument()
-    expect(screen.queryByText(/The body is here/)).toBeInTheDocument()
-    expect(screen.queryByText(/Download full size photo/)).toBeInTheDocument()
-
+    expect(screen.queryByText(/heather.steele@va.gov/)).toBeInTheDocument()
+    expect(aEl[0]).toHaveAttribute('href', 'mailto:heather.steele@va.gov')
+    expect(screen.queryByText(/412-822-3537/)).toBeInTheDocument()
+    expect(aEl[1]).toHaveAttribute('href', 'tel:412-822-3537')
+    expect(screen.queryByText(/412-822-3537/)).toBeInTheDocument()
     expect(screen.queryByText(/Download full bio/)).toBeInTheDocument()
-    expect(aEl[3]).toHaveAttribute('href', 'https://bio.com')
   })
 })
 
 describe('PersonProfile with invalid data', () => {
-  test('does not render Thumbnail when field_media is null', () => {
-    nodePersonProfile.field_media = null
-    const { container } = render(<PersonProfile node={nodePersonProfile} />)
+  test('does not render Thumbnail when media is null', () => {
+    personProfileData.media = null
+    const { container } = render(<PersonProfile {...personProfileData} />)
     const imageEl = container.querySelectorAll('img')
 
     expect(imageEl).toHaveLength(0)
   })
 
-  test('does not render description when field_description is null or empty', () => {
-    nodePersonProfile.field_description = null
-    render(<PersonProfile node={nodePersonProfile} />)
+  test('does not render description when description is null or empty', () => {
+    personProfileData.description = null
+    render(<PersonProfile {...personProfileData} />)
 
     expect(
-      screen.queryByText(
-        /4Outreach and community engagement specialist, host of Charlie Mike VA podcast/
-      )
+      screen.queryByText(/Program coordinator for minority Veterans/)
     ).not.toBeInTheDocument()
 
-    nodePersonProfile.field_description = ''
-    render(<PersonProfile node={nodePersonProfile} />)
+    personProfileData.description = ''
+    render(<PersonProfile {...personProfileData} />)
 
     expect(
-      screen.queryByText(
-        /Outreach and community engagement specialist, host of Charlie Mike VA podcast/
-      )
+      screen.queryByText(/Program coordinator for minority Veterans/)
     ).not.toBeInTheDocument()
   })
 
-  test('does not render field_email_address when null or empty', () => {
-    nodePersonProfile.field_email_address = null
-    render(<PersonProfile node={nodePersonProfile} />)
+  test('does not render emailAddress when null or empty', () => {
+    personProfileData.emailAddress = null
+    render(<PersonProfile {...personProfileData} />)
 
-    expect(
-      screen.queryByText(/michael.buchannan@va.gov/)
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText(/heather.steele@va.gov/)).not.toBeInTheDocument()
 
-    nodePersonProfile.field_email_address = ''
-    render(<PersonProfile node={nodePersonProfile} />)
+    personProfileData.emailAddress = ''
+    render(<PersonProfile {...personProfileData} />)
 
-    expect(
-      screen.queryByText(/michael.buchannan@va.gov/)
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText(/heather.steele@va.gov/)).not.toBeInTheDocument()
   })
 
-  test('does not render field_phone_number when null or empty', () => {
-    nodePersonProfile.field_phone_number = null
-    render(<PersonProfile node={nodePersonProfile} />)
+  test('does not render phoneNumber when null or empty', () => {
+    personProfileData.phoneNumber = null
+    render(<PersonProfile {...personProfileData} />)
 
-    expect(screen.queryByText(/412-551-9651/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/412-822-3537/)).not.toBeInTheDocument()
 
-    nodePersonProfile.field_phone_number = ''
-    render(<PersonProfile node={nodePersonProfile} />)
+    personProfileData.phoneNumber = ''
+    render(<PersonProfile {...personProfileData} />)
 
-    expect(screen.queryByText(/412-551-9651/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/412-822-3537/)).not.toBeInTheDocument()
   })
 
-  test('does not render body when field_complete_biography_create is false', () => {
-    nodePersonProfile.field_complete_biography_create = false
-    render(<PersonProfile node={nodePersonProfile} />)
+  test('does not render body when completeBiographyCreate is false', () => {
+    personProfileData.completeBiographyCreate = false
+    render(<PersonProfile {...personProfileData} />)
 
     expect(screen.queryByText(/Intro text/)).not.toBeInTheDocument()
     expect(screen.queryByText(/The body is here/)).not.toBeInTheDocument()
   })
 
-  test('does not render photo download option when field_photo_allow_hires_download is false', () => {
-    nodePersonProfile.field_photo_allow_hires_download = false
-    render(<PersonProfile node={nodePersonProfile} />)
+  test('does not render photo download option when photoAllowHiresDownload is false', () => {
+    personProfileData.photoAllowHiresDownload = false
+    render(<PersonProfile {...personProfileData} />)
 
     expect(
       screen.queryByText(/Download full size photo/)
     ).not.toBeInTheDocument()
   })
 
-  test('does not render bio download option when field_complete_biography is null', () => {
-    nodePersonProfile.field_complete_biography = null
-    render(<PersonProfile node={nodePersonProfile} />)
+  test('does not render bio download option when completeBiography is null', () => {
+    personProfileData.completeBiography = null
+    render(<PersonProfile {...personProfileData} />)
 
     expect(screen.queryByText(/Download full bio/)).not.toBeInTheDocument()
   })

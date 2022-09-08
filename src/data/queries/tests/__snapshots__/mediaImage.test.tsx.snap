@@ -5,7 +5,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "7252cad5-7ff8-49d3-add4-7f5b009761ce",
+    "id": "e638fd17-9090-442b-a724-5113133b4d0f",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/health-care.png",
@@ -154,7 +154,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "0150087f-4635-46c4-abde-06d464f0b436",
+    "id": "0f5ca563-6d09-4fda-b5ff-137318eb4c96",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/disability.png",
@@ -303,7 +303,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "55b5a5da-cdf2-41d8-9f1d-13c6a9c25839",
+    "id": "5ffe0dd8-4d72-430e-ac76-cecdef167e05",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/education.png",
@@ -452,7 +452,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "c028fc61-bb2c-456f-8e22-aa0da263d7a9",
+    "id": "709f9b0f-40bc-4156-9c78-dcc0e0c4e600",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/careers.png",
@@ -601,7 +601,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "493e541f-533f-4a76-af3c-1e0c0ef83545",
+    "id": "75861733-d7f3-4bdb-a4c8-04af0439d266",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/pension.png",
@@ -750,7 +750,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "b0fc77ab-9712-451d-98a9-27a44ea36995",
+    "id": "57fe1037-64c0-43bc-bb32-8d111d1c8228",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/housing.png",
@@ -899,7 +899,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "a547d06c-2465-4927-80a3-aa28e7f0f380",
+    "id": "18990d80-b850-4d42-81a2-d0c8421f9b30",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/life-insurance.png",
@@ -1048,7 +1048,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "812de69a-3efe-4111-acb3-5af6fda18a10",
+    "id": "cddaeac2-3bb5-42c7-8d2b-248838dc2932",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/burials.png",
@@ -1197,7 +1197,7 @@ Array [
   Object {
     "alt": null,
     "height": 304,
-    "id": "84efa2f5-9d94-4d54-8fc7-9c9d43021e76",
+    "id": "63ab88b7-ab8d-4a52-b59e-b93b63056cd2",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/records.png",
@@ -1346,7 +1346,7 @@ Array [
   Object {
     "alt": "Example image alt text",
     "height": 3264,
-    "id": "72577fad-d2cf-4eaf-93bd-6da5f92c2007",
+    "id": "79d5a202-3d40-45bb-98b7-53e97dd32702",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-02/Vets_istock_photo.jpg",
@@ -1495,7 +1495,7 @@ Array [
   Object {
     "alt": "Heinz campus of the VA hospital system in Pittsburgh",
     "height": 330,
-    "id": "8140b30e-34d1-4bf7-9570-4bdcff5b4f19",
+    "id": "31a4ecd6-8648-4237-8d1f-45a18f2c4b60",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-02/HJ-heinz-ambulatory-care3_0.jpg?h=e24db2d4",
@@ -1644,7 +1644,7 @@ Array [
   Object {
     "alt": "During a one-time, hourlong session, Opioid Use Review clinic staff talk with Veterans about their pain, discuss ways to improve quality of life and provide opioid safety education, either in person in Pittsburgh or via telehealth at regional VA outpatient clinics.",
     "height": 489,
-    "id": "677b5c0a-427e-4cc0-a581-f9155c7d45f5",
+    "id": "7f013f73-980a-4f8a-9e24-96e19aeb358a",
     "link": Object {
       "1_1_square_medium_thumbnail": Object {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-02/VAMC-Region-2019-02-21_3.jpg",
