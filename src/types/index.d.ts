@@ -153,4 +153,10 @@ interface MenuItemProps {
   children?: any
 }
 
+interface ButtonType {
+  id: string
+  label: string
+  url: string
+}
+
 type Tree = ReadonlyArray<MenuItemProps>
