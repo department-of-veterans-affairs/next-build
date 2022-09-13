@@ -17,13 +17,13 @@ import { NodeQA } from '@/types/dataTypes/drupal/node'
 import map from 'lodash/map'
 
 /** These component includes are specific to this component. */
-import { Button, ButtonProps } from '@/templates/common/button'
+import { Button } from '@/templates/common/button'
+import { ButtonType, LinkTeaserType } from '@/types/index'
 import {
   AudienceTopicProp,
   AudienceTopics,
 } from '@/templates/components/audienceTopics'
 import { LinkTeaser } from '@/templates/components/linkTeaser'
-import { LinkTeaserType } from '@/types/index'
 
 /**
  * These components expect NodeQA as their input.
@@ -37,7 +37,7 @@ export interface QuestionAnswerProps {
   id: number
   title: string
   answers: string
-  buttons: ButtonProps[]
+  buttons: ButtonType[]
   tags: AudienceTopicProp
   teasers: LinkTeaserType[]
   className?: string

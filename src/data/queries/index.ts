@@ -7,6 +7,7 @@ import * as LinkTeaser from './linkTeaser'
 import * as MediaImage from './mediaImage'
 import * as Banner from './banners'
 import * as PersonProfile from './personProfile'
+import * as Button from './button'
 
 export const queries = createQueries({
   'node--news_story': NewsStory,
@@ -15,6 +16,7 @@ export const queries = createQueries({
   'node--person_profile': PersonProfile,
   'paragraph--expandable_text': ExpandableText,
   'paragraph--link_teaser': LinkTeaser,
+  'paragraph--button': Button,
   'media--image': MediaImage,
 
   // Custom Lookups
