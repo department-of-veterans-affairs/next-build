@@ -1,20 +1,9 @@
 import Link from 'next/link'
 import { isEmpty } from 'lodash'
+import { AudienceTopicsType } from '@/types/index'
 
-export interface AudienceTopicProp {
-  tags: TagProps[]
-}
-
-export interface TagProps {
-  id: string
-  href: string
-  name: string
-  categoryLabel: string
-}
-
-export function AudienceTopics({ tags }: AudienceTopicProp) {
+export function AudienceTopics({ tags }: AudienceTopicsType) {
   if (isEmpty(tags)) return null
-
   const tagsList = tags.map(({ id, href, name }) => (
     <div key={id}>
       <div className="vads-u-margin-right--1 vads-u-margin-bottom--1 medium-screen:vads-u-margin-bottom--0">

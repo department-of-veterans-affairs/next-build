@@ -30,11 +30,10 @@ export const data: QueryData<DataOpts, ParagraphLinkTeaser[]> = async (
   return entities
 }
 
-export const formatter: QueryFormatter<
-  ParagraphLinkTeaser[],
-  LinkTeaserType[]
-> = (entities: ParagraphLinkTeaser[]) => {
-  return entities.map((entity) => ({
+export const formatter: QueryFormatter<ParagraphLinkTeaser, LinkTeaserType> = (
+  entity: ParagraphLinkTeaser
+) => {
+  return {
     id: entity.id,
     uri: entity.field_link?.uri,
     title: entity.field_link?.title,
@@ -42,5 +41,5 @@ export const formatter: QueryFormatter<
     summary: entity.field_link_summary,
     parentField: entity.parent_field_name,
     componentParams: { boldTitle: false, sectionHeader: '' },
-  }))
+  }
 }

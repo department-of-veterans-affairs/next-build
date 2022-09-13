@@ -160,3 +160,29 @@ interface ButtonType {
 }
 
 type Tree = ReadonlyArray<MenuItemProps>
+
+export type QuestionAnswerType = PublishedEntity & {
+  title: string
+  answers: string
+  buttons: ButtonType[]
+  tags: AudienceTopicType[]
+  teasers: LinkTeaserType[]
+  className?: string
+}
+
+/**
+ * This is the structure of an individual tag in AudienceTopics.
+ */
+interface AudienceTopicType {
+  id: string
+  href: string
+  name: string
+  categoryLabel: string
+}
+
+/**
+ * This is for the paragraph's collection of tags.
+ */
+interface AudienceTopicsType {
+  tags: AudienceTopicType[]
+}
