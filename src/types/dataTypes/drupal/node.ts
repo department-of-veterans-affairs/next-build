@@ -275,7 +275,6 @@ export interface NodePromoBanner extends DrupalNode {
 export interface NodeQA extends NodeAbstractResource {
   field_answer: ParagraphRichTextCharLimit1000
   field_standalone_page: boolean
-  field_q_a_groups: ParagraphQAGroup[]
 }
 
 export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {

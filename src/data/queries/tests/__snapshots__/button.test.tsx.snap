@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`paragraph--button formatData outputs formatted data 1`] = `
+Array [
+  Object {
+    "id": "636ad8c5-8f93-4fce-a96e-f8d24eed8453",
+    "label": "Change VA direct deposit information",
+    "url": "https://www.va.gov/change-direct-deposit/",
+  },
+  Object {
+    "id": "d3016c80-713d-41d9-a022-056600c72864",
+    "label": "Sign in now",
+    "url": "https://www.va.gov/?next=%2Fsign-in-faq%2F",
+  },
+  Object {
+    "id": "17510f2e-1aa2-4d30-93d6-273073ac2bad",
+    "label": "Change VA direct deposit information",
+    "url": "entity:node/710",
+  },
+  Object {
+    "id": "fa67d766-a6db-4e84-b558-0b9b350d5bf7",
+    "label": null,
+    "url": null,
+  },
+  Object {
+    "id": "7d998178-fb04-45c1-b3c7-9a127f834b70",
+    "label": null,
+    "url": null,
+  },
+]
+`;

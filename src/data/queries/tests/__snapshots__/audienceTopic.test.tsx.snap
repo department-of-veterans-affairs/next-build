@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`paragraph--audience_topics formatData outputs formatted data 1`] = `
+Array [
+  Array [],
+  Array [],
+  Array [
+    Object {
+      "categoryLabel": "Audience",
+      "href": "/resources/tag/all-veterans",
+      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+      "name": "All Veterans",
+    },
+    Object {
+      "categoryLabel": "Topics",
+      "href": "/resources/tag/payments-and-debt",
+      "id": "8360523e-a4bb-4d36-851f-1c445501c8bf",
+      "name": "Payments and debt",
+    },
+  ],
+  Array [
+    Object {
+      "categoryLabel": "Audience",
+      "href": "/resources/tag/all-veterans",
+      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+      "name": "All Veterans",
+    },
+    Object {
+      "categoryLabel": "Topics",
+      "href": "/resources/tag/sign-in",
+      "id": "946a0f82-f1f5-42c4-8ea4-bb7683db662a",
+      "name": "Sign in",
+    },
+  ],
+  Array [],
+  Array [],
+  Array [],
+  Array [],
+  Array [],
+  Array [
+    Object {
+      "categoryLabel": "Audience",
+      "href": "/resources/tag/all-veterans",
+      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+      "name": "All Veterans",
+    },
+  ],
+]
+`;

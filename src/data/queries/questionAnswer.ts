@@ -47,10 +47,10 @@ export const data: QueryData<DataOpts, NodeQA> = async (
 export const formatter: QueryFormatter<NodeQA, QuestionAnswerType> = (
   entity: NodeQA
 ) => {
-  const buttons = entity.field_buttons.map((button) => {
+  const buttons = entity.field_buttons?.map((button) => {
     return queries.formatData('paragraph--button', button)
   })
-  const teasers = entity.field_related_information.map((teaser) => {
+  const teasers = entity.field_related_information?.map((teaser) => {
     return queries.formatData('paragraph--link_teaser', teaser)
   })
   return {

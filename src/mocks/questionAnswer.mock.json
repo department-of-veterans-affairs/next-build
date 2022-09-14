@@ -1,0 +1,1947 @@
+[
+  {
+    "type": "node--q_a",
+    "id": "c2839a4c-c13d-46da-b448-9d1ec389773b",
+    "path": {
+      "alias": "/resources/how-can-i-find-out-my-va-claim-or-appeal-status",
+      "pid": 11255,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 8504,
+    "drupal_internal__vid": 339129,
+    "langcode": "en",
+    "revision_timestamp": "2020-11-04T21:54:28+00:00",
+    "revision_log": "Bulk operation publish revision",
+    "status": true,
+    "title": "How can I find out the status of my claim, appeal, or decision review?",
+    "created": "2020-10-19T17:10:51+00:00",
+    "changed": "2020-11-04T21:54:28+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "moderation_state": "published",
+    "metatag": null,
+    "field_standalone_page": false,
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/node/q_a/c2839a4c-c13d-46da-b448-9d1ec389773b?resourceVersion=id%3A339129"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "e1c04503-bcc8-4285-b2be-fa27af3634e4",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "q_a"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 295
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "ee1fb49c-70d5-4e82-9b0d-e6c73dde0489",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1343
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 194
+      }
+    },
+    "field_alert_single": {
+      "type": "paragraph--alert_single",
+      "id": "56238257-28ed-4af2-9160-f32d9d978e0e",
+      "resourceIdObjMeta": {
+        "target_revision_id": 161346,
+        "drupal_internal__target_id": 13769
+      }
+    },
+    "field_answer": {
+      "type": "paragraph--rich_text_char_limit_1000",
+      "id": "9ce955a1-756d-4ef7-a9b9-7f2bbe80795a",
+      "drupal_internal__id": 13987,
+      "drupal_internal__revision_id": 161347,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-10-19T22:47:23+00:00",
+      "parent_id": "8504",
+      "parent_type": "node",
+      "parent_field_name": "field_answer",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_wysiwyg": {
+        "value": "<p>You can <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"2ba48b5f-a92c-4775-9cfd-9530d1c87347\" href=\"/node/711\">check the status</a> of your VA claim, appeal, or decision review&nbsp;on VA.gov.</p>\r\n\r\n<p>You’ll need to <a href=\"http://www.va.gov/?next=%2Fprofile%2F\">sign in first</a> with<strong> DS Logon</strong>, <strong>My HealtheVet</strong>, or<strong> ID.me</strong>. If you don’t have any of these accounts, you can <a href=\"http://www.va.gov/?next=%2Fprofile%2F\">get one now</a>.</p>\r\n\r\n<p>If you need help, please&nbsp;call us at <a aria-label=\"8 0 0. 8 2 7. 1 0 0 0.\" href=\"tel:+18008271000\">800-827-1000</a>. We’re here Monday through Friday, 8:00 a.m. to 9:00 p.m. ET.</p>\r\n",
+        "format": "rich_text_limited",
+        "processed": "<p>You can <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"2ba48b5f-a92c-4775-9cfd-9530d1c87347\" href=\"/claim-or-appeal-status\" title=\"Check your VA claim or appeal status\">check the status</a> of your VA claim, appeal, or decision review on VA.gov.</p>\n<p>You’ll need to <a href=\"http://www.va.gov/?next=%2Fprofile%2F\">sign in first</a> with<strong> DS Logon</strong>, <strong>My HealtheVet</strong>, or<strong> ID.me</strong>. If you don’t have any of these accounts, you can <a href=\"http://www.va.gov/?next=%2Fprofile%2F\">get one now</a>.</p>\n<p>If you need help, please call us at <a aria-label=\"8 0 0. 8 2 7. 1 0 0 0.\" href=\"tel:+18008271000\">800-827-1000</a>. We’re here Monday through Friday, 8:00 a.m. to 9:00 p.m. ET.</p>\n"
+      },
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/rich_text_char_limit_1000/9ce955a1-756d-4ef7-a9b9-7f2bbe80795a"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 161347,
+        "drupal_internal__target_id": 13987
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "3ffc29ff-5b72-4f6a-a51b-7076c3f62f22",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "rich_text_char_limit_1000"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    "field_buttons": [
+      {
+        "type": "paragraph--button",
+        "id": "203de085-bb3c-4655-b8ca-0d859a65f5b6",
+        "drupal_internal__id": 13772,
+        "drupal_internal__revision_id": 158766,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-19T17:10:51+00:00",
+        "parent_id": "8504",
+        "parent_type": "node",
+        "parent_field_name": "field_buttons",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "field_button_label": "Check your VA claim status",
+        "field_button_link": {
+          "uri": "entity:node/711",
+          "title": "",
+          "options": []
+        },
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/203de085-bb3c-4655-b8ca-0d859a65f5b6"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 158766,
+          "drupal_internal__target_id": 13772
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "button"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      }
+    ],
+    "field_contact_information": {
+      "type": "paragraph--contact_information",
+      "id": "d7927466-770d-4fc0-b28b-3bf653f893ba",
+      "resourceIdObjMeta": {
+        "target_revision_id": 161348,
+        "drupal_internal__target_id": 13773
+      }
+    },
+    "field_other_categories": [],
+    "field_primary_category": {
+      "type": "taxonomy_term--lc_categories",
+      "id": "3f79ad6d-7146-464c-9f6a-c3546a90d9a7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 283
+      }
+    },
+    "field_related_benefit_hubs": [
+      {
+        "type": "node--landing_page",
+        "id": "0ba73178-25c7-449b-986d-c35a7ea8060a",
+        "drupal_internal__nid": 3071,
+        "drupal_internal__vid": 633216,
+        "langcode": "en",
+        "revision_timestamp": "2022-04-22T21:02:32+00:00",
+        "revision_log": "Randi copyedited these changes, and I'm publishing now. ",
+        "status": true,
+        "title": "VA decision reviews and appeals",
+        "created": "2020-03-24T15:46:11+00:00",
+        "changed": "2022-04-22T21:02:32+00:00",
+        "promote": false,
+        "sticky": false,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "moderation_state": "published",
+        "metatag": null,
+        "path": {
+          "alias": "/decision-reviews",
+          "pid": 3927,
+          "langcode": "en"
+        },
+        "field_description": "If you disagree with a VA claim decision, you can request a VA decision review. Decision review replaces the old (\"legacy\") VA appeals process.",
+        "field_home_page_hub_label": "Decision reviews and appeals",
+        "field_intro_text": "The legacy VA appeals process has changed to the decision review process. If you disagree with a VA decision dated on or after February 19, 2019, you can choose from 3 decision review options (Supplemental Claim, Higher-Level Review, or Board Appeal) to continue your case. If you aren’t satisfied with the results of the first option you choose, you can try another eligible option.",
+        "field_links": [],
+        "field_meta_tags": null,
+        "field_plainlanguage_date": null,
+        "field_teaser_text": "If you disagree with a VA claim decision, you can request a decision review. Decision review replaces the old (\"legacy\") VA appeals process.",
+        "field_title_icon": null,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/node/landing_page/0ba73178-25c7-449b-986d-c35a7ea8060a?resourceVersion=id%3A633216"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3071
+        },
+        "node_type": {
+          "type": "node_type--node_type",
+          "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "landing_page"
+          }
+        },
+        "revision_uid": {
+          "type": "user--user",
+          "id": "af1dd83d-a12d-4f9b-8564-e0892d9deba4",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 83
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 295
+          }
+        },
+        "field_administration": {
+          "type": "taxonomy_term--administration",
+          "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "field_alert": null,
+        "field_promo": null,
+        "field_related_links": null,
+        "field_related_office": {
+          "type": "node--office",
+          "id": "0631408b-a118-4d6f-926f-edef80604bf0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 38439
+          }
+        },
+        "field_spokes": [
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "7c80831f-973e-49b7-a0f8-65dfa2e28ec1",
+            "resourceIdObjMeta": {
+              "target_revision_id": 637159,
+              "drupal_internal__target_id": 9225
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "c034e7ce-4234-46c7-a892-2ca3df3404e9",
+            "resourceIdObjMeta": {
+              "target_revision_id": 637160,
+              "drupal_internal__target_id": 9228
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "cfee6297-2900-4e4e-ad7e-1143ac4adb57",
+            "resourceIdObjMeta": {
+              "target_revision_id": 637166,
+              "drupal_internal__target_id": 9231
+            }
+          }
+        ],
+        "field_support_services": [
+          {
+            "type": "node--support_service",
+            "id": "4b965df6-2ea0-4990-878f-8a5d0e19f504",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 59
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 61
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 62
+            }
+          }
+        ],
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_administration",
+          "field_alert",
+          "field_promo",
+          "field_related_links",
+          "field_related_office",
+          "field_spokes",
+          "field_support_services"
+        ]
+      },
+      {
+        "type": "node--landing_page",
+        "id": "ac8b805b-e5b7-4cdb-b4c4-fb81956bac65",
+        "drupal_internal__nid": 68,
+        "drupal_internal__vid": 587198,
+        "langcode": "en",
+        "revision_timestamp": "2021-11-23T14:44:27+00:00",
+        "revision_log": null,
+        "status": true,
+        "title": "VA disability compensation",
+        "created": "2019-02-06T16:35:43+00:00",
+        "changed": "2021-11-23T14:44:27+00:00",
+        "promote": false,
+        "sticky": false,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "moderation_state": "published",
+        "metatag": null,
+        "path": {
+          "alias": "/disability",
+          "pid": 1493,
+          "langcode": "en"
+        },
+        "field_description": "Learn about VA disability pay (compensation) for Veterans, including ratings, which conditions qualify, and how to file a claim. Find out if you can get VA disability pay for a service-connected disability (an illness or injury caused or made worse by your service).",
+        "field_home_page_hub_label": "Disability",
+        "field_intro_text": "VA disability compensation (pay) offers a monthly tax-free payment to Veterans who got sick or injured while serving in the military and to Veterans whose service made an existing condition worse. You may qualify for VA disability benefits for physical conditions (like a chronic illness or injury) and mental health conditions (like PTSD) that developed before, during, or after service. Find out how to apply for and manage the Veterans disability benefits you've earned.",
+        "field_links": [],
+        "field_meta_tags": null,
+        "field_plainlanguage_date": null,
+        "field_teaser_text": "File a claim for disability compensation for conditions related to your military service, and manage your benefits over time.",
+        "field_title_icon": "disability",
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/node/landing_page/ac8b805b-e5b7-4cdb-b4c4-fb81956bac65?resourceVersion=id%3A587198"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 68
+        },
+        "node_type": {
+          "type": "node_type--node_type",
+          "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "landing_page"
+          }
+        },
+        "revision_uid": {
+          "type": "user--user",
+          "id": "c487c496-7d2f-45b5-86b9-5afa00640084",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 3237
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "field_administration": {
+          "type": "taxonomy_term--administration",
+          "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "field_alert": null,
+        "field_promo": {
+          "type": "block_content--promo",
+          "id": "e5b7c61e-29db-4756-9527-26eb429a8be2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 7
+          }
+        },
+        "field_related_links": {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "c5b09075-6f5d-436a-82ce-eac46f539c57",
+          "resourceIdObjMeta": {
+            "target_revision_id": 507864,
+            "drupal_internal__target_id": 5535
+          }
+        },
+        "field_related_office": {
+          "type": "node--office",
+          "id": "0631408b-a118-4d6f-926f-edef80604bf0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 38439
+          }
+        },
+        "field_spokes": [
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "75dcd57d-bf81-4ca0-86d4-49915dd2f702",
+            "resourceIdObjMeta": {
+              "target_revision_id": 507865,
+              "drupal_internal__target_id": 5541
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "01282fbf-5ac3-49e0-891f-62b3f33758f0",
+            "resourceIdObjMeta": {
+              "target_revision_id": 507866,
+              "drupal_internal__target_id": 5546
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "0f46215d-f5e5-48aa-ba50-bb01d97b0fb0",
+            "resourceIdObjMeta": {
+              "target_revision_id": 507867,
+              "drupal_internal__target_id": 5557
+            }
+          }
+        ],
+        "field_support_services": [
+          {
+            "type": "node--support_service",
+            "id": "4b965df6-2ea0-4990-878f-8a5d0e19f504",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 59
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 61
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 62
+            }
+          }
+        ],
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_administration",
+          "field_alert",
+          "field_promo",
+          "field_related_links",
+          "field_related_office",
+          "field_spokes",
+          "field_support_services"
+        ]
+      },
+      {
+        "type": "node--landing_page",
+        "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+        "drupal_internal__nid": 67,
+        "drupal_internal__vid": 605955,
+        "langcode": "en",
+        "revision_timestamp": "2022-01-13T21:49:18+00:00",
+        "revision_log": "fixing broken link",
+        "status": true,
+        "title": "VA health care",
+        "created": "2019-02-06T16:35:23+00:00",
+        "changed": "2022-01-13T21:49:18+00:00",
+        "promote": false,
+        "sticky": false,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "moderation_state": "published",
+        "metatag": null,
+        "path": {
+          "alias": "/health-care",
+          "pid": 382,
+          "langcode": "en"
+        },
+        "field_description": "Learn how to apply for and manage VA health care benefits for Veterans. We offer primary and specialty Veterans health care services, including home health, geriatric (elder), women's health, and mental health care, as well as prescriptions.",
+        "field_home_page_hub_label": "Health care",
+        "field_intro_text": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you've earned.",
+        "field_links": [],
+        "field_meta_tags": {
+          "title": "VA Health Care | Veterans Affairs",
+          "keywords": "va health care, veterans health care"
+        },
+        "field_plainlanguage_date": null,
+        "field_teaser_text": "Apply for VA health care, find out how to access services, and manage your health and benefits online.",
+        "field_title_icon": "health-care",
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/node/landing_page/fd822f25-788f-489c-a0fc-b1f7ad6c20d5?resourceVersion=id%3A605955"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 67
+        },
+        "node_type": {
+          "type": "node_type--node_type",
+          "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "landing_page"
+          }
+        },
+        "revision_uid": {
+          "type": "user--user",
+          "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 295
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "field_administration": {
+          "type": "taxonomy_term--administration",
+          "id": "e5820ec7-83b0-4d03-8ebf-ed50fa8cc211",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 3
+          }
+        },
+        "field_alert": {
+          "type": "block_content--alert",
+          "id": "4c654c30-eb94-4c01-8c5a-6aade97f6984",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 4
+          }
+        },
+        "field_promo": {
+          "type": "block_content--promo",
+          "id": "81ea599e-8def-4309-a2ef-c61dac2ade58",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 6
+          }
+        },
+        "field_related_links": {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "80d34624-18cd-443a-9598-00f2042085e0",
+          "resourceIdObjMeta": {
+            "target_revision_id": 507933,
+            "drupal_internal__target_id": 3547
+          }
+        },
+        "field_related_office": {
+          "type": "node--office",
+          "id": "1fc78fe7-f1d1-4fba-8d5d-ab5cf5ffaa37",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 38440
+          }
+        },
+        "field_spokes": [
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "901a07e1-07e4-4904-ad3e-10a6189cf0a7",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564615,
+              "drupal_internal__target_id": 3553
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "dd1d18ff-8c75-41f9-a37b-890d26803069",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564616,
+              "drupal_internal__target_id": 3560
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "3f901501-c2c9-4b4a-8c18-3189531152b3",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564617,
+              "drupal_internal__target_id": 3571
+            }
+          }
+        ],
+        "field_support_services": [
+          {
+            "type": "node--support_service",
+            "id": "6ab87079-1b6c-4ef9-9a20-937f92199aef",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 65
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "fd3a6f5f-ab6b-460d-a35f-7f0cb7edb4b3",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 66
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "c6e3d4cd-698d-406c-b2b0-cf9f93e5b7ec",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 60
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 61
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 62
+            }
+          }
+        ],
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_administration",
+          "field_alert",
+          "field_promo",
+          "field_related_links",
+          "field_related_office",
+          "field_spokes",
+          "field_support_services"
+        ]
+      }
+    ],
+    "field_related_information": [
+      {
+        "type": "paragraph--link_teaser",
+        "id": "b5dc447b-5832-4a3f-9e4b-b96cf08a9207",
+        "drupal_internal__id": 13774,
+        "drupal_internal__revision_id": 158768,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-19T17:10:51+00:00",
+        "parent_id": "8504",
+        "parent_type": "node",
+        "parent_field_name": "field_related_information",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "field_link": {
+          "uri": "entity:node/8520",
+          "title": "How to check your VA claim or appeal status online",
+          "options": []
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/b5dc447b-5832-4a3f-9e4b-b96cf08a9207"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 158768,
+          "drupal_internal__target_id": 13774
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      },
+      {
+        "type": "paragraph--link_teaser",
+        "id": "7de62b28-028d-40a1-bafa-fc1113c47aeb",
+        "drupal_internal__id": 13778,
+        "drupal_internal__revision_id": 158769,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-19T17:13:37+00:00",
+        "parent_id": "8504",
+        "parent_type": "node",
+        "parent_field_name": "field_related_information",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "field_link": {
+          "uri": "entity:node/3071",
+          "title": "VA decision reviews and appeals",
+          "options": []
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/7de62b28-028d-40a1-bafa-fc1113c47aeb"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 158769,
+          "drupal_internal__target_id": 13778
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      },
+      {
+        "type": "paragraph--link_teaser",
+        "id": "1af2cc04-07c7-4afa-86c9-6ae32b363d32",
+        "drupal_internal__id": 14131,
+        "drupal_internal__revision_id": 158770,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-23T22:29:52+00:00",
+        "parent_id": "8504",
+        "parent_type": "node",
+        "parent_field_name": "field_related_information",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "field_link": {
+          "uri": "entity:node/8222",
+          "title": "Signing in to VA.gov ",
+          "options": []
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/1af2cc04-07c7-4afa-86c9-6ae32b363d32"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 158770,
+          "drupal_internal__target_id": 14131
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      }
+    ],
+    "field_tags": {
+      "type": "paragraph--audience_topics",
+      "id": "d7dd0c3a-5b28-4bb7-8a57-aa520fa7248b",
+      "drupal_internal__id": 13779,
+      "drupal_internal__revision_id": 161349,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-10-19T17:10:51+00:00",
+      "parent_id": "8504",
+      "parent_type": "node",
+      "parent_field_name": "field_tags",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_audience_selection": "beneficiaries",
+      "field_markup": null,
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/audience_topics/d7dd0c3a-5b28-4bb7-8a57-aa520fa7248b"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 161349,
+        "drupal_internal__target_id": 13779
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "1b952f0b-ff2c-486b-8404-266e1aad73fb",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "audience_topics"
+        }
+      },
+      "field_audience_beneficiares": {
+        "type": "taxonomy_term--audience_beneficiaries",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "drupal_internal__tid": 268,
+        "drupal_internal__revision_id": 268,
+        "langcode": "en",
+        "revision_created": "2020-09-10T22:27:56+00:00",
+        "revision_log_message": null,
+        "status": true,
+        "name": "All Veterans",
+        "description": null,
+        "weight": 0,
+        "changed": "2021-01-13T20:20:40+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "metatag": null,
+        "path": {
+          "alias": "/resources/tag/all-veterans",
+          "pid": 11290,
+          "langcode": "en"
+        },
+        "field_audience_rs_homepage": true,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 268
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "audience_beneficiaries"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--audience_beneficiaries",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "relationshipNames": ["vid", "revision_user", "parent"]
+      },
+      "field_non_beneficiares": null,
+      "field_topics": [
+        {
+          "type": "taxonomy_term--topics",
+          "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
+          "drupal_internal__tid": 293,
+          "drupal_internal__revision_id": 293,
+          "langcode": "en",
+          "revision_created": "2020-10-08T23:28:19+00:00",
+          "revision_log_message": null,
+          "status": true,
+          "name": "Claims and appeals status",
+          "description": null,
+          "weight": 0,
+          "changed": "2020-11-03T18:02:16+00:00",
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "metatag": null,
+          "path": {
+            "alias": "/resources/tag/claims-and-appeals-status",
+            "pid": 11287,
+            "langcode": "en"
+          },
+          "links": {
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/topics/564808ad-d6b8-4337-8bf4-af296bc23e24"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 293
+          },
+          "vid": {
+            "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+            "id": "2129b23f-4ca1-4783-9e15-68f4ee58c330",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "topics"
+            }
+          },
+          "revision_user": null,
+          "parent": [
+            {
+              "type": "taxonomy_term--topics",
+              "id": "virtual",
+              "resourceIdObjMeta": {
+                "links": {
+                  "help": {
+                    "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                    "meta": {
+                      "about": "Usage and meaning of the 'virtual' resource identifier."
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "relationshipNames": ["vid", "revision_user", "parent"]
+        }
+      ],
+      "relationshipNames": [
+        "paragraph_type",
+        "field_audience_beneficiares",
+        "field_non_beneficiares",
+        "field_topics"
+      ]
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_alert_single",
+      "field_answer",
+      "field_buttons",
+      "field_contact_information",
+      "field_other_categories",
+      "field_primary_category",
+      "field_related_benefit_hubs",
+      "field_related_information",
+      "field_tags"
+    ]
+  },
+  {
+    "type": "node--q_a",
+    "id": "eaff8edf-2cee-4e11-9373-7860a78295a6",
+    "path": {
+      "alias": "/resources/are-service-dogs-allowed-in-va-facilities",
+      "pid": 11260,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 8538,
+    "drupal_internal__vid": 339131,
+    "langcode": "en",
+    "revision_timestamp": "2020-11-04T21:54:28+00:00",
+    "revision_log": "Bulk operation publish revision",
+    "status": true,
+    "title": "Are service dogs allowed in VA facilities?",
+    "created": "2020-10-19T21:42:01+00:00",
+    "changed": "2020-11-04T21:54:28+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "moderation_state": "published",
+    "metatag": null,
+    "field_standalone_page": true,
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/node/q_a/eaff8edf-2cee-4e11-9373-7860a78295a6?resourceVersion=id%3A339131"
+      },
+      "working-copy": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/node/q_a/eaff8edf-2cee-4e11-9373-7860a78295a6?resourceVersion=rel%3Aworking-copy"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "e1c04503-bcc8-4285-b2be-fa27af3634e4",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "q_a"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 295
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "ee1fb49c-70d5-4e82-9b0d-e6c73dde0489",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1343
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 194
+      }
+    },
+    "field_alert_single": {
+      "type": "paragraph--alert_single",
+      "id": "8505d987-76c5-49f8-9606-8119ed339f3a",
+      "resourceIdObjMeta": {
+        "target_revision_id": 161271,
+        "drupal_internal__target_id": 13892
+      }
+    },
+    "field_answer": {
+      "type": "paragraph--rich_text_char_limit_1000",
+      "id": "f95bf3a6-d83c-4018-9663-935f73c57cb8",
+      "drupal_internal__id": 13994,
+      "drupal_internal__revision_id": 161272,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-10-19T22:47:23+00:00",
+      "parent_id": "8538",
+      "parent_type": "node",
+      "parent_field_name": "field_answer",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_wysiwyg": {
+        "value": "<p>Yes. We allow service dogs of all breeds in VA facilities. This includes VA health facilities, Vet Centers, regional offices, and other properties we own or lease.</p>\r\n\r\n<p><strong>To enter and remain in a VA facility, a service dog must meet all of these requirements:</strong></p>\r\n\r\n<ul>\r\n\t<li>The dog must be trained to work or perform tasks for a person with a disability (including a physical, sensory, psychiatric, intellectual, or mental health disability).<strong>&nbsp;</strong>Dogs that provide only emotional support, comfort, or companionship don't qualify as service dogs.</li>\r\n</ul>\r\n\r\n<ul>\r\n\t<li>The dog must be under the control of its owner or another handler at all times.</li>\r\n</ul>\r\n\r\n<ul>\r\n\t<li>The dog must not enter areas where an animal could cause problems with patient care, safety, or infection control (like operating rooms).</li>\r\n</ul>\r\n\r\n<p>We don't allow any other animals in VA facilities. But we may make exceptions for certain needs like police dogs or animal-assisted therapy.&nbsp;</p>\r\n",
+        "format": "rich_text_limited",
+        "processed": "<p>Yes. We allow service dogs of all breeds in VA facilities. This includes VA health facilities, Vet Centers, regional offices, and other properties we own or lease.</p>\n<p><strong>To enter and remain in a VA facility, a service dog must meet all of these requirements:</strong></p>\n<ul>\n<li>The dog must be trained to work or perform tasks for a person with a disability (including a physical, sensory, psychiatric, intellectual, or mental health disability).<strong> </strong>Dogs that provide only emotional support, comfort, or companionship don't qualify as service dogs.</li>\n</ul>\n<ul>\n<li>The dog must be under the control of its owner or another handler at all times.</li>\n</ul>\n<ul>\n<li>The dog must not enter areas where an animal could cause problems with patient care, safety, or infection control (like operating rooms).</li>\n</ul>\n<p>We don't allow any other animals in VA facilities. But we may make exceptions for certain needs like police dogs or animal-assisted therapy. </p>\n"
+      },
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/rich_text_char_limit_1000/f95bf3a6-d83c-4018-9663-935f73c57cb8"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 161272,
+        "drupal_internal__target_id": 13994
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "3ffc29ff-5b72-4f6a-a51b-7076c3f62f22",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "rich_text_char_limit_1000"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    "field_buttons": [
+      {
+        "type": "paragraph--button",
+        "id": "21bf8a97-36ec-44ba-a245-1fbcb014b8a9",
+        "drupal_internal__id": 13894,
+        "drupal_internal__revision_id": 161273,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-19T21:42:01+00:00",
+        "parent_id": "8538",
+        "parent_type": "node",
+        "parent_field_name": "field_buttons",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "field_button_label": "Find a VA location",
+        "field_button_link": {
+          "uri": "internal:/find-locations/",
+          "title": "",
+          "options": []
+        },
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/21bf8a97-36ec-44ba-a245-1fbcb014b8a9"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 161273,
+          "drupal_internal__target_id": 13894
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "button"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      }
+    ],
+    "field_contact_information": {
+      "type": "paragraph--contact_information",
+      "id": "e8f1f414-0469-4f53-96bf-43ace43258cb",
+      "resourceIdObjMeta": {
+        "target_revision_id": 161274,
+        "drupal_internal__target_id": 13895
+      }
+    },
+    "field_other_categories": [],
+    "field_primary_category": {
+      "type": "taxonomy_term--lc_categories",
+      "id": "3f79ad6d-7146-464c-9f6a-c3546a90d9a7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 283
+      }
+    },
+    "field_related_benefit_hubs": [
+      {
+        "type": "node--landing_page",
+        "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+        "drupal_internal__nid": 67,
+        "drupal_internal__vid": 605955,
+        "langcode": "en",
+        "revision_timestamp": "2022-01-13T21:49:18+00:00",
+        "revision_log": "fixing broken link",
+        "status": true,
+        "title": "VA health care",
+        "created": "2019-02-06T16:35:23+00:00",
+        "changed": "2022-01-13T21:49:18+00:00",
+        "promote": false,
+        "sticky": false,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "moderation_state": "published",
+        "metatag": null,
+        "path": {
+          "alias": "/health-care",
+          "pid": 382,
+          "langcode": "en"
+        },
+        "field_description": "Learn how to apply for and manage VA health care benefits for Veterans. We offer primary and specialty Veterans health care services, including home health, geriatric (elder), women's health, and mental health care, as well as prescriptions.",
+        "field_home_page_hub_label": "Health care",
+        "field_intro_text": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you've earned.",
+        "field_links": [],
+        "field_meta_tags": {
+          "title": "VA Health Care | Veterans Affairs",
+          "keywords": "va health care, veterans health care"
+        },
+        "field_plainlanguage_date": null,
+        "field_teaser_text": "Apply for VA health care, find out how to access services, and manage your health and benefits online.",
+        "field_title_icon": "health-care",
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/node/landing_page/fd822f25-788f-489c-a0fc-b1f7ad6c20d5?resourceVersion=id%3A605955"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 67
+        },
+        "node_type": {
+          "type": "node_type--node_type",
+          "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "landing_page"
+          }
+        },
+        "revision_uid": {
+          "type": "user--user",
+          "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 295
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "field_administration": {
+          "type": "taxonomy_term--administration",
+          "id": "e5820ec7-83b0-4d03-8ebf-ed50fa8cc211",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 3
+          }
+        },
+        "field_alert": {
+          "type": "block_content--alert",
+          "id": "4c654c30-eb94-4c01-8c5a-6aade97f6984",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 4
+          }
+        },
+        "field_promo": {
+          "type": "block_content--promo",
+          "id": "81ea599e-8def-4309-a2ef-c61dac2ade58",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 6
+          }
+        },
+        "field_related_links": {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "80d34624-18cd-443a-9598-00f2042085e0",
+          "resourceIdObjMeta": {
+            "target_revision_id": 507933,
+            "drupal_internal__target_id": 3547
+          }
+        },
+        "field_related_office": {
+          "type": "node--office",
+          "id": "1fc78fe7-f1d1-4fba-8d5d-ab5cf5ffaa37",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 38440
+          }
+        },
+        "field_spokes": [
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "901a07e1-07e4-4904-ad3e-10a6189cf0a7",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564615,
+              "drupal_internal__target_id": 3553
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "dd1d18ff-8c75-41f9-a37b-890d26803069",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564616,
+              "drupal_internal__target_id": 3560
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "3f901501-c2c9-4b4a-8c18-3189531152b3",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564617,
+              "drupal_internal__target_id": 3571
+            }
+          }
+        ],
+        "field_support_services": [
+          {
+            "type": "node--support_service",
+            "id": "6ab87079-1b6c-4ef9-9a20-937f92199aef",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 65
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "fd3a6f5f-ab6b-460d-a35f-7f0cb7edb4b3",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 66
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "c6e3d4cd-698d-406c-b2b0-cf9f93e5b7ec",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 60
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 61
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 62
+            }
+          }
+        ],
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_administration",
+          "field_alert",
+          "field_promo",
+          "field_related_links",
+          "field_related_office",
+          "field_spokes",
+          "field_support_services"
+        ]
+      }
+    ],
+    "field_related_information": [
+      {
+        "type": "paragraph--link_teaser",
+        "id": "be43d17b-f642-49b6-bed2-b4ea7712ed88",
+        "drupal_internal__id": 14153,
+        "drupal_internal__revision_id": 161275,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-25T23:00:21+00:00",
+        "parent_id": "8538",
+        "parent_type": "node",
+        "parent_field_name": "field_related_information",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "field_link": {
+          "uri": "https://www.prosthetics.va.gov/ServiceAndGuideDogs.asp",
+          "title": "Learn about how to get a service dog with your VA health care benefits",
+          "options": []
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/link_teaser/be43d17b-f642-49b6-bed2-b4ea7712ed88"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 161275,
+          "drupal_internal__target_id": 14153
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      }
+    ],
+    "field_tags": {
+      "type": "paragraph--audience_topics",
+      "id": "8765cf43-6284-4154-b1ec-919403e2b428",
+      "drupal_internal__id": 13897,
+      "drupal_internal__revision_id": 161276,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-10-19T21:42:01+00:00",
+      "parent_id": "8538",
+      "parent_type": "node",
+      "parent_field_name": "field_tags",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_audience_selection": "beneficiaries",
+      "field_markup": null,
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/audience_topics/8765cf43-6284-4154-b1ec-919403e2b428"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 161276,
+        "drupal_internal__target_id": 13897
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "1b952f0b-ff2c-486b-8404-266e1aad73fb",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "audience_topics"
+        }
+      },
+      "field_audience_beneficiares": {
+        "type": "taxonomy_term--audience_beneficiaries",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "drupal_internal__tid": 268,
+        "drupal_internal__revision_id": 268,
+        "langcode": "en",
+        "revision_created": "2020-09-10T22:27:56+00:00",
+        "revision_log_message": null,
+        "status": true,
+        "name": "All Veterans",
+        "description": null,
+        "weight": 0,
+        "changed": "2021-01-13T20:20:40+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "metatag": null,
+        "path": {
+          "alias": "/resources/tag/all-veterans",
+          "pid": 11290,
+          "langcode": "en"
+        },
+        "field_audience_rs_homepage": true,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 268
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "audience_beneficiaries"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--audience_beneficiaries",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "relationshipNames": ["vid", "revision_user", "parent"]
+      },
+      "field_non_beneficiares": null,
+      "field_topics": [],
+      "relationshipNames": [
+        "paragraph_type",
+        "field_audience_beneficiares",
+        "field_non_beneficiares",
+        "field_topics"
+      ]
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_alert_single",
+      "field_answer",
+      "field_buttons",
+      "field_contact_information",
+      "field_other_categories",
+      "field_primary_category",
+      "field_related_benefit_hubs",
+      "field_related_information",
+      "field_tags"
+    ]
+  },
+  {
+    "type": "node--q_a",
+    "id": "bcf87f05-f947-4631-8a86-a3c0c0fe9878",
+    "path": {
+      "alias": "/resources/what-types-of-claims-and-appeals-can-i-track-online",
+      "pid": 11256,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 8514,
+    "drupal_internal__vid": 339136,
+    "langcode": "en",
+    "revision_timestamp": "2020-11-04T21:54:28+00:00",
+    "revision_log": "Bulk operation publish revision",
+    "status": true,
+    "title": "What types of claims can I track online?",
+    "created": "2020-10-19T18:13:29+00:00",
+    "changed": "2020-11-04T21:54:28+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "moderation_state": "published",
+    "metatag": null,
+    "field_standalone_page": false,
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/node/q_a/bcf87f05-f947-4631-8a86-a3c0c0fe9878?resourceVersion=id%3A339136"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "e1c04503-bcc8-4285-b2be-fa27af3634e4",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "q_a"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 295
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "ee1fb49c-70d5-4e82-9b0d-e6c73dde0489",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1343
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 194
+      }
+    },
+    "field_alert_single": {
+      "type": "paragraph--alert_single",
+      "id": "3d7d29fb-2606-4a42-9086-68cb07d356cf",
+      "resourceIdObjMeta": {
+        "target_revision_id": 160612,
+        "drupal_internal__target_id": 13799
+      }
+    },
+    "field_answer": {
+      "type": "paragraph--rich_text_char_limit_1000",
+      "id": "3bb26efa-99a4-4ef5-a6c2-f0bf9d65d641",
+      "drupal_internal__id": 13988,
+      "drupal_internal__revision_id": 160613,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-10-19T22:47:23+00:00",
+      "parent_id": "8514",
+      "parent_type": "node",
+      "parent_field_name": "field_answer",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_wysiwyg": {
+        "value": "<p>You can use our claim status tool to check the status of a VA claim&nbsp;for compensation, including automobile or clothing allowance, pension benefits, and Aid and Attendance. You can also check the status of your VA health care or GI Bill claim. Find out what <a href=\"https://www.va.gov/claim-or-appeal-status/#what-types-of-claims-and-appea\">other types of claims</a>&nbsp;you can track online with our tool.</p>\r\n",
+        "format": "rich_text_limited",
+        "processed": "<p>You can use our claim status tool to check the status of a VA claim for compensation, including automobile or clothing allowance, pension benefits, and Aid and Attendance. You can also check the status of your VA health care or GI Bill claim. Find out what <a href=\"https://www.va.gov/claim-or-appeal-status/#what-types-of-claims-and-appea\">other types of claims</a> you can track online with our tool.</p>\n"
+      },
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/rich_text_char_limit_1000/3bb26efa-99a4-4ef5-a6c2-f0bf9d65d641"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 160613,
+        "drupal_internal__target_id": 13988
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "3ffc29ff-5b72-4f6a-a51b-7076c3f62f22",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "rich_text_char_limit_1000"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    "field_buttons": [
+      {
+        "type": "paragraph--button",
+        "id": "e22196d7-382b-4a51-aa1e-d6cb6976013a",
+        "drupal_internal__id": 13801,
+        "drupal_internal__revision_id": 160614,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-19T18:13:29+00:00",
+        "parent_id": "8514",
+        "parent_type": "node",
+        "parent_field_name": "field_buttons",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "field_button_label": "Check your VA claim or appeal status",
+        "field_button_link": {
+          "uri": "entity:node/711",
+          "title": "",
+          "options": []
+        },
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/e22196d7-382b-4a51-aa1e-d6cb6976013a"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 160614,
+          "drupal_internal__target_id": 13801
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "button"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      },
+      {
+        "type": "paragraph--button",
+        "id": "12d69420-705e-40de-bb72-0b34a0f4fcdd",
+        "drupal_internal__id": 13802,
+        "drupal_internal__revision_id": 160615,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-19T18:13:29+00:00",
+        "parent_id": "8514",
+        "parent_type": "node",
+        "parent_field_name": "field_buttons",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "field_button_label": "Sign in or create an account",
+        "field_button_link": {
+          "uri": "https://www.va.gov/?next=%2Fprofile%2F",
+          "title": "",
+          "options": []
+        },
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/12d69420-705e-40de-bb72-0b34a0f4fcdd"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 160615,
+          "drupal_internal__target_id": 13802
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "button"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      }
+    ],
+    "field_contact_information": {
+      "type": "paragraph--contact_information",
+      "id": "54fa1edd-cf10-4518-a3a5-7c5f911fb832",
+      "resourceIdObjMeta": {
+        "target_revision_id": 160616,
+        "drupal_internal__target_id": 13803
+      }
+    },
+    "field_other_categories": [],
+    "field_primary_category": {
+      "type": "taxonomy_term--lc_categories",
+      "id": "3f79ad6d-7146-464c-9f6a-c3546a90d9a7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 283
+      }
+    },
+    "field_related_benefit_hubs": [
+      {
+        "type": "node--landing_page",
+        "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+        "drupal_internal__nid": 67,
+        "drupal_internal__vid": 605955,
+        "langcode": "en",
+        "revision_timestamp": "2022-01-13T21:49:18+00:00",
+        "revision_log": "fixing broken link",
+        "status": true,
+        "title": "VA health care",
+        "created": "2019-02-06T16:35:23+00:00",
+        "changed": "2022-01-13T21:49:18+00:00",
+        "promote": false,
+        "sticky": false,
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "moderation_state": "published",
+        "metatag": null,
+        "path": {
+          "alias": "/health-care",
+          "pid": 382,
+          "langcode": "en"
+        },
+        "field_description": "Learn how to apply for and manage VA health care benefits for Veterans. We offer primary and specialty Veterans health care services, including home health, geriatric (elder), women's health, and mental health care, as well as prescriptions.",
+        "field_home_page_hub_label": "Health care",
+        "field_intro_text": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you've earned.",
+        "field_links": [],
+        "field_meta_tags": {
+          "title": "VA Health Care | Veterans Affairs",
+          "keywords": "va health care, veterans health care"
+        },
+        "field_plainlanguage_date": null,
+        "field_teaser_text": "Apply for VA health care, find out how to access services, and manage your health and benefits online.",
+        "field_title_icon": "health-care",
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/node/landing_page/fd822f25-788f-489c-a0fc-b1f7ad6c20d5?resourceVersion=id%3A605955"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 67
+        },
+        "node_type": {
+          "type": "node_type--node_type",
+          "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "landing_page"
+          }
+        },
+        "revision_uid": {
+          "type": "user--user",
+          "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 295
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1
+          }
+        },
+        "field_administration": {
+          "type": "taxonomy_term--administration",
+          "id": "e5820ec7-83b0-4d03-8ebf-ed50fa8cc211",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 3
+          }
+        },
+        "field_alert": {
+          "type": "block_content--alert",
+          "id": "4c654c30-eb94-4c01-8c5a-6aade97f6984",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 4
+          }
+        },
+        "field_promo": {
+          "type": "block_content--promo",
+          "id": "81ea599e-8def-4309-a2ef-c61dac2ade58",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 6
+          }
+        },
+        "field_related_links": {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "80d34624-18cd-443a-9598-00f2042085e0",
+          "resourceIdObjMeta": {
+            "target_revision_id": 507933,
+            "drupal_internal__target_id": 3547
+          }
+        },
+        "field_related_office": {
+          "type": "node--office",
+          "id": "1fc78fe7-f1d1-4fba-8d5d-ab5cf5ffaa37",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 38440
+          }
+        },
+        "field_spokes": [
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "901a07e1-07e4-4904-ad3e-10a6189cf0a7",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564615,
+              "drupal_internal__target_id": 3553
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "dd1d18ff-8c75-41f9-a37b-890d26803069",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564616,
+              "drupal_internal__target_id": 3560
+            }
+          },
+          {
+            "type": "paragraph--list_of_link_teasers",
+            "id": "3f901501-c2c9-4b4a-8c18-3189531152b3",
+            "resourceIdObjMeta": {
+              "target_revision_id": 564617,
+              "drupal_internal__target_id": 3571
+            }
+          }
+        ],
+        "field_support_services": [
+          {
+            "type": "node--support_service",
+            "id": "6ab87079-1b6c-4ef9-9a20-937f92199aef",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 65
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "fd3a6f5f-ab6b-460d-a35f-7f0cb7edb4b3",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 66
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "c6e3d4cd-698d-406c-b2b0-cf9f93e5b7ec",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 60
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 61
+            }
+          },
+          {
+            "type": "node--support_service",
+            "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 62
+            }
+          }
+        ],
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_administration",
+          "field_alert",
+          "field_promo",
+          "field_related_links",
+          "field_related_office",
+          "field_spokes",
+          "field_support_services"
+        ]
+      }
+    ],
+    "field_related_information": [],
+    "field_tags": {
+      "type": "paragraph--audience_topics",
+      "id": "4e4d770d-06a9-480d-b7b4-42a78970cd52",
+      "drupal_internal__id": 13805,
+      "drupal_internal__revision_id": 160617,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-10-19T18:13:29+00:00",
+      "parent_id": "8514",
+      "parent_type": "node",
+      "parent_field_name": "field_tags",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "field_audience_selection": "beneficiaries",
+      "field_markup": null,
+      "links": {
+        "self": {
+          "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/audience_topics/4e4d770d-06a9-480d-b7b4-42a78970cd52"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 160617,
+        "drupal_internal__target_id": 13805
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "1b952f0b-ff2c-486b-8404-266e1aad73fb",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "audience_topics"
+        }
+      },
+      "field_audience_beneficiares": {
+        "type": "taxonomy_term--audience_beneficiaries",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "drupal_internal__tid": 268,
+        "drupal_internal__revision_id": 268,
+        "langcode": "en",
+        "revision_created": "2020-09-10T22:27:56+00:00",
+        "revision_log_message": null,
+        "status": true,
+        "name": "All Veterans",
+        "description": null,
+        "weight": 0,
+        "changed": "2021-01-13T20:20:40+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "metatag": null,
+        "path": {
+          "alias": "/resources/tag/all-veterans",
+          "pid": 11290,
+          "langcode": "en"
+        },
+        "field_audience_rs_homepage": true,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 268
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "audience_beneficiaries"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--audience_beneficiaries",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "relationshipNames": ["vid", "revision_user", "parent"]
+      },
+      "field_non_beneficiares": null,
+      "field_topics": [
+        {
+          "type": "taxonomy_term--topics",
+          "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
+          "drupal_internal__tid": 293,
+          "drupal_internal__revision_id": 293,
+          "langcode": "en",
+          "revision_created": "2020-10-08T23:28:19+00:00",
+          "revision_log_message": null,
+          "status": true,
+          "name": "Claims and appeals status",
+          "description": null,
+          "weight": 0,
+          "changed": "2020-11-03T18:02:16+00:00",
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "metatag": null,
+          "path": {
+            "alias": "/resources/tag/claims-and-appeals-status",
+            "pid": 11287,
+            "langcode": "en"
+          },
+          "links": {
+            "self": {
+              "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/topics/564808ad-d6b8-4337-8bf4-af296bc23e24"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 293
+          },
+          "vid": {
+            "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+            "id": "2129b23f-4ca1-4783-9e15-68f4ee58c330",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "topics"
+            }
+          },
+          "revision_user": null,
+          "parent": [
+            {
+              "type": "taxonomy_term--topics",
+              "id": "virtual",
+              "resourceIdObjMeta": {
+                "links": {
+                  "help": {
+                    "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                    "meta": {
+                      "about": "Usage and meaning of the 'virtual' resource identifier."
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "relationshipNames": ["vid", "revision_user", "parent"]
+        }
+      ],
+      "relationshipNames": [
+        "paragraph_type",
+        "field_audience_beneficiares",
+        "field_non_beneficiares",
+        "field_topics"
+      ]
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_alert_single",
+      "field_answer",
+      "field_buttons",
+      "field_contact_information",
+      "field_other_categories",
+      "field_primary_category",
+      "field_related_benefit_hubs",
+      "field_related_information",
+      "field_tags"
+    ]
+  }
+]
