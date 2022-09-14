@@ -1,0 +1,164 @@
+[
+  {
+    "type": "paragraph--button",
+    "id": "636ad8c5-8f93-4fce-a96e-f8d24eed8453",
+    "drupal_internal__id": 13460,
+    "drupal_internal__revision_id": 148012,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-10-15T12:20:13+00:00",
+    "parent_id": "8434",
+    "parent_type": "node",
+    "parent_field_name": "field_buttons",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_button_label": "Change VA direct deposit information",
+    "field_button_link": {
+      "uri": "https://www.va.gov/change-direct-deposit/",
+      "title": "",
+      "options": []
+    },
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/636ad8c5-8f93-4fce-a96e-f8d24eed8453"
+      }
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--button",
+    "id": "d3016c80-713d-41d9-a022-056600c72864",
+    "drupal_internal__id": 13244,
+    "drupal_internal__revision_id": 149400,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-10-09T15:11:33+00:00",
+    "parent_id": "8232",
+    "parent_type": "node",
+    "parent_field_name": "field_buttons",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": null,
+    "field_button_label": "Sign in now",
+    "field_button_link": {
+      "uri": "https://www.va.gov/?next=%2Fsign-in-faq%2F",
+      "title": "",
+      "options": []
+    },
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/d3016c80-713d-41d9-a022-056600c72864"
+      }
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--button",
+    "id": "17510f2e-1aa2-4d30-93d6-273073ac2bad",
+    "drupal_internal__id": 13391,
+    "drupal_internal__revision_id": 149470,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-10-14T18:46:15+00:00",
+    "parent_id": "8420",
+    "parent_type": "node",
+    "parent_field_name": "field_buttons",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": null,
+    "field_button_label": "Change VA direct deposit information",
+    "field_button_link": {
+      "uri": "entity:node/710",
+      "title": "",
+      "options": []
+    },
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/17510f2e-1aa2-4d30-93d6-273073ac2bad"
+      }
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--button",
+    "id": "fa67d766-a6db-4e84-b558-0b9b350d5bf7",
+    "drupal_internal__id": 13572,
+    "drupal_internal__revision_id": 149526,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-10-16T20:09:53+00:00",
+    "parent_id": "8475",
+    "parent_type": "node",
+    "parent_field_name": "field_buttons",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": null,
+    "field_button_label": null,
+    "field_button_link": null,
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/fa67d766-a6db-4e84-b558-0b9b350d5bf7"
+      }
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--button",
+    "id": "7d998178-fb04-45c1-b3c7-9a127f834b70",
+    "drupal_internal__id": 13578,
+    "drupal_internal__revision_id": 149533,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-10-16T20:14:30+00:00",
+    "parent_id": "8476",
+    "parent_type": "node",
+    "parent_field_name": "field_buttons",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": null,
+    "field_button_label": null,
+    "field_button_link": null,
+    "links": {
+      "self": {
+        "href": "http://va-gov-cms.ddev.site/jsonapi/paragraph/button/7d998178-fb04-45c1-b3c7-9a127f834b70"
+      }
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  }
+]
