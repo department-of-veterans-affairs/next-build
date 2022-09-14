@@ -18,11 +18,8 @@ import map from 'lodash/map'
 
 /** These component includes are specific to this component. */
 import { Button } from '@/templates/common/button'
-import { ButtonType, LinkTeaserType } from '@/types/index'
-import {
-  AudienceTopicProp,
-  AudienceTopics,
-} from '@/templates/components/audienceTopics'
+import { QuestionAnswerType } from '@/types/index'
+import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { LinkTeaser } from '@/templates/components/linkTeaser'
 
 /**
@@ -33,24 +30,14 @@ export interface HtmlProps {
   __html: string
 }
 
-export interface QuestionAnswerProps {
-  id: number
-  title: string
-  answers: string
-  buttons: ButtonType[]
-  tags: AudienceTopicProp
-  teasers: LinkTeaserType[]
-  className?: string
-}
-
 export const QuestionAnswer = ({
   title,
   answers,
   buttons,
   tags,
   teasers,
-}: QuestionAnswerProps) => {
-  const tag = tags ? <AudienceTopics {...tags} /> : null
+}: QuestionAnswerType) => {
+  const tag = tags ? <AudienceTopics tags={tags} /> : null
 
   const button = map(buttons, (data) =>
     data ? <Button key={data.id} {...data} /> : null

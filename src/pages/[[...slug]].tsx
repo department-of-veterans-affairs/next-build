@@ -7,8 +7,13 @@ import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
+import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 
-const RESOURCE_TYPES = ['node--news_story', 'node--story_listing'] as const
+const RESOURCE_TYPES = [
+  'node--news_story',
+  'node--story_listing',
+  'node--q_a',
+] as const
 
 export default function ResourcePage({ resource, props }) {
   if (!resource) return null
@@ -19,6 +24,7 @@ export default function ResourcePage({ resource, props }) {
       {resource.type === 'node--story_listing' && (
         <StoryListing {...resource} />
       )}
+      {resource.type === 'node--q_a' && <QuestionAnswer {...resource} />}
     </Wrapper>
   )
 }

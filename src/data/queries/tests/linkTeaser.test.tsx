@@ -19,7 +19,9 @@ describe('paragraph--link_teaser formatData', () => {
     windowSpy.mockImplementation(() => undefined)
 
     expect(
-      queries.formatData('paragraph--link_teaser', linkTeaserMock)
+      linkTeaserMock.map((linkTeaser) => {
+        return queries.formatData('paragraph--link_teaser', linkTeaser)
+      })
     ).toMatchSnapshot()
   })
 })
