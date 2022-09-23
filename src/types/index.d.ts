@@ -165,10 +165,11 @@ interface AlertType {
   alertType: string
   id: string
   title: string
-  // Update this with the wysiwyg type
-  content: any
+  content: {
+    header?: string
+    text: string
+  }
 }
-
 
 export type QuestionAnswerType = PublishedEntity & {
   title: string
