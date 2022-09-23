@@ -8,14 +8,14 @@ export const formatter: QueryFormatter<BlockAlert, AlertType> = (
 ) => {
   return {
     alertType:
-    entity.field_alert_type === 'information'
-      ? 'info'
-      : entity.field_alert_type,
+      entity.field_alert_type === 'information'
+        ? 'info'
+        : entity.field_alert_type,
     id: entity.id,
     title: entity.field_alert_title,
     content: {
       header: entity.field_alert_content.field_text_expander,
-      text: entity.field_alert_content.field_wysiwyg.processed
-    }
+      text: entity.field_alert_content.field_wysiwyg.processed,
+    },
   }
 }
