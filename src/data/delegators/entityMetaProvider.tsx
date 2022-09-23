@@ -1,5 +1,4 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { Meta as AlertBlockMeta } from '@/templates/components/alert/dataService'
 import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
 import { Meta as EmailContactMeta } from '@/templates/components/emailContact/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/templates/components/richTextCharLimit1000/dataService'
@@ -38,7 +37,6 @@ export interface EntityMetaOut {
 const EntityMetaIn: EntityMetaInfo[] = [
   BenefitsHubLinksMeta,
   // blocks
-  AlertBlockMeta,
   // paragraphs
   WysiwygMeta,
   RichTextCharLimit1000Meta,

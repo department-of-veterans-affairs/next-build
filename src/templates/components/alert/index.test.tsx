@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { AlertBlock, AlertBlockProps } from './index'
+import { AlertBlock } from './index'
+import { AlertType } from '@/types/index'
 
-const blockContent: AlertBlockProps = {
+const blockContent: AlertType = {
   id: '6ecdbf96-2a9e-4beb-9d95-d41fced1473b',
   alertType: 'information',
   title: 'Changes based on Blue Water Navy Vietnam Veterans Act of 2019',

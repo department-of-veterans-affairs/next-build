@@ -8,7 +8,7 @@ export interface AlertBlockProps {
   id: string
   title: string
   content: {
-    header: string
+    header?: string
     text: string
   }
 }

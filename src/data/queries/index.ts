@@ -10,6 +10,7 @@ import * as Banner from './banners'
 import * as PersonProfile from './personProfile'
 import * as Button from './button'
 import * as AudienceTopics from './audienceTopics'
+import * as Alert from './alert'
 
 export const queries = createQueries({
   'node--news_story': NewsStory,
@@ -22,6 +23,7 @@ export const queries = createQueries({
   'paragraph--button': Button,
   'paragraph--audience_topics': AudienceTopics,
   'media--image': MediaImage,
+  'block--alert': Alert,
 
   // Custom Lookups
   'banner--alerts_lookup': Banner,
