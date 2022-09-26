@@ -1,18 +1,13 @@
 import Link from 'next/link'
 import { recordEvent } from '@/lib/utils/recordEvent'
 import { isEmpty, isNull } from 'lodash'
-
-export type EmailContactProps = {
-  id: string
-  label: string
-  address: string
-}
+import { EmailContactType } from '@/types/index'
 
 function isRequestInValid(email) {
   return isNull(email.label) || isNull(email.address)
 }
 
-export function EmailContact(email: EmailContactProps) {
+export function EmailContact(email: EmailContactType) {
   if (isEmpty(email) || isRequestInValid(email)) return
 
   const analytic = {

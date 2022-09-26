@@ -11,6 +11,7 @@ import * as PersonProfile from './personProfile'
 import * as Button from './button'
 import * as AudienceTopics from './audienceTopics'
 import * as Alert from './alert'
+import * as EmailContact from './emailContact'
 
 export const queries = createQueries({
   'node--news_story': NewsStory,
@@ -22,6 +23,7 @@ export const queries = createQueries({
   'paragraph--link_teaser': LinkTeaser,
   'paragraph--button': Button,
   'paragraph--audience_topics': AudienceTopics,
+  'paragraph--email_contact': EmailContact,
   'media--image': MediaImage,
   'block--alert': Alert,
 

@@ -171,6 +171,12 @@ interface AlertType {
   }
 }
 
+interface EmailContactType {
+  id: string
+  label: string
+  address: string
+}
+
 export type QuestionAnswerType = PublishedEntity & {
   title: string
   answers: string

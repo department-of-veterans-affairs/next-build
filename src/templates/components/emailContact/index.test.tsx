@@ -2,12 +2,10 @@ import { render, screen } from '@testing-library/react'
 import { fireEvent, getByRole } from '@testing-library/dom'
 jest.mock('@/lib/utils/recordEvent')
 import * as recordEvent from '@/lib/utils/recordEvent'
-import {
-  EmailContact,
-  EmailContactProps,
-} from '@/templates/components/emailContact'
+import { EmailContact } from '@/templates/components/emailContact'
+import { EmailContactType } from '@/types/index'
 
-const emailContact: EmailContactProps = {
+const emailContact: EmailContactType = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   address: 'test.veteran@va.gov',
   label: 'Minority Veterans Program',

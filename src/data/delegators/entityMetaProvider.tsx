@@ -1,6 +1,5 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
-import { Meta as EmailContactMeta } from '@/templates/components/emailContact/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/templates/components/richTextCharLimit1000/dataService'
 import { Meta as BenefitsHubLinksMeta } from '@/templates/common/benefitsHubLinks/dataService'
 
@@ -40,7 +39,6 @@ const EntityMetaIn: EntityMetaInfo[] = [
   // paragraphs
   WysiwygMeta,
   RichTextCharLimit1000Meta,
-  EmailContactMeta,
 ]
 
 /** Converts the meta information into a form indexed by resource type. Very possibly overwrought. */
