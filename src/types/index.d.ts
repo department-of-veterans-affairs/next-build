@@ -153,13 +153,23 @@ interface MenuItemProps {
   children?: any
 }
 
+type Tree = ReadonlyArray<MenuItemProps>
+
 interface ButtonType {
   id: string
   label: string
   url: string
 }
 
-type Tree = ReadonlyArray<MenuItemProps>
+interface AlertType {
+  alertType: string
+  id: string
+  title: string
+  content: {
+    header?: string
+    text: string
+  }
+}
 
 export type QuestionAnswerType = PublishedEntity & {
   title: string
