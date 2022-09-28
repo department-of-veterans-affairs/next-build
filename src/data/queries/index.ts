@@ -12,6 +12,7 @@ import * as Button from './button'
 import * as AudienceTopics from './audienceTopics'
 import * as Alert from './alert'
 import * as EmailContact from './emailContact'
+import * as BenefitsHub from './benefitsHub'
 
 export const queries = createQueries({
   'node--news_story': NewsStory,
@@ -19,6 +20,7 @@ export const queries = createQueries({
   'node--story_listing': StoryListing,
   'node--q_a': QuestionAnswer,
   'node--person_profile': PersonProfile,
+  'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
   'paragraph--expandable_text': ExpandableText,
   'paragraph--link_teaser': LinkTeaser,
   'paragraph--button': Button,

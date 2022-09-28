@@ -1,29 +1,17 @@
 import Link from 'next/link'
 import { isEmpty } from 'lodash'
-
-export interface BenefitHubProps {
-  title: string
-  relatedBenefitHubs: RelatedBenefitHubProp[]
-}
-
-export type RelatedBenefitHubProp = {
-  id: string
-  url: string
-  title: string
-  homePageHubLabel: string
-  teaserText: string
-}
+import { BenefitsHubLinksType, BenefitsHubType } from '@/types/index'
 
 // Partial outputting a list of benefits related to a given page.
 // Typically, used on a resource page.
 export function BenefitsHubLinks({
   title,
   relatedBenefitHubs,
-}: BenefitHubProps) {
+}: BenefitsHubLinksType) {
   if (isEmpty(relatedBenefitHubs)) return null
 
   const benefitsHubLink = relatedBenefitHubs.map(
-    ({ id, url, homePageHubLabel, teaserText }) => (
+    ({ id, url, homePageHubLabel, teaserText }: BenefitsHubType) => (
       <li key={id} className="vads-u-margin-y--2">
         <p className="vads-u-margin--0">
           <strong>

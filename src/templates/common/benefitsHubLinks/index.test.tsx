@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { BenefitHubProps, BenefitsHubLinks } from './index'
+import { BenefitsHubLinks } from './index'
+import { BenefitsHubLinksType } from '@/types/index'
 
-let benefitHubProps: BenefitHubProps = {
+let benefitHubProps: BenefitsHubLinksType = {
   title: 'Deciding how much life insurance to get',
   relatedBenefitHubs: [
     {

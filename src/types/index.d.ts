@@ -186,6 +186,19 @@ export type QuestionAnswerType = PublishedEntity & {
   className?: string
 }
 
+interface BenefitsHubLinksType {
+  title: string
+  relatedBenefitHubs: BenefitsHubType[]
+}
+
+interface BenefitsHubType {
+  id: string
+  url: string
+  title: string
+  homePageHubLabel: string
+  teaserText: string
+}
+
 /**
  * This is the structure of an individual tag in AudienceTopics.
  */
