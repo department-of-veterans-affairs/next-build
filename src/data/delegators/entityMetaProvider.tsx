@@ -1,7 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Meta as WysiwygMeta } from '@/templates/components/wysiwyg/dataService'
 import { Meta as RichTextCharLimit1000Meta } from '@/templates/components/richTextCharLimit1000/dataService'
-import { Meta as BenefitsHubLinksMeta } from '@/templates/common/benefitsHubLinks/dataService'
 
 export interface EntityMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `node--news_story` or `paragraph--email_contact`. */
@@ -34,7 +33,6 @@ export interface EntityMetaOut {
 
 /** Collect all imported node meta information. */
 const EntityMetaIn: EntityMetaInfo[] = [
-  BenefitsHubLinksMeta,
   // blocks
   // paragraphs
   WysiwygMeta,
