@@ -14,6 +14,7 @@ import * as Alert from './alert'
 import * as EmailContact from './emailContact'
 import * as BenefitsHub from './benefitsHub'
 
+
 export const queries = createQueries({
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
