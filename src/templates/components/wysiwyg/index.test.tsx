@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import { Wysiwyg, WysiwygProps } from './index'
+import { Wysiwyg } from './index'
+import { WysiwygType } from '@/types/index'
 import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
 
-const wysiwygProps: WysiwygProps = {
+const wysiwygProps: WysiwygType = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   html: 'If you need support...',
   className: '',

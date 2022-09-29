@@ -1,19 +1,10 @@
 import { isValidData } from '@/lib/utils/helpers'
+import { WysiwygType, HtmlType } from '@/types/index'
 
-export interface HtmlProps {
-  __html: string
-}
-
-export interface WysiwygProps {
-  id: string
-  html: string
-  className?: string
-}
-
-export function Wysiwyg({ id, html, className }: WysiwygProps) {
+export function Wysiwyg({ id, html, className }: WysiwygType) {
   if (!isValidData(html)) return
 
-  function createMarkup(): HtmlProps {
+  function createMarkup(): HtmlType {
     return {
       __html: html,
     }
