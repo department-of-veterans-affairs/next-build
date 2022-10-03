@@ -13,6 +13,7 @@ import * as AudienceTopics from './audienceTopics'
 import * as Alert from './alert'
 import * as EmailContact from './emailContact'
 import * as BenefitsHub from './benefitsHub'
+import * as Wysiwyg from './wysiwyg'
 
 export const queries = createQueries({
   'node--news_story': NewsStory,
@@ -21,11 +22,13 @@ export const queries = createQueries({
   'node--q_a': QuestionAnswer,
   'node--person_profile': PersonProfile,
   'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
+  'paragraph--audience_topics': AudienceTopics,
+  'paragraph--button': Button,
+  'paragraph--email_contact': EmailContact,
   'paragraph--expandable_text': ExpandableText,
   'paragraph--link_teaser': LinkTeaser,
-  'paragraph--button': Button,
-  'paragraph--audience_topics': AudienceTopics,
-  'paragraph--email_contact': EmailContact,
+  'paragraph--rich_text_char_limit_1000': Wysiwyg,
+  'paragraph--wysiwyg': Wysiwyg,
   'media--image': MediaImage,
   'block--alert': Alert,
 

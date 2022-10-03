@@ -177,6 +177,16 @@ interface EmailContactType {
   address: string
 }
 
+interface WysiwygType {
+  id: string
+  html: string
+  className?: string
+}
+
+interface HtmlType {
+  __html: string
+}
+
 export type QuestionAnswerType = PublishedEntity & {
   title: string
   answers: string
