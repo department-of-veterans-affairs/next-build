@@ -1,0 +1,30 @@
+{
+  "type": "paragraph--email_contact",
+  "id": "98ed3deb-c8a4-4b19-b5d7-c6215877a567",
+  "drupal_internal__id": 22114,
+  "drupal_internal__revision_id": 214335,
+  "langcode": "en",
+  "status": true,
+  "created": "2020-11-24T21:26:58+00:00",
+  "parent_id": "22116",
+  "parent_type": "paragraph",
+  "parent_field_name": "field_email_contacts",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "field_email_address": "heather.steele@va.gov",
+  "field_email_label": "Minority Veterans Program",
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/email_contact/98ed3deb-c8a4-4b19-b5d7-c6215877a567?resourceVersion=id%3A214335"
+    }
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "513ef69e-72dd-4dac-bbc0-d3b16aa176fa",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "email_contact"
+    }
+  },
+  "relationshipNames": ["paragraph_type"]
+}

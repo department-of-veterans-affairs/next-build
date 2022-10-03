@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`paragraph--wysiwyg formatData outputs formatted data 1`] = `
+Array [
+  Object {
+    "html": "<p>You may be eligible for VA disability benefits if you meet both of the requirements listed below.</p>
+<p><strong>Both of these must be true. You: </strong></p>
+<ul>
+<li>Have an illness we believe is caused by contact with Agent Orange (called a presumptive disease), <strong>and</strong></li>
+<li>Served in a location or job that put you in contact with Agent Orange (called having a presumption of contact) </li>
+</ul>
+<p>Read the full eligibility requirements for presumptive diseases and presumption of contact below.</p>
+",
+    "id": "c4d10aa1-3bb9-4f39-99fd-f110b465603f",
+  },
+  Object {
+    "html": "<p>We believe Agent Orange can cause certain illnesses, including some types of cancer. We call these presumptive diseases. If you have one of these illnesses, you won’t need to show that the illness started during—or got worse because of—your military service. </p>
+",
+    "id": "78f74d21-4120-45be-9f07-73e03e6b8f54",
+  },
+]
+`;

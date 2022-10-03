@@ -1,0 +1,302 @@
+[
+  {
+    "type": "node--landing_page",
+    "id": "ef71edfa-9fe8-4d31-b84c-270af94539c4",
+    "drupal_internal__nid": 809,
+    "drupal_internal__vid": 587008,
+    "langcode": "en",
+    "revision_timestamp": "2021-11-22T21:36:19+00:00",
+    "revision_log": null,
+    "status": true,
+    "title": "VA benefits for service members",
+    "created": "2019-08-21T03:08:15+00:00",
+    "changed": "2021-11-22T21:36:19+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "moderation_state": "published",
+    "metatag": null,
+    "path": {
+      "alias": "/service-member-benefits",
+      "pid": 1497,
+      "langcode": "en"
+    },
+    "field_description": "Active-duty and transitioning service members may be eligible for VA benefits such as the GI Bill, career counseling, VA-backed home loans, and more. Learn more and apply for benefits.",
+    "field_home_page_hub_label": "Service member benefits",
+    "field_intro_text": "If you're serving on active duty in the United States uniformed services, including active National Guard and Reserve with federal pay, you may be eligible for VA benefits both during service and after separation or retirement. If you're a traditional or technical member of the National Guard and Reserve, you may also be eligible for some VA benefits. Find out which benefits you may qualify for—and when to apply. You'll also learn about these benefits in your required Transition Assistance Program (TAP) briefing.",
+    "field_links": [],
+    "field_meta_tags": null,
+    "field_plainlanguage_date": null,
+    "field_teaser_text": "Find out what benefits you may be eligible for during service and which time-sensitive benefits to consider when separating or retiring.",
+    "field_title_icon": "service-member",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/landing_page/ef71edfa-9fe8-4d31-b84c-270af94539c4?resourceVersion=id%3A587008"
+      },
+      "working-copy": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/landing_page/ef71edfa-9fe8-4d31-b84c-270af94539c4?resourceVersion=rel%3Aworking-copy"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "landing_page"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "c487c496-7d2f-45b5-86b9-5afa00640084",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 3237
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "a933a54d-ac8c-40bc-8f58-795b4e61221c",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 377
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5
+      }
+    },
+    "field_alert": {
+      "type": "block_content--alert",
+      "id": "f6a87f38-8724-4fe5-bbf7-e142507e273d",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 17
+      }
+    },
+    "field_promo": {
+      "type": "block_content--promo",
+      "id": "a80e6a18-967e-4b05-a03b-aaeab1b3c0ee",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 26
+      }
+    },
+    "field_related_links": null,
+    "field_related_office": {
+      "type": "node--office",
+      "id": "d7357aee-37bd-45e3-b8df-9f405614e56d",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 38442
+      }
+    },
+    "field_spokes": [
+      {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "78bef2ea-77b3-4ced-95bc-11d678f5b3b2",
+        "resourceIdObjMeta": {
+          "target_revision_id": 507384,
+          "drupal_internal__target_id": 5644
+        }
+      },
+      {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "952c9ea6-390a-4694-b9e4-6db1f5cd0e0f",
+        "resourceIdObjMeta": {
+          "target_revision_id": 507385,
+          "drupal_internal__target_id": 5648
+        }
+      },
+      {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "30dc91b9-88b2-4c86-a486-b4017bd46b18",
+        "resourceIdObjMeta": {
+          "target_revision_id": 507386,
+          "drupal_internal__target_id": 5654
+        }
+      }
+    ],
+    "field_support_services": [
+      {
+        "type": "node--support_service",
+        "id": "4b965df6-2ea0-4990-878f-8a5d0e19f504",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 59
+        }
+      },
+      {
+        "type": "node--support_service",
+        "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 61
+        }
+      },
+      {
+        "type": "node--support_service",
+        "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 62
+        }
+      }
+    ],
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_alert",
+      "field_promo",
+      "field_related_links",
+      "field_related_office",
+      "field_spokes",
+      "field_support_services"
+    ]
+  },
+  {
+    "type": "node--landing_page",
+    "id": "53b7d776-cc92-4274-82e9-12ea234ea377",
+    "drupal_internal__nid": 73,
+    "drupal_internal__vid": 587180,
+    "langcode": "en",
+    "revision_timestamp": "2021-11-23T14:21:28+00:00",
+    "revision_log": null,
+    "status": true,
+    "title": "VA pension benefits",
+    "created": "2019-02-06T16:36:45+00:00",
+    "changed": "2021-11-23T14:21:28+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "moderation_state": "published",
+    "metatag": null,
+    "path": {
+      "alias": "/pension",
+      "pid": 855,
+      "langcode": "en"
+    },
+    "field_description": "Apply for VA pension benefits for wartime Veterans and survivors with limited or no income who meet certain age and disability requirements. Find out if you're eligible for monthly payments, view VA pension rates for Veterans and survivors, and apply now.",
+    "field_home_page_hub_label": "Pension",
+    "field_intro_text": "VA pension benefits are available to some wartime Veterans and their survivors — find out if you're eligible to apply. ",
+    "field_links": [],
+    "field_meta_tags": null,
+    "field_plainlanguage_date": null,
+    "field_teaser_text": "Apply for monthly payments for wartime Veterans and survivors with limited or no income who meet certain age and disability requirements.",
+    "field_title_icon": "pension",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/landing_page/53b7d776-cc92-4274-82e9-12ea234ea377?resourceVersion=id%3A587180"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "landing_page"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "c487c496-7d2f-45b5-86b9-5afa00640084",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 3237
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1
+      }
+    },
+    "field_alert": null,
+    "field_promo": {
+      "type": "block_content--promo",
+      "id": "cc9cd0e3-e403-49ca-856a-9975223c1f4a",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 10
+      }
+    },
+    "field_related_links": {
+      "type": "paragraph--list_of_link_teasers",
+      "id": "c0876f7e-c015-4f3b-bac8-f18a4d269cad",
+      "resourceIdObjMeta": {
+        "target_revision_id": 507774,
+        "drupal_internal__target_id": 4176
+      }
+    },
+    "field_related_office": {
+      "type": "node--office",
+      "id": "0631408b-a118-4d6f-926f-edef80604bf0",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 38439
+      }
+    },
+    "field_spokes": [
+      {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "96efbf4b-2de6-482c-99a8-d3ef34df3582",
+        "resourceIdObjMeta": {
+          "target_revision_id": 507775,
+          "drupal_internal__target_id": 4181
+        }
+      },
+      {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "b50df1cb-c915-4e58-b378-ae6e44ce2722",
+        "resourceIdObjMeta": {
+          "target_revision_id": 507776,
+          "drupal_internal__target_id": 4187
+        }
+      },
+      {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "78526c6c-f4a0-4d92-a19f-86d08704d6e0",
+        "resourceIdObjMeta": {
+          "target_revision_id": 507777,
+          "drupal_internal__target_id": 4192
+        }
+      }
+    ],
+    "field_support_services": [
+      {
+        "type": "node--support_service",
+        "id": "4b965df6-2ea0-4990-878f-8a5d0e19f504",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 59
+        }
+      },
+      {
+        "type": "node--support_service",
+        "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 61
+        }
+      },
+      {
+        "type": "node--support_service",
+        "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 62
+        }
+      }
+    ],
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_alert",
+      "field_promo",
+      "field_related_links",
+      "field_related_office",
+      "field_spokes",
+      "field_support_services"
+    ]
+  }
+]

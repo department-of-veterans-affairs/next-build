@@ -1,0 +1,64 @@
+[
+  {
+    "type": "paragraph--wysiwyg",
+    "id": "58bd66a0-7f20-41e0-984a-975ee25a1aee",
+    "drupal_internal__id": 937,
+    "drupal_internal__revision_id": 1174,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-02-20T13:58:55+00:00",
+    "parent_id": "91",
+    "parent_type": "node",
+    "parent_field_name": "field_content_block",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_wysiwyg": {
+      "value": "<p>We encourage you to visit when most convenient for you and the patient. There are no set visitor hours for most departments. Exceptions are listed below:</p>\r\n\r\n<h4>Medical, surgical, and hospice wards</h4>\r\n\r\n<p>24 hours a day, 7 days a week</p>\r\n\r\n<h4>Behavioral health inpatient wards</h4>\r\n\r\n<p>1:00 p.m. – 2:00 p.m. and 6:00 p.m. -7:30 p.m., 7 days a week</p>\r\n\r\n<h4>Critical care</h4>\r\n\r\n<p>Visiting hours will be individualized to meet the needs of the patient, family and caregivers.</p>\r\n\r\n<h4>Post-anesthesia recovery</h4>\r\n\r\n<p>Generally, visitors are not permitted. In certain circumstances, the doctor or nurse may make an exception.</p>\r\n\r\n<h4>General visitor policies</h4>\r\n\r\n<ul>\r\n\t<li>Children under the age of 16 must be directly supervised by an adult, and bedside visits are limited to 15 minutes.&nbsp;</li>\r\n\t<li>Children under the ages of 16 are not permitted in the dialysis unit due to infection control and safety reasons.&nbsp;</li>\r\n\t<li>Children under the age of 16 are not permitted to visit the psychiatric units without the physician's permission.</li>\r\n\t<li>While in restraints, patients may not have visitors.&nbsp;</li>\r\n\t<li>Seriously ill and hospice patients may have visits unless the staff physician determines that the patient's condition is such that visits should be restricted to specific times.</li>\r\n\t<li>Staff may ask visitors to leave the room when performing patient care.&nbsp;</li>\r\n\t<li>Visitors are not permitted to bring weapons, cameras or other prohibited articles into the medical center except when conducting official business authorized by the Director or designee.</li>\r\n\t<li>Visitors with communicable diseases are not permitted in the medical center.</li>\r\n\t<li>Visitors must observe the infection control signs and should report to the nurses' station for instructions before entering a patient room.</li>\r\n\t<li>Visitors must observe hand hygiene policy guidelines requiring hand hygiene on entry and exit from patient rooms and at other times as directed by staff.</li>\r\n\t<li>Visitors may bring candy, fruit and other food items in limited quantities if it has been clarified by the nursing staff as appropriate for the patient's diet.&nbsp;</li>\r\n\t<li>Fresh fruit and flowers are not permitted in the Critical Care Center.</li>\r\n\t<li>Visitors are not permitted to eat or drink in the units.</li>\r\n\t<li>Members of the religious community are encouraged to visit patients who are members of their local churches and/or synagogues. However, under no circumstances are they permitted to do general visitation by going from bed to bed, ward to ward or unit to unit.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n",
+      "format": "rich_text",
+      "processed": "<p>We encourage you to visit when most convenient for you and the patient. There are no set visitor hours for most departments. Exceptions are listed below:</p>\n\n<h4>Medical, surgical, and hospice wards</h4>\n\n<p>24 hours a day, 7 days a week</p>\n\n<h4>Behavioral health inpatient wards</h4>\n\n<p>1:00 p.m. – 2:00 p.m. and 6:00 p.m. -7:30 p.m., 7 days a week</p>\n\n<h4>Critical care</h4>\n\n<p>Visiting hours will be individualized to meet the needs of the patient, family and caregivers.</p>\n\n<h4>Post-anesthesia recovery</h4>\n\n<p>Generally, visitors are not permitted. In certain circumstances, the doctor or nurse may make an exception.</p>\n\n<h4>General visitor policies</h4>\n\n<ul><li>Children under the age of 16 must be directly supervised by an adult, and bedside visits are limited to 15 minutes. </li>\n\t<li>Children under the ages of 16 are not permitted in the dialysis unit due to infection control and safety reasons. </li>\n\t<li>Children under the age of 16 are not permitted to visit the psychiatric units without the physician's permission.</li>\n\t<li>While in restraints, patients may not have visitors. </li>\n\t<li>Seriously ill and hospice patients may have visits unless the staff physician determines that the patient's condition is such that visits should be restricted to specific times.</li>\n\t<li>Staff may ask visitors to leave the room when performing patient care. </li>\n\t<li>Visitors are not permitted to bring weapons, cameras or other prohibited articles into the medical center except when conducting official business authorized by the Director or designee.</li>\n\t<li>Visitors with communicable diseases are not permitted in the medical center.</li>\n\t<li>Visitors must observe the infection control signs and should report to the nurses' station for instructions before entering a patient room.</li>\n\t<li>Visitors must observe hand hygiene policy guidelines requiring hand hygiene on entry and exit from patient rooms and at other times as directed by staff.</li>\n\t<li>Visitors may bring candy, fruit and other food items in limited quantities if it has been clarified by the nursing staff as appropriate for the patient's diet. </li>\n\t<li>Fresh fruit and flowers are not permitted in the Critical Care Center.</li>\n\t<li>Visitors are not permitted to eat or drink in the units.</li>\n\t<li>Members of the religious community are encouraged to visit patients who are members of their local churches and/or synagogues. However, under no circumstances are they permitted to do general visitation by going from bed to bed, ward to ward or unit to unit.</li>\n</ul><p> </p>"
+    },
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/58bd66a0-7f20-41e0-984a-975ee25a1aee?resourceVersion=id%3A1174"
+      }
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "wysiwyg"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  {
+    "type": "paragraph--wysiwyg",
+    "id": "a0e63a12-9a23-4e7f-95a0-b3a6ce45a9e9",
+    "drupal_internal__id": 2753,
+    "drupal_internal__revision_id": 3010,
+    "langcode": "en",
+    "status": true,
+    "created": "2019-03-04T22:24:09+00:00",
+    "parent_id": "127",
+    "parent_type": "node",
+    "parent_field_name": "field_content_block",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "field_wysiwyg": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/a0e63a12-9a23-4e7f-95a0-b3a6ce45a9e9?resourceVersion=id%3A3010"
+      }
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "wysiwyg"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  }
+]
