@@ -6,7 +6,6 @@ import { QueryFormatter } from 'next-drupal-query'
 import { WysiwygType } from '@/types/index'
 import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
 
-
 // Define the formatter for returning paragraph--wysiwyg & paragraph--rich_text_char_limit_1000 data.
 export const formatter: QueryFormatter<
   ParagraphWysiwyg | ParagraphRichTextCharLimit1000,
