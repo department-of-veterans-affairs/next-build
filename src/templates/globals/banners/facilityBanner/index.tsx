@@ -24,7 +24,7 @@ export const FacilityBanner = ({
   useEffect(() => {
     function handler(event) {
       if (analyticsRef.current?.contains(event.target)) {
-        // setIsClicked(true)
+        setIsClicked(true)
       }
     }
     window.addEventListener('click', handler)
