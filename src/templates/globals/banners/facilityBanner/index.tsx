@@ -24,7 +24,7 @@ export const FacilityBanner = ({
   useEffect(() => {
     function handler(event) {
       if (analyticsRef.current?.contains(event.target)) {
-        setIsClicked(true)
+        // setIsClicked(true)
       }
     }
     window.addEventListener('click', handler)
@@ -39,26 +39,26 @@ export const FacilityBanner = ({
   const lastArg = findPath?.substring(findPath?.lastIndexOf('/'))
 
   let content = body
-  let statusUrl = ''
+  const statusUrl = ''
 
-  if (bannerAlertVacms) {
-    // TODO: Banner AlertVACMS data is a special case. we need to call a relationship which our current banner endpoint does not support. node--vamc_operating_status_and_alerts
-    bannerAlertVacms?.map((vamc) => {
-      if (region == vamc?.field_office?.path?.alias) {
-        setOutputStatus(true)
-        return outputStatus
-      }
-      if (
-        hideOnSubpages &&
-        lastArg != region &&
-        lastArg != '/operating-status'
-      ) {
-        setOutputStatus(false)
-        return outputStatus
-      }
-      statusUrl = vamc?.path?.alias
-    })
-  }
+  // TODO: Banner AlertVACMS data is a special case. we need to call a relationship which our current banner endpoint does not support. node--vamc_operating_status_and_alerts
+  // if (bannerAlertVacms) {
+  //   bannerAlertVacms?.map((vamc) => {
+  //     if (region == vamc?.field_office?.path?.alias) {
+  //       setOutputStatus(true)
+  //       return outputStatus
+  //     }
+  //     if (
+  //       hideOnSubpages &&
+  //       lastArg != region &&
+  //       lastArg != '/operating-status'
+  //     ) {
+  //       setOutputStatus(false)
+  //       return outputStatus
+  //     }
+  //     statusUrl = vamc?.path?.alias
+  //   })
+  // }
 
   if (operatingStatus && statusUrl?.length) {
     content += `<p>
