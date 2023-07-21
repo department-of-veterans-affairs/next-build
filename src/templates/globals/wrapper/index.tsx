@@ -40,7 +40,7 @@ export function Wrapper({ bannerData, children }: LayoutProps) {
 
   return (
     <>
-      {showBanners ? mapBanners : null}
+      {/*{showBanners ? mapBanners : null}*/}
       <main>{children}</main>
     </>
   )
