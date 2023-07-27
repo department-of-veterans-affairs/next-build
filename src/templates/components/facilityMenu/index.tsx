@@ -149,9 +149,10 @@ const RecursiveMenuTree = ({ items, tree }: Menu) => {
 
   return (
     <>
-      {obj.items.map((branch: MenuItemProps) => (
-        <Fragment key={branch.id}>{renderMenuTree(branch, depth)}</Fragment>
-      ))}
+      {obj.items &&
+        obj.items.map((branch: MenuItemProps) => (
+          <Fragment key={branch.id}>{renderMenuTree(branch, depth)}</Fragment>
+        ))}
     </>
   )
 }
