@@ -20,6 +20,7 @@ export const MediaImageComponent = (props: MediaImageType) => {
     }
   }, [image, cropImage])
 
+  // TODO: meta.linkParams no longer has height and width values
   const imagePath = {
     href: imageSrc ? imageSrc.href : image.url,
     height: imageSrc ? imageSrc.meta?.linkParams?.height : image.height, // fallback height
@@ -33,8 +34,8 @@ export const MediaImageComponent = (props: MediaImageType) => {
           id={image.id}
           alt={image.alt}
           src={imagePath.href}
-          width={imagePath.width}
-          height={imagePath.height}
+          width={image.width}
+          height={image.height}
           title={image.title}
           className={props?.className}
         />

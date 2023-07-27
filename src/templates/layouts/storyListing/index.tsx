@@ -21,11 +21,16 @@ export function StoryListing({
   stories,
   menu,
 }: StoryListingType) {
-  const storyTeasers = stories?.map((story: NewsStoryTeaserType) => (
-    <li key={story.id}>
-      <NewsStoryTeaser {...story} />
-    </li>
-  )) || <li className="clearfix-text">No stories at this time.</li>
+  const storyTeasers =
+    stories?.length > 0 ? (
+      stories?.map((story: NewsStoryTeaserType) => (
+        <li key={story.id}>
+          <NewsStoryTeaser {...story} />
+        </li>
+      ))
+    ) : (
+      <li className="clearfix-text">No stories at this time.</li>
+    )
 
   return (
     <div key={id} className="usa-grid usa-grid-full">

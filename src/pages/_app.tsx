@@ -29,5 +29,5 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     defineCustomElements()
   })
 
-  return getLayout(<Component {...pageProps} key={route} />)
+  return getLayout(<Component {...pageProps} />)
 }
