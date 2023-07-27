@@ -16,7 +16,7 @@ export function BenefitsHubLinks({
         <p className="vads-u-margin--0">
           <strong>
             <Link href={url} passHref>
-              <a>{homePageHubLabel}</a>
+              {homePageHubLabel}
             </Link>
           </strong>
         </p>

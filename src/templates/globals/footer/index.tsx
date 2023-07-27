@@ -24,15 +24,18 @@ const Footer = ({ links }) => {
             )}
           </div>
           <div className="usa-grid usa-grid-full footer-banner">
-            <Link href="/" passHref>
-              <a className="va-footer-logo" title="Go to VA.gov">
-                <Image
-                  src={VA_WRAPPER_IMAGES?.footer}
-                  alt="VA logo"
-                  width="200"
-                  height="50"
-                />
-              </a>
+            <Link
+              href="/"
+              passHref
+              className="va-footer-logo"
+              title="Go to VA.gov"
+            >
+              <Image
+                src={VA_WRAPPER_IMAGES?.footer}
+                alt="VA logo"
+                width="200"
+                height="50"
+              />
             </Link>
           </div>
           <div className="usa-grid usa-grid-full va-footer-links-bottom">

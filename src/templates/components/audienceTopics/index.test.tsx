@@ -21,19 +21,21 @@ describe('AudienceTopics with valid data', () => {
   }
 
   test('renders component', () => {
-    const { container } = render(<AudienceTopics {...audienceTopicProps} />)
+    render(<AudienceTopics {...audienceTopicProps} />)
 
-    const aEl = container.querySelectorAll('a')
+    // Find the Link elements using their text content
+    const link1 = screen.getByText('All Veterans')
+    const link2 = screen.getByText('Payments and debt')
 
-    expect(aEl[0]).toHaveAttribute(
-      'href',
-      '/resources/tag/all-veterans/All%20Veterans'
+    // Assert that the 'href' attributes are correct
+    expect(link1).toContainHTML(
+      'href="/resources/tag/all-veterans/All%20Veterans"'
     )
-    expect(aEl[1]).toHaveAttribute(
-      'href',
-      '/resources/tag/payments-and-debt/Payments%20and%20debt'
+    expect(link2).toContainHTML(
+      'href="/resources/tag/payments-and-debt/Payments%20and%20debt"'
     )
 
+    // Assert that the text content is present in the document
     expect(screen.queryByText(/Tags/)).toBeInTheDocument()
     expect(screen.queryByText(/Payments and debt/)).toBeInTheDocument()
     expect(screen.queryByText(/All Veterans/)).toBeInTheDocument()
