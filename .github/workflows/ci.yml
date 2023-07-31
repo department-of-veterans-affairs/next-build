@@ -18,7 +18,7 @@ jobs:
 
       - name: Install Npm Dependencies
         run: |
-          yarn policies set-version
+          yarn set version stable
           yarn install --frozen-lockfile
 
       - name: Check TypeScript
