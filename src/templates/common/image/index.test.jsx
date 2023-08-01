@@ -63,7 +63,6 @@ describe('Image Component', () => {
     const { container } = render(<Image id={'testImage'} {...props} />)
     await waitFor(async () => expect(await axe(container)).toHaveNoViolations())
     let imgElement
-
     // Actual element
     imgElement = document.querySelector('#testImage')
     expect(imgElement).toHaveAttribute('alt', altText)
