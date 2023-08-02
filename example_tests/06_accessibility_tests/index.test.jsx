@@ -90,7 +90,7 @@ describe('<Component3/>', () => {
     */
     expect(await axe(container)).toEqual(
       expect.objectContaining({
-        incomplete: expect.arrayContaining([
+        inapplicable: expect.arrayContaining([
           expect.objectContaining({
             id: 'color-contrast',
             impact: null,
