@@ -15,7 +15,6 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:@next/next/recommended",
-    "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended",
     "prettier"
@@ -38,7 +37,7 @@
     "sourceType": "module",
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["testing-library", "unused-imports", "prettier"],
+  "plugins": ["testing-library", "unused-imports"],
   "rules": {
     "prettier/prettier": "error",
     "no-shadow": "off",
