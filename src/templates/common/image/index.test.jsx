@@ -26,7 +26,7 @@ describe('Image Component', () => {
     let url = getUrl(mock_media_image)
     // eslint-disable-next-line
     expect(() => render(<Image src={url} />)).toThrow(
-      /image with src "([^"]*)" must use "width" and "height" properties/i
+      /Image with src "([^"]*)" is missing required "width" property./
     )
     console.error = originalError
   })
@@ -60,24 +60,12 @@ describe('Image Component', () => {
       height: 400,
     }
     // eslint-disable-next-line
-    const { container } = render(<Image {...props} />)
+    const { container } = render(<Image id={'testImage'} {...props} />)
     await waitFor(async () => expect(await axe(container)).toHaveNoViolations())
     let imgElement
-
-    // Loading element
-    imgElement = document.querySelector('img[alt=""]')
-    expect(imgElement).toHaveAttribute('alt', '')
-    expect(imgElement).toHaveAttribute('aria-hidden', 'true')
-    expect(imgElement).toHaveAttribute(
-      'src',
-      expect.stringContaining('data:image/svg+xml')
-    )
-    expect(imgElement).toHaveAttribute('style', expect.any(String))
-
     // Actual element
-    imgElement = document.querySelector('img[data-nimg="intrinsic"]')
+    imgElement = document.querySelector('#testImage')
     expect(imgElement).toHaveAttribute('alt', altText)
-    expect(imgElement).toHaveAttribute('data-nimg', 'intrinsic')
     expect(imgElement).toHaveAttribute('src', expect.any(String))
     expect(imgElement).toHaveAttribute('style', expect.any(String))
   })

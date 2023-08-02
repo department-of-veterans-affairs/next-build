@@ -6,8 +6,8 @@ export function Button({ id, label, url }: ButtonType) {
     label &&
     url && (
       <div key={id}>
-        <Link href={url} passHref>
-          <a className="vads-c-action-link--blue">{label}</a>
+        <Link href={url} passHref className="vads-c-action-link--blue">
+          {label}
         </Link>
       </div>
     )

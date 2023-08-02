@@ -48,8 +48,8 @@ export const LinkTeaser = ({
                     className="all-link-arrow"
                     src={thumbnail}
                     alt="right-arrow"
-                    width="15px"
-                    height="15px"
+                    width={15}
+                    height={15}
                     title="right-arrow"
                   ></Image>
                 </>

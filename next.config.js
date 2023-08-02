@@ -18,7 +18,7 @@ const nextConfig = {
     GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID,
   },
   reactStrictMode: true,
-  swcMinify: false,
+  swcMinify: true,
   trailingSlash: true,
 }
 module.exports = nextConfig

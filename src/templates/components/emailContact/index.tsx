@@ -19,10 +19,13 @@ export function EmailContact(email: EmailContactType) {
   return (
     <div key={email.id}>
       <strong>{email.label}: </strong>
-      <Link href={'mailto:' + email.address} passHref>
-        <a onClick={() => recordEvent(analytic)} rel="noreferrer noopener">
-          {email.address}
-        </a>
+      <Link
+        onClick={() => recordEvent(analytic)}
+        rel="noreferrer noopener"
+        href={'mailto:' + email.address}
+        passHref
+      >
+        {email.address}
       </Link>
     </div>
   )

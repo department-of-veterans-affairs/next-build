@@ -5,7 +5,6 @@ import { useEffect } from 'react'
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 import { TAG_MANAGER_ARGS } from '@/lib/analytics'
 import TagManager from 'react-gtm-module'
-import route from 'next/dist/server/router'
 import '@/assets/styles/globals.css'
 
 type NextPageWithLayout = NextPage & {
@@ -20,7 +19,11 @@ export function reportWebVitals(metric: object) {
   console.log(metric)
 }
 
-export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+export default function MyApp({
+  Component,
+  pageProps,
+  router,
+}: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page)
 
@@ -29,5 +32,5 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     defineCustomElements()
   })
 
-  return getLayout(<Component {...pageProps} />)
+  return getLayout(<Component {...pageProps} key={router.asPath} />)
 }

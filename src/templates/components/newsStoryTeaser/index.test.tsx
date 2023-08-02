@@ -37,7 +37,7 @@ describe('<NewsStoryTeaser> with valid data', () => {
   test('renders component', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelectorAll('img')
-    expect(imgEl.length).toBe(2)
+    expect(imgEl.length).toBe(1)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
@@ -53,7 +53,7 @@ describe('<NewsStoryTeaser> with valid data', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelectorAll('img')
 
-    expect(imgEl.length).toBe(2)
+    expect(imgEl.length).toBe(1)
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
