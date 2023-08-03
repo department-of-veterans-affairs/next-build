@@ -8892,7 +8892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"confusing-browser-globals@npm:^1.0.10, confusing-browser-globals@npm:^1.0.11":
+"confusing-browser-globals@npm:^1.0.11":
   version: 1.0.11
   resolution: "confusing-browser-globals@npm:1.0.11"
   checksum: 3afc635abd37e566477f610e7978b15753f0e84025c25d49236f1f14d480117185516bdd40d2a2167e6bed8048641a9854964b9c067e3dcdfa6b5d0ad3c3a5ef
@@ -10663,35 +10663,6 @@ __metadata:
     escodegen: bin/escodegen.js
     esgenerate: bin/esgenerate.js
   checksum: 096696407e161305cd05aebb95134ad176708bc5cb13d0dcc89a5fcbb959b8ed757e7f2591a5f8036f8f4952d4a724de0df14cd419e29212729fa6df5ce16bf6
-  languageName: node
-  linkType: hard
-
-"eslint-config-airbnb-base@npm:^15.0.0":
-  version: 15.0.0
-  resolution: "eslint-config-airbnb-base@npm:15.0.0"
-  dependencies:
-    confusing-browser-globals: ^1.0.10
-    object.assign: ^4.1.2
-    object.entries: ^1.1.5
-    semver: ^6.3.0
-  peerDependencies:
-    eslint: ^7.32.0 || ^8.2.0
-    eslint-plugin-import: ^2.25.2
-  checksum: 38626bad2ce2859fccac86b30cd2b86c9b7d8d71d458331860861dc05290a5b198bded2f4fb89efcb9046ec48f8ab4c4fb00365ba8916f27b172671da28b93ea
-  languageName: node
-  linkType: hard
-
-"eslint-config-airbnb-typescript@npm:^17.0.0":
-  version: 17.1.0
-  resolution: "eslint-config-airbnb-typescript@npm:17.1.0"
-  dependencies:
-    eslint-config-airbnb-base: ^15.0.0
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^5.13.0 || ^6.0.0
-    "@typescript-eslint/parser": ^5.0.0 || ^6.0.0
-    eslint: ^7.32.0 || ^8.2.0
-    eslint-plugin-import: ^2.25.3
-  checksum: cfd26a2782e322ebfdfbf9a64262332c7653f297c4a32d7b951079eb18bb9502a83d67b3f7ef2cc1c5374ae06098eb454ed010784b3416e7274839083022a08c
   languageName: node
   linkType: hard
 
@@ -17046,11 +17017,9 @@ __metadata:
     debug: ^4.3.4
     drupal-jsonapi-params: ^2.0.0
     eslint: 8.15.0
-    eslint-config-airbnb-typescript: ^17.0.0
     eslint-config-next: ^13.4.12
     eslint-config-prettier: ^8.5.0
     eslint-plugin-cypress: ^2.12.1
-    eslint-plugin-import: ^2.26.0
     eslint-plugin-jest: ^26.1.4
     eslint-plugin-jest-dom: ^4.0.1
     eslint-plugin-jsx-a11y: ^6.5.1
@@ -17575,7 +17544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.assign@npm:^4.1.2, object.assign@npm:^4.1.4":
+"object.assign@npm:^4.1.4":
   version: 4.1.4
   resolution: "object.assign@npm:4.1.4"
   dependencies:
@@ -17587,7 +17556,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.entries@npm:^1.1.0, object.entries@npm:^1.1.5, object.entries@npm:^1.1.6":
+"object.entries@npm:^1.1.0, object.entries@npm:^1.1.6":
   version: 1.1.6
   resolution: "object.entries@npm:1.1.6"
   dependencies:
