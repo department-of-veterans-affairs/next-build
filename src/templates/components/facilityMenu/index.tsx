@@ -25,7 +25,7 @@ const MenuItem = ({
 
     // used to determine which children should show
     setRootPath(window.location.pathname)
-  }, [])
+  }, [url])
 
   // can't do this before the hook logic or it errors
   if (!enabled) return

@@ -8,7 +8,8 @@ module.exports = {
     `yarn prettier --write ${filenames.join(' ')}`,
   ],
 
-  // Run unit tests relating to modified files
+  // Run unit tests relating to modified files.
+  // IDE may warn about a duplicate key, but need to be separate for correct env handling.
   '**/*.(ts|tsx|js|jsx)': (filenames) => [
     `jest --findRelatedTests ${filenames.join(' ')}`,
   ],
