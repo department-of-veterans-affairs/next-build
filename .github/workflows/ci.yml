@@ -20,7 +20,6 @@ jobs:
       - name: Install Npm Dependencies
         run: |
           yarn set version stable
-      # skip installing husky's git hooks on CI
           HUSKY=0 yarn install --immutable
 
       - name: Check TypeScript
