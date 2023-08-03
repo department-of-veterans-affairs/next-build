@@ -29,6 +29,7 @@ test('camelKeys() called with a string returns the string', () => {
 })
 
 test('camelKeys() called with a function returns the function', () => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const func = () => {}
   expect(camelKeys(func)).toStrictEqual(func)
 })
