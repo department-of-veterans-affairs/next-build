@@ -15,11 +15,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
+          cache: 'yarn'
 
       - name: Install Npm Dependencies
         run: |
           yarn set version stable
-          yarn install --frozen-lockfile
+          yarn install --immutable
 
       - name: Check TypeScript
         run: yarn test:types
