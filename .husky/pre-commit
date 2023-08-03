@@ -5,3 +5,4 @@ if [ -f "package-lock.json" ]; then
     exit -1
 fi
 yarn lint-staged
+yarn format

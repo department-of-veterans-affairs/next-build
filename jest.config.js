@@ -48,15 +48,8 @@ const customJestConfig = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/example_tests'],
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/example_tests', '<rootDir>/src/(/.*)*/*.stories.{js,jsx,ts,tsx}', '<rootDir>/(/.*)*/__tests__/(/.*)*.test.{js,jsx,ts,tsx}'],
   transformIgnorePatterns: ['/dist/.+\\.js'],
-  modulePathIgnorePatterns: [
-    // Glob patterns cause a regex error here, need to use (/.*)
-    'src/(/.*)*/*.stories.{js,jsx,ts,tsx}',
-    '(/.*)*/__tests__/(/.*)*.test.{js,jsx,ts,tsx}',
-    'example_tests/(/.*)*/*.{js,jsx,ts,tsx}',
-    '.storybook/*.{js,jsx,ts,tsx}',
-  ],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
