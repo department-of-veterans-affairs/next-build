@@ -6,15 +6,7 @@
 .pnp.js
 .pnp.cjs
 .pnp.loader.mjs
-
-# See https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+.yarn/
 
 # testing
 /coverage
