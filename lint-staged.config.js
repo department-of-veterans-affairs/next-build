@@ -6,7 +6,8 @@ module.exports = {
   // Lint and format TypeScript and JavaScript files
   '**/*.(ts|tsx|js|jsx)': (filenames) => [
     `yarn lint --fix ${filenames.join(' ')}`,
-    `yarn prettier ${filenames.join(' ')} --write`
+    `echo ${filenames.join(' ')}`,
+    `yarn prettier ${filenames.join(' ')} --write`,
   ],
 
   // Run unit tests relating to modified files.

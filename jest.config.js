@@ -48,7 +48,12 @@ const customJestConfig = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/example_tests', '<rootDir>/src/(/.*)*/*.stories.{js,jsx,ts,tsx}', '<rootDir>/(/.*)*/__tests__/(/.*)*.test.{js,jsx,ts,tsx}'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '<rootDir>/example_tests',
+    '<rootDir>/src/(/.*)*/*.stories.{js,jsx,ts,tsx}',
+    '<rootDir>/(/.*)*/__tests__/(/.*)*.test.{js,jsx,ts,tsx}',
+  ],
   transformIgnorePatterns: ['/dist/.+\\.js'],
 }
 
