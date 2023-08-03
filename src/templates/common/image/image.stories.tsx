@@ -10,7 +10,9 @@ export default {
 
 // Alt text gets included in args but linter doesn't see that.
 // eslint-disable-next-line jsx-a11y/alt-text
-const Template: ComponentStory<typeof Image> = (args) => <Image {...args} />
+const Template: ComponentStory<typeof Image> = (args) => <Image {...args} />;
+
+
 
 export const Example = Template.bind({})
 Example.args = {
