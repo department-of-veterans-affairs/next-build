@@ -33,8 +33,6 @@
   },
   "plugins": ["testing-library", "unused-imports"],
   "rules": {
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/display-name": "off",

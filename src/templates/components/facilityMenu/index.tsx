@@ -128,17 +128,17 @@ const RecursiveMenuTree = ({ items, tree }: Menu) => {
   const [obj] = tree
   const depth = 0
 
-  const renderMenuTree = (branch: MenuItemProps, depth) => {
-    if (branch.items) depth++
+  const renderMenuTree = (branch: MenuItemProps, level = depth) => {
+    if (branch.items) level++
 
     return (
-      <MenuItem {...branch} depth={depth}>
+      <MenuItem {...branch} depth={level}>
         <ul>
           {branch.items &&
             branch.items.map((innerBranch: MenuItemProps, i: number) => {
               return (
                 <Fragment key={i}>
-                  {renderMenuTree(innerBranch, depth)}
+                  {renderMenuTree(innerBranch, level)}
                 </Fragment>
               )
             })}
