@@ -2,15 +2,17 @@ module.exports = {
   // Type check TypeScript files
   '**/*.(ts|tsx)': () => 'yarn test:types',
 
-  // Lint then format TypeScript and JavaScript files
+  // IDE may warn about a duplicate key, but need to be separate for correct env handling.
+  // Lint TypeScript and JavaScript files
   '**/*.(ts|tsx|js|jsx)': (filenames) => [
     `yarn lint --fix ${filenames.join(' ')}`,
-    `yarn prettier . --write`
-    // `yarn prettier ${filenames.join(' ')} --write`,
   ],
 
+  // Format staged files
+  '**/*.(ts|tsx|js|jsx)': (filenames) =>
+    filenames.map((filename) => `yarn prettier --write '${filename}'`),
+
   // Run unit tests relating to modified files.
-  // IDE may warn about a duplicate key, but need to be separate for correct env handling.
   '**/*.(ts|tsx|js|jsx)': (filenames) => [
     `jest --findRelatedTests ${filenames.join(' ')} --passWithNoTests`,
   ],
