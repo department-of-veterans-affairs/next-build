@@ -12,6 +12,7 @@ export default {
 // eslint-disable-next-line jsx-a11y/alt-text
 const Template: ComponentStory<typeof Image> = (args) => <Image {...args} />;
 
+
 export const Example = Template.bind({})
 Example.args = {
   src: 'http://placekitten.com/200/300',
