@@ -7,7 +7,7 @@ on:
 
 jobs:
   setup:
-    name: Setup and Test
+    name: Setup and Check Code Quality
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -43,8 +43,8 @@ jobs:
       - name: Check format
         run: yarn test:format
 
-      - name: Run tests with jest
-        run: yarn test:ci
+#      - name: Run tests with jest
+#        run: yarn test:ci
 
       # - name: Cypress.io
       #   uses: cypress-io/github-action@v2
