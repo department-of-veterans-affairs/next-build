@@ -2,9 +2,43 @@
 
 ## Code style
 
-- code is in these styles (i.e. airbnb, etc)
-- install eslint, prettier, typelint etc to your IDE
-  - instructions for vscode, IntelliJ, others
+This is primarily a TypeScript project. ES6+ tsx is preferred, and code style is enforced using ESLint and Prettier.
+We are using the ESLint settings from Next.js with some extra plugins to ease friction with other tooling (jest, storybook, etc).
+
+You can check code style at any time by using:
+
+- `yarn lint` to lint all files
+- `yarn format` to format all files
+
+These run automatically on all git staged files as part of our pre-commit hooks.
+
+Additionally, we use an `.editorconfig` file to enforce consistency on a developer's editor.
+
+### Editor Integration
+
+We recommend integrating Prettier and ESLint with your IDE of choice. Most editors (VSCode / Jetbrains / others)
+will automatically pick up ESLint settings from the project and provide context for errors in-line. Prettier can be
+configured to run on each file save, keeping things formatted as you work. You may need to run `yarn install` first.
+
+You may also need to install an EditorConfig plugin to ensure that the settings in `.editorconfig` are picked up by your IDE.
+
+#### VSCode:
+
+- https://github.com/prettier/prettier-vscode
+- https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+- https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+
+#### PHPStorm:
+
+- https://www.jetbrains.com/help/phpstorm/prettier.html
+- https://www.jetbrains.com/help/phpstorm/eslint.html
+- https://www.jetbrains.com/help/phpstorm/editorconfig.html
+
+#### Additional Resources:
+
+- https://eslint.org/docs/latest/use/integrations#editors
+- https://prettier.io/docs/en/editors
+- https://editorconfig.org/
 
 ## Typedoc
 

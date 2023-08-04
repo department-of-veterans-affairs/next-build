@@ -7,15 +7,8 @@
   },
   "extends": [
     "next/core-web-vitals",
-    "airbnb-typescript",
-    "eslint:recommended",
     "plugin:cypress/recommended",
     "plugin:jest/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
-    "plugin:@next/next/recommended",
-    "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended",
     "prettier"
@@ -38,11 +31,8 @@
     "sourceType": "module",
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["testing-library", "unused-imports", "prettier"],
+  "plugins": ["testing-library", "unused-imports"],
   "rules": {
-    "prettier/prettier": "error",
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/display-name": "off",
