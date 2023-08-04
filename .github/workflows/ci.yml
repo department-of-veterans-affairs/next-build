@@ -22,15 +22,16 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
         shell: bash
 
-      - name: Restore yarn cache
+      - name: Cache yarn dependencies
         uses: actions/cache@v3
         with:
           path: ${{steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          key: yarn-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
           restore-keys: |
-            yarn-cache-folder-
+            yarn-cache-
 
       - name: Install Npm Dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |
           yarn set version stable
           HUSKY=0 yarn install --immutable
