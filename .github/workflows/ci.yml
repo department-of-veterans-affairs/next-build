@@ -45,11 +45,11 @@ jobs:
       - name: Check format
         run: yarn test:format
 
-#      - name: Run tests with jest
-#        run: yarn test:ci
+      - name: Jest tests
+        run: yarn test:ci
 
-      # - name: Cypress.io
-      #   uses: cypress-io/github-action@v2
-      #   with:
-      #     start: yarn start
-      #     wait-on: 'http://localhost:3000'
+      - name: Example tests
+        run: yarn test:examples
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v5
