@@ -22,7 +22,7 @@ jobs:
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
         shell: bash
 
-      - name: Restore yarn cache
+      - name: Cache yarn dependencies
         uses: actions/cache@v3
         id: yarn-cache
         with:
