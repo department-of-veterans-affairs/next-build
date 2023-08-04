@@ -40,7 +40,7 @@
     "**/*.js",
     "**/*.jsx"
   ],
-  "exclude": ["node_modules", "cypress", "./src/__tests__"],
+  "exclude": ["node_modules", "./src/__tests__"],
   "typedocOptions": {
     "entryPoints": ["src/"],
     "out": "docs",
