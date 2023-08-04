@@ -24,6 +24,7 @@ jobs:
 
       - name: Cache yarn dependencies
         uses: actions/cache@v3
+        id: yarn-cache
         with:
           path: ${{steps.yarn-cache-dir-path.outputs.dir }}
           key: yarn-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
