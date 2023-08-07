@@ -30,15 +30,26 @@ This happens using `husky` and `lint-staged`. See `lint-staged.config.js` for mo
 
 ## Linting, Static Analysis, and Unit Tests
 
-This bucket includes:
+Our tools for these tasks currently include:
 
-- Typechecking
-- ESLint
-- Prettier
-- Jest
+- **Typechecking**, static typechecking on all .tsx files using the typescript compiler.
+- **ESLint**, an ECMAScript/JavaScript linter and static analysis tool.
+- **Prettier**, a file formatter that ensures consistent code style.
+- **Jest**, a Javascript testing framework with an accessible API
+
+All four of these run as part of the pre-commit hooks on staged files (and/or their related tests, in Jest's case).
 
 ## Functional and Behavioral Tests
 
-This is the "slow" part of the testing suite, Cypress
+This is the "slow" part of the testing suite, Cypress. Where Jest tests the code itself,
+Cypress tests that a user can do what they are expected to do in a browser, click buttons, etc.
 
-Where Jest tests the code itself, Cypress tests that a user can do what they are expected to do in a browser, click buttons, etc.
+These tests can be run manually, and they always run in CI. Because of this,
+**Cypress expects the full site to be built and served**.
+You can do this locally by first running `yarn export` and then `yarn export:serve`.
+This will start a webserver with all the generated static pages that Cypress can reach.
+
+Run `yarn test:cypress` to run all tests (including examples) against generated pages.
+
+You can also run Cypress interactively with `yarn test:cypress:interactive` which will load
+a browser with a clean UI to monitor and iterate on different test cases.
