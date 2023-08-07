@@ -1,4 +1,4 @@
-## Testing
+# Testing
 
 This document outlines expectations for contributors to this project with regard to testing.
 
@@ -10,7 +10,7 @@ This document outlines expectations for contributors to this project with regard
 
 1. **PRs should aim for 100% coverage of lines, branches, and expressions.** PRs should lower test coverage metrics only in exceptional circumstances. Test coverage requirements are set to a couple percent below the current metrics; these should increase briskly over time.
 
-1. **Unit tests should incorporate accessibility testing whever appropriate.** Whenever a component is rendered, check it. If there is a rerender, check it again! The `axe` tool is made available in our internal `test-utils` module:
+1. **Unit tests should incorporate accessibility testing whenever appropriate.** Whenever a component is rendered, check it. If there is a rerender, check it again! The `axe` tool is made available in our internal `test-utils` module:
 
 ```javascript
 import { axe, render, waitFor } from 'test-utils'
@@ -22,3 +22,23 @@ test('correctly renders SomeComponent', async () => {
   ....
 })
 ```
+
+## Pre-Commit Hooks
+
+On local environments, every commit will run typechecks, linting and code formatting.
+This happens using `husky` and `lint-staged`. See `lint-staged.config.js` for more details.
+
+## Linting, Static Analysis, and Unit Tests
+
+This bucket includes:
+
+- Typechecking
+- ESLint
+- Prettier
+- Jest
+
+## Functional and Behavioral Tests
+
+This is the "slow" part of the testing suite, Cypress
+
+Where Jest tests the code itself, Cypress tests that a user can do what they are expected to do in a browser, click buttons, etc.
