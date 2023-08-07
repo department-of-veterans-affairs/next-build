@@ -1,0 +1,31 @@
+name: Cypress Tests
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+jobs:
+  build:
+    name: Build static
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install Npm Dependencies
+        run: |
+          yarn set version stable
+          HUSKY=0 yarn install --immutable
+
+      - name: Generate static site
+        run: yarn export
+
+      - name: Serve static site for cypress
+        run: yarn export:serve
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v5

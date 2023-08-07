@@ -9,7 +9,7 @@ jobs:
   setup:
     name: Setup and Test
     runs-on: ubuntu-latest
-    # timeout-minutes: 5
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -50,40 +50,3 @@ jobs:
 
       - name: Example tests
         run: yarn test:examples
-
-      - name: Cypress tests
-        uses: cypress-io/github-action@v5
-
-# todo: when we can hit https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov endpoint & cache deps
-#  build:
-#    name: Build static
-#    runs-on: ubuntu-latest
-#    timeout-minutes: 5
-#    steps:
-#      - uses: actions/checkout@v3
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version-file: .nvmrc
-#
-#      # See https://github.com/actions/setup-node/issues/488
-#      - name: Get yarn cache directory path
-#        id: yarn-cache-dir-path
-#        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-#
-#      - name: Cache yarn dependencies
-#        uses: actions/cache@v3
-#        id: yarn-cache
-#        with:
-#          path: ${{steps.yarn-cache-dir-path.outputs.dir }}
-#          key: yarn-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-#          restore-keys: |
-#            yarn-cache-
-#
-#      - name: Install Npm Dependencies
-#        if: steps.yarn-cache.outputs.cache-hit != 'true'
-#        run: |
-#          yarn set version stable
-#          HUSKY=0 yarn install --immutable
-#
-#      - name: Generate static site
-#        run: yarn build
