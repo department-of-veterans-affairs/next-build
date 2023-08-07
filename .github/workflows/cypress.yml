@@ -21,6 +21,10 @@ jobs:
           yarn set version stable
           HUSKY=0 yarn install --immutable
 
+      - name: check node env
+        id: check-node-env
+        run: echo $NODE_ENV
+
       - name: Generate static site
         run: yarn export
 
