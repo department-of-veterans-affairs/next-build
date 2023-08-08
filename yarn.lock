@@ -2947,7 +2947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pmmmwh/react-refresh-webpack-plugin@npm:^0.5.1, @pmmmwh/react-refresh-webpack-plugin@npm:^0.5.5":
+"@pmmmwh/react-refresh-webpack-plugin@npm:^0.5.5":
   version: 0.5.10
   resolution: "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.10"
   dependencies:
@@ -4360,24 +4360,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/preset-create-react-app@npm:^7.2.1":
-  version: 7.2.1
-  resolution: "@storybook/preset-create-react-app@npm:7.2.1"
-  dependencies:
-    "@pmmmwh/react-refresh-webpack-plugin": ^0.5.1
-    "@storybook/react-docgen-typescript-plugin": 1.0.6--canary.9.0c3f3b7.0
-    "@storybook/types": 7.2.1
-    "@types/babel__core": ^7.1.7
-    babel-plugin-react-docgen: ^4.1.0
-    pnp-webpack-plugin: ^1.7.0
-    semver: ^7.3.5
-  peerDependencies:
-    "@babel/core": "*"
-    react-scripts: ">=5.0.0"
-  checksum: 4c79c15c83dedc851eaa7095d3da30b27ef394068dbd231e4328fd4bb9dd0da45539d561f49e41c21bee249d83ad6ddf6cca8006ade5988681b21f77faaaa023
-  languageName: node
-  linkType: hard
-
 "@storybook/preset-react-webpack@npm:7.2.1":
   version: 7.2.1
   resolution: "@storybook/preset-react-webpack@npm:7.2.1"
@@ -4854,7 +4836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14, @types/babel__core@npm:^7.1.7":
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
   version: 7.20.1
   resolution: "@types/babel__core@npm:7.20.1"
   dependencies:
@@ -6507,7 +6489,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-react-docgen@npm:^4.1.0, babel-plugin-react-docgen@npm:^4.2.1":
+"babel-plugin-react-docgen@npm:^4.2.1":
   version: 4.2.1
   resolution: "babel-plugin-react-docgen@npm:4.2.1"
   dependencies:
@@ -13246,7 +13228,6 @@ __metadata:
     "@storybook/addon-links": ^7.2.1
     "@storybook/nextjs": ^7.2.1
     "@storybook/node-logger": ^7.2.1
-    "@storybook/preset-create-react-app": ^7.2.1
     "@storybook/react": ^7.2.1
     "@storybook/testing-library": ^0.2.0
     "@testing-library/cypress": ^9.0.0
