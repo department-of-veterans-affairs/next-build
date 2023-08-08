@@ -1,0 +1,134 @@
+name: Cypress Tests
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+env:
+  INSTANCE_TYPE: m6i.4xlarge
+
+jobs:
+  start-runner:
+    runs-on: ubuntu-latest
+    outputs:
+      label: ${{ steps.start-ec2-runner.outputs.label }}
+      ec2-instance-id: ${{ steps.start-ec2-runner.outputs.ec2-instance-id }}
+      APPROX_WORKFLOW_START_TIME: ${{ steps.export-approx-workflow-start-time.outputs.APPROX_WORKFLOW_START_TIME }}
+    timeout-minutes: 15
+
+    steps:
+      - name: Export approximate workflow start time
+        id: export-approx-workflow-start-time
+        run: echo APPROX_WORKFLOW_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-gov-west-1
+
+      - name: Get bot token from Parameter Store
+        uses: marvinpinto/action-inject-ssm-secrets@v1.2.1
+        with:
+          ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
+          env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
+
+      - name: Get latest GHA Runner AMI ID
+        run: |
+          echo "RUNNER_AMI_ID=$(aws ec2 describe-images \
+          --owners 008577686731 \
+          --filters "Name=state,Values=available" "Name=name,Values=platform-gha-runner-ubuntu*" \
+          --query 'sort_by(Images,&CreationDate)[-1].ImageId' \
+          --output text)" >> $GITHUB_ENV
+
+      - name: Get Subnet with the most free IPs # We will run these in the dsva-vagov-utility-2x subnet, so filter for those
+        run: |
+          echo "SUBNET_ID=$(aws ec2 describe-subnets \
+          --filters "Name=tag:Name,Values=dsva-vagov-utility-subnet-2*" \
+          --query 'sort_by(Subnets,&AvailableIpAddressCount)[-1].SubnetId' \
+          --output text)" >> $GITHUB_ENV
+
+      - name: Start EC2 Runner
+        id: start-ec2-runner
+        uses: department-of-veterans-affairs/ec2-github-runner@main
+        with:
+          mode: start
+          github-token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
+          ec2-image-id: ${{ env.RUNNER_AMI_ID }}
+          ec2-instance-type: ${{ env.INSTANCE_TYPE }}
+          subnet-id: ${{ env.SUBNET_ID }}
+          security-group-id: sg-0e23b56be3798e3a1
+          max_attempts: 3
+          aws-resource-tags: >
+            [
+              {"Key": "Name", "Value": "dsva-vagov-next-build-gha-runner"},
+              {"Key": "project", "Value": "vagov"},
+              {"Key": "office", "Value": "dsva"},
+              {"Key": "application", "Value": "gha-runner"},
+              {"Key": "VAECID", "Value": "AWG20180517003"},
+              {"Key": "environment", "Value": "utility"}
+            ]
+
+  build:
+    name: Build static
+    runs-on: ${{ needs.start-runner.outputs.label }}
+    needs: start-runner
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install Npm Dependencies
+        run: |
+          yarn set version stable
+          HUSKY=0 yarn install --immutable
+
+      - name: check node env
+        id: check-node-env
+        run: echo $NODE_ENV
+
+      - name: Generate static site
+        run: yarn export
+
+      - name: Serve static site for cypress
+        run: yarn export:serve
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v5
+
+  stop-runner:
+    name: Stop on-demand-runner
+    needs:
+      - start-runner
+      - build
+    runs-on: ubuntu-latest
+    if: ${{ always() }} # Even if an error happened, let's stop the runner
+    env:
+      INSTANCE_TYPE: c5.4xlarge
+    timeout-minutes: 15
+
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-gov-west-1
+
+      - name: Get bot token from Parameter Store
+        uses: marvinpinto/action-inject-ssm-secrets@v1.2.1
+        with:
+          ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
+          env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
+
+      - name: Stop Runner
+        uses: department-of-veterans-affairs/ec2-github-runner@main
+        with:
+          mode: stop
+          github-token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
+          label: ${{ needs.start-runner.outputs.label }}
+          ec2-instance-id: ${{ needs.start-runner.outputs.ec2-instance-id }}

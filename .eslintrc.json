@@ -7,7 +7,6 @@
   },
   "extends": [
     "next/core-web-vitals",
-    "plugin:cypress/recommended",
     "plugin:jest/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended",
@@ -44,7 +43,8 @@
           "**/*.test.*",
           "test/*",
           "jest.config.js",
-          "jest.setup.js"
+          "jest.setup.js",
+          "cypress/**/*"
         ]
       }
     ]
