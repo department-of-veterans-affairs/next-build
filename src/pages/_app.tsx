@@ -16,6 +16,7 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export function reportWebVitals(metric: object) {
+  // eslint-disable-next-line no-console
   console.log(metric)
 }
 
