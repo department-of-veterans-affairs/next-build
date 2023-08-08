@@ -7,6 +7,8 @@ on:
 
 env:
   INSTANCE_TYPE: m5.large
+  NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+
 
 jobs:
   start-runner:
