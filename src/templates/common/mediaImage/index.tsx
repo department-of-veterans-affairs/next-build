@@ -3,6 +3,7 @@ import Image from '../image'
 import { MediaImageType } from '@/types/index'
 
 export const MediaImage = (props: MediaImageType) => {
+  console.log(props)
   const image = props[0] ?? props ?? null
   const [showImage, setShowImages] = useState(true)
   const [imageSrc, setImageSrc] = useState(null)

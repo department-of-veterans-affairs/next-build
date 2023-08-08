@@ -23,7 +23,7 @@
     "test:types": "NODE_ENV=test tsc --noEmit",
     "test:watch": "NODE_ENV=test jest --watch",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "@department-of-veterans-affairs/component-library": "^10.3.0",

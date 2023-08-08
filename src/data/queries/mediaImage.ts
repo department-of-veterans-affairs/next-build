@@ -21,13 +21,9 @@ export const data: QueryData<
   DataOpts,
   MediaImage
 > = async (): Promise<MediaImage> => {
-  const entities = await drupalClient.getResourceCollection<MediaImage>(
-    'media--image',
-    {
-      params: params().getQueryObject(),
-    }
-  )
-  return entities
+  return await drupalClient.getResourceCollection<MediaImage>('media--image', {
+    params: params().getQueryObject(),
+  })
 }
 
 export const formatter: QueryFormatter<MediaImage, MediaImageType[]> = (
@@ -35,7 +31,7 @@ export const formatter: QueryFormatter<MediaImage, MediaImageType[]> = (
 ) => {
   if (!entities) return null
   const castArray = (val) => (Array.isArray(val) ? val : [val])
-  const media = castArray(entities).map((entity) => ({
+  return castArray(entities).map((entity) => ({
     id: entity.image.id,
     type: entity.type,
     link: entity.image?.links,
@@ -45,5 +41,4 @@ export const formatter: QueryFormatter<MediaImage, MediaImageType[]> = (
     title: entity.image?.resourceIdObjMeta?.title,
     url: entity.image?.uri?.url,
   }))
-  return media
 }
