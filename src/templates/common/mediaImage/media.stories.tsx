@@ -1,19 +1,21 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { MediaImageComponent } from './index'
+import { MediaImage } from './index'
 import { queries } from '@/data/queries'
 import { MediaImageType } from '@/types/index'
-import mediaImage from './mockMedia.json'
+import mediaImageData from './mockMedia.json'
 
-const { id, alt, title, link } = mediaImage[0]
+const { id, alt, title, link } = mediaImageData[0]
+
+console.log(mediaImageData)
 
 export default {
   title: 'Common/Media Image',
-  component: MediaImageComponent,
-} as ComponentMeta<typeof MediaImageComponent>
+  component: MediaImage,
+} as ComponentMeta<typeof MediaImage>
 
-const Template: ComponentStory<typeof MediaImageComponent> = (args) => (
-  <MediaImageComponent {...args} />
+const Template: ComponentStory<typeof MediaImage> = (args) => (
+  <MediaImage {...args} />
 )
 
 export const FullContentWidth = Template.bind({})

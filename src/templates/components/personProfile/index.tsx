@@ -1,4 +1,4 @@
-import { MediaImageComponent } from '@/templates/common/mediaImage'
+import { MediaImage } from '@/templates/common/mediaImage'
 import { PersonProfileType } from '@/types/index'
 import { absoluteURL } from '@/lib/utils/helpers'
 
@@ -33,7 +33,7 @@ export const PersonProfile = ({
                 <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
                   <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
                     {media && (
-                      <MediaImageComponent
+                      <MediaImage
                         {...media}
                         className="person-profile-detail-page-image"
                         imageStyle="1_1_square_medium_thumbnail"
