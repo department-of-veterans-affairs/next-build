@@ -82,6 +82,9 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Setup Yarn
+        run: npm i -g yarn@3.6.1
+
       - name: Install Npm Dependencies
         run: |
           yarn set version stable
