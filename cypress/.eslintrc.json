@@ -1,0 +1,20 @@
+{
+  "plugins": ["eslint-plugin-cypress"],
+  "extends": ["plugin:cypress/recommended"],
+  "env": {
+    "cypress/globals": true
+  },
+  "overrides": [
+    {
+      "files": ["**/*.cy.js"],
+      "rules": {
+        "jest/expect-expect": "off",
+        "jest/valid-expect": "off",
+        "jest/valid-expect-in-promise": "off",
+        "cypress/unsafe-to-chain-command": "off",
+        "cypress/no-unnecessary-waiting": "warn",
+        "@typescript-eslint/no-empty-function": "warn"
+      }
+    }
+  ]
+}
