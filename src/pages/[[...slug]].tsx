@@ -10,7 +10,7 @@ import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 
-const RESOURCE_TYPES = [
+export const RESOURCE_TYPES = [
   'node--news_story',
   'node--story_listing',
   'node--q_a',
