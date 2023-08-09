@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { GetStaticPathsResult } from 'next'
+import Head from 'next/head'
 
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
@@ -20,6 +21,9 @@ export default function ResourcePage({ resource, props }) {
 
   return (
     <Wrapper {...props}>
+      <Head>
+        <title>{resource.title} | Veterans Affairs </title>
+      </Head>
       {resource.type === 'node--news_story' && <NewsStory {...resource} />}
       {resource.type === 'node--story_listing' && (
         <StoryListing {...resource} />

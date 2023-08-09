@@ -50,7 +50,7 @@ Cypress.Commands.add('testA11y', () => {
   cy.checkA11y(null, null, terminalLog)
 })
 
-// Adds a11y info to the terminal log
+// Adds readable a11y violation info to the terminal log
 function terminalLog(violations) {
   cy.task(
     'log',
