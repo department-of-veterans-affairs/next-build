@@ -5,15 +5,21 @@ import { MobileLinks } from './mobile'
 import { FOOTER_COLUMNS, createLinkGroups } from './helpers'
 import { VA_WRAPPER_IMAGES } from '@/lib/constants'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { mountWidgets } from '@/lib/utils/mountWidgets'
+import { useEffect } from 'react'
 
-const Footer = ({ links }) => {
+export const Footer = ({ links }) => {
+  // useEffect(() => {
+  //   mountWidgets(document.querySelectorAll('[data-widget-type]'), 6000)
+  // }, [])
+
   const linkItems = createLinkGroups(links)
   const isBreakpoint = useMediaQuery(768)
-
   if (!links) return null
+
   return (
     <section role="contentinfo">
-      <div id="announcement-root"></div>
+      {/* <div id="announcement-root"></div> */}
       <footer className="footer">
         <div id="footerNav" data-testid="footer">
           <div className="footer-inner">
@@ -30,8 +36,8 @@ const Footer = ({ links }) => {
               className="va-footer-logo"
               title="Go to VA.gov"
             >
-              <Image
-                src={VA_WRAPPER_IMAGES?.footer}
+              <img
+                src="/img/va-logo-white.png"
                 alt="VA logo"
                 width="200"
                 height="50"
@@ -46,4 +52,3 @@ const Footer = ({ links }) => {
     </section>
   )
 }
-export default Footer
