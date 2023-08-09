@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Image from '../image'
 import { MediaImageType } from '@/types/index'
 
-export const MediaImageComponent = (props: MediaImageType) => {
+export const MediaImage = (props: MediaImageType) => {
   const image = props[0] ?? props ?? null
   const [showImage, setShowImages] = useState(true)
   const [imageSrc, setImageSrc] = useState(null)

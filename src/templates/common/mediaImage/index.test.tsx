@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { MediaImageType } from '@/types/index'
-import { MediaImageComponent } from '@/templates/common/mediaImage'
+import { MediaImage } from '@/templates/common/mediaImage'
 // Language: typescript
 // Path: src/components/media/index.test.tsx
 
@@ -24,20 +24,20 @@ const mediaImage: MediaImageType = {
 
 describe('Media Image component renders', () => {
   test('<MediaImage> renders', () => {
-    render(<MediaImageComponent {...mediaImage} />)
+    render(<MediaImage {...mediaImage} />)
     waitFor(() => expect(screen.getByText('Cats or Dogs?')).toBeInTheDocument())
   })
 
   test('<MediaImage> renders with new title', () => {
     mediaImage.title = 'COVID-19 vaccines'
-    render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
     waitFor(() =>
       expect(screen.getByText('COVID-19 vaccines')).toBeInTheDocument()
     )
   })
 
   test('MediaImage renders with correct alt text', () => {
-    render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
     const imgElement = document.querySelector('img[alt=""]')
     // Loading element
     waitFor(() => expect(imgElement).toHaveAttribute('alt', ''))
@@ -48,7 +48,7 @@ describe('Media Image component renders', () => {
 
   test('MediaImage renders when image style is defined', () => {
     render(
-      <MediaImageComponent
+      <MediaImage
         key={mediaImage.id}
         {...mediaImage}
         imageStyle="1_1_square_medium_thumbnail"
@@ -60,7 +60,7 @@ describe('Media Image component renders', () => {
   test('MediaImage renders when the image style is not defined', () => {
     mediaImage.imageStyle = null
     render(
-      <MediaImageComponent
+      <MediaImage
         key={mediaImage.id}
         {...mediaImage}
         imageStyle={mediaImage.imageStyle}
@@ -73,7 +73,7 @@ describe('Media Image component renders', () => {
 
   test('MediaImage does not render with null data', () => {
     mediaImage.link = null
-    render(<MediaImageComponent key={mediaImage.id} {...mediaImage} />)
+    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
     waitFor(() =>
       expect(screen.getByText('Smiling man in glasses.')).notToBeInTheDocument()
     )

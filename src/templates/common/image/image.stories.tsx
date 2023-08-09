@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import Image from './index'
 
 export default {
-  title: 'Components/Image',
+  title: 'Common/Image',
   component: Image,
 } as ComponentMeta<typeof Image>
 

@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import clsx from 'clsx'
 import usePagination, { UsePaginationProps } from '../../../hooks/usePagination'
 import Link from '@/templates/common/link'
 
@@ -19,7 +19,7 @@ export default function Pager({ current, total, href, ...props }: PagerProps) {
     <div
       role="navigation"
       aria-labelledby="pagination-heading"
-      className={classNames('va-pagination-b', props.className)}
+      className={clsx('va-pagination-b', props.className)}
       {...props}
     >
       {items.map((link, index) => (
@@ -35,7 +35,7 @@ export default function Pager({ current, total, href, ...props }: PagerProps) {
             <div className="va-pagination-inner va-pagination-inner-b">
               <Link href={link.href as string} passHref>
                 <a
-                  className={classNames('', {
+                  className={clsx('', {
                     'va-pagination-active': link.isCurrent,
                   })}
                 >
