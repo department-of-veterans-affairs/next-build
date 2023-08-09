@@ -26,3 +26,47 @@
 
 import 'cypress-axe'
 import '@testing-library/cypress/add-commands'
+
+// use consistent axe settings for a11y checks everywhere
+Cypress.Commands.add('testA11y', () => {
+  cy.injectAxe()
+
+  cy.configureAxe({
+    iframes: false,
+    runOnly: {
+      type: 'tag',
+      values: [
+        'section508',
+        'wcag2a',
+        'wcag2aa',
+        'wcag21a',
+        'wcag21aa',
+        'best-practice',
+      ],
+      resultTypes: ['violations'],
+    },
+  })
+
+  cy.checkA11y(null, null, terminalLog)
+})
+
+// Adds a11y info to the terminal log
+function terminalLog(violations) {
+  cy.task(
+    'log',
+    `${violations.length} accessibility violation${
+      violations.length === 1 ? '' : 's'
+    } ${violations.length === 1 ? 'was' : 'were'} detected`
+  )
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(
+    ({ id, impact, description, nodes }) => ({
+      id,
+      impact,
+      description,
+      nodes: nodes.length,
+    })
+  )
+
+  cy.task('table', violationData)
+}
