@@ -9,9 +9,6 @@ services:
       # Initialize the server.
       init:
         - yarn --version
-        # Set the webroot for to the Gatsby public folder.
-        # Change this if you specify a different root for your public site.
-        - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
 
       # Load dependent libraries and assets to prepare the site for build.
       update:
@@ -23,3 +20,4 @@ services:
         # Build the static pages
         - yarn export
         - yarn postbuild
+        - yarn export:serve
