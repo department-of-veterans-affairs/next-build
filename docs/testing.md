@@ -53,3 +53,19 @@ Run `yarn test:cypress` to run all tests (including examples) against generated 
 
 You can also run Cypress interactively with `yarn test:cypress:interactive` which will load
 a browser with a clean UI to monitor and iterate on different test cases.
+
+## Accessibility Testing
+
+This project can be tested for a11y compliance in several ways:
+
+- Individual Jest unit tests using jest-axe (see: `example_tests/06_accessibility_tests/index.test.jsx`).
+- Individual Cypress tests using cypress-axe. (see: `cypress/e2e/news-story.cy.js`).
+  - Any individual test can call `cy.checkA11y()` to run a check against the current page. This must be called after a call to `cy.visit()`!
+- A full site scan of all urls known to next-build (generated in the sitemap) using Cypress
+
+The full scan will run (TKTK: some cadence, weekly?) in CI.
+You can run it manually after generating the sitemap with a few steps:
+
+1. `yarn build` to generate the static pages for the site
+2. `yarn postbuild` to generate the sitemap
+3. `yarn test:cypress:a11y` to run the scan. This runs `cypress/e2e/a11y.cy.js` which loops over the sitemap and tests each page individually using `cypress-axe`.
