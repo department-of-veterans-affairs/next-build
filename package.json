@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "export": "next build && next export",
     "export:serve": "http-server out -p 8001",
@@ -52,6 +53,7 @@
     "next": "^13.4.12",
     "next-drupal": "^1.4.0",
     "next-drupal-query": "^0.2.1",
+    "next-sitemap": "^4.2.2",
     "p-retry": "^5.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

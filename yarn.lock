@@ -1764,6 +1764,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@corex/deepmerge@npm:^4.0.43":
+  version: 4.0.43
+  resolution: "@corex/deepmerge@npm:4.0.43"
+  checksum: f0103bfcfb9938ba478868fad522b018b92615ba186b0322c92aa1f57e539b87d4379d88fee3a404264a83bd4b13c384cfb07834377997d6d71cd840a880b4c4
+  languageName: node
+  linkType: hard
+
 "@cspotcode/source-map-support@npm:^0.8.0":
   version: 0.8.1
   resolution: "@cspotcode/source-map-support@npm:0.8.1"
@@ -2717,6 +2724,13 @@ __metadata:
   version: 13.4.12
   resolution: "@next/env@npm:13.4.12"
   checksum: 2ccb2e271b3c42697c1e807cdf988429fcb563f80fa0ca72512f65f47cbbcc46c44fc53bf055814d4b467f1394de8c1a1ef6aad14d35f9993004faa956466d02
+  languageName: node
+  linkType: hard
+
+"@next/env@npm:^13.4.3":
+  version: 13.4.13
+  resolution: "@next/env@npm:13.4.13"
+  checksum: 94935ff1730de9fe00be238256ad1af3e5da7ae737e6ce5d261404ccc9245f2a18fee24afa7f3b27d7f7d1c16e2715c8eccb70260ab0c0a08e7bbaa95ed36211
   languageName: node
   linkType: hard
 
@@ -9492,7 +9506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.0":
+"fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.0":
   version: 3.3.1
   resolution: "fast-glob@npm:3.3.1"
   dependencies:
@@ -13277,6 +13291,7 @@ __metadata:
     next: ^13.4.12
     next-drupal: ^1.4.0
     next-drupal-query: ^0.2.1
+    next-sitemap: ^4.2.2
     nock: ^13.2.8
     p-retry: ^5.1.1
     prettier: ^2.6.2
@@ -13322,6 +13337,23 @@ __metadata:
     react: ^17.0.2 || ^18
     react-dom: ^17.0.2 || ^18
   checksum: 541b4c96a8913d79faa0f52b6ca1c6cc3fd3a39e08b556f4fc7e5ff661d493ae091cc7f6ca14b62b19132c21a7f4eacfe8ca3ba13e152d53a9f42596a4b5e881
+  languageName: node
+  linkType: hard
+
+"next-sitemap@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "next-sitemap@npm:4.2.2"
+  dependencies:
+    "@corex/deepmerge": ^4.0.43
+    "@next/env": ^13.4.3
+    fast-glob: ^3.2.12
+    minimist: ^1.2.8
+  peerDependencies:
+    next: "*"
+  bin:
+    next-sitemap: bin/next-sitemap.mjs
+    next-sitemap-cjs: bin/next-sitemap.cjs
+  checksum: 0a0c08a0185888985789571e2bfcfd719079993f646a589058e5046b3a0fd3cfdef46a1e3b58a57e883291bfa24a7b2af056932ceb58b7bdb462652e006a121d
   languageName: node
   linkType: hard
 
