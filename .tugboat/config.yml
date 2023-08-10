@@ -2,15 +2,14 @@ services:
   # Configure a standard apache webserver to host our site.
   apache:
     # Use the most recent version of httpd service.
-    image: tugboatqa/httpd:latest
+    image: tugboatqa/node:18
 
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
       # Initialize the server.
       init:
-        # Install node.js version 18.
-        - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-        - apt-get install -y nodejs yarn
+        - npm install --global yarn
+        - yarn --version
 
         # Set the webroot for to the Gatsby public folder.
         # Change this if you specify a different root for your public site.
@@ -23,6 +22,6 @@ services:
 
       # Run any commands needed to build the site.
       build:
-        # Build the static page
+        # Build the static pages
         - yarn export
         - yarn postbuild
