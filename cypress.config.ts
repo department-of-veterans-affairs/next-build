@@ -13,7 +13,9 @@ export default defineConfig({
   videosFolder: 'cypress/videos',
   videoUploadOnPasses: false,
   viewportHeight: 900,
+  // these two below are for a11y tests in chromium
   numTestsKeptInMemory: 25,
+  experimentalMemoryManagement: true,
 
   component: {
     devServer: {
