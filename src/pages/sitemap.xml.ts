@@ -1,16 +1,14 @@
 import { RESOURCE_TYPES } from '@/pages/[[...slug]]'
-import { GetStaticPathsResult } from 'next'
 import { drupalClient } from '@/lib/utils/drupalClient'
 
 function generateSiteMap(slugs) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-     <!-- Add the static URLs manually -->
      ${slugs
-       .map((path) => {
+       .map((slug) => {
          return `
            <url>
-               <loc>${`http://localhost:8001/${path}`}</loc>
+               <loc>${`http://localhost:3000/${slug}`}</loc>
            </url>
          `
        })
@@ -19,6 +17,7 @@ function generateSiteMap(slugs) {
  `
 }
 
+// This doesn't work with `yarn export` but does with `yarn build`
 export async function getServerSideProps(context) {
   const paths = await drupalClient.getStaticPathsFromContext(
     Array.from(RESOURCE_TYPES),
@@ -45,5 +44,6 @@ export async function getServerSideProps(context) {
   }
 }
 
+// Empty because we don't want to render an actual component, we want the xml from above
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export default function SiteMap() {}

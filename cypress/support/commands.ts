@@ -28,7 +28,7 @@ import 'cypress-axe'
 import '@testing-library/cypress/add-commands'
 
 // use consistent axe settings for a11y checks everywhere
-Cypress.Commands.add('testA11y', () => {
+Cypress.Commands.add('testA11y', (skipFailures: false) => {
   cy.injectAxe()
 
   cy.configureAxe({
@@ -47,7 +47,8 @@ Cypress.Commands.add('testA11y', () => {
     },
   })
 
-  cy.checkA11y(null, null, terminalLog)
+  // skipFailures can be set to true in order to scan multiple pages in a single test
+  cy.checkA11y(null, null, terminalLog, skipFailures)
 })
 
 // Adds readable a11y violation info to the terminal log
@@ -58,6 +59,7 @@ function terminalLog(violations) {
       violations.length === 1 ? '' : 's'
     } ${violations.length === 1 ? 'was' : 'were'} detected`
   )
+
   // pluck specific keys to keep the table readable
   const violationData = violations.map(
     ({ id, impact, description, nodes }) => ({
