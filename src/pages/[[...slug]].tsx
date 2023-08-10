@@ -19,10 +19,12 @@ export const RESOURCE_TYPES = [
 export default function ResourcePage({ resource, props }) {
   if (!resource) return null
 
+  const title = `${resource.title} | Veterans Affairs`
+
   return (
     <Wrapper {...props}>
       <Head>
-        <title>{resource.title} | Veterans Affairs </title>
+        <title>{title}</title>
       </Head>
       {resource.type === 'node--news_story' && <NewsStory {...resource} />}
       {resource.type === 'node--story_listing' && (
