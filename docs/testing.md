@@ -66,6 +66,6 @@ This project can be tested for a11y compliance in several ways:
 The full scan will run (TKTK: some cadence, weekly?) in CI.
 You can run it manually after generating the sitemap with a few steps:
 
-1. `yarn build` to generate the static pages for the site
+1. `yarn export` to generate the static pages for the site
 2. `yarn postbuild` to generate the sitemap
 3. `yarn test:cypress:a11y` to run the scan. This runs `cypress/e2e/a11y.cy.js` which loops over the sitemap and tests each page individually using `cypress-axe`.
