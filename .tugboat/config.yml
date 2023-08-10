@@ -2,16 +2,20 @@ services:
   # Configure a standard apache webserver to host our site.
   apache:
     # Use the most recent version of httpd service.
-    image: tugboatqa/node:18
+    image: tugboatqa/httpd:latest
 
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
       # Initialize the server.
       init:
-        - yarn --version
+        - - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+        - apt-get install -y nodejs
+        - corepack enable
+        - corepack prepare yarn@stable --activate
 
       # Load dependent libraries and assets to prepare the site for build.
       update:
+        - yarn --version
         # install dependencies
         - yarn install
 
@@ -20,4 +24,6 @@ services:
         # Build the static pages
         - yarn export
         - yarn postbuild
-        - yarn export:serve
+        # Set the webroot for to the output folder.
+        # Change this if you specify a different root for your public site.
+        - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
