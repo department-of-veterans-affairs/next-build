@@ -1,5 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
+  // see https://www.npmjs.com/package/next-sitemap for all options
   siteUrl: process.env.SITE_URL || 'https://example.com',
   // output: 'export' directory from next config
   outDir: 'out',
