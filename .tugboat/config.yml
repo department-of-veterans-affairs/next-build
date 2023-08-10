@@ -8,9 +8,7 @@ services:
     commands:
       # Initialize the server.
       init:
-        - npm install --global yarn
         - yarn --version
-
         # Set the webroot for to the Gatsby public folder.
         # Change this if you specify a different root for your public site.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
