@@ -8,7 +8,7 @@ services:
     commands:
       # Initialize the server.
       init:
-        - - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+        - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
         - apt-get install -y nodejs
         - corepack enable
         - corepack prepare yarn@stable --activate
