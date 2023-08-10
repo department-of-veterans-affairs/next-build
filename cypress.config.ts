@@ -13,6 +13,7 @@ export default defineConfig({
   videosFolder: 'cypress/videos',
   videoUploadOnPasses: false,
   viewportHeight: 900,
+  numTestsKeptInMemory: 25,
 
   component: {
     devServer: {
