@@ -4,6 +4,12 @@ services:
     # Use the most recent version of httpd service.
     image: tugboatqa/httpd:latest
 
+    # Explicitly set this as the default service
+    #   1. Clones the git repository into the service container
+    #   2. Exposes port 80 to the Tugboat HTTP proxy
+    #   3. Routes requests to the preview URL to this service
+    default: true
+
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
       # Initialize the server.
