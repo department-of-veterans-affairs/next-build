@@ -3,7 +3,10 @@ import crossFetch from 'cross-fetch'
 import { SocksProxyAgent } from 'socks-proxy-agent'
 
 export const baseUrl = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'cms.va.gov'
-export const useProxy = baseUrl.includes('cms.va.gov')
+
+// tugboat env doesn't need the SOCKS proxy. APP_ENV set in tugboat
+export const useProxy =
+  baseUrl.includes('cms.va.gov') && process.env.APP_ENV != 'tugboat'
 
 export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   if (useProxy) {
