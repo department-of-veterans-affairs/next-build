@@ -20,7 +20,7 @@ services:
         - corepack prepare yarn@stable --activate
 
         # Install VA Root CA
-        - cp "${TUGBOAT_ROOT}"/.tugboat/*.crt /usr/local/share/ca-certificates
+        - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
       # Load dependent libraries and assets to prepare the site for build.
@@ -31,8 +31,8 @@ services:
 
       # Run any commands needed to build the site.
       build:
-        # Build the static pages
-        - yarn export
+        # Build the static pages. Set for self-signed certs
+        - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
         # Generate sitemap
         - yarn postbuild
         # Set the webroot to the output folder.
