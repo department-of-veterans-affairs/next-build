@@ -12,4 +12,10 @@ context('News Story', () => {
     cy.visit('/portland-health-care/stories')
     cy.get('.usa-unstyled-list').should('have.text', 'No stories at this time.')
   })
+
+  it('Should render without a11y errors', () => {
+    cy.visit('/butler-health-care/stories')
+
+    cy.testA11y()
+  })
 })
