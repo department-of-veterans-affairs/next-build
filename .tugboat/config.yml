@@ -31,8 +31,8 @@ services:
 
       # Run any commands needed to build the site.
       build:
-        # Build the static pages
-        - yarn export
+        # Build the static pages. Set for self-signed certs
+        - NODE_TLS_REJECT_UNAUTHORIZED="0" yarn export
         # Generate sitemap
         - yarn postbuild
         # Set the webroot to the output folder.
