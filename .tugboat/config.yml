@@ -20,7 +20,7 @@ services:
         - corepack prepare yarn@stable --activate
 
         # Install VA Root CA
-        - cp "${TUGBOAT_ROOT}"/.tugboat/*.crt /usr/local/share/ca-certificates
+        - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
       # Load dependent libraries and assets to prepare the site for build.
