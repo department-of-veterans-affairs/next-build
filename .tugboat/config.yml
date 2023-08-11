@@ -33,7 +33,7 @@ services:
       build:
         # Build the static pages
         - yarn export
-        # Generate sitemap
-        - yarn postbuild
+        # Generate sitemap (uncomment after cypress PR merges)
+        # - yarn postbuild
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
