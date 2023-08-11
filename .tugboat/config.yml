@@ -23,7 +23,7 @@ services:
       build:
         # Build the static pages
         - yarn export
+        # Generate sitemap
         - yarn postbuild
-        # Set the webroot for to the output folder.
-        # Change this if you specify a different root for your public site.
+        # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
