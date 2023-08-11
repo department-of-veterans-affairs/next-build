@@ -9,10 +9,10 @@ export const useProxy =
   baseUrl.includes('cms.va.gov') && process.env.APP_ENV != 'tugboat'
 
 export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
-  if (useProxy) {
-    const syswideCas = await import('syswide-cas')
-    syswideCas.addCAs('certs/VA-Internal-S2-RCA-combined.pem')
-  }
+  // if (useProxy) {
+  const syswideCas = await import('syswide-cas')
+  syswideCas.addCAs('certs/VA-Internal-S2-RCA-combined.pem')
+  // }
   const agent = new SocksProxyAgent('socks://127.0.0.1:2001')
   const options = {
     agent: useProxy ? agent : null,
