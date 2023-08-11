@@ -31,18 +31,6 @@ export const formatBannerType = (bannerData) => {
 export function Wrapper({ bannerData, children }: LayoutProps) {
   const [showBanners, setShowBanners] = useState(false)
   const [mapBanners, setMapBanners] = useState([])
-  useScript(
-    'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/static-pages.entry.js'
-  )
-  useScript(
-    'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/vet-center-hours-widget.entry.js'
-  )
-  useScript(
-    'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/announcements-widget.entry.js'
-  )
-  useScript(
-    'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/vendors-node_modules_mapbox_mapbox-sdk_index_js-node_modules_mapbox_mapbox-sdk_services_geoco-ff2156.entry.js'
-  )
   useEffect(() => {
     if (isEmpty(bannerData)) {
       return setShowBanners(false)
@@ -55,6 +43,7 @@ export function Wrapper({ bannerData, children }: LayoutProps) {
   return (
     <>
       {/* {showBanners ? mapBanners : null} */}
+      {/* <span></span> */}
       <Header />
       <main>{children}</main>
       <Footer links={footerLinks} />
