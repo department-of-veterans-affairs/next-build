@@ -19,6 +19,9 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
     ...init,
   }
 
+  // eslint-disable-next-line no-console
+  console.log(input)
+
   // Wrap fetching in p-retry for resilience.
   const wrappedCrossFetch = async () => {
     return crossFetch(input, {
