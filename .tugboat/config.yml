@@ -1,0 +1,39 @@
+services:
+  # Configure a standard apache webserver to host our site.
+  apache:
+    # Use the most recent version of httpd service.
+    image: tugboatqa/httpd:latest
+
+    # Explicitly set this as the default service
+    #   1. Clones the git repository into the service container
+    #   2. Exposes port 80 to the Tugboat HTTP proxy
+    #   3. Routes requests to the preview URL to this service
+    default: true
+
+    # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
+    commands:
+      # Initialize the server.
+      init:
+        - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+        - apt-get install -y nodejs
+        - corepack enable
+        - corepack prepare yarn@stable --activate
+
+        # Install VA Root CA
+        - cp "${TUGBOAT_ROOT}"/.tugboat/*.crt /usr/local/share/ca-certificates
+        - update-ca-certificates
+
+      # Load dependent libraries and assets to prepare the site for build.
+      update:
+        - yarn --version
+        # install dependencies
+        - yarn install
+
+      # Run any commands needed to build the site.
+      build:
+        # Build the static pages
+        - yarn export
+        # Generate sitemap
+        - yarn postbuild
+        # Set the webroot to the output folder.
+        - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
