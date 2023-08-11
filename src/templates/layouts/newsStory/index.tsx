@@ -19,7 +19,7 @@ export const NewsStory = ({
   return (
     <>
       <div id="content" className="interior">
-        <main className="va-l-detail-page va-facility-page">
+        <div className="va-l-detail-page va-facility-page">
           <div className="usa-grid usa-grid-full">
             {/* nav here */}
             <div className="usa-width-three-fourths">
@@ -51,7 +51,7 @@ export const NewsStory = ({
               </article>
             </div>
           </div>
-        </main>
+        </div>
       </div>
     </>
   )

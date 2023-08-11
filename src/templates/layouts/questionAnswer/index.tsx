@@ -52,7 +52,7 @@ export const QuestionAnswer = ({
   }
   return (
     <div id="content" className="interior" data-template="node-q_a">
-      <main className="va-l-detail-page">
+      <div className="va-l-detail-page">
         <div className="usa-grid usa-grid-full">
           <div className="usa-width-three-fourths">
             <div className="usa-content">
@@ -73,7 +73,7 @@ export const QuestionAnswer = ({
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   )
 }

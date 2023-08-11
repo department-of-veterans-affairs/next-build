@@ -22,6 +22,7 @@ context('Cypress APIs', () => {
           method = method || 'log'
 
           // log the subject to the console
+          // eslint-disable-next-line no-console
           console[method]('The subject is', subject)
 
           // whatever we return becomes the new subject
@@ -79,7 +80,7 @@ context('Cypress APIs', () => {
       let myConfig = Cypress.config()
 
       expect(myConfig).to.have.property('animationDistanceThreshold', 5)
-      expect(myConfig).to.have.property('baseUrl', null)
+      expect(myConfig).to.have.property('baseUrl', 'http://localhost:8001')
       expect(myConfig).to.have.property('defaultCommandTimeout', 4000)
       expect(myConfig).to.have.property('requestTimeout', 5000)
       expect(myConfig).to.have.property('responseTimeout', 30000)

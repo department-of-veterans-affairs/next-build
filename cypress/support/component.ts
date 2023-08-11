@@ -30,6 +30,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       mount: typeof mount
+      testA11y: Chainable
     }
   }
 }

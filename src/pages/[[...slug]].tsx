@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { GetStaticPathsResult } from 'next'
+import Head from 'next/head'
 
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
@@ -9,7 +10,7 @@ import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 
-const RESOURCE_TYPES = [
+export const RESOURCE_TYPES = [
   'node--news_story',
   'node--story_listing',
   'node--q_a',
@@ -18,8 +19,13 @@ const RESOURCE_TYPES = [
 export default function ResourcePage({ resource, props }) {
   if (!resource) return null
 
+  const title = `${resource.title} | Veterans Affairs`
+
   return (
     <Wrapper {...props}>
+      <Head>
+        <title>{title}</title>
+      </Head>
       {resource.type === 'node--news_story' && <NewsStory {...resource} />}
       {resource.type === 'node--story_listing' && (
         <StoryListing {...resource} />
