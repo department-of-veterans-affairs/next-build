@@ -22,6 +22,8 @@ services:
         # Install VA Root CA
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
+        # let next know about these certs
+        - export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 
       # Load dependent libraries and assets to prepare the site for build.
       update:
@@ -32,7 +34,7 @@ services:
       # Run any commands needed to build the site.
       build:
         # Build the static pages. Set for self-signed certs
-        - NODE_TLS_REJECT_UNAUTHORIZED="0" yarn export
+        - yarn export
         # Generate sitemap
         - yarn postbuild
         # Set the webroot to the output folder.
