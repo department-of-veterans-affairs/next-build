@@ -1,3 +1,5 @@
+import Image from '@/templates/common/image'
+
 export const TopNav = () => {
   return (
     <div id="legacy-header" className="vads-u-display--none">
@@ -7,7 +9,7 @@ export const TopNav = () => {
             <div className="usa-accordion">
               <div className="usa-banner-header">
                 <div className="usa-grid usa-banner-inner">
-                  <img
+                  <Image
                     src="/img/tiny-usa-flag.png"
                     alt="U.S. flag"
                     height="20"
@@ -32,33 +34,38 @@ export const TopNav = () => {
                 aria-hidden="true"
               >
                 <div className="usa-banner-guidance-gov usa-width-one-half">
-                  <img
+                  <Image
                     className="usa-banner-icon usa-media_block-img"
                     src="/img/icon-dot-gov.svg"
                     alt="Dot gov"
+                    height="38"
+                    width="38"
                   />
                   <div className="usa-media_block-body">
                     <p>
                       <strong>The .gov means it’s official.</strong>
                       <br />
                       Federal government websites often end in .gov or .mil.
-                      Before sharing sensitive information, make sure you're on
-                      a federal government site.
+                      Before sharing sensitive information, make sure
+                      you&apos;re on a federal government site.
                     </p>
                   </div>
                 </div>
                 <div className="usa-banner-guidance-ssl usa-width-one-half">
-                  <img
+                  <Image
                     className="usa-banner-icon usa-media_block-img"
                     src="/img/icon-https.svg"
                     alt="SSL"
+                    height={'38'}
+                    width="38"
                   />
                   <div className="usa-media_block-body">
                     <p>
                       <strong>The site is secure.</strong>
-                      <br /> The <strong>https://</strong> ensures that you're
-                      connecting to the official website and that any
-                      information you provide is encrypted and sent securely.
+                      <br /> The <strong>https://</strong> ensures that
+                      you&apos;re connecting to the official website and that
+                      any information you provide is encrypted and sent
+                      securely.
                     </p>
                   </div>
                 </div>
@@ -76,12 +83,14 @@ export const TopNav = () => {
               <span className="va-crisis-line-text">
                 Talk to the <strong>Veterans Crisis Line</strong> now
               </span>
-              <img
+              <Image
                 alt=""
                 aria-hidden="true"
                 className="va-crisis-line-arrow"
                 src="/img/arrow-right-white.svg"
-              ></img>
+                height={'29'}
+                width="13"
+              />
             </div>
           </button>
         </div>
@@ -94,7 +103,12 @@ export const TopNav = () => {
       >
         <div className="va-header-logo-wrapper">
           <a href="/" className="va-header-logo">
-            <img src="/img/header-logo.png" alt="VA logo and Seal, U.S. Department of Veterans Affairs" height="59" width="264" />
+            <Image
+              src="/img/header-logo.png"
+              alt="VA logo and Seal, U.S. Department of Veterans Affairs"
+              height="59"
+              width="264"
+            />
           </a>
         </div>
 
@@ -106,7 +120,6 @@ export const TopNav = () => {
         </div>
 
         <div id="login-root" className="vet-toolbar"></div>
-
       </div>
 
       <div className="usa-grid usa-grid-full">
