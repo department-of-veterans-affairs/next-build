@@ -37,4 +37,5 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
 
 export const drupalClient = new DrupalClient(baseUrl, {
   fetcher,
+  useDefaultResourceTypeEntry: true,
 })
