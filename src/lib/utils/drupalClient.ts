@@ -7,11 +7,9 @@ export const baseUrl = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'cms.va.gov'
 const url = new URL(baseUrl)
 const host = url.host
 
-const allowedHosts = ['cms.va.gov']
-
 // tugboat env doesn't need the SOCKS proxy. APP_ENV set in tugboat
 export const useProxy =
-  allowedHosts.includes(host) && process.env.APP_ENV != 'tugboat'
+  host.match('cms.va.gov') && process.env.APP_ENV != 'tugboat'
 
 export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   if (useProxy) {
