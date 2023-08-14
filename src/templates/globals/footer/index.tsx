@@ -5,21 +5,15 @@ import { MobileLinks } from './mobile'
 import { FOOTER_COLUMNS, createLinkGroups } from './helpers'
 import { VA_WRAPPER_IMAGES } from '@/lib/constants'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
-import { mountWidgets } from '@/lib/utils/mountWidgets'
-import { useEffect } from 'react'
 
 export const Footer = ({ links }) => {
-  // useEffect(() => {
-  //   mountWidgets(document.querySelectorAll('[data-widget-type]'), 6000)
-  // }, [])
-
   const linkItems = createLinkGroups(links)
   const isBreakpoint = useMediaQuery(768)
   if (!links) return null
 
   return (
     <section role="contentinfo">
-      {/* <div id="announcement-root"></div> */}
+      <div id="announcement-root"></div>
       <footer className="footer">
         <div id="footerNav" data-testid="footer">
           <div className="footer-inner">

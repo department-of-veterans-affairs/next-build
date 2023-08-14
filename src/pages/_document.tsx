@@ -1,7 +1,6 @@
 import NextDocument, { Html, Main, NextScript, Head } from 'next/document'
 import { GTM_ID } from '@/lib/analytics'
 import Script from 'next/script'
-import useScript from '@/hooks/useScript'
 
 const Document = () => {
   return (
