@@ -13,7 +13,7 @@ import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 export const RESOURCE_TYPES = [
   'node--news_story',
   'node--story_listing',
-  'node--q_a',
+  // 'node--q_a',
 ] as const
 
 export default function ResourcePage({ resource, props }) {
