@@ -9,7 +9,7 @@ const host = url.host
 
 // tugboat env doesn't need the SOCKS proxy. APP_ENV set in tugboat
 export const useProxy =
-  host.match('cms.va.gov') && process.env.APP_ENV != 'tugboat'
+  host.match(/cms\.va\.gov$/) && process.env.APP_ENV != 'tugboat'
 
 export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   if (useProxy) {
