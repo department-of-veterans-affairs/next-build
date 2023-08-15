@@ -10,6 +10,17 @@ const getWidth = (data) => data.data.relationships.image.data.meta.width
 const getHeight = (data) => data.data.relationships.image.data.meta.height
 
 describe('Image Component', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'error')
+    jest.spyOn(console, 'warn')
+    console.error.mockImplementation(() => null)
+    console.warn.mockImplementation(() => null)
+  })
+
+  afterEach(() => {
+    console.error.mockRestore()
+    console.warn.mockRestore()
+  })
   test('throws an error if URL is empty', async () => {
     const originalError = console.error
     console.error = jest.fn()
