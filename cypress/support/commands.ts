@@ -62,12 +62,18 @@ function terminalLog(violations) {
 
   // pluck specific keys to keep the table readable
   const violationData = violations.map(
-    ({ id, impact, description, nodes }) => ({
-      id,
-      impact,
-      description,
-      nodes: nodes.length,
-    })
+    ({ id, impact, description, nodes, help, helpUrl }) => {
+      // which selector(s) caused the error
+      const target = nodes.target || nodes.map((n) => n.target).flat(2)
+      return {
+        id,
+        impact,
+        description,
+        target,
+        help,
+        helpUrl,
+      }
+    }
   )
 
   cy.task('table', violationData)
