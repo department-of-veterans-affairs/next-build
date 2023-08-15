@@ -1024,5 +1024,7 @@ const headerData = {
   ]
 }
 
+// This adds the mega menu and footer JSOn to the window object so that is usable by by the header/footer components
+
 window.VetsGov = window.VetsGov || {}
 window.VetsGov.headerFooter = (headerData)

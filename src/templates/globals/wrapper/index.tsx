@@ -7,7 +7,6 @@ import { BannerType, PromoBannerType, FacilityBannerType } from '@/types/index'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
-import { footerLinks } from '../footer/staticData/footer-links'
 export interface LayoutProps {
   props?: any
   children?: React.ReactNode
@@ -41,10 +40,10 @@ export function Wrapper({ bannerData, children }: LayoutProps) {
 
   return (
     <>
-      {showBanners ? mapBanners : null}
       <Header />
+      {showBanners ? mapBanners : null}
       <main>{children}</main>
-      <Footer links={footerLinks} />
+      <Footer />
     </>
   )
 }

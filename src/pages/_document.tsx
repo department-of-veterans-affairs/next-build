@@ -1,4 +1,4 @@
-import NextDocument, { Html, Main, NextScript, Head } from 'next/document'
+import { Html, Main, NextScript, Head } from 'next/document'
 import { GTM_ID } from '@/lib/analytics'
 import Script from 'next/script'
 
@@ -18,14 +18,14 @@ const Document = () => {
           href="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/style.css"
         />
         <Script
-          id="staticPages"
-          strategy="afterInteractive"
-          src="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/static-pages.entry.js"
-        />
-        <Script
           id="headerFooter"
           strategy="beforeInteractive"
           src="/importHeaderData.js"
+        />
+        <Script
+          id="staticPages"
+          strategy="afterInteractive"
+          src="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/static-pages.entry.js"
         />
       </Head>
       <body>
