@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
-    "export": "next build && next export",
+    "build:sitemap": "next-sitemap",
+    "export": "next build && next export && yarn build:sitemap",
     "export:serve": "http-server out -p 8001",
     "format": "prettier --write .",
     "lint": "next lint",
