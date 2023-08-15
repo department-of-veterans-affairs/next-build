@@ -5,7 +5,8 @@ import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 import { isEmpty } from 'lodash'
 import { BannerType, PromoBannerType, FacilityBannerType } from '@/types/index'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
-
+import { Header } from '../header'
+import { Footer } from '../footer/index'
 export interface LayoutProps {
   props?: any
   children?: React.ReactNode
@@ -28,7 +29,6 @@ export const formatBannerType = (bannerData) => {
 export function Wrapper({ bannerData, children }: LayoutProps) {
   const [showBanners, setShowBanners] = useState(false)
   const [mapBanners, setMapBanners] = useState([])
-
   useEffect(() => {
     if (isEmpty(bannerData)) {
       return setShowBanners(false)
@@ -40,8 +40,10 @@ export function Wrapper({ bannerData, children }: LayoutProps) {
 
   return (
     <>
-      {/* {showBanners ? mapBanners : null} */}
+      <Header />
+      {showBanners ? mapBanners : null}
       <main>{children}</main>
+      <Footer />
     </>
   )
 }
