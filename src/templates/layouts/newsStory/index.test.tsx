@@ -46,6 +46,13 @@ const data = {
 }
 
 describe('<newsStory> with valid data', () => {
+  let spy: jest.SpyInstance
+  beforeEach(() => {
+    spy = jest.spyOn(console, 'error').mockImplementation(() => null)
+  })
+  afterEach(() => {
+    spy.mockRestore()
+  })
   test('renders component', () => {
     const { container } = render(<NewsStory {...data} />)
     const imgEl = container.querySelectorAll('img')

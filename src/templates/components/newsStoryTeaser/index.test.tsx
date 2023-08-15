@@ -34,6 +34,13 @@ const teaserData = {
 }
 
 describe('<NewsStoryTeaser> with valid data', () => {
+  let spy: jest.SpyInstance
+  beforeEach(() => {
+    spy = jest.spyOn(console, 'error').mockImplementation(() => null)
+  })
+  afterEach(() => {
+    spy.mockRestore()
+  })
   test('renders component', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelectorAll('img')
