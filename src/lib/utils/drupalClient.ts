@@ -37,5 +37,6 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
 
 export const drupalClient = new DrupalClient(baseUrl, {
   fetcher,
+  // cuts # of requests down considerably going directly to entity_type--bundle
   useDefaultResourceTypeEntry: true,
 })
