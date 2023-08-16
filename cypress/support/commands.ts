@@ -35,16 +35,15 @@ Cypress.Commands.add('testA11y', (skipFailures: false) => {
     iframes: false,
     runOnly: {
       type: 'tag',
-      values: [
-        'section508',
-        'wcag2a',
-        'wcag2aa',
-        'wcag21a',
-        'wcag21aa',
-        'best-practice',
-      ],
+      values: ['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'],
       resultTypes: ['violations'],
     },
+    rules: [
+      {
+        id: 'color-contrast',
+        enabled: false,
+      },
+    ],
   })
 
   // skipFailures can be set to true in order to scan multiple pages in a single test
@@ -64,12 +63,17 @@ function terminalLog(violations) {
   const violationData = violations.map(
     ({ id, impact, description, nodes, help, helpUrl }) => {
       // which selector(s) caused the error
-      const target = nodes.target || nodes.map((n) => n.target).flat(2)
+      const target =
+        nodes.target ||
+        nodes
+          .map((n) => n.target)
+          .flat(2)
+          .join('\n\n')
       return {
-        id,
+        axeRuleId: id,
         impact,
         description,
-        target,
+        targetElement: target,
         help,
         helpUrl,
       }

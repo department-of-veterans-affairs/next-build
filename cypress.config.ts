@@ -30,8 +30,8 @@ export default defineConfig({
 
   e2e: {
     // todo: env handling for local vs CI
-    // 3000 is the port from `yarn build` && `yarn start`
-    baseUrl: 'http://localhost:8001',
+    // 8001 is the port from `yarn export:serve`
+    baseUrl: 'http://127.0.0.1:8001',
     setupNodeEvents(on, config) {
       // implement node event listeners here
       on('task', {
