@@ -5,7 +5,7 @@ it('the site should be accessible', () => {
     urls.forEach((url) => {
       cy.visit(url)
       cy.task('log', `Now testing: ${url}`)
-      cy.testA11y(true, { url }) // need to pass skipFailures boolean to check all pages
+      cy.testA11y(true) // need to pass skipFailures boolean to check all pages
     })
   })
 })

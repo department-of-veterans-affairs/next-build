@@ -35,7 +35,14 @@ Cypress.Commands.add('testA11y', (skipFailures: false) => {
     iframes: false,
     runOnly: {
       type: 'tag',
-      values: ['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'],
+      values: [
+        'section508',
+        'wcag2a',
+        'wcag2aa',
+        'wcag21a',
+        'wcag21aa',
+        'best-practice',
+      ],
       resultTypes: ['violations'],
     },
     rules: [
