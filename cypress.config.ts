@@ -12,21 +12,24 @@ export default defineConfig({
   videoCompression: false,
   videosFolder: 'cypress/videos',
   videoUploadOnPasses: false,
-  viewportHeight: 900,
+
+  includeShadowDom: false,
+
+  // from content-build
+  viewportWidth: 1920,
+  viewportHeight: 1080,
+  modifyObstructiveCode: false,
+  waitForAnimations: false,
+  chromeWebSecurity: false,
+  defaultCommandTimeout: 10000,
+  retries: {
+    runMode: 2,
+    openMode: 0,
+  },
+
   // these two below are for a11y tests in chromium
   numTestsKeptInMemory: 25,
   experimentalMemoryManagement: true,
-
-  component: {
-    devServer: {
-      framework: 'next',
-      bundler: 'webpack',
-    },
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-    specPattern: 'src/.*/__tests__/.*spec.tsx',
-  },
 
   e2e: {
     // todo: env handling for local vs CI

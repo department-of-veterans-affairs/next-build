@@ -68,7 +68,7 @@ function terminalLog(violations) {
         nodes
           .map((n) => n.target)
           .flat(2)
-          .join('\n\n')
+          .join(' ')
       return {
         axeRuleId: id,
         impact,

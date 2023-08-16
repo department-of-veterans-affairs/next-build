@@ -41,7 +41,8 @@ export function Wrapper({ bannerData, children }: LayoutProps) {
   return (
     <>
       <Header />
-      {showBanners ? mapBanners : null}
+      {/* Causing a11y failures with duplicate role="banner" */}
+      {/*{showBanners ? mapBanners : null}*/}
       <main>{children}</main>
       <Footer />
     </>
