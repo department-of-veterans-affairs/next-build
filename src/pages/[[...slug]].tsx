@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
-import { getGlobalElements } from '@/lib/context/getGlobalElements'
+// import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
@@ -82,7 +82,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       resource,
-      ...(await getGlobalElements(context)),
+      // ...(await getGlobalElements(context)),
     },
   }
 }
