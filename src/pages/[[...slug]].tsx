@@ -82,6 +82,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       resource,
+      bannerData: [],
       // ...(await getGlobalElements(context)),
     },
   }
