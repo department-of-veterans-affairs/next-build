@@ -1,8 +1,8 @@
 services:
   # Configure a standard apache webserver to host our site.
-  apache:
-    # Use the most recent version of httpd service.
-    image: tugboatqa/httpd:latest
+  web:
+    # Use the most recent version of nginx.
+    image: tugboatqa/nginx:latest
 
     # Explicitly set this as the default service
     #   1. Clones the git repository into the service container
