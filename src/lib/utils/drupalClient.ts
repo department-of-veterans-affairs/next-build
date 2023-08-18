@@ -12,9 +12,16 @@ export const useProxy =
   host.match(/cms\.va\.gov$/) && process.env.APP_ENV != 'tugboat'
 
 export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
+  const syswideCas = await import('syswide-cas')
+
+  // if using an internal VA server, add VA cert
   if (useProxy) {
-    const syswideCas = await import('syswide-cas')
     syswideCas.addCAs('certs/VA-Internal-S2-RCA-combined.pem')
+  }
+
+  // if using local cms through ddev, add the cert for https
+  if (host.match('va-gov-cms.ddev.site')) {
+    syswideCas.addCAs('certs/rootCA.pem')
   }
 
   const agent = new SocksProxyAgent('socks://127.0.0.1:2001')

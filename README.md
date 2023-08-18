@@ -28,6 +28,31 @@ You should set these up before attempting to install the repo.
 You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your
 local environment.
 
+#### Local CMS endpoint
+
+To use the local CMS as an endpoint, follow the install directions for [the CMS repo here]().
+
+While installing those dependencies, you will run `mkcert -install`. This certificate is used by ddev, and also
+needs to be used by next-build to enable connections over `https://` locally.
+
+Steps to do so:
+`mkcert -CAROOT` to find where the rootCA.pem was installed
+`cp the/above/directory/rootCA.pem path/to/next-build/certs/rootCA.pem`
+
+This certificate should be git ignored by default. In your `.env.local` file, update the endpoints to:
+
+```
+# This is the standard lower environment for Content API.
+#NEXT_PUBLIC_DRUPAL_BASE_URL=https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov
+#NEXT_IMAGE_DOMAIN=https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov
+
+# If running va.gov-cms locally
+NEXT_PUBLIC_DRUPAL_BASE_URL=https://va-gov-cms.ddev.site
+NEXT_IMAGE_DOMAIN=https://va-gov-cms.ddev.site
+```
+
+Now you can run `yarn dev` and data will be coming from your local CMS environment instead.
+
 ### Documentation (WIP)
 
 - [Code Guidelines](docs/code-guidelines.md)
