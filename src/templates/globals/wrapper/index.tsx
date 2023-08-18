@@ -33,7 +33,7 @@ export function Wrapper({ bannerData, children }: LayoutProps) {
     if (isEmpty(bannerData)) {
       return setShowBanners(false)
     } else {
-      setMapBanners(bannerData.map(formatBannerType))
+      setMapBanners(bannerData.map((banner) => formatBannerType(banner)))
       return setShowBanners(true)
     }
   }, [bannerData, showBanners])

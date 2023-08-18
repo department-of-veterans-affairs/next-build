@@ -27,14 +27,14 @@ export async function getGlobalElements(
   }
 
   const requestBanner = await drupalClient.fetch(`${bannerPath}`)
-  const bannerData = drupalClient.deserialize(await requestBanner.json())
-
-  //eslint-disable-next-line
-  const banner = formatter({ bannerData } as any)
+  const bannerData: object | unknown = drupalClient.deserialize(
+    await requestBanner.json()
+  )
+  const banners = formatter(bannerData as NodeBanner[])
 
   return {
     props: {
-      bannerData: banner || null,
+      bannerData: banners,
     },
   }
 }
