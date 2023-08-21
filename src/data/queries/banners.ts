@@ -27,7 +27,7 @@ export const formatter: QueryFormatter<
         return {
           id: banner.id,
           title: banner.title,
-          body: banner.body?.processed,
+          body: banner.body,
           alertType: banner.field_alert_type,
           dismiss,
           type: banner.type,
@@ -44,7 +44,7 @@ export const formatter: QueryFormatter<
         return {
           id: banner.id,
           title: banner.title,
-          body: banner.field_body?.processed,
+          body: banner.field_body,
           alertType: banner.field_alert_type,
           dismiss: banner.field_alert_dismissable,
           operatingStatus: banner.field_alert_operating_status_cta,
