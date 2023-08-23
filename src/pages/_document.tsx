@@ -13,6 +13,11 @@ const Document = () => {
           href="https://unpkg.com/@department-of-veterans-affairs/formation/dist/formation.min.css"
         />
         <link
+          href="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/static-pages.css"
+          data-entry-name="static-pages.css"
+          rel="stylesheet"
+        />
+        <link
           rel="stylesheet"
           data-entry-name="style.css"
           href="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/style.css"
