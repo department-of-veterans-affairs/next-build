@@ -42,6 +42,8 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
       params: queries
         .getParams('node--news_story--teaser')
         .addFilter('field_listing.id', entity.id)
+        .addSort('-changed')
+        .addPageLimit(10)
         .getQueryObject(),
     }
   )
