@@ -33,7 +33,7 @@ const Document = () => {
           src="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/static-pages.entry.js"
         />
       </Head>
-      <body>
+      <body className="merger">
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}

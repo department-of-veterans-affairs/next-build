@@ -2,7 +2,7 @@ import { TopNav } from './TopNav'
 
 export const Header = () => {
   return (
-    <header className="header merger" role="banner">
+    <header className="header" role="banner">
       {/*  Mobile Layout */}
       <div
         data-widget-type="header"
