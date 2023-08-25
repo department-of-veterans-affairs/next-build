@@ -10,6 +10,8 @@ let storyListingProps: StoryListingType = {
   published: true,
   stories: [],
   menu: { items: [], tree: [] },
+  currentPage: 1,
+  totalPages: 1,
 }
 
 describe('<StoryListing> component renders', () => {

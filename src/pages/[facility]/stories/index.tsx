@@ -4,11 +4,11 @@ import Head from 'next/head'
 
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
-// import { getGlobalElements } from '@/lib/context/getGlobalElements'
+import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
-import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
+import { StoryListing } from '@/templates/layouts/storyListing'
 
-export const RESOURCE_TYPES = ['node--q_a'] as const
+export const RESOURCE_TYPES = ['node--story_listing'] as const
 
 export default function ResourcePage({ resource, props }) {
   if (!resource) return null
@@ -20,22 +20,43 @@ export default function ResourcePage({ resource, props }) {
       <Head>
         <title>{title}</title>
       </Head>
-      {resource.type === 'node--q_a' && <QuestionAnswer {...resource} />}
+      <StoryListing {...resource} />
     </Wrapper>
   )
 }
 
 export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
+  const results = await drupalClient.getStaticPathsFromContext(
+    Array.from(RESOURCE_TYPES),
+    context
+  )
+
+  const paths = results.map((path) => {
+    if (typeof path === 'string') {
+      return {
+        params: {
+          facility: path,
+          page: '1',
+        },
+      }
+    }
+
+    return {
+      params: {
+        facility: path.params.slug[0],
+        page: '1',
+      },
+    }
+  })
+
   return {
-    paths: await drupalClient.getStaticPathsFromContext(
-      Array.from(RESOURCE_TYPES),
-      context
-    ),
+    paths,
     fallback: 'blocking',
   }
 }
 
 export async function getStaticProps(context) {
+  context.params.slug = `${context.params.facility}/stories`
   const path = await drupalClient.translatePathFromContext(context)
 
   if (!path) {
@@ -55,6 +76,7 @@ export async function getStaticProps(context) {
   const resource = await queries.getData(type, {
     context,
     id: path.entity.uuid,
+    page: 1,
   })
 
   if (!resource) {
@@ -72,8 +94,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       resource,
-      bannerData: [],
-      // ...(await getGlobalElements(context)),
+      ...(await getGlobalElements(context)),
     },
   }
 }
