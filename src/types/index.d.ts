@@ -128,6 +128,8 @@ export type StoryListingType = PublishedEntity & {
   introText: string
   stories: NewsStoryTeaserType[]
   menu: Menu
+  currentPage: number
+  totalPages: number
 }
 
 export type StoryListingLinkType = {

@@ -45,6 +45,7 @@
     "drupal-jsonapi-params": "^2.0.0",
     "jest-axe": "^6.0.0",
     "jest-extended": "^4.0.1",
+    "jsona": "^1.11.0",
     "lodash": "^4.17.21",
     "mq-polyfill": "^1.1.8",
     "next": "^13.4.12",

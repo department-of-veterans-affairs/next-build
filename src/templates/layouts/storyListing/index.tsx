@@ -2,13 +2,14 @@
  * ### Overview
  * Story Listing represents an individual story within a Facility. These are used for human-interest articles.
  *
- * Story Listing expects datca of type {@link StoryListingType}.
+ * Story Listing expects data of type {@link StoryListingType}.
  *
  * ### Examples
  * @see https://va.gov/pittsburgh-health-care/stories/
  *
  */
 
+import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { NewsStoryTeaserType, StoryListingType } from '@/types/index'
 import Container from '@/templates/common/container'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
@@ -20,6 +21,8 @@ export function StoryListing({
   introText,
   stories,
   menu,
+  currentPage,
+  totalPages,
 }: StoryListingType) {
   const storyTeasers =
     stories?.length > 0 ? (
@@ -44,6 +47,21 @@ export function StoryListing({
               <ul className="usa-unstyled-list">{storyTeasers}</ul>
             </Container>
           </div>
+
+          {totalPages > 1 && (
+            <VaPagination
+              page={currentPage}
+              pages={totalPages}
+              maxPageListLength={3}
+              onPageSelect={(page) => {
+                const base = window.location.href.replace(
+                  /(?<=stories\/).*/, // everything after /stories/
+                  ''
+                )
+                window.location.assign(base + `${page.detail.page}`)
+              }}
+            />
+          )}
         </div>
       </div>
     </div>
