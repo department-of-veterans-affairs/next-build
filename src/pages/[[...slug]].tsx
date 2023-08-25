@@ -16,13 +16,13 @@ export const RESOURCE_TYPES = [
   'node--q_a',
 ] as const
 
-export default function ResourcePage({ resource, props }) {
+export default function ResourcePage({ resource, globalElements }) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
 
   return (
-    <Wrapper {...props}>
+    <Wrapper bannerData={globalElements.bannerData}>
       <Head>
         <title>{title}</title>
       </Head>
@@ -82,7 +82,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       resource,
-      ...(await getGlobalElements(context)),
+      globalElements: await getGlobalElements(context),
     },
   }
 }

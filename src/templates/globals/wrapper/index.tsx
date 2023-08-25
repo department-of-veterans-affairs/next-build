@@ -3,14 +3,14 @@ import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 import { isEmpty } from 'lodash'
-import { BannerType, PromoBannerType, FacilityBannerType } from '@/types/index'
+import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
 export interface LayoutProps {
   props?: any
   children?: React.ReactNode
-  bannerData?: BannerType[] | PromoBannerType[] | FacilityBannerType[]
+  bannerData?: NodeBanner[]
 }
 
 export const formatBannerType = (bannerData) => {
@@ -28,12 +28,12 @@ export const formatBannerType = (bannerData) => {
 
 export function Wrapper({ bannerData, children }: LayoutProps) {
   const [showBanners, setShowBanners] = useState(false)
-  const [mapBanners, setMapBanners] = useState([])
+  const [banners, setBanners] = useState([])
   useEffect(() => {
     if (isEmpty(bannerData)) {
       return setShowBanners(false)
     } else {
-      setMapBanners(bannerData.map((banner) => formatBannerType(banner)))
+      setBanners(bannerData.map(formatBannerType))
       return setShowBanners(true)
     }
   }, [bannerData, showBanners])
@@ -41,7 +41,7 @@ export function Wrapper({ bannerData, children }: LayoutProps) {
   return (
     <>
       <Header />
-      {showBanners ? mapBanners : null}
+      {showBanners ? banners : null}
       <main>{children}</main>
       <Footer />
     </>

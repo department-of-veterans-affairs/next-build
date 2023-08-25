@@ -31,8 +31,6 @@ export async function getGlobalElements(
   )
   const banners = formatter(bannerData as NodeBanner[])
   return {
-    props: {
-      bannerData: banners,
-    },
+    bannerData: banners as NodeBanner[],
   }
 }

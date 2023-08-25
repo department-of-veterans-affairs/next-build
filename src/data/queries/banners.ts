@@ -16,7 +16,7 @@ export const BannerTypeMapping = {
 
 export const formatter: QueryFormatter<
   NodeBanner[],
-  Array<PromoBannerType | BannerType | FacilityBannerType>
+  Array<PromoBannerType | BannerType | FacilityBannerType | NodeBanner>
 > = (entities: NodeBanner[]) => {
   return entities?.map((banner) => {
     switch (banner?.type as string) {
