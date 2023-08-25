@@ -72,15 +72,16 @@ export async function getStaticProps(context) {
     ? `${context.params.facility}/stories`
     : `${context.params.facility}/stories/${context.params.page}`
 
+  // not possible with static builds
   // redirect /stories/1 to /stories/
-  if (Number(context.params.page) === 1) {
-    return {
-      redirect: {
-        destination: `/${context.params.facility}/stories/`,
-        permanent: false,
-      },
-    }
-  }
+  // if (Number(context.params.page) === 1) {
+  //   return {
+  //     redirect: {
+  //       destination: `/${context.params.facility}/stories/`,
+  //       permanent: false,
+  //     },
+  //   }
+  // }
 
   const path = await drupalClient.translatePathFromContext(context)
 
