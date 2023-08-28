@@ -58,8 +58,57 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
     }
   })
 
+  const paginated = []
+
+  paths.forEach(async (path) => {
+    try {
+      // Gross, but need to do this in order to determine # of paginated pages that should be generated
+      if (path.params.page === '1') {
+        context.params = {}
+        context.params.slug = `${path.params.facility}/stories`
+        const resourcePath = await drupalClient.translatePathFromContext(
+          context
+        )
+
+        // get the base story listing page, it has totalPages on it
+        const resource = await queries.getData('node--story_listing', {
+          context,
+          id: resourcePath.entity.uuid,
+          page: 1,
+        })
+
+        const pages = resource.totalPages
+
+        // add additional pages to array based on response above
+        if (pages > 1) {
+          const extraPages = Array.from({ length: pages }, (_, i) => ({
+            params: {
+              facility: path.params.facility,
+              page: (i + 1).toString(),
+            },
+          }))
+
+          // remove the first extraPage (/stories/1)
+          extraPages.shift()
+
+          paginated.push(...extraPages)
+        }
+      } else {
+        // push the existing path into the new array
+        paginated.push({
+          params: {
+            facility: path.params.facility,
+            page: path.params.page,
+          },
+        })
+      }
+    } catch (e) {
+      console.error(`Error: ${e}`)
+    }
+  }, Error())
+
   return {
-    paths,
+    paths: paginated,
     fallback: 'blocking',
   }
 }
