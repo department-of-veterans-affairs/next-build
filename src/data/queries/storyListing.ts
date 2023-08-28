@@ -75,7 +75,7 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
     entity,
     stories: deserialize(stories) as NodeNewsStory[],
     menu,
-    total: stories.meta.count / 10,
+    total: Math.ceil(stories.meta.count / 10),
     current: opts?.page || 1,
   }
 }
