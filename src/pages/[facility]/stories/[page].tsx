@@ -53,7 +53,7 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
     return {
       params: {
         facility: path.params.slug[0],
-        page: '1', // this seems to get overwritten before getStaticProps
+        page: path.params.slug[2] || '1',
       },
     }
   })
@@ -102,7 +102,10 @@ export async function getStaticProps(context) {
   const resource = await queries.getData(type, {
     context,
     id: path.entity.uuid,
-    page: Number(context.params?.page), // this is where storyListing gets paginated
+    page:
+      type === 'node--story_listing'
+        ? Number(context.params?.page) // where storyListing gets paginated
+        : context.params?.page, // otherwise the news story name
   })
 
   if (!resource) {
