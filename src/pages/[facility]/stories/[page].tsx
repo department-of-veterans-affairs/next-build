@@ -52,6 +52,7 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
 
     return {
       params: {
+        slug: path.params.slug,
         facility: path.params.slug[0],
         page: path.params.slug[2] || '1',
       },
@@ -83,6 +84,7 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
         if (pages > 1) {
           const extraPages = Array.from({ length: pages }, (_, i) => ({
             params: {
+              slug: path.params.slug,
               facility: path.params.facility,
               page: (i + 1).toString(),
             },
@@ -97,6 +99,7 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
         // push the existing path into the new array
         paginated.push({
           params: {
+            slug: path.params.slug,
             facility: path.params.facility,
             page: path.params.page,
           },
@@ -118,19 +121,8 @@ export async function getStaticProps(context) {
   // Drupal doesn't have nodes for .../stories/2/ etc. Paginate the list of stories in the query
   // See @data/queries/storyListing.ts
   context.params.slug = Number(context.params?.page)
-    ? `${context.params.facility}/stories`
-    : `${context.params.facility}/stories/${context.params.page}`
-
-  // not possible with static builds
-  // redirect /stories/1 to /stories/
-  // if (Number(context.params.page) === 1) {
-  //   return {
-  //     redirect: {
-  //       destination: `/${context.params.facility}/stories/`,
-  //       permanent: false,
-  //     },
-  //   }
-  // }
+    ? [context.params.facility, 'stories']
+    : [context.params.facility, 'stories', context.params.page]
 
   const path = await drupalClient.translatePathFromContext(context)
 
