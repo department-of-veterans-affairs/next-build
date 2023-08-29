@@ -3,7 +3,6 @@ import { formatter } from '@/data/queries/banners'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { LayoutProps } from '@/templates/globals/wrapper'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
-import { BannerType, PromoBannerType, FacilityBannerType } from '@/types/index'
 
 // This is a helper function to fetch global elements for layout.
 // This is going to be run for every pages on build.
@@ -27,14 +26,11 @@ export async function getGlobalElements(
   }
 
   const requestBanner = await drupalClient.fetch(`${bannerPath}`)
-  const bannerData = drupalClient.deserialize(await requestBanner.json())
-
-  //eslint-disable-next-line
-  const banner = formatter({ bannerData } as any)
-
+  const bannerData: object | unknown = drupalClient.deserialize(
+    await requestBanner.json()
+  )
+  const banners = formatter(bannerData as NodeBanner[])
   return {
-    props: {
-      bannerData: banner || null,
-    },
+    bannerData: banners as NodeBanner[],
   }
 }
