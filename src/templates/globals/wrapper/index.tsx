@@ -7,10 +7,12 @@ import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
+import { BannerType, FacilityBannerType, PromoBannerType } from '@/types/index'
 export interface LayoutProps {
-  props?: any
   children?: React.ReactNode
-  bannerData?: NodeBanner[]
+  bannerData?: Array<
+    NodeBanner | PromoBannerType | BannerType | FacilityBannerType
+  >
 }
 
 export const formatBannerType = (bannerData) => {
