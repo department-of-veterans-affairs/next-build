@@ -47,4 +47,16 @@ describe('<Wrapper> renders', () => {
       screen.queryByText(/This is the banner body/)
     ).not.toBeInTheDocument()
   })
+
+  test('Header and Footer are present', () => {
+    const props = { bannerData: banners }
+
+    render(<Wrapper bannerData={props.bannerData}>{children}</Wrapper>)
+
+    expect(screen.getByRole('banner')).toHaveClass('header')
+
+    const footer = screen.getByTestId('footer')
+    // not sure why, there is only one contentinfo role present
+    expect(screen.getAllByRole('contentinfo')[0]).toContainElement(footer)
+  })
 })
