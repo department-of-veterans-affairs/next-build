@@ -9,13 +9,12 @@ import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
-import { PAGE_SIZE as STORY_LISTING_PAGE_SIZE } from '@/data/queries/storyListing'
-
-export const RESOURCE_TYPES = {
-  STORY_LISTING: 'node--story_listing',
-  STORY: 'node--news_story',
-  QA: 'node--q_a',
-} as const
+import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
+import {
+  getAllPagedListingPaths,
+  isAdditionalStoryListingPath,
+  LISTING_PAGE_NUMBER_REGEX,
+} from '@/lib/utils/listingPages'
 
 export default function ResourcePage({ resource, globalElements }) {
   if (!resource) return null
@@ -36,77 +35,6 @@ export default function ResourcePage({ resource, globalElements }) {
   )
 }
 
-async function getListingPageCount(
-  listingPagePath,
-  resourceType
-): Promise<number> {
-  const resourcePath = listingPagePath?.params?.slug?.join?.('/') || ''
-  const pathInfo = await drupalClient.translatePath(resourcePath)
-  if (pathInfo?.entity?.uuid) {
-    const resource = await queries.getData(resourceType, {
-      id: pathInfo.entity.uuid,
-    })
-
-    return resource?.totalPages || 0
-  }
-
-  return 0
-}
-
-async function getListingPagePathsWithPageData(listingPagePaths) {
-  return Promise.all(
-    listingPagePaths.map(async (listingPagePath) => {
-      const path =
-        typeof listingPagePath === 'string'
-          ? {
-              params: {
-                slug: [listingPagePath],
-              },
-            }
-          : listingPagePath
-
-      const totalPages = await getListingPageCount(
-        path,
-        RESOURCE_TYPES.STORY_LISTING
-      )
-
-      return {
-        ...path,
-        pageData: {
-          totalPages,
-          pageSize: STORY_LISTING_PAGE_SIZE,
-        },
-      }
-    })
-  )
-}
-
-function getAllPagedListingPaths(pathsWithPageData) {
-  return pathsWithPageData.reduce((acc, storyListingPath) => {
-    // We always build the first page
-    const firstPagePath = {
-      params: {
-        slug: [storyListingPath?.params?.slug[0], 'stories'],
-      },
-    }
-
-    // There might be additional pages
-    if (storyListingPath.pageData.totalPages <= 1) {
-      return [...acc, firstPagePath]
-    } else {
-      const additionalPagePaths = Array.from({
-        length: storyListingPath.pageData.totalPages - 1,
-      }).map((_, i) => ({
-        params: {
-          slug: [storyListingPath?.params?.slug[0], 'stories', `page-${i + 2}`],
-        },
-      }))
-
-      return [...acc, firstPagePath, ...additionalPagePaths]
-    }
-  }, [])
-}
-
 async function getAllStoryListingStaticPaths(
   context: GetStaticPathsContext
 ): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
@@ -117,39 +45,30 @@ async function getAllStoryListingStaticPaths(
     )
   ).slice(0, 10)
 
-  // Paging step 1: Determine the number of pages for each listing
-  const storyListingPathsWithPageData = await getListingPagePathsWithPageData(
-    storyListingPaths
+  // Setup paging for listing pages
+  return await getAllPagedListingPaths(
+    storyListingPaths,
+    RESOURCE_TYPES.STORY_LISTING
   )
-  // Paging step 2: Each listing path will become multiple paths, one for each of its pages
-  const allStoryListingPaths = getAllPagedListingPaths(
-    storyListingPathsWithPageData
-  )
-
-  return allStoryListingPaths
 }
 
 async function getAllStoryStaticPaths(
   context: GetStaticPathsContext
 ): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
-  const storyPaths = (
+  return (
     await drupalClient.getStaticPathsFromContext(
       [RESOURCE_TYPES.STORY],
       context
     )
   ).slice(0, 10)
-
-  return storyPaths
 }
 
 async function getAllQaStaticPaths(
   context: GetStaticPathsContext
 ): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
-  const qaPaths = (
+  return (
     await drupalClient.getStaticPathsFromContext([RESOURCE_TYPES.QA], context)
   ).slice(0, 10)
-
-  return qaPaths
 }
 
 export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
@@ -170,12 +89,6 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
   }
 }
 
-const PAGE_NUMBER_REGEX = /^page-(\d)+$/ as RegExp
-
-function isAdditionalStoryListingPath(slug: string[]): boolean {
-  return slug?.[1] === 'stories' && PAGE_NUMBER_REGEX.test(slug?.[2])
-}
-
 export async function getStaticProps(context) {
   const { slug } = context.params
   let path = slug.join('/')
@@ -186,7 +99,7 @@ export async function getStaticProps(context) {
   // page number
   if (isAdditionalStoryListingPath(slug)) {
     path = `${slug[0]}/${slug[1]}`
-    pageNumber = slug[2].match(PAGE_NUMBER_REGEX)?.[1]
+    pageNumber = slug[2].match(LISTING_PAGE_NUMBER_REGEX)?.[1]
   }
 
   const pathInfo = await drupalClient.translatePath(path)
