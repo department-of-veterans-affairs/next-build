@@ -56,7 +56,7 @@ export function StoryListing({
               onPageSelect={(page) => {
                 const newPage = window.location.href.replace(
                   /(?<=stories\/).*/, // everything after /stories/
-                  page.detail.page
+                  `page-${page.detail.page}`
                 )
                 window.location.assign(newPage)
               }}

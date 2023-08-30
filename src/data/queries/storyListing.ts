@@ -13,6 +13,8 @@ import { Menu } from '@/types/dataTypes/drupal/menu'
 import { StoryListingType } from '@/types/index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
+export const PAGE_SIZE = 10 as const
+
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
   return queries.getParams().addInclude(['field_office'])
@@ -51,7 +53,7 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
         .addFilter('field_listing.id', entity.id)
         .addSort('-changed')
         .addPageLimit(10)
-        .addPageOffset((opts?.page - 1) * 10)
+        .addPageOffset(((opts?.page || 1) - 1) * 10)
         .getQueryObject(),
       deserialize: false,
     }
