@@ -23,9 +23,9 @@ export interface FieldFormattedTextWithSummary extends FieldFormattedText {
 export interface FieldLink {
   uri: string
   title: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options: any[]
 }
-
 export interface FieldOfficeHours {
   day: number
   starthours: number
