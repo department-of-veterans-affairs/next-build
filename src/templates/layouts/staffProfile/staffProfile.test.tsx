@@ -20,7 +20,7 @@ const props = {
 }
 
 describe('StaffProfile with valid data', () => {
-  test.skip('renders StaffProfile component', () => {
+  test('renders StaffProfile component', () => {
     const { container } = render(<StaffProfile {...props} />)
     const imageMeta = screen.getByRole('img')
     const aEl = container.querySelectorAll('a')
