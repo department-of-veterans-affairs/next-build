@@ -53,7 +53,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
     caption: entity.field_image_caption,
     author: entity.field_author,
     introText: entity.field_intro_text,
-    bodyContent: entity.field_full_story?.processed,
+    bodyContent: entity.field_full_story,
     date: entity.created,
     socialLinks: {
       path: entity.path.alias,
