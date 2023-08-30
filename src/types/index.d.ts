@@ -161,7 +161,7 @@ interface MenuItemProps {
   enabled: boolean
   items?: Tree
   depth?: number
-  children?: any
+  children?: ReactChildren
 }
 
 type Tree = ReadonlyArray<MenuItemProps>

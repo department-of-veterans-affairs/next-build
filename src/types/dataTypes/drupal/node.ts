@@ -101,10 +101,8 @@ export interface NodeFullWidthBannerAlert extends DrupalNode {
 }
 
 export interface NodeBannerAlertVAMCS extends DrupalNode {
-  field_administration: any
   field_banner_alert: string[]
   field_facility_operating_status: NodeHealthCareLocalFacility
-  field_office: any
   field_operating_status_emerg_inf: FieldFormattedText
 }
 
