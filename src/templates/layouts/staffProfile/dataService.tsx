@@ -1,6 +1,6 @@
 // TODO: refactor this file to the @data/queries directory
 import { ParagraphStaffProfile } from '@/types/dataTypes/drupal/paragraph'
-import { StaffProfileProps } from './index'
+import { StaffProfileType } from '@/types/index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 function isRequestValid(paragraph) {
@@ -10,7 +10,7 @@ function isRequestValid(paragraph) {
 export const transformStaffProfileData = function (
   entity: ParagraphStaffProfile,
   viewMode?: string
-): StaffProfileProps {
+): StaffProfileType {
   if (!entity || !isRequestValid(entity)) return
 
   const name =

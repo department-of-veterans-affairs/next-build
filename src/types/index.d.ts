@@ -112,6 +112,17 @@ export type PersonProfileType = {
   office: NodeOffice | NodeHealthCareRegionPage
 }
 
+export type StaffProfileType = {
+  id: string
+  name: string
+  thumbnail?: ImageProps
+  linkToBio?: boolean
+  path?: string | null
+  description?: string
+  phone?: string
+  email?: string
+}
+
 export type StoryListingType = PublishedEntity & {
   title: string
   introText: string
