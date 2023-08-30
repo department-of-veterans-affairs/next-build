@@ -6,14 +6,14 @@ const socialLinks = {
   path: '/pittsburgh-health-care/stories/we-honor-outstanding-doctors',
 }
 
-test.skip('<SocialLinks> component renders', () => {
+test('<SocialLinks> component renders', () => {
   const { container } = render(<SocialLinks {...socialLinks} />)
 
   const aEl = container.querySelectorAll('a')
   const iEl = container.querySelectorAll('i')
   expect(aEl[0]).toHaveAttribute(
     'href',
-    'https://www.facebook.com/sharer/sharer.php?href=https://dev.cms.va.gov/pittsburgh-health-care/stories/we-honor-outstanding-doctors'
+    'https://www.facebook.com/sharer/sharer.php?href=/pittsburgh-health-care/stories/we-honor-outstanding-doctors'
   )
   expect(iEl[0]).toHaveAttribute(
     'class',
@@ -23,7 +23,7 @@ test.skip('<SocialLinks> component renders', () => {
 
   expect(aEl[1]).toHaveAttribute(
     'href',
-    'https://twitter.com/intent/tweet?text=We honor outstanding doctors&url=https://dev.cms.va.gov/pittsburgh-health-care/stories/we-honor-outstanding-doctors'
+    'https://twitter.com/intent/tweet?text=We honor outstanding doctors&url=/pittsburgh-health-care/stories/we-honor-outstanding-doctors'
   )
   expect(iEl[1]).toHaveAttribute(
     'class',
