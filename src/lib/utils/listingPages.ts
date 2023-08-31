@@ -6,16 +6,14 @@ const RESOURCE_TYPE_URL_SEGMENTS = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
 } as const
 
-export const LISTING_PAGE_NUMBER_REGEX = /^page-(\d)+$/
-
 async function getListingPageCount(
   listingPagePath,
-  resourceType
+  listingResourceType
 ): Promise<number> {
   const resourcePath = listingPagePath?.params?.slug?.join?.('/') || ''
   const pathInfo = await drupalClient.translatePath(resourcePath)
   if (pathInfo?.entity?.uuid) {
-    const resource = await queries.getData(resourceType, {
+    const resource = await queries.getData(listingResourceType, {
       id: pathInfo.entity.uuid,
     })
 
@@ -25,9 +23,16 @@ async function getListingPageCount(
   return 0
 }
 
-async function getListingPagePathsWithPagingData(listingPaths) {
+async function getListingPagePathsWithPagingData(
+  listingPaths,
+  listingResourceType
+) {
+  if (!listingPaths?.length) {
+    return []
+  }
+
   return Promise.all(
-    listingPaths.map(async (listingPath) => {
+    listingPaths?.map?.(async (listingPath) => {
       const path =
         typeof listingPath === 'string'
           ? {
@@ -37,10 +42,7 @@ async function getListingPagePathsWithPagingData(listingPaths) {
             }
           : listingPath
 
-      const totalPages = await getListingPageCount(
-        path,
-        RESOURCE_TYPES.STORY_LISTING
-      )
+      const totalPages = await getListingPageCount(path, listingResourceType)
 
       return {
         ...path,
@@ -89,7 +91,8 @@ export async function getAllPagedListingPaths(
 ) {
   // Paging step 1: Determine the number of pages for each listing
   const listingPathsWithPagingData = await getListingPagePathsWithPagingData(
-    listingPaths
+    listingPaths,
+    listingResourceType
   )
   // Paging step 2: Each listing path will become multiple paths, one for each of its pages
   const allListingPaths = addPathsFromPagingData(
@@ -98,8 +101,4 @@ export async function getAllPagedListingPaths(
   )
 
   return allListingPaths
-}
-
-export function isAdditionalStoryListingPath(slug: string[]): boolean {
-  return slug?.[1] === 'stories' && LISTING_PAGE_NUMBER_REGEX.test(slug?.[2])
 }
