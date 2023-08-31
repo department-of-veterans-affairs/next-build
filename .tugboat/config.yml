@@ -14,8 +14,8 @@ services:
     commands:
       # Initialize the server.
       init:
-        - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-        - apt-get install -y nodejs
+        # Install node and yarn
+        - ./scripts/install-nvm.sh
         - corepack enable
         - corepack prepare yarn@stable --activate
 
