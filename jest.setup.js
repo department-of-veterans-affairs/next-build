@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import 'jest-axe/extend-expect'
-import nock, { back as nockBack } from 'nock'
+import { back as nockBack } from 'nock'
 import { loadEnvConfig } from '@next/env'
 
 const matchers = require('jest-extended')

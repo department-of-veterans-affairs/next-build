@@ -50,7 +50,7 @@ describe('<BenefitsHubLinks> with invalid data', () => {
   test('does not renders component', () => {
     benefitHubProps = null
 
-    const { container } = render(<BenefitsHubLinks {...benefitHubProps} />)
+    render(<BenefitsHubLinks {...benefitHubProps} />)
 
     expect(
       screen.queryByText(/Deciding how much life insurance to get/)

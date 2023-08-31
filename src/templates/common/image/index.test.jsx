@@ -1,4 +1,4 @@
-import { axe, faker, render, waitFor } from 'test-utils'
+import { axe, render, waitFor } from 'test-utils'
 import Image from '.'
 import mock_media_image from './mediaImageIndividual.json'
 
@@ -6,8 +6,6 @@ const getUrl = (data) =>
   data.included.filter((obj) => obj.type == 'file--file')[0].attributes.uri.url
 
 const getAltText = (data) => data.data.relationships.image.data.meta.alt
-const getWidth = (data) => data.data.relationships.image.data.meta.width
-const getHeight = (data) => data.data.relationships.image.data.meta.height
 
 describe('Image Component', () => {
   beforeEach(() => {

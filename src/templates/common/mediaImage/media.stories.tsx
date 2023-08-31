@@ -1,7 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { MediaImage } from './index'
-import { MediaImageType } from '@/types/index'
 import data from './mockMedia.json'
 
 export default {
