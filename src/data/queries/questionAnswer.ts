@@ -8,9 +8,8 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
 import { NodeQA } from '@/types/dataTypes/drupal/node'
 import { QuestionAnswerType } from '@/types/index'
-import { generalEntityDataService } from '../delegators/generalEntityDataService'
 
-// Define the query params for fetching node--news_story.
+// Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {
   return queries.getParams().addInclude([
     'field_answer',

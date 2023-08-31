@@ -112,6 +112,17 @@ export type PersonProfileType = {
   office: NodeOffice | NodeHealthCareRegionPage
 }
 
+export type StaffProfileType = {
+  id: string
+  name: string
+  thumbnail?: ImageProps
+  linkToBio?: boolean
+  path?: string | null
+  description?: string
+  phone?: string
+  email?: string
+}
+
 export type StoryListingType = PublishedEntity & {
   title: string
   introText: string
@@ -135,6 +146,7 @@ export type LinkTeaserType = {
   summary: string
   uri: string
   parentField: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options: any[]
   componentParams: {
     boldTitle: boolean
@@ -150,7 +162,7 @@ interface MenuItemProps {
   enabled: boolean
   items?: Tree
   depth?: number
-  children?: any
+  children?: ReactChildren
 }
 
 type Tree = ReadonlyArray<MenuItemProps>

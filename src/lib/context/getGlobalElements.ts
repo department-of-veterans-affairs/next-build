@@ -26,11 +26,11 @@ export async function getGlobalElements(
   }
 
   const requestBanner = await drupalClient.fetch(`${bannerPath}`)
-  const bannerData: object | unknown = drupalClient.deserialize(
+  const bannerData: [] | unknown = drupalClient.deserialize(
     await requestBanner.json()
   )
   const banners = formatter(bannerData as NodeBanner[])
   return {
-    bannerData: banners as NodeBanner[],
+    bannerData: banners,
   }
 }

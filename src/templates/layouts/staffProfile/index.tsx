@@ -1,15 +1,5 @@
 import { MediaImage } from '@/templates/common/mediaImage'
-
-export type StaffProfileProps = {
-  id: string
-  name: string
-  thumbnail?: any
-  linkToBio?: boolean
-  path?: string | null
-  description?: string
-  phone?: string
-  email?: string
-}
+import { StaffProfileType } from '@/types/index'
 
 export function StaffProfile({
   id,
@@ -20,7 +10,7 @@ export function StaffProfile({
   description,
   phone,
   email,
-}: StaffProfileProps) {
+}: StaffProfileType) {
   return (
     <article key={id} className="usa-content">
       <div className="vads-u-display--flex vads-u-margin-bottom--4 vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">

@@ -101,10 +101,8 @@ export interface NodeFullWidthBannerAlert extends DrupalNode {
 }
 
 export interface NodeBannerAlertVAMCS extends DrupalNode {
-  field_administration: any
   field_banner_alert: string[]
   field_facility_operating_status: NodeHealthCareLocalFacility
-  field_office: any
   field_operating_status_emerg_inf: FieldFormattedText
 }
 
@@ -205,7 +203,7 @@ export interface NodeNewsStory extends DrupalNode {
   /** The credited author of the story. {@link NodePersonProfile} */
   field_author: NodePersonProfile
   /** The primary story text. */
-  field_full_story: FieldFormattedText
+  field_full_story: string
   /** Caption for the attached image. */
   field_image_caption: string
   /** Whether this story is floated to the top of its listing. */

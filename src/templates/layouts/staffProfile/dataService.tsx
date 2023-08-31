@@ -1,9 +1,6 @@
-import { EntityMetaInfo } from '@/data/delegators/entityMetaProvider'
-import {
-  ParagraphStaffProfile,
-  ParagraphResourceType,
-} from '@/types/dataTypes/drupal/paragraph'
-import { StaffProfile, StaffProfileProps } from './index'
+// TODO: refactor this file to the @data/queries directory
+import { ParagraphStaffProfile } from '@/types/dataTypes/drupal/paragraph'
+import { StaffProfileType } from '@/types/index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 function isRequestValid(paragraph) {
@@ -13,7 +10,7 @@ function isRequestValid(paragraph) {
 export const transformStaffProfileData = function (
   entity: ParagraphStaffProfile,
   viewMode?: string
-): StaffProfileProps {
+): StaffProfileType {
   if (!entity || !isRequestValid(entity)) return
 
   const name =
@@ -44,10 +41,3 @@ const params = new DrupalJsonApiParams()
     'field_listing',
   ])
   .addPageLimit(10)
-
-export const Meta: EntityMetaInfo = {
-  resource: ParagraphResourceType.StaffProfile,
-  component: StaffProfile,
-  dataService: transformStaffProfileData,
-  params: params,
-}
