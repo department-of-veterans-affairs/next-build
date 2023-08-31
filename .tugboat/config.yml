@@ -14,9 +14,21 @@ services:
     commands:
       # Initialize the server.
       init:
-        # Install node and yarn
-        - bash ./scripts/install_nvm.sh
-        - npm install -g corepack
+        # Define the desired Node.js major version
+        - NODE_MAJOR=18
+        - # Create a directory for the new repository's keyring, if it doesn't exist
+        - mkdir -p /etc/apt/keyrings
+        - # Download the new repository's GPG key and save it in the keyring directory
+        - curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+        - # Add the new repository's source list with its GPG key for package verification
+        - echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_${NODE_MAJOR}.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+        # Update local package index to recognize the new repository
+        - sudo apt-get update
+
+        # Install Node.js from the new repository
+        - sudo apt-get install -y nodejs
+
+        # Install yarn
         - corepack enable
         - corepack prepare yarn@stable --activate
 
