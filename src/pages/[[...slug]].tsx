@@ -1,5 +1,9 @@
 import * as React from 'react'
-import { GetStaticPathsContext, GetStaticPathsResult } from 'next'
+import {
+  GetStaticPathsContext,
+  GetStaticPathsResult,
+  GetStaticPropsContext,
+} from 'next'
 import Head from 'next/head'
 
 import { drupalClient } from '@/lib/utils/drupalClient'
@@ -10,11 +14,11 @@ import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
+import { getPathAndPageNumberFromSlug } from '@/lib/utils/slug'
 import {
-  getAllPagedListingPaths,
-  isAdditionalStoryListingPath,
-  LISTING_PAGE_NUMBER_REGEX,
-} from '@/lib/utils/listingPages'
+  getAllStoryListingStaticPaths,
+  getStaticPathsByResourceType,
+} from '@/lib/utils/staticPaths'
 
 export default function ResourcePage({ resource, globalElements }) {
   if (!resource) return null
@@ -35,43 +39,13 @@ export default function ResourcePage({ resource, globalElements }) {
   )
 }
 
-async function getAllStoryListingStaticPaths(
+export async function getStaticPaths(
   context: GetStaticPathsContext
-): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
-  const storyListingPaths = (
-    await drupalClient.getStaticPathsFromContext(
-      [RESOURCE_TYPES.STORY_LISTING],
-      context
-    )
-  ).slice(0, 10)
-
-  // Setup paging for listing pages
-  return await getAllPagedListingPaths(
-    storyListingPaths,
-    RESOURCE_TYPES.STORY_LISTING
-  )
-}
-
-async function getAllStoryStaticPaths(
-  context: GetStaticPathsContext
-): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
-  return (
-    await drupalClient.getStaticPathsFromContext(
-      [RESOURCE_TYPES.STORY],
-      context
-    )
-  ).slice(0, 10)
-}
-
-async function getAllQaStaticPaths(
-  context: GetStaticPathsContext
-): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
-  return (
-    await drupalClient.getStaticPathsFromContext([RESOURCE_TYPES.QA], context)
-  ).slice(0, 10)
-}
-
-export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
+): Promise<GetStaticPathsResult> {
+  // `getStaticPaths` is run on every request in dev mode (`next dev`). We don't need this,
+  // so we set SSG=true on `next build/export` and SSG=false on `next dev`.
+  // `getStaticPaths` will never be called during runtime (`next start`), but we could set
+  // SSG=false there as well, for good measure.
   if (!process.env.SSG) {
     return {
       paths: [],
@@ -80,8 +54,11 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
   }
 
   const storyListingPaths = await getAllStoryListingStaticPaths(context)
-  const storyPaths = await getAllStoryStaticPaths(context)
-  const qaPaths = await getAllQaStaticPaths(context)
+  const storyPaths = await getStaticPathsByResourceType(
+    RESOURCE_TYPES.STORY,
+    context
+  )
+  const qaPaths = await getStaticPathsByResourceType(RESOURCE_TYPES.QA, context)
 
   return {
     paths: [...storyListingPaths, ...storyPaths, ...qaPaths],
@@ -89,18 +66,9 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
   }
 }
 
-export async function getStaticProps(context) {
-  const { slug } = context.params
-  let path = slug.join('/')
-  let pageNumber = 1
-
-  // If this is a story listing path and not the first page, it's a generated path and
-  // Drupal will not know about it. We need to set the path to the first page and pass the
-  // page number
-  if (isAdditionalStoryListingPath(slug)) {
-    path = `${slug[0]}/${slug[1]}`
-    pageNumber = slug[2].match(LISTING_PAGE_NUMBER_REGEX)?.[1]
-  }
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const { slug = [] } = context.params
+  const [path, pageNumber] = getPathAndPageNumberFromSlug(slug)
 
   const pathInfo = await drupalClient.translatePath(path)
   if (!pathInfo) {
@@ -120,9 +88,8 @@ export async function getStaticProps(context) {
   const resource = await queries.getData(resourceType, {
     context,
     id: pathInfo?.entity?.uuid,
-    page: pageNumber,
+    page: pageNumber, // will be ignored if not needed, so no need for conditional inclusion
   })
-
   if (!resource) {
     throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
   }
