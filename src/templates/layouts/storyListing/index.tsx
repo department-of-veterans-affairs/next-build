@@ -54,11 +54,13 @@ export function StoryListing({
               pages={totalPages}
               maxPageListLength={3}
               onPageSelect={(page) => {
-                const newPage = window.location.href.replace(
+                const newPage =
+                  page.detail.page > 1 ? `page-${page.detail.page}` : ''
+                const newUrl = window.location.href.replace(
                   /(?<=stories\/).*/, // everything after /stories/
-                  `page-${page.detail.page}`
+                  newPage
                 )
-                window.location.assign(newPage)
+                window.location.assign(newUrl)
               }}
             />
           )}
