@@ -16,6 +16,7 @@ services:
       init:
         # Install node and yarn
         - bash ./scripts/install_nvm.sh
+        - npm install -g corepack
         - corepack enable
         - corepack prepare yarn@stable --activate
 
