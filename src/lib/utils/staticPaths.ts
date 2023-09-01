@@ -7,9 +7,7 @@ export async function getStaticPathsByResourceType(
   resourceType,
   context: GetStaticPathsContext
 ): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
-  return (
-    await drupalClient.getStaticPathsFromContext([resourceType], context)
-  ).slice(0, 10)
+  return await drupalClient.getStaticPathsFromContext([resourceType], context)
 }
 
 export async function getAllStoryListingStaticPaths(
