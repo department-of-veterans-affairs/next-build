@@ -87,7 +87,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   const resource = await queries.getData(resourceType, {
     context,
-    id: pathInfo?.entity?.uuid,
+    id: pathInfo.entity?.uuid,
     page: pageNumber, // will be ignored if not needed, so no need for conditional inclusion
   })
   if (!resource) {
