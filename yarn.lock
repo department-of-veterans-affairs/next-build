@@ -6370,7 +6370,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.6.2":
+"axe-core@npm:^4.6.2, axe-core@npm:^4.7.2":
   version: 4.7.2
   resolution: "axe-core@npm:4.7.2"
   checksum: 5d86fa0f45213b0e54cbb5d713ce885c4a8fe3a72b92dd915a47aa396d6fd149c4a87fec53aa978511f6d941402256cfeb26f2db35129e370f25a453c688655a
@@ -13255,6 +13255,7 @@ __metadata:
     "@types/uuid": ^8.3.4
     "@typescript-eslint/eslint-plugin": ^5.19.0
     "@typescript-eslint/parser": ^5.0.0
+    axe-core: ^4.7.2
     axios: ^0.27.2
     babel-plugin-superjson-next: ^0.4.4
     clsx: ^1.1.1

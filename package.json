@@ -89,6 +89,7 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "axe-core": "^4.7.2",
     "babel-plugin-superjson-next": "^0.4.4",
     "cypress": "13",
     "cypress-axe": "^1.4.0",
