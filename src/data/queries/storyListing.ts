@@ -52,8 +52,8 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
         .getParams('node--news_story--teaser')
         .addFilter('field_listing.id', entity.id)
         .addSort('-changed')
-        .addPageLimit(10)
-        .addPageOffset(((opts?.page || 1) - 1) * 10)
+        .addPageLimit(PAGE_SIZE)
+        .addPageOffset(((opts?.page || 1) - 1) * PAGE_SIZE)
         .getQueryObject(),
       deserialize: false,
     }
@@ -77,7 +77,7 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
     entity,
     stories: deserialize(stories) as NodeNewsStory[],
     menu,
-    total: Math.ceil(stories.meta.count / 10),
+    total: Math.ceil(stories.meta.count / PAGE_SIZE),
     current: opts?.page || 1,
   }
 }
