@@ -33,7 +33,7 @@
 export function getPathAndPageNumberFromSlug(
   slug: string | string[]
 ): [string, number] {
-  if (typeof slug === undefined || slug?.length === 0) {
+  if (slug === undefined || slug?.length === 0) {
     return ['/', undefined]
   }
 
