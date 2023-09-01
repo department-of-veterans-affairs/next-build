@@ -11,20 +11,11 @@
  * @see https://va.gov/resources/how-are-pension-benefits-and-disability-compensation-different
  *
  */
-
-/** These types/packages will import into all node components. */
-import { NodeQA } from '@/types/dataTypes/drupal/node'
 import map from 'lodash/map'
-
-/** These component includes are specific to this component. */
 import { Button } from '@/templates/common/button'
 import { QuestionAnswerType } from '@/types/index'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { LinkTeaser } from '@/templates/components/linkTeaser'
-
-/**
- * These components expect NodeQA as their input.
- */
 
 export interface HtmlProps {
   __html: string

@@ -1,37 +1,26 @@
 ## Description
+Relates to #[TICKET_NUMBER](https://github.com/department-of-veterans-affairs/va.gov-cms/issues/TICKET_NUMBER). (or closes?)
 
-Relates to #_issueid_. (or closes?)
 
 ## Testing done
 
+
 ## Screenshots
 
-## QA steps
 
+## QA steps
 What needs to be checked to prove this works?  
 What needs to be checked to prove it didn't break any related things?  
 What variations of circumstances (users, actions, values) need to be checked?
 
-As user _uid_ with _user_role_
+```[tasklist]
+- [ ] Automated tests have passed
+- [ ] Tugboat environment was generated without errors
+- [ ]  
+- [ ]
+- [ ]
+```
 
-1. Do this
-    - [ ] Validate that
-2. Then
-    - [ ] Validate that
-3. Then validate Acceptance Criteria from issue
-    - [ ] a
-    - [ ] b
-    - [ ] c
-
-### Definition of Done
-
-- [ ] Documentation has been updated, if applicable.
-- [ ] Tests have been added if necessary.
-- [ ] Automated tests have passed.
-- [ ] Code Quality Tests have passed.
-- [ ] Acceptance Criteria in related issue are met.
-- [ ] Manual Code Review Approved.
-
-### Is this PR blocked by another PR?
-
-- [ ] `DO NOT MERGE`
+## Is this PR blocked by another PR?
+- Add the `DO NOT MERGE` label
+- Add links to additional PRs here:
