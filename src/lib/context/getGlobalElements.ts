@@ -4,6 +4,8 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { LayoutProps } from '@/templates/globals/wrapper'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 
+import { getPathAndPageNumberFromSlug } from '@/lib/utils/slug'
+
 // This is a helper function to fetch global elements for layout.
 // This is going to be run for every pages on build.
 // To make this fast, you could cache the results example on Redis.
@@ -15,9 +17,14 @@ export async function getGlobalElements(
   context: GetStaticPropsContext | GetServerSidePropsContext
 ): Promise<GlobalElements> {
   // global context
-  const slug = await drupalClient.getPathFromContext(context)
-  const path = await drupalClient.translatePathFromContext(context)
-  const route = `${path?.jsonapi?.entryPoint}`
+  // const slug = await drupalClient.getPathFromContext(context)
+  // const path = await drupalClient.translatePathFromContext(context)
+  // const route = `${path?.jsonapi?.entryPoint}`
+
+  const { slug = [] } = context.params
+  const [path, _] = getPathAndPageNumberFromSlug(slug)
+  const pathInfo = await drupalClient.translatePath(path)
+  const route = `${pathInfo?.jsonapi?.entryPoint}`
 
   let bannerPath = `${route}/banner-alerts?item-path=${slug}`
 
