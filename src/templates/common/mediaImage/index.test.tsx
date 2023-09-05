@@ -1,8 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { MediaImageType } from '@/types/index'
 import { MediaImage } from '@/templates/common/mediaImage'
-// Language: typescript
-// Path: src/components/media/index.test.tsx
 
 const mediaImage: MediaImageType = {
   id: '3',
@@ -75,7 +73,9 @@ describe('Media Image component renders', () => {
     mediaImage.link = null
     render(<MediaImage key={mediaImage.id} {...mediaImage} />)
     waitFor(() =>
-      expect(screen.getByText('Smiling man in glasses.')).notToBeInTheDocument()
+      expect(
+        screen.getByText('Smiling man in glasses.')
+      ).not.toBeInTheDocument()
     )
   })
 })

@@ -66,7 +66,7 @@ export const drupalToVaPath = (content) => {
     replaced = content.replace(/href="(.*?)(png|jpg|jpeg|svg|gif)"/g, (img) =>
       img
         .replace(
-          /https?:\/\/(test\.)?(dev.|staging.|prod.)?cms\.va\.gov\/sites\/default\/files/,
+          /https?:\/\/(test\.)?((dev\.|staging\.|prod\.)?cms\.)?va\.gov\/sites\/default\/files/,
           '/img'
         )
         .replace('http://va-gov-cms.ddev.site/sites/default/files', '/img')
@@ -76,7 +76,7 @@ export const drupalToVaPath = (content) => {
     replaced = replaced.replace(/href="(.*?)(doc|docx|pdf|txt)"/g, (file) =>
       file
         .replace(
-          /https?:\/\/(test\.)?(dev.|staging.|prod.)?cms\.va\.gov\/sites\/default\/files/,
+          /https?:\/\/(test\.)?((dev\.|staging\.|prod\.)?cms\.)?va\.gov\/sites\/default\/files/,
           '/files'
         )
         .replace('http://va-gov-cms.ddev.site/sites/default/files', '/files')

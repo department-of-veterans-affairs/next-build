@@ -11,7 +11,6 @@ export default defineConfig({
   trashAssetsBeforeRuns: true,
   videoCompression: false,
   videosFolder: 'cypress/videos',
-  videoUploadOnPasses: false,
   viewportHeight: 900,
   // these two below are for a11y tests in chromium
   numTestsKeptInMemory: 25,
@@ -30,7 +29,7 @@ export default defineConfig({
 
   e2e: {
     // todo: env handling for local vs CI
-    // 3000 is the port from `yarn build` && `yarn start`
+    // 8001 is the port from `yarn export` && `yarn export:serve`
     baseUrl: 'http://localhost:8001',
     setupNodeEvents(on, config) {
       // implement node event listeners here
