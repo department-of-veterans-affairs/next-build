@@ -5,7 +5,7 @@ import {
   GetStaticPropsContext,
 } from 'next'
 import Head from 'next/head'
-
+import { QueryOpts } from 'next-drupal-query'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '@/data/queries'
 import { getGlobalElements } from '@/lib/context/getGlobalElements'
@@ -14,7 +14,7 @@ import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
-import { getPathAndPageNumberFromSlug } from '@/lib/utils/slug'
+import { isListingPageSlug } from '@/lib/utils/listingPages'
 import {
   getAllStoryListingStaticPaths,
   getStaticPathsByResourceType,
@@ -67,8 +67,12 @@ export async function getStaticPaths(
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const { slug = [] } = context.params
-  const [path, pageNumber] = getPathAndPageNumberFromSlug(slug)
+  const isListingPage: { path: string; page: number } | false =
+    isListingPageSlug(context.params?.slug)
+  const path =
+    isListingPage === false
+      ? drupalClient.getPathFromContext(context)
+      : isListingPage.path
 
   const pathInfo = await drupalClient.translatePath(path)
   if (!pathInfo) {
@@ -79,17 +83,30 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   const resourceType = pathInfo.jsonapi
     .resourceName as (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
+
   if (!Object.values(RESOURCE_TYPES).includes(resourceType)) {
     return {
       notFound: true,
     }
   }
 
-  const resource = await queries.getData(resourceType, {
-    context,
-    id: pathInfo.entity?.uuid,
-    page: pageNumber, // will be ignored if not needed, so no need for conditional inclusion
-  })
+  const id = pathInfo.entity?.uuid
+  const queryOpts: QueryOpts<{
+    id: string
+    page?: number
+  }> =
+    isListingPage === false
+      ? {
+          context,
+          id,
+        }
+      : {
+          context,
+          id,
+          page: isListingPage.page,
+        }
+
+  const resource = await queries.getData(resourceType, queryOpts)
   if (!resource) {
     throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
   }
@@ -105,7 +122,10 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return {
     props: {
       resource,
-      globalElements: await getGlobalElements(context),
+      globalElements: await getGlobalElements(
+        pathInfo?.jsonapi?.entryPoint,
+        path
+      ),
     },
   }
 }
