@@ -4,12 +4,16 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
+import { deserialize } from 'next-drupal'
 import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
+import { TJsonaModel } from 'jsona/lib/JsonaTypes'
 import { NodeStoryListing, NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { Menu } from '@/types/dataTypes/drupal/menu'
 import { StoryListingType } from '@/types/index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
+export const PAGE_SIZE = 10 as const
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -19,12 +23,15 @@ export const params: QueryParams<null> = () => {
 // Define the option types for the data loader.
 type DataOpts = QueryOpts<{
   id: string
+  page: number
 }>
 
 type StoryListingData = {
   entity: NodeStoryListing
   stories: NodeNewsStory[]
   menu: Menu
+  total: number
+  current: number
 }
 
 // Implement the data loader.
@@ -36,13 +43,19 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
       params: params().getQueryObject(),
     }
   )
-  const stories = await drupalClient.getResourceCollection<NodeNewsStory[]>(
+
+  // Fetch list of stories related to this listing. `deserialize: false` for jsonapi pagination
+  const stories = await drupalClient.getResourceCollection<TJsonaModel>(
     'node--news_story',
     {
       params: queries
         .getParams('node--news_story--teaser')
         .addFilter('field_listing.id', entity.id)
+        .addSort('-changed')
+        .addPageLimit(PAGE_SIZE)
+        .addPageOffset(((opts?.page || 1) - 1) * PAGE_SIZE)
         .getQueryObject(),
+      deserialize: false,
     }
   )
 
@@ -62,8 +75,10 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
 
   return {
     entity,
-    stories,
+    stories: deserialize(stories) as NodeNewsStory[],
     menu,
+    total: Math.ceil(stories.meta.count / PAGE_SIZE),
+    current: opts?.page || 1,
   }
 }
 
@@ -71,6 +86,8 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
   entity,
   stories,
   menu,
+  total,
+  current,
 }) => {
   const formattedStories = stories.map((story) => {
     return queries.formatData('node--news_story--teaser', story)
@@ -83,5 +100,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
     introText: entity.field_intro_text,
     stories: formattedStories,
     menu: menu,
+    currentPage: current,
+    totalPages: total,
   }
 }
