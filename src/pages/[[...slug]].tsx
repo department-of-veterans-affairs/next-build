@@ -123,7 +123,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     props: {
       resource,
       globalElements: await getGlobalElements(
-        pathInfo?.jsonapi?.entryPoint,
+        pathInfo.jsonapi?.entryPoint,
         path
       ),
     },
