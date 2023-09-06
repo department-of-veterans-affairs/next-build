@@ -7,7 +7,7 @@ const symlinkPath = path.resolve(__dirname, 'public', 'generated');
 
 (async () => {
   try {
-    // Check if the symlink already exists
+    // Checks if symlink already exists
     const exists = await fs.pathExists(symlinkPath);
 
     if (!exists) {
