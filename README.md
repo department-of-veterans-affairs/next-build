@@ -23,6 +23,8 @@ You should set these up before attempting to install the repo.
 
 1. Make sure your SOCKS access is running.
 
+1. Install vets-website in the same parent directory `https://github.com/department-of-veterans-affairs/vets-website`
+
 1. Run `yarn dev`.
 
 You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your
