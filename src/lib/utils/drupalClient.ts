@@ -45,4 +45,8 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
 export const drupalClient = new DrupalClient(baseUrl, {
   fetcher,
   useDefaultResourceTypeEntry: true,
+  auth: {
+    clientId: process.env.DRUPAL_CLIENT_ID,
+    clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+  },
 })
