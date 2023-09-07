@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const path = require('path');
 
 const target = path.resolve('../vets-website/build/localhost/generated');
-const symlinkPath = path.resolve(__dirname, 'public', 'generated');
+const symlinkPath = path.resolve(__dirname, '..', 'public', 'generated');
 
 (async () => {
   try {

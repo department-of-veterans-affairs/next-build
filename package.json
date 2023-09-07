@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "setup": "node setup-dev.js",
+    "setup": "node scripts/setup-dev.js",
     "dev": "SSG=false yarn setup && next dev",
     "build": "SSG=true next build",
     "postbuild": "next-sitemap",
