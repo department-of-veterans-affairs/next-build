@@ -3,10 +3,10 @@ import { GTM_ID } from '@/lib/analytics'
 import Script from 'next/script'
 
 const Document = () => {
-  const isDevelopment = process.env.NODE_ENV === 'development';
+  const isDevelopment = process.env.NODE_ENV === 'development'
   const ASSETS_URL = isDevelopment
     ? '/generated/'
-    : 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/';
+    : 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/'
   return (
     <Html lang="en" dir="ltr">
       <Head>
@@ -38,7 +38,6 @@ const Document = () => {
           strategy="afterInteractive"
           src={`${ASSETS_URL}static-pages.entry.js`}
         />
-
       </Head>
       <body className="merger">
         <noscript>
