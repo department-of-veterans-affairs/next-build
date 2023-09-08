@@ -8,6 +8,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryType } from '@/types/index'
+import { GetServerSidePropsContext } from 'next'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -24,13 +25,13 @@ export const params: QueryParams<null> = () => {
 // Define the option types for the data loader.
 type DataOpts = QueryOpts<{
   id: string
+  context?: GetServerSidePropsContext // from the preview api route
 }>
 
 // Implement the data loader.
 export const data: QueryData<DataOpts, NodeNewsStory> = async (
   opts
 ): Promise<NodeNewsStory> => {
-  // typescript complains here, but preview is present when you log opts from the preview route
   const entity = opts.context.preview
     ? // need to use getResourceFromContext for unpublished revisions
       await drupalClient.getResourceFromContext<NodeNewsStory>(
