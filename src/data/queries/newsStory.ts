@@ -8,7 +8,6 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryType } from '@/types/index'
-import { GetServerSidePropsContext, GetStaticPathsContext } from 'next'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
