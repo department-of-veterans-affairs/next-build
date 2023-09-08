@@ -8,6 +8,7 @@ import { drupalClient } from '@/lib/utils/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryType } from '@/types/index'
+import { GetServerSidePropsContext, GetStaticPathsContext } from 'next'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -30,13 +31,24 @@ type DataOpts = QueryOpts<{
 export const data: QueryData<DataOpts, NodeNewsStory> = async (
   opts
 ): Promise<NodeNewsStory> => {
-  const entity = await drupalClient.getResource<NodeNewsStory>(
-    'node--news_story',
-    opts?.id,
-    {
-      params: params().getQueryObject(),
-    }
-  )
+  // typescript complains here, but preview is present when you log opts from the preview route
+  const entity = opts.context.preview
+    ? // need to use getResourceFromContext for unpublished revisions
+      await drupalClient.getResourceFromContext<NodeNewsStory>(
+        'node--news_story',
+        opts.context,
+        {
+          params: params().getQueryObject(),
+        }
+      )
+    : // otherwise just lookup by uuid
+      await drupalClient.getResource<NodeNewsStory>(
+        'node--news_story',
+        opts.id,
+        {
+          params: params().getQueryObject(),
+        }
+      )
 
   return entity
 }

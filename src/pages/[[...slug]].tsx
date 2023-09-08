@@ -20,13 +20,14 @@ import {
   getStaticPathsByResourceType,
 } from '@/lib/utils/staticPaths'
 
-export default function ResourcePage({ resource, globalElements }) {
+export default function ResourcePage({ resource, preview, globalElements }) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
 
   return (
     <Wrapper bannerData={globalElements.bannerData}>
+      {preview ? <>This is a preview page</> : null}
       <Head>
         <title>{title}</title>
       </Head>
@@ -74,7 +75,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       ? drupalClient.getPathFromContext(context)
       : isListingPage.path
 
-  const pathInfo = await drupalClient.translatePath(path)
+  // need to use Context here for previewing unpublished revisions
+  const pathInfo =
+    isListingPage === false
+      ? await drupalClient.translatePathFromContext(context)
+      : await drupalClient.translatePath(path)
   if (!pathInfo) {
     return {
       notFound: true,
@@ -113,7 +118,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   // If we're not in preview mode and the resource is not published,
   // Return page not found.
-  if (!context.preview && resource?.published === false) {
+  if (!context.preview && !resource?.published) {
     return {
       notFound: true,
     }
@@ -121,6 +126,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   return {
     props: {
+      preview: context.preview || false,
       resource,
       globalElements: await getGlobalElements(
         pathInfo.jsonapi?.entryPoint,

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "SSG=false next dev",
     "build": "SSG=true next build",
+    "build:preview":"SSG=false next build",
     "start": "next start",
     "postbuild": "next-sitemap",
     "export": "SSG=true next build && next export",
