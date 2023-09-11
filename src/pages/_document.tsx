@@ -3,6 +3,10 @@ import { GTM_ID } from '@/lib/analytics'
 import Script from 'next/script'
 
 const Document = () => {
+  const isDevelopment = process.env.NODE_ENV === 'development'
+  const ASSETS_URL = isDevelopment
+    ? '/generated/'
+    : 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/'
   return (
     <Html lang="en" dir="ltr">
       <Head>
@@ -13,24 +17,26 @@ const Document = () => {
           href="https://unpkg.com/@department-of-veterans-affairs/formation/dist/formation.min.css"
         />
         <link
-          href="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/static-pages.css"
+          href={`${ASSETS_URL}static-pages.css`}
           data-entry-name="static-pages.css"
           rel="stylesheet"
         />
         <link
           rel="stylesheet"
           data-entry-name="style.css"
-          href="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/style.css"
+          href={`${ASSETS_URL}style.css`}
         />
+
         <Script
           id="headerFooter"
           strategy="beforeInteractive"
           src="/importHeaderData.js"
         />
+
         <Script
           id="staticPages"
           strategy="afterInteractive"
-          src="https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/static-pages.entry.js"
+          src={`${ASSETS_URL}static-pages.entry.js`}
         />
       </Head>
       <body className="merger">

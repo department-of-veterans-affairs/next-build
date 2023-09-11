@@ -17,6 +17,15 @@ You should set these up before attempting to install the repo.
 1. Clone the repo if you haven't.
    `git@github.com:department-of-veterans-affairs/next-build.git`
 
+1. Clone the vets-website repo adjacent to next-build in the same parent directory.
+   `git@github.com:department-of-veterans-affairs/vets-website.git`
+
+1. In vets-website, set node and yarn to the required versions: `nvm use 14.15.0` && `yarn set version 1.19.1`
+
+1. `yarn install` and `yarn build`. You are now done in vets-website.
+
+1. In the next-build directory, `nvm use 18` && `yarn set version stable`
+
 1. Run `yarn install`.
 
 1. Copy `.env.example` to `.env.local`. This is a reasonable set of environment defaults for local development.
