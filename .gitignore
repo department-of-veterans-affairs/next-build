@@ -55,9 +55,5 @@ certs/rootCA.pem
 *.tsbuildinfo
 docs/**/*
 
-/public/generated
-
 #allow
 !docs/**/*.md
-
-
