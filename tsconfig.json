@@ -46,7 +46,7 @@
     "**/*.js",
     "**/*.jsx"
   ],
-  "exclude": ["node_modules", "./src/__tests__"],
+  "exclude": ["node_modules", "./src/__tests__", "public/generated"],
   "typedocOptions": {
     "entryPoints": ["src/"],
     "out": "docs",
