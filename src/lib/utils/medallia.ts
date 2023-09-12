@@ -1,8 +1,8 @@
 type KampyleOnsiteSdk = Window &
   typeof globalThis & {
     KAMPYLE_ONSITE_SDK: {
-      loadForm: (number) => boolean
-      showForm: (number) => boolean
+      loadForm: (formNumber: number) => boolean
+      showForm: (formNumber: number) => boolean
     }
     vaSurvey: string
   }

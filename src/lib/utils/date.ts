@@ -7,7 +7,7 @@ export function isISOString(d: string | number): boolean {
 
 function parseIntWithDigitCountCheck(
   d: string | number,
-  check: (number) => boolean
+  check: (num: number) => boolean
 ): number | false {
   const dNumber = typeof d === 'number' ? d : parseInt(d)
   if (isNaN(dNumber)) {

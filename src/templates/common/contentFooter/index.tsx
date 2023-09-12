@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ContentFooterType } from '@/types/index'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { MedalliaAssets } from '@/templates/globals/medallia'
