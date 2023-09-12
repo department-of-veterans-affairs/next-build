@@ -16,9 +16,6 @@ What variations of circumstances (users, actions, values) need to be checked?
 ```[tasklist]
 - [ ] Automated tests have passed
 - [ ] Tugboat environment was generated without errors
-- [ ]  
-- [ ]
-- [ ]
 ```
 
 ## Is this PR blocked by another PR?
