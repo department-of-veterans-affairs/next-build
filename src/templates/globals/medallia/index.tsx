@@ -30,6 +30,7 @@ export function MedalliaAssets() {
 
   return (
     <Script
+      id="medallia"
       src={`https://resource.digital.voice.va.gov/wdcvoice/${scriptId}/onsite/embed.js`}
       strategy="afterInteractive"
     />
