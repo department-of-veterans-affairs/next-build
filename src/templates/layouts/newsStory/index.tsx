@@ -4,6 +4,7 @@ import { formatDate } from '@/lib/utils/helpers'
 import { SocialLinks } from '@/templates/common/socialLinks'
 import { StoryListingLink } from '@/templates/components/storyListingLink'
 import { NewsStoryType } from '@/types/index'
+import { ContentFooter } from '@/templates/common/contentFooter'
 
 export const NewsStory = ({
   title,
@@ -48,6 +49,7 @@ export const NewsStory = ({
                   />
                 </div>
                 <StoryListingLink path={listing} />
+                <ContentFooter />
               </article>
             </div>
           </div>
