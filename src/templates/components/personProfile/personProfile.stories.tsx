@@ -29,6 +29,8 @@ const personProfileData: PersonProfileType = {
   path: {
     alias: '/illiana-health-care/staff-profiles/zachary-m-sage/',
   },
+  entityId: 1234,
+  entityPath: 'sample/path',
   firstName: 'Zachary',
   lastName: 'Sage',
   suffix: null,
