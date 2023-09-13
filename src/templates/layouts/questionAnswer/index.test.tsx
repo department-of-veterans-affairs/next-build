@@ -6,6 +6,8 @@ describe('<QuestionAnswerData> component renders with data', () => {
   const QuestionAnswerData: QuestionAnswerType = {
     id: 'test-id',
     type: 'node--q_a',
+    entityId: 1234,
+    entityPath: 'sample/path/url',
     published: true,
     title: 'How do I change my name in my DEERS record?',
     answers:

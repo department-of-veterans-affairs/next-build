@@ -96,7 +96,9 @@ export type NewsStoryTeaserType = PublishedEntity & {
 export type PersonProfileType = {
   id: string
   type: string
+  entityId: number
   entityPath: string
+  path: Path
   title?: string
   firstName: string
   lastName: string
