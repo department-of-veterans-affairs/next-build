@@ -48,7 +48,7 @@ export async function getStaticPaths(
   // so we set SSG=true on `next build/export` and SSG=false on `next dev`.
   // `getStaticPaths` will never be called during runtime (`next start`), but we could set
   // SSG=false there as well, for good measure.
-  if (!process.env.SSG) {
+  if (process.env.SSG === 'false') {
     return {
       paths: [],
       fallback: 'blocking',
