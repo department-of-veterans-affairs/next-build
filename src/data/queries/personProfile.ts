@@ -61,6 +61,6 @@ export const formatter: QueryFormatter<
     vamcOfficalName: entity.field_vamc_system_official_name,
     office: entity.field_office,
     entityPath: entity.path.alias,
-    entityId: entity.drupal_internal__nid
+    entityId: entity.drupal_internal__nid,
   }))
 }
