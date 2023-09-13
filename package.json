@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "setup": "node scripts/setup-dev.js",
-    "dev": "SSG=false yarn setup && next dev",
+    "dev": "yarn setup && SSG=false next dev",
     "build": "SSG=true next build",
     "postbuild": "next-sitemap",
     "export": "SSG=true next build && next export",

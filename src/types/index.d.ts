@@ -156,6 +156,10 @@ export type LinkTeaserType = {
   }
 }
 
+export type ContentFooterType = {
+  lastUpdated?: string | number
+}
+
 interface MenuItemProps {
   readonly id: string
   readonly url: string
