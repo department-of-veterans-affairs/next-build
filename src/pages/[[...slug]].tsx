@@ -15,7 +15,7 @@ import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
 import { isListingPageSlug } from '@/lib/utils/listingPages'
-import HeadComment from '@/templates/globals/util/HeadComment'
+import HTMLComment from '../templates/globals/util/HTMLComment'
 import {
   getAllStoryListingStaticPaths,
   getStaticPathsByResourceType,
@@ -25,15 +25,18 @@ export default function ResourcePage({ resource, globalElements }) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
-  // console.log(`RESOURCE: ${JSON.stringify(globalElements, null, "\t")}`)
+  // console.log(`RESOURCE: ${JSON.stringify(resource, null, "\t")}`)
+  const comment = `
+      --
+      | resourceType: ${resource?.type || 'N/A'}
+      | path: ${resource?.path || 'N/A'}
+      | entityId: ${resource?.entityId || 'N/A'}
+      | 
+    `
 
   return (
     <Wrapper bannerData={globalElements.bannerData}>
-      <HeadComment
-        resourceType={resource?.type}
-        entityId={resource?.meta?.entityId}
-        path={globalElements.path}
-      />
+      <HTMLComment position="head" content={comment} />
       <Head>
         <title>{title}</title>
       </Head>

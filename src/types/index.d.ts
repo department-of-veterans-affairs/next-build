@@ -81,6 +81,8 @@ export type NewsStoryType = PublishedEntity & {
   date: string
   socialLinks: SocialLinksProps
   listing: string
+  entityId: number
+  path: string
 }
 
 export type NewsStoryTeaserType = PublishedEntity & {
@@ -130,6 +132,8 @@ export type StoryListingType = PublishedEntity & {
   menu: Menu
   currentPage: number
   totalPages: number
+  entityId: number
+  path: string
 }
 
 export type StoryListingLinkType = {
@@ -208,6 +212,8 @@ export type QuestionAnswerType = PublishedEntity & {
   tags: AudienceTopicType[]
   teasers: LinkTeaserType[]
   className?: string
+  entityId: number
+  path: string
 }
 
 interface BenefitsHubLinksType {
