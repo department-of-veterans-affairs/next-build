@@ -20,7 +20,7 @@ import {
   getStaticPathsByResourceType,
 } from '@/lib/utils/staticPaths'
 
-export default function ResourcePage({ resource, globalElements }) {
+export default function ResourcePage({ resource, globalElements, path }) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
@@ -29,6 +29,8 @@ export default function ResourcePage({ resource, globalElements }) {
     <Wrapper bannerData={globalElements.bannerData}>
       <Head>
         <title>{title}</title>
+        {/* todo: do all meta tags correctly, this fixes an error on news story */}
+        <meta property="og:url" content={path} />
       </Head>
       {resource.type === RESOURCE_TYPES.STORY_LISTING && (
         <StoryListing {...resource} />
@@ -126,6 +128,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         pathInfo.jsonapi?.entryPoint,
         path
       ),
+      path,
     },
   }
 }
