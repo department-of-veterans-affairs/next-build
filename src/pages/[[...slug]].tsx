@@ -25,7 +25,6 @@ export default function ResourcePage({ resource, globalElements }) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
-  // console.log(`RESOURCE: ${JSON.stringify(resource, null, "\t")}`)
   const comment = `
       --
       | resourceType: ${resource?.type || 'N/A'}
@@ -107,14 +106,14 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   }> =
     isListingPage === false
       ? {
-          context,
-          id,
-        }
+        context,
+        id,
+      }
       : {
-          context,
-          id,
-          page: isListingPage.page,
-        }
+        context,
+        id,
+        page: isListingPage.page,
+      }
 
   const resource = await queries.getData(resourceType, queryOpts)
   if (!resource) {
