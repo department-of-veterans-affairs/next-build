@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Script from 'next/script'
 import { useEffect } from 'react'
 import {
   getSurveyNumber,
@@ -29,13 +29,9 @@ export function MedalliaAssets() {
   }, [])
 
   return (
-    <Head>
-      <script
-        defer
-        type="text/javascript"
-        src={`https://resource.digital.voice.va.gov/wdcvoice/${scriptId}/onsite/embed.js`}
-        async
-      ></script>
-    </Head>
+    <Script
+      src={`https://resource.digital.voice.va.gov/wdcvoice/${scriptId}/onsite/embed.js`}
+      strategy="afterInteractive"
+    />
   )
 }
