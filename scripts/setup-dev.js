@@ -19,23 +19,36 @@ const cmsDataPath = path.resolve(__dirname, '..', 'public', 'data', 'cms')
       // eslint-disable-next-line no-console
       console.log('Symlink already exists.')
     }
-
-    // Grab data file populated by the cms
-    fetch('https://va.gov/data/cms/vamc-ehr.json')
-      .then((res) => res.json())
-      .then((data) => {
-        fs.mkdirp(cmsDataPath)
-          .then(() => {
-            fs.writeJson(`${cmsDataPath}/vamc-ehr.json`, data)
-          })
-          .catch((err) => {
-            console.error('Error with cms data directory: ', err)
-          })
-      })
-      .catch((err) => {
-        console.error('Error fetching cms data from va.gov: ', err)
-      })
   } catch (error) {
     console.error('Error creating symlink:', error)
+  }
+
+  try {
+    const vamcEhrExists = await fs.pathExists(cmsDataPath)
+
+    if (!vamcEhrExists) {
+      // Grab data file populated by the cms
+      await fetch('https://va.gov/data/cms/vamc-ehr.json')
+        .then((res) => res.json())
+        .then((data) => {
+          fs.mkdirp(cmsDataPath)
+            .then(() => {
+              fs.writeJson(`${cmsDataPath}/vamc-ehr.json`, data)
+              // eslint-disable-next-line no-console
+              console.log('vamc-ehr data fetched successfully!')
+            })
+            .catch((err) => {
+              console.error('Error with cms data directory: ', err)
+            })
+        })
+        .catch((err) => {
+          console.error('Error fetching cms data from va.gov: ', err)
+        })
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('vamc-ehr data already exists.')
+    }
+  } catch (error) {
+    console.error('Error fetching vamc-ehr data file:', error)
   }
 })()
