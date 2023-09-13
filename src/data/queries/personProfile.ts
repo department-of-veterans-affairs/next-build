@@ -44,7 +44,7 @@ export const formatter: QueryFormatter<
   return entities.map((entity) => ({
     id: entity.id,
     type: entity.type,
-    entityPath: entity.path.alias,
+    path: entity.path.alias,
     title: entity.title,
     firstName: entity.field_name_first,
     lastName: entity.field_last_name,
@@ -60,5 +60,7 @@ export const formatter: QueryFormatter<
     photoAllowHiresDownload: entity.field_photo_allow_hires_download,
     vamcOfficalName: entity.field_vamc_system_official_name,
     office: entity.field_office,
+    entityPath: entity.path.alias,
+    entityId: entity.drupal_internal__nid
   }))
 }
