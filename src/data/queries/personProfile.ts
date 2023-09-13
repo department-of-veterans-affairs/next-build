@@ -44,7 +44,7 @@ export const formatter: QueryFormatter<
   return entities.map((entity) => ({
     id: entity.id,
     type: entity.type,
-    path: entity.path.alias,
+    entityPath: entity.path.alias,
     title: entity.title,
     firstName: entity.field_name_first,
     lastName: entity.field_last_name,

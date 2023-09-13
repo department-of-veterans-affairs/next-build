@@ -55,7 +55,7 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswerType> = (
   return {
     id: entity.id,
     type: entity.type,
-    path: entity.path.alias,
+    entityPath: entity.path.alias,
     entityId: entity.drupal_internal__nid,
     published: entity.status,
     title: entity.title,
