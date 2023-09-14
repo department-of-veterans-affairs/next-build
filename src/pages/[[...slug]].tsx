@@ -15,7 +15,7 @@ import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
 import { isListingPageSlug } from '@/lib/utils/listingPages'
-import HTMLComment from '../templates/globals/util/HTMLComment'
+import HTMLComment from '@/templates/globals/util/HTMLComment'
 import {
   getAllStoryListingStaticPaths,
   getStaticPathsByResourceType,
@@ -106,14 +106,14 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   }> =
     isListingPage === false
       ? {
-          context,
-          id,
-        }
+        context,
+        id,
+      }
       : {
-          context,
-          id,
-          page: isListingPage.page,
-        }
+        context,
+        id,
+        page: isListingPage.page,
+      }
 
   const resource = await queries.getData(resourceType, queryOpts)
   if (!resource) {

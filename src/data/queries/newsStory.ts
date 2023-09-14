@@ -47,7 +47,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
   return {
     id: entity.id,
     entityId: entity.drupal_internal__nid,
-    entityPath: entity.path?.alias,
+    entityPath: entity.path.alias,
     type: entity.type,
     published: entity.status,
     title: entity.title,
