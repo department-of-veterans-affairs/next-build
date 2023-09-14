@@ -35,23 +35,15 @@ const cmsDataPath = path.resolve(__dirname, '..', 'public', 'data', 'cms')
 
     if (!vamcEhrExists) {
       // Grab data file populated by the cms
-      const data = await fetch('https://va.gov/data/cms/vamc-ehr.json').catch(
-        (err) => {
-          console.error('Error fetching cms data from va.gov: ', err)
-        }
-      )
+      const response = await fetch('https://va.gov/data/cms/vamc-ehr.json')
+      const data = await response.json()
+
+      await fs.mkdirp(cmsDataPath)
+
+      fs.writeJson(`${cmsDataPath}/vamc-ehr.json`, data)
+
       // eslint-disable-next-line no-console
       console.log('vamc-ehr data fetched successfully!')
-
-      await fs
-        .mkdirp(cmsDataPath)
-        .catch((err) =>
-          console.error('Error creating cms data directory: ', err)
-        )
-
-      fs.writeJson(`${cmsDataPath}/vamc-ehr.json`, data).catch((err) =>
-        console.error('Error writing data file: ', err)
-      )
     } else {
       // eslint-disable-next-line no-console
       console.log('vamc-ehr data already exists.')
