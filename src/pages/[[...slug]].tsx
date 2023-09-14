@@ -106,14 +106,14 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   }> =
     isListingPage === false
       ? {
-        context,
-        id,
-      }
+          context,
+          id,
+        }
       : {
-        context,
-        id,
-        page: isListingPage.page,
-      }
+          context,
+          id,
+          page: isListingPage.page,
+        }
 
   const resource = await queries.getData(resourceType, queryOpts)
   if (!resource) {
