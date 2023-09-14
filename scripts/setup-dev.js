@@ -2,8 +2,9 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-// No __dirname here because we want it to reach the adjacent folder outside of next-build
 const target = path.resolve(
+  __dirname,
+  '..', // extra .. here to get out of next-build
   '..',
   'vets-website',
   'build',
