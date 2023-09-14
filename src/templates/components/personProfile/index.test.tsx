@@ -23,7 +23,8 @@ const mediaImage: MediaImageType = {
 
 const personProfileData: PersonProfileType = {
   id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
-
+  entityId: 1234,
+  entityPath: 'sample/path/url',
   type: 'node--person-profile',
   title: 'Heather Steele',
   path: {

@@ -5,6 +5,8 @@ import { StoryListingType } from '@/types/index'
 let storyListingProps: StoryListingType = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   title: 'Stories',
+  entityId: 1234,
+  entityPath: 'sample/path/url',
   introText: 'We honor outstanding doctors',
   type: 'node--story_listing',
   published: true,

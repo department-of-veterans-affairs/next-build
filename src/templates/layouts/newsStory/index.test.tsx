@@ -25,6 +25,8 @@ const data = {
   published: true,
   type: 'node--news_story',
   title: 'We honor outstanding doctors\n',
+  entityId: 1234,
+  entityPath: 'sample/path/url',
   image: mediaImage,
   caption:
     '"Caring for a single patient and solving that one patient\'s illness is our honor and privilege as health care providers." - Dr. Brooke Decker',

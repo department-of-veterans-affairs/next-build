@@ -14,6 +14,8 @@ Array [
         "url": "entity:node/711",
       },
     ],
+    "entityId": 8504,
+    "entityPath": "/resources/how-can-i-find-out-my-va-claim-or-appeal-status",
     "id": "c2839a4c-c13d-46da-b448-9d1ec389773b",
     "published": true,
     "tags": Array [
@@ -92,6 +94,8 @@ Array [
         "url": "internal:/find-locations/",
       },
     ],
+    "entityId": 8538,
+    "entityPath": "/resources/are-service-dogs-allowed-in-va-facilities",
     "id": "eaff8edf-2cee-4e11-9373-7860a78295a6",
     "published": true,
     "tags": Array [
@@ -134,6 +138,8 @@ Array [
         "url": "https://www.va.gov/?next=%2Fprofile%2F",
       },
     ],
+    "entityId": 8514,
+    "entityPath": "/resources/what-types-of-claims-and-appeals-can-i-track-online",
     "id": "bcf87f05-f947-4631-8a86-a3c0c0fe9878",
     "published": true,
     "tags": Array [
