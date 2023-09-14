@@ -60,5 +60,7 @@ export const formatter: QueryFormatter<
     photoAllowHiresDownload: entity.field_photo_allow_hires_download,
     vamcOfficalName: entity.field_vamc_system_official_name,
     office: entity.field_office,
+    entityPath: entity.path.alias,
+    entityId: entity.drupal_internal__nid,
   }))
 }
