@@ -41,7 +41,7 @@ const cmsDataPath = path.resolve(__dirname, '..', 'public', 'data', 'cms')
 
       await fs.mkdirp(cmsDataPath)
 
-      fs.writeJson(`${cmsDataPath}/vamc-ehr.json`, data)
+      await fs.writeJson(`${cmsDataPath}/vamc-ehr.json`, data)
 
       // eslint-disable-next-line no-console
       console.log('vamc-ehr data fetched successfully!')
