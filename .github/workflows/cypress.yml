@@ -21,7 +21,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Setup Yarn
-        run: npm i -g yarn@1.22.19 --openssl-config=/etc/ssl/openssl.cnf
+        run: NODE_OPTIONS="--openssl-config=/etc/ssl/openssl.cnf" npm i -g yarn@1.22.19
 
       - name: Install Npm Dependencies
         run: |
