@@ -21,12 +21,12 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Setup Yarn
-        run: NODE_OPTIONS="--openssl-config=/etc/ssl/openssl.cnf" npm i -g yarn@1.22.19
-
-      - name: Install Npm Dependencies
         run: |
-          yarn set version stable
-          HUSKY=0 yarn install --immutable
+          - corepack enable
+          - corepack prepare yarn@stable --activate
+
+      - name: Install Dependencies
+        run: HUSKY=0 yarn install --immutable
 
       - name: check node env
         id: check-node-env
