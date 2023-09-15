@@ -8,12 +8,16 @@ export function truncateWordsOrChar(
   suffix = '...'
 ) {
   if (truncateWords) {
-    return str.split(' ').splice(0, length).join(' ') + suffix
-  } else {
-    if (str.length < length) {
-      return str
+    const words = str.split(' ');
+    if (words.length <= length) {
+      return str;
     }
-    return str.slice(0, length) + suffix
+    return words.splice(0, length).join(' ') + suffix;
+  } else {
+    if (str.length <= length) {
+      return str;
+    }
+    return str.slice(0, length) + suffix;
   }
 }
 
