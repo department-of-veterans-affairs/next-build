@@ -41,10 +41,8 @@
     "next-env.d.ts",
     "additional.d.ts",
     "src/**/*",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx"
+    "*/*.{ts|tsx|js|jsx}",
+    "scripts/*"
   ],
   "exclude": ["node_modules", "./src/__tests__", "public/generated"],
   "typedocOptions": {
