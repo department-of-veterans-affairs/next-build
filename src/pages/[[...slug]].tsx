@@ -15,6 +15,7 @@ import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
 import { isListingPageSlug } from '@/lib/utils/listingPages'
+import HTMLComment from '@/templates/globals/util/HTMLComment'
 import {
   getAllStoryListingStaticPaths,
   getStaticPathsByResourceType,
@@ -24,9 +25,17 @@ export default function ResourcePage({ resource, globalElements }) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
+  const comment = `
+      --
+      | resourceType: ${resource?.type || 'N/A'}
+      | path: ${resource?.entityPath || 'N/A'}
+      | entityId: ${resource?.entityId || 'N/A'}
+      | 
+    `
 
   return (
     <Wrapper bannerData={globalElements.bannerData}>
+      <HTMLComment position="head" content={comment} />
       <Head>
         <title>{title}</title>
         {/* todo: do all meta tags correctly, this fixes an error on news story */}
