@@ -27,7 +27,7 @@ jobs:
 #          yarn set version stable
 
       - name: Install Dependencies
-        run: HUSKY=0 yarn install --immutable
+        run: NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt HUSKY=0 yarn install --immutable
 
       - name: check node env
         id: check-node-env
