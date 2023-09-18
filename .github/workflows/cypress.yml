@@ -22,7 +22,6 @@ jobs:
 
       - name: Setup Yarn
         run: |
-         update-ca-certificates
          NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt corepack enable
          NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt corepack prepare yarn@stable --activate
 
