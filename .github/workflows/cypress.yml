@@ -20,11 +20,11 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Setup Yarn
-        run: |
-          NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt npm config set registry http://registry.npmjs.org/
-          npm install -g yarn@1.19.1
-          yarn set version stable
+#      - name: Setup Yarn
+#        run: |
+#          NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt npm config set registry http://registry.npmjs.org/
+#          npm install -g yarn@1.19.1
+#          yarn set version stable
 
       - name: Install Dependencies
         run: HUSKY=0 yarn install --immutable
