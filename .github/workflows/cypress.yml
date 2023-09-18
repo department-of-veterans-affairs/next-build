@@ -22,7 +22,8 @@ jobs:
 
       - name: Setup Yarn
         run: |
-         NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt corepack enable
+         sudo update-ca-certificates
+         corepack enable
          corepack prepare yarn@stable --activate
 
       - name: Install Dependencies
