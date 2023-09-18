@@ -22,8 +22,8 @@ jobs:
 
       - name: Setup Yarn
         run: |
-         NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt npm install -g yarn@.19.1
-         yarn set version stable
+         corepack --dns-result-order=ipv4first enable
+         corepack --dns-result-order=ipv4first prepare yarn@stable --activate
 
       - name: Install Dependencies
         run: HUSKY=0 yarn install --immutable
