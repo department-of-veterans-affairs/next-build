@@ -27,7 +27,10 @@ jobs:
 #          yarn set version stable
 
       - name: Install Dependencies
-        run: HUSKY=0 yarn install --immutable
+        run: |
+          corepack enable
+          corepack prepare yarn@stable --activate
+          HUSKY=0 yarn install --immutable
 
       - name: check node env
         id: check-node-env
