@@ -28,7 +28,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          node --dns-result-order=ipv4first "$(which corepack)"
+          node --dns-result-order=ipv4first "$(which corepack)" enable
+          node --dns-result-order=ipv4first "$(which corepack)" prepare yarn@stable --activate
           NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt HUSKY=0 yarn install --immutable
 
       - name: check node env
