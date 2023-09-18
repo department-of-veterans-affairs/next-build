@@ -20,18 +20,27 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: check node env
+        id: check-node-env
+        run: |
+         echo $NODE_ENV
+         echo $OPENSSL_CONF
+         echo NODE_EXTRA_CA_CERTS
+
 #      - name: Setup Yarn
 #        run: |
 #          NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt npm config set registry http://registry.npmjs.org/
 #          npm install -g yarn@1.19.1
 #          yarn set version stable
 
-#      - name: Install Dependencies
-#        run: HUSKY=0 yarn install --immutable
+      - name: Install Dependencies
+        run: |
+         COREPACK_ENABLE_NETWORK=0 corepack enable
+         HUSKY=0 yarn install --immutable
 
-      - name: check node env
-        id: check-node-env
-        run: echo $NODE_ENV
+#      - name: check node env
+#        id: check-node-env
+#        run: echo $NODE_ENV
 
       - name: Generate static site
         run: yarn export
