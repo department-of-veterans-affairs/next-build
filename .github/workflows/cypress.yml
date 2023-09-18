@@ -28,9 +28,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-         cp /certs/*.crt /usr/local/share/ca-certificates
-         update-ca-certificates
-         NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt corepack enable
+         corepack hydrate ./.yarn/releases/corepack.tgz
          HUSKY=0 yarn install --immutable
 
 #      - name: check node env
