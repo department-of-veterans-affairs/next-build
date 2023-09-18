@@ -121,5 +121,5 @@
     "typedoc": "^0.22.15",
     "typescript": "^4.6.3"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@3.6.3"
 }
