@@ -22,8 +22,8 @@ jobs:
 
       - name: Setup Yarn
         run: |
-          node --dns-result-order=ipv4first npm install -g yarn@.19.1
-          yarn set version stable
+          node --dns-result-order=ipv4first corepack enable
+          corepack corepack prepare yarn@stable --activate
 
       - name: Install Dependencies
         run: HUSKY=0 yarn install --immutable
