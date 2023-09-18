@@ -27,7 +27,9 @@ jobs:
 #          yarn set version stable
 
       - name: Install Dependencies
-        run: NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt HUSKY=0 yarn install --immutable
+        run: |
+          node --dns-result-order=ipv4first "$(which yarn)"
+          NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt HUSKY=0 yarn install --immutable
 
       - name: check node env
         id: check-node-env
