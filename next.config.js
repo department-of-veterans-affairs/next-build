@@ -20,12 +20,5 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
-  experimental: {
-    // This is experimental but can
-    // be enabled to allow parallel threads
-    // with nextjs automatic static generation
-    workerThreads: false,
-    cpus: 2,
-  },
 }
 module.exports = nextConfig
