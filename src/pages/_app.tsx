@@ -31,7 +31,7 @@ export default function MyApp({
   useEffect(() => {
     TagManager.initialize(TAG_MANAGER_ARGS)
     defineCustomElements()
-  })
+  }, [])
 
   return getLayout(<Component {...pageProps} key={router.asPath} />)
 }

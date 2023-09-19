@@ -1,1 +1,8 @@
 src/**/__tests__/*
+public/generated/*
+/node_modules/*
+/coverage/*
+/.swc/*
+/.next/*
+/out/*
+/storybook-static/*

@@ -52,6 +52,7 @@ certs/rootCA.pem
 docs/**/*
 
 /public/generated
+/public/data
 
 #allow
 !docs/**/*.md
