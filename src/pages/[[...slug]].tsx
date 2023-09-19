@@ -38,6 +38,8 @@ export default function ResourcePage({ resource, globalElements }) {
       <HTMLComment position="head" content={comment} />
       <Head>
         <title>{title}</title>
+        {/* todo: do all meta tags correctly, this fixes an error on news story */}
+        <meta property="og:url" content="foo" />
       </Head>
       {resource.type === RESOURCE_TYPES.STORY_LISTING && (
         <StoryListing {...resource} />

@@ -46,7 +46,7 @@
       "error",
       {
         "devDependencies": [
-          "**/*.test.*",
+          "src/**/*.test.*",
           "test/*",
           "jest.config.js",
           "jest.setup.js",
