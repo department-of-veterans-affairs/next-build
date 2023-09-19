@@ -20,10 +20,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
-  httpAgentOptions: {
-    maxSockets: 80,
-    maxFreeSockets: 80
-  }
   // experimental: {
   //   // This is experimental but can
   //   // be enabled to allow parallel threads

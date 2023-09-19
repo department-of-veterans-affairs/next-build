@@ -27,6 +27,8 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   const agent = new SocksProxyAgent('socks://127.0.0.1:2001')
   const options = {
     agent: useProxy ? agent : null,
+    maxFreeSockets: 20,
+    maxTotalSockets: 80,
     ...init,
   }
 
