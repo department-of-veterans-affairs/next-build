@@ -27,8 +27,7 @@
     "ecmaFeatures": {
       "modules": true
     },
-    "sourceType": "module",
-    "project": ["./tsconfig.json"]
+    "sourceType": "module"
   },
   "plugins": ["testing-library", "unused-imports"],
   "rules": {
@@ -60,6 +59,12 @@
       "files": ["**/*.stories.*"],
       "rules": {
         "import/no-anonymous-default-export": "off"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
       }
     }
   ]

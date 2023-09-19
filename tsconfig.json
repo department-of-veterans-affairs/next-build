@@ -41,7 +41,7 @@
     "next-env.d.ts",
     "additional.d.ts",
     "src/**/*",
-    "*/*.{ts|tsx|js|jsx}",
+    "cypress/**/*",
     "scripts/*"
   ],
   "exclude": ["node_modules", "./src/__tests__", "public/generated"],
