@@ -65,7 +65,6 @@ export function StoryListing({
                 }}
               />
             )}
-
           </div>
         </article>
       </div>
