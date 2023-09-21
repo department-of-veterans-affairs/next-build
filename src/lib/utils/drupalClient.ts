@@ -38,7 +38,7 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   }
   const pRetry = await import('p-retry')
   return pRetry.default(wrappedCrossFetch, {
-    retries: 5,
+    retries: 10,
   })
 }
 
