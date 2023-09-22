@@ -61,6 +61,15 @@
       "rules": {
         "import/no-anonymous-default-export": "off"
       }
+    },
+    {
+      "files": ["next.config.js"],
+      "parserOptions": {
+        "project": null
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
     }
   ]
 }

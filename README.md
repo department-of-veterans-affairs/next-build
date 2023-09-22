@@ -37,6 +37,16 @@ You should set these up before attempting to install the repo.
 You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your
 local environment.
 
+### Environment Flags
+
+The APP_ENV flag can be used to designate which .env file you want to use. Ensure you're env files are in ./env, and then run your build or dev command with a leading APP_ENV=local.
+
+ie `APP_ENV=local yarn dev`
+
+Ensure the value passed into APP_ENV matches the file name of the .env file you wish to use.
+
+If no value is passed than .env.local will be used as the default
+
 #### Local CMS endpoint
 
 To use the local CMS as an endpoint, follow the install directions for [the CMS repo here]().

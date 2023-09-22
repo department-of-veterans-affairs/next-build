@@ -43,6 +43,8 @@
     "clsx": "^1.1.1",
     "cross-fetch": "^3.1.5",
     "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "dotenv-expand": "^10.0.0",
     "drupal-jsonapi-params": "^2.0.0",
     "jest-axe": "^6.0.0",
     "jest-extended": "^4.0.1",
