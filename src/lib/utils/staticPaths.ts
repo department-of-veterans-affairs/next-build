@@ -3,7 +3,9 @@ import { getAllPagedListingPaths } from '@/lib/utils/listingPages'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
 import { JsonApiResponse, JsonApiResourceWithPath } from 'next-drupal'
 
-async function getAllResourcesByResourceType(resourceType: string) {
+async function getAllResourcesByResourceType(
+  resourceType: string
+): Promise<JsonApiResourceWithPath[]> {
   const pageSize = 50 //must be <= 50 due to JSON:API limit
   const params = {
     // Note: we only need `path`, but we can't put it first:
