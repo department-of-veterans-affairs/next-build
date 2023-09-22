@@ -64,12 +64,9 @@ export async function getStaticPaths(
     }
   }
 
-  const storyListingPaths = await getAllStoryListingStaticPaths(context)
-  const storyPaths = await getStaticPathsByResourceType(
-    RESOURCE_TYPES.STORY,
-    context
-  )
-  const qaPaths = await getStaticPathsByResourceType(RESOURCE_TYPES.QA, context)
+  const storyListingPaths = await getAllStoryListingStaticPaths()
+  const storyPaths = await getStaticPathsByResourceType(RESOURCE_TYPES.STORY)
+  const qaPaths = await getStaticPathsByResourceType(RESOURCE_TYPES.QA)
 
   return {
     paths: [...storyListingPaths, ...storyPaths, ...qaPaths],

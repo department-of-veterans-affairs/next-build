@@ -12,6 +12,7 @@ export const useProxy =
   host.match(/cms\.va\.gov$/) && process.env.APP_ENV != 'tugboat'
 
 export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
+  const retryCount = 5
   const syswideCas = await import('syswide-cas')
 
   // if using an internal VA server, add VA cert
@@ -31,18 +32,28 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   }
 
   // Wrap fetching in p-retry for resilience.
-  const wrappedCrossFetch = async () => {
-    return crossFetch(input, {
+  const wrappedCrossFetch = async (attempt: number) => {
+    const response = await crossFetch(input, {
       ...options,
     })
+    if (!response.ok) {
+      /*eslint-disable-next-line*/
+      console.log(
+        `Failed request (Attempt ${attempt} of ${retryCount}): ${response.url}`
+      )
+      throw new Error('Failed request')
+    }
+    return response
   }
+
   const pRetry = await import('p-retry')
   return pRetry.default(wrappedCrossFetch, {
-    retries: 5,
+    retries: retryCount,
   })
 }
 
 export const drupalClient = new DrupalClient(baseUrl, {
   fetcher,
   useDefaultResourceTypeEntry: true,
+  throwJsonApiErrors: false,
 })
