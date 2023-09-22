@@ -1,4 +1,4 @@
-import { recordEvent } from '@/lib/utils/recordEvent'
+import { recordEvent } from '@/lib/analytics/recordEvent'
 import { StoryListingLinkType } from '@/types/index'
 
 export const StoryListingLink = ({ path }: StoryListingLinkType) => {

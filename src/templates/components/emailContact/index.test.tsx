@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { fireEvent, getByRole } from '@testing-library/dom'
-jest.mock('@/lib/utils/recordEvent')
-import * as recordEvent from '@/lib/utils/recordEvent'
+jest.mock('@/lib/analytics/recordEvent')
+import * as recordEvent from '@/lib/analytics/recordEvent'
 import { EmailContact } from '@/templates/components/emailContact'
 import { EmailContactType } from '@/types/index'
 

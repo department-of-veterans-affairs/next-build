@@ -1,6 +1,6 @@
 import Image from '@/templates/common/image'
 import { get } from 'lodash'
-import { recordEvent } from '@/lib/utils/recordEvent'
+import { recordEvent } from '@/lib/analytics/recordEvent'
 import { IMAGE_PATH_TEMP } from '@/lib/constants'
 import { LinkTeaserType } from '@/types/index'
 

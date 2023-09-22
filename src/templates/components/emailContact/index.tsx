@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { recordEvent } from '@/lib/utils/recordEvent'
+import { recordEvent } from '@/lib/analytics/recordEvent'
 import { isEmpty, isNull } from 'lodash'
 import { EmailContactType } from '@/types/index'
 

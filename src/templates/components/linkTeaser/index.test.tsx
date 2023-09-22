@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
-jest.mock('@/lib/utils/recordEvent')
-import * as recordEvent from '@/lib/utils/recordEvent'
+jest.mock('@/lib/analytics/recordEvent')
+import * as recordEvent from '@/lib/analytics/recordEvent'
 import { LinkTeaser } from './index'
 import { LinkTeaserType } from '@/types/index'
 
