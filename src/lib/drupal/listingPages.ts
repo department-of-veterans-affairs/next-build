@@ -1,4 +1,4 @@
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '@/data/queries'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
 

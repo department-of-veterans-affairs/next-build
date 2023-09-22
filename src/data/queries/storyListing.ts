@@ -5,7 +5,7 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { deserialize } from 'next-drupal'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { TJsonaModel } from 'jsona/lib/JsonaTypes'
 import { NodeStoryListing, NodeNewsStory } from '@/types/dataTypes/drupal/node'

@@ -1,4 +1,4 @@
-import { event } from '@/lib/analytics'
+import { event } from '@/lib/analytics/index'
 /**
  * Helper function for reporting events to Google Analytics. An alias for window.dataLayer.push.
  * @module platform/monitoring/record-event

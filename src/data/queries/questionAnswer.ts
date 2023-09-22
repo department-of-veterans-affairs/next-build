@@ -4,7 +4,7 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeQA } from '@/types/dataTypes/drupal/node'
 import { QuestionAnswerType } from '@/types/index'
