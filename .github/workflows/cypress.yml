@@ -8,6 +8,8 @@ on:
 env:
   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
   OPENSSL_CONF: /etc/ssl/openssl.cnf
+  CYPRESS_INSTALL_BINARY: 0
+  CYPRESS_BINARY_CACHE: /home/.cache/Cypress
 
 jobs:
   build:
@@ -28,10 +30,11 @@ jobs:
       - run: node -v
       - run: yarn -v
       
-      - run: yarn add cypress@13.2.0 --dev
+      - name: Install Cypress Binary
+        run: curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > /home/.cache/Cypress
       
       - name: Install Dependencies
-        run: NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt OPENSSL_CONF=/etc/ssl/openssl.cnf HUSKY=0 yarn install --immutable
+        run: HUSKY=0 yarn install --immutable
 
       - name: Generate static site
         run: yarn export
