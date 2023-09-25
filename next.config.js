@@ -31,12 +31,5 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: true,
   staticPageGenerationTimeout: 180, //arbitrary; 60 is default but it's too small
-  // experimental: {
-  //   // This is experimental but can
-  //   // be enabled to allow parallel threads
-  //   // with nextjs automatic static generation
-  //   workerThreads: false,
-  //   cpus: 1,
-  // },
 }
 module.exports = nextConfig
