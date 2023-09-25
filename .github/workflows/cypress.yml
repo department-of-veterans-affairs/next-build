@@ -37,7 +37,7 @@ jobs:
         run: HUSKY=0 yarn install --immutable
 
       - name: Generate static site
-        run: APP_ENV=test yarn export
+        run: NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt APP_ENV=test yarn export
 
       - name: Serve static site for cypress
         run: APP_ENV=test yarn export:serve

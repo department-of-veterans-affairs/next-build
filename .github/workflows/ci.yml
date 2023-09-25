@@ -17,21 +17,21 @@ jobs:
           node-version-file: .nvmrc
 
       # See https://github.com/actions/setup-node/issues/488
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      # - name: Get yarn cache directory path
+      #   id: yarn-cache-dir-path
+      #   run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-      - name: Cache yarn dependencies
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-          restore-keys: |
-            yarn-cache-
+      # - name: Cache yarn dependencies
+      #   uses: actions/cache@v3
+      #   id: yarn-cache
+      #   with:
+      #     path: ${{steps.yarn-cache-dir-path.outputs.dir }}
+      #     key: yarn-cache-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+      #     restore-keys: |
+      #       yarn-cache-
 
       - name: Install Npm Dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        # if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |
           yarn set version stable
           HUSKY=0 yarn install --immutable
