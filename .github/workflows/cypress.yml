@@ -22,8 +22,10 @@ jobs:
 
       - name: Setup Yarn
         run: |
+         corepack enable
          corepack hydrate ./.yarn/releases/corepack.tgz
          corepack prepare yarn@3.6.1 --activate
+         echo $PATH
 
       - name: Install Dependencies
         run: NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt HUSKY=0 yarn install --immutable
