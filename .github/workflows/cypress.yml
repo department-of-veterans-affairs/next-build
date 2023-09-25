@@ -8,7 +8,6 @@ on:
 env:
   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
   OPENSSL_CONF: /etc/ssl/openssl.cnf
-  NODE_OPTIONS: --openssl-legacy-provider
 
 jobs:
   build:
