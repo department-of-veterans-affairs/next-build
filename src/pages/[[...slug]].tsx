@@ -73,6 +73,7 @@ export async function getStaticPaths(
         RESOURCE_TYPES_TO_BUILD.map(getStaticPathsByResourceType)
       )
     ).flat(),
+
     fallback: 'blocking',
   }
 }
