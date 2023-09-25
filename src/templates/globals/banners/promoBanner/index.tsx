@@ -12,8 +12,7 @@ export const PromoBanner = ({
       id={id}
       role="va-promoBanner"
       href={href}
-      alertType={alertType}
-      className={alertType}
+      type={alertType}
     >
       {title}
     </VaPromoBanner>
