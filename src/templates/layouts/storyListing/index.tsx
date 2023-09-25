@@ -45,9 +45,9 @@ export function StoryListing({
             <div className="va-introtext">
               {introText && <p className="events-show">{introText}</p>}
             </div>
-            <Container className="container">
+            <div className="vads-l-grid-container--full">
               <ul className="usa-unstyled-list">{storyTeasers}</ul>
-            </Container>
+            </div>
 
             {totalPages > 1 && (
               <VaPagination
