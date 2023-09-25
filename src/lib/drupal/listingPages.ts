@@ -1,16 +1,31 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '@/data/queries'
-import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { StaticPathResourceType } from '@/types/index'
+
+const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const
+
+export type ListingResourceTypeType = (typeof LISTING_RESOURCE_TYPES)[number]
+
+export type StaticPathResourceTypeWithPaging = StaticPathResourceType & {
+  paging: {
+    totalPages: number
+  }
+}
 
 const RESOURCE_TYPE_URL_SEGMENTS: Readonly<{ [key: string]: string }> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
 }
 
+export function isListingResourceType(resourceType: ResourceTypeType): boolean {
+  return (LISTING_RESOURCE_TYPES as readonly string[]).includes(resourceType)
+}
+
 async function getListingPageCount(
-  listingPagePath,
-  listingResourceType
+  listingPageStaticPathResource: StaticPathResourceType,
+  listingResourceType: ListingResourceTypeType
 ): Promise<number> {
-  const resourcePath = listingPagePath?.params?.slug?.join?.('/') || ''
+  const resourcePath = listingPageStaticPathResource.path.alias
   const pathInfo = await drupalClient.translatePath(resourcePath)
   if (pathInfo?.entity?.uuid) {
     const resource = await queries.getData(listingResourceType, {
@@ -23,29 +38,23 @@ async function getListingPageCount(
   return 0
 }
 
-async function getListingPagePathsWithPagingData(
-  listingPaths,
-  listingResourceType
+async function getListingPageStaticPathResourcesWithPagingData(
+  listingPageStaticPathResources: StaticPathResourceType[],
+  listingResourceType: ListingResourceTypeType
 ) {
-  if (!listingPaths?.length) {
+  if (!listingPageStaticPathResources?.length) {
     return []
   }
 
   return Promise.all(
-    listingPaths?.map?.(async (listingPath) => {
-      const path =
-        typeof listingPath === 'string'
-          ? {
-              params: {
-                slug: [listingPath],
-              },
-            }
-          : listingPath
-
-      const totalPages = await getListingPageCount(path, listingResourceType)
+    listingPageStaticPathResources.map(async (resource) => {
+      const totalPages = await getListingPageCount(
+        resource,
+        listingResourceType
+      )
 
       return {
-        ...path,
+        ...resource,
         paging: {
           totalPages,
         },
@@ -54,53 +63,52 @@ async function getListingPagePathsWithPagingData(
   )
 }
 
-function addPathsFromPagingData(
-  listingPathsWithPagingData,
-  listingResourceType
-) {
+function addStaticPathResourcesFromPagingData(
+  listingPageStaticPathResourcesWithPagingData: StaticPathResourceTypeWithPaging[],
+  listingResourceType: ListingResourceTypeType
+): StaticPathResourceType[] {
   const urlSegment = RESOURCE_TYPE_URL_SEGMENTS[listingResourceType]
 
-  return listingPathsWithPagingData.reduce((acc, listingPath) => {
-    // We always build the first page
-    const firstPagePath = {
-      params: {
-        slug: [listingPath?.params?.slug[0], urlSegment],
-      },
-    }
+  return listingPageStaticPathResourcesWithPagingData.reduce(
+    (acc, firstPageResource) => {
+      // Determine if there are additional pages
+      if (firstPageResource.paging.totalPages <= 1) {
+        return [...acc, firstPageResource]
+      } else {
+        const additionalPageResources = Array.from({
+          length: firstPageResource.paging.totalPages - 1,
+        }).map((_, i) => ({
+          ...firstPageResource,
+          path: {
+            ...firstPageResource.path,
+            alias: `${firstPageResource.path.alias}/page-${i + 2}`,
+          },
+        }))
 
-    // There might be additional pages
-    if (listingPath.paging.totalPages <= 1) {
-      return [...acc, firstPagePath]
-    } else {
-      const additionalPagePaths = Array.from({
-        length: listingPath.paging.totalPages - 1,
-      }).map((_, i) => ({
-        params: {
-          slug: [listingPath?.params?.slug[0], urlSegment, `page-${i + 2}`],
-        },
-      }))
-
-      return [...acc, firstPagePath, ...additionalPagePaths]
-    }
-  }, [])
+        return [...acc, firstPageResource, ...additionalPageResources]
+      }
+    },
+    []
+  )
 }
 
-export async function getAllPagedListingPaths(
-  listingPaths,
-  listingResourceType
+export async function getAllPagedListingStaticPathResources(
+  listingPageStaticPathResources: StaticPathResourceType[],
+  listingResourceType: ListingResourceTypeType
 ) {
   // Paging step 1: Determine the number of pages for each listing
-  const listingPathsWithPagingData = await getListingPagePathsWithPagingData(
-    listingPaths,
-    listingResourceType
-  )
-  // Paging step 2: Each listing path will become multiple paths, one for each of its pages
-  const allListingPaths = addPathsFromPagingData(
-    listingPathsWithPagingData,
+  const resourcesWithPagingData =
+    await getListingPageStaticPathResourcesWithPagingData(
+      listingPageStaticPathResources,
+      listingResourceType
+    )
+  // Paging step 2: Each listing resource will become multiple resources, one for each of its pages
+  const allListingResources = addStaticPathResourcesFromPagingData(
+    resourcesWithPagingData,
     listingResourceType
   )
 
-  return allListingPaths
+  return allListingResources
 }
 
 export function isListingPageSlug(

@@ -13,13 +13,10 @@ import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
-import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
-import { isListingPageSlug } from '@/lib/drupal/listingPages'
 import HTMLComment from '@/templates/globals/util/HTMLComment'
-import {
-  getAllStoryListingStaticPaths,
-  getStaticPathsByResourceType,
-} from '@/lib/drupal/staticPaths'
+import { getStaticPathsByResourceType} from '@/lib/drupal/staticPaths'
+import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { isListingPageSlug } from '@/lib/drupal/listingPages'
 
 export default function ResourcePage({ resource, globalElements }) {
   if (!resource) return null
@@ -64,7 +61,9 @@ export async function getStaticPaths(
     }
   }
 
-  const storyListingPaths = await getAllStoryListingStaticPaths()
+  const storyListingPaths = await getStaticPathsByResourceType(
+    RESOURCE_TYPES.STORY_LISTING
+  )
   const storyPaths = await getStaticPathsByResourceType(RESOURCE_TYPES.STORY)
   const qaPaths = await getStaticPathsByResourceType(RESOURCE_TYPES.QA)
 
@@ -89,8 +88,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
   }
 
-  const resourceType = pathInfo.jsonapi
-    .resourceName as (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
+  const resourceType = pathInfo.jsonapi.resourceName as ResourceTypeType
 
   if (!Object.values(RESOURCE_TYPES).includes(resourceType)) {
     return {
