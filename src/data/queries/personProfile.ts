@@ -6,7 +6,7 @@ import {
 } from 'next-drupal-query'
 import { queries } from '.'
 import { NodePersonProfile } from '@/types/dataTypes/drupal/node'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { PersonProfileType } from '@/types/index'
 
 // Define the query params for fetching node--news_story.

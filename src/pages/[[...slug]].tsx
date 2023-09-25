@@ -6,20 +6,20 @@ import {
 } from 'next'
 import Head from 'next/head'
 import { QueryOpts } from 'next-drupal-query'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
+import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { queries } from '@/data/queries'
-import { getGlobalElements } from '@/lib/context/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
-import { isListingPageSlug } from '@/lib/utils/listingPages'
+import { isListingPageSlug } from '@/lib/drupal/listingPages'
 import HTMLComment from '@/templates/globals/util/HTMLComment'
 import {
   getAllStoryListingStaticPaths,
   getStaticPathsByResourceType,
-} from '@/lib/utils/staticPaths'
+} from '@/lib/drupal/staticPaths'
 
 export default function ResourcePage({ resource, globalElements }) {
   if (!resource) return null

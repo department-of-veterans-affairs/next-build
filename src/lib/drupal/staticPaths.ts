@@ -1,5 +1,5 @@
-import { drupalClient } from '@/lib/utils/drupalClient'
-import { getAllPagedListingPaths } from '@/lib/utils/listingPages'
+import { drupalClient } from '@/lib/drupal/drupalClient'
+import { getAllPagedListingPaths } from '@/lib/drupal/listingPages'
 import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
 import { JsonApiResponse, JsonApiResourceWithPath } from 'next-drupal'
 

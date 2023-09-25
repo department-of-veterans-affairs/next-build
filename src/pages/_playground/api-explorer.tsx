@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '@/data/queries'
 
 /**

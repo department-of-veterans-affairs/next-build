@@ -6,7 +6,7 @@ import {
 } from 'next-drupal-query'
 import { queries } from '.'
 import { MediaImage } from '@/types/dataTypes/drupal/media'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { MediaImageType } from '@/types/index'
 
 // Define query params for queryData.

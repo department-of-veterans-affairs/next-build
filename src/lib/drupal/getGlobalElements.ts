@@ -1,5 +1,5 @@
 import { formatter } from '@/data/queries/banners'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { LayoutProps } from '@/templates/globals/wrapper'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 

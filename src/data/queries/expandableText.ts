@@ -7,7 +7,7 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { queries } from '@/data/queries/index'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { ExpandableTextType } from '@/types/index'
 
 export const params: QueryParams<null> = () => {

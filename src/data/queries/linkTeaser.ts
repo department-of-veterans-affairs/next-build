@@ -6,7 +6,7 @@ import {
 } from 'next-drupal-query'
 import { queries } from '.'
 import { ParagraphLinkTeaser } from '@/types/dataTypes/drupal/paragraph'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { LinkTeaserType } from '@/types/index'
 
 // Define the query params for fetching node--news_story.
