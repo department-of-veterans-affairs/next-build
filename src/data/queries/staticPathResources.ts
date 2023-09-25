@@ -4,12 +4,8 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import {
-  JsonApiResponse,
-  JsonApiResourceWithPath,
-  PathAlias,
-} from 'next-drupal'
-import { drupalClient } from '@/lib/utils/drupalClient'
+import { JsonApiResponse, JsonApiResourceWithPath } from 'next-drupal'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 import { ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
 import { queries } from '.'
