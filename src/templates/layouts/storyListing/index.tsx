@@ -14,6 +14,7 @@ import { NewsStoryTeaserType, StoryListingType } from '@/types/index'
 import Container from '@/templates/common/container'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { FacilityMenu } from '@/templates/components/facilityMenu'
+import { ContentFooter } from '@/templates/common/contentFooter'
 
 export function StoryListing({
   id,
@@ -39,32 +40,35 @@ export function StoryListing({
     <div key={id} className="usa-grid usa-grid-full">
       <FacilityMenu {...menu} />
       <div className="usa-width-three-fourths">
-        <h1>{title}</h1>
-        <div className="vads-l-grid-container--full">
-          <div className="va-introtext">
-            {introText && <p className="events-show">{introText}</p>}
-            <Container className="container">
+        <article className="usa-content">
+          <h1>{title}</h1>
+          <div className="vads-l-grid-container--full">
+            <div className="va-introtext">
+              {introText && <p className="events-show">{introText}</p>}
+            </div>
+            <div className="vads-l-grid-container--full">
               <ul className="usa-unstyled-list">{storyTeasers}</ul>
-            </Container>
-          </div>
+            </div>
 
-          {totalPages > 1 && (
-            <VaPagination
-              page={currentPage}
-              pages={totalPages}
-              maxPageListLength={3}
-              onPageSelect={(page) => {
-                const newPage =
-                  page.detail.page > 1 ? `page-${page.detail.page}` : ''
-                const newUrl = window.location.href.replace(
-                  /(?<=stories\/).*/, // everything after /stories/
-                  newPage
-                )
-                window.location.assign(newUrl)
-              }}
-            />
-          )}
-        </div>
+            {totalPages > 1 && (
+              <VaPagination
+                page={currentPage}
+                pages={totalPages}
+                maxPageListLength={3}
+                onPageSelect={(page) => {
+                  const newPage =
+                    page.detail.page > 1 ? `page-${page.detail.page}` : ''
+                  const newUrl = window.location.href.replace(
+                    /(?<=stories\/).*/, // everything after /stories/
+                    newPage
+                  )
+                  window.location.assign(newUrl)
+                }}
+              />
+            )}
+          </div>
+          <ContentFooter />
+        </article>
       </div>
     </div>
   )

@@ -203,13 +203,6 @@ const headerData = {
       "title": "All VA social media"
     },
     {
-      "column": 3,
-      "href": "https://www.va.gov/performance-dashboard/",
-      "order": 10,
-      "target": null,
-      "title": "VA performance dashboard"
-    },
-    {
       "column": 4,
       "href": "https://www.va.gov/resources/",
       "order": 1,
