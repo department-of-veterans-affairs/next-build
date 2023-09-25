@@ -31,7 +31,9 @@ jobs:
       - run: node -v
       - run: yarn -v
       
-      - name: Install Cypress Binary
+      # todo: figure out where/how to cache this
+      # necessary to do this way because cypress postinstall command ignores ssl/certs settings
+      - name: Download Cypress Binary
         run: curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > /home/runner/runner1/_work/next-build/next-build/.yarn/cache/cypress.zip
       
       - name: Install Dependencies
