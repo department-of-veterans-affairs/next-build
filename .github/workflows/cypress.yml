@@ -9,7 +9,7 @@ env:
   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
   OPENSSL_CONF: /etc/ssl/openssl.cnf
   CYPRESS_INSTALL_BINARY: 0
-  CYPRESS_BINARY_CACHE: /home/.cache/Cypress
+  CYPRESS_BINARY_CACHE: /home/runner/runner1/_work/next-build/next-build/.yarn/cache
 
 jobs:
   build:
@@ -31,7 +31,7 @@ jobs:
       - run: yarn -v
       
       - name: Install Cypress Binary
-        run: curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > /home/.cache/Cypress
+        run: curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > /home/runner/runner1/_work/next-build/next-build/.yarn/cache
       
       - name: Install Dependencies
         run: HUSKY=0 yarn install --immutable
