@@ -1,0 +1,38 @@
+name: Cypress Tests
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+env:
+  NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+  OPENSSL_CONF: /etc/ssl/openssl.cnf
+
+jobs:
+  build:
+    name: Build static
+    runs-on: [self-hosted, asg]
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+
+      - name: Setup Yarn
+        run: |
+         corepack hydrate ./.yarn/releases/corepack.tgz
+         corepack prepare yarn@3.6.1 --activate
+
+      - name: Install Dependencies
+        run: NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt HUSKY=0 yarn install --immutable
+
+      - name: Generate static site
+        run: yarn export
+
+      - name: Serve static site for cypress
+        run: yarn export:serve
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v5
