@@ -10,6 +10,7 @@ env:
   OPENSSL_CONF: /etc/ssl/openssl.cnf
   CYPRESS_INSTALL_BINARY: 0
   CYPRESS_BINARY_CACHE: /home/runner/runner1/_work/next-build/next-build/.yarn/cache/cypress.zip
+  APP_ENV: gha
 
 jobs:
   build:
@@ -37,10 +38,13 @@ jobs:
         run: HUSKY=0 yarn install --immutable
 
       - name: Generate static site
-        run: NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt APP_ENV=test yarn export
+        run: NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
+
+      - name: Generate sitemap
+        run: yarn postbuild
 
       - name: Serve static site for cypress
-        run: APP_ENV=test yarn export:serve
+        run: yarn export:serve
 
       - name: Cypress tests
         uses: cypress-io/github-action@v5
