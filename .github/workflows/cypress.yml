@@ -37,10 +37,10 @@ jobs:
         run: HUSKY=0 yarn install --immutable
 
       - name: Generate static site
-        run: yarn export
+        run: APP_ENV=test yarn export
 
       - name: Serve static site for cypress
-        run: yarn export:serve
+        run: APP_ENV=test yarn export:serve
 
       - name: Cypress tests
         uses: cypress-io/github-action@v5
