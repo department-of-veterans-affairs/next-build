@@ -14,6 +14,7 @@ import { NewsStoryTeaserType, StoryListingType } from '@/types/index'
 import Container from '@/templates/common/container'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { FacilityMenu } from '@/templates/components/facilityMenu'
+import { ContentFooter } from '@/templates/common/contentFooter'
 
 export function StoryListing({
   id,
@@ -66,6 +67,7 @@ export function StoryListing({
               />
             )}
           </div>
+          <ContentFooter />
         </article>
       </div>
     </div>
