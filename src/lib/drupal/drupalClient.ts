@@ -39,7 +39,9 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
     if (!response.ok) {
       /*eslint-disable-next-line*/
       console.log(
-        `Failed request (Attempt ${attempt} of ${retryCount}): ${response.url}`
+        `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${
+          response.url
+        }`
       )
       throw new Error('Failed request')
     }
