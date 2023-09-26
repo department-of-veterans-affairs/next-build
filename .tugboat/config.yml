@@ -38,7 +38,7 @@ services:
         - update-ca-certificates
 
         # Install Cypress Binary
-        curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > ${CYPRESS_BINARY_CACHE}
+        - curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > ${CYPRESS_BINARY_CACHE}
 
       # Load dependent libraries and assets to prepare the site for build.
       update:
