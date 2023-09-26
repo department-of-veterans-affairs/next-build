@@ -37,14 +37,11 @@ services:
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
-        # Install Cypress binary
-        - curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > /var/lib/tugboat/.yarn/cypress/cypress.zip
-
       # Load dependent libraries and assets to prepare the site for build.
       update:
         - yarn --version
         # install dependencies
-        - CYPRESS_INSTALL_BINARY=/var/lib/tugboat/.yarn/cypress/cypress.zip yarn install
+        - yarn install
 
       # Run any commands needed to build the site.
       build:
