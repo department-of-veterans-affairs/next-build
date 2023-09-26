@@ -90,8 +90,8 @@ export const formatter: QueryFormatter<
   return resources.map((resource) => ({
     path: resource.path,
     administration: {
-      id: resource.field_administration.drupal_internal__tid,
-      name: resource.field_administration.name,
+      id: resource.field_administration?.drupal_internal__tid || null,
+      name: resource.field_administration?.name || null,
     },
   }))
 }
