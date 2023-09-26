@@ -48,3 +48,8 @@ services:
         - SITE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn postbuild
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
+
+      # Run any commands after the site is built.
+      online:
+        # Run cypress tests.
+        - CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress
