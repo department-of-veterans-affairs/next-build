@@ -1,80 +1,60 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { getAllPagedListingPaths } from '@/lib/drupal/listingPages'
-import RESOURCE_TYPES from '@/lib/constants/resourceTypes'
-import { JsonApiResponse, JsonApiResourceWithPath } from 'next-drupal'
+import {
+  ListingResourceTypeType,
+  getAllPagedListingStaticPathResources,
+  isListingResourceType,
+} from '@/lib/drupal/listingPages'
+import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { queries } from '@/data/queries'
+import { StaticPathResourceType } from '@/types/index'
+import {
+  bifurcateLovellFederalPathResources,
+  removeLovellFederalPathResources,
+} from '@/lib/drupal/lovell'
 
-async function getAllResourcesByResourceType(
-  resourceType: string
-): Promise<JsonApiResourceWithPath[]> {
-  const pageSize = 50 //must be <= 50 due to JSON:API limit
-  const params = {
-    // Note: we only need `path`, but we can't put it first:
-    // See:
-    //  https://next-drupal.org/guides/page-limit
-    //  https://dsva.slack.com/archives/C01SR56755H/p1695244241079879?thread_ts=1695070010.697129&cid=C01SR56755H
-    [`fields[${resourceType}]`]: 'title,path',
-    'page[limit]': pageSize,
+/**
+ * Returns a static-path resource collection that is modified per business logic.
+ * Resources are added, removed and/or edited.
+ *
+ * E.g.
+ * - Resources are ADDED for subsequent listing pages (e.g. `stories/page-2`)
+ * - Resources are ADDED for Lovell bifurcation (Federal pages become VA *and* TRICARE)
+ * - Lovell Federal listing pages are REMOVED
+ */
+async function modifyStaticPathResourcesByResourceType(
+  resourceType: ResourceTypeType,
+  resources: StaticPathResourceType[]
+): Promise<StaticPathResourceType[]> {
+  if (resourceType === RESOURCE_TYPES.STORY) {
+    return bifurcateLovellFederalPathResources(resources)
   }
 
-  // 1. Fetch first page.
-  const firstPage = await drupalClient.getResourceCollection<JsonApiResponse>(
-    resourceType,
-    {
-      params,
-      deserialize: false,
-    }
-  )
-
-  // 2. Determine number of pages to fetch.
-  const totalResourceCount = firstPage.meta.count
-  const firstPageData = drupalClient.deserialize(
-    firstPage
-  ) as JsonApiResourceWithPath[]
-  const pageCount = Math.ceil(totalResourceCount / pageSize)
-
-  // 3. If more pages, fetch them in parallel.
-  // Note: If we used JSON:API `next` links, we'd have to fetch in series.
-  if (pageCount <= 1) {
-    return firstPageData
+  if (isListingResourceType(resourceType)) {
+    const lovellFederalRemoved = removeLovellFederalPathResources(resources)
+    return await getAllPagedListingStaticPathResources(
+      lovellFederalRemoved,
+      resourceType as ListingResourceTypeType
+    )
   }
-  const subsequentPageData = await Promise.all(
-    Array.from({
-      length: pageCount - 1,
-    }).map((_, i) => {
-      const pageNum = i + 2
-      return drupalClient.getResourceCollection<JsonApiResourceWithPath[]>(
-        resourceType,
-        {
-          params: {
-            ...params,
-            'page[offset]': (pageNum - 1) * pageSize,
-          },
-        }
-      )
-    })
-  )
 
-  // 4. Glue all pages together.
-  return [firstPageData, ...subsequentPageData].flat()
+  return resources
 }
 
 export async function getStaticPathsByResourceType(
-  resourceType: string
+  resourceType: ResourceTypeType
 ): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
-  const resources = await getAllResourcesByResourceType(resourceType)
-  return drupalClient.buildStaticPathsFromResources(resources)
-}
+  // Get resources from which static paths can be built
+  const resources = await queries.getData('static-path-resources', {
+    resourceType,
+  })
 
-export async function getAllStoryListingStaticPaths(): ReturnType<
-  typeof drupalClient.getStaticPathsFromContext
-> {
-  const storyListingPaths = await getStaticPathsByResourceType(
-    RESOURCE_TYPES.STORY_LISTING
+  // Modifiy resources per business logic
+  const modifiedResources = await modifyStaticPathResourcesByResourceType(
+    resourceType,
+    resources
   )
 
-  // Setup paging for listing pages
-  return await getAllPagedListingPaths(
-    storyListingPaths,
-    RESOURCE_TYPES.STORY_LISTING
-  )
+  // Convert the resources to static paths
+  const paths = drupalClient.buildStaticPathsFromResources(modifiedResources)
+  return paths
 }

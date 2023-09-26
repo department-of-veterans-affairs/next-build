@@ -3,6 +3,7 @@ import {
   NodeOffice,
   NodeHealthCareRegionPage,
 } from '@/types/dataTypes/drupal/node'
+import { PathAlias } from 'next-drupal'
 export interface PublishedEntity {
   id: string
   type: string
@@ -164,6 +165,14 @@ export type LinkTeaserType = {
 
 export type ContentFooterType = {
   lastUpdated?: string | number
+}
+
+export type StaticPathResourceType = {
+  path: PathAlias
+  administration: {
+    id: number
+    name: string
+  }
 }
 
 interface MenuItemProps {
