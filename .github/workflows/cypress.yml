@@ -9,7 +9,7 @@ env:
   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
   OPENSSL_CONF: /etc/ssl/openssl.cnf
   CYPRESS_INSTALL_BINARY: 0
-  CYPRESS_BINARY_CACHE: /home/runner/runner1/_work/next-build/next-build/.yarn/cache/cypress.zip
+  CYPRESS_BINARY_CACHE: /home/runner/runner1/_work/next-build/next-build/.yarn/cypress/cypress.zip
   APP_ENV: gha
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
       # todo: figure out where/how to cache this
       # necessary to do this way because cypress postinstall command ignores ssl/certs settings
       - name: Download Cypress Binary
-        run: curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > /home/runner/runner1/_work/next-build/next-build/.yarn/cache/cypress.zip
+        run: curl https://download.cypress.io/desktop/13.2.0?platform=linux&arch=x64 > /home/runner/runner1/_work/next-build/next-build/.yarn/cypress/cypress.zip
       
       - name: Install Dependencies
         run: HUSKY=0 yarn install --immutable
@@ -44,7 +44,7 @@ jobs:
         run: yarn postbuild
 
       - name: Serve static site for cypress
-        run: yarn export:serve & wait-on http://localhost:8001
+        run: yarn gha:test:ci
 
       - name: Cypress tests
         uses: cypress-io/github-action@v5

@@ -25,6 +25,7 @@
     "test:format": "APP_ENV=test prettier --check .",
     "test:types": "APP_ENV=test tsc --noEmit",
     "test:watch": "APP_ENV=test jest --watch",
+    "gha:test:ci": "APP_ENV=test start-server-and-test export:serve http://localhost:8001 test:cypress",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
   },
@@ -116,12 +117,12 @@
     "msw": "^0.40.0",
     "nock": "^13.2.8",
     "prettier": "^2.6.2",
+    "start-server-and-test": "^2.0.1",
     "storybook": "^7.2.1",
     "ts-node": "^10.7.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typedoc": "^0.22.15",
-    "typescript": "^4.6.3",
-    "wait-on": "^7.0.1"
+    "typescript": "^4.6.3"
   },
   "packageManager": "yarn@3.6.1"
 }
