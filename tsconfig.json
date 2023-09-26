@@ -20,9 +20,6 @@
     "types": [
       "node",
       "jest",
-      "cypress",
-      "cypress-axe",
-      "@testing-library/cypress"
     ],
     "paths": {
       "@/assets/*": ["assets/*"],
@@ -41,8 +38,10 @@
     "next-env.d.ts",
     "additional.d.ts",
     "src/**/*",
-    "*/*.{ts|tsx|js|jsx}",
-    "scripts/*"
+    "*.{ts|tsx}",
+    "scripts/*",
+    "test/*",
+    "cypress/*/*.ts"
   ],
   "exclude": ["node_modules", "./src/__tests__", "public/generated"],
   "typedocOptions": {

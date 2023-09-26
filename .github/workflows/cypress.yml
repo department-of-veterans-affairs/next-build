@@ -43,8 +43,5 @@ jobs:
       - name: Generate sitemap
         run: yarn postbuild
 
-      - name: Serve static site for cypress
-        run: yarn gha:test:ci
-
-      - name: Cypress tests
-        uses: cypress-io/github-action@v5
+      - name: Serve static site & test with Cypress
+        run: yarn gha:test:cypress
