@@ -14,6 +14,7 @@ import * as Alert from './alert'
 import * as EmailContact from './emailContact'
 import * as BenefitsHub from './benefitsHub'
 import * as Wysiwyg from './wysiwyg'
+import * as StaticPathResources from './staticPathResources'
 
 export const queries = createQueries({
   'node--news_story': NewsStory,
@@ -34,4 +35,7 @@ export const queries = createQueries({
 
   // Custom Lookups
   'banner--alerts_lookup': Banner,
+
+  // Static Path Generation
+  'static-path-resources': StaticPathResources,
 })

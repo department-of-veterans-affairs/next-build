@@ -23,7 +23,7 @@ export const params: QueryParams<null> = () => {
 // Define the option types for the data loader.
 type DataOpts = QueryOpts<{
   id: string
-  page: number
+  page?: number
 }>
 
 type StoryListingData = {
