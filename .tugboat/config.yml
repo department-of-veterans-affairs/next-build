@@ -44,7 +44,7 @@ services:
       update:
         - yarn --version
         # install dependencies
-        - CYPRESS_INSTALL_BINARY=0 yarn install
+        - CYPRESS_INSTALL_BINARY=/var/lib/tugboat/.yarn/cypress/cypress.zip yarn install
 
       # Run any commands needed to build the site.
       build:
@@ -58,4 +58,4 @@ services:
       # Run any commands after the site is built.
       online:
         # Run cypress tests.
-        - CYPRESS_CACHE_FOLDER=/var/lib/tugboat/.yarn/cypress/cypress.zip CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress
+        - CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress

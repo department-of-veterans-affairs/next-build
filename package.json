@@ -25,7 +25,6 @@
     "test:format": "APP_ENV=test prettier --check .",
     "test:types": "APP_ENV=test tsc --noEmit",
     "test:watch": "APP_ENV=test jest --watch",
-    "gha:test:cypress": "APP_ENV=test start-server-and-test export:serve http://10.247.142.79:8001/ test:cypress",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
   },

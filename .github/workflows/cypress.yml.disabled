@@ -9,7 +9,7 @@ env:
   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
   OPENSSL_CONF: /etc/ssl/openssl.cnf
   CYPRESS_INSTALL_BINARY: 0
-  CYPRESS_BINARY_CACHE: /home/runner/runner1/_work/next-build/next-build/.yarn/cypress/cypress.zip
+  CYPRESS_CACHE_FOLDER: /home/runner/runner1/_work/next-build/next-build/.yarn/cypress/cypress.zip
   APP_ENV: gha
 
 jobs:
