@@ -1,6 +1,6 @@
 import { StaticPathResourceType } from '@/types/index'
 
-const LOVELL = {
+export const LOVELL = {
   federal: {
     administration: {
       id: 347,
@@ -22,12 +22,24 @@ const LOVELL = {
     },
     slug: 'lovell-federal-health-care-va',
   },
-}
+} as const
 
-function isLovellFederalPathResource(
+export function isLovellFederalPathResource(
   resource: StaticPathResourceType
 ): boolean {
   return resource.administration.id === LOVELL.federal.administration.id
+}
+
+export function isLovellTricarePathResource(
+  resource: StaticPathResourceType
+): boolean {
+  return resource.administration.id === LOVELL.tricare.administration.id
+}
+
+export function isLovellVaPathResource(
+  resource: StaticPathResourceType
+): boolean {
+  return resource.administration.id === LOVELL.va.administration.id
 }
 
 /**
