@@ -28,8 +28,6 @@ jobs:
          corepack enable
          corepack hydrate ./.yarn/releases/corepack.tgz
          corepack prepare yarn@3.6.1 --activate
-      - run: node -v
-      - run: yarn -v
       
       # todo: figure out where/how to cache this
       # necessary to do this way because cypress postinstall command ignores ssl/certs settings
@@ -46,7 +44,7 @@ jobs:
         run: yarn postbuild
 
       - name: Serve static site for cypress
-        run: yarn export:serve
+        run: yarn export:serve & wait-on http://localhost:8001
 
       - name: Cypress tests
         uses: cypress-io/github-action@v5
