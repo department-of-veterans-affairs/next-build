@@ -21,7 +21,7 @@ import { isListingPageSlug } from '@/lib/drupal/listingPages'
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
-  RESOURCE_TYPES.QA,
+  // RESOURCE_TYPES.QA,
 ] as const
 
 export default function ResourcePage({ resource, globalElements }) {
