@@ -12,7 +12,11 @@ services:
 
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
-      # Initialize the server.
+      # Commands that set up the basic preview infrastructure
+
+      # Changes made in this section will _not_ automatically take effect when
+      # base previews are refreshed through the scheduled process! A manual
+      # rebuild of the base preview is necessary.
       init:
         # Create a directory for the new repository's keyring, if it doesn't exist
         - mkdir -p /etc/apt/keyrings
@@ -61,7 +65,7 @@ services:
 
       # Run any commands after the site is built.
       online:
-        # Update status message
+        # Update cypress test status message
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Site built, running Cypress tests..."
 
         # Run cypress tests.
