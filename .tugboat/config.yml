@@ -37,6 +37,9 @@ services:
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
+        # Install github-status-updater
+        - ./scripts/install_github_status_updater.sh
+
       # Load dependent libraries and assets to prepare the site for build.
       update:
         - yarn --version
@@ -45,6 +48,9 @@ services:
 
       # Run any commands needed to build the site.
       build:
+        # Set cypress tests as pending
+        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..."
+
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
         # Generate sitemap
@@ -54,5 +60,11 @@ services:
 
       # Run any commands after the site is built.
       online:
+        # Update status message
+        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Site built, running Cypress tests..."
+
         # Run cypress tests.
         - CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress
+
+        # Set cypress tests as completed. Add pass/fail handling once tests are working properly.
+        - github-status-updater -action=update_state -state="Success" -context="test:cypress" -description="Cypress tests completed"
