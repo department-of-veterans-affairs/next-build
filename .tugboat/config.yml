@@ -38,7 +38,7 @@ services:
         - update-ca-certificates
 
         # Install github-status-updater
-        - ./scripts/install_github_status_updater.sh
+        - bash -lc ./scripts/install_github_status_updater.sh
 
       # Load dependent libraries and assets to prepare the site for build.
       update:
