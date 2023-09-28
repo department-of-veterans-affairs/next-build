@@ -6,6 +6,7 @@ const myEnv = dotenv.config({
 })
 
 dotenvExpand.expand(myEnv)
+console.log(`Using environment variables from: envs/.env.${process.env.APP_ENV || 'local'}`)
 
 /**
  * @type {import('next').NextConfig}
