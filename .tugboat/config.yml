@@ -61,9 +61,9 @@ services:
       # results of those are inherited from the base preview.
       build:
         # Set env vars for github-status-updater
-        - export GITHUB_REF=$TUGBOAT_PREVIEW_SHA
-        - export GITHUB_OWNER=$TUGBOAT_GITHUB_OWNER
-        - export GITHUB_REPO=$TUGBOAT_GITHUB_REPO
+        - export GITHUB_REF=${TUGBOAT_PREVIEW_SHA}
+        - export GITHUB_OWNER=${TUGBOAT_GITHUB_OWNER}
+        - export GITHUB_REPO=${TUGBOAT_GITHUB_REPO}
     
         # Set cypress tests as pending
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..."
