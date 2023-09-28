@@ -67,8 +67,6 @@ function addStaticPathResourcesFromPagingData(
   listingPageStaticPathResourcesWithPagingData: StaticPathResourceTypeWithPaging[],
   listingResourceType: ListingResourceTypeType
 ): StaticPathResourceType[] {
-  const urlSegment = RESOURCE_TYPE_URL_SEGMENTS[listingResourceType]
-
   return listingPageStaticPathResourcesWithPagingData.reduce(
     (acc, firstPageResource) => {
       // Determine if there are additional pages
