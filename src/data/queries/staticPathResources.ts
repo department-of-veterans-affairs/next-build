@@ -23,7 +23,7 @@ export const params: QueryParams<ResourceTypeType> = (
       // See:
       //  https://next-drupal.org/guides/page-limit
       //  https://dsva.slack.com/archives/C01SR56755H/p1695244241079879?thread_ts=1695070010.697129&cid=C01SR56755H
-      .addFields(resourceType, ['field_administration,title,path'])
+      .addFields(resourceType, ['field_administration', 'title', 'path'])
       .addInclude(['field_administration'])
       .addPageLimit(PAGE_SIZE)
   )
