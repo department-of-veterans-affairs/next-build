@@ -59,14 +59,9 @@ services:
       # preview is built from a base preview, the build workflow 
       # starts here, skipping the init and update steps, because the 
       # results of those are inherited from the base preview.
-      build:
-        # Set env vars for github-status-updater
-        - export GITHUB_REF=${TUGBOAT_PREVIEW_SHA}
-        - export GITHUB_OWNER=${TUGBOAT_GITHUB_OWNER}
-        - export GITHUB_REPO=${TUGBOAT_GITHUB_REPO}
-    
+      build:    
         # Set cypress tests as pending
-        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..."
+        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
 
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
@@ -78,10 +73,10 @@ services:
       # Run any commands after the site is built.
       online:
         # Update cypress test status message
-        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Site built, running Cypress tests..."
+        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Site built, running Cypress tests..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
 
         # Run cypress tests.
         - yarn test:cypress
 
         # Set cypress tests as completed. Add pass/fail handling once tests are working properly.
-        - github-status-updater -action=update_state -state="Success" -context="test:cypress" -description="Cypress tests completed"
+        - github-status-updater -action=update_state -state="Success" -context="test:cypress" -description="Cypress tests completed" -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
