@@ -45,7 +45,7 @@ services:
         - chmod -R 775 "./scripts/"
         - ./scripts/install_github_status_updater.sh
 
-      # Load dependent libraries and assets to prepare the site for build. 
+      # Load dependent libraries and assets to prepare the site for build.
       # When an existing preview is refreshed, the build workflow starts here,
       # skipping the init step, because the results of that step will
       # already be present.
@@ -54,12 +54,12 @@ services:
         # install dependencies
         - yarn install
 
-      # Commands that build the site. This is where you would add 
-      # steps required to set up or configure the site. When a 
-      # preview is built from a base preview, the build workflow 
-      # starts here, skipping the init and update steps, because the 
+      # Commands that build the site. This is where you would add
+      # steps required to set up or configure the site. When a
+      # preview is built from a base preview, the build workflow
+      # starts here, skipping the init and update steps, because the
       # results of those are inherited from the base preview.
-      build:    
+      build:
         # Set cypress tests as pending
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
 
@@ -76,7 +76,7 @@ services:
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Site built, running Cypress tests..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
 
         # Run cypress tests.
-        - yarn test:cypress
+        - CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress
 
         # Set cypress tests as completed. Add pass/fail handling once tests are working properly.
         - github-status-updater -action=update_state -state="Success" -context="test:cypress" -description="Cypress tests completed" -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
