@@ -30,15 +30,6 @@ services:
         # Install Cypress dependencies - https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements
         - apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
 
-        # .tugboat/.env.j2 Jinja2 template file support
-        - apt-get install python3-apt python3-distutils python3
-        - curl -O https://bootstrap.pypa.io/get-pip.py
-        # Remove externally managed script causing error in bookworm when python3 tries to install packages
-        - rm /usr/lib/python3.11/EXTERNALLY-MANAGED
-        - python3 get-pip.py
-        - echo "export PATH=/var/lib/tugboat/bin:~/.local/bin:$PATH" >> ~/.bashrc
-        - pip3 install j2cli
-
         # Install Node.js from the new repository
         - sudo apt-get install -y nodejs
 
@@ -54,17 +45,21 @@ services:
         - chmod -R 775 "./scripts/"
         - ./scripts/install_github_status_updater.sh
 
-      # Load dependent libraries and assets to prepare the site for build.
+      # Load dependent libraries and assets to prepare the site for build. 
+      # When an existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
       update:
         - yarn --version
         # install dependencies
         - yarn install
 
-      # Run any commands needed to build the site.
+      # Commands that build the site. This is where you would add 
+      # steps required to set up or configure the site. When a 
+      # preview is built from a base preview, the build workflow 
+      # starts here, skipping the init and update steps, because the 
+      # results of those are inherited from the base preview.
       build:
-        # Get additional env vars in place
-        - j2 "${TUGBOAT_ROOT}/.tugboat/.env.j2" -o "${TUGBOAT_ROOT}/.env"
-
         # Set cypress tests as pending
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..."
 
