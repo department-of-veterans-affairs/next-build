@@ -18,9 +18,6 @@ services:
       # base previews are refreshed through the scheduled process! A manual
       # rebuild of the base preview is necessary.
       init:
-        # General useful development tools
-        - apt-get install jq nano
-
         # Create a directory for the new repository's keyring, if it doesn't exist
         - mkdir -p /etc/apt/keyrings
         # Download the new repository's GPG key and save it in the keyring directory
