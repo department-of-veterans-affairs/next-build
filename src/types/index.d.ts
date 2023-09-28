@@ -11,6 +11,11 @@ export interface PublishedEntity {
   published: boolean
 }
 
+export type Administration = {
+  id: number
+  name: string
+}
+
 export type Path = {
   pid?: number
   alias?: string
@@ -85,6 +90,7 @@ export type NewsStoryType = PublishedEntity & {
   listing: string
   entityId: number
   entityPath: string
+  administration: Administration
 }
 
 export type NewsStoryTeaserType = PublishedEntity & {
@@ -170,10 +176,7 @@ export type ContentFooterType = {
 
 export type StaticPathResourceType = {
   path: PathAlias
-  administration: {
-    id: number
-    name: string
-  }
+  administration: Administration
 }
 
 // These SideNav types are what the vets-website widget expects

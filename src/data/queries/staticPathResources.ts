@@ -8,6 +8,7 @@ import { JsonApiResponse, JsonApiResourceWithPath } from 'next-drupal'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
+import { FieldAdministration } from '@/types/dataTypes/drupal/field_type'
 import { queries } from '.'
 
 const PAGE_SIZE = 50 as const //must be <= 50 due to JSON:API limit
@@ -35,10 +36,7 @@ type DataOpts = QueryOpts<{
 }>
 
 type JsonApiResourceWithPathAndFieldAdmin = JsonApiResourceWithPath & {
-  field_administration: {
-    drupal_internal__tid: number
-    name: string
-  }
+  field_administration: FieldAdministration
 }
 
 // Implement the data loader.

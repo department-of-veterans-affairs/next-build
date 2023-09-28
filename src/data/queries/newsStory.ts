@@ -8,6 +8,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryType } from '@/types/index'
+import { isLovellFederalResource } from '@/lib/drupal/lovell'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -18,6 +19,7 @@ export const params: QueryParams<null> = () => {
       'field_media.image',
       'field_author',
       'field_listing',
+      'field_administration',
     ])
 }
 
@@ -44,6 +46,11 @@ export const data: QueryData<DataOpts, NodeNewsStory> = async (
 export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
   entity: NodeNewsStory
 ) => {
+  const administration = {
+    id: entity.field_administration?.drupal_internal__tid || null,
+    name: entity.field_administration?.name || null,
+  }
+
   return {
     id: entity.id,
     entityId: entity.drupal_internal__nid,
@@ -65,5 +72,6 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
       title: entity.title,
     },
     listing: entity.field_listing.path.alias,
+    administration,
   }
 }
