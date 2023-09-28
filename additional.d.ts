@@ -21,14 +21,3 @@ declare module '@department-of-veterans-affairs/component-library/PromoBanner'
 declare module '@department-of-veterans-affairs/component-library/dist/react-bindings'
 declare module 'mq-polyfill'
 declare module 'debug'
-
-// figure out specific types for these later, if necessary
-declare global {
-    interface Window {
-        VetsGov?: any;
-        sideNav?: any;
-    }
-}
-
-// allows above changes to Window to be picked up
-export {}

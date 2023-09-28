@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * ### Overview
  * Story Listing represents an individual story within a Facility. These are used for human-interest articles.
@@ -12,7 +13,6 @@
 import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { NewsStoryTeaserType, StoryListingType } from '@/types/index'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
-// import { FacilityMenu } from '@/templates/components/facilityMenu'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
 
@@ -25,7 +25,9 @@ export function StoryListing({
   currentPage,
   totalPages,
 }: StoryListingType) {
+  // Add data to the window object for the sidebar widget
   useEffect(() => {
+    // @ts-ignore
     window.sideNav = {
       "rootPath": "/butler-health-care/stories/",
       "data": {
@@ -516,9 +518,10 @@ export function StoryListing({
       }
     }
 
+    // @ts-ignore
     console.log(window.sideNav)
     console.log(menu)
-  }, [])
+  }, [menu])
 
   const storyTeasers =
     stories?.length > 0 ? (
@@ -533,8 +536,8 @@ export function StoryListing({
 
   return (
     <div key={id} className="usa-grid usa-grid-full">
-      {/* <FacilityMenu {...menu} /> */}
 
+      {/* Widget coming from vets-website */}
       <nav data-template="navigation/facility_sidebar_nav" aria-label="secondary" data-widget-type="side-nav"></nav>
 
       <div className="usa-width-three-fourths">
