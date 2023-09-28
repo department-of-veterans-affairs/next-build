@@ -24,22 +24,16 @@ export const LOVELL = {
   },
 } as const
 
-export function isLovellFederalPathResource(
-  resource: StaticPathResourceType
-): boolean {
-  return resource.administration.id === LOVELL.federal.administration.id
+export function isLovellFederalResource(resource): boolean {
+  return resource?.administration?.id === LOVELL.federal.administration.id
 }
 
-export function isLovellTricarePathResource(
-  resource: StaticPathResourceType
-): boolean {
-  return resource.administration.id === LOVELL.tricare.administration.id
+export function isLovellTricareResource(resource): boolean {
+  return resource?.administration?.id === LOVELL.tricare.administration.id
 }
 
-export function isLovellVaPathResource(
-  resource: StaticPathResourceType
-): boolean {
-  return resource.administration.id === LOVELL.va.administration.id
+export function isLovellVaResource(resource): boolean {
+  return resource?.administration?.id === LOVELL.va.administration.id
 }
 
 /**
@@ -94,7 +88,7 @@ export function bifurcateLovellFederalPathResources(
   // but that would require two passes over the array.
   const { lovellFederalResources, otherResources } = resources.reduce(
     (acc, resource) => {
-      if (isLovellFederalPathResource(resource)) {
+      if (isLovellFederalResource(resource)) {
         acc.lovellFederalResources.push(resource)
       } else {
         acc.otherResources.push(resource)
@@ -116,5 +110,5 @@ export function bifurcateLovellFederalPathResources(
 export function removeLovellFederalPathResources(
   resources: StaticPathResourceType[]
 ): StaticPathResourceType[] {
-  return resources.filter((resource) => !isLovellFederalPathResource(resource))
+  return resources.filter((resource) => !isLovellFederalResource(resource))
 }

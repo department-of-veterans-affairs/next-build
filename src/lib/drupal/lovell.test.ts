@@ -1,8 +1,8 @@
 import {
   LOVELL,
-  isLovellFederalPathResource,
-  isLovellTricarePathResource,
-  isLovellVaPathResource,
+  isLovellFederalResource,
+  isLovellTricareResource,
+  isLovellVaResource,
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
 } from './lovell'
@@ -46,68 +46,68 @@ const otherResource = {
   },
 }
 
-describe('isLovellFederalPathResource', () => {
+describe('isLovellFederalResource', () => {
   test('should return true when Federal resource', () => {
-    const result = isLovellFederalPathResource(lovellFederalResource)
+    const result = isLovellFederalResource(lovellFederalResource)
     expect(result).toBe(true)
   })
 
   test('should return false when TRICARE resource', () => {
-    const result = isLovellFederalPathResource(lovellTricareResource)
+    const result = isLovellFederalResource(lovellTricareResource)
     expect(result).toBe(false)
   })
 
   test('should return false when VA resource', () => {
-    const result = isLovellFederalPathResource(lovellVaResource)
+    const result = isLovellFederalResource(lovellVaResource)
     expect(result).toBe(false)
   })
 
   test('should return false when any other resource', () => {
-    const result = isLovellFederalPathResource(otherResource)
+    const result = isLovellFederalResource(otherResource)
     expect(result).toBe(false)
   })
 })
 
-describe('isLovellTricarePathResource', () => {
+describe('isLovellTricareResource', () => {
   test('should return true when TRICARE resource', () => {
-    const result = isLovellTricarePathResource(lovellTricareResource)
+    const result = isLovellTricareResource(lovellTricareResource)
     expect(result).toBe(true)
   })
 
   test('should return false when Federal resource', () => {
-    const result = isLovellTricarePathResource(lovellFederalResource)
+    const result = isLovellTricareResource(lovellFederalResource)
     expect(result).toBe(false)
   })
 
   test('should return false when VA resource', () => {
-    const result = isLovellTricarePathResource(lovellVaResource)
+    const result = isLovellTricareResource(lovellVaResource)
     expect(result).toBe(false)
   })
 
   test('should return false when any other resource', () => {
-    const result = isLovellTricarePathResource(otherResource)
+    const result = isLovellTricareResource(otherResource)
     expect(result).toBe(false)
   })
 })
 
-describe('isLovellVaPathResource', () => {
+describe('isLovellVaResource', () => {
   test('should return true when VA resource', () => {
-    const result = isLovellVaPathResource(lovellVaResource)
+    const result = isLovellVaResource(lovellVaResource)
     expect(result).toBe(true)
   })
 
   test('should return false when Federal resource', () => {
-    const result = isLovellVaPathResource(lovellFederalResource)
+    const result = isLovellVaResource(lovellFederalResource)
     expect(result).toBe(false)
   })
 
   test('should return false when TRICARE resource', () => {
-    const result = isLovellVaPathResource(lovellTricareResource)
+    const result = isLovellVaResource(lovellTricareResource)
     expect(result).toBe(false)
   })
 
   test('should return false when any other resource', () => {
-    const result = isLovellVaPathResource(otherResource)
+    const result = isLovellVaResource(otherResource)
     expect(result).toBe(false)
   })
 })
@@ -124,17 +124,13 @@ describe('bifurcateLovellFederalPathResources', () => {
     const modifiedResources = bifurcateLovellFederalPathResources(resources)
     expect(modifiedResources.length).toBe(5)
 
-    const federalResources = modifiedResources.filter(
-      isLovellFederalPathResource
-    )
+    const federalResources = modifiedResources.filter(isLovellFederalResource)
     expect(federalResources.length).toBe(0)
 
-    const tricareResources = modifiedResources.filter(
-      isLovellTricarePathResource
-    )
+    const tricareResources = modifiedResources.filter(isLovellTricareResource)
     expect(tricareResources.length).toBe(2)
 
-    const vaResources = modifiedResources.filter(isLovellVaPathResource)
+    const vaResources = modifiedResources.filter(isLovellVaResource)
     expect(vaResources.length).toBe(2)
   })
 
@@ -158,17 +154,13 @@ describe('removeLovellFederalPathResources', () => {
     const modifiedResources = removeLovellFederalPathResources(resources)
     expect(modifiedResources.length).toBe(3)
 
-    const federalResources = modifiedResources.filter(
-      isLovellFederalPathResource
-    )
+    const federalResources = modifiedResources.filter(isLovellFederalResource)
     expect(federalResources.length).toBe(0)
 
-    const tricareResources = modifiedResources.filter(
-      isLovellTricarePathResource
-    )
+    const tricareResources = modifiedResources.filter(isLovellTricareResource)
     expect(tricareResources.length).toBe(1)
 
-    const vaResources = modifiedResources.filter(isLovellVaPathResource)
+    const vaResources = modifiedResources.filter(isLovellVaResource)
     expect(vaResources.length).toBe(1)
   })
 
