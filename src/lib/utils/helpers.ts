@@ -1,4 +1,3 @@
-import config from '../../../config'
 import isNil from 'lodash/isNil'
 
 export function truncateWordsOrChar(
@@ -21,8 +20,9 @@ export function truncateWordsOrChar(
   }
 }
 
-export function absoluteURL(uri: string) {
-  return `${config.drupalBaseUrl}${uri}`
+export function convertLinkToAbsolute(hostUrl, pathName) {
+  const url = new URL(pathName, hostUrl);
+  return url.href;
 }
 
 // used to get a base url path of a health care region from entityUrl.path

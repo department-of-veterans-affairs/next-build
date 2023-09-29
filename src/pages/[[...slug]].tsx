@@ -24,7 +24,7 @@ const RESOURCE_TYPES_TO_BUILD = [
   // RESOURCE_TYPES.QA,
 ] as const
 
-export default function ResourcePage({ resource, globalElements }) {
+export default function ResourcePage({ resource, bannerData, headerFooterData }) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
@@ -37,11 +37,11 @@ export default function ResourcePage({ resource, globalElements }) {
     `
 
   return (
-    <Wrapper bannerData={globalElements.bannerData}>
+    <Wrapper bannerData={bannerData} headerFooterData={headerFooterData}>
       <HTMLComment position="head" content={comment} />
       <Head>
         <title>{title}</title>
-        {/* todo: do all meta tags correctly, this fixes an error on news story */}
+        {/* todo: do all meta tags correctly, currently this fixes an error on news story */}
         <meta property="og:url" content="foo" />
       </Head>
       {resource.type === RESOURCE_TYPES.STORY_LISTING && (
@@ -129,13 +129,16 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
   }
 
+  const { bannerData, headerFooterData } = await getGlobalElements(
+    pathInfo.jsonapi?.entryPoint,
+    path
+  )
+
   return {
     props: {
       resource,
-      globalElements: await getGlobalElements(
-        pathInfo.jsonapi?.entryPoint,
-        path
-      ),
+      bannerData,
+      headerFooterData
     },
   }
 }

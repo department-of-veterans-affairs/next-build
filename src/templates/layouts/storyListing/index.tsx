@@ -19,10 +19,10 @@ import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
 
+// Allows additions to window object without overwriting global type
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
-
 declare const window: customWindow
 
 export function StoryListing({

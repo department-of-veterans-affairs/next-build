@@ -1,6 +1,5 @@
 import { MediaImage } from '@/templates/common/mediaImage'
 import { PersonProfileType } from '@/types/index'
-import { absoluteURL } from '@/lib/utils/helpers'
 
 export type PersonProfileTeaserProps = {
   title: string
@@ -109,7 +108,7 @@ export const PersonProfile = ({
                     ></i>
 
                     <a
-                      href={absoluteURL(media ? media[0]?.url : null)}
+                      href={media ? media[0]?.url : null}
                       download
                     >
                       {' '}

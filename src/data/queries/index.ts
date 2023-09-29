@@ -15,9 +15,10 @@ import * as EmailContact from './emailContact'
 import * as BenefitsHub from './benefitsHub'
 import * as Wysiwyg from './wysiwyg'
 import * as StaticPathResources from './staticPathResources'
+import * as HeaderFooter from './headerFooter'
 
 export const queries = createQueries({
-  // Drupal entity data
+  // standard Drupal entity data queries
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
   'node--story_listing': StoryListing,
@@ -34,8 +35,9 @@ export const queries = createQueries({
   'media--image': MediaImage,
   'block--alert': Alert,
 
-  // Custom Lookups
+  // Custom queries 
   'banner--alerts_lookup': Banner,
+  'header-footer-data': HeaderFooter,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,
