@@ -21,8 +21,8 @@ export function truncateWordsOrChar(
 }
 
 export function convertLinkToAbsolute(hostUrl, pathName) {
-  const url = new URL(pathName, hostUrl);
-  return url.href;
+  const url = new URL(pathName, hostUrl)
+  return url.href
 }
 
 // used to get a base url path of a health care region from entityUrl.path

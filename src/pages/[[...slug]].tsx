@@ -24,7 +24,11 @@ const RESOURCE_TYPES_TO_BUILD = [
   // RESOURCE_TYPES.QA,
 ] as const
 
-export default function ResourcePage({ resource, bannerData, headerFooterData }) {
+export default function ResourcePage({
+  resource,
+  bannerData,
+  headerFooterData,
+}) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
@@ -138,7 +142,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     props: {
       resource,
       bannerData,
-      headerFooterData
+      headerFooterData,
     },
   }
 }

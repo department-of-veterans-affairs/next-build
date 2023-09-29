@@ -35,7 +35,7 @@ export const queries = createQueries({
   'media--image': MediaImage,
   'block--alert': Alert,
 
-  // Custom queries 
+  // Custom queries
   'banner--alerts_lookup': Banner,
   'header-footer-data': HeaderFooter,
 

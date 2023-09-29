@@ -107,10 +107,7 @@ export const PersonProfile = ({
                       aria-hidden="true"
                     ></i>
 
-                    <a
-                      href={media ? media[0]?.url : null}
-                      download
-                    >
+                    <a href={media ? media[0]?.url : null} download>
                       {' '}
                       Download full size photo
                     </a>

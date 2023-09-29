@@ -32,6 +32,6 @@ export async function getGlobalElements(
 
   return {
     bannerData: banners,
-    headerFooterData
+    headerFooterData,
   }
 }
