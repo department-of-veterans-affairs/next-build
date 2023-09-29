@@ -14,6 +14,7 @@ import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
+import Breadcrumbs from '@/templates/common/breadcrumbs'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -22,7 +23,6 @@ interface customWindow extends Window {
   }
 }
 declare const window: customWindow
-
 export interface LayoutProps {
   children?: React.ReactNode
   bannerData?: Array<
@@ -65,9 +65,20 @@ export function Wrapper({
     }
   }, [bannerData, showBanners, headerFooterData])
 
+
+
+  function replacer(key, value) {
+    if (key === 'itself') {
+      return null
+    }
+
+    return value
+  }
+
   return (
     <>
       <Header />
+      {/* <Breadcrumbs /> */}
       {showBanners ? banners : null}
       <main>{children}</main>
       <Footer />
