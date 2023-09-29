@@ -68,6 +68,7 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
   }
 
   // Fetch the menu name dynamically off of the field_office reference
+  // We may want to make our own version of this method, a la staticPathResources
   const menu = await drupalClient.getMenu(
     entity.field_office.field_system_menu.resourceIdObjMeta
       .drupal_internal__target_id,
