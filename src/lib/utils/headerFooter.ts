@@ -1,11 +1,12 @@
 import { Menu } from '@/types/dataTypes/drupal/menu'
-import { convertLinkToAbsolute } from './helpers'
+import { convertLinkToAbsolute, formatHeaderData } from '@/lib/utils/header'
 import { FOOTER_LINKS } from '../constants'
 import {
   HeaderFooterData,
   RawHeaderFooterData,
 } from '@/data/queries/headerFooter'
 
+// Helper functions to format footer menu items
 const formatLink = (link, linkIndex, columnId, hostUrl) => {
   return {
     column: columnId,
@@ -48,6 +49,9 @@ export const buildHeaderFooterData = ({
     ...footerColumnsData,
     ...FOOTER_LINKS,
   ]
+
+  // megamenu is a monstrosity
+  // const megaMenu = formatHeaderData(megaMenuData)
 
   return {
     footerData,

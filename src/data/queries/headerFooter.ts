@@ -43,13 +43,14 @@ export const formatter: QueryFormatter<
   RawHeaderFooterData,
   HeaderFooterData
 > = ({ footerColumns, footerBottomRail, megaMenuData }) => {
-  const { footerData } = buildHeaderFooterData({
+  // naming things is so hard
+  const { footerData, megaMenuData: megaMenu } = buildHeaderFooterData({
     footerBottomRail,
     footerColumns,
     megaMenuData,
   })
   return {
     footerData,
-    megaMenuData: [],
+    megaMenuData: megaMenu,
   }
 }

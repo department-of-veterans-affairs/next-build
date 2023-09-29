@@ -20,9 +20,10 @@ export function truncateWordsOrChar(
   }
 }
 
-export function convertLinkToAbsolute(hostUrl, pathName) {
-  const url = new URL(pathName, hostUrl)
-  return url.href
+export function getArrayDepth(arr) {
+  const counter = (curArr) =>
+    curArr.children[0] ? Math.max(...curArr.children.map(counter)) + 1 : 0
+  return counter(arr)
 }
 
 // used to get a base url path of a health care region from entityUrl.path
