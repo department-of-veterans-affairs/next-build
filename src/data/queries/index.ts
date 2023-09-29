@@ -17,6 +17,7 @@ import * as Wysiwyg from './wysiwyg'
 import * as StaticPathResources from './staticPathResources'
 
 export const queries = createQueries({
+  // Drupal entity data
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
   'node--story_listing': StoryListing,

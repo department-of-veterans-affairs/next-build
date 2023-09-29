@@ -132,7 +132,7 @@ export type StoryListingType = PublishedEntity & {
   title: string
   introText: string
   stories: NewsStoryTeaserType[]
-  menu: Menu
+  menu: SideNavMenu
   currentPage: number
   totalPages: number
   entityId: number
@@ -175,18 +175,24 @@ export type StaticPathResourceType = {
   }
 }
 
-interface MenuItemProps {
-  readonly id: string
-  readonly url: string
-  readonly title: string
+export type SideNavItem = {
+  description: string
   expanded: boolean
-  enabled: boolean
-  items?: Tree
-  depth?: number
-  children?: ReactChildren
+  label: string
+  links: SideNavItem[]
+  url: { path: string }
 }
 
-type Tree = ReadonlyArray<MenuItemProps>
+export type SideNavData = {
+  name: string
+  description: string
+  links: SideNavItem[]
+}
+
+export type SideNavMenu = {
+  rootPath: string
+  data: SideNavData
+}
 
 interface ButtonType {
   id: string

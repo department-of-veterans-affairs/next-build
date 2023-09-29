@@ -12,6 +12,7 @@ import { NodeStoryListing, NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { Menu } from '@/types/dataTypes/drupal/menu'
 import { StoryListingType } from '@/types/index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 
 export const PAGE_SIZE = 10 as const
 
@@ -67,6 +68,7 @@ export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
   }
 
   // Fetch the menu name dynamically off of the field_office reference
+  // We may want to make our own version of this method, a la staticPathResources
   const menu = await drupalClient.getMenu(
     entity.field_office.field_system_menu.resourceIdObjMeta
       .drupal_internal__target_id,
@@ -92,6 +94,9 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
   const formattedStories = stories.map((story) => {
     return queries.formatData('node--news_story--teaser', story)
   })
+
+  const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+
   return {
     id: entity.id,
     entityId: entity.drupal_internal__nid,
@@ -101,7 +106,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
     title: entity.title,
     introText: entity.field_intro_text,
     stories: formattedStories,
-    menu: menu,
+    menu: formattedMenu,
     currentPage: current,
     totalPages: total,
   }
