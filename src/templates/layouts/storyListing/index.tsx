@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * ### Overview
  * Story Listing represents an individual story within a Facility. These are used for human-interest articles.
