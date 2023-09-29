@@ -1,21 +1,16 @@
-import {
-  QueryData,
-  QueryFormatter,
-  QueryOpts,
-  QueryParams,
-} from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { Menu } from '@/types/dataTypes/drupal/menu'
 import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
 
-type RawHeaderFooterData = {
+export type RawHeaderFooterData = {
   footerColumns: Menu
   footerBottomRail: Menu
   megaMenuData: Menu
 }
 
-type HeaderFooterData = {
+export type HeaderFooterData = {
   footerData?: any
   megaMenuData?: any
 }
@@ -24,11 +19,6 @@ type HeaderFooterData = {
 export const params: QueryParams<null> = () => {
   return queries.getParams().addFields('menu_items', ['title,url'])
 }
-
-// Define the option types for the data loader.
-type DataOpts = QueryOpts<{
-  name: string
-}>
 
 export const data: QueryData<any, RawHeaderFooterData> = async (opts) => {
   // Gather data from the different menus for the headerFooter data object
@@ -53,9 +43,13 @@ export const formatter: QueryFormatter<
   RawHeaderFooterData,
   HeaderFooterData
 > = ({ footerColumns, footerBottomRail, megaMenuData }) => {
-  const check = buildHeaderFooterData(footerBottomRail, footerColumns)
+  const { footerData } = buildHeaderFooterData({
+    footerBottomRail,
+    footerColumns,
+    megaMenuData,
+  })
   return {
-    footerData: [],
+    footerData,
     megaMenuData: [],
   }
 }
