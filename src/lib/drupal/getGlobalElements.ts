@@ -13,6 +13,7 @@ export async function getGlobalElements(
   jsonApiEntryPoint: string,
   itemPath: string
 ): Promise<LayoutProps> {
+  // move all of this into @/data/queries/banners.ts
   let bannerPath = `${jsonApiEntryPoint}/banner-alerts?item-path=${itemPath}`
 
   if (itemPath.includes('home')) {
@@ -24,6 +25,9 @@ export async function getGlobalElements(
     await requestBanner.json()
   )
   const banners = formatter(bannerData as NodeBanner[])
+
+  // gather data for banners currently visible on this page
+  // const bannerData = await queries.getData('banner--alerts_lookup')
 
   // gather data for header and footer object
   const headerFooterData = await queries.getData('header-footer-data')

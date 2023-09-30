@@ -32,7 +32,7 @@ export const data: QueryData<any, RawHeaderFooterData> = async (opts) => {
     opts.params
   )
 
-  // potentially another query here for the promo items things in the megamenu
+  // probably another query here for the promo items things in the megamenu
 
   return {
     footerColumns,
