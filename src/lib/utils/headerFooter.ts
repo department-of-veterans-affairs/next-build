@@ -1,6 +1,5 @@
-import { Menu } from '@/types/dataTypes/drupal/menu'
 import { convertLinkToAbsolute, formatHeaderData } from '@/lib/utils/header'
-import { FOOTER_LINKS } from '../constants'
+import { FOOTER_LINKS } from '../constants/footer-links'
 import {
   HeaderFooterData,
   RawHeaderFooterData,

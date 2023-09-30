@@ -1,4 +1,4 @@
-// These footer links are also hard-coded in src/platform/static-data/footer-links.json
+// These footer links are also hard-coded in @content-build/src/platform/static-data/footer-links.json
 export const FOOTER_LINKS = [
   {
     column: 4,

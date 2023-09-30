@@ -1,7 +1,7 @@
-// Dependencies
 import { Menu, MenuItem } from '@/types/dataTypes/drupal/menu'
 import { SideNavData, SideNavItem, SideNavMenu } from '@/types/index'
 
+// Recursively fit menu items into sidenav-requested shape
 const normalizeMenuItem = (item: MenuItem): SideNavItem => {
   const nestedItems = []
 
