@@ -31,7 +31,7 @@ jobs:
             yarn-cache-
 
       - name: Install Npm Dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        #if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |
           yarn set version stable
           HUSKY=0 yarn install --immutable
