@@ -12,6 +12,11 @@ const Document = () => {
       <Head>
         <meta charSet="utf-8" />
         <link
+          rel="stylesheet"
+          data-entry-name="style.css"
+          href="https://unpkg.com/@department-of-veterans-affairs/formation/dist/formation.min.css"
+        />
+        <link
           href={`${ASSETS_URL}static-pages.css`}
           data-entry-name="static-pages.css"
           rel="stylesheet"
