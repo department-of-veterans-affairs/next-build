@@ -7,7 +7,7 @@ import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
 export type RawHeaderFooterData = {
   footerColumns: Menu
   footerBottomRail: Menu
-  megaMenu: Menu
+  headerMegaMenu: Menu
 }
 
 export type HeaderFooterData = {
@@ -25,6 +25,7 @@ export const megaMenuParams: QueryParams<null> = () => {
   return queries
     .getParams()
     .addFields('menu_items', ['title,url,field_promo_reference'])
+    .addInclude(['field_promo_reference'])
 }
 
 export const data: QueryData<any, RawHeaderFooterData> = async (opts) => {
@@ -34,7 +35,7 @@ export const data: QueryData<any, RawHeaderFooterData> = async (opts) => {
     'footer-bottom-rail',
     opts.params
   )
-  const megaMenu = await drupalClient.getMenu(
+  const headerMegaMenu = await drupalClient.getMenu(
     'header-megamenu',
     opts.megaMenuParams
   )
@@ -42,18 +43,18 @@ export const data: QueryData<any, RawHeaderFooterData> = async (opts) => {
   return {
     footerColumns,
     footerBottomRail,
-    megaMenu,
+    headerMegaMenu,
   }
 }
 
 export const formatter: QueryFormatter<
   RawHeaderFooterData,
   HeaderFooterData
-> = ({ footerColumns, footerBottomRail, megaMenu }) => {
+> = ({ footerColumns, footerBottomRail, headerMegaMenu }) => {
   const { footerData, megaMenuData } = buildHeaderFooterData({
     footerBottomRail,
     footerColumns,
-    megaMenu,
+    headerMegaMenu,
   })
 
   // Data assembled into shape front-end widget expects

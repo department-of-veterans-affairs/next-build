@@ -35,25 +35,26 @@ const formatFooterColumns = (data, hostUrl) => {
 export const buildHeaderFooterData = ({
   footerBottomRail,
   footerColumns,
-  megaMenu,
+  headerMegaMenu,
 }: RawHeaderFooterData): HeaderFooterData => {
   // todo: target env handling for what hostUrl should map to
   const hostUrl = 'https://va.gov/'
 
-  // Assemble footer menu data
-  const bottomRailFooterData =
+  // Assemble footer menu data from Drupal
+  const footerBottomRailData =
     formatColumn(footerBottomRail, 'bottom_rail', hostUrl) || []
   const footerColumnsData = formatFooterColumns(footerColumns, hostUrl) || []
 
   const footerData = [
-    ...bottomRailFooterData,
+    ...footerBottomRailData,
     ...footerColumnsData,
     ...FOOTER_LINKS,
   ]
 
-  // Assemble megamenu data
-  const megaMenuData = formatHeaderData(megaMenu, hostUrl)
+  // Assemble header megamenu data from Drupal
+  const megaMenuData = formatHeaderData(headerMegaMenu, hostUrl)
 
+  // Data shaped into what front-end widgets expect
   return {
     footerData,
     megaMenuData,

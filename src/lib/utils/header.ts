@@ -102,7 +102,7 @@ function makeColumns(hostUrl, linkData, arrayDepth) {
 
   linkData.forEach((link) => {
     // Create named columns.
-    if (link.items.length > 0) {
+    if (link.items && link.items.length > 0) {
       const column = {
         title: link.title,
         links: makeLinkList(hostUrl, link.items),
@@ -114,25 +114,22 @@ function makeColumns(hostUrl, linkData, arrayDepth) {
       // This also means we will have a promo block related to this hub.
     } else if (arrayDepth === 3) {
       columns.seeAllLink = createLinkObj(hostUrl, link)
-
-      // const relatedHub = getRelatedHubByPath(link, pages);
-      // promo = relatedHub ? relatedHub.fieldPromo : promo;
     }
 
-    // if (promo !== null) {
-    //   columns[columnNames[i]] = makePromo(hostUrl, promo);
-    // }
+    if (link.field_promo_reference !== null) {
+      columns[columnNames[i]] = makePromo(hostUrl, link.field_promo_reference)
+    }
   })
 
   return columns
 }
 
-const makeSection = (item) => {
+const makeSection = (item, hostUrl, arrayDepth) => {
   const sections = item.items
 
   return {
     title: item.title,
-    menuSections: sections,
+    links: makeColumns(hostUrl, sections, arrayDepth),
   }
 }
 
@@ -158,7 +155,7 @@ export function formatHeaderData(menuData, hostUrl) {
         link.items.forEach((child) => {
           // These are hubs with child links.
           if (child.items?.length > 0) {
-            linkObj.menuSections.push(makeSection(child))
+            linkObj.menuSections.push(makeSection(child, hostUrl, arrayDepth))
           } else {
             // 2 hubs just have a single link. Unlike the usual pattern, these
             // must have both 'title' and 'text' properties in addition to 'href'.
