@@ -268,3 +268,40 @@ interface AudienceTopicType {
 interface AudienceTopicsType {
   tags: AudienceTopicType[]
 }
+
+// type expected by window.VetsGov.headerFooter
+export type HeaderFooterData = {
+  footerData?: FooterLink[]
+  megaMenuData?: MegaMenuSection[]
+}
+
+export type FooterLink = {
+  column: number | string // either # or 'bottom_rail'
+  href: string
+  order: number
+  target?: string
+  title: string
+}
+
+export type MegaMenuLink = {
+  title: string
+  href?: string
+}
+
+export type MegaMenuSection = MegaMenuLink & {
+  menuSections?: (MegaMenuColumn | MegaMenuPromoColumn)[] | MegaMenuColumn
+}
+
+export type MegaMenuColumn = {
+  title: string
+  links: MegaMenuLink[]
+}
+
+export type MegaMenuPromoColumn = {
+  img: {
+    src: string
+    alt: string
+  }
+  link: MegaMenuLink
+  description: string
+}

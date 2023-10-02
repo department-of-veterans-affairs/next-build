@@ -2,25 +2,13 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { Menu } from '@/types/dataTypes/drupal/menu'
+import { HeaderFooterData } from '@/types/index'
 import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
 
 export type RawHeaderFooterData = {
   footerColumns: Menu
   footerBottomRail: Menu
   headerMegaMenu: Menu
-}
-
-export type HeaderFooterData = {
-  footerData?: FooterLink[]
-  megaMenuData?: any
-}
-
-export type FooterLink = {
-  column: number | string // either # or 'bottom_rail'
-  href: string
-  order: number
-  target?: string
-  title: string
 }
 
 // Define the query params for fetching footer menu data.

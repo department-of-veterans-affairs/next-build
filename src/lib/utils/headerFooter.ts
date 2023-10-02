@@ -1,10 +1,7 @@
 import { convertLinkToAbsolute, formatHeaderData } from '@/lib/utils/header'
 import { FOOTER_LINKS } from '../constants/footer-links'
-import {
-  HeaderFooterData,
-  RawHeaderFooterData,
-  FooterLink,
-} from '@/data/queries/headerFooter'
+import { RawHeaderFooterData } from '@/data/queries/headerFooter'
+import { FooterLink, HeaderFooterData } from '@/types/index'
 
 // Helper functions to format footer menu items
 const formatLink = (link, linkIndex, columnId, hostUrl): FooterLink => {
