@@ -12,7 +12,11 @@ services:
 
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
-      # Initialize the server.
+      # Commands that set up the basic preview infrastructure
+
+      # Changes made in this section will _not_ automatically take effect when
+      # base previews are refreshed through the scheduled process! A manual
+      # rebuild of the base preview is necessary.
       init:
         # Create a directory for the new repository's keyring, if it doesn't exist
         - mkdir -p /etc/apt/keyrings
@@ -22,6 +26,9 @@ services:
         - echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
         # Update local package index to recognize the new repository
         - sudo apt-get update
+
+        # Install Cypress dependencies - https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements
+        - apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
 
         # Install Node.js from the new repository
         - sudo apt-get install -y nodejs
@@ -34,17 +41,42 @@ services:
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
+        # Install github-status-updater
+        - chmod -R 775 "./scripts/"
+        - ./scripts/install_github_status_updater.sh
+
       # Load dependent libraries and assets to prepare the site for build.
+      # When an existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
       update:
         - yarn --version
         # install dependencies
         - yarn install
 
-      # Run any commands needed to build the site.
+      # Commands that build the site. This is where you would add
+      # steps required to set up or configure the site. When a
+      # preview is built from a base preview, the build workflow
+      # starts here, skipping the init and update steps, because the
+      # results of those are inherited from the base preview.
       build:
+        # Set cypress tests as pending
+        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
+
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
         # Generate sitemap
         - SITE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn postbuild
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
+
+      # Run any commands after the site is built.
+      online:
+        # Update cypress test status message
+        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Site built, running Cypress tests..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
+
+        # Run cypress tests.
+        - CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress || true
+
+        # Set cypress tests as completed. Add pass/fail handling once tests are working properly.
+        - github-status-updater -action=update_state -state="success" -context="test:cypress" -description="Cypress tests completed" -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
