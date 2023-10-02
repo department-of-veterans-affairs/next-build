@@ -7,7 +7,7 @@ import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
 export type RawHeaderFooterData = {
   footerColumns: Menu
   footerBottomRail: Menu
-  megaMenuData: Menu
+  megaMenu: Menu
 }
 
 export type HeaderFooterData = {
@@ -15,9 +15,16 @@ export type HeaderFooterData = {
   megaMenuData?: any
 }
 
-// Define the query params for fetching header and footer menu data.
+// Define the query params for fetching footer menu data.
 export const params: QueryParams<null> = () => {
   return queries.getParams().addFields('menu_items', ['title,url'])
+}
+
+// Define the query params for fetching header megamenu data.
+export const megaMenuParams: QueryParams<null> = () => {
+  return queries
+    .getParams()
+    .addFields('menu_items', ['title,url,field_promo_reference'])
 }
 
 export const data: QueryData<any, RawHeaderFooterData> = async (opts) => {
@@ -27,33 +34,31 @@ export const data: QueryData<any, RawHeaderFooterData> = async (opts) => {
     'footer-bottom-rail',
     opts.params
   )
-  const megaMenuData = await drupalClient.getMenu(
+  const megaMenu = await drupalClient.getMenu(
     'header-megamenu',
-    opts.params
+    opts.megaMenuParams
   )
-
-  // probably another query here for the promo items things in the megamenu
 
   return {
     footerColumns,
     footerBottomRail,
-    megaMenuData,
-    // megaMenuPromoItems
+    megaMenu,
   }
 }
 
 export const formatter: QueryFormatter<
   RawHeaderFooterData,
   HeaderFooterData
-> = ({ footerColumns, footerBottomRail, megaMenuData }) => {
-  // naming things is so hard
-  const { footerData, megaMenuData: megaMenu } = buildHeaderFooterData({
+> = ({ footerColumns, footerBottomRail, megaMenu }) => {
+  const { footerData, megaMenuData } = buildHeaderFooterData({
     footerBottomRail,
     footerColumns,
-    megaMenuData,
+    megaMenu,
   })
+
+  // Data assembled into shape front-end widget expects
   return {
     footerData,
-    megaMenuData: megaMenu,
+    megaMenuData,
   }
 }
