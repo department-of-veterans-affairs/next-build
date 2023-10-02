@@ -4,16 +4,17 @@ import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 import { isEmpty } from 'lodash'
+import { BannerType, FacilityBannerType, PromoBannerType } from '@/types/index'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
+import { HeaderFooterData } from '@/data/queries/headerFooter'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
-import { BannerType, FacilityBannerType, PromoBannerType } from '@/types/index'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
   VetsGov?: {
-    headerFooter?: any
+    headerFooter?: HeaderFooterData
   }
 }
 declare const window: customWindow
@@ -23,8 +24,7 @@ export interface LayoutProps {
   bannerData?: Array<
     NodeBanner | PromoBannerType | BannerType | FacilityBannerType
   >
-  // type this
-  headerFooterData?: any
+  headerFooterData?: HeaderFooterData
 }
 
 export const formatBannerType = (bannerData) => {
@@ -59,7 +59,7 @@ export function Wrapper({
       setBanners(bannerData.map(formatBannerType))
       return setShowBanners(true)
     }
-  }, [bannerData, showBanners])
+  }, [bannerData, showBanners, headerFooterData])
 
   return (
     <>

@@ -3,10 +3,11 @@ import { FOOTER_LINKS } from '../constants/footer-links'
 import {
   HeaderFooterData,
   RawHeaderFooterData,
+  FooterLink,
 } from '@/data/queries/headerFooter'
 
 // Helper functions to format footer menu items
-const formatLink = (link, linkIndex, columnId, hostUrl) => {
+const formatLink = (link, linkIndex, columnId, hostUrl): FooterLink => {
   return {
     column: columnId,
     href: convertLinkToAbsolute(hostUrl, link.url),
@@ -16,13 +17,13 @@ const formatLink = (link, linkIndex, columnId, hostUrl) => {
   }
 }
 
-const formatColumn = (data, columnId, hostUrl) => {
+const formatColumn = (data, columnId, hostUrl): FooterLink[] => {
   return data?.items?.map((link, linkIndex) => {
     return formatLink(link, linkIndex, columnId, hostUrl)
   })
 }
 
-const formatFooterColumns = (data, hostUrl) => {
+const formatFooterColumns = (data, hostUrl): FooterLink[] => {
   const columns = data?.tree.map((column, index) => {
     return formatColumn(column, index + 1, hostUrl)
   })

@@ -11,8 +11,16 @@ export type RawHeaderFooterData = {
 }
 
 export type HeaderFooterData = {
-  footerData?: any
+  footerData?: FooterLink[]
   megaMenuData?: any
+}
+
+export type FooterLink = {
+  column: number | string // either # or 'bottom_rail'
+  href: string
+  order: number
+  target?: string
+  title: string
 }
 
 // Define the query params for fetching footer menu data.

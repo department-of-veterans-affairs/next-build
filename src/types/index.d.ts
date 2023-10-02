@@ -4,6 +4,7 @@ import {
   NodeHealthCareRegionPage,
 } from '@/types/dataTypes/drupal/node'
 import { PathAlias } from 'next-drupal'
+
 export interface PublishedEntity {
   id: string
   type: string
@@ -175,6 +176,7 @@ export type StaticPathResourceType = {
   }
 }
 
+// These SideNav types are what the vets-website widget expects
 export type SideNavItem = {
   description: string
   expanded: boolean
