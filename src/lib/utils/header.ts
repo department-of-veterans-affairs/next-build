@@ -65,18 +65,6 @@ function makePromo(hostUrl, promo): MegaMenuPromoColumn {
     },
     description: 'foo',
   }
-
-  // return {
-  //   img: {
-  //     src: convertLinkToAbsolute(hostUrl, img.derivative.url),
-  //     alt: img.alt || '',
-  //   },
-  //   link: {
-  //     text: link.title,
-  //     href: convertLinkToAbsolute(hostUrl, link.url.path),
-  //   },
-  //   description: promo.entity.fieldPromoLink.entity.fieldLinkSummary,
-  // }
 }
 
 /**
@@ -97,9 +85,6 @@ function makePromo(hostUrl, promo): MegaMenuPromoColumn {
  * @param {string} hostUrl - Absolute url for the site.
  * @param {Array} linkData - A set of links to be divided into columns.
  * @param {number} arrayDepth - Total depth of the parent tab.
- * @param {(Object|null)} promo - GraphQL response for a promo block.
- *   The block may be related to a hub/section or a top-level tab.
- * @param {Array} pages - Drupal data representing pages published in CMS.
  *
  * @return {Array} columns - A set of columns formatted correctly for the megaMenu React widget.
  */
