@@ -24,8 +24,7 @@ export const params: QueryParams<null> = () => {
 export const megaMenuParams: QueryParams<null> = () => {
   return queries
     .getParams()
-    .addFields('menu_items', ['title,url,field_promo_reference'])
-    .addInclude(['field_promo_reference'])
+    .addInclude(['field_promo_reference', 'field_promo_reference.image'])
 }
 
 export const data: QueryData<any, RawHeaderFooterData> = async (opts) => {

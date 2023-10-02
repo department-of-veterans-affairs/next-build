@@ -41,21 +41,34 @@ function makeLinkList(hostUrl, links) {
   return list
 }
 
+// todo: fix how megamenu promo blocks are generated
 function makePromo(hostUrl, promo) {
-  const img = promo.entity.fieldImage.entity.image
-  const link = promo.entity.fieldPromoLink.entity.fieldLink
+  // const img = promo.entity.fieldImage.entity.image
+  // const link = promo.entity.fieldPromoLink.entity.fieldLink
 
   return {
     img: {
-      src: convertLinkToAbsolute(hostUrl, img.derivative.url),
-      alt: img.alt || '',
+      src: '',
+      alt: 'alt text',
     },
     link: {
-      text: link.title,
-      href: convertLinkToAbsolute(hostUrl, link.url.path),
+      text: 'bar',
+      href: '',
     },
-    description: promo.entity.fieldPromoLink.entity.fieldLinkSummary,
+    description: 'foo',
   }
+
+  // return {
+  //   img: {
+  //     src: convertLinkToAbsolute(hostUrl, img.derivative.url),
+  //     alt: img.alt || '',
+  //   },
+  //   link: {
+  //     text: link.title,
+  //     href: convertLinkToAbsolute(hostUrl, link.url.path),
+  //   },
+  //   description: promo.entity.fieldPromoLink.entity.fieldLinkSummary,
+  // }
 }
 
 /**
@@ -116,8 +129,10 @@ function makeColumns(hostUrl, linkData, arrayDepth) {
       columns.seeAllLink = createLinkObj(hostUrl, link)
     }
 
-    if (link.field_promo_reference !== null) {
-      columns[columnNames[i]] = makePromo(hostUrl, link.field_promo_reference)
+    // Generate promo block column if present
+    const promo = linkData.field_promo_reference
+    if (promo !== null) {
+      columns[columnNames[i]] = makePromo(hostUrl, promo)
     }
   })
 
