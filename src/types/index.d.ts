@@ -284,17 +284,30 @@ export type FooterLink = {
 }
 
 export type MegaMenuLink = {
-  title: string
-  href?: string
+  text: string
+  href: string
 }
 
-export type MegaMenuSection = MegaMenuLink & {
-  menuSections?: (MegaMenuColumn | MegaMenuPromoColumn)[] | MegaMenuColumn
+export type MegaMenuLinkObject = {
+  mainColumn?: MegaMenuColumn
+  columnOne?: MegaMenuColumn
+  columnTwo?: MegaMenuColumn
+  columnThree?: MegaMenuPromoColumn
+  columnFour?: MegaMenuColumn
+  seeAllLink?: MegaMenuLink
+}
+
+export type MegaMenuSection = {
+  title: string
+  href?: string
+  menuSections?:
+    | (MegaMenuColumn | MegaMenuPromoColumn | MegaMenuLink)[]
+    | MegaMenuLinkObject
 }
 
 export type MegaMenuColumn = {
   title: string
-  links: MegaMenuLink[]
+  links: MegaMenuLinkObject | MegaMenuLink[]
 }
 
 export type MegaMenuPromoColumn = {

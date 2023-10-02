@@ -1,5 +1,13 @@
 /* eslint-disable no-param-reassign */
 
+import {
+  MegaMenuColumn,
+  MegaMenuLink,
+  MegaMenuLinkObject,
+  MegaMenuPromoColumn,
+  MegaMenuSection,
+} from '@/types/index'
+
 /**
  * Most of this file is to massage the data for the menu links
  * to match the structure in `vetsgov-content` so the mega
@@ -12,25 +20,25 @@
  * See: @content-build/src/site/stages/build/drupal/menus.js
  */
 
-export function getArrayDepth(arr) {
+export function getArrayDepth(arr): number {
   const counter = (curArr) =>
     curArr?.items ? Math.max(...curArr.items.map(counter)) + 1 : 0
   return counter(arr)
 }
 
-export function convertLinkToAbsolute(hostUrl, pathName) {
+export function convertLinkToAbsolute(hostUrl, pathName): string {
   const url = new URL(pathName, hostUrl)
   return url.href
 }
 
-function createLinkObj(hostUrl, link) {
+function createLinkObj(hostUrl, link): MegaMenuLink {
   return {
     text: link.title,
     href: convertLinkToAbsolute(hostUrl, link.url),
   }
 }
 
-function makeLinkList(hostUrl, links) {
+function makeLinkList(hostUrl, links): MegaMenuLink[] {
   const list = []
 
   links.forEach((link) => {
@@ -42,7 +50,7 @@ function makeLinkList(hostUrl, links) {
 }
 
 // todo: fix how megamenu promo blocks are generated
-function makePromo(hostUrl, promo) {
+function makePromo(hostUrl, promo): MegaMenuPromoColumn {
   // const img = promo.entity.fieldImage.entity.image
   // const link = promo.entity.fieldPromoLink.entity.fieldLink
 
@@ -95,7 +103,7 @@ function makePromo(hostUrl, promo) {
  *
  * @return {Array} columns - A set of columns formatted correctly for the megaMenu React widget.
  */
-function makeColumns(hostUrl, linkData, arrayDepth) {
+function makeColumns(hostUrl, linkData, arrayDepth): MegaMenuLinkObject {
   const columns: any = {}
   const columnNames = [
     // Possible column names.
@@ -139,7 +147,7 @@ function makeColumns(hostUrl, linkData, arrayDepth) {
   return columns
 }
 
-const makeSection = (item, hostUrl, arrayDepth) => {
+const makeSection = (item, hostUrl, arrayDepth): MegaMenuColumn => {
   const sections = item.items
 
   return {
@@ -148,11 +156,11 @@ const makeSection = (item, hostUrl, arrayDepth) => {
   }
 }
 
-export function formatHeaderData(menuData, hostUrl) {
+export function formatHeaderData(menuData, hostUrl): MegaMenuSection[] {
   const megaMenuTree = []
 
   menuData.tree.forEach((link) => {
-    const linkObj: any = { title: link.title }
+    const linkObj: MegaMenuSection = { title: link.title }
 
     // If this top-level item has a link, add it.
     if (link.url !== '') {
@@ -170,7 +178,9 @@ export function formatHeaderData(menuData, hostUrl) {
         link.items.forEach((child) => {
           // These are hubs with child links.
           if (child.items?.length > 0) {
-            linkObj.menuSections.push(makeSection(child, hostUrl, arrayDepth))
+            if (Array.isArray(linkObj.menuSections)) {
+              linkObj.menuSections.push(makeSection(child, hostUrl, arrayDepth))
+            }
           } else {
             // 2 hubs just have a single link. Unlike the usual pattern, these
             // must have both 'title' and 'text' properties in addition to 'href'.
@@ -178,7 +188,9 @@ export function formatHeaderData(menuData, hostUrl) {
               title: child.title,
               ...createLinkObj(hostUrl, child),
             }
-            linkObj.menuSections.push(childLinkObj)
+            if (Array.isArray(linkObj.menuSections)) {
+              linkObj.menuSections.push(childLinkObj)
+            }
           }
         })
       } else {
