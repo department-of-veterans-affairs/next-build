@@ -6,6 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 nvm use 14.15.1
+npm install -g yarn
 
 echo "Node $(node -v)"
 echo "NPM $(npm -v)"
