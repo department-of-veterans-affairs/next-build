@@ -80,7 +80,7 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
 
         # Create symlink between vets-website assets and next-build
-        - ln -s "../vets-website/build/localhost/generated/" "${TUGBOAT_ROOT}/public/generated/"
+        - ln -snf "/var/lib/vets-website/build/localhost/generated" "${TUGBOAT_ROOT}/public/generated"
 
       # Run any commands after the site is built.
       online:
