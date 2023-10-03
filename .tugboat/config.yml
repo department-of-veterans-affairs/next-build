@@ -33,16 +33,34 @@ services:
         # Install Node.js from the new repository
         - sudo apt-get install -y nodejs
 
+        # Install nvm
+        # - ./scripts/install-nvm.sh
+        # - nvm use 14.15.0 
+
         # Install yarn
         - corepack enable
-        - corepack prepare yarn@stable --activate
 
         # Install VA Root CA
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
-        # Install github-status-updater
+        # Clone vets-website
         - chmod -R 775 "./scripts/"
+        - ./scripts/install-repos.sh
+
+        # Install & build vets-website so assets are available
+        - cd ../vets-website
+        # This is the version required by vets-website
+        - corepack prepare yarn@1.19.1 --activate
+        - yarn install
+        - yarn build
+
+        # Go back to next-build
+        - cd ${TUGBOAT_ROOT}
+        # Use our yarn version
+        - corepack prepare yarn@stable --activate
+
+        # Install github-status-updater
         - ./scripts/install_github_status_updater.sh
 
       # Load dependent libraries and assets to prepare the site for build.
