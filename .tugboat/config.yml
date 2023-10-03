@@ -72,15 +72,15 @@ services:
         # Set cypress tests as pending
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
 
-        # Create symlink between vets-website assets and local
-        - ln -s "../vets-website/build/localhost/generated" "${TUGBOAT_ROOT}/public/generated"
-
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
         # Generate sitemap
         - SITE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn postbuild
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
+
+        # Create symlink between vets-website assets and next-build
+        - ln -s "../vets-website/build/localhost/generated/" "${TUGBOAT_ROOT}/public/generated/"
 
       # Run any commands after the site is built.
       online:
