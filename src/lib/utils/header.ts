@@ -4,7 +4,6 @@ import {
   MegaMenuColumn,
   MegaMenuLink,
   MegaMenuLinkObject,
-  MegaMenuPromoColumn,
   MegaMenuSection,
 } from '@/types/index'
 
@@ -49,24 +48,6 @@ function makeLinkList(hostUrl, links): MegaMenuLink[] {
   return list
 }
 
-// todo: fix how megamenu promo blocks are generated
-function makePromo(hostUrl, promo): MegaMenuPromoColumn {
-  // const img = promo.entity.fieldImage.entity.image
-  // const link = promo.entity.fieldPromoLink.entity.fieldLink
-
-  return {
-    img: {
-      src: '',
-      alt: 'alt text',
-    },
-    link: {
-      text: 'bar',
-      href: '',
-    },
-    description: 'foo',
-  }
-}
-
 /**
  * Make a set of link columns in the megaMenu from a set of link data.
  *
@@ -85,11 +66,12 @@ function makePromo(hostUrl, promo): MegaMenuPromoColumn {
  * @param {string} hostUrl - Absolute url for the site.
  * @param {Array} linkData - A set of links to be divided into columns.
  * @param {number} arrayDepth - Total depth of the parent tab.
+ * @param {object} promo - Information for promo block column
  *
  * @return {Array} columns - A set of columns formatted correctly for the megaMenu React widget.
  */
-function makeColumns(hostUrl, linkData, arrayDepth): MegaMenuLinkObject {
-  const columns: any = {}
+function makeColumns(hostUrl, linkData, arrayDepth, promo): MegaMenuLinkObject {
+  const columns: MegaMenuLinkObject = {}
   const columnNames = [
     // Possible column names.
     'mainColumn',
@@ -123,25 +105,39 @@ function makeColumns(hostUrl, linkData, arrayDepth): MegaMenuLinkObject {
     }
 
     // Generate promo block column if present
-    const promo = linkData.field_promo_reference
-    if (promo !== null) {
-      columns[columnNames[i]] = makePromo(hostUrl, promo)
+    if (promo !== undefined || null) {
+      columns[columnNames[i]] = promo
     }
   })
 
   return columns
 }
 
-const makeSection = (item, hostUrl, arrayDepth): MegaMenuColumn => {
+const makeSection = (
+  item,
+  hostUrl,
+  arrayDepth,
+  promoBlocks
+): MegaMenuColumn => {
   const sections = item.items
+  const promo =
+    promoBlocks.filter(
+      (block) =>
+        block.id ===
+        item.field_promo_reference?.resourceIdObjMeta.drupal_internal__target_id
+    ) || null
 
   return {
     title: item.title,
-    links: makeColumns(hostUrl, sections, arrayDepth),
+    links: makeColumns(hostUrl, sections, arrayDepth, promo[0]),
   }
 }
 
-export function formatHeaderData(menuData, hostUrl): MegaMenuSection[] {
+export function formatHeaderData(
+  menuData,
+  hostUrl,
+  promoBlocks
+): MegaMenuSection[] {
   const megaMenuTree = []
 
   menuData.tree.forEach((link) => {
@@ -164,7 +160,9 @@ export function formatHeaderData(menuData, hostUrl): MegaMenuSection[] {
           // These are hubs with child links.
           if (child.items?.length > 0) {
             if (Array.isArray(linkObj.menuSections)) {
-              linkObj.menuSections.push(makeSection(child, hostUrl, arrayDepth))
+              linkObj.menuSections.push(
+                makeSection(child, hostUrl, arrayDepth, promoBlocks)
+              )
             }
           } else {
             // 2 hubs just have a single link. Unlike the usual pattern, these
@@ -182,7 +180,18 @@ export function formatHeaderData(menuData, hostUrl): MegaMenuSection[] {
         // For menu tabs with a depth < 3, like our 'About VA' tab.
         // In this case, we go straight to 'columns' rather than defining wider 'sections.'
         // Note, that menuSections is an object in this case, instead of an array.
-        linkObj.menuSections = makeColumns(hostUrl, link.items, arrayDepth)
+        const promo = promoBlocks.filter(
+          (block) =>
+            block.id ===
+            link.field_promo_reference?.resourceIdObjMeta
+              .drupal_internal__target_id
+        )
+        linkObj.menuSections = makeColumns(
+          hostUrl,
+          link.items,
+          arrayDepth,
+          promo[0]
+        )
       }
     }
 

@@ -34,6 +34,7 @@ export const buildHeaderFooterData = ({
   footerBottomRail,
   footerColumns,
   headerMegaMenu,
+  promoBlocks,
 }: RawHeaderFooterData): HeaderFooterData => {
   // todo: target env handling for what hostUrl should map to
   const hostUrl = 'https://va.gov/'
@@ -50,7 +51,7 @@ export const buildHeaderFooterData = ({
   ]
 
   // Assemble header megamenu data from Drupal
-  const megaMenuData = formatHeaderData(headerMegaMenu, hostUrl)
+  const megaMenuData = formatHeaderData(headerMegaMenu, hostUrl, promoBlocks)
 
   // Data shaped into what front-end widgets expect
   return {

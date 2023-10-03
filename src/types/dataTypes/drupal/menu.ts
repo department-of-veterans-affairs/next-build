@@ -16,3 +16,15 @@ export interface MenuItem {
 }
 
 type Tree = ReadonlyArray<MenuItem>
+
+// Extra field may exist on megamenu items in the CMS
+export interface HeaderMegaMenuItem extends MenuItem {
+  field_promo_reference?: {
+    id: string
+  }
+}
+
+export interface HeaderMegaMenu {
+  items: HeaderMegaMenuItem[]
+  tree: HeaderMegaMenuItem[]
+}
