@@ -33,19 +33,19 @@ services:
         # Install Node.js from the new repository
         - sudo apt-get install -y nodejs
 
-        # Install nvm
-        # - ./scripts/install-nvm.sh
-        # - nvm use 14.15.0 
-
         # Install yarn
         - corepack enable
+
+        # Install nvm
+        - chmod -R 775 "./scripts/"
+        - ./scripts/install-nvm.sh
+        # - nvm use 14.15.0 
 
         # Install VA Root CA
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
         # Clone vets-website
-        - chmod -R 775 "./scripts/"
         - ./scripts/install-repos.sh
         
         # Build vets-website so assets are available (various widgets, fonts, etc)
