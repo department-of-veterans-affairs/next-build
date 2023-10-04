@@ -14,157 +14,155 @@ Array [
     "id": "fe42bc63-0933-40bb-978a-ef951fa75684",
     "introText": null,
     "lastName": "Doyle",
-    "media": Array [
-      Object {
-        "alt": "Patrick J. Doyle",
-        "height": 129,
-        "id": "5bcbdaee-f93f-4b2f-8af5-963e4a547d93",
-        "link": Object {
-          "1_1_square_medium_thumbnail": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-08/pat_doyle_0.jpg?h=46bc4a38",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "240",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "240",
-              },
+    "media": Object {
+      "alt": "Patrick J. Doyle",
+      "height": 129,
+      "id": "5bcbdaee-f93f-4b2f-8af5-963e4a547d93",
+      "link": Object {
+        "1_1_square_medium_thumbnail": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-08/pat_doyle_0.jpg?h=46bc4a38",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "240",
               "rel": Array [
                 "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
               ],
+              "width": "240",
             },
-          },
-          "2_1_large": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-08/pat_doyle_0.jpg",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "512",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "1024",
-              },
-              "rel": Array [
-                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-              ],
-            },
-          },
-          "2_1_medium_thumbnail": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "240",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "480",
-              },
-              "rel": Array [
-                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-              ],
-            },
-          },
-          "2_3_medium_thumbnail": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "480",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "320",
-              },
-              "rel": Array [
-                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-              ],
-            },
-          },
-          "3_2_medium_thumbnail": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "320",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "480",
-              },
-              "rel": Array [
-                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-              ],
-            },
-          },
-          "7_2_medium_thumbnail": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "300",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "1050",
-              },
-              "rel": Array [
-                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-              ],
-            },
-          },
-          "full_content_width": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-08/pat_doyle_0.jpg",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "129",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "100",
-              },
-              "rel": Array [
-                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-              ],
-            },
-          },
-          "large": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-08/pat_doyle_0.jpg",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "129",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "100",
-              },
-              "rel": Array [
-                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-              ],
-            },
-          },
-          "self": Object {
-            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/5bcbdaee-f93f-4b2f-8af5-963e4a547d93",
-          },
-          "viewport_width": Object {
-            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-08/pat_doyle_0.jpg",
-            "meta": Object {
-              "linkParams": Object {
-                "height": "129",
-                "rel": Array [
-                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-                ],
-                "width": "100",
-              },
-              "rel": Array [
-                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
-              ],
-            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
           },
         },
-        "title": "",
-        "type": "media--image",
-        "url": "/sites/default/files/2019-08/pat_doyle_0.jpg",
-        "width": 100,
+        "2_1_large": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-08/pat_doyle_0.jpg",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "512",
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "1024",
+            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_medium_thumbnail": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "240",
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "480",
+            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_3_medium_thumbnail": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "480",
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "320",
+            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "3_2_medium_thumbnail": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "320",
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "480",
+            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "7_2_medium_thumbnail": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2019-08/pat_doyle_0.jpg",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "300",
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "1050",
+            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "full_content_width": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2019-08/pat_doyle_0.jpg",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "129",
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "100",
+            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "large": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/2019-08/pat_doyle_0.jpg",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "129",
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "100",
+            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "self": Object {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/5bcbdaee-f93f-4b2f-8af5-963e4a547d93",
+        },
+        "viewport_width": Object {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/2019-08/pat_doyle_0.jpg",
+          "meta": Object {
+            "linkParams": Object {
+              "height": "129",
+              "rel": Array [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "100",
+            },
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
       },
-    ],
+      "title": "",
+      "type": "media--image",
+      "url": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2019-08/pat_doyle_0.jpg",
+      "width": 100,
+    },
     "office": Object {
       "changed": "2022-08-31T15:49:34+00:00",
       "created": "2019-05-06T03:30:18+00:00",
