@@ -8,7 +8,6 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryType } from '@/types/index'
-import { isLovellFederalResource } from '@/lib/drupal/lovell'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -24,12 +23,12 @@ export const params: QueryParams<null> = () => {
 }
 
 // Define the option types for the data loader.
-type DataOpts = QueryOpts<{
+export type NewsStoryDataOpts = QueryOpts<{
   id: string
 }>
 
 // Implement the data loader.
-export const data: QueryData<DataOpts, NodeNewsStory> = async (
+export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
   opts
 ): Promise<NodeNewsStory> => {
   const entity = await drupalClient.getResource<NodeNewsStory>(
@@ -46,11 +45,6 @@ export const data: QueryData<DataOpts, NodeNewsStory> = async (
 export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
   entity: NodeNewsStory
 ) => {
-  const administration = {
-    id: entity.field_administration?.drupal_internal__tid || null,
-    name: entity.field_administration?.name || null,
-  }
-
   return {
     id: entity.id,
     entityId: entity.drupal_internal__nid,
@@ -72,6 +66,9 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
       title: entity.title,
     },
     listing: entity.field_listing.path.alias,
-    administration,
+    administration: {
+      id: entity.field_administration?.drupal_internal__tid || null,
+      name: entity.field_administration?.name || null,
+    },
   }
 }

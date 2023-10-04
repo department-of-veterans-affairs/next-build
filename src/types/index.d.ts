@@ -4,7 +4,7 @@ import {
   NodeHealthCareRegionPage,
 } from '@/types/dataTypes/drupal/node'
 import { PathAlias } from 'next-drupal'
-
+import { LovellVariant } from '@/lib/drupal/lovell'
 export interface PublishedEntity {
   id: string
   type: string
@@ -174,10 +174,17 @@ export type ContentFooterType = {
   lastUpdated?: string | number
 }
 
+export type LovellSwitcherType = {
+  currentVariant: LovellVariant
+  switchPath: string
+}
+
 export type StaticPathResourceType = {
   path: PathAlias
   administration: Administration
 }
+
+export type StaticPropsResourceType = NewsStoryType | StoryListingType
 
 // These SideNav types are what the vets-website widget expects
 export type SideNavItem = {

@@ -2,6 +2,9 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
+import { GetStaticPropsContext } from 'next'
+import { QueryOpts } from 'next-drupal-query'
+import { LovellPageExpandedStaticPropsContextType } from '@/lib/drupal/lovell'
 
 const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const
 
@@ -12,6 +15,18 @@ export type StaticPathResourceTypeWithPaging = StaticPathResourceType & {
     totalPages: number
   }
 }
+
+export type ListingPageExpandedStaticPropsContextType = {
+  isListingPage: boolean
+  firstPagePath: string
+  page: number
+}
+
+export type ListingPageDataOpts = QueryOpts<{
+  id: string
+  page?: number
+  lovell?: LovellPageExpandedStaticPropsContextType
+}>
 
 const RESOURCE_TYPE_URL_SEGMENTS: Readonly<{ [key: string]: string }> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
@@ -109,22 +124,21 @@ export async function getAllPagedListingStaticPathResources(
   return allListingResources
 }
 
-export function isListingPageSlug(
-  slug: string | string[]
-): { path: string; page: number } | false {
-  if (slug === undefined || typeof slug === 'string' || slug.length < 2) {
-    return false
-  }
+export function getListingPageExpandedStaticPropsContext(
+  context: GetStaticPropsContext
+): ListingPageExpandedStaticPropsContextType {
+  const slug = context.params?.slug
 
-  // Check if second url segment is one of the listing page strings (e.g. `/{first_segment}/stories`)
-  if (!Object.values(RESOURCE_TYPE_URL_SEGMENTS).includes(slug[1])) {
-    return false
-  }
-
-  // If no more url segments, this is the first listing page
-  if (slug.length === 2) {
+  const isSlugAtLeastTwoSegments =
+    slug !== undefined && typeof slug !== 'string' && slug.length >= 2
+  const isSlugPossibleListingPage =
+    isSlugAtLeastTwoSegments &&
+    Object.values(RESOURCE_TYPE_URL_SEGMENTS).includes(slug[1])
+  const isSlugFirstListingPage = isSlugPossibleListingPage && slug.length === 2
+  if (isSlugFirstListingPage) {
     return {
-      path: drupalClient.getPathFromContext({
+      isListingPage: true,
+      firstPagePath: drupalClient.getPathFromContext({
         params: {
           slug,
         },
@@ -133,21 +147,29 @@ export function isListingPageSlug(
     }
   }
 
-  // If third url segment is a page number, this is a subsequent listing page
-  // `path` is first two url segments
-  // `page` (page number) is pulled from `page-{n}`
-  const matches = slug[2].match(/^page-(\d)+$/)
-  if (matches) {
+  const isSlugSubsequentListingPage: string[] | false =
+    isSlugPossibleListingPage &&
+    slug.length === 3 &&
+    slug[2].match(/^page-(\d)+$/)
+  const page = isSlugSubsequentListingPage
+    ? parseInt(isSlugSubsequentListingPage[1])
+    : null
+  if (isSlugSubsequentListingPage) {
     return {
-      path: drupalClient.getPathFromContext({
+      isListingPage: true,
+      firstPagePath: drupalClient.getPathFromContext({
         params: {
-          slug: slug.slice(0, 2),
+          slug: slug.slice(0, 2), // `firstPagePath` is first two url segments
         },
       }),
-      page: parseInt(matches[1]),
+      page,
     }
   }
 
   // Otherwise, this is not a listing page
-  return false
+  return {
+    isListingPage: false,
+    firstPagePath: null,
+    page: null,
+  }
 }

@@ -9,7 +9,7 @@ import {
 
 const lovellFederalResource = {
   path: {
-    alias: `/${LOVELL.federal.slug}/stories/story-1`,
+    alias: `/${LOVELL.federal.pathSegment}/stories/story-1`,
     pid: null,
     langcode: null,
   },
@@ -18,7 +18,7 @@ const lovellFederalResource = {
 
 const lovellTricareResource = {
   path: {
-    alias: `/${LOVELL.tricare.slug}/stories/story-1`,
+    alias: `/${LOVELL.tricare.pathSegment}/stories/story-1`,
     pid: null,
     langcode: null,
   },
@@ -27,7 +27,7 @@ const lovellTricareResource = {
 
 const lovellVaResource = {
   path: {
-    alias: `/${LOVELL.va.slug}/stories/story-1`,
+    alias: `/${LOVELL.va.pathSegment}/stories/story-1`,
     pid: null,
     langcode: null,
   },
