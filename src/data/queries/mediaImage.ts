@@ -43,6 +43,7 @@ export const formatter: QueryFormatter<MediaImageData, MediaImageType> = ({
   entity,
   cropType = '2_1_large',
 }) => {
+  if (!entity) return null
   // TODO: may need more handling here around crop type + image height / width. TBD.
   return {
     id: entity.image.id,
