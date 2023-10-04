@@ -265,8 +265,153 @@
       "status": true,
       "created": "2019-05-15T20:20:03+00:00",
       "changed": "2019-05-15T20:20:32+00:00",
-      "links": null,
-      "resourceIdObjMeta": null,
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "1024",
+              "height": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "height": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "height": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "height": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "1050",
+              "height": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "456",
+              "height": "304",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "456",
+              "height": "304",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/e638fd17-9090-442b-a724-5113133b4d0f"
+        },
+        "viewport_width": {
+          "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/hub_promos/health-care.png",
+          "meta": {
+            "linkParams": {
+              "width": "456",
+              "height": "304",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": null,
+        "title": null,
+        "width": 456,
+        "height": 304,
+        "drupal_internal__target_id": 1
+      },
       "uid": null,
       "relationshipNames": null
     },

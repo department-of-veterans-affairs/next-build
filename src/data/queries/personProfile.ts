@@ -54,7 +54,7 @@ export const formatter: QueryFormatter<
     description: entity.field_description,
     introText: entity.field_intro_text,
     body: entity.field_body?.processed || null,
-    media: queries.formatData('media--image', entity.field_media),
+    media: queries.formatData('media--image', { entity: entity.field_media }),
     completeBiography: entity.field_complete_biography,
     completeBiographyCreate: entity.field_complete_biography_create,
     photoAllowHiresDownload: entity.field_photo_allow_hires_download,

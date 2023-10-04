@@ -201,18 +201,155 @@ Object {
   "entityId": 377,
   "entityPath": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
   "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
-  "image": Array [
-    Object {
-      "alt": undefined,
-      "height": undefined,
-      "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
-      "link": null,
-      "title": undefined,
-      "type": "media--image",
-      "url": undefined,
-      "width": undefined,
+  "image": Object {
+    "alt": null,
+    "height": 304,
+    "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
+    "link": Object {
+      "1_1_square_medium_thumbnail": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "240",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_large": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "512",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "1024",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_medium_thumbnail": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "240",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "480",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_3_medium_thumbnail": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "480",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "320",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "3_2_medium_thumbnail": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "320",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "480",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "7_2_medium_thumbnail": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "300",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "1050",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "full_content_width": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "304",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "456",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "large": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "304",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "456",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "self": Object {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/e638fd17-9090-442b-a724-5113133b4d0f",
+      },
+      "viewport_width": Object {
+        "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/hub_promos/health-care.png",
+        "meta": Object {
+          "linkParams": Object {
+            "height": "304",
+            "rel": Array [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "456",
+          },
+          "rel": Array [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
     },
-  ],
+    "title": null,
+    "type": "media--image",
+    "url": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/hub_promos/health-care.png",
+    "width": 456,
+  },
   "introText": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
   "listing": "/pittsburgh-health-care/stories",
   "published": true,

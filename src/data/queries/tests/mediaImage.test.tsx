@@ -19,6 +19,8 @@ describe('Media image returns formatted data', () => {
   test('outputs formatted data', () => {
     windowSpy.mockImplementation(() => undefined)
     const formattedData = mediaImageMock
-    expect(queries.formatData('media--image', formattedData)).toMatchSnapshot()
+    expect(
+      queries.formatData('media--image', { entity: formattedData })
+    ).toMatchSnapshot()
   })
 })
