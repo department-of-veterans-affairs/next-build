@@ -51,7 +51,7 @@ services:
         - ./scripts/build-vets-website.sh
 
         # Setup storybook-*. vhost to serve compiled storybook.
-        # - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/apache2/sites-enabled/
+        - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
 
         # Install and use our yarn version
         - corepack enable
@@ -93,11 +93,11 @@ services:
         # Update cypress test status message
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Site built, running Cypress tests..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
 
+        # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
+        - yarn storybook:build
+
         # Run cypress tests.
         - CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress || true
 
         # Set cypress tests as completed. Add pass/fail handling once tests are working properly.
         - github-status-updater -action=update_state -state="success" -context="test:cypress" -description="Cypress tests completed" -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
-
-        # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
-        - yarn storybook:build
