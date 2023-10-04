@@ -33,16 +33,25 @@ services:
         # Install Node.js from the new repository
         - sudo apt-get install -y nodejs
 
-        # Install yarn
-        - corepack enable
-        - corepack prepare yarn@stable --activate
+        # Install nvm
+        - chmod -R 775 "./scripts/"
+        - ./scripts/install-nvm.sh
 
         # Install VA Root CA
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
+        # Clone vets-website
+        - ./scripts/install-repos.sh
+        
+        # Build vets-website so assets are available (various widgets, fonts, etc)
+        - ./scripts/build-vets-website.sh
+
+        # Install and use our yarn version
+        - corepack enable
+        - corepack prepare yarn@stable --activate
+
         # Install github-status-updater
-        - chmod -R 775 "./scripts/"
         - ./scripts/install_github_status_updater.sh
 
       # Load dependent libraries and assets to prepare the site for build.
@@ -62,6 +71,9 @@ services:
       build:
         # Set cypress tests as pending
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
+
+        # Create symlink between vets-website assets and next-build
+        - ln -snf "/var/lib/vets-website/build/localhost/generated" "${TUGBOAT_ROOT}/public/generated"
 
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
