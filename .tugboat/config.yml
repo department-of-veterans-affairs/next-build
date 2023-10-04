@@ -51,7 +51,7 @@ services:
         - ./scripts/build-vets-website.sh
 
         # Setup storybook-*. vhost to serve compiled storybook.
-        - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/apache2/sites-enabled/
+        # - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/apache2/sites-enabled/
 
         # Install and use our yarn version
         - corepack enable
