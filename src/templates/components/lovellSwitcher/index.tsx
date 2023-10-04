@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  LOVELL,
-  LovellVariant,
-  getOppositeVariant,
-  isLovellTricarePath,
-  isLovellVaPath,
-} from '@/lib/drupal/lovell'
+import { getOppositeVariant } from '@/lib/drupal/lovell'
 import { LovellSwitcherType } from '@/types/index'
 
 export function LovellSwitcher({

@@ -2,7 +2,6 @@ import { GetStaticPropsContext } from 'next'
 import {
   NewsStoryType,
   StaticPathResourceType,
-  StaticPropsResourceType,
   StoryListingType,
 } from '@/types/index'
 import { ExpandedStaticPropsContextType } from '@/lib/drupal/staticProps'

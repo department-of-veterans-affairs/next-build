@@ -9,7 +9,6 @@ import {
   LovellPageExpandedStaticPropsContextType,
   getLovellPageExpandedStaticPropsContext,
   getLovellPageExpandedStaticPropsResource,
-  LovellPageExpandedStaticPropsResourceType,
   isLovellResourceType,
   LovellExpandedResourceTypeType,
   LovellResourceTypeType,
