@@ -10,6 +10,9 @@ services:
     #   3. Routes requests to the preview URL to this service
     default: true
 
+    aliases:
+      - storybook
+
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
       # Commands that set up the basic preview infrastructure
@@ -46,6 +49,9 @@ services:
         
         # Build vets-website so assets are available (various widgets, fonts, etc)
         - ./scripts/build-vets-website.sh
+
+        # Setup storybook-*. vhost to serve compiled storybook.
+        - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/apache2/sites-enabled/
 
         # Install and use our yarn version
         - corepack enable
@@ -92,3 +98,6 @@ services:
 
         # Set cypress tests as completed. Add pass/fail handling once tests are working properly.
         - github-status-updater -action=update_state -state="success" -context="test:cypress" -description="Cypress tests completed" -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
+
+        # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
+        - yarn storybook:build
