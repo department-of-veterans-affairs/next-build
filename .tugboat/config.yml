@@ -44,6 +44,12 @@ services:
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
+        # Clone vets-website
+        - ./scripts/install-repos.sh
+        
+        # Build vets-website so assets are available (various widgets, fonts, etc)
+        - ./scripts/build-vets-website.sh
+
         # Setup storybook-*. vhost to serve compiled storybook.
         - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/apache2/sites-enabled/
 
@@ -71,13 +77,6 @@ services:
       build:
         # Set cypress tests as pending
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
-
-        # Need to do this in build not init, it doesn't appear to persist between base preview & PRs
-        # Clone vets-website
-        - ./scripts/install-repos.sh
-        
-        # Build vets-website so assets are available (various widgets, fonts, etc)
-        - ./scripts/build-vets-website.sh
 
         # Create symlink between vets-website assets and next-build
         - ln -snf "/var/lib/vets-website/build/localhost/generated" "${TUGBOAT_ROOT}/public/generated"
