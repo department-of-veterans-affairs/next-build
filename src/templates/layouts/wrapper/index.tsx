@@ -12,9 +12,9 @@ import {
 } from '@/types/index'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
-import { Header } from '@/templates/common/header'
-import { Footer } from '@/templates/common/footer'
 import { handleSkipLink } from '@/lib/utils/handleSkipLink'
+import { Header } from '@/templates/common/header'
+import { Footer } from '@/templates/common/footer/index'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
