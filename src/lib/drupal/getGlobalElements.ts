@@ -1,6 +1,6 @@
 import { formatter } from '@/data/queries/banners'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { LayoutProps } from '@/templates/globals/wrapper'
+import { LayoutProps } from '@/templates/layouts/wrapper'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { queries } from '@/data/queries'
 

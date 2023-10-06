@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils'
-import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
+import { FacilityBanner } from '@/templates/components/banners/facilityBanner'
 import { FacilityBannerType } from '@/types/index'
 
 const bannerData: FacilityBannerType = {

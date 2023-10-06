@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContentFooterType } from '@/types/index'
 import { parseDate, getDateParts } from '@/lib/utils/date'
-import { MedalliaAssets } from '@/templates/globals/medallia'
+import { MedalliaAssets } from '@/templates/common/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
 
 function formatDate(date: Date, format: 'display' | 'machine'): string {

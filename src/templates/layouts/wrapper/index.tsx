@@ -1,8 +1,8 @@
 /* eslint-ignore no-console */
 import { useState, useEffect } from 'react'
-import { Banner } from '@/templates/globals/banners/banner'
-import { PromoBanner } from '@/templates/globals/banners/promoBanner'
-import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
+import { Banner } from '@/templates/components/banners/banner'
+import { PromoBanner } from '@/templates/components/banners/promoBanner'
+import { FacilityBanner } from '@/templates/components/banners/facilityBanner'
 import { isEmpty } from 'lodash'
 import {
   BannerType,
@@ -12,8 +12,8 @@ import {
 } from '@/types/index'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
-import { Header } from '../header'
-import { Footer } from '../footer/index'
+import { Header } from '../../common/header'
+import { Footer } from '../../common/footer/index'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -63,7 +63,7 @@ export function Wrapper({
       setBanners(bannerData.map(formatBannerType))
       return setShowBanners(true)
     }
-  }, [bannerData, showBanners, headerFooterData])
+  }, [bannerData, headerFooterData])
 
   return (
     <>
