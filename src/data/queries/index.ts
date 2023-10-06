@@ -15,8 +15,11 @@ import * as EmailContact from './emailContact'
 import * as BenefitsHub from './benefitsHub'
 import * as Wysiwyg from './wysiwyg'
 import * as StaticPathResources from './staticPathResources'
+import * as HeaderFooter from './headerFooter'
+import * as PromoBlock from './promoBlock'
 
 export const queries = createQueries({
+  // standard Drupal entity data queries
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
   'node--story_listing': StoryListing,
@@ -32,9 +35,11 @@ export const queries = createQueries({
   'paragraph--wysiwyg': Wysiwyg,
   'media--image': MediaImage,
   'block--alert': Alert,
+  'block_content--promo': PromoBlock,
 
-  // Custom Lookups
+  // Custom queries
   'banner--alerts_lookup': Banner,
+  'header-footer-data': HeaderFooter,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,

@@ -26,13 +26,7 @@ const Document = () => {
           data-entry-name="style.css"
           href={`${ASSETS_URL}style.css`}
         />
-
-        <Script
-          id="headerFooter"
-          strategy="beforeInteractive"
-          src="/importHeaderData.js"
-        />
-
+        {/* Loads widgets built from vets-website after data has been added to window */}
         <Script
           id="staticPages"
           strategy="afterInteractive"

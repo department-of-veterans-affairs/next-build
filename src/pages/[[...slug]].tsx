@@ -24,7 +24,12 @@ const RESOURCE_TYPES_TO_BUILD = [
   // RESOURCE_TYPES.QA,
 ] as const
 
-export default function ResourcePage({ resource, globalElements }) {
+// [[...slug]] is a catchall route. We build the appropriate layout based on the resource returned for a given path.
+export default function ResourcePage({
+  resource,
+  bannerData,
+  headerFooterData,
+}) {
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
@@ -37,11 +42,11 @@ export default function ResourcePage({ resource, globalElements }) {
     `
 
   return (
-    <Wrapper bannerData={globalElements.bannerData}>
+    <Wrapper bannerData={bannerData} headerFooterData={headerFooterData}>
       <HTMLComment position="head" content={comment} />
       <Head>
         <title>{title}</title>
-        {/* todo: do all meta tags correctly, this fixes an error on news story */}
+        {/* todo: do all meta tags correctly, currently this fixes an error on news story */}
         <meta property="og:url" content="foo" />
       </Head>
       {resource.type === RESOURCE_TYPES.STORY_LISTING && (
@@ -53,6 +58,7 @@ export default function ResourcePage({ resource, globalElements }) {
   )
 }
 
+// This gathers all published paths for content types in RESOURCE_TYPES_TO_BUILD to generate static pages.
 export async function getStaticPaths(
   context: GetStaticPathsContext
 ): Promise<GetStaticPathsResult> {
@@ -77,7 +83,9 @@ export async function getStaticPaths(
   }
 }
 
+// Given some context (path, slug, locale, etc), get all props for the path.
 export async function getStaticProps(context: GetStaticPropsContext) {
+  // Listing pages require extra handling for generating paginated pages statically.
   const isListingPage: { path: string; page: number } | false =
     isListingPageSlug(context.params?.slug)
   const path =
@@ -85,6 +93,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       ? drupalClient.getPathFromContext(context)
       : isListingPage.path
 
+  // Now that we have a path, translate for resource endpoint
   const pathInfo = await drupalClient.translatePath(path)
   if (!pathInfo) {
     return {
@@ -92,14 +101,15 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
   }
 
+  // If the requested path isn't a type we're building, 404
   const resourceType = pathInfo.jsonapi.resourceName as ResourceTypeType
-
   if (!Object.values(RESOURCE_TYPES).includes(resourceType)) {
     return {
       notFound: true,
     }
   }
 
+  // Set up query for resource at the given path
   const id = pathInfo.entity?.uuid
   const queryOpts: QueryOpts<{
     id: string
@@ -116,6 +126,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           page: isListingPage.page,
         }
 
+  // Request resource based on type
   const resource = await queries.getData(resourceType, queryOpts)
   if (!resource) {
     throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
@@ -129,13 +140,18 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
   }
 
+  // If resource is good, gather additional data for global elements.
+  // This will be cached in the future so the header isn't re-requested a million times.
+  const { bannerData, headerFooterData } = await getGlobalElements(
+    pathInfo.jsonapi?.entryPoint,
+    path
+  )
+
   return {
     props: {
       resource,
-      globalElements: await getGlobalElements(
-        pathInfo.jsonapi?.entryPoint,
-        path
-      ),
+      bannerData,
+      headerFooterData,
     },
   }
 }

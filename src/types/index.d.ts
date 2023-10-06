@@ -4,6 +4,7 @@ import {
   NodeHealthCareRegionPage,
 } from '@/types/dataTypes/drupal/node'
 import { PathAlias } from 'next-drupal'
+
 export interface PublishedEntity {
   id: string
   type: string
@@ -132,7 +133,7 @@ export type StoryListingType = PublishedEntity & {
   title: string
   introText: string
   stories: NewsStoryTeaserType[]
-  menu: Menu
+  menu: SideNavMenu
   currentPage: number
   totalPages: number
   entityId: number
@@ -175,18 +176,25 @@ export type StaticPathResourceType = {
   }
 }
 
-interface MenuItemProps {
-  readonly id: string
-  readonly url: string
-  readonly title: string
+// These SideNav types are what the vets-website widget expects
+export type SideNavItem = {
+  description: string
   expanded: boolean
-  enabled: boolean
-  items?: Tree
-  depth?: number
-  children?: ReactChildren
+  label: string
+  links: SideNavItem[]
+  url: { path: string }
 }
 
-type Tree = ReadonlyArray<MenuItemProps>
+export type SideNavData = {
+  name: string
+  description: string
+  links: SideNavItem[]
+}
+
+export type SideNavMenu = {
+  rootPath: string
+  data: SideNavData
+}
 
 interface ButtonType {
   id: string
@@ -259,4 +267,54 @@ interface AudienceTopicType {
  */
 interface AudienceTopicsType {
   tags: AudienceTopicType[]
+}
+
+// type expected by window.VetsGov.headerFooter
+export type HeaderFooterData = {
+  footerData?: FooterLink[]
+  megaMenuData?: MegaMenuSection[]
+}
+
+export type FooterLink = {
+  column: number | string // either # or 'bottom_rail'
+  href: string
+  order: number
+  target?: string
+  title: string
+}
+
+export type MegaMenuLink = {
+  text: string
+  href: string
+}
+
+export type MegaMenuLinkObject = {
+  mainColumn?: MegaMenuColumn
+  columnOne?: MegaMenuColumn
+  columnTwo?: MegaMenuColumn
+  columnThree?: MegaMenuPromoColumn
+  columnFour?: MegaMenuColumn
+  seeAllLink?: MegaMenuLink
+}
+
+export type MegaMenuSection = {
+  title: string
+  href?: string
+  menuSections?:
+    | (MegaMenuColumn | MegaMenuPromoColumn | MegaMenuLink)[]
+    | MegaMenuLinkObject
+}
+
+export type MegaMenuColumn = {
+  title: string
+  links: MegaMenuLinkObject | MegaMenuLink[]
+}
+
+export type MegaMenuPromoColumn = {
+  img: {
+    src: string
+    alt: string
+  }
+  link: MegaMenuLink
+  description: string
 }

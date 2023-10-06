@@ -10,11 +10,20 @@
  */
 
 import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { NewsStoryTeaserType, StoryListingType } from '@/types/index'
-import Container from '@/templates/common/container'
+import {
+  NewsStoryTeaserType,
+  SideNavMenu,
+  StoryListingType,
+} from '@/types/index'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
-import { FacilityMenu } from '@/templates/components/facilityMenu'
 import { ContentFooter } from '@/templates/common/contentFooter'
+import { useEffect } from 'react'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  sideNav?: SideNavMenu
+}
+declare const window: customWindow
 
 export function StoryListing({
   id,
@@ -25,6 +34,11 @@ export function StoryListing({
   currentPage,
   totalPages,
 }: StoryListingType) {
+  // Add data to the window object for the sidebar widget
+  useEffect(() => {
+    window.sideNav = menu
+  }, [menu])
+
   const storyTeasers =
     stories?.length > 0 ? (
       stories?.map((story: NewsStoryTeaserType) => (
@@ -38,7 +52,13 @@ export function StoryListing({
 
   return (
     <div key={id} className="usa-grid usa-grid-full">
-      <FacilityMenu {...menu} />
+      {/* Widget coming from vets-website */}
+      <nav
+        data-template="navigation/facility_sidebar_nav"
+        aria-label="secondary"
+        data-widget-type="side-nav"
+      ></nav>
+
       <div className="usa-width-three-fourths">
         <article className="usa-content">
           <h1>{title}</h1>

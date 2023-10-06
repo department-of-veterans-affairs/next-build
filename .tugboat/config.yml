@@ -46,7 +46,7 @@ services:
 
         # Clone vets-website
         - ./scripts/install-repos.sh
-        
+
         # Build vets-website so assets are available (various widgets, fonts, etc)
         - ./scripts/build-vets-website.sh
 

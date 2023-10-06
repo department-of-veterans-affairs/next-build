@@ -1,18 +1,34 @@
+/* eslint-ignore no-console */
 import { useState, useEffect } from 'react'
 import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 import { isEmpty } from 'lodash'
+import {
+  BannerType,
+  FacilityBannerType,
+  PromoBannerType,
+  HeaderFooterData,
+} from '@/types/index'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
-import { BannerType, FacilityBannerType, PromoBannerType } from '@/types/index'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  VetsGov?: {
+    headerFooter?: HeaderFooterData
+  }
+}
+declare const window: customWindow
+
 export interface LayoutProps {
   children?: React.ReactNode
   bannerData?: Array<
     NodeBanner | PromoBannerType | BannerType | FacilityBannerType
   >
+  headerFooterData?: HeaderFooterData
 }
 
 export const formatBannerType = (bannerData) => {
@@ -28,17 +44,26 @@ export const formatBannerType = (bannerData) => {
   }
 }
 
-export function Wrapper({ bannerData, children }: LayoutProps) {
+export function Wrapper({
+  bannerData,
+  headerFooterData,
+  children,
+}: LayoutProps) {
   const [showBanners, setShowBanners] = useState(false)
   const [banners, setBanners] = useState([])
   useEffect(() => {
+    // Place header & footer data on window object for vets-website widgets
+    window.VetsGov = {}
+    window.VetsGov.headerFooter = headerFooterData
+
+    // todo: clean this up later
     if (isEmpty(bannerData)) {
       return setShowBanners(false)
     } else {
       setBanners(bannerData.map(formatBannerType))
       return setShowBanners(true)
     }
-  }, [bannerData, showBanners])
+  }, [bannerData, showBanners, headerFooterData])
 
   return (
     <>

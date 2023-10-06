@@ -1,4 +1,3 @@
-import config from '../../../config'
 import isNil from 'lodash/isNil'
 
 export function truncateWordsOrChar(
@@ -19,10 +18,6 @@ export function truncateWordsOrChar(
     }
     return str.slice(0, length) + suffix
   }
-}
-
-export function absoluteURL(uri: string) {
-  return `${config.drupalBaseUrl}${uri}`
 }
 
 // used to get a base url path of a health care region from entityUrl.path

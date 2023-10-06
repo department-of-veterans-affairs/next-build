@@ -11,7 +11,10 @@ let storyListingProps: StoryListingType = {
   type: 'node--story_listing',
   published: true,
   stories: [],
-  menu: { items: [], tree: [] },
+  menu: {
+    rootPath: 'sample/path/url',
+    data: { name: '', description: '', links: [] },
+  },
   currentPage: 1,
   totalPages: 1,
 }

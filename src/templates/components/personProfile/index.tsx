@@ -1,6 +1,5 @@
 import { MediaImage } from '@/templates/common/mediaImage'
 import { PersonProfileType } from '@/types/index'
-import { absoluteURL } from '@/lib/utils/helpers'
 
 export type PersonProfileTeaserProps = {
   title: string
@@ -108,10 +107,7 @@ export const PersonProfile = ({
                       aria-hidden="true"
                     ></i>
 
-                    <a
-                      href={absoluteURL(media ? media[0]?.url : null)}
-                      download
-                    >
+                    <a href={media ? media[0]?.url : null} download>
                       {' '}
                       Download full size photo
                     </a>
