@@ -6,6 +6,7 @@ import {
 } from '@/types/index'
 import { ExpandedStaticPropsContextType } from '@/lib/drupal/staticProps'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { slugToPath } from '@/lib/utils/slug'
 
 export const LOVELL = {
   federal: {
@@ -123,37 +124,30 @@ export function isLovellResource(
   )
 }
 
-function isLovellVariantPath(
-  variant: LovellVariant
-): (path: string) => boolean {
-  return (path) => {
-    return new RegExp(`^\/?${LOVELL[variant].pathSegment}`).test(path)
-  }
+function isLovellVariantPath(variant: LovellVariant, path: string): boolean {
+  return new RegExp(`^\/?${LOVELL[variant].pathSegment}`).test(path)
 }
 export function isLovellTricarePath(path: string) {
-  return isLovellVariantPath(LOVELL.tricare.variant)(path)
+  return isLovellVariantPath(LOVELL.tricare.variant, path)
 }
 export function isLovellVaPath(path: string) {
-  return isLovellVariantPath(LOVELL.va.variant)(path)
+  return isLovellVariantPath(LOVELL.va.variant, path)
 }
 
 function isLovellVariantSlug(
-  variant: LovellVariant
-): (slug: string | string[]) => boolean {
-  return (slug) => {
-    const path = typeof slug === 'string' ? slug : slug.join('/')
-    const leadingSlashPath = path.substring(0, 1) === '/' ? path : `/${path}`
-
-    return variant === LOVELL.tricare.variant
-      ? isLovellTricarePath(leadingSlashPath)
-      : isLovellVaPath(leadingSlashPath)
-  }
+  variant: LovellVariant,
+  slug: string | string[]
+): boolean {
+  const path = slugToPath(slug)
+  return variant === LOVELL.tricare.variant
+    ? isLovellTricarePath(path)
+    : isLovellVaPath(path)
 }
 export function isLovellTricareSlug(slug: string | string[]) {
-  return isLovellVariantSlug(LOVELL.tricare.variant)(slug)
+  return isLovellVariantSlug(LOVELL.tricare.variant, slug)
 }
 export function isLovellVaSlug(slug: string | string[]) {
-  return isLovellVariantSlug(LOVELL.va.variant)(slug)
+  return isLovellVariantSlug(LOVELL.va.variant, slug)
 }
 
 export function getOppositeVariant(variant: LovellVariant): LovellVariant {
