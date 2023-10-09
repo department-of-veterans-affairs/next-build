@@ -141,7 +141,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     // This will be cached in the future so the header isn't re-requested a million times.
     const { bannerData, headerFooterData } = await getGlobalElements(
       pathInfo.jsonapi?.entryPoint,
-      expandedContext.drupalPath,
+      expandedContext.drupalPath
     )
 
     return {
