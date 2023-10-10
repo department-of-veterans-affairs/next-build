@@ -28,9 +28,9 @@ You should set these up before attempting to install the repo.
 
 1. Run `yarn install`.
 
-1. Copy `.env.example` to `.env.local`. This is a reasonable set of environment defaults for local development.
+1. Copy `envs/.env.example` to `envs/.env.local`. This is a reasonable set of environment defaults for local development.
 
-1. Make sure your SOCKS access is running.
+1. Make sure your SOCKS access is running. (e.g. `vtk socks on`)
 
 1. Run `yarn dev`.
 
@@ -39,17 +39,17 @@ local environment.
 
 ### Environment Flags
 
-The APP_ENV flag can be used to designate which .env file you want to use. Ensure you're env files are in ./env, and then run your build or dev command with a leading APP_ENV=local.
+The APP_ENV flag can be used to designate which .env file you want to use. Ensure you're env files are in ./envs, and then run your build or dev command with a leading APP_ENV=local.
 
 ie `APP_ENV=local yarn dev`
 
 Ensure the value passed into APP_ENV matches the file name of the .env file you wish to use.
 
-If no value is passed than .env.local will be used as the default
+If no value is passed `.env.local` will be used as the default
 
 #### Local CMS endpoint
 
-To use the local CMS as an endpoint, follow the install directions for [the CMS repo here]().
+To use the local CMS as an endpoint, follow the install directions for [the CMS repo here](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md).
 
 While installing those dependencies, you will run `mkcert -install`. This certificate is used by ddev, and also
 needs to be used by next-build to enable connections over `https://` locally.
