@@ -26,7 +26,9 @@
     "test:types": "APP_ENV=test tsc --noEmit",
     "test:watch": "APP_ENV=test jest --watch",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build -o out/storybook-static"
+    "storybook:build": "storybook build -o out/storybook-static",
+    "build:preview":"SSG=false next build",
+    "start": "next start"
   },
   "dependencies": {
     "@department-of-veterans-affairs/component-library": "^10.3.0",
