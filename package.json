@@ -6,6 +6,8 @@
     "setup": "node scripts/setup-dev.js",
     "dev": "yarn setup && SSG=false next dev",
     "build": "SSG=true next build",
+    "build:preview": "SSG=false next build",
+    "start": "next start",
     "postbuild": "next-sitemap",
     "export": "SSG=true next build && next export",
     "export:serve": "http-server out -p 8001",
@@ -26,9 +28,7 @@
     "test:types": "APP_ENV=test tsc --noEmit",
     "test:watch": "APP_ENV=test jest --watch",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build -o out/storybook-static",
-    "build:preview":"SSG=false next build",
-    "start": "next start"
+    "storybook:build": "storybook build -o out/storybook-static"
   },
   "dependencies": {
     "@department-of-veterans-affairs/component-library": "^10.3.0",
