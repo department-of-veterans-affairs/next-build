@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 
+import { queries } from '@/data/queries'
 import {
   MegaMenuColumn,
   MegaMenuLink,
@@ -105,41 +106,29 @@ function makeColumns(hostUrl, linkData, arrayDepth, promo): MegaMenuLinkObject {
     }
 
     // Generate promo block column if present
-    if (promo !== undefined || null) {
-      columns[columnNames[i]] = promo
+    if (promo && promo.id) {
+      columns[columnNames[i]] = queries.formatData(
+        'block_content--promo',
+        promo
+      )
     }
   })
 
   return columns
 }
 
-const makeSection = (
-  item,
-  hostUrl,
-  arrayDepth,
-  promoBlocks
-): MegaMenuColumn => {
+const makeSection = (item, hostUrl, arrayDepth): MegaMenuColumn => {
   const sections = item.items
-  const promo =
-    promoBlocks.filter(
-      (block) =>
-        block.id ===
-        item.field_promo_reference?.resourceIdObjMeta.drupal_internal__target_id
-    ) || null
+  const promo = item.field_promo_reference
 
   return {
     title: item.title,
-    links: makeColumns(hostUrl, sections, arrayDepth, promo[0]),
+    links: makeColumns(hostUrl, sections, arrayDepth, promo),
   }
 }
 
-export function formatHeaderData(
-  menuData,
-  hostUrl,
-  promoBlocks
-): MegaMenuSection[] {
+export function formatHeaderData(menuData, hostUrl): MegaMenuSection[] {
   const megaMenuTree = []
-
   menuData.tree.forEach((link) => {
     const linkObj: MegaMenuSection = { title: link.title }
 
@@ -160,9 +149,7 @@ export function formatHeaderData(
           // These are hubs with child links.
           if (child.items?.length > 0) {
             if (Array.isArray(linkObj.menuSections)) {
-              linkObj.menuSections.push(
-                makeSection(child, hostUrl, arrayDepth, promoBlocks)
-              )
+              linkObj.menuSections.push(makeSection(child, hostUrl, arrayDepth))
             }
           } else {
             // 2 hubs just have a single link. Unlike the usual pattern, these
@@ -177,20 +164,12 @@ export function formatHeaderData(
           }
         })
       } else {
-        // For menu tabs with a depth < 3, like our 'About VA' tab.
-        // In this case, we go straight to 'columns' rather than defining wider 'sections.'
-        // Note, that menuSections is an object in this case, instead of an array.
-        const promo = promoBlocks.filter(
-          (block) =>
-            block.id ===
-            link.field_promo_reference?.resourceIdObjMeta
-              .drupal_internal__target_id
-        )
+        const promo = link.field_promo_reference
         linkObj.menuSections = makeColumns(
           hostUrl,
           link.items,
           arrayDepth,
-          promo[0]
+          promo
         )
       }
     }
