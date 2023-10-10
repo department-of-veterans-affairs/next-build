@@ -1,9 +1,4 @@
-import {
-  QueryData,
-  QueryFormatter,
-  QueryOpts,
-  QueryParams,
-} from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { Menu, HeaderMegaMenu } from '@/types/dataTypes/drupal/menu'
@@ -33,13 +28,7 @@ export const megaMenuParams: QueryParams<null> = () => {
     ])
 }
 
-// Define the option types for the data loader.
-type DataOpts = QueryOpts<{
-  params?: object
-  megaMenuParams?: object
-}>
-
-export const data: QueryData<DataOpts, RawHeaderFooterData> = async (opts) => {
+export const data: QueryData<null, RawHeaderFooterData> = async () => {
   // Gather data from the different menus for the headerFooter data object
   const footerColumns = await drupalClient.getMenu('va-gov-footer', {
     params: params().getQueryObject(),
