@@ -9,6 +9,7 @@ import {
   FieldOfficeHours,
   FieldSocialMediaLinks,
   FieldTable,
+  FieldAdministration,
 } from './field_type'
 import { MediaImage } from './media'
 import {
@@ -216,6 +217,8 @@ export interface NodeNewsStory extends DrupalNode {
   field_order: number
   /** Which Story Listing page this story should display on. */
   field_listing: NodeStoryListing
+  /** Administration */
+  field_administration: FieldAdministration
   /** When the node was created. */
   created: string
 }

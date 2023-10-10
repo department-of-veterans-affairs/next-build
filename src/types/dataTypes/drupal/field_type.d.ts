@@ -59,3 +59,8 @@ export interface FieldTable {
   value: [string[]]
   caption: string
 }
+
+export interface FieldAdministration {
+  drupal_internal__tid: number
+  name: string
+}

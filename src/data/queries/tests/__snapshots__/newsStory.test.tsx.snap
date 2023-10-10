@@ -2,6 +2,10 @@
 
 exports[`node--news_story formatData outputs formatted data 1`] = `
 Object {
+  "administration": Object {
+    "id": 12,
+    "name": "VA Pittsburgh health care",
+  },
   "author": Object {
     "changed": "2019-08-27T17:50:21+00:00",
     "created": "2019-05-14T16:10:51+00:00",
