@@ -18,16 +18,17 @@ export const params: QueryParams<null> = () => {
       'field_media.image',
       'field_author',
       'field_listing',
+      'field_administration',
     ])
 }
 
 // Define the option types for the data loader.
-type DataOpts = QueryOpts<{
+export type NewsStoryDataOpts = QueryOpts<{
   id: string
 }>
 
 // Implement the data loader.
-export const data: QueryData<DataOpts, NodeNewsStory> = async (
+export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
   opts
 ): Promise<NodeNewsStory> => {
   const entity = await drupalClient.getResource<NodeNewsStory>(
@@ -65,5 +66,9 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
       title: entity.title,
     },
     listing: entity.field_listing.path.alias,
+    administration: {
+      id: entity.field_administration?.drupal_internal__tid || null,
+      name: entity.field_administration?.name || null,
+    },
   }
 }

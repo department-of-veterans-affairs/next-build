@@ -1,9 +1,4 @@
-import {
-  QueryData,
-  QueryFormatter,
-  QueryOpts,
-  QueryParams,
-} from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { deserialize } from 'next-drupal'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
@@ -13,6 +8,7 @@ import { Menu } from '@/types/dataTypes/drupal/menu'
 import { StoryListingType } from '@/types/index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 
 export const PAGE_SIZE = 10 as const
 
@@ -20,12 +16,6 @@ export const PAGE_SIZE = 10 as const
 export const params: QueryParams<null> = () => {
   return queries.getParams().addInclude(['field_office'])
 }
-
-// Define the option types for the data loader.
-type DataOpts = QueryOpts<{
-  id: string
-  page?: number
-}>
 
 type StoryListingData = {
   entity: NodeStoryListing
@@ -36,7 +26,9 @@ type StoryListingData = {
 }
 
 // Implement the data loader.
-export const data: QueryData<DataOpts, StoryListingData> = async (opts) => {
+export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
+  opts
+) => {
   const entity = await drupalClient.getResource<NodeStoryListing>(
     'node--story_listing',
     opts?.id,

@@ -54,11 +54,8 @@
     }
   },
   "field_administration": {
-    "type": "taxonomy_term--administration",
-    "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 12
-    }
+    "drupal_internal__tid": 12,
+    "name": "VA Pittsburgh health care"
   },
   "field_author": {
     "type": "node--person_profile",

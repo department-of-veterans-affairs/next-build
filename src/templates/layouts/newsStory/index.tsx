@@ -5,6 +5,8 @@ import { SocialLinks } from '@/templates/common/socialLinks'
 import { StoryListingLink } from '@/templates/components/storyListingLink'
 import { NewsStoryType } from '@/types/index'
 import { ContentFooter } from '@/templates/common/contentFooter'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellExpandedResourceTypeType } from '@/lib/drupal/lovell'
 
 export const NewsStory = ({
   title,
@@ -16,7 +18,9 @@ export const NewsStory = ({
   date,
   socialLinks,
   listing,
-}: NewsStoryType) => {
+  lovellVariant,
+  lovellSwitchPath,
+}: LovellExpandedResourceTypeType<NewsStoryType>) => {
   return (
     <>
       <div id="content" className="interior">
@@ -25,6 +29,12 @@ export const NewsStory = ({
             {/* nav here */}
             <div className="usa-width-three-fourths">
               <article className="usa-content">
+                {lovellVariant && lovellSwitchPath && (
+                  <LovellSwitcher
+                    currentVariant={lovellVariant}
+                    switchPath={lovellSwitchPath}
+                  />
+                )}
                 <h1>{title}</h1>
                 <MediaImage {...image} imageStyle="2_1_large" />
                 <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">

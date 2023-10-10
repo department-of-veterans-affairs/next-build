@@ -45,6 +45,10 @@ const data = {
     title: 'We honor outstanding doctors',
   },
   listing: '/pittsburgh-health-care/stories',
+  administration: {
+    id: 12,
+    name: 'VA Pittsburgh health care',
+  },
 }
 
 describe('<newsStory> with valid data', () => {
