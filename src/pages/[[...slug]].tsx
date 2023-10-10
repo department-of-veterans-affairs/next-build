@@ -5,7 +5,6 @@ import {
   GetStaticPropsContext,
 } from 'next'
 import Head from 'next/head'
-import { QueryOpts } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { queries } from '@/data/queries'
@@ -15,14 +14,20 @@ import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import HTMLComment from '@/templates/common/HTMLComment'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
-import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
-import { isListingPageSlug } from '@/lib/drupal/listingPages'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  getExpandedStaticPropsContext,
+  getExpandedStaticPropsResource,
+  getStaticPropsQueryOpts,
+} from '@/lib/drupal/staticProps'
 
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
   // RESOURCE_TYPES.QA,
 ] as const
+
+export type BuiltResourceTypeType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
 
 // [[...slug]] is a catchall route. We build the appropriate layout based on the resource returned for a given path.
 export default function ResourcePage({
@@ -85,73 +90,70 @@ export async function getStaticPaths(
 
 // Given some context (path, slug, locale, etc), get all props for the path.
 export async function getStaticProps(context: GetStaticPropsContext) {
-  // Listing pages require extra handling for generating paginated pages statically.
-  const isListingPage: { path: string; page: number } | false =
-    isListingPageSlug(context.params?.slug)
-  const path =
-    isListingPage === false
-      ? drupalClient.getPathFromContext(context)
-      : isListingPage.path
+  try {
+    const expandedContext = getExpandedStaticPropsContext(context)
 
-  // Now that we have a path, translate for resource endpoint
-  const pathInfo = await drupalClient.translatePath(path)
-  if (!pathInfo) {
-    return {
-      notFound: true,
+    // Now that we have a path, translate for resource endpoint
+    const pathInfo = await drupalClient.translatePath(
+      expandedContext.drupalPath
+    )
+    if (!pathInfo) {
+      return {
+        notFound: true,
+      }
     }
-  }
 
-  // If the requested path isn't a type we're building, 404
-  const resourceType = pathInfo.jsonapi.resourceName as ResourceTypeType
-  if (!Object.values(RESOURCE_TYPES).includes(resourceType)) {
-    return {
-      notFound: true,
+    // If the requested path isn't a type we're building, 404
+    const resourceType = pathInfo.jsonapi.resourceName as BuiltResourceTypeType
+    if (!Object.values(RESOURCE_TYPES).includes(resourceType)) {
+      return {
+        notFound: true,
+      }
     }
-  }
 
-  // Set up query for resource at the given path
-  const id = pathInfo.entity?.uuid
-  const queryOpts: QueryOpts<{
-    id: string
-    page?: number
-  }> =
-    isListingPage === false
-      ? {
-          context,
-          id,
-        }
-      : {
-          context,
-          id,
-          page: isListingPage.page,
-        }
+    // Set up query for resource at the given path
+    const id = pathInfo.entity?.uuid
+    const queryOpts = getStaticPropsQueryOpts(resourceType, id, expandedContext)
 
-  // Request resource based on type
-  const resource = await queries.getData(resourceType, queryOpts)
-  if (!resource) {
-    throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
-  }
-
-  // If we're not in preview mode and the resource is not published,
-  // Return page not found.
-  if (!context.preview && resource?.published === false) {
-    return {
-      notFound: true,
+    // Request resource based on type
+    const resource = await queries.getData(resourceType, queryOpts)
+    if (!resource) {
+      throw new Error(
+        `Failed to fetch resource: ${pathInfo.jsonapi.individual}`
+      )
     }
-  }
 
-  // If resource is good, gather additional data for global elements.
-  // This will be cached in the future so the header isn't re-requested a million times.
-  const { bannerData, headerFooterData } = await getGlobalElements(
-    pathInfo.jsonapi?.entryPoint,
-    path
-  )
+    // If we're not in preview mode and the resource is not published,
+    // Return page not found.
+    if (!context.preview && resource?.published === false) {
+      return {
+        notFound: true,
+      }
+    }
 
-  return {
-    props: {
+    // Apply business logic to resource (e.g. Lovell)
+    const expandedResource = getExpandedStaticPropsResource(
       resource,
-      bannerData,
-      headerFooterData,
-    },
+      expandedContext
+    )
+
+    // If resource is good, gather additional data for global elements.
+    // This will be cached in the future so the header isn't re-requested a million times.
+    const { bannerData, headerFooterData } = await getGlobalElements(
+      pathInfo.jsonapi?.entryPoint,
+      expandedContext.drupalPath
+    )
+
+    return {
+      props: {
+        resource: expandedResource,
+        bannerData,
+        headerFooterData,
+      },
+    }
+  } catch (err) {
+    return {
+      notFound: true,
+    }
   }
 }
