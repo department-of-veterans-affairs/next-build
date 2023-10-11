@@ -26,5 +26,6 @@ declare namespace JSX {
   interface IntrinsicElements {
     'va-alert'
     'va-link'
+    'va-breadcrumbs'
   }
 }

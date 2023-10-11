@@ -22,11 +22,17 @@ export const NewsStory = ({
   lovellVariant,
   lovellSwitchPath,
   entityPath,
-  breadcrumbs
+  breadcrumbs,
 }: LovellExpandedResourceTypeType<NewsStoryType>) => {
   return (
     <>
-      <Breadcrumbs title={title} breadcrumbs={breadcrumbs} entityPath={entityPath} hideHomeBreadcrumb={true} customCrumbHomeText={"custom"} />
+      <Breadcrumbs
+        title={title}
+        breadcrumbs={breadcrumbs}
+        entityPath={entityPath}
+        hideHomeBreadcrumb={true}
+        customCrumbHomeText={'custom'}
+      />
       <div id="content" className="interior">
         <div className="va-l-detail-page va-facility-page">
           <div className="usa-grid usa-grid-full">

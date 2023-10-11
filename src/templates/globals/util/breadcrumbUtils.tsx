@@ -1,60 +1,65 @@
-import { Breadcrumb, BreadcrumbItem } from "@/types/index";
+import { BreadcrumbItem } from '@/types/index'
 
 export function deriveLastBreadcrumbFromPath(
   breadcrumbs: BreadcrumbItem[],
-  string: string,
+  breadcrumbTitle: string,
   currentPath: string,
   replaceLastItem: boolean
 ): BreadcrumbItem[] {
   const last: BreadcrumbItem = {
     uri: currentPath,
-    title: string,
-    options: []
-  };
-
-  if (replaceLastItem) {
-    breadcrumbs.splice(breadcrumbs.length - 1, 1, last);
-  } else {
-    breadcrumbs.push(last);
+    title: breadcrumbTitle,
+    options: [],
   }
 
-  return breadcrumbs;
+  if (replaceLastItem) {
+    breadcrumbs.splice(breadcrumbs.length - 1, 1, last)
+  } else {
+    breadcrumbs.push(last)
+  }
+
+  return breadcrumbs
 }
 
 export function deriveLcBreadcrumbs(
   breadcrumbs: BreadcrumbItem[],
-  string: string,
+  breadcrumbTitle: string,
   currentPath: string,
   titleInclude?: boolean
 ): BreadcrumbItem[] {
   const filteredCrumbs: BreadcrumbItem[] = breadcrumbs.filter(
-    crumb => crumb.uri !== '/resources'
-  );
+    (crumb) => crumb.uri !== '/resources'
+  )
 
   filteredCrumbs.push({
     uri: currentPath,
     title: 'Resources and support',
-    options: []
-  });
+    options: [],
+  })
 
   if (titleInclude) {
     filteredCrumbs.push({
       uri: currentPath,
-      title: string,
-      options: []
-    });
+      title: breadcrumbTitle,
+      options: [],
+    })
   }
 
-  return filteredCrumbs;
+  return filteredCrumbs
 }
 
-
 export function transformBreadcrumbs(breadcrumbs) {
-  const transformedCrumbs = breadcrumbs.map(crumb => ({
+  const transformedCrumbs = breadcrumbs.map((crumb) => ({
     href: crumb.uri,
     label: crumb.title,
-    options: crumb.options
-  }));
+    options: crumb.options,
+  }))
 
   return transformedCrumbs
+}
+
+export function filterInvalidCrumbs(crumbs) {
+  return crumbs.filter((crumb, index, arr) => {
+    return crumb.href !== 'internal:#' || index === arr.length - 1
+  })
 }

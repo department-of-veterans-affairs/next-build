@@ -313,8 +313,8 @@ export type MegaMenuSection = {
   title: string
   href?: string
   menuSections?:
-  | (MegaMenuColumn | MegaMenuPromoColumn | MegaMenuLink)[]
-  | MegaMenuLinkObject
+    | (MegaMenuColumn | MegaMenuPromoColumn | MegaMenuLink)[]
+    | MegaMenuLinkObject
 }
 
 export type MegaMenuColumn = {
@@ -336,15 +336,15 @@ export type MegaMenuPromoColumn = {
  */
 export interface Breadcrumb {
   url: {
-    path: string;
-    routed: boolean;
-  };
-  text: string;
+    path: string
+    routed: boolean
+  }
+  text: string
 }
 
 export interface BreadcrumbItem {
-  uri: string;
-  title: string;
+  uri: string
+  title: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  options: any[];
+  options: any[]
 }

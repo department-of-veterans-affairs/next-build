@@ -35,7 +35,7 @@ export function StoryListing({
   currentPage,
   totalPages,
   entityPath,
-  breadcrumbs
+  breadcrumbs,
 }: StoryListingType) {
   // Add data to the window object for the sidebar widget
   useEffect(() => {
@@ -55,7 +55,12 @@ export function StoryListing({
 
   return (
     <>
-      <Breadcrumbs title={title} breadcrumbs={breadcrumbs} entityPath={entityPath} hideHomeBreadcrumb={true} />
+      <Breadcrumbs
+        title={title}
+        breadcrumbs={breadcrumbs}
+        entityPath={entityPath}
+        hideHomeBreadcrumb={true}
+      />
       <div key={id} className="usa-grid usa-grid-full">
         {/* Widget coming from vets-website */}
         <nav
@@ -64,7 +69,6 @@ export function StoryListing({
           data-widget-type="side-nav"
         ></nav>
         <div className="usa-width-three-fourths">
-
           <article className="usa-content">
             <h1>{title}</h1>
             <div className="vads-l-grid-container--full">

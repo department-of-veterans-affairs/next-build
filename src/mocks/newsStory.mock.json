@@ -99,9 +99,7 @@
     "field_photo_allow_hires_download": false,
     "field_suffix": null,
     "links": {
-      "self": [
-        null
-      ]
+      "self": [null]
     },
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 378
@@ -109,30 +107,22 @@
     "node_type": {
       "type": "node_type--node_type",
       "id": "89b07673-7fd5-4292-8fba-58cc10c4e3ec",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "revision_uid": {
       "type": "user--user",
       "id": "fd71292f-3dc7-409d-b0e8-500204cb005a",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "uid": {
       "type": "user--user",
       "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "field_administration": {
       "type": "taxonomy_term--administration",
       "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "field_complete_biography": null,
     "field_media": null,
@@ -175,9 +165,7 @@
     "field_enforce_unique_combo": null,
     "field_intro_text": "Read about what's happening in our VA Pittsburgh health care community.",
     "links": {
-      "self": [
-        null
-      ]
+      "self": [null]
     },
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 2806
@@ -185,31 +173,23 @@
     "node_type": {
       "type": "node_type--node_type",
       "id": "f28cd2f7-2819-4dfa-a768-72d269cf68ff",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "revision_uid": {
       "type": "user--user",
       "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "uid": {
       "type": "user--user",
       "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "field_office": null,
     "field_administration": {
       "type": "taxonomy_term--administration",
       "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "relationshipNames": [
       "node_type",
@@ -243,9 +223,7 @@
     "field_media_in_library": true,
     "field_media_submission_guideline": null,
     "links": {
-      "self": [
-        null
-      ]
+      "self": [null]
     },
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 78
@@ -253,17 +231,13 @@
     "bundle": {
       "type": "media_type--media_type",
       "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "revision_user": null,
     "uid": {
       "type": "user--user",
       "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
-      "resourceIdObjMeta": [
-        null
-      ]
+      "resourceIdObjMeta": [null]
     },
     "thumbnail": {
       "type": "file--file",
@@ -271,26 +245,16 @@
       "drupal_internal__fid": "103",
       "langcode": "en",
       "filename": "doctor-year2019-decker-480.jpg",
-      "uri": [
-        null
-      ],
+      "uri": [null],
       "filemime": "image/jpeg",
       "filesize": 112705,
       "status": true,
       "created": "2019-05-15T20:20:03+00:00",
       "changed": "2019-05-15T20:20:32+00:00",
-      "links": [
-        null
-      ],
-      "resourceIdObjMeta": [
-        null
-      ],
-      "uid": [
-        null
-      ],
-      "relationshipNames": [
-        null
-      ]
+      "links": [null],
+      "resourceIdObjMeta": [null],
+      "uid": [null],
+      "relationshipNames": [null]
     },
     "field_owner": null,
     "image": {

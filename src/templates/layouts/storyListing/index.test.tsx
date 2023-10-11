@@ -6,10 +6,10 @@ let storyListingProps: StoryListingType = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   breadcrumbs: [
     {
-      "uri": "https://cms-7m0jwgfd3t0pt3txlgzvixowibrfagsq.ci.cms.va.gov/",
-      "title": "Home",
-      "options": []
-    }
+      uri: 'https://cms-7m0jwgfd3t0pt3txlgzvixowibrfagsq.ci.cms.va.gov/',
+      title: 'Home',
+      options: [],
+    },
   ],
   title: 'Stories',
   entityId: 1234,
