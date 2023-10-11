@@ -389,6 +389,7 @@ describe('getLovellPageExpandedStaticPropsResource', () => {
       const resource: NewsStoryType = {
         ...newsStoryPartialResource,
         entityPath: vaPath, //Bifurcated pages get VA version's path from Drupal
+        breadcrumbs: [],
         socialLinks: {
           ...newsStoryPartialResource.socialLinks,
           vaPath,
@@ -429,6 +430,7 @@ describe('getLovellPageExpandedStaticPropsResource', () => {
       const resource: NewsStoryType = {
         ...newsStoryPartialResource,
         entityPath: vaPath,
+        breadcrumbs: [],
         socialLinks: {
           ...newsStoryPartialResource.socialLinks,
           path: vaPath,
@@ -468,6 +470,7 @@ describe('getLovellPageExpandedStaticPropsResource', () => {
       const resource: NewsStoryType = {
         ...newsStoryPartialResource,
         entityPath: path, //Non-bifurcated TRICARE pages get TRICARE path
+        breadcrumbs: [],
         socialLinks: {
           ...newsStoryPartialResource.socialLinks,
           path,
@@ -502,6 +505,7 @@ describe('getLovellPageExpandedStaticPropsResource', () => {
       const resource: NewsStoryType = {
         ...newsStoryPartialResource,
         entityPath: path,
+        breadcrumbs: [],
         socialLinks: {
           ...newsStoryPartialResource.socialLinks,
           path,
