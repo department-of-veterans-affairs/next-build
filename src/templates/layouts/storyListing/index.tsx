@@ -56,7 +56,6 @@ export function StoryListing({
   return (
     <>
       <Breadcrumbs
-        title={title}
         breadcrumbs={breadcrumbs}
         entityPath={entityPath}
         hideHomeBreadcrumb={true}

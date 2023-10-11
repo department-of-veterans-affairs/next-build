@@ -1,4 +1,3 @@
-import { VaBreadcrumbs } from '@department-of-veterans-affairs/web-components/react-bindings'
 import {
   transformBreadcrumbs,
   deriveLastBreadcrumbFromPath,

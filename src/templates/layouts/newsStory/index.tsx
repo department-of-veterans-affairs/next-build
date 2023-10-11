@@ -27,11 +27,9 @@ export const NewsStory = ({
   return (
     <>
       <Breadcrumbs
-        title={title}
         breadcrumbs={breadcrumbs}
         entityPath={entityPath}
         hideHomeBreadcrumb={true}
-        customCrumbHomeText={'custom'}
       />
       <div id="content" className="interior">
         <div className="va-l-detail-page va-facility-page">

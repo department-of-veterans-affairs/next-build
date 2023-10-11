@@ -14,7 +14,6 @@ import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
-import Breadcrumbs from '@/templates/common/breadcrumbs'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
