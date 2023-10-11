@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
 
 const WebComponentProvider = ({ children }) => {
