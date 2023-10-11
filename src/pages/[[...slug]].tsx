@@ -54,12 +54,14 @@ export default function ResourcePage({
         {/* todo: do all meta tags correctly, currently this fixes an error on news story */}
         <meta property="og:url" content="foo" />
       </Head>
-      {resource.type === RESOURCE_TYPES.STORY_LISTING && (
-        <StoryListing {...resource} />
-      )}
+      {
+        resource.type === RESOURCE_TYPES.STORY_LISTING && (
+          <StoryListing {...resource} />
+        )
+      }
       {resource.type === RESOURCE_TYPES.STORY && <NewsStory {...resource} />}
       {resource.type === RESOURCE_TYPES.QA && <QuestionAnswer {...resource} />}
-    </Wrapper>
+    </Wrapper >
   )
 }
 

@@ -91,6 +91,7 @@ export type NewsStoryType = PublishedEntity & {
   entityId: number
   entityPath: string
   administration: Administration
+  breadcrumbs: any
 }
 
 export type NewsStoryTeaserType = PublishedEntity & {
@@ -144,6 +145,7 @@ export type StoryListingType = PublishedEntity & {
   totalPages: number
   entityId: number
   entityPath: string
+  breadcrumbs: any
 }
 
 export type StoryListingLinkType = {
@@ -311,8 +313,8 @@ export type MegaMenuSection = {
   title: string
   href?: string
   menuSections?:
-    | (MegaMenuColumn | MegaMenuPromoColumn | MegaMenuLink)[]
-    | MegaMenuLinkObject
+  | (MegaMenuColumn | MegaMenuPromoColumn | MegaMenuLink)[]
+  | MegaMenuLinkObject
 }
 
 export type MegaMenuColumn = {
@@ -327,4 +329,22 @@ export type MegaMenuPromoColumn = {
   }
   link: MegaMenuLink
   description: string
+}
+
+/**
+ * Types for breadcrumb data
+ */
+export interface Breadcrumb {
+  url: {
+    path: string;
+    routed: boolean;
+  };
+  text: string;
+}
+
+export interface BreadcrumbItem {
+  uri: string;
+  title: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options: any[];
 }

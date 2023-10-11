@@ -1,43 +1,91 @@
 import { VaBreadcrumbs } from '@department-of-veterans-affairs/web-components/react-bindings';
-
-import React from 'react';
+import { transformBreadcrumbs, deriveLastBreadcrumbFromPath, deriveLcBreadcrumbs } from '@/templates/globals/util/breadcrumbUtils';
+import { BreadcrumbItem } from '@/types/index';
 
 interface BreadcrumbProps {
-  breadcrumbPath: BreadcrumbData[];
-  breadcrumbsOverride?: BreadcrumbData[];
+  breadcrumbs?: BreadcrumbItem[];
+  breadcrumbsOverride?: BreadcrumbItem[];
   label?: string;
+  string?: string;
   disableAnalytics?: boolean;
   uswds?: boolean;
   wrapping?: boolean;
+  deriveBreadcrumbsFromUrl?: boolean
+  replaceLastItem?: boolean,
+  constructLcBreadcrumbs?: boolean,
+  title?: string,
+  titleInclude?: boolean,
+  hideHomeBreadcrumb?: boolean,
+  customCrumbHomeText?: string,
+  entityPath?: string,
 }
-
-interface BreadcrumbData {
-  label: string;
-  href: string;
-}
-
 const Breadcrumbs = ({
-  breadcrumbPath,
+  breadcrumbs,
   breadcrumbsOverride,
-  label = 'Breadcrumb',
-  disableAnalytics = false,
-  uswds = true,
-  wrapping = false,
+  entityPath,
+  label,
+  string,
+  disableAnalytics,
+  uswds,
+  wrapping,
+  deriveBreadcrumbsFromUrl,
+  replaceLastItem,
+  constructLcBreadcrumbs,
+  title,
+  titleInclude,
+  hideHomeBreadcrumb,
+  customCrumbHomeText,
 }: BreadcrumbProps) => {
-  const crumbs = breadcrumbsOverride || breadcrumbPath;
 
-  // Convert to the structure that VA component expects.
-  const breadcrumbList = JSON.stringify(crumbs);
+  const breadcrumbData: BreadcrumbItem[] = breadcrumbs
+  let crumbs = breadcrumbsOverride || breadcrumbData;
+
+
+  if (!crumbs) return null;
+
+  if (hideHomeBreadcrumb) {
+    if (customCrumbHomeText) {
+      crumbs = crumbs.map(crumb => {
+        if (crumb.title === 'Home') {
+          return { ...crumb, title: customCrumbHomeText };
+        }
+        return crumb;
+      });
+    } else {
+      crumbs = crumbs.filter(crumb => crumb.title !== 'Home');
+    }
+  }
+
+  if (deriveBreadcrumbsFromUrl) {
+    crumbs = deriveLastBreadcrumbFromPath(breadcrumbData, string, entityPath, replaceLastItem)
+  }
+
+  if (constructLcBreadcrumbs) {
+    crumbs = deriveLcBreadcrumbs(breadcrumbData, title, entityPath, titleInclude)
+  }
+
+
+
+  const breadcrumbList = transformBreadcrumbs(crumbs);
 
   return (
-    <VaBreadcrumbs
-      label={label}
-      breadcrumb-list={breadcrumbList}
-      disable-analytics={disableAnalytics}
-      uswds={uswds}
-      wrapping={wrapping}
-    />
+    <div className="vads-l-grid-container large-screen:vads-u-padding-x--0">
+      <VaBreadcrumbs
+        className={"va-nav-breadcrumbs"}
+        breadcrumbList={breadcrumbList}
+        label={label}
+        uswds={uswds}
+        wrapping={wrapping}
+        disableAnalytics={disableAnalytics}
+      />
+    </div>
   );
+};
+
+Breadcrumbs.defaultProps = {
+  label: 'Breadcrumbs',
+  uswds: true,
+  string: '',
 };
 
 export default Breadcrumbs;

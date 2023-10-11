@@ -23,6 +23,13 @@ const mediaImage: MediaImageType = {
 const data = {
   id: 'a1b2c3',
   published: true,
+  breadcrumbs: [
+    {
+      "uri": "https://cms-7m0jwgfd3t0pt3txlgzvixowibrfagsq.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    }
+  ],
   type: 'node--news_story',
   title: 'We honor outstanding doctors\n',
   entityId: 1234,

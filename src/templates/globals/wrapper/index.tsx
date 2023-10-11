@@ -78,7 +78,6 @@ export function Wrapper({
   return (
     <>
       <Header />
-      {/* <Breadcrumbs /> */}
       {showBanners ? banners : null}
       <main>{children}</main>
       <Footer />

@@ -24,6 +24,7 @@ interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
 declare const window: customWindow
+import Breadcrumbs from '@/templates/common/breadcrumbs'
 
 export function StoryListing({
   id,
@@ -33,6 +34,8 @@ export function StoryListing({
   menu,
   currentPage,
   totalPages,
+  entityPath,
+  breadcrumbs
 }: StoryListingType) {
   // Add data to the window object for the sidebar widget
   useEffect(() => {
@@ -51,45 +54,48 @@ export function StoryListing({
     )
 
   return (
-    <div key={id} className="usa-grid usa-grid-full">
-      {/* Widget coming from vets-website */}
-      <nav
-        data-template="navigation/facility_sidebar_nav"
-        aria-label="secondary"
-        data-widget-type="side-nav"
-      ></nav>
+    <>
+      <Breadcrumbs title={title} breadcrumbs={breadcrumbs} entityPath={entityPath} hideHomeBreadcrumb={true} />
+      <div key={id} className="usa-grid usa-grid-full">
+        {/* Widget coming from vets-website */}
+        <nav
+          data-template="navigation/facility_sidebar_nav"
+          aria-label="secondary"
+          data-widget-type="side-nav"
+        ></nav>
+        <div className="usa-width-three-fourths">
 
-      <div className="usa-width-three-fourths">
-        <article className="usa-content">
-          <h1>{title}</h1>
-          <div className="vads-l-grid-container--full">
-            <div className="va-introtext">
-              {introText && <p className="events-show">{introText}</p>}
-            </div>
+          <article className="usa-content">
+            <h1>{title}</h1>
             <div className="vads-l-grid-container--full">
-              <ul className="usa-unstyled-list">{storyTeasers}</ul>
-            </div>
+              <div className="va-introtext">
+                {introText && <p className="events-show">{introText}</p>}
+              </div>
+              <div className="vads-l-grid-container--full">
+                <ul className="usa-unstyled-list">{storyTeasers}</ul>
+              </div>
 
-            {totalPages > 1 && (
-              <VaPagination
-                page={currentPage}
-                pages={totalPages}
-                maxPageListLength={3}
-                onPageSelect={(page) => {
-                  const newPage =
-                    page.detail.page > 1 ? `page-${page.detail.page}` : ''
-                  const newUrl = window.location.href.replace(
-                    /(?<=stories\/).*/, // everything after /stories/
-                    newPage
-                  )
-                  window.location.assign(newUrl)
-                }}
-              />
-            )}
-          </div>
-          <ContentFooter />
-        </article>
+              {totalPages > 1 && (
+                <VaPagination
+                  page={currentPage}
+                  pages={totalPages}
+                  maxPageListLength={3}
+                  onPageSelect={(page) => {
+                    const newPage =
+                      page.detail.page > 1 ? `page-${page.detail.page}` : ''
+                    const newUrl = window.location.href.replace(
+                      /(?<=stories\/).*/, // everything after /stories/
+                      newPage
+                    )
+                    window.location.assign(newUrl)
+                  }}
+                />
+              )}
+            </div>
+            <ContentFooter />
+          </article>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

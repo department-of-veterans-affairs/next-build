@@ -7,6 +7,7 @@ import { NewsStoryType } from '@/types/index'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { LovellExpandedResourceTypeType } from '@/lib/drupal/lovell'
+import Breadcrumbs from '@/templates/common/breadcrumbs'
 
 export const NewsStory = ({
   title,
@@ -20,9 +21,12 @@ export const NewsStory = ({
   listing,
   lovellVariant,
   lovellSwitchPath,
+  entityPath,
+  breadcrumbs
 }: LovellExpandedResourceTypeType<NewsStoryType>) => {
   return (
     <>
+      <Breadcrumbs title={title} breadcrumbs={breadcrumbs} entityPath={entityPath} hideHomeBreadcrumb={true} customCrumbHomeText={"custom"} />
       <div id="content" className="interior">
         <div className="va-l-detail-page va-facility-page">
           <div className="usa-grid usa-grid-full">
