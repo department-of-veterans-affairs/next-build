@@ -17,6 +17,7 @@ import {
   getLovellPageExpandedStaticPropsContext,
   getLovellPageExpandedStaticPropsResource,
   LovellExpandedResourceTypeType,
+  getLovellVariantOfStaticPathResource,
 } from './lovell'
 import { slugToPath } from '@/lib/utils/slug'
 
@@ -238,6 +239,55 @@ describe('getOppositeChildVariant', () => {
   test('should return TRICARE when VA passed in', () => {
     const result = getOppositeChildVariant(LOVELL.va.variant)
     expect(result).toBe(LOVELL.tricare.variant)
+  })
+})
+
+describe('getLovellVariantOfStaticPathResource', () => {
+  const resource = {
+    path: {
+      alias: `/${LOVELL.va.pathSegment}/stories`,
+      pid: 68161,
+      langcode: 'en',
+    },
+    administration: LOVELL.va.administration,
+  }
+
+  test('should return resource adjusted for federal variant', () => {
+    const result = getLovellVariantOfStaticPathResource(
+      resource,
+      LOVELL.federal.variant
+    )
+    expect(result).toStrictEqual({
+      path: {
+        alias: `/${LOVELL.federal.pathSegment}/stories`,
+        pid: resource.path.pid,
+        langcode: resource.path.langcode,
+      },
+      administration: LOVELL.federal.administration,
+    })
+  })
+
+  test('should return resource adjusted for TRICARE variant', () => {
+    const result = getLovellVariantOfStaticPathResource(
+      resource,
+      LOVELL.tricare.variant
+    )
+    expect(result).toStrictEqual({
+      path: {
+        alias: `/${LOVELL.tricare.pathSegment}/stories`,
+        pid: resource.path.pid,
+        langcode: resource.path.langcode,
+      },
+      administration: LOVELL.tricare.administration,
+    })
+  })
+
+  test('should return resource (unchanged) for VA variant', () => {
+    const result = getLovellVariantOfStaticPathResource(
+      resource,
+      LOVELL.va.variant
+    )
+    expect(result).toStrictEqual(resource)
   })
 })
 

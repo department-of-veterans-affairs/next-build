@@ -184,6 +184,25 @@ function getLovellVariantOfUrl(path: string, variant: LovellVariant): string {
 }
 
 /**
+ * Returns a static-path resource adjusted for `variant`
+ */
+export function getLovellVariantOfStaticPathResource(
+  resource: StaticPathResourceType,
+  variant: LovellVariant
+): StaticPathResourceType {
+  return {
+    path: {
+      ...resource.path,
+      alias: getLovellVariantOfUrl(
+        resource.path.alias,
+        LOVELL[variant].variant
+      ),
+    },
+    administration: LOVELL[variant].administration,
+  }
+}
+
+/**
  * Converts resource properties according to variant
  * and adds lovell-specific properties.
  *
@@ -220,21 +239,15 @@ function getLovellChildVariantOfResource(
 function bifurcateLovellFederalPathResource(
   resource: StaticPathResourceType
 ): StaticPathResourceType[] {
-  const tricareResource = {
-    path: {
-      ...resource.path,
-      alias: getLovellVariantOfUrl(resource.path.alias, LOVELL.tricare.variant),
-    },
-    administration: LOVELL.tricare.administration,
-  }
+  const tricareResource = getLovellVariantOfStaticPathResource(
+    resource,
+    LOVELL.tricare.variant
+  )
 
-  const vaResource = {
-    path: {
-      ...resource.path,
-      alias: getLovellVariantOfUrl(resource.path.alias, LOVELL.va.variant),
-    },
-    administration: LOVELL.va.administration,
-  }
+  const vaResource = getLovellVariantOfStaticPathResource(
+    resource,
+    LOVELL.va.variant
+  )
 
   return [tricareResource, vaResource]
 }
