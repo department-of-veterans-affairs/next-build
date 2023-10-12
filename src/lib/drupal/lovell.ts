@@ -15,6 +15,7 @@ export const LOVELL = {
       name: 'Lovell Federal health care',
     },
     pathSegment: 'lovell-federal-health-care',
+    variant: 'federal',
   },
   tricare: {
     administration: {
@@ -42,6 +43,11 @@ const LOVELL_RESOURCE_TYPES = [
 const LOVELL_BIFURCATED_RESOURCE_TYPES = [RESOURCE_TYPES.STORY]
 
 export type LovellVariant =
+  | typeof LOVELL.federal.variant
+  | typeof LOVELL.tricare.variant
+  | typeof LOVELL.va.variant
+
+export type LovellChildVariant =
   | typeof LOVELL.tricare.variant
   | typeof LOVELL.va.variant
 
@@ -66,12 +72,12 @@ export type LovellBifurcatedResourceTypeType =
 
 export type LovellPageExpandedStaticPropsContextType = {
   isLovellVariantPage: boolean
-  variant: LovellVariant
+  variant: LovellChildVariant
 }
 
 export type LovellPageExpandedStaticPropsResourceType = {
   canonicalLink?: string
-  lovellVariant?: LovellVariant
+  lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
 }
 
@@ -124,18 +130,21 @@ export function isLovellResource(
   )
 }
 
-function isLovellVariantPath(variant: LovellVariant, path: string): boolean {
+function isLovellChildVariantPath(
+  variant: LovellChildVariant,
+  path: string
+): boolean {
   return new RegExp(`^\/?${LOVELL[variant].pathSegment}`).test(path)
 }
 export function isLovellTricarePath(path: string) {
-  return isLovellVariantPath(LOVELL.tricare.variant, path)
+  return isLovellChildVariantPath(LOVELL.tricare.variant, path)
 }
 export function isLovellVaPath(path: string) {
-  return isLovellVariantPath(LOVELL.va.variant, path)
+  return isLovellChildVariantPath(LOVELL.va.variant, path)
 }
 
-function isLovellVariantSlug(
-  variant: LovellVariant,
+function isLovellChildVariantSlug(
+  variant: LovellChildVariant,
   slug: string | string[]
 ): boolean {
   const path = slugToPath(slug)
@@ -144,13 +153,15 @@ function isLovellVariantSlug(
     : isLovellVaPath(path)
 }
 export function isLovellTricareSlug(slug: string | string[]) {
-  return isLovellVariantSlug(LOVELL.tricare.variant, slug)
+  return isLovellChildVariantSlug(LOVELL.tricare.variant, slug)
 }
 export function isLovellVaSlug(slug: string | string[]) {
-  return isLovellVariantSlug(LOVELL.va.variant, slug)
+  return isLovellChildVariantSlug(LOVELL.va.variant, slug)
 }
 
-export function getOppositeVariant(variant: LovellVariant): LovellVariant {
+export function getOppositeChildVariant(
+  variant: LovellChildVariant
+): LovellChildVariant {
   return variant === LOVELL.tricare.variant
     ? LOVELL.va.variant
     : LOVELL.tricare.variant
@@ -179,9 +190,9 @@ function getLovellVariantOfUrl(path: string, variant: LovellVariant): string {
  * @param resource
  * @param variant
  */
-function getLovellVariantOfResource(
+function getLovellChildVariantOfResource(
   resource: LovellBifurcatedResourceTypeType,
-  variant: LovellVariant
+  variant: LovellChildVariant
 ): LovellExpandedResourceTypeType<typeof resource> {
   const variantPaths = {
     tricare: getLovellVariantOfUrl(resource.entityPath, LOVELL.tricare.variant),
@@ -198,7 +209,7 @@ function getLovellVariantOfResource(
     administration: LOVELL[variant].administration,
     canonicalLink: variantPaths.va,
     lovellVariant: variant,
-    lovellSwitchPath: variantPaths[getOppositeVariant(variant)],
+    lovellSwitchPath: variantPaths[getOppositeChildVariant(variant)],
   }
 }
 
@@ -295,7 +306,7 @@ export function getLovellPageExpandedStaticPropsResource<
     context.lovell.isLovellVariantPage &&
     isLovellFederalResource(resource as LovellBifurcatedResourceTypeType)
   if (isBifurcatedPage) {
-    return getLovellVariantOfResource(
+    return getLovellChildVariantOfResource(
       resource as LovellBifurcatedResourceTypeType,
       context.lovell.variant
     )

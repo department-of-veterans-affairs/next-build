@@ -13,7 +13,7 @@ import {
   isLovellVaPath,
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
-  getOppositeVariant,
+  getOppositeChildVariant,
   getLovellPageExpandedStaticPropsContext,
   getLovellPageExpandedStaticPropsResource,
   LovellExpandedResourceTypeType,
@@ -229,14 +229,14 @@ describe('isLovellVaSlug', () => {
   })
 })
 
-describe('getOppositeVariant', () => {
+describe('getOppositeChildVariant', () => {
   test('should return VA when TRICARE passed in', () => {
-    const result = getOppositeVariant(LOVELL.tricare.variant)
+    const result = getOppositeChildVariant(LOVELL.tricare.variant)
     expect(result).toBe(LOVELL.va.variant)
   })
 
   test('should return TRICARE when VA passed in', () => {
-    const result = getOppositeVariant(LOVELL.va.variant)
+    const result = getOppositeChildVariant(LOVELL.va.variant)
     expect(result).toBe(LOVELL.tricare.variant)
   })
 })
