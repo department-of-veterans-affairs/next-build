@@ -64,14 +64,6 @@ export function Wrapper({
     }
   }, [bannerData, showBanners, headerFooterData])
 
-  function replacer(key, value) {
-    if (key === 'itself') {
-      return null
-    }
-
-    return value
-  }
-
   return (
     <>
       <Header />

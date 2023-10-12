@@ -4,7 +4,8 @@ import {
   transformBreadcrumbs,
   filterInvalidCrumbs,
 } from './breadcrumbUtils'
-import { BreadcrumbItem } from '@/types/index'
+import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
+
 describe('breadcrumbUtils', () => {
   describe('deriveLastBreadcrumbFromPath', () => {
     it('should add a breadcrumb at the end when replaceLastItem is false', () => {

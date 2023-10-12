@@ -5,6 +5,7 @@ import {
 } from '@/types/dataTypes/drupal/node'
 import { PathAlias } from 'next-drupal'
 import { LovellVariant } from '@/lib/drupal/lovell'
+import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 export interface PublishedEntity {
   id: string
   type: string
@@ -91,7 +92,7 @@ export type NewsStoryType = PublishedEntity & {
   entityId: number
   entityPath: string
   administration: Administration
-  breadcrumbs: any
+  breadcrumbs: BreadcrumbItem[]
 }
 
 export type NewsStoryTeaserType = PublishedEntity & {
@@ -329,22 +330,4 @@ export type MegaMenuPromoColumn = {
   }
   link: MegaMenuLink
   description: string
-}
-
-/**
- * Types for breadcrumb data
- */
-export interface Breadcrumb {
-  url: {
-    path: string
-    routed: boolean
-  }
-  text: string
-}
-
-export interface BreadcrumbItem {
-  uri: string
-  title: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  options: any[]
 }

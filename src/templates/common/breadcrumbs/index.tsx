@@ -4,11 +4,10 @@ import {
   deriveLcBreadcrumbs,
   filterInvalidCrumbs,
 } from '@/templates/globals/util/breadcrumbUtils'
-import { BreadcrumbItem } from '@/types/index'
+import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
 interface BreadcrumbProps {
   breadcrumbs?: BreadcrumbItem[]
-  breadcrumbsOverride?: BreadcrumbItem[]
   breadcrumbTitle?: string
   disableAnalytics?: boolean
   deriveBreadcrumbsFromUrl?: boolean
@@ -21,7 +20,6 @@ interface BreadcrumbProps {
 }
 const Breadcrumbs = ({
   breadcrumbs,
-  breadcrumbsOverride,
   entityPath,
   breadcrumbTitle,
   disableAnalytics,
@@ -32,27 +30,24 @@ const Breadcrumbs = ({
   hideHomeBreadcrumb,
   customCrumbHomeText,
 }: BreadcrumbProps) => {
-  const breadcrumbData: BreadcrumbItem[] = breadcrumbs
-  let crumbs = breadcrumbsOverride || breadcrumbData
-
-  if (!crumbs) return null
+  if (!breadcrumbs) return null
 
   if (hideHomeBreadcrumb) {
     if (customCrumbHomeText) {
-      crumbs = crumbs.map((crumb) => {
+      breadcrumbs = breadcrumbs.map((crumb) => {
         if (crumb.title === 'Home') {
           return { ...crumb, title: customCrumbHomeText }
         }
         return crumb
       })
     } else {
-      crumbs = crumbs.filter((crumb) => crumb.title !== 'Home')
+      breadcrumbs = breadcrumbs.filter((crumb) => crumb.title !== 'Home')
     }
   }
 
   if (deriveBreadcrumbsFromUrl) {
-    crumbs = deriveLastBreadcrumbFromPath(
-      breadcrumbData,
+    breadcrumbs = deriveLastBreadcrumbFromPath(
+      breadcrumbs,
       breadcrumbTitle,
       entityPath,
       replaceLastItem
@@ -60,15 +55,15 @@ const Breadcrumbs = ({
   }
 
   if (constructLcBreadcrumbs) {
-    crumbs = deriveLcBreadcrumbs(
-      breadcrumbData,
+    breadcrumbs = deriveLcBreadcrumbs(
+      breadcrumbs,
       breadcrumbTitle,
       entityPath,
       titleInclude
     )
   }
 
-  const breadcrumbList = transformBreadcrumbs(crumbs)
+  const breadcrumbList = transformBreadcrumbs(breadcrumbs)
   const filteredCrumbs = filterInvalidCrumbs(breadcrumbList)
 
   return (

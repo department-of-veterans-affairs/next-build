@@ -1,4 +1,4 @@
-import { BreadcrumbItem } from '@/types/index'
+import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
 export function deriveLastBreadcrumbFromPath(
   breadcrumbs: BreadcrumbItem[],
