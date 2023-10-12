@@ -21,6 +21,7 @@ export function deriveLastBreadcrumbFromPath(
   return breadcrumbs
 }
 
+// Intended for handling breadcrumbs for learning center content types
 export function deriveLcBreadcrumbs(
   breadcrumbs: BreadcrumbItem[],
   breadcrumbTitle: string,
