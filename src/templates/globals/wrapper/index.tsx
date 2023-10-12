@@ -69,7 +69,7 @@ export function Wrapper({
   return (
     <>
       <a href="#content" onClick={handleSkipLink} className="show-on-focus">
-        Skip to content
+        Skip to Content
       </a>
       <Header />
       {showBanners ? banners : null}
