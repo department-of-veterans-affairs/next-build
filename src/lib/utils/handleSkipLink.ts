@@ -1,4 +1,6 @@
-export const handleSkipLink = (e) => {
+import { MouseEvent } from 'react'
+
+export const handleSkipLink = (e: MouseEvent<HTMLAnchorElement>) => {
   e.preventDefault()
   const contentDiv = document.getElementById('content')
   const firstH1 = contentDiv && contentDiv.querySelector('h1')
