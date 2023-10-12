@@ -14,6 +14,7 @@ import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
+import { handleSkipLink } from '../util/handleSkipLink'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -67,6 +68,9 @@ export function Wrapper({
 
   return (
     <>
+      <a href="#content" onClick={handleSkipLink} className="show-on-focus">
+        Skip to content
+      </a>
       <Header />
       {showBanners ? banners : null}
       <main>{children}</main>
