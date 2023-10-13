@@ -17,8 +17,9 @@ import * as Wysiwyg from './wysiwyg'
 import * as StaticPathResources from './staticPathResources'
 import * as HeaderFooter from './headerFooter'
 import * as PromoBlock from './promoBlock'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
-export const queries = createQueries({
+const QUERIES_MAP = {
   // standard Drupal entity data queries
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
@@ -43,4 +44,10 @@ export const queries = createQueries({
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,
-})
+}
+
+export type FormattedResource = ReturnType<
+  (typeof QUERIES_MAP)[(typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]]['formatter']
+>
+
+export const queries = createQueries(QUERIES_MAP)
