@@ -113,8 +113,7 @@ async function getListingPageStaticPathResourcesWithPagingData(
 }
 
 function addStaticPathResourcesFromPagingData(
-  listingPageStaticPathResourcesWithPagingData: StaticPathResourceTypeWithPaging[],
-  listingResourceType: ListingResourceTypeType
+  listingPageStaticPathResourcesWithPagingData: StaticPathResourceTypeWithPaging[]
 ): StaticPathResourceType[] {
   return listingPageStaticPathResourcesWithPagingData.reduce(
     (acc, firstPageResource) => {
@@ -151,8 +150,7 @@ export async function getAllPagedListingStaticPathResources(
     )
   // Paging step 2: Each listing resource will become multiple resources, one for each of its pages
   const allListingResources = addStaticPathResourcesFromPagingData(
-    resourcesWithPagingData,
-    listingResourceType
+    resourcesWithPagingData
   )
 
   return allListingResources
