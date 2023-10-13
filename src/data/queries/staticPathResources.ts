@@ -6,12 +6,16 @@ import {
 } from 'next-drupal-query'
 import { JsonApiResponse, JsonApiResourceWithPath } from 'next-drupal'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { ResourceTypeType } from '@/lib/constants/resourceTypes'
+import {
+  ADDITIONAL_RESOURCE_TYPES,
+  ResourceTypeType,
+} from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
 import { FieldAdministration } from '@/types/dataTypes/drupal/field_type'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
 
-const PAGE_SIZE = 50 as const //must be <= 50 due to JSON:API limit
+const PAGE_SIZE = PAGE_SIZES[ADDITIONAL_RESOURCE_TYPES.STATIC_PATHS]
 
 // Define the query params for fetching static paths.
 export const params: QueryParams<ResourceTypeType> = (
