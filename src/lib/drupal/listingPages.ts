@@ -4,7 +4,14 @@ import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
 import { GetStaticPropsContext } from 'next'
 import { QueryOpts } from 'next-drupal-query'
-import { LovellPageExpandedStaticPropsContextType } from '@/lib/drupal/lovell'
+import {
+  LOVELL,
+  LovellPageExpandedStaticPropsContextType,
+  isLovellTricareResource,
+  isLovellVaResource,
+  getLovellVariantOfStaticPathResource,
+} from '@/lib/drupal/lovell'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 
 const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const
 
@@ -28,6 +35,11 @@ export type ListingPageDataOpts = QueryOpts<{
   lovell?: LovellPageExpandedStaticPropsContextType
 }>
 
+type ListingPageCounts = {
+  totalItems: number
+  totalPages: number
+}
+
 const RESOURCE_TYPE_URL_SEGMENTS: Readonly<{ [key: string]: string }> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
 }
@@ -36,10 +48,10 @@ export function isListingResourceType(resourceType: ResourceTypeType): boolean {
   return (LISTING_RESOURCE_TYPES as readonly string[]).includes(resourceType)
 }
 
-async function getListingPageCount(
+export async function getListingPageCounts(
   listingPageStaticPathResource: StaticPathResourceType,
   listingResourceType: ListingResourceTypeType
-): Promise<number> {
+): Promise<ListingPageCounts> {
   const resourcePath = listingPageStaticPathResource.path.alias
   const pathInfo = await drupalClient.translatePath(resourcePath)
   if (pathInfo?.entity?.uuid) {
@@ -47,31 +59,53 @@ async function getListingPageCount(
       id: pathInfo.entity.uuid,
     })
 
-    return resource?.totalPages || 0
+    return {
+      totalItems: resource?.totalItems || 0,
+      totalPages: resource?.totalPages || 0,
+    }
   }
 
-  return 0
+  return {
+    totalItems: 0,
+    totalPages: 0,
+  }
 }
 
 async function getListingPageStaticPathResourcesWithPagingData(
   listingPageStaticPathResources: StaticPathResourceType[],
   listingResourceType: ListingResourceTypeType
-) {
+): Promise<StaticPathResourceTypeWithPaging[]> {
   if (!listingPageStaticPathResources?.length) {
     return []
   }
 
   return Promise.all(
     listingPageStaticPathResources.map(async (resource) => {
-      const totalPages = await getListingPageCount(
-        resource,
-        listingResourceType
-      )
+      const { totalItems: itemCount, totalPages: pageCount } =
+        await getListingPageCounts(resource, listingResourceType)
+
+      // If this is a Lovell (TRICARE or VA) listing page,
+      // we need to merge in Federal page items to calculate
+      // totalItems and, ultimately, totalPages
+      const { totalItems: lovellFederalItemCount } =
+        isLovellTricareResource(resource) || isLovellVaResource(resource)
+          ? await getListingPageCounts(
+              getLovellVariantOfStaticPathResource(
+                resource,
+                LOVELL.federal.variant
+              ),
+              listingResourceType
+            )
+          : {
+              totalItems: 0,
+            }
+
+      const totalItems = itemCount + lovellFederalItemCount
 
       return {
         ...resource,
         paging: {
-          totalPages,
+          totalPages: Math.ceil(totalItems / PAGE_SIZES[listingResourceType]),
         },
       }
     })
