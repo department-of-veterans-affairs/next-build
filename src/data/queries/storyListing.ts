@@ -74,7 +74,7 @@ export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
     stories: deserialize(stories) as NodeNewsStory[],
     menu,
     totalItems: stories.meta.count,
-    totalPages: Math.ceil(stories.meta.count / PAGE_SIZE),
+    totalPages: Math.ceil(stories.meta.count / PAGE_SIZE) || 0,
     current: opts?.page || 1,
   }
 }
