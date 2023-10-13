@@ -185,8 +185,6 @@ export type StaticPathResourceType = {
   administration: Administration
 }
 
-export type StaticPropsResourceType = NewsStoryType | StoryListingType
-
 // These SideNav types are what the vets-website widget expects
 export type SideNavItem = {
   description: string
