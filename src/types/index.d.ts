@@ -141,6 +141,7 @@ export type StoryListingType = PublishedEntity & {
   stories: NewsStoryTeaserType[]
   menu: SideNavMenu
   currentPage: number
+  totalItems: number
   totalPages: number
   entityId: number
   entityPath: string
