@@ -21,7 +21,8 @@ type StoryListingData = {
   entity: NodeStoryListing
   stories: NodeNewsStory[]
   menu: Menu
-  total: number
+  totalItems: number
+  totalPages: number
   current: number
 }
 
@@ -71,7 +72,8 @@ export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
     entity,
     stories: deserialize(stories) as NodeNewsStory[],
     menu,
-    total: Math.ceil(stories.meta.count / PAGE_SIZE),
+    totalItems: stories.meta.count,
+    totalPages: Math.ceil(stories.meta.count / PAGE_SIZE),
     current: opts?.page || 1,
   }
 }
@@ -80,7 +82,8 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
   entity,
   stories,
   menu,
-  total,
+  totalItems,
+  totalPages,
   current,
 }) => {
   const formattedStories = stories.map((story) => {
@@ -100,6 +103,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
     stories: formattedStories,
     menu: formattedMenu,
     currentPage: current,
-    totalPages: total,
+    totalItems,
+    totalPages,
   }
 }
