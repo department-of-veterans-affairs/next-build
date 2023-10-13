@@ -6,3 +6,7 @@ export const RESOURCE_TYPES = {
 
 export type ResourceTypeType =
   (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
+
+export const ADDITIONAL_RESOURCE_TYPES = {
+  STATIC_PATHS: 'static-path-resources',
+}

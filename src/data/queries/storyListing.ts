@@ -9,8 +9,9 @@ import { StoryListingType } from '@/types/index'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 
-export const PAGE_SIZE = 10 as const
+const PAGE_SIZE = PAGE_SIZES.STORY_LISTING
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
