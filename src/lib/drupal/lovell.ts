@@ -1,12 +1,9 @@
 import { GetStaticPropsContext } from 'next'
-import {
-  NewsStoryType,
-  StaticPathResourceType,
-  StoryListingType,
-} from '@/types/index'
-import { ExpandedStaticPropsContextType } from '@/lib/drupal/staticProps'
+import { StaticPathResourceType } from '@/types/index'
+import { QUERIES_MAP } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
+import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 
 export const LOVELL = {
   federal: {
@@ -35,12 +32,12 @@ export const LOVELL = {
   },
 } as const
 
-const LOVELL_RESOURCE_TYPES = [
+export const LOVELL_RESOURCE_TYPES = [
   RESOURCE_TYPES.STORY,
   // RESOURCE_TYPES.STORY_LISTING,
 ]
 
-const LOVELL_BIFURCATED_RESOURCE_TYPES = [RESOURCE_TYPES.STORY]
+export const LOVELL_BIFURCATED_RESOURCE_TYPES = [RESOURCE_TYPES.STORY]
 
 export type LovellVariant =
   | typeof LOVELL.federal.variant
@@ -51,38 +48,27 @@ export type LovellChildVariant =
   | typeof LOVELL.tricare.variant
   | typeof LOVELL.va.variant
 
-type LovellResourceTypeMap = {
-  [K in (typeof LOVELL_RESOURCE_TYPES)[number]]: K extends typeof RESOURCE_TYPES.STORY
-    ? NewsStoryType
-    : K extends typeof RESOURCE_TYPES.STORY_LISTING
-    ? StoryListingType
-    : never
-}
-
-export type LovellResourceTypeType =
-  LovellResourceTypeMap[keyof LovellResourceTypeMap]
-
-type LovellBifurcatedResourceTypeMap = Pick<
-  LovellResourceTypeMap,
-  (typeof LOVELL_BIFURCATED_RESOURCE_TYPES)[number]
+export type LovellFormattedResource = ReturnType<
+  (typeof QUERIES_MAP)[(typeof LOVELL_RESOURCE_TYPES)[number]]['formatter']
 >
 
-export type LovellBifurcatedResourceTypeType =
-  LovellBifurcatedResourceTypeMap[keyof LovellBifurcatedResourceTypeMap]
+export type LovellBifurcatedFormattedResource = ReturnType<
+  (typeof QUERIES_MAP)[(typeof LOVELL_BIFURCATED_RESOURCE_TYPES)[number]]['formatter']
+>
 
-export type LovellPageExpandedStaticPropsContextType = {
+export type LovellStaticPropsContextProps = {
   isLovellVariantPage: boolean
   variant: LovellChildVariant
 }
 
-export type LovellPageExpandedStaticPropsResourceType = {
+export type LovellFormattedResourceProps = {
   canonicalLink?: string
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
 }
 
-export type LovellExpandedResourceTypeType<T extends LovellResourceTypeType> =
-  T & LovellPageExpandedStaticPropsResourceType
+export type LovellExpandedFormattedResource<T extends LovellFormattedResource> =
+  T & LovellFormattedResourceProps
 
 export function isLovellResourceType(resourceType: ResourceTypeType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)
@@ -97,7 +83,7 @@ export function isLovellBifurcatedResourceType(
 }
 
 export function isLovellFederalResource(
-  resource: LovellResourceTypeType | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResourceType
 ): boolean {
   return (
     'administration' in resource &&
@@ -105,7 +91,7 @@ export function isLovellFederalResource(
   )
 }
 export function isLovellTricareResource(
-  resource: LovellResourceTypeType | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResourceType
 ): boolean {
   return (
     'administration' in resource &&
@@ -113,7 +99,7 @@ export function isLovellTricareResource(
   )
 }
 export function isLovellVaResource(
-  resource: LovellResourceTypeType | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResourceType
 ): boolean {
   return (
     'administration' in resource &&
@@ -121,7 +107,7 @@ export function isLovellVaResource(
   )
 }
 export function isLovellResource(
-  resource: LovellResourceTypeType | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResourceType
 ): boolean {
   return (
     isLovellFederalResource(resource) ||
@@ -210,9 +196,9 @@ export function getLovellVariantOfStaticPathResource(
  * @param variant
  */
 function getLovellChildVariantOfResource(
-  resource: LovellBifurcatedResourceTypeType,
+  resource: LovellBifurcatedFormattedResource,
   variant: LovellChildVariant
-): LovellExpandedResourceTypeType<typeof resource> {
+): LovellExpandedFormattedResource<typeof resource> {
   const variantPaths = {
     tricare: getLovellVariantOfUrl(resource.entityPath, LOVELL.tricare.variant),
     va: getLovellVariantOfUrl(resource.entityPath, LOVELL.va.variant),
@@ -284,9 +270,9 @@ export function removeLovellFederalPathResources(
   return resources.filter((resource) => !isLovellFederalResource(resource))
 }
 
-export function getLovellPageExpandedStaticPropsContext(
+export function getLovellStaticPropsContext(
   context: GetStaticPropsContext
-): LovellPageExpandedStaticPropsContextType {
+): LovellStaticPropsContextProps {
   const slug = context.params?.slug
   if (isLovellTricareSlug(slug)) {
     return {
@@ -308,19 +294,19 @@ export function getLovellPageExpandedStaticPropsContext(
   }
 }
 
-export function getLovellPageExpandedStaticPropsResource<
-  T extends LovellResourceTypeType
+export function getLovellExpandedFormattedResource<
+  T extends LovellFormattedResource
 >(
   resource: T,
-  context: ExpandedStaticPropsContextType
-): LovellExpandedResourceTypeType<LovellResourceTypeType> | T {
+  context: ExpandedStaticPropsContext
+): LovellExpandedFormattedResource<LovellFormattedResource> | T {
   const isBifurcatedPage =
     isLovellBifurcatedResourceType(resource.type as ResourceTypeType) &&
     context.lovell.isLovellVariantPage &&
-    isLovellFederalResource(resource as LovellBifurcatedResourceTypeType)
+    isLovellFederalResource(resource as LovellBifurcatedFormattedResource)
   if (isBifurcatedPage) {
     return getLovellChildVariantOfResource(
-      resource as LovellBifurcatedResourceTypeType,
+      resource as LovellBifurcatedFormattedResource,
       context.lovell.variant
     )
   }

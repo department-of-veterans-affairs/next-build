@@ -1,32 +1,36 @@
 import { GetStaticPropsContext } from 'next'
+import { DrupalTranslatedPath } from 'next-drupal'
 import { QueryOpts } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
+import { queries } from '@/data/queries'
 import {
-  ListingPageExpandedStaticPropsContextType,
-  getListingPageExpandedStaticPropsContext,
+  ListingPageStaticPropsContextProps,
+  getListingPageStaticPropsContext,
 } from './listingPages'
 import {
-  LovellPageExpandedStaticPropsContextType,
-  getLovellPageExpandedStaticPropsContext,
-  getLovellPageExpandedStaticPropsResource,
+  LOVELL_RESOURCE_TYPES,
+  LovellStaticPropsContextProps,
+  getLovellStaticPropsContext,
   isLovellResourceType,
-  LovellExpandedResourceTypeType,
-  LovellResourceTypeType,
+  LovellFormattedResource,
+  LovellExpandedFormattedResource,
+  getLovellExpandedFormattedResource,
 } from './lovell'
-import { StaticPropsResourceType } from '@/types/index'
+import { FormattedResource } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { NewsStoryDataOpts } from '@/data/queries/newsStory'
 
-export type ExpandedStaticPropsContextType = GetStaticPropsContext & {
+export type ExpandedStaticPropsContext = GetStaticPropsContext & {
   path: string
   drupalPath: string
-  listing: ListingPageExpandedStaticPropsContextType
-  lovell: LovellPageExpandedStaticPropsContextType
+  listing: ListingPageStaticPropsContextProps
+  lovell: LovellStaticPropsContextProps
 }
 
-export type ExpandedStaticPropsResourceType<T extends StaticPropsResourceType> =
-  T | LovellExpandedResourceTypeType<LovellResourceTypeType>
+export type ExpandedFormattedResource<T extends FormattedResource> =
+  | T
+  | LovellExpandedFormattedResource<LovellFormattedResource>
 
 /**
  * Decorates the original context with expanded details:
@@ -43,10 +47,10 @@ export type ExpandedStaticPropsResourceType<T extends StaticPropsResourceType> =
  */
 export function getExpandedStaticPropsContext(
   context: GetStaticPropsContext
-): ExpandedStaticPropsContextType {
+): ExpandedStaticPropsContext {
   const path = drupalClient.getPathFromContext(context)
-  const listing = getListingPageExpandedStaticPropsContext(context)
-  const lovell = getLovellPageExpandedStaticPropsContext(context)
+  const listing = getListingPageStaticPropsContext(context)
+  const lovell = getLovellStaticPropsContext(context)
 
   return {
     ...context,
@@ -66,16 +70,16 @@ export function getExpandedStaticPropsContext(
  * @param context
  * @returns Original context conditionally adjusted according to business logic
  */
-export function getExpandedStaticPropsResource(
-  resource: StaticPropsResourceType,
-  context: ExpandedStaticPropsContextType
-): ExpandedStaticPropsResourceType<typeof resource> {
+export function getExpandedFormattedResource(
+  resource: FormattedResource,
+  context: ExpandedStaticPropsContext
+): ExpandedFormattedResource<typeof resource> {
   const isLovellPage =
     isLovellResourceType(resource.type as ResourceTypeType) &&
     context.lovell.isLovellVariantPage
   if (isLovellPage) {
-    return getLovellPageExpandedStaticPropsResource(
-      resource as LovellResourceTypeType,
+    return getLovellExpandedFormattedResource(
+      resource as LovellFormattedResource,
       context
     )
   }
@@ -95,7 +99,7 @@ export function getExpandedStaticPropsResource(
 export function getStaticPropsQueryOpts(
   resourceType: ResourceTypeType,
   id: string,
-  context: ExpandedStaticPropsContextType
+  context: ExpandedStaticPropsContext
 ):
   | NewsStoryDataOpts
   | ListingPageDataOpts
@@ -118,4 +122,72 @@ export function getStaticPropsQueryOpts(
   return {
     id,
   }
+}
+
+async function getDefaultStaticPropsResource(
+  resourceType: ResourceTypeType,
+  pathInfo: DrupalTranslatedPath,
+  context: ExpandedStaticPropsContext
+): Promise<ExpandedFormattedResource<FormattedResource>> {
+  // Set up query for resource at the given path
+  const id = pathInfo.entity?.uuid
+  const queryOpts = getStaticPropsQueryOpts(resourceType, id, context)
+
+  // Request resource based on type
+  const resource = await queries.getData(resourceType, queryOpts)
+  if (!resource) {
+    throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
+  }
+
+  return resource
+}
+
+// async function getLovellListingPageStaticPropsResource(
+//   resourceType: ResourceTypeType,
+//   pathInfo: DrupalTranslatedPath,
+//   context: ExpandedStaticPropsContextType
+// ): Promise<ExpandedFormattedResource<FormattedResource>> {
+
+async function getLovellOtherPageStaticPropsResource(
+  resourceType: ResourceTypeType,
+  pathInfo: DrupalTranslatedPath,
+  context: ExpandedStaticPropsContext
+): Promise<ExpandedFormattedResource<FormattedResource>> {
+  const baseResource = await getDefaultStaticPropsResource(
+    resourceType,
+    pathInfo,
+    context
+  )
+
+  if (LOVELL_RESOURCE_TYPES.includes[baseResource.type]) {
+    return getLovellExpandedFormattedResource(
+      baseResource as LovellFormattedResource,
+      context
+    )
+  }
+
+  return baseResource
+}
+
+export async function getStaticPropsResource(
+  resourceType: ResourceTypeType,
+  pathInfo: DrupalTranslatedPath,
+  context: ExpandedStaticPropsContext
+): Promise<ExpandedFormattedResource<FormattedResource>> {
+  // // Lovell (TRICARE or VA) listing pages
+  // if (context.listing.isListingPage && context.lovell.isLovellVariantPage) {
+  //   return getLovellListingPageStaticPropsResource(
+  //     resourceType,
+  //     pathInfo,
+  //     context
+  //   )
+  // }
+
+  // // Other Lovell (TRICARE or VA) pages
+  // if (context.lovell.isLovellVariantPage) {
+  //   return getLovellBifurcatedPageStaticPropsResource()
+  // }
+
+  // All others
+  return getDefaultStaticPropsResource(resourceType, pathInfo, context)
 }
