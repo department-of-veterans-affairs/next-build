@@ -8,13 +8,14 @@ import {
   getListingPageStaticPropsContext,
 } from './listingPages'
 import {
-  LOVELL_RESOURCE_TYPES,
   LovellStaticPropsContextProps,
   getLovellStaticPropsContext,
-  isLovellResourceType,
   LovellFormattedResource,
-  LovellExpandedFormattedResource,
-  getLovellExpandedFormattedResource,
+  LovellStaticPropsResource,
+  LovellResourceType,
+  isLovellBifurcatedResource,
+  getLovellChildVariantOfResource,
+  LovellBifurcatedFormattedResource,
 } from './lovell'
 import { FormattedResource } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
@@ -28,9 +29,16 @@ export type ExpandedStaticPropsContext = GetStaticPropsContext & {
   lovell: LovellStaticPropsContextProps
 }
 
-export type ExpandedFormattedResource<T extends FormattedResource> =
+export type StaticPropsResource<T extends FormattedResource> =
   | T
-  | LovellExpandedFormattedResource<LovellFormattedResource>
+  | LovellStaticPropsResource<LovellFormattedResource>
+
+type StaticPropsQueryOpts =
+  | NewsStoryDataOpts
+  | ListingPageDataOpts
+  | QueryOpts<{
+      id: string
+    }>
 
 /**
  * Decorates the original context with expanded details:
@@ -62,32 +70,6 @@ export function getExpandedStaticPropsContext(
 }
 
 /**
- * Decorates the original resource according to business logic:
- * - LOVELL:
- *   - If original resource is a Lovell page, adjust accordingly (see: getLovellPageStaticPropsResourceDetails)
- *
- * @param resource
- * @param context
- * @returns Original context conditionally adjusted according to business logic
- */
-export function getExpandedFormattedResource(
-  resource: FormattedResource,
-  context: ExpandedStaticPropsContext
-): ExpandedFormattedResource<typeof resource> {
-  const isLovellPage =
-    isLovellResourceType(resource.type as ResourceTypeType) &&
-    context.lovell.isLovellVariantPage
-  if (isLovellPage) {
-    return getLovellExpandedFormattedResource(
-      resource as LovellFormattedResource,
-      context
-    )
-  }
-
-  return resource
-}
-
-/**
  * Gets query options object used to fetch data for
  * generating static props
  *
@@ -100,12 +82,7 @@ export function getStaticPropsQueryOpts(
   resourceType: ResourceTypeType,
   id: string,
   context: ExpandedStaticPropsContext
-):
-  | NewsStoryDataOpts
-  | ListingPageDataOpts
-  | QueryOpts<{
-      id: string
-    }> {
+): StaticPropsQueryOpts {
   if (resourceType === RESOURCE_TYPES.STORY) {
     return {
       id,
@@ -124,48 +101,56 @@ export function getStaticPropsQueryOpts(
   }
 }
 
-async function getDefaultStaticPropsResource(
+export async function fetchSingleStaticPropsResource(
   resourceType: ResourceTypeType,
   pathInfo: DrupalTranslatedPath,
-  context: ExpandedStaticPropsContext
-): Promise<ExpandedFormattedResource<FormattedResource>> {
-  // Set up query for resource at the given path
-  const id = pathInfo.entity?.uuid
-  const queryOpts = getStaticPropsQueryOpts(resourceType, id, context)
-
+  queryOpts: StaticPropsQueryOpts
+): Promise<FormattedResource> {
   // Request resource based on type
   const resource = await queries.getData(resourceType, queryOpts)
   if (!resource) {
     throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
   }
-
   return resource
 }
 
-// async function getLovellListingPageStaticPropsResource(
-//   resourceType: ResourceTypeType,
-//   pathInfo: DrupalTranslatedPath,
-//   context: ExpandedStaticPropsContextType
-// ): Promise<ExpandedFormattedResource<FormattedResource>> {
-
-async function getLovellOtherPageStaticPropsResource(
+export async function getDefaultStaticPropsResource(
   resourceType: ResourceTypeType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
-): Promise<ExpandedFormattedResource<FormattedResource>> {
-  const baseResource = await getDefaultStaticPropsResource(
+): Promise<FormattedResource> {
+  // Set up query for resource at the given path
+  const id = pathInfo.entity?.uuid
+  const queryOpts = getStaticPropsQueryOpts(resourceType, id, context)
+  return fetchSingleStaticPropsResource(resourceType, pathInfo, queryOpts)
+}
+
+export async function getLovellStaticPropsResource(
+  resourceType: LovellResourceType,
+  pathInfo: DrupalTranslatedPath,
+  context: ExpandedStaticPropsContext
+): Promise<LovellStaticPropsResource<LovellFormattedResource>> {
+  // Lovell listing pages need Federal items merged
+  // if (context.lovell.isLovellVariantPage && context.listing.isListingPage) {
+  //   const lovellListingQueryOpts = {}
+  // }
+
+  // Other Lovell pages depend on base resource
+  const baseResource = (await getDefaultStaticPropsResource(
     resourceType,
     pathInfo,
     context
-  )
+  )) as LovellFormattedResource
 
-  if (LOVELL_RESOURCE_TYPES.includes[baseResource.type]) {
-    return getLovellExpandedFormattedResource(
-      baseResource as LovellFormattedResource,
-      context
+  // Other: bifurcated pages
+  if (isLovellBifurcatedResource(baseResource)) {
+    return getLovellChildVariantOfResource(
+      baseResource as LovellBifurcatedFormattedResource,
+      context.lovell.variant
     )
   }
 
+  // Other: no special treatment
   return baseResource
 }
 
@@ -173,20 +158,15 @@ export async function getStaticPropsResource(
   resourceType: ResourceTypeType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
-): Promise<ExpandedFormattedResource<FormattedResource>> {
-  // // Lovell (TRICARE or VA) listing pages
-  // if (context.listing.isListingPage && context.lovell.isLovellVariantPage) {
-  //   return getLovellListingPageStaticPropsResource(
-  //     resourceType,
-  //     pathInfo,
-  //     context
-  //   )
-  // }
-
-  // // Other Lovell (TRICARE or VA) pages
-  // if (context.lovell.isLovellVariantPage) {
-  //   return getLovellBifurcatedPageStaticPropsResource()
-  // }
+): Promise<StaticPropsResource<FormattedResource>> {
+  // Lovell (TRICARE or VA) pages
+  if (context.lovell.isLovellVariantPage) {
+    return getLovellStaticPropsResource(
+      resourceType as LovellResourceType,
+      pathInfo,
+      context
+    )
+  }
 
   // All others
   return getDefaultStaticPropsResource(resourceType, pathInfo, context)

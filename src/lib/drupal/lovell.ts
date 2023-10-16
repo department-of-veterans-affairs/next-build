@@ -1,9 +1,8 @@
 import { GetStaticPropsContext } from 'next'
 import { StaticPathResourceType } from '@/types/index'
-import { QUERIES_MAP } from '@/data/queries'
+import { FormattedResource, QUERIES_MAP } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
-import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 
 export const LOVELL = {
   federal: {
@@ -39,6 +38,11 @@ export const LOVELL_RESOURCE_TYPES = [
 
 export const LOVELL_BIFURCATED_RESOURCE_TYPES = [RESOURCE_TYPES.STORY]
 
+export type LovellResourceType = (typeof LOVELL_RESOURCE_TYPES)[number]
+
+export type LovellBifurcatedResourceType =
+  (typeof LOVELL_BIFURCATED_RESOURCE_TYPES)[number]
+
 export type LovellVariant =
   | typeof LOVELL.federal.variant
   | typeof LOVELL.tricare.variant
@@ -67,8 +71,8 @@ export type LovellFormattedResourceProps = {
   lovellSwitchPath?: string
 }
 
-export type LovellExpandedFormattedResource<T extends LovellFormattedResource> =
-  T & LovellFormattedResourceProps
+export type LovellStaticPropsResource<T extends LovellFormattedResource> = T &
+  LovellFormattedResourceProps
 
 export function isLovellResourceType(resourceType: ResourceTypeType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)
@@ -197,12 +201,11 @@ export function getLovellVariantOfStaticPathResource(
 }
 
 export function isLovellBifurcatedResource(
-  resource: LovellFormattedResource
+  resource: FormattedResource
 ): boolean {
   return (
     isLovellBifurcatedResourceType(resource.type as ResourceTypeType) &&
-    (isLovellTricarePath(resource.entityPath) ||
-      isLovellVaPath(resource.entityPath)) &&
+    isLovellChildVariantPath(resource.entityPath) &&
     isLovellFederalResource(resource as LovellBifurcatedFormattedResource)
   )
 }
@@ -214,10 +217,10 @@ export function isLovellBifurcatedResource(
  * @param resource
  * @param variant
  */
-function getLovellChildVariantOfResource(
+export function getLovellChildVariantOfResource(
   resource: LovellBifurcatedFormattedResource,
   variant: LovellChildVariant
-): LovellExpandedFormattedResource<typeof resource> {
+): LovellStaticPropsResource<typeof resource> {
   const variantPaths = {
     tricare: getLovellVariantOfUrl(resource.entityPath, LOVELL.tricare.variant),
     va: getLovellVariantOfUrl(resource.entityPath, LOVELL.va.variant),
@@ -311,24 +314,4 @@ export function getLovellStaticPropsContext(
     isLovellVariantPage: false,
     variant: null,
   }
-}
-
-export function getLovellExpandedFormattedResource<
-  T extends LovellFormattedResource
->(
-  resource: T,
-  context: ExpandedStaticPropsContext
-): LovellExpandedFormattedResource<LovellFormattedResource> | T {
-  const isBifurcatedPage =
-    isLovellBifurcatedResourceType(resource.type as ResourceTypeType) &&
-    context.lovell.isLovellVariantPage &&
-    isLovellFederalResource(resource as LovellBifurcatedFormattedResource)
-  if (isBifurcatedPage) {
-    return getLovellChildVariantOfResource(
-      resource as LovellBifurcatedFormattedResource,
-      context.lovell.variant
-    )
-  }
-
-  return resource
 }
