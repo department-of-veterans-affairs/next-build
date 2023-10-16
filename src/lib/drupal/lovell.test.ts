@@ -7,10 +7,14 @@ import {
   isLovellFederalResource,
   isLovellTricareResource,
   isLovellVaResource,
+  isLovellResource,
+  isLovellChildVariantResource,
   isLovellTricarePath,
+  isLovellVaPath,
+  isLovellChildVariantPath,
   isLovellTricareSlug,
   isLovellVaSlug,
-  isLovellVaPath,
+  isLovellChildVariantSlug,
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
   getOppositeChildVariant,
@@ -18,6 +22,7 @@ import {
   getLovellExpandedFormattedResource,
   LovellExpandedFormattedResource,
   getLovellVariantOfStaticPathResource,
+  isLovellBifurcatedResource,
 } from './lovell'
 import { slugToPath } from '@/lib/utils/slug'
 
@@ -66,6 +71,29 @@ const otherResource = {
     id: 123,
     name: 'Some Other health care',
   },
+}
+
+const newsStoryPartialResource = {
+  id: 'some-unique-id',
+  type: RESOURCE_TYPES.STORY,
+  published: true,
+  title: 'Title',
+  image: {
+    src: 'image/src',
+    alt: 'alt-text',
+  },
+  caption: 'caption',
+  author: {
+    title: 'Author Name',
+  },
+  introText: 'intro-text',
+  bodyContent: 'story-body',
+  date: '2020-01-01',
+  socialLinks: {
+    title: 'Social Network',
+  },
+  listing: 'listing',
+  entityId: 12345,
 }
 
 describe('isLovellResourceType', () => {
@@ -162,6 +190,50 @@ describe('isLovellVaResource', () => {
   })
 })
 
+describe('isLovellResource', () => {
+  test('should return true when Federal resource', () => {
+    const result = isLovellResource(lovellFederalResource)
+    expect(result).toBe(true)
+  })
+
+  test('should return true when TRICARE resource', () => {
+    const result = isLovellResource(lovellTricareResource)
+    expect(result).toBe(true)
+  })
+
+  test('should return true when VA resource', () => {
+    const result = isLovellResource(lovellVaResource)
+    expect(result).toBe(true)
+  })
+
+  test('should return false when any other resource', () => {
+    const result = isLovellResource(otherResource)
+    expect(result).toBe(false)
+  })
+})
+
+describe('isLovellChildVariantResource', () => {
+  test('should return false when Federal resource', () => {
+    const result = isLovellChildVariantResource(lovellFederalResource)
+    expect(result).toBe(false)
+  })
+
+  test('should return true when TRICARE resource', () => {
+    const result = isLovellChildVariantResource(lovellTricareResource)
+    expect(result).toBe(true)
+  })
+
+  test('should return true when VA resource', () => {
+    const result = isLovellChildVariantResource(lovellVaResource)
+    expect(result).toBe(true)
+  })
+
+  test('should return false when any other resource', () => {
+    const result = isLovellChildVariantResource(otherResource)
+    expect(result).toBe(false)
+  })
+})
+
 describe('isLovellTricarePath', () => {
   test('should return true when TRICARE path', () => {
     const result = isLovellTricarePath(lovellTricareResource.path.alias)
@@ -196,6 +268,23 @@ describe('isLovellVaPath', () => {
   })
 })
 
+describe('isLovellChildVariantPath', () => {
+  test('should return true when VA path', () => {
+    const result = isLovellChildVariantPath(lovellVaResource.path.alias)
+    expect(result).toBe(true)
+  })
+
+  test('should return true when TRICARE path', () => {
+    const result = isLovellChildVariantPath(lovellTricareResource.path.alias)
+    expect(result).toBe(true)
+  })
+
+  test('should return false when any other path', () => {
+    const result = isLovellChildVariantPath(otherResource.path.alias)
+    expect(result).toBe(false)
+  })
+})
+
 describe('isLovellTricareSlug', () => {
   test('should return true when TRICARE slug', () => {
     const result = isLovellTricareSlug(lovellTricareSlug)
@@ -226,6 +315,23 @@ describe('isLovellVaSlug', () => {
 
   test('should return false when any other path', () => {
     const result = isLovellTricareSlug(otherSlug)
+    expect(result).toBe(false)
+  })
+})
+
+describe('isLovellChildVariantSlug', () => {
+  test('should return true when VA slug', () => {
+    const result = isLovellChildVariantSlug(lovellVaSlug)
+    expect(result).toBe(true)
+  })
+
+  test('should return true when TRICARE path', () => {
+    const result = isLovellChildVariantSlug(lovellTricareSlug)
+    expect(result).toBe(true)
+  })
+
+  test('should return false when any other path', () => {
+    const result = isLovellChildVariantSlug(otherSlug)
     expect(result).toBe(false)
   })
 })
@@ -288,6 +394,48 @@ describe('getLovellVariantOfStaticPathResource', () => {
       LOVELL.va.variant
     )
     expect(result).toStrictEqual(resource)
+  })
+})
+
+describe('isLovellBifurcatedResource', () => {
+  test('should return true when Lovell bifurcated', () => {
+    const bifurcatedResource = {
+      ...newsStoryPartialResource,
+      entityPath: lovellVaResource.path.alias,
+      administration: LOVELL.federal.administration,
+    }
+    const result = isLovellBifurcatedResource(bifurcatedResource)
+    expect(result).toBe(true)
+  })
+
+  test('should return false when Lovell TRICARE only', () => {
+    const tricareResource = {
+      ...newsStoryPartialResource,
+      entityPath: lovellTricareResource.path.alias,
+      administration: lovellTricareResource.administration,
+    }
+    const result = isLovellBifurcatedResource(tricareResource)
+    expect(result).toBe(false)
+  })
+
+  test('should return false when Lovell VA only', () => {
+    const vaResource = {
+      ...newsStoryPartialResource,
+      entityPath: lovellVaResource.path.alias,
+      administration: lovellVaResource.administration,
+    }
+    const result = isLovellBifurcatedResource(vaResource)
+    expect(result).toBe(false)
+  })
+
+  test('should return false when not a Lovell resource', () => {
+    const someOtherResource = {
+      ...newsStoryPartialResource,
+      entityPath: otherResource.path.alias,
+      administration: otherResource.administration,
+    }
+    const result = isLovellBifurcatedResource(someOtherResource)
+    expect(result).toBe(false)
   })
 })
 
@@ -394,29 +542,6 @@ describe('getLovellStaticPropsContext', () => {
 
 describe('getLovellExpandedFormattedResource', () => {
   describe(`${RESOURCE_TYPES.STORY}`, () => {
-    const newsStoryPartialResource = {
-      id: 'some-unique-id',
-      type: RESOURCE_TYPES.STORY,
-      published: true,
-      title: 'Title',
-      image: {
-        src: 'image/src',
-        alt: 'alt-text',
-      },
-      caption: 'caption',
-      author: {
-        title: 'Author Name',
-      },
-      introText: 'intro-text',
-      bodyContent: 'story-body',
-      date: '2020-01-01',
-      socialLinks: {
-        title: 'Social Network',
-      },
-      listing: 'listing',
-      entityId: 12345,
-    }
-
     test('should properly handle TRICARE bifurcated news story page', () => {
       const tricarePath = lovellTricareResource.path.alias
       const vaPath = lovellVaResource.path.alias

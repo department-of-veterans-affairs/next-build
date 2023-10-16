@@ -115,21 +115,26 @@ export function isLovellResource(
     isLovellVaResource(resource)
   )
 }
-
-function isLovellChildVariantPath(
-  variant: LovellChildVariant,
-  path: string
+export function isLovellChildVariantResource(
+  resource: LovellFormattedResource | StaticPathResourceType
 ): boolean {
+  return isLovellTricareResource(resource) || isLovellVaResource(resource)
+}
+
+function pathIsVariantPath(variant: LovellChildVariant, path: string): boolean {
   return new RegExp(`^\/?${LOVELL[variant].pathSegment}`).test(path)
 }
 export function isLovellTricarePath(path: string) {
-  return isLovellChildVariantPath(LOVELL.tricare.variant, path)
+  return pathIsVariantPath(LOVELL.tricare.variant, path)
 }
 export function isLovellVaPath(path: string) {
-  return isLovellChildVariantPath(LOVELL.va.variant, path)
+  return pathIsVariantPath(LOVELL.va.variant, path)
+}
+export function isLovellChildVariantPath(path: string) {
+  return isLovellTricarePath(path) || isLovellVaPath(path)
 }
 
-function isLovellChildVariantSlug(
+function slugIsVariantSlug(
   variant: LovellChildVariant,
   slug: string | string[]
 ): boolean {
@@ -139,10 +144,13 @@ function isLovellChildVariantSlug(
     : isLovellVaPath(path)
 }
 export function isLovellTricareSlug(slug: string | string[]) {
-  return isLovellChildVariantSlug(LOVELL.tricare.variant, slug)
+  return slugIsVariantSlug(LOVELL.tricare.variant, slug)
 }
 export function isLovellVaSlug(slug: string | string[]) {
-  return isLovellChildVariantSlug(LOVELL.va.variant, slug)
+  return slugIsVariantSlug(LOVELL.va.variant, slug)
+}
+export function isLovellChildVariantSlug(slug: string | string[]) {
+  return isLovellTricareSlug(slug) || isLovellVaSlug(slug)
 }
 
 export function getOppositeChildVariant(
@@ -186,6 +194,17 @@ export function getLovellVariantOfStaticPathResource(
     },
     administration: LOVELL[variant].administration,
   }
+}
+
+export function isLovellBifurcatedResource(
+  resource: LovellFormattedResource
+): boolean {
+  return (
+    isLovellBifurcatedResourceType(resource.type as ResourceTypeType) &&
+    (isLovellTricarePath(resource.entityPath) ||
+      isLovellVaPath(resource.entityPath)) &&
+    isLovellFederalResource(resource as LovellBifurcatedFormattedResource)
+  )
 }
 
 /**
@@ -310,14 +329,6 @@ export function getLovellExpandedFormattedResource<
       context.lovell.variant
     )
   }
-
-  // const isLovellListingPage =
-  //   isLovellResourceType(resource.type as ResourceTypeType) &&
-  //   context.lovell.isLovellVariantPage &&
-  //   context.listing.isListingPage
-  // if (isLovellListingPage) {
-  //   return mergeFederalListingPage(resource)
-  // }
 
   return resource
 }
