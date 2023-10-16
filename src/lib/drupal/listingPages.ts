@@ -6,7 +6,7 @@ import { GetStaticPropsContext } from 'next'
 import { QueryOpts } from 'next-drupal-query'
 import {
   LOVELL,
-  LovellPageExpandedStaticPropsContextType,
+  LovellStaticPropsContextProps,
   isLovellTricareResource,
   isLovellVaResource,
   getLovellVariantOfStaticPathResource,
@@ -23,7 +23,7 @@ export type StaticPathResourceTypeWithPaging = StaticPathResourceType & {
   }
 }
 
-export type ListingPageExpandedStaticPropsContextType = {
+export type ListingPageStaticPropsContextProps = {
   isListingPage: boolean
   firstPagePath: string
   page: number
@@ -32,7 +32,7 @@ export type ListingPageExpandedStaticPropsContextType = {
 export type ListingPageDataOpts = QueryOpts<{
   id: string
   page?: number
-  lovell?: LovellPageExpandedStaticPropsContextType
+  lovell?: LovellStaticPropsContextProps
 }>
 
 type ListingPageCounts = {
@@ -156,9 +156,9 @@ export async function getAllPagedListingStaticPathResources(
   return allListingResources
 }
 
-export function getListingPageExpandedStaticPropsContext(
+export function getListingPageStaticPropsContext(
   context: GetStaticPropsContext
-): ListingPageExpandedStaticPropsContextType {
+): ListingPageStaticPropsContextProps {
   const slug = context.params?.slug
 
   const isSlugAtLeastTwoSegments =

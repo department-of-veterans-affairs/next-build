@@ -14,9 +14,9 @@ import {
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
   getOppositeChildVariant,
-  getLovellPageExpandedStaticPropsContext,
-  getLovellPageExpandedStaticPropsResource,
-  LovellExpandedResourceTypeType,
+  getLovellStaticPropsContext,
+  getLovellExpandedFormattedResource,
+  LovellExpandedFormattedResource,
   getLovellVariantOfStaticPathResource,
 } from './lovell'
 import { slugToPath } from '@/lib/utils/slug'
@@ -351,14 +351,14 @@ describe('removeLovellFederalPathResources', () => {
   })
 })
 
-describe('getLovellPageExpandedStaticPropsContext', () => {
+describe('getLovellStaticPropsContext', () => {
   test('should return TRICARE-populated Lovell values when TRICARE page', () => {
     const context = {
       params: {
         slug: lovellTricareSlug,
       },
     }
-    const result = getLovellPageExpandedStaticPropsContext(context)
+    const result = getLovellStaticPropsContext(context)
     expect(result).toStrictEqual({
       isLovellVariantPage: true,
       variant: LOVELL.tricare.variant,
@@ -371,7 +371,7 @@ describe('getLovellPageExpandedStaticPropsContext', () => {
         slug: lovellVaSlug,
       },
     }
-    const result = getLovellPageExpandedStaticPropsContext(context)
+    const result = getLovellStaticPropsContext(context)
     expect(result).toStrictEqual({
       isLovellVariantPage: true,
       variant: LOVELL.va.variant,
@@ -384,7 +384,7 @@ describe('getLovellPageExpandedStaticPropsContext', () => {
         slug: otherSlug,
       },
     }
-    const result = getLovellPageExpandedStaticPropsContext(context)
+    const result = getLovellStaticPropsContext(context)
     expect(result).toStrictEqual({
       isLovellVariantPage: false,
       variant: null,
@@ -392,7 +392,7 @@ describe('getLovellPageExpandedStaticPropsContext', () => {
   })
 })
 
-describe('getLovellPageExpandedStaticPropsResource', () => {
+describe('getLovellExpandedFormattedResource', () => {
   describe(`${RESOURCE_TYPES.STORY}`, () => {
     const newsStoryPartialResource = {
       id: 'some-unique-id',
@@ -446,8 +446,8 @@ describe('getLovellPageExpandedStaticPropsResource', () => {
         administration: LOVELL.federal.administration, //This indicates bifurcation
       }
 
-      const result: LovellExpandedResourceTypeType<NewsStoryType> =
-        getLovellPageExpandedStaticPropsResource(resource, expandedContext)
+      const result: LovellExpandedFormattedResource<NewsStoryType> =
+        getLovellExpandedFormattedResource(resource, expandedContext)
 
       expect(result.entityPath).toBe(tricarePath)
       expect(result.socialLinks.path).toBe(tricarePath)
@@ -486,8 +486,8 @@ describe('getLovellPageExpandedStaticPropsResource', () => {
         administration: LOVELL.federal.administration, //This indicates bifurcation
       }
 
-      const result: LovellExpandedResourceTypeType<NewsStoryType> =
-        getLovellPageExpandedStaticPropsResource(resource, expandedContext)
+      const result: LovellExpandedFormattedResource<NewsStoryType> =
+        getLovellExpandedFormattedResource(resource, expandedContext)
 
       expect(result.entityPath).toBe(vaPath)
       expect(result.socialLinks.path).toBe(vaPath)
@@ -525,8 +525,8 @@ describe('getLovellPageExpandedStaticPropsResource', () => {
         administration: LOVELL.tricare.administration, //Not bifurcated because not federal
       }
 
-      const result: LovellExpandedResourceTypeType<NewsStoryType> =
-        getLovellPageExpandedStaticPropsResource(resource, expandedContext)
+      const result: LovellExpandedFormattedResource<NewsStoryType> =
+        getLovellExpandedFormattedResource(resource, expandedContext)
 
       expect(result).toStrictEqual(resource)
     })
@@ -561,7 +561,7 @@ describe('getLovellPageExpandedStaticPropsResource', () => {
           name: 'Some Other Health Care',
         },
       }
-      const result = getLovellPageExpandedStaticPropsResource(
+      const result = getLovellExpandedFormattedResource(
         resource,
         expandedContext
       )

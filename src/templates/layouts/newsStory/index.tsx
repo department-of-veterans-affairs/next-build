@@ -6,7 +6,7 @@ import { StoryListingLink } from '@/templates/components/storyListingLink'
 import { NewsStoryType } from '@/types/index'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-import { LovellExpandedResourceTypeType } from '@/lib/drupal/lovell'
+import { LovellExpandedFormattedResource } from '@/lib/drupal/lovell'
 
 export const NewsStory = ({
   title,
@@ -20,7 +20,7 @@ export const NewsStory = ({
   listing,
   lovellVariant,
   lovellSwitchPath,
-}: LovellExpandedResourceTypeType<NewsStoryType>) => {
+}: LovellExpandedFormattedResource<NewsStoryType>) => {
   return (
     <>
       <div className="va-l-detail-page va-facility-page">

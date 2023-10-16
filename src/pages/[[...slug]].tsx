@@ -7,7 +7,6 @@ import {
 import Head from 'next/head'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
-import { queries } from '@/data/queries'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
@@ -17,14 +16,12 @@ import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import {
   getExpandedStaticPropsContext,
-  getExpandedStaticPropsResource,
-  getStaticPropsQueryOpts,
+  getStaticPropsResource,
 } from '@/lib/drupal/staticProps'
 
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
-  // RESOURCE_TYPES.QA,
 ] as const
 
 export type BuiltResourceTypeType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
@@ -119,17 +116,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       }
     }
 
-    // Set up query for resource at the given path
-    const id = pathInfo.entity?.uuid
-    const queryOpts = getStaticPropsQueryOpts(resourceType, id, expandedContext)
-
-    // Request resource based on type
-    const resource = await queries.getData(resourceType, queryOpts)
-    if (!resource) {
-      throw new Error(
-        `Failed to fetch resource: ${pathInfo.jsonapi.individual}`
-      )
-    }
+    const resource = await getStaticPropsResource(
+      resourceType,
+      pathInfo,
+      expandedContext
+    )
 
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
@@ -138,12 +129,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         notFound: true,
       }
     }
-
-    // Apply business logic to resource (e.g. Lovell)
-    const expandedResource = getExpandedStaticPropsResource(
-      resource,
-      expandedContext
-    )
 
     // If resource is good, gather additional data for global elements.
     // This will be cached in the future so the header isn't re-requested a million times.
@@ -154,7 +139,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
       props: {
-        resource: expandedResource,
+        resource,
         bannerData,
         headerFooterData,
       },

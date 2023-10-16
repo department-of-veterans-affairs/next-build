@@ -19,7 +19,7 @@ import * as HeaderFooter from './headerFooter'
 import * as PromoBlock from './promoBlock'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
-const QUERIES_MAP = {
+export const QUERIES_MAP = {
   // standard Drupal entity data queries
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
