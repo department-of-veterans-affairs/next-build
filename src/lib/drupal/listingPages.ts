@@ -44,7 +44,9 @@ export type ListingPageFormattedResource = ReturnType<
   (typeof QUERIES_MAP)[(typeof LISTING_RESOURCE_TYPES)[number]]['formatter']
 >
 
-const RESOURCE_TYPE_URL_SEGMENTS: Readonly<{ [key: string]: string }> = {
+export const LISTING_RESOURCE_TYPE_URL_SEGMENTS: Readonly<{
+  [key: string]: string
+}> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
 }
 
@@ -169,7 +171,7 @@ export function getListingPageStaticPropsContext(
     slug !== undefined && typeof slug !== 'string' && slug.length >= 2
   const isSlugPossibleListingPage =
     isSlugAtLeastTwoSegments &&
-    Object.values(RESOURCE_TYPE_URL_SEGMENTS).includes(slug[1])
+    Object.values(LISTING_RESOURCE_TYPE_URL_SEGMENTS).includes(slug[1])
   const isSlugFirstListingPage = isSlugPossibleListingPage && slug.length === 2
   if (isSlugFirstListingPage) {
     return {

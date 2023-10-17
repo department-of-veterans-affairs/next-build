@@ -179,7 +179,10 @@ export function getOppositeChildVariant(
  *   variant: `tricare`
  * Output: `/lovell-federal-health-care-tricare/stories/story-title`
  */
-function getLovellVariantOfUrl(path: string, variant: LovellVariant): string {
+export function getLovellVariantOfUrl(
+  path: string,
+  variant: LovellVariant
+): string {
   return `/${LOVELL[variant].pathSegment}/${path
     .split('/')
     .filter((slug) => slug !== '')
