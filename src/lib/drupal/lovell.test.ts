@@ -101,9 +101,7 @@ describe('isLovellResourceType', () => {
   })
 
   test('should return false when not Lovell resource type', () => {
-    const storyListingResult = isLovellResourceType(
-      RESOURCE_TYPES.STORY_LISTING
-    )
+    const storyListingResult = isLovellResourceType(RESOURCE_TYPES.QA)
     expect(storyListingResult).toBe(false)
   })
 })

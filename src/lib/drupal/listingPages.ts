@@ -1,5 +1,5 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '@/data/queries'
+import { QUERIES_MAP, queries } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
 import { GetStaticPropsContext } from 'next'
@@ -39,6 +39,10 @@ type ListingPageCounts = {
   totalItems: number
   totalPages: number
 }
+
+export type ListingPageFormattedResource = ReturnType<
+  (typeof QUERIES_MAP)[(typeof LISTING_RESOURCE_TYPES)[number]]['formatter']
+>
 
 const RESOURCE_TYPE_URL_SEGMENTS: Readonly<{ [key: string]: string }> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
