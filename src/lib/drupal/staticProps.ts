@@ -5,6 +5,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '@/data/queries'
 import {
   ListingPageStaticPropsContextProps,
+  ListingResourceTypeType,
   getListingPageStaticPropsContext,
 } from './listingPages'
 import {
@@ -16,6 +17,7 @@ import {
   isLovellBifurcatedResource,
   getLovellChildVariantOfResource,
   LovellBifurcatedFormattedResource,
+  LovellListingPageFormattedResource,
 } from './lovell'
 import { FormattedResource } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
@@ -125,15 +127,57 @@ export async function getDefaultStaticPropsResource(
   return fetchSingleStaticPropsResource(resourceType, pathInfo, queryOpts)
 }
 
+export async function getLovellListingPageStaticPropsResource(
+  resourceType: ListingResourceTypeType,
+  pathInfo: DrupalTranslatedPath,
+  context: ExpandedStaticPropsContext
+): Promise<LovellListingPageFormattedResource> {
+  const id = pathInfo.entity?.uuid
+  const childVariantPage = (await fetchSingleStaticPropsResource(
+    resourceType,
+    pathInfo,
+    {
+      id,
+      // Do not pass a page number; we need all of the pages
+      // so we can merge and then calculate page data
+    }
+  )) as LovellListingPageFormattedResource
+
+  // const federalPagePathInfo = await drupalClient.translatePath(
+  //   context.drupalPath
+  // )
+  // // if (!federalPagePathInfo) {
+  // //   return {
+  // //     notFound: true,
+  // //   }
+  // // }
+  // const federalPageId = federalPagePathInfo.entity?.uuid
+  // const federalPage = await fetchSingleStaticPropsResource(
+  //   resourceType,
+  //   federalPagePathInfo,
+  //   {
+  //     id: federalPageId,
+  //     // Again, do not pass specific page number
+  //   }
+  // )
+
+  //temporary
+  return childVariantPage
+}
+
 export async function getLovellStaticPropsResource(
   resourceType: LovellResourceType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
 ): Promise<LovellStaticPropsResource<LovellFormattedResource>> {
   // Lovell listing pages need Federal items merged
-  // if (context.lovell.isLovellVariantPage && context.listing.isListingPage) {
-  //   const lovellListingQueryOpts = {}
-  // }
+  if (context.lovell.isLovellVariantPage && context.listing.isListingPage) {
+    return getLovellListingPageStaticPropsResource(
+      resourceType as ListingResourceTypeType,
+      pathInfo,
+      context
+    )
+  }
 
   // Other Lovell pages depend on base resource
   const baseResource = (await getDefaultStaticPropsResource(
