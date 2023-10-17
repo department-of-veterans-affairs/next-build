@@ -14,6 +14,7 @@ import { StaticPathResourceType } from '@/types/index'
 import { FieldAdministration } from '@/types/dataTypes/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
+import { fetchAndConcatAllResourceCollectionPages } from './utils'
 
 const PAGE_SIZE = PAGE_SIZES[ADDITIONAL_RESOURCE_TYPES.STATIC_PATHS]
 
@@ -30,7 +31,6 @@ export const params: QueryParams<ResourceTypeType> = (
       //  https://dsva.slack.com/archives/C01SR56755H/p1695244241079879?thread_ts=1695070010.697129&cid=C01SR56755H
       .addFields(resourceType, ['field_administration', 'title', 'path'])
       .addInclude(['field_administration'])
-      .addPageLimit(PAGE_SIZE)
   )
 }
 
@@ -48,41 +48,13 @@ export const data: QueryData<
   DataOpts,
   JsonApiResourceWithPathAndFieldAdmin[]
 > = async (opts): Promise<JsonApiResourceWithPathAndFieldAdmin[]> => {
-  // 1. Fetch first page.
-  const firstPage = await drupalClient.getResourceCollection<JsonApiResponse>(
-    opts.resourceType,
-    {
-      params: params(opts.resourceType).getQueryObject(),
-      deserialize: false,
-    }
-  )
-
-  // 2. Determine number of pages to fetch.
-  const totalResourceCount = firstPage.meta.count
-  const firstPageData = drupalClient.deserialize(
-    firstPage
-  ) as JsonApiResourceWithPathAndFieldAdmin[]
-  const pageCount = Math.ceil(totalResourceCount / PAGE_SIZE)
-
-  // 3. If more pages, fetch them in parallel.
-  // Note: If we used JSON:API `next` links, we'd have to fetch in series.
-  const subsequentPageData = await Promise.all(
-    Array.from({
-      length: pageCount - 1,
-    }).map((_, i) => {
-      const pageNum = i + 2
-      return drupalClient.getResourceCollection<
-        JsonApiResourceWithPathAndFieldAdmin[]
-      >(opts.resourceType, {
-        params: params(opts.resourceType)
-          .addPageOffset((pageNum - 1) * PAGE_SIZE)
-          .getQueryObject(),
-      })
-    })
-  )
-
-  // 4. Glue all pages together.
-  return [firstPageData, ...subsequentPageData].flat()
+  return (
+    await fetchAndConcatAllResourceCollectionPages<JsonApiResourceWithPathAndFieldAdmin>(
+      opts.resourceType,
+      params(opts.resourceType),
+      PAGE_SIZE
+    )
+  ).data
 }
 
 export const formatter: QueryFormatter<
