@@ -3,6 +3,7 @@ import { StaticPathResourceType } from '@/types/index'
 import { FormattedResource, QUERIES_MAP } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
+import { ListingPageFormattedResource } from '@/lib/drupal/listingPages'
 
 export const LOVELL = {
   federal: {
@@ -33,7 +34,7 @@ export const LOVELL = {
 
 export const LOVELL_RESOURCE_TYPES = [
   RESOURCE_TYPES.STORY,
-  // RESOURCE_TYPES.STORY_LISTING,
+  RESOURCE_TYPES.STORY_LISTING,
 ]
 
 export const LOVELL_BIFURCATED_RESOURCE_TYPES = [RESOURCE_TYPES.STORY]
@@ -60,12 +61,17 @@ export type LovellBifurcatedFormattedResource = ReturnType<
   (typeof QUERIES_MAP)[(typeof LOVELL_BIFURCATED_RESOURCE_TYPES)[number]]['formatter']
 >
 
+export type LovellListingPageFormattedResource = Extract<
+  LovellFormattedResource,
+  ListingPageFormattedResource
+>
+
 export type LovellStaticPropsContextProps = {
   isLovellVariantPage: boolean
   variant: LovellChildVariant
 }
 
-export type LovellFormattedResourceProps = {
+type LovellFormattedResourceProps = {
   canonicalLink?: string
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
