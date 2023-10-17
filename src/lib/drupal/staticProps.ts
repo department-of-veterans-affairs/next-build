@@ -4,17 +4,20 @@ import { QueryOpts } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '@/data/queries'
 import {
+  LISTING_RESOURCE_TYPE_URL_SEGMENTS,
   ListingPageStaticPropsContextProps,
   ListingResourceTypeType,
   getListingPageStaticPropsContext,
 } from './listingPages'
 import {
+  LOVELL,
   LovellStaticPropsContextProps,
   getLovellStaticPropsContext,
   LovellFormattedResource,
   LovellStaticPropsResource,
   LovellResourceType,
   isLovellBifurcatedResource,
+  getLovellVariantOfUrl,
   getLovellChildVariantOfResource,
   LovellBifurcatedFormattedResource,
   LovellListingPageFormattedResource,
@@ -23,6 +26,7 @@ import { FormattedResource } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { NewsStoryDataOpts } from '@/data/queries/newsStory'
+import { PAGE_SIZES } from '../constants/pageSizes'
 
 export type ExpandedStaticPropsContext = GetStaticPropsContext & {
   path: string
@@ -143,26 +147,41 @@ export async function getLovellListingPageStaticPropsResource(
     }
   )) as LovellListingPageFormattedResource
 
-  // const federalPagePathInfo = await drupalClient.translatePath(
-  //   context.drupalPath
-  // )
-  // // if (!federalPagePathInfo) {
-  // //   return {
-  // //     notFound: true,
-  // //   }
-  // // }
-  // const federalPageId = federalPagePathInfo.entity?.uuid
-  // const federalPage = await fetchSingleStaticPropsResource(
-  //   resourceType,
-  //   federalPagePathInfo,
-  //   {
-  //     id: federalPageId,
-  //     // Again, do not pass specific page number
-  //   }
-  // )
+  const federalPagePathInfo = await drupalClient.translatePath(
+    getLovellVariantOfUrl(context.drupalPath, LOVELL.federal.variant)
+  )
+  if (!federalPagePathInfo) {
+    return childVariantPage
+  }
+  const federalPageId = federalPagePathInfo.entity?.uuid
+  const federalPage = (await fetchSingleStaticPropsResource(
+    resourceType,
+    federalPagePathInfo,
+    {
+      id: federalPageId,
+      // Again, do not pass specific page number
+    }
+  )) as LovellListingPageFormattedResource
 
-  //temporary
-  return childVariantPage
+  const itemProp = LISTING_RESOURCE_TYPE_URL_SEGMENTS[resourceType]
+  const allMergedItems = [
+    ...childVariantPage[itemProp],
+    ...federalPage[itemProp],
+  ]
+  const pageSize = PAGE_SIZES[resourceType]
+  const sliceStart = (context.listing.page - 1) * pageSize
+  const sliceEnd = sliceStart + pageSize
+  const pagedMergedItems = allMergedItems.slice(sliceStart, sliceEnd)
+  const totalItems = childVariantPage.totalItems + federalPage.totalItems
+  const totalPages = Math.ceil(totalItems / pageSize) || 0
+
+  return {
+    ...childVariantPage,
+    [itemProp]: pagedMergedItems,
+    currentPage: context.listing.page,
+    totalItems,
+    totalPages,
+  }
 }
 
 export async function getLovellStaticPropsResource(
