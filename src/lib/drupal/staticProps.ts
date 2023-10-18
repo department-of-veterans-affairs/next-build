@@ -21,6 +21,7 @@ import {
   getLovellChildVariantOfResource,
   LovellBifurcatedFormattedResource,
   LovellListingPageFormattedResource,
+  getOppositeChildVariant,
 } from './lovell'
 import { FormattedResource } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
@@ -135,7 +136,7 @@ export async function getLovellListingPageStaticPropsResource(
   resourceType: ListingResourceTypeType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
-): Promise<LovellListingPageFormattedResource> {
+): Promise<LovellStaticPropsResource<LovellListingPageFormattedResource>> {
   const id = pathInfo.entity?.uuid
   const childVariantPage = (await fetchSingleStaticPropsResource(
     resourceType,
@@ -181,6 +182,12 @@ export async function getLovellListingPageStaticPropsResource(
     currentPage: context.listing.page,
     totalItems,
     totalPages,
+    canonicalLink: childVariantPage.entityPath,
+    lovellVariant: context.lovell.variant,
+    lovellSwitchPath: getLovellVariantOfUrl(
+      childVariantPage.entityPath,
+      getOppositeChildVariant(context.lovell.variant)
+    ),
   }
 }
 
