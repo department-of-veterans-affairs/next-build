@@ -63,7 +63,7 @@ export async function getListingPageCounts(
   if (pathInfo?.entity?.uuid) {
     const resource = await queries.getData(listingResourceType, {
       id: pathInfo.entity.uuid,
-      page: 1, // just need to fetch a single page in order to get totalItems and totalPages counts
+      // page: 1, // just need to fetch a single page in order to get totalItems and totalPages counts
     })
 
     return {
