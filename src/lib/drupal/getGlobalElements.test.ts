@@ -1,7 +1,7 @@
 import axios from 'axios'
 import nock from 'nock'
 
-axios.defaults.adapter = require('axios/lib/adapters/http')
+axios.defaults.adapter = 'http'
 
 const getData = async () => {
   const res = await axios.get('http://localhost:3000/api/')
