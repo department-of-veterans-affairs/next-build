@@ -26,6 +26,7 @@ const customJestConfig = {
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/templates/(.*)$': '<rootDir>/src/templates/$1',
     '^@/types/(.*)$': '<rootDir>/src/types/$1',
+    '^axios$': require.resolve('axios'),
   },
 
   testEnvironment: 'jest-environment-jsdom',
