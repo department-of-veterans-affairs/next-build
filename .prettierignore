@@ -1,9 +1,9 @@
 .github
 .next
 .yarn
+.swc
 coverage
 node_modules
-package-lock.json
 public
 yarn.lock
 storybook-static
