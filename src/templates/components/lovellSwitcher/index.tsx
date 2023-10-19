@@ -1,5 +1,5 @@
 import React from 'react'
-import { getOppositeChildVariant } from '@/lib/drupal/lovell'
+import { getOppositeChildVariant } from '@/lib/drupal/lovell/utils'
 import { LovellSwitcherType } from '@/types/index'
 
 export function LovellSwitcher({

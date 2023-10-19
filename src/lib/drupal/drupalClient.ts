@@ -2,7 +2,8 @@ import { DrupalClient } from 'next-drupal'
 import crossFetch from 'cross-fetch'
 import { SocksProxyAgent } from 'socks-proxy-agent'
 
-export const baseUrl = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'cms.va.gov'
+export const baseUrl =
+  process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'https://cms.va.gov'
 
 const url = new URL(baseUrl)
 const host = url.host

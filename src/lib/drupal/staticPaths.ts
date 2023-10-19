@@ -10,7 +10,7 @@ import { StaticPathResourceType } from '@/types/index'
 import {
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
-} from '@/lib/drupal/lovell'
+} from '@/lib/drupal/lovell/staticPaths'
 
 /**
  * Returns a static-path resource collection that is modified per business logic.
