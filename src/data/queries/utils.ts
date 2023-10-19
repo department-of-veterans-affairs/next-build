@@ -26,6 +26,8 @@ export async function fetchSingleResourceCollectionPage<T>(
   pageSize: number,
   pageNumber: number
 ): Promise<ResourceCollection<T>> {
+  /*eslint-disable-next-line*/
+  console.log('test a')
   const page = await drupalClient.getResourceCollection<JsonApiResponse>(
     resourceType,
     {
@@ -69,6 +71,8 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
       length: totalPages - 1,
     }).map((_, i) => {
       const pageNumber = i + 2
+      /*eslint-disable-next-line*/
+      console.log('test b')
       return drupalClient.getResourceCollection<T[]>(resourceType, {
         params: addPagingParams(params, pageSize, pageNumber).getQueryObject(),
       })
