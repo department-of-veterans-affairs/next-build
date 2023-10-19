@@ -39,7 +39,8 @@
     "scripts/*",
     "test/*",
     "cypress/*",
-    ".storybook/*"
+    ".storybook/*",
+    "*.ts"
   ],
   "exclude": ["node_modules", "src/__tests__", "public/generated"],
   "typedocOptions": {
