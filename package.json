@@ -120,7 +120,6 @@
     "prettier": "^2.8.8",
     "storybook": "^7.4.6",
     "ts-node": "^10.9.1",
-    "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typedoc": "^0.22.18",
     "typescript": "^4.6.3"
   },
