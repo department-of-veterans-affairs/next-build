@@ -75,7 +75,7 @@
     "@next/env": "^13.5.4",
     "@storybook/addon-actions": "^7.4.6",
     "@storybook/addon-essentials": "^7.4.6",
-    "@storybook/addon-interactions": "^7.4.6",
+    "@storybook/addon-interactions": "^7.5.1",
     "@storybook/addon-links": "^7.4.6",
     "@storybook/nextjs": "^7.4.6",
     "@storybook/node-logger": "^7.4.6",
@@ -120,7 +120,6 @@
     "prettier": "^2.8.8",
     "storybook": "^7.4.6",
     "ts-node": "^10.9.1",
-    "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typedoc": "^0.22.18",
     "typescript": "^4.6.3"
   },
