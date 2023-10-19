@@ -4,13 +4,13 @@ import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
 import { GetStaticPropsContext } from 'next'
 import { QueryOpts } from 'next-drupal-query'
+import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
 import {
-  LOVELL,
-  LovellStaticPropsContextProps,
   isLovellTricareResource,
   isLovellVaResource,
-  getLovellVariantOfStaticPathResource,
-} from '@/lib/drupal/lovell'
+} from '@/lib/drupal/lovell/utils'
+import { getLovellVariantOfStaticPathResource } from '@/lib/drupal/lovell/staticPaths'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 
 const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const

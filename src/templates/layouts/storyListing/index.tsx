@@ -18,7 +18,7 @@ import {
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
-import { LovellStaticPropsResource } from '@/lib/drupal/lovell'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
 // Allows additions to window object without overwriting global type

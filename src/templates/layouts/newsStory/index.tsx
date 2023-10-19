@@ -6,7 +6,7 @@ import { StoryListingLink } from '@/templates/components/storyListingLink'
 import { NewsStoryType } from '@/types/index'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-import { LovellStaticPropsResource } from '@/lib/drupal/lovell'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 
 export const NewsStory = ({
   title,
