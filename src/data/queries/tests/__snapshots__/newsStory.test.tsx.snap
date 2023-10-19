@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`node--news_story formatData outputs formatted data 1`] = `
-Object {
-  "administration": Object {
+{
+  "administration": {
     "id": 12,
     "name": "VA Pittsburgh health care",
   },
-  "author": Object {
+  "author": {
     "changed": "2019-08-27T17:50:21+00:00",
     "created": "2019-05-14T16:10:51+00:00",
     "default_langcode": true,
     "drupal_internal__nid": 378,
     "drupal_internal__vid": 9455,
-    "field_administration": Object {
+    "field_administration": {
       "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
-      "resourceIdObjMeta": Array [
+      "resourceIdObjMeta": [
         null,
       ],
       "type": "taxonomy_term--administration",
@@ -35,27 +35,27 @@ Object {
     "field_suffix": null,
     "id": "c76037be-ebb0-4338-9b31-973a76958929",
     "langcode": "en",
-    "links": Object {
-      "self": Array [
+    "links": {
+      "self": [
         null,
       ],
     },
     "metatag": null,
     "moderation_state": "published",
-    "node_type": Object {
+    "node_type": {
       "id": "89b07673-7fd5-4292-8fba-58cc10c4e3ec",
-      "resourceIdObjMeta": Array [
+      "resourceIdObjMeta": [
         null,
       ],
       "type": "node_type--node_type",
     },
-    "path": Object {
+    "path": {
       "alias": "/pittsburgh-health-care/staff-profiles/keith-gottschalk",
       "langcode": "en",
       "pid": 563,
     },
     "promote": false,
-    "relationshipNames": Array [
+    "relationshipNames": [
       "node_type",
       "revision_uid",
       "uid",
@@ -64,15 +64,15 @@ Object {
       "field_media",
       "field_office",
     ],
-    "resourceIdObjMeta": Object {
+    "resourceIdObjMeta": {
       "drupal_internal__target_id": 378,
     },
     "revision_log": "Bulk operation publish revision",
     "revision_timestamp": "2019-08-27T17:50:21+00:00",
     "revision_translation_affected": true,
-    "revision_uid": Object {
+    "revision_uid": {
       "id": "fd71292f-3dc7-409d-b0e8-500204cb005a",
-      "resourceIdObjMeta": Array [
+      "resourceIdObjMeta": [
         null,
       ],
       "type": "user--user",
@@ -81,9 +81,9 @@ Object {
     "sticky": false,
     "title": "Keith Gottschalk",
     "type": "node--person_profile",
-    "uid": Object {
+    "uid": {
       "id": "c0745381-8e20-40da-9540-5a7d2eee1b35",
-      "resourceIdObjMeta": Array [
+      "resourceIdObjMeta": [
         null,
       ],
       "type": "user--user",
@@ -93,7 +93,7 @@ Object {
 
 <p>Dr. Decker, director of Infection Prevention, sees herself as a problem solver.</p>
 
-<p>\\"The problems that cause infections are incredibly varied and sometimes challenging,\\" said Decker. \\"My job involves getting the right people together to help solve these problems.\\"</p>
+<p>"The problems that cause infections are incredibly varied and sometimes challenging," said Decker. "My job involves getting the right people together to help solve these problems."</p>
 
 <p>Recent examples include ensuring hand sanitizers are plentiful and optimally located to support hand hygiene; safe disposal of needles and syringes; and developing the safest way to shut down and perform maintenance on an air handler in a patient-care area that is always open.</p>
 
@@ -101,10 +101,10 @@ Object {
 
 
     <p>
-    \\"The icing on top is the staff's eagerness to help our Veterans,\\"
+    "The icing on top is the staff's eagerness to help our Veterans,"
     said
     Rahman.
-    \\"All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity.\\"
+    "All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity."
     </p>
         n
     
@@ -138,14 +138,14 @@ Object {
     mysteries
     on
     television
-    's \\"House\\" series.</p>
+    's "House" series.</p>
 
 
     <p>
-    \\"For every issue, there may be layers and layers of additional clues to unravel,\\"
+    "For every issue, there may be layers and layers of additional clues to unravel,"
     said
     Decker.
-    \\"The 'aha moment' when it all comes together is very gratifying.\\"
+    "The 'aha moment' when it all comes together is very gratifying."
     </p>
         n
     
@@ -153,10 +153,10 @@ Object {
 
 
     <p>
-    \\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers,\\"
+    "Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers,"
     said
     Decker.
-    \\"Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention.\\"
+    "Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention."
     </p>
         n
     
@@ -164,10 +164,10 @@ Object {
 
 
     <p>
-    \\"I would read all kinds of articles about new discoveries in medicine and I found myself being drawn more and more toward what is literally the 'heart' of our bodies,\\"
+    "I would read all kinds of articles about new discoveries in medicine and I found myself being drawn more and more toward what is literally the 'heart' of our bodies,"
     he
     said.
-    \\"Cardiology is not just a career choice, but a calling, and I think it found me.\\"
+    "Cardiology is not just a career choice, but a calling, and I think it found me."
     </p>
         n
     
@@ -175,10 +175,10 @@ Object {
 
 
     <p>
-    \\"I love sitting down at the bedside and hearing about someone's family, pets, adventures,\\"
+    "I love sitting down at the bedside and hearing about someone's family, pets, adventures,"
     said
     Decker.
-    \\"I've met some truly great people working at VA.\\"
+    "I've met some truly great people working at VA."
     </p>
         n
     
@@ -186,16 +186,16 @@ Object {
 
 
     <p>
-    \\"As I interact with my patients, I get to hear a lot of fascinating stories of their experiences all over the world,\\"
+    "As I interact with my patients, I get to hear a lot of fascinating stories of their experiences all over the world,"
     said
     Rahman.
-    \\"It's never a dull day at work.\\"
+    "It's never a dull day at work."
     </p>
         n
     
 <p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>",
   "caption": "
-  \\"Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers.\\"
+  "Caring for a single patient and solving that one patient's illness is our honor and privilege as health care providers."
   -
   Dr.
   Brooke
@@ -205,145 +205,145 @@ Object {
   "entityId": 377,
   "entityPath": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
   "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
-  "image": Object {
+  "image": {
     "alt": null,
     "height": 304,
     "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
-    "link": Object {
-      "1_1_square_medium_thumbnail": Object {
+    "link": {
+      "1_1_square_medium_thumbnail": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "240",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "240",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
       },
-      "2_1_large": Object {
+      "2_1_large": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "512",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "1024",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
       },
-      "2_1_medium_thumbnail": Object {
+      "2_1_medium_thumbnail": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "240",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "480",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
       },
-      "2_3_medium_thumbnail": Object {
+      "2_3_medium_thumbnail": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "480",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "320",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
       },
-      "3_2_medium_thumbnail": Object {
+      "3_2_medium_thumbnail": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "320",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "480",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
       },
-      "7_2_medium_thumbnail": Object {
+      "7_2_medium_thumbnail": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "300",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "1050",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
       },
-      "full_content_width": Object {
+      "full_content_width": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "304",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "456",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
       },
-      "large": Object {
+      "large": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "304",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "456",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
       },
-      "self": Object {
+      "self": {
         "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/e638fd17-9090-442b-a724-5113133b4d0f",
       },
-      "viewport_width": Object {
+      "viewport_width": {
         "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/hub_promos/health-care.png",
-        "meta": Object {
-          "linkParams": Object {
+        "meta": {
+          "linkParams": {
             "height": "304",
-            "rel": Array [
+            "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
             "width": "456",
           },
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
         },
@@ -357,7 +357,7 @@ Object {
   "introText": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
   "listing": "/pittsburgh-health-care/stories",
   "published": true,
-  "socialLinks": Object {
+  "socialLinks": {
     "path": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
     "title": "We honor outstanding doctors",
   },

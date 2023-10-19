@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`node--q_a formatData outputs formatted data 1`] = `
-Array [
-  Object {
-    "answers": "<p>You can <a data-entity-substitution=\\"canonical\\" data-entity-type=\\"node\\" data-entity-uuid=\\"2ba48b5f-a92c-4775-9cfd-9530d1c87347\\" href=\\"/claim-or-appeal-status\\" title=\\"Check your VA claim or appeal status\\">check the status</a> of your VA claim, appeal, or decision review on VA.gov.</p>
-<p>You’ll need to <a href=\\"http://www.va.gov/?next=%2Fprofile%2F\\">sign in first</a> with<strong> DS Logon</strong>, <strong>My HealtheVet</strong>, or<strong> ID.me</strong>. If you don’t have any of these accounts, you can <a href=\\"http://www.va.gov/?next=%2Fprofile%2F\\">get one now</a>.</p>
-<p>If you need help, please call us at <a aria-label=\\"8 0 0. 8 2 7. 1 0 0 0.\\" href=\\"tel:+18008271000\\">800-827-1000</a>. We’re here Monday through Friday, 8:00 a.m. to 9:00 p.m. ET.</p>
+[
+  {
+    "answers": "<p>You can <a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="2ba48b5f-a92c-4775-9cfd-9530d1c87347" href="/claim-or-appeal-status" title="Check your VA claim or appeal status">check the status</a> of your VA claim, appeal, or decision review on VA.gov.</p>
+<p>You’ll need to <a href="http://www.va.gov/?next=%2Fprofile%2F">sign in first</a> with<strong> DS Logon</strong>, <strong>My HealtheVet</strong>, or<strong> ID.me</strong>. If you don’t have any of these accounts, you can <a href="http://www.va.gov/?next=%2Fprofile%2F">get one now</a>.</p>
+<p>If you need help, please call us at <a aria-label="8 0 0. 8 2 7. 1 0 0 0." href="tel:+18008271000">800-827-1000</a>. We’re here Monday through Friday, 8:00 a.m. to 9:00 p.m. ET.</p>
 ",
-    "buttons": Array [
-      Object {
+    "buttons": [
+      {
         "id": "203de085-bb3c-4655-b8ca-0d859a65f5b6",
         "label": "Check your VA claim status",
         "url": "entity:node/711",
@@ -18,52 +18,52 @@ Array [
     "entityPath": "/resources/how-can-i-find-out-my-va-claim-or-appeal-status",
     "id": "c2839a4c-c13d-46da-b448-9d1ec389773b",
     "published": true,
-    "tags": Array [
-      Object {
+    "tags": [
+      {
         "categoryLabel": "Audience",
         "href": "/resources/tag/all-veterans",
         "id": "386eb70d-696c-4af3-8986-306ce63d90de",
         "name": "All Veterans",
       },
-      Object {
+      {
         "categoryLabel": "Topics",
         "href": "/resources/tag/claims-and-appeals-status",
         "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
         "name": "Claims and appeals status",
       },
     ],
-    "teasers": Array [
-      Object {
-        "componentParams": Object {
+    "teasers": [
+      {
+        "componentParams": {
           "boldTitle": false,
           "sectionHeader": "",
         },
         "id": "b5dc447b-5832-4a3f-9e4b-b96cf08a9207",
-        "options": Array [],
+        "options": [],
         "parentField": "field_related_information",
         "summary": null,
         "title": "How to check your VA claim or appeal status online",
         "uri": "entity:node/8520",
       },
-      Object {
-        "componentParams": Object {
+      {
+        "componentParams": {
           "boldTitle": false,
           "sectionHeader": "",
         },
         "id": "7de62b28-028d-40a1-bafa-fc1113c47aeb",
-        "options": Array [],
+        "options": [],
         "parentField": "field_related_information",
         "summary": null,
         "title": "VA decision reviews and appeals",
         "uri": "entity:node/3071",
       },
-      Object {
-        "componentParams": Object {
+      {
+        "componentParams": {
           "boldTitle": false,
           "sectionHeader": "",
         },
         "id": "1af2cc04-07c7-4afa-86c9-6ae32b363d32",
-        "options": Array [],
+        "options": [],
         "parentField": "field_related_information",
         "summary": null,
         "title": "Signing in to VA.gov ",
@@ -73,7 +73,7 @@ Array [
     "title": "How can I find out the status of my claim, appeal, or decision review?",
     "type": "node--q_a",
   },
-  Object {
+  {
     "answers": "<p>Yes. We allow service dogs of all breeds in VA facilities. This includes VA health facilities, Vet Centers, regional offices, and other properties we own or lease.</p>
 <p><strong>To enter and remain in a VA facility, a service dog must meet all of these requirements:</strong></p>
 <ul>
@@ -87,8 +87,8 @@ Array [
 </ul>
 <p>We don't allow any other animals in VA facilities. But we may make exceptions for certain needs like police dogs or animal-assisted therapy. </p>
 ",
-    "buttons": Array [
-      Object {
+    "buttons": [
+      {
         "id": "21bf8a97-36ec-44ba-a245-1fbcb014b8a9",
         "label": "Find a VA location",
         "url": "internal:/find-locations/",
@@ -98,22 +98,22 @@ Array [
     "entityPath": "/resources/are-service-dogs-allowed-in-va-facilities",
     "id": "eaff8edf-2cee-4e11-9373-7860a78295a6",
     "published": true,
-    "tags": Array [
-      Object {
+    "tags": [
+      {
         "categoryLabel": "Audience",
         "href": "/resources/tag/all-veterans",
         "id": "386eb70d-696c-4af3-8986-306ce63d90de",
         "name": "All Veterans",
       },
     ],
-    "teasers": Array [
-      Object {
-        "componentParams": Object {
+    "teasers": [
+      {
+        "componentParams": {
           "boldTitle": false,
           "sectionHeader": "",
         },
         "id": "be43d17b-f642-49b6-bed2-b4ea7712ed88",
-        "options": Array [],
+        "options": [],
         "parentField": "field_related_information",
         "summary": null,
         "title": "Learn about how to get a service dog with your VA health care benefits",
@@ -123,16 +123,16 @@ Array [
     "title": "Are service dogs allowed in VA facilities?",
     "type": "node--q_a",
   },
-  Object {
-    "answers": "<p>You can use our claim status tool to check the status of a VA claim for compensation, including automobile or clothing allowance, pension benefits, and Aid and Attendance. You can also check the status of your VA health care or GI Bill claim. Find out what <a href=\\"https://www.va.gov/claim-or-appeal-status/#what-types-of-claims-and-appea\\">other types of claims</a> you can track online with our tool.</p>
+  {
+    "answers": "<p>You can use our claim status tool to check the status of a VA claim for compensation, including automobile or clothing allowance, pension benefits, and Aid and Attendance. You can also check the status of your VA health care or GI Bill claim. Find out what <a href="https://www.va.gov/claim-or-appeal-status/#what-types-of-claims-and-appea">other types of claims</a> you can track online with our tool.</p>
 ",
-    "buttons": Array [
-      Object {
+    "buttons": [
+      {
         "id": "e22196d7-382b-4a51-aa1e-d6cb6976013a",
         "label": "Check your VA claim or appeal status",
         "url": "entity:node/711",
       },
-      Object {
+      {
         "id": "12d69420-705e-40de-bb72-0b34a0f4fcdd",
         "label": "Sign in or create an account",
         "url": "https://www.va.gov/?next=%2Fprofile%2F",
@@ -142,21 +142,21 @@ Array [
     "entityPath": "/resources/what-types-of-claims-and-appeals-can-i-track-online",
     "id": "bcf87f05-f947-4631-8a86-a3c0c0fe9878",
     "published": true,
-    "tags": Array [
-      Object {
+    "tags": [
+      {
         "categoryLabel": "Audience",
         "href": "/resources/tag/all-veterans",
         "id": "386eb70d-696c-4af3-8986-306ce63d90de",
         "name": "All Veterans",
       },
-      Object {
+      {
         "categoryLabel": "Topics",
         "href": "/resources/tag/claims-and-appeals-status",
         "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
         "name": "Claims and appeals status",
       },
     ],
-    "teasers": Array [],
+    "teasers": [],
     "title": "What types of claims can I track online?",
     "type": "node--q_a",
   },

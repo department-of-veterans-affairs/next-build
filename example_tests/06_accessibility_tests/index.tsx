@@ -1,4 +1,3 @@
-import { faCropSimple } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 
 function Component1(_props) {

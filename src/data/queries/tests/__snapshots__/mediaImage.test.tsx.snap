@@ -1,145 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Media image returns formatted data outputs formatted data 1`] = `
-Object {
+{
   "alt": null,
   "height": 304,
   "id": "e638fd17-9090-442b-a724-5113133b4d0f",
-  "link": Object {
-    "1_1_square_medium_thumbnail": Object {
+  "link": {
+    "1_1_square_medium_thumbnail": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "240",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "240",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },
     },
-    "2_1_large": Object {
+    "2_1_large": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "512",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "1024",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },
     },
-    "2_1_medium_thumbnail": Object {
+    "2_1_medium_thumbnail": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "240",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "480",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },
     },
-    "2_3_medium_thumbnail": Object {
+    "2_3_medium_thumbnail": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "480",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "320",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },
     },
-    "3_2_medium_thumbnail": Object {
+    "3_2_medium_thumbnail": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "320",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "480",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },
     },
-    "7_2_medium_thumbnail": Object {
+    "7_2_medium_thumbnail": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "300",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "1050",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },
     },
-    "full_content_width": Object {
+    "full_content_width": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "304",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "456",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },
     },
-    "large": Object {
+    "large": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "304",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "456",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },
     },
-    "self": Object {
+    "self": {
       "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/e638fd17-9090-442b-a724-5113133b4d0f",
     },
-    "viewport_width": Object {
+    "viewport_width": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/hub_promos/health-care.png",
-      "meta": Object {
-        "linkParams": Object {
+      "meta": {
+        "linkParams": {
           "height": "304",
-          "rel": Array [
+          "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
           ],
           "width": "456",
         },
-        "rel": Array [
+        "rel": [
           "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
         ],
       },

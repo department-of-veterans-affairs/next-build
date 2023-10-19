@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`paragraph--wysiwyg formatData outputs formatted data 1`] = `
-Array [
-  Object {
+[
+  {
     "html": "<p>We encourage you to visit when most convenient for you and the patient. There are no set visitor hours for most departments. Exceptions are listed below:</p>
 
 <h4>Medical, surgical, and hospice wards</h4>
@@ -40,7 +40,7 @@ Array [
 </ul><p> </p>",
     "id": "58bd66a0-7f20-41e0-984a-975ee25a1aee",
   },
-  Object {
+  {
     "html": undefined,
     "id": "a0e63a12-9a23-4e7f-95a0-b3a6ce45a9e9",
   },

@@ -1,38 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`paragraph--link_teaser formatData outputs formatted data 1`] = `
-Array [
-  Object {
-    "componentParams": Object {
+[
+  {
+    "componentParams": {
       "boldTitle": false,
       "sectionHeader": "",
     },
     "id": "cb0c2019-0f48-448f-98ca-205d80c8f6fe",
-    "options": Array [],
+    "options": [],
     "parentField": "field_va_paragraphs",
     "summary": "Not sure if you qualify? Find out if you can get VA health care benefits.",
     "title": "Health Care Benefits Eligibility",
     "uri": "/health-care/eligibility/",
   },
-  Object {
-    "componentParams": Object {
+  {
+    "componentParams": {
       "boldTitle": false,
       "sectionHeader": "",
     },
     "id": "18e73277-6d82-4391-a33e-4ddf118fb3b0",
-    "options": Array [],
+    "options": [],
     "parentField": "field_va_paragraphs",
     "summary": "Ready to apply? Get started now.",
     "title": "How to Apply for Health Care Benefits",
     "uri": "/health-care/how-to-apply/",
   },
-  Object {
-    "componentParams": Object {
+  {
+    "componentParams": {
       "boldTitle": false,
       "sectionHeader": "",
     },
     "id": "42b1db7c-8ee2-4fcd-933c-df8affa95117",
-    "options": Array [],
+    "options": [],
     "parentField": "field_va_paragraphs",
     "summary": "Find out how to access VA services for mental health, women’s health, and other specific needs.",
     "title": "Health Needs and Conditions",

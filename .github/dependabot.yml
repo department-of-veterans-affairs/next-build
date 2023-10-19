@@ -5,7 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: "yarn" 
+  # even though we use yarn, dependabot wants `npm` listed to check for node dependencies
+  - package-ecosystem: npm
     directory: "/"
     schedule:
       interval: "weekly"
