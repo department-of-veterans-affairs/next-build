@@ -59,7 +59,7 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
     resourceType,
     params,
     pageSize,
-    null
+    1
   )
 
   // If more pages, fetch them in parallel.
@@ -75,7 +75,7 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
     })
   )
 
-  // 4. Glue all pages together.
+  // Glue all pages together.
   return {
     data: [firstPageData, ...subsequentPageData].flat(),
     totalItems,
