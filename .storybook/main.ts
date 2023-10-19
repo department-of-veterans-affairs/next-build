@@ -16,10 +16,10 @@ const config: StorybookConfig = {
     autodocs: true,
   },
 
-  previewBody: (body) => `
-    ${body}
-    <script src="/generated/static-pages.entry.js"></script>
-  `,
+  // previewBody: (body) => `
+  //   ${body}
+  //   <script src="/generated/static-pages.entry.js"></script>
+  // `,
 }
 
 export default config
