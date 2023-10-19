@@ -15,9 +15,11 @@ const Template: ComponentStory<typeof LovellSwitcher> = (args) => (
 export const TricareToVa = Template.bind({})
 TricareToVa.args = {
   currentVariant: LOVELL.tricare.variant,
+  switchPath: '/?path=/story/components-lovellswitcher--va-to-tricare',
 }
 
 export const VaToTricare = Template.bind({})
 VaToTricare.args = {
   currentVariant: LOVELL.va.variant,
+  switchPath: '/?path=/story/components-lovellswitcher--tricare-to-va',
 }
