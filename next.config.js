@@ -1,11 +1,5 @@
-const dotenv = require('dotenv')
-const dotenvExpand = require('dotenv-expand')
+require('./scripts/env-handler')
 
-const myEnv = dotenv.config({
-  path: `envs/.env.${process.env.APP_ENV || 'local'}`,
-})
-
-dotenvExpand.expand(myEnv)
 // eslint-disable-next-line no-console
 console.log(
   `Using environment variables from: envs/.env.${
