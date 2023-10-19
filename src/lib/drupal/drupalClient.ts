@@ -2,12 +2,14 @@ import { DrupalClient } from 'next-drupal'
 import crossFetch from 'cross-fetch'
 import { SocksProxyAgent } from 'socks-proxy-agent'
 
-export const baseUrl = process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'cms.va.gov'
+// Default to local CMS endpoint.
+export const baseUrl =
+  process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'https://va-gov-cms.ddev.site'
 
 const url = new URL(baseUrl)
 const host = url.host
 
-// tugboat env doesn't need the SOCKS proxy. APP_ENV set in tugboat
+// CI envs don't need the SOCKS proxy.
 export const useProxy =
   host.match(/cms\.va\.gov$/) &&
   process.env.APP_ENV != 'tugboat' &&
@@ -17,12 +19,12 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   const retryCount = 5
   const syswideCas = await import('syswide-cas')
 
-  // if using an internal VA server, add VA cert
+  // If using an internal VA server, add VA cert.
   if (useProxy) {
     syswideCas.addCAs('certs/VA-Internal-S2-RCA-combined.pem')
   }
 
-  // if using local cms through ddev, add the cert for https
+  // If using local cms through ddev, add the cert for https.
   if (host.match('va-gov-cms.ddev.site')) {
     syswideCas.addCAs('certs/rootCA.pem')
   }
