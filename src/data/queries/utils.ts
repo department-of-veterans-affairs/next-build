@@ -67,11 +67,16 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
   const subsequentPageData = await Promise.all(
     Array.from({
       length: totalPages - 1,
-    }).map((_, i) => {
+    }).map(async (_, i) => {
       const pageNumber = i + 2
-      return drupalClient.getResourceCollection<T[]>(resourceType, {
-        params: addPagingParams(params, pageSize, pageNumber).getQueryObject(),
-      })
+      return (
+        await fetchSingleResourceCollectionPage<T>(
+          resourceType,
+          params,
+          pageSize,
+          pageNumber
+        )
+      ).data
     })
   )
 
