@@ -103,7 +103,7 @@ export const FacilityBanner = ({
       {outputStatus && (
         <VaBanner
           id={id}
-          role="va-banner"
+          role="region"
           showClose={dismiss}
           headline={title}
           type={alertType}

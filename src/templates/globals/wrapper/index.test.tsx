@@ -32,7 +32,7 @@ describe('<Wrapper> renders', () => {
     const props = { bannerData: banners }
 
     render(<Wrapper bannerData={props.bannerData}>{children}</Wrapper>)
-    expect(screen.getByRole('va-banner')).toHaveAttribute(
+    expect(screen.getByRole('region')).toHaveAttribute(
       'headline',
       'COVID-19 vaccines at VA'
     )

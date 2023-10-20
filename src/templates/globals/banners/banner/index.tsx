@@ -11,7 +11,7 @@ export const Banner = ({
   return (
     <VaBanner
       id={id}
-      role="va-banner"
+      role="region"
       showClose={dismiss ? 'perm' : false}
       headline={title}
       type={alertType}

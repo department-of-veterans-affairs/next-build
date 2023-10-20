@@ -25,7 +25,7 @@ describe('<FacilityBanner> component renders', () => {
     expect(
       screen.queryByText(/IMPORTANT UPDATES FROM VA PITTSBURGH/)
     ).toBeInTheDocument()
-    expect(screen.getByRole('va-banner')).toHaveAttribute(
+    expect(screen.getByRole('region')).toHaveAttribute(
       'headline',
       'Help Limit the Spread of COVID-19 and other Illnesses'
     )

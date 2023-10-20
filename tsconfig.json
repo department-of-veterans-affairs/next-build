@@ -38,7 +38,7 @@
     "*.{ts|tsx|js|jsx}",
     "scripts/*",
     "test/*",
-    "cypress/*",
+    "cypress/**/*",
     ".storybook/*",
     "*.ts"
   ],
