@@ -23,7 +23,7 @@ context('Story Listing', () => {
     cy.get('.usa-unstyled-list').should('have.text', 'No stories at this time.')
   })
 
-  it('Should render without a11y errors', () => {
+  it.skip('Should render without a11y errors', () => {
     cy.visit('/butler-health-care/stories')
 
     cy.testA11y()

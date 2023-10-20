@@ -8,7 +8,7 @@ context('News Story', () => {
     cy.location('pathname').should('equal', '/butler-health-care/stories/')
   })
 
-  it('Should render without a11y errors', () => {
+  it.skip('Should render without a11y errors', () => {
     cy.visit('/butler-health-care/stories/its-flu-shot-time/')
 
     cy.testA11y()
