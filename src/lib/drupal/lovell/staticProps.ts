@@ -118,7 +118,10 @@ export async function getLovellListingPageStaticPropsResource(
   const itemProp = LISTING_RESOURCE_TYPE_URL_SEGMENTS[resourceType]
   const allMergedItems = [
     ...childVariantPage[itemProp],
-    ...federalPage[itemProp],
+    ...federalPage[itemProp].map((item) => ({
+      ...item,
+      link: getLovellVariantOfUrl(item.link, context.lovell.variant),
+    })),
   ]
   const pageSize = PAGE_SIZES[resourceType]
   const sliceStart = (context.listing.page - 1) * pageSize
