@@ -77,6 +77,7 @@ export function getLovellChildVariantOfResource(
       path: variantPaths[variant],
     },
     administration: LOVELL[variant].administration,
+    listing: getLovellVariantOfUrl(resource.listing, variant),
     canonicalLink: variantPaths.va,
     lovellVariant: variant,
     lovellSwitchPath: variantPaths[getOppositeChildVariant(variant)],
