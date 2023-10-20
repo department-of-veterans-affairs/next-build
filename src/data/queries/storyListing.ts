@@ -1,5 +1,4 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { deserialize } from 'next-drupal'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeStoryListing, NodeNewsStory } from '@/types/dataTypes/drupal/node'

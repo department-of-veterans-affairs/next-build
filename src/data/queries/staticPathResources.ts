@@ -4,8 +4,7 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import { JsonApiResponse, JsonApiResourceWithPath } from 'next-drupal'
-import { drupalClient } from '@/lib/drupal/drupalClient'
+import { JsonApiResourceWithPath } from 'next-drupal'
 import {
   ADDITIONAL_RESOURCE_TYPES,
   ResourceTypeType,
