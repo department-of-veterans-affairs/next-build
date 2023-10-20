@@ -60,21 +60,16 @@ services:
         # Install github-status-updater
         - ./scripts/install_github_status_updater.sh
 
-      # Load dependent libraries and assets to prepare the site for build.
-      # When an existing preview is refreshed, the build workflow starts here,
-      # skipping the init step, because the results of that step will
-      # already be present.
-      update:
-        - yarn --version
-        # install dependencies
-        - yarn install
-
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a
       # preview is built from a base preview, the build workflow
       # starts here, skipping the init and update steps, because the
       # results of those are inherited from the base preview.
       build:
+        - yarn --version
+        # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
+        - yarn install
+
         # Set cypress tests as pending
         - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
 
