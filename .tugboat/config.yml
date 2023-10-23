@@ -55,7 +55,7 @@ services:
 
         # Install and use our yarn version
         - corepack enable
-        - corepack prepare yarn@stable --activate
+        - corepack prepare yarn@3.6.1 --activate
 
         # Install github-status-updater
         - ./scripts/install_github_status_updater.sh
