@@ -37,6 +37,14 @@ type ListingPageCounts = {
   totalPages: number
 }
 
+// Type representing all possible object shapes returned from querying and formatting
+// Drupal data for listing pages.
+// E.g. StoryListingType | (other future listing type)
+// Type constructed by:
+//  1. Consider all keys of QUERIES_MAP (imported)
+//  2. Take subset of those keys that appear in LISTING_RESOURCE_TYPES above
+//  3. Map that subset of keys to their respective values, which are modules for querying data
+//  4. Within each of those modules, grab the return type of the `formatter` function
 export type ListingPageFormattedResource = ReturnType<
   (typeof QUERIES_MAP)[(typeof LISTING_RESOURCE_TYPES)[number]]['formatter']
 >
