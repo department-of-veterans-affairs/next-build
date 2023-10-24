@@ -5,11 +5,7 @@ import { StaticPathResourceType } from '@/types/index'
 import { GetStaticPropsContext } from 'next'
 import { QueryOpts } from 'next-drupal-query'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
-import {
-  isLovellChildVariantResource,
-  isLovellTricareResource,
-  isLovellVaResource,
-} from '@/lib/drupal/lovell/utils'
+import { isLovellChildVariantResource } from '@/lib/drupal/lovell/utils'
 import { getLovellVariantOfStaticPathResource } from '@/lib/drupal/lovell/staticPaths'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
