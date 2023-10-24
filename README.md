@@ -12,7 +12,7 @@ Prerequisites
 
 You should set these up before attempting to install the repo.
 
-### Basic local installation
+## Basic local installation
 
 1. Clone the repo if you haven't.
    `git@github.com:department-of-veterans-affairs/next-build.git`
@@ -34,12 +34,11 @@ You should set these up before attempting to install the repo.
 
 1. Run `yarn dev`.
 
-You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your
-local environment.
+You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your local environment.
 
-### Environment Flags
+## Environment Flags
 
-The APP_ENV flag can be used to designate which .env file you want to use. Ensure you're env files are in ./envs, and then run your build or dev command with a leading APP_ENV=local.
+The APP_ENV flag can be used to designate which .env file you want to use. Ensure your env files are in `./envs`, and then run your build or dev command with a leading `APP_ENV=local`.
 
 ie `APP_ENV=local yarn dev`
 
@@ -47,7 +46,7 @@ Ensure the value passed into APP_ENV matches the file name of the .env file you 
 
 If no value is passed `.env.local` will be used as the default
 
-#### Local CMS endpoint
+## Local CMS endpoint
 
 To use the local CMS as an endpoint, follow the install directions for [the CMS repo here](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md).
 
@@ -72,9 +71,9 @@ NEXT_IMAGE_DOMAIN=https://va-gov-cms.ddev.site
 
 Now you can run `yarn dev` and data will be coming from your local CMS environment instead.
 
-### Documentation (WIP)
+## Documentation (WIP)
 
-- [Code Guidelines](docs/code-guidelines.md)
-- [Testing](docs/testing.md)
-- [TypeScript](docs/typescript.md)
+- [Code Guidelines](READMEs/code-guidelines.md)
+- [Testing](READMEs/testing.md)
+- [TypeScript](READMEs/typescript.md)
 - [Example Tests](example_tests/README.md)

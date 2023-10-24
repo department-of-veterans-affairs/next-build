@@ -61,14 +61,22 @@ function terminalLog(violations) {
   )
 
   // pluck specific keys to keep the table readable
-  const violationData = violations.map(
-    ({ id, impact, description, nodes }) => ({
+  const violationData = violations.map((violation) => {
+    const nodeInfo = violation.nodes.reduce((str, node) => {
+      const { html, target } = node
+      return [str, html, ...target].join('\n')
+    }, '')
+    const { id, impact, description, help, helpUrl } = violation
+    const str = `${help} See ${helpUrl}`
+
+    return {
       id,
       impact,
       description,
-      nodes: nodes.length,
-    })
-  )
+      help: str,
+      nodes: nodeInfo,
+    }
+  })
 
   cy.task('table', violationData)
 }

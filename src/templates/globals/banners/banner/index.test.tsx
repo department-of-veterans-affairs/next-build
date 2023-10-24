@@ -18,7 +18,7 @@ describe('<Banner> component renders', () => {
         /The banner component is part of the VSP Design System Storybook/
       )
     ).toBeInTheDocument()
-    expect(screen.getByRole('va-banner')).toHaveAttribute(
+    expect(screen.getByRole('region')).toHaveAttribute(
       'headline',
       'COVID-19 vaccines at VA'
     )

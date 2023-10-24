@@ -2,6 +2,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'cypress'
 import fetch from 'cross-fetch'
+import './scripts/env-handler'
 
 export default defineConfig({
   env: {
@@ -30,7 +31,7 @@ export default defineConfig({
   e2e: {
     // todo: env handling for local vs CI
     // 8001 is the port from `yarn export` && `yarn export:serve`
-    baseUrl: 'http://10.247.142.79:8001/',
+    baseUrl: process.env.SITE_URL || 'https://localhost:8001',
     setupNodeEvents(on, config) {
       // implement node event listeners here
       on('task', {
