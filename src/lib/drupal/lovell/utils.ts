@@ -10,7 +10,7 @@ import {
   LOVELL_BIFURCATED_RESOURCE_TYPES,
 } from './constants'
 import { StaticPathResourceType } from '@/types/index'
-import { FormattedResource, QUERIES_MAP } from '@/data/queries'
+import { FormattedResource } from '@/data/queries'
 import { ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
 
