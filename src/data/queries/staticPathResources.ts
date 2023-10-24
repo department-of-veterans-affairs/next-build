@@ -47,13 +47,13 @@ export const data: QueryData<
   DataOpts,
   JsonApiResourceWithPathAndFieldAdmin[]
 > = async (opts): Promise<JsonApiResourceWithPathAndFieldAdmin[]> => {
-  return (
+  const { data } =
     await fetchAndConcatAllResourceCollectionPages<JsonApiResourceWithPathAndFieldAdmin>(
       opts.resourceType,
       params(opts.resourceType),
       PAGE_SIZE
     )
-  ).data
+  return data
 }
 
 export const formatter: QueryFormatter<
