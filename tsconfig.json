@@ -28,7 +28,8 @@
       "@/pages/*": ["pages/*"],
       "@/stories/*": ["stories/*"],
       "@/templates/*": ["templates/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "react": ["./node_modules/@types/react"]
     }
   },
   "include": [
