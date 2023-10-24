@@ -1,10 +1,14 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '@/data/queries'
+import { QUERIES_MAP, queries } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
 import { GetStaticPropsContext } from 'next'
 import { QueryOpts } from 'next-drupal-query'
-import { LovellPageExpandedStaticPropsContextType } from '@/lib/drupal/lovell'
+import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
+import { isLovellChildVariantResource } from '@/lib/drupal/lovell/utils'
+import { getLovellVariantOfStaticPathResource } from '@/lib/drupal/lovell/staticPaths'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 
 const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const
 
@@ -16,7 +20,7 @@ export type StaticPathResourceTypeWithPaging = StaticPathResourceType & {
   }
 }
 
-export type ListingPageExpandedStaticPropsContextType = {
+export type ListingPageStaticPropsContextProps = {
   isListingPage: boolean
   firstPagePath: string
   page: number
@@ -25,10 +29,29 @@ export type ListingPageExpandedStaticPropsContextType = {
 export type ListingPageDataOpts = QueryOpts<{
   id: string
   page?: number
-  lovell?: LovellPageExpandedStaticPropsContextType
+  lovell?: LovellStaticPropsContextProps
 }>
 
-const RESOURCE_TYPE_URL_SEGMENTS: Readonly<{ [key: string]: string }> = {
+type ListingPageCounts = {
+  totalItems: number
+  totalPages: number
+}
+
+// Type representing all possible object shapes returned from querying and formatting
+// Drupal data for listing pages.
+// E.g. StoryListingType | (other future listing type)
+// Type constructed by:
+//  1. Consider all keys of QUERIES_MAP (imported)
+//  2. Take subset of those keys that appear in LISTING_RESOURCE_TYPES above
+//  3. Map that subset of keys to their respective values, which are modules for querying data
+//  4. Within each of those modules, grab the return type of the `formatter` function
+export type ListingPageFormattedResource = ReturnType<
+  (typeof QUERIES_MAP)[(typeof LISTING_RESOURCE_TYPES)[number]]['formatter']
+>
+
+export const LISTING_RESOURCE_TYPE_URL_SEGMENTS: Readonly<{
+  [key: string]: string
+}> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
 }
 
@@ -36,42 +59,73 @@ export function isListingResourceType(resourceType: ResourceTypeType): boolean {
   return (LISTING_RESOURCE_TYPES as readonly string[]).includes(resourceType)
 }
 
-async function getListingPageCount(
+export async function getListingPageCounts(
   listingPageStaticPathResource: StaticPathResourceType,
   listingResourceType: ListingResourceTypeType
-): Promise<number> {
+): Promise<ListingPageCounts> {
   const resourcePath = listingPageStaticPathResource.path.alias
   const pathInfo = await drupalClient.translatePath(resourcePath)
   if (pathInfo?.entity?.uuid) {
     const resource = await queries.getData(listingResourceType, {
       id: pathInfo.entity.uuid,
+      page: 1, // just need to fetch a single page in order to get totalItems and totalPages counts
     })
 
-    return resource?.totalPages || 0
+    return {
+      totalItems: resource?.totalItems || 0,
+      totalPages: resource?.totalPages || 0,
+    }
   }
 
-  return 0
+  return {
+    totalItems: 0,
+    totalPages: 0,
+  }
 }
 
 async function getListingPageStaticPathResourcesWithPagingData(
   listingPageStaticPathResources: StaticPathResourceType[],
   listingResourceType: ListingResourceTypeType
-) {
+): Promise<StaticPathResourceTypeWithPaging[]> {
   if (!listingPageStaticPathResources?.length) {
     return []
   }
 
   return Promise.all(
     listingPageStaticPathResources.map(async (resource) => {
-      const totalPages = await getListingPageCount(
+      const { totalItems, totalPages } = await getListingPageCounts(
         resource,
         listingResourceType
       )
 
+      if (!isLovellChildVariantResource(resource)) {
+        return {
+          ...resource,
+          paging: {
+            totalPages,
+          },
+        }
+      }
+
+      // For Lovell (TRICARE or VA) listing pages,
+      // we need to merge in Federal page items to calculate
+      // totalItems and, ultimately, totalPages
+      const { totalItems: totalLovellFederalItems } =
+        await getListingPageCounts(
+          getLovellVariantOfStaticPathResource(
+            resource,
+            LOVELL.federal.variant
+          ),
+          listingResourceType
+        )
+
       return {
         ...resource,
         paging: {
-          totalPages,
+          totalPages: Math.ceil(
+            (totalItems + totalLovellFederalItems) /
+              PAGE_SIZES[listingResourceType]
+          ),
         },
       }
     })
@@ -79,8 +133,7 @@ async function getListingPageStaticPathResourcesWithPagingData(
 }
 
 function addStaticPathResourcesFromPagingData(
-  listingPageStaticPathResourcesWithPagingData: StaticPathResourceTypeWithPaging[],
-  listingResourceType: ListingResourceTypeType
+  listingPageStaticPathResourcesWithPagingData: StaticPathResourceTypeWithPaging[]
 ): StaticPathResourceType[] {
   return listingPageStaticPathResourcesWithPagingData.reduce(
     (acc, firstPageResource) => {
@@ -117,23 +170,22 @@ export async function getAllPagedListingStaticPathResources(
     )
   // Paging step 2: Each listing resource will become multiple resources, one for each of its pages
   const allListingResources = addStaticPathResourcesFromPagingData(
-    resourcesWithPagingData,
-    listingResourceType
+    resourcesWithPagingData
   )
 
   return allListingResources
 }
 
-export function getListingPageExpandedStaticPropsContext(
+export function getListingPageStaticPropsContext(
   context: GetStaticPropsContext
-): ListingPageExpandedStaticPropsContextType {
+): ListingPageStaticPropsContextProps {
   const slug = context.params?.slug
 
   const isSlugAtLeastTwoSegments =
     slug !== undefined && typeof slug !== 'string' && slug.length >= 2
   const isSlugPossibleListingPage =
     isSlugAtLeastTwoSegments &&
-    Object.values(RESOURCE_TYPE_URL_SEGMENTS).includes(slug[1])
+    Object.values(LISTING_RESOURCE_TYPE_URL_SEGMENTS).includes(slug[1])
   const isSlugFirstListingPage = isSlugPossibleListingPage && slug.length === 2
   if (isSlugFirstListingPage) {
     return {

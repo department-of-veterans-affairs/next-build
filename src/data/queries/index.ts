@@ -17,8 +17,9 @@ import * as Wysiwyg from './wysiwyg'
 import * as StaticPathResources from './staticPathResources'
 import * as HeaderFooter from './headerFooter'
 import * as PromoBlock from './promoBlock'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
-export const queries = createQueries({
+export const QUERIES_MAP = {
   // standard Drupal entity data queries
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
@@ -43,4 +44,17 @@ export const queries = createQueries({
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,
-})
+}
+
+// Type representing all possible object shapes returned from querying and formatting Drupal data.
+// E.g. StoryListingType | NewsStoryType | (other future resoource type)
+// Type constructed by:
+//  1. Consider all keys of QUERIES_MAP above
+//  2. Take subset of those keys that appear in RESOURCE_TYPES (imported)
+//  3. Map that subset of keys to their respective values, which are modules for querying data
+//  4. Within each of those modules, grab the return type of the `formatter` function
+export type FormattedResource = ReturnType<
+  (typeof QUERIES_MAP)[(typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]]['formatter']
+>
+
+export const queries = createQueries(QUERIES_MAP)

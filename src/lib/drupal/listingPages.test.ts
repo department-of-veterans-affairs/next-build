@@ -1,7 +1,7 @@
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import {
   isListingResourceType,
-  getListingPageExpandedStaticPropsContext,
+  getListingPageStaticPropsContext,
 } from './listingPages'
 import { slugToPath } from '@/lib/utils/slug'
 
@@ -25,14 +25,14 @@ describe('isListingResourceType', () => {
   })
 })
 
-describe('getListingPageExpandedStaticPropsContext', () => {
+describe('getListingPageStaticPropsContext', () => {
   test('should properly handle first listing page', () => {
     const context = {
       params: {
         slug: listingPageFirstPageSlug,
       },
     }
-    const result = getListingPageExpandedStaticPropsContext(context)
+    const result = getListingPageStaticPropsContext(context)
     expect(result).toStrictEqual({
       isListingPage: true,
       firstPagePath: slugToPath(listingPageFirstPageSlug),
@@ -46,7 +46,7 @@ describe('getListingPageExpandedStaticPropsContext', () => {
         slug: listingPageSecondPageSlug,
       },
     }
-    const result = getListingPageExpandedStaticPropsContext(context)
+    const result = getListingPageStaticPropsContext(context)
     expect(result).toStrictEqual({
       isListingPage: true,
       firstPagePath: slugToPath(listingPageFirstPageSlug),
@@ -60,7 +60,7 @@ describe('getListingPageExpandedStaticPropsContext', () => {
         slug: nonListingPageSlug,
       },
     }
-    const result = getListingPageExpandedStaticPropsContext(context)
+    const result = getListingPageStaticPropsContext(context)
     expect(result).toStrictEqual({
       isListingPage: false,
       firstPagePath: null,

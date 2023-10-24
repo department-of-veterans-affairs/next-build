@@ -1,5 +1,5 @@
 import React from 'react'
-import { getOppositeVariant } from '@/lib/drupal/lovell'
+import { getOppositeChildVariant } from '@/lib/drupal/lovell/utils'
 import { LovellSwitcherType } from '@/types/index'
 
 export function LovellSwitcher({
@@ -10,7 +10,7 @@ export function LovellSwitcher({
     return <></>
   }
 
-  const switchVariant = getOppositeVariant(currentVariant)
+  const switchVariant = getOppositeChildVariant(currentVariant)
 
   return (
     <va-alert

@@ -18,6 +18,8 @@ import {
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -33,7 +35,9 @@ export function StoryListing({
   menu,
   currentPage,
   totalPages,
-}: StoryListingType) {
+  lovellVariant,
+  lovellSwitchPath,
+}: LovellStaticPropsResource<StoryListingType>) {
   // Add data to the window object for the sidebar widget
   useEffect(() => {
     window.sideNav = menu
@@ -61,6 +65,10 @@ export function StoryListing({
 
       <div className="usa-width-three-fourths">
         <article className="usa-content">
+          <LovellSwitcher
+            currentVariant={lovellVariant}
+            switchPath={lovellSwitchPath}
+          />
           <h1>{title}</h1>
           <div className="vads-l-grid-container--full">
             <div className="va-introtext">

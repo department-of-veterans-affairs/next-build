@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { LovellSwitcher } from './index'
-import { LOVELL } from '@/lib/drupal/lovell'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
 
 export default {
   title: 'Components/LovellSwitcher',

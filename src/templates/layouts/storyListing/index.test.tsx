@@ -16,6 +16,7 @@ let storyListingProps: StoryListingType = {
     data: { name: '', description: '', links: [] },
   },
   currentPage: 1,
+  totalItems: 0,
   totalPages: 1,
 }
 
