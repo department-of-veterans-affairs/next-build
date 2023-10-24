@@ -6,6 +6,7 @@ import { GetStaticPropsContext } from 'next'
 import { QueryOpts } from 'next-drupal-query'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
 import {
+  isLovellChildVariantResource,
   isLovellTricareResource,
   isLovellVaResource,
 } from '@/lib/drupal/lovell/utils'
@@ -88,31 +89,39 @@ async function getListingPageStaticPathResourcesWithPagingData(
 
   return Promise.all(
     listingPageStaticPathResources.map(async (resource) => {
-      const { totalItems: itemCount, totalPages: pageCount } =
-        await getListingPageCounts(resource, listingResourceType)
+      const { totalItems, totalPages } = await getListingPageCounts(
+        resource,
+        listingResourceType
+      )
 
-      // If this is a Lovell (TRICARE or VA) listing page,
+      if (!isLovellChildVariantResource(resource)) {
+        return {
+          ...resource,
+          paging: {
+            totalPages,
+          },
+        }
+      }
+
+      // For Lovell (TRICARE or VA) listing pages,
       // we need to merge in Federal page items to calculate
       // totalItems and, ultimately, totalPages
-      const { totalItems: lovellFederalItemCount } =
-        isLovellTricareResource(resource) || isLovellVaResource(resource)
-          ? await getListingPageCounts(
-              getLovellVariantOfStaticPathResource(
-                resource,
-                LOVELL.federal.variant
-              ),
-              listingResourceType
-            )
-          : {
-              totalItems: 0,
-            }
-
-      const totalItems = itemCount + lovellFederalItemCount
+      const { totalItems: totalLovellFederalItems } =
+        await getListingPageCounts(
+          getLovellVariantOfStaticPathResource(
+            resource,
+            LOVELL.federal.variant
+          ),
+          listingResourceType
+        )
 
       return {
         ...resource,
         paging: {
-          totalPages: Math.ceil(totalItems / PAGE_SIZES[listingResourceType]),
+          totalPages: Math.ceil(
+            (totalItems + totalLovellFederalItems) /
+              PAGE_SIZES[listingResourceType]
+          ),
         },
       }
     })
