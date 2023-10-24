@@ -84,7 +84,7 @@ export function getLovellChildVariantOfResource(
   }
 }
 
-export async function getLovellListingPageStaticPropsResource(
+async function getLovellListingPageStaticPropsResource(
   resourceType: ListingResourceTypeType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
