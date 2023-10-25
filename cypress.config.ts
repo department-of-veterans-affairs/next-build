@@ -2,16 +2,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'cypress'
 import fetch from 'cross-fetch'
-import './scripts/env-handler'
+
+require('./scripts/env-handler')
 
 export default defineConfig({
   env: {
     failSilently: false,
   },
-  screenshotsFolder: 'cypress/screenshots/actual',
+  // put these in the docroot so they are accessible on tugboat
+  screenshotsFolder: 'out/cypress/screenshots/actual',
   trashAssetsBeforeRuns: true,
   videoCompression: false,
-  videosFolder: 'cypress/videos',
+  videosFolder: 'out/cypress/videos',
   viewportHeight: 900,
   // these two below are for a11y tests in chromium
   numTestsKeptInMemory: 25,
@@ -31,7 +33,7 @@ export default defineConfig({
   e2e: {
     // todo: env handling for local vs CI
     // 8001 is the port from `yarn export` && `yarn export:serve`
-    baseUrl: process.env.SITE_URL || 'https://localhost:8001',
+    baseUrl: process.env.SITE_URL,
     setupNodeEvents(on, config) {
       // implement node event listeners here
       on('task', {
