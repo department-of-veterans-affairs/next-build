@@ -92,7 +92,7 @@ services:
         - yarn storybook:build
 
         # Run cypress tests.
-        - SITE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress || true
+        - CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress || true
 
         # Set cypress tests as completed. Add pass/fail handling once tests are working properly.
         - github-status-updater -action=update_state -state="success" -context="test:cypress" -description="Cypress tests completed" -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
