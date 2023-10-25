@@ -5,6 +5,7 @@ import {
 } from '@/types/dataTypes/drupal/node'
 import { PathAlias } from 'next-drupal'
 import { LovellChildVariant } from '@/lib/drupal/lovell'
+import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 export interface PublishedEntity {
   id: string
   type: string
@@ -91,6 +92,7 @@ export type NewsStoryType = PublishedEntity & {
   entityId: number
   entityPath: string
   administration: Administration
+  breadcrumbs?: BreadcrumbItem[]
 }
 
 export type NewsStoryTeaserType = PublishedEntity & {
@@ -145,6 +147,7 @@ export type StoryListingType = PublishedEntity & {
   totalPages: number
   entityId: number
   entityPath: string
+  breadcrumbs?: BreadcrumbItem[]
 }
 
 export type StoryListingLinkType = {
