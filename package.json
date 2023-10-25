@@ -17,7 +17,7 @@
     "test": "APP_ENV=test jest",
     "test:ci": "APP_ENV=test jest --ci --coverage",
     "test:coverage": "RUST_BACKTRACE=1 APP_ENV=test jest --coverage",
-    "test:cypress": "APP_ENV=test cypress run --spec \"cypress/e2e/**/*,!cypress/e2e/examples/**/*,!cypress/e2e/a11y.cy.js\" --browser chrome",
+    "test:cypress": "APP_ENV=test cypress run --spec \"cypress/e2e/**/*,!cypress/e2e/examples/**/*,!cypress/e2e/a11y.cy.js\"",
     "test:cypress:interactive": "APP_ENV=test cypress open",
     "test:cypress:a11y": "APP_ENV=test cypress run --spec \"cypress/e2e/a11y.cy.js\"",
     "test:cypress:examples": "APP_ENV=test cypress run --spec \"cypress/e2e/examples/**/*\"",
