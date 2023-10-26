@@ -68,14 +68,6 @@ export interface FieldAdministration {
 /**
  * Types for breadcrumb data
  */
-export interface Breadcrumb {
-  url: {
-    path: string
-    routed: boolean
-  }
-  text: string
-}
-
 export interface BreadcrumbItem {
   uri: string
   title: string
