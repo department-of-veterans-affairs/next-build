@@ -64,3 +64,20 @@ export interface FieldAdministration {
   drupal_internal__tid: number
   name: string
 }
+
+/**
+ * Types for breadcrumb data
+ */
+export interface BreadcrumbItem {
+  uri: string
+  title: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options: any[]
+}
+
+export interface BreadCrumbLink {
+  href: string
+  label: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options?: any[]
+}

@@ -18,6 +18,7 @@ import {
   getExpandedStaticPropsContext,
   getStaticPropsResource,
 } from '@/lib/drupal/staticProps'
+import Breadcrumbs from '@/templates/common/breadcrumbs'
 
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
@@ -51,6 +52,11 @@ export default function ResourcePage({
         {/* todo: do all meta tags correctly, currently this fixes an error on news story */}
         <meta property="og:url" content="foo" />
       </Head>
+      <Breadcrumbs
+        breadcrumbs={resource.breadcrumbs}
+        entityPath={resource.entityPath}
+        hideHomeBreadcrumb
+      />
       <main>
         <div id="content" className="interior">
           {resource.type === RESOURCE_TYPES.STORY_LISTING && (

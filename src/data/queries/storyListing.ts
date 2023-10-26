@@ -108,6 +108,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
 
   return {
     id: entity.id,
+    breadcrumbs: entity.breadcrumbs,
     entityId: entity.drupal_internal__nid,
     entityPath: entity.path.alias,
     type: entity.type,
