@@ -4,6 +4,10 @@ import { StoryListingType } from '@/types/index'
 
 let storyListingProps: StoryListingType = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
+  breadcrumbs: [
+    { title: 'Home', uri: '/', options: [] },
+    { title: 'News', uri: '/news', options: [] },
+  ],
   title: 'Stories',
   entityId: 1234,
   entityPath: 'sample/path/url',

@@ -23,6 +23,10 @@ const mediaImage: MediaImageType = {
 const data = {
   id: 'a1b2c3',
   published: true,
+  breadcrumbs: [
+    { title: 'Home', uri: '/', options: [] },
+    { title: 'News', uri: '/news', options: [] },
+  ],
   type: 'node--news_story',
   title: 'We honor outstanding doctors\n',
   entityId: 1234,
