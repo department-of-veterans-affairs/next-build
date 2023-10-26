@@ -3,7 +3,7 @@ import {
   deriveLastBreadcrumbFromPath,
   deriveLcBreadcrumbs,
   filterInvalidCrumbs,
-} from '@/templates/globals/util/breadcrumbUtils'
+} from '@/lib/utils/breadcrumbUtils'
 import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
 interface BreadcrumbProps {
@@ -13,7 +13,7 @@ interface BreadcrumbProps {
   deriveBreadcrumbsFromUrl?: boolean
   replaceLastItem?: boolean
   constructLcBreadcrumbs?: boolean
-  titleInclude?: boolean
+  lcBreadcrumbsTitleInclude?: boolean
   hideHomeBreadcrumb?: boolean
   customCrumbHomeText?: string
   entityPath?: string
@@ -26,23 +26,21 @@ const Breadcrumbs = ({
   deriveBreadcrumbsFromUrl,
   replaceLastItem,
   constructLcBreadcrumbs,
-  titleInclude,
+  lcBreadcrumbsTitleInclude,
   hideHomeBreadcrumb,
   customCrumbHomeText,
 }: BreadcrumbProps) => {
   if (!breadcrumbs) return null
 
-  if (hideHomeBreadcrumb) {
-    if (customCrumbHomeText) {
-      breadcrumbs = breadcrumbs.map((crumb) => {
-        if (crumb.title === 'Home') {
-          return { ...crumb, title: customCrumbHomeText }
-        }
-        return crumb
-      })
-    } else {
-      breadcrumbs = breadcrumbs.filter((crumb) => crumb.title !== 'Home')
-    }
+  if (customCrumbHomeText) {
+    breadcrumbs = breadcrumbs.map((crumb) => {
+      if (crumb.title === 'Home') {
+        return { ...crumb, title: customCrumbHomeText }
+      }
+      return crumb
+    })
+  } else if (hideHomeBreadcrumb) {
+    breadcrumbs = breadcrumbs.filter((crumb) => crumb.title !== 'Home')
   }
 
   if (deriveBreadcrumbsFromUrl) {
@@ -59,7 +57,7 @@ const Breadcrumbs = ({
       breadcrumbs,
       breadcrumbTitle,
       entityPath,
-      titleInclude
+      lcBreadcrumbsTitleInclude
     )
   }
 
@@ -67,21 +65,19 @@ const Breadcrumbs = ({
   const filteredCrumbs = filterInvalidCrumbs(breadcrumbList)
 
   return (
-    <div>
-      <va-breadcrumbs
-        disable-analytics={disableAnalytics}
-        class="hydrated va-nav-breadcrumbs"
-        wrapping={false}
-      >
-        {filteredCrumbs.map((crumb, index) => {
-          return (
-            <a key={index} href={crumb.href}>
-              {crumb.label}
-            </a>
-          )
-        })}
-      </va-breadcrumbs>
-    </div>
+    <va-breadcrumbs
+      disable-analytics={disableAnalytics}
+      class="hydrated va-nav-breadcrumbs"
+      wrapping={false}
+    >
+      {filteredCrumbs.map((crumb, index) => {
+        return (
+          <a key={index} href={crumb.href}>
+            {crumb.label}
+          </a>
+        )
+      })}
+    </va-breadcrumbs>
   )
 }
 

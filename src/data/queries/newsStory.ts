@@ -61,7 +61,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
     introText: entity.field_intro_text,
     bodyContent: entity.field_full_story,
     date: entity.created,
-    breadcrumbs: entity.breadcrumbs || null,
+    breadcrumbs: entity.breadcrumbs,
     socialLinks: {
       path: entity.path.alias,
       title: entity.title,

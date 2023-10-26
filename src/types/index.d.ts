@@ -92,7 +92,7 @@ export type NewsStoryType = PublishedEntity & {
   entityId: number
   entityPath: string
   administration: Administration
-  breadcrumbs?: BreadcrumbItem[]
+  breadcrumbs: BreadcrumbItem[]
 }
 
 export type NewsStoryTeaserType = PublishedEntity & {
@@ -147,7 +147,7 @@ export type StoryListingType = PublishedEntity & {
   totalPages: number
   entityId: number
   entityPath: string
-  breadcrumbs?: BreadcrumbItem[]
+  breadcrumbs: BreadcrumbItem[]
 }
 
 export type StoryListingLinkType = {

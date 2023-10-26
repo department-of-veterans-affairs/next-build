@@ -55,7 +55,7 @@ describe('breadcrumbUtils', () => {
       ])
     })
 
-    it('should include the title when titleInclude is true', () => {
+    it('should include the title when lcBreadcrumbsTitleInclude is true', () => {
       const input: BreadcrumbItem[] = [
         { uri: '/test1', title: 'Test1', options: [] },
       ]
@@ -83,19 +83,19 @@ describe('breadcrumbUtils', () => {
   })
 
   describe('filterInvalidCrumbs', () => {
-    it('should exclude crumbs with a url of "internal:#" unless it\'s the last crumb', () => {
+    it("should exclude crumbs with an empty href unless it's the last crumb", () => {
       const input = [
         { href: '/test1', label: 'Test1' },
-        { href: 'internal:#', label: 'Invalid1' },
+        { href: '', label: 'Empty1' },
         { href: '/test2', label: 'Test2' },
-        { href: 'internal:#', label: 'Invalid2' },
+        { href: '', label: 'Empty2' },
       ]
 
       const result = filterInvalidCrumbs(input)
       expect(result).toEqual([
         { href: '/test1', label: 'Test1' },
         { href: '/test2', label: 'Test2' },
-        { href: 'internal:#', label: 'Invalid2' },
+        { href: '', label: 'Empty2' },
       ])
     })
   })

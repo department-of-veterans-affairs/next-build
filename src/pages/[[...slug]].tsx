@@ -55,7 +55,7 @@ export default function ResourcePage({
       <Breadcrumbs
         breadcrumbs={resource.breadcrumbs}
         entityPath={resource.entityPath}
-        hideHomeBreadcrumb={true}
+        hideHomeBreadcrumb
       />
       <main>
         <div id="content" className="interior">

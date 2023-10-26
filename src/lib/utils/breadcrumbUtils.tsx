@@ -26,7 +26,7 @@ export function deriveLcBreadcrumbs(
   breadcrumbs: BreadcrumbItem[],
   breadcrumbTitle: string,
   currentPath: string,
-  titleInclude?: boolean
+  lcBreadcrumbsTitleInclude?: boolean
 ): BreadcrumbItem[] {
   const filteredCrumbs: BreadcrumbItem[] = breadcrumbs.filter(
     (crumb) => crumb.uri !== '/resources'
@@ -38,7 +38,7 @@ export function deriveLcBreadcrumbs(
     options: [],
   })
 
-  if (titleInclude) {
+  if (lcBreadcrumbsTitleInclude) {
     filteredCrumbs.push({
       uri: currentPath,
       title: breadcrumbTitle,
@@ -50,17 +50,20 @@ export function deriveLcBreadcrumbs(
 }
 
 export function transformBreadcrumbs(breadcrumbs) {
-  const transformedCrumbs = breadcrumbs.map((crumb) => ({
-    href: crumb.uri,
-    label: crumb.title,
-    options: crumb.options,
-  }))
+  const transformedCrumbs = breadcrumbs.map((crumb) => {
+    const pathname = new URL(crumb.uri, 'http://va.gov').pathname
+    return {
+      href: pathname,
+      label: crumb.title,
+      options: crumb.options,
+    }
+  })
 
   return transformedCrumbs
 }
 
 export function filterInvalidCrumbs(crumbs) {
   return crumbs.filter((crumb, index, arr) => {
-    return crumb.href !== 'internal:#' || index === arr.length - 1
+    return crumb.href !== '' || index === arr.length - 1
   })
 }
