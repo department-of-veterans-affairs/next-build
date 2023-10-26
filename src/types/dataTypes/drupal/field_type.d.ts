@@ -79,5 +79,5 @@ export interface BreadCrumbLink {
   href: string
   label: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  options: any[]
+  options?: any[]
 }

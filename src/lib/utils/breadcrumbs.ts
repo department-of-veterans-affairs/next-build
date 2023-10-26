@@ -1,4 +1,7 @@
-import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
+import {
+  BreadcrumbItem,
+  BreadCrumbLink,
+} from '@/types/dataTypes/drupal/field_type'
 
 export function deriveLastBreadcrumbFromPath(
   breadcrumbs: BreadcrumbItem[],
@@ -53,7 +56,7 @@ function getRelativePathFromURL(uri) {
   return new URL(uri, 'http://va.gov').pathname
 }
 
-export function transformBreadcrumbs(breadcrumbs) {
+export function transformBreadcrumbs(breadcrumbs: BreadcrumbItem[]) {
   return breadcrumbs.map((crumb) => ({
     href: getRelativePathFromURL(crumb.uri),
     label: crumb.title,
@@ -62,7 +65,9 @@ export function transformBreadcrumbs(breadcrumbs) {
 }
 
 // Filters out breadcrumbs with no relavant href, excluding the last which would represent the current page
-export function filterInvalidCrumbs(crumbs) {
+export function filterInvalidCrumbs(
+  crumbs: BreadCrumbLink[]
+): BreadCrumbLink[] {
   return crumbs.filter((crumb, index, arr) => {
     return crumb.href !== '' || index === arr.length - 1
   })

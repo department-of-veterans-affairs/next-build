@@ -64,7 +64,7 @@ const Breadcrumbs = ({
     )
   }
 
-  const breadcrumbList: BreadcrumbItem[] = transformBreadcrumbs(breadcrumbs)
+  const breadcrumbList: BreadCrumbLink[] = transformBreadcrumbs(breadcrumbs)
   const filteredCrumbs: BreadCrumbLink[] = filterInvalidCrumbs(breadcrumbList)
 
   return (
