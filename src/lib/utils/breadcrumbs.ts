@@ -49,19 +49,19 @@ export function deriveLcBreadcrumbs(
   return filteredCrumbs
 }
 
-export function transformBreadcrumbs(breadcrumbs) {
-  const transformedCrumbs = breadcrumbs.map((crumb) => {
-    const pathname = new URL(crumb.uri, 'http://va.gov').pathname
-    return {
-      href: pathname,
-      label: crumb.title,
-      options: crumb.options,
-    }
-  })
-
-  return transformedCrumbs
+function getRelativePathFromURL(uri) {
+  return new URL(uri, 'http://va.gov').pathname
 }
 
+export function transformBreadcrumbs(breadcrumbs) {
+  return breadcrumbs.map((crumb) => ({
+    href: getRelativePathFromURL(crumb.uri),
+    label: crumb.title,
+    options: crumb.options,
+  }))
+}
+
+// Filters out breadcrumbs with no relavant href, excluding the last which would represent the current page
 export function filterInvalidCrumbs(crumbs) {
   return crumbs.filter((crumb, index, arr) => {
     return crumb.href !== '' || index === arr.length - 1

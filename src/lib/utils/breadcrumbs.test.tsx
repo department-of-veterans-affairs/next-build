@@ -3,7 +3,7 @@ import {
   deriveLcBreadcrumbs,
   transformBreadcrumbs,
   filterInvalidCrumbs,
-} from './breadcrumbUtils'
+} from './breadcrumbs'
 import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
 describe('breadcrumbUtils', () => {

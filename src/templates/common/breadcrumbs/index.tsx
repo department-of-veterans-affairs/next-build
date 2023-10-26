@@ -3,8 +3,11 @@ import {
   deriveLastBreadcrumbFromPath,
   deriveLcBreadcrumbs,
   filterInvalidCrumbs,
-} from '@/lib/utils/breadcrumbUtils'
-import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
+} from '@/lib/utils/breadcrumbs'
+import {
+  BreadcrumbItem,
+  BreadCrumbLink,
+} from '@/types/dataTypes/drupal/field_type'
 
 interface BreadcrumbProps {
   breadcrumbs?: BreadcrumbItem[]
@@ -61,8 +64,8 @@ const Breadcrumbs = ({
     )
   }
 
-  const breadcrumbList = transformBreadcrumbs(breadcrumbs)
-  const filteredCrumbs = filterInvalidCrumbs(breadcrumbList)
+  const breadcrumbList: BreadcrumbItem[] = transformBreadcrumbs(breadcrumbs)
+  const filteredCrumbs: BreadCrumbLink[] = filterInvalidCrumbs(breadcrumbList)
 
   return (
     <va-breadcrumbs
@@ -79,12 +82,6 @@ const Breadcrumbs = ({
       })}
     </va-breadcrumbs>
   )
-}
-
-Breadcrumbs.defaultProps = {
-  label: 'Breadcrumbs',
-  uswds: true,
-  string: '',
 }
 
 export default Breadcrumbs
