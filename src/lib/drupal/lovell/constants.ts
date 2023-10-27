@@ -2,6 +2,7 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 export const LOVELL = {
   federal: {
+    title: 'Lovell Federal health care',
     administration: {
       id: 347,
       name: 'Lovell Federal health care',
@@ -10,6 +11,7 @@ export const LOVELL = {
     variant: 'federal',
   },
   tricare: {
+    title: 'Lovell Federal health care - TRICARE',
     administration: {
       id: 1039,
       name: 'Lovell - TRICARE',
@@ -18,6 +20,7 @@ export const LOVELL = {
     variant: 'tricare',
   },
   va: {
+    title: 'Lovell Federal health care - VA',
     administration: {
       id: 1040,
       name: 'Lovell - VA',

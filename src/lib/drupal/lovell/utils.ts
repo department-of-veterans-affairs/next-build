@@ -138,6 +138,73 @@ export function getLovellVariantOfUrl(
   )
 }
 
+/**
+ * Replaces Lovell title string according to `variant`.
+ * Returns original string if no Lovell match found.
+ * E.g.
+ *   Input:
+ *     title: `Lovell Federal health care`
+ *     variant: `va`
+ *   Output: `Lovell Federal health care - VA`
+ */
+export function getLovellVariantOfTitle(
+  title: string,
+  variant: LovellVariant
+): string {
+  return title.replace(
+    // Note: Lovell Federal title must be listed
+    // last since it's a substring of the others and
+    // we don't want to prematurely match
+    new RegExp(
+      [LOVELL.tricare.title, LOVELL.va.title, LOVELL.federal.title].join('|')
+    ),
+    LOVELL[variant].title
+  )
+}
+
+/**
+ * Updates breadcrumb entries according to `variant`.
+ * Non-Lovell entries are unchanged. Lovell entries
+ * have title and uri updated.
+ * E.g.
+ *   Input:
+ *     breacrumbs: [
+ *       {
+ *         uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
+ *         title: 'Home',
+ *         options: [],
+ *       },
+ *       {
+ *         uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care',
+ *         title: 'Lovell Federal health care',
+ *         options: [],
+ *       },
+ *     ],
+ *     variant: `va`
+ *   Output: [
+ *     {
+ *        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
+ *        title: 'Home',
+ *        options: [],
+ *      },
+ *      {
+ *        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care-va',
+ *        title: 'Lovell Federal health care - VA',
+ *        options: [],
+ *      },
+ *   ]
+ */
+export function getLovellVariantOfBreadcrumbs(
+  breadcrumbs: BreadcrumbItem[],
+  variant: LovellVariant
+): BreadcrumbItem[] {
+  return breadcrumbs.map((breadcrumb) => ({
+    ...breadcrumb,
+    title: getLovellVariantOfTitle(breadcrumb.title, variant),
+    uri: getLovellVariantOfUrl(breadcrumb.uri, variant),
+  }))
+}
+
 export function isLovellBifurcatedResource(
   resource: FormattedResource
 ): boolean {

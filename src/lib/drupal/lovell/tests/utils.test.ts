@@ -17,6 +17,8 @@ import {
   getOppositeChildVariant,
   isLovellBifurcatedResource,
   getLovellVariantOfUrl,
+  getLovellVariantOfTitle,
+  getLovellVariantOfBreadcrumbs,
 } from '../utils'
 import {
   lovellTricareSlug,
@@ -305,6 +307,53 @@ describe('getLovellVariantOfUrl', () => {
     expect(result).toBe(
       `${LOVELL.va.pathSegment}/${LOVELL.tricare.pathSegment}`
     )
+  })
+})
+
+describe('getLovellVariantOfTitle', () => {
+  test('should properly convert Lovell title from Federal to child variant', () => {
+    const title = LOVELL.federal.title
+    const result = getLovellVariantOfTitle(title, LOVELL.va.variant)
+    expect(result).toBe(LOVELL.va.title)
+  })
+
+  test('should properly convert Lovell title from child variant to Federal', () => {
+    const title = LOVELL.tricare.title
+    const result = getLovellVariantOfTitle(title, LOVELL.federal.variant)
+    expect(result).toBe(LOVELL.federal.title)
+  })
+
+  test('should leave non-Lovell title unchanged', () => {
+    const title = 'Some non-Lovell title'
+    const result = getLovellVariantOfTitle(title, LOVELL.va.variant)
+    expect(result).toBe(title)
+  })
+})
+
+describe('getLovellVariantOfBreadcrumbs', () => {
+  const breadcrumbs = [
+    {
+      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
+      title: 'Home',
+      options: [],
+    },
+    {
+      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care',
+      title: 'Lovell Federal health care',
+      options: [],
+    },
+  ]
+
+  test('should properly convert breadcrumbs', () => {
+    const result = getLovellVariantOfBreadcrumbs(breadcrumbs, LOVELL.va.variant)
+    expect(result).toStrictEqual([
+      breadcrumbs[0],
+      {
+        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care-va',
+        title: 'Lovell Federal health care - VA',
+        options: [],
+      },
+    ])
   })
 })
 
