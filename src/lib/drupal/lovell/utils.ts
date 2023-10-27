@@ -13,6 +13,7 @@ import { StaticPathResourceType } from '@/types/index'
 import { FormattedResource } from '@/data/queries'
 import { ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
+import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
 export function isLovellResourceType(resourceType: ResourceTypeType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)
@@ -106,22 +107,35 @@ export function getOppositeChildVariant(
 }
 
 /**
- * Replaces first segment (system name) in a path according to `variant`.
+ * Replaces first occurrence of a lovell path segment according to `variant`.
  * E.g.
  * Input:
  *   path: `/lovell-federal-health-care-va/stories/story-title`
  *   variant: `tricare`
  * Output: `/lovell-federal-health-care-tricare/stories/story-title`
+ * Input:
+ *   path: `https://www.va.gov/lovell-federal-health-care-tricare/stories/story-title`
+ *   variant: `va`
+ * Output: `https://www.va.gov/lovell-federal-health-care-va/stories/story-title`
+ *
  */
 export function getLovellVariantOfUrl(
-  path: string,
+  url: string,
   variant: LovellVariant
 ): string {
-  return `/${LOVELL[variant].pathSegment}/${path
-    .split('/')
-    .filter((slug) => slug !== '')
-    .slice(1)
-    .join('/')}`
+  return url.replace(
+    // Note: Lovell Federal path segment must be listed
+    // last since it's a substring of the others and
+    // we don't want to prematurely match
+    new RegExp(
+      [
+        LOVELL.tricare.pathSegment,
+        LOVELL.va.pathSegment,
+        LOVELL.federal.pathSegment,
+      ].join('|')
+    ),
+    LOVELL[variant].pathSegment
+  )
 }
 
 export function isLovellBifurcatedResource(

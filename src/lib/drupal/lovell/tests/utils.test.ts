@@ -16,6 +16,7 @@ import {
   isLovellChildVariantSlug,
   getOppositeChildVariant,
   isLovellBifurcatedResource,
+  getLovellVariantOfUrl,
 } from '../utils'
 import {
   lovellTricareSlug,
@@ -275,6 +276,35 @@ describe('getOppositeChildVariant', () => {
   test('should return TRICARE when VA passed in', () => {
     const result = getOppositeChildVariant(LOVELL.va.variant)
     expect(result).toBe(LOVELL.tricare.variant)
+  })
+})
+
+describe('getLovellVariantOfUrl', () => {
+  test('should properly convert relative url', () => {
+    const url = lovellFederalResource.path.alias
+    const result = getLovellVariantOfUrl(url, LOVELL.tricare.variant)
+    expect(result).toBe(lovellTricareResource.path.alias)
+  })
+
+  test('should properly convert absolute url', () => {
+    const domain = 'https://www.va.gov'
+    const url = `${domain}${lovellFederalResource.path.alias}`
+    const result = getLovellVariantOfUrl(url, LOVELL.va.variant)
+    expect(result).toBe(`${domain}${lovellVaResource.path.alias}`)
+  })
+
+  test('should leave non-Lovell url unchanged', () => {
+    const url = '/some/non-lovell/path'
+    const result = getLovellVariantOfUrl(url, LOVELL.va.variant)
+    expect(result).toBe(url)
+  })
+
+  test('should only replace first occurrence of a lovell path segment', () => {
+    const url = `${LOVELL.tricare.pathSegment}/${LOVELL.tricare.pathSegment}`
+    const result = getLovellVariantOfUrl(url, LOVELL.va.variant)
+    expect(result).toBe(
+      `${LOVELL.va.pathSegment}/${LOVELL.tricare.pathSegment}`
+    )
   })
 })
 
