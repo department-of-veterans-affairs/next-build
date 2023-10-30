@@ -17,7 +17,7 @@ export default defineConfig({
     // `yarn test:cypress`
     runMode: 2,
     // `yarn test:cypress:interactive
-    openMode: 0
+    openMode: 0,
   },
   // these two below are for a11y tests in chromium
   numTestsKeptInMemory: 25,
