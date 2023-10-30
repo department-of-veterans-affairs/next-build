@@ -1,14 +1,17 @@
-import { render, screen, userEvent, waitFor } from 'test-utils'
+import { render, screen, userEvent } from 'test-utils'
+import { act } from 'react-dom/test-utils'
 import FavoritePokemon from '.'
 
 describe('<FavoritePokemon/>', () => {
   test('allows selection from a variety of Pokemon', async () => {
     /*
-    The initial configuration should have a select with three options, the 
+    The initial configuration should have a select with three options, the
     first of which is selected.  Its name should appear in the heading.
     */
     const options = ['Pikachu', 'Squirtle', 'Mr. Mime']
-    render(<FavoritePokemon options={options} />)
+    act(() => {
+      render(<FavoritePokemon options={options} />)
+    })
     /*
     `screen.getByRole()` will throw if it can't find a result and gives us
     informative error messages.
@@ -25,9 +28,12 @@ describe('<FavoritePokemon/>', () => {
 
     // We can fire an event simulating a change in the select...
     let favorite = 'Squirtle'
-    await userEvent.selectOptions(screen.getByLabelText(/favorite pokemon/i), [
-      favorite,
-    ])
+    await act(async () => {
+      await userEvent.selectOptions(
+        screen.getByLabelText(/favorite pokemon/i),
+        [favorite]
+      )
+    })
     expect(screen.getByRole('heading')).toHaveTextContent(favorite)
     expect(screen.getByLabelText(/favorite pokemon/i)).toHaveTextContent(
       favorite
@@ -36,9 +42,13 @@ describe('<FavoritePokemon/>', () => {
 
     // And we can change it back...
     favorite = 'Pikachu'
-    await userEvent.selectOptions(screen.getByLabelText(/favorite pokemon/i), [
-      favorite,
-    ])
+    await act(async () => {
+      await userEvent.selectOptions(
+        screen.getByLabelText(/favorite pokemon/i),
+        [favorite]
+      )
+    })
+
     expect(screen.getByRole('heading')).toHaveTextContent(favorite)
     expect(screen.getByLabelText(/favorite pokemon/i)).toHaveTextContent(
       favorite
@@ -47,9 +57,13 @@ describe('<FavoritePokemon/>', () => {
 
     // And simulate error conditions, however unlikely...
     favorite = 'Mr. Mime'
-    await userEvent.selectOptions(screen.getByLabelText(/favorite pokemon/i), [
-      favorite,
-    ])
+    await act(async () => {
+      await userEvent.selectOptions(
+        screen.getByLabelText(/favorite pokemon/i),
+        [favorite]
+      )
+    })
+
     expect(screen.getByRole('heading')).toHaveTextContent(favorite)
     expect(screen.getByLabelText(/favorite pokemon/i)).toHaveTextContent(
       favorite
