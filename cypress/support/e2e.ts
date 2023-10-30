@@ -28,15 +28,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 beforeEach(() => {
-  beforeEach(() => {
-    cy.intercept('/data/cms/vamc-ehr*', vamcEhr).as('facilityData')
-    cy.intercept('/v0/feature_toggles*', features).as('features')
-    cy.intercept('js-report/api/*', {}).as('sentry')
-    // cy.intercept('/v0/maintenance_windows', {
-    //   data: [],
-    // }).as('maintenanceWindows')
-    // cy.intercept('POST', 'https://www.google-analytics.com/*', {}).as(
-    //   'analytics'
-    // )
-  })
+  cy.intercept('/data/cms/vamc-ehr*', vamcEhr).as('facilityData')
+  cy.intercept('/v0/feature_toggles*', features).as('features')
+  cy.intercept('js-report/api/*', {}).as('sentry')
+  // cy.intercept('/v0/maintenance_windows', {
+  //   data: [],
+  // }).as('maintenanceWindows')
+  // cy.intercept('POST', 'https://www.google-analytics.com/*', {}).as(
+  //   'analytics'
+  // )
 })
