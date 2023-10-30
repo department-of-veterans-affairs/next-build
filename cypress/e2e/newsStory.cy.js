@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { features, vamcEhr } from './../fixtures'
+import { features, vamcEhr } from './mocks'
 context('News Story', () => {
   beforeEach(() => {
     cy.intercept('/data/cms/vamc-ehr*', vamcEhr).as('facilityData')
