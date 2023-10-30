@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import { features, vamcEhr } from './mocks'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -24,4 +25,18 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
   return false
+})
+
+beforeEach(() => {
+  beforeEach(() => {
+    cy.intercept('/data/cms/vamc-ehr*', vamcEhr).as('facilityData')
+    cy.intercept('/v0/feature_toggles*', features).as('features')
+    cy.intercept('js-report/api/*', {}).as('sentry')
+    // cy.intercept('/v0/maintenance_windows', {
+    //   data: [],
+    // }).as('maintenanceWindows')
+    // cy.intercept('POST', 'https://www.google-analytics.com/*', {}).as(
+    //   'analytics'
+    // )
+  })
 })
