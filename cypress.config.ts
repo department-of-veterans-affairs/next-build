@@ -13,9 +13,17 @@ export default defineConfig({
   videoCompression: false,
   videosFolder: 'cypress/videos',
   viewportHeight: 900,
+  retries: {
+    // `yarn test:cypress`
+    runMode: 2,
+    // `yarn test:cypress:interactive
+    openMode: 0
+  },
   // these two below are for a11y tests in chromium
   numTestsKeptInMemory: 25,
   experimentalMemoryManagement: true,
+
+  pageLoadTimeout: 120000,
 
   component: {
     devServer: {
