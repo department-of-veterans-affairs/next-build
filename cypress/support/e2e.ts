@@ -30,7 +30,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 beforeEach(() => {
   cy.intercept('/data/cms/vamc-ehr*', vamcEhr).as('facilityData')
   cy.intercept('/v0/feature_toggles*', features).as('features')
-  cy.intercept('js-report/api/*', {}).as('sentry')
+  cy.intercept('/js-report/api/*', {}).as('sentry')
   // cy.intercept('/v0/maintenance_windows', {
   //   data: [],
   // }).as('maintenanceWindows')
