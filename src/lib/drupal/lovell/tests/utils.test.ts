@@ -16,6 +16,9 @@ import {
   isLovellChildVariantSlug,
   getOppositeChildVariant,
   isLovellBifurcatedResource,
+  getLovellVariantOfUrl,
+  getLovellVariantOfTitle,
+  getLovellVariantOfBreadcrumbs,
 } from '../utils'
 import {
   lovellTricareSlug,
@@ -275,6 +278,82 @@ describe('getOppositeChildVariant', () => {
   test('should return TRICARE when VA passed in', () => {
     const result = getOppositeChildVariant(LOVELL.va.variant)
     expect(result).toBe(LOVELL.tricare.variant)
+  })
+})
+
+describe('getLovellVariantOfUrl', () => {
+  test('should properly convert relative url', () => {
+    const url = lovellFederalResource.path.alias
+    const result = getLovellVariantOfUrl(url, LOVELL.tricare.variant)
+    expect(result).toBe(lovellTricareResource.path.alias)
+  })
+
+  test('should properly convert absolute url', () => {
+    const domain = 'https://www.va.gov'
+    const url = `${domain}${lovellFederalResource.path.alias}`
+    const result = getLovellVariantOfUrl(url, LOVELL.va.variant)
+    expect(result).toBe(`${domain}${lovellVaResource.path.alias}`)
+  })
+
+  test('should leave non-Lovell url unchanged', () => {
+    const url = '/some/non-lovell/path'
+    const result = getLovellVariantOfUrl(url, LOVELL.va.variant)
+    expect(result).toBe(url)
+  })
+
+  test('should only replace first occurrence of a lovell path segment', () => {
+    const url = `${LOVELL.tricare.pathSegment}/${LOVELL.tricare.pathSegment}`
+    const result = getLovellVariantOfUrl(url, LOVELL.va.variant)
+    expect(result).toBe(
+      `${LOVELL.va.pathSegment}/${LOVELL.tricare.pathSegment}`
+    )
+  })
+})
+
+describe('getLovellVariantOfTitle', () => {
+  test('should properly convert Lovell title from Federal to child variant', () => {
+    const title = LOVELL.federal.title
+    const result = getLovellVariantOfTitle(title, LOVELL.va.variant)
+    expect(result).toBe(LOVELL.va.title)
+  })
+
+  test('should properly convert Lovell title from child variant to Federal', () => {
+    const title = LOVELL.tricare.title
+    const result = getLovellVariantOfTitle(title, LOVELL.federal.variant)
+    expect(result).toBe(LOVELL.federal.title)
+  })
+
+  test('should leave non-Lovell title unchanged', () => {
+    const title = 'Some non-Lovell title'
+    const result = getLovellVariantOfTitle(title, LOVELL.va.variant)
+    expect(result).toBe(title)
+  })
+})
+
+describe('getLovellVariantOfBreadcrumbs', () => {
+  const breadcrumbs = [
+    {
+      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
+      title: 'Home',
+      options: [],
+    },
+    {
+      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care',
+      title: 'Lovell Federal health care',
+      options: [],
+    },
+  ]
+
+  test('should properly convert breadcrumbs', () => {
+    const result = getLovellVariantOfBreadcrumbs(breadcrumbs, LOVELL.va.variant)
+    expect(result).toStrictEqual([
+      breadcrumbs[0],
+      {
+        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care-va',
+        title: 'Lovell Federal health care - VA',
+        options: [],
+      },
+    ])
   })
 })
 
