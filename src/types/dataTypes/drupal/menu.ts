@@ -13,6 +13,7 @@ export interface MenuItem {
   expanded: boolean
   enabled: boolean
   items?: Tree
+  field_menu_section?: string
 }
 
 type Tree = ReadonlyArray<MenuItem>

@@ -195,6 +195,7 @@ export type SideNavItem = {
   label: string
   links: SideNavItem[]
   url: { path: string }
+  fieldMenuSection?: string
 }
 
 export type SideNavData = {

@@ -16,6 +16,7 @@ import {
   isLovellChildVariantSlug,
   getOppositeChildVariant,
   isLovellBifurcatedResource,
+  getLovellVariantOfMenu,
 } from '../utils'
 import {
   lovellTricareSlug,
@@ -26,6 +27,7 @@ import {
   lovellVaResource,
   otherResource,
   newsStoryPartialResource,
+  lovellSidenavData,
 } from './mockData'
 
 describe('isLovellResourceType', () => {
@@ -317,5 +319,61 @@ describe('isLovellBifurcatedResource', () => {
     }
     const result = isLovellBifurcatedResource(someOtherResource)
     expect(result).toBe(false)
+  })
+})
+
+describe('getLovellVariantOfMenu', () => {
+  it('should filter out menus with non-matching fieldMenuSection', () => {
+    const result = getLovellVariantOfMenu(lovellSidenavData, 'va')
+
+    // Check if the TRICARE specific items are filtered out
+    expect(
+      result.data.links[0].links[1].links.find(
+        (link) => link.fieldMenuSection === 'tricare'
+      )
+    ).toBeUndefined()
+  })
+
+  it('should not filter out menus with fieldMenuSection set to "both"', () => {
+    const result = getLovellVariantOfMenu(lovellSidenavData, 'va')
+
+    // Check if items with fieldMenuSection set to "both" are still there
+    expect(result.data.links[0].fieldMenuSection).toEqual('both')
+    expect(result.data.links[0].links[0].fieldMenuSection).toEqual('both')
+  })
+
+  it('should keep VA specific items when variant is "va"', () => {
+    const result = getLovellVariantOfMenu(lovellSidenavData, 'va')
+
+    // Check if VA specific items are still there
+    expect(result.data.links[0].links[0].links[0].fieldMenuSection).toEqual(
+      'va'
+    )
+
+    // Assert against the 'Locations' sub-submenu item
+    expect(result.data.links[0].links[0].links[1].label).toEqual('Locations')
+    expect(result.data.links[0].links[0].links[1].fieldMenuSection).toEqual(
+      'va'
+    )
+  })
+
+  it('should filter out VA specific items when variant is "tricare"', () => {
+    const result = getLovellVariantOfMenu(lovellSidenavData, 'tricare')
+
+    // Check if VA specific items are filtered out
+    expect(
+      result.data.links[0].links[0].links.find(
+        (link) => link.fieldMenuSection === 'va'
+      )
+    ).toBeUndefined()
+  })
+
+  it('should keep TRICARE specific items when variant is "tricare"', () => {
+    const result = getLovellVariantOfMenu(lovellSidenavData, 'tricare')
+
+    // Check if TRICARE specific items are still there
+    expect(result.data.links[0].links[0].links[1].fieldMenuSection).toEqual(
+      'tricare'
+    )
   })
 })

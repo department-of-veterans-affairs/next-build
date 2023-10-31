@@ -133,3 +133,34 @@ export function isLovellBifurcatedResource(
     isLovellFederalResource(resource as LovellBifurcatedFormattedResource)
   )
 }
+
+export function getLovellVariantOfMenu(menu, variant: LovellVariant) {
+  if (!menu || typeof menu !== 'object') return menu
+
+  // Check if the object has the fieldMenuSection and it doesn't match the variant or is 'both'
+  if (
+    menu.fieldMenuSection &&
+    menu.fieldMenuSection !== variant &&
+    menu.fieldMenuSection !== 'both'
+  ) {
+    return null
+  }
+
+  // Filter arrays
+  if (Array.isArray(menu)) {
+    return menu
+      .map((item) => getLovellVariantOfMenu(item, variant))
+      .filter((item) => item !== null)
+  }
+
+  // Filter objects
+  const newData = {}
+  for (const key in menu) {
+    const filteredData = getLovellVariantOfMenu(menu[key], variant)
+    if (filteredData !== null) {
+      newData[key] = filteredData
+    }
+  }
+
+  return newData
+}
