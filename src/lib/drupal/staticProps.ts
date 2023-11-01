@@ -86,6 +86,7 @@ export function getStaticPropsQueryOpts(
   if (resourceType === RESOURCE_TYPES.STORY) {
     return {
       id,
+      context: context.preview ? context : null,
     }
   }
 

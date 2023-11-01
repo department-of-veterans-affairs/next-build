@@ -105,9 +105,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     const expandedContext = getExpandedStaticPropsContext(context)
 
     // Now that we have a path, translate for resource endpoint
-    const pathInfo = await drupalClient.translatePath(
-      expandedContext.drupalPath
-    )
+    // need to use translatePathFromContext here for previewing unpublished revisions
+    const pathInfo =
+      expandedContext.listing.isListingPage === false
+        ? await drupalClient.translatePathFromContext(expandedContext)
+        : await drupalClient.translatePath(expandedContext.drupalPath)
+
     if (!pathInfo) {
       return {
         notFound: true,
@@ -130,7 +133,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
-    if (!context.preview && resource?.published === false) {
+    if (!context.preview && !resource?.published) {
       return {
         notFound: true,
       }
@@ -145,6 +148,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
       props: {
+        preview: context.preview || false,
         resource,
         bannerData,
         headerFooterData,

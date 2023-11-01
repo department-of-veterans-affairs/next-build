@@ -8,6 +8,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStoryType } from '@/types/index'
+import { GetServerSidePropsContext } from 'next'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -25,19 +26,30 @@ export const params: QueryParams<null> = () => {
 // Define the option types for the data loader.
 export type NewsStoryDataOpts = QueryOpts<{
   id: string
+  context?: GetServerSidePropsContext
 }>
 
 // Implement the data loader.
 export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
   opts
 ): Promise<NodeNewsStory> => {
-  const entity = await drupalClient.getResource<NodeNewsStory>(
-    'node--news_story',
-    opts?.id,
-    {
-      params: params().getQueryObject(),
-    }
-  )
+  const entity = opts.context.preview
+    ? // need to use getResourceFromContext for unpublished revisions
+      await drupalClient.getResourceFromContext<NodeNewsStory>(
+        'node--news_story',
+        opts.context,
+        {
+          params: params().getQueryObject(),
+        }
+      )
+    : // otherwise just lookup by uuid
+      await drupalClient.getResource<NodeNewsStory>(
+        'node--news_story',
+        opts.id,
+        {
+          params: params().getQueryObject(),
+        }
+      )
 
   return entity
 }
