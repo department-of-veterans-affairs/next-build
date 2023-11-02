@@ -41,7 +41,7 @@ type StoryListingData = {
 export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
   opts
 ) => {
-  const entity = opts.context.preview
+  const entity = opts?.context?.preview
     ? // need to use getResourceFromContext for unpublished revisions
       await drupalClient.getResourceFromContext<NodeStoryListing>(
         'node--story_listing',

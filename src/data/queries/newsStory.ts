@@ -33,7 +33,7 @@ export type NewsStoryDataOpts = QueryOpts<{
 export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
   opts
 ): Promise<NodeNewsStory> => {
-  const entity = opts.context.preview
+  const entity = opts?.context?.preview
     ? // need to use getResourceFromContext for unpublished revisions
       await drupalClient.getResourceFromContext<NodeNewsStory>(
         'node--news_story',
