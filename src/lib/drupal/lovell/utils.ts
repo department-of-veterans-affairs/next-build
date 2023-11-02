@@ -13,6 +13,7 @@ import { StaticPathResourceType } from '@/types/index'
 import { FormattedResource } from '@/data/queries'
 import { ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
+import { SideNavItem, SideNavMenu } from '@/types/index'
 
 export function isLovellResourceType(resourceType: ResourceTypeType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)
@@ -134,33 +135,42 @@ export function isLovellBifurcatedResource(
   )
 }
 
-export function getLovellVariantOfMenu(menu, variant: LovellVariant) {
-  if (!menu || typeof menu !== 'object') return menu
-
-  // Check if the object has the fieldMenuSection and it doesn't match the variant or is 'both'
-  if (
-    menu.fieldMenuSection &&
-    menu.fieldMenuSection !== variant &&
-    menu.fieldMenuSection !== 'both'
-  ) {
-    return null
+// This filters out two lovell-specific menu items that aren't used in side navs.
+function processLovellMenuData(menu: SideNavMenu) {
+  if (menu && menu.data && menu.data.links) {
+    menu.data.links = menu.data.links.filter(
+      (link) => link.links && link.links.length > 0
+    )
   }
+  return menu
+}
 
-  // Filter arrays
-  if (Array.isArray(menu)) {
-    return menu
-      .map((item) => getLovellVariantOfMenu(item, variant))
-      .filter((item) => item !== null)
+export function getLovellVariantOfMenu(
+  menu: SideNavMenu,
+  variant: LovellVariant
+) {
+  menu = processLovellMenuData(menu)
+  // Pass only the 'links' property to filterMenu.
+  const filteredLinks = filterMenu(menu.data.links, variant)
+  return {
+    ...menu,
+    data: {
+      ...menu.data,
+      links: filteredLinks,
+    },
   }
+}
 
-  // Filter objects
-  const newData = {}
-  for (const key in menu) {
-    const filteredData = getLovellVariantOfMenu(menu[key], variant)
-    if (filteredData !== null) {
-      newData[key] = filteredData
-    }
-  }
-
-  return newData
+// Recursive function to filter out links based on current Lovell Variant
+function filterMenu(links: SideNavItem[], variant: LovellVariant) {
+  return links
+    .filter(
+      (menuItem) =>
+        menuItem.fieldMenuSection === variant ||
+        menuItem.fieldMenuSection === 'both'
+    )
+    .map((menuItem) => ({
+      ...menuItem,
+      links: menuItem.links ? filterMenu(menuItem.links, variant) : undefined,
+    }))
 }

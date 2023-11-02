@@ -22,11 +22,10 @@ const normalizeMenuData = (menu: Menu): SideNavData => {
   // Bail early if no tree is provided
   if (!menu.tree || menu.tree.length === 0) return null
 
-  let links = []
+  const links = []
   menu.tree.forEach((item) => {
     return links.push(normalizeMenuItem(item))
   })
-  links = links.filter((link) => link.links.length > 0)
   return {
     name: menu.tree[0].title,
     description: menu.tree[0].description,
