@@ -2,7 +2,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { QUERIES_MAP, queries } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { StaticPathResourceType } from '@/types/index'
-import { GetStaticPropsContext } from 'next'
+import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
 import { QueryOpts } from 'next-drupal-query'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
 import { isLovellChildVariantResource } from '@/lib/drupal/lovell/utils'
@@ -30,6 +30,7 @@ export type ListingPageDataOpts = QueryOpts<{
   id: string
   page?: number
   lovell?: LovellStaticPropsContextProps
+  context?: GetServerSidePropsContext
 }>
 
 type ListingPageCounts = {

@@ -32,6 +32,7 @@ export default function ResourcePage({
   resource,
   bannerData,
   headerFooterData,
+  preview,
 }) {
   if (!resource) return null
 
@@ -52,6 +53,23 @@ export default function ResourcePage({
         {/* todo: do all meta tags correctly, currently this fixes an error on news story */}
         <meta property="og:url" content="foo" />
       </Head>
+
+      {preview && (
+        <div className="usa-grid-full">
+          <div className="usa-width-one-whole">
+            <div className="vads-u-margin-top--2">
+              <a
+                data-same-tab=""
+                href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/${resource?.entityId}/edit`}
+              >
+                « Edit this page in the CMS (requires a CMS account with
+                appropriate permissions)
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Breadcrumbs
         breadcrumbs={resource.breadcrumbs}
         entityPath={resource.entityPath}
@@ -105,11 +123,13 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     const expandedContext = getExpandedStaticPropsContext(context)
 
     // Now that we have a path, translate for resource endpoint
-    // need to use translatePathFromContext here for previewing unpublished revisions
-    const pathInfo =
-      expandedContext.listing.isListingPage === false
-        ? await drupalClient.translatePathFromContext(expandedContext)
-        : await drupalClient.translatePath(expandedContext.drupalPath)
+    let pathInfo
+    // need to use translatePathFromContext for previewing unpublished revisions
+    if (expandedContext.preview) {
+      pathInfo = await drupalClient.translatePathFromContext(expandedContext)
+    } else {
+      pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
+    }
 
     if (!pathInfo) {
       return {
@@ -133,7 +153,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
-    if (!context.preview && !resource?.published) {
+    if (!expandedContext.preview && !resource?.published) {
       return {
         notFound: true,
       }
@@ -148,7 +168,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     return {
       props: {
-        preview: context.preview || false,
+        preview: expandedContext.preview || false,
         resource,
         bannerData,
         headerFooterData,

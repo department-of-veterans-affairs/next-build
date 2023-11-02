@@ -41,13 +41,23 @@ type StoryListingData = {
 export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
   opts
 ) => {
-  const entity = await drupalClient.getResource<NodeStoryListing>(
-    'node--story_listing',
-    opts?.id,
-    {
-      params: params().getQueryObject(),
-    }
-  )
+  const entity = opts.context.preview
+    ? // need to use getResourceFromContext for unpublished revisions
+      await drupalClient.getResourceFromContext<NodeStoryListing>(
+        'node--story_listing',
+        opts.context,
+        {
+          params: params().getQueryObject(),
+        }
+      )
+    : // otherwise just lookup by uuid
+      await drupalClient.getResource<NodeStoryListing>(
+        'node--story_listing',
+        opts.id,
+        {
+          params: params().getQueryObject(),
+        }
+      )
 
   // Fetch list of stories related to this listing
   const {
