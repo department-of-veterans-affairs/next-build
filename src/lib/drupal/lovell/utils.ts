@@ -166,8 +166,7 @@ function filterMenu(links: SideNavItem[], variant: LovellVariant) {
   return links
     .filter(
       (menuItem) =>
-        menuItem.fieldMenuSection === variant ||
-        menuItem.fieldMenuSection === 'both'
+        menuItem.lovellSection === variant || menuItem.lovellSection === 'both'
     )
     .map((menuItem) => ({
       ...menuItem,

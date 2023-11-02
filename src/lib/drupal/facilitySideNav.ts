@@ -14,7 +14,7 @@ const normalizeMenuItem = (item: MenuItem): SideNavItem => {
     label: item.title,
     links: nestedItems,
     url: { path: item.url },
-    fieldMenuSection: item.field_menu_section || null,
+    lovellSection: item.field_menu_section || null,
   }
 }
 

@@ -113,13 +113,13 @@ export const lovellSidenavData = {
                     url: {
                       path: '/lovell-federal-health-care-tricare/health-services/returning-service-member-care',
                     },
-                    fieldMenuSection: 'tricare',
+                    lovellSection: 'tricare',
                   },
                 ],
                 url: {
                   path: '/lovell-federal-health-care-va/health-services',
                 },
-                fieldMenuSection: 'va',
+                lovellSection: 'va',
               },
               {
                 description: null,
@@ -129,7 +129,7 @@ export const lovellSidenavData = {
                 url: {
                   path: '/lovell-federal-health-care-tricare/health-services',
                 },
-                fieldMenuSection: 'tricare',
+                lovellSection: 'tricare',
               },
               {
                 description: null,
@@ -144,11 +144,11 @@ export const lovellSidenavData = {
                     url: {
                       path: '/lovell-federal-health-care-va/locations/captain-james-a-lovell-federal-health-care-center',
                     },
-                    fieldMenuSection: 'va',
+                    lovellSection: 'va',
                   },
                 ],
                 url: { path: '/lovell-federal-health-care-va/locations' },
-                fieldMenuSection: 'va',
+                lovellSection: 'va',
               },
               {
                 description: 'TRICARE locations',
@@ -163,17 +163,17 @@ export const lovellSidenavData = {
                     url: {
                       path: '/lovell-federal-health-care-tricare/locations/captain-james-a-lovell-federal-health-care-center',
                     },
-                    fieldMenuSection: 'tricare',
+                    lovellSection: 'tricare',
                   },
                 ],
                 url: {
                   path: '/lovell-federal-health-care-tricare/locations',
                 },
-                fieldMenuSection: 'tricare',
+                lovellSection: 'tricare',
               },
             ],
             url: { path: '' },
-            fieldMenuSection: 'both',
+            lovellSection: 'both',
           },
           {
             description: null,
@@ -186,7 +186,7 @@ export const lovellSidenavData = {
                 label: 'Events',
                 links: [],
                 url: { path: '/lovell-federal-health-care-va/events' },
-                fieldMenuSection: 'va',
+                lovellSection: 'va',
               },
               {
                 description: null,
@@ -194,15 +194,15 @@ export const lovellSidenavData = {
                 label: 'Events',
                 links: [],
                 url: { path: '/lovell-federal-health-care-tricare/events' },
-                fieldMenuSection: 'tricare',
+                lovellSection: 'tricare',
               },
             ],
             url: { path: '' },
-            fieldMenuSection: 'both',
+            lovellSection: 'both',
           },
         ],
         url: { path: '/lovell-federal-health-care' },
-        fieldMenuSection: 'both',
+        lovellSection: 'both',
       },
     ],
   },
