@@ -28,6 +28,7 @@ import {
   getOppositeChildVariant,
   isLovellBifurcatedResource,
   getLovellVariantOfMenu,
+  getLovellVariantOfBreadcrumbs,
 } from './utils'
 
 export function getLovellStaticPropsContext(
@@ -72,6 +73,7 @@ export function getLovellChildVariantOfResource(
 
   return {
     ...resource,
+    breadcrumbs: getLovellVariantOfBreadcrumbs(resource.breadcrumbs, variant),
     entityPath: variantPaths[variant],
     socialLinks: {
       ...resource.socialLinks,
@@ -100,12 +102,19 @@ async function getLovellListingPageStaticPropsResource(
       // so we can merge and then calculate page data
     }
   )) as LovellListingPageFormattedResource
+  const childVariantPageWithProperBreadcrumbs = {
+    ...childVariantPage,
+    breadcrumbs: getLovellVariantOfBreadcrumbs(
+      childVariantPage.breadcrumbs,
+      context.lovell.variant
+    ),
+  }
 
   const federalPagePathInfo = await drupalClient.translatePath(
     getLovellVariantOfUrl(context.drupalPath, LOVELL.federal.variant)
   )
   if (!federalPagePathInfo) {
-    return childVariantPage
+    return childVariantPageWithProperBreadcrumbs
   }
   const federalPageId = federalPagePathInfo.entity?.uuid
   const federalPage = (await fetchSingleStaticPropsResource(
@@ -133,7 +142,7 @@ async function getLovellListingPageStaticPropsResource(
   const totalPages = Math.ceil(totalItems / pageSize) || 0
 
   return {
-    ...childVariantPage,
+    ...childVariantPageWithProperBreadcrumbs,
     [itemProp]: pagedMergedItems,
     currentPage: context.listing.page,
     totalItems,

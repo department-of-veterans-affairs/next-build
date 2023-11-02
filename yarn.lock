@@ -2810,12 +2810,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:13.5.4":
-  version: 13.5.4
-  resolution: "@next/eslint-plugin-next@npm:13.5.4"
+"@next/eslint-plugin-next@npm:14.0.0":
+  version: 14.0.0
+  resolution: "@next/eslint-plugin-next@npm:14.0.0"
   dependencies:
     glob: 7.1.7
-  checksum: 17a502cec987768bfa99ee42d9072a9a3bdd32b32bde04bd97a04868b56252352a5c38b571ee5ee8f86ff4c27844984a3c737461ebd91d6ca32a2ce2bd5b8af2
+  checksum: f61c4223d7e4a125a86336bcd739ff07fe88d09d40ff76635e6c8c31bbcec79e8851a258da9271c7fbb942b465b7921669183bfd1cf8af9d90b5090c794aac1f
   languageName: node
   linkType: hard
 
@@ -5074,22 +5074,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^8.5.0":
-  version: 8.20.1
-  resolution: "@testing-library/dom@npm:8.20.1"
-  dependencies:
-    "@babel/code-frame": ^7.10.4
-    "@babel/runtime": ^7.12.5
-    "@types/aria-query": ^5.0.1
-    aria-query: 5.1.3
-    chalk: ^4.1.0
-    dom-accessibility-api: ^0.5.9
-    lz-string: ^1.5.0
-    pretty-format: ^27.0.2
-  checksum: 06fc8dc67849aadb726cbbad0e7546afdf8923bd39acb64c576d706249bd7d0d05f08e08a31913fb621162e3b9c2bd0dce15964437f030f9fa4476326fdd3007
-  languageName: node
-  linkType: hard
-
 "@testing-library/dom@npm:^9.0.0":
   version: 9.3.1
   resolution: "@testing-library/dom@npm:9.3.1"
@@ -5152,7 +5136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:*":
+"@testing-library/react@npm:*, @testing-library/react@npm:^14.0.0":
   version: 14.0.0
   resolution: "@testing-library/react@npm:14.0.0"
   dependencies:
@@ -5163,20 +5147,6 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
   checksum: 4a54c8f56cc4a39b50803205f84f06280bb76521d6d5d4b3b36651d760c7c7752ef142d857d52aaf4fad4848ed7a8be49afc793a5dda105955d2f8bef24901ac
-  languageName: node
-  linkType: hard
-
-"@testing-library/react@npm:^13.4.0":
-  version: 13.4.0
-  resolution: "@testing-library/react@npm:13.4.0"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^8.5.0
-    "@types/react-dom": ^18.0.0
-  peerDependencies:
-    react: ^18.0.0
-    react-dom: ^18.0.0
-  checksum: 51ec548c1fdb1271089a5c63e0908f0166f2c7fcd9cacd3108ebbe0ce64cb4351812d885892020dc37608418cfb15698514856502b3cab0e5cc58d6cc1bd4a3e
   languageName: node
   linkType: hard
 
@@ -7230,7 +7200,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bn.js@npm:^5.0.0, bn.js@npm:^5.1.1":
+"bn.js@npm:^5.0.0, bn.js@npm:^5.2.1":
   version: 5.2.1
   resolution: "bn.js@npm:5.2.1"
   checksum: 3dd8c8d38055fedfa95c1d5fc3c99f8dd547b36287b37768db0abab3c239711f88ff58d18d155dd8ad902b0b0cee973747b7ae20ea12a09473272b0201c9edd3
@@ -7359,7 +7329,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserify-rsa@npm:^4.0.0, browserify-rsa@npm:^4.0.1":
+"browserify-rsa@npm:^4.0.0, browserify-rsa@npm:^4.1.0":
   version: 4.1.0
   resolution: "browserify-rsa@npm:4.1.0"
   dependencies:
@@ -7370,19 +7340,19 @@ __metadata:
   linkType: hard
 
 "browserify-sign@npm:^4.0.0":
-  version: 4.2.1
-  resolution: "browserify-sign@npm:4.2.1"
+  version: 4.2.2
+  resolution: "browserify-sign@npm:4.2.2"
   dependencies:
-    bn.js: ^5.1.1
-    browserify-rsa: ^4.0.1
+    bn.js: ^5.2.1
+    browserify-rsa: ^4.1.0
     create-hash: ^1.2.0
     create-hmac: ^1.1.7
-    elliptic: ^6.5.3
+    elliptic: ^6.5.4
     inherits: ^2.0.4
-    parse-asn1: ^5.1.5
-    readable-stream: ^3.6.0
-    safe-buffer: ^5.2.0
-  checksum: 0221f190e3f5b2d40183fa51621be7e838d9caa329fe1ba773406b7637855f37b30f5d83e52ff8f244ed12ffe6278dd9983638609ed88c841ce547e603855707
+    parse-asn1: ^5.1.6
+    readable-stream: ^3.6.2
+    safe-buffer: ^5.2.1
+  checksum: b622730c0fc183328c3a1c9fdaaaa5118821ed6822b266fa6b0375db7e20061ebec87301d61931d79b9da9a96ada1cab317fce3c68f233e5e93ed02dbb35544c
   languageName: node
   linkType: hard
 
@@ -8278,12 +8248,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:^3.1.8":
-  version: 3.1.8
-  resolution: "cross-fetch@npm:3.1.8"
+"cross-fetch@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "cross-fetch@npm:4.0.0"
   dependencies:
     node-fetch: ^2.6.12
-  checksum: 78f993fa099eaaa041122ab037fe9503ecbbcb9daef234d1d2e0b9230a983f64d645d088c464e21a247b825a08dc444a6e7064adfa93536d3a9454b4745b3632
+  checksum: ecca4f37ffa0e8283e7a8a590926b66713a7ef7892757aa36c2d20ffa27b0ac5c60dcf453119c809abe5923fc0bae3702a4d896bfb406ef1077b0d0018213e24
   languageName: node
   linkType: hard
 
@@ -9035,7 +9005,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elliptic@npm:^6.5.3":
+"elliptic@npm:^6.5.3, elliptic@npm:^6.5.4":
   version: 6.5.4
   resolution: "elliptic@npm:6.5.4"
   dependencies:
@@ -9526,11 +9496,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:^13.5.4":
-  version: 13.5.4
-  resolution: "eslint-config-next@npm:13.5.4"
+"eslint-config-next@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "eslint-config-next@npm:14.0.0"
   dependencies:
-    "@next/eslint-plugin-next": 13.5.4
+    "@next/eslint-plugin-next": 14.0.0
     "@rushstack/eslint-patch": ^1.3.3
     "@typescript-eslint/parser": ^5.4.2 || ^6.0.0
     eslint-import-resolver-node: ^0.3.6
@@ -9545,7 +9515,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 6eba03fed5e460981ed3fc59cf40aa210ea1d69852e0facfc02ba2cf950ab4adf09a76f162ee142eb68a4322bb8c1f128d75018f00d0e959401a6441b45f96c0
+  checksum: 69aff489962cc045ca2c58ab3394b5be43b77da1902627fad55168b650540e665c0bec7a19437f923910fb657f9778fddefb073a48ffacefc2fe60d45184756c
   languageName: node
   linkType: hard
 
@@ -13977,7 +13947,7 @@ __metadata:
     "@testing-library/cypress": ^10.0.1
     "@testing-library/dom": ^9.3.3
     "@testing-library/jest-dom": ^6.1.4
-    "@testing-library/react": ^13.4.0
+    "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.5.1
     "@types/jest": ^27.5.2
     "@types/lodash": ^4.14.199
@@ -13991,7 +13961,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.62.0
     axios: ^1.5.1
     clsx: ^2.0.0
-    cross-fetch: ^3.1.8
+    cross-fetch: ^4.0.0
     cypress: ^13.3.1
     cypress-axe: ^1.5.0
     debug: ^4.3.4
@@ -13999,7 +13969,7 @@ __metadata:
     dotenv-expand: ^10.0.0
     drupal-jsonapi-params: ^2.0.0
     eslint: 8.51.0
-    eslint-config-next: ^13.5.4
+    eslint-config-next: ^14.0.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-cypress: ^2.15.1
     eslint-plugin-jest: ^27.4.2
@@ -14040,7 +14010,7 @@ __metadata:
     syswide-cas: ^5.3.0
     ts-node: ^10.9.1
     typedoc: ^0.22.18
-    typescript: ^4.6.3
+    typescript: ^5.2.2
     uswds: ^2.14.0
     uuid: ^9.0.1
     validator: ^13.11.0
@@ -14779,7 +14749,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse-asn1@npm:^5.0.0, parse-asn1@npm:^5.1.5":
+"parse-asn1@npm:^5.0.0, parse-asn1@npm:^5.1.6":
   version: 5.1.6
   resolution: "parse-asn1@npm:5.1.6"
   dependencies:
@@ -15850,7 +15820,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^3.1.1, readable-stream@npm:^3.4.0, readable-stream@npm:^3.5.0, readable-stream@npm:^3.6.0":
+"readable-stream@npm:^3.1.1, readable-stream@npm:^3.4.0, readable-stream@npm:^3.5.0, readable-stream@npm:^3.6.0, readable-stream@npm:^3.6.2":
   version: 3.6.2
   resolution: "readable-stream@npm:3.6.2"
   dependencies:
@@ -16421,7 +16391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"safe-buffer@npm:5.2.1, safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.0, safe-buffer@npm:^5.1.1, safe-buffer@npm:^5.1.2, safe-buffer@npm:^5.2.0, safe-buffer@npm:~5.2.0":
+"safe-buffer@npm:5.2.1, safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.0, safe-buffer@npm:^5.1.1, safe-buffer@npm:^5.1.2, safe-buffer@npm:^5.2.0, safe-buffer@npm:^5.2.1, safe-buffer@npm:~5.2.0":
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
   checksum: b99c4b41fdd67a6aaf280fcd05e9ffb0813654894223afb78a31f14a19ad220bba8aba1cb14eddce1fcfb037155fe6de4e861784eb434f7d11ed58d1e70dd491
@@ -17935,23 +17905,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.3":
-  version: 4.9.5
-  resolution: "typescript@npm:4.9.5"
+"typescript@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "typescript@npm:5.2.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
+  checksum: 7912821dac4d962d315c36800fe387cdc0a6298dba7ec171b350b4a6e988b51d7b8f051317786db1094bd7431d526b648aba7da8236607febb26cf5b871d2d3c
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>":
-  version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"
+"typescript@patch:typescript@^5.2.2#~builtin<compat/typescript>":
+  version: 5.2.2
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=14eedb"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 1f8f3b6aaea19f0f67cba79057674ba580438a7db55057eb89cc06950483c5d632115c14077f6663ea76fd09fce3c190e6414bb98582ec80aa5a4eaf345d5b68
+  checksum: 07106822b4305de3f22835cbba949a2b35451cad50888759b6818421290ff95d522b38ef7919e70fb381c5fe9c1c643d7dea22c8b31652a717ddbd57b7f4d554
   languageName: node
   linkType: hard
 

@@ -14,6 +14,7 @@ import { FormattedResource } from '@/data/queries'
 import { ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
 import { SideNavItem, SideNavMenu } from '@/types/index'
+import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
 export function isLovellResourceType(resourceType: ResourceTypeType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)
@@ -107,22 +108,102 @@ export function getOppositeChildVariant(
 }
 
 /**
- * Replaces first segment (system name) in a path according to `variant`.
+ * Replaces first occurrence of a lovell path segment according to `variant`.
  * E.g.
  * Input:
  *   path: `/lovell-federal-health-care-va/stories/story-title`
  *   variant: `tricare`
  * Output: `/lovell-federal-health-care-tricare/stories/story-title`
+ * Input:
+ *   path: `https://www.va.gov/lovell-federal-health-care-tricare/stories/story-title`
+ *   variant: `va`
+ * Output: `https://www.va.gov/lovell-federal-health-care-va/stories/story-title`
+ *
  */
 export function getLovellVariantOfUrl(
-  path: string,
+  url: string,
   variant: LovellVariant
 ): string {
-  return `/${LOVELL[variant].pathSegment}/${path
-    .split('/')
-    .filter((slug) => slug !== '')
-    .slice(1)
-    .join('/')}`
+  return url.replace(
+    // Note: Lovell Federal path segment must be listed
+    // last since it's a substring of the others and
+    // we don't want to prematurely match
+    new RegExp(
+      [
+        LOVELL.tricare.pathSegment,
+        LOVELL.va.pathSegment,
+        LOVELL.federal.pathSegment,
+      ].join('|')
+    ),
+    LOVELL[variant].pathSegment
+  )
+}
+
+/**
+ * Replaces Lovell title string according to `variant`.
+ * Returns original string if no Lovell match found.
+ * E.g.
+ *   Input:
+ *     title: `Lovell Federal health care`
+ *     variant: `va`
+ *   Output: `Lovell Federal health care - VA`
+ */
+export function getLovellVariantOfTitle(
+  title: string,
+  variant: LovellVariant
+): string {
+  return title.replace(
+    // Note: Lovell Federal title must be listed
+    // last since it's a substring of the others and
+    // we don't want to prematurely match
+    new RegExp(
+      [LOVELL.tricare.title, LOVELL.va.title, LOVELL.federal.title].join('|')
+    ),
+    LOVELL[variant].title
+  )
+}
+
+/**
+ * Updates breadcrumb entries according to `variant`.
+ * Non-Lovell entries are unchanged. Lovell entries
+ * have title and uri updated.
+ * E.g.
+ *   Input:
+ *     breacrumbs: [
+ *       {
+ *         uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
+ *         title: 'Home',
+ *         options: [],
+ *       },
+ *       {
+ *         uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care',
+ *         title: 'Lovell Federal health care',
+ *         options: [],
+ *       },
+ *     ],
+ *     variant: `va`
+ *   Output: [
+ *     {
+ *        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/',
+ *        title: 'Home',
+ *        options: [],
+ *      },
+ *      {
+ *        uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care-va',
+ *        title: 'Lovell Federal health care - VA',
+ *        options: [],
+ *      },
+ *   ]
+ */
+export function getLovellVariantOfBreadcrumbs(
+  breadcrumbs: BreadcrumbItem[],
+  variant: LovellVariant
+): BreadcrumbItem[] {
+  return breadcrumbs.map((breadcrumb) => ({
+    ...breadcrumb,
+    title: getLovellVariantOfTitle(breadcrumb.title, variant),
+    uri: getLovellVariantOfUrl(breadcrumb.uri, variant),
+  }))
 }
 
 export function isLovellBifurcatedResource(
