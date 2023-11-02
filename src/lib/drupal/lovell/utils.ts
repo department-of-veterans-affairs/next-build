@@ -13,6 +13,7 @@ import { StaticPathResourceType } from '@/types/index'
 import { FormattedResource } from '@/data/queries'
 import { ResourceTypeType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
+import { SideNavItem, SideNavMenu } from '@/types/index'
 import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
 export function isLovellResourceType(resourceType: ResourceTypeType): boolean {
@@ -213,4 +214,43 @@ export function isLovellBifurcatedResource(
     isLovellChildVariantPath(resource.entityPath) &&
     isLovellFederalResource(resource as LovellBifurcatedFormattedResource)
   )
+}
+
+// This filters out two lovell-specific menu items that aren't used in side navs.
+function processLovellMenuData(menu: SideNavMenu) {
+  if (menu && menu.data && menu.data.links) {
+    menu.data.links = menu.data.links.filter(
+      (link) => link.links && link.links.length > 0
+    )
+  }
+  return menu
+}
+
+export function getLovellVariantOfMenu(
+  menu: SideNavMenu,
+  variant: LovellVariant
+) {
+  menu = processLovellMenuData(menu)
+  // Pass only the 'links' property to filterMenu.
+  const filteredLinks = filterMenu(menu.data.links, variant)
+  return {
+    ...menu,
+    data: {
+      ...menu.data,
+      links: filteredLinks,
+    },
+  }
+}
+
+// Recursive function to filter out links based on current Lovell Variant
+function filterMenu(links: SideNavItem[], variant: LovellVariant) {
+  return links
+    .filter(
+      (menuItem) =>
+        menuItem.lovellSection === variant || menuItem.lovellSection === 'both'
+    )
+    .map((menuItem) => ({
+      ...menuItem,
+      links: menuItem.links ? filterMenu(menuItem.links, variant) : undefined,
+    }))
 }

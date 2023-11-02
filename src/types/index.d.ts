@@ -195,6 +195,7 @@ export type SideNavItem = {
   label: string
   links: SideNavItem[]
   url: { path: string }
+  lovellSection?: string
 }
 
 export type SideNavData = {
