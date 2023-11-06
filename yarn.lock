@@ -1886,28 +1886,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/component-library@npm:^10.8.0":
-  version: 10.8.0
-  resolution: "@department-of-veterans-affairs/component-library@npm:10.8.0"
+"@department-of-veterans-affairs/component-library@npm:^31.0.0":
+  version: 31.0.0
+  resolution: "@department-of-veterans-affairs/component-library@npm:31.0.0"
   dependencies:
-    "@department-of-veterans-affairs/react-components": 6.1.3
-    "@department-of-veterans-affairs/web-components": 4.7.0
+    "@department-of-veterans-affairs/react-components": 25.0.0
+    "@department-of-veterans-affairs/web-components": 4.46.3
     i18next: ^21.6.14
     i18next-browser-languagedetector: ^6.1.4
     react-focus-on: ^3.5.1
-    react-scroll: ^1.7.16
     react-transition-group: ^1.0.0
   peerDependencies:
     "@department-of-veterans-affairs/formation": "*"
-    react: ^17
+    react: ^18
     react-dom: "*"
-  checksum: 7ad306866f695f99603be17c5d6f5633d5fff0c418325433a686432df2af32d9bfd96567ea605ac84b14c26b1fc885b317b982430663521990b2737cae9c21f3
+  checksum: 6ee2babe77809e2dd53b258e56ab1223e8486e893d68979f9af1f83e040de99c592f17e3d1ff1e4805cb420c54c1c221636fce598472d68514535b4c023e5cca
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/formation@npm:^7.0.8":
-  version: 7.0.8
-  resolution: "@department-of-veterans-affairs/formation@npm:7.0.8"
+"@department-of-veterans-affairs/formation@npm:^7.0.9":
+  version: 7.0.9
+  resolution: "@department-of-veterans-affairs/formation@npm:7.0.9"
   dependencies:
     "@fortawesome/fontawesome-free": ^5.6.3
     domready: ^1.0.8
@@ -1917,18 +1916,17 @@ __metadata:
     "@fortawesome/fontawesome-free": ^5.6.3
     foundation-sites: 5
     uswds: ^1.6.10
-  checksum: ca55270ba4009ff04f313189b1f4fab08c9747a0d78e48fa19f5a2d7f5015f4443b6773eb5d5d06e36386077ee3bcff1a7907204b86ac000bbbc49ca9cb278c0
+  checksum: aaa8696a56e349447a63f93a2e2f7efb76e48aaf5ac6902bf22fd85bd11b6c313962df755f81292fc983c64664eb683b40629ab84e57abd42eb68d9343f8413e
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/react-components@npm:6.1.3":
-  version: 6.1.3
-  resolution: "@department-of-veterans-affairs/react-components@npm:6.1.3"
+"@department-of-veterans-affairs/react-components@npm:25.0.0":
+  version: 25.0.0
+  resolution: "@department-of-veterans-affairs/react-components@npm:25.0.0"
   dependencies:
     classnames: ^2.2.6
     prop-types: ^15.6.2
     react-focus-on: ^3.5.1
-    react-scroll: ^1.7.16
     react-transition-group: 1
     recast: ^0.14.4
   peerDependencies:
@@ -1937,24 +1935,24 @@ __metadata:
     i18next-browser-languagedetector: "*"
     react: ^17
     react-dom: "*"
-  checksum: fe89ad27561dde78ad5c6eac6e8a88317cb9c8b34b161a6a4146b548e75e08dfe405c72efcae4e79ae6d0d0c53676ca3927f7cd77cd500d75019f4c6e8bbb5ed
+  checksum: 40a1ca26c8d96f6ee3220927c733fc4029302ce7d63a702f8c6a42e564c061a5014ab18ea8d3a8225009c08ced6e4ee8a707bb0be11d7075bb1cd636a63042db
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:4.7.0":
-  version: 4.7.0
-  resolution: "@department-of-veterans-affairs/web-components@npm:4.7.0"
+"@department-of-veterans-affairs/web-components@npm:4.46.3":
+  version: 4.46.3
+  resolution: "@department-of-veterans-affairs/web-components@npm:4.46.3"
   dependencies:
-    "@stencil/core": ^2.10.0
+    "@stencil/core": ^2.19.2
     aria-hidden: ^1.1.3
     body-scroll-lock: ^4.0.0-beta.0
     classnames: ^2.3.1
     intersection-observer: ^0.12.0
   peerDependencies:
-    "@department-of-veterans-affairs/formation": ^7.0.1
+    "@department-of-veterans-affairs/formation": ^7.0.8
     i18next: "*"
     i18next-browser-languagedetector: "*"
-  checksum: 8d4be95c5d32cef24561d6e78c04168e48408559388226857d5a03be0d5545fe20b527a2be1367ba17069c9c213aef37550ce73466e78cfcbf09ce18cdc09649
+  checksum: cd96211d5363b00a14218b79408a22738719bebb63d5e6d1be6dd246943f096f75b177bd0fde54c259d8b39d1716f3ce127852c3d829d2829e97092b65b9a2de
   languageName: node
   linkType: hard
 
@@ -2187,10 +2185,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:^6.3.1":
-  version: 6.3.1
-  resolution: "@faker-js/faker@npm:6.3.1"
-  checksum: 05071e952248f4565218a95b089ef8f616130c6ff914bb416ba7c891f81d123b637c2abe8aa2eb7b207b5d4b8bd9c75c8c2133019d2d11db4176948737a95813
+"@faker-js/faker@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "@faker-js/faker@npm:8.2.0"
+  checksum: febc17018acfb841a348591bfe415e815ea981bf7fa0a12670ac2b449479ad7e9e7b130c42878ec30210da964c13a620a3303dc00d63cb13ded00c6fc701e2be
   languageName: node
   linkType: hard
 
@@ -3648,7 +3646,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^2.10.0, @stencil/core@npm:^2.19.2":
+"@stencil/core@npm:^2.19.2":
   version: 2.22.3
   resolution: "@stencil/core@npm:2.22.3"
   bin:
@@ -5434,13 +5432,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^27.5.2":
-  version: 27.5.2
-  resolution: "@types/jest@npm:27.5.2"
+"@types/jest@npm:^29.5.7":
+  version: 29.5.7
+  resolution: "@types/jest@npm:29.5.7"
   dependencies:
-    jest-matcher-utils: ^27.0.0
-    pretty-format: ^27.0.0
-  checksum: 7e11c6826aa429ad990dc262e4e4b54aa36573287fddf15773e4137f07d11d3105f0dd9f1baff73252160a057df23f5529bb83b1bf83cd3f45f9460a5ca5c22e
+    expect: ^29.0.0
+    pretty-format: ^29.0.0
+  checksum: e28624ccb0ef1255a03fbbb4b5bc3e5cbcdc450d39e0739985ff679b124198f808c38c8c3e67859c6efc0e848196deeb8cfed028e12a821c511dfc1112a2d6e9
   languageName: node
   linkType: hard
 
@@ -5655,10 +5653,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/retry@npm:0.12.1":
-  version: 0.12.1
-  resolution: "@types/retry@npm:0.12.1"
-  checksum: 5f46b2556053655f78262bb33040dc58417c900457cc63ff37d6c35349814471453ef511af0cec76a540c601296cd2b22f64bab1ab649c0dacc0223765ba876c
+"@types/retry@npm:0.12.2":
+  version: 0.12.2
+  resolution: "@types/retry@npm:0.12.2"
+  checksum: e5675035717b39ce4f42f339657cae9637cf0c0051cf54314a6a2c44d38d91f6544be9ddc0280587789b6afd056be5d99dbe3e9f4df68c286c36321579b1bf4a
   languageName: node
   linkType: hard
 
@@ -8759,13 +8757,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff-sequences@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "diff-sequences@npm:27.5.1"
-  checksum: a00db5554c9da7da225db2d2638d85f8e41124eccbd56cbaefb3b276dcbb1c1c2ad851c32defe2055a54a4806f030656cbf6638105fd6ce97bb87b90b32a33ca
-  languageName: node
-  linkType: hard
-
 "diff-sequences@npm:^29.6.3":
   version: 29.6.3
   resolution: "diff-sequences@npm:29.6.3"
@@ -10033,7 +10024,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:^29.7.0":
+"expect@npm:^29.0.0, expect@npm:^29.7.0":
   version: 29.7.0
   resolution: "expect@npm:29.7.0"
   dependencies:
@@ -11824,6 +11815,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-network-error@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-network-error@npm:1.0.0"
+  checksum: 2ca2b4b2d420015e0237abe28ebf316fcd26a82304b07432abf155759a3bee6895609ac91e692a72ad61b7fc902c3283b2dece61e1ddb05a6257777a8573e468
+  languageName: node
+  linkType: hard
+
 "is-node-process@npm:^1.2.0":
   version: 1.2.0
   resolution: "is-node-process@npm:1.2.0"
@@ -12262,18 +12260,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "jest-diff@npm:27.5.1"
-  dependencies:
-    chalk: ^4.0.0
-    diff-sequences: ^27.5.1
-    jest-get-type: ^27.5.1
-    pretty-format: ^27.5.1
-  checksum: 8be27c1e1ee57b2bb2bef9c0b233c19621b4c43d53a3c26e2c00a4e805eb4ea11fe1694a06a9fb0e80ffdcfdc0d2b1cb0b85920b3f5c892327ecd1e7bd96b865
-  languageName: node
-  linkType: hard
-
 "jest-diff@npm:^29.0.0":
   version: 29.6.4
   resolution: "jest-diff@npm:29.6.4"
@@ -12370,13 +12356,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-get-type@npm:^27.5.1":
-  version: 27.5.1
-  resolution: "jest-get-type@npm:27.5.1"
-  checksum: 63064ab70195c21007d897c1157bf88ff94a790824a10f8c890392e7d17eda9c3900513cb291ca1c8d5722cad79169764e9a1279f7c8a9c4cd6e9109ff04bbc0
-  languageName: node
-  linkType: hard
-
 "jest-get-type@npm:^29.0.0, jest-get-type@npm:^29.2.0, jest-get-type@npm:^29.6.3":
   version: 29.6.3
   resolution: "jest-get-type@npm:29.6.3"
@@ -12449,18 +12428,6 @@ __metadata:
     jest-get-type: ^29.2.0
     pretty-format: ^29.2.1
   checksum: 97ef2638ab826c25f84bfedea231cef091820ae0876ba316922da81145e950d2b9d2057d3645813b5ee880bb975ed4f22e228dda5d0d26a20715e575b675357d
-  languageName: node
-  linkType: hard
-
-"jest-matcher-utils@npm:^27.0.0":
-  version: 27.5.1
-  resolution: "jest-matcher-utils@npm:27.5.1"
-  dependencies:
-    chalk: ^4.0.0
-    jest-diff: ^27.5.1
-    jest-get-type: ^27.5.1
-    pretty-format: ^27.5.1
-  checksum: bb2135fc48889ff3fe73888f6cc7168ddab9de28b51b3148f820c89fdfd2effdcad005f18be67d0b9be80eda208ad47290f62f03d0a33f848db2dd0273c8217a
   languageName: node
   linkType: hard
 
@@ -13284,13 +13251,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.throttle@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "lodash.throttle@npm:4.1.1"
-  checksum: 129c0a28cee48b348aef146f638ef8a8b197944d4e9ec26c1890c19d9bf5a5690fe11b655c77a4551268819b32d27f4206343e30c78961f60b561b8608c8c805
-  languageName: node
-  linkType: hard
-
 "lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
@@ -13926,10 +13886,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-build@workspace:."
   dependencies:
-    "@department-of-veterans-affairs/component-library": ^10.8.0
-    "@department-of-veterans-affairs/formation": ^7.0.8
+    "@department-of-veterans-affairs/component-library": ^31.0.0
+    "@department-of-veterans-affairs/formation": ^7.0.9
     "@department-of-veterans-affairs/web-components": ^4.45.31
-    "@faker-js/faker": ^6.3.1
+    "@faker-js/faker": ^8.2.0
     "@fortawesome/fontawesome-free": ^6.4.2
     "@fortawesome/fontawesome-svg-core": ^6.4.2
     "@fortawesome/free-brands-svg-icons": ^6.4.2
@@ -13949,7 +13909,7 @@ __metadata:
     "@testing-library/jest-dom": ^6.1.4
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.5.1
-    "@types/jest": ^27.5.2
+    "@types/jest": ^29.5.7
     "@types/lodash": ^4.14.199
     "@types/node": 20.4.4
     "@types/react": ^18.2.31
@@ -13997,7 +13957,7 @@ __metadata:
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
     nock: ^13.3.4
-    p-retry: ^5.1.1
+    p-retry: ^6.1.0
     prettier: ^2.8.8
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14699,13 +14659,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-retry@npm:^5.1.1":
-  version: 5.1.2
-  resolution: "p-retry@npm:5.1.2"
+"p-retry@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "p-retry@npm:6.1.0"
   dependencies:
-    "@types/retry": 0.12.1
+    "@types/retry": 0.12.2
+    is-network-error: ^1.0.0
     retry: ^0.13.1
-  checksum: f063c08b1adc3cf7c01de01eb2dbda841970229f9f229c5167ebf4e2080d8a38b1f4e6eccefac74bca97cfaf4436d0a0eeb0b551175b26bc8b3116195f61bba8
+  checksum: 1083b2b72672205680f8a736583e31dce5d4ae472996cd06f4a33cd7ea11798d7712c202d253eb8afbdc80abf52f049651989c59f2e2ccca529e6b64d722b1f7
   languageName: node
   linkType: hard
 
@@ -15182,7 +15143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.0, pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.2":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1"
   dependencies:
@@ -15193,7 +15154,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^29.2.1, pretty-format@npm:^29.7.0":
+"pretty-format@npm:^29.0.0, pretty-format@npm:^29.2.1, pretty-format@npm:^29.7.0":
   version: 29.7.0
   resolution: "pretty-format@npm:29.7.0"
   dependencies:
@@ -15724,19 +15685,6 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 0a31f822136f4d4cde0c34264b68dd3a0432d36e2ca5162cd2df0f205980debb9a5e107843120220a599275af02df7805f0d5f44e54f2bd8b0c39a7fdd304036
-  languageName: node
-  linkType: hard
-
-"react-scroll@npm:^1.7.16":
-  version: 1.8.9
-  resolution: "react-scroll@npm:1.8.9"
-  dependencies:
-    lodash.throttle: ^4.1.1
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 534ea65713a59ef7ddf623e38058220b654730352b624371cb2250bcf99784806b4564f3fa9295c969980e227e3de15903d95e069f9a3ca520ff0c0c1fb2e362
   languageName: node
   linkType: hard
 

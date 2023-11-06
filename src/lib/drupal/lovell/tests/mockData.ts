@@ -83,3 +83,127 @@ export const newsStoryPartialResource = {
   listing: 'listing',
   entityId: 12345,
 }
+
+export const lovellSidenavData = {
+  rootPath: '/lovell-federal-health-care-va/stories/',
+  data: {
+    name: 'Lovell Federal health care - TRICARE',
+    description: null,
+    links: [
+      {
+        description: null,
+        expanded: false,
+        label: 'Lovell Federal health care',
+        links: [
+          {
+            description: null,
+            expanded: false,
+            label: 'SERVICES AND LOCATIONS',
+            links: [
+              {
+                description: null,
+                expanded: false,
+                label: 'Health services',
+                links: [
+                  {
+                    description: null,
+                    expanded: false,
+                    label: 'Returning service member care',
+                    links: [],
+                    url: {
+                      path: '/lovell-federal-health-care-tricare/health-services/returning-service-member-care',
+                    },
+                    lovellSection: 'tricare',
+                  },
+                ],
+                url: {
+                  path: '/lovell-federal-health-care-va/health-services',
+                },
+                lovellSection: 'va',
+              },
+              {
+                description: null,
+                expanded: false,
+                label: 'Health services',
+                links: [],
+                url: {
+                  path: '/lovell-federal-health-care-tricare/health-services',
+                },
+                lovellSection: 'tricare',
+              },
+              {
+                description: null,
+                expanded: false,
+                label: 'Locations',
+                links: [
+                  {
+                    description: null,
+                    expanded: false,
+                    label: 'Captain James A. Lovell Federal Health Care Center',
+                    links: [],
+                    url: {
+                      path: '/lovell-federal-health-care-va/locations/captain-james-a-lovell-federal-health-care-center',
+                    },
+                    lovellSection: 'va',
+                  },
+                ],
+                url: { path: '/lovell-federal-health-care-va/locations' },
+                lovellSection: 'va',
+              },
+              {
+                description: 'TRICARE locations',
+                expanded: false,
+                label: 'Locations',
+                links: [
+                  {
+                    description: null,
+                    expanded: false,
+                    label: 'Captain James A. Lovell Federal Health Care Center',
+                    links: [],
+                    url: {
+                      path: '/lovell-federal-health-care-tricare/locations/captain-james-a-lovell-federal-health-care-center',
+                    },
+                    lovellSection: 'tricare',
+                  },
+                ],
+                url: {
+                  path: '/lovell-federal-health-care-tricare/locations',
+                },
+                lovellSection: 'tricare',
+              },
+            ],
+            url: { path: '' },
+            lovellSection: 'both',
+          },
+          {
+            description: null,
+            expanded: false,
+            label: 'NEWS AND EVENTS',
+            links: [
+              {
+                description: null,
+                expanded: false,
+                label: 'Events',
+                links: [],
+                url: { path: '/lovell-federal-health-care-va/events' },
+                lovellSection: 'va',
+              },
+              {
+                description: null,
+                expanded: false,
+                label: 'Events',
+                links: [],
+                url: { path: '/lovell-federal-health-care-tricare/events' },
+                lovellSection: 'tricare',
+              },
+            ],
+            url: { path: '' },
+            lovellSection: 'both',
+          },
+        ],
+        url: { path: '/lovell-federal-health-care' },
+        lovellSection: 'both',
+      },
+    ],
+  },
+}
