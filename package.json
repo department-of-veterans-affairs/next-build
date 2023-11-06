@@ -57,7 +57,7 @@
     "next-drupal": "^1.6.0",
     "next-drupal-query": "^0.4.0",
     "next-sitemap": "^4.2.3",
-    "p-retry": "^5.1.1",
+    "p-retry": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-gtm-module": "^2.0.11",
