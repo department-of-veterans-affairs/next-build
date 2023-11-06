@@ -56,6 +56,9 @@ services:
         # Setup storybook-*. vhost to serve compiled storybook.
         - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
 
+        # Restart nginx
+        - sudo systemctl reload nginx
+
         # Install and use our yarn version
         - corepack enable
         - corepack prepare yarn@3.6.1 --activate
