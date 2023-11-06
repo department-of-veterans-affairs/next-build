@@ -86,9 +86,6 @@ services:
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
 
-        # Restart nginx, pick up now-built error page
-        - sudo nginx -s reload
-
       # Run any commands after the site is built.
       online:
         # Update cypress test status message
