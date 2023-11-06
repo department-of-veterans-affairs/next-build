@@ -51,7 +51,7 @@ services:
         - ./scripts/build-vets-website.sh
 
         # Setup nginx to serve 404 page.
-        # - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-web.conf /etc/nginx/conf.d/web.conf
+        - cp -f "${TUGBOAT_ROOT}"/.tugboat/vhost-web.conf /etc/nginx/conf.d/default.conf
 
         # Setup storybook-*. vhost to serve compiled storybook.
         - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
