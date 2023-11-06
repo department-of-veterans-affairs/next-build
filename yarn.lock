@@ -5655,10 +5655,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/retry@npm:0.12.1":
-  version: 0.12.1
-  resolution: "@types/retry@npm:0.12.1"
-  checksum: 5f46b2556053655f78262bb33040dc58417c900457cc63ff37d6c35349814471453ef511af0cec76a540c601296cd2b22f64bab1ab649c0dacc0223765ba876c
+"@types/retry@npm:0.12.2":
+  version: 0.12.2
+  resolution: "@types/retry@npm:0.12.2"
+  checksum: e5675035717b39ce4f42f339657cae9637cf0c0051cf54314a6a2c44d38d91f6544be9ddc0280587789b6afd056be5d99dbe3e9f4df68c286c36321579b1bf4a
   languageName: node
   linkType: hard
 
@@ -11824,6 +11824,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-network-error@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-network-error@npm:1.0.0"
+  checksum: 2ca2b4b2d420015e0237abe28ebf316fcd26a82304b07432abf155759a3bee6895609ac91e692a72ad61b7fc902c3283b2dece61e1ddb05a6257777a8573e468
+  languageName: node
+  linkType: hard
+
 "is-node-process@npm:^1.2.0":
   version: 1.2.0
   resolution: "is-node-process@npm:1.2.0"
@@ -13997,7 +14004,7 @@ __metadata:
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
     nock: ^13.3.4
-    p-retry: ^5.1.1
+    p-retry: ^6.1.0
     prettier: ^2.8.8
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14699,13 +14706,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-retry@npm:^5.1.1":
-  version: 5.1.2
-  resolution: "p-retry@npm:5.1.2"
+"p-retry@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "p-retry@npm:6.1.0"
   dependencies:
-    "@types/retry": 0.12.1
+    "@types/retry": 0.12.2
+    is-network-error: ^1.0.0
     retry: ^0.13.1
-  checksum: f063c08b1adc3cf7c01de01eb2dbda841970229f9f229c5167ebf4e2080d8a38b1f4e6eccefac74bca97cfaf4436d0a0eeb0b551175b26bc8b3116195f61bba8
+  checksum: 1083b2b72672205680f8a736583e31dce5d4ae472996cd06f4a33cd7ea11798d7712c202d253eb8afbdc80abf52f049651989c59f2e2ccca529e6b64d722b1f7
   languageName: node
   linkType: hard
 
