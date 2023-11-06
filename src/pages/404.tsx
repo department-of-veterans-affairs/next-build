@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
@@ -48,23 +48,19 @@ const Error404Page = ({ headerFooterData }) => {
 }
 
 export async function getStaticProps() {
-  // You can use your getGlobalElements function or any other function to fetch your data
-  let headerFooterData = {}
-
   try {
-    const globalData = await getGlobalElements(undefined, undefined, true)
-    headerFooterData = globalData.headerFooterData || {}
+    const { headerFooterData } = await getGlobalElements(
+      undefined,
+      undefined,
+      true
+    )
+    return {
+      props: {
+        headerFooterData,
+      },
+    }
   } catch (error) {
-    // If there's an error, you'll receive it here. You might want to log this or handle it appropriately.
     console.error('Failed to fetch global elements:', error)
-  }
-
-  // Return the fetched data as props
-  return {
-    props: {
-      headerFooterData,
-    },
-    revalidate: 60, // Optionally, you can enable ISR by setting a revalidation period
   }
 }
 
