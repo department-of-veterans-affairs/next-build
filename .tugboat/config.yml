@@ -56,9 +56,6 @@ services:
         # Setup storybook-*. vhost to serve compiled storybook.
         - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
 
-        # Restart nginx
-        - sudo nginx -s reload
-
         # Install and use our yarn version
         - corepack enable
         - corepack prepare yarn@3.6.1 --activate
@@ -88,6 +85,9 @@ services:
         - SITE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn build:sitemap
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
+
+        # Restart nginx, pick up now-built error page
+        - sudo nginx -s reload
 
       # Run any commands after the site is built.
       online:
