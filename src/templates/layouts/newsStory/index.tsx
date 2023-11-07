@@ -7,7 +7,6 @@ import { NewsStoryType } from '@/types/index'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import clsx from 'clsx'
 
 export const NewsStory = ({
   title,
