@@ -83,22 +83,21 @@ export function getStaticPropsQueryOpts(
   id: string,
   context: ExpandedStaticPropsContext
 ): StaticPropsQueryOpts {
-  if (resourceType === RESOURCE_TYPES.STORY) {
-    return {
-      id,
-    }
+  // most types will simply need an ID, preview mode needs context
+  const defaultQueryOpts = {
+    id,
+    context: context.preview ? context : null,
   }
 
+  // Listing Page types need to know what page # to query for
   if (resourceType === RESOURCE_TYPES.STORY_LISTING) {
     return {
-      id,
+      ...defaultQueryOpts,
       page: context.listing.page,
     }
   }
 
-  return {
-    id,
-  }
+  return defaultQueryOpts
 }
 
 export async function fetchSingleStaticPropsResource(
