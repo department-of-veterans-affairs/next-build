@@ -57,7 +57,8 @@ services:
         - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
 
         # Restart nginx with the new config
-        - sudo /etc/init.d/nginx restart
+        - sudo /etc/init.d/nginx stop
+        - sudo /etc/init.d/nginx start
 
         # Install and use our yarn version
         - corepack enable
