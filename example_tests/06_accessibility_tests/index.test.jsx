@@ -1,4 +1,5 @@
 import { axe, render, screen, userEvent, waitFor } from 'test-utils'
+import { act } from 'react-dom/test-utils'
 import { Component1, Component2, Component3 } from './'
 
 describe('<Component1/>', () => {
@@ -74,7 +75,11 @@ describe('<Component3/>', () => {
     // Black-on-black!  I hit the sack!
     // I've been too long, I'm glad to be back
     let newColor = 'Black'
-    await userEvent.selectOptions(screen.getByLabelText(/color/i), [newColor])
+
+    await act(async () => {
+      await userEvent.selectOptions(screen.getByLabelText(/color/i), [newColor])
+    })
+
     expect(screen.getByRole('heading')).toHaveTextContent(newColor)
     expect(screen.getByLabelText(/color/i)).toHaveTextContent(newColor)
     // The following also passes, even though it totally shouldn't.
