@@ -11,17 +11,6 @@ body {
   box-sizing: border-box;
 }
 
-.feedback-button {
-  background-color: #0071BB;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1;
-  margin-right: 0;
-  margin-top: 0.5rem;
-  height: 44px;
-  width: 133px;
-}
-
 .above-footer-elements-container {
   margin-bottom: 2.5rem;
 }
