@@ -21,6 +21,10 @@ export const NewsStory = ({
   lovellVariant,
   lovellSwitchPath,
 }: LovellStaticPropsResource<NewsStoryType>) => {
+  const imageClassName = caption
+    ? 'vads-u-margin-bottom--1'
+    : 'vads-u-margin-bottom--2p5'
+
   return (
     <>
       <div className="va-l-detail-page va-facility-page">
@@ -33,7 +37,11 @@ export const NewsStory = ({
                 switchPath={lovellSwitchPath}
               />
               <h1>{title}</h1>
-              <MediaImage {...image} imageStyle="2_1_large" />
+              <MediaImage
+                {...image}
+                className={imageClassName}
+                imageStyle="2_1_large"
+              />
               <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                 {caption}
               </div>
@@ -56,8 +64,8 @@ export const NewsStory = ({
                 />
               </div>
               <StoryListingLink path={listing} />
-              <ContentFooter />
             </article>
+            <ContentFooter />
           </div>
         </div>
       </div>

@@ -95,8 +95,8 @@ export function StoryListing({
               />
             )}
           </div>
-          <ContentFooter />
         </article>
+        <ContentFooter />
       </div>
     </div>
   )
