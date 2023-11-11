@@ -41,7 +41,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@storybook/react": "^7.4.6",
     "@types/react-gtm-module": "^2.0.1",
-    "axios": "^1.5.1",
+    "axios": "^1.6.0",
     "clsx": "^2.0.0",
     "cross-fetch": "^4.0.0",
     "debug": "^4.3.4",
