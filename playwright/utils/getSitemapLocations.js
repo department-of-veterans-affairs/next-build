@@ -9,7 +9,12 @@ async function getSitemapLocations(baseUrl) {
   })
   const xml = await response.text()
   const locs = [...xml.matchAll(new RegExp(`<loc>(.|\n)*?</loc>`, 'g'))].map(
-    ([loc]) => loc.replace('<loc>', '').replace('</loc>', '')
+    ([loc]) => {
+      return loc
+        .replace('<loc>', '')
+        .replace('</loc>', '')
+        .replace(/^https:/, 'http:')
+    }
   )
   return locs
 }
