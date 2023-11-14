@@ -71,8 +71,10 @@
     "validator": "^13.11.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.8.1",
     "@faker-js/faker": "^8.2.0",
     "@next/env": "^13.5.4",
+    "@playwright/test": "^1.39.0",
     "@storybook/addon-actions": "^7.4.6",
     "@storybook/addon-essentials": "^7.4.6",
     "@storybook/addon-interactions": "^7.5.1",
@@ -94,6 +96,8 @@
     "@types/uuid": "^9.0.6",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^5.62.0",
+    "axe-core": "^4.8.2",
+    "axe-playwright": "^1.2.3",
     "cypress": "^13.3.1",
     "cypress-axe": "^1.5.0",
     "debug": "^4.3.4",

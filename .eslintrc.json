@@ -49,7 +49,9 @@
           "test/*",
           "jest.config.js",
           "jest.setup.js",
-          "cypress/**/*"
+          "cypress/**/*",
+          "**/playwright/**/*.js",
+          "playwright.config.js"
         ]
       }
     ]
