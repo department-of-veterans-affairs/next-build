@@ -1,10 +1,10 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import {
-  ListingResourceTypeType,
+  ListingResourceType,
   getAllPagedListingStaticPathResources,
   isListingResourceType,
 } from '@/lib/drupal/listingPages'
-import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
 import { queries } from '@/data/queries'
 import { StaticPathResourceType } from '@/types/index'
 import {
@@ -22,7 +22,7 @@ import {
  * - Lovell Federal listing pages are REMOVED
  */
 async function modifyStaticPathResourcesByResourceType(
-  resourceType: ResourceTypeType,
+  resourceType: ResourceType,
   resources: StaticPathResourceType[]
 ): Promise<StaticPathResourceType[]> {
   if (resourceType === RESOURCE_TYPES.STORY) {
@@ -33,7 +33,7 @@ async function modifyStaticPathResourcesByResourceType(
     const lovellFederalRemoved = removeLovellFederalPathResources(resources)
     return await getAllPagedListingStaticPathResources(
       lovellFederalRemoved,
-      resourceType as ListingResourceTypeType
+      resourceType as ListingResourceType
     )
   }
 
@@ -41,7 +41,7 @@ async function modifyStaticPathResourcesByResourceType(
 }
 
 export async function getStaticPathsByResourceType(
-  resourceType: ResourceTypeType
+  resourceType: ResourceType
 ): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
   // Get resources from which static paths can be built
   const resources = await queries.getData('static-path-resources', {

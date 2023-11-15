@@ -1,6 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { JsonApiResponse } from 'next-drupal'
-import { ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 
 type ResourceCollection<T> = {
@@ -21,7 +21,7 @@ function addPagingParams(
 }
 
 export async function fetchSingleResourceCollectionPage<T>(
-  resourceType: ResourceTypeType,
+  resourceType: ResourceType,
   params: DrupalJsonApiParams,
   pageSize: number,
   pageNumber: number
@@ -46,7 +46,7 @@ export async function fetchSingleResourceCollectionPage<T>(
 }
 
 export async function fetchAndConcatAllResourceCollectionPages<T>(
-  resourceType: ResourceTypeType,
+  resourceType: ResourceType,
   params: DrupalJsonApiParams,
   pageSize: number
 ): Promise<ResourceCollection<T>> {

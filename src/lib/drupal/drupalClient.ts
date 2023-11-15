@@ -62,10 +62,10 @@ export const drupalClient = new DrupalClient(baseUrl, {
   fetcher,
   useDefaultResourceTypeEntry: true,
   throwJsonApiErrors: false,
-  auth: {
-    clientId: process.env.DRUPAL_CLIENT_ID,
-    clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-  },
+  // auth: {
+  //   clientId: process.env.DRUPAL_CLIENT_ID,
+  //   clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+  // },
   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
   forceIframeSameSiteCookie: process.env.NODE_ENV === 'development',
 })

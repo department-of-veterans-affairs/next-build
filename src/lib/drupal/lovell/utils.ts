@@ -11,17 +11,17 @@ import {
 } from './constants'
 import { StaticPathResourceType } from '@/types/index'
 import { FormattedResource } from '@/data/queries'
-import { ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { ResourceType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
 import { SideNavItem, SideNavMenu } from '@/types/index'
 import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
-export function isLovellResourceType(resourceType: ResourceTypeType): boolean {
+export function isLovellResourceType(resourceType: ResourceType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)
 }
 
 export function isLovellBifurcatedResourceType(
-  resourceType: ResourceTypeType
+  resourceType: ResourceType
 ): boolean {
   return (LOVELL_BIFURCATED_RESOURCE_TYPES as readonly string[]).includes(
     resourceType
@@ -210,7 +210,7 @@ export function isLovellBifurcatedResource(
   resource: FormattedResource
 ): boolean {
   return (
-    isLovellBifurcatedResourceType(resource.type as ResourceTypeType) &&
+    isLovellBifurcatedResourceType(resource.type as ResourceType) &&
     isLovellChildVariantPath(resource.entityPath) &&
     isLovellFederalResource(resource as LovellBifurcatedFormattedResource)
   )

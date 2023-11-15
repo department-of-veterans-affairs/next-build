@@ -7,7 +7,7 @@ import {
   getDefaultStaticPropsResource,
 } from '@/lib/drupal/staticProps'
 import {
-  ListingResourceTypeType,
+  ListingResourceType,
   LISTING_RESOURCE_TYPE_URL_SEGMENTS,
 } from '@/lib/drupal/listingPages'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
@@ -88,7 +88,7 @@ export function getLovellChildVariantOfResource(
 }
 
 async function getLovellListingPageStaticPropsResource(
-  resourceType: ListingResourceTypeType,
+  resourceType: ListingResourceType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
 ): Promise<LovellStaticPropsResource<LovellListingPageFormattedResource>> {
@@ -164,7 +164,7 @@ export async function getLovellStaticPropsResource(
   // Lovell listing pages need Federal items merged
   if (context.lovell.isLovellVariantPage && context.listing.isListingPage) {
     const resource = await getLovellListingPageStaticPropsResource(
-      resourceType as ListingResourceTypeType,
+      resourceType as ListingResourceType,
       pathInfo,
       context
     )

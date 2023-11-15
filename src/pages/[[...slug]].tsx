@@ -25,7 +25,7 @@ const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY,
 ] as const
 
-export type BuiltResourceTypeType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
+export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
 
 // [[...slug]] is a catchall route. We build the appropriate layout based on the resource returned for a given path.
 export default function ResourcePage({
@@ -138,7 +138,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
 
     // If the requested path isn't a type we're building, 404
-    const resourceType = pathInfo.jsonapi.resourceName as BuiltResourceTypeType
+    const resourceType = pathInfo.jsonapi.resourceName as BuiltResourceType
     if (!Object.values(RESOURCE_TYPES).includes(resourceType)) {
       return {
         notFound: true,

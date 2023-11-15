@@ -4,8 +4,7 @@ export const RESOURCE_TYPES = {
   QA: 'node--q_a',
 } as const
 
-export type ResourceTypeType =
-  (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
+export type ResourceType = (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
 
 export const ADDITIONAL_RESOURCE_TYPES = {
   STATIC_PATHS: 'static-path-resources',
