@@ -5,11 +5,13 @@ import { NewsStory } from './index'
 const mediaImage: MediaImage = {
   id: '3',
   link: {
-    href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
-    meta: {
-      linkParams: {
-        width: 700,
-        height: 350,
+    '2_1_large': {
+      href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
+      meta: {
+        linkParams: {
+          width: 700,
+          height: 350,
+        },
       },
     },
   },

@@ -10,11 +10,13 @@ const mediaImage: FormattedMediaImage = {
   height: 1512,
   url: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
   link: {
-    href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
-    meta: {
-      linkParams: {
-        width: 100,
-        height: 100,
+    '2_1_large': {
+      href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
+      meta: {
+        linkParams: {
+          width: 100,
+          height: 100,
+        },
       },
     },
   },

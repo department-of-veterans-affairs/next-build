@@ -45,6 +45,8 @@ export const formatter: QueryFormatter<DrupalMediaImageData, MediaImage> = ({
 }) => {
   if (!entity) return null
   // TODO: may need more handling here around crop type + image height / width. TBD.
+  // TODO: `link` has reference to all image styles whereas `url` narrows down based on
+  //  cropType. Which do we want at this layer?
   return {
     id: entity.image.id,
     type: entity.type,

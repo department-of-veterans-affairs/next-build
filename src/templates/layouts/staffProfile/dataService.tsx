@@ -2,6 +2,7 @@
 import { ParagraphStaffProfile } from '@/types/dataTypes/drupal/paragraph'
 import { StaffProfile } from '@/types/dataTypes/formatted/staffProfile'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { queries } from '@/data/queries'
 
 function isRequestValid(paragraph) {
   return paragraph.field_staff_profile !== null
@@ -23,35 +24,10 @@ export const transformStaffProfileData = function (
       return {
         id: entity.field_staff_profile.id,
         name: name,
-        //TODO: ensure this mapping makes sense
-        thumbnail: {
-          ...entity.field_staff_profile.field_media,
-          alt: entity.field_staff_profile.field_media.image.resourceIdObjMeta
-            .alt,
-          title:
-            entity.field_staff_profile.field_media.image.resourceIdObjMeta
-              .title,
-          url: entity.field_staff_profile.field_media.image.uri.url,
-          link: {
-            href: entity.field_staff_profile.field_media.image.uri.url,
-            meta: {
-              linkParams: {
-                height:
-                  entity.field_staff_profile.field_media.image.resourceIdObjMeta
-                    .height,
-                width:
-                  entity.field_staff_profile.field_media.image.resourceIdObjMeta
-                    .width,
-              },
-            },
-          },
-          height:
-            entity.field_staff_profile.field_media.image.resourceIdObjMeta
-              .height,
-          width:
-            entity.field_staff_profile.field_media.image.resourceIdObjMeta
-              .width,
-        },
+        thumbnail: queries.formatData('media--image', {
+          entity: entity.field_staff_profile.field_media,
+          cropType: '2_1_large', // TODO: Which cropType do we want here?
+        }),
         linkToBio: entity.field_staff_profile.field_complete_biography_create,
         path: entity.field_staff_profile.field_entity?.entityUrl.path || null,
         description: entity.field_staff_profile.field_description,

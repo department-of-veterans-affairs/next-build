@@ -1,6 +1,13 @@
 export type MediaImageLink = {
-  href: string
-  meta: { linkParams: { width: number; height: number } }
+  [key: string]: {
+    href: string
+    meta: {
+      linkParams: {
+        width?: number
+        height?: number
+      }
+    }
+  }
 }
 
 export type MediaImage = {

@@ -74,11 +74,13 @@ export const newsStoryPartialResource = {
     width: 100,
     height: 100,
     link: {
-      href: 'image/src',
-      meta: {
-        linkParams: {
-          width: 100,
-          height: 100,
+      '2_1_large': {
+        href: 'image/src',
+        meta: {
+          linkParams: {
+            width: 100,
+            height: 100,
+          },
         },
       },
     },
