@@ -6,7 +6,7 @@ import {
 } from '@/lib/drupal/listingPages'
 import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
 import { queries } from '@/data/queries'
-import { StaticPathResourceType } from '@/types/index'
+import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
 import {
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
@@ -23,8 +23,8 @@ import {
  */
 async function modifyStaticPathResourcesByResourceType(
   resourceType: ResourceType,
-  resources: StaticPathResourceType[]
-): Promise<StaticPathResourceType[]> {
+  resources: StaticPathResource[]
+): Promise<StaticPathResource[]> {
   if (resourceType === RESOURCE_TYPES.STORY) {
     return bifurcateLovellFederalPathResources(resources)
   }
@@ -55,6 +55,14 @@ export async function getStaticPathsByResourceType(
   )
 
   // Convert the resources to static paths
-  const paths = drupalClient.buildStaticPathsFromResources(modifiedResources)
+  //  TODO: This should probably not use a Drupal-specific utility to work on post-formatted data.
+  //  This is currently using a type assertion to make it possible since we know that the necessary
+  //  props will be present, though they probably shouldn't be present because the formatted data
+  //  prop names are a bit specific to drupal (e.g. `pid` on Path).
+  const paths = drupalClient.buildStaticPathsFromResources(
+    modifiedResources as Parameters<
+      typeof drupalClient.buildStaticPathsFromResources
+    >[0]
+  )
   return paths
 }

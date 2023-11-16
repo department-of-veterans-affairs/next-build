@@ -11,7 +11,7 @@ import {
   FieldTable,
   FieldAdministration,
 } from './field_type'
-import { MediaImage } from './media'
+import { DrupalMediaImage } from './media'
 import {
   ParagraphAlert,
   ParagraphAlertSingle,
@@ -135,7 +135,7 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   field_facility_hours: FieldTable
   field_office_hours: FieldOfficeHours[]
-  field_media: MediaImage
+  field_media: DrupalMediaImage
   field_location_services: ParagraphHealthCareLocalFacilityService[]
   field_main_location: boolean
   field_mental_health_phone: string
@@ -161,7 +161,7 @@ export interface NodeHealthCareLocalHealthService extends DrupalNode {
 
 export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
-  field_media: MediaImage
+  field_media: DrupalMediaImage
   field_related_links: ParagraphListOfLinks
   field_vamc_ehr_system: string
   field_facebook: FieldLink
@@ -212,7 +212,7 @@ export interface NodeNewsStory extends DrupalNode {
   /** Lede text that is printed larger. */
   field_intro_text: string
   /** An attached image for the story. */
-  field_media: MediaImage
+  field_media: DrupalMediaImage
   /** Where in the story listing this story should display. */
   field_order: number
   /** Which Story Listing page this story should display on. */
@@ -260,7 +260,7 @@ export interface NodePersonProfile extends DrupalNode {
   /** Phone number. */
   field_phone_number: string
   /** A photo of the person. */
-  field_media: MediaImage
+  field_media: DrupalMediaImage
   /** The office or facility which this person is associated with. */
   field_office: NodeOffice | NodeHealthCareRegionPage
   /** Any honorific suffix, i.e. MD, LCSW, PhD, etc. */

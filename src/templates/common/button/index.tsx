@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { ButtonType } from '@/types/index'
+import { Button as FormattedButton } from '@/types/dataTypes/formatted/button'
 
-export function Button({ id, label, url }: ButtonType) {
+export function Button({ id, label, url }: FormattedButton) {
   return (
     label &&
     url && (

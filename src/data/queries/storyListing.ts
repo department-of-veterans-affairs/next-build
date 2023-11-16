@@ -3,7 +3,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeStoryListing, NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { Menu } from '@/types/dataTypes/drupal/menu'
-import { StoryListingType } from '@/types/index'
+import { StoryListing } from '@/types/dataTypes/formatted/storyListing'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
@@ -102,7 +102,7 @@ export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
   }
 }
 
-export const formatter: QueryFormatter<StoryListingData, StoryListingType> = ({
+export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
   entity,
   stories,
   menu,

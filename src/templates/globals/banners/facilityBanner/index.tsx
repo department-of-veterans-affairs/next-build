@@ -3,7 +3,7 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 import { regionBaseURL } from '@/lib/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { NodeMetaInfo } from '@/types/dataTypes/drupal/node'
-import { FacilityBannerType } from '@/types/index'
+import { FacilityBanner as FormattedFacilityBanner } from '@/types/dataTypes/formatted/banners'
 
 export const FacilityBanner = ({
   id,
@@ -16,7 +16,7 @@ export const FacilityBanner = ({
   inheritanceSubpages,
   bannerAlertVacms,
   dismiss,
-}: FacilityBannerType): JSX.Element => {
+}: FormattedFacilityBanner): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false)
   const [outputStatus, setOutputStatus] = useState(true)
   const analyticsRef = useRef(null)

@@ -1,8 +1,9 @@
 import { render, screen } from 'test-utils'
 import { PersonProfile } from '@/templates/components/personProfile/index'
-import { PersonProfileType, MediaImageType } from '@/types/index'
+import { PersonProfile as FormattedPersonProfile } from '@/types/dataTypes/formatted/personProfile'
+import { MediaImage } from '@/types/dataTypes/formatted/media'
 
-const mediaImage: MediaImageType = {
+const mediaImage: MediaImage = {
   id: '3',
   alt: 'Heather Steele outreach and community engagement specialist',
   title: 'Heather Steele',
@@ -21,7 +22,7 @@ const mediaImage: MediaImageType = {
   },
 }
 
-const personProfileData: PersonProfileType = {
+const personProfileData: FormattedPersonProfile = {
   id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
   entityId: 1234,
   entityPath: 'sample/path/url',

@@ -7,7 +7,7 @@ import {
 import { queries } from '.'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { BlockPromo } from '@/types/dataTypes/drupal/block'
-import { MegaMenuPromoColumn } from '@/types/index'
+import { MegaMenuPromoColumn } from '@/types/dataTypes/formatted/headerFooter'
 
 // Define the query params for fetching block_content--promo.
 export const params: QueryParams<null> = () => {

@@ -1,10 +1,10 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { NodeLandingPage } from '@/types/dataTypes/drupal/node'
-import { BenefitsHubType } from '@/types/index'
+import { BenefitsHub } from '@/types/dataTypes/formatted/benefitsHub'
 
 // Define the query params for fetching node--landing_page.
 // This is a "special" case in that these nodes are primarily (only?) used as entity references from other nodes
-export const formatter: QueryFormatter<NodeLandingPage, BenefitsHubType> = (
+export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   entity: NodeLandingPage
 ) => {
   return {

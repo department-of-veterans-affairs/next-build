@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { isEmpty } from 'lodash'
-import { AudienceTopicsType } from '@/types/index'
+import { AudienceTopics as FormattedAudienceTopics } from '@/types/dataTypes/formatted/audienceTopics'
 
-export function AudienceTopics({ tags }: AudienceTopicsType) {
+export function AudienceTopics({ tags }: FormattedAudienceTopics) {
   if (isEmpty(tags)) return null
   const tagsList = tags.map(({ id, href, name }) => (
     <div key={id}>

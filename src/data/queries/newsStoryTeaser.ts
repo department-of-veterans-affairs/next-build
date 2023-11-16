@@ -1,7 +1,7 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
-import { NewsStoryTeaserType } from '@/types/index'
+import { NewsStoryTeaser } from '@/types/dataTypes/formatted/newsStory'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -10,7 +10,7 @@ export const params: QueryParams<null> = () => {
     .addInclude(['field_media', 'field_media.image', 'field_listing'])
 }
 
-export const formatter: QueryFormatter<NodeNewsStory, NewsStoryTeaserType> = (
+export const formatter: QueryFormatter<NodeNewsStory, NewsStoryTeaser> = (
   entity: NodeNewsStory
 ) => {
   return {

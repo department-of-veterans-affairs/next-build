@@ -1,8 +1,8 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import { MediaImageType } from '@/types/index'
+import { MediaImage as FormattedMediaImage } from '@/types/dataTypes/formatted/media'
 import { MediaImage } from '@/templates/common/mediaImage'
 
-const mediaImage: MediaImageType = {
+const mediaImage: FormattedMediaImage = {
   id: '3',
   alt: 'Smiling man in glasses.',
   title: 'Cats or Dogs?',

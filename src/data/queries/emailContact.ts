@@ -1,12 +1,11 @@
 // Define the query params for fetching paragraph--email_contact.
 import { ParagraphEmailContact } from '@/types/dataTypes/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
-import { EmailContactType } from '@/types/index'
+import { EmailContact } from '@/types/dataTypes/formatted/emailContact'
 
-export const formatter: QueryFormatter<
-  ParagraphEmailContact,
-  EmailContactType
-> = (entity: ParagraphEmailContact) => {
+export const formatter: QueryFormatter<ParagraphEmailContact, EmailContact> = (
+  entity: ParagraphEmailContact
+) => {
   return {
     id: entity.id,
     label: entity.field_email_label || null,

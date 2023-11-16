@@ -1,7 +1,7 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { QUERIES_MAP, queries } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
-import { StaticPathResourceType } from '@/types/index'
+import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
 import { QueryOpts } from 'next-drupal-query'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
@@ -14,7 +14,7 @@ const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const
 
 export type ListingResourceType = (typeof LISTING_RESOURCE_TYPES)[number]
 
-export type StaticPathResourceTypeWithPaging = StaticPathResourceType & {
+export type StaticPathResourceTypeWithPaging = StaticPathResource & {
   paging: {
     totalPages: number
   }
@@ -61,7 +61,7 @@ export function isListingResourceType(resourceType: ResourceType): boolean {
 }
 
 export async function getListingPageCounts(
-  listingPageStaticPathResource: StaticPathResourceType,
+  listingPageStaticPathResource: StaticPathResource,
   listingResourceType: ListingResourceType
 ): Promise<ListingPageCounts> {
   const resourcePath = listingPageStaticPathResource.path.alias
@@ -85,7 +85,7 @@ export async function getListingPageCounts(
 }
 
 async function getListingPageStaticPathResourcesWithPagingData(
-  listingPageStaticPathResources: StaticPathResourceType[],
+  listingPageStaticPathResources: StaticPathResource[],
   listingResourceType: ListingResourceType
 ): Promise<StaticPathResourceTypeWithPaging[]> {
   if (!listingPageStaticPathResources?.length) {
@@ -135,7 +135,7 @@ async function getListingPageStaticPathResourcesWithPagingData(
 
 function addStaticPathResourcesFromPagingData(
   listingPageStaticPathResourcesWithPagingData: StaticPathResourceTypeWithPaging[]
-): StaticPathResourceType[] {
+): StaticPathResource[] {
   return listingPageStaticPathResourcesWithPagingData.reduce(
     (acc, firstPageResource) => {
       // Determine if there are additional pages
@@ -160,7 +160,7 @@ function addStaticPathResourcesFromPagingData(
 }
 
 export async function getAllPagedListingStaticPathResources(
-  listingPageStaticPathResources: StaticPathResourceType[],
+  listingPageStaticPathResources: StaticPathResource[],
   listingResourceType: ListingResourceType
 ) {
   // Paging step 1: Determine the number of pages for each listing

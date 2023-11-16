@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { StoryListing } from '@/templates/layouts/storyListing'
-import { StoryListingType } from '@/types/index'
+import { StoryListing as FormattedStoryListing } from '@/types/dataTypes/formatted/storyListing'
 
-let storyListingProps: StoryListingType = {
+let storyListingProps: FormattedStoryListing = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   breadcrumbs: [
     { title: 'Home', uri: '/', options: [] },

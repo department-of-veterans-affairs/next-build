@@ -1,5 +1,5 @@
 import { DrupalBlock } from 'next-drupal'
-import { MediaImage } from './media'
+import { DrupalMediaImage } from './media'
 import {
   ParagraphExpandableText,
   ParagraphLinkTeaser,
@@ -24,7 +24,7 @@ export interface BlockAlert extends DrupalBlock {
 }
 
 export interface BlockPromo extends DrupalBlock {
-  field_image: MediaImage
+  field_image: DrupalMediaImage
   field_promo_link: ParagraphLinkTeaser
 }
 

@@ -7,7 +7,7 @@ import {
 import { queries } from '.'
 import { NodePersonProfile } from '@/types/dataTypes/drupal/node'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { PersonProfileType } from '@/types/index'
+import { PersonProfile } from '@/types/dataTypes/formatted/personProfile'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -35,10 +35,9 @@ export const data: QueryData<DataOpts, NodePersonProfile[]> = async (): Promise<
   return entities
 }
 
-export const formatter: QueryFormatter<
-  NodePersonProfile,
-  PersonProfileType[]
-> = (entities: NodePersonProfile) => {
+export const formatter: QueryFormatter<NodePersonProfile, PersonProfile[]> = (
+  entities: NodePersonProfile
+) => {
   if (!entities) return null
 
   return entities.map((entity) => ({

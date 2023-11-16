@@ -67,8 +67,21 @@ export const newsStoryPartialResource = {
     { title: 'News', uri: '/news', options: [] },
   ],
   image: {
-    src: 'image/src',
     alt: 'alt-text',
+    id: 'id',
+    title: 'title',
+    url: 'image/src',
+    width: 100,
+    height: 100,
+    link: {
+      href: 'image/src',
+      meta: {
+        linkParams: {
+          width: 100,
+          height: 100,
+        },
+      },
+    },
   },
   caption: 'caption',
   author: {
@@ -79,6 +92,7 @@ export const newsStoryPartialResource = {
   date: '2020-01-01',
   socialLinks: {
     title: 'Social Network',
+    path: 'path/to/social',
   },
   listing: 'listing',
   entityId: 12345,

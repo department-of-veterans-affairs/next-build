@@ -2,7 +2,7 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { Menu, HeaderMegaMenu } from '@/types/dataTypes/drupal/menu'
-import { HeaderFooterData } from '@/types/index'
+import { HeaderFooterData } from '@/types/dataTypes/formatted/headerFooter'
 import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
 
 export type RawHeaderFooterData = {

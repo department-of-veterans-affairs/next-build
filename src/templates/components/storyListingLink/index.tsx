@@ -1,7 +1,7 @@
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { StoryListingLinkType } from '@/types/index'
+import { StoryListingLink as FormattedStoryListingLink } from '@/types/dataTypes/formatted/storyListing'
 
-export const StoryListingLink = ({ path }: StoryListingLinkType) => {
+export const StoryListingLink = ({ path }: FormattedStoryListingLink) => {
   return (
     // @todo can <Link /> be used here?
     <a

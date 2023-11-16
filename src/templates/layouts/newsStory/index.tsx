@@ -3,10 +3,10 @@ import { StaffNewsProfile } from '@/templates/components/personProfile'
 import { formatDate } from '@/lib/utils/helpers'
 import { SocialLinks } from '@/templates/common/socialLinks'
 import { StoryListingLink } from '@/templates/components/storyListingLink'
-import { NewsStoryType } from '@/types/index'
+import { NewsStory as FormattedNewsStory } from '@/types/dataTypes/formatted/newsStory'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 
 export const NewsStory = ({
   title,
@@ -20,7 +20,7 @@ export const NewsStory = ({
   listing,
   lovellVariant,
   lovellSwitchPath,
-}: LovellStaticPropsResource<NewsStoryType>) => {
+}: LovellStaticPropsResource<FormattedNewsStory>) => {
   const imageClassName = caption
     ? 'vads-u-margin-bottom--1'
     : 'vads-u-margin-bottom--2p5'

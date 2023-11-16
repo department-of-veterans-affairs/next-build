@@ -1,7 +1,8 @@
 import Image from '../image'
-import { MediaImageType } from '@/types/index'
+import { MediaImage as FormattedMediaImage } from '@/types/dataTypes/formatted/media'
 
-export const MediaImage = (props: MediaImageType) => {
+// TODO: Do we need this component? It appears to be an unnecessary wrapper.
+export const MediaImage = (props: FormattedMediaImage) => {
   return (
     <Image
       id={props.id}

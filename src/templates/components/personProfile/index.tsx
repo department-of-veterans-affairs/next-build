@@ -1,5 +1,5 @@
 import { MediaImage } from '@/templates/common/mediaImage'
-import { PersonProfileType } from '@/types/index'
+import { PersonProfile as FormattedPersonProfile } from '@/types/dataTypes/formatted/personProfile'
 
 export type PersonProfileTeaserProps = {
   title: string
@@ -21,7 +21,7 @@ export const PersonProfile = ({
   vamcOfficalName,
   media,
   office,
-}: PersonProfileType): JSX.Element => {
+}: FormattedPersonProfile): JSX.Element => {
   return (
     <div id="content" className="interior">
       <main className="va-l-detail-page va-facility-page">

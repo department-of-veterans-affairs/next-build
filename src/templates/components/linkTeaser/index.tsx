@@ -1,7 +1,7 @@
 import Image from '@/templates/common/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { LinkTeaserType } from '@/types/index'
+import { LinkTeaser as FormattedLinkTeaser } from '@/types/dataTypes/formatted/linkTeaser'
 
 // todo: fix this
 export const thumbnail = 'https://www.va.gov/img/arrow-right-blue.svg'
@@ -14,7 +14,7 @@ export const LinkTeaser = ({
   parentField,
   componentParams,
   options,
-}: LinkTeaserType) => {
+}: FormattedLinkTeaser) => {
   const { boldTitle, sectionHeader } = componentParams
 
   const analytic = {

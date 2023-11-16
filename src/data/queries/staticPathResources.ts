@@ -9,7 +9,7 @@ import {
   ADDITIONAL_RESOURCE_TYPES,
   ResourceType,
 } from '@/lib/constants/resourceTypes'
-import { StaticPathResourceType } from '@/types/index'
+import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
 import { FieldAdministration } from '@/types/dataTypes/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
@@ -58,7 +58,7 @@ export const data: QueryData<
 
 export const formatter: QueryFormatter<
   JsonApiResourceWithPathAndFieldAdmin[],
-  StaticPathResourceType[]
+  StaticPathResource[]
 > = (resources: JsonApiResourceWithPathAndFieldAdmin[]) => {
   return resources.map((resource) => ({
     path: resource.path,
