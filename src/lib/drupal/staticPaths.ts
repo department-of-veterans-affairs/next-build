@@ -11,6 +11,7 @@ import {
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
 } from '@/lib/drupal/lovell/staticPaths'
+import { pathToSlug } from '@/lib/utils/slug'
 
 /**
  * Returns a static-path resource collection that is modified per business logic.
@@ -57,7 +58,7 @@ export async function getStaticPathsByResourceType(
   // Convert the resources to static paths
   return modifiedResources.map((resource) => ({
     params: {
-      slug: resource.path.split('/'),
+      slug: pathToSlug(resource.path),
     },
   }))
 }
