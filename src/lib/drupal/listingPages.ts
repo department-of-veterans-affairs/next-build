@@ -64,7 +64,7 @@ export async function getListingPageCounts(
   listingPageStaticPathResource: StaticPathResource,
   listingResourceType: ListingResourceType
 ): Promise<ListingPageCounts> {
-  const resourcePath = listingPageStaticPathResource.path.alias
+  const resourcePath = listingPageStaticPathResource.path
   const pathInfo = await drupalClient.translatePath(resourcePath)
   if (pathInfo?.entity?.uuid) {
     const resource = await queries.getData(listingResourceType, {
@@ -146,10 +146,7 @@ function addStaticPathResourcesFromPagingData(
           length: firstPageResource.paging.totalPages - 1,
         }).map((_, i) => ({
           ...firstPageResource,
-          path: {
-            ...firstPageResource.path,
-            alias: `${firstPageResource.path.alias}/page-${i + 2}`,
-          },
+          path: `${firstPageResource.path}/page-${i + 2}`,
         }))
 
         return [...acc, firstPageResource, ...additionalPageResources]

@@ -30,9 +30,7 @@ const personProfileData: FormattedPersonProfile = {
   entityPath: 'sample/path/url',
   type: 'node--person-profile',
   title: 'Heather Steele',
-  path: {
-    alias: '/pittsburgh-health-care/staff-profiles/raab-john',
-  },
+  path: '/pittsburgh-health-care/staff-profiles/raab-john',
   firstName: 'Heather',
   lastName: 'Steele',
   suffix: null,

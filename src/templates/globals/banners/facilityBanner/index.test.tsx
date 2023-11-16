@@ -10,11 +10,8 @@ const bannerData: FormattedFacilityBanner = {
   dismiss: true,
   operatingStatus: true,
   inheritanceSubpages: null,
-  path: {
-    alias:
-      '/va-pittsburgh-health-care/vamc-banner-alert/2021-01-08/help-limit-the-spread-of-covid-19-and-other',
-  },
-  bannerAlertVacms: [null],
+  path: '/va-pittsburgh-health-care/vamc-banner-alert/2021-01-08/help-limit-the-spread-of-covid-19-and-other',
+  bannerAlertVamcs: [null],
   type: 'node--full_width_banner_alert',
 }
 

@@ -1,5 +1,3 @@
-import { Path } from '@/types/dataTypes/formatted/path'
-
 export type Banner = {
   id: string
   title: string
@@ -18,10 +16,10 @@ export type PromoBanner = {
   type?: string
 }
 
-export type BannerAlertVacms = {
+export type BannerAlertVamcs = {
   id: string
-  path?: { alias?: string }
-  field_office?: { path: Path }
+  path?: string
+  office?: { path: string }
 }
 
 export type FacilityBanner = {
@@ -30,10 +28,10 @@ export type FacilityBanner = {
   body?: string
   fieldAlertType?: string
   dismiss?: boolean
-  path?: Path
+  path?: string
   type?: string
   operatingStatus?: boolean
   findFacilities?: string
   inheritanceSubpages?: boolean
-  bannerAlertVacms?: BannerAlertVacms[]
+  bannerAlertVamcs?: BannerAlertVamcs[]
 }

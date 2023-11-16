@@ -1,7 +1,6 @@
-import { Path } from './path'
 import { Administration } from './administration'
 
 export type StaticPathResource = {
-  path: Path
+  path: string
   administration: Administration
 }

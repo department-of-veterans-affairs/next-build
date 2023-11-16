@@ -54,7 +54,7 @@ export const formatter: QueryFormatter<
           operatingStatus: banner.field_alert_operating_status_cta,
           inheritanceSubpages: banner.field_alert_inheritance_subpages,
           path: banner.path?.alias,
-          bannerAlertVacms: banner.field_banner_alert_vamcs,
+          bannerAlertVamcs: banner.field_banner_alert_vamcs,
           type: banner.type,
         }
       default:

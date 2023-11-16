@@ -171,51 +171,51 @@ describe('isLovellChildVariantResource', () => {
 
 describe('isLovellTricarePath', () => {
   test('should return true when TRICARE path', () => {
-    const result = isLovellTricarePath(lovellTricareResource.path.alias)
+    const result = isLovellTricarePath(lovellTricareResource.path)
     expect(result).toBe(true)
   })
 
   test('should return false when VA path', () => {
-    const result = isLovellTricarePath(lovellVaResource.path.alias)
+    const result = isLovellTricarePath(lovellVaResource.path)
     expect(result).toBe(false)
   })
 
   test('should return false when any other path', () => {
-    const result = isLovellTricarePath(otherResource.path.alias)
+    const result = isLovellTricarePath(otherResource.path)
     expect(result).toBe(false)
   })
 })
 
 describe('isLovellVaPath', () => {
   test('should return true when VA path', () => {
-    const result = isLovellVaPath(lovellVaResource.path.alias)
+    const result = isLovellVaPath(lovellVaResource.path)
     expect(result).toBe(true)
   })
 
   test('should return false when TRICARE path', () => {
-    const result = isLovellVaPath(lovellTricareResource.path.alias)
+    const result = isLovellVaPath(lovellTricareResource.path)
     expect(result).toBe(false)
   })
 
   test('should return false when any other path', () => {
-    const result = isLovellVaPath(otherResource.path.alias)
+    const result = isLovellVaPath(otherResource.path)
     expect(result).toBe(false)
   })
 })
 
 describe('isLovellChildVariantPath', () => {
   test('should return true when VA path', () => {
-    const result = isLovellChildVariantPath(lovellVaResource.path.alias)
+    const result = isLovellChildVariantPath(lovellVaResource.path)
     expect(result).toBe(true)
   })
 
   test('should return true when TRICARE path', () => {
-    const result = isLovellChildVariantPath(lovellTricareResource.path.alias)
+    const result = isLovellChildVariantPath(lovellTricareResource.path)
     expect(result).toBe(true)
   })
 
   test('should return false when any other path', () => {
-    const result = isLovellChildVariantPath(otherResource.path.alias)
+    const result = isLovellChildVariantPath(otherResource.path)
     expect(result).toBe(false)
   })
 })
@@ -285,16 +285,16 @@ describe('getOppositeChildVariant', () => {
 
 describe('getLovellVariantOfUrl', () => {
   test('should properly convert relative url', () => {
-    const url = lovellFederalResource.path.alias
+    const url = lovellFederalResource.path
     const result = getLovellVariantOfUrl(url, LOVELL.tricare.variant)
-    expect(result).toBe(lovellTricareResource.path.alias)
+    expect(result).toBe(lovellTricareResource.path)
   })
 
   test('should properly convert absolute url', () => {
     const domain = 'https://www.va.gov'
-    const url = `${domain}${lovellFederalResource.path.alias}`
+    const url = `${domain}${lovellFederalResource.path}`
     const result = getLovellVariantOfUrl(url, LOVELL.va.variant)
-    expect(result).toBe(`${domain}${lovellVaResource.path.alias}`)
+    expect(result).toBe(`${domain}${lovellVaResource.path}`)
   })
 
   test('should leave non-Lovell url unchanged', () => {
@@ -363,7 +363,7 @@ describe('isLovellBifurcatedResource', () => {
   test('should return true when Lovell bifurcated', () => {
     const bifurcatedResource = {
       ...newsStoryPartialResource,
-      entityPath: lovellVaResource.path.alias,
+      entityPath: lovellVaResource.path,
       administration: LOVELL.federal.administration,
     }
     const result = isLovellBifurcatedResource(bifurcatedResource)
@@ -373,7 +373,7 @@ describe('isLovellBifurcatedResource', () => {
   test('should return false when Lovell TRICARE only', () => {
     const tricareResource = {
       ...newsStoryPartialResource,
-      entityPath: lovellTricareResource.path.alias,
+      entityPath: lovellTricareResource.path,
       administration: lovellTricareResource.administration,
     }
     const result = isLovellBifurcatedResource(tricareResource)
@@ -383,7 +383,7 @@ describe('isLovellBifurcatedResource', () => {
   test('should return false when Lovell VA only', () => {
     const vaResource = {
       ...newsStoryPartialResource,
-      entityPath: lovellVaResource.path.alias,
+      entityPath: lovellVaResource.path,
       administration: lovellVaResource.administration,
     }
     const result = isLovellBifurcatedResource(vaResource)
@@ -393,7 +393,7 @@ describe('isLovellBifurcatedResource', () => {
   test('should return false when not a Lovell resource', () => {
     const someOtherResource = {
       ...newsStoryPartialResource,
-      entityPath: otherResource.path.alias,
+      entityPath: otherResource.path,
       administration: otherResource.administration,
     }
     const result = isLovellBifurcatedResource(someOtherResource)

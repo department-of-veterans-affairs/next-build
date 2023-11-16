@@ -29,9 +29,7 @@ const personProfileData: FormattedPersonProfile = {
   id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
   type: 'node--person-profile',
   title: 'Zachary M. Sage',
-  path: {
-    alias: '/illiana-health-care/staff-profiles/zachary-m-sage/',
-  },
+  path: '/illiana-health-care/staff-profiles/zachary-m-sage/',
   entityId: 1234,
   entityPath: 'sample/path',
   firstName: 'Zachary',

@@ -55,14 +55,9 @@ export async function getStaticPathsByResourceType(
   )
 
   // Convert the resources to static paths
-  //  TODO: This should probably not use a Drupal-specific utility to work on post-formatted data.
-  //  This is currently using a type assertion to make it possible since we know that the necessary
-  //  props will be present, though they probably shouldn't be present because the formatted data
-  //  prop names are a bit specific to drupal (e.g. `pid` on Path).
-  const paths = drupalClient.buildStaticPathsFromResources(
-    modifiedResources as Parameters<
-      typeof drupalClient.buildStaticPathsFromResources
-    >[0]
-  )
-  return paths
+  return modifiedResources.map((resource) => ({
+    params: {
+      slug: resource.path.split('/'),
+    },
+  }))
 }

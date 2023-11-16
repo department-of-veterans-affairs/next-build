@@ -1,4 +1,3 @@
-import { Path } from '@/types/dataTypes/formatted/path'
 import { MediaImage } from './media'
 import {
   NodeOffice,
@@ -10,7 +9,7 @@ export type PersonProfile = {
   type: string
   entityId: number
   entityPath: string
-  path: Path
+  path: string
   title?: string
   firstName: string
   lastName: string

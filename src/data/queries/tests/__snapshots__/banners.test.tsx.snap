@@ -29,7 +29,7 @@ exports[`Banners return formatted data outputs formatted data 1`] = `
   },
   {
     "alertType": "information",
-    "bannerAlertVacms": [
+    "bannerAlertVamcs": [
       {
         "id": "8822bbdd-f5f8-4700-8abb-5566431bd705",
         "resourceIdObjMeta": {

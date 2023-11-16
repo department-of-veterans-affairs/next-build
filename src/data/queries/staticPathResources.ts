@@ -61,7 +61,7 @@ export const formatter: QueryFormatter<
   StaticPathResource[]
 > = (resources: JsonApiResourceWithPathAndFieldAdmin[]) => {
   return resources.map((resource) => ({
-    path: resource.path,
+    path: resource.path.alias,
     administration: {
       id: resource.field_administration?.drupal_internal__tid || null,
       name: resource.field_administration?.name || null,
