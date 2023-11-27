@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import AxeBuilder from '@axe-core/playwright'
-import { test, expect } from '@playwright/test'
+import { test } from '@playwright/test'
 const getSitemapLocations = require('../utils/getSitemapLocations')
 
 test.skip('Accessibility Tests', () => {

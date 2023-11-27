@@ -1,4 +1,3 @@
-0
 const { test, expect } = require('@playwright/test')
 const { injectAxe, checkA11y } = require('@axe-core/playwright')
 
