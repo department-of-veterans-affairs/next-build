@@ -15,21 +15,18 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-# fake yarn folder for CI
-!.yarn/cypress
 
 # testing
 /coverage
-cypress/screenshots
-cypress/videos
 
 # next.js
 /.next/
 /out/
 
 # production
-/build
 /storybook-static
+/public/generated
+/public/data
 
 # misc
 .DS_Store
@@ -56,11 +53,3 @@ certs/rootCA.pem
 # typescript
 *.tsbuildinfo
 docs/**/*
-
-/public/generated
-/public/data
-
-#allow
-!docs/**/*.md
-
-
