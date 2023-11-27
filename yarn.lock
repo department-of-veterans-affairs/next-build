@@ -2194,10 +2194,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "@faker-js/faker@npm:8.2.0"
-  checksum: febc17018acfb841a348591bfe415e815ea981bf7fa0a12670ac2b449479ad7e9e7b130c42878ec30210da964c13a620a3303dc00d63cb13ded00c6fc701e2be
+"@faker-js/faker@npm:^8.3.1":
+  version: 8.3.1
+  resolution: "@faker-js/faker@npm:8.3.1"
+  checksum: 33efe912411fe61f43b313784a9ce041dfbfb54bc3b2f7b923a547f97beb6b3763534f9c37af25ab330982e6b36e6f7b040dfb35c115deb8c789d8ada413bd94
   languageName: node
   linkType: hard
 
@@ -8988,12 +8988,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"drupal-jsonapi-params@npm:2.2.0":
-  version: 2.2.0
-  resolution: "drupal-jsonapi-params@npm:2.2.0"
+"drupal-jsonapi-params@npm:2.3.1":
+  version: 2.3.1
+  resolution: "drupal-jsonapi-params@npm:2.3.1"
   dependencies:
     qs: ^6.10.3
-  checksum: 01c0f8c3c0bc1389181158e9248d8712fb11f716332a1a959782e5392d95c677e3b0f066ab920a7b27cf7a51147e913e377923f90aef7a43d9e376a0863a9657
+  checksum: 7ad03f11d2206f33f48d16801b0873569a63c548b114e4dc6692c10ef2fc2a1a4954cec1e9045d98b04de3213f6cd4ba0d69cccfd72e4586e55cd3f9f9e73ef6
   languageName: node
   linkType: hard
 
@@ -14022,7 +14022,7 @@ __metadata:
     "@department-of-veterans-affairs/component-library": ^31.0.0
     "@department-of-veterans-affairs/formation": ^7.0.9
     "@department-of-veterans-affairs/web-components": ^4.45.31
-    "@faker-js/faker": ^8.2.0
+    "@faker-js/faker": ^8.3.1
     "@fortawesome/fontawesome-free": ^6.4.2
     "@fortawesome/fontawesome-svg-core": ^6.4.2
     "@fortawesome/free-brands-svg-icons": ^6.4.2
@@ -14060,7 +14060,7 @@ __metadata:
     debug: ^4.3.4
     dotenv: ^16.3.1
     dotenv-expand: ^10.0.0
-    drupal-jsonapi-params: ^2.0.0
+    drupal-jsonapi-params: ^2.3.1
     eslint: 8.53.0
     eslint-config-next: ^14.0.0
     eslint-config-prettier: ^9.0.0
