@@ -3,10 +3,10 @@ import { fireEvent } from '@testing-library/dom'
 jest.mock('@/lib/analytics/recordEvent')
 import * as recordEvent from '@/lib/analytics/recordEvent'
 import { LinkTeaser } from './index'
-import { LinkTeaserType } from '@/types/index'
+import { LinkTeaser as FormattedLinkTeaser } from '@/types/dataTypes/formatted/linkTeaser'
 
 describe('<LinkTeaser> component renders without field_spokes', () => {
-  const LinkTeaserCollectionProps: LinkTeaserType = {
+  const LinkTeaserCollectionProps: FormattedLinkTeaser = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
@@ -106,7 +106,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 })
 
 describe('<LinkTeaser> component renders with field_spokes', () => {
-  const LinkTeaserCollectionProps: LinkTeaserType = {
+  const LinkTeaserCollectionProps: FormattedLinkTeaser = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
@@ -216,7 +216,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
 describe('LinkTeaser with invalid data', () => {
   test('does render <LinkTeaser> component when uri is not present', () => {
-    const LinkTeaserCollectionProps: LinkTeaserType = {
+    const LinkTeaserCollectionProps: FormattedLinkTeaser = {
       id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
       uri: '/health-care/eligibility/',
       title: 'Health Care Benefits Eligibility',

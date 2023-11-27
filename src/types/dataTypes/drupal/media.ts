@@ -6,11 +6,11 @@ export const enum MediaResourceType {
   Document = 'media--document',
 }
 
-export interface MediaImage extends DrupalMedia {
+export interface DrupalMediaImage extends DrupalMedia {
   field_description: string
   image: DrupalFile
 }
 
-export interface MediaDocument extends DrupalMedia {
+export interface DrupalMediaDocument extends DrupalMedia {
   field_document: DrupalFile
 }

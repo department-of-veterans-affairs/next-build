@@ -1,8 +1,11 @@
 import React from 'react'
-import { ContentFooterType } from '@/types/index'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { MedalliaAssets } from '@/templates/globals/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
+
+type ContentFooterProps = {
+  lastUpdated?: string | number
+}
 
 function formatDate(date: Date, format: 'display' | 'machine'): string {
   const dateParts = getDateParts(date)
@@ -54,7 +57,7 @@ function FeedbackButton() {
   )
 }
 
-export function ContentFooter({ lastUpdated }: ContentFooterType) {
+export function ContentFooter({ lastUpdated }: ContentFooterProps) {
   let displayDate, machineDate
   const date = parseDate(lastUpdated)
   if (date) {

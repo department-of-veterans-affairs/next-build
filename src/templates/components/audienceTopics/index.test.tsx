@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { AudienceTopics } from './index'
-import { AudienceTopicsType } from '@/types/index'
+import { AudienceTopics as FormattedAudienceTopics } from '@/types/dataTypes/formatted/audienceTopics'
 
 describe('AudienceTopics with valid data', () => {
-  const audienceTopicProps: AudienceTopicsType = {
+  const audienceTopicProps: FormattedAudienceTopics = {
     tags: [
       {
         id: '386eb70d-696c-4af3-8986-306ce63d90de',
@@ -43,7 +43,7 @@ describe('AudienceTopics with valid data', () => {
 })
 
 describe('AudienceTopics without Topics', () => {
-  const audienceTopicProps: AudienceTopicsType = {
+  const audienceTopicProps: FormattedAudienceTopics = {
     tags: [
       {
         id: '386eb70d-696c-4af3-8986-306ce63d90de',
@@ -64,7 +64,7 @@ describe('AudienceTopics without Topics', () => {
 })
 
 describe('AudienceTopics without Audience', () => {
-  const audienceTopicProps: AudienceTopicsType = {
+  const audienceTopicProps: FormattedAudienceTopics = {
     tags: [
       {
         id: '8360523e-a4bb-4d36-851f-1c445501c8bf',
@@ -85,7 +85,7 @@ describe('AudienceTopics without Audience', () => {
 })
 
 describe('AudienceTopics without Topics and Audience', () => {
-  const audienceTopicProps: AudienceTopicsType = {
+  const audienceTopicProps: FormattedAudienceTopics = {
     tags: [],
   }
 

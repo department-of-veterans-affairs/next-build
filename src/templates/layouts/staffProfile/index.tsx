@@ -1,5 +1,5 @@
 import { MediaImage } from '@/templates/common/mediaImage'
-import { StaffProfileType } from '@/types/index'
+import { StaffProfile as FormattedStaffProfile } from '@/types/dataTypes/formatted/staffProfile'
 
 export function StaffProfile({
   id,
@@ -10,7 +10,7 @@ export function StaffProfile({
   description,
   phone,
   email,
-}: StaffProfileType) {
+}: FormattedStaffProfile) {
   return (
     <article key={id} className="usa-content">
       <div className="vads-u-display--flex vads-u-margin-bottom--4 vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">

@@ -18,11 +18,7 @@ import {
 
 describe('getLovellVariantOfStaticPathResource', () => {
   const resource = {
-    path: {
-      alias: `/${LOVELL.va.pathSegment}/stories`,
-      pid: 68161,
-      langcode: 'en',
-    },
+    path: `/${LOVELL.va.pathSegment}/stories`,
     administration: LOVELL.va.administration,
   }
 
@@ -32,11 +28,7 @@ describe('getLovellVariantOfStaticPathResource', () => {
       LOVELL.federal.variant
     )
     expect(result).toStrictEqual({
-      path: {
-        alias: `/${LOVELL.federal.pathSegment}/stories`,
-        pid: resource.path.pid,
-        langcode: resource.path.langcode,
-      },
+      path: `/${LOVELL.federal.pathSegment}/stories`,
       administration: LOVELL.federal.administration,
     })
   })
@@ -47,11 +39,7 @@ describe('getLovellVariantOfStaticPathResource', () => {
       LOVELL.tricare.variant
     )
     expect(result).toStrictEqual({
-      path: {
-        alias: `/${LOVELL.tricare.pathSegment}/stories`,
-        pid: resource.path.pid,
-        langcode: resource.path.langcode,
-      },
+      path: `/${LOVELL.tricare.pathSegment}/stories`,
       administration: LOVELL.tricare.administration,
     })
   })

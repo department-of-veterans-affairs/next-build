@@ -1,6 +1,6 @@
 import { MediaImage } from '@/templates/common/mediaImage'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
-import { NewsStoryTeaserType } from '@/types/index'
+import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '@/types/dataTypes/formatted/newsStory'
 
 /** Teaser news story. */
 export const NewsStoryTeaser = ({
@@ -9,7 +9,7 @@ export const NewsStoryTeaser = ({
   image,
   link,
   introText,
-}: NewsStoryTeaserType) => {
+}: FormattedNewsStoryTeaser) => {
   const TitleTag = ({ children, className }) => {
     const Heading = headingLevel ? headingLevel : 'h2'
     return <Heading className={className}>{children}</Heading>

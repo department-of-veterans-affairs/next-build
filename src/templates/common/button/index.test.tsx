@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { Button } from './index'
-import { ButtonType } from '@/types/index'
+import { Button as FormattedButton } from '@/types/dataTypes/formatted/button'
 
-const buttonProps: ButtonType = {
+const buttonProps: FormattedButton = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   label: 'Sign in now',
   url: 'https://www.va.gov/?next=sign-in-faq',

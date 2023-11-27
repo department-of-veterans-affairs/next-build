@@ -6,7 +6,7 @@ import {
   MegaMenuLink,
   MegaMenuLinkObject,
   MegaMenuSection,
-} from '@/types/index'
+} from '@/types/dataTypes/formatted/headerFooter'
 
 /**
  * Most of this file is to massage the data for the menu links

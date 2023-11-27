@@ -1,10 +1,11 @@
 import { isValidData } from '@/lib/utils/helpers'
-import { WysiwygType, HtmlType } from '@/types/index'
+import { Html } from '@/types/dataTypes/formatted/html'
+import { Wysiwyg as FormattedWysiwyg } from '@/types/dataTypes/formatted/wysiwyg'
 
-export function Wysiwyg({ id, html, className }: WysiwygType) {
+export function Wysiwyg({ id, html, className }: FormattedWysiwyg) {
   if (!isValidData(html)) return
 
-  function createMarkup(): HtmlType {
+  function createMarkup(): Html {
     return {
       __html: html,
     }

@@ -1,12 +1,12 @@
 import { VaPromoBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { PromoBannerType } from '@/types/index'
+import { PromoBanner as FormattedPromoBanner } from '@/types/dataTypes/formatted/banners'
 
 export const PromoBanner = ({
   id,
   href,
   title,
   alertType,
-}: PromoBannerType): JSX.Element => {
+}: FormattedPromoBanner): JSX.Element => {
   return (
     <VaPromoBanner id={id} role="region" href={href} type={alertType}>
       {title}

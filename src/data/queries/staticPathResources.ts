@@ -7,9 +7,9 @@ import {
 import { JsonApiResourceWithPath } from 'next-drupal'
 import {
   ADDITIONAL_RESOURCE_TYPES,
-  ResourceTypeType,
+  ResourceType,
 } from '@/lib/constants/resourceTypes'
-import { StaticPathResourceType } from '@/types/index'
+import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
 import { FieldAdministration } from '@/types/dataTypes/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
@@ -18,8 +18,8 @@ import { fetchAndConcatAllResourceCollectionPages } from './utils'
 const PAGE_SIZE = PAGE_SIZES[ADDITIONAL_RESOURCE_TYPES.STATIC_PATHS]
 
 // Define the query params for fetching static paths.
-export const params: QueryParams<ResourceTypeType> = (
-  resourceType: ResourceTypeType
+export const params: QueryParams<ResourceType> = (
+  resourceType: ResourceType
 ) => {
   return (
     queries
@@ -35,7 +35,7 @@ export const params: QueryParams<ResourceTypeType> = (
 
 // Define the option types for the data loader.
 type DataOpts = QueryOpts<{
-  resourceType: ResourceTypeType
+  resourceType: ResourceType
 }>
 
 type JsonApiResourceWithPathAndFieldAdmin = JsonApiResourceWithPath & {
@@ -58,10 +58,10 @@ export const data: QueryData<
 
 export const formatter: QueryFormatter<
   JsonApiResourceWithPathAndFieldAdmin[],
-  StaticPathResourceType[]
+  StaticPathResource[]
 > = (resources: JsonApiResourceWithPathAndFieldAdmin[]) => {
   return resources.map((resource) => ({
-    path: resource.path,
+    path: resource.path.alias,
     administration: {
       id: resource.field_administration?.drupal_internal__tid || null,
       name: resource.field_administration?.name || null,

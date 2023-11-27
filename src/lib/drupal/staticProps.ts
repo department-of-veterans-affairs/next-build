@@ -18,7 +18,7 @@ import {
   LovellFormattedResource,
 } from './lovell/types'
 import { FormattedResource } from '@/data/queries'
-import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { NewsStoryDataOpts } from '@/data/queries/newsStory'
 
@@ -79,7 +79,7 @@ export function getExpandedStaticPropsContext(
  * @returns A query options object whose shape is determined by the resource type
  */
 export function getStaticPropsQueryOpts(
-  resourceType: ResourceTypeType,
+  resourceType: ResourceType,
   id: string,
   context: ExpandedStaticPropsContext
 ): StaticPropsQueryOpts {
@@ -101,7 +101,7 @@ export function getStaticPropsQueryOpts(
 }
 
 export async function fetchSingleStaticPropsResource(
-  resourceType: ResourceTypeType,
+  resourceType: ResourceType,
   pathInfo: DrupalTranslatedPath,
   queryOpts: StaticPropsQueryOpts
 ): Promise<FormattedResource> {
@@ -114,7 +114,7 @@ export async function fetchSingleStaticPropsResource(
 }
 
 export async function getDefaultStaticPropsResource(
-  resourceType: ResourceTypeType,
+  resourceType: ResourceType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
 ): Promise<FormattedResource> {
@@ -125,7 +125,7 @@ export async function getDefaultStaticPropsResource(
 }
 
 export async function getStaticPropsResource(
-  resourceType: ResourceTypeType,
+  resourceType: ResourceType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
 ): Promise<StaticPropsResource<FormattedResource>> {

@@ -1,6 +1,10 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
-import { BannerType, FacilityBannerType, PromoBannerType } from '@/types/index'
+import {
+  Banner,
+  FacilityBanner,
+  PromoBanner,
+} from '@/types/dataTypes/formatted/banners'
 
 export const BannerDisplayType = {
   PROMO_BANNER: 'promoBanner',
@@ -16,7 +20,7 @@ export const BannerTypeMapping = {
 
 export const formatter: QueryFormatter<
   NodeBanner[],
-  Array<PromoBannerType | BannerType | FacilityBannerType | NodeBanner>
+  Array<PromoBanner | Banner | FacilityBanner | NodeBanner>
 > = (entities: NodeBanner[]) => {
   return entities?.map((banner) => {
     switch (banner?.type as string) {
@@ -50,7 +54,7 @@ export const formatter: QueryFormatter<
           operatingStatus: banner.field_alert_operating_status_cta,
           inheritanceSubpages: banner.field_alert_inheritance_subpages,
           path: banner.path?.alias,
-          bannerAlertVacms: banner.field_banner_alert_vamcs,
+          bannerAlertVamcs: banner.field_banner_alert_vamcs,
           type: banner.type,
         }
       default:

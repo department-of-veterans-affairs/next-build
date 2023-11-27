@@ -1,11 +1,16 @@
 import React from 'react'
 import { getOppositeChildVariant } from '@/lib/drupal/lovell/utils'
-import { LovellSwitcherType } from '@/types/index'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+
+type LovellSwitcherProps = {
+  currentVariant: LovellChildVariant
+  switchPath: string
+}
 
 export function LovellSwitcher({
   currentVariant,
   switchPath,
-}: LovellSwitcherType) {
+}: LovellSwitcherProps) {
   if (!switchPath || !currentVariant) {
     return <></>
   }

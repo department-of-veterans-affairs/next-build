@@ -7,7 +7,7 @@ import {
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
-import { NewsStoryType } from '@/types/index'
+import { NewsStory } from '@/types/dataTypes/formatted/newsStory'
 import { GetServerSidePropsContext } from 'next'
 
 // Define the query params for fetching node--news_story.
@@ -54,7 +54,7 @@ export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
   return entity
 }
 
-export const formatter: QueryFormatter<NodeNewsStory, NewsStoryType> = (
+export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
   entity: NodeNewsStory
 ) => {
   return {

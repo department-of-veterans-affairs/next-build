@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { BenefitsHubLinks } from './index'
-import { BenefitsHubLinksType } from '@/types/index'
+import { BenefitsHubLinks as FormattedBenefitsHubLinks } from '@/types/dataTypes/formatted/benefitsHub'
 
-let benefitHubProps: BenefitsHubLinksType = {
+let benefitHubProps: FormattedBenefitsHubLinks = {
   title: 'Deciding how much life insurance to get',
   relatedBenefitHubs: [
     {

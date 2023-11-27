@@ -19,38 +19,22 @@ export const lovellVaSlug = [LOVELL.va.pathSegment, 'stories', 'story-1']
 export const otherSlug = ['some-other-health-care', 'stories', 'story-1']
 
 export const lovellFederalResource = {
-  path: {
-    alias: slugToPath(lovellFederalSlug),
-    pid: null,
-    langcode: null,
-  },
+  path: slugToPath(lovellFederalSlug),
   administration: LOVELL.federal.administration,
 }
 
 export const lovellTricareResource = {
-  path: {
-    alias: slugToPath(lovellTricareSlug),
-    pid: null,
-    langcode: null,
-  },
+  path: slugToPath(lovellTricareSlug),
   administration: LOVELL.tricare.administration,
 }
 
 export const lovellVaResource = {
-  path: {
-    alias: slugToPath(lovellVaSlug),
-    pid: null,
-    langcode: null,
-  },
+  path: slugToPath(lovellVaSlug),
   administration: LOVELL.va.administration,
 }
 
 export const otherResource = {
-  path: {
-    alias: slugToPath(otherSlug),
-    pid: null,
-    langcode: null,
-  },
+  path: slugToPath(otherSlug),
   administration: {
     id: 123,
     name: 'Some Other health care',
@@ -67,8 +51,23 @@ export const newsStoryPartialResource = {
     { title: 'News', uri: '/news', options: [] },
   ],
   image: {
-    src: 'image/src',
     alt: 'alt-text',
+    id: 'id',
+    title: 'title',
+    url: 'image/src',
+    width: 100,
+    height: 100,
+    link: {
+      '2_1_large': {
+        href: 'image/src',
+        meta: {
+          linkParams: {
+            width: 100,
+            height: 100,
+          },
+        },
+      },
+    },
   },
   caption: 'caption',
   author: {
@@ -79,6 +78,7 @@ export const newsStoryPartialResource = {
   date: '2020-01-01',
   socialLinks: {
     title: 'Social Network',
+    path: 'path/to/social',
   },
   listing: 'listing',
   entityId: 12345,

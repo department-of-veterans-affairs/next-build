@@ -7,7 +7,7 @@ import {
 import { queries } from '.'
 import { ParagraphLinkTeaser } from '@/types/dataTypes/drupal/paragraph'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { LinkTeaserType } from '@/types/index'
+import { LinkTeaser } from '@/types/dataTypes/formatted/linkTeaser'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -30,7 +30,7 @@ export const data: QueryData<DataOpts, ParagraphLinkTeaser[]> = async (
   return entities
 }
 
-export const formatter: QueryFormatter<ParagraphLinkTeaser, LinkTeaserType> = (
+export const formatter: QueryFormatter<ParagraphLinkTeaser, LinkTeaser> = (
   entity: ParagraphLinkTeaser
 ) => {
   return {

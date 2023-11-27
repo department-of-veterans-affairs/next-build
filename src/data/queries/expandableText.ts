@@ -8,7 +8,7 @@ import {
 } from 'next-drupal-query'
 import { queries } from '@/data/queries/index'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { ExpandableTextType } from '@/types/index'
+import { ExpandableText } from '@/types/dataTypes/formatted/expandableText'
 
 export const params: QueryParams<null> = () => {
   return queries.getParams().addPageLimit(10)
@@ -32,7 +32,7 @@ export const data: QueryData<DataOpts, ParagraphExpandableText[]> = async (
 
 export const formatter: QueryFormatter<
   ParagraphExpandableText[],
-  ExpandableTextType[]
+  ExpandableText[]
 > = (entities: ParagraphExpandableText[]) => {
   return entities.map((entity) => ({
     id: entity.id,

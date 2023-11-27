@@ -1,35 +1,36 @@
 import { render, screen } from 'test-utils'
 import { PersonProfile } from '@/templates/components/personProfile/index'
-import { PersonProfileType, MediaImageType } from '@/types/index'
+import { PersonProfile as FormattedPersonProfile } from '@/types/dataTypes/formatted/personProfile'
+import { MediaImage } from '@/types/dataTypes/formatted/media'
 
-const mediaImage: MediaImageType = {
+const mediaImage: MediaImage = {
   id: '3',
   alt: 'Heather Steele outreach and community engagement specialist',
   title: 'Heather Steele',
   width: 151,
   height: 227,
-  imageStyle: '1_1_square_medium_thumbnail',
+  imageStyle: '2_3_medium_thumbnail',
   url: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
   link: {
-    href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
-    meta: {
-      linkParams: {
-        width: 151,
-        height: 227,
+    '2_3_medium_thumbnail': {
+      href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
+      meta: {
+        linkParams: {
+          width: 151,
+          height: 227,
+        },
       },
     },
   },
 }
 
-const personProfileData: PersonProfileType = {
+const personProfileData: FormattedPersonProfile = {
   id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
   entityId: 1234,
   entityPath: 'sample/path/url',
   type: 'node--person-profile',
   title: 'Heather Steele',
-  path: {
-    alias: '/pittsburgh-health-care/staff-profiles/raab-john',
-  },
+  path: '/pittsburgh-health-care/staff-profiles/raab-john',
   firstName: 'Heather',
   lastName: 'Steele',
   suffix: null,

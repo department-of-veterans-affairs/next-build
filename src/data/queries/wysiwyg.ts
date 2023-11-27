@@ -3,13 +3,13 @@ import {
   ParagraphRichTextCharLimit1000,
 } from '@/types/dataTypes/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
-import { WysiwygType } from '@/types/index'
+import { Wysiwyg } from '@/types/dataTypes/formatted/wysiwyg'
 import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
 
 // Define the formatter for returning paragraph--wysiwyg & paragraph--rich_text_char_limit_1000 data.
 export const formatter: QueryFormatter<
   ParagraphWysiwyg | ParagraphRichTextCharLimit1000,
-  WysiwygType
+  Wysiwyg
 > = (entity: ParagraphWysiwyg | ParagraphRichTextCharLimit1000) => {
   const data = [entity.field_wysiwyg?.processed]
   const filters = [phoneLinks, drupalToVaPath]

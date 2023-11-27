@@ -4,12 +4,12 @@ import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 import { isEmpty } from 'lodash'
+import { HeaderFooterData } from '@/types/dataTypes/formatted/headerFooter'
 import {
-  BannerType,
-  FacilityBannerType,
-  PromoBannerType,
-  HeaderFooterData,
-} from '@/types/index'
+  Banner as FormattedBanner,
+  FacilityBanner as FormattedFacilityBanner,
+  PromoBanner as FormattedPromoBanner,
+} from '@/types/dataTypes/formatted/banners'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
@@ -27,7 +27,10 @@ declare const window: customWindow
 export interface LayoutProps {
   children?: React.ReactNode
   bannerData?: Array<
-    NodeBanner | PromoBannerType | BannerType | FacilityBannerType
+    | NodeBanner
+    | FormattedPromoBanner
+    | FormattedBanner
+    | FormattedFacilityBanner
   >
   headerFooterData?: HeaderFooterData
 }

@@ -1,7 +1,8 @@
 // TODO: refactor this file to the @data/queries directory
 import { ParagraphStaffProfile } from '@/types/dataTypes/drupal/paragraph'
-import { StaffProfileType } from '@/types/index'
+import { StaffProfile } from '@/types/dataTypes/formatted/staffProfile'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { queries } from '@/data/queries'
 
 function isRequestValid(paragraph) {
   return paragraph.field_staff_profile !== null
@@ -10,7 +11,7 @@ function isRequestValid(paragraph) {
 export const transformStaffProfileData = function (
   entity: ParagraphStaffProfile,
   viewMode?: string
-): StaffProfileType {
+): StaffProfile {
   if (!entity || !isRequestValid(entity)) return
 
   const name =
@@ -23,7 +24,10 @@ export const transformStaffProfileData = function (
       return {
         id: entity.field_staff_profile.id,
         name: name,
-        thumbnail: entity.field_staff_profile.field_media,
+        thumbnail: queries.formatData('media--image', {
+          entity: entity.field_staff_profile.field_media,
+          cropType: '2_1_large', // TODO: Which cropType do we want here?
+        }),
         linkToBio: entity.field_staff_profile.field_complete_biography_create,
         path: entity.field_staff_profile.field_entity?.entityUrl.path || null,
         description: entity.field_staff_profile.field_description,

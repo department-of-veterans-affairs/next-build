@@ -7,7 +7,7 @@ import {
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeQA } from '@/types/dataTypes/drupal/node'
-import { QuestionAnswerType } from '@/types/index'
+import { QuestionAnswer } from '@/types/dataTypes/formatted/questionAnswer'
 
 // Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {
@@ -43,7 +43,7 @@ export const data: QueryData<DataOpts, NodeQA> = async (
   return entity
 }
 
-export const formatter: QueryFormatter<NodeQA, QuestionAnswerType> = (
+export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
   entity: NodeQA
 ) => {
   const buttons = entity.field_buttons?.map((button) => {

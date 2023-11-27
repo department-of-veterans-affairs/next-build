@@ -9,19 +9,19 @@ import {
   LOVELL_RESOURCE_TYPES,
   LOVELL_BIFURCATED_RESOURCE_TYPES,
 } from './constants'
-import { StaticPathResourceType } from '@/types/index'
+import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
 import { FormattedResource } from '@/data/queries'
-import { ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { ResourceType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
-import { SideNavItem, SideNavMenu } from '@/types/index'
+import { SideNavItem, SideNavMenu } from '@/types/dataTypes/formatted/sideNav'
 import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 
-export function isLovellResourceType(resourceType: ResourceTypeType): boolean {
+export function isLovellResourceType(resourceType: ResourceType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)
 }
 
 export function isLovellBifurcatedResourceType(
-  resourceType: ResourceTypeType
+  resourceType: ResourceType
 ): boolean {
   return (LOVELL_BIFURCATED_RESOURCE_TYPES as readonly string[]).includes(
     resourceType
@@ -29,7 +29,7 @@ export function isLovellBifurcatedResourceType(
 }
 
 export function isLovellFederalResource(
-  resource: LovellFormattedResource | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResource
 ): boolean {
   return (
     'administration' in resource &&
@@ -37,7 +37,7 @@ export function isLovellFederalResource(
   )
 }
 export function isLovellTricareResource(
-  resource: LovellFormattedResource | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResource
 ): boolean {
   return (
     'administration' in resource &&
@@ -45,7 +45,7 @@ export function isLovellTricareResource(
   )
 }
 export function isLovellVaResource(
-  resource: LovellFormattedResource | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResource
 ): boolean {
   return (
     'administration' in resource &&
@@ -53,7 +53,7 @@ export function isLovellVaResource(
   )
 }
 export function isLovellResource(
-  resource: LovellFormattedResource | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResource
 ): boolean {
   return (
     isLovellFederalResource(resource) ||
@@ -62,7 +62,7 @@ export function isLovellResource(
   )
 }
 export function isLovellChildVariantResource(
-  resource: LovellFormattedResource | StaticPathResourceType
+  resource: LovellFormattedResource | StaticPathResource
 ): boolean {
   return isLovellTricareResource(resource) || isLovellVaResource(resource)
 }
@@ -210,7 +210,7 @@ export function isLovellBifurcatedResource(
   resource: FormattedResource
 ): boolean {
   return (
-    isLovellBifurcatedResourceType(resource.type as ResourceTypeType) &&
+    isLovellBifurcatedResourceType(resource.type as ResourceType) &&
     isLovellChildVariantPath(resource.entityPath) &&
     isLovellFederalResource(resource as LovellBifurcatedFormattedResource)
   )

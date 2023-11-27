@@ -2,9 +2,9 @@ import {
   VaAlert,
   VaAlertExpandable,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { AlertType } from '@/types/index'
+import { Alert } from '@/types/dataTypes/formatted/alert'
 
-export function AlertBlock({ alertType, id, title, content }: AlertType) {
+export function AlertBlock({ alertType, id, title, content }: Alert) {
   return (
     <>
       <VaAlert

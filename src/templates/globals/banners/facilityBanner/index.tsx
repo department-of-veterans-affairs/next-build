@@ -3,7 +3,7 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 import { regionBaseURL } from '@/lib/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { NodeMetaInfo } from '@/types/dataTypes/drupal/node'
-import { FacilityBannerType } from '@/types/index'
+import { FacilityBanner as FormattedFacilityBanner } from '@/types/dataTypes/formatted/banners'
 
 export const FacilityBanner = ({
   id,
@@ -14,9 +14,9 @@ export const FacilityBanner = ({
   findFacilities,
   operatingStatus,
   inheritanceSubpages,
-  bannerAlertVacms,
+  bannerAlertVamcs,
   dismiss,
-}: FacilityBannerType): JSX.Element => {
+}: FormattedFacilityBanner): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false)
   const [outputStatus, setOutputStatus] = useState(true)
   const analyticsRef = useRef(null)
@@ -31,7 +31,7 @@ export const FacilityBanner = ({
     return () => window.removeEventListener('click', handler)
   }, [])
 
-  const findPath = path?.alias
+  const findPath = path
   const hideOnSubpages = inheritanceSubpages
   const alertType = fieldAlertType === 'information' ? 'info' : fieldAlertType
 
@@ -41,10 +41,10 @@ export const FacilityBanner = ({
   let content = body
   const statusUrl = ''
 
-  // TODO: Banner AlertVACMS data is a special case. we need to call a relationship which our current banner endpoint does not support. node--vamc_operating_status_and_alerts
-  // if (bannerAlertVacms) {
-  //   bannerAlertVacms?.map((vamc) => {
-  //     if (region == vamc?.field_office?.path?.alias) {
+  // TODO: Banner AlertVAMCS data is a special case. we need to call a relationship which our current banner endpoint does not support. node--vamc_operating_status_and_alerts
+  // if (bannerAlertVamcs) {
+  //   bannerAlertVamcs?.map((vamc) => {
+  //     if (region == vamc?.office?.path) {
   //       setOutputStatus(true)
   //       return outputStatus
   //     }
@@ -56,7 +56,7 @@ export const FacilityBanner = ({
   //       setOutputStatus(false)
   //       return outputStatus
   //     }
-  //     statusUrl = vamc?.path?.alias
+  //     statusUrl = vamc?.path
   //   })
   // }
 

@@ -1,5 +1,5 @@
 import { buildHeaderFooterData } from './headerFooter'
-import { FooterLink } from '@/types/index'
+import { FooterLink } from '@/types/dataTypes/formatted/headerFooter'
 
 describe('headerFooter', () => {
   test('should combine footer menus into one array', () => {

@@ -13,7 +13,7 @@
  */
 import map from 'lodash/map'
 import { Button } from '@/templates/common/button'
-import { QuestionAnswerType } from '@/types/index'
+import { QuestionAnswer as FormattedQuestionAnswer } from '@/types/dataTypes/formatted/questionAnswer'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { LinkTeaser } from '@/templates/components/linkTeaser'
 
@@ -27,7 +27,7 @@ export const QuestionAnswer = ({
   buttons,
   tags,
   teasers,
-}: QuestionAnswerType) => {
+}: FormattedQuestionAnswer) => {
   const tag = tags ? <AudienceTopics tags={tags} /> : null
 
   const button = map(buttons, (data) =>

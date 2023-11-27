@@ -1,16 +1,17 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import {
-  ListingResourceTypeType,
+  ListingResourceType,
   getAllPagedListingStaticPathResources,
   isListingResourceType,
 } from '@/lib/drupal/listingPages'
-import { RESOURCE_TYPES, ResourceTypeType } from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
 import { queries } from '@/data/queries'
-import { StaticPathResourceType } from '@/types/index'
+import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
 import {
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
 } from '@/lib/drupal/lovell/staticPaths'
+import { pathToSlug } from '@/lib/utils/slug'
 
 /**
  * Returns a static-path resource collection that is modified per business logic.
@@ -22,9 +23,9 @@ import {
  * - Lovell Federal listing pages are REMOVED
  */
 async function modifyStaticPathResourcesByResourceType(
-  resourceType: ResourceTypeType,
-  resources: StaticPathResourceType[]
-): Promise<StaticPathResourceType[]> {
+  resourceType: ResourceType,
+  resources: StaticPathResource[]
+): Promise<StaticPathResource[]> {
   if (resourceType === RESOURCE_TYPES.STORY) {
     return bifurcateLovellFederalPathResources(resources)
   }
@@ -33,7 +34,7 @@ async function modifyStaticPathResourcesByResourceType(
     const lovellFederalRemoved = removeLovellFederalPathResources(resources)
     return await getAllPagedListingStaticPathResources(
       lovellFederalRemoved,
-      resourceType as ListingResourceTypeType
+      resourceType as ListingResourceType
     )
   }
 
@@ -41,7 +42,7 @@ async function modifyStaticPathResourcesByResourceType(
 }
 
 export async function getStaticPathsByResourceType(
-  resourceType: ResourceTypeType
+  resourceType: ResourceType
 ): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
   // Get resources from which static paths can be built
   const resources = await queries.getData('static-path-resources', {
@@ -55,6 +56,9 @@ export async function getStaticPathsByResourceType(
   )
 
   // Convert the resources to static paths
-  const paths = drupalClient.buildStaticPathsFromResources(modifiedResources)
-  return paths
+  return modifiedResources.map((resource) => ({
+    params: {
+      slug: pathToSlug(resource.path),
+    },
+  }))
 }

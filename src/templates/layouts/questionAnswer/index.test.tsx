@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { QuestionAnswer } from './index'
-import { QuestionAnswerType } from '@/types/index'
+import { QuestionAnswer as FormattedQuestionAnswer } from '@/types/dataTypes/formatted/questionAnswer'
 
 describe('<QuestionAnswerData> component renders with data', () => {
-  const QuestionAnswerData: QuestionAnswerType = {
+  const QuestionAnswerData: FormattedQuestionAnswer = {
     id: 'test-id',
     type: 'node--q_a',
     entityId: 1234,

@@ -1,5 +1,5 @@
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { BannerType } from '@/types/index'
+import { Banner as FormattedBanner } from '@/types/dataTypes/formatted/banners'
 
 export const Banner = ({
   id,
@@ -7,7 +7,7 @@ export const Banner = ({
   body,
   alertType,
   dismiss,
-}: BannerType): JSX.Element => {
+}: FormattedBanner): JSX.Element => {
   return (
     <VaBanner
       id={id}

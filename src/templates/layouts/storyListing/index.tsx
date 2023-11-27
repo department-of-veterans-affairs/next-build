@@ -10,11 +10,9 @@
  */
 
 import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import {
-  NewsStoryTeaserType,
-  SideNavMenu,
-  StoryListingType,
-} from '@/types/index'
+import { SideNavMenu } from '@/types/dataTypes/formatted/sideNav'
+import { StoryListing as FormattedStoryListing } from '@/types/dataTypes/formatted/storyListing'
+import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '@/types/dataTypes/formatted/newsStory'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
@@ -37,7 +35,7 @@ export function StoryListing({
   totalPages,
   lovellVariant,
   lovellSwitchPath,
-}: LovellStaticPropsResource<StoryListingType>) {
+}: LovellStaticPropsResource<FormattedStoryListing>) {
   // Add data to the window object for the sidebar widget
   useEffect(() => {
     window.sideNav = menu
@@ -45,7 +43,7 @@ export function StoryListing({
 
   const storyTeasers =
     stories?.length > 0 ? (
-      stories?.map((story: NewsStoryTeaserType) => (
+      stories?.map((story: FormattedNewsStoryTeaser) => (
         <li key={story.id}>
           <NewsStoryTeaser {...story} />
         </li>

@@ -5,12 +5,12 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { queries } from '.'
-import { MediaImage } from '@/types/dataTypes/drupal/media'
+import { DrupalMediaImage } from '@/types/dataTypes/drupal/media'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { MediaImageType } from '@/types/index'
+import { MediaImage } from '@/types/dataTypes/formatted/media'
 
-type MediaImageData = {
-  entity: MediaImage
+type DrupalMediaImageData = {
+  entity: DrupalMediaImage
   cropType?: string
 }
 
@@ -25,10 +25,10 @@ type DataOpts = QueryOpts<{
 }>
 
 // Implement the data loader.
-export const data: QueryData<DataOpts, MediaImageData> = async (
+export const data: QueryData<DataOpts, DrupalMediaImageData> = async (
   opts
-): Promise<MediaImageData> => {
-  const entity = await drupalClient.getResource<MediaImage>(
+): Promise<DrupalMediaImageData> => {
+  const entity = await drupalClient.getResource<DrupalMediaImage>(
     'media--image',
     opts.id,
     {
@@ -39,12 +39,14 @@ export const data: QueryData<DataOpts, MediaImageData> = async (
   return { entity, cropType: opts.cropType || '2_1_large' }
 }
 
-export const formatter: QueryFormatter<MediaImageData, MediaImageType> = ({
+export const formatter: QueryFormatter<DrupalMediaImageData, MediaImage> = ({
   entity,
   cropType = '2_1_large',
 }) => {
   if (!entity) return null
   // TODO: may need more handling here around crop type + image height / width. TBD.
+  // TODO: `link` has reference to all image styles whereas `url` narrows down based on
+  //  cropType. Which do we want at this layer?
   return {
     id: entity.image.id,
     type: entity.type,

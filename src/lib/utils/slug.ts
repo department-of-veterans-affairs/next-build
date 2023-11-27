@@ -3,3 +3,7 @@ export function slugToPath(slug: string | string[]): string {
   const leadingSlashPath = path.substring(0, 1) === '/' ? path : `/${path}`
   return leadingSlashPath
 }
+
+export function pathToSlug(path: string): string[] {
+  return path.split('/').filter((segment) => segment !== '')
+}

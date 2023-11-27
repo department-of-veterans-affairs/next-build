@@ -1,9 +1,9 @@
-import { MediaImage } from '@/types/dataTypes/drupal/media'
+import { DrupalMediaImage } from '@/types/dataTypes/drupal/media'
 import { queries } from '@/data/queries/'
 import mockData from '@/mocks/mediaImage.mock.json'
 
 //eslint-disable-next-line
-const mediaImageMock: MediaImage | any = mockData
+const mediaImageMock: DrupalMediaImage | any = mockData
 
 describe('Media image returns formatted data', () => {
   let windowSpy

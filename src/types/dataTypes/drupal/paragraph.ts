@@ -8,7 +8,7 @@ import {
   FieldOfficeHours,
   FieldTable,
 } from './field_type'
-import { MediaImage } from './media'
+import { DrupalMediaImage } from './media'
 import {
   NodeLandingPage,
   NodePersonProfile,
@@ -191,7 +191,7 @@ export interface ParagraphStaffProfile extends DrupalParagraph {
 
 export interface ParagraphStep extends DrupalParagraph {
   field_alert: ParagraphAlertSingle
-  field_media: MediaImage
+  field_media: DrupalMediaImage
   field_wysiwyg: FieldFormattedText
 }
 
