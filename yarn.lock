@@ -8988,12 +8988,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"drupal-jsonapi-params@npm:2.2.0":
-  version: 2.2.0
-  resolution: "drupal-jsonapi-params@npm:2.2.0"
+"drupal-jsonapi-params@npm:2.3.1":
+  version: 2.3.1
+  resolution: "drupal-jsonapi-params@npm:2.3.1"
   dependencies:
     qs: ^6.10.3
-  checksum: 01c0f8c3c0bc1389181158e9248d8712fb11f716332a1a959782e5392d95c677e3b0f066ab920a7b27cf7a51147e913e377923f90aef7a43d9e376a0863a9657
+  checksum: 7ad03f11d2206f33f48d16801b0873569a63c548b114e4dc6692c10ef2fc2a1a4954cec1e9045d98b04de3213f6cd4ba0d69cccfd72e4586e55cd3f9f9e73ef6
   languageName: node
   linkType: hard
 
@@ -14060,7 +14060,7 @@ __metadata:
     debug: ^4.3.4
     dotenv: ^16.3.1
     dotenv-expand: ^10.0.0
-    drupal-jsonapi-params: ^2.0.0
+    drupal-jsonapi-params: ^2.3.1
     eslint: 8.53.0
     eslint-config-next: ^14.0.0
     eslint-config-prettier: ^9.0.0

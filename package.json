@@ -47,7 +47,7 @@
     "debug": "^4.3.4",
     "dotenv": "^16.3.1",
     "dotenv-expand": "^10.0.0",
-    "drupal-jsonapi-params": "^2.0.0",
+    "drupal-jsonapi-params": "^2.3.1",
     "jest-axe": "^8.0.0",
     "jest-extended": "^4.0.2",
     "jsona": "^1.12.1",
@@ -124,7 +124,7 @@
     "typescript": "^5.2.2"
   },
   "resolutions": {
-    "drupal-jsonapi-params": "2.2.0",
+    "drupal-jsonapi-params": "2.3.1",
     "@types/react": "18.2.31"
   },
   "packageManager": "yarn@3.6.1"
