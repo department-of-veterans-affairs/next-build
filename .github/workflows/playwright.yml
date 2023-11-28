@@ -3,8 +3,8 @@ on:
   deployment_status:
 jobs:
   test:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    runs-on: [self-hosted, asg]
     if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v3
@@ -15,9 +15,6 @@ jobs:
       run: yarn
     - name: Install Playwright
       run: yarn playwright install --with-deps
-
-    # May need to do a request for the specific deployment status here, so environment_url is available to GHA
-
     - name: Run Playwright tests
       run: yarn test:playwright
       env:
