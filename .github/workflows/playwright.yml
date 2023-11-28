@@ -15,10 +15,13 @@ jobs:
       run: yarn
     - name: Install Playwright
       run: yarn playwright install --with-deps
+
+    # May need to do a request for the specific deployment status here, so environment_url is available to GHA
+
     - name: Run Playwright tests
       run: yarn test:playwright
       env:
-        SITE_URL: ${{ github.event.deployment_status.deployment_url }}
+        SITE_URL: ${{ github.event.deployment_status.environment_url }}
     # - uses: actions/upload-artifact@v3
     #   if: always()
     #   with:
