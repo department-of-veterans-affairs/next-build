@@ -22,6 +22,8 @@
 # next.js
 /.next/
 /out/
+playwright/test-results
+playwright/test-report
 
 # production
 /storybook-static
