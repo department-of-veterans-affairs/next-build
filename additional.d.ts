@@ -2,8 +2,6 @@
 
 declare module 'nock'
 declare module 'test-utils'
-declare module '@cypress/react'
-declare module '@testing-library/cypress'
 declare module '@testing-library/react'
 declare module '@department-of-veterans-affairs/component-library'
 declare module '@department-of-veterans-affairs/component-library/Table'

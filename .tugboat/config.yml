@@ -30,9 +30,6 @@ services:
         # Update local package index to recognize the new repository
         - sudo apt-get update
 
-        # Install Cypress dependencies - https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements
-        - apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-
         # Install Node.js from the new repository
         - sudo apt-get install -y nodejs
 
@@ -63,9 +60,6 @@ services:
         - corepack enable
         - corepack prepare yarn@3.6.1 --activate
 
-        # Install github-status-updater
-        - ./scripts/install_github_status_updater.sh
-
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a
       # preview is built from a base preview, the build workflow
@@ -75,9 +69,6 @@ services:
         - yarn --version
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
         - yarn install
-
-        # Set cypress tests as pending
-        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Waiting for static site generation..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
 
         # Create symlink between vets-website assets and next-build
         - ln -snf "/var/lib/vets-website/build/localhost/generated" "${TUGBOAT_ROOT}/public/generated"
@@ -91,14 +82,5 @@ services:
 
       # Run any commands after the site is built.
       online:
-        # Update cypress test status message
-        - github-status-updater -action=update_state -state="pending" -context="test:cypress" -description="Site built, running Cypress tests..." -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA
-
         # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
         - yarn storybook:build
-
-        # Run cypress tests.
-        - CYPRESS_BASE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn test:cypress || true
-
-        # Set cypress tests as completed. Add pass/fail handling once tests are working properly.
-        - github-status-updater -action=update_state -state="success" -context="test:cypress" -description="Cypress tests completed" -owner=$TUGBOAT_GITHUB_OWNER -repo=$TUGBOAT_GITHUB_REPO -ref=$TUGBOAT_PREVIEW_SHA

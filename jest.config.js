@@ -36,6 +36,7 @@ const customJestConfig = {
     '!**/__tests__/**.test.{js,jsx,ts,tsx}',
     '!example_tests/**/*.{js,jsx,ts,tsx}',
     '!.storybook/*.{js,jsx,ts,tsx}',
+    '!playwright/**/*.{js,jsx,ts,tsx}',
   ],
   coverageThreshold: {
     global: {
@@ -49,7 +50,11 @@ const customJestConfig = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/example_tests'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '<rootDir>/example_tests',
+    '<rootDir>/playwright',
+  ],
   transformIgnorePatterns: ['/dist/.+\\.js'],
 }
 
