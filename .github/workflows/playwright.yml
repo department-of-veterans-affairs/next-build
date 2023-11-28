@@ -18,10 +18,10 @@ jobs:
     - name: Run Playwright tests
       run: yarn test:playwright
       env:
-        SITE_URL: ${{ github.event.deployment_status.target_url }}
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+        SITE_URL: ${{ github.event.deployment_status.deployment_url }}
+    # - uses: actions/upload-artifact@v3
+    #   if: always()
+    #   with:
+    #     name: playwright-report
+    #     path: playwright-report/
+    #     retention-days: 30
