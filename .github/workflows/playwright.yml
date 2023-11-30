@@ -8,6 +8,7 @@ jobs:
     # Certs added for the self hosted runner
     env:
       NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+      COREPACK_ENABLE_NETWORK: 0
     if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v3
@@ -22,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: yarn
     - name: Install Playwright
-      run: yarn playwright install --with-deps
+      run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: yarn test:playwright
       env:
