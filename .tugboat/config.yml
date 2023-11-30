@@ -58,7 +58,7 @@ services:
 
         # Install and use our yarn version
         - corepack enable
-        - corepack prepare yarn@3.6.1 --activate
+        - corepack prepare yarn@4.0.2 --activate
 
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a

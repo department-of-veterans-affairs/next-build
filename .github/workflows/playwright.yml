@@ -17,9 +17,8 @@ jobs:
     - name: Setup Yarn
       run: |
         corepack enable
-        corepack install -g --cache-only ./.yarn/releases/corepack.tgz
-      # corepack hydrate ./.yarn/releases/corepack.tgz
-      # corepack prepare yarn@3.6.1 --activate
+        corepack hydrate ./.yarn/releases/corepack.tgz
+        corepack prepare yarn@4.0.2 --activate
     - name: Install dependencies
       run: yarn
     - name: Install Playwright
