@@ -9,3 +9,5 @@ yarn.lock
 storybook-static
 out
 .yarnrc.yml
+.pnp.cjs
+.pnp.loader.mjs

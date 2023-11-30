@@ -7,3 +7,5 @@ public/generated/*
 /out/*
 /storybook-static/*
 playwright.config.ts
+.pnp.cjs
+.pnp.loader.mjs
