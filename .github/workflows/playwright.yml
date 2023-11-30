@@ -17,7 +17,7 @@ jobs:
     - name: Setup Yarn
       run: |
         corepack enable
-        corepack install -g cache-only ./yarn/releases/corepack.tgz
+        corepack install -g --cache-only ./yarn/releases/corepack.tgz
       # corepack hydrate ./.yarn/releases/corepack.tgz
       # corepack prepare yarn@3.6.1 --activate
     - name: Install dependencies
