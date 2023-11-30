@@ -25,6 +25,9 @@
 playwright/test-results
 playwright/test-report
 
+# redis
+dump.rdb
+
 # production
 /storybook-static
 /public/generated

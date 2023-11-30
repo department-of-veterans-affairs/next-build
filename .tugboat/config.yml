@@ -10,8 +10,14 @@ services:
     #   3. Routes requests to the preview URL to this service
     default: true
 
+    # Generates additional url aliases
+    # Default: https://pr-[hash].tugboat.vfs.va.gov
+    #          https://storybook-[hash].tugboat.vfs.va.gov
     aliases:
       - storybook
+
+    depends:
+      - redis
 
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
@@ -84,3 +90,7 @@ services:
       online:
         # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
         - yarn storybook:build
+
+  # Redis cache for fetching data
+  redis:
+    image: tugboatqa/redis:latest
