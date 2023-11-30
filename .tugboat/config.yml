@@ -94,3 +94,4 @@ services:
   # Redis cache for fetching data
   redis:
     image: tugboatqa/redis:latest
+    expose: 6379
