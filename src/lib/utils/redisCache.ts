@@ -2,7 +2,7 @@ import { DataCache } from 'next-drupal'
 import Redis from 'ioredis'
 
 // connects to a running redis server, defaults to 127.0.0.1:6379
-const redis = new Redis()
+const redis = new Redis(process.env.REDIS_URL)
 
 export const redisCache: DataCache = {
   async set(key, value) {
