@@ -13,6 +13,7 @@ services:
     # Generates additional url aliases
     # Default: https://pr-[hash].tugboat.vfs.va.gov
     #          https://storybook-[hash].tugboat.vfs.va.gov
+    #          https://typedoc-[hash].tugboat.vfs.va.gov
     aliases:
       - storybook
       - typedoc
