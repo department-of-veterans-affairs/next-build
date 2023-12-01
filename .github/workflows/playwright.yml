@@ -15,9 +15,9 @@ jobs:
       with:
         node-version: 18
     - name: Setup Yarn
-      run: corepack enable
-      #  corepack hydrate ./.yarn/releases/corepack.tgz
-      #  corepack prepare yarn@4.0.2 --activate
+      run: |
+        corepack enable
+        corepack install -g --cache-only ./.yarn/releases/corepack.tgz
     - name: Install dependencies
       run: yarn
     - name: Install Playwright
