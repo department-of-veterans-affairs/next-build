@@ -5,7 +5,7 @@ set -o pipefail
 
 apt update
 apt install -y \
-    batk1.0-0 \
+    libatk1.0-0 \
     libatk-bridge2.0-0 \
     libxkbcommon0 \
     libatspi2.0-0 \
