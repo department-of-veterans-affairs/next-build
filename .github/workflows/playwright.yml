@@ -10,7 +10,7 @@ jobs:
       NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
     if: github.event.deployment_status.state == 'success'
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
         node-version: 18
