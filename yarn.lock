@@ -2800,7 +2800,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:13.5.4, @next/env@npm:^13.5.4":
+"@next/env@npm:13.5.4":
   version: 13.5.4
   resolution: "@next/env@npm:13.5.4"
   checksum: 95ec7108bc88a01fed5389fb33e4b9eb34937908859d9f0aa87930c660f4395d90dafe10e54830faae5bc0a1b799be544c6455a2c8054499569d1e9296369076
@@ -2811,6 +2811,13 @@ __metadata:
   version: 13.4.13
   resolution: "@next/env@npm:13.4.13"
   checksum: 94935ff1730de9fe00be238256ad1af3e5da7ae737e6ce5d261404ccc9245f2a18fee24afa7f3b27d7f7d1c16e2715c8eccb70260ab0c0a08e7bbaa95ed36211
+  languageName: node
+  linkType: hard
+
+"@next/env@npm:^14.0.3":
+  version: 14.0.3
+  resolution: "@next/env@npm:14.0.3"
+  checksum: 88a10ead8e8ff613a87a6fd36db385403dbc8a8c40999c6caa0d268117325ed40f00d82e1409206b10c8c280b6c9f3e1dae3c8e0e581c8cf18cf85afa9b58b86
   languageName: node
   linkType: hard
 
@@ -13494,7 +13501,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": ^6.4.2
     "@fortawesome/free-solid-svg-icons": ^6.4.2
     "@fortawesome/react-fontawesome": ^0.2.0
-    "@next/env": ^13.5.4
+    "@next/env": ^14.0.3
     "@playwright/test": ^1.39.0
     "@storybook/addon-actions": ^7.4.6
     "@storybook/addon-essentials": ^7.4.6
