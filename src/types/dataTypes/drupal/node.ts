@@ -59,6 +59,7 @@ export type NodeTypes =
 export const enum NodeResourceType {
   Banner = 'node--banner',
   BannerAlert = 'node--full_width_banner_alert',
+  Event = 'node--event',
   NewsStory = 'node--news_story',
   FieldListing = 'node--field_listing',
   PersonProfile = 'node--person_profile',
@@ -267,6 +268,34 @@ export interface NodePersonProfile extends DrupalNode {
   field_suffix: string
 }
 
+/** A individual event published by a facility.
+ *
+ *  @see https://prod.cms.va.gov/admin/structure/types/manage/event/fields
+ */
+export interface NodeEvent extends DrupalNode {
+  field_additional_listings: any // TODO
+  field_additional_information_abo: string
+  field_address: string
+  field_location_humanreadable: string
+  field_event_cta: string
+  field_event_cost: string
+  field_datetime_range_timezone: Array<any> // TODO ADD DATETIME TYPE
+  field_media: DrupalMediaImage
+  field_facility_location: any // TODO
+  field_featured: boolean
+  field_body: string
+  field_include_registration_info: boolean
+  field_location_type: string
+  field_order: string
+  field_publish_to_outreach_cal: boolean
+  field_event_registrationrequired: boolean
+  field_administration: any // TODO
+  field_description: string
+  field_link: string
+  field_url_of_an_online_event: string
+  field_listing: any // TODO
+}
+
 export interface NodePromoBanner extends DrupalNode {
   field_target_paths: string[]
   field_promo_type: string
@@ -312,6 +341,8 @@ export interface NodeSupportService extends DrupalNode {
   field_phone_number: string
   field_office: NodeOffice
 }
+
+export interface Node
 
 /** General NodeProps to pass nodes into node components. */
 export interface NodeProps {

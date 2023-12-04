@@ -37,8 +37,8 @@ type StaticPropsQueryOpts =
   | NewsStoryDataOpts
   | ListingPageDataOpts
   | QueryOpts<{
-      id: string
-    }>
+    id: string
+  }>
 
 /**
  * Decorates the original context with expanded details:
@@ -137,7 +137,6 @@ export async function getStaticPropsResource(
       context
     )
   }
-
   // All others
   return getDefaultStaticPropsResource(resourceType, pathInfo, context)
 }

@@ -12,6 +12,8 @@ import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import HTMLComment from '@/templates/globals/util/HTMLComment'
+import { EventListing } from '@/templates/layouts/eventListing'
+import { Event } from '@/templates/layouts/event'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import {
@@ -23,6 +25,7 @@ import Breadcrumbs from '@/templates/common/breadcrumbs'
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
+  RESOURCE_TYPES.EVENT
 ] as const
 
 export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
@@ -34,6 +37,8 @@ export default function ResourcePage({
   headerFooterData,
   preview,
 }) {
+  // console.log('test')
+  console.log(`RESOURCE: ${resource}`)
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
@@ -44,6 +49,7 @@ export default function ResourcePage({
       | entityId: ${resource?.entityId || 'N/A'}
       |
     `
+  // console.log(resource)
 
   return (
     <Wrapper bannerData={bannerData} headerFooterData={headerFooterData}>
@@ -86,6 +92,9 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />
           )}
+          {resource.type === RESOURCE_TYPES.EVENT && (
+            <Event {...resource} />
+          )}
         </div>
       </main>
     </Wrapper>
@@ -121,6 +130,8 @@ export async function getStaticPaths(
 export async function getStaticProps(context: GetStaticPropsContext) {
   try {
     const expandedContext = getExpandedStaticPropsContext(context)
+    // console.log('test')
+    // console.log(expandedContext)
 
     // Now that we have a path, translate for resource endpoint
     let pathInfo
@@ -130,7 +141,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     } else {
       pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
     }
-
+    // console.log(pathInfo)
     if (!pathInfo) {
       return {
         notFound: true,
@@ -139,6 +150,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     // If the requested path isn't a type we're building, 404
     const resourceType = pathInfo.jsonapi.resourceName as BuiltResourceType
+    // console.log(resourceType)
     if (!Object.values(RESOURCE_TYPES).includes(resourceType)) {
       return {
         notFound: true,
@@ -150,7 +162,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       pathInfo,
       expandedContext
     )
-
+    console.log(resource)
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
     if (!expandedContext.preview && !resource?.published) {
