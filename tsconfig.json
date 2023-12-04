@@ -44,8 +44,12 @@
   "exclude": ["node_modules", "src/__tests__", "public/generated"],
   "typedocOptions": {
     "entryPoints": ["src/"],
-    "exclude": ["**/**+(.test).ts", "**/**+(.stories).tsx"],
-    "out": "docs",
+    "exclude": [
+      "**/**+(.test).ts",
+      "**/**+(.test|.stories).tsx",
+      "**/(templates|mocks)/**"
+    ],
+    "out": "typedocs",
     "entryPointStrategy": "expand",
     "readme": "./READMes/typescript.md"
   }

@@ -55,4 +55,4 @@ certs/rootCA.pem
 # typescript
 *.tsbuildinfo
 # typedoc
-docs/**/*
+/typedocs/

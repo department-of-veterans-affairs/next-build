@@ -90,4 +90,4 @@ services:
         - yarn storybook:build
 
         # Build the typedoc information for next-build to serve at typedoc-[hash].tugboat.vfs.va.gov
-        - yarn typedoc -out out/docs/
+        - yarn typedoc -out out/typedocs/
