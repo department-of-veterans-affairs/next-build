@@ -89,5 +89,5 @@ services:
         # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
         - yarn storybook:build
 
-        # Build the typedoc information for next-build
-        - yarn typedoc
+        # Build the typedoc information for next-build to serve at typedoc-[hash].tugboat.vfs.va.gov
+        - yarn typedoc -out out/docs/
