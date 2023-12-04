@@ -1,0 +1,142 @@
+name: Build GHAR
+on:
+  schedule:
+    - cron: '30 5 1,15 * *'
+  workflow_dispatch:
+    inputs:
+      skip_ami:
+        description: Do not build an AMI
+        type: boolean
+        required: true
+        default: true
+      custom_type:
+        description: AMI Name, platform-{{ this }}-ubuntu-CURRENT_DATE
+        type: string
+        required: true
+        default: "gha-runner"
+      runner_volume_size:
+        description: Size of the runner volume in GB
+        type: number
+        required: true
+        default: 120
+      components:
+        description: "Provide an array of the components you would like to update ex. ['vets-website'] or ['vets-website', 'vets-api']. Available options ->  next-build"
+        required: true
+
+env:
+  allComponents: "['next-build']"
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  prepare-values:
+    runs-on: ubuntu-latest
+    outputs:
+      components: ${{ steps.set-components.outputs.components }}
+    steps:
+      - name: Set to all components when not run via workflow dispatch
+        if: github.event.inputs.components == ''
+        run: |
+          echo "triggered via schedule"
+          echo "components=${{ env.allComponents }}" >> $GITHUB_ENV
+      - name: Set to components specified in input when run via workflow dispatch
+        if: github.event.inputs.components != ''
+        run: |
+          echo "triggered via workflow dispatch"
+          echo "components=${{ github.event.inputs.components }}" >> $GITHUB_ENV
+      - name: Set output
+        id: set-components
+        run: |
+          echo "components=${{ env.components }}" >> $GITHUB_OUTPUT
+  packer-build:
+    strategy:
+      matrix:
+        build_location:
+          - packer/github-action-runner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@010d0da01d0b5a38af31e9c3470dbfdabdecca3a # v4.0.1
+        with:
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+          aws-region: "us-gov-west-1"
+          role-session-name: next-build-packer-githubaction
+      - uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+          ssm_parameter: /devops/github_actions_slack_socket_token
+          env_variable_name: SLACK_APP_TOKEN
+      - uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+          ssm_parameter: /devops/github_actions_slack_bot_user_token
+          env_variable_name: SLACK_BOT_TOKEN
+      - name: Setup Packer
+        uses: hashicorp/setup-packer@ae6b3ed3bec089bbfb576ab7d714df7cbc4b88a4 # v2.0.0
+      - name: Init Packer Build
+        run: packer init ${{ matrix.build_location }}
+      - name: Validate Packer Template
+        run: packer validate -syntax-only ${{ matrix.build_location }}
+      - name: Build AMI
+        run: >-
+          packer build
+          -color=false
+          -var skip_ami=${{ inputs.skip_ami == 'true' }}
+          -var custom_type=${{ inputs.custom_type }}
+          -var git_sha=${{ github.sha }}
+          ${{ matrix.build_location }}
+      - name: Save Build Manifest
+        uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
+        with:
+          name: manifest
+          path: ${{ matrix.build_location }}/manifest.json
+      - uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+          ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
+          env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
+      - name: Checkout department-of-veterans-affairs/vsp-github-actions
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          repository: department-of-veterans-affairs/vsp-github-actions
+          ref: refs/heads/main
+          token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
+          persist-credentials: false
+          path: ./.github/actions/vsp-github-actions
+      - name: slack notify
+        if: ${{ failure() }}
+        uses: ./.github/actions/vsp-github-actions/slack-socket
+        with:
+          slack_app_token: ${{ env.SLACK_APP_TOKEN }}
+          slack_bot_token: ${{ env.SLACK_BOT_TOKEN }}
+          message: "A packer build of ${{ matrix.build_location }} just failed."
+          blocks: "[{\"type\": \"divider\"}, {\"type\": \"section\", \"text\": { \"type\": \"mrkdwn\", \"text\": \":blob-disappointed: GitHub Action Runner Workflow ${{ matrix.build_location }} failed! :blob-disappointed:\n <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Workflow: ${{ github.workflow }} Run #${{ github.run_number }}>\"}}, {\"type\": \"divider\"}]"
+          channel_id: "CJT90C0UT"
+  update-launch-templates:
+    needs: [prepare-values, packer-build]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        component: ${{ fromJson(needs.prepare-values.outputs.components) }}
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@010d0da01d0b5a38af31e9c3470dbfdabdecca3a # v4.0.1
+        with:
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+          aws-region: "us-gov-west-1"
+          role-session-name: next-build-packer-githubaction
+      - name: download manifest.json
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: manifest
+      - name: get ami ID from manifest
+        run: echo "AMI_ID=$(cat manifest.json |jq -r .builds[].artifact_id|awk -F":" '{print $2}')" >> $GITHUB_ENV
+      - name: Update Launch Templates
+        env:
+          LAUNCH_TEMPLATE: dsva-vagov-${{ matrix.component }}-gha-runner-lt
+          ASG_ROOT: ${{ matrix.component == 'va.gov-sso-smoke-tests' && 'identity' || matrix.component }}
+          AMI_ID: ${{ env.AMI_ID }}
+        run: |
+          pip install -r utilities/update-launch-template/requirements.txt
+          python utilities/update-launch-template/update-lt.py -n ${{ env.LAUNCH_TEMPLATE }} -a ${{ env.AMI_ID }} -s dsva-vagov-${{ env.ASG_ROOT }}-gha-runners-asg
