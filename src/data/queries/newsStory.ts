@@ -1,14 +1,9 @@
-import {
-  QueryData,
-  QueryFormatter,
-  QueryOpts,
-  QueryParams,
-} from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStory } from '@/types/dataTypes/formatted/newsStory'
-import { GetServerSidePropsContext } from 'next'
+import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -24,10 +19,10 @@ export const params: QueryParams<null> = () => {
 }
 
 // Define the option types for the data loader.
-export type NewsStoryDataOpts = QueryOpts<{
+export type NewsStoryDataOpts = {
   id: string
-  context?: GetServerSidePropsContext
-}>
+  context?: ExpandedStaticPropsContext
+}
 
 // Implement the data loader.
 export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
@@ -64,6 +59,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
     type: entity.type,
     published: entity.status,
     title: entity.title,
+    metatags: entity.metatag,
     image: queries.formatData('media--image', {
       entity: entity.field_media,
       cropType: '2_1_large',

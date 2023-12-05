@@ -363,6 +363,106 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
   },
   "introText": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
   "listing": "/pittsburgh-health-care/stories",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "It’s never too late to quit smoking and start breathing easier | VA Minneapolis health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "When you stop smoking, you feel the benefits almost immediately, no matter how long you’ve smoked.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "It’s never too late to quit smoking and start breathing easier | VA Minneapolis health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "When you stop smoking, you feel the benefits almost immediately, no matter how long you’ve smoked.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2023-10/Great%20American%20Smokeout.jpg",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Great American Smokeout 2023",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "When you stop smoking, you feel the benefits almost immediately, no matter how long you’ve smoked.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "It’s never too late to quit smoking and start breathing easier | VA Minneapolis health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2023-10/Great%20American%20Smokeout.jpg",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Great American Smokeout 2023",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
   "published": true,
   "socialLinks": {
     "path": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",

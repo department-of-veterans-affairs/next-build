@@ -22,6 +22,22 @@ let storyListingProps: FormattedStoryListing = {
   currentPage: 1,
   totalItems: 0,
   totalPages: 1,
+  metatags: [
+    {
+      attributes: {
+        content: 'Stories | VA Minneapolis health care | Veterans Affairs',
+        name: 'title',
+      },
+      tag: 'meta',
+    },
+    {
+      attributes: {
+        content: 'This is the description',
+        name: 'description',
+      },
+      tag: 'meta',
+    },
+  ],
 }
 
 describe('<StoryListing> component renders', () => {
