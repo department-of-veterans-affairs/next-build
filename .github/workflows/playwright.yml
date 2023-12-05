@@ -34,7 +34,7 @@ jobs:
     - name: Install dependencies
       run: |
         \. "$NVM_DIR/nvm.sh"
-        yarn
+        NODE_OPTIONS=--openssl-legacy-provider yarn
     - name: Install Playwright
       run: |
         \. "$NVM_DIR/nvm.sh"
