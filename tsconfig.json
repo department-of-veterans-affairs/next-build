@@ -51,6 +51,6 @@
     ],
     "out": "typedocs",
     "entryPointStrategy": "expand",
-    "readme": "./READMes/typescript.md"
+    "readme": "./READMEs/typescript.md"
   }
 }
