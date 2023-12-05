@@ -16,7 +16,9 @@ jobs:
     - name: Install node with NVM to use system OpenSSL configuration
       run: |
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-        \. "$NVM_DIR/nvm.sh" --install
+        \. "$NVM_DIR/nvm.sh"
+        rm .nvmrc
+        nvm install 18
     #- uses: actions/setup-node@v4
     #  with:
     #    node-version: 18
