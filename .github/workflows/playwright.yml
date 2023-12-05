@@ -15,9 +15,9 @@ jobs:
     - uses: actions/checkout@v4
     - name: Install node with NVM to use system OpenSSL configuration
       run: |
+        rm .nvmrc
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
         \. "$NVM_DIR/nvm.sh"
-        rm .nvmrc
         nvm install 18
         node -v
     #- uses: actions/setup-node@v4
