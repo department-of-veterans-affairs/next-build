@@ -19,12 +19,15 @@ jobs:
         \. "$NVM_DIR/nvm.sh"
         rm .nvmrc
         nvm install 18
+        node -v
     #- uses: actions/setup-node@v4
     #  with:
     #    node-version: 18
     - name: Setup Yarn
       run: |
         \. "$NVM_DIR/nvm.sh"
+        node -v
+        corepack -v
         corepack enable
         corepack install -g --cache-only .yarn/releases/corepack.tgz
     - name: Install dependencies
