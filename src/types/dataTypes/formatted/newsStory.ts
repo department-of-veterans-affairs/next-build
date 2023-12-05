@@ -4,6 +4,7 @@ import { SocialLinksProps } from '@/templates/common/socialLinks'
 import { Administration } from '@/types/dataTypes/formatted/administration'
 import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
 import { PublishedEntity } from './publishedEntity'
+import { MetaTag } from './metatags'
 import { MediaImage } from './media'
 
 export type NewsStoryTeaser = PublishedEntity & {
@@ -28,4 +29,5 @@ export type NewsStory = PublishedEntity & {
   entityPath: string
   administration: Administration
   breadcrumbs: BreadcrumbItem[]
+  metatags: MetaTag[]
 }
