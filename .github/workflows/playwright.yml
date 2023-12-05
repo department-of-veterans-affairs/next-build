@@ -1,5 +1,6 @@
 name: Playwright Tests
 on:
+  pull_request:
   deployment_status:
 jobs:
   test:
@@ -11,9 +12,15 @@ jobs:
     if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 18
+    - name: Install node with NVM to use system OpenSSL configuration
+      run: |
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.6/install.sh | bash
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        nvm install 18
+    #- uses: actions/setup-node@v4
+    #  with:
+    #    node-version: 18
     - name: Setup Yarn
       run: |
         corepack enable
