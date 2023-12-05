@@ -31,11 +31,17 @@ jobs:
         corepack enable
         corepack install -g --cache-only .yarn/releases/corepack.tgz
     - name: Install dependencies
-      run: yarn
+      run: |
+        \. "$NVM_DIR/nvm.sh"
+        yarn
     - name: Install Playwright
-      run: yarn playwright install --with-deps
+      run: |
+        \. "$NVM_DIR/nvm.sh"
+        yarn playwright install --with-deps
     - name: Run Playwright tests
-      run: yarn test:playwright
+      run: |
+        \. "$NVM_DIR/nvm.sh"
+        yarn test:playwright
       env:
         SITE_URL: ${{ github.event.deployment_status.environment_url }}
     - uses: actions/upload-artifact@v3
