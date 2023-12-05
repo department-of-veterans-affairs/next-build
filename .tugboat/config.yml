@@ -15,6 +15,7 @@ services:
     #          https://storybook-[hash].tugboat.vfs.va.gov
     aliases:
       - storybook
+      - typedoc
 
     depends:
       - redis
@@ -59,6 +60,9 @@ services:
         # Setup storybook-*. vhost to serve compiled storybook.
         - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
 
+        # Setup typedoc-*. vhost to serve compiled typedocs.
+        - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-typedoc.conf /etc/nginx/conf.d/typedoc.conf
+
         # Restart nginx with the new config
         - sudo service nginx reload
 
@@ -90,6 +94,8 @@ services:
       online:
         # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
         - yarn storybook:build
+        # Build the typedoc information for next-build to serve at typedoc-[hash].tugboat.vfs.va.gov
+        - yarn typedoc -out out/typedocs/
 
   # Redis cache for fetching data
   redis:
