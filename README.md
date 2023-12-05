@@ -81,7 +81,7 @@ To use the redis cache during your static build, run the following command befor
 docker run --name next-redis -p 6379:6379 -d redis
 ```
 
-This will start [redis](https://redis.io/) in a docker container that can be reached from your localhost.`localhost:6379`. For more on how this project uses redis, check the [caching readme](READMEs/caching.md).
+This will start [redis](https://redis.io/) in a docker container that can be reached from your localhost (e.g. `redis://localhost:6379`). For more on how this project uses redis, check the [caching readme](READMEs/caching.md).
 
 ## Documentation (WIP)
 

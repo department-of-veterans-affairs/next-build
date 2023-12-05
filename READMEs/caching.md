@@ -10,9 +10,13 @@ To use the redis cache during your local static builds, start redis locally usin
 docker run --name next-redis -p 6379:6379 -d redis
 ```
 
-This will start [redis](https://redis.io/) in a docker container (`next-redis`) that exposes the internal port from the container to your localhost via `localhost:6379` or `127.0.0.1:6379`.
+This will start [redis](https://redis.io/) in a docker container (`next-redis`) that exposes the internal port from the container to your localhost via `redis://localhost:6379` or `redis://127.0.0.1:6379` or `redis-cli` (if installed).
 
-You can also interact with redis directly inside the container using `docker exec -it next-redis redis-cli`
+You can also interact with redis directly inside the container using:
+
+```
+docker exec -it next-redis redis-cli
+```
 
 Once redis has started, running `yarn export` will generate all static pages and cache certain repeated requests.
 
