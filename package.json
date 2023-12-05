@@ -14,6 +14,8 @@
     "format": "prettier --write .",
     "lint": "next lint",
     "postinstall": "husky install",
+    "typedoc": "typedoc",
+    "typedoc:serve": "http-server typedocs -p 8002",
     "test": "APP_ENV=test jest",
     "test:ci": "APP_ENV=test jest --ci --coverage",
     "test:coverage": "RUST_BACKTRACE=1 APP_ENV=test jest --coverage",
