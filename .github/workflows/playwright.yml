@@ -1,8 +1,6 @@
 name: Playwright Tests
 on:
-  pull_request:
-  workflow_dispatch:
-  #deployment_status:
+  deployment_status:
 jobs:
   test:
     timeout-minutes: 15
