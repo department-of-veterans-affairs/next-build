@@ -2,9 +2,9 @@ import { hosts } from '@/lib/constants/environment'
 
 export const generateAbsoluteUrlFromBuildType = (
   relativeUrl: string,
-  buildType: string
+  appEnv: string
 ) => {
-  const host = hosts[buildType]
+  const host = hosts[appEnv]
   if (!host) {
     return relativeUrl
   }
@@ -14,7 +14,4 @@ export const generateAbsoluteUrlFromBuildType = (
 }
 
 export const generateAbsoluteUrlFromEnv = (relativeUrl: string) =>
-  generateAbsoluteUrlFromBuildType(
-    relativeUrl,
-    process.env.NEXT_PUBLIC_BUILD_TYPE
-  )
+  generateAbsoluteUrlFromBuildType(relativeUrl, process.env.APP_ENV)
