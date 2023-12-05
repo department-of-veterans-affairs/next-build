@@ -1,6 +1,7 @@
 name: Playwright Tests
 on:
-  deployment_status:
+  pull_request:
+  #deployment_status:
 jobs:
   test:
     timeout-minutes: 15
@@ -8,7 +9,7 @@ jobs:
     # Certs added for the self hosted runner
     env:
       NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
-    if: github.event.deployment_status.state == 'success'
+    #if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v4
     - name: Install node with NVM to use system OpenSSL configuration
