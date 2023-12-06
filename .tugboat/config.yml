@@ -102,7 +102,3 @@ services:
   redis:
     image: tugboatqa/redis:latest
     expose: 6379
-    commands:
-      build:
-        # monitor redis connections
-        - redis-cli monitor
