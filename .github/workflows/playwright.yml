@@ -10,7 +10,7 @@ jobs:
     env:
       NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
       NVM_DIR: /home/runner/.nvm
-    if: github.event.deployment_status.state == 'success'
+    #if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v4
     - name: Install node with NVM to use system OpenSSL configuration
@@ -41,7 +41,7 @@ jobs:
     - name: Run Playwright tests
       run: |
         \. "$NVM_DIR/nvm.sh"
-        SITE_URL=${{ github.event.deployment_status.environment_url }} .yarn/releases/yarn-3.6.1.cjs test:playwright
+        NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt SITE_URL=${{ github.event.deployment_status.environment_url }} .yarn/releases/yarn-3.6.1.cjs test:playwright
       # env:
       #   SITE_URL: ${{ github.event.deployment_status.environment_url }}
     - uses: actions/upload-artifact@v3
