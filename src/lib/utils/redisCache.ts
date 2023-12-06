@@ -2,15 +2,12 @@
 import { DataCache } from 'next-drupal'
 import { createClient, RedisClientType } from 'redis'
 
-let redisClient: RedisClientType
-let isReady: boolean
+export async function createRedisClient(url): Promise<RedisClientType> {
+  let isReady = false
 
-async function getCache(): Promise<RedisClientType> {
+  let redisClient: RedisClientType
   if (!isReady) {
-    // connects to a running redis server, defaults to 127.0.0.1:6379
-    redisClient = createClient({
-      url: process.env.REDIS_URL,
-    })
+    redisClient = createClient({ url })
     redisClient.on('error', (err) => console.error(`Redis Error: ${err}`))
     redisClient.on('connect', () => console.info('Redis connected'))
     redisClient.on('reconnecting', () => console.info('Redis reconnecting'))
@@ -18,29 +15,30 @@ async function getCache(): Promise<RedisClientType> {
       isReady = true
       console.info('Redis ready!')
     })
-    await redisClient.connect()
   }
+
+  await redisClient.connect()
+
   return redisClient
 }
 
-getCache()
-  .then((connection) => {
-    redisClient = connection
-  })
-  .catch((err) => {
-    console.error({ err }, 'Failed to connect to Redis')
-  })
+export function redisCache(client: Promise<RedisClientType>): DataCache {
+  let redis: RedisClientType
 
-// This is the cache wrapper that drupalClient can use
-const redisCache: DataCache = {
-  async set(key, value) {
-    const cache = await getCache()
-    return await cache.set(key, value)
-  },
-  async get(key) {
-    const cache = await getCache()
-    return await cache.get(key)
-  },
+  client
+    .then((connection) => {
+      redis = connection
+    })
+    .catch((err) => {
+      console.error({ err }, 'Failed to connect to Redis')
+    })
+
+  return {
+    async set(key, value) {
+      return await redis.set(key, value)
+    },
+    async get(key) {
+      return await redis.get(key)
+    },
+  }
 }
-
-export { getCache, redisCache }

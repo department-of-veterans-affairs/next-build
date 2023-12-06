@@ -1,7 +1,7 @@
 import { DrupalClient } from 'next-drupal'
 import crossFetch from 'cross-fetch'
 import { SocksProxyAgent } from 'socks-proxy-agent'
-import { redisCache } from '@/lib/utils/redisCache'
+import { createRedisClient, redisCache } from '@/lib/utils/redisCache'
 
 // Default to local CMS endpoint.
 export const baseUrl =
@@ -59,6 +59,20 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   })
 }
 
+// const drupal = new DrupalClient(baseUrl, {
+//   fetcher,
+//   useDefaultResourceTypeEntry: true,
+//   throwJsonApiErrors: false,
+//   auth: {
+//     clientId: process.env.DRUPAL_CLIENT_ID,
+//     clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+//   },
+//   cache: createRedisCache(process.env.REDIS_URL),
+//   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
+// })
+
+// export const drupalClient = drupal
+
 export const drupalClient = new DrupalClient(baseUrl, {
   fetcher,
   useDefaultResourceTypeEntry: true,
@@ -67,6 +81,6 @@ export const drupalClient = new DrupalClient(baseUrl, {
     clientId: process.env.DRUPAL_CLIENT_ID,
     clientSecret: process.env.DRUPAL_CLIENT_SECRET,
   },
-  cache: redisCache,
+  cache: redisCache(createRedisClient(process.env.REDIS_URL)),
   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
 })
