@@ -102,3 +102,6 @@ services:
   redis:
     image: tugboatqa/redis:latest
     expose: 6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - DISABLE_COMMANDS=FLUSHDB,FLUSHALL
