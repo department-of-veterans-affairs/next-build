@@ -1,7 +1,7 @@
 name: Playwright Tests
 on:
-  pull_request:
-  #deployment_status:
+  # pull_request:
+  deployment_status:
 jobs:
   test:
     timeout-minutes: 15
@@ -12,7 +12,7 @@ jobs:
       NVM_DIR: /home/runner/.nvm
       NODE_OPTIONS: --openssl-legacy-provider --tls-min-v1.3 --tls-max-v1.3
       OPENSSL_CONF: /etc/ssl/openssl.cnf
-    #if: github.event.deployment_status.state == 'success'
+    if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v4
     - name: Install node with NVM to use system OpenSSL configuration
@@ -39,13 +39,13 @@ jobs:
     - name: Install Playwright
       run: |
         \. "$NVM_DIR/nvm.sh"
-        .yarn/releases/yarn-3.6.1.cjs playwright install 
+        .yarn/releases/yarn-3.6.1.cjs playwright install
     - name: Run Playwright tests
       run: |
         \. "$NVM_DIR/nvm.sh"
-        .yarn/releases/yarn-3.6.1.cjs test:playwright
-      env:
-        SITE_URL: ${{ github.event.deployment_status.environment_url }}
+        SITE_URL=${{ github.event.deployment_status.environment_url }} .yarn/releases/yarn-3.6.1.cjs test:playwright
+      # env:
+      #   SITE_URL: ${{ github.event.deployment_status.environment_url }}
     - uses: actions/upload-artifact@v3
       if: always()
       with:
