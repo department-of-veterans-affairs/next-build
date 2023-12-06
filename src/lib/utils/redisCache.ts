@@ -6,7 +6,7 @@ export async function createRedisClient(url): Promise<RedisClientType> {
   let isReady = false
 
   let redisClient: RedisClientType
-  if (!isReady) {
+  if (isReady === false) {
     redisClient = createClient({ url })
     redisClient.on('error', (err) => console.error(`Redis Error: ${err}`))
     redisClient.on('connect', () => console.info('Redis connected'))
