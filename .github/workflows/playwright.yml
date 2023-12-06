@@ -1,5 +1,6 @@
 name: Playwright Tests
 on:
+  #pull_request:
   deployment_status:
 jobs:
   test:
@@ -8,24 +9,42 @@ jobs:
     # Certs added for the self hosted runner
     env:
       NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+      NVM_DIR: /home/runner/.nvm
     if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 18
+    - name: Install node with NVM to use system OpenSSL configuration
+      run: |
+        rm .nvmrc
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+        \. "$NVM_DIR/nvm.sh"
+        OPENSSL_CONF=/etc/ssl/openssl.cnf nvm install 18
+        node -v
+    #- uses: actions/setup-node@v4
+    #  with:
+    #    node-version: 18
     - name: Setup Yarn
       run: |
+        \. "$NVM_DIR/nvm.sh"
+        node -v
+        corepack -v
         corepack enable
         corepack install -g --cache-only .yarn/releases/corepack.tgz
     - name: Install dependencies
-      run: yarn
+      run: |
+        \. "$NVM_DIR/nvm.sh"
+        .yarn/releases/yarn-3.6.1.cjs
     - name: Install Playwright
-      run: yarn playwright install --with-deps
+      run: |
+        \. "$NVM_DIR/nvm.sh"
+        .yarn/releases/yarn-3.6.1.cjs playwright install
     - name: Run Playwright tests
-      run: yarn test:playwright
-      env:
-        SITE_URL: ${{ github.event.deployment_status.environment_url }}
+      run: |
+        NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt \. "$NVM_DIR/nvm.sh"
+        .yarn/releases/yarn-3.6.1.cjs config set caFilePath /etc/ssl/certs/ca-certificates.crt
+        NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt SITE_URL=${{ github.event.deployment_status.environment_url }} .yarn/releases/yarn-3.6.1.cjs test:playwright
+      # env:
+      #   SITE_URL: ${{ github.event.deployment_status.environment_url }}
     - uses: actions/upload-artifact@v3
       if: always()
       with:
