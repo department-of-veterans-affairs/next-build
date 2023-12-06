@@ -42,13 +42,11 @@ export default defineConfig({
     {
       name: 'main',
       testIgnore: /.a11y.spec.js/,
-      dependencies: ['setup'],
     },
     // Sitemap a11y test only
     {
       name: 'a11y',
       testMatch: /.a11y.spec.js/,
-      dependencies: ['setup'],
     },
   ],
 })

@@ -3,12 +3,17 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { CommonAndPopular } from '@/templates/common/commonAndPopular'
+import Head from 'next/head'
 
 const Error404Page = ({ headerFooterData }) => {
   useEffect(() => {
     recordEvent({ event: 'nav-404-error' })
   })
   return (
+    <>
+    <Head>
+      <title>VA.gov | Veterans Affairs</title>
+    </Head>
     <Wrapper bannerData={[]} headerFooterData={headerFooterData}>
       <div className="main maintenance-page" role="main">
         <div className="primary">
@@ -44,6 +49,7 @@ const Error404Page = ({ headerFooterData }) => {
         <CommonAndPopular />
       </div>
     </Wrapper>
+    </>
   )
 }
 

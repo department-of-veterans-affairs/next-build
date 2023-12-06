@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test')
+const { test, expect } = require('../utils/next-test')
 
 test.describe('Story Listing', () => {
   test('Story Listing page renders with stories that can be navigated to', async ({
@@ -33,7 +33,11 @@ test.describe('Story Listing', () => {
     )
   })
 
-  test.skip('Should render without a11y errors', async ({ page }) => {
+  test('Should render without a11y errors', async ({ page, makeAxeBuilder }) => {
     await page.goto('/butler-health-care/stories')
+    const accessibilityScanResults = await makeAxeBuilder()
+      .analyze();
+
+    expect(accessibilityScanResults.violations).toEqual([]);
   })
 })
