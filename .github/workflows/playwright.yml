@@ -1,7 +1,7 @@
 name: Playwright Tests
 on:
   pull_request:
-  #deployment_status:
+  deployment_status:
 jobs:
   test:
     timeout-minutes: 15
@@ -10,8 +10,6 @@ jobs:
     env:
       NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
       NVM_DIR: /home/runner/.nvm
-      NODE_OPTIONS: --openssl-legacy-provider --tls-min-v1.3 --tls-max-v1.3
-      OPENSSL_CONF: /etc/ssl/openssl.cnf
     #if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v4
