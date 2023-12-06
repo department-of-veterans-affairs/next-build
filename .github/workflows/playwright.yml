@@ -20,7 +20,7 @@ jobs:
         rm .nvmrc
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
         \. "$NVM_DIR/nvm.sh"
-        nvm install 18
+        OPENSSL_CONF=/etc/ssl/openssl.cnf nvm install 18
         node -v
     #- uses: actions/setup-node@v4
     #  with:
@@ -33,9 +33,7 @@ jobs:
         corepack enable
         corepack install -g --cache-only .yarn/releases/corepack.tgz
     - name: Install dependencies
-      run: |
-        \. "$NVM_DIR/nvm.sh"
-        NODE_OPTIONS=--openssl-legacy-provider yarn
+      run: yarn
     - name: Install Playwright
       run: |
         \. "$NVM_DIR/nvm.sh"
