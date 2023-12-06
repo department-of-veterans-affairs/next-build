@@ -39,11 +39,11 @@ jobs:
     - name: Install Playwright
       run: |
         \. "$NVM_DIR/nvm.sh"
-        yarn playwright install --with-deps
+        .yarn/releases/yarn-3.6.1.cjs playwright install --with-deps
     - name: Run Playwright tests
       run: |
         \. "$NVM_DIR/nvm.sh"
-        yarn test:playwright
+        .yarn/releases/yarn-3.6.1.cjs test:playwright
       env:
         SITE_URL: ${{ github.event.deployment_status.environment_url }}
     - uses: actions/upload-artifact@v3
