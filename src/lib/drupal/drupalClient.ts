@@ -59,20 +59,6 @@ export const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   })
 }
 
-// const drupal = new DrupalClient(baseUrl, {
-//   fetcher,
-//   useDefaultResourceTypeEntry: true,
-//   throwJsonApiErrors: false,
-//   auth: {
-//     clientId: process.env.DRUPAL_CLIENT_ID,
-//     clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-//   },
-//   cache: createRedisCache(process.env.REDIS_URL),
-//   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
-// })
-
-// export const drupalClient = drupal
-
 export const drupalClient = new DrupalClient(baseUrl, {
   fetcher,
   useDefaultResourceTypeEntry: true,
