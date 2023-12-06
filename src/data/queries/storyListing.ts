@@ -124,6 +124,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
     type: entity.type,
     published: entity.status,
     title: entity.title,
+    metatags: entity.metatag,
     introText: entity.field_intro_text,
     stories: formattedStories,
     menu: formattedMenu,
