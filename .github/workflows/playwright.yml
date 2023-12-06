@@ -40,7 +40,7 @@ jobs:
         .yarn/releases/yarn-3.6.1.cjs playwright install
     - name: Run Playwright tests
       run: |
-        \. "$NVM_DIR/nvm.sh"
+        NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt \. "$NVM_DIR/nvm.sh"
         NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt SITE_URL=${{ github.event.deployment_status.environment_url }} .yarn/releases/yarn-3.6.1.cjs test:playwright
       # env:
       #   SITE_URL: ${{ github.event.deployment_status.environment_url }}
