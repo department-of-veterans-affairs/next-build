@@ -33,7 +33,9 @@ jobs:
         corepack enable
         corepack install -g --cache-only .yarn/releases/corepack.tgz
     - name: Install dependencies
-      run: .yarn/releases/yarn-3.6.1.cjs
+      run: |
+        \. "$NVM_DIR/nvm.sh"
+        .yarn/releases/yarn-3.6.1.cjs
     - name: Install Playwright
       run: |
         \. "$NVM_DIR/nvm.sh"
