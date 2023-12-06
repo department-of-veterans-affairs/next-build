@@ -9,12 +9,14 @@ test.describe('News Story', () => {
     await expect(page).toHaveURL('/butler-health-care/stories/')
   })
 
-  test('Should render without a11y errors', async ({ page, makeAxeBuilder }) => {
+  test('Should render without a11y errors', async ({
+    page,
+    makeAxeBuilder,
+  }) => {
     await page.goto('/butler-health-care/stories/its-flu-shot-time/')
 
-    const accessibilityScanResults = await makeAxeBuilder()
-      .analyze();
+    const accessibilityScanResults = await makeAxeBuilder().analyze()
 
-    expect(accessibilityScanResults.violations).toEqual([]);
+    expect(accessibilityScanResults.violations).toEqual([])
   })
 })

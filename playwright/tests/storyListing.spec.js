@@ -33,11 +33,13 @@ test.describe('Story Listing', () => {
     )
   })
 
-  test('Should render without a11y errors', async ({ page, makeAxeBuilder }) => {
+  test('Should render without a11y errors', async ({
+    page,
+    makeAxeBuilder,
+  }) => {
     await page.goto('/butler-health-care/stories')
-    const accessibilityScanResults = await makeAxeBuilder()
-      .analyze();
+    const accessibilityScanResults = await makeAxeBuilder().analyze()
 
-    expect(accessibilityScanResults.violations).toEqual([]);
+    expect(accessibilityScanResults.violations).toEqual([])
   })
 })

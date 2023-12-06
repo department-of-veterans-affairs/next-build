@@ -20,13 +20,13 @@ test.describe('404 Error Page', () => {
   })
 
   test('Should render without a11y accessibility errors', async ({
-    page, makeAxeBuilder
+    page,
+    makeAxeBuilder,
   }) => {
     await page.goto('/404')
 
-    const accessibilityScanResults = await makeAxeBuilder()
-      .analyze();
+    const accessibilityScanResults = await makeAxeBuilder().analyze()
 
-    expect(accessibilityScanResults.violations).toEqual([]);
+    expect(accessibilityScanResults.violations).toEqual([])
   })
 })
