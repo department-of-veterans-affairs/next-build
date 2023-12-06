@@ -41,17 +41,17 @@ All four of these run as part of the pre-commit hooks on staged files (and/or th
 
 ## Functional and Behavioral Tests
 
-This is the "slow" part of the testing suite, Cypress. Where Jest tests the code itself,
-Cypress tests that a user can do what they are expected to do in a browser, click buttons, etc.
+This is the "slow" part of the testing suite, Playwright. Where Jest tests the code itself,
+Playwright tests that a user can do what they are expected to do in a browser, click buttons, etc.
 
 These tests can be run manually, and they always run in CI. Because of this,
-**Cypress expects the full site to be built and served**.
+**Playwright expects the full site to be built and served**.
 You can do this locally by first running `yarn export` and then `yarn export:serve`.
-This will start a webserver with all the generated static pages that Cypress can reach.
+This will start a webserver with all the generated static pages that Playwright can reach.
 
-Run `yarn test:cypress` to run all tests (including examples) against generated pages.
+Run `yarn test:playwright` to run all tests (including examples) against generated pages.
 
-You can also run Cypress interactively with `yarn test:cypress:interactive` which will load
+You can also run Playwright interactively with `yarn test:playwright:interactive` which will load
 a browser with a clean UI to monitor and iterate on different test cases.
 
 ## Accessibility Testing
@@ -59,13 +59,17 @@ a browser with a clean UI to monitor and iterate on different test cases.
 This project can be tested for a11y compliance in several ways:
 
 - Individual Jest unit tests using jest-axe (see: `example_tests/06_accessibility_tests/index.test.jsx`).
-- Individual Cypress tests using cypress-axe. (see: `cypress/e2e/news-story.cy.js`).
-  - Any individual test can call `cy.checkA11y()` to run a check against the current page. This must be called after a call to `cy.visit()`!
-- A full site scan of all urls known to next-build (generated in the sitemap) using Cypress
+- Individual Playwright tests using Playwright-axe. (see: `playwright/tests/newsStory.spec.js`).
+  - Any individual test can call these commands to check a given page:
+    ```js
+    await injectAxe(page)
+    await checkA11y(page)
+    ```
+- A full site scan of all urls known to next-build (generated in the sitemap) using Playwright: `yarn test:playwright:a11y`
 
 The full scan will run (TKTK: some cadence, weekly?) in CI.
 You can run it manually after generating the sitemap with a few steps:
 
 1. `yarn export` to generate the static pages for the site
-2. `yarn postbuild` to generate the sitemap
-3. `yarn test:cypress:a11y` to run the scan. This runs `cypress/e2e/a11y.cy.js` which loops over the sitemap and tests each page individually using `cypress-axe`.
+2. `yarn export:serve` to host the static pages locally
+3. `yarn test:playwright:a11y` to run the scan. This runs `playwright/tests/a11y.spec.js` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.

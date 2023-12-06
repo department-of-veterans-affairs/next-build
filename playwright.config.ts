@@ -9,10 +9,18 @@ export default defineConfig({
   // Fail the build on CI if you accidentally left test.only in the source code.
   forbidOnly: !!process.env.CI,
 
+  // limit the number of workers running. start with 1, and if your tests pass reliably, consider increasing to
+  // speed up runs. the new % option may be a good choice, e.g.  workers: '50%'
+  workers: 1,
+
   // Retry on CI only.
   retries: process.env.CI ? 2 : 0,
 
   use: {
+    // set this to a large number, to account for pages occasionally loading more slowly in your pipeline
+    // than they do locally
+    actionTimeout: 12000,
+
     baseURL: process.env.SITE_URL || 'http://localhost:8001',
 
     // Whether to ignore HTTPS errors during navigation.
