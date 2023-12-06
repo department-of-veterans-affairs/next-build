@@ -1,6 +1,6 @@
 name: Playwright Tests
 on:
-  pull_request:
+  #pull_request:
   deployment_status:
 jobs:
   test:
@@ -10,7 +10,7 @@ jobs:
     env:
       NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
       NVM_DIR: /home/runner/.nvm
-    #if: github.event.deployment_status.state == 'success'
+    if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v4
     - name: Install node with NVM to use system OpenSSL configuration
