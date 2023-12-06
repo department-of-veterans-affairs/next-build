@@ -39,7 +39,7 @@ jobs:
     - name: Install Playwright
       run: |
         \. "$NVM_DIR/nvm.sh"
-        .yarn/releases/yarn-3.6.1.cjs playwright install --with-deps
+        .yarn/releases/yarn-3.6.1.cjs playwright install 
     - name: Run Playwright tests
       run: |
         \. "$NVM_DIR/nvm.sh"
