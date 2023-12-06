@@ -35,10 +35,10 @@ export function redisCache(client: Promise<RedisClientType>): DataCache {
 
   return {
     async set(key, value) {
-      return await redis.set(key, value)
+      return await (await client).set(key, value)
     },
     async get(key) {
-      return await redis.get(key)
+      return await (await client).get(key)
     },
   }
 }
