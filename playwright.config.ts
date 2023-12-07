@@ -16,6 +16,9 @@ export default defineConfig({
   // Retry on CI only.
   retries: process.env.CI ? 1 : 0,
 
+  // doubling for CI to resolve urls
+  timeout: process.env.CI ? 60000 : 30000,
+
   use: {
     baseURL: process.env.SITE_URL || 'http://localhost:8001',
 
