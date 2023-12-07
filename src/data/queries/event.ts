@@ -14,7 +14,12 @@ import { GetServerSidePropsContext } from 'next'
 export const params: QueryParams<null> = () => {
   return queries
     .getParams()
-
+    .addInclude([
+      'field_media',
+      'field_media.image',
+      'field_listing',
+      'field_administration',
+    ])
 }
 
 // Define the option types for the data loader.
@@ -43,7 +48,7 @@ export const data: QueryData<EventDataOpts, NodeEvent> = async (
         params: params().getQueryObject(),
       }
     )
-  // console.log(entity)
+  console.log(entity)
   return entity
 }
 
@@ -61,7 +66,7 @@ export const formatter: QueryFormatter<any, any> = (
       entity: entity.field_media,
       cropType: '2_1_large',
     }),
-    caption: entity.field_image_caption,
+    // caption: entity.field_image_caption,
     date: entity.created,
     breadcrumbs: entity.breadcrumbs,
     socialLinks: {
@@ -73,26 +78,24 @@ export const formatter: QueryFormatter<any, any> = (
       id: entity.field_administration?.drupal_internal__tid || null,
       name: entity.field_administration?.name || null,
     },
-    fieldAdditionalListings: entity.field_additional_listings,
-    fieldAdditionalInfo: entity.field_additional_information_abo,
-    fieldAddress: entity.field_address,
+    additionalListings: entity.field_additional_listings,
+    additionalInfo: entity.field_additional_information_abo,
+    address: entity.field_address,
     locationHumanReadable: entity.field_location_humanreadable,
-    fieldEventCTA: entity.field_event_cta,
+    eventCTA: entity.field_event_cta,
     cost: entity.field_event_cost,
     datetimeRange: entity.field_datetime_range_timezone,
-    fieldMedia: entity.field_media,
-    fieldFacilityLocation: entity.field_facility_location,
-    fieldFeatured: entity.field_featured,
-    fieldBody: entity.field_body,
-    fieldIncludeRegistrationInfo: entity.field_include_registration_info,
-    fieldLocationType: entity.field_location_type,
-    fieldOrder: entity.field_order,
-    fieldPublishToOutreachCal: entity.field_publish_to_outreach_cal,
-    fieldRegistrationRequired: entity.field_event_registrationrequired,
-    fieldAdministration: entity.field_administration,
-    fieldDescription: entity.field_description,
-    fieldLink: entity.field_link,
-    fieldUrlOfOnlineEvent: entity.field_url_of_an_online_event,
-    fieldListing: entity.field_listing,
+    media: entity.field_media,
+    facilityLocation: entity.field_facility_location,
+    isFeatured: entity.field_featured,
+    body: entity.field_body,
+    includeRegistrationInfo: entity.field_include_registration_info,
+    locationType: entity.field_location_type,
+    order: entity.field_order,
+    publishToOutreachCal: entity.field_publish_to_outreach_cal,
+    registrationRequired: entity.field_event_registrationrequired,
+    description: entity.field_description,
+    link: entity.field_link,
+    urlOfOnlineEvent: entity.field_url_of_an_online_event,
   }
 }

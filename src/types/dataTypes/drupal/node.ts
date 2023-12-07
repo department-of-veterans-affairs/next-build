@@ -275,7 +275,21 @@ export interface NodePersonProfile extends DrupalNode {
 export interface NodeEvent extends DrupalNode {
   field_additional_listings: any // TODO
   field_additional_information_abo: string
-  field_address: string
+  field_address: {
+    additionalName: string | null;
+    addressLine1: string;
+    addressLine2: string;
+    administrativeArea: string;
+    countryCode: string;
+    dependentLocality: string | null;
+    familyName: string | null;
+    givenName: string | null;
+    langcode: string;
+    locality: string;
+    organization: string | null;
+    postalCode: string | null;
+    sortingCode: string | null;
+  }
   field_location_humanreadable: string
   field_event_cta: string
   field_event_cost: string
