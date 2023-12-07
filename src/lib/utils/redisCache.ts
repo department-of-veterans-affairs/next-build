@@ -1,44 +1,33 @@
 /* eslint-disable no-console */
 import { DataCache } from 'next-drupal'
-import { createClient, RedisClientType } from 'redis'
+import {
+  createClient,
+  RedisClientType,
+  RedisFunctions,
+  RedisModules,
+  RedisScripts,
+} from 'redis'
 
-export async function createRedisClient(url): Promise<RedisClientType> {
-  let isReady = false
-
-  let redisClient: RedisClientType
-  if (isReady === false) {
-    redisClient = createClient({ url })
-    redisClient.on('error', (err) => console.error(`Redis Error: ${err}`))
-    redisClient.on('connect', () => console.info('Redis connected'))
-    redisClient.on('reconnecting', () => console.info('Redis reconnecting'))
-    redisClient.on('ready', () => {
-      isReady = true
-      console.info('Redis ready!')
-    })
-  }
-
-  await redisClient.connect()
-
-  return redisClient
+export async function createRedisClient(
+  url
+): Promise<RedisClientType<RedisModules, RedisFunctions, RedisScripts>> {
+  return await createClient({ url })
+    .on('error', (err) => console.error(`Redis Error: ${err}`))
+    .on('connect', () => console.info('Redis connected'))
+    .on('reconnecting', () => console.info('Redis reconnecting'))
+    .on('ready', () => console.info('Redis ready!'))
+    .connect()
 }
 
-export function redisCache(client: Promise<RedisClientType>): DataCache {
-  let redis: RedisClientType
-
-  client
-    .then((connection) => {
-      redis = connection
-    })
-    .catch((err) => {
-      console.error({ err }, 'Failed to connect to Redis')
-    })
-
+export function redisCache(
+  client: Promise<RedisClientType<RedisModules, RedisFunctions, RedisScripts>>
+): DataCache {
   return {
     async set(key, value) {
-      return await (await client).set(key, value)
+      return (await client).set(key, value)
     },
     async get(key) {
-      return await (await client).get(key)
+      return (await client).get(key)
     },
   }
 }
