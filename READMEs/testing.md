@@ -60,11 +60,21 @@ This project can be tested for a11y compliance in several ways:
 
 - Individual Jest unit tests using jest-axe (see: `example_tests/06_accessibility_tests/index.test.jsx`).
 - Individual Playwright tests using Playwright-axe. (see: `playwright/tests/newsStory.spec.js`).
+
   - Any individual test can call these commands to check a given page:
+
     ```js
-    await injectAxe(page)
-    await checkA11y(page)
+      test('Should render without a11y accessibility errors', async ({
+        page,
+        makeAxeBuilder,
+      }) => {
+        await page.goto('/your-page-url')
+
+        const accessibilityScanResults = await makeAxeBuilder().analyze()
+
+        expect(accessibilityScanResults.violations).toEqual([])
     ```
+
 - A full site scan of all urls known to next-build (generated in the sitemap) using Playwright: `yarn test:playwright:a11y`
 
 The full scan will run (TKTK: some cadence, weekly?) in CI.
