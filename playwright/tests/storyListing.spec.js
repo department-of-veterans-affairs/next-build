@@ -1,13 +1,6 @@
 const { test, expect } = require('../utils/next-test')
 
 test.describe('Story Listing', () => {
-  test.beforeEach(async ({ context }) => {
-    // Block requests for gtm, localhost services
-    await context.route(/gtm.js*/, (route) => route.abort())
-    await context.route(/:3000*/, (route) => route.abort())
-    await context.route(/:3001*/, (route) => route.abort())
-  })
-
   test('Story Listing page renders with stories that can be navigated to', async ({
     page,
   }) => {

@@ -1,16 +1,19 @@
 import { test as base } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 
-type AxeFixture = {
+type NextFixtures = {
   makeAxeBuilder: () => AxeBuilder
+  testHook: void
 }
 
-// Extend base test by providing "makeAxeBuilder"
+// Extend base test with re-usable fixtures
 //
-// This can be reused in other test files to provide a
-// consistently configured AxeBuilder instance.
+// makeAxeBuilder provides a consistently configured AxeBuilder instance.
 // See https://playwright.dev/docs/accessibility-testing#creating-a-fixture
-export const test = base.extend<AxeFixture>({
+//
+// testHook provides a global beforeEach & afterEach hook for individual tests.
+// See https://playwright.dev/docs/test-fixtures#automatic-fixtures
+export const test = base.extend<NextFixtures>({
   makeAxeBuilder: async ({ page }, use, testInfo) => {
     const makeAxeBuilder = () =>
       new AxeBuilder({ page }).withTags([
@@ -24,6 +27,21 @@ export const test = base.extend<AxeFixture>({
 
     await use(makeAxeBuilder)
   },
+
+  testHook: [
+    async ({ context }, use, testInfo) => {
+      // Any code here will be run as a before each hook
+      await context.route(/gtm.js*/, (route) => route.abort())
+      await context.route(/:3000*/, (route) => route.abort())
+      await context.route(/:3001*/, (route) => route.abort())
+
+      // This is the individual test run
+      await use()
+
+      // Put any code you want run automatically after each test here
+    },
+    { auto: true },
+  ],
 })
 
 // exported here to reduce import overhead in other test runs
