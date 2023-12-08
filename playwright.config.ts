@@ -15,6 +15,13 @@ export default defineConfig({
   use: {
     baseURL: process.env.SITE_URL || 'http://localhost:8001',
 
+    // Whether to ignore HTTPS errors during navigation.
+    ignoreHTTPSErrors: true,
+
+    contextOptions: {
+      ignoreHTTPSErrors: true,
+    },
+
     // Collect trace when retrying the failed test.
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
