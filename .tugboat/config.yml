@@ -102,18 +102,3 @@ services:
   redis:
     image: tugboatqa/redis:latest
     expose: 6379
-    # so we can use a custom .conf file
-    checkout: true
-    commands:
-      init:
-        # remove existing run script
-        - rm /etc/service/redis/run
-
-        # create logfile
-        - touch /data/redis.log
-
-        # start server in background using custom .conf file
-        # https://docs.tugboatqa.com/setting-up-services/how-to-set-up-services/running-a-background-process
-        - echo "#!/bin/sh" > /etc/service/redis/run
-        - echo "exec docker-entrypoint.sh redis-server ${TUGBOAT_ROOT}/.tugboat/redis.conf" >> /etc/service/redis/run
-        - chmod +x /etc/service/redis/run
