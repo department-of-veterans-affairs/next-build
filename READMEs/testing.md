@@ -81,5 +81,6 @@ The full scan will run (TKTK: some cadence, weekly?) in CI.
 You can run it manually after generating the sitemap with a few steps:
 
 1. `yarn export` to generate the static pages for the site
-2. `yarn export:serve` to host the static pages locally
-3. `yarn test:playwright:a11y` to run the scan. This runs `playwright/tests/a11y.spec.js` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
+2. `yarn build:sitemap` to generate the sitemap for pages from step 1.
+3. `yarn export:serve` to host the static pages locally
+4. `yarn test:playwright:a11y` to run the scan. This runs `playwright/tests/a11y.spec.js` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
