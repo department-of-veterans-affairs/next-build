@@ -102,3 +102,9 @@ services:
   redis:
     image: tugboatqa/redis:latest
     expose: 6379
+    # so we can use a custom .conf file
+    checkout: true
+    commands:
+      start:
+        - touch /data/redis.log
+        - redis-server ${TUGBOAT_ROOT}/.tugboat/redis.conf
