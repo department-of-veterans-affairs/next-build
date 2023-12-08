@@ -1,9 +1,9 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { Menu, HeaderMegaMenu } from '@/types/dataTypes/drupal/menu'
 import { HeaderFooterData } from '@/types/dataTypes/formatted/headerFooter'
 import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
+import { getMenu } from '@/lib/drupal/queryResources'
 
 export type RawHeaderFooterData = {
   footerColumns: Menu
@@ -30,17 +30,11 @@ export const megaMenuParams: QueryParams<null> = () => {
 
 export const data: QueryData<null, RawHeaderFooterData> = async () => {
   // Gather data from the different menus for the headerFooter data object
-  const footerColumns = await drupalClient.getMenu('va-gov-footer', {
-    params: params().getQueryObject(),
-  })
-  const footerBottomRail = await drupalClient.getMenu('footer-bottom-rail', {
-    params: params().getQueryObject(),
-  })
-  const headerMegaMenu: HeaderMegaMenu = await drupalClient.getMenu(
+  const footerColumns = await getMenu('va-gov-footer', params)
+  const footerBottomRail = await getMenu('footer-bottom-rail', params)
+  const headerMegaMenu: HeaderMegaMenu = await getMenu(
     'header-megamenu',
-    {
-      params: megaMenuParams().getQueryObject(),
-    }
+    megaMenuParams
   )
 
   return {
