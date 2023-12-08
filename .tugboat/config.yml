@@ -10,9 +10,16 @@ services:
     #   3. Routes requests to the preview URL to this service
     default: true
 
+    # Generates additional url aliases
+    # Default: https://pr-[hash].tugboat.vfs.va.gov
+    #          https://storybook-[hash].tugboat.vfs.va.gov
+    #          https://typedoc-[hash].tugboat.vfs.va.gov
     aliases:
       - storybook
       - typedoc
+
+    depends:
+      - redis
 
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
@@ -88,6 +95,10 @@ services:
       online:
         # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
         - yarn storybook:build
-
         # Build the typedoc information for next-build to serve at typedoc-[hash].tugboat.vfs.va.gov
         - yarn typedoc -out out/typedocs/
+
+  # Redis cache for fetching data
+  redis:
+    image: tugboatqa/redis:latest
+    expose: 6379

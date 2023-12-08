@@ -71,6 +71,18 @@ NEXT_IMAGE_DOMAIN=https://va-gov-cms.ddev.site
 
 Now you can run `yarn dev` and data will be coming from your local CMS environment instead.
 
+## Generating the static site
+
+To generate the static pages for https://va.gov, run `yarn export`. This command will generate static pages for all paths that next-build is aware of.
+
+To use the redis cache during your static build, run the following command before running `yarn export`:
+
+```sh
+docker run --name next-redis -p 6379:6379 -d redis
+```
+
+This will start [redis](https://redis.io/) in a docker container that can be reached from your localhost (e.g. `redis://localhost:6379`). For more on how this project uses redis, check the [caching readme](READMEs/caching.md).
+
 ## Documentation (WIP)
 
 - [Code Guidelines](READMEs/code-guidelines.md)
