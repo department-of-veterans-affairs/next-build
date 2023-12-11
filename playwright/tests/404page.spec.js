@@ -1,8 +1,7 @@
-const { test, expect } = require('@playwright/test')
+const { test, expect } = require('../utils/next-test')
 
 test.describe('404 Error Page', () => {
   test('Displays the 404 Error page content', async ({ page }) => {
-    test.setTimeout(30000)
     await page.goto('/404')
 
     await expect(page.locator('h3 >> nth=0')).toContainText(
@@ -19,9 +18,14 @@ test.describe('404 Error Page', () => {
     await expect(page.locator('.va-quicklinks--commpop')).toBeVisible()
   })
 
-  test.skip('Should render without a11y accessibility errors', async ({
+  test('Should render without a11y accessibility errors', async ({
     page,
+    makeAxeBuilder,
   }) => {
     await page.goto('/404')
+
+    const accessibilityScanResults = await makeAxeBuilder().analyze()
+
+    expect(accessibilityScanResults.violations).toEqual([])
   })
 })

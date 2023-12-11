@@ -6,12 +6,13 @@ import {
   onMedalliaLoaded,
   setWindowVaSurvey,
 } from '@/lib/utils/medallia'
+import { environments } from '@/lib/constants/environment'
 
 export function MedalliaAssets() {
-  const scriptId = process.env.BUILD_TYPE === 'production' ? 2 : 5
+  const scriptId = process.env.BUILD_TYPE === environments.PROD ? 2 : 5
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_BUILD_TYPE === 'localhost') {
+    if (process.env.NEXT_PUBLIC_BUILD_TYPE === environments.LOCAL) {
       onMedalliaLoaded(() => {
         const surveyNumber = getSurveyNumber(window.location.pathname, false)
         const neb_status = loadForm(surveyNumber)

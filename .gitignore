@@ -25,6 +25,9 @@
 playwright/test-results
 playwright/test-report
 
+# redis
+dump.rdb
+
 # production
 /storybook-static
 /public/generated
@@ -54,4 +57,5 @@ certs/rootCA.pem
 
 # typescript
 *.tsbuildinfo
-docs/**/*
+# typedoc
+/typedocs/

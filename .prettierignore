@@ -9,3 +9,4 @@ yarn.lock
 storybook-static
 out
 .yarnrc.yml
+typedocs
