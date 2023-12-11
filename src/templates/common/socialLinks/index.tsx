@@ -4,24 +4,34 @@ export interface SocialLinksProps {
   isNews: boolean
   description: string
   address: {
-    additionalName: string | null;
-    addressLine1: string;
-    addressLine2: string;
-    administrativeArea: string;
-    countryCode: string;
-    dependentLocality: string | null;
-    familyName: string | null;
-    givenName: string | null;
-    langcode: string;
-    locality: string;
-    organization: string | null;
-    postalCode: string | null;
-    sortingCode: string | null;
+    additionalName?: string | null;
+    addressLine1?: string;
+    addressLine2?: string;
+    administrativeArea?: string;
+    countryCode?: string;
+    dependentLocality?: string | null;
+    familyName?: string | null;
+    givenName?: string | null;
+    langcode?: string;
+    locality?: string;
+    organization?: string | null;
+    postalCode?: string | null;
+    sortingCode?: string | null;
+  }
+  dateObject: {
+    duration: number;
+    endTime: string;
+    endValue: number;
+    end_value: string;
+    rrule: number;
+    rrule_index: number;
+    startTime: string;
+    timezone: string;
+    value: number;
   }
 }
 
-export const SocialLinks = ({ path, title, isNews = false, description, address, }: SocialLinksProps): JSX.Element => {
-
+export const SocialLinks = ({ path, title, isNews = false, description, address, dateObject }: SocialLinksProps): JSX.Element => {
 
   if (isNews) {
     return (
@@ -51,15 +61,14 @@ export const SocialLinks = ({ path, title, isNews = false, description, address,
     )
   }
   return (
-    // TODO, FIX DATES
     <div id="va-c-social-share">
       <ul className="usa-unstyled-list" role="list">
         <li className="vads-u-margin-bottom--2p5">
           <a
             data-description={description}
-            data-end="{{ mostRecentDate.endValue }}"
+            data-end={dateObject.endValue}
             data-location={`${address.addressLine1} ${address.locality}, ${address.administrativeArea}`}
-            data-start="{{ mostRecentDate.value }}"
+            data-start={dateObject.value}
             data-subject={title}
             href={path}
             id="add-to-calendar-link">

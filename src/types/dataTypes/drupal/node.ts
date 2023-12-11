@@ -273,7 +273,7 @@ export interface NodePersonProfile extends DrupalNode {
  *  @see https://prod.cms.va.gov/admin/structure/types/manage/event/fields
  */
 export interface NodeEvent extends DrupalNode {
-  field_additional_listings: any // TODO
+  field_additional_listings: any[]
   field_additional_information_abo: string
   field_address: {
     additionalName: string | null;
@@ -293,9 +293,9 @@ export interface NodeEvent extends DrupalNode {
   field_location_humanreadable: string
   field_event_cta: string
   field_event_cost: string
-  field_datetime_range_timezone: Array<any> // TODO ADD DATETIME TYPE
+  field_datetime_range_timezone: DateTimeRange[]
   field_media: DrupalMediaImage
-  field_facility_location: any // TODO
+  field_facility_location: FacilityLocation
   field_featured: boolean
   field_body: string
   field_include_registration_info: boolean
@@ -303,11 +303,89 @@ export interface NodeEvent extends DrupalNode {
   field_order: string
   field_publish_to_outreach_cal: boolean
   field_event_registrationrequired: boolean
-  field_administration: any // TODO
+  field_administration: any
   field_description: string
   field_link: string
   field_url_of_an_online_event: string
-  field_listing: any // TODO
+  field_listing: fieldEventListing
+}
+
+export interface DateTimeRange extends DrupalNode {
+  value: string;
+  end_value: string;
+  duration: number;
+  rrule: number;
+  rrule_index: number;
+  timezone: string;
+}
+
+export interface urlOfOnlineEvent {
+  uri: string;
+  title: string;
+  options: any[];
+}
+
+export interface fieldEventListing extends DrupalNode {
+  type: string;
+  id: string;
+  drupal_internal__nid: number;
+  langcode: string;
+  status: boolean;
+  title: string;
+  created: string;
+  changed: string;
+  breadcrumbs: Array<any>;
+  moderation_state: string;
+  metatag: Array<any>;
+  path: {
+    alias: string;
+    pid: number;
+    langcode: string;
+  };
+  field_description: string;
+  field_enforce_unique_combo: boolean;
+  field_intro_text: string;
+  field_meta_tags: any | null;
+  links: {
+    self: Array<any>;
+  };
+  resourceIdObjMeta: {
+    drupal_internal__target_id: number;
+  };
+  node_type: {
+    type: string;
+    id: string;
+    resourceIdObjMeta: any;
+  };
+}
+
+
+
+
+export interface FacilityLocation extends DrupalNode {
+  type: string;
+  id: string;
+  drupal_internal__nid: number;
+  drupal_internal__vid: number;
+  langcode: string;
+  revision_timestamp: string;
+  revision_log: string;
+  status: boolean;
+  title: string;
+  created: string;
+  changed: string;
+  promote: boolean;
+  sticky: boolean;
+  default_langcode: boolean;
+  revision_translation_affected: boolean;
+  breadcrumbs: Array<any>;
+  moderation_state: string;
+  metatag: Array<any>;
+  path: {
+    alias: string;
+    pid: number;
+    langcode: string;
+  };
 }
 
 export interface NodePromoBanner extends DrupalNode {

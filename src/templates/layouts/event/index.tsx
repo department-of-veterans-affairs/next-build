@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { NodeEvent } from '@/types/dataTypes/drupal/node';
-import { deriveMostRecentDate } from './util';
+import { deriveMostRecentDate, formatDateObject, deriveFormattedTimestamp, isEventInPast } from './util';
 import { ContentFooter } from '@/templates/common/contentFooter';
 import { SocialLinks } from '../../common/socialLinks'
 import { MediaImage } from '@/templates/common/mediaImage';
+import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections';
+import { recordEvent } from '@/lib/analytics/recordEvent';
+import { Event as FormattedEvent } from '@/types/dataTypes/formatted/event';
 
 export const Event = ({
   title,
@@ -18,18 +21,22 @@ export const Event = ({
   cost,
   socialLinks,
   link,
+  additionalInfo,
   eventCTA,
   body,
-  additionalInfo,
-
-}) => {
+  listing
+}: FormattedEvent) => {
   const [showRecurringEvents, setShowRecurringEvents] = useState(false);
 
   const toggleRecurringEvents = () => {
     setShowRecurringEvents(prevState => !prevState);
   };
+  const formattedDates = formatDateObject(datetimeRange)
 
-  const mostRecentDate = deriveMostRecentDate(datetimeRange)
+  const mostRecentDate = deriveMostRecentDate(formattedDates)
+  const formattedTimestamp = deriveFormattedTimestamp(mostRecentDate)
+  const addressObj = facilityLocation?.field_address || address;
+  const directionsString = `${addressObj.address_line1}, ${addressObj.locality}, ${addressObj.administrative_area}`;
 
   return (
     <div className="va-l-detail-page va-facility-page">
@@ -59,8 +66,15 @@ export const Event = ({
               </p>
               <div className="vads-u-display--flex vads-u-flex-direction--column">
                 <p className="vads-u-margin--0">
-                  {mostRecentDate.start} to {mostRecentDate.end} ({mostRecentDate.timezone})
+                  {formattedTimestamp}
                 </p>
+                {formattedDates.length > 1 && (
+                  <p className="vads-u-margin--0">
+                    <i aria-hidden="true" className="fa fa-sync vads-u-font-size--sm vads-u-margin-right--0p5"></i>
+                    Repeats
+                  </p>
+                )}
+
               </div>
             </div>
 
@@ -73,24 +87,21 @@ export const Event = ({
               {facilityLocation ? (
                 <div className="vads-u-display--flex vads-u-flex-direction--column">
                   <p className="vads-u-margin--0">
-                    <a href={facilityLocation?.entity?.entityUrl?.path}>
-                      {facilityLocation?.entity?.title}
+                    <a href={facilityLocation?.path?.alias}>
+                      {facilityLocation?.title}
                     </a>
                   </p>
                   <p className="vads-u-margin--0">{locationHumanReadable}</p>
-                  {facilityLocation?.entity?.fieldAddress.addressLine1 && (
-                    <p className="vads-u-margin--0">{facilityLocation?.entity?.fieldAddress?.addressLine1}</p>
+                  {facilityLocation?.field_address.address_line1 && (
+                    <p className="vads-u-margin--0">{facilityLocation?.field_address?.address_line1}</p>
                   )}
-                  {facilityLocation?.entity?.fieldAddress?.addressLine2 && (
-                    <p className="vads-u-margin--0">{facilityLocation?.entity?.fieldAddress?.addressLine2}</p>
+                  {facilityLocation?.field_Address?.address_Line2 && (
+                    <p className="vads-u-margin--0">{facilityLocation?.field_address?.address_line2}</p>
                   )}
-                  <p className="vads-u-margin--0">
-                    {facilityLocation?.entity?.fieldAddress?.locality && (
-                      <span>{facilityLocation?.entity?.fieldAddress?.locality}, </span>
-                    )}
-                    {facilityLocation?.entity?.fieldAddress?.administrativeArea}
-                  </p>
-
+                  {facilityLocation?.field_address?.locality && (
+                    <p className="vads-u-margin--0">{facilityLocation?.field_address?.locality}, {facilityLocation.field_address?.administrative_area}</p>
+                  )}
+                  <GoogleMapsDirections title={title} address={directionsString} />
                 </div>
               ) : locationType === "online" ? (
                 <p className="vads-u-margin--0 vads-u-margin-bottom--2">
@@ -105,11 +116,11 @@ export const Event = ({
                   {locationHumanReadable && (
                     <p className="vads-u-margin--0">{locationHumanReadable}</p>
                   )}
-                  {address && address.addressLine1 && (
-                    <p className="vads-u-margin--0">{address.addressLine1}</p>
+                  {address && address.address_line1 && (
+                    <p className="vads-u-margin--0">{address.address_line1}</p>
                   )}
-                  {address && address.addressLine2 && (
-                    <p className="vads-u-margin--0">{address.addressLine2}</p>
+                  {address && address.address_line2 && (
+                    <p className="vads-u-margin--0">{address.address_line2}</p>
                   )}
                   <p className="vads-u-margin--0">
                     {address && address.locality && (
@@ -117,26 +128,44 @@ export const Event = ({
                     )}
                     {address && address.administrativeArea}
                   </p>
-                  {/* Add Google Maps link logic here */}
+                  <GoogleMapsDirections title={title} address={directionsString} />
                 </div>
               )}
             </div>
 
             {/* Cost */}
             {cost && (
-              <div>
-                <strong>Cost:</strong>
-                <p>{cost}</p>
+              <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-margin-bottom--2">
+                <p className="vads-u-margin--0 vads-u-margin-right--0p5">
+                  <strong>Cost:</strong>
+                </p>
+                <p className="vads-u-margin--0">{cost}</p>
               </div>
             )}
 
-            <SocialLinks path={socialLinks.path} title={socialLinks.title} description={description} address={address} />
+            <SocialLinks path={socialLinks.path} title={socialLinks.title} description={description} address={address} isNews={false} dateObject={mostRecentDate} />
 
             {/* CTA */}
-            {link && (
-              <a href={link} className="vads-c-action-link--green">
-                {eventCTA || 'More details'}
-              </a>
+            {(link || additionalInfo || eventCTA) && (
+              <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1">
+                {isEventInPast(mostRecentDate.value)
+                  ? <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">This event already happened.</p>
+                  : (
+                    <>
+                      {link && (
+                        <p className="vads-u-margin--0">
+                          <a className="vads-c-action-link--green" href={link.url.path}>
+                            {eventCTA || "More details"}
+                          </a>
+                        </p>
+                      )}
+                      {additionalInfo && (
+                        <p className="vads-u-margin--0">{additionalInfo}</p>
+                      )}
+                    </>
+                  )
+                }
+              </div>
             )}
 
             {/* Body */}
@@ -145,25 +174,61 @@ export const Event = ({
             )}
 
             {/* Recurring Events */}
-            {datetimeRange.length > 1 && (
-              <>
-                <button onClick={toggleRecurringEvents}>
+            {formattedDates.length > 1 && (
+              <div className='vads-u-margin-bottom--2'>
+                <button
+                  className="vads-u-background-color--gray-lightest vads-u-color--primary-darkest vads-u-font-weight--bold vads-u-display--flex vads-u-align-items--center vads-u-justify-content--space-between vads-u-height--full vads-u-padding--2 vads-u-margin--0 vads-u-margin-top--1"
+                  onClick={toggleRecurringEvents}
+                >
                   View other times for this event
+                  <i
+                    aria-hidden="true"
+                    className={`fa ${showRecurringEvents ? 'fa-minus' : 'fa-plus'}`}
+                    id="expand-recurring-events-icon"></i>
                 </button>
                 {showRecurringEvents && (
-                  <div>
-                    {datetimeRange.map((dateRange, index) => (
-                      <p key={index}>{dateRange.start} to {dateRange.end}</p>
-                    ))}
+                  <div className="vads-u-flex-direction--column vads-u-background-color--white vads-u-border--2px vads-u-border-color--gray-lightest vads-u-padding--2" id="recurring-events">
+
+                    {formattedDates.map((dateRange, index) => (
+                      <div key={index}>
+                        <p>{deriveFormattedTimestamp(dateRange)}</p>
+                        <a
+                          className="recurring-event"
+                          data-description={description}
+                          data-end={dateRange.endValue}
+                          data-location={directionsString}
+                          data-start={dateRange.value}
+                          data-subject={title}
+                          href={socialLinks.path}
+                          rel="noreferrer noopener"
+                          id="add-to-calendar-link"
+                        >
+                          <i
+                            aria-hidden="true"
+                            className="va-c-social-icon fas fa-calendar-check vads-u-margin-right--0p5"
+                            role="presentation"></i>
+                          Add to Calendar
+                        </a>
+                      </div>
+                    )
+                    )}
                   </div>
                 )}
-              </>
+              </div>
             )}
 
-            {/* Additional Registration Information */}
-            {additionalInfo && (
-              <p>{additionalInfo}</p>
-            )}
+            {/* See more events */}
+            <a
+              className="vads-u-padding-bottom--3 vads-u-margin-top--1 vads-u-font-weight--bold"
+              href={listing}
+              onClick={() => recordEvent({ event: 'nav-secondary-button-click' })}
+            >
+              See more events
+              <i
+                aria-hidden="true"
+                className='vads-u-font-size--sm vads-u-margin-left--1 fa fa-chevron-right'
+                role="presentation"></i>
+            </a>
           </article>
           <ContentFooter />
         </div>
