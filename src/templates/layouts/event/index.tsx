@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { NodeEvent } from '@/types/dataTypes/drupal/node'
 import {
   deriveMostRecentDate,
   formatDateObject,
   deriveFormattedTimestamp,
   isEventInPast,
-} from './util'
+} from '@/lib/utils/date'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { SocialLinks } from '../../common/socialLinks'
 import { MediaImage } from '@/templates/common/mediaImage'
