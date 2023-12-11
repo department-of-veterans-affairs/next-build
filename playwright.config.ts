@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: './playwright/tests',
   outputDir: './playwright/test-results',
   reporter: [['html', { outputFolder: './playwright/test-report' }]],
-  fullyParallel: true,
+  fullyParallel: process.env.CI ? false : true,
 
   // Fail the build on CI if you accidentally left test.only in the source code.
   forbidOnly: !!process.env.CI,
@@ -15,10 +15,17 @@ export default defineConfig({
   use: {
     baseURL: process.env.SITE_URL || 'http://localhost:8001',
 
+    // Whether to ignore HTTPS errors during navigation.
+    ignoreHTTPSErrors: true,
+    // browser context options
+    contextOptions: {
+      ignoreHTTPSErrors: true,
+    },
+
     // Collect trace when retrying the failed test.
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    video: 'on-first-retry',
     viewport: { width: 1280, height: 720 },
   },
 

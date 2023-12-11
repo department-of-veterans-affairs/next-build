@@ -39,10 +39,11 @@ describe('isLovellResourceType', () => {
     expect(storyResult).toBe(true)
   })
 
-  test('should return false when not Lovell resource type', () => {
-    const storyListingResult = isLovellResourceType(RESOURCE_TYPES.QA)
-    expect(storyListingResult).toBe(false)
-  })
+  // Currently, all resource types are Lovell resource types (Story, Story Listing)
+  // test('should return false when not Lovell resource type', () => {
+  //   const storyListingResult = isLovellResourceType(RESOURCE_TYPES.QA)
+  //   expect(storyListingResult).toBe(false)
+  // })
 })
 
 describe('isLovellBifurcatedResourceType', () => {

@@ -2,13 +2,13 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { QUERIES_MAP, queries } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
 import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
-import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
-import { QueryOpts } from 'next-drupal-query'
+import { GetStaticPropsContext } from 'next'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
 import { isLovellChildVariantResource } from '@/lib/drupal/lovell/utils'
 import { getLovellVariantOfStaticPathResource } from '@/lib/drupal/lovell/staticPaths'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { ExpandedStaticPropsContext } from './staticProps'
 
 const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const
 
@@ -26,12 +26,12 @@ export type ListingPageStaticPropsContextProps = {
   page: number
 }
 
-export type ListingPageDataOpts = QueryOpts<{
+export type ListingPageDataOpts = {
   id: string
   page?: number
   lovell?: LovellStaticPropsContextProps
-  context?: GetServerSidePropsContext
-}>
+  context?: ExpandedStaticPropsContext
+}
 
 type ListingPageCounts = {
   totalItems: number

@@ -82,6 +82,7 @@ export const newsStoryPartialResource = {
   },
   listing: 'listing',
   entityId: 12345,
+  metatags: null,
 }
 
 export const lovellSidenavData = {

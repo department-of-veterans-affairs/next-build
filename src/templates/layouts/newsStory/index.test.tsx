@@ -55,6 +55,24 @@ const data = {
     id: 12,
     name: 'VA Pittsburgh health care',
   },
+  metatags: [
+    {
+      attributes: {
+        content:
+          'It’s never too late to quit smoking and start breathing easier | VA Minneapolis health care | Veterans Affairs',
+        name: 'title',
+      },
+      tag: 'meta',
+    },
+    {
+      attributes: {
+        content:
+          'When you stop smoking, you feel the benefits almost immediately, no matter how long you’ve smoked.',
+        name: 'description',
+      },
+      tag: 'meta',
+    },
+  ],
 }
 
 describe('<newsStory> with valid data', () => {

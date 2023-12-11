@@ -4,13 +4,11 @@ import {
   GetStaticPathsResult,
   GetStaticPropsContext,
 } from 'next'
-import Head from 'next/head'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
-import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import HTMLComment from '@/templates/globals/util/HTMLComment'
 import { Event } from '@/templates/layouts/event'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
@@ -20,6 +18,12 @@ import {
   getStaticPropsResource,
 } from '@/lib/drupal/staticProps'
 import Breadcrumbs from '@/templates/common/breadcrumbs'
+import { StaticPropsResource } from '@/lib/drupal/staticProps'
+import { FormattedResource } from '@/data/queries'
+import { LayoutProps } from '@/templates/globals/wrapper'
+import { NewsStory as FormattedNewsStory } from '@/types/dataTypes/formatted/newsStory'
+import { StoryListing as FormattedStoryListing } from '@/types/dataTypes/formatted/storyListing'
+import { Meta } from '@/templates/globals/meta'
 
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
@@ -35,10 +39,13 @@ export default function ResourcePage({
   bannerData,
   headerFooterData,
   preview,
+}: {
+  resource: StaticPropsResource<FormattedResource>
+  bannerData: LayoutProps['bannerData']
+  headerFooterData: LayoutProps['headerFooterData']
+  preview: boolean
 }) {
   if (!resource) return null
-
-  const title = `${resource.title} | Veterans Affairs`
   const comment = `
       --
       | resourceType: ${resource?.type || 'N/A'}
@@ -49,12 +56,8 @@ export default function ResourcePage({
 
   return (
     <Wrapper bannerData={bannerData} headerFooterData={headerFooterData}>
+      <Meta resource={resource} />
       <HTMLComment position="head" content={comment} />
-      <Head>
-        <title>{title}</title>
-        {/* todo: do all meta tags correctly, currently this fixes an error on news story */}
-        <meta property="og:url" content="foo" />
-      </Head>
 
       {preview && (
         <div className="usa-grid-full">
@@ -80,14 +83,14 @@ export default function ResourcePage({
       <main>
         <div id="content" className="interior">
           {resource.type === RESOURCE_TYPES.STORY_LISTING && (
-            <StoryListing {...resource} />
+            <StoryListing {...(resource as FormattedStoryListing)} />
           )}
           {resource.type === RESOURCE_TYPES.STORY && (
-            <NewsStory {...resource} />
+            <NewsStory {...(resource as FormattedNewsStory)} />
           )}
-          {resource.type === RESOURCE_TYPES.QA && (
+          {/* {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />
-          )}
+          )} */}
           {resource.type === RESOURCE_TYPES.EVENT && <Event {...resource} />}
         </div>
       </main>

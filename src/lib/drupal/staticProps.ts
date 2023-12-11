@@ -33,12 +33,7 @@ export type StaticPropsResource<T extends FormattedResource> =
   | T
   | LovellStaticPropsResource<LovellFormattedResource>
 
-type StaticPropsQueryOpts =
-  | NewsStoryDataOpts
-  | ListingPageDataOpts
-  | QueryOpts<{
-      id: string
-    }>
+type StaticPropsQueryOpts = NewsStoryDataOpts | ListingPageDataOpts
 
 /**
  * Decorates the original context with expanded details:

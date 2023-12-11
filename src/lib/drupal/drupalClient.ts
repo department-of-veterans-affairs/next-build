@@ -1,6 +1,7 @@
 import { DrupalClient } from 'next-drupal'
 import crossFetch from 'cross-fetch'
 import { SocksProxyAgent } from 'socks-proxy-agent'
+import { createRedisClient, redisCache } from '@/lib/utils/redisCache'
 
 // Default to local CMS endpoint.
 export const baseUrl =
@@ -66,6 +67,6 @@ export const drupalClient = new DrupalClient(baseUrl, {
     clientId: process.env.DRUPAL_CLIENT_ID,
     clientSecret: process.env.DRUPAL_CLIENT_SECRET,
   },
+  cache: redisCache(createRedisClient(process.env.REDIS_URL)),
   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
-  forceIframeSameSiteCookie: process.env.NODE_ENV === 'development',
 })
