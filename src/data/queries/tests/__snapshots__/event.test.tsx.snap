@@ -3,7 +3,6 @@
 exports[`node--event formatData outputs formatted data 1`] = `
 {
   "additionalInfo": null,
-  "additionalListings": [],
   "address": {
     "address_line1": "9000 Douglas Ave",
     "address_line2": "",
@@ -11,10 +10,6 @@ exports[`node--event formatData outputs formatted data 1`] = `
     "country_code": "US",
     "langcode": "en",
     "locality": "Urbandale",
-  },
-  "administration": {
-    "id": null,
-    "name": null,
   },
   "body": {
     "format": "rich_text",
@@ -79,17 +74,12 @@ exports[`node--event formatData outputs formatted data 1`] = `
   "facilityLocation": null,
   "id": "16349f16-be65-46e3-9660-1d3d598a4a0b",
   "image": null,
-  "includeRegistrationInfo": false,
-  "isFeatured": false,
   "link": null,
-  "listing": "/central-iowa-health-care/events/52265",
+  "listing": "/central-iowa-health-care/events",
   "locationHumanReadable": "Walker Johnston Park",
   "locationType": "non_facility",
-  "media": null,
-  "order": null,
-  "publishToOutreachCal": null,
+  "metatags": null,
   "published": true,
-  "registrationRequired": false,
   "socialLinks": {
     "path": "/central-iowa-health-care/events/52265",
     "title": "Pickleball Club",
