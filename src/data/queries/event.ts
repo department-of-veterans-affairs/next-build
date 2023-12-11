@@ -68,6 +68,7 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
       path: entity.path.alias,
       title: entity.title,
     },
+    metatags: entity.metatag,
     listing: entity.field_listing.path.alias,
     additionalInfo: entity.field_additional_information_abo,
     address: entity.field_address,

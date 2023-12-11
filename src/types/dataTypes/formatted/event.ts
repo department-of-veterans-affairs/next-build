@@ -2,6 +2,7 @@ import { BreadcrumbItem } from '../drupal/field_type'
 import { FacilityLocation } from '../drupal/node'
 import { urlOfOnlineEvent } from '../drupal/node'
 import { MediaImage } from './media'
+import { MetaTag } from './metatags'
 
 interface DateTimeRangeItem {
   value: string
@@ -57,5 +58,6 @@ export interface Event {
   locationType: string
   description: string
   link: Link | null
+  metatags: MetaTag[]
   urlOfOnlineEvent: urlOfOnlineEvent
 }

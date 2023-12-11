@@ -23,6 +23,7 @@ import { FormattedResource } from '@/data/queries'
 import { LayoutProps } from '@/templates/globals/wrapper'
 import { NewsStory as FormattedNewsStory } from '@/types/dataTypes/formatted/newsStory'
 import { StoryListing as FormattedStoryListing } from '@/types/dataTypes/formatted/storyListing'
+import { Event as FormattedEvent } from '@/types/dataTypes/formatted/event'
 import { Meta } from '@/templates/globals/meta'
 
 const RESOURCE_TYPES_TO_BUILD = [
@@ -91,7 +92,9 @@ export default function ResourcePage({
           {/* {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />
           )} */}
-          {resource.type === RESOURCE_TYPES.EVENT && <Event {...resource} />}
+          {resource.type === RESOURCE_TYPES.EVENT && (
+            <Event {...(resource as FormattedEvent)} />
+          )}
         </div>
       </main>
     </Wrapper>
