@@ -4,14 +4,12 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient';
-import { queries } from '.';
-import { NodeEvent } from '@/types/dataTypes/drupal/node';
-import { Event } from '@/types/dataTypes/formatted/event';
+import { drupalClient } from '@/lib/drupal/drupalClient'
+import { queries } from '.'
+import { NodeEvent } from '@/types/dataTypes/drupal/node'
+import { Event } from '@/types/dataTypes/formatted/event'
 import { GetServerSidePropsContext } from 'next'
-import { MediaImage } from '@/types/dataTypes/formatted/media';
-
-
+import { MediaImage } from '@/types/dataTypes/formatted/media'
 
 export const params: QueryParams<null> = () => {
   return queries
@@ -21,7 +19,7 @@ export const params: QueryParams<null> = () => {
       'field_media.image',
       'field_listing',
       'field_administration',
-      'field_facility_location'
+      'field_facility_location',
     ])
 }
 
@@ -36,21 +34,17 @@ export const data: QueryData<EventDataOpts, NodeEvent> = async (
 ): Promise<NodeEvent> => {
   const entity = opts?.context?.preview
     ? // need to use getResourceFromContext for unpublished revisions
-    await drupalClient.getResourceFromContext<NodeEvent>(
-      'node--event',
-      opts.context,
-      {
-        params: params().getQueryObject(),
-      }
-    )
+      await drupalClient.getResourceFromContext<NodeEvent>(
+        'node--event',
+        opts.context,
+        {
+          params: params().getQueryObject(),
+        }
+      )
     : // otherwise just lookup by uuid
-    await drupalClient.getResource<NodeEvent>(
-      'node--event',
-      opts.id,
-      {
+      await drupalClient.getResource<NodeEvent>('node--event', opts.id, {
         params: params().getQueryObject(),
-      }
-    )
+      })
   return entity
 }
 

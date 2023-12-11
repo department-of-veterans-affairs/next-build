@@ -40,7 +40,6 @@ export const QUERIES_MAP = {
   'block--alert': Alert,
   'block_content--promo': PromoBlock,
 
-
   // Custom queries
   'banner--alerts_lookup': Banner,
   'header-footer-data': HeaderFooter,

@@ -12,7 +12,6 @@ import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { QuestionAnswer } from '@/templates/layouts/questionAnswer'
 import HTMLComment from '@/templates/globals/util/HTMLComment'
-import { EventListing } from '@/templates/layouts/eventListing'
 import { Event } from '@/templates/layouts/event'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -25,7 +24,7 @@ import Breadcrumbs from '@/templates/common/breadcrumbs'
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
-  RESOURCE_TYPES.EVENT
+  RESOURCE_TYPES.EVENT,
 ] as const
 
 export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
@@ -37,7 +36,6 @@ export default function ResourcePage({
   headerFooterData,
   preview,
 }) {
-
   if (!resource) return null
 
   const title = `${resource.title} | Veterans Affairs`
@@ -90,9 +88,7 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />
           )}
-          {resource.type === RESOURCE_TYPES.EVENT && (
-            <Event {...resource} />
-          )}
+          {resource.type === RESOURCE_TYPES.EVENT && <Event {...resource} />}
         </div>
       </main>
     </Wrapper>

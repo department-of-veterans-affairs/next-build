@@ -220,11 +220,7 @@
         "drupal_internal__target_id": 8121
       }
     },
-    "relationshipNames": [
-      "node_type",
-      "field_administration",
-      "field_office"
-    ]
+    "relationshipNames": ["node_type", "field_administration", "field_office"]
   },
   "field_media": null,
   "relationshipNames": [

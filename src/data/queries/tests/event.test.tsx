@@ -20,5 +20,4 @@ describe('node--event formatData', () => {
     const formattedData = queries.formatData('node--event', nodeEventMock)
     expect(formattedData).toMatchSnapshot()
   })
-
 })

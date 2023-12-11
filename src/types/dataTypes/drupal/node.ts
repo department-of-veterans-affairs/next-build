@@ -276,19 +276,19 @@ export interface NodePersonProfile extends DrupalNode {
 export interface NodeEvent extends DrupalNode {
   field_additional_information_abo: string
   field_address?: {
-    additionalName?: string | null;
-    addressLine1?: string;
-    addressLine2?: string;
-    administrativeArea?: string;
-    countryCode?: string;
-    dependentLocality?: string | null;
-    familyName?: string | null;
-    givenName?: string | null;
-    langcode?: string;
-    locality?: string;
-    organization?: string | null;
-    postalCode?: string | null;
-    sortingCode?: string | null;
+    additionalName?: string | null
+    addressLine1?: string
+    addressLine2?: string
+    administrativeArea?: string
+    countryCode?: string
+    dependentLocality?: string | null
+    familyName?: string | null
+    givenName?: string | null
+    langcode?: string
+    locality?: string
+    organization?: string | null
+    postalCode?: string | null
+    sortingCode?: string | null
   }
   field_location_humanreadable: string
   field_event_cta: string
@@ -298,10 +298,10 @@ export interface NodeEvent extends DrupalNode {
   field_facility_location: FacilityLocation
   field_featured: boolean
   field_body: {
-    value: string;
-    format: string;
-    processed: string;
-  };
+    value: string
+    format: string
+    processed: string
+  }
   field_include_registration_info: boolean
   field_location_type: string
   field_order: string
@@ -321,81 +321,78 @@ interface fieldLink {
 }
 
 export interface DateTimeRange {
-  value: string;
-  end_value: string;
-  duration: number;
-  rrule: number;
-  rrule_index: number;
-  timezone: string;
+  value: string
+  end_value: string
+  duration: number
+  rrule: number
+  rrule_index: number
+  timezone: string
 }
 
 export interface urlOfOnlineEvent {
-  uri: string;
-  title: string;
-  options: unknown;
+  uri: string
+  title: string
+  options: unknown
 }
 
 export interface fieldEventListing {
-  type: string;
-  id: string;
-  drupal_internal__nid: number;
-  langcode: string;
-  status: boolean;
-  title: string;
-  created: string;
-  changed: string;
+  type: string
+  id: string
+  drupal_internal__nid: number
+  langcode: string
+  status: boolean
+  title: string
+  created: string
+  changed: string
   breadcrumbs: BreadcrumbItem[]
-  moderation_state: string;
+  moderation_state: string
   path: {
-    alias: string;
-    pid: number;
-    langcode: string;
-  };
-  field_description: string;
-  field_enforce_unique_combo: boolean;
-  field_intro_text: string;
+    alias: string
+    pid: number
+    langcode: string
+  }
+  field_description: string
+  field_enforce_unique_combo: boolean
+  field_intro_text: string
   links: {
     self: {
       href: string
     }
-  };
+  }
   resourceIdObjMeta: {
-    drupal_internal__target_id: number;
-  };
+    drupal_internal__target_id: number
+  }
   node_type: {
-    type: string;
-    id: string;
-    resourceIdObjMeta: unknown;
-  };
+    type: string
+    id: string
+    resourceIdObjMeta: unknown
+  }
 }
 
-
-
-
 export interface FacilityLocation extends DrupalNode {
-  type: string;
-  id: string;
-  drupal_internal__nid: number;
-  drupal_internal__vid: number;
-  langcode: string;
-  revision_timestamp: string;
-  revision_log: string;
-  status: boolean;
-  title: string;
-  created: string;
-  changed: string;
-  promote: boolean;
-  sticky: boolean;
-  default_langcode: boolean;
-  revision_translation_affected: boolean;
-  breadcrumbs: Array<any>;
-  moderation_state: string;
-  metatag: Array<any>;
+  type: string
+  id: string
+  drupal_internal__nid: number
+  drupal_internal__vid: number
+  langcode: string
+  revision_timestamp: string
+  revision_log: string
+  status: boolean
+  title: string
+  created: string
+  changed: string
+  promote: boolean
+  sticky: boolean
+  default_langcode: boolean
+  revision_translation_affected: boolean
+  breadcrumbs: Array<any>
+  moderation_state: string
+  metatag: Array<any>
   path: {
-    alias: string;
-    pid: number;
-    langcode: string;
-  };
+    alias: string
+    pid: number
+    langcode: string
+  }
 }
 
 export interface NodePromoBanner extends DrupalNode {

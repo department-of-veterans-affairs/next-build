@@ -4,35 +4,41 @@ export interface SocialLinksProps {
   isNews: boolean
   description?: string
   address?: {
-    additionalName?: string | null;
-    addressLine1?: string;
-    addressLine2?: string;
-    administrativeArea?: string;
-    countryCode?: string;
-    dependentLocality?: string | null;
-    familyName?: string | null;
-    givenName?: string | null;
-    langcode?: string;
-    locality?: string;
-    organization?: string | null;
-    postalCode?: string | null;
-    sortingCode?: string | null;
+    additionalName?: string | null
+    addressLine1?: string
+    addressLine2?: string
+    administrativeArea?: string
+    countryCode?: string
+    dependentLocality?: string | null
+    familyName?: string | null
+    givenName?: string | null
+    langcode?: string
+    locality?: string
+    organization?: string | null
+    postalCode?: string | null
+    sortingCode?: string | null
   }
   dateObject?: {
-    duration: number;
-    endTime: string;
-    endValue: number;
-    end_value: string;
-    rrule: number;
-    rrule_index: number;
-    startTime: string;
-    timezone: string;
-    value: number;
+    duration: number
+    endTime: string
+    endValue: number
+    end_value: string
+    rrule: number
+    rrule_index: number
+    startTime: string
+    timezone: string
+    value: number
   }
 }
 
-export const SocialLinks = ({ path, title, isNews = false, description, address, dateObject }: SocialLinksProps): JSX.Element => {
-
+export const SocialLinks = ({
+  path,
+  title,
+  isNews = false,
+  description,
+  address,
+  dateObject,
+}: SocialLinksProps): JSX.Element => {
   if (isNews) {
     return (
       <div className="vads-u-margin-bottom--0p5 medium-screen:vads-u-margin-bottom--2">
@@ -71,26 +77,45 @@ export const SocialLinks = ({ path, title, isNews = false, description, address,
             data-start={dateObject.value}
             data-subject={title}
             href={path}
-            id="add-to-calendar-link">
-            <i className="va-c-social-icon fas fa-calendar-check vads-u-margin-right--0p5" aria-hidden="true" role="presentation"></i>
+            id="add-to-calendar-link"
+          >
+            <i
+              className="va-c-social-icon fas fa-calendar-check vads-u-margin-right--0p5"
+              aria-hidden="true"
+              role="presentation"
+            ></i>
             Add to Calendar
           </a>
         </li>
 
         <li className="vads-u-margin-bottom--2p5">
-          <a className="va-js-share-link" href={`https://www.facebook.com/sharer/sharer.php?href=${path}`}>
-            <i aria-hidden="true" className="va-c-social-icon fab fa-facebook vads-u-margin-right--0p5" role="presentation"></i>
+          <a
+            className="va-js-share-link"
+            href={`https://www.facebook.com/sharer/sharer.php?href=${path}`}
+          >
+            <i
+              aria-hidden="true"
+              className="va-c-social-icon fab fa-facebook vads-u-margin-right--0p5"
+              role="presentation"
+            ></i>
             Share on Facebook
           </a>
         </li>
 
         <li>
-          <a className="va-js-share-link" href={`https://twitter.com/intent/tweet?text=${title}&url=${path}`}>
-            <i aria-hidden="true" className="va-c-social-icon fab fa-twitter vads-u-margin-right--0p5" role="presentation"></i>
+          <a
+            className="va-js-share-link"
+            href={`https://twitter.com/intent/tweet?text=${title}&url=${path}`}
+          >
+            <i
+              aria-hidden="true"
+              className="va-c-social-icon fab fa-twitter vads-u-margin-right--0p5"
+              role="presentation"
+            ></i>
             Share on Twitter
           </a>
         </li>
       </ul>
-    </div >
+    </div>
   )
 }
