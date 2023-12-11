@@ -1,7 +1,7 @@
 export interface SocialLinksProps {
   path: string
   title: string
-  isNews: boolean
+  isNews?: boolean
   description?: string
   address?: {
     additionalName?: string | null
