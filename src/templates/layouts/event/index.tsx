@@ -31,7 +31,6 @@ export const Event = ({
   body,
   listing,
 }: FormattedEvent) => {
-  console.log(listing)
   const [showRecurringEvents, setShowRecurringEvents] = useState(false)
 
   const toggleRecurringEvents = () => {
@@ -206,9 +205,8 @@ export const Event = ({
                   View other times for this event
                   <i
                     aria-hidden="true"
-                    className={`fa ${
-                      showRecurringEvents ? 'fa-minus' : 'fa-plus'
-                    }`}
+                    className={`fa ${showRecurringEvents ? 'fa-minus' : 'fa-plus'
+                      }`}
                     id="expand-recurring-events-icon"
                   ></i>
                 </button>
