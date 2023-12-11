@@ -13556,7 +13556,7 @@ __metadata:
     next-drupal: ^1.6.0
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
-    nock: ^13.3.4
+    nock: ^13.4.0
     p-retry: ^6.1.0
     prettier: ^2.8.8
     react: ^18.2.0
@@ -13800,15 +13800,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nock@npm:^13.3.4":
-  version: 13.3.4
-  resolution: "nock@npm:13.3.4"
+"nock@npm:^13.4.0":
+  version: 13.4.0
+  resolution: "nock@npm:13.4.0"
   dependencies:
     debug: ^4.1.0
     json-stringify-safe: ^5.0.1
-    lodash: ^4.17.21
     propagate: ^2.0.0
-  checksum: 34ba5fdc025db1f6eb3ea5e3067489e37d6982534ad23d2c1e9fe33ab844c73ed9161012ce4c116c7aa9b765e5a9cfb1541163c936e06fb3331d51c61e2869f7
+  checksum: 30c3751854f9c412df5f99e01eeaef25b2583d3cae80b8c46524acb39d8b7fa61043603472ad94a3adc4b7d1e0f3098e6bb06e787734cbfbde2751891115b311
   languageName: node
   linkType: hard
 
