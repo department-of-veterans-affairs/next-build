@@ -1,6 +1,5 @@
 import { BreadcrumbItem } from "../drupal/field_type";
 import { FacilityLocation } from "../drupal/node";
-import { DrupalMediaImage } from "../drupal/media";
 import { urlOfOnlineEvent } from "../drupal/node";
 import { MediaImage } from "./media";
 
@@ -40,33 +39,22 @@ export interface Event {
     title: string;
   };
   listing: string;
-  administration: {
-    id: number;
-    name: string;
-  };
-  additionalListings: unknown[];
   additionalInfo: string | null;
   address: {
-    langcode: string;
-    country_code: string;
-    administrativeArea: string;
-    locality: string;
-    address_line1: string;
-    address_line2: string;
+    langcode?: string;
+    country_code?: string;
+    administrativeArea?: string;
+    locality?: string;
+    address_line1?: string;
+    address_line2?: string;
   };
   locationHumanReadable: string;
   eventCTA: string | null;
   cost: string;
   datetimeRange: DateTimeRangeItem[];
-  media: MediaImage | null;
   facilityLocation: FacilityLocation | null;
-  isFeatured: boolean;
   body: Body;
-  includeRegistrationInfo: boolean;
   locationType: string;
-  order: number | null;
-  publishToOutreachCal: boolean | null;
-  registrationRequired: boolean;
   description: string;
   link: Link | null;
   urlOfOnlineEvent: urlOfOnlineEvent;

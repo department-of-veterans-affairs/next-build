@@ -10,6 +10,7 @@ import {
   FieldSocialMediaLinks,
   FieldTable,
   FieldAdministration,
+  BreadcrumbItem,
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import {
@@ -273,44 +274,53 @@ export interface NodePersonProfile extends DrupalNode {
  *  @see https://prod.cms.va.gov/admin/structure/types/manage/event/fields
  */
 export interface NodeEvent extends DrupalNode {
-  field_additional_listings: any[]
   field_additional_information_abo: string
-  field_address: {
-    additionalName: string | null;
-    addressLine1: string;
-    addressLine2: string;
-    administrativeArea: string;
-    countryCode: string;
-    dependentLocality: string | null;
-    familyName: string | null;
-    givenName: string | null;
-    langcode: string;
-    locality: string;
-    organization: string | null;
-    postalCode: string | null;
-    sortingCode: string | null;
+  field_address?: {
+    additionalName?: string | null;
+    addressLine1?: string;
+    addressLine2?: string;
+    administrativeArea?: string;
+    countryCode?: string;
+    dependentLocality?: string | null;
+    familyName?: string | null;
+    givenName?: string | null;
+    langcode?: string;
+    locality?: string;
+    organization?: string | null;
+    postalCode?: string | null;
+    sortingCode?: string | null;
   }
   field_location_humanreadable: string
   field_event_cta: string
   field_event_cost: string
   field_datetime_range_timezone: DateTimeRange[]
-  field_media: DrupalMediaImage
+
   field_facility_location: FacilityLocation
   field_featured: boolean
-  field_body: string
+  field_body: {
+    value: string;
+    format: string;
+    processed: string;
+  };
   field_include_registration_info: boolean
   field_location_type: string
   field_order: string
   field_publish_to_outreach_cal: boolean
   field_event_registrationrequired: boolean
-  field_administration: any
+
   field_description: string
-  field_link: string
-  field_url_of_an_online_event: string
+  field_link: fieldLink
+  field_url_of_an_online_event: urlOfOnlineEvent
   field_listing: fieldEventListing
 }
 
-export interface DateTimeRange extends DrupalNode {
+interface fieldLink {
+  url: {
+    path: string
+  }
+}
+
+export interface DateTimeRange {
   value: string;
   end_value: string;
   duration: number;
@@ -322,10 +332,10 @@ export interface DateTimeRange extends DrupalNode {
 export interface urlOfOnlineEvent {
   uri: string;
   title: string;
-  options: any[];
+  options: unknown;
 }
 
-export interface fieldEventListing extends DrupalNode {
+export interface fieldEventListing {
   type: string;
   id: string;
   drupal_internal__nid: number;
@@ -334,9 +344,8 @@ export interface fieldEventListing extends DrupalNode {
   title: string;
   created: string;
   changed: string;
-  breadcrumbs: Array<any>;
+  breadcrumbs: BreadcrumbItem[]
   moderation_state: string;
-  metatag: Array<any>;
   path: {
     alias: string;
     pid: number;
@@ -345,9 +354,10 @@ export interface fieldEventListing extends DrupalNode {
   field_description: string;
   field_enforce_unique_combo: boolean;
   field_intro_text: string;
-  field_meta_tags: any | null;
   links: {
-    self: Array<any>;
+    self: {
+      href: string
+    }
   };
   resourceIdObjMeta: {
     drupal_internal__target_id: number;
@@ -355,7 +365,7 @@ export interface fieldEventListing extends DrupalNode {
   node_type: {
     type: string;
     id: string;
-    resourceIdObjMeta: any;
+    resourceIdObjMeta: unknown;
   };
 }
 
@@ -433,8 +443,6 @@ export interface NodeSupportService extends DrupalNode {
   field_phone_number: string
   field_office: NodeOffice
 }
-
-export interface Node
 
 /** General NodeProps to pass nodes into node components. */
 export interface NodeProps {

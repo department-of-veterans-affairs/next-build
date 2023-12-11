@@ -6,8 +6,10 @@ import {
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient';
 import { queries } from '.';
-import { NodeEvent } from '@/types/dataTypes/drupal/node'; // Modify as per your type definitions
+import { NodeEvent } from '@/types/dataTypes/drupal/node';
+import { Event } from '@/types/dataTypes/formatted/event';
 import { GetServerSidePropsContext } from 'next'
+import { MediaImage } from '@/types/dataTypes/formatted/media';
 
 
 
@@ -49,11 +51,10 @@ export const data: QueryData<EventDataOpts, NodeEvent> = async (
         params: params().getQueryObject(),
       }
     )
-  console.log(entity)
   return entity
 }
 
-export const formatter: QueryFormatter<any, any> = (
+export const formatter: QueryFormatter<NodeEvent, Event> = (
   entity: NodeEvent
 ) => {
   return {
@@ -66,8 +67,7 @@ export const formatter: QueryFormatter<any, any> = (
     image: queries.formatData('media--image', {
       entity: entity.field_media,
       cropType: '2_1_large',
-    }),
-    // caption: entity.field_image_caption,
+    }) as MediaImage,
     date: entity.created,
     breadcrumbs: entity.breadcrumbs,
     socialLinks: {
@@ -75,26 +75,15 @@ export const formatter: QueryFormatter<any, any> = (
       title: entity.title,
     },
     listing: entity.field_listing.path.alias,
-    administration: {
-      id: entity.field_administration?.drupal_internal__tid || null,
-      name: entity.field_administration?.name || null,
-    },
-    additionalListings: entity.field_additional_listings,
     additionalInfo: entity.field_additional_information_abo,
     address: entity.field_address,
     locationHumanReadable: entity.field_location_humanreadable,
     eventCTA: entity.field_event_cta,
     cost: entity.field_event_cost,
     datetimeRange: entity.field_datetime_range_timezone,
-    media: entity.field_media,
     facilityLocation: entity.field_facility_location,
-    isFeatured: entity.field_featured,
     body: entity.field_body,
-    includeRegistrationInfo: entity.field_include_registration_info,
     locationType: entity.field_location_type,
-    order: entity.field_order,
-    publishToOutreachCal: entity.field_publish_to_outreach_cal,
-    registrationRequired: entity.field_event_registrationrequired,
     description: entity.field_description,
     link: entity.field_link,
     urlOfOnlineEvent: entity.field_url_of_an_online_event,

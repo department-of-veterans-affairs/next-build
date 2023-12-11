@@ -1,0 +1,238 @@
+{
+  "type": "node--event",
+  "id": "16349f16-be65-46e3-9660-1d3d598a4a0b",
+  "drupal_internal__nid": 52265,
+  "drupal_internal__vid": 17354,
+  "langcode": "en",
+  "sticky": false,
+  "default_langcode": true,
+  "status": true,
+  "title": "Pickleball Club",
+  "created": "2022-12-30T14:49:05+00:00",
+  "changed": "2023-08-16T15:20:30+00:00",
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care",
+      "title": "VA Central Iowa health care",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care/events",
+      "title": "Events",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care/events/52265",
+      "title": "Pickleball Club",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "metatag": null,
+  "path": {
+    "alias": "/central-iowa-health-care/events/52265",
+    "pid": 74215,
+    "langcode": "en"
+  },
+  "field_additional_information_abo": null,
+  "field_address": {
+    "langcode": "en",
+    "country_code": "US",
+    "administrative_area": "IA",
+    "locality": "Urbandale",
+    "address_line1": "9000 Douglas Ave",
+    "address_line2": ""
+  },
+  "field_body": {
+    "value": "<p>Pickleball Club</p>\n\n<p>Meets Thursdays from 9 to 11 a.m.&nbsp;</p>\n\n<p>Contact Kay Queck (515) 214-4578</p>\n",
+    "format": "rich_text",
+    "processed": "<p>Pickleball Club</p>\n\n<p>Meets Thursdays from 9 to 11 a.m. </p>\n\n<p>Contact Kay Queck (515) 214-4578</p>"
+  },
+  "field_datetime_range_timezone": [
+    {
+      "value": "2023-09-07T14:00:00+00:00",
+      "end_value": "2023-09-07T16:00:00+00:00",
+      "duration": 120,
+      "rrule": 180,
+      "rrule_index": 1,
+      "timezone": "America/Chicago"
+    },
+    {
+      "value": "2023-09-14T14:00:00+00:00",
+      "end_value": "2023-09-14T16:00:00+00:00",
+      "duration": 120,
+      "rrule": 180,
+      "rrule_index": 2,
+      "timezone": "America/Chicago"
+    }
+  ],
+  "field_description": "Pickleball ",
+  "field_event_cost": "Free",
+  "field_event_cta": null,
+  "field_event_registrationrequired": false,
+  "field_featured": false,
+  "field_include_registration_info": false,
+  "field_link": null,
+  "field_location_humanreadable": "Walker Johnston Park",
+  "field_location_type": "non_facility",
+  "field_meta_tags": null,
+  "field_order": null,
+  "field_publish_to_outreach_cal": null,
+  "field_url_of_an_online_event": null,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/event/16349f16-be65-46e3-9660-1d3d598a4a0b?resourceVersion=id%3A802953"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "508e052a-727e-4fb1-a857-25bcfc33cc5d",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "event"
+    }
+  },
+  "field_additional_listings": [],
+  "field_administration": null,
+  "field_facility_location": null,
+  "field_listing": {
+    "type": "node--event_listing",
+    "id": "55cb823c-df6d-4f77-814d-6024e08cd4f6",
+    "drupal_internal__nid": 8287,
+    "langcode": "en",
+    "status": true,
+    "title": "Events",
+    "created": "2020-10-06T05:39:54+00:00",
+    "changed": "2023-11-06T19:19:39+00:00",
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care",
+        "title": "VA Central Iowa health care",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "NEWS AND EVENTS",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "Events",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "metatag": [],
+    "path": {
+      "alias": "/central-iowa-health-care/events",
+      "pid": 9781,
+      "langcode": "en"
+    },
+    "field_description": "Check here for upcoming events at VA Central Iowa Healthcare System and regional events.",
+    "field_enforce_unique_combo": false,
+    "field_intro_text": "Check back here often for information on VACIHCS events.\r\n",
+    "field_meta_tags": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/event_listing/55cb823c-df6d-4f77-814d-6024e08cd4f6?resourceVersion=id%3A821015"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 8287
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "61ebe186-0b8b-4696-934f-e0f9e720032f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "event_listing"
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "3a530a55-e922-48de-b18c-9c9f92a9ae98",
+      "drupal_internal__tid": 240,
+      "drupal_internal__revision_id": 1698,
+      "langcode": "en",
+      "revision_created": "2023-04-03T19:41:40+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "VA Central Iowa health care",
+      "description": null,
+      "weight": 0,
+      "changed": "2023-04-03T19:41:40+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "moderation_state": null,
+      "metatag": [],
+      "path": {
+        "alias": "/section/vha/vamc-facilities/va-central-iowa-health-care",
+        "pid": 7965,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "field_description": null,
+      "links": {
+        "self": {}
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 240
+      },
+      "vid": {
+        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        "id": "645055c5-e567-4683-b6db-459ce04522ce",
+        "resourceIdObjMeta": {}
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+        "resourceIdObjMeta": {}
+      },
+      "parent": [],
+      "content_translation_uid": null,
+      "field_product": {
+        "type": "taxonomy_term--products",
+        "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+        "resourceIdObjMeta": {}
+      },
+      "relationshipNames": [
+        "vid",
+        "revision_user",
+        "parent",
+        "content_translation_uid",
+        "field_product"
+      ]
+    },
+    "field_office": {
+      "type": "node--health_care_region_page",
+      "id": "fd6a1fc9-0514-4d71-a6b7-ccbba3f2cf85",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 8121
+      }
+    },
+    "relationshipNames": [
+      "node_type",
+      "field_administration",
+      "field_office"
+    ]
+  },
+  "field_media": null,
+  "relationshipNames": [
+    "node_type",
+    "field_additional_listings",
+    "field_administration",
+    "field_facility_location",
+    "field_listing",
+    "field_media"
+  ]
+}

@@ -7,7 +7,7 @@ const socialLinks = {
 }
 
 test('<SocialLinks> component renders', () => {
-  const { container } = render(<SocialLinks {...socialLinks} />)
+  const { container } = render(<SocialLinks {...socialLinks} isNews />)
 
   const aEl = container.querySelectorAll('a')
   const iEl = container.querySelectorAll('i')

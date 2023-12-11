@@ -2,8 +2,8 @@ export interface SocialLinksProps {
   path: string
   title: string
   isNews: boolean
-  description: string
-  address: {
+  description?: string
+  address?: {
     additionalName?: string | null;
     addressLine1?: string;
     addressLine2?: string;
@@ -18,7 +18,7 @@ export interface SocialLinksProps {
     postalCode?: string | null;
     sortingCode?: string | null;
   }
-  dateObject: {
+  dateObject?: {
     duration: number;
     endTime: string;
     endValue: number;
