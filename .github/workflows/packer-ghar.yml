@@ -73,7 +73,7 @@ jobs:
           ssm_parameter: /devops/github_actions_slack_bot_user_token
           env_variable_name: SLACK_BOT_TOKEN
       - name: Setup Packer
-        uses: hashicorp/setup-packer@ae6b3ed3bec089bbfb576ab7d714df7cbc4b88a4 # v2.0.0
+        uses: hashicorp/setup-packer@ecc5516821087666a672c0d280a0084ea6d9aafd # v2.0.1
       - name: Init Packer Build
         run: packer init ${{ matrix.build_location }}
       - name: Validate Packer Template
