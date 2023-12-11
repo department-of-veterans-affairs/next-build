@@ -31,6 +31,7 @@ export const Event = ({
   body,
   listing,
 }: FormattedEvent) => {
+  console.log(listing)
   const [showRecurringEvents, setShowRecurringEvents] = useState(false)
 
   const toggleRecurringEvents = () => {
