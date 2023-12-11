@@ -37,6 +37,7 @@ import {
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { MetaTag } from '../formatted/metatags'
 
 /** Union of all node types.  */
 export type NodeTypes =
@@ -385,9 +386,9 @@ export interface FacilityLocation extends DrupalNode {
   sticky: boolean
   default_langcode: boolean
   revision_translation_affected: boolean
-  breadcrumbs: Array<any>
+  breadcrumbs: BreadcrumbItem[]
   moderation_state: string
-  metatag: Array<any>
+  metatag: MetaTag[]
   path: {
     alias: string
     pid: number
