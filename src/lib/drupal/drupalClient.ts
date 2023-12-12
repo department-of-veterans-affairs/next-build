@@ -69,4 +69,5 @@ export const drupalClient = new DrupalClient(baseUrl, {
   },
   cache: redisCache(createRedisClient(process.env.REDIS_URL)),
   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
+  debug: true,
 })
