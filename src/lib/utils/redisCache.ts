@@ -29,7 +29,6 @@ export function redisCache(
     },
     async get(key) {
       // Need to double await here to wait for the client, then wait for the get.
-      console.log(await (await client).get(key))
       return await (await client).get(key)
     },
   }
