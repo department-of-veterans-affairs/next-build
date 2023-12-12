@@ -10,6 +10,7 @@ import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import HTMLComment from '@/templates/globals/util/HTMLComment'
+import { Event } from '@/templates/layouts/event'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import {
@@ -22,11 +23,13 @@ import { FormattedResource } from '@/data/queries'
 import { LayoutProps } from '@/templates/globals/wrapper'
 import { NewsStory as FormattedNewsStory } from '@/types/dataTypes/formatted/newsStory'
 import { StoryListing as FormattedStoryListing } from '@/types/dataTypes/formatted/storyListing'
+import { Event as FormattedEvent } from '@/types/dataTypes/formatted/event'
 import { Meta } from '@/templates/globals/meta'
 
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
+  RESOURCE_TYPES.EVENT,
 ] as const
 
 export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
@@ -89,6 +92,9 @@ export default function ResourcePage({
           {/* {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />
           )} */}
+          {resource.type === RESOURCE_TYPES.EVENT && (
+            <Event {...(resource as FormattedEvent)} />
+          )}
         </div>
       </main>
     </Wrapper>
@@ -124,7 +130,6 @@ export async function getStaticPaths(
 export async function getStaticProps(context: GetStaticPropsContext) {
   try {
     const expandedContext = getExpandedStaticPropsContext(context)
-
     // Now that we have a path, translate for resource endpoint
     let pathInfo
     // need to use translatePathFromContext for previewing unpublished revisions
@@ -133,7 +138,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     } else {
       pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
     }
-
     if (!pathInfo) {
       return {
         notFound: true,
@@ -147,13 +151,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         notFound: true,
       }
     }
-
     const resource = await getStaticPropsResource(
       resourceType,
       pathInfo,
       expandedContext
     )
-
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
     if (!expandedContext.preview && !resource?.published) {

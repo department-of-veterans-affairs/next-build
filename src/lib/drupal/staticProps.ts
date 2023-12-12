@@ -132,7 +132,6 @@ export async function getStaticPropsResource(
       context
     )
   }
-
   // All others
   return getDefaultStaticPropsResource(resourceType, pathInfo, context)
 }

@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`node--event formatData outputs formatted data 1`] = `
+{
+  "additionalInfo": null,
+  "address": {
+    "address_line1": "9000 Douglas Ave",
+    "address_line2": "",
+    "administrative_area": "IA",
+    "country_code": "US",
+    "langcode": "en",
+    "locality": "Urbandale",
+  },
+  "body": {
+    "format": "rich_text",
+    "processed": "<p>Pickleball Club</p>
+
+<p>Meets Thursdays from 9 to 11 a.m. </p>
+
+<p>Contact Kay Queck (515) 214-4578</p>",
+    "value": "<p>Pickleball Club</p>
+
+<p>Meets Thursdays from 9 to 11 a.m.&nbsp;</p>
+
+<p>Contact Kay Queck (515) 214-4578</p>
+",
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA Central Iowa health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care",
+    },
+    {
+      "options": [],
+      "title": "Events",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care/events",
+    },
+    {
+      "options": [],
+      "title": "Pickleball Club",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-iowa-health-care/events/52265",
+    },
+  ],
+  "cost": "Free",
+  "date": "2022-12-30T14:49:05+00:00",
+  "datetimeRange": [
+    {
+      "duration": 120,
+      "end_value": "2023-09-07T16:00:00+00:00",
+      "rrule": 180,
+      "rrule_index": 1,
+      "timezone": "America/Chicago",
+      "value": "2023-09-07T14:00:00+00:00",
+    },
+    {
+      "duration": 120,
+      "end_value": "2023-09-14T16:00:00+00:00",
+      "rrule": 180,
+      "rrule_index": 2,
+      "timezone": "America/Chicago",
+      "value": "2023-09-14T14:00:00+00:00",
+    },
+  ],
+  "description": "Pickleball ",
+  "entityId": 52265,
+  "entityPath": "/central-iowa-health-care/events/52265",
+  "eventCTA": null,
+  "facilityLocation": null,
+  "id": "16349f16-be65-46e3-9660-1d3d598a4a0b",
+  "image": null,
+  "link": null,
+  "listing": "/central-iowa-health-care/events",
+  "locationHumanReadable": "Walker Johnston Park",
+  "locationType": "non_facility",
+  "metatags": null,
+  "published": true,
+  "socialLinks": {
+    "path": "/central-iowa-health-care/events/52265",
+    "title": "Pickleball Club",
+  },
+  "title": "Pickleball Club",
+  "type": "node--event",
+  "urlOfOnlineEvent": null,
+}
+`;
