@@ -19,7 +19,6 @@ describe('Preview renders with accurate data', () => {
     )
   })
 
-
   test('UnpublishedBanner renders with draft content', () => {
     render(<UnpublishedBanner resource={resource} />)
 
@@ -32,7 +31,7 @@ describe('Preview renders with accurate data', () => {
   test('UnpublishedBanner renders with archived content', () => {
     const modResource = {
       ...resource,
-      moderationState: 'archived'
+      moderationState: 'archived',
     }
     render(<UnpublishedBanner resource={modResource} />)
 
@@ -49,6 +48,8 @@ describe('Preview renders with accurate data', () => {
     }
     render(<UnpublishedBanner resource={modResource} />)
 
-    expect(screen.queryByText("You are viewing a draft revision")).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('You are viewing a draft revision')
+    ).not.toBeInTheDocument()
   })
 })
