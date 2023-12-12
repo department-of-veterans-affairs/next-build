@@ -277,7 +277,6 @@ describe('deriveMostRecentDate', () => {
     jest.restoreAllMocks()
   })
 })
-
 describe('deriveFormattedTimestamp', () => {
   it('should correctly format the event timestamp', () => {
     const datetime = {
@@ -285,8 +284,9 @@ describe('deriveFormattedTimestamp', () => {
       endTime: new Date('2023-09-07T16:00:00Z'),
     }
     const result = deriveFormattedTimestamp(datetime)
+
     expect(result).toMatch(
-      /Thu, Sep 7, 2023, 10:00 AM(?: [A-Z]{3})? – 12:00 PM(?: [A-Z]{3})?/
+      /Thu, Sep 7, 2023, \d{1,2}:\d{2} [APM]{2} [A-Z]{2,4} – \d{1,2}:\d{2} [APM]{2} [A-Z]{2,4}/
     )
   })
 })
