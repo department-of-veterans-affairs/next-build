@@ -25,11 +25,10 @@ export function redisCache(
   return {
     async set(key, value) {
       console.log(`set: ${key}`)
-      console.log(await client)
-      console.log('isReady: ', (await client).isReady)
       return (await client).set(key, value)
     },
     async get(key) {
+      console.log((await client).get(key))
       return (await client).get(key)
     },
   }
