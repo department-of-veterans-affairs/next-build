@@ -21,7 +21,6 @@ test('<SocialLinksEvents> component renders', () => {
   const aElements = container.querySelectorAll('a')
   const iElements = container.querySelectorAll('i')
 
-  // Testing the "Add to Calendar" link
   expect(aElements[0]).toHaveAttribute('href', socialLinksEventsProps.path)
   expect(iElements[0]).toHaveAttribute(
     'class',
@@ -29,7 +28,6 @@ test('<SocialLinksEvents> component renders', () => {
   )
   expect(screen.queryByText(/Add to Calendar/)).toBeInTheDocument()
 
-  // Testing the "Share on Facebook" link
   expect(aElements[1]).toHaveAttribute(
     'href',
     `https://www.facebook.com/sharer/sharer.php?href=${socialLinksEventsProps.path}`
@@ -40,7 +38,6 @@ test('<SocialLinksEvents> component renders', () => {
   )
   expect(screen.queryByText(/Share on Facebook/)).toBeInTheDocument()
 
-  // Testing the "Share on Twitter" link
   expect(aElements[2]).toHaveAttribute(
     'href',
     `https://twitter.com/intent/tweet?text=${socialLinksEventsProps.title}&url=${socialLinksEventsProps.path}`
