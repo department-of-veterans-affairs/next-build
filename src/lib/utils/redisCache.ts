@@ -24,10 +24,12 @@ export function redisCache(
 ): DataCache {
   return {
     async set(key, value) {
-      return (await client).set(key, value)
+      // Need to double await here to wait for the client, then wait for the set.
+      return await (await client).set(key, value)
     },
     async get(key) {
-      return (await client).get(key)
+      // Need to double await here to wait for the client, then wait for the get.
+      return await (await client).get(key)
     },
   }
 }

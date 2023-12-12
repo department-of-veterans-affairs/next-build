@@ -10,6 +10,7 @@ import {
   FieldSocialMediaLinks,
   FieldTable,
   FieldAdministration,
+  BreadcrumbItem,
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import {
@@ -59,6 +60,7 @@ export type NodeTypes =
 export const enum NodeResourceType {
   Banner = 'node--banner',
   BannerAlert = 'node--full_width_banner_alert',
+  Event = 'node--event',
   NewsStory = 'node--news_story',
   FieldListing = 'node--field_listing',
   PersonProfile = 'node--person_profile',
@@ -265,6 +267,103 @@ export interface NodePersonProfile extends DrupalNode {
   field_office: NodeOffice | NodeHealthCareRegionPage
   /** Any honorific suffix, i.e. MD, LCSW, PhD, etc. */
   field_suffix: string
+}
+
+/** A individual event published by a facility.
+ *
+ *  @see https://prod.cms.va.gov/admin/structure/types/manage/event/fields
+ */
+export interface NodeEvent extends DrupalNode {
+  field_additional_information_abo: {
+    value: string
+    format: string
+    processed: string
+  }
+  field_address?: {
+    additionalName?: string | null
+    addressLine1?: string
+    addressLine2?: string
+    administrativeArea?: string
+    countryCode?: string
+    dependentLocality?: string | null
+    familyName?: string | null
+    givenName?: string | null
+    langcode?: string
+    locality?: string
+    organization?: string | null
+    postalCode?: string | null
+    sortingCode?: string | null
+  }
+  field_location_humanreadable: string
+  field_event_cta: string
+  field_event_cost: string
+  field_datetime_range_timezone: DateTimeRange[]
+
+  field_facility_location: NodeHealthCareLocalFacility
+  field_featured: boolean
+  field_body: {
+    value: string
+    format: string
+    processed: string
+  }
+  field_include_registration_info: boolean
+  field_location_type: string
+  field_order: string
+  field_publish_to_outreach_cal: boolean
+  field_event_registrationrequired: boolean
+
+  field_description: string
+  field_link: fieldLink
+  field_url_of_an_online_event: urlOfOnlineEvent
+  field_listing: NodeEventListing
+}
+
+interface fieldLink {
+  url: {
+    path: string
+  }
+}
+
+export interface DateTimeRange {
+  value: string
+  end_value: string
+  duration: number
+  rrule: number
+  rrule_index: number
+  timezone: string
+}
+
+export interface urlOfOnlineEvent {
+  uri: string
+  title: string
+  options: unknown
+}
+
+export interface NodeEventListing extends DrupalNode {
+  status: boolean
+  breadcrumbs: BreadcrumbItem[]
+  moderation_state: string
+  path: {
+    alias: string
+    pid: number
+    langcode: string
+  }
+  field_description: string
+  field_enforce_unique_combo: boolean
+  field_intro_text: string
+  links: {
+    self: {
+      href: string
+    }
+  }
+  resourceIdObjMeta: {
+    drupal_internal__target_id: number
+  }
+  node_type: {
+    type: string
+    id: string
+    resourceIdObjMeta: unknown
+  }
 }
 
 export interface NodePromoBanner extends DrupalNode {
