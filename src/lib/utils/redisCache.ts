@@ -28,8 +28,8 @@ export function redisCache(
       return (await client).set(key, value)
     },
     async get(key) {
-      console.log((await client).get(key))
-      return (await client).get(key)
+      console.log(await (await client).get(key))
+      return await (await client).get(key)
     },
   }
 }
