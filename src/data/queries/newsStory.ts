@@ -58,6 +58,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
     entityPath: entity.path.alias,
     type: entity.type,
     published: entity.status,
+    moderationState: entity.moderation_state,
     title: entity.title,
     metatags: entity.metatag,
     image: queries.formatData('media--image', {

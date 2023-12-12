@@ -15,6 +15,9 @@ import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
 import { handleSkipLink } from '@/lib/utils/handleSkipLink'
+import { UnpublishedBanner } from '@/templates/common/preview'
+import { StaticPropsResource } from '@/lib/drupal/staticProps'
+import { FormattedResource } from '@/data/queries'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -33,6 +36,8 @@ export interface LayoutProps {
     | FormattedFacilityBanner
   >
   headerFooterData?: HeaderFooterData
+  preview?: boolean
+  resource?: StaticPropsResource<FormattedResource>
 }
 
 export const formatBannerType = (bannerData) => {
@@ -51,6 +56,8 @@ export const formatBannerType = (bannerData) => {
 export function Wrapper({
   bannerData,
   headerFooterData,
+  preview,
+  resource,
   children,
 }: LayoutProps) {
   const [showBanners, setShowBanners] = useState(false)
@@ -74,6 +81,7 @@ export function Wrapper({
       <a href="#content" onClick={handleSkipLink} className="show-on-focus">
         Skip to Content
       </a>
+      {preview ? <UnpublishedBanner resource={resource} /> : null}
       <Header />
       {showBanners ? banners : null}
       {children}

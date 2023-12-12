@@ -123,6 +123,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
     entityPath: entity.path.alias,
     type: entity.type,
     published: entity.status,
+    moderationState: entity.moderation_state,
     title: entity.title,
     metatags: entity.metatag,
     introText: entity.field_intro_text,
