@@ -13,7 +13,7 @@ interface DateTimeRangeItem {
   timezone: string
 }
 
-interface Body {
+interface htmlBody {
   value: string
   format: string
   processed: string
@@ -40,7 +40,7 @@ export interface Event {
     title: string
   }
   listing: string
-  additionalInfo: string | null
+  additionalInfo: htmlBody | null
   address: {
     langcode?: string
     country_code?: string
@@ -54,7 +54,7 @@ export interface Event {
   cost: string
   datetimeRange: DateTimeRangeItem[]
   facilityLocation: FacilityLocation | null
-  body: Body
+  body: htmlBody | null
   locationType: string
   description: string
   link: Link | null

@@ -275,7 +275,11 @@ export interface NodePersonProfile extends DrupalNode {
  *  @see https://prod.cms.va.gov/admin/structure/types/manage/event/fields
  */
 export interface NodeEvent extends DrupalNode {
-  field_additional_information_abo: string
+  field_additional_information_abo: {
+    value: string
+    format: string
+    processed: string
+  }
   field_address?: {
     additionalName?: string | null
     addressLine1?: string

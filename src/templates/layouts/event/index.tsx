@@ -6,11 +6,11 @@ import {
   isEventInPast,
 } from '@/lib/utils/date'
 import { ContentFooter } from '@/templates/common/contentFooter'
-import { SocialLinks } from '../../common/socialLinks'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Event as FormattedEvent } from '@/types/dataTypes/formatted/event'
+import { SocialLinksEvents } from '@/templates/common/socialLinksEvents'
 
 export const Event = ({
   title,
@@ -31,7 +31,6 @@ export const Event = ({
   listing,
 }: FormattedEvent) => {
   const [showRecurringEvents, setShowRecurringEvents] = useState(false)
-
   const toggleRecurringEvents = () => {
     setShowRecurringEvents((prevState) => !prevState)
   }
@@ -40,7 +39,13 @@ export const Event = ({
   const mostRecentDate = deriveMostRecentDate(formattedDates)
   const formattedTimestamp = deriveFormattedTimestamp(mostRecentDate)
   const addressObj = facilityLocation?.field_address || address
-  const directionsString = `${addressObj.address_line1}, ${addressObj.locality}, ${addressObj.administrative_area}`
+  const directionsString = [
+    addressObj?.address_line1,
+    addressObj?.locality,
+    addressObj?.administrative_area,
+  ]
+    .filter(Boolean)
+    .join(', ')
 
   return (
     <div className="va-l-detail-page va-facility-page">
@@ -153,12 +158,11 @@ export const Event = ({
               </div>
             )}
 
-            <SocialLinks
-              path={socialLinks.path}
-              title={socialLinks.title}
+            <SocialLinksEvents
+              path={socialLinks?.path}
+              title={socialLinks?.title}
               description={description}
-              address={address}
-              isNews={false}
+              address={directionsString}
               dateObject={mostRecentDate}
             />
 
@@ -175,14 +179,19 @@ export const Event = ({
                       <p className="vads-u-margin--0">
                         <a
                           className="vads-c-action-link--green"
-                          href={link.url.path}
+                          href={link?.url?.path}
                         >
                           {eventCTA || 'More details'}
                         </a>
                       </p>
                     )}
                     {additionalInfo && (
-                      <p className="vads-u-margin--0">{additionalInfo}</p>
+                      <div
+                        className="vads-u-margin--0"
+                        dangerouslySetInnerHTML={{
+                          __html: additionalInfo?.processed,
+                        }}
+                      />
                     )}
                   </>
                 )}
@@ -190,8 +199,8 @@ export const Event = ({
             )}
 
             {/* Body */}
-            {body.processed && (
-              <div dangerouslySetInnerHTML={{ __html: body.processed }} />
+            {body && (
+              <div dangerouslySetInnerHTML={{ __html: body?.processed }} />
             )}
 
             {/* Recurring Events */}
@@ -216,8 +225,10 @@ export const Event = ({
                     id="recurring-events"
                   >
                     {formattedDates.map((dateRange, index) => (
-                      <div key={index}>
-                        <p>{deriveFormattedTimestamp(dateRange)}</p>
+                      <div key={index} className="vads-u-margin-bottom--2">
+                        <p className="vads-u-margin--0">
+                          {deriveFormattedTimestamp(dateRange)}
+                        </p>
                         <a
                           className="recurring-event"
                           data-description={description}
@@ -225,9 +236,8 @@ export const Event = ({
                           data-location={directionsString}
                           data-start={dateRange.value}
                           data-subject={title}
-                          href={socialLinks.path}
+                          href={socialLinks?.path}
                           rel="noreferrer noopener"
-                          id="add-to-calendar-link"
                         >
                           <i
                             aria-hidden="true"

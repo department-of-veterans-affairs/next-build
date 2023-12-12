@@ -50,7 +50,7 @@ export const NewsStory = ({
                 <time dateTime={formatDate(date)}>{formatDate(date)}</time>
               </div>
 
-              <SocialLinks isNews {...socialLinks} />
+              <SocialLinks {...socialLinks} />
 
               <div className="usa-grid usa-grid-full vads-u-margin-bottom--2">
                 <div className="va-introtext">
