@@ -3,14 +3,14 @@
  */
 
 // In preview mode, this appears just above the page's breadcrumbs.
-export const PreviewCrumb = ({ resource }) => {
+export const PreviewCrumb = ({ entityId }) => {
   return (
     <div className="usa-grid-full">
       <div className="usa-width-one-whole">
         <div className="vads-u-margin-top--2">
           <a
             data-same-tab=""
-            href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/${resource?.entityId}/edit`}
+            href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/${entityId}/edit`}
           >
             « Edit this page in the CMS (requires a CMS account with appropriate
             permissions)
@@ -21,7 +21,7 @@ export const PreviewCrumb = ({ resource }) => {
   )
 }
 
-// In preview mode, this appears as a small banner at the very top of the page when viewing a draft or archived version of a page.
+// In preview mode, this appears as a small banner at the very top of the page when viewing draft or archived revisions.
 export const UnpublishedBanner = ({ resource }) => {
   if (resource.published) return null
 

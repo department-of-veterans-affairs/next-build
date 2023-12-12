@@ -63,7 +63,7 @@ export default function ResourcePage({
       <Meta resource={resource} />
       <HTMLComment position="head" content={comment} />
 
-      {preview && <PreviewCrumb resource={resource} />}
+      {preview && <PreviewCrumb entityId={resource.entityId} />}
 
       <Breadcrumbs
         breadcrumbs={resource.breadcrumbs}
