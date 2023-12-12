@@ -37,7 +37,6 @@ import {
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { MetaTag } from '../formatted/metatags'
 
 /** Union of all node types.  */
 export type NodeTypes =
