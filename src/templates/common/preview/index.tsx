@@ -25,7 +25,7 @@ export const PreviewCrumb = ({ entityId }) => {
 export const UnpublishedBanner = ({ resource }) => {
   if (resource.published) return null
 
-  let modState = 'draft'
+  let modState
   switch (resource.moderationState) {
     case 'archived':
       modState = 'an archived'
