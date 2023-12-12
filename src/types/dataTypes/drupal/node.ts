@@ -300,7 +300,7 @@ export interface NodeEvent extends DrupalNode {
   field_event_cost: string
   field_datetime_range_timezone: DateTimeRange[]
 
-  field_facility_location: FacilityLocation
+  field_facility_location: NodeHealthCareLocalFacility
   field_featured: boolean
   field_body: {
     value: string
@@ -316,7 +316,7 @@ export interface NodeEvent extends DrupalNode {
   field_description: string
   field_link: fieldLink
   field_url_of_an_online_event: urlOfOnlineEvent
-  field_listing: fieldEventListing
+  field_listing: NodeEventListing
 }
 
 interface fieldLink {
@@ -340,15 +340,8 @@ export interface urlOfOnlineEvent {
   options: unknown
 }
 
-export interface fieldEventListing {
-  type: string
-  id: string
-  drupal_internal__nid: number
-  langcode: string
+export interface NodeEventListing extends DrupalNode {
   status: boolean
-  title: string
-  created: string
-  changed: string
   breadcrumbs: BreadcrumbItem[]
   moderation_state: string
   path: {
@@ -371,32 +364,6 @@ export interface fieldEventListing {
     type: string
     id: string
     resourceIdObjMeta: unknown
-  }
-}
-
-export interface FacilityLocation extends DrupalNode {
-  type: string
-  id: string
-  drupal_internal__nid: number
-  drupal_internal__vid: number
-  langcode: string
-  revision_timestamp: string
-  revision_log: string
-  status: boolean
-  title: string
-  created: string
-  changed: string
-  promote: boolean
-  sticky: boolean
-  default_langcode: boolean
-  revision_translation_affected: boolean
-  breadcrumbs: BreadcrumbItem[]
-  moderation_state: string
-  metatag: MetaTag[]
-  path: {
-    alias: string
-    pid: number
-    langcode: string
   }
 }
 

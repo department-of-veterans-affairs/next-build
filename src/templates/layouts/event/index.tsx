@@ -138,7 +138,7 @@ export const Event = ({
                     {address && address.locality && (
                       <span>{address.locality}, </span>
                     )}
-                    {address && address.administrativeArea}
+                    {address && address.administrative_area}
                   </p>
                   <GoogleMapsDirections
                     title={title}

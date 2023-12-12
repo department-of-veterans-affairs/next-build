@@ -1,5 +1,5 @@
 import { BreadcrumbItem } from '../drupal/field_type'
-import { FacilityLocation } from '../drupal/node'
+import { NodeHealthCareLocalFacility } from '../drupal/node'
 import { urlOfOnlineEvent } from '../drupal/node'
 import { MediaImage } from './media'
 import { MetaTag } from './metatags'
@@ -48,12 +48,13 @@ export interface Event {
     locality?: string
     address_line1?: string
     address_line2?: string
+    administrative_area?: string
   }
   locationHumanReadable: string
   eventCTA: string | null
   cost: string
   datetimeRange: DateTimeRangeItem[]
-  facilityLocation: FacilityLocation | null
+  facilityLocation: NodeHealthCareLocalFacility | null
   body: htmlBody | null
   locationType: string
   description: string

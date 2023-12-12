@@ -5,6 +5,5 @@ import {
 
 export const PAGE_SIZES = {
   [RESOURCE_TYPES.STORY_LISTING]: 10,
-  [RESOURCE_TYPES.EVENT]: 10,
   [ADDITIONAL_RESOURCE_TYPES.STATIC_PATHS]: 50, //must be <= 50 due to JSON:API limit
 } as const
