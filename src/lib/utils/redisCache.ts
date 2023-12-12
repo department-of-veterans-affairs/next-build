@@ -13,9 +13,9 @@ export async function createRedisClient(
 ): Promise<RedisClientType<RedisModules, RedisFunctions, RedisScripts>> {
   return await createClient({ url })
     .on('error', (err) => console.error(`Redis Error: ${err}`))
-    .on('connect', () => console.info('Redis connected'))
-    .on('reconnecting', () => console.info('Redis reconnecting'))
-    .on('ready', () => console.info('Redis ready!'))
+    // .on('connect', () => console.info('Redis connected'))
+    // .on('reconnecting', () => console.info('Redis reconnecting'))
+    // .on('ready', () => console.info('Redis ready!'))
     .connect()
 }
 
@@ -24,6 +24,8 @@ export function redisCache(
 ): DataCache {
   return {
     async set(key, value) {
+      console.log(`set: ${key}`)
+      console.log('isReady: ', (await client).isReady)
       return (await client).set(key, value)
     },
     async get(key) {
