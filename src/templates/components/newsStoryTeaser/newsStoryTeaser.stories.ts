@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { MediaImage } from '@/types/dataTypes/formatted/media'
 
@@ -23,21 +23,21 @@ const mediaImage: MediaImage = {
   url: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg',
 }
 
-export default {
+const meta: Meta<typeof NewsStoryTeaser> = {
   title: 'Components/News Story Teaser',
   component: NewsStoryTeaser,
-} as ComponentMeta<typeof NewsStoryTeaser>
+}
+export default meta
 
-const Template: ComponentStory<typeof NewsStoryTeaser> = (args) => (
-  <NewsStoryTeaser {...args} />
-)
+type Story = StoryObj<typeof NewsStoryTeaser>
 
-export const Teaser = Template.bind({})
-Teaser.args = {
-  headingLevel: 'h2',
-  title: 'We honor outstanding doctors',
-  introText:
-    'When a hospital has a host of great doctors, honoring just two every year is challenging.',
-  link: '#',
-  image: mediaImage,
+export const Teaser = {
+  args: {
+    headingLevel: 'h2',
+    title: 'We honor outstanding doctors',
+    introText:
+      'When a hospital has a host of great doctors, honoring just two every year is challenging.',
+    link: '#',
+    image: mediaImage,
+  },
 }

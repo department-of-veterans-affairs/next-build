@@ -3,9 +3,6 @@ import { get } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { LinkTeaser as FormattedLinkTeaser } from '@/types/dataTypes/formatted/linkTeaser'
 
-// todo: fix this
-export const thumbnail = 'https://www.va.gov/img/arrow-right-blue.svg'
-
 export const LinkTeaser = ({
   id,
   title,
@@ -46,7 +43,7 @@ export const LinkTeaser = ({
                   <Image
                     id={id}
                     className="all-link-arrow"
-                    src={thumbnail}
+                    src="/img/arrow-right-blue.svg"
                     alt="right-arrow"
                     width={15}
                     height={15}
