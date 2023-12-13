@@ -6,10 +6,10 @@
     "width": 480,
     "height": 330,
     "title": "foo bar",
-    "url": "/sites/default/files/2020-04/040120_FEATURE_MarchFCVet20.png",
+    "url": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/2020-04/040120_FEATURE_MarchFCVet20.png",
     "link": {
       "2_1_large": {
-        "href": "http://va-gov-cms.ddev.site/sites/default/files/styles/2_1_large/public/2020-04/040120_FEATURE_MarchFCVet20.png",
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-04/040120_FEATURE_MarchFCVet20.png",
         "meta": {
           "linkParams": {
             "width": 200,
@@ -18,16 +18,16 @@
         }
       },
       "7_2_medium_thumbnail": {
-        "href": "http://va-gov-cms.ddev.site/sites/default/files/styles/7_2_medium_thumbnail/public/2020-04/040120_FEATURE_MarchFCVet20.png",
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/2020-04/040120_FEATURE_MarchFCVet20.png",
         "meta": {
           "linkParams": {
-            "width": 200,
-            "height": 200
+            "width": 400,
+            "height": 100
           }
         }
       },
       "full_content_width": {
-        "href": "http://va-gov-cms.ddev.site/sites/default/files/styles/full_content_width/public/2020-04/040120_FEATURE_MarchFCVet20.png",
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/2020-04/040120_FEATURE_MarchFCVet20.png",
         "meta": {
           "linkParams": {
             "width": 200,
