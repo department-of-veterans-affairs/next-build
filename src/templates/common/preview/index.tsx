@@ -43,6 +43,7 @@ export const UnpublishedBanner = ({ resource }) => {
         <a
           data-same-tab=""
           href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/${resource?.entityId}/edit`}
+          style={{ display: 'block' }}
         >
           Edit this page in the CMS.
         </a>

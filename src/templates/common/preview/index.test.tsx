@@ -15,7 +15,7 @@ describe('Preview renders with accurate data', () => {
 
     expect(screen.getByRole('link')).toHaveAttribute(
       'href',
-      'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/node/500/edit'
+      `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/500/edit`
     )
   })
 
@@ -24,7 +24,7 @@ describe('Preview renders with accurate data', () => {
 
     expect(screen.getByRole('link')).toHaveAttribute(
       'href',
-      'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/node/500/edit'
+      `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/500/edit`
     )
   })
 
@@ -37,7 +37,7 @@ describe('Preview renders with accurate data', () => {
 
     expect(screen.getByRole('link')).toHaveAttribute(
       'href',
-      'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/node/500/edit'
+      `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/500/edit`
     )
   })
 
