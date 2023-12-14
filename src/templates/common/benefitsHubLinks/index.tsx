@@ -9,6 +9,7 @@ import {
 // Typically, used on a resource page.
 export function BenefitsHubLinks({
   title,
+  introText,
   relatedBenefitHubs,
 }: FormattedBenefitHubLinks) {
   if (isEmpty(relatedBenefitHubs)) return null
@@ -32,6 +33,7 @@ export function BenefitsHubLinks({
     <>
       <section className="vads-u-padding-y--3 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
         <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">{title}</h2>
+        {introText && <p>{introText}</p>}
 
         <ul className="usa-unstyled-list" role="list">
           {benefitsHubLink}

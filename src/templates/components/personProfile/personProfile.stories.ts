@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react'
+
 import { PersonProfile as FormattedPersonProfile } from '@/types/dataTypes/formatted/personProfile'
 import { MediaImage } from '@/types/dataTypes/formatted/media'
 import { PersonProfile } from '@/templates/components/personProfile'
@@ -51,14 +51,16 @@ const personProfileData: FormattedPersonProfile = {
   office: null,
 }
 
-export default {
+const meta: Meta<typeof PersonProfile> = {
   title: 'Components/Person Profile',
   component: PersonProfile,
-} as ComponentMeta<typeof PersonProfile>
+}
+export default meta
 
-const Template: ComponentStory<typeof PersonProfile> = (args) => (
-  <PersonProfile {...args} />
-)
+type Story = StoryObj<typeof PersonProfile>
 
-export const Profile = Template.bind({})
-Profile.args = personProfileData
+export const Profile: Story = {
+  args: {
+    ...personProfileData,
+  },
+}

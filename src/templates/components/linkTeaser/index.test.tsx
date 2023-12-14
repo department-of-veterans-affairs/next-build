@@ -150,10 +150,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
     expect(aEl).toHaveAttribute('href', '/health-care/eligibility/')
     expect(spanEl).toHaveAttribute('class', 'hub-page-link-list__header')
-    expect(imageEl).toHaveAttribute(
-      'src',
-      'https://www.va.gov/img/arrow-right-blue.svg'
-    )
+    expect(imageEl).toHaveAttribute('src', '/img/arrow-right-blue.svg')
     expect(
       screen.queryByText(/Health Care Benefits Eligibility/)
     ).toBeInTheDocument()
@@ -177,10 +174,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
     expect(aEl).toHaveAttribute('href', '/health-care/eligibility/')
     expect(spanEl).toHaveAttribute('class', 'hub-page-link-list__header')
-    expect(imageEl).toHaveAttribute(
-      'src',
-      'https://www.va.gov/img/arrow-right-blue.svg'
-    )
+    expect(imageEl).toHaveAttribute('src', '/img/arrow-right-blue.svg')
     expect(
       screen.queryByText(/Health Care Benefits Eligibility/)
     ).toBeInTheDocument()

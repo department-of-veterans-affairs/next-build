@@ -32,7 +32,7 @@
     "test:types": "APP_ENV=test tsc --noEmit",
     "test:watch": "APP_ENV=test jest --watch",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build -o out/storybook-static"
+    "storybook:build": "storybook build -o out/storybook-static --quiet"
   },
   "dependencies": {
     "@department-of-veterans-affairs/component-library": "^31.0.0",

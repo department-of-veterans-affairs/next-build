@@ -8,5 +8,6 @@ export type BenefitsHub = {
 
 export type BenefitsHubLinks = {
   title: string
+  introText?: string
   relatedBenefitHubs: BenefitsHub[]
 }

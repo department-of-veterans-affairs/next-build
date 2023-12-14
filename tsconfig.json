@@ -45,7 +45,7 @@
   "typedocOptions": {
     "entryPoints": ["src/"],
     "exclude": [
-      "**/**+(.test).ts",
+      "**/**+(.test|.stories).ts",
       "**/**+(.test|.stories).tsx",
       "**/(templates|mocks)/**"
     ],
