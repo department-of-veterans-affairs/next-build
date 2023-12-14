@@ -1,6 +1,5 @@
 import { GetStaticPropsContext } from 'next'
 import { DrupalTranslatedPath } from 'next-drupal'
-import { QueryOpts } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '@/data/queries'
 import {

@@ -1,14 +1,13 @@
 /* eslint-disable no-console */
-import AxeBuilder from '@axe-core/playwright'
-import { test, expect } from '@playwright/test'
+const { test } = require('../utils/next-test')
 const getSitemapLocations = require('../utils/getSitemapLocations')
 
-async function runA11yTestsForPages(pages, testName, page) {
+async function runA11yTestsForPages(pages, testName, page, makeAxeBuilder) {
   let a11yFailures = []
 
   for (const pageUrl of pages) {
     await page.goto(pageUrl)
-    const accessibilityScanResults = await new AxeBuilder({ page }).analyze()
+    const accessibilityScanResults = await makeAxeBuilder().analyze()
 
     if (accessibilityScanResults.violations.length > 0) {
       accessibilityScanResults.violations.forEach((violation) => {
@@ -56,8 +55,14 @@ test.describe('Accessibility Tests', () => {
   for (let i = 0; i < 5; i++) {
     test(`the site should be accessible - Segment ${i + 1}`, async ({
       page,
+      makeAxeBuilder,
     }) => {
-      await runA11yTestsForPages(pageSegments[i], `Segment ${i + 1}`, page)
+      await runA11yTestsForPages(
+        pageSegments[i],
+        `Segment ${i + 1}`,
+        page,
+        makeAxeBuilder
+      )
     })
   }
 })
