@@ -1,10 +1,11 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import {
   Banner,
   FacilityBanner,
   PromoBanner,
 } from '@/types/dataTypes/formatted/banners'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 
 export const BannerDisplayType = {
   PROMO_BANNER: 'promoBanner',
@@ -18,9 +19,27 @@ export const BannerTypeMapping = {
   [BannerDisplayType.BANNER]: 'node--banner',
 }
 
+export type BannerDataOpts = {
+  jsonApiEntryPoint?: string
+  itemPath?: string
+}
+
+export type BannerData = Array<PromoBanner | Banner | FacilityBanner | NodeBanner>
+
+export const data: QueryData<BannerDataOpts, BannerData> = async (opts) => {
+  const lookup = await drupalClient.fetch(`${opts.jsonApiEntryPoint}/banner-alerts?item-path=${opts.itemPath}`)
+  const bannerData: [] | unknown = drupalClient.deserialize(
+    await lookup.json()
+  )
+
+  // do filtering for facility banner to gather additional data here
+
+  return bannerData as NodeBanner[]
+}
+
 export const formatter: QueryFormatter<
   NodeBanner[],
-  Array<PromoBanner | Banner | FacilityBanner | NodeBanner>
+  Array<Banner | PromoBanner | FacilityBanner>
 > = (entities: NodeBanner[]) => {
   return entities?.map((banner) => {
     switch (banner?.type as string) {
@@ -53,7 +72,6 @@ export const formatter: QueryFormatter<
           dismiss: banner.field_alert_dismissable,
           operatingStatus: banner.field_alert_operating_status_cta,
           inheritanceSubpages: banner.field_alert_inheritance_subpages,
-          path: banner.path?.alias,
           bannerAlertVamcs: banner.field_banner_alert_vamcs,
           type: banner.type,
         }

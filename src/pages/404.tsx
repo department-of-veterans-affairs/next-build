@@ -56,9 +56,9 @@ const Error404Page = ({ headerFooterData }) => {
 export async function getStaticProps() {
   try {
     const { headerFooterData } = await getGlobalElements(
+      `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi`,
       undefined,
-      undefined,
-      true
+      true // header only
     )
     return {
       props: {

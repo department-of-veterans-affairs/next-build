@@ -2,7 +2,6 @@ import { useRef, useEffect, useState } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { regionBaseURL } from '@/lib/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { NodeMetaInfo } from '@/types/dataTypes/drupal/node'
 import { FacilityBanner as FormattedFacilityBanner } from '@/types/dataTypes/formatted/banners'
 
 export const FacilityBanner = ({
@@ -39,7 +38,7 @@ export const FacilityBanner = ({
   const lastArg = findPath?.substring(findPath?.lastIndexOf('/'))
 
   let content = body
-  const statusUrl = ''
+  let statusUrl = ''
 
   // TODO: Banner AlertVAMCS data is a special case. we need to call a relationship which our current banner endpoint does not support. node--vamc_operating_status_and_alerts
   // if (bannerAlertVamcs) {
@@ -119,7 +118,3 @@ export const FacilityBanner = ({
     </>
   )
 }
-
-/** Export information necessary to identify the component and query it.
- * See {@link NodeMetaInfo}
- */
