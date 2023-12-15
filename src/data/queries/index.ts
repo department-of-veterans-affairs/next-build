@@ -6,7 +6,7 @@ import * as QuestionAnswer from './questionAnswer'
 import * as ExpandableText from './expandableText'
 import * as LinkTeaser from './linkTeaser'
 import * as MediaImage from './mediaImage'
-import * as Banner from './banners'
+import * as Banners from './banners'
 import * as PersonProfile from './personProfile'
 import * as Button from './button'
 import * as AudienceTopics from './audienceTopics'
@@ -41,7 +41,7 @@ export const QUERIES_MAP = {
   'block_content--promo': PromoBlock,
 
   // Custom queries
-  'banner--alerts_lookup': Banner,
+  'banner-data': Banners,
   'header-footer-data': HeaderFooter,
 
   // Static Path Generation

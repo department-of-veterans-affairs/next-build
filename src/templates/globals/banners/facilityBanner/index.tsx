@@ -38,7 +38,7 @@ export const FacilityBanner = ({
   const lastArg = findPath?.substring(findPath?.lastIndexOf('/'))
 
   let content = body
-  let statusUrl = ''
+  const statusUrl = ''
 
   // TODO: Banner AlertVAMCS data is a special case. we need to call a relationship which our current banner endpoint does not support. node--vamc_operating_status_and_alerts
   // if (bannerAlertVamcs) {
