@@ -38,26 +38,25 @@ export const FacilityBanner = ({
   const lastArg = findPath?.substring(findPath?.lastIndexOf('/'))
 
   let content = body
-  const statusUrl = ''
+  let statusUrl = ''
 
-  // TODO: Banner AlertVAMCS data is a special case. we need to call a relationship which our current banner endpoint does not support. node--vamc_operating_status_and_alerts
-  // if (bannerAlertVamcs) {
-  //   bannerAlertVamcs?.map((vamc) => {
-  //     if (region == vamc?.office?.path) {
-  //       setOutputStatus(true)
-  //       return outputStatus
-  //     }
-  //     if (
-  //       hideOnSubpages &&
-  //       lastArg != region &&
-  //       lastArg != '/operating-status'
-  //     ) {
-  //       setOutputStatus(false)
-  //       return outputStatus
-  //     }
-  //     statusUrl = vamc?.path
-  //   })
-  // }
+  if (bannerAlertVamcs) {
+    bannerAlertVamcs?.map((vamc) => {
+      if (region == vamc?.office?.path) {
+        setOutputStatus(true)
+        return outputStatus
+      }
+      if (
+        hideOnSubpages &&
+        lastArg != region &&
+        lastArg != '/operating-status'
+      ) {
+        setOutputStatus(false)
+        return outputStatus
+      }
+      statusUrl = vamc?.path
+    })
+  }
 
   if (operatingStatus && statusUrl?.length) {
     content += `<p>

@@ -6,6 +6,7 @@ import {
   PromoBanner,
 } from '@/types/dataTypes/formatted/banners'
 import { drupalClient } from '@/lib/drupal/drupalClient'
+import { queries } from '.'
 
 export const BannerDisplayType = {
   PROMO_BANNER: 'promoBanner',
@@ -24,15 +25,36 @@ export type BannerDataOpts = {
   itemPath?: string
 }
 
-export type BannerData = Array<PromoBanner | Banner | FacilityBanner | NodeBanner>
+export type BannerData = Array<
+  PromoBanner | Banner | FacilityBanner | NodeBanner
+>
 
+// Define the query params for fetching footer menu data.
+export const facilityBannerParams: QueryParams<null> = () => {
+  return queries.getParams()
+}
+
+// The banner data endpoint is a custom endpoint provided by Drupal due to how banners are associated with a page.
+// A given page does not reference a banner node via entity reference, banner node types have a field that lists what
+// paths they are supposed to be visible on. This endpoint queries banners based on their path lists.
+// See docroot/modules/custom/va_gov_api/src/Resources/BannerAlerts.php in va.gov-cms for more info.
 export const data: QueryData<BannerDataOpts, BannerData> = async (opts) => {
-  const lookup = await drupalClient.fetch(`${opts.jsonApiEntryPoint}/banner-alerts?item-path=${opts.itemPath}`)
-  const bannerData: [] | unknown = drupalClient.deserialize(
-    await lookup.json()
+  const lookup = await drupalClient.fetch(
+    `${opts.jsonApiEntryPoint}/banner-alerts?item-path=${opts.itemPath}`
   )
+  const bannerData = drupalClient.deserialize(
+    await lookup.json()
+  ) as NodeBanner[]
 
-  // do filtering for facility banner to gather additional data here
+  // do filtering for facility banner to gather additional data here or add it to banner endpoint up front
+  // const facilityBanners = bannerData.filter((banner) => banner.type === BannerTypeMapping[BannerDisplayType.FACILITY_BANNER])
+
+  // facilityBanners.forEach((banner) => {
+  //   // typo in this field name from the CMS
+  //   console.log(await drupalClient.getResource('node--vamc_operating_status_and_alerts', banner.field_banner_alert_vamcs.id, {
+  //     params: operatingStatusParams().getQueryObject()
+  //   }))
+  // })
 
   return bannerData as NodeBanner[]
 }
@@ -72,6 +94,7 @@ export const formatter: QueryFormatter<
           dismiss: banner.field_alert_dismissable,
           operatingStatus: banner.field_alert_operating_status_cta,
           inheritanceSubpages: banner.field_alert_inheritance_subpages,
+          findFacilities: banner.field_alert_find_facilities_cta,
           bannerAlertVamcs: banner.field_banner_alert_vamcs,
           type: banner.type,
         }

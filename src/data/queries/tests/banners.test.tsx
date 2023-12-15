@@ -19,8 +19,6 @@ describe('Banners return formatted data', () => {
   test('outputs formatted data', () => {
     windowSpy.mockImplementation(() => undefined)
     const formattedData = nodeBannerMock
-    expect(
-      queries.formatData('banner--alerts_lookup', formattedData)
-    ).toMatchSnapshot()
+    expect(queries.formatData('banner-data', formattedData)).toMatchSnapshot()
   })
 })
