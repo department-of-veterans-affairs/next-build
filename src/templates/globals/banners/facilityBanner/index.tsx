@@ -38,7 +38,7 @@ export const FacilityBanner = ({
   const lastArg = findPath?.substring(findPath?.lastIndexOf('/'))
 
   let content = body
-  let statusUrl = ''
+  const statusUrl = ''
 
   if (bannerAlertVamcs) {
     bannerAlertVamcs?.map((vamc) => {
