@@ -73,6 +73,7 @@ exports[`Banners return formatted data outputs formatted data 1`] = `
     "id": "ccd9d30f-78f9-4358-80d7-191f99b18d43",
     "inheritanceSubpages": false,
     "operatingStatus": true,
+    "path": "/va-pittsburgh-health-care/vamc-banner-alert/2021-01-08/help-limit-the-spread-of-covid-19-and-other",
     "title": "Help Limit the Spread of COVID-19 and other Illnesses",
     "type": "node--full_width_banner_alert",
   },

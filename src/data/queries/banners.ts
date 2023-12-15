@@ -94,6 +94,7 @@ export const formatter: QueryFormatter<
           dismiss: banner.field_alert_dismissable,
           operatingStatus: banner.field_alert_operating_status_cta,
           inheritanceSubpages: banner.field_alert_inheritance_subpages,
+          path: banner.path?.alias,
           findFacilities: banner.field_alert_find_facilities_cta,
           bannerAlertVamcs: banner.field_banner_alert_vamcs,
           type: banner.type,
