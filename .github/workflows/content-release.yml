@@ -1,5 +1,8 @@
 name: Next Build Content Release
-on: [workflow_dispatch, pull_request]
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened]
 jobs:
   yarn_export:
     runs-on: [self-hosted, asg]
