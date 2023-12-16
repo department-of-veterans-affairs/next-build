@@ -7,8 +7,8 @@ export async function getMenu(name: string, params: QueryParams<null>) {
     params: params().getQueryObject(),
 
     // Cache resource during build, not dev.
-    withCache: process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD,
-    cacheKey: `menu:${name}`,
+    // withCache: process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD,
+    // cacheKey: `menu:${name}`,
   })
 
   return menu
