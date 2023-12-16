@@ -1,0 +1,23 @@
+name: Next Build Content Release
+on: [workflow_dispatch]
+jobs:
+  yarn_export:
+    runs-on: [self-hosted, asg]
+    env:
+      NEXT_PUBLIC_DRUPAL_BASE_URL: https://test.prod.cms.va.gov
+      NEXT_IMAGE_DOMAIN: https://test.prod.cms.va.gov
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - name: Setup Yarn
+      run: |
+        corepack enable
+        corepack install -g --cache-only .yarn/releases/corepack.tgz
+    - name: Install dependencies
+      run: |
+        yarn
+    - name: Export content
+      run: |
+        yarn export
