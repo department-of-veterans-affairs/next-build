@@ -10,7 +10,21 @@ jobs:
       NEXT_PUBLIC_DRUPAL_BASE_URL: https://test.prod.cms.va.gov
       NEXT_IMAGE_DOMAIN: https://test.prod.cms.va.gov
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@010d0da01d0b5a38af31e9c3470dbfdabdecca3a # v4.0.1
+      with:
+        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+        aws-region: "us-gov-west-1"
+        role-session-name: next-build-packer-githubaction
+    - uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+      with:
+        ssm_parameter: /cms/consumers/next-build/client_id
+        env_variable_name: DRUPAL_CLIENT_ID
+    - uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+      with:
+        ssm_parameter: /cms/consumers/next-build/client_secret
+        env_variable_name: DRUPAL_CLIENT_SECRET
     - uses: actions/setup-node@v4
       with:
         node-version: 18
