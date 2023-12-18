@@ -32,8 +32,8 @@ const nextConfig = {
           dns: false,
           tls: false,
           assert: false,
-          fs: false
-        }
+          fs: false,
+        },
       }
     }
     return config
