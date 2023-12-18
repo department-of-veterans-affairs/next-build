@@ -13618,12 +13618,7 @@ __metadata:
     next-drupal: ^1.6.0
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
-<<<<<<< HEAD
     nock: ^13.4.0
-    p-retry: ^6.1.0
-=======
-    nock: ^13.3.4
->>>>>>> - Adds environment loader (env-loader) as a separate package.
     prettier: ^2.8.8
     proxy-fetcher: 0.1.0
     react: ^18.2.0
