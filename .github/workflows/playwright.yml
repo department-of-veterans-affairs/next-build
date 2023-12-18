@@ -5,9 +5,16 @@ jobs:
   test:
     timeout-minutes: 15
     runs-on: [self-hosted, asg]
-    # Certs added for the self hosted runner
-    env:
-      NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+    container:
+      image: public.ecr.aws/docker/library/node:18.19.0-bullseye
+      # Certs added for the self hosted runner
+      env:
+        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/home/runner
+        - /etc/ssl/certs:/etc/ssl/certs
     if: github.event.deployment_status.state == 'success'
     steps:
     - uses: actions/checkout@v4
@@ -23,7 +30,7 @@ jobs:
         yarn
     - name: Install Playwright
       run: |
-        yarn playwright install
+        yarn playwright install --with-deps
     - name: Run Playwright tests
       run: |
         SITE_URL=${{ github.event.deployment_status.environment_url }} yarn test:playwright
