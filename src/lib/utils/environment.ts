@@ -1,17 +1,15 @@
-import { hosts } from '@/lib/constants/environment'
+export const generateAbsoluteUrl = (origin: string, relativeUrl: string) => {
+  // strip trailing slash from origin
+  const trimmedOrigin = origin.endsWith('/')
+    ? origin.substring(0, origin.length - 1)
+    : origin
 
-export const generateAbsoluteUrlFromBuildType = (
-  relativeUrl: string,
-  appEnv: string
-) => {
-  const host = hosts[appEnv]
-  if (!host) {
-    return relativeUrl
-  }
-  return relativeUrl.charAt(0) === '/'
-    ? `${host.origin}${relativeUrl}`
-    : `${host.origin}/${relativeUrl}`
+  // strip leading slash from relativeUrl
+  const trimmedRelativeUrl =
+    relativeUrl.charAt(0) === '/' ? relativeUrl.substring(1) : relativeUrl
+
+  return `${trimmedOrigin}/${trimmedRelativeUrl}`
 }
 
 export const generateAbsoluteUrlFromEnv = (relativeUrl: string) =>
-  generateAbsoluteUrlFromBuildType(relativeUrl, process.env.APP_ENV)
+  generateAbsoluteUrl(process.env.SITE_URL || '', relativeUrl)
