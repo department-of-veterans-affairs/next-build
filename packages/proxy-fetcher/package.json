@@ -1,0 +1,12 @@
+{
+  "name": "proxy-fetcher",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "dependencies": {
+    "cross-fetch": "^4.0.0",
+    "p-retry": "^6.1.0",
+    "socks-proxy-agent": "^8.0.2",
+    "syswide-cas": "^5.3.0"
+  },
+  "packageManager": "yarn@3.6.1"
+}

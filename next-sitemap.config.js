@@ -1,5 +1,3 @@
-require('./scripts/env-handler')
-
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   // see https://www.npmjs.com/package/next-sitemap for all options
