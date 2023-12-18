@@ -91,7 +91,7 @@ jobs:
         uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # v4.0.0
         with:
           name: manifest
-          path: packer/github-action-runner/manifest.json
+          path: ${{ matrix.build_location }}/manifest.json 
       - uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
         with:
           ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
@@ -131,7 +131,7 @@ jobs:
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: manifest
-          path: ${{ matrix.build_location }}/manifest.json
+          path: packer/github-action-runner/manifest.json
       - name: get ami ID from manifest
         run: echo "AMI_ID=$(cat manifest.json |jq -r .builds[].artifact_id|awk -F":" '{print $2}')" >> $GITHUB_ENV
       - name: Update Launch Templates
