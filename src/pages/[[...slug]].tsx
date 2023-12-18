@@ -25,6 +25,7 @@ import { NewsStory as FormattedNewsStory } from '@/types/dataTypes/formatted/new
 import { StoryListing as FormattedStoryListing } from '@/types/dataTypes/formatted/storyListing'
 import { Event as FormattedEvent } from '@/types/dataTypes/formatted/event'
 import { Meta } from '@/templates/globals/meta'
+import { PreviewCrumb } from '@/templates/common/preview'
 
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
@@ -56,25 +57,16 @@ export default function ResourcePage({
     `
 
   return (
-    <Wrapper bannerData={bannerData} headerFooterData={headerFooterData}>
+    <Wrapper
+      bannerData={bannerData}
+      headerFooterData={headerFooterData}
+      preview={preview}
+      resource={resource}
+    >
       <Meta resource={resource} />
       <HTMLComment position="head" content={comment} />
 
-      {preview && (
-        <div className="usa-grid-full">
-          <div className="usa-width-one-whole">
-            <div className="vads-u-margin-top--2">
-              <a
-                data-same-tab=""
-                href={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/node/${resource?.entityId}/edit`}
-              >
-                « Edit this page in the CMS (requires a CMS account with
-                appropriate permissions)
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+      {preview && <PreviewCrumb entityId={resource.entityId} />}
 
       <Breadcrumbs
         breadcrumbs={resource.breadcrumbs}

@@ -463,6 +463,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
       "tag": "meta",
     },
   ],
+  "moderationState": "published",
   "published": true,
   "socialLinks": {
     "path": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
