@@ -57,7 +57,7 @@ export async function getStaticProps() {
   try {
     const { headerFooterData } = await getGlobalElements(
       `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi`,
-      undefined,
+      undefined, // no banners on 404
       true // header only
     )
     return {

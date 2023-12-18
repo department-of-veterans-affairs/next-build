@@ -63,6 +63,10 @@ export const drupalClient = new DrupalClient(baseUrl, {
   fetcher,
   useDefaultResourceTypeEntry: true,
   throwJsonApiErrors: false,
+  auth: {
+    clientId: process.env.DRUPAL_CLIENT_ID,
+    clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+  },
   // cache: redisCache(createRedisClient(process.env.REDIS_URL)),
   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
 })
