@@ -71,6 +71,22 @@ NEXT_IMAGE_DOMAIN=https://va-gov-cms.ddev.site
 
 Now you can run `yarn dev` and data will be coming from your local CMS environment instead.
 
+### Local CMS Preview
+
+To test the preview API route locally, you will also need to add public and private OAuth keys to your local clone of the va.gov-cms root directory at `public.key` and `private.key` respectively. These files are gitignored in the va.gov-cms repo.
+
+```
+-----BEGIN PUBLIC KEY-----
+Retrieve this value from AWS SSM @ /cms/staging/drupal_api_users/next_build_api/public.key
+-----END PUBLIC KEY-----
+```
+
+```
+-----BEGIN RSA PRIVATE KEY-----
+Retrieve this value from AWS SSM @ /cms/staging/drupal_api_users/next_build_api/private.key
+-----END RSA PRIVATE KEY-----
+```
+
 ## Generating the static site
 
 To generate the static pages for https://va.gov, run `yarn export`. This command will generate static pages for all paths that next-build is aware of.
