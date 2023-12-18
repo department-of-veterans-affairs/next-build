@@ -40,14 +40,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@axe-core/playwright@npm:^4.8.1":
-  version: 4.8.1
-  resolution: "@axe-core/playwright@npm:4.8.1"
+"@axe-core/playwright@npm:^4.8.2":
+  version: 4.8.2
+  resolution: "@axe-core/playwright@npm:4.8.2"
   dependencies:
     axe-core: ~4.8.2
   peerDependencies:
     playwright-core: ">= 1.0.0"
-  checksum: 08f34f6a6f106aafafab4d6bda8f7c273c9785811410cc42c0713bc469bb302d137b8b7a8ce09645525b2f18b6b59eddf80cbbb2cffc364b2b141779958cfffe
+  checksum: 1a292b7b2a4f0b57a0e2227e7fe4cf59a6161d449fc5788b9129adc9162f905e902f54e3375ee9ea956a5d156fc0a178bfd783b32e5c43fa16010d465c4a6b4c
   languageName: node
   linkType: hard
 
@@ -13538,7 +13538,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-build@workspace:."
   dependencies:
-    "@axe-core/playwright": ^4.8.1
+    "@axe-core/playwright": ^4.8.2
     "@department-of-veterans-affairs/component-library": ^31.0.0
     "@department-of-veterans-affairs/formation": ^7.0.9
     "@department-of-veterans-affairs/web-components": ^4.45.31
