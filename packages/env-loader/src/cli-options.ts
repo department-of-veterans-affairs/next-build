@@ -15,7 +15,7 @@ export const getCliOptions = (): EnvVars => {
     .addOption(
       new Option('--NEXT_PUBLIC_BUILD_TYPE <buildType>', 'Build type').choices([
         'localhost',
-        'vaogvdev',
+        'vagovdev',
         'vagovstaging',
         'vagovprod',
       ])
