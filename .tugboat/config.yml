@@ -87,7 +87,7 @@ services:
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
         # Generate sitemap
-        - SITE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn build:sitemap
+        - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt SITE_URL=${TUGBOAT_DEFAULT_SERVICE_URL} yarn build:sitemap
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
 
