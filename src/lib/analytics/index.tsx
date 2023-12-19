@@ -1,5 +1,4 @@
 import TagManager from 'react-gtm-module'
-import { environments } from '@/lib/constants/environment'
 
 export const GTM_ID = process.env.GOOGLE_TAG_MANAGER_ID
 export const TAG_MANAGER_ARGS = {
