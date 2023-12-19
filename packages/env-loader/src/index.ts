@@ -8,9 +8,9 @@ export type EnvVars = {
   [key: string]: string
 }
 
-const getAllEnvVars = async (): Promise<EnvVars> => {
+const getAllEnvVars = async (scriptName: string): Promise<EnvVars> => {
   // CLI OPTIONS
-  const cliOptions = getCliOptions()
+  const cliOptions = getCliOptions(scriptName)
 
   // ENV FILE VARS
   const envVars = getEnvFileVars(process.env.APP_ENV)
@@ -41,10 +41,17 @@ const getAllEnvVars = async (): Promise<EnvVars> => {
   }
 }
 
+const getYarnScriptName = (path: string): string => {
+  const match = path.match(/\/scripts\/yarn\/(.*)\.js/)
+  return match?.[1] || ''
+}
+
 export const processEnv = async (command: string): Promise<void> => {
+  const yarnScriptName = getYarnScriptName(process.argv[1])
+
   process.env = {
     ...process.env,
-    ...(await getAllEnvVars()),
+    ...(await getAllEnvVars(yarnScriptName)),
   }
 
   spawn(command, {
