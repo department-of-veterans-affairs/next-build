@@ -34,7 +34,7 @@
     "test:example": "APP_ENV=test yarn test:examples example_tests/${1}/",
     "test:debug": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:debug.js",
     "test:format": "APP_ENV=test prettier --check .",
-    "test:types": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:types.js",
+    "test:types": "yarn build:env-loader && APP_ENV=test tsc --noEmit",
     "test:watch": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:watch.js",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -o out/storybook-static --quiet"
