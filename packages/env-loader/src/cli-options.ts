@@ -9,8 +9,20 @@ type AdditionalHelp = {
 const ADDITIONAL_HELP: { [key: string]: AdditionalHelp[] } = {
   test: [
     {
-      heading: 'Update Snapshots',
+      heading: 'Watch mode',
+      commands: ['yarn test:watch'],
+    },
+    {
+      heading: 'With coverage report',
+      commands: ['yarn test:coverage'],
+    },
+    {
+      heading: 'Update test snapshots',
       commands: ['yarn test:update-snapshots', 'yarn test:u'],
+    },
+    {
+      heading: 'Run Playwright E2E tests',
+      commands: ['yarn test:playwright'],
     },
   ],
 }
@@ -56,7 +68,7 @@ export const getCliOptions = (scriptName: string): EnvVars => {
     .addOption(
       new Option('--NEXT_PUBLIC_BUILD_TYPE <buildType>', 'Build type').choices([
         'localhost',
-        'vaogvdev',
+        'vagovdev',
         'vagovstaging',
         'vagovprod',
       ])
