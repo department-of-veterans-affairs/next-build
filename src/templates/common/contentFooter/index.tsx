@@ -2,7 +2,7 @@ import React from 'react'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { MedalliaAssets } from '@/templates/globals/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
-import { environments } from '@/lib/constants/environment'
+import { BUILD_TYPES } from '@/lib/constants/environment'
 
 type ContentFooterProps = {
   lastUpdated?: string | number
@@ -44,7 +44,7 @@ function FeedbackButton() {
         aria-label="give feedback"
         onClick={() => {
           const isProduction =
-            process.env.NEXT_PUBLIC_BUILD_TYPE === environments.PROD
+            process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
           const surveyNumber = getSurveyNumber(
             window.location.pathname,
             isProduction

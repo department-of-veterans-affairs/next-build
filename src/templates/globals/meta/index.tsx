@@ -4,7 +4,7 @@ import { parseDate, getDateParts } from '@/lib/utils/date'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedResource } from '@/data/queries'
 import { generateAbsoluteUrlFromEnv } from '@/lib/utils/environment'
-import { environments } from '@/lib/constants/environment'
+import { BUILD_TYPES } from '@/lib/constants/environment'
 
 const LastUpdated = ({ timestamp }: { timestamp: string | number }) => {
   if (timestamp) {
@@ -89,7 +89,7 @@ export const Meta = ({
 }: {
   resource: StaticPropsResource<FormattedResource>
 }) => {
-  const noIndex = process.env.NEXT_PUBLIC_BUILD_TYPE !== environments.PROD
+  const noIndex = process.env.NEXT_PUBLIC_BUILD_TYPE !== BUILD_TYPES.PROD
   const canonicalLink =
     'canonicalLink' in resource ? resource.canonicalLink : resource.entityPath
 

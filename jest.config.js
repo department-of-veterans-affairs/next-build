@@ -54,6 +54,7 @@ const customJestConfig = {
     '/node_modules/',
     '<rootDir>/example_tests',
     '<rootDir>/playwright',
+    '<rootDir>/scripts',
   ],
   transformIgnorePatterns: ['/dist/.+\\.js'],
 }
