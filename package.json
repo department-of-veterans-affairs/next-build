@@ -36,6 +36,8 @@
     "test:format": "APP_ENV=test prettier --check .",
     "test:types": "yarn build:env-loader && APP_ENV=test tsc --noEmit",
     "test:watch": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:watch.js",
+    "test:update-snapshots": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:update-snapshots.js",
+    "test:u": "yarn test:update-snapshots",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -o out/storybook-static --quiet"
   },
