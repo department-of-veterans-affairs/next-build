@@ -64,7 +64,11 @@
     {
       "files": ["*.ts", "*.tsx"],
       "parserOptions": {
-        "project": ["./tsconfig.json"]
+        "project": [
+          "./tsconfig.json",
+          "./packages/env-loader/tsconfig.json",
+          "./packages/proxy-fetcher/tsconfig.json"
+        ]
       }
     }
   ]

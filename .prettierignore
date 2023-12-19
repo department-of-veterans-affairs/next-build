@@ -10,3 +10,4 @@ storybook-static
 out
 .yarnrc.yml
 typedocs
+packages/*/dist

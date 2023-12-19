@@ -6,13 +6,14 @@ const target = path.resolve(
   __dirname,
   '..', // extra .. here to get out of next-build
   '..',
+  '..',
   'vets-website',
   'build',
   'localhost',
   'generated'
 )
-const symlinkPath = path.resolve(__dirname, '..', 'public', 'generated')
-const cmsDataPath = path.resolve(__dirname, '..', 'public', 'data', 'cms')
+const symlinkPath = path.resolve(__dirname, '..', '..', 'public', 'generated')
+const cmsDataPath = path.resolve(__dirname, '..', '..', 'public', 'data', 'cms')
 
 ;(async () => {
   try {
