@@ -1,10 +1,63 @@
 import { Command, Option } from 'commander'
 import { EnvVars } from '.'
 
+type AdditionalHelp = {
+  heading: string
+  commands: string[]
+}
+
+const ADDITIONAL_HELP: { [key: string]: AdditionalHelp[] } = {
+  test: [
+    {
+      heading: 'Watch mode',
+      commands: ['yarn test:watch'],
+    },
+    {
+      heading: 'With coverage report',
+      commands: ['yarn test:coverage'],
+    },
+    {
+      heading: 'Update test snapshots',
+      commands: ['yarn test:update-snapshots', 'yarn test:u'],
+    },
+    {
+      heading: 'Run Playwright E2E tests',
+      commands: ['yarn test:playwright'],
+    },
+  ],
+}
+
+const formatHelpText = (
+  scriptName: string,
+  helpCommands: AdditionalHelp[]
+): string => {
+  const outputLines: string[] = []
+  outputLines.push(`Additional \`${scriptName}\` commands:`)
+  helpCommands.forEach((helpCommand) => {
+    outputLines.push(`\n  ${helpCommand.heading}:`)
+    helpCommand.commands.forEach((terminalCommand) => {
+      outputLines.push(`\n    $ ${terminalCommand}`)
+    })
+  })
+  outputLines.push('\n')
+
+  return outputLines.join('')
+}
+
+const configureAdditionalHelpText = (
+  program: Command,
+  scriptName: string
+): void => {
+  const additionalHelp = ADDITIONAL_HELP[scriptName]
+  if (additionalHelp) {
+    program.addHelpText('beforeAll', formatHelpText(scriptName, additionalHelp))
+  }
+}
+
 /**
  * Parses CLI options from the command line into an object.
  */
-export const getCliOptions = (): EnvVars => {
+export const getCliOptions = (scriptName: string): EnvVars => {
   const program = new Command()
   program
     .option('--NEXT_IMAGE_DOMAIN <url>', 'Drupal image domain')
@@ -27,7 +80,8 @@ export const getCliOptions = (): EnvVars => {
     .option('--DRUPAL_SITE_ID <id>', 'Drupal site ID')
     .option('--REDIS_URL <url>', 'Redis URL')
     .option('--SITE_URL <url>', 'Origin used for generated absolute paths')
-    .parse()
 
-  return program.opts()
+  configureAdditionalHelpText(program, scriptName)
+
+  return program.parse().opts()
 }
