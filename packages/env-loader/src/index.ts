@@ -15,6 +15,15 @@ const getAllEnvVars = async (): Promise<EnvVars> => {
   // ENV FILE VARS
   const envVars = getEnvFileVars(process.env.APP_ENV)
 
+  // For now, don't fetch CMS feature flags for tests.
+  // Will fail CI.
+  if (process.env.APP_ENV === 'test') {
+    return {
+      ...envVars,
+      ...cliOptions,
+    }
+  }
+
   // CMS FEATURE FLAGS
   const drupalBaseUrlProp = 'NEXT_PUBLIC_DRUPAL_BASE_URL'
   const drupalBaseUrl =
