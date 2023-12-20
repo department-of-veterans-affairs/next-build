@@ -25,9 +25,9 @@ interface customWindow extends Window {
 declare const window: customWindow
 
 export interface LayoutProps {
+  bannerData: BannersData
+  headerFooterData: HeaderFooterData
   children?: React.ReactNode
-  bannerData?: BannersData
-  headerFooterData?: HeaderFooterData
   preview?: boolean
   resource?: StaticPropsResource<FormattedResource>
 }
