@@ -48,10 +48,6 @@ export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
         opts.context,
         {
           params: params().getQueryObject(),
-          // withAuth: {
-          //   clientId: process.env.DRUPAL_CLIENT_ID,
-          //   clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-          // }
         }
       )
     : // otherwise just lookup by uuid

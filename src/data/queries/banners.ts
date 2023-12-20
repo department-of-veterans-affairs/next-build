@@ -1,54 +1,36 @@
-import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
+import { QueryData, QueryFormatter } from 'next-drupal-query'
 import { NodeBanner } from '@/types/dataTypes/drupal/node'
 import {
-  Banner,
-  FacilityBanner,
-  PromoBanner,
+  BannerDisplayType,
+  BannerTypeMapping,
+  BannersData,
 } from '@/types/dataTypes/formatted/banners'
-import { queries } from '.'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-
-export const BannerDisplayType = {
-  PROMO_BANNER: 'promoBanner',
-  FACILITY_BANNER: 'facilityBanner',
-  BANNER: 'banner',
-}
-
-export const BannerTypeMapping = {
-  [BannerDisplayType.PROMO_BANNER]: 'node--promo_banner',
-  [BannerDisplayType.FACILITY_BANNER]: 'node--full_width_banner_alert',
-  [BannerDisplayType.BANNER]: 'node--banner',
-}
 
 export type BannerDataOpts = {
   itemPath?: string
-}
-
-export type BannerData = Array<
-  PromoBanner | Banner | FacilityBanner | NodeBanner
->
-
-// Define the query params for fetching footer menu data.
-export const facilityBannerParams: QueryParams<null> = () => {
-  return queries.getParams()
 }
 
 // The banner data endpoint is a custom endpoint provided by Drupal due to how banners are associated with a page.
 // A given page does not reference a banner node via entity reference, banner node types have a field that lists what
 // paths they are supposed to be visible on. This endpoint queries banners based on their path lists.
 // See docroot/modules/custom/va_gov_api/src/Resources/BannerAlerts.php in va.gov-cms for more info.
-export const data: QueryData<BannerDataOpts, BannerData> = async (opts) => {
-  const bannerUrl = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/banner-alerts?item-path=${opts.itemPath}`
+export const data: QueryData<BannerDataOpts, NodeBanner[]> = async (opts) => {
+  if (opts.itemPath) {
+    const bannerUrl = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/banner-alerts?item-path=${opts.itemPath}`
 
-  const response = await drupalClient.fetch(bannerUrl)
-  const data: [] | unknown = drupalClient.deserialize(await response.json())
-  return data as NodeBanner[]
+    const response = await drupalClient.fetch(bannerUrl)
+    const data: [] | unknown = drupalClient.deserialize(await response.json())
+
+    return data as NodeBanner[]
+  }
+
+  return []
 }
 
-export const formatter: QueryFormatter<
-  NodeBanner[],
-  Array<Banner | PromoBanner | FacilityBanner>
-> = (entities: NodeBanner[]) => {
+export const formatter: QueryFormatter<NodeBanner[], BannersData> = (
+  entities: NodeBanner[]
+) => {
   return entities?.map((banner) => {
     switch (banner?.type as string) {
       case BannerTypeMapping[BannerDisplayType.BANNER]:
