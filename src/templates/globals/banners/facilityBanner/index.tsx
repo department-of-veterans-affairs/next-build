@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { regionBaseURL } from '@/lib/utils/helpers'
+// import { regionBaseURL } from '@/lib/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { FacilityBanner as FormattedFacilityBanner } from '@/types/dataTypes/formatted/banners'
 
@@ -30,33 +30,33 @@ export const FacilityBanner = ({
     return () => window.removeEventListener('click', handler)
   }, [])
 
-  const findPath = path
-  const hideOnSubpages = inheritanceSubpages
+  // const findPath = path
+  // const hideOnSubpages = inheritanceSubpages
   const alertType = fieldAlertType === 'information' ? 'info' : fieldAlertType
 
-  const region = '/' + regionBaseURL(findPath)
-  const lastArg = findPath?.substring(findPath?.lastIndexOf('/'))
+  // const region = '/' + regionBaseURL(findPath)
+  // const lastArg = findPath?.substring(findPath?.lastIndexOf('/'))
 
   let content = body
-  let statusUrl = ''
+  const statusUrl = ''
 
-  if (bannerAlertVamcs) {
-    bannerAlertVamcs?.map((vamc) => {
-      if (region == vamc?.office?.path) {
-        setOutputStatus(true)
-        return outputStatus
-      }
-      if (
-        hideOnSubpages &&
-        lastArg != region &&
-        lastArg != '/operating-status'
-      ) {
-        setOutputStatus(false)
-        return outputStatus
-      }
-      statusUrl = vamc?.path
-    })
-  }
+  // if (bannerAlertVamcs) {
+  //   bannerAlertVamcs?.map((vamc) => {
+  //     if (region == vamc?.office?.path) {
+  //       setOutputStatus(true)
+  //       return outputStatus
+  //     }
+  //     if (
+  //       hideOnSubpages &&
+  //       lastArg != region &&
+  //       lastArg != '/operating-status'
+  //     ) {
+  //       setOutputStatus(false)
+  //       return outputStatus
+  //     }
+  //     statusUrl = vamc?.path
+  //   })
+  // }
 
   if (operatingStatus && statusUrl?.length) {
     content += `<p>
