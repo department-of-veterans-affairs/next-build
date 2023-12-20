@@ -4,6 +4,7 @@ import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStory } from '@/types/dataTypes/formatted/newsStory'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { DrupalClientAuth } from 'next-drupal'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -35,10 +36,10 @@ export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
         opts.context,
         {
           params: params().getQueryObject(),
-          withAuth: {
-            clientId: process.env.DRUPAL_CLIENT_ID,
-            clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-          }
+          // withAuth: {
+          //   clientId: process.env.DRUPAL_CLIENT_ID,
+          //   clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+          // },
         }
       )
     : // otherwise just lookup by uuid

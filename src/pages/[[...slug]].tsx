@@ -158,7 +158,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     // If resource is good, gather additional data for global elements.
     // The headerFooter data is cached, banner content is requested per page
     const { bannerData, headerFooterData } = await getGlobalElements(
-      pathInfo.jsonapi?.entryPoint,
       expandedContext.drupalPath
     )
 

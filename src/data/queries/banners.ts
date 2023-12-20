@@ -5,8 +5,8 @@ import {
   FacilityBanner,
   PromoBanner,
 } from '@/types/dataTypes/formatted/banners'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 
 export const BannerDisplayType = {
   PROMO_BANNER: 'promoBanner',
@@ -21,7 +21,6 @@ export const BannerTypeMapping = {
 }
 
 export type BannerDataOpts = {
-  jsonApiEntryPoint?: string
   itemPath?: string
 }
 
@@ -39,24 +38,11 @@ export const facilityBannerParams: QueryParams<null> = () => {
 // paths they are supposed to be visible on. This endpoint queries banners based on their path lists.
 // See docroot/modules/custom/va_gov_api/src/Resources/BannerAlerts.php in va.gov-cms for more info.
 export const data: QueryData<BannerDataOpts, BannerData> = async (opts) => {
-  const lookup = await drupalClient.fetch(
-    `${opts.jsonApiEntryPoint}/banner-alerts?item-path=${opts.itemPath}`
-  )
-  const bannerData = drupalClient.deserialize(
-    await lookup.json()
-  ) as NodeBanner[]
+  const bannerUrl = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/banner-alerts?item-path=${opts.itemPath}`
 
-  // do filtering for facility banner to gather additional data here or add it to banner endpoint up front
-  // const facilityBanners = bannerData.filter((banner) => banner.type === BannerTypeMapping[BannerDisplayType.FACILITY_BANNER])
-
-  // facilityBanners.forEach((banner) => {
-  //   // typo in this field name from the CMS
-  //   console.log(await drupalClient.getResource('node--vamc_operating_status_and_alerts', banner.field_banner_alert_vamcs.id, {
-  //     params: operatingStatusParams().getQueryObject()
-  //   }))
-  // })
-
-  return bannerData as NodeBanner[]
+  const response = await drupalClient.fetch(bannerUrl)
+  const data: [] | unknown = drupalClient.deserialize(await response.json())
+  return data as NodeBanner[]
 }
 
 export const formatter: QueryFormatter<
