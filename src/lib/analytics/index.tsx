@@ -2,9 +2,9 @@ import TagManager from 'react-gtm-module'
 
 export const GTM_ID = process.env.GOOGLE_TAG_MANAGER_ID
 export const TAG_MANAGER_ARGS = {
-  gtmId: process.env.GOOGLE_TAG_MANAGER_ID,
-  auth: process.env.GOOGLE_TAG_MANAGER_AUTH,
-  preview: process.env.GOOGLE_TAG_MANAGER_PREVIEW,
+  gtmId: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID,
+  auth: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_AUTH,
+  preview: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_PREVIEW,
 }
 
 /**
