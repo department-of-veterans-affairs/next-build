@@ -1,0 +1,25 @@
+import { {{name}} } from '@/types/drupal/node'
+import { queries } from '@/data/queries'
+import mockData from '@/mocks/{{name}}.mock.json'
+
+const {{name}}Mock: {{name}} = mockData
+
+describe('{{name}} formatData', () => {
+  let windowSpy
+
+  beforeEach(() => {
+    windowSpy = jest.spyOn(window, 'window', 'get')
+  })
+
+  afterEach(() => {
+    windowSpy.mockRestore()
+  })
+
+  test('outputs formatted data', () => {
+    windowSpy.mockImplementation(() => undefined)
+
+    expect(
+      queries.formatData('node--{{name}}', {{name}}Mock)
+    ).toMatchSnapshot()
+  })
+})

@@ -1,0 +1,67 @@
+import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
+import { drupalClient } from '@/lib/drupal/drupalClient'
+import { queries } from '.'
+import { Node{{name}} } from '@/types/drupal/node'
+import { {{name}} } from '@/types/formatted/{{name}}'
+import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+
+// Define the query params for fetching {{name}}.
+export const params: QueryParams<null> = () => {
+  return queries
+    .getParams()
+    // uncomment to include referenced entity data
+    // .addInclude([
+    //  'field_media',
+    //  'field_media.image',
+    //  'field_author',
+    //  'field_listing',
+    //  'field_administration',
+    // ])
+}
+
+// Define the option types for the data loader.
+export type {{name}}DataOpts = {
+  id: string
+  context?: ExpandedStaticPropsContext
+}
+
+// Implement the data loader.
+export const data: QueryData<{{name}}DataOpts, Node{{name}}> = async (
+  opts
+): Promise<Node{{name}}> => {
+  const entity = opts?.context?.preview
+    ? // need to use getResourceFromContext for unpublished revisions
+      await drupalClient.getResourceFromContext<Node{{name}}>(
+        'node--{{name}}',
+        opts.context,
+        {
+          params: params().getQueryObject(),
+        }
+      )
+    : // otherwise just lookup by uuid
+      await drupalClient.getResource<Node{{name}}>(
+        'node--{{name}}',
+        opts.id,
+        {
+          params: params().getQueryObject(),
+        }
+      )
+
+  return entity
+}
+
+export const formatter: QueryFormatter<Node{{name}}, {{name}}> = (
+  entity: Node{{name}}
+) => {
+  return {
+    id: entity.id,
+    entityId: entity.drupal_internal__nid,
+    entityPath: entity.path.alias,
+    type: entity.type,
+    published: entity.status,
+    moderationState: entity.moderation_state,
+    title: entity.title,
+    metatags: entity.metatag,
+    breadcrumbs: entity.breadcrumbs
+  }
+}
