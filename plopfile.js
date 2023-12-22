@@ -1,7 +1,7 @@
-// run `yarn plop` to use generators defined in this file
-// see READMEs/plop.md for more information
+// Run `yarn plop` to use the generators defined in this file.
+// see READMEs/generators.md for more information.
 module.exports = function (plop) {
-  // Create a new component with a test stub and Storybook entry
+  // Create a new component with a test stub and Storybook entry.
   plop.setGenerator('Component', {
     description: 'New React component',
     prompts: [
@@ -31,7 +31,7 @@ module.exports = function (plop) {
   })
 
   // Create a new data query. This defaults to Drupal boilerplate.
-  // TODO: option for non-drupal data sources
+  // TODO: option for non-drupal data sources.
   plop.setGenerator('Query', {
     description: 'New Data query',
     prompts: [
@@ -44,12 +44,12 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'src/data/queries/{{name}}.ts',
+        path: 'src/data/queries/{{camelCase name}}.ts',
         templateFile: 'generator-templates/query/query.hbs',
       },
       {
         type: 'add',
-        path: 'src/data/queries/tests/{{name}}.test.tsx',
+        path: 'src/data/queries/tests/{{camelCase name}}.test.tsx',
         templateFile: 'generator-templates/query/test.hbs',
       },
       {
@@ -57,6 +57,9 @@ module.exports = function (plop) {
         path: 'src/mocks/{{camelCase name}}.mock.json',
         templateFile: 'generator-templates/query/mock.hbs',
       },
+      // Strings can be added to print a comment in the terminal.
+      'You will need to manually import & add your query to src/data/queries/index.ts',
+      'Be sure to also run `yarn test:u` to update test snapshots for your new query!',
     ],
   })
 

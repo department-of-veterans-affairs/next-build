@@ -1,46 +1,44 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
-import { Node{{name}} } from '@/types/drupal/node'
-import { {{name}} } from '@/types/formatted/{{name}}'
+import { Node{{pascalCase name}} } from '@/types/drupal/node'
+import { {{pascalCase name}} } from '@/types/formatted/{{pascalCase name}}'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 
-// Define the query params for fetching {{name}}.
+// Define the query params for fetching node--{{snakeCase name}}.
 export const params: QueryParams<null> = () => {
   return queries
     .getParams()
-    // uncomment to include referenced entity data
+    // uncomment to add referenced entity data to the response
     // .addInclude([
     //  'field_media',
     //  'field_media.image',
-    //  'field_author',
-    //  'field_listing',
     //  'field_administration',
     // ])
 }
 
 // Define the option types for the data loader.
-export type {{name}}DataOpts = {
+export type {{pascalCase name}}DataOpts = {
   id: string
   context?: ExpandedStaticPropsContext
 }
 
 // Implement the data loader.
-export const data: QueryData<{{name}}DataOpts, Node{{name}}> = async (
+export const data: QueryData<{{pascalCase name}}DataOpts, Node{{pascalCase name}}> = async (
   opts
-): Promise<Node{{name}}> => {
+): Promise<Node{{pascalCase name}}> => {
   const entity = opts?.context?.preview
     ? // need to use getResourceFromContext for unpublished revisions
-      await drupalClient.getResourceFromContext<Node{{name}}>(
-        'node--{{name}}',
+      await drupalClient.getResourceFromContext<Node{{pascalCase name}}>(
+        'node--{{snakeCase name}}',
         opts.context,
         {
           params: params().getQueryObject(),
         }
       )
     : // otherwise just lookup by uuid
-      await drupalClient.getResource<Node{{name}}>(
-        'node--{{name}}',
+      await drupalClient.getResource<Node{{pascalCase name}}>(
+        'node--{{snakeCase name}}',
         opts.id,
         {
           params: params().getQueryObject(),
@@ -50,8 +48,8 @@ export const data: QueryData<{{name}}DataOpts, Node{{name}}> = async (
   return entity
 }
 
-export const formatter: QueryFormatter<Node{{name}}, {{name}}> = (
-  entity: Node{{name}}
+export const formatter: QueryFormatter<Node{{pascalCase name}}, {{pascalCase name}}> = (
+  entity: Node{{pascalCase name}}
 ) => {
   return {
     id: entity.id,

@@ -1,10 +1,10 @@
-import { {{name}} } from '@/types/drupal/node'
+import { {{pascalCase name}} } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/{{name}}.mock.json'
+import mockData from '@/mocks/{{pascalCase name}}.mock.json'
 
-const {{name}}Mock: {{name}} = mockData
+const {{pascalCase name}}Mock: {{pascalCase name}} = mockData
 
-describe('{{name}} formatData', () => {
+describe('{{pascalCase name}} formatData', () => {
   let windowSpy
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('{{name}} formatData', () => {
     windowSpy.mockImplementation(() => undefined)
 
     expect(
-      queries.formatData('node--{{name}}', {{name}}Mock)
+      queries.formatData('node--{{snakeCase name}}', {{pascalCase name}}Mock)
     ).toMatchSnapshot()
   })
 })
