@@ -9,12 +9,12 @@ import {
   LOVELL_RESOURCE_TYPES,
   LOVELL_BIFURCATED_RESOURCE_TYPES,
 } from './constants'
-import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
+import { StaticPathResource } from '@/types/formatted/staticPathResource'
 import { FormattedResource } from '@/data/queries'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
-import { SideNavItem, SideNavMenu } from '@/types/dataTypes/formatted/sideNav'
-import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
+import { SideNavItem, SideNavMenu } from '@/types/formatted/sideNav'
+import { BreadcrumbItem } from '@/types/drupal/field_type'
 
 export function isLovellResourceType(resourceType: ResourceType): boolean {
   return (LOVELL_RESOURCE_TYPES as readonly string[]).includes(resourceType)

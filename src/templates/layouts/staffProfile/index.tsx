@@ -1,5 +1,5 @@
 import { MediaImage } from '@/templates/common/mediaImage'
-import { StaffProfile as FormattedStaffProfile } from '@/types/dataTypes/formatted/staffProfile'
+import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
 
 export function StaffProfile({
   id,

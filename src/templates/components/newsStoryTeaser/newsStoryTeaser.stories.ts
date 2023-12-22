@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { MediaImage } from '@/types/formatted/media'
 
 const mediaImage: MediaImage = {
   id: '3d6716b3-fb66-4e63-9b21-bb9c024129d3',

@@ -1,7 +1,7 @@
 import { formatter } from '@/data/queries/banners'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { LayoutProps } from '@/templates/globals/wrapper'
-import { NodeBanner } from '@/types/dataTypes/drupal/node'
+import { NodeBanner } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 
 const nonSlugRoute = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/banner-alerts?item-path=/`

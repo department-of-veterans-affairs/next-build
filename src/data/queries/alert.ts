@@ -1,7 +1,7 @@
 // Define the query params for fetching block--alert.
-import { BlockAlert } from '@/types/dataTypes/drupal/block'
+import { BlockAlert } from '@/types/drupal/block'
 import { QueryFormatter } from 'next-drupal-query'
-import { Alert } from '@/types/dataTypes/formatted/alert'
+import { Alert } from '@/types/formatted/alert'
 
 export const formatter: QueryFormatter<BlockAlert, Alert> = (
   entity: BlockAlert

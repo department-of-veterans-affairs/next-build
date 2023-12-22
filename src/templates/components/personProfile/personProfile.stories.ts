@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { PersonProfile as FormattedPersonProfile } from '@/types/dataTypes/formatted/personProfile'
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { PersonProfile as FormattedPersonProfile } from '@/types/formatted/personProfile'
+import { MediaImage } from '@/types/formatted/media'
 import { PersonProfile } from '@/templates/components/personProfile'
 
 const mediaImage: MediaImage = {

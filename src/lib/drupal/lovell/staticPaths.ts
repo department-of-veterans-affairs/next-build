@@ -1,7 +1,7 @@
 import { LovellVariant } from './types'
 import { LOVELL } from './constants'
 import { getLovellVariantOfUrl, isLovellFederalResource } from './utils'
-import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
+import { StaticPathResource } from '@/types/formatted/staticPathResource'
 
 /**
  * Returns a static-path resource adjusted for `variant`

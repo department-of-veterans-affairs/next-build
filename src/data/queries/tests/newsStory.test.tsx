@@ -1,4 +1,4 @@
-import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
+import { NodeNewsStory } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/newsStory.mock.json'
 

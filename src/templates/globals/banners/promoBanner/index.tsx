@@ -1,5 +1,5 @@
 import { VaPromoBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { PromoBanner as FormattedPromoBanner } from '@/types/dataTypes/formatted/banners'
+import { PromoBanner as FormattedPromoBanner } from '@/types/formatted/banners'
 
 export const PromoBanner = ({
   id,

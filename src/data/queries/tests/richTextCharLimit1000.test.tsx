@@ -1,5 +1,5 @@
 import { queries } from '@/data/queries'
-import { ParagraphRichTextCharLimit1000 } from '@/types/dataTypes/drupal/paragraph'
+import { ParagraphRichTextCharLimit1000 } from '@/types/drupal/paragraph'
 import mockData from '@/mocks/richTextCharLimit1000.mock.json'
 
 const richTextMock: ParagraphRichTextCharLimit1000[] = mockData

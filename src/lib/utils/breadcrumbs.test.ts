@@ -4,7 +4,7 @@ import {
   transformBreadcrumbs,
   filterInvalidCrumbs,
 } from './breadcrumbs'
-import { BreadcrumbItem } from '@/types/dataTypes/drupal/field_type'
+import { BreadcrumbItem } from '@/types/drupal/field_type'
 
 describe('breadcrumbUtils', () => {
   describe('deriveLastBreadcrumbFromPath', () => {

@@ -1,5 +1,5 @@
 import { MediaImage } from '@/templates/common/mediaImage'
-import { PersonProfile as FormattedPersonProfile } from '@/types/dataTypes/formatted/personProfile'
+import { PersonProfile as FormattedPersonProfile } from '@/types/formatted/personProfile'
 
 export type PersonProfileTeaserProps = {
   title: string

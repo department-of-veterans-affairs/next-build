@@ -1,4 +1,4 @@
-import { NodeBanner } from '@/types/dataTypes/drupal/node'
+import { NodeBanner } from '@/types/drupal/node'
 import { queries } from '@/data/queries/'
 import mockData from '@/mocks/banners.mock.json'
 

@@ -1,7 +1,7 @@
 import Image from '@/templates/common/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { LinkTeaser as FormattedLinkTeaser } from '@/types/dataTypes/formatted/linkTeaser'
+import { LinkTeaser as FormattedLinkTeaser } from '@/types/formatted/linkTeaser'
 
 export const LinkTeaser = ({
   id,

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { MediaImage } from '@/types/formatted/media'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 // Language: typescript
 // Path: src/components/media/index.test.tsx

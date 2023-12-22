@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { MediaImage } from '@/types/formatted/media'
 import { NewsStory } from './index'
 
 const mediaImage: MediaImage = {
