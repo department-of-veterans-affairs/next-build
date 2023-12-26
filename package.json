@@ -85,7 +85,7 @@
     "@playwright/test": "^1.39.0",
     "@storybook/addon-actions": "^7.6.3",
     "@storybook/addon-essentials": "^7.6.3",
-    "@storybook/addon-interactions": "^7.6.5",
+    "@storybook/addon-interactions": "^7.6.6",
     "@storybook/addon-links": "^7.6.3",
     "@storybook/nextjs": "^7.6.3",
     "@storybook/node-logger": "^7.6.3",
