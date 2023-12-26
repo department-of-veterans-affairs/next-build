@@ -22,6 +22,9 @@ const Document = () => {
         />
         <link rel="stylesheet" href={`${ASSETS_URL}style.css`} />
 
+        {/* Preconnect to google tag manager domain */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+
         {/* Preload main fonts */}
         <link
           rel="preload"
@@ -106,6 +109,14 @@ const Document = () => {
           noModule
           strategy="afterInteractive"
           src={`${ASSETS_URL}polyfills.entry.js`}
+        />
+
+        {/* We participate in the US government’s analytics program. See the data at analytics.usa.gov. https://github.com/digital-analytics-program/gov-wide-code */}
+        <Script
+          src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=VA"
+          id="_fed_an_ua_tag"
+          strategy="afterInteractive"
+          async
         />
       </Head>
       <body className="merger">

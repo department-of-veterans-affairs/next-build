@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import type { ReactElement, ReactNode } from 'react'
 import { useEffect } from 'react'
 import { defineCustomElements } from '@department-of-veterans-affairs/web-components/loader'
-import { TAG_MANAGER_ARGS } from '@/lib/analytics'
+import { TAG_MANAGER_ARGS, pageview } from '@/lib/analytics'
 import TagManager from 'react-gtm-module'
 import '@/assets/styles/globals.css'
 
@@ -31,7 +31,17 @@ export default function MyApp({
   useEffect(() => {
     TagManager.initialize(TAG_MANAGER_ARGS)
     defineCustomElements()
-  }, [])
+
+    const handleRouteChange = (url: string) => {
+      pageview(url)
+    }
+
+    router.events.on('routeChangeComplete', handleRouteChange)
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return getLayout(<Component {...pageProps} key={router.asPath} />)
 }
