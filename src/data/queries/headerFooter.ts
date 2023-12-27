@@ -3,7 +3,7 @@ import { queries } from '.'
 import { Menu, HeaderMegaMenu } from '@/types/dataTypes/drupal/menu'
 import { HeaderFooterData } from '@/types/dataTypes/formatted/headerFooter'
 import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
-import { getMenu } from '@/lib/drupal/queryResources'
+import { getMenu } from '@/lib/drupal/drupalClient'
 
 export type RawHeaderFooterData = {
   footerColumns: Menu

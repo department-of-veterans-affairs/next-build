@@ -13,7 +13,7 @@ import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleResourceCollectionPage,
   entityBaseFields,
-} from './utils'
+} from '@/lib/utils/query'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
 

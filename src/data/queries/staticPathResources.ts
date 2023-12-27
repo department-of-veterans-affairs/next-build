@@ -13,7 +13,7 @@ import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResour
 import { FieldAdministration } from '@/types/dataTypes/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
-import { fetchAndConcatAllResourceCollectionPages } from './utils'
+import { fetchAndConcatAllResourceCollectionPages } from '@/lib/utils/query'
 
 const PAGE_SIZE = PAGE_SIZES[ADDITIONAL_RESOURCE_TYPES.STATIC_PATHS]
 

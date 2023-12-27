@@ -10,7 +10,7 @@ import { NodeEvent } from '@/types/dataTypes/drupal/node'
 import { Event } from '@/types/dataTypes/formatted/event'
 import { GetServerSidePropsContext } from 'next'
 import { MediaImage } from '@/types/dataTypes/formatted/media'
-import { entityBaseFields } from './utils'
+import { entityBaseFields } from '@/lib/utils/query'
 
 export const params: QueryParams<null> = () => {
   return queries

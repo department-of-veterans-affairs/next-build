@@ -4,7 +4,7 @@ import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStory } from '@/types/dataTypes/formatted/newsStory'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { entityBaseFields } from './utils'
+import { entityBaseFields } from '@/lib/utils/query'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
