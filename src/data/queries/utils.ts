@@ -2,6 +2,8 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { JsonApiResponse } from 'next-drupal'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
+import { NodeTypes } from '@/types/dataTypes/drupal/node'
+import { PublishedEntity } from '@/types/dataTypes/formatted/publishedEntity'
 
 type ResourceCollection<T> = {
   data: T[]
@@ -85,5 +87,20 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
     data: [firstPageData, ...subsequentPageData].flat(),
     totalItems,
     totalPages,
+  }
+}
+
+// Helper function to return a consistent set of base fields for resources
+export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
+  return {
+    id: entity.id,
+    entityId: entity.drupal_internal__nid,
+    entityPath: entity.path.alias,
+    type: entity.type,
+    published: entity.status,
+    moderationState: entity.moderation_state,
+    title: entity.title,
+    metatags: entity.metatag,
+    breadcrumbs: entity.breadcrumbs,
   }
 }

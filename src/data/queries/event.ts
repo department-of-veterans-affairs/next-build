@@ -10,6 +10,7 @@ import { NodeEvent } from '@/types/dataTypes/drupal/node'
 import { Event } from '@/types/dataTypes/formatted/event'
 import { GetServerSidePropsContext } from 'next'
 import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { entityBaseFields } from './utils'
 
 export const params: QueryParams<null> = () => {
   return queries
@@ -52,23 +53,16 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
   entity: NodeEvent
 ) => {
   return {
-    id: entity.id,
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path.alias,
-    type: entity.type,
-    published: entity.status,
-    title: entity.title,
+    ...entityBaseFields(entity),
     image: queries.formatData('media--image', {
       entity: entity.field_media,
       cropType: '2_1_large',
     }) as MediaImage,
     date: entity.created,
-    breadcrumbs: entity.breadcrumbs,
     socialLinks: {
       path: entity.path.alias,
       title: entity.title,
     },
-    metatags: entity.metatag,
     listing: entity.field_listing.path.alias,
     additionalInfo: entity.field_additional_information_abo,
     address: entity.field_address,

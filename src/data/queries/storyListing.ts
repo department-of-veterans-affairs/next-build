@@ -12,6 +12,7 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleResourceCollectionPage,
+  entityBaseFields,
 } from './utils'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
@@ -117,15 +118,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
-    id: entity.id,
-    breadcrumbs: entity.breadcrumbs,
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path.alias,
-    type: entity.type,
-    published: entity.status,
-    moderationState: entity.moderation_state,
-    title: entity.title,
-    metatags: entity.metatag,
+    ...entityBaseFields(entity),
     introText: entity.field_intro_text,
     stories: formattedStories,
     menu: formattedMenu,

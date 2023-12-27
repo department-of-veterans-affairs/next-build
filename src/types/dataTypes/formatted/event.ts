@@ -1,8 +1,7 @@
-import { BreadcrumbItem } from '../drupal/field_type'
 import { NodeHealthCareLocalFacility } from '../drupal/node'
 import { urlOfOnlineEvent } from '../drupal/node'
 import { MediaImage } from './media'
-import { MetaTag } from './metatags'
+import { PublishedEntity } from './publishedEntity'
 
 interface DateTimeRangeItem {
   value: string
@@ -25,16 +24,9 @@ interface Link {
   }
 }
 
-export interface Event {
-  id: string
-  entityId: number
-  entityPath: string
-  type: string
-  published: boolean
-  title: string
+export type Event = PublishedEntity & {
   image: MediaImage | null
   date: string
-  breadcrumbs: BreadcrumbItem[]
   socialLinks: {
     path: string
     title: string
@@ -59,6 +51,5 @@ export interface Event {
   locationType: string
   description: string
   link: Link | null
-  metatags: MetaTag[]
   urlOfOnlineEvent: urlOfOnlineEvent
 }

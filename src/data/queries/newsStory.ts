@@ -4,6 +4,7 @@ import { queries } from '.'
 import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { NewsStory } from '@/types/dataTypes/formatted/newsStory'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { entityBaseFields } from './utils'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -53,14 +54,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
   entity: NodeNewsStory
 ) => {
   return {
-    id: entity.id,
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path.alias,
-    type: entity.type,
-    published: entity.status,
-    moderationState: entity.moderation_state,
-    title: entity.title,
-    metatags: entity.metatag,
+    ...entityBaseFields(entity),
     image: queries.formatData('media--image', {
       entity: entity.field_media,
       cropType: '2_1_large',
@@ -70,7 +64,6 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
     introText: entity.field_intro_text,
     bodyContent: entity.field_full_story,
     date: entity.created,
-    breadcrumbs: entity.breadcrumbs,
     socialLinks: {
       path: entity.path.alias,
       title: entity.title,
