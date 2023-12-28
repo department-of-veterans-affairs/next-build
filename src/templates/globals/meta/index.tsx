@@ -170,6 +170,7 @@ export const Meta = ({
 
   // Calculate when to show iOS banner
   // See: https://github.com/department-of-veterans-affairs/content-build/blob/f898e20d02cbf011e6e26976de95c5d33eace1c0/src/site/filters/liquid.js#L1741-L1756
+  // TODO: How to test this? These routes 404 in my local environment.
   const urlsForBanner = [
     '/health-care/refill-track-prescriptions',
     '/health-care/secure-messaging',
