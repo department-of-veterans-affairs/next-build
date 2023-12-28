@@ -1,11 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
-import {
-  NodeStoryListing,
-  NodeNewsStory,
-  NodeTypes,
-} from '@/types/dataTypes/drupal/node'
+import { NodeStoryListing, NodeNewsStory } from '@/types/dataTypes/drupal/node'
 import { Menu } from '@/types/dataTypes/drupal/menu'
 import { StoryListing } from '@/types/dataTypes/formatted/storyListing'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
