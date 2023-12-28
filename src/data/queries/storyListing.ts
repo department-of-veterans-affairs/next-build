@@ -12,9 +12,11 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleResourceCollectionPage,
+} from '@/lib/utils/query'
+import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
-} from '@/lib/utils/query'
+} from '@/lib/drupal/queryResources'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
 

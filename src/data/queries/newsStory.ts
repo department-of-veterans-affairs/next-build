@@ -3,7 +3,10 @@ import { queries } from '.'
 import { NodeNewsStory } from '@/types/drupal/node'
 import { NewsStory } from '@/types/formatted/newsStory'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { entityBaseFields, fetchSingleEntityOrPreview } from '@/lib/utils/query'
+import {
+  entityBaseFields,
+  fetchSingleEntityOrPreview,
+} from '@/lib/drupal/queryResources'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {

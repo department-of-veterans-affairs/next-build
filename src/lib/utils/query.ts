@@ -2,8 +2,6 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { JsonApiResponse } from 'next-drupal'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { NodeTypes } from '@/types/drupal/node'
-import { PublishedEntity } from '@/types/formatted/publishedEntity'
 
 type ResourceCollection<T> = {
   data: T[]
@@ -88,34 +86,4 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
     totalItems,
     totalPages,
   }
-}
-
-// Helper function to return a consistent set of base fields for resources
-export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
-  return {
-    id: entity.id,
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path.alias,
-    type: entity.type,
-    published: entity.status,
-    moderationState: entity.moderation_state,
-    title: entity.title,
-    metatags: entity.metatag,
-    breadcrumbs: entity.breadcrumbs,
-  }
-}
-
-// Consistent handler to fetch a node entity from a normal route or a preview route
-export async function fetchSingleEntityOrPreview(opts, type, params) {
-  const entity = opts?.context?.preview
-    ? // need to use getResourceFromContext for unpublished revisions
-      await drupalClient.getResourceFromContext(type, opts.context, {
-        params: params().getQueryObject(),
-      })
-    : // otherwise just lookup by uuid
-      await drupalClient.getResource(type, opts.id, {
-        params: params().getQueryObject(),
-      })
-
-  return entity
 }
