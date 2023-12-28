@@ -194,7 +194,7 @@ export const Event = ({
             {/* CTA */}
             {(link || additionalInfo || eventCTA) && (
               <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1">
-                {isEventInPast(mostRecentDate.value) ? (
+                {isEventInPast(mostRecentDate?.value) ? (
                   <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
                     This event already happened.
                   </p>
@@ -256,9 +256,8 @@ export const Event = ({
                   View other times for this event
                   <i
                     aria-hidden="true"
-                    className={`fa ${
-                      showRecurringEvents ? 'fa-minus' : 'fa-plus'
-                    }`}
+                    className={`fa ${showRecurringEvents ? 'fa-minus' : 'fa-plus'
+                      }`}
                     id="expand-recurring-events-icon"
                   ></i>
                 </button>
@@ -277,7 +276,7 @@ export const Event = ({
                           data-description={description}
                           data-end={dateRange.endValue}
                           data-location={directionsString}
-                          data-start={dateRange.value}
+                          data-start={dateRange?.value}
                           data-subject={title}
                           href={socialLinks?.path}
                           rel="noreferrer noopener"
