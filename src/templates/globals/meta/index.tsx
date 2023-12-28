@@ -119,11 +119,11 @@ const DefaultTags = ({
   // resource?.fieldDescription ||
   // resource?.fieldIntroText
 
-  // TODO: How to get the base URL for this purpose?
-  // NEXT_IMAGE_DOMAIN was not coming through in my testing.
+  // Switch to loading the images from the public folder.
+  // and remove this variable.
   const imageHostUrl = process.env?.NEXT_PUBLIC_DRUPAL_BASE_URL
 
-  // TODO: Should there be a default set of keywords?
+  // TODO: Make keywords come from Drupal. Delete this and make note in ticket.
   const keywords = 'veterans, benefits, health care, va'
 
   return (
@@ -149,8 +149,6 @@ const DefaultTags = ({
         property="og:image"
       />
 
-      {keywords && <meta name="keywords" content={keywords} />}
-
       <title>{metaTitle}</title>
     </Head>
   )
@@ -166,11 +164,11 @@ export const Meta = ({
     'canonicalLink' in resource ? resource.canonicalLink : resource.entityPath
 
   // TODO: Does this need a fallback if never updated? Use the created date?
-  const lastUpdated = resource?.lastSavedByAnEditor ?? 'foo'
+  const lastUpdated = resource.lastUpdated
 
   // Calculate when to show iOS banner
   // See: https://github.com/department-of-veterans-affairs/content-build/blob/f898e20d02cbf011e6e26976de95c5d33eace1c0/src/site/filters/liquid.js#L1741-L1756
-  // TODO: How to test this? These routes 404 in my local environment.
+  // TODO: Test with a URL that does work and put note in PR for QA.
   const urlsForBanner = [
     '/health-care/refill-track-prescriptions',
     '/health-care/secure-messaging',

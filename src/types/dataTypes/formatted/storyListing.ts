@@ -20,5 +20,5 @@ export type StoryListing = PublishedEntity & {
   entityPath: string
   breadcrumbs: BreadcrumbItem[]
   metatags: MetaTag[]
-  lastSavedByAnEditor?: string
+  lastUpdated: string
 }

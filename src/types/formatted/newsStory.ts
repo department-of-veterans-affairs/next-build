@@ -22,5 +22,5 @@ export type NewsStory = PublishedEntity & {
   socialLinks: SocialLinksProps
   listing: string
   administration: Administration
-  lastSavedByAnEditor?: string
+  lastUpdated: string
 }

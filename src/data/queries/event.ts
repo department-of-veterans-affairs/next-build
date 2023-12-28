@@ -71,6 +71,6 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     description: entity.field_description,
     link: entity.field_link,
     urlOfOnlineEvent: entity.field_url_of_an_online_event,
-    lastSavedByAnEditor: entity.field_last_saved_by_an_editor,
+    lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
   }
 }

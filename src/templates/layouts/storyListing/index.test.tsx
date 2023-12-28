@@ -38,6 +38,7 @@ let storyListingProps: FormattedStoryListing = {
       tag: 'meta',
     },
   ],
+  lastUpdated: '2021-07-01T14:00:00.000Z',
 }
 
 describe('<StoryListing> component renders', () => {
