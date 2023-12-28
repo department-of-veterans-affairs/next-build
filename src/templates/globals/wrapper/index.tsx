@@ -4,11 +4,8 @@ import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 import { HeaderFooterData } from '@/types/formatted/headerFooter'
-import {
-  BannerDisplayType,
-  BannerTypeMapping,
-  BannersData,
-} from '@/types/formatted/banners'
+import { BannersData } from '@/types/formatted/banners'
+import { NodeBannerType } from '@/types/drupal/node'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
 import { handleSkipLink } from '@/lib/utils/handleSkipLink'
@@ -34,11 +31,11 @@ export interface LayoutProps {
 
 export const formatBannerType = (bannerData) => {
   switch (bannerData?.type as string) {
-    case BannerTypeMapping[BannerDisplayType.PROMO_BANNER]:
+    case NodeBannerType.PROMO_BANNER:
       return <PromoBanner key={bannerData.id} {...bannerData} />
-    case BannerTypeMapping[BannerDisplayType.FACILITY_BANNER]:
+    case NodeBannerType.FACILITY_BANNER:
       return <FacilityBanner key={bannerData.id} {...bannerData} />
-    case BannerTypeMapping[BannerDisplayType.BANNER]:
+    case NodeBannerType.BANNER:
       return <Banner key={bannerData.id} {...bannerData} />
     default:
       return null

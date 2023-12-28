@@ -1,10 +1,6 @@
 import { QueryData, QueryFormatter } from 'next-drupal-query'
-import { NodeBanner } from '@/types/drupal/node'
-import {
-  BannerDisplayType,
-  BannerTypeMapping,
-  BannersData,
-} from '@/types/formatted/banners'
+import { NodeBanner, NodeBannerType } from '@/types/drupal/node'
+import { BannersData } from '@/types/formatted/banners'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 
 export type BannerDataOpts = {
@@ -33,7 +29,7 @@ export const formatter: QueryFormatter<NodeBanner[], BannersData> = (
 ) => {
   return entities?.map((banner) => {
     switch (banner?.type as string) {
-      case BannerTypeMapping[BannerDisplayType.BANNER]:
+      case NodeBannerType.BANNER:
         // this field returns 'perm' or 'dismiss' string instead of bool
         const dismiss = banner.field_dismissible_option === 'dismiss'
 
@@ -45,7 +41,7 @@ export const formatter: QueryFormatter<NodeBanner[], BannersData> = (
           dismiss,
           type: banner.type,
         }
-      case BannerTypeMapping[BannerDisplayType.PROMO_BANNER]:
+      case NodeBannerType.PROMO_BANNER:
         return {
           id: banner.id,
           title: banner.title,
@@ -53,7 +49,7 @@ export const formatter: QueryFormatter<NodeBanner[], BannersData> = (
           alertType: banner.field_promo_type,
           type: banner.type,
         }
-      case BannerTypeMapping[BannerDisplayType.FACILITY_BANNER]:
+      case NodeBannerType.FACILITY_BANNER:
         return {
           id: banner.id,
           title: banner.title,

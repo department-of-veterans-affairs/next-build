@@ -1,15 +1,3 @@
-export const BannerDisplayType = {
-  PROMO_BANNER: 'promoBanner',
-  FACILITY_BANNER: 'facilityBanner',
-  BANNER: 'banner',
-}
-
-export const BannerTypeMapping = {
-  [BannerDisplayType.PROMO_BANNER]: 'node--promo_banner',
-  [BannerDisplayType.FACILITY_BANNER]: 'node--full_width_banner_alert',
-  [BannerDisplayType.BANNER]: 'node--banner',
-}
-
 export type BannersData = Array<Banner | PromoBanner | FacilityBanner>
 
 export type Banner = {
