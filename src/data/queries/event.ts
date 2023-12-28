@@ -4,13 +4,12 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeEvent } from '@/types/dataTypes/drupal/node'
 import { Event } from '@/types/dataTypes/formatted/event'
 import { GetServerSidePropsContext } from 'next'
 import { MediaImage } from '@/types/dataTypes/formatted/media'
-import { entityBaseFields } from '@/lib/utils/query'
+import { entityBaseFields, fetchSingleEntityOrPreview } from '@/lib/utils/query'
 
 export const params: QueryParams<null> = () => {
   return queries
@@ -33,19 +32,12 @@ export type EventDataOpts = QueryOpts<{
 export const data: QueryData<EventDataOpts, NodeEvent> = async (
   opts
 ): Promise<NodeEvent> => {
-  const entity = opts?.context?.preview
-    ? // need to use getResourceFromContext for unpublished revisions
-      await drupalClient.getResourceFromContext<NodeEvent>(
-        'node--event',
-        opts.context,
-        {
-          params: params().getQueryObject(),
-        }
-      )
-    : // otherwise just lookup by uuid
-      await drupalClient.getResource<NodeEvent>('node--event', opts.id, {
-        params: params().getQueryObject(),
-      })
+  const entity = (await fetchSingleEntityOrPreview(
+    opts,
+    'node--event',
+    params
+  )) as NodeEvent
+
   return entity
 }
 

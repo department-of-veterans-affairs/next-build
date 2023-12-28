@@ -104,3 +104,18 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
     breadcrumbs: entity.breadcrumbs,
   }
 }
+
+// Consistent handler to fetch a node entity from a normal route or a preview route
+export async function fetchSingleEntityOrPreview(opts, type, params) {
+  const entity = opts?.context?.preview
+    ? // need to use getResourceFromContext for unpublished revisions
+      await drupalClient.getResourceFromContext(type, opts.context, {
+        params: params().getQueryObject(),
+      })
+    : // otherwise just lookup by uuid
+      await drupalClient.getResource(type, opts.id, {
+        params: params().getQueryObject(),
+      })
+
+  return entity
+}

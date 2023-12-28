@@ -1,10 +1,9 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
-import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
+import { NodeNewsStory, NodeTypes } from '@/types/dataTypes/drupal/node'
 import { NewsStory } from '@/types/dataTypes/formatted/newsStory'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { entityBaseFields } from '@/lib/utils/query'
+import { entityBaseFields, fetchSingleEntityOrPreview } from '@/lib/utils/query'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -29,23 +28,11 @@ export type NewsStoryDataOpts = {
 export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
   opts
 ): Promise<NodeNewsStory> => {
-  const entity = opts?.context?.preview
-    ? // need to use getResourceFromContext for unpublished revisions
-      await drupalClient.getResourceFromContext<NodeNewsStory>(
-        'node--news_story',
-        opts.context,
-        {
-          params: params().getQueryObject(),
-        }
-      )
-    : // otherwise just lookup by uuid
-      await drupalClient.getResource<NodeNewsStory>(
-        'node--news_story',
-        opts.id,
-        {
-          params: params().getQueryObject(),
-        }
-      )
+  const entity = (await fetchSingleEntityOrPreview(
+    opts,
+    'node--news_story',
+    params
+  )) as NodeNewsStory
 
   return entity
 }
