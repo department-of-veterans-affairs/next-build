@@ -5,7 +5,6 @@ import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedResource } from '@/data/queries'
 import { generateAbsoluteUrlFromEnv } from '@/lib/utils/environment'
 import { BUILD_TYPES } from '@/lib/constants/environment'
-import * as process from 'process'
 
 const LastUpdated = ({ timestamp }: { timestamp: string | number }) => {
   if (timestamp) {
@@ -94,10 +93,11 @@ const DefaultTags = ({
   //   ? `${resource.title} | ${resource.regionOrOffice}`
   //   : null
 
+  // TODO: Find out where the fields above come from.
   const metaTitle = 'foo'
-  // regionOrOffice ??
-  // resource?.fieldOffice?.entity.title ??
-  // resource?.entityLabel ??
+  // regionOrOffice ||
+  // resource?.fieldOffice?.entity?.title ||
+  // resource?.entityLabel ||
   // resource?.title
 
   // <!-- Derive the meta description. -->
@@ -111,16 +111,20 @@ const DefaultTags = ({
   // {% assign description = fieldIntroText.processed | strip_html %}
   // {% endif %}
 
-  // TODO: Strip html from description.
+  // TODO: Find out how where the fields above come from.
+  // TODO: Strip html and/or newlines from description variables.
   const description = 'foo'
-  // resource?.fieldClinicalHealthServi ??
-  // resource?.fieldPressReleaseBlurb ??
-  // resource?.fieldDescription ??
+  // resource?.fieldClinicalHealthServi ||
+  // resource?.fieldPressReleaseBlurb ||
+  // resource?.fieldDescription ||
   // resource?.fieldIntroText
 
-  const hostUrl = process.env.NEXT_PUBLIC_HOST_URL
-  const keywords = 'foo'
-  // resource?.keywords ?? 'foo'
+  // TODO: How to get the base URL for this purpose?
+  // NEXT_IMAGE_DOMAIN was not coming through in my testing.
+  const imageHostUrl = process.env?.NEXT_PUBLIC_DRUPAL_BASE_URL
+
+  // TODO: Should there be a default set of keywords?
+  const keywords = 'veterans, benefits, health care, va'
 
   return (
     <Head>
@@ -128,11 +132,11 @@ const DefaultTags = ({
       <meta property="og:title" content={metaTitle} />
 
       {/* Twitter tags. */}
-      <meta name="twitter:title" content={metaTitle ?? resource?.entityPath} />
+      <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:card" content="Summary" />
       <meta
         name="twitter:image"
-        content={hostUrl + '/img/design/logo/va-og-twitter-image.png'}
+        content={imageHostUrl + '/img/design/logo/va-og-twitter-image.png'}
       />
       <meta name="twitter:site" content="@DeptVetAffairs" />
 
@@ -141,13 +145,13 @@ const DefaultTags = ({
       <meta content={description} name="description" />
 
       <meta
-        content={hostUrl + '/img/design/logo/va-og-image.png'}
+        content={imageHostUrl + '/img/design/logo/va-og-image.png'}
         property="og:image"
       />
 
       {keywords && <meta name="keywords" content={keywords} />}
 
-      <title>{resource.title}</title>
+      <title>{metaTitle}</title>
     </Head>
   )
 }
@@ -202,7 +206,7 @@ export const Meta = ({
       {lastUpdated && <LastUpdated timestamp={lastUpdated} />}
       {showIOSBanner && <IOSBanner />}
 
-      {resource.metatags?.length > 0 ? (
+      {resource.metatags?.length > 1000 ? (
         <CustomTags tags={resource.metatags} />
       ) : (
         <DefaultTags resource={resource} />
