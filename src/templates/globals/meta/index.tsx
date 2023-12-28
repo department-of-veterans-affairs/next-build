@@ -207,7 +207,7 @@ export const Meta = ({
       {lastUpdated && <LastUpdated timestamp={lastUpdated} />}
       {showIOSBanner && <IOSBanner />}
 
-      {resource.metatags?.length > 1000 ? (
+      {resource.metatags?.length > 0 ? (
         <CustomTags tags={resource.metatags} />
       ) : (
         <DefaultTags resource={resource} />
