@@ -74,6 +74,7 @@ exports[`node--event formatData outputs formatted data 1`] = `
   "facilityLocation": null,
   "id": "16349f16-be65-46e3-9660-1d3d598a4a0b",
   "image": null,
+  "lastSavedByAnEditor": null,
   "link": null,
   "listing": "/central-iowa-health-care/events",
   "locationHumanReadable": "Walker Johnston Park",

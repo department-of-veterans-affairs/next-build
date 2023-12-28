@@ -26,6 +26,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "field_email_address": null,
     "field_intro_text": null,
     "field_last_name": "Gottschalk",
+    "field_last_saved_by_editor": null,
     "field_media": null,
     "field_meta_tags": null,
     "field_name_first": "Keith",
@@ -362,6 +363,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "width": 456,
   },
   "introText": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
+  "lastSavedByAnEditor": null,
   "listing": "/pittsburgh-health-care/stories",
   "metatags": [
     {
