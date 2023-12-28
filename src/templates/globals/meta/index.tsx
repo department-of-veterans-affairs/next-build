@@ -119,10 +119,6 @@ const DefaultTags = ({
   // resource?.fieldDescription ||
   // resource?.fieldIntroText
 
-  // Switch to loading the images from the public folder.
-  // and remove this variable.
-  const imageHostUrl = process.env?.NEXT_PUBLIC_DRUPAL_BASE_URL
-
   // TODO: Make keywords come from Drupal. Delete this and make note in ticket.
   const keywords = 'veterans, benefits, health care, va'
 
@@ -136,18 +132,15 @@ const DefaultTags = ({
       <meta name="twitter:card" content="Summary" />
       <meta
         name="twitter:image"
-        content={imageHostUrl + '/img/design/logo/va-og-twitter-image.png'}
+        content="/img/design/logo/va-og-twitter-image.png"
       />
       <meta name="twitter:site" content="@DeptVetAffairs" />
 
-      <meta content={description} property="og:description" />
-      <meta content={description} name="twitter:description" />
-      <meta content={description} name="description" />
+      <meta property="og:description" content={description} />
+      <meta name="twitter:description" content={description} />
+      <meta name="description" content={description} />
 
-      <meta
-        content={imageHostUrl + '/img/design/logo/va-og-image.png'}
-        property="og:image"
-      />
+      <meta property="og:image" content="/img/design/logo/va-og-image.png" />
 
       <title>{metaTitle}</title>
     </Head>
@@ -163,13 +156,13 @@ export const Meta = ({
   const canonicalLink =
     'canonicalLink' in resource ? resource.canonicalLink : resource.entityPath
 
-  // TODO: Does this need a fallback if never updated? Use the created date?
   const lastUpdated = resource.lastUpdated
 
-  // Calculate when to show iOS banner
+  // Calculate when to show iOS banner.
   // See: https://github.com/department-of-veterans-affairs/content-build/blob/f898e20d02cbf011e6e26976de95c5d33eace1c0/src/site/filters/liquid.js#L1741-L1756
-  // TODO: Test with a URL that does work and put note in PR for QA.
   const urlsForBanner = [
+    // For testing purposes you can uncomment this following route.
+    // '/central-iowa-health-care/events/52265',
     '/health-care/refill-track-prescriptions',
     '/health-care/secure-messaging',
     '/health-care/get-medical-records',
