@@ -6,7 +6,7 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
-} from '@/lib/drupal/queryResources'
+} from '@/lib/drupal/query'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {

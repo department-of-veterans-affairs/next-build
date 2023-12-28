@@ -12,7 +12,7 @@ import { MediaImage } from '@/types/formatted/media'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
-} from '@/lib/drupal/queryResources'
+} from '@/lib/drupal/query'
 
 export const params: QueryParams<null> = () => {
   return queries
