@@ -1,4 +1,4 @@
-import { NodeEvent } from '@/types/dataTypes/drupal/node'
+import { NodeEvent } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/event.mock.json'
 

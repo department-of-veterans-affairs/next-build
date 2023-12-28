@@ -5,9 +5,9 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { queries } from '.'
-import { NodePersonProfile } from '@/types/dataTypes/drupal/node'
+import { NodePersonProfile } from '@/types/drupal/node'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { PersonProfile } from '@/types/dataTypes/formatted/personProfile'
+import { PersonProfile } from '@/types/formatted/personProfile'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {

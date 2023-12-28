@@ -5,10 +5,10 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { queries } from '.'
-import { NodeEvent } from '@/types/dataTypes/drupal/node'
-import { Event } from '@/types/dataTypes/formatted/event'
+import { NodeEvent } from '@/types/drupal/node'
+import { Event } from '@/types/formatted/event'
 import { GetServerSidePropsContext } from 'next'
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { MediaImage } from '@/types/formatted/media'
 import { entityBaseFields, fetchSingleEntityOrPreview } from '@/lib/utils/query'
 
 export const params: QueryParams<null> = () => {

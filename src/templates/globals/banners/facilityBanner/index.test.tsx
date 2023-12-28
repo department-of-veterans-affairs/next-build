@@ -1,6 +1,6 @@
 import { render, screen } from 'test-utils'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
-import { FacilityBanner as FormattedFacilityBanner } from '@/types/dataTypes/formatted/banners'
+import { FacilityBanner as FormattedFacilityBanner } from '@/types/formatted/banners'
 
 const bannerData: FormattedFacilityBanner = {
   id: 'ccd9d30f-78f9-4358-80d7-191f99b18d43',

@@ -1,4 +1,4 @@
-import { DrupalMediaImage } from '@/types/dataTypes/drupal/media'
+import { DrupalMediaImage } from '@/types/drupal/media'
 import { queries } from '@/data/queries/'
 import mockData from '@/mocks/mediaImage.mock.json'
 

@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
-import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
-import { NewsStory } from '@/types/dataTypes/formatted/newsStory'
+import { NodeNewsStory } from '@/types/drupal/node'
+import { NewsStory } from '@/types/formatted/newsStory'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { entityBaseFields, fetchSingleEntityOrPreview } from '@/lib/utils/query'
 

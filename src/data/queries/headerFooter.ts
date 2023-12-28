@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
-import { Menu, HeaderMegaMenu } from '@/types/dataTypes/drupal/menu'
-import { HeaderFooterData } from '@/types/dataTypes/formatted/headerFooter'
+import { Menu, HeaderMegaMenu } from '@/types/drupal/menu'
+import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
 import { getMenu } from '@/lib/drupal/drupalClient'
 

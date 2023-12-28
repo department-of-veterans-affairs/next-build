@@ -1,6 +1,6 @@
 // TODO: refactor this file to the @data/queries directory
-import { ParagraphStaffProfile } from '@/types/dataTypes/drupal/paragraph'
-import { StaffProfile } from '@/types/dataTypes/formatted/staffProfile'
+import { ParagraphStaffProfile } from '@/types/drupal/paragraph'
+import { StaffProfile } from '@/types/formatted/staffProfile'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { queries } from '@/data/queries'
 

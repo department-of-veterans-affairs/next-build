@@ -1,8 +1,5 @@
 import { MediaImage } from './media'
-import {
-  NodeOffice,
-  NodeHealthCareRegionPage,
-} from '@/types/dataTypes/drupal/node'
+import { NodeOffice, NodeHealthCareRegionPage } from '@/types/drupal/node'
 
 export type PersonProfile = {
   id: string

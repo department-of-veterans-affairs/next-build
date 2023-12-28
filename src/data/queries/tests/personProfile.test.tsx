@@ -1,4 +1,4 @@
-import { NodePersonProfile } from '@/types/dataTypes/drupal/node'
+import { NodePersonProfile } from '@/types/drupal/node'
 import { queries } from '@/data/queries/'
 import mockData from '@/mocks/personProfile.mock.json'
 

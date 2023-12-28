@@ -1,6 +1,6 @@
 import { PublishedEntity } from './publishedEntity'
-import { NewsStoryTeaser } from '@/types/dataTypes/formatted/newsStory'
-import { SideNavMenu } from '@/types/dataTypes/formatted/sideNav'
+import { NewsStoryTeaser } from '@/types/formatted/newsStory'
+import { SideNavMenu } from '@/types/formatted/sideNav'
 
 export type StoryListingLink = {
   path: string

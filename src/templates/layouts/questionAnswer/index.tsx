@@ -13,7 +13,7 @@
  */
 import map from 'lodash/map'
 import { Button } from '@/templates/common/button'
-import { QuestionAnswer as FormattedQuestionAnswer } from '@/types/dataTypes/formatted/questionAnswer'
+import { QuestionAnswer as FormattedQuestionAnswer } from '@/types/formatted/questionAnswer'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { LinkTeaser } from '@/templates/components/linkTeaser'
 

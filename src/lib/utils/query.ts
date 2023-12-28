@@ -2,8 +2,8 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { JsonApiResponse } from 'next-drupal'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { NodeTypes } from '@/types/dataTypes/drupal/node'
-import { PublishedEntity } from '@/types/dataTypes/formatted/publishedEntity'
+import { NodeTypes } from '@/types/drupal/node'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
 
 type ResourceCollection<T> = {
   data: T[]

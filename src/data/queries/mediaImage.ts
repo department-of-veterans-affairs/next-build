@@ -5,9 +5,9 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { queries } from '.'
-import { DrupalMediaImage } from '@/types/dataTypes/drupal/media'
+import { DrupalMediaImage } from '@/types/drupal/media'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { MediaImage } from '@/types/formatted/media'
 
 type DrupalMediaImageData = {
   entity: DrupalMediaImage

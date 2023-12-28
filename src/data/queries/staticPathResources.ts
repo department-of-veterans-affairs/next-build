@@ -9,8 +9,8 @@ import {
   ADDITIONAL_RESOURCE_TYPES,
   ResourceType,
 } from '@/lib/constants/resourceTypes'
-import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
-import { FieldAdministration } from '@/types/dataTypes/drupal/field_type'
+import { StaticPathResource } from '@/types/formatted/staticPathResource'
+import { FieldAdministration } from '@/types/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
 import { fetchAndConcatAllResourceCollectionPages } from '@/lib/utils/query'

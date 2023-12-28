@@ -1,7 +1,7 @@
 import { ComponentType } from 'react'
 import { PersonProfileTeaserProps } from '@/templates/components/personProfile'
 import { SocialLinksProps } from '@/templates/common/socialLinks'
-import { Administration } from '@/types/dataTypes/formatted/administration'
+import { Administration } from '@/types/formatted/administration'
 import { PublishedEntity } from './publishedEntity'
 import { MediaImage } from './media'
 

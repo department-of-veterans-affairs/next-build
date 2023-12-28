@@ -1,13 +1,21 @@
+# dependencies & GHA
 .github
-.next
 .yarn
 .swc
-coverage
 node_modules
-public
 yarn.lock
-storybook-static
-out
 .yarnrc.yml
+
+# test output
+coverage
+
+# static outputs
+public
+.next
+out
 typedocs
+storybook-static
 packages/*/dist
+
+# prettier doesn't play well with .hbs format
+generator-templates/

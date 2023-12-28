@@ -1,4 +1,4 @@
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { MediaImage } from '@/types/formatted/media'
 
 export type StaffProfile = {
   id: string

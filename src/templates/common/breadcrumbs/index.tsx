@@ -4,10 +4,7 @@ import {
   deriveLcBreadcrumbs,
   filterInvalidCrumbs,
 } from '@/lib/utils/breadcrumbs'
-import {
-  BreadcrumbItem,
-  BreadCrumbLink,
-} from '@/types/dataTypes/drupal/field_type'
+import { BreadcrumbItem, BreadCrumbLink } from '@/types/drupal/field_type'
 
 interface BreadcrumbProps {
   breadcrumbs?: BreadcrumbItem[]

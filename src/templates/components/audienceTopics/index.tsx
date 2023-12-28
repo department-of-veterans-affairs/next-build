@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { isEmpty } from 'lodash'
-import { AudienceTopics as FormattedAudienceTopics } from '@/types/dataTypes/formatted/audienceTopics'
+import { AudienceTopics as FormattedAudienceTopics } from '@/types/formatted/audienceTopics'
 
 export function AudienceTopics({ tags }: FormattedAudienceTopics) {
   if (isEmpty(tags)) return null
