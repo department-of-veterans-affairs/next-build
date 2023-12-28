@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Wysiwyg } from './index'
-import { Wysiwyg as FormattedWysiwyg } from '@/types/dataTypes/formatted/wysiwyg'
+import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
 import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
 
 const wysiwygProps: FormattedWysiwyg = {

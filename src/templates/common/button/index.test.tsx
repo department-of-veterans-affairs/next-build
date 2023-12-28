@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Button } from './index'
-import { Button as FormattedButton } from '@/types/dataTypes/formatted/button'
+import { Button as FormattedButton } from '@/types/formatted/button'
 
 const buttonProps: FormattedButton = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',

@@ -1,10 +1,6 @@
 import { QueryFormatter } from 'next-drupal-query'
-import { NodeBanner } from '@/types/dataTypes/drupal/node'
-import {
-  Banner,
-  FacilityBanner,
-  PromoBanner,
-} from '@/types/dataTypes/formatted/banners'
+import { NodeBanner } from '@/types/drupal/node'
+import { Banner, FacilityBanner, PromoBanner } from '@/types/formatted/banners'
 
 export const BannerDisplayType = {
   PROMO_BANNER: 'promoBanner',

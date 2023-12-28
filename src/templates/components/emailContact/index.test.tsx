@@ -3,7 +3,7 @@ import { fireEvent, getByRole } from '@testing-library/dom'
 jest.mock('@/lib/analytics/recordEvent')
 import * as recordEvent from '@/lib/analytics/recordEvent'
 import { EmailContact } from '@/templates/components/emailContact'
-import { EmailContact as FormattedEmailContact } from '@/types/dataTypes/formatted/emailContact'
+import { EmailContact as FormattedEmailContact } from '@/types/formatted/emailContact'
 
 const emailContact: FormattedEmailContact = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',

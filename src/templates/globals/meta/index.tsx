@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { MetaTag } from '@/types/dataTypes/formatted/metatags'
+import { MetaTag } from '@/types/formatted/metatags'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedResource } from '@/data/queries'

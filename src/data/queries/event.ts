@@ -6,10 +6,10 @@ import {
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
-import { NodeEvent } from '@/types/dataTypes/drupal/node'
-import { Event } from '@/types/dataTypes/formatted/event'
+import { NodeEvent } from '@/types/drupal/node'
+import { Event } from '@/types/formatted/event'
 import { GetServerSidePropsContext } from 'next'
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { MediaImage } from '@/types/formatted/media'
 
 export const params: QueryParams<null> = () => {
   return queries

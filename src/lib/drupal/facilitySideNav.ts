@@ -1,9 +1,9 @@
-import { Menu, MenuItem } from '@/types/dataTypes/drupal/menu'
+import { Menu, MenuItem } from '@/types/drupal/menu'
 import {
   SideNavData,
   SideNavItem,
   SideNavMenu,
-} from '@/types/dataTypes/formatted/sideNav'
+} from '@/types/formatted/sideNav'
 
 // Recursively fit menu items into sidenav-requested shape
 const normalizeMenuItem = (item: MenuItem): SideNavItem => {

@@ -1,4 +1,4 @@
-import { MegaMenuSection } from '@/types/dataTypes/formatted/headerFooter'
+import { MegaMenuSection } from '@/types/formatted/headerFooter'
 import { formatHeaderData } from './header'
 
 describe('header megamenu', () => {

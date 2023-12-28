@@ -1,5 +1,5 @@
 import { queries } from '@/data/queries'
-import { NodeQA } from '@/types/dataTypes/drupal/node'
+import { NodeQA } from '@/types/drupal/node'
 import mockData from '@/mocks/questionAnswer.mock.json'
 
 // Adding this because next-drupal has some bad type definitions.

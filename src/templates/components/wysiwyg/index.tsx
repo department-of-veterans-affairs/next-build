@@ -1,6 +1,6 @@
 import { isValidData } from '@/lib/utils/helpers'
-import { Html } from '@/types/dataTypes/formatted/html'
-import { Wysiwyg as FormattedWysiwyg } from '@/types/dataTypes/formatted/wysiwyg'
+import { Html } from '@/types/formatted/html'
+import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
 
 export function Wysiwyg({ id, html, className }: FormattedWysiwyg) {
   if (!isValidData(html)) return

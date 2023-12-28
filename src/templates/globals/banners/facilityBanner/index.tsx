@@ -2,8 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { regionBaseURL } from '@/lib/utils/helpers'
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { NodeMetaInfo } from '@/types/dataTypes/drupal/node'
-import { FacilityBanner as FormattedFacilityBanner } from '@/types/dataTypes/formatted/banners'
+import { FacilityBanner as FormattedFacilityBanner } from '@/types/formatted/banners'
 
 export const FacilityBanner = ({
   id,
@@ -119,7 +118,3 @@ export const FacilityBanner = ({
     </>
   )
 }
-
-/** Export information necessary to identify the component and query it.
- * See {@link NodeMetaInfo}
- */

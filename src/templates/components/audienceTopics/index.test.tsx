@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { AudienceTopics } from './index'
-import { AudienceTopics as FormattedAudienceTopics } from '@/types/dataTypes/formatted/audienceTopics'
+import { AudienceTopics as FormattedAudienceTopics } from '@/types/formatted/audienceTopics'
 
 describe('AudienceTopics with valid data', () => {
   const audienceTopicProps: FormattedAudienceTopics = {

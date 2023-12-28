@@ -4,13 +4,13 @@ import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 import { isEmpty } from 'lodash'
-import { HeaderFooterData } from '@/types/dataTypes/formatted/headerFooter'
+import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import {
   Banner as FormattedBanner,
   FacilityBanner as FormattedFacilityBanner,
   PromoBanner as FormattedPromoBanner,
-} from '@/types/dataTypes/formatted/banners'
-import { NodeBanner } from '@/types/dataTypes/drupal/node'
+} from '@/types/formatted/banners'
+import { NodeBanner } from '@/types/drupal/node'
 import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'

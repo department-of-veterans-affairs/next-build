@@ -5,9 +5,9 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { queries } from '.'
-import { ParagraphLinkTeaser } from '@/types/dataTypes/drupal/paragraph'
+import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { LinkTeaser } from '@/types/dataTypes/formatted/linkTeaser'
+import { LinkTeaser } from '@/types/formatted/linkTeaser'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {

@@ -6,8 +6,8 @@ import {
 } from 'next-drupal-query'
 import { queries } from '.'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { BlockPromo } from '@/types/dataTypes/drupal/block'
-import { MegaMenuPromoColumn } from '@/types/dataTypes/formatted/headerFooter'
+import { BlockPromo } from '@/types/drupal/block'
+import { MegaMenuPromoColumn } from '@/types/formatted/headerFooter'
 
 // Define the query params for fetching block_content--promo.
 export const params: QueryParams<null> = () => {
