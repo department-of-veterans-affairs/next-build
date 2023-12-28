@@ -1,7 +1,7 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
-import { NodeNewsStory } from '@/types/dataTypes/drupal/node'
-import { NewsStoryTeaser } from '@/types/dataTypes/formatted/newsStory'
+import { NodeNewsStory } from '@/types/drupal/node'
+import { NewsStoryTeaser } from '@/types/formatted/newsStory'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {

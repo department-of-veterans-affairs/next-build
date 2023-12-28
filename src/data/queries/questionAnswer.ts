@@ -6,8 +6,8 @@ import {
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
-import { NodeQA } from '@/types/dataTypes/drupal/node'
-import { QuestionAnswer } from '@/types/dataTypes/formatted/questionAnswer'
+import { NodeQA } from '@/types/drupal/node'
+import { QuestionAnswer } from '@/types/formatted/questionAnswer'
 
 // Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {

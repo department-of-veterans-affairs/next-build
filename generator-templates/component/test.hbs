@@ -1,0 +1,11 @@
+import { render, screen } from '@testing-library/react'
+import { {{pascalCase name}} } from './index'
+
+
+describe('{{pascalCase name}} with valid data', () => {
+  test('renders {{pascalCase name}} component', () => {
+    render(<{{pascalCase name}} title={'Hello world'} />)
+
+    expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
+  })
+})

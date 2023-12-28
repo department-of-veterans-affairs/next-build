@@ -1,7 +1,4 @@
-import {
-  BreadcrumbItem,
-  BreadCrumbLink,
-} from '@/types/dataTypes/drupal/field_type'
+import { BreadcrumbItem, BreadCrumbLink } from '@/types/drupal/field_type'
 
 export function deriveLastBreadcrumbFromPath(
   breadcrumbs: BreadcrumbItem[],

@@ -3,12 +3,12 @@ import { useEffect } from 'react'
 import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
-import { HeaderFooterData } from '@/types/dataTypes/formatted/headerFooter'
+import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import {
   BannerDisplayType,
   BannerTypeMapping,
   BannersData,
-} from '@/types/dataTypes/formatted/banners'
+} from '@/types/formatted/banners'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
 import { handleSkipLink } from '@/lib/utils/handleSkipLink'

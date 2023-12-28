@@ -1,10 +1,10 @@
 import { QueryData, QueryFormatter } from 'next-drupal-query'
-import { NodeBanner } from '@/types/dataTypes/drupal/node'
+import { NodeBanner } from '@/types/drupal/node'
 import {
   BannerDisplayType,
   BannerTypeMapping,
   BannersData,
-} from '@/types/dataTypes/formatted/banners'
+} from '@/types/formatted/banners'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 
 export type BannerDataOpts = {

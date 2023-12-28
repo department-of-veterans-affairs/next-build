@@ -2,7 +2,7 @@ import {
   VaAlert,
   VaAlertExpandable,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { Alert } from '@/types/dataTypes/formatted/alert'
+import { Alert } from '@/types/formatted/alert'
 
 export function AlertBlock({ alertType, id, title, content }: Alert) {
   return (

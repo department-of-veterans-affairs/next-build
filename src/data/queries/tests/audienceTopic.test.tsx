@@ -1,5 +1,5 @@
 import { queries } from '@/data/queries'
-import { ParagraphAudienceTopics } from '@/types/dataTypes/drupal/paragraph'
+import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
 import mockData from '@/mocks/audienceTopics.mock.json'
 
 // Adding this because next-drupal has some bad type definitions.

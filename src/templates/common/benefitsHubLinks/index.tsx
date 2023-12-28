@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash'
 import {
   BenefitsHubLinks as FormattedBenefitHubLinks,
   BenefitsHub,
-} from '@/types/dataTypes/formatted/benefitsHub'
+} from '@/types/formatted/benefitsHub'
 
 // Partial outputting a list of benefits related to a given page.
 // Typically, used on a resource page.

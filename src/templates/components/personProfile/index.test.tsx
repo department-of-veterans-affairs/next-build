@@ -1,7 +1,7 @@
 import { render, screen } from 'test-utils'
 import { PersonProfile } from '@/templates/components/personProfile/index'
-import { PersonProfile as FormattedPersonProfile } from '@/types/dataTypes/formatted/personProfile'
-import { MediaImage } from '@/types/dataTypes/formatted/media'
+import { PersonProfile as FormattedPersonProfile } from '@/types/formatted/personProfile'
+import { MediaImage } from '@/types/formatted/media'
 
 const mediaImage: MediaImage = {
   id: '3',

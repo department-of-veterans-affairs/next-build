@@ -1,0 +1,65 @@
+import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
+import { drupalClient } from '@/lib/drupal/drupalClient'
+import { queries } from '.'
+import { Node{{pascalCase name}} } from '@/types/drupal/node'
+import { {{pascalCase name}} } from '@/types/formatted/{{pascalCase name}}'
+import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+
+// Define the query params for fetching node--{{snakeCase name}}.
+export const params: QueryParams<null> = () => {
+  return queries
+    .getParams()
+    // uncomment to add referenced entity data to the response
+    // .addInclude([
+    //  'field_media',
+    //  'field_media.image',
+    //  'field_administration',
+    // ])
+}
+
+// Define the option types for the data loader.
+export type {{pascalCase name}}DataOpts = {
+  id: string
+  context?: ExpandedStaticPropsContext
+}
+
+// Implement the data loader.
+export const data: QueryData<{{pascalCase name}}DataOpts, Node{{pascalCase name}}> = async (
+  opts
+): Promise<Node{{pascalCase name}}> => {
+  const entity = opts?.context?.preview
+    ? // need to use getResourceFromContext for unpublished revisions
+      await drupalClient.getResourceFromContext<Node{{pascalCase name}}>(
+        'node--{{snakeCase name}}',
+        opts.context,
+        {
+          params: params().getQueryObject(),
+        }
+      )
+    : // otherwise just lookup by uuid
+      await drupalClient.getResource<Node{{pascalCase name}}>(
+        'node--{{snakeCase name}}',
+        opts.id,
+        {
+          params: params().getQueryObject(),
+        }
+      )
+
+  return entity
+}
+
+export const formatter: QueryFormatter<Node{{pascalCase name}}, {{pascalCase name}}> = (
+  entity: Node{{pascalCase name}}
+) => {
+  return {
+    id: entity.id,
+    entityId: entity.drupal_internal__nid,
+    entityPath: entity.path.alias,
+    type: entity.type,
+    published: entity.status,
+    moderationState: entity.moderation_state,
+    title: entity.title,
+    metatags: entity.metatag,
+    breadcrumbs: entity.breadcrumbs
+  }
+}

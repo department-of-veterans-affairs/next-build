@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { AlertBlock } from './index'
-import { Alert } from '@/types/dataTypes/formatted/alert'
+import { Alert } from '@/types/formatted/alert'
 
 const blockContent: Alert = {
   id: '6ecdbf96-2a9e-4beb-9d95-d41fced1473b',

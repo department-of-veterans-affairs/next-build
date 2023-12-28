@@ -1,7 +1,7 @@
 // Define the query params for fetching node--news_story.
-import { ParagraphAudienceTopics } from '@/types/dataTypes/drupal/paragraph'
+import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
-import { AudienceTopic } from '@/types/dataTypes/formatted/audienceTopics'
+import { AudienceTopic } from '@/types/formatted/audienceTopics'
 
 const getTagsList = (fieldTags) => {
   if (!fieldTags) return null

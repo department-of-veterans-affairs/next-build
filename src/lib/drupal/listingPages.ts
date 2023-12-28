@@ -1,7 +1,7 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { QUERIES_MAP, queries } from '@/data/queries'
 import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
-import { StaticPathResource } from '@/types/dataTypes/formatted/staticPathResource'
+import { StaticPathResource } from '@/types/formatted/staticPathResource'
 import { GetStaticPropsContext } from 'next'
 import { LovellStaticPropsContextProps } from '@/lib/drupal/lovell/types'
 import { isLovellChildVariantResource } from '@/lib/drupal/lovell/utils'

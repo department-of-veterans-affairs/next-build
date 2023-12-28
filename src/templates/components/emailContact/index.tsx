@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { isEmpty, isNull } from 'lodash'
-import { EmailContact as FormattedEmailContact } from '@/types/dataTypes/formatted/emailContact'
+import { EmailContact as FormattedEmailContact } from '@/types/formatted/emailContact'
 
 function isRequestInValid(email) {
   return isNull(email.label) || isNull(email.address)

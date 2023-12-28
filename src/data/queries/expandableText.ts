@@ -1,5 +1,5 @@
 // Define the query params for fetching node--news_story.
-import { ParagraphExpandableText } from '@/types/dataTypes/drupal/paragraph'
+import { ParagraphExpandableText } from '@/types/drupal/paragraph'
 import {
   QueryData,
   QueryFormatter,
@@ -8,7 +8,7 @@ import {
 } from 'next-drupal-query'
 import { queries } from '@/data/queries/index'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { ExpandableText } from '@/types/dataTypes/formatted/expandableText'
+import { ExpandableText } from '@/types/formatted/expandableText'
 
 export const params: QueryParams<null> = () => {
   return queries.getParams().addPageLimit(10)

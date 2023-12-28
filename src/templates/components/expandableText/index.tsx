@@ -3,7 +3,7 @@ import {
   VaAccordionItem,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { isEmpty } from 'lodash'
-import { ExpandableText as FormattedExpandableText } from '@/types/dataTypes/formatted/expandableText'
+import { ExpandableText as FormattedExpandableText } from '@/types/formatted/expandableText'
 
 export function ExpandableText({ id, header, text }: FormattedExpandableText) {
   if (isEmpty(header)) return

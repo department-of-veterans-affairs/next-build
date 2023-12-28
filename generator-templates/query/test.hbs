@@ -1,0 +1,25 @@
+import { {{pascalCase name}} } from '@/types/drupal/node'
+import { queries } from '@/data/queries'
+import mockData from '@/mocks/{{pascalCase name}}.mock.json'
+
+const {{pascalCase name}}Mock: {{pascalCase name}} = mockData
+
+describe('{{pascalCase name}} formatData', () => {
+  let windowSpy
+
+  beforeEach(() => {
+    windowSpy = jest.spyOn(window, 'window', 'get')
+  })
+
+  afterEach(() => {
+    windowSpy.mockRestore()
+  })
+
+  test('outputs formatted data', () => {
+    windowSpy.mockImplementation(() => undefined)
+
+    expect(
+      queries.formatData('node--{{snakeCase name}}', {{pascalCase name}}Mock)
+    ).toMatchSnapshot()
+  })
+})

@@ -1,4 +1,4 @@
-import { NodeLandingPage } from '@/types/dataTypes/drupal/node'
+import { NodeLandingPage } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/benefitHubs.mock.json'
 
