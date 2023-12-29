@@ -27,7 +27,11 @@ export const NewsStoryTeaser = ({
           </p>
         </div>
         <div className="usa-width-one-third stories-list vads-u-order--first medium-screen:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
-          <MediaImage {...image} imageStyle="2_1_large" />
+          <MediaImage
+            {...image}
+            imageStyle="2_1_large"
+            height={image?.width * (1 / 2)}
+          />
         </div>
       </div>
     </>

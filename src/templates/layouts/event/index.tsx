@@ -56,7 +56,14 @@ export const Event = ({
             <h1>{title}</h1>
 
             {/* Image */}
-            {image && <MediaImage className="event-detail-img" {...image} />}
+            {image && (
+              <MediaImage
+                className="event-detail-img"
+                {...image}
+                imageStyle="2_1_large"
+                height={image?.width * (1 / 2)}
+              />
+            )}
 
             {/* Description */}
             {description && <p className="va-introtext">{description}</p>}
