@@ -7,6 +7,7 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -33,7 +34,7 @@ export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
 ): Promise<NodeNewsStory> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    'node--news_story',
+    RESOURCE_TYPES.STORY,
     params
   )) as NodeNewsStory
 

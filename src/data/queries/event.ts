@@ -13,6 +13,7 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 export const params: QueryParams<null> = () => {
   return queries
@@ -37,7 +38,7 @@ export const data: QueryData<EventDataOpts, NodeEvent> = async (
 ): Promise<NodeEvent> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    'node--event',
+    RESOURCE_TYPES.EVENT,
     params
   )) as NodeEvent
 

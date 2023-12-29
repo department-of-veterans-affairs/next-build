@@ -1,10 +1,8 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeStoryListing, NodeNewsStory } from '@/types/drupal/node'
 import { Menu } from '@/types/drupal/menu'
 import { StoryListing } from '@/types/formatted/storyListing'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -14,6 +12,7 @@ import {
   fetchSingleResourceCollectionPage,
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  getMenu,
 } from '@/lib/drupal/query'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
@@ -45,7 +44,7 @@ export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
 ) => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    'node--story_listing',
+    RESOURCE_TYPES.STORY_LISTING,
     params
   )) as NodeStoryListing
 
@@ -67,19 +66,9 @@ export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
         PAGE_SIZE
       )
 
-  // Fetch facility menu (sidebar navigation)
-  const menuOpts = {
-    params: new DrupalJsonApiParams()
-      .addFields('menu_items', ['title,url'])
-      .getQueryObject(),
-  }
-
-  // Fetch the menu name dynamically off of the field_office reference
-  // We may want to make our own version of this method, a la staticPathResources
-  const menu = await drupalClient.getMenu(
+  const menu = await getMenu(
     entity.field_office.field_system_menu.resourceIdObjMeta
-      .drupal_internal__target_id,
-    menuOpts
+      .drupal_internal__target_id
   )
 
   return {

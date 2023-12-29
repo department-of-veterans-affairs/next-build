@@ -11,12 +11,7 @@ export type RawHeaderFooterData = {
   headerMegaMenu: HeaderMegaMenu
 }
 
-// Define the query params for fetching footer menu data.
-export const params: QueryParams<null> = () => {
-  return queries.getParams().addFields('menu_items', ['title,url'])
-}
-
-// Define the query params for fetching header megamenu data. Include referenced promo block data, if present
+// Define extra equery params for fetching header megamenu data. Include referenced promo block data, if present
 export const megaMenuParams: QueryParams<null> = () => {
   return queries
     .getParams()
@@ -30,8 +25,8 @@ export const megaMenuParams: QueryParams<null> = () => {
 
 export const data: QueryData<null, RawHeaderFooterData> = async () => {
   // Gather data from the different menus for the headerFooter data object
-  const footerColumns = await getMenu('va-gov-footer', params)
-  const footerBottomRail = await getMenu('footer-bottom-rail', params)
+  const footerColumns = await getMenu('va-gov-footer')
+  const footerBottomRail = await getMenu('footer-bottom-rail')
   const headerMegaMenu: HeaderMegaMenu = await getMenu(
     'header-megamenu',
     megaMenuParams

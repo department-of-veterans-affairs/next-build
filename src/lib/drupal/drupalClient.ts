@@ -13,6 +13,7 @@ export const drupalClient = new DrupalClient(baseUrl, {
     clientId: process.env.DRUPAL_CLIENT_ID,
     clientSecret: process.env.DRUPAL_CLIENT_SECRET,
   },
+  // Generally use cache for `yarn export` as it generates all pages
   cache: process.env.USE_REDIS
     ? redisCache(createRedisClient(process.env.REDIS_URL))
     : null,

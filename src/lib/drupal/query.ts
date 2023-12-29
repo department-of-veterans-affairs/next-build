@@ -1,7 +1,8 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { JsonApiResponse } from 'next-drupal'
-import { PHASE_PRODUCTION_BUILD } from 'next/dist/shared/lib/constants'
 import { QueryParams } from 'next-drupal-query'
+import { queries } from '@/data/queries'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeTypes } from '@/types/drupal/node'
@@ -92,10 +93,15 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
   }
 }
 
-// Fetch drupal menu resource with cache
-export async function getMenu(name: string, params: QueryParams<null>) {
+// Fetch drupal menu resource with cache.
+export async function getMenu(name: string, params?: QueryParams<null>) {
+  const defaultMenuParams = queries
+    .getParams()
+    .addFields('menu_items', ['title,url'])
+    .getQueryObject()
+
   const menu = await drupalClient.getMenu(name, {
-    params: params().getQueryObject(),
+    params: params ? params().getQueryObject() : defaultMenuParams,
 
     // Cache resource during build, not dev.
     withCache: process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD,
@@ -105,7 +111,7 @@ export async function getMenu(name: string, params: QueryParams<null>) {
   return menu
 }
 
-// Consistent handler to fetch a node entity from a normal route or a preview route
+// Consistent handler to fetch a node entity from a normal route or a preview route.
 export async function fetchSingleEntityOrPreview(opts, type, params) {
   const entity = opts?.context?.preview
     ? // need to use getResourceFromContext for unpublished revisions
@@ -120,7 +126,7 @@ export async function fetchSingleEntityOrPreview(opts, type, params) {
   return entity
 }
 
-// Helper function to return a consistent set of base fields for resources
+// Helper function to return a consistent set of base fields for resources.
 export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
   return {
     id: entity.id,
