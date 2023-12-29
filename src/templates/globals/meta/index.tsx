@@ -70,77 +70,34 @@ const CustomTags = ({ tags }: { tags: MetaTag[] }) => (
   </Head>
 )
 
-// TODO: Implement default meta tags when no custom tags are present
-// TODO: Is this necessary? Are there content types where custom meta tags are not set?
-// See: https://github.com/department-of-veterans-affairs/content-build/blob/f898e20d02cbf011e6e26976de95c5d33eace1c0/src/site/includes/metatags.drupal.liquid#L88-L146
 const DefaultTags = ({
   resource,
 }: {
   resource: StaticPropsResource<FormattedResource>
 }) => {
-  // <!-- Derive the title. -->
-  // {% if regionOrOffice %}
-  // {% assign metaTitle = title | append: " | " | append: regionOrOffice %}
-  // {% elsif fieldOffice %}
-  // {% assign metaTitle = fieldOffice.entity.title %}
-  // {% elsif entityLabel %}
-  // {% assign metaTitle = entityLabel %}
-  // {% else %}
-  // {% assign metaTitle = title %}
-  // {% endif %}
-
-  // const regionOrOffice = resource?.regionOrOffice
-  //   ? `${resource.title} | ${resource.regionOrOffice}`
-  //   : null
-
-  // TODO: Find out where the fields above come from.
-  const metaTitle = 'foo'
-  // regionOrOffice ||
-  // resource?.fieldOffice?.entity?.title ||
-  // resource?.entityLabel ||
-  // resource?.title
-
-  // <!-- Derive the meta description. -->
-  // {% if fieldClinicalHealthServi %}
-  // {% assign description = fieldClinicalHealthServi.processed | strip_html %}
-  // {% elsif fieldPressReleaseBlurb %}
-  // {% assign description = fieldPressReleaseBlurb.processed | strip_html %}
-  // {% elsif fieldDescription %}
-  // {% assign description = fieldDescription | newline_to_br %}
-  // {% elsif fieldIntroText %}
-  // {% assign description = fieldIntroText.processed | strip_html %}
-  // {% endif %}
-
-  // TODO: Find out how where the fields above come from.
-  // TODO: Strip html and/or newlines from description variables.
-  const description = 'foo'
-  // resource?.fieldClinicalHealthServi ||
-  // resource?.fieldPressReleaseBlurb ||
-  // resource?.fieldDescription ||
-  // resource?.fieldIntroText
-
-  // TODO: Make keywords come from Drupal. Delete this and make note in ticket.
-  const keywords = 'veterans, benefits, health care, va'
+  const metaTitle = `${resource.title} | Veterans Affairs`
 
   return (
     <Head>
       <meta property="og:site_name" content="Veterans Affairs" />
       <meta property="og:title" content={metaTitle} />
+      <meta property="og:image" content="/img/design/logo/va-og-image.png" />
+      <meta
+        property="og:image:alt"
+        content="U.S. Department of Veterans Affairs logo"
+      />
 
-      {/* Twitter tags. */}
+      <meta name="twitter:site" content="@DeptVetAffairs" />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:card" content="Summary" />
       <meta
         name="twitter:image"
         content="/img/design/logo/va-og-twitter-image.png"
       />
-      <meta name="twitter:site" content="@DeptVetAffairs" />
-
-      <meta property="og:description" content={description} />
-      <meta name="twitter:description" content={description} />
-      <meta name="description" content={description} />
-
-      <meta property="og:image" content="/img/design/logo/va-og-image.png" />
+      <meta
+        name="twitter:image:alt"
+        content="U.S. Department of Veterans Affairs logo"
+      />
 
       <title>{metaTitle}</title>
     </Head>
@@ -158,8 +115,6 @@ export const Meta = ({
 
   const lastUpdated = resource.lastUpdated
 
-  // Calculate when to show iOS banner.
-  // See: https://github.com/department-of-veterans-affairs/content-build/blob/f898e20d02cbf011e6e26976de95c5d33eace1c0/src/site/filters/liquid.js#L1741-L1756
   const urlsForBanner = [
     // For testing purposes you can uncomment this following route.
     // '/central-iowa-health-care/events/52265',
@@ -173,7 +128,7 @@ export const Meta = ({
     '/va-payment-history',
     '/change-direct-deposit',
   ]
-  const showIOSBanner = urlsForBanner.includes(canonicalLink)
+  const showIOSBanner = urlsForBanner.includes(resource.entityPath)
 
   return (
     <>
