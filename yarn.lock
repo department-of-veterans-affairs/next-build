@@ -2049,8 +2049,8 @@ __metadata:
   linkType: hard
 
 "@department-of-veterans-affairs/formation@npm:^7.0.9":
-  version: 7.0.9
-  resolution: "@department-of-veterans-affairs/formation@npm:7.0.9"
+  version: 7.1.0
+  resolution: "@department-of-veterans-affairs/formation@npm:7.1.0"
   dependencies:
     "@fortawesome/fontawesome-free": ^5.6.3
     domready: ^1.0.8
@@ -2060,7 +2060,7 @@ __metadata:
     "@fortawesome/fontawesome-free": ^5.6.3
     foundation-sites: 5
     uswds: ^1.6.10
-  checksum: aaa8696a56e349447a63f93a2e2f7efb76e48aaf5ac6902bf22fd85bd11b6c313962df755f81292fc983c64664eb683b40629ab84e57abd42eb68d9343f8413e
+  checksum: 7afcf65d55359af80087d4701e4ba1167a845181362ade12776041d4eda4253b61ce33512c39fd032f3dafdbf56a5b2620dffecc52945d477d3e0aef22cd2da6
   languageName: node
   linkType: hard
 
@@ -16004,7 +16004,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2 || ^18, react-dom@npm:^18.2.0":
+"react-dom@npm:^17.0.2 || ^18, react-dom@npm:^18, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -16200,7 +16200,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.2 || ^18, react@npm:^18.2.0":
+"react@npm:^17.0.2 || ^18, react@npm:^18, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
