@@ -55,6 +55,7 @@ export type NodeTypes =
   | NodeStoryListing
   | NodeSupportResourcesDetailPage
   | NodeSupportService
+  | NodeEvent
 
 /** Node resource types. */
 export const enum NodeResourceType {

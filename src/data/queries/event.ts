@@ -4,12 +4,15 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeEvent } from '@/types/drupal/node'
 import { Event } from '@/types/formatted/event'
 import { GetServerSidePropsContext } from 'next'
 import { MediaImage } from '@/types/formatted/media'
+import {
+  entityBaseFields,
+  fetchSingleEntityOrPreview,
+} from '@/lib/drupal/query'
 
 export const params: QueryParams<null> = () => {
   return queries
@@ -32,19 +35,12 @@ export type EventDataOpts = QueryOpts<{
 export const data: QueryData<EventDataOpts, NodeEvent> = async (
   opts
 ): Promise<NodeEvent> => {
-  const entity = opts?.context?.preview
-    ? // need to use getResourceFromContext for unpublished revisions
-      await drupalClient.getResourceFromContext<NodeEvent>(
-        'node--event',
-        opts.context,
-        {
-          params: params().getQueryObject(),
-        }
-      )
-    : // otherwise just lookup by uuid
-      await drupalClient.getResource<NodeEvent>('node--event', opts.id, {
-        params: params().getQueryObject(),
-      })
+  const entity = (await fetchSingleEntityOrPreview(
+    opts,
+    'node--event',
+    params
+  )) as NodeEvent
+
   return entity
 }
 
@@ -52,23 +48,16 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
   entity: NodeEvent
 ) => {
   return {
-    id: entity.id,
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path.alias,
-    type: entity.type,
-    published: entity.status,
-    title: entity.title,
+    ...entityBaseFields(entity),
     image: queries.formatData('media--image', {
       entity: entity.field_media,
       cropType: '2_1_large',
     }) as MediaImage,
     date: entity.created,
-    breadcrumbs: entity.breadcrumbs,
     socialLinks: {
       path: entity.path.alias,
       title: entity.title,
     },
-    metatags: entity.metatag,
     listing: entity.field_listing.path.alias,
     additionalInfo: entity.field_additional_information_abo,
     address: entity.field_address,

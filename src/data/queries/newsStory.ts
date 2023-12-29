@@ -1,9 +1,12 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeNewsStory } from '@/types/drupal/node'
 import { NewsStory } from '@/types/formatted/newsStory'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import {
+  entityBaseFields,
+  fetchSingleEntityOrPreview,
+} from '@/lib/drupal/query'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -28,23 +31,11 @@ export type NewsStoryDataOpts = {
 export const data: QueryData<NewsStoryDataOpts, NodeNewsStory> = async (
   opts
 ): Promise<NodeNewsStory> => {
-  const entity = opts?.context?.preview
-    ? // need to use getResourceFromContext for unpublished revisions
-      await drupalClient.getResourceFromContext<NodeNewsStory>(
-        'node--news_story',
-        opts.context,
-        {
-          params: params().getQueryObject(),
-        }
-      )
-    : // otherwise just lookup by uuid
-      await drupalClient.getResource<NodeNewsStory>(
-        'node--news_story',
-        opts.id,
-        {
-          params: params().getQueryObject(),
-        }
-      )
+  const entity = (await fetchSingleEntityOrPreview(
+    opts,
+    'node--news_story',
+    params
+  )) as NodeNewsStory
 
   return entity
 }
@@ -53,14 +44,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
   entity: NodeNewsStory
 ) => {
   return {
-    id: entity.id,
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path.alias,
-    type: entity.type,
-    published: entity.status,
-    moderationState: entity.moderation_state,
-    title: entity.title,
-    metatags: entity.metatag,
+    ...entityBaseFields(entity),
     image: queries.formatData('media--image', {
       entity: entity.field_media,
       cropType: '2_1_large',
@@ -70,7 +54,6 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
     introText: entity.field_intro_text,
     bodyContent: entity.field_full_story,
     date: entity.created,
-    breadcrumbs: entity.breadcrumbs,
     socialLinks: {
       path: entity.path.alias,
       title: entity.title,

@@ -12,7 +12,9 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleResourceCollectionPage,
-} from './utils'
+  entityBaseFields,
+  fetchSingleEntityOrPreview,
+} from '@/lib/drupal/query'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
 
@@ -41,23 +43,11 @@ type StoryListingData = {
 export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
   opts
 ) => {
-  const entity = opts?.context?.preview
-    ? // need to use getResourceFromContext for unpublished revisions
-      await drupalClient.getResourceFromContext<NodeStoryListing>(
-        'node--story_listing',
-        opts.context,
-        {
-          params: params().getQueryObject(),
-        }
-      )
-    : // otherwise just lookup by uuid
-      await drupalClient.getResource<NodeStoryListing>(
-        'node--story_listing',
-        opts.id,
-        {
-          params: params().getQueryObject(),
-        }
-      )
+  const entity = (await fetchSingleEntityOrPreview(
+    opts,
+    'node--story_listing',
+    params
+  )) as NodeStoryListing
 
   // Fetch list of stories related to this listing
   const {
@@ -117,15 +107,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
-    id: entity.id,
-    breadcrumbs: entity.breadcrumbs,
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path.alias,
-    type: entity.type,
-    published: entity.status,
-    moderationState: entity.moderation_state,
-    title: entity.title,
-    metatags: entity.metatag,
+    ...entityBaseFields(entity),
     introText: entity.field_intro_text,
     stories: formattedStories,
     menu: formattedMenu,
