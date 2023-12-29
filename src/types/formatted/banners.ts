@@ -1,3 +1,5 @@
+export type BannersData = Array<Banner | PromoBanner | FacilityBanner>
+
 export type Banner = {
   id: string
   title: string

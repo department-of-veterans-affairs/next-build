@@ -1,17 +1,11 @@
 /* eslint-ignore no-console */
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
 import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
-import { isEmpty } from 'lodash'
 import { HeaderFooterData } from '@/types/formatted/headerFooter'
-import {
-  Banner as FormattedBanner,
-  FacilityBanner as FormattedFacilityBanner,
-  PromoBanner as FormattedPromoBanner,
-} from '@/types/formatted/banners'
-import { NodeBanner } from '@/types/drupal/node'
-import { BannerDisplayType, BannerTypeMapping } from '@/data/queries/banners'
+import { BannersData } from '@/types/formatted/banners'
+import { NodeBannerType } from '@/types/drupal/node'
 import { Header } from '../header'
 import { Footer } from '../footer/index'
 import { handleSkipLink } from '@/lib/utils/handleSkipLink'
@@ -28,25 +22,20 @@ interface customWindow extends Window {
 declare const window: customWindow
 
 export interface LayoutProps {
+  bannerData: BannersData
+  headerFooterData: HeaderFooterData
   children?: React.ReactNode
-  bannerData?: Array<
-    | NodeBanner
-    | FormattedPromoBanner
-    | FormattedBanner
-    | FormattedFacilityBanner
-  >
-  headerFooterData?: HeaderFooterData
   preview?: boolean
   resource?: StaticPropsResource<FormattedResource>
 }
 
 export const formatBannerType = (bannerData) => {
   switch (bannerData?.type as string) {
-    case BannerTypeMapping[BannerDisplayType.PROMO_BANNER]:
+    case NodeBannerType.PROMO_BANNER:
       return <PromoBanner key={bannerData.id} {...bannerData} />
-    case BannerTypeMapping[BannerDisplayType.FACILITY_BANNER]:
+    case NodeBannerType.FACILITY_BANNER:
       return <FacilityBanner key={bannerData.id} {...bannerData} />
-    case BannerTypeMapping[BannerDisplayType.BANNER]:
+    case NodeBannerType.BANNER:
       return <Banner key={bannerData.id} {...bannerData} />
     default:
       return null
@@ -60,21 +49,14 @@ export function Wrapper({
   resource,
   children,
 }: LayoutProps) {
-  const [showBanners, setShowBanners] = useState(false)
-  const [banners, setBanners] = useState([])
   useEffect(() => {
     // Place header & footer data on window object for vets-website widgets
     window.VetsGov = {}
     window.VetsGov.headerFooter = headerFooterData
+  }, [headerFooterData])
 
-    // todo: clean this up later
-    if (isEmpty(bannerData)) {
-      return setShowBanners(false)
-    } else {
-      setBanners(bannerData.map(formatBannerType))
-      return setShowBanners(true)
-    }
-  }, [bannerData, showBanners, headerFooterData])
+  // determine what type of banners to display
+  const banners = bannerData.map(formatBannerType)
 
   return (
     <>
@@ -83,7 +65,7 @@ export function Wrapper({
       </a>
       {preview ? <UnpublishedBanner resource={resource} /> : null}
       <Header />
-      {showBanners ? banners : null}
+      {banners}
       {children}
       <Footer />
     </>

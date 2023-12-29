@@ -14,12 +14,13 @@ const banners = [
     type: 'node--banner',
   },
 ]
+const props = { bannerData: [], headerFooterData: {} }
 
 describe('<Wrapper> renders', () => {
   test('body', () => {
     render(
       <>
-        <Wrapper>
+        <Wrapper {...props}>
           <div>This is the layout</div>
         </Wrapper>
       </>
@@ -29,9 +30,11 @@ describe('<Wrapper> renders', () => {
   })
 
   test('<Banner> when bannerData exists', () => {
-    const props = { bannerData: banners }
-
-    render(<Wrapper bannerData={props.bannerData}>{children}</Wrapper>)
+    render(
+      <Wrapper {...props} bannerData={banners}>
+        {children}
+      </Wrapper>
+    )
     expect(screen.getByRole('region')).toHaveAttribute(
       'headline',
       'COVID-19 vaccines at VA'
@@ -40,18 +43,18 @@ describe('<Wrapper> renders', () => {
   })
 
   test('<Banner> when bannerData does not exist', () => {
-    const props = { bannerData: null }
-
-    render(<Wrapper bannerData={props.bannerData}>{children}</Wrapper>)
+    render(<Wrapper {...props}>{children}</Wrapper>)
     expect(
       screen.queryByText(/This is the banner body/)
     ).not.toBeInTheDocument()
   })
 
   test('Header and Footer are present', () => {
-    const props = { bannerData: banners }
-
-    render(<Wrapper bannerData={props.bannerData}>{children}</Wrapper>)
+    render(
+      <Wrapper {...props} bannerData={banners}>
+        {children}
+      </Wrapper>
+    )
 
     expect(screen.getByRole('banner')).toHaveClass('header')
 

@@ -1,26 +1,35 @@
-import { QueryFormatter } from 'next-drupal-query'
-import { NodeBanner } from '@/types/drupal/node'
-import { Banner, FacilityBanner, PromoBanner } from '@/types/formatted/banners'
+import { QueryData, QueryFormatter } from 'next-drupal-query'
+import { NodeBanner, NodeBannerType } from '@/types/drupal/node'
+import { BannersData } from '@/types/formatted/banners'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 
-export const BannerDisplayType = {
-  PROMO_BANNER: 'promoBanner',
-  FACILITY_BANNER: 'facilityBanner',
-  BANNER: 'banner',
+export type BannerDataOpts = {
+  itemPath?: string
 }
 
-export const BannerTypeMapping = {
-  [BannerDisplayType.PROMO_BANNER]: 'node--promo_banner',
-  [BannerDisplayType.FACILITY_BANNER]: 'node--full_width_banner_alert',
-  [BannerDisplayType.BANNER]: 'node--banner',
+// The banner data endpoint is a custom endpoint provided by Drupal due to how banners are associated with a page.
+// A given page does not reference a banner node via entity reference, banner node types have a field that lists what
+// paths they are supposed to be visible on. This endpoint queries banners based on their path lists.
+// See docroot/modules/custom/va_gov_api/src/Resources/BannerAlerts.php in va.gov-cms for more info.
+export const data: QueryData<BannerDataOpts, NodeBanner[]> = async (opts) => {
+  if (opts.itemPath) {
+    const bannerUrl = `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/jsonapi/banner-alerts?item-path=${opts.itemPath}`
+
+    const response = await drupalClient.fetch(bannerUrl)
+    const data: [] | unknown = drupalClient.deserialize(await response.json())
+
+    return data as NodeBanner[]
+  }
+
+  return []
 }
 
-export const formatter: QueryFormatter<
-  NodeBanner[],
-  Array<PromoBanner | Banner | FacilityBanner | NodeBanner>
-> = (entities: NodeBanner[]) => {
+export const formatter: QueryFormatter<NodeBanner[], BannersData> = (
+  entities: NodeBanner[]
+) => {
   return entities?.map((banner) => {
     switch (banner?.type as string) {
-      case BannerTypeMapping[BannerDisplayType.BANNER]:
+      case NodeBannerType.BANNER:
         // this field returns 'perm' or 'dismiss' string instead of bool
         const dismiss = banner.field_dismissible_option === 'dismiss'
 
@@ -32,7 +41,7 @@ export const formatter: QueryFormatter<
           dismiss,
           type: banner.type,
         }
-      case BannerTypeMapping[BannerDisplayType.PROMO_BANNER]:
+      case NodeBannerType.PROMO_BANNER:
         return {
           id: banner.id,
           title: banner.title,
@@ -40,7 +49,7 @@ export const formatter: QueryFormatter<
           alertType: banner.field_promo_type,
           type: banner.type,
         }
-      case BannerTypeMapping[BannerDisplayType.FACILITY_BANNER]:
+      case NodeBannerType.FACILITY_BANNER:
         return {
           id: banner.id,
           title: banner.title,
@@ -50,6 +59,7 @@ export const formatter: QueryFormatter<
           operatingStatus: banner.field_alert_operating_status_cta,
           inheritanceSubpages: banner.field_alert_inheritance_subpages,
           path: banner.path?.alias,
+          findFacilities: banner.field_alert_find_facilities_cta,
           bannerAlertVamcs: banner.field_banner_alert_vamcs,
           type: banner.type,
         }

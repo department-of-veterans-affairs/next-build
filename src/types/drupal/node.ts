@@ -70,6 +70,13 @@ export const enum NodeResourceType {
   SupportResourcesDetailPage = 'node--support_resources_detail_page',
 }
 
+/** Node types returned by the custom banner endpoint */
+export const enum NodeBannerType {
+  PROMO_BANNER = 'node--promo_banner',
+  FACILITY_BANNER = 'node--full_width_banner_alert',
+  BANNER = 'node--banner',
+}
+
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
   field_other_categories: TaxonomyTermLcCategories[]

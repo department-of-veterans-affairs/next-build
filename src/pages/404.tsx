@@ -56,9 +56,8 @@ const Error404Page = ({ headerFooterData }) => {
 export async function getStaticProps() {
   try {
     const { headerFooterData } = await getGlobalElements(
-      undefined,
-      undefined,
-      true
+      undefined, // no banners on 404
+      true // header only
     )
     return {
       props: {
