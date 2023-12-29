@@ -62,21 +62,20 @@ describe('MediaImage component does not render', () => {
     spyConsoleError.mockRestore()
   })
 
-  const expectMissingSrc = () => {
+  const expectMissingImageSrc = () => {
     expect(spyConsoleError).toHaveBeenCalledWith(
       expect.stringMatching(/Image is missing required "src" property/),
       expect.any(Object)
     )
   }
 
+  /*eslint-disable jest/expect-expect*/
   test('MediaImage throws error when imageStyle is not provided', () => {
     render(<MediaImage key={mediaImage.id} {...mediaImage} />)
-    expect(spyConsoleError).toHaveBeenCalledWith(
-      expect.stringMatching(/Image is missing required "src" property/),
-      expect.any(Object)
-    )
+    expectMissingImageSrc()
   })
 
+  /*eslint-disable jest/expect-expect*/
   test('MediaImage throws error when imageStyle does not exist', () => {
     render(
       <MediaImage
@@ -85,14 +84,13 @@ describe('MediaImage component does not render', () => {
         imageStyle="non_existent_style"
       />
     )
-    expect(spyConsoleError).toHaveBeenCalledWith(
-      expect.stringMatching(/Image is missing required "src" property/),
-      expect.any(Object)
-    )
+    expectMissingImageSrc()
   })
 
-  // test('MediaImage throws error with null data', async () => {
-  //   mediaImage.links = null
-  //   render(<MediaImage key={mediaImage.id} {...mediaImage} />)
-  // })
+  /*eslint-disable jest/expect-expect*/
+  test('MediaImage throws error with null data', async () => {
+    mediaImage.links = null
+    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
+    expectMissingImageSrc()
+  })
 })

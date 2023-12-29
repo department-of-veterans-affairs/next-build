@@ -45,10 +45,15 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
 ) => {
   return {
     ...entityBaseFields(entity),
-    image: queries.formatData('media--image', {
-      entity: entity.field_media,
-      cropType: '2_1_large',
-    }),
+    id: entity.id,
+    entityId: entity.drupal_internal__nid,
+    entityPath: entity.path.alias,
+    type: entity.type,
+    published: entity.status,
+    moderationState: entity.moderation_state,
+    title: entity.title,
+    metatags: entity.metatag,
+    image: queries.formatData('media--image', entity.field_media),
     caption: entity.field_image_caption,
     author: entity.field_author,
     introText: entity.field_intro_text,

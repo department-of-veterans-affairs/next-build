@@ -3,13 +3,12 @@ import { StaffProfile } from '@/templates/layouts/staffProfile/index'
 
 const thumbnail = {
   id: 'some-unique-id',
-  url: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/2019-08/William_W_Smathers.jpg',
   alt: 'William W Smathers Headshot',
   title: 'William W Smathers',
   width: 110,
   height: 136,
   styles: {},
-  link: {
+  links: {
     '2_1_large': {
       href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-08/William_W_Smathers.jpg',
       meta: {

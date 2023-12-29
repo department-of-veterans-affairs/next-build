@@ -10,9 +10,7 @@ const mediaImage: MediaImage = {
   title: 'Raab Steele',
   width: 151,
   height: 227,
-  imageStyle: '2_3_medium_thumbnail',
-  url: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
-  link: {
+  links: {
     '2_3_medium_thumbnail': {
       href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
       meta: {

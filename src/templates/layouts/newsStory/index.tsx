@@ -41,6 +41,7 @@ export const NewsStory = ({
                 {...image}
                 className={imageClassName}
                 imageStyle="2_1_large"
+                height={image?.width * (1 / 2)}
               />
               <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                 {caption}

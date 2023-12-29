@@ -54,10 +54,9 @@ export const newsStoryPartialResource = {
     alt: 'alt-text',
     id: 'id',
     title: 'title',
-    url: 'image/src',
     width: 100,
     height: 100,
-    link: {
+    links: {
       '2_1_large': {
         href: 'image/src',
         meta: {

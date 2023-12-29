@@ -79,6 +79,7 @@ exports[`node--event formatData outputs formatted data 1`] = `
   "locationHumanReadable": "Walker Johnston Park",
   "locationType": "non_facility",
   "metatags": null,
+  "moderationState": "published",
   "published": true,
   "socialLinks": {
     "path": "/central-iowa-health-care/events/52265",
