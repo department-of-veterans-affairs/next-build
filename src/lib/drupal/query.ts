@@ -1,8 +1,9 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { JsonApiResponse } from 'next-drupal'
+import { PHASE_PRODUCTION_BUILD } from 'next/dist/shared/lib/constants'
+import { QueryParams } from 'next-drupal-query'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { QueryParams } from 'next-drupal-query'
 import { NodeTypes } from '@/types/drupal/node'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 
@@ -97,8 +98,8 @@ export async function getMenu(name: string, params: QueryParams<null>) {
     params: params().getQueryObject(),
 
     // Cache resource during build, not dev.
-    // withCache: process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD,
-    // cacheKey: `menu:${name}`,
+    withCache: process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD,
+    cacheKey: `menu:${name}`,
   })
 
   return menu
