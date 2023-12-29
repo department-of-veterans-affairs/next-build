@@ -63,8 +63,11 @@ module.exports = function (plop) {
         templateFile: 'generator-templates/type/formatted.hbs',
       },
       // Strings can be added to print a comment in the terminal.
-      'You will need to manually import & add your query to src/data/queries/index.ts',
-      'Be sure to also run `yarn test:u` to update test snapshots for your new query!',
+      'You will need to do a few steps manually:',
+      '- Import & add your query to src/data/queries/index.ts',
+      '- Add your resource type to src/lib/constants/resourceTypes.ts',
+      '- Update the mock.json with correct data',
+      '- Run `yarn test:u` to update test snapshots for your new query!',
     ],
   })
 
@@ -101,8 +104,11 @@ module.exports = function (plop) {
         path: 'src/types/formatted/{{camelCase name}}.ts',
         templateFile: 'generator-templates/type/formatted.hbs',
       },
-      'You will need to manually import & add your query to src/data/queries/index.ts',
-      'Be sure to also run `yarn test:u` to update test snapshots for your new query!',
+      'You will need to do a few steps manually:',
+      '- Import & add your query to src/data/queries/index.ts',
+      '- Add your resource type to src/lib/constants/resourceTypes.ts',
+      '- Update the mock.json with correct data',
+      '- Run `yarn test:u` to update test snapshots for your new query!',
       // Create react component + test files for new Page type.
       {
         type: 'add',
@@ -124,6 +130,7 @@ module.exports = function (plop) {
         path: 'playwright/tests/{{camelCase name}}.spec.js',
         templateFile: 'generator-templates/component/playwright.hbs',
       },
+      'To render your new page type, update [[...slug]].tsx',
     ],
   })
 

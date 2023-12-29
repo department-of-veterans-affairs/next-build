@@ -3,6 +3,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { Node{{pascalCase name}} } from '@/types/drupal/node'
 import { {{pascalCase name}} } from '@/types/formatted/{{pascalCase name}}'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -33,7 +34,7 @@ export const data: QueryData<{{pascalCase name}}DataOpts, Node{{pascalCase name}
 ): Promise<Node{{pascalCase name}}> => {
 const entity = (await fetchSingleEntityOrPreview(
     opts,
-    'node--{{snakeCase name}}',
+    RESOURCE_TYPES.{{constantCase name}},
     params
   )) as Node{{pascalCase name}}
 
