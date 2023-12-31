@@ -61,7 +61,6 @@ export const Event = ({
                 className="event-detail-img"
                 {...image}
                 imageStyle="2_1_large"
-                height={image?.width * (1 / 2)}
               />
             )}
 

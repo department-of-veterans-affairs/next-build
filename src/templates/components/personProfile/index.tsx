@@ -36,7 +36,6 @@ export const PersonProfile = ({
                         {...media}
                         className="person-profile-detail-page-image"
                         imageStyle="1_1_square_medium_thumbnail"
-                        height={media?.width}
                       />
                     )}
                   </div>
