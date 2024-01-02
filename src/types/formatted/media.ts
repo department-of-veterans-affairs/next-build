@@ -1,8 +1,8 @@
 export type MediaImageLinks = {
   [key: string]: {
     href: string
-    meta: {
-      linkParams: {
+    meta?: {
+      linkParams?: {
         width?: number
         height?: number
       }
