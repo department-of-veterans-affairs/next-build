@@ -1,4 +1,4 @@
-import Image from '@/templates/common/image'
+import Image from 'next/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { LinkTeaser as FormattedLinkTeaser } from '@/types/formatted/linkTeaser'

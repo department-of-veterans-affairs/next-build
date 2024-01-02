@@ -25,6 +25,7 @@ export function StaffProfile({
             <MediaImage
               className="circular-profile-image bio-paragraph-image max-width-100"
               {...thumbnail}
+              imageStyle="1_1_square_medium_thumbnail"
             />
           </div>
         )}

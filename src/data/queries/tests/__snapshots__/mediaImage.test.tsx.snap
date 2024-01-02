@@ -5,7 +5,7 @@ exports[`Media image returns formatted data outputs formatted data 1`] = `
   "alt": null,
   "height": 304,
   "id": "e638fd17-9090-442b-a724-5113133b4d0f",
-  "link": {
+  "links": {
     "1_1_square_medium_thumbnail": {
       "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/health-care.png",
       "meta": {
@@ -147,7 +147,6 @@ exports[`Media image returns formatted data outputs formatted data 1`] = `
   },
   "title": null,
   "type": "media--image",
-  "url": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/hub_promos/health-care.png",
   "width": 456,
 }
 `;

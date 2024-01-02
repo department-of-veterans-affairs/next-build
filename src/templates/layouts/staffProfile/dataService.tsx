@@ -24,10 +24,10 @@ export const transformStaffProfileData = function (
       return {
         id: entity.field_staff_profile.id,
         name: name,
-        thumbnail: queries.formatData('media--image', {
-          entity: entity.field_staff_profile.field_media,
-          cropType: '2_1_large', // TODO: Which cropType do we want here?
-        }),
+        thumbnail: queries.formatData(
+          'media--image',
+          entity.field_staff_profile.field_media
+        ),
         linkToBio: entity.field_staff_profile.field_complete_biography_create,
         path: entity.field_staff_profile.field_entity?.entityUrl.path || null,
         description: entity.field_staff_profile.field_description,

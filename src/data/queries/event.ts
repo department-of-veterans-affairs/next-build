@@ -49,10 +49,7 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
 ) => {
   return {
     ...entityBaseFields(entity),
-    image: queries.formatData('media--image', {
-      entity: entity.field_media,
-      cropType: '2_1_large',
-    }) as MediaImage,
+    image: queries.formatData('media--image', entity.field_media), //cropType: '2_1_large'
     date: entity.created,
     socialLinks: {
       path: entity.path.alias,

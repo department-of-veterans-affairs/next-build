@@ -8,12 +8,15 @@ export const formattedStories = [
     image: {
       id: 'e4db22b0-5802-405f-a526-a3a436bd4219',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-11/IMG_2876.JPG?h=38f1b9a2',
+        },
+      },
       alt: 'Caregiver Support event',
       width: 6240,
       height: 4160,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-11/IMG_2876.JPG?h=38f1b9a2',
     },
     link: '/butler-health-care/stories/celebrating-our-family-caregivers',
     introText:
@@ -28,12 +31,15 @@ export const formattedStories = [
     image: {
       id: 'cd5abddc-ecaa-4a82-bfcb-0eea7477dcc6',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-09/veteran-flu-prevention-toolkit-bulletinboard-v2.jpg?h=c9522600',
+        },
+      },
       alt: "Don't Pass Flu On",
       width: 5104,
       height: 2871,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-09/veteran-flu-prevention-toolkit-bulletinboard-v2.jpg?h=c9522600',
     },
     link: '/butler-health-care/stories/its-flu-shot-time',
     introText:
@@ -49,12 +55,15 @@ export const formattedStories = [
     image: {
       id: '33a81ceb-b5f0-4544-8967-d97214b8edaa',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-09/2-okay-to-ask-for-help-desktop-background.jpg?h=88bff24e',
+        },
+      },
       alt: 'Suicide Prevention Month',
       width: 960,
       height: 540,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-09/2-okay-to-ask-for-help-desktop-background.jpg?h=88bff24e',
     },
     link: '/butler-health-care/stories/this-suicide-prevention-month-the-butler-va-offers-veterans-support',
     introText:
@@ -69,12 +78,15 @@ export const formattedStories = [
     image: {
       id: 'b38b2e4e-5190-4492-9852-b7f5b21d40d5',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-08/va%20police%20officers%20standing%20-%20one%20male%20and%20one%20female.jpg?h=ec283f65',
+        },
+      },
       alt: 'va police officers standing - one male and one female',
       width: 5934,
       height: 4470,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-08/va%20police%20officers%20standing%20-%20one%20male%20and%20one%20female.jpg?h=ec283f65',
     },
     link: '/butler-health-care/stories/in-car-and-body-worn-cameras',
     introText:
@@ -89,12 +101,15 @@ export const formattedStories = [
     image: {
       id: '06013955-467f-46fc-a3a6-f5d85abb1fcb',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-06/IMG_0285.JPG?h=3e68e630',
+        },
+      },
       alt: 'telehealth conference',
       width: 6240,
       height: 4160,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-06/IMG_0285.JPG?h=3e68e630',
     },
     link: '/butler-health-care/stories/high-tech-high-touch-health-care',
     introText:
@@ -109,12 +124,15 @@ export const formattedStories = [
     image: {
       id: 'a4a15542-d71d-479c-92da-7a5a460ab71d',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-05/Feature%20Story_Chiro%20and%20Accu%20Team_2.jpg?h=6c1ae47b',
+        },
+      },
       alt: "Butler VA's Chiropractors and Acupuncturists",
       width: 4131,
       height: 3224,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-05/Feature%20Story_Chiro%20and%20Accu%20Team_2.jpg?h=6c1ae47b',
     },
     link: '/butler-health-care/stories/all-about-acupuncture-chiropractic-care',
     introText:
@@ -129,12 +147,15 @@ export const formattedStories = [
     image: {
       id: '7c58a640-8580-45c9-96fa-9e1d83c79c4b',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-04/Health%20Tech_Annie%20App%20Vet_1.jpeg',
+        },
+      },
       alt: 'Army Veteran Calvin Kasparek',
       width: 3024,
       height: 2076,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-04/Health%20Tech_Annie%20App%20Vet_1.jpeg',
     },
     link: '/butler-health-care/stories/its-a-help-system',
     introText:
@@ -149,12 +170,15 @@ export const formattedStories = [
     image: {
       id: 'ad24c19d-b093-40cb-9e94-55d9aae3ef7e',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-03/Feature%20Story_TeleAudiology%20%281%29_0.jpg?h=e40710da',
+        },
+      },
       alt: 'Telehealth appointment',
       width: 4495,
       height: 4160,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-03/Feature%20Story_TeleAudiology%20%281%29_0.jpg?h=e40710da',
     },
     link: '/butler-health-care/stories/tele-audiology-now-available',
     introText:
@@ -169,12 +193,15 @@ export const formattedStories = [
     image: {
       id: 'a5a7a4c7-413e-48b6-a980-d8278d55808d',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-02/Vet%20Chat_Sue.jpg?h=0c60b38b',
+        },
+      },
       alt: 'U.S. Army and Army National Guard Veteran Sue Waldoch ',
       width: 3708,
       height: 4726,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-02/Vet%20Chat_Sue.jpg?h=0c60b38b',
     },
     link: '/butler-health-care/stories/living-my-mission-aspiration-and-purpose',
     introText:
@@ -189,12 +216,15 @@ export const formattedStories = [
     image: {
       id: 'c46ec4c9-c47a-47f7-9b49-489a5520feff',
       type: 'media--image',
-      link: {},
+      links: {
+        '2_1_large': {
+          href: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-01/Equine%20Web%20Story.jpg?h=5eb487b6',
+        },
+      },
       alt: 'grandfather and granddaughter riding horses together',
       width: 2687,
       height: 1839,
       title: '',
-      url: 'https://prod.cms.va.gov/sites/default/files/styles/2_1_large/public/2023-01/Equine%20Web%20Story.jpg?h=5eb487b6',
     },
     link: '/butler-health-care/stories/equine-therapy-community-partnerships',
     introText:

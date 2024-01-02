@@ -3,8 +3,9 @@
  */
 const nextConfig = {
   images: {
-    loaderFile: './src/templates/common/image/customLoader.js',
+    loaderFile: './src/templates/common/mediaImage/customLoader.js',
     loader: 'custom',
+    unoptimized: true,
   },
   reactStrictMode: true,
   swcMinify: true,
