@@ -9,11 +9,6 @@ import { DrupalMediaImage } from '@/types/drupal/media'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { MediaImage } from '@/types/formatted/media'
 
-type DrupalMediaImageData = {
-  entity: DrupalMediaImage
-  cropType?: string
-}
-
 // Define query params for queryData.
 export const params: QueryParams<null> = () => {
   return queries.getParams().addInclude(['image'])
@@ -25,9 +20,9 @@ type DataOpts = QueryOpts<{
 }>
 
 // Implement the data loader.
-export const data: QueryData<DataOpts, DrupalMediaImageData> = async (
+export const data: QueryData<DataOpts, DrupalMediaImage> = async (
   opts
-): Promise<DrupalMediaImageData> => {
+): Promise<DrupalMediaImage> => {
   const entity = await drupalClient.getResource<DrupalMediaImage>(
     'media--image',
     opts.id,
@@ -36,25 +31,20 @@ export const data: QueryData<DataOpts, DrupalMediaImageData> = async (
     }
   )
 
-  return { entity, cropType: opts.cropType || '2_1_large' }
+  return entity
 }
 
-export const formatter: QueryFormatter<DrupalMediaImageData, MediaImage> = ({
-  entity,
-  cropType = '2_1_large',
-}) => {
+export const formatter: QueryFormatter<DrupalMediaImage, MediaImage> = (
+  entity: DrupalMediaImage
+) => {
   if (!entity) return null
-  // TODO: may need more handling here around crop type + image height / width. TBD.
-  // TODO: `link` has reference to all image styles whereas `url` narrows down based on
-  //  cropType. Which do we want at this layer?
   return {
     id: entity.image.id,
     type: entity.type,
-    link: entity.image?.links,
+    links: entity.image?.links,
     alt: entity.image?.resourceIdObjMeta?.alt,
     width: entity.image?.resourceIdObjMeta?.width,
     height: entity.image?.resourceIdObjMeta?.height,
     title: entity.image?.resourceIdObjMeta?.title,
-    url: entity.image.links[cropType].href,
   }
 }

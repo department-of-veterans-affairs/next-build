@@ -7,7 +7,7 @@
     "height": 330,
     "title": "foo bar",
     "url": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/2020-04/040120_FEATURE_MarchFCVet20.png",
-    "link": {
+    "links": {
       "2_1_large": {
         "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-04/040120_FEATURE_MarchFCVet20.png",
         "meta": {

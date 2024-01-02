@@ -8,8 +8,7 @@ const mediaImage: FormattedMediaImage = {
   title: 'Cats or Dogs?',
   width: 1299,
   height: 1512,
-  url: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
-  link: {
+  links: {
     '2_1_large': {
       href: 'http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/2020-08/Raab.jpg?h=d3381009',
       meta: {
@@ -24,20 +23,24 @@ const mediaImage: FormattedMediaImage = {
 
 describe('Media Image component renders', () => {
   test('<MediaImage> renders', () => {
-    render(<MediaImage {...mediaImage} />)
+    render(<MediaImage {...mediaImage} imageStyle="2_1_large" />)
     waitFor(() => expect(screen.getByText('Cats or Dogs?')).toBeInTheDocument())
   })
 
   test('<MediaImage> renders with new title', () => {
     mediaImage.title = 'COVID-19 vaccines'
-    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
+    render(
+      <MediaImage key={mediaImage.id} {...mediaImage} imageStyle="2_1_large" />
+    )
     waitFor(() =>
       expect(screen.getByText('COVID-19 vaccines')).toBeInTheDocument()
     )
   })
 
   test('MediaImage renders with correct alt text', () => {
-    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
+    render(
+      <MediaImage key={mediaImage.id} {...mediaImage} imageStyle="2_1_large" />
+    )
     const imgElement = document.querySelector('img[alt=""]')
     // Loading element
     waitFor(() => expect(imgElement).toHaveAttribute('alt', ''))
@@ -45,39 +48,49 @@ describe('Media Image component renders', () => {
       expect(screen.getByText('Smiling man in glasses.')).toBeInTheDocument()
     )
   })
+})
 
-  test('MediaImage renders when image style is defined', () => {
-    render(
-      <MediaImage
-        key={mediaImage.id}
-        {...mediaImage}
-        imageStyle="1_1_square_medium_thumbnail"
-      />
-    )
-    waitFor(() => expect(screen.getByText('1_1_small')).toBeInTheDocument())
+describe('MediaImage component does not render', () => {
+  let spyConsoleError
+
+  beforeEach(() => {
+    spyConsoleError = jest.spyOn(console, 'error')
+    spyConsoleError.mockImplementation(() => null)
   })
 
-  test('MediaImage renders when the image style is not defined', () => {
-    mediaImage.imageStyle = null
-    render(
-      <MediaImage
-        key={mediaImage.id}
-        {...mediaImage}
-        imageStyle={mediaImage.imageStyle}
-      />
-    )
-    waitFor(() =>
-      expect(screen.getByText('Smiling man in glasses.')).toBeInTheDocument()
-    )
+  afterEach(() => {
+    spyConsoleError.mockRestore()
   })
 
-  test('MediaImage does not render with null data', () => {
-    mediaImage.link = null
+  const expectMissingImageSrc = () => {
+    expect(spyConsoleError).toHaveBeenCalledWith(
+      expect.stringMatching(/Image is missing required "src" property/),
+      expect.any(Object)
+    )
+  }
+
+  /*eslint-disable jest/expect-expect*/
+  test('MediaImage throws error when imageStyle is not provided', () => {
     render(<MediaImage key={mediaImage.id} {...mediaImage} />)
-    waitFor(() =>
-      expect(
-        screen.getByText('Smiling man in glasses.')
-      ).not.toBeInTheDocument()
+    expectMissingImageSrc()
+  })
+
+  /*eslint-disable jest/expect-expect*/
+  test('MediaImage throws error when imageStyle does not exist', () => {
+    render(
+      <MediaImage
+        key={mediaImage.id}
+        {...mediaImage}
+        imageStyle="non_existent_style"
+      />
     )
+    expectMissingImageSrc()
+  })
+
+  /*eslint-disable jest/expect-expect*/
+  test('MediaImage throws error with null data', async () => {
+    mediaImage.links = null
+    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
+    expectMissingImageSrc()
   })
 })
