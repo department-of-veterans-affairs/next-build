@@ -56,6 +56,8 @@ const configureAdditionalHelpText = (
 
 /**
  * Parses CLI options from the command line into an object.
+ *
+ * See https://www.npmjs.com/package/commander#common-option-types-boolean-and-value
  */
 export const getCliOptions = (scriptName: string): EnvVars => {
   const program = new Command()
@@ -78,6 +80,7 @@ export const getCliOptions = (scriptName: string): EnvVars => {
     .option('--DRUPAL_CLIENT_SECRET <secret>', 'Drupal client secret')
     .option('--DRUPAL_PREVIEW_SECRET <secret>', 'Drupal preview secret')
     .option('--DRUPAL_SITE_ID <id>', 'Drupal site ID')
+    .option('--USE_REDIS', 'Enable redis')
     .option('--REDIS_URL <url>', 'Redis URL')
     .option('--SITE_URL <url>', 'Origin used for generated absolute paths')
 
