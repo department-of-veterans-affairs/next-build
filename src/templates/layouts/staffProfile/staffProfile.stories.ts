@@ -20,7 +20,14 @@ export const Full: Story = {
       width: 110,
       height: 136,
       id: '',
-      links: {},
+      links: {
+        '1_1_square_medium_thumbnail': {
+          href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-08/William_W_Smathers.jpg',
+          meta: {
+            linkParams: {},
+          },
+        },
+      },
     },
     linkToBio: true,
     path: 'http:va.gov',
