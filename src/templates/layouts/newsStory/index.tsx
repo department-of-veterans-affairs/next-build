@@ -40,7 +40,7 @@ export const NewsStory = ({
               <MediaImage
                 {...image}
                 className={imageClassName}
-                imageStyle="full_content_width"
+                imageStyle="2_1_large"
               />
               <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                 {caption}
