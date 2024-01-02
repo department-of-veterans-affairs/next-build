@@ -216,6 +216,7 @@ export const deriveMostRecentDate = (
 }
 
 export const deriveFormattedTimestamp = (datetime) => {
+  if (!datetime) return
   const startTime = new Date(datetime.startTime)
   const endTime = new Date(datetime.endTime)
 

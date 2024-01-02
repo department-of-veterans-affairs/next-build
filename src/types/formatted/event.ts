@@ -2,6 +2,12 @@ import { NodeHealthCareLocalFacility } from '../drupal/node'
 import { urlOfOnlineEvent } from '../drupal/node'
 import { MediaImage } from './media'
 import { PublishedEntity } from './publishedEntity'
+import {
+  BreadcrumbItem,
+  FieldAddress,
+  FieldFormattedText,
+  SocialLinksProps,
+} from '../drupal/field_type'
 
 interface DateTimeRangeItem {
   value: string
@@ -10,12 +16,6 @@ interface DateTimeRangeItem {
   rrule: number
   rrule_index: number
   timezone: string
-}
-
-interface htmlBody {
-  value: string
-  format: string
-  processed: string
 }
 
 interface Link {
@@ -27,27 +27,18 @@ interface Link {
 export type Event = PublishedEntity & {
   image: MediaImage | null
   date: string
-  socialLinks: {
-    path: string
-    title: string
-  }
+  socialLinks: SocialLinksProps
   listing: string
-  additionalInfo: htmlBody | null
-  address: {
-    langcode?: string
-    country_code?: string
-    administrativeArea?: string
-    locality?: string
-    address_line1?: string
-    address_line2?: string
-    administrative_area?: string
-  }
+  additionalInfo: FieldFormattedText | null
+  address: FieldAddress
   locationHumanReadable: string
   eventCTA: string | null
+  emailCTA: string | null
+  howToSignUp: string | null
   cost: string
   datetimeRange: DateTimeRangeItem[]
   facilityLocation: NodeHealthCareLocalFacility | null
-  body: htmlBody | null
+  body: FieldFormattedText | null
   locationType: string
   description: string
   link: Link | null

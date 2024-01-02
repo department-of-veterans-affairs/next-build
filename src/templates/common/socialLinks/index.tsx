@@ -1,7 +1,4 @@
-export interface SocialLinksProps {
-  path: string
-  title: string
-}
+import { SocialLinksProps } from '@/types/drupal/field_type'
 
 export const SocialLinks = ({ path, title }: SocialLinksProps): JSX.Element => {
   return (
