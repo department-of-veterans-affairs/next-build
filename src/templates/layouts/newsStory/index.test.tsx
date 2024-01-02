@@ -73,6 +73,7 @@ const data = {
       tag: 'meta',
     },
   ],
+  lastUpdated: '2021-07-01T14:00:00.000Z',
 }
 
 describe('<newsStory> with valid data', () => {

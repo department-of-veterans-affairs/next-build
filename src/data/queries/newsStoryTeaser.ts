@@ -25,5 +25,6 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryTeaser> = (
     }),
     link: entity.path.alias,
     introText: entity.field_intro_text,
+    lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
   }
 }

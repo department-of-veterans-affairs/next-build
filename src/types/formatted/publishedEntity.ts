@@ -11,4 +11,5 @@ export interface PublishedEntity {
   moderationState?: string
   breadcrumbs?: BreadcrumbItem[]
   metatags?: MetaTag[]
+  lastUpdated: string
 }
