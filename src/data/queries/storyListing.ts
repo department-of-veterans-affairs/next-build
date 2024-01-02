@@ -114,6 +114,5 @@ export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
     currentPage: current,
     totalItems,
     totalPages,
-    lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
   }
 }

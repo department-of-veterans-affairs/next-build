@@ -63,6 +63,7 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     tags: queries.formatData('paragraph--audience_topics', entity.field_tags),
     buttons: buttons,
     teasers: teasers,
+    lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
     // contact: entity.field_contact_information, component is available to frontend
     //  alert: entity.field_alert_single, || component is available to frontend
     //  benefits: entity.field_related_benefit_hubs, || component is available to frontend

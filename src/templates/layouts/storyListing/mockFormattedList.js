@@ -3,6 +3,7 @@ export const formattedStories = [
     id: '1024597e-b397-4b92-a183-9402acfd5d0d',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2021-07-01T14:00:00.000Z',
     title: 'Celebrating our Family Caregivers',
     image: {
       id: 'e4db22b0-5802-405f-a526-a3a436bd4219',
@@ -22,6 +23,7 @@ export const formattedStories = [
     id: 'cecaf5d7-34d8-42e1-9bc0-c2cc46b38a2a',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2021-06-01T14:00:00.000Z',
     title: "It's Flu Shot Time!",
     image: {
       id: 'cd5abddc-ecaa-4a82-bfcb-0eea7477dcc6',
@@ -41,6 +43,7 @@ export const formattedStories = [
     id: 'ff6969f7-7907-4eae-9571-634153c26bc9',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2021-05-01T14:00:00.000Z',
     title:
       'This Suicide Prevention Month, the Butler VA Offers Veterans Support',
     image: {
@@ -61,6 +64,7 @@ export const formattedStories = [
     id: 'd023d3de-a14c-4fb2-b069-1bf411ce3be1',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2021-07-04T14:00:00.000Z',
     title: 'In-car and Body-worn Cameras',
     image: {
       id: 'b38b2e4e-5190-4492-9852-b7f5b21d40d5',
@@ -80,6 +84,7 @@ export const formattedStories = [
     id: 'eb8c6201-1015-4474-a705-a30efb3b9082',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2021-08-01T14:00:00.000Z',
     title: 'High-Tech & High-Touch Health Care',
     image: {
       id: '06013955-467f-46fc-a3a6-f5d85abb1fcb',
@@ -99,6 +104,7 @@ export const formattedStories = [
     id: '5bae8ede-148f-4ef2-8d86-10753b2b9a59',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2021-09-01T14:00:00.000Z',
     title: 'All About Acupuncture  & Chiropractic Care',
     image: {
       id: 'a4a15542-d71d-479c-92da-7a5a460ab71d',
@@ -118,6 +124,7 @@ export const formattedStories = [
     id: 'c2bf92f6-d49a-45e1-9f36-86ffb4176d1c',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2021-10-01T14:00:00.000Z',
     title: '“It’s a Help System”',
     image: {
       id: '7c58a640-8580-45c9-96fa-9e1d83c79c4b',
@@ -137,6 +144,7 @@ export const formattedStories = [
     id: 'fcfcd125-6c2e-4e58-9881-5087d99b51ee',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2022-07-01T14:00:00.000Z',
     title: 'Tele-Audiology Now Available',
     image: {
       id: 'ad24c19d-b093-40cb-9e94-55d9aae3ef7e',
@@ -156,6 +164,7 @@ export const formattedStories = [
     id: '3460f445-9dc5-4a7e-aeb8-56ac16231e35',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2023-04-01T14:00:00.000Z',
     title: 'Living My Mission, Aspiration, and Purpose',
     image: {
       id: 'a5a7a4c7-413e-48b6-a980-d8278d55808d',
@@ -175,6 +184,7 @@ export const formattedStories = [
     id: '6b436546-c3c4-4ec8-8eaa-f11bc520fc91',
     type: 'node--news_story',
     published: true,
+    lastUpdated: '2021-03-01T14:00:00.000Z',
     title: 'Equine Therapy Community Partnerships',
     image: {
       id: 'c46ec4c9-c47a-47f7-9b49-489a5520feff',

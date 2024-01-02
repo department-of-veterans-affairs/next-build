@@ -9,6 +9,7 @@ describe('<QuestionAnswerData> component renders with data', () => {
     entityId: 1234,
     entityPath: 'sample/path/url',
     published: true,
+    lastUpdated: '2021-05-25T14:00:00.000Z',
     title: 'How do I change my name in my DEERS record?',
     answers:
       '<p>You’ll need to call the Defense Manpower Data Center (DMDC) support office. They’ll tell you what documents to provide and what to do next. </p>\n' +

@@ -52,5 +52,4 @@ export type Event = PublishedEntity & {
   description: string
   link: Link | null
   urlOfOnlineEvent: urlOfOnlineEvent
-  lastUpdated: string
 }

@@ -33,6 +33,7 @@ const teaserData = {
   id: '12345',
   published: true,
   type: 'node--news_story',
+  lastUpdated: '2021-05-25T14:00:00.000Z',
 }
 
 describe('<NewsStoryTeaser> with valid data', () => {

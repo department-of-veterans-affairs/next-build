@@ -13,5 +13,4 @@ export type StoryListing = PublishedEntity & {
   currentPage: number
   totalItems: number
   totalPages: number
-  lastUpdated: string
 }
