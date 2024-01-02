@@ -2,6 +2,10 @@
 
 Front-end templating, build, and deploy for VA.gov CMS content.
 
+![CI](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/ci.yml/badge.svg)
+![CodeQL](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/codeql-analysis.yml/badge.svg)
+![Playwright Tests](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/playwright.yml/badge.svg)
+
 ## Local setup
 
 Prerequisites
@@ -9,30 +13,31 @@ Prerequisites
 - [VA SOCKS access](https://depo-platform-documentation.scrollhelp.site/getting-started/Internal-tools-access-via-SOCKS-proxy.1821081710.html)
 - [NVM](https://github.com/nvm-sh/nvm) for node version management
 - [Yarn](https://yarnpkg.com/getting-started/install) for package management
+- [Docker](https://www.docker.com/products/docker-desktop/) for the redis container
 
 You should set these up before attempting to install the repo.
 
 ## Basic local installation
 
 1. Clone the repo if you haven't.
-   `git@github.com:department-of-veterans-affairs/next-build.git`
+   `git clone git@github.com:department-of-veterans-affairs/next-build.git`
 
-1. Clone the vets-website repo adjacent to next-build in the same parent directory.
-   `git@github.com:department-of-veterans-affairs/vets-website.git`
+2. Clone the vets-website repo adjacent to next-build in the same parent directory.
+   `git clone git@github.com:department-of-veterans-affairs/vets-website.git`
 
-1. In vets-website, set node and yarn to the required versions: `nvm use 14.15.0` && `yarn set version 1.19.1`
+3. In the `vets-website/` directory, set node and yarn to the required versions: `nvm use 14.15.0` && `yarn set version 1.19.1`
 
-1. `yarn install` and `yarn build`. You are now done in vets-website.
+4. `yarn install` and `yarn build`. You are now done in vets-website. You may need to re-build vets-website occasionally in the future to ensure assets are up-to-date.
 
-1. In the next-build directory, `nvm use 18` && `yarn set version stable`
+5. In the `next-build/` directory, `nvm use 18` && `yarn set version stable`
 
-1. Run `yarn install`.
+6. Run `yarn install`.
 
-1. Copy `envs/.env.example` to `envs/.env.local`. This is a reasonable set of environment defaults for local development.
+7. Copy `envs/.env.example` to `envs/.env.local`. This is a reasonable set of environment defaults for local development.
 
-1. Make sure your SOCKS access is running. (e.g. `vtk socks on`)
+8. Make sure your SOCKS access is running. (e.g. `vtk socks on`)
 
-1. Run `yarn dev`.
+9. Run `yarn dev`.
 
 You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your local environment.
 
@@ -91,13 +96,15 @@ Retrieve this value from AWS SSM @ /cms/staging/drupal_api_users/next_build_api/
 
 To generate the static pages for https://va.gov, run `yarn export`. This command will generate static pages for all paths that next-build is aware of.
 
-To use the redis cache during your static build, run the following command before running `yarn export`:
+To use the redis cache during your static build, run `yarn redis` before running `yarn export`.
+
+This will start [redis](https://redis.io/) in a docker container via
 
 ```sh
 docker run --name next-redis -p 6379:6379 -d redis
 ```
 
-This will start [redis](https://redis.io/) in a docker container that can be reached from your localhost (e.g. `redis://localhost:6379`). For more on how this project uses redis, check the [caching readme](READMEs/caching.md).
+This container can be reached from your localhost (e.g. `redis://localhost:6379`). You can interact directly with the redis container by running `yarn redis:cli`. For more on how this project uses redis, check the [caching readme](READMEs/caching.md).
 
 ## Documentation (WIP)
 
