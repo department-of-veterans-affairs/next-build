@@ -1,4 +1,5 @@
 import { BreadcrumbItem, BreadCrumbLink } from '@/types/drupal/field_type'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 export function deriveLastBreadcrumbFromPath(
   breadcrumbs: BreadcrumbItem[],
@@ -68,4 +69,10 @@ export function filterInvalidCrumbs(
   return crumbs.filter((crumb, index, arr) => {
     return crumb.href !== '' || index === arr.length - 1
   })
+}
+
+export const shouldHideHomeBreadcrumb = (resourceType) => {
+  const typesToShowHomeBreadcrumb = [RESOURCE_TYPES.EVENT]
+
+  return !typesToShowHomeBreadcrumb.includes(resourceType)
 }

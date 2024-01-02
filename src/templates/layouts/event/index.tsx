@@ -72,6 +72,18 @@ export const Event = ({
     .filter(Boolean)
     .join(', ')
 
+  const createMailToLink = (emailCTA, title, mostRecentDate, linkPath) => {
+    const formattedDate = deriveFormattedTimestamp(mostRecentDate)
+    const subject = `RSVP for ${title} on ${formattedDate}`
+    const body = `I would like to register for ${title} on ${formattedDate}. (https://va.gov${
+      linkPath || ''
+    })`
+
+    return `mailto:${emailCTA}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`
+  }
+
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -216,11 +228,12 @@ export const Event = ({
                           <p className="vads-u-margin--0">
                             <a
                               className="vads-c-action-link--green"
-                              href={`mailto:${emailCTA}?subject=RSVP for ${title} on ${deriveFormattedTimestamp(
-                                mostRecentDate
-                              )}&body=I would like to register for ${title} on ${deriveFormattedTimestamp(
-                                mostRecentDate
-                              )}. (https://va.gov${link?.url?.path})`}
+                              href={createMailToLink(
+                                emailCTA,
+                                title,
+                                mostRecentDate,
+                                link?.url?.path
+                              )}
                             >
                               {eventCTA && formatEventCTA(eventCTA)}
                             </a>
@@ -256,8 +269,9 @@ export const Event = ({
                   View other times for this event
                   <i
                     aria-hidden="true"
-                    className={`fa ${showRecurringEvents ? 'fa-minus' : 'fa-plus'
-                      }`}
+                    className={`fa ${
+                      showRecurringEvents ? 'fa-minus' : 'fa-plus'
+                    }`}
                     id="expand-recurring-events-icon"
                   ></i>
                 </button>
@@ -274,7 +288,7 @@ export const Event = ({
                         <a
                           className="recurring-event"
                           data-description={description}
-                          data-end={dateRange.endValue}
+                          data-end={dateRange?.endValue}
                           data-location={directionsString}
                           data-start={dateRange?.value}
                           data-subject={title}
