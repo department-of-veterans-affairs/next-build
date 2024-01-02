@@ -58,11 +58,6 @@ const IOSBanner = () => (
   </Head>
 )
 
-// TODO: Implement article tags
-// TODO: Is this necessary? Are these ever set?
-// See: https://github.com/department-of-veterans-affairs/content-build/blob/f898e20d02cbf011e6e26976de95c5d33eace1c0/src/site/includes/metatags.drupal.liquid#L58-L63C12
-const ArticleTags = ({ tags }: { tags: string[] }) => <></>
-
 const CustomTags = ({ tags }: { tags: MetaTag[] }) => (
   <Head>
     {tags.map?.(({ tag: Tag, attributes }, i) =>
@@ -75,14 +70,39 @@ const CustomTags = ({ tags }: { tags: MetaTag[] }) => (
   </Head>
 )
 
-// TODO: Implement default meta tags when no custom tags are present
-// TODO: Is this necessary? Are there content types where custom meta tags are not set?
-// See: https://github.com/department-of-veterans-affairs/content-build/blob/f898e20d02cbf011e6e26976de95c5d33eace1c0/src/site/includes/metatags.drupal.liquid#L88-L146
 const DefaultTags = ({
   resource,
 }: {
   resource: StaticPropsResource<FormattedResource>
-}) => <></>
+}) => {
+  const metaTitle = `${resource.title} | Veterans Affairs`
+
+  return (
+    <Head>
+      <meta property="og:site_name" content="Veterans Affairs" />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:image" content="/img/design/logo/va-og-image.png" />
+      <meta
+        property="og:image:alt"
+        content="U.S. Department of Veterans Affairs logo"
+      />
+
+      <meta name="twitter:site" content="@DeptVetAffairs" />
+      <meta name="twitter:title" content={metaTitle} />
+      <meta name="twitter:card" content="Summary" />
+      <meta
+        name="twitter:image"
+        content="/img/design/logo/va-og-twitter-image.png"
+      />
+      <meta
+        name="twitter:image:alt"
+        content="U.S. Department of Veterans Affairs logo"
+      />
+
+      <title>{metaTitle}</title>
+    </Head>
+  )
+}
 
 export const Meta = ({
   resource,
@@ -93,12 +113,22 @@ export const Meta = ({
   const canonicalLink =
     'canonicalLink' in resource ? resource.canonicalLink : resource.entityPath
 
-  // TODO: pass this value when we have it present in future content types
-  const lastUpdated = null
+  const lastUpdated = resource.lastUpdated
 
-  // TODO: calculate when to show iOS banner
-  // See: https://github.com/department-of-veterans-affairs/content-build/blob/f898e20d02cbf011e6e26976de95c5d33eace1c0/src/site/filters/liquid.js#L1741-L1756
-  const showIOSBanner = false
+  const urlsForBanner = [
+    // For testing purposes you can uncomment this following route.
+    // '/central-iowa-health-care/events/52265',
+    '/health-care/refill-track-prescriptions',
+    '/health-care/secure-messaging',
+    '/health-care/get-medical-records',
+    '/disability/view-disability-rating',
+    '/claim-or-appeal-status',
+    '/disability/upload-supporting-evidence',
+    '/records/download-va-letters',
+    '/va-payment-history',
+    '/change-direct-deposit',
+  ]
+  const showIOSBanner = urlsForBanner.includes(resource.entityPath)
 
   return (
     <>
@@ -122,7 +152,6 @@ export const Meta = ({
 
       {lastUpdated && <LastUpdated timestamp={lastUpdated} />}
       {showIOSBanner && <IOSBanner />}
-      <ArticleTags tags={null} />
 
       {resource.metatags?.length > 0 ? (
         <CustomTags tags={resource.metatags} />

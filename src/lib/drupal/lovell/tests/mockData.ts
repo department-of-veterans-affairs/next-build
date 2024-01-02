@@ -83,6 +83,7 @@ export const newsStoryPartialResource = {
   listing: 'listing',
   entityId: 12345,
   metatags: null,
+  lastUpdated: '2023-08-16T15:20:36+00:00',
 }
 
 export const lovellSidenavData = {

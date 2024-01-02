@@ -231,6 +231,8 @@ export interface NodeNewsStory extends DrupalNode {
   field_administration: FieldAdministration
   /** When the node was created. */
   created: string
+  /** When the node was last saved by an editor. */
+  field_last_saved_by_an_editor?: string | null
 }
 
 export interface NodeOffice extends DrupalNode {
@@ -324,6 +326,7 @@ export interface NodeEvent extends DrupalNode {
   field_link: fieldLink
   field_url_of_an_online_event: urlOfOnlineEvent
   field_listing: NodeEventListing
+  field_last_saved_by_an_editor?: string | null
 }
 
 interface fieldLink {
