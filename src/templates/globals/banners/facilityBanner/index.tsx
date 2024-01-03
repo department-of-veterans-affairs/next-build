@@ -17,7 +17,8 @@ export const FacilityBanner = ({
   dismiss,
 }: FormattedFacilityBanner): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false)
-  const [outputStatus, setOutputStatus] = useState(true)
+  // const [outputStatus, setOutputStatus] = useState(true)
+  const outputStatus = true
   const analyticsRef = useRef(null)
 
   useEffect(() => {

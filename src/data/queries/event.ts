@@ -8,7 +8,6 @@ import { queries } from '.'
 import { NodeEvent } from '@/types/drupal/node'
 import { Event } from '@/types/formatted/event'
 import { GetServerSidePropsContext } from 'next'
-import { MediaImage } from '@/types/formatted/media'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
