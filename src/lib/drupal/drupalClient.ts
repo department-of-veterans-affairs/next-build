@@ -14,8 +14,9 @@ export const drupalClient = new DrupalClient(baseUrl, {
     clientSecret: process.env.DRUPAL_CLIENT_SECRET,
   },
   // Generally use cache for `yarn export` as it generates all pages
-  cache: process.env.USE_REDIS
-    ? redisCache(createRedisClient(process.env.REDIS_URL))
-    : null,
+  cache:
+    process.env.USE_REDIS === 'true'
+      ? redisCache(createRedisClient(process.env.REDIS_URL))
+      : null,
   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
 })
