@@ -36,7 +36,6 @@ import {
   TaxonomyTermLcCategories,
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** Union of all node types.  */
 export type NodeTypes =
