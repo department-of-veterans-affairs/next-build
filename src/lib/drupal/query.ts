@@ -1,5 +1,4 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { PHASE_PRODUCTION_BUILD } from 'next/constants'
 import { JsonApiResponse } from 'next-drupal'
 import { QueryParams } from 'next-drupal-query'
 import { queries } from '@/data/queries'
@@ -103,8 +102,8 @@ export async function getMenu(name: string, params?: QueryParams<null>) {
   const menu = await drupalClient.getMenu(name, {
     params: params ? params().getQueryObject() : defaultMenuParams,
 
-    // Cache resource during build, not dev.
-    withCache: process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD,
+    // Cache resource if redis is available
+    withCache: process.env.USE_REDIS === 'true',
     cacheKey: `menu:${name}`,
   })
 

@@ -46,7 +46,7 @@ export const Event = ({
     // Calculate the most recent date when the component mounts
     const recentDate = deriveMostRecentDate(formattedDates)
     setMostRecentDate(recentDate)
-  }, [datetimeRange])
+  }, [formattedDates])
 
   const toggleRecurringEvents = () => {
     setShowRecurringEvents((prevState) => !prevState)
