@@ -3,6 +3,7 @@ import {
   deriveLcBreadcrumbs,
   transformBreadcrumbs,
   filterInvalidCrumbs,
+  shouldHideHomeBreadcrumb,
 } from './breadcrumbs'
 import { BreadcrumbItem } from '@/types/drupal/field_type'
 
@@ -97,6 +98,20 @@ describe('breadcrumbUtils', () => {
         { href: '/test2', label: 'Test2' },
         { href: '', label: 'Empty2' },
       ])
+    })
+  })
+
+  describe('shouldHideHomeBreadcrumb', () => {
+    it('should return false for RESOURCE_TYPES.EVENT', () => {
+      const resourceType = 'node--event'
+      const result = shouldHideHomeBreadcrumb(resourceType)
+      expect(result).toBe(false)
+    })
+
+    it('should return true for non-event resource types', () => {
+      const resourceType = 'node--other-type'
+      const result = shouldHideHomeBreadcrumb(resourceType)
+      expect(result).toBe(true)
     })
   })
 })

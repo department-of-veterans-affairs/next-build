@@ -11,7 +11,7 @@ import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Event as FormattedEvent } from '@/types/formatted/event'
 import { SocialLinksEvents } from '@/templates/common/socialLinksEvents'
-import { formatEventCTA } from '@/lib/utils/formatEventCTA'
+import { formatEventCTA, createMailToLink } from '@/lib/utils/events'
 
 export const Event = ({
   title,
@@ -36,16 +36,15 @@ export const Event = ({
   const [showRecurringEvents, setShowRecurringEvents] = useState(false)
   const [mostRecentDate, setMostRecentDate] = useState(null)
   const [showAllEvents, setShowAllEvents] = useState(false)
-  const initialFormattedDates = formatDateObject(datetimeRange).slice(0, 5)
+  const formattedDates = formatDateObject(datetimeRange)
+  const initialFormattedDates = formattedDates.slice(0, 5)
   const [currentFormattedDates, setCurrentFormattedDates] = useState(
     initialFormattedDates
   )
-  const formattedDates = formatDateObject(datetimeRange)
 
   useEffect(() => {
     // Calculate the most recent date when the component mounts
-    const allDates = formatDateObject(datetimeRange)
-    const recentDate = deriveMostRecentDate(allDates)
+    const recentDate = deriveMostRecentDate(formattedDates)
     setMostRecentDate(recentDate)
   }, [datetimeRange])
 
@@ -71,18 +70,6 @@ export const Event = ({
   ]
     .filter(Boolean)
     .join(', ')
-
-  const createMailToLink = (emailCTA, title, mostRecentDate, linkPath) => {
-    const formattedDate = deriveFormattedTimestamp(mostRecentDate)
-    const subject = `RSVP for ${title} on ${formattedDate}`
-    const body = `I would like to register for ${title} on ${formattedDate}. (https://va.gov${
-      linkPath || ''
-    })`
-
-    return `mailto:${emailCTA}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`
-  }
 
   return (
     <div className="va-l-detail-page va-facility-page">

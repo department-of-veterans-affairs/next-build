@@ -3,7 +3,6 @@ import { urlOfOnlineEvent } from '../drupal/node'
 import { MediaImage } from './media'
 import { PublishedEntity } from './publishedEntity'
 import {
-  BreadcrumbItem,
   FieldAddress,
   FieldFormattedText,
   SocialLinksProps,
