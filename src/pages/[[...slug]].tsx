@@ -10,6 +10,7 @@ import { Wrapper } from '@/templates/globals/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import HTMLComment from '@/templates/globals/util/HTMLComment'
+import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import { Event } from '@/templates/layouts/event'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -71,7 +72,7 @@ export default function ResourcePage({
       <Breadcrumbs
         breadcrumbs={resource.breadcrumbs}
         entityPath={resource.entityPath}
-        hideHomeBreadcrumb
+        hideHomeBreadcrumb={shouldHideHomeBreadcrumb(resource.type)}
       />
       <main>
         <div id="content" className="interior">

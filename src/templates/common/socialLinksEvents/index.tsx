@@ -22,9 +22,9 @@ export const SocialLinksEvents = ({
         <li className="vads-u-margin-bottom--2p5">
           <a
             data-description={description}
-            data-end={dateObject.endValue}
+            data-end={dateObject?.endValue}
             data-location={address}
-            data-start={dateObject.value}
+            data-start={dateObject?.value}
             data-subject={title}
             href={path}
             id="add-to-calendar-link"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   deriveMostRecentDate,
   formatDateObject,
@@ -11,6 +11,7 @@ import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Event as FormattedEvent } from '@/types/formatted/event'
 import { SocialLinksEvents } from '@/templates/common/socialLinksEvents'
+import { formatEventCTA, createMailToLink } from '@/lib/utils/events'
 
 export const Event = ({
   title,
@@ -27,16 +28,39 @@ export const Event = ({
   link,
   additionalInfo,
   eventCTA,
+  emailCTA,
+  howToSignUp,
   body,
   listing,
 }: FormattedEvent) => {
   const [showRecurringEvents, setShowRecurringEvents] = useState(false)
+  const [mostRecentDate, setMostRecentDate] = useState(null)
+  const [showAllEvents, setShowAllEvents] = useState(false)
+  const formattedDates = formatDateObject(datetimeRange)
+  const initialFormattedDates = formattedDates.slice(0, 5)
+  const [currentFormattedDates, setCurrentFormattedDates] = useState(
+    initialFormattedDates
+  )
+
+  useEffect(() => {
+    // Calculate the most recent date when the component mounts
+    const recentDate = deriveMostRecentDate(formattedDates)
+    setMostRecentDate(recentDate)
+  }, [datetimeRange])
+
   const toggleRecurringEvents = () => {
     setShowRecurringEvents((prevState) => !prevState)
   }
-  const formattedDates = formatDateObject(datetimeRange)
 
-  const mostRecentDate = deriveMostRecentDate(formattedDates)
+  const handleAllEventsToggle = () => {
+    if (showAllEvents) {
+      setCurrentFormattedDates(initialFormattedDates)
+    } else {
+      setCurrentFormattedDates(formattedDates)
+    }
+    setShowAllEvents((prevState) => !prevState)
+  }
+
   const formattedTimestamp = deriveFormattedTimestamp(mostRecentDate)
   const addressObj = facilityLocation?.field_address || address
   const directionsString = [
@@ -175,7 +199,7 @@ export const Event = ({
             {/* CTA */}
             {(link || additionalInfo || eventCTA) && (
               <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1">
-                {isEventInPast(mostRecentDate.value) ? (
+                {isEventInPast(mostRecentDate?.value) ? (
                   <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
                     This event already happened.
                   </p>
@@ -190,6 +214,25 @@ export const Event = ({
                           {eventCTA || 'More details'}
                         </a>
                       </p>
+                    )}
+                    {howToSignUp === 'email' && (
+                      <>
+                        {mostRecentDate && (
+                          <p className="vads-u-margin--0">
+                            <a
+                              className="vads-c-action-link--green"
+                              href={createMailToLink(
+                                emailCTA,
+                                title,
+                                mostRecentDate,
+                                link?.url?.path
+                              )}
+                            >
+                              {eventCTA && formatEventCTA(eventCTA)}
+                            </a>
+                          </p>
+                        )}
+                      </>
                     )}
                     {additionalInfo && (
                       <div
@@ -230,7 +273,7 @@ export const Event = ({
                     className="vads-u-flex-direction--column vads-u-background-color--white vads-u-border--2px vads-u-border-color--gray-lightest vads-u-padding--2"
                     id="recurring-events"
                   >
-                    {formattedDates.map((dateRange, index) => (
+                    {currentFormattedDates.map((dateRange, index) => (
                       <div key={index} className="vads-u-margin-bottom--2">
                         <p className="vads-u-margin--0">
                           {deriveFormattedTimestamp(dateRange)}
@@ -238,9 +281,9 @@ export const Event = ({
                         <a
                           className="recurring-event"
                           data-description={description}
-                          data-end={dateRange.endValue}
+                          data-end={dateRange?.endValue}
                           data-location={directionsString}
-                          data-start={dateRange.value}
+                          data-start={dateRange?.value}
                           data-subject={title}
                           href={socialLinks?.path}
                           rel="noreferrer noopener"
@@ -254,6 +297,20 @@ export const Event = ({
                         </a>
                       </div>
                     ))}
+                    {formattedDates.length > 5 && (
+                      <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-justify-content--flex-end vads-u-width--full medium-screen:vads-u-width--auto">
+                        <button
+                          className="usa-button-secondary vads-u-width--full medium-screen:vads-u-width--auto"
+                          id="show-all-recurring-events"
+                          type="button"
+                          onClick={handleAllEventsToggle}
+                        >
+                          {showAllEvents
+                            ? 'Show fewer times'
+                            : 'Show all times'}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

@@ -40,6 +40,8 @@
     "langcode": "en"
   },
   "field_additional_information_abo": null,
+  "field_cta_email": "test@va.gov",
+  "field_how_to_sign_up": "email",
   "field_address": {
     "langcode": "en",
     "country_code": "US",

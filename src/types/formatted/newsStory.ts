@@ -1,6 +1,6 @@
 import { ComponentType } from 'react'
 import { PersonProfileTeaserProps } from '@/templates/components/personProfile'
-import { SocialLinksProps } from '@/templates/common/socialLinks'
+import { SocialLinksProps } from '@/types/drupal/field_type'
 import { Administration } from '@/types/formatted/administration'
 import { PublishedEntity } from './publishedEntity'
 import { MediaImage } from './media'

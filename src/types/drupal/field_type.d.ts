@@ -3,9 +3,9 @@ export interface FieldAddress {
   country_code: string
   administrative_area: string
   locality: string
-  dependent_locality: string
-  postal_code: string
-  sorting_code: string
+  dependent_locality?: string
+  postal_code?: string
+  sorting_code?: string
   address_line1: string
   address_line2: string
 }
@@ -14,6 +14,11 @@ export interface FieldFormattedText {
   value: string
   format: string
   processed: string
+}
+
+export interface SocialLinksProps {
+  path: string
+  title: string
 }
 
 export interface FieldFormattedTextWithSummary extends FieldFormattedText {

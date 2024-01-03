@@ -284,38 +284,18 @@ export interface NodePersonProfile extends DrupalNode {
  *  @see https://prod.cms.va.gov/admin/structure/types/manage/event/fields
  */
 export interface NodeEvent extends DrupalNode {
-  field_additional_information_abo: {
-    value: string
-    format: string
-    processed: string
-  }
-  field_address?: {
-    additionalName?: string | null
-    addressLine1?: string
-    addressLine2?: string
-    administrativeArea?: string
-    countryCode?: string
-    dependentLocality?: string | null
-    familyName?: string | null
-    givenName?: string | null
-    langcode?: string
-    locality?: string
-    organization?: string | null
-    postalCode?: string | null
-    sortingCode?: string | null
-  }
+  field_additional_information_abo: FieldFormattedText
+  field_address?: FieldAddress
   field_location_humanreadable: string
   field_event_cta: string
+  field_cta_email: string
+  field_how_to_sign_up: string
   field_event_cost: string
   field_datetime_range_timezone: DateTimeRange[]
 
   field_facility_location: NodeHealthCareLocalFacility
   field_featured: boolean
-  field_body: {
-    value: string
-    format: string
-    processed: string
-  }
+  field_body: FieldFormattedText
   field_include_registration_info: boolean
   field_location_type: string
   field_order: string
