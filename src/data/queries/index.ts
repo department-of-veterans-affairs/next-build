@@ -18,6 +18,8 @@ import * as StaticPathResources from './staticPathResources'
 import * as HeaderFooter from './headerFooter'
 import * as PromoBlock from './promoBlock'
 import * as Event from './event'
+import * as EventListing from './eventListing'
+import * as EventListingTeaser from './eventListingTeaser'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 export const QUERIES_MAP = {
@@ -27,6 +29,8 @@ export const QUERIES_MAP = {
   'node--story_listing': StoryListing,
   'node--q_a': QuestionAnswer,
   'node--event': Event,
+  'node--event_listing': EventListing,
+  'node--event_listing--teaser': EventListingTeaser,
   'node--person_profile': PersonProfile,
   'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
   'paragraph--audience_topics': AudienceTopics,

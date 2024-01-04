@@ -56,6 +56,7 @@ export type NodeTypes =
   | NodeSupportResourcesDetailPage
   | NodeSupportService
   | NodeEvent
+  | NodeEventListing
 
 /** Node resource types. */
 export const enum NodeResourceType {
@@ -68,6 +69,7 @@ export const enum NodeResourceType {
   PromoBanner = 'node--promo_banner',
   QuestionAnswer = 'node--q_a',
   StoryListing = 'node--story_listing',
+  EventListing = 'node--event_lising',
   SupportResourcesDetailPage = 'node--support_resources_detail_page',
 }
 
