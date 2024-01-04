@@ -44,7 +44,7 @@ describe('formatEventCTA', () => {
       const result = createMailToLink(emailCTA, title, mostRecentDate, linkPath)
 
       expect(result).toBe(
-        'mailto:example@example.com?subject=RSVP%20for%20Event%20Title%20on%20Thu%2C%20Sep%207%2C%202023%2C%2010%3A00%20AM%20EDT%20%E2%80%93%2012%3A00%20PM%20EDT&body=I%20would%20like%20to%20register%20for%20Event%20Title%20on%20Thu%2C%20Sep%207%2C%202023%2C%2010%3A00%20AM%20EDT%20%E2%80%93%2012%3A00%20PM%20EDT.%20(https%3A%2F%2Fva.gov%2Fevent-path)'
+        'mailto:example@example.com?subject=RSVP%20for%20Event%20Title%20on%20Thu%2C%20Sep%207%2C%202023%2C%207%3A00%20AM%20PDT%20%E2%80%93%209%3A00%20AM%20PDT&body=I%20would%20like%20to%20register%20for%20Event%20Title%20on%20Thu%2C%20Sep%207%2C%202023%2C%207%3A00%20AM%20PDT%20%E2%80%93%209%3A00%20AM%20PDT.%20(https%3A%2F%2Fva.gov%2Fevent-path)'
       )
     })
   })
