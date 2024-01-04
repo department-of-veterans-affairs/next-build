@@ -1,0 +1,36 @@
+name: CMS Preview Check
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+jobs:
+  preview:
+    timeout-minutes: 15
+    runs-on: [self-hosted, asg]
+    container:
+      image: public.ecr.aws/docker/library/node:18.19.0-bullseye
+      # Certs added for the self hosted runner
+      env:
+        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/home/runner
+        - /etc/ssl/certs:/etc/ssl/certs
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - name: Setup Yarn
+      run: |
+        corepack enable
+        corepack install -g --cache-only .yarn/releases/corepack.tgz
+
+    - name: Install dependencies
+      run: |
+        yarn
+
+    - name: Verify CMS preview build works
+      run: yarn build:preview
