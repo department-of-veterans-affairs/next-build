@@ -35,3 +35,6 @@ jobs:
 
       - name: Example tests
         run: yarn test:examples
+
+      - name: Verify CMS preview build works
+        run: yarn build:preview
