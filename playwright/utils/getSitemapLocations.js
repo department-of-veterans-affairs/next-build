@@ -1,7 +1,8 @@
 const { getFetcher } = require('proxy-fetcher')
 
+// Given an .xml file, extracts every string inside a <loc> element.
 function extractUrlsFromXML(xml) {
-  const urls = [...xml.matchAll(new RegExp(`<loc>(.|\n)*?</loc>`, 'g'))].map(
+  return [...xml.matchAll(new RegExp(`<loc>(.|\n)*?</loc>`, 'g'))].map(
     ([loc]) => {
       return loc
         .replace('<loc>', '')
@@ -9,8 +10,6 @@ function extractUrlsFromXML(xml) {
         .replace(/^https:/, 'http:')
     }
   )
-
-  return urls
 }
 
 // Gets all URLs included in the output from `yarn build:sitemap` from all sitemaps
@@ -42,4 +41,13 @@ async function getSitemapLocations(baseUrl) {
   return locs.flat()
 }
 
-module.exports = getSitemapLocations
+// VA.gov sitemaps have a lot of urls in them. Helper function for things that
+// may want to parallelize checking that list (broken links, a11y, etc.)
+function splitPagesIntoSegments(pages, count) {
+  const segmentSize = Math.ceil(pages.length / count)
+  return new Array(count).fill().map((_, index) => {
+    return pages.slice(index * segmentSize, (index + 1) * segmentSize)
+  })
+}
+
+module.exports = { getSitemapLocations, splitPagesIntoSegments }
