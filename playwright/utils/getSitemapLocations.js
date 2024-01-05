@@ -1,14 +1,7 @@
-import fetch from 'cross-fetch'
+const { getFetcher } = require('proxy-fetcher')
 
-async function getSitemapLocations(baseUrl) {
-  const response = await fetch(`${baseUrl}/sitemap.xml`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/xml',
-    },
-  })
-  const xml = await response.text()
-  const locs = [...xml.matchAll(new RegExp(`<loc>(.|\n)*?</loc>`, 'g'))].map(
+function extractUrlsFromXML(xml) {
+  const urls = [...xml.matchAll(new RegExp(`<loc>(.|\n)*?</loc>`, 'g'))].map(
     ([loc]) => {
       return loc
         .replace('<loc>', '')
@@ -16,7 +9,35 @@ async function getSitemapLocations(baseUrl) {
         .replace(/^https:/, 'http:')
     }
   )
-  return locs
+
+  return urls
+}
+
+// Gets all URLs included in the output from `yarn build:sitemap` from all sitemaps
+async function getSitemapLocations(baseUrl) {
+  const fetcher = getFetcher(baseUrl)
+  const mainSitemapUrl = `${baseUrl}/sitemap.xml`
+
+  const response = await fetcher(mainSitemapUrl)
+
+  const xml = await response.text()
+  const locs = []
+
+  const urls = extractUrlsFromXML(xml)
+
+  for (const url of urls) {
+    // toplevel sitemap is an index of additional sitemaps
+    if (url.endsWith('.xml')) {
+      const response = await fetcher(url)
+      const xml = await response.text()
+      const urls = extractUrlsFromXML(xml)
+      locs.push(urls)
+    } else {
+      locs.push(url)
+    }
+  }
+
+  return locs.flat()
 }
 
 module.exports = getSitemapLocations
