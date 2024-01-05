@@ -16,7 +16,9 @@ function extractUrlsFromXML(xml) {
 // Gets all URLs included in the output from `yarn build:sitemap` from all sitemaps
 async function getSitemapLocations(baseUrl) {
   const fetcher = getFetcher(baseUrl)
-  const mainSitemapUrl = `${baseUrl}/sitemap.xml`
+  // handle trailing slash
+  const base = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+  const mainSitemapUrl = `${base}/sitemap.xml`
 
   const response = await fetcher(mainSitemapUrl)
 

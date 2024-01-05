@@ -2,12 +2,20 @@
 import { LinkChecker } from 'linkinator'
 import chalk from 'chalk'
 import getSitemapLocations from '../playwright/utils/getSitemapLocations.js';
+import fs from 'fs'
 
 // LinkChecker options.
-// See: https://www.npmjs.com/package/linkinator#linkinatorcheckoptions
+// See: https://github.com/JustinBeckwith/linkinator?tab=readme-ov-file#linkinatorcheckoptions
 const OPTIONS = {
   // recurse: true, // not recursing because we check the full known sitemap
-  verbosity: "error"
+  verbosity: "error",
+  // Links in this array will not be checked, triggering no errors.
+  linksToSkip: [
+    'https://www.googletagmanager.com/',
+    'https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
+    // TODO: include the list of URLs ignored by the CMS link checker here as well
+    // config/sync/node_link_report.settings.yml in va.gov-cms repo
+  ]
 }
 
 // Map of states and colors to use when logging link results.
@@ -30,9 +38,11 @@ async function checkBrokenLinks() {
   // Set up event listeners for the link checker
   checker
     .on('pagestart', url => pagesChecked.push(url))
-    // After a page is scanned, check out the results!
+    // After a page is scanned, sort & report result
     .on('link', result => {
+      // Prints . ? or ! for each link checked.
       process.stdout.write(LOGGER_MAP[result.state]);
+
       linksChecked.push(result)
 
       if (result.state === 'BROKEN') {
@@ -40,30 +50,65 @@ async function checkBrokenLinks() {
       }
     });
 
-  // const result = await checker.check({...OPTIONS, path: `${process.env.SITE_URL}/butler-health-care/stories/`})
-  // const slim = paths.slice(0, 100)
-  console.log(`Number of pages to check: ${paths.length}`)
+  // Full array of sitemap defined URLs.
+  console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
   for (const path of paths) {
+    // Where the actual link check happens, uses options defined above
     await checker.check({...OPTIONS, path})
   }
-  // paths.forEach(async path => await checker.check({...OPTIONS, path}))
 
-  // How many links did we scan?
-  console.log('')
-  console.log(`Scanned total of ${linksChecked.length} links on ${pagesChecked.length} pages!`);
-
-  // The final result will contain the list of checked links, and the pass/fail);
-  console.log(`Detected ${brokenLinks.length} broken links.`);
-
-  // if (brokenLinks.length > 0) {
-  //   for (const brokenLink of brokenLinks) {
-  //     console.log("");
-  //     console.log(chalk.red(brokenLink.url));
-  //     console.log("  ", "STATUS:", brokenLink.status);
-  //     console.log("  ", "SOURCE:", new URL(brokenLink.parent).pathname);
-  //   }
+  // Slim array for debugging this script.
+  // const slim = paths.slice(0, 10)
+  // console.log(`Number of pages to check: ${slim.length}`)
+  // for (const path of slim) {
+    // Where the actual link check happens, uses options defined above
+  // await checker.check({...OPTIONS, path})
   // }
 
+
+  // How many links did we scan?
+  console.log(`\nScanned total of ${chalk.yellow(linksChecked.length)} links on ${chalk.yellow(pagesChecked.length)} pages!`);
+  console.log(`Detected ${brokenLinks.length > 0 ? chalk.red(brokenLinks.length) : chalk.green(0)} broken links.`);
+
+  const jsonReport =
+  {
+    data: {
+      domain: process.env.SITE_URL,
+      pagesScanned: pagesChecked.length,
+      linksChecked: linksChecked.length,
+      brokenLinkCount: brokenLinks.length
+    },
+    brokenLinks: []
+  }
+
+  if (brokenLinks.length > 0) {
+    for (const brokenLink of brokenLinks) {
+      const { url, status, parent } = brokenLink
+      const source = new URL(parent).pathname
+
+      // Output which links are broken on what pages.
+      console.log(`\n${chalk.red(url)}`);
+      console.log("  ", "STATUS:", status);
+      console.log("  ", "SOURCE:", source);
+
+      // Trim item to just essentials for JSON output.
+      jsonReport.brokenLinks.push({
+        url,
+        status,
+        source
+      })
+    }
+  }
+
+  // Write finished report to file.
+  const json = JSON.stringify(jsonReport)
+  fs.writeFile('broken-link-report.json', json, err => {
+    if (err) {
+      console.error(err)
+    }
+  })
+
+  return console.log(`\n Report file written to: ${chalk.green('broken-link-report.json')}`)
 }
 
 checkBrokenLinks()
