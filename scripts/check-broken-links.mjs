@@ -9,7 +9,7 @@ import fs from 'fs'
 const OPTIONS = {
   // recurse: true, // not recursing because we check the full known sitemap
   verbosity: "error",
-  // Links in this array will not be checked, triggering no errors.
+  // Links in this array will not be checked. Will report as SKIPPED.
   linksToSkip: [
     'https://www.googletagmanager.com/',
     'https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
@@ -72,7 +72,7 @@ async function checkBrokenLinks() {
 
   const jsonReport =
   {
-    data: {
+    metrics: {
       domain: process.env.SITE_URL,
       pagesScanned: pagesChecked.length,
       linksChecked: linksChecked.length,
@@ -108,7 +108,7 @@ async function checkBrokenLinks() {
     }
   })
 
-  return console.log(`\n Report file written to: ${chalk.green('broken-link-report.json')}`)
+  return console.log(`\n Report file written to: ${chalk.green(process.cwd() + 'broken-link-report.json')}`)
 }
 
 checkBrokenLinks()
