@@ -24,7 +24,6 @@
     "postinstall": "husky install",
     "typedoc": "typedoc",
     "typedoc:serve": "http-server typedocs -p 8002",
-    "lint:staged:test-modified-files": "yarn build:env-loader && node ./scripts/yarn/lint:staged:test-modified-files.js",
     "test": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test.js",
     "test:ci": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:ci.js",
     "test:coverage": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:coverage.js",
@@ -37,8 +36,6 @@
     "test:format": "APP_ENV=test prettier --check .",
     "test:types": "yarn build:env-loader && APP_ENV=test tsc --noEmit",
     "test:watch": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:watch.js",
-    "test:update-snapshots": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:update-snapshots.js",
-    "test:u": "yarn test:update-snapshots",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -o out/storybook-static --quiet"
   },
