@@ -1,8 +1,8 @@
-import { EventListing } from '@/types/drupal/node'
+import { NodeEventListing } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/EventListing.mock.json'
 
-const EventListingMock: EventListing = mockData
+const EventListingMock: NodeEventListing = mockData
 
 describe('EventListing formatData', () => {
   let windowSpy

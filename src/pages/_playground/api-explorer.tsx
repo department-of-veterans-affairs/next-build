@@ -21,19 +21,10 @@ export async function getStaticProps() {
     }
   }
 
+  // Change this to the query you are interested in mocking:
   const params = queries
-    .getParams()
-    .addPageLimit(3)
-    .addInclude([
-      'field_answer',
-      'field_buttons',
-      'field_related_benefit_hubs',
-      'field_related_information',
-      'field_tags.field_topics',
-      'field_tags.field_audience_beneficiares',
-      'field_tags.field_non_beneficiares',
-    ])
-  const data = await drupalClient.getResourceCollection('node--q_a', {
+    .getParams('node--event_listing')
+  const data = await drupalClient.getResourceCollection('node--event_listing', {
     params: params.getQueryObject(),
   })
 

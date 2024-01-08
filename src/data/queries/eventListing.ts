@@ -1,5 +1,4 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { NodeEventListing } from '@/types/drupal/node'
 import { EventListing } from '@/types/formatted/eventListing'
@@ -14,12 +13,10 @@ import {
 export const params: QueryParams<null> = () => {
   return queries
     .getParams()
-  // uncomment to add referenced entity data to the response
-  // .addInclude([
-  //  'field_media',
-  //  'field_media.image',
-  //  'field_administration',
-  // ])
+    .addInclude([
+      'field_administration',
+      'field_office'
+    ])
 }
 
 // Define the option types for the data loader.
@@ -38,7 +35,6 @@ export const data: QueryData<EventListingDataOpts, NodeEventListing> = async (
     params
   )) as NodeEventListing
 
-  console.log(entity)
   return entity
 }
 

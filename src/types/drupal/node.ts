@@ -332,30 +332,7 @@ export interface urlOfOnlineEvent {
 }
 
 export interface NodeEventListing extends DrupalNode {
-  status: boolean
-  breadcrumbs: BreadcrumbItem[]
-  moderation_state: string
-  path: {
-    alias: string
-    pid: number
-    langcode: string
-  }
-  field_description: string
-  field_enforce_unique_combo: boolean
-  field_intro_text: string
-  links: {
-    self: {
-      href: string
-    }
-  }
-  resourceIdObjMeta: {
-    drupal_internal__target_id: number
-  }
-  node_type: {
-    type: string
-    id: string
-    resourceIdObjMeta: unknown
-  }
+
 }
 
 export interface NodePromoBanner extends DrupalNode {
