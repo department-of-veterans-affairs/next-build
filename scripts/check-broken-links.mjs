@@ -5,7 +5,7 @@ import { getSitemapLocations, splitPagesIntoSegments } from '../playwright/utils
 import fs from 'fs'
 
 // # of batches to parallelize checking of full sitemap.
-const BATCH_SIZE = 20
+const BATCH_SIZE = process.env.BATCH_SIZE || 20
 
 // Map of states and colors to use when logging link results.
 const LOGGER_MAP = {
@@ -24,10 +24,10 @@ const OPTIONS = {
     // TODO: include the list of URLs ignored by the CMS link checker here as well
     // config/sync/node_link_report.settings.yml in va.gov-cms repo
   ],
-  timeout: 5000, // fail a link if it doesn't resolve within 5s
+  timeout: 5000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
   urlRewriteExpressions: [
     // { pattern: '', replacement: '' }
-  ]
+  ],
   // recurse: true, // not recursing because we check the full known sitemap
 }
 
