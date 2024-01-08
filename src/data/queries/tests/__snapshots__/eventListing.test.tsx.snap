@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventListing formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://va-gov-cms.ddev.site/",
+    },
+    {
+      "options": [],
+      "title": "VA Wilkes-Barre health care",
+      "uri": "https://va-gov-cms.ddev.site/wilkes-barre-health-care",
+    },
+    {
+      "options": [],
+      "title": "News and events",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "Events",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 3036,
+  "entityPath": "/wilkes-barre-health-care/events",
+  "id": "4c24a406-37dc-4709-9ba7-24f430973cfb",
+  "lastUpdated": "2021-02-11T16:15:00+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Events | VA Wilkes-Barre health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Learn more about events in our VA Wilkes-Barre health care community, including classes on health and wellness.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Events | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Learn more about events in our VA Wilkes-Barre health care community, including classes on health and wellness.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Learn more about events in our VA Wilkes-Barre health care community, including classes on health and wellness.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Events | VA Wilkes-Barre health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "published": true,
+  "title": "Events",
+  "type": "node--event_listing",
+}
+`;
