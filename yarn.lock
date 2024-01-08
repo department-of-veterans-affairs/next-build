@@ -2057,19 +2057,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/formation@npm:^7.0.9":
-  version: 7.1.0
-  resolution: "@department-of-veterans-affairs/formation@npm:7.1.0"
+"@department-of-veterans-affairs/formation@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "@department-of-veterans-affairs/formation@npm:10.1.0"
   dependencies:
-    "@fortawesome/fontawesome-free": ^5.6.3
+    "@fortawesome/fontawesome-free": ^5.15.4
     domready: ^1.0.8
     element-closest: ^3.0.1
     foundation-sites: 5
   peerDependencies:
-    "@fortawesome/fontawesome-free": ^5.6.3
+    "@fortawesome/fontawesome-free": ^5.15.4
     foundation-sites: 5
     uswds: ^1.6.10
-  checksum: 7afcf65d55359af80087d4701e4ba1167a845181362ade12776041d4eda4253b61ce33512c39fd032f3dafdbf56a5b2620dffecc52945d477d3e0aef22cd2da6
+  checksum: 524525c099f20627a6fa87df75d49cd330ebb7b81c66169099f36fc02c3c0348cda38ee16bf25520514d70b938242b5d3dfc3c493ea9c47097d8d9c7f96bebd1
   languageName: node
   linkType: hard
 
@@ -2412,7 +2412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-free@npm:^5.6.3":
+"@fortawesome/fontawesome-free@npm:^5.15.4":
   version: 5.15.4
   resolution: "@fortawesome/fontawesome-free@npm:5.15.4"
   checksum: 32281c3df4075290d9a96dfc22f72fadb3da7055d4117e48d34046b8c98032a55fa260ae351b0af5d6f6fb57a2f5d79a4abe52af456da35195f7cb7dda27b4a2
@@ -14121,7 +14121,7 @@ __metadata:
   dependencies:
     "@axe-core/playwright": ^4.8.2
     "@department-of-veterans-affairs/component-library": ^33.0.0
-    "@department-of-veterans-affairs/formation": ^7.0.9
+    "@department-of-veterans-affairs/formation": ^10.1.0
     "@department-of-veterans-affairs/web-components": ^4.45.31
     "@faker-js/faker": ^8.3.1
     "@fortawesome/fontawesome-free": ^6.4.2
