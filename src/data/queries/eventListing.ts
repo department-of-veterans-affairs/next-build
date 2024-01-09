@@ -33,6 +33,8 @@ type EventListingData = {
   entity: NodeEventListing
   events: NodeEvent[]
   menu: Menu
+  totalItems: number
+  totalPages: number
 }
 
 const listingParams: QueryParams<string> = (listingEntityId: string) => {
@@ -70,6 +72,8 @@ export const data: QueryData<EventListingDataOpts, EventListingData> = async (
     entity,
     events,
     menu,
+    totalItems: events.length,
+    totalPages: 1, // We don't want to paginate event listing pages. The widget handles pagination.
   }
 }
 
@@ -77,6 +81,8 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
   entity,
   events,
   menu,
+  totalItems,
+  totalPages,
 }) => {
   const formattedEvents = events.map((event) => {
     return queries.formatData('node--event--teaser', event)
@@ -89,5 +95,7 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
     introText: entity.field_intro_text,
     events: formattedEvents,
     menu: formattedMenu,
+    totalItems,
+    totalPages,
   }
 }

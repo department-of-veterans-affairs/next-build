@@ -8,6 +8,8 @@ describe('EventListing with valid data', () => {
     entity: mockData,
     events: [],
     menu: { items: [], tree: [] },
+    totalItems: 0,
+    totalPages: 1,
   })
   test('renders EventListing component', () => {
     render(<EventListing {...resource} />)

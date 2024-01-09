@@ -84,7 +84,10 @@ export function getStaticPropsQueryOpts(
   }
 
   // Listing Page types need to know what page # to query for
-  if (resourceType === RESOURCE_TYPES.STORY_LISTING) {
+  if (
+    resourceType === RESOURCE_TYPES.STORY_LISTING ||
+    RESOURCE_TYPES.EVENT_LISTING
+  ) {
     return {
       ...defaultQueryOpts,
       page: context.listing.page,
@@ -123,6 +126,7 @@ export async function getStaticPropsResource(
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
 ): Promise<StaticPropsResource<FormattedResource>> {
+  // console.log(context)
   // Lovell (TRICARE or VA) pages
   if (context.lovell.isLovellVariantPage) {
     return getLovellStaticPropsResource(

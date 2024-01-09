@@ -11,6 +11,7 @@ import {
   LISTING_RESOURCE_TYPE_URL_SEGMENTS,
 } from '@/lib/drupal/listingPages'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import {
   LovellStaticPropsContextProps,
   LovellChildVariant,
@@ -129,10 +130,27 @@ async function getLovellListingPageStaticPropsResource(
   const itemProp = LISTING_RESOURCE_TYPE_URL_SEGMENTS[resourceType]
   const allMergedItems = [
     ...childVariantPage[itemProp],
-    ...federalPage[itemProp].map((item) => ({
-      ...item,
-      link: getLovellVariantOfUrl(item.link, context.lovell.variant),
-    })),
+    ...federalPage[itemProp].map((item) => {
+      // Event Listing pages have the list items constructed a little differently.
+      // See queries/eventTeaser.ts
+      if (
+        itemProp ===
+        LISTING_RESOURCE_TYPE_URL_SEGMENTS[RESOURCE_TYPES.EVENT_LISTING]
+      ) {
+        return {
+          ...item,
+          link: getLovellVariantOfUrl(
+            item.entityUrl.path,
+            context.lovell.variant
+          ),
+        }
+      }
+      // See queries/newsStoryTeaser.ts
+      return {
+        ...item,
+        link: getLovellVariantOfUrl(item.link, context.lovell.variant),
+      }
+    }),
   ]
   const pageSize = PAGE_SIZES[resourceType]
   const sliceStart = (context.listing.page - 1) * pageSize

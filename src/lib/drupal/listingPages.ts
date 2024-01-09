@@ -10,7 +10,10 @@ import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { ExpandedStaticPropsContext } from './staticProps'
 
-const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const
+const LISTING_RESOURCE_TYPES = [
+  RESOURCE_TYPES.STORY_LISTING,
+  RESOURCE_TYPES.EVENT_LISTING,
+] as const
 
 export type ListingResourceType = (typeof LISTING_RESOURCE_TYPES)[number]
 
@@ -54,6 +57,7 @@ export const LISTING_RESOURCE_TYPE_URL_SEGMENTS: Readonly<{
   [key: string]: string
 }> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
+  [RESOURCE_TYPES.EVENT_LISTING]: 'events',
 }
 
 export function isListingResourceType(resourceType: ResourceType): boolean {

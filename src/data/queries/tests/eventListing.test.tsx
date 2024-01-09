@@ -25,6 +25,8 @@ describe('EventListing formatData', () => {
         entity: EventListingMock,
         events: EventMock,
         menu: { items: [], tree: [] },
+        totalItems: EventMock.length,
+        totalPages: 1,
       })
     ).toMatchSnapshot()
   })

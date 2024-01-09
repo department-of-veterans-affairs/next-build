@@ -7,4 +7,6 @@ export type EventListing = PublishedEntity & {
   introText: string
   menu: SideNavMenu
   events: EventWidgetTeaser[]
+  totalItems: number
+  totalPages: number
 }
