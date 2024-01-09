@@ -15,7 +15,7 @@ module.exports = {
   // Run unit tests relating to modified files.
   // todo: Jest should be able to ignore files that don't need tests (*.stories.*, config, etc)
   '**/*.(ts|tsx|js|jsx)': (filenames) => [
-    `yarn lint:staged:test-modified-files '${filenames.join(' ')}'`,
+    `yarn test -- --findRelatedTests ${filenames.join(' ')} --passWithNoTests`,
   ],
 
   // Format MarkDown and JSON
