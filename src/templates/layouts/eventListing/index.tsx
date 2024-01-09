@@ -1,18 +1,46 @@
-import { useEffect } from "react";
+/**
+ * ### Overview
+ * Event Listing represents the collection pages for Events within a facility.
+ *
+ * Event Listing expects data of type {@link FormattedEventListing}.
+ *
+ * ### Examples
+ * @see https://va.gov/butler-health-care/events/
+ *
+ */
+import { useEffect } from "react"
+import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing';
+import { SideNavMenu } from '@/types/formatted/sideNav'
+import { ContentFooter } from '@/templates/common/contentFooter'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
-type EventListingProps = {
-  title: string
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  sideNav?: SideNavMenu
 }
+declare const window: customWindow
 
-export function EventListing({ title, fieldIntroText, entityUrl, facilitySidebar, reverseFieldListingNode, pastEvents }: EventListingProps) {
-  // useEffect(() => {
-  //   window.allEventTeasers = reverseFieldListingNode;
-  //   window.pastEvents = pastEvents;
-  // }, [reverseFieldListingNode, pastEvents]);
+
+export function EventListing({ title, events, menu, lovellVariant, lovellSwitchPath }: LovellStaticPropsResource<FormattedEventListing>) {
+  // Add data to the window object for the sidebar widget
+  useEffect(() => {
+    window.sideNav = menu
+  }, [menu])
+
   return (
     <div>
       <h1>EVENT LISTING</h1>
       <p>{title}</p>
+
+      {/* Widget coming from vets-website */}
+      <nav
+        data-template="navigation/facility_sidebar_nav"
+        aria-label="secondary"
+        data-widget-type="side-nav"
+      ></nav>
+
+      {events}
     </div>
 
     // <div className="interior vads-u-padding-bottom--3" id="content">

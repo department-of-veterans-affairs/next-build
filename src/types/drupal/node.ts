@@ -10,7 +10,6 @@ import {
   FieldSocialMediaLinks,
   FieldTable,
   FieldAdministration,
-  BreadcrumbItem,
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import {

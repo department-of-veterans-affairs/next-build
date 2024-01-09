@@ -43,3 +43,6 @@ export type Event = PublishedEntity & {
   link: Link | null
   urlOfOnlineEvent: urlOfOnlineEvent
 }
+
+// export type EventTeaser = PublishedEntity & {
+export type EventTeaser = string
