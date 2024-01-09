@@ -10,6 +10,7 @@
  */
 import { useEffect } from 'react'
 import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
+import { EventWidgetTeaser } from '@/types/formatted/event'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
@@ -18,28 +19,32 @@ import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
   sideNav?: SideNavMenu
+  pastEvents?: {
+    entities: EventWidgetTeaser[]
+  }
 }
 declare const window: customWindow
 
 export function EventListing({
   title,
+  id,
   introText,
   events,
   menu,
   lovellVariant,
   lovellSwitchPath,
 }: LovellStaticPropsResource<FormattedEventListing>) {
-  // Add data to the window object for the sidebar widget
+  // Add data to the window object for the sidebar & event widgets
   useEffect(() => {
     window.sideNav = menu
-  }, [menu])
+
+    // This populates the whole events widget, even upcoming events. IDK!
+    window.pastEvents = { entities: events }
+  }, [menu, events])
 
   return (
     <>
-      <div
-        key={'foo'}
-        className="usa-grid usa-grid-full vads-u-padding-bottom--3"
-      >
+      <div key={id} className="usa-grid usa-grid-full vads-u-padding-bottom--3">
         {/* Widget coming from vets-website */}
         <nav
           data-template="navigation/facility_sidebar_nav"
