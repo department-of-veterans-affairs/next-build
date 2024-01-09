@@ -330,9 +330,7 @@ export interface urlOfOnlineEvent {
   options: unknown
 }
 
-export interface NodeEventListing extends DrupalNode {
-
-}
+export interface NodeEventListing extends DrupalNode {}
 
 export interface NodePromoBanner extends DrupalNode {
   field_target_paths: string[]

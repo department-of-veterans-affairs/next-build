@@ -14,9 +14,10 @@ export const params: QueryParams<null> = () => {
 export const formatter: QueryFormatter<NodeEvent, EventTeaser> = (
   entity: NodeEvent
 ) => {
-  return {
-    ...entityBaseFields(entity),
-    date: entity.date
-    // image: queries.formatData('media--image', entity.field_media), //cropType: '2_1_large'
-  }
+  return entity.title
+  // return {
+  // ...entityBaseFields(entity),
+  // date: entity.date,
+  // image: queries.formatData('media--image', entity.field_media), //cropType: '2_1_large'
+  // }
 }

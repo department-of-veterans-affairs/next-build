@@ -8,8 +8,8 @@
  * @see https://va.gov/butler-health-care/events/
  *
  */
-import { useEffect } from "react"
-import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing';
+import { useEffect } from 'react'
+import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
@@ -21,8 +21,13 @@ interface customWindow extends Window {
 }
 declare const window: customWindow
 
-
-export function EventListing({ title, events, menu, lovellVariant, lovellSwitchPath }: LovellStaticPropsResource<FormattedEventListing>) {
+export function EventListing({
+  title,
+  events,
+  menu,
+  lovellVariant,
+  lovellSwitchPath,
+}: LovellStaticPropsResource<FormattedEventListing>) {
   // Add data to the window object for the sidebar widget
   useEffect(() => {
     window.sideNav = menu

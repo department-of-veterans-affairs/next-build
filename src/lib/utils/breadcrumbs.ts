@@ -72,7 +72,10 @@ export function filterInvalidCrumbs(
 }
 
 export const shouldHideHomeBreadcrumb = (resourceType) => {
-  const typesToShowHomeBreadcrumb = [RESOURCE_TYPES.EVENT, RESOURCE_TYPES.EVENT_LISTING]
+  const typesToShowHomeBreadcrumb = [
+    RESOURCE_TYPES.EVENT,
+    RESOURCE_TYPES.EVENT_LISTING,
+  ]
 
   return !typesToShowHomeBreadcrumb.includes(resourceType)
 }

@@ -398,11 +398,7 @@
       "title": "Operating status - VA Wilkes-Barre health care",
       "options": []
     },
-    "field_other_va_locations": [
-      "vba_310e",
-      "vba_310",
-      "vc_0229V"
-    ],
+    "field_other_va_locations": ["vba_310e", "vba_310", "vc_0229V"],
     "field_twitter": null,
     "field_vamc_ehr_system": "vista",
     "field_vamc_system_official_name": "Wilkes-Barre Healthcare System",
@@ -917,9 +913,5 @@
       "field_system_menu"
     ]
   },
-  "relationshipNames": [
-    "node_type",
-    "field_administration",
-    "field_office"
-  ]
+  "relationshipNames": ["node_type", "field_administration", "field_office"]
 }

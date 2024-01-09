@@ -20,10 +20,7 @@ const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
 export const params: QueryParams<null> = () => {
   return queries
     .getParams()
-    .addInclude([
-      'field_administration',
-      'field_office'
-    ])
+    .addInclude(['field_administration', 'field_office'])
 }
 
 // Define the option types for the data loader.
@@ -56,13 +53,12 @@ export const data: QueryData<EventListingDataOpts, EventListingData> = async (
   )) as NodeEventListing
 
   // Fetch list of events related to this listing
-  const {
-    data: events,
-  } = await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-        RESOURCE_TYPES.EVENT,
-        listingParams(entity.id),
-        PAGE_SIZE
-      )
+  const { data: events } =
+    await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+      RESOURCE_TYPES.EVENT,
+      listingParams(entity.id),
+      PAGE_SIZE
+    )
 
   // Fetch the menu name dynamically off of the field_office reference
   const menu = await getMenu(
@@ -70,25 +66,21 @@ export const data: QueryData<EventListingDataOpts, EventListingData> = async (
       .drupal_internal__target_id
   )
 
-  console.log(JSON.stringify(menu))
-
   return {
-   entity,
-   events,
-   menu
+    entity,
+    events,
+    menu,
   }
 }
 
 export const formatter: QueryFormatter<EventListingData, EventListing> = ({
   entity,
   events,
-  menu
+  menu,
 }) => {
-  const formattedEvents = events.map((event, i) => {
-    // return queries.formatData('node--event--teaser', event)
-    return `event #${i}`
+  const formattedEvents = events.map((event) => {
+    return queries.formatData('node--event--teaser', event)
   })
-
 
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
