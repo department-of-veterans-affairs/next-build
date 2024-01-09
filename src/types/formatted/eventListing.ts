@@ -4,6 +4,7 @@ import { SideNavMenu } from './sideNav'
 
 export type EventListing = PublishedEntity & {
   title: string
+  introText: string
   menu: SideNavMenu
   events: EventTeaser[]
 }

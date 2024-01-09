@@ -86,6 +86,7 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
 
   return {
     ...entityBaseFields(entity),
+    introText: entity.field_intro_text,
     events: formattedEvents,
     menu: formattedMenu,
   }

@@ -23,6 +23,7 @@ declare const window: customWindow
 
 export function EventListing({
   title,
+  introText,
   events,
   menu,
   lovellVariant,
@@ -34,47 +35,41 @@ export function EventListing({
   }, [menu])
 
   return (
-    <div>
-      <h1>EVENT LISTING</h1>
-      <p>{title}</p>
+    <>
+      <div
+        key={'foo'}
+        className="usa-grid usa-grid-full vads-u-padding-bottom--3"
+      >
+        {/* Widget coming from vets-website */}
+        <nav
+          data-template="navigation/facility_sidebar_nav"
+          aria-label="secondary"
+          data-widget-type="side-nav"
+        ></nav>
 
-      {/* Widget coming from vets-website */}
-      <nav
-        data-template="navigation/facility_sidebar_nav"
-        aria-label="secondary"
-        data-widget-type="side-nav"
-      ></nav>
+        <div className="events vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 medium-screen:vads-u-padding-x--0 vads-u-padding-bottom--2">
+          <LovellSwitcher
+            currentVariant={lovellVariant}
+            switchPath={lovellSwitchPath}
+          />
 
-      {events}
-    </div>
+          <h1 id="article-heading">{title}</h1>
+          <div className="va-introtext">
+            {introText && (
+              <p className="events-show" id="office-events-description">
+                {introText}
+              </p>
+            )}
+          </div>
+        </div>
 
-    // <div className="interior vads-u-padding-bottom--3" id="content">
-    //   <main className="va-l-detail-page va-facility-page">
-    //     <div className="usa-grid usa-grid-full">
-    //       <div className="events vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 medium-screen:vads-u-padding-x--0 vads-u-padding-bottom--2">
-    //         <h1 id="article-heading">{title}</h1>
-    //         <div className="va-introtext">
-    //           {fieldIntroText && (
-    //             <p className="events-show" id="office-events-description">
-    //               {fieldIntroText}
-    //             </p>
-    //           )}
-    //         </div>
-    //       </div>
-    //       <div data-widget-type="events"></div>
-    //     </div>
-    //   </main>
-    //   <div className="usa-grid usa-grid-full">
-    //     <div className="last-updated vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
-    //       <div className="vads-u-display--flex above-footer-elements-container">
-    //         <div className="vads-u-flex--1 vads-u-text-align--right">
-    //           <span className="vads-u-text-align--right">
+        {/* Events widget coming from vets-website */}
+        <div data-widget-type="events"></div>
+      </div>
 
-    //           </span>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+      <div className="usa-grid usa-grid-full">
+        <ContentFooter />
+      </div>
+    </>
   )
 }
