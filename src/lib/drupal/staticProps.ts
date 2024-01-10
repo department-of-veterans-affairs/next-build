@@ -5,6 +5,7 @@ import { queries } from '@/data/queries'
 import {
   ListingPageStaticPropsContextProps,
   getListingPageStaticPropsContext,
+  isListingResourceType,
 } from '@/lib/drupal/listingPages'
 import {
   getLovellStaticPropsResource,
@@ -84,10 +85,7 @@ export function getStaticPropsQueryOpts(
   }
 
   // Listing Page types need to know what page # to query for
-  if (
-    resourceType === RESOURCE_TYPES.STORY_LISTING ||
-    RESOURCE_TYPES.EVENT_LISTING
-  ) {
+  if (isListingResourceType(resourceType)) {
     return {
       ...defaultQueryOpts,
       page: context.listing.page,

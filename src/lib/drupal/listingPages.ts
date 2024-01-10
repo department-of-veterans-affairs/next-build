@@ -170,6 +170,7 @@ export async function getAllPagedListingStaticPathResources(
       listingPageStaticPathResources,
       listingResourceType
     )
+
   // Paging step 2: Each listing resource will become multiple resources, one for each of its pages
   const allListingResources = addStaticPathResourcesFromPagingData(
     resourcesWithPagingData
