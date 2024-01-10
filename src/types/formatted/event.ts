@@ -1,11 +1,11 @@
 import { NodeHealthCareLocalFacility } from '../drupal/node'
-import { urlOfOnlineEvent } from '../drupal/node'
 import { MediaImage } from './media'
 import { PublishedEntity } from './publishedEntity'
 import {
   FieldAddress,
   FieldFormattedText,
   SocialLinksProps,
+  FieldLink,
 } from '../drupal/field_type'
 
 interface DateTimeRangeItem {
@@ -41,7 +41,7 @@ export type Event = PublishedEntity & {
   locationType: string
   description: string
   link: Link | null
-  urlOfOnlineEvent: urlOfOnlineEvent
+  urlOfOnlineEvent: FieldLink
 }
 
 // export type EventTeaser = PublishedEntity & {

@@ -126,7 +126,6 @@ export async function getStaticPropsResource(
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
 ): Promise<StaticPropsResource<FormattedResource>> {
-  // console.log(context)
   // Lovell (TRICARE or VA) pages
   if (context.lovell.isLovellVariantPage) {
     return getLovellStaticPropsResource(

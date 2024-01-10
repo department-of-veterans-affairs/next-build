@@ -10,6 +10,8 @@ import {
   FieldSocialMediaLinks,
   FieldTable,
   FieldAdministration,
+  FieldDateTimeRange,
+  FieldNestedLink,
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import {
@@ -291,7 +293,7 @@ export interface NodeEvent extends DrupalNode {
   field_cta_email: string
   field_how_to_sign_up: string
   field_event_cost: string
-  field_datetime_range_timezone: DateTimeRange[]
+  field_datetime_range_timezone: FieldDateTimeRange[]
 
   field_facility_location: NodeHealthCareLocalFacility
   field_featured: boolean
@@ -303,34 +305,17 @@ export interface NodeEvent extends DrupalNode {
   field_event_registrationrequired: boolean
 
   field_description: string
-  field_link: fieldLink
-  field_url_of_an_online_event: urlOfOnlineEvent
+  field_link: FieldNestedLink
+  field_url_of_an_online_event: FieldLink
   field_listing: NodeEventListing
   field_last_saved_by_an_editor?: string | null
 }
 
-interface fieldLink {
-  url: {
-    path: string
-  }
+export interface NodeEventListing extends DrupalNode {
+  field_description: string
+  field_intro_text: string
+  field_enforce_unique_combo: boolean
 }
-
-export interface DateTimeRange {
-  value: string
-  end_value: string
-  duration: number
-  rrule: number
-  rrule_index: number
-  timezone: string
-}
-
-export interface urlOfOnlineEvent {
-  uri: string
-  title: string
-  options: unknown
-}
-
-export interface NodeEventListing extends DrupalNode {}
 
 export interface NodePromoBanner extends DrupalNode {
   field_target_paths: string[]

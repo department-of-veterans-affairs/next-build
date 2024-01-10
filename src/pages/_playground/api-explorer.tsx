@@ -22,7 +22,9 @@ export async function getStaticProps() {
   }
 
   // Change this to the query you are interested in mocking:
-  const params = queries.getParams('node--event_listing')
+  const params = queries.getParams('node--event_listing').addPageLimit(3)
+  // .addInclude([
+  // ])
   const data = await drupalClient.getResourceCollection('node--event_listing', {
     params: params.getQueryObject(),
   })
