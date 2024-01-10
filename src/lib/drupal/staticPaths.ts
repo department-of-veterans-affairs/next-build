@@ -26,7 +26,7 @@ async function modifyStaticPathResourcesByResourceType(
   resourceType: ResourceType,
   resources: StaticPathResource[]
 ): Promise<StaticPathResource[]> {
-  if (resourceType === RESOURCE_TYPES.STORY) {
+  if (resourceType === RESOURCE_TYPES.STORY || RESOURCE_TYPES.EVENT) {
     return bifurcateLovellFederalPathResources(resources)
   }
 

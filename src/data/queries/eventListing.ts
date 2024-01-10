@@ -18,9 +18,7 @@ const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
 
 // Define the query params for fetching node--event_listing.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude(['field_administration', 'field_office'])
+  return queries.getParams().addInclude(['field_office'])
 }
 
 // Define the option types for the data loader.
@@ -32,7 +30,7 @@ export type EventListingDataOpts = {
 type EventListingData = {
   entity: NodeEventListing
   events: NodeEvent[]
-  menu: Menu
+  menu?: Menu
   totalItems: number
   totalPages: number
 }
@@ -62,11 +60,15 @@ export const data: QueryData<EventListingDataOpts, EventListingData> = async (
       PAGE_SIZE
     )
 
-  // Fetch the menu name dynamically off of the field_office reference
-  const menu = await getMenu(
-    entity.field_office.field_system_menu.resourceIdObjMeta
-      .drupal_internal__target_id
-  )
+  // Fetch the menu name dynamically off of the field_office reference if available.
+  // The `/outreach-and-events/events` event listing page has no menu attached to it.
+  let menu = null
+  if (entity.field_office.field_system_menu) {
+    menu = await getMenu(
+      entity.field_office.field_system_menu.resourceIdObjMeta
+        .drupal_internal__target_id
+    )
+  }
 
   return {
     entity,
@@ -94,7 +96,7 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
     events: formattedEvents,
-    menu: formattedMenu,
+    menu: menu ? formattedMenu : null,
     totalItems,
     totalPages,
   }
