@@ -90,13 +90,15 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
     return queries.formatData('node--event--teaser', event)
   })
 
-  const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+  let formattedMenu = null
+  if (menu !== null)
+    formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
     events: formattedEvents,
-    menu: menu ? formattedMenu : null,
+    menu: formattedMenu,
     totalItems,
     totalPages,
   }

@@ -46,11 +46,13 @@ export function EventListing({
     <>
       <div key={id} className="usa-grid usa-grid-full vads-u-padding-bottom--3">
         {/* Widget coming from vets-website */}
-        <nav
-          data-template="navigation/facility_sidebar_nav"
-          aria-label="secondary"
-          data-widget-type="side-nav"
-        ></nav>
+        {menu && (
+          <nav
+            data-template="navigation/facility_sidebar_nav"
+            aria-label="secondary"
+            data-widget-type="side-nav"
+          ></nav>
+        )}
 
         <div className="events vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 medium-screen:vads-u-padding-x--0 vads-u-padding-bottom--2">
           <LovellSwitcher
