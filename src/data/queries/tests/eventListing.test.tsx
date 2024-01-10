@@ -1,9 +1,9 @@
 import { NodeEvent, NodeEventListing } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/eventListing.mock.json'
+import { mockResponse } from '@/mocks/eventListing.mock.js'
 import mockEventData from '@/mocks/event.mock.json'
 
-const EventListingMock: NodeEventListing = mockData
+const EventListingMock: NodeEventListing = mockResponse
 const EventMock: NodeEvent[] = [mockEventData]
 
 describe('EventListing formatData', () => {

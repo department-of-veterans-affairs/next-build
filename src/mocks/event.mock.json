@@ -100,7 +100,10 @@
     }
   },
   "field_additional_listings": [],
-  "field_administration": null,
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "3a530a55-e922-48de-b18c-9c9f92a9ae98"
+  },
   "field_facility_location": null,
   "field_listing": {
     "type": "node--event_listing",
