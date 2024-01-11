@@ -61,8 +61,18 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   )
   if (staticJsonFile) {
     const { filename, query, queryOpts = {} } = staticJsonFile
+
+    // fetch data
     const data = await queries.getData(query, queryOpts)
+
+    // Write to /public/data/cms
     const filePath = path.resolve(`public/data/cms/${filename}.json`)
+    const directoryPath = path.dirname(filePath)
+    if (!fs.existsSync(directoryPath)) {
+      fs.mkdirSync(directoryPath, {
+        recursive: true,
+      })
+    }
     fs.writeFileSync(filePath, JSON.stringify(data))
   }
   return {
