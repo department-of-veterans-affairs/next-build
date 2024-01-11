@@ -52,10 +52,13 @@ services:
         # Restart nginx with the new config
         - sudo service nginx reload
 
+        # Tugboat user can run our scripts
+        - chmod -R 775 "./scripts/"
+
         # Clone vets-website
         - ./scripts/install-repos.sh
 
-        # Get vets-website assets in place
+        # Get vets-website assets in the right place
         - BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
 
       # Commands that build the site. This is where you would add
