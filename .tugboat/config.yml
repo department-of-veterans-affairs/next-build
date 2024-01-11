@@ -30,8 +30,7 @@ services:
       # rebuild of the base preview is necessary.
       init:
         # Install Node.js from the new repository
-        - curl -fsSL https://deb.nodesource.com/setup_18.x
-        - apt-get install -y nodejs
+        - curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && sudo apt-get install -y nodejs
 
         # Install and use our yarn version
         - corepack enable
