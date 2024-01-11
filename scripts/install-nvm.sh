@@ -8,7 +8,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# our version managed by nvm
+# next-build required version
 nvm install 18.18.0
-# version vets-website needs
+
+# vets-website needs this version
 nvm install 14.15.1

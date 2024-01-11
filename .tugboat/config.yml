@@ -29,18 +29,6 @@ services:
       # base previews are refreshed through the scheduled process! A manual
       # rebuild of the base preview is necessary.
       init:
-        # Create a directory for the new repository's keyring, if it doesn't exist
-        - mkdir -p /etc/apt/keyrings
-        # Download the new repository's GPG key and save it in the keyring directory
-        - curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-        # Add the new repository's source list with its GPG key for package verification
-        - echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-        # Update local package index to recognize the new repository
-        - sudo apt-get update
-
-        # Install Node.js from the new repository
-        - sudo apt-get install -y nodejs
-
         # Install nvm
         - chmod -R 775 "./scripts/"
         - ./scripts/install-nvm.sh
@@ -64,20 +52,19 @@ services:
         # Build vets-website so assets are available (various widgets, fonts, etc)
         - ./scripts/build-vets-website.sh
 
+        # Prepare yarn
+        - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+        - nvm use 18.18.0
+        - npm install -g corepack # not bundled with node installed via nvm
+        - corepack enable
+        - corepack install -g --cache-only .yarn/releases/corepack.tgz
+
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a
       # preview is built from a base preview, the build workflow
       # starts here, skipping the init and update steps, because the
       # results of those are inherited from the base preview.
       build:
-        - which node
-        - node -v
-        - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
-        - which node
-        - node -v
-        - npm install -g corepack
-        - corepack enable
-        - corepack prepare yarn@3.6.1 --activate
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
         - yarn install
 
