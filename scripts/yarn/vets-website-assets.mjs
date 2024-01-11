@@ -23,9 +23,13 @@ const BUILD_TYPE_BUCKET = {
   'vagovprod': prodBucket
 }
 
+const fileManifestPath = 'generated/file-manifest.json';
+
+const vetsWebsiteAssetPath = '../vets-website/src/site/assets'
+
 async function downloadFromLiveBucket(buildtype) {
   const bucket = BUILD_TYPE_BUCKET[buildtype];
-  const fileManifestPath = 'generated/file-manifest.json';
+
 
   const fileManifestRequest = await fetch(`${bucket}/${fileManifestPath}`);
   const fileManifest = await fileManifestRequest.json();
@@ -69,24 +73,19 @@ async function downloadFromLiveBucket(buildtype) {
         path.join('./public/', bundleFileName),
         await bundleResponse.buffer(),
       );
-
-      console.log(`Successfully downloaded asset: ${bundleUrl}`);
     }
-  });
-
+});
   return Promise.all(downloads);
 }
 
 async function moveAssetsFromVetsWebsite() {
-  console.log('Moving assets from adjacent vets-website repo...')
-
-  const target = '../vets-website/src/site/assets'
+  console.log('Moving additional assets from adjacent vets-website repo...')
 
   try {
-    fs.copySync(`${target}/fonts`, './public/generated/')
+    fs.copySync(`${vetsWebsiteAssetPath}/fonts`, './public/generated/')
     console.log('Copied font files from vets-website')
 
-    fs.copySync(`${target}/img`, './public/img/')
+    fs.copySync(`${vetsWebsiteAssetPath}/img`, './public/img/')
     console.log('Copied image assets from vets-website')
   } catch (err) {
     console.error(err)
@@ -101,10 +100,12 @@ export async function downloadAssets() {
     // Clear existing /public/generated/ of files + existing symlinks
     fs.remove('./public/generated/', err => {
       if (err) return console.err(err)
-      console.log('Removed existing vets-website assets. Preparing to download fresh...')
+      console.log(`Removed existing vets-website assets. Preparing to download fresh from ${BUILD_TYPE_BUCKET[buildtype]}`)
     })
 
     await downloadFromLiveBucket(buildtype);
+    console.log(`Successfully downloaded all assets listed in ${BUILD_TYPE_BUCKET[buildtype]}/${fileManifestPath}`)
+
     await moveAssetsFromVetsWebsite()
   }
 
