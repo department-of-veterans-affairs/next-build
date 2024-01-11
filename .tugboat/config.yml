@@ -58,9 +58,6 @@ services:
         # Clone vets-website
         - ./scripts/install-repos.sh
 
-        # Get vets-website assets in the right place
-        - BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
-
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a
       # preview is built from a base preview, the build workflow
@@ -71,8 +68,8 @@ services:
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
         - yarn install
 
-        # Create symlink between vets-website assets and next-build
-        - ln -snf "/var/lib/vets-website/build/localhost/generated" "${TUGBOAT_ROOT}/public/generated"
+        # Get vets-website assets in the right place
+        - BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
 
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export
