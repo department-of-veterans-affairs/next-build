@@ -37,12 +37,12 @@ export default function StaticJsonPage() {
 export async function getStaticPaths(
   context: GetStaticPathsContext
 ): Promise<GetStaticPathsResult> {
-  // if (process.env.SSG === 'false') {
-  //   return {
-  //     paths: [],
-  //     fallback: 'blocking',
-  //   }
-  // }
+  if (process.env.SSG === 'false') {
+    return {
+      paths: [],
+      fallback: 'blocking',
+    }
+  }
 
   return {
     paths: STATIC_JSON_FILES.map(({ filename }) => ({
