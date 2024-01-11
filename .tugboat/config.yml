@@ -55,15 +55,15 @@ services:
         # Restart nginx with the new config
         - sudo service nginx reload
 
-        # Install and use our yarn version.
-        - ./scripts/install-yarn.sh
-
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a
       # preview is built from a base preview, the build workflow
       # starts here, skipping the init and update steps, because the
       # results of those are inherited from the base preview.
       build:
+        # Install and use our yarn version.
+        - ./scripts/install-yarn.sh
+
         - yarn --version
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
         - yarn install
