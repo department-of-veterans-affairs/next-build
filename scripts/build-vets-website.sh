@@ -16,5 +16,3 @@ export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=TRUE
 yarn install
 yarn build
-
-nvm use 18.18.0
