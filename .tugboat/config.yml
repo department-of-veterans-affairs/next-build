@@ -64,6 +64,7 @@ services:
         # Install and use our yarn version.
         - ./scripts/install-yarn.sh
 
+        - node -v
         - yarn --version
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
         - yarn install

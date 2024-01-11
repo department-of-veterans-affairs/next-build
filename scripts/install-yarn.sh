@@ -6,8 +6,6 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm use 18.18.0
 
-npm uninstall -g corepack yarn pnpm
-npm install -g corepack
+npm install -g yarn
 
-corepack enable
-corepack install -g --cache-only .yarn/releases/corepack.tgz
+yarn set version 3.6.1
