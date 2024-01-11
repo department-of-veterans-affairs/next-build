@@ -64,9 +64,6 @@ services:
         # Build vets-website so assets are available (various widgets, fonts, etc)
         - ./scripts/build-vets-website.sh
 
-        # # Install and use our yarn version.
-        # - ./scripts/install-yarn.sh
-
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a
       # preview is built from a base preview, the build workflow
@@ -75,6 +72,7 @@ services:
       build:
         - which node
         - node -v
+        - npm install -g corepack
         - corepack enable
         - corepack prepare yarn@3.6.1 --activate
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
