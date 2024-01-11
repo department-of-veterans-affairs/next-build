@@ -6,59 +6,58 @@ import fs from 'fs-extra'
 import path from 'path'
 
 // exits with non-zero if a download failed
-process.on('unhandledRejection', up => {
-  throw up;
-});
+process.on('unhandledRejection', (up) => {
+  throw up
+})
 
-const prodBucket = 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com';
+const prodBucket = 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 const stagingBucket =
-  'https://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com';
-const devBucket = 'https://dev-va-gov-assets.s3-us-gov-west-1.amazonaws.com';
+  'https://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
+const devBucket = 'https://dev-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 
 const BUILD_TYPE_BUCKET = {
-  'localhost': devBucket,
-  'tugboat': devBucket,
-  'vagovdev': devBucket,
-  'vagovstaging': stagingBucket,
-  'vagovprod': prodBucket
+  localhost: devBucket,
+  tugboat: devBucket,
+  vagovdev: devBucket,
+  vagovstaging: stagingBucket,
+  vagovprod: prodBucket,
 }
 
-const fileManifestPath = 'generated/file-manifest.json';
+const fileManifestPath = 'generated/file-manifest.json'
 
 const vetsWebsiteAssetPath = '../vets-website/src/site/assets'
 
 async function downloadFromLiveBucket(buildtype) {
-  const bucket = BUILD_TYPE_BUCKET[buildtype];
+  const bucket = BUILD_TYPE_BUCKET[buildtype]
 
-
-  const fileManifestRequest = await fetch(`${bucket}/${fileManifestPath}`);
-  const fileManifest = await fileManifestRequest.json();
+  const fileManifestRequest = await fetch(`${bucket}/${fileManifestPath}`)
+  const fileManifest = await fileManifestRequest.json()
 
   const files = []
 
   files[fileManifestPath] = {
     path: fileManifestPath,
     contents: Buffer.from(JSON.stringify(fileManifest)),
-  };
+  }
 
-  const entryNames = Object.keys(fileManifest);
+  const entryNames = Object.keys(fileManifest)
 
-  const downloads = entryNames.map(async entryName => {
-    let bundleFileName = fileManifest[entryName];
+  const downloads = entryNames.map(async (entryName) => {
+    let bundleFileName = fileManifest[entryName]
     const bundleUrl = bundleFileName.includes(bucket)
       ? `${bundleFileName}`
-      : `${bucket}${bundleFileName}`;
-    const bundleResponse = await fetch(bundleUrl);
+      : `${bucket}${bundleFileName}`
+    const bundleResponse = await fetch(bundleUrl)
 
     if (bundleFileName.includes('generated/../')) {
-      console.log(`Excluding: ${bundleFileName} from download`);
+      console.log(`Excluding: ${bundleFileName} from download`)
     } else {
       if (!bundleResponse.ok) {
-        throw new Error(`Failed to download asset: ${bundleUrl}`);
+        throw new Error(`Failed to download asset: ${bundleUrl}`)
       }
 
       if (bundleFileName.startsWith('/')) {
-        bundleFileName = bundleFileName.slice(1);
+        bundleFileName = bundleFileName.slice(1)
       }
 
       files[bundleFileName] = {
@@ -66,16 +65,16 @@ async function downloadFromLiveBucket(buildtype) {
         // No need to store file contents here since
         // assets will be stored directly on disk
         contents: '',
-      };
+      }
 
       // Store file contents directly on disk
       fs.outputFileSync(
         path.join('./public/', bundleFileName),
-        await bundleResponse.buffer(),
-      );
+        await bundleResponse.buffer()
+      )
     }
-});
-  return Promise.all(downloads);
+  })
+  return Promise.all(downloads)
 }
 
 async function moveAssetsFromVetsWebsite() {
@@ -98,13 +97,17 @@ export async function downloadAssets() {
   // Clean + download assets if not localhost symlink
   if (buildtype !== 'localhost') {
     // Clear existing /public/generated/ of files + existing symlinks
-    fs.remove('./public/generated/', err => {
+    fs.remove('./public/generated/', (err) => {
       if (err) return console.err(err)
-      console.log(`Removed existing vets-website assets. Preparing to download fresh from ${BUILD_TYPE_BUCKET[buildtype]}`)
+      console.log(
+        `Removed existing vets-website assets. Preparing to download fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
+      )
     })
 
-    await downloadFromLiveBucket(buildtype);
-    console.log(`Successfully downloaded all assets listed in ${BUILD_TYPE_BUCKET[buildtype]}/${fileManifestPath}`)
+    await downloadFromLiveBucket(buildtype)
+    console.log(
+      `Successfully downloaded all assets listed in ${BUILD_TYPE_BUCKET[buildtype]}/${fileManifestPath}`
+    )
 
     await moveAssetsFromVetsWebsite()
   }
