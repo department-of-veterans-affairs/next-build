@@ -52,6 +52,12 @@ services:
         # Restart nginx with the new config
         - sudo service nginx reload
 
+        # Clone vets-website
+        - ./scripts/install-repos.sh
+
+        # Get vets-website assets in place
+        - BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
+
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a
       # preview is built from a base preview, the build workflow
