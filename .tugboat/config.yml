@@ -53,10 +53,8 @@ services:
         - ./scripts/build-vets-website.sh
 
         # Prepare yarn
-        - export NVM_DIR="$HOME/.nvm"
-        - '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
-        - '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
-        - nvm use 18.18.0
+        - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+        - eval "[ -f .nvmrc ] && nvm install || nvm install 18.18.0"
         - npm install -g corepack # not bundled with node installed via nvm
         - corepack enable
         - corepack install -g --cache-only .yarn/releases/corepack.tgz
