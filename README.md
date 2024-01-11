@@ -51,6 +51,31 @@ Ensure the value passed into APP_ENV matches the file name of the .env file you 
 
 If no value is passed `.env.local` will be used as the default
 
+### Additional flags
+
+Additional env flags can be set by prepending them with "--". To pass arguments through to the underlying utility (e.g. jest) use "--" as a separator.
+
+Examples:
+
+```
+yarn dev --NEXT_PUBLIC_DRUPAL_BASE_URL https://staging.cms.va.gov -- --port 3003
+```
+
+```
+yarn test -- path/to/file
+```
+
+Available env variables and underlying utility help can be viewed by appending `-h` to the yarn script:
+Examples:
+
+```
+yarn test -h
+```
+
+```
+yarn build -h
+```
+
 ## Local CMS endpoint
 
 To use the local CMS as an endpoint, follow the install directions for [the CMS repo here](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md).

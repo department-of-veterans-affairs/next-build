@@ -24,17 +24,20 @@ broken-link-report.json
 
 # next.js
 /.next/
-/out/
 .swc
 
 # redis
 dump.rdb
 
-# production
-/storybook-static
+# vets-website assets
 /public/generated
 /public/data
+/public/img
+
+# static output for production
+/storybook-static
 /typedocs/
+/out/
 
 # misc
 .DS_Store

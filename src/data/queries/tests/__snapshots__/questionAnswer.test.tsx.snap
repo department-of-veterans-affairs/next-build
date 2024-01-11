@@ -17,6 +17,7 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "entityId": 8504,
     "entityPath": "/resources/how-can-i-find-out-my-va-claim-or-appeal-status",
     "id": "c2839a4c-c13d-46da-b448-9d1ec389773b",
+    "lastUpdated": "2020-10-19T17:10:51+00:00",
     "published": true,
     "tags": [
       {
@@ -97,6 +98,7 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "entityId": 8538,
     "entityPath": "/resources/are-service-dogs-allowed-in-va-facilities",
     "id": "eaff8edf-2cee-4e11-9373-7860a78295a6",
+    "lastUpdated": "2020-10-19T21:42:01+00:00",
     "published": true,
     "tags": [
       {
@@ -141,6 +143,7 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "entityId": 8514,
     "entityPath": "/resources/what-types-of-claims-and-appeals-can-i-track-online",
     "id": "bcf87f05-f947-4631-8a86-a3c0c0fe9878",
+    "lastUpdated": "2020-10-19T18:13:29+00:00",
     "published": true,
     "tags": [
       {
