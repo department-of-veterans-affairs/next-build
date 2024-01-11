@@ -55,9 +55,9 @@ services:
         # Restart nginx with the new config
         - sudo service nginx reload
 
-        # Install and use our yarn version. This weird npm step is because we install node versions via nvm and that doesn't bundle corepack.
-        - npm uninstall -g corepack yarn pnpm
-        - npm install -g corepack
+        # Install and use our yarn version. This weird npm step is because we install node versions via nvm and that don't bundle corepack.
+        - /root/.nvm/versions/node/v18.18.0/bin/npm uninstall -g corepack yarn pnpm
+        - /root/.nvm/versions/node/v18.18.0/bin/npm install -g corepack
         - corepack enable
         - corepack prepare yarn@3.6.1 --activate
 
