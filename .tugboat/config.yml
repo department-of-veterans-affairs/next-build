@@ -72,6 +72,9 @@ services:
       build:
         - which node
         - node -v
+        - export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+        - which node
+        - node -v
         - npm install -g corepack
         - corepack enable
         - corepack prepare yarn@3.6.1 --activate
