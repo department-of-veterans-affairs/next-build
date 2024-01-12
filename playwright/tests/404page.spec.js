@@ -15,7 +15,7 @@ test.describe('404 Error Page', () => {
 
     await expect(page.locator('form#search_form')).toBeVisible()
 
-    await expect(page.locator('.va-quicklinks--commpop')).toBeVisible()
+    await expect(page.locator('h3 >> nth=1')).toHaveText('Common Questions')
   })
 
   test('Should render without a11y accessibility errors', async ({
