@@ -55,6 +55,8 @@ envs/.env.local
 
 # local cert for using ddev endpoint
 certs/rootCA.pem
+# combined mozilla cert for broken link checking
+certs/VA-mozilla-combined.pem
 
 # typescript
 *.tsbuildinfo
