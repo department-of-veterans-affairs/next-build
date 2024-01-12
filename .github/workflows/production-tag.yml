@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SLACK_CHANNEL: C06DSBT7CBW #status-content-build
+  SLACK_CHANNEL: C06DSBT7CBW #status-next-build
   DSVA_SCHEDULE_ENABLED: true
 
 jobs:
@@ -24,8 +24,8 @@ jobs:
       RELEASE_NAME: ${{ steps.export-release-name.outputs.RELEASE_NAME }}
 
     steps:
-      - name: Cancel workflow due to DSVA schedule
-        if: ${{ github.event_name == 'schedule' && env.DSVA_SCHEDULE_ENABLED != 'true' }}
+      - name: Cancel workflow due to DSVA schedule, unless this is a manual build
+        if: ${{ github.event_name != 'workflow_dispatch' && env.DSVA_SCHEDULE_ENABLED != 'true' }}
         uses: andymckay/cancel-action@b9280e3f8986d7a8e91c7462efc0fa318010c8b1 # v0.3
 
       - name: Configure AWS Credentials
@@ -66,32 +66,31 @@ jobs:
 
       - name: Get next tag version
         run: |
-          current_patch=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | cut -d'.' -f3)
-          echo "new_patch=$(echo $(( $current_patch + 1 )))" >> $GITHUB_ENV
+          current_increment=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | cut -d'.' -f3)
+          # echo "NEW_TAG=$(echo $(( $current_increment + 1 )))" >> $GITHUB_ENV
+          echo "NEW_TAG=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | sed -E 's/\.[0-9]+/.$(echo $(( $current_increment + 1 )))/2'"  >> $GITHUB_ENV
 
-      - name: Create next tag
-        uses: nick-invision/retry@943e742917ac94714d2f408a0e8320f2d1fcafcd # v2.8.3
-        with:
-          timeout_seconds: 30
-          max_attempts: 3
-          command: git tag v0.0.${{ env.new_patch }} ${{ steps.get-current-ref.outputs.REF }} && git push --no-verify origin v0.0.${{ env.new_patch }}
-          new_command_on_retry: |
-            next_patch=$(echo $(( ${{ env.new_patch }} + 1 )))
-            echo "new_patch=$next_patch" >> $GITHUB_ENV
-            git tag v0.0.$next_patch ${{ steps.get-current-ref.outputs.REF }} && git push --no-verify origin v0.0.$next_patch
+      # - name: Create next tag
+      #   uses: nick-invision/retry@943e742917ac94714d2f408a0e8320f2d1fcafcd # v2.8.3
+      #   with:
+      #     timeout_seconds: 30
+      #     max_attempts: 3
+      #     command: git tag ${{ env.NEW_TAG }} ${{ steps.get-current-ref.outputs.REF }} && git push --no-verify origin ${{ env.NEW_TAG }}
+      #     new_command_on_retry: git tag ${{ env.NEW_TAG }} ${{ steps.get-current-ref.outputs.REF }} && git push --no-verify origin ${{ env.NEW_TAG }}
 
-      - name: Create release
-        uses: ncipollo/release-action@a2e71bdd4e7dab70ca26a852f29600c98b33153e # v1.12.0
-        with:
-          tag: v0.0.${{ env.new_patch }}
-          name: content-build/v0.0.${{ env.new_patch }}
-          token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
-          commit: ${{ steps.get-current-ref.outputs.REF }}
+
+      # - name: Create release
+      #   uses: ncipollo/release-action@a2e71bdd4e7dab70ca26a852f29600c98b33153e # v1.12.0
+      #   with:
+      #     tag: ${{ env.NEW_TAG }}
+      #     name: next-build/${{ env.new_NEW_TAG }}
+      #     token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
+      #     commit: ${{ steps.get-current-ref.outputs.REF }}
 
       - name: Export new release name
         id: export-release-name
         run: |
-          echo RELEASE_NAME=v0.0.${{ env.new_patch }} >> $GITHUB_OUTPUT
+          echo RELEASE_NAME=${{ env.new_NEW_TAG }} >> $GITHUB_OUTPUT
 
   notify-success:
     name: Notify Success
@@ -106,7 +105,7 @@ jobs:
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully tagged new content-build release: ${{ needs.create-release.outputs.RELEASE_NAME }}"}}]}]}'
+          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully tagged new next-build release: ${{ needs.create-release.outputs.RELEASE_NAME }}"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -126,7 +125,7 @@ jobs:
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "<!here> New content-build release could not be tagged!: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "<!here> New next-build release could not be tagged!: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
