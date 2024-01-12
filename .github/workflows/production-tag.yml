@@ -1,4 +1,4 @@
-name: Daily Production Release
+name: Create Production Tag
 
 on:
   workflow_dispatch:
@@ -6,6 +6,7 @@ on:
   #   - cron: 0 20 * * 1-5
   # added temporarily to allow GHA to see the action
   pull_request:
+  push:
 
 concurrency:
   group: production-tag
