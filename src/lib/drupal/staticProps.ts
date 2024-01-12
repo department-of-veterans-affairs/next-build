@@ -17,7 +17,11 @@ import {
   LovellStaticPropsResource,
   LovellFormattedResource,
 } from './lovell/types'
-import { FormattedResource } from '@/data/queries'
+import {
+  FormattedResource,
+  QueryResourceType,
+  QUERIES_MAP,
+} from '@/data/queries'
 import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { NewsStoryDataOpts } from '@/data/queries/newsStory'
@@ -101,7 +105,9 @@ export async function fetchSingleStaticPropsResource(
   queryOpts: StaticPropsQueryOpts
 ): Promise<FormattedResource> {
   // Request resource based on type
-  const resource = await queries.getData(resourceType, queryOpts)
+  const resource = Object.keys(QUERIES_MAP).includes(resourceType)
+    ? await queries.getData(resourceType as QueryResourceType, queryOpts)
+    : null
   if (!resource) {
     throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
   }

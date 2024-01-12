@@ -5,17 +5,14 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { JsonApiResourceWithPath } from 'next-drupal'
-import {
-  ADDITIONAL_RESOURCE_TYPES,
-  ResourceType,
-} from '@/lib/constants/resourceTypes'
+import { ResourceType } from '@/lib/constants/resourceTypes'
 import { StaticPathResource } from '@/types/formatted/staticPathResource'
 import { FieldAdministration } from '@/types/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
 import { fetchAndConcatAllResourceCollectionPages } from '@/lib/drupal/query'
 
-const PAGE_SIZE = PAGE_SIZES[ADDITIONAL_RESOURCE_TYPES.STATIC_PATHS]
+const PAGE_SIZE = PAGE_SIZES.MAX
 
 // Define the query params for fetching static paths.
 export const params: QueryParams<ResourceType> = (
