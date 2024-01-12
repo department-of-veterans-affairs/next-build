@@ -7,31 +7,34 @@ import {
 } from '../playwright/utils/getSitemapLocations.js'
 import fs from 'fs'
 
-// # of batches to parallelize checking of full sitemap.
-const BATCH_SIZE = process.env.BATCH_SIZE || 20
+const OPTIONS = {
+  sitemapUrl: process.env.SITE_URL || 'http://www.va.gov/',
+  batchSize: process.env.BATCH_SIZE || 32,
+  verbose: process.env.VERBOSE || false,
+  skipImageLinks: process.env.SKIP_IMAGES || false,
+}
 
 // Map of states and colors to use when logging link results.
 const LOGGER_MAP = {
   OK: chalk.green('.'),
-  BROKEN: chalk.red('!'),
-  SKIPPED: chalk.yellow('?'),
+  BROKEN: chalk.red('x'),
+  SKIPPED: chalk.yellow('-'),
 }
 
 // LinkChecker options.
 // See: https://github.com/JustinBeckwith/linkinator?tab=readme-ov-file#linkinatorcheckoptions
-const OPTIONS = {
+const LINKCHECKER_CONFIG = {
   // Links in this array will not be checked. Will report as SKIPPED.
   linksToSkip: [
     'https://www.googletagmanager.com/',
     'https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
-    // TODO: include the list of URLs ignored by the CMS link checker here as well
-    // config/sync/node_link_report.settings.yml in va.gov-cms repo
+    // process.env.SKIP_IMAGES ? '' : null
   ],
   timeout: 5000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
   urlRewriteExpressions: [
     // { pattern: '', replacement: '' }
   ],
-  // recurse: true, // not recursing because we check the full known sitemap
+  // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
 }
 
 /**
@@ -63,46 +66,52 @@ async function checkBrokenLinks() {
     .on('pagestart', (url) => pagesChecked.push(url))
     // After a page is scanned, sort & report result
     .on('link', (result) => {
-      // Prints . ? or ! for each link checked.
-      process.stdout.write(LOGGER_MAP[result.state])
+      if (OPTIONS.verbose) {
+        // Prints . - or x for each link checked.
+        process.stdout.write(LOGGER_MAP[result.state])
+      }
 
       linksChecked.push(result)
 
       if (result.state === 'BROKEN') {
         brokenLinks.push(result)
+        // so we don't double print, but some output is present
+        if (!OPTIONS.verbose) {
+          process.stdout.write(LOGGER_MAP[result.state])
+        }
       }
     })
 
   // Full array of sitemap defined URLs.
-  const paths = await getSitemapLocations(process.env.SITE_URL)
+  // const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
+  // Tiny array of paths for debugging this script.
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
   console.log(
     `Splitting page list into ${chalk.yellow(
-      BATCH_SIZE
+      OPTIONS.batchSize
     )} batches for processing.`
   )
-  const batches = splitPagesIntoSegments(paths, BATCH_SIZE)
+  const batches = splitPagesIntoSegments(paths, OPTIONS.batchSize)
 
+  // A fake counter for the illusion of sequential completion.
+  let counter = 1
   // Request each batch at once. This takes a little bit of time depending on the size
   // of the sitemap. VA.gov builds a large one.
   await Promise.all(
-    batches.map(async (batch, i) => {
+    batches.map(async (batch) => {
       for (const path of batch) {
         // Where the actual link check happens, uses options defined above
-        await checker.check({ ...OPTIONS, path })
+        await checker.check({ ...LINKCHECKER_CONFIG, path })
       }
-      console.log(chalk.yellow(`Batch #${i + 1} of ${BATCH_SIZE} complete.`))
+      console.log(
+        chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
+      )
+      counter++
     })
   )
-
-  // Tiny array of paths for debugging this script.
-  // const slim = paths.slice(0, 10)
-  // console.log(`Smaller number of pages to check: ${slim.length}`)
-  // for (const path of slim) {
-  //   await checker.check({...OPTIONS, path})
-  // }
 
   const end = Date.now()
 
@@ -125,7 +134,7 @@ async function checkBrokenLinks() {
 
   const jsonReport = {
     metrics: {
-      domain: process.env.SITE_URL,
+      domain: OPTIONS.sitemapUrl,
       pagesScanned: pagesChecked.length,
       linksChecked: linksChecked.length,
       brokenLinkCount: brokenLinks.length,
@@ -137,18 +146,17 @@ async function checkBrokenLinks() {
   if (brokenLinks.length > 0) {
     for (const brokenLink of brokenLinks) {
       const { url, status, parent } = brokenLink
-      const source = new URL(parent).pathname
 
       // Output which links are broken on what pages.
       console.log(`\n${chalk.red(url)}`)
       console.log('  ', 'STATUS:', status)
-      console.log('  ', 'SOURCE:', source)
+      console.log('  ', 'SOURCE:', parent)
 
       // Trim item to just essentials for JSON output.
       jsonReport.brokenLinks.push({
         url,
         status,
-        source,
+        parent,
       })
     }
   }
@@ -163,7 +171,7 @@ async function checkBrokenLinks() {
 
   return console.log(
     `\n Report file written to: ${chalk.green(
-      process.cwd() + 'broken-link-report.json'
+      process.cwd() + '/broken-link-report.json'
     )}`
   )
 }
