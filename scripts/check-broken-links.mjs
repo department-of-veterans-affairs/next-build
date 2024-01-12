@@ -75,17 +75,13 @@ async function checkBrokenLinks() {
 
       if (result.state === 'BROKEN') {
         brokenLinks.push(result)
-        // so we don't double print, but some output is present
-        if (!OPTIONS.verbose) {
-          process.stdout.write(LOGGER_MAP[result.state])
-        }
       }
     })
 
   // Full array of sitemap defined URLs.
-  // const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
+  const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
+  // const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
