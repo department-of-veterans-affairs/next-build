@@ -32,6 +32,7 @@ dump.rdb
 /storybook-static
 /public/generated
 /public/data
+/public/img
 
 # misc
 .DS_Store
