@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   # schedule:
   #   - cron: 0 20 * * 1-5
+  # added temporarily to allow GHA to see the action
+  pull_request:
 
 concurrency:
   group: production-tag
