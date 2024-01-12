@@ -66,9 +66,8 @@ jobs:
 
       - name: Get next tag version
         run: |
-          current_increment=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | cut -d'.' -f3)
-          # echo "NEW_TAG=$(echo $(( $current_increment + 1 )))" >> $GITHUB_ENV
-          echo "NEW_TAG=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | sed -E 's/\.[0-9]+/.$(echo $(( $current_increment + 1 )))/2'"  >> $GITHUB_ENV
+          next_increment=$(( $(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | cut -d'.' -f3) + 1))
+          echo "NEW_TAG=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | sed -E "s/\.[0-9]+/.$next_increment/2")" >> $GITHUB_OUTPUT
 
       # - name: Create next tag
       #   uses: nick-invision/retry@943e742917ac94714d2f408a0e8320f2d1fcafcd # v2.8.3
@@ -125,7 +124,7 @@ jobs:
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "<!here> New next-build release could not be tagged!: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">!here< New next-build release could not be tagged!: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
