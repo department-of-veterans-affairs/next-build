@@ -24,6 +24,9 @@ jobs:
     if: ${{ !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure') }}
     outputs:
       RELEASE_NAME: ${{ steps.export-release-name.outputs.RELEASE_NAME }}
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Cancel workflow due to DSVA schedule, unless this is a manual build
@@ -33,8 +36,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@e1e17a757e536f70e52b5a12b2e8d1d1c60e04ef # v2.0.0
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
           aws-region: us-gov-west-1
 
       - name: Get bot token from Parameter Store
