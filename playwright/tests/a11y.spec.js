@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
 const { test } = require('../utils/next-test')
-const getSitemapLocations = require('../utils/getSitemapLocations')
+const {
+  getSitemapLocations,
+  splitPagesIntoSegments,
+} = require('../utils/getSitemapLocations')
 
 async function runA11yTestsForPages(pages, testName, page, makeAxeBuilder) {
   let a11yFailures = []
@@ -34,22 +37,17 @@ async function runA11yTestsForPages(pages, testName, page, makeAxeBuilder) {
   }
 }
 
-async function splitPagesIntoSegments(segmentCount) {
+test.describe('Accessibility Tests', async () => {
+  test.setTimeout(4200000)
+
   const pages = await getSitemapLocations(
     process.env.BASE_URL || 'http://127.0.0.1:8001'
   )
-  const segmentSize = Math.ceil(pages.length / segmentCount)
-  return new Array(segmentCount).fill().map((_, index) => {
-    return pages.slice(index * segmentSize, (index + 1) * segmentSize)
-  })
-}
-
-test.describe('Accessibility Tests', () => {
-  test.setTimeout(4200000)
 
   let pageSegments
+
   test.beforeAll(async () => {
-    pageSegments = await splitPagesIntoSegments(5)
+    pageSegments = await splitPagesIntoSegments(pages, 5)
   })
 
   for (let i = 0; i < 5; i++) {

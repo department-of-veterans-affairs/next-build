@@ -18,21 +18,26 @@
 
 # testing
 /coverage
+playwright/test-results
+playwright/test-report
+broken-link-report.json
 
 # next.js
 /.next/
-/out/
-playwright/test-results
-playwright/test-report
+.swc
 
 # redis
 dump.rdb
 
-# production
-/storybook-static
+# vets-website assets
 /public/generated
 /public/data
 /public/img
+
+# static output for production
+/storybook-static
+/typedocs/
+/out/
 
 # misc
 .DS_Store
@@ -46,17 +51,12 @@ yarn-error.log*
 
 # local env files
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+envs/.env.local
+
 # local cert for using ddev endpoint
 certs/rootCA.pem
-
-# vercel
-.vercel
-.swc
+# combined mozilla cert for broken link checking
+certs/VA-mozilla-combined.pem
 
 # typescript
 *.tsbuildinfo
-# typedoc
-/typedocs/
