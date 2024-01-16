@@ -5645,12 +5645,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.15":
-  version: 18.2.15
-  resolution: "@types/react-dom@npm:18.2.15"
+"@types/react-dom@npm:^18.2.18":
+  version: 18.2.18
+  resolution: "@types/react-dom@npm:18.2.18"
   dependencies:
     "@types/react": "*"
-  checksum: 8e9631600c21ff561328e38a951d1991b3b3b20f538af4c0efbd1327c883a5573a63f50e1b945c34fa51b114b30e1ca5e62317bd54f21e063d6697b4be843a03
+  checksum: 8e3da404c980e2b2a76da3852f812ea6d8b9d0e7f5923fbaf3bfbbbfa1d59116ff91c129de8f68e9b7668a67ae34484fe9df74d5a7518cf8591ec07a0c4dad57
   languageName: node
   linkType: hard
 
@@ -14138,7 +14138,7 @@ __metadata:
     "@types/lodash": ^4.14.202
     "@types/node": 20.10.5
     "@types/react": ^18.2.31
-    "@types/react-dom": ^18.2.15
+    "@types/react-dom": ^18.2.18
     "@types/react-gtm-module": ^2.0.1
     "@types/testing-library__react": ^10.2.0
     "@types/uuid": ^9.0.7
