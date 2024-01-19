@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import {
   deriveMostRecentDate,
   formatDateObject,
@@ -36,7 +36,10 @@ export const Event = ({
   const [showRecurringEvents, setShowRecurringEvents] = useState(false)
   const [mostRecentDate, setMostRecentDate] = useState(null)
   const [showAllEvents, setShowAllEvents] = useState(false)
-  const formattedDates = formatDateObject(datetimeRange)
+  const formattedDates = useMemo(
+    () => formatDateObject(datetimeRange),
+    [datetimeRange]
+  )
   const initialFormattedDates = formattedDates.slice(0, 5)
   const [currentFormattedDates, setCurrentFormattedDates] = useState(
     initialFormattedDates
@@ -46,7 +49,7 @@ export const Event = ({
     // Calculate the most recent date when the component mounts
     const recentDate = deriveMostRecentDate(formattedDates)
     setMostRecentDate(recentDate)
-  }, [datetimeRange, formattedDates])
+  }, [formattedDates])
 
   const toggleRecurringEvents = () => {
     setShowRecurringEvents((prevState) => !prevState)
