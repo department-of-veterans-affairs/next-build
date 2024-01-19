@@ -36,6 +36,8 @@ export const Event = ({
   const [showRecurringEvents, setShowRecurringEvents] = useState(false)
   const [mostRecentDate, setMostRecentDate] = useState(null)
   const [showAllEvents, setShowAllEvents] = useState(false)
+
+  // Memoized because formateDateObject returns a map that will be recalculated on each render.
   const formattedDates = useMemo(
     () => formatDateObject(datetimeRange),
     [datetimeRange]

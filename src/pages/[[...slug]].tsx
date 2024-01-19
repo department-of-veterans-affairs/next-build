@@ -4,6 +4,7 @@ import {
   GetStaticPathsResult,
   GetStaticPropsContext,
 } from 'next'
+import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
@@ -74,6 +75,7 @@ export default function ResourcePage({
         entityPath={resource.entityPath}
         hideHomeBreadcrumb={shouldHideHomeBreadcrumb(resource.type)}
       />
+
       <main>
         <div id="content" className="interior">
           {resource.type === RESOURCE_TYPES.STORY_LISTING && (
@@ -90,6 +92,13 @@ export default function ResourcePage({
           )}
         </div>
       </main>
+
+      {/* Loads widgets built from vets-website after data has been added to window */}
+      <Script
+        id="staticPages"
+        strategy="afterInteractive"
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
+      />
     </Wrapper>
   )
 }
