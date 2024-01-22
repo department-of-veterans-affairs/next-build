@@ -11,7 +11,6 @@ export const getFetcher =
       host.match(/cms\.va\.gov$/) &&
       process.env.APP_ENV != 'tugboat' &&
       process.env.APP_ENV != 'gha'
-    console.log('useProxy: ' + useProxy)
     const syswideCas = await import('syswide-cas')
 
     // If using an internal VA server, add VA cert.
@@ -33,7 +32,7 @@ export const getFetcher =
     // Wrap fetching in p-retry for resilience.
     const retryCount = 5
     const wrappedCrossFetch = async (attempt) => {
-      console.log('about to try')
+      console.log('about to try retrieving '+input)
       const response = await crossFetch(input, {
         ...options,
       })
@@ -50,6 +49,7 @@ export const getFetcher =
     }
 
     const pRetry = await import('p-retry')
+    console.log('loaded pRetry')
     return pRetry.default(wrappedCrossFetch, {
       retries: retryCount,
     })
