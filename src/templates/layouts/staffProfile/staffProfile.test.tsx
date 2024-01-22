@@ -9,7 +9,7 @@ const thumbnail = {
   height: 136,
   styles: {},
   links: {
-    '2_1_large': {
+    '1_1_square_medium_thumbnail': {
       href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/2019-08/William_W_Smathers.jpg',
       meta: {
         linkParams: {},

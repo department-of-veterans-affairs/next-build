@@ -10,7 +10,10 @@ import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { ExpandedStaticPropsContext } from './staticProps'
 
-const LISTING_RESOURCE_TYPES = [RESOURCE_TYPES.STORY_LISTING] as const
+const LISTING_RESOURCE_TYPES = [
+  RESOURCE_TYPES.STORY_LISTING,
+  RESOURCE_TYPES.EVENT_LISTING,
+] as const
 
 export type ListingResourceType = (typeof LISTING_RESOURCE_TYPES)[number]
 
@@ -54,6 +57,7 @@ export const LISTING_RESOURCE_TYPE_URL_SEGMENTS: Readonly<{
   [key: string]: string
 }> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
+  [RESOURCE_TYPES.EVENT_LISTING]: 'events',
 }
 
 export function isListingResourceType(resourceType: ResourceType): boolean {
@@ -166,6 +170,7 @@ export async function getAllPagedListingStaticPathResources(
       listingPageStaticPathResources,
       listingResourceType
     )
+
   // Paging step 2: Each listing resource will become multiple resources, one for each of its pages
   const allListingResources = addStaticPathResourcesFromPagingData(
     resourcesWithPagingData
@@ -200,6 +205,9 @@ export function getListingPageStaticPropsContext(
   const isSlugSubsequentListingPage: string[] | false =
     isSlugPossibleListingPage &&
     slug.length === 3 &&
+    // EVENT_LISTING pages should only generate one page.
+    slug[1] !==
+      LISTING_RESOURCE_TYPE_URL_SEGMENTS[RESOURCE_TYPES.EVENT_LISTING] &&
     slug[2].match(/^page-(\d)+$/)
   const page = isSlugSubsequentListingPage
     ? parseInt(isSlugSubsequentListingPage[1])

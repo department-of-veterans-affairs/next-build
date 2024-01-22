@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import {
   deriveMostRecentDate,
   formatDateObject,
@@ -10,7 +10,7 @@ import { MediaImage } from '@/templates/common/mediaImage'
 import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Event as FormattedEvent } from '@/types/formatted/event'
-import { SocialLinksEvents } from '@/templates/common/socialLinksEvents'
+import { SocialLinks } from '@/templates/common/socialLinks'
 import { formatEventCTA, createMailToLink } from '@/lib/utils/events'
 
 export const Event = ({
@@ -36,7 +36,12 @@ export const Event = ({
   const [showRecurringEvents, setShowRecurringEvents] = useState(false)
   const [mostRecentDate, setMostRecentDate] = useState(null)
   const [showAllEvents, setShowAllEvents] = useState(false)
-  const formattedDates = formatDateObject(datetimeRange)
+
+  // Memoized because formateDateObject returns a map that will be recalculated on each render.
+  const formattedDates = useMemo(
+    () => formatDateObject(datetimeRange),
+    [datetimeRange]
+  )
   const initialFormattedDates = formattedDates.slice(0, 5)
   const [currentFormattedDates, setCurrentFormattedDates] = useState(
     initialFormattedDates
@@ -46,7 +51,7 @@ export const Event = ({
     // Calculate the most recent date when the component mounts
     const recentDate = deriveMostRecentDate(formattedDates)
     setMostRecentDate(recentDate)
-  }, [datetimeRange, formattedDates])
+  }, [formattedDates])
 
   const toggleRecurringEvents = () => {
     setShowRecurringEvents((prevState) => !prevState)
@@ -188,7 +193,7 @@ export const Event = ({
               </div>
             )}
 
-            <SocialLinksEvents
+            <SocialLinks
               path={socialLinks?.path}
               title={socialLinks?.title}
               description={description}

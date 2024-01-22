@@ -10,7 +10,8 @@ import {
   FieldSocialMediaLinks,
   FieldTable,
   FieldAdministration,
-  BreadcrumbItem,
+  FieldDateTimeRange,
+  FieldNestedLink,
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import {
@@ -55,6 +56,7 @@ export type NodeTypes =
   | NodeSupportResourcesDetailPage
   | NodeSupportService
   | NodeEvent
+  | NodeEventListing
 
 /** Node resource types. */
 export const enum NodeResourceType {
@@ -67,6 +69,7 @@ export const enum NodeResourceType {
   PromoBanner = 'node--promo_banner',
   QuestionAnswer = 'node--q_a',
   StoryListing = 'node--story_listing',
+  EventListing = 'node--event_lising',
   SupportResourcesDetailPage = 'node--support_resources_detail_page',
 }
 
@@ -290,7 +293,7 @@ export interface NodeEvent extends DrupalNode {
   field_cta_email: string
   field_how_to_sign_up: string
   field_event_cost: string
-  field_datetime_range_timezone: DateTimeRange[]
+  field_datetime_range_timezone: FieldDateTimeRange[]
 
   field_facility_location: NodeHealthCareLocalFacility
   field_featured: boolean
@@ -302,58 +305,16 @@ export interface NodeEvent extends DrupalNode {
   field_event_registrationrequired: boolean
 
   field_description: string
-  field_link: fieldLink
-  field_url_of_an_online_event: urlOfOnlineEvent
+  field_link: FieldNestedLink
+  field_url_of_an_online_event: FieldLink
   field_listing: NodeEventListing
   field_last_saved_by_an_editor?: string | null
 }
 
-interface fieldLink {
-  url: {
-    path: string
-  }
-}
-
-export interface DateTimeRange {
-  value: string
-  end_value: string
-  duration: number
-  rrule: number
-  rrule_index: number
-  timezone: string
-}
-
-export interface urlOfOnlineEvent {
-  uri: string
-  title: string
-  options: unknown
-}
-
 export interface NodeEventListing extends DrupalNode {
-  status: boolean
-  breadcrumbs: BreadcrumbItem[]
-  moderation_state: string
-  path: {
-    alias: string
-    pid: number
-    langcode: string
-  }
   field_description: string
-  field_enforce_unique_combo: boolean
   field_intro_text: string
-  links: {
-    self: {
-      href: string
-    }
-  }
-  resourceIdObjMeta: {
-    drupal_internal__target_id: number
-  }
-  node_type: {
-    type: string
-    id: string
-    resourceIdObjMeta: unknown
-  }
+  field_enforce_unique_combo: boolean
 }
 
 export interface NodePromoBanner extends DrupalNode {

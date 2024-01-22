@@ -17,7 +17,7 @@ import {
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
 
-// Define the query params for fetching node--news_story.
+// Define the query params for fetching node--story_listing.
 export const params: QueryParams<null> = () => {
   return queries.getParams().addInclude(['field_office'])
 }
