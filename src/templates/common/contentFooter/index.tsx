@@ -68,7 +68,7 @@ export function ContentFooter({ lastUpdated }: ContentFooterProps) {
 
   return (
     <>
-      <div className="last-updated usa-content vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
+      <div className="last-updated vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
         <div className="small-screen:vads-u-display--flex above-footer-elements-container">
           <div className="vads-u-flex--auto">
             <span className="vads-u-text-align--justify">

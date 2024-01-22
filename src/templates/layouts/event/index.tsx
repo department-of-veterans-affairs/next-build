@@ -10,7 +10,7 @@ import { MediaImage } from '@/templates/common/mediaImage'
 import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Event as FormattedEvent } from '@/types/formatted/event'
-import { SocialLinksEvents } from '@/templates/common/socialLinksEvents'
+import { SocialLinks } from '@/templates/common/socialLinks'
 import { formatEventCTA, createMailToLink } from '@/lib/utils/events'
 
 export const Event = ({
@@ -193,7 +193,7 @@ export const Event = ({
               </div>
             )}
 
-            <SocialLinksEvents
+            <SocialLinks
               path={socialLinks?.path}
               title={socialLinks?.title}
               description={description}

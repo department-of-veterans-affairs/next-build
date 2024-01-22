@@ -4,13 +4,14 @@ import {
   getAllPagedListingStaticPathResources,
   isListingResourceType,
 } from '@/lib/drupal/listingPages'
-import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
+import { ResourceType } from '@/lib/constants/resourceTypes'
 import { queries } from '@/data/queries'
 import { StaticPathResource } from '@/types/formatted/staticPathResource'
 import {
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,
 } from '@/lib/drupal/lovell/staticPaths'
+import { isLovellBifurcatedResourceType } from '@/lib/drupal/lovell/utils'
 import { pathToSlug } from '@/lib/utils/slug'
 
 /**
@@ -26,7 +27,7 @@ async function modifyStaticPathResourcesByResourceType(
   resourceType: ResourceType,
   resources: StaticPathResource[]
 ): Promise<StaticPathResource[]> {
-  if (resourceType === RESOURCE_TYPES.STORY) {
+  if (isLovellBifurcatedResourceType(resourceType)) {
     return bifurcateLovellFederalPathResources(resources)
   }
 

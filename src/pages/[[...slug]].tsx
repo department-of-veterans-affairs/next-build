@@ -14,6 +14,7 @@ import { StoryListing } from '@/templates/layouts/storyListing'
 import HTMLComment from '@/templates/globals/util/HTMLComment'
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import { Event } from '@/templates/layouts/event'
+import { EventListing } from '@/templates/layouts/eventListing'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import {
@@ -25,6 +26,7 @@ import { FormattedResource } from '@/data/queries'
 import { LayoutProps } from '@/templates/globals/wrapper'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
+import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
 import { Event as FormattedEvent } from '@/types/formatted/event'
 import { Meta } from '@/templates/globals/meta'
 import { PreviewCrumb } from '@/templates/common/preview'
@@ -33,6 +35,7 @@ const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
   RESOURCE_TYPES.EVENT,
+  RESOURCE_TYPES.EVENT_LISTING,
 ] as const
 
 export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
@@ -92,6 +95,9 @@ export default function ResourcePage({
           {/* {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />
           )} */}
+          {resource.type === RESOURCE_TYPES.EVENT_LISTING && (
+            <EventListing {...(resource as FormattedEventListing)} />
+          )}
           {resource.type === RESOURCE_TYPES.EVENT && (
             <Event {...(resource as FormattedEvent)} />
           )}
