@@ -15,7 +15,18 @@ env:
 jobs:
   broken-link-check:
     name: Broken link check
-    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    runs-on: [self-hosted, asg]
+    container:
+      image: public.ecr.aws/docker/library/node:18.19.0-bullseye
+      # Certs added for the self hosted runner
+      env:
+        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/home/runner
+        - /etc/ssl/certs:/etc/ssl/certs
     permissions:
       id-token: write
       contents: write
