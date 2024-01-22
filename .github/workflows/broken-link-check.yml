@@ -51,7 +51,7 @@ jobs:
 
       - name: Run broken link check
         run: |
-          NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem VERBOSE=true SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
+          APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem VERBOSE=true SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
 
 
 
