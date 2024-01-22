@@ -66,7 +66,7 @@ module.exports = function (plop) {
       'You will need to do a few steps manually:',
       '- Import & add your query to src/data/queries/index.ts',
       '- Add your resource type to src/lib/constants/resourceTypes.ts',
-      '- Update the mock.json with correct data',
+      '- Update the mock.json with correct data. See src/pages/_playgroud/api-explorer.tsx',
       '- Run `yarn test:u` to update test snapshots for your new query!',
     ],
   })
@@ -107,7 +107,7 @@ module.exports = function (plop) {
       'You will need to do a few steps manually:',
       '- Import & add your query to src/data/queries/index.ts',
       '- Add your resource type to src/lib/constants/resourceTypes.ts',
-      '- Update the mock.json with correct data',
+      '- Update the mock.json with correct data. See src/pages/_playgroud/api-explorer.tsx',
       '- Run `yarn test:u` to update test snapshots for your new query!',
       // Create react component + test files for new Page type.
       {

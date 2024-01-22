@@ -1,8 +1,8 @@
 /**
  * ### Overview
- * Story Listing represents an individual story within a Facility. These are used for human-interest articles.
+ * Story Listing represents the collection pages for News Stories in a facility.
  *
- * Story Listing expects data of type {@link StoryListingType}.
+ * Story Listing expects data of type {@link FormattedStoryListing}.
  *
  * ### Examples
  * @see https://va.gov/pittsburgh-health-care/stories/

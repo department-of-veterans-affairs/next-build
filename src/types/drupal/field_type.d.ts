@@ -70,6 +70,21 @@ export interface FieldAdministration {
   name: string
 }
 
+export interface FieldNestedLink {
+  url: {
+    path: string
+  }
+}
+
+export interface FieldDateTimeRange {
+  value: string
+  end_value: string
+  duration: number
+  rrule: number
+  rrule_index: number
+  timezone: string
+}
+
 /**
  * Types for breadcrumb data
  */
