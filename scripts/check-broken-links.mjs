@@ -53,7 +53,6 @@ const LINKCHECKER_CONFIG = {
  * <repo root>/broken-link-report.json
  */
 async function checkBrokenLinks() {
-  console.log('inside')
   const start = Date.now()
   const checker = new LinkChecker()
   // Reporting arrays
@@ -77,11 +76,13 @@ async function checkBrokenLinks() {
         brokenLinks.push(result)
       }
     })
-
+  console.log('checker is set up')
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
+  console.log('about to get sitemap')
   const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
+  console.log('got the sitemap')
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
