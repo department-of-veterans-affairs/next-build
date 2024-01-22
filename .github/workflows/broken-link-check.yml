@@ -10,22 +10,12 @@ concurrency:
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
+  DSVA_SCHEDULE_ENABLED: true
 
 jobs:
   broken-link-check:
     name: Broken link check
-    timeout-minutes: 15
-    runs-on: [self-hosted, asg]
-    container:
-      image: public.ecr.aws/docker/library/node:18.19.0-bullseye
-      # Certs added for the self hosted runner
-      env:
-        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
-      ports:
-        - 80
-      volumes:
-        - my_docker_volume:/home/runner
-        - /etc/ssl/certs:/etc/ssl/certs
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: write
@@ -34,11 +24,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - name: Setup Yarn
-        run: |
-          corepack enable
-          corepack install -g --cache-only .yarn/releases/corepack.tgz
+          node-version-file: .nvmrc
 
       - name: Install Npm Dependencies
         run: |
@@ -51,9 +37,7 @@ jobs:
 
       - name: Run broken link check
         run: |
-          APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem VERBOSE=true SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
-
-
+          APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
 
 
   # notify-success:
