@@ -21,7 +21,7 @@
     "format": "prettier --write .",
     "lint": "next lint",
     "plop": "plop",
-    "postinstall": "husky install && yarn certs",
+    "postinstall": "yarn certs && husky install",
     "certs": "rm -f ./certs/VA-mozilla-combined.pem && cat node_modules/node_extra_ca_certs_mozilla_bundle/ca_bundle/ca_intermediate_root_bundle.pem ./certs/VA-Internal-S2-RCA-combined.pem > ./certs/VA-mozilla-combined.pem",
     "test": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test.js",
     "test:ci": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:ci.js",

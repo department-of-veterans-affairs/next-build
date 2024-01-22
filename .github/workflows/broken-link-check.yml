@@ -33,7 +33,7 @@ jobs:
 
       - name: Run broken link check
         run: |
-          less certs/VA-mozilla-combined.pem
+          ls -al node_modules/proxy-fetcher
           NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem NUM_URLS=100 SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
 
 
