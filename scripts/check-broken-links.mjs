@@ -154,11 +154,11 @@ async function checkBrokenLinks() {
         url,
         status,
       })
-      console.log(jsonReport.brokenLinks)
     }
   }
 
   // Write finished report to file.
+  console.log(jsonReport)
   const json = JSON.stringify(jsonReport)
   fs.writeFile('broken-link-report.json', json, (err) => {
     if (err) {
