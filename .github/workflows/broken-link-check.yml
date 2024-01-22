@@ -10,7 +10,6 @@ concurrency:
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
-  DSVA_SCHEDULE_ENABLED: true
 
 jobs:
   broken-link-check:
@@ -20,8 +19,6 @@ jobs:
     container:
       image: public.ecr.aws/docker/library/node:18.19.0-bullseye
       # Certs added for the self hosted runner
-      env:
-        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
       ports:
         - 80
       volumes:
@@ -33,11 +30,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
-
+          node-version: 18
       - name: Setup Yarn
         run: |
           corepack enable
