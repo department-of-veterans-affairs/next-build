@@ -45,10 +45,14 @@ jobs:
           yarn set version 3.6.1
           HUSKY=0 yarn install --immutable
 
-      - name: Run broken link check
+      - name: Build proxy-fetcher dist
         run: |
           yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
-          NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem NUM_URLS=100 VERBOSE=true SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
+
+      - name: Run broken link check
+        run: |
+          less scripts/check-broken-links.mjs
+          NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem VERBOSE=true SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
 
 
 

@@ -12,7 +12,6 @@ const OPTIONS = {
   batchSize: process.env.BATCH_SIZE || 32,
   verbose: process.env.VERBOSE || false,
   skipImageLinks: process.env.SKIP_IMAGES || false,
-  numberUrls: process.env.NUM_URLS || false,
 }
 
 // Map of states and colors to use when logging link results.
@@ -80,11 +79,9 @@ async function checkBrokenLinks() {
     })
 
   // Full array of sitemap defined URLs.
-  let paths = await getSitemapLocations(OPTIONS.sitemapUrl)
+  //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  if (OPTIONS.numberUrls) {
-    paths = paths.slice(0, OPTIONS.numberUrls)
-  }
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
