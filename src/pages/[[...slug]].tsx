@@ -4,6 +4,8 @@ import {
   GetStaticPathsResult,
   GetStaticPropsContext,
 } from 'next'
+import dynamic from 'next/dynamic'
+import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { Wrapper } from '@/templates/globals/wrapper'
@@ -19,7 +21,6 @@ import {
   getExpandedStaticPropsContext,
   getStaticPropsResource,
 } from '@/lib/drupal/staticProps'
-import Breadcrumbs from '@/templates/common/breadcrumbs'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedResource } from '@/data/queries'
 import { LayoutProps } from '@/templates/globals/wrapper'
@@ -38,6 +39,11 @@ const RESOURCE_TYPES_TO_BUILD = [
 ] as const
 
 export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
+
+export const DynamicBreadcrumbs = dynamic(
+  () => import('@/templates/common/breadcrumbs'),
+  { ssr: false }
+)
 
 // [[...slug]] is a catchall route. We build the appropriate layout based on the resource returned for a given path.
 export default function ResourcePage({
@@ -72,11 +78,12 @@ export default function ResourcePage({
 
       {preview && <PreviewCrumb entityId={resource.entityId} />}
 
-      <Breadcrumbs
+      <DynamicBreadcrumbs
         breadcrumbs={resource.breadcrumbs}
         entityPath={resource.entityPath}
         hideHomeBreadcrumb={shouldHideHomeBreadcrumb(resource.type)}
       />
+
       <main>
         <div id="content" className="interior">
           {resource.type === RESOURCE_TYPES.STORY_LISTING && (
@@ -96,6 +103,13 @@ export default function ResourcePage({
           )}
         </div>
       </main>
+
+      {/* Loads widgets built from vets-website after data has been added to window */}
+      <Script
+        id="staticPages"
+        strategy="afterInteractive"
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
+      />
     </Wrapper>
   )
 }

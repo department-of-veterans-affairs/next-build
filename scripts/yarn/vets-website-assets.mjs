@@ -86,6 +86,14 @@ async function moveAssetsFromVetsWebsite() {
 
     fs.copySync(`${vetsWebsiteAssetPath}/img`, './public/img/')
     console.log('Copied image assets from vets-website')
+
+    // Some stylesheets from vets-website expect these font files, but they are not included
+    // in the bucket files or in that repo's font folder. We source them directly from the node module.
+    fs.copySync(
+      './node_modules/@fortawesome/fontawesome-free/webfonts',
+      './public/generated'
+    )
+    console.log('Copied fontawesome font files from node_modules')
   } catch (err) {
     console.error(err)
   }

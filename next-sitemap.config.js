@@ -4,7 +4,7 @@ module.exports = {
   siteUrl: process.env.SITE_URL || 'https://localhost:8001',
   // output: 'export' directory from next config
   outDir: 'out',
-  generateIndexSitemap: false, // set to true as we add more content types
+  generateIndexSitemap: true,
   // relative paths to exclude
   exclude: [],
 

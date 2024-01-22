@@ -84,4 +84,5 @@ Typedoc docs can be generated at any time:
 yarn typedoc
 ```
 
-This will output the docs to `docs/` at the root of the repository. @todo figure out what this looks like from a CI perspective, etc.
+This will output the docs to `typedocs/` at the root of the repository. It is also
+generated automatically for every PR environment.
