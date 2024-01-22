@@ -28,11 +28,10 @@ export const getFetcher =
       agent: useProxy ? agent : null,
       ...init,
     }
-    console.log(options)
+
     // Wrap fetching in p-retry for resilience.
     const retryCount = 5
     const wrappedCrossFetch = async (attempt) => {
-      console.log('about to try retrieving '+input)
       const response = await crossFetch(input, {
         ...options,
       })
@@ -49,7 +48,6 @@ export const getFetcher =
     }
 
     const pRetry = await import('p-retry')
-    console.log('loaded pRetry')
     return pRetry.default(wrappedCrossFetch, {
       retries: retryCount,
     })

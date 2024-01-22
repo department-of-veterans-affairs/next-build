@@ -55,6 +55,7 @@ const LINKCHECKER_CONFIG = {
 async function checkBrokenLinks() {
   const start = Date.now()
   const checker = new LinkChecker()
+
   // Reporting arrays
   const brokenLinks = []
   const pagesChecked = []
@@ -76,13 +77,11 @@ async function checkBrokenLinks() {
         brokenLinks.push(result)
       }
     })
-  console.log('checker is set up')
+
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  console.log('about to get sitemap')
   const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
-  console.log('got the sitemap')
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
@@ -144,16 +143,16 @@ async function checkBrokenLinks() {
     for (const brokenLink of brokenLinks) {
       const { url, status, parent } = brokenLink
 
-      // Output which links are broken on what pages.
-      console.log(`\n${chalk.red(url)}`)
-      console.log('  ', 'STATUS:', status)
-      console.log('  ', 'SOURCE:', parent)
+      // // Output which links are broken on what pages.
+      // console.log(`\n${chalk.red(url)}`)
+      // console.log('  ', 'STATUS:', status)
+      // console.log('  ', 'SOURCE:', parent)
 
-      // Trim item to just essentials for JSON output.
-      jsonReport.brokenLinks.push({
+      // Group broken links by parent.
+      jsonReport.brokenLinks[parent] = jsonReport.brokenLinks[parent] || []
+      jsonReport.brokenLinks[parent].push({
         url,
         status,
-        parent,
       })
     }
   }
@@ -173,6 +172,5 @@ async function checkBrokenLinks() {
   )
 }
 
-console.log('are we even getting this far')
 // Run the script.
 checkBrokenLinks()
