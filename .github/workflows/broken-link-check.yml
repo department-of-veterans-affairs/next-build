@@ -21,10 +21,6 @@ jobs:
       contents: write
 
     steps:
-      - name: Cancel workflow due to DSVA schedule, unless this is a manual build
-        if: ${{ github.event_name != 'workflow_dispatch' && env.DSVA_SCHEDULE_ENABLED != 'true' }}
-        uses: andymckay/cancel-action@b9280e3f8986d7a8e91c7462efc0fa318010c8b1 # v0.3
-
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -37,7 +33,8 @@ jobs:
 
       - name: Run broken link check
         run: |
-          NODE_EXTRA_CA_CERTS=./certs/VA-mozilla-combined.pem NUM_URLS=100 SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
+          less certs/VA-mozilla-combined.pem
+          NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem NUM_URLS=100 SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
 
 
 
