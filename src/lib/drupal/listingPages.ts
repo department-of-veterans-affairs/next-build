@@ -205,6 +205,9 @@ export function getListingPageStaticPropsContext(
   const isSlugSubsequentListingPage: string[] | false =
     isSlugPossibleListingPage &&
     slug.length === 3 &&
+    // EVENT_LISTING pages should only generate one page.
+    slug[1] !==
+      LISTING_RESOURCE_TYPE_URL_SEGMENTS[RESOURCE_TYPES.EVENT_LISTING] &&
     slug[2].match(/^page-(\d)+$/)
   const page = isSlugSubsequentListingPage
     ? parseInt(isSlugSubsequentListingPage[1])
