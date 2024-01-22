@@ -53,9 +53,9 @@ const LINKCHECKER_CONFIG = {
  * <repo root>/broken-link-report.json
  */
 async function checkBrokenLinks() {
+  console.log('inside')
   const start = Date.now()
   const checker = new LinkChecker()
-
   // Reporting arrays
   const brokenLinks = []
   const pagesChecked = []
@@ -172,5 +172,6 @@ async function checkBrokenLinks() {
   )
 }
 
+console.log('are we even getting this far')
 // Run the script.
 checkBrokenLinks()
