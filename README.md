@@ -22,22 +22,19 @@ You should set these up before attempting to install the repo.
 1. Clone the repo if you haven't.
    `git clone git@github.com:department-of-veterans-affairs/next-build.git`
 
-2. Clone the vets-website repo adjacent to next-build in the same parent directory.
-   `git clone git@github.com:department-of-veterans-affairs/vets-website.git`
+2. Clone the vets-website repo adjacent to next-build in the same parent directory. `git clone git@github.com:department-of-veterans-affairs/vets-website.git`. This is necessary to source some assets used by various FE widgets, like fonts and images.
 
-3. In the `vets-website/` directory, set node and yarn to the required versions: `nvm use 14.15.0` && `yarn set version 1.19.1`
+3. In the `next-build/` directory, `nvm use 18` && `yarn set version stable`
 
-4. `yarn install` and `yarn build`. You are now done in vets-website. You may need to re-build vets-website occasionally in the future to ensure assets are up-to-date.
+4. Run `yarn install`.
 
-5. In the `next-build/` directory, `nvm use 18` && `yarn set version stable`
+5. Copy `envs/.env.example` to `envs/.env.local`. This is a reasonable set of environment defaults for local development.
 
-6. Run `yarn install`.
+6. Make sure your SOCKS access is running. (e.g. `vtk socks on`)
 
-7. Copy `envs/.env.example` to `envs/.env.local`. This is a reasonable set of environment defaults for local development.
+7. In the `next-build` directory, run `BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs` to pull initial built assets from the `vets-website` repo. This will grab a bunch of files from a vets-website S3 bucket and place them into the appropriate `public/` folders.
 
-8. Make sure your SOCKS access is running. (e.g. `vtk socks on`)
-
-9. Run `yarn dev`.
+8. Run `yarn dev`.
 
 You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your local environment.
 

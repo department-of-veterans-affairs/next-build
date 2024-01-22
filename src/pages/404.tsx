@@ -4,6 +4,7 @@ import { Wrapper } from '@/templates/globals/wrapper'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { CommonAndPopular } from '@/templates/common/commonAndPopular'
 import Head from 'next/head'
+import Script from 'next/script'
 
 const Error404Page = ({ headerFooterData }) => {
   useEffect(() => {
@@ -61,6 +62,13 @@ const Error404Page = ({ headerFooterData }) => {
         </div>
 
         <CommonAndPopular />
+
+        {/* Loads widgets built from vets-website after data has been added to window */}
+        <Script
+          id="staticPages"
+          strategy="afterInteractive"
+          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
+        />
       </Wrapper>
     </>
   )

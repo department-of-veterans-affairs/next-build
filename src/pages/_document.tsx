@@ -81,13 +81,6 @@ const Document = () => {
           href="/img/design/icons/favicon.ico"
         />
 
-        {/* Loads widgets built from vets-website after data has been added to window */}
-        <Script
-          id="staticPages"
-          strategy="afterInteractive"
-          src={`${ASSETS_URL}static-pages.entry.js`}
-        />
-
         {/* Add web components */}
         <link rel="stylesheet" href={`${ASSETS_URL}web-components.css`} />
         <Script

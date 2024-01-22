@@ -1,4 +1,3 @@
-/* eslint-ignore no-console */
 import { useEffect } from 'react'
 import { Banner } from '@/templates/globals/banners/banner'
 import { PromoBanner } from '@/templates/globals/banners/promoBanner'
@@ -6,12 +5,12 @@ import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
 import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import { BannersData } from '@/types/formatted/banners'
 import { NodeBannerType } from '@/types/drupal/node'
-import { Header } from '../header'
-import { Footer } from '../footer/index'
 import { handleSkipLink } from '@/lib/utils/handleSkipLink'
 import { UnpublishedBanner } from '@/templates/common/preview'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedResource } from '@/data/queries'
+import { Footer } from '../footer'
+import { Header } from '../header'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
