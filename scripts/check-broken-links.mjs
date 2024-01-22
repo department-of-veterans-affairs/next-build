@@ -154,6 +154,7 @@ async function checkBrokenLinks() {
         url,
         status,
       })
+      console.log(jsonReport.brokenLinks)
     }
   }
 
