@@ -1,11 +1,8 @@
 import { Html, Main, NextScript, Head } from 'next/document'
-import { GTM_ID } from '@/lib/analytics'
 import Script from 'next/script'
 
 const Document = () => {
-  const ASSETS_URL =
-    process.env.NEXT_PUBLIC_ASSETS_URL ||
-    'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/'
+  const ASSETS_URL = process.env.NEXT_PUBLIC_ASSETS_URL || '/generated/'
 
   return (
     <Html lang="en" dir="ltr">
@@ -113,14 +110,14 @@ const Document = () => {
         />
       </Head>
       <body className="merger">
-        <noscript>
+        {/* <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           />
-        </noscript>
+        </noscript> */}
         <Main />
         <NextScript />
       </body>
