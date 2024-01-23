@@ -155,7 +155,7 @@ async function checkBrokenLinks() {
         jsonReport.brokenLinksByParent[parent].push({
           url,
           status,
-          //failureDetails
+          // failureDetails,
         })
       }
       // Group broken links by link.
@@ -164,6 +164,7 @@ async function checkBrokenLinks() {
         jsonReport.brokenLinksByLink[url].push({
           parent,
           status,
+          failureDetails,
         })
       }
     }
