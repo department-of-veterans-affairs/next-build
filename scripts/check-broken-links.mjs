@@ -81,7 +81,7 @@ async function checkBrokenLinks() {
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 5000)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 500)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
@@ -136,12 +136,13 @@ async function checkBrokenLinks() {
       brokenLinkCount: brokenLinks.length,
       time: formattedTime,
     },
-    brokenLinks: {},
+    brokenLinksByParent: {},
+    brokenLinksByLink: {},
   }
 
   if (brokenLinks.length > 0) {
     for (const brokenLink of brokenLinks) {
-      const { url, status, parent } = brokenLink
+      const { url, status, parent, failureDetails } = brokenLink
 
       // // Output which links are broken on what pages.
       // console.log(`\n${chalk.red(url)}`)
@@ -150,12 +151,20 @@ async function checkBrokenLinks() {
 
       // Group broken links by parent.
       if (parent !== undefined) {
-        jsonReport.brokenLinks[parent] = jsonReport.brokenLinks[parent] || []
-        jsonReport.brokenLinks[parent].push({
+        jsonReport.brokenLinksByParent[parent] = jsonReport.brokenLinksByParent[parent] || []
+        jsonReport.brokenLinksByParent[parent].push({
           url,
           status,
+          //failureDetails
         })
-
+      }
+      // Group broken links by link.
+      if (url !== undefined) {
+        jsonReport.brokenLinksByLink[url] = jsonReport.brokenLinksByLink[url] || []
+        jsonReport.brokenLinksByLink[url].push({
+          parent,
+          status,
+        })
       }
     }
   }
