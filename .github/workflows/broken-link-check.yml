@@ -48,11 +48,6 @@ jobs:
           name: "broken-link-report-run-${{github.run_id}}"
           path: broken-link-report.json
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: "generated-cert-run-${{github.run_id}}"
-          path: certs/VA-mozilla-combined.pem
-
 
   # notify-success:
   #   name: Notify Success
