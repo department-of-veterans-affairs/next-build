@@ -41,11 +41,7 @@ jobs:
 
       - name: Run broken link check
         run: |
-          APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
-
-      - name: Print out resulting json
-        run: |
-          more broken-link-report.json
+          BATCH_SIZE=100 APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node scripts/check-broken-links.mjs
 
       - uses: actions/upload-artifact@v4
         with:
