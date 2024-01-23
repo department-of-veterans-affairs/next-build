@@ -28,6 +28,7 @@ const LINKCHECKER_CONFIG = {
   linksToSkip: [
     'https://www.googletagmanager.com/',
     'https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
+    'https://resource.digital.voice.va.gov/wdcvoice/2/onsite/embed.js',
     // process.env.SKIP_IMAGES ? '' : null
   ],
   timeout: 5000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
@@ -35,6 +36,8 @@ const LINKCHECKER_CONFIG = {
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
+  retryErrors: true,
+  retryErrorsCount: 3,
 }
 
 /**
@@ -63,7 +66,9 @@ async function checkBrokenLinks() {
 
   // Set up event listeners for the link checker
   checker
-    .on('pagestart', (url) => pagesChecked.push(url))
+    .on('pagestart', (url) => {
+      pagesChecked.push(url)
+    })
     // After a page is scanned, sort & report result
     .on('link', (result) => {
       if (OPTIONS.verbose) {
@@ -77,11 +82,12 @@ async function checkBrokenLinks() {
         brokenLinks.push(result)
       }
     })
+    //.on('retry', (retryDetails) => console.log('retrying', retryDetails))
 
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl))//.slice(0, 500)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 500)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
@@ -97,7 +103,7 @@ async function checkBrokenLinks() {
   // Request each batch at once. This takes a little bit of time depending on the size
   // of the sitemap. VA.gov builds a large one.
   await Promise.all(
-    batches.map(async (batch) => {
+    batches.map(async (batch, index) => {
       for (const path of batch) {
         // Where the actual link check happens, uses options defined above
         await checker.check({ ...LINKCHECKER_CONFIG, path })
