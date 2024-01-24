@@ -31,13 +31,13 @@ const LINKCHECKER_CONFIG = {
     'https://resource.digital.voice.va.gov/wdcvoice/2/onsite/embed.js',
     // process.env.SKIP_IMAGES ? '' : null
   ],
-  timeout: 10000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
+  timeout: 5000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
   urlRewriteExpressions: [
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
   retryErrors: true,
-  retryErrorsCount: 5,
+  retryErrorsCount: 3,
 }
 
 /**
@@ -100,8 +100,11 @@ async function checkBrokenLinks() {
   // Request each batch at once. This takes a little bit of time depending on the size
   // of the sitemap. VA.gov builds a large one.
   await Promise.all(
-    batches.map(async (batch) => {
+    batches.map(async (batch, index) => {
+      let batchCount = 0;
       for (const path of batch) {
+        batchCount++
+        console.log(`Batch ${index}, item ${batchCount}`)
         // Where the actual link check happens, uses options defined above
         await checker.check({ ...LINKCHECKER_CONFIG, path })
       }
