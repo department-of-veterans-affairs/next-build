@@ -7,3 +7,4 @@ public/generated/*
 /out/*
 /storybook-static/*
 playwright.config.ts
+playwright/utils/next-test.ts
