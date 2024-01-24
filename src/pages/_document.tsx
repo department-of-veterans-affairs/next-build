@@ -3,9 +3,7 @@ import { GTM_ID } from '@/lib/analytics'
 import Script from 'next/script'
 
 const Document = () => {
-  const ASSETS_URL =
-    process.env.NEXT_PUBLIC_ASSETS_URL ||
-    'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com/generated/'
+  const ASSETS_URL = process.env.NEXT_PUBLIC_ASSETS_URL || '/generated/'
 
   return (
     <Html lang="en" dir="ltr">
