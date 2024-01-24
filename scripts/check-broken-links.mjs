@@ -31,13 +31,13 @@ const LINKCHECKER_CONFIG = {
     'https://resource.digital.voice.va.gov/wdcvoice/2/onsite/embed.js',
     // process.env.SKIP_IMAGES ? '' : null
   ],
-  timeout: 10000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
+  timeout: 5000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
   urlRewriteExpressions: [
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
-  // retryErrors: true,
-  // retryErrorsCount: 3,
+  retryErrors: true,
+  retryErrorsCount: 3,
 }
 
 /**
@@ -80,11 +80,14 @@ async function checkBrokenLinks() {
         brokenLinks.push(result)
       }
     })
+    .on('retry', (retryDetails) => {
+      console.log(retryDetails)
+    })
 
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 500)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
