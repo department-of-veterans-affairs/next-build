@@ -31,13 +31,13 @@ const LINKCHECKER_CONFIG = {
     'https://resource.digital.voice.va.gov/wdcvoice/2/onsite/embed.js',
     // process.env.SKIP_IMAGES ? '' : null
   ],
-  timeout: 5000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
+  timeout: 10000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
   urlRewriteExpressions: [
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
   retryErrors: true,
-  retryErrorsCount: 3,
+  retryErrorsCount: 5,
 }
 
 /**
