@@ -84,7 +84,7 @@ async function checkBrokenLinks() {
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 800)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 500)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
