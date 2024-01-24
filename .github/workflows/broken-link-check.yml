@@ -48,7 +48,6 @@ jobs:
           name: "broken-link-report-run-${{github.run_id}}"
           path: broken-link-report.json
 
-
   # notify-success:
   #   name: Notify Success
   #   runs-on: ubuntu-latest

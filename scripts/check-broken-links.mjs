@@ -66,9 +66,7 @@ async function checkBrokenLinks() {
 
   // Set up event listeners for the link checker
   checker
-    .on('pagestart', (url) => {
-      pagesChecked.push(url)
-    })
+    .on('pagestart', (url) => pagesChecked.push(url))
     // After a page is scanned, sort & report result
     .on('link', (result) => {
       if (OPTIONS.verbose) {
@@ -82,12 +80,11 @@ async function checkBrokenLinks() {
         brokenLinks.push(result)
       }
     })
-    //.on('retry', (retryDetails) => console.log('retrying', retryDetails))
 
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(501, 1000)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 500)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
@@ -103,7 +100,7 @@ async function checkBrokenLinks() {
   // Request each batch at once. This takes a little bit of time depending on the size
   // of the sitemap. VA.gov builds a large one.
   await Promise.all(
-    batches.map(async (batch, index) => {
+    batches.map(async (batch) => {
       for (const path of batch) {
         // Where the actual link check happens, uses options defined above
         await checker.check({ ...LINKCHECKER_CONFIG, path })
@@ -148,7 +145,7 @@ async function checkBrokenLinks() {
 
   if (brokenLinks.length > 0) {
     for (const brokenLink of brokenLinks) {
-      const { url, status, parent, failureDetails } = brokenLink
+      const { url, status, parent } = brokenLink
 
       // // Output which links are broken on what pages.
       // console.log(`\n${chalk.red(url)}`)
@@ -161,7 +158,6 @@ async function checkBrokenLinks() {
         jsonReport.brokenLinksByParent[parent].push({
           url,
           status,
-          // failureDetails,
         })
       }
       // Group broken links by link.
@@ -170,7 +166,6 @@ async function checkBrokenLinks() {
         jsonReport.brokenLinksByLink[url].push({
           parent,
           status,
-          // failureDetails,
         })
       }
     }
