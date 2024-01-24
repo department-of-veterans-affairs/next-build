@@ -101,12 +101,15 @@ async function checkBrokenLinks() {
   // of the sitemap. VA.gov builds a large one.
   await Promise.all(
     batches.map(async (batch, index) => {
-      let batchCount = 0;
-      for (const path of batch) {
-        batchCount++
-        console.log(`Batch ${index}, item ${batchCount}`)
-        // Where the actual link check happens, uses options defined above
-        await checker.check({ ...LINKCHECKER_CONFIG, path })
+      try {
+        for (const path of batch) {
+          // Where the actual link check happens, uses options defined above
+          await checker.check({ ...LINKCHECKER_CONFIG, path })
+        }
+      }
+      catch (error) {
+        console.log(`Batch ${index} failed`)
+        console.log(error)
       }
       console.log(
         chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
