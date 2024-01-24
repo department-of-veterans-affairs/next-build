@@ -36,8 +36,8 @@ const LINKCHECKER_CONFIG = {
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
-  retryErrors: true,
-  retryErrorsCount: 3,
+  // retryErrors: true,
+  // retryErrorsCount: 3,
 }
 
 /**
