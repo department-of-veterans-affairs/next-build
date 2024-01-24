@@ -1,4 +1,5 @@
 import { Html, Main, NextScript, Head } from 'next/document'
+import { GTM_ID } from '@/lib/analytics'
 import Script from 'next/script'
 
 const Document = () => {
@@ -110,14 +111,14 @@ const Document = () => {
         />
       </Head>
       <body className="merger">
-        {/* <noscript>
+        <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           />
-        </noscript> */}
+        </noscript>
         <Main />
         <NextScript />
       </body>
