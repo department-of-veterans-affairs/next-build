@@ -140,3 +140,17 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
     lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
   }
 }
+
+// Helper function to return consistent shape of alerts
+export const transformAlertData = (alert) => ({
+  alertType:
+    alert.field_alert_type === 'information' ? 'info' : alert.field_alert_type,
+  id: alert.id,
+  title: alert.field_alert_title,
+  content: {
+    header:
+      alert.field_alert_content.field_text_expander ??
+      alert.field_alert_heading,
+    text: alert.field_alert_content?.field_wysiwyg?.processed ?? '',
+  },
+})
