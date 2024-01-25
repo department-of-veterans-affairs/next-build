@@ -22,9 +22,7 @@ describe('node--news_story formatData', () => {
     windowSpy.mockImplementation(() => undefined)
 
     expect(
-      nodeBenefitsHubMock.map((mock) => {
-        return queries.formatData('node--landing_page', mock)
-      })
+      queries.formatData('node--landing_page', nodeBenefitsHubMock)
     ).toMatchSnapshot()
   })
 })

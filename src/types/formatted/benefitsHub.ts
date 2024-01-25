@@ -1,13 +1,13 @@
-export type BenefitsHub = {
+export type BenefitsHubLink = {
   id: string
-  url: string
   title: string
-  homePageHubLabel: string
+  label: string
+  path: string
   teaserText: string
 }
 
-export type BenefitsHubLinks = {
+export type BenefitsHubLinksProps = {
   title: string
   introText?: string
-  relatedBenefitHubs: BenefitsHub[]
+  benefitHubs: BenefitsHubLink[]
 }

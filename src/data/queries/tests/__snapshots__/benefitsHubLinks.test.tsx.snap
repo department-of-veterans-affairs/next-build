@@ -3,18 +3,18 @@
 exports[`node--news_story formatData outputs formatted data 1`] = `
 [
   {
-    "homePageHubLabel": "Service member benefits",
     "id": "ef71edfa-9fe8-4d31-b84c-270af94539c4",
+    "label": "Service member benefits",
+    "path": "/service-member-benefits",
     "teaserText": "Find out what benefits you may be eligible for during service and which time-sensitive benefits to consider when separating or retiring.",
     "title": "VA benefits for service members",
-    "url": "/service-member-benefits",
   },
   {
-    "homePageHubLabel": "Pension",
     "id": "53b7d776-cc92-4274-82e9-12ea234ea377",
+    "label": "Pension",
+    "path": "/pension",
     "teaserText": "Apply for monthly payments for wartime Veterans and survivors with limited or no income who meet certain age and disability requirements.",
     "title": "VA pension benefits",
-    "url": "/pension",
   },
 ]
 `;
