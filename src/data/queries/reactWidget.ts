@@ -7,8 +7,8 @@ export const formatter: QueryFormatter<ParagraphReactWidget, ReactWidget> = (
 ) => {
   return {
     entityId: entity.drupal_internal__id,
-    ctaWidget: entity.field_cta_widget,
     widgetType: entity.field_widget_type,
+    ctaWidget: entity.field_cta_widget,
     loadingMessage: entity.field_loading_message,
     timeout: entity.field_timeout,
     errorMessage: entity.field_error_message.processed,
