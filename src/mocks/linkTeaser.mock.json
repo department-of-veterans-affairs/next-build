@@ -15,6 +15,7 @@
     "revision_translation_affected": true,
     "field_link": {
       "uri": "/health-care/eligibility/",
+      "url": "/health-care/eligibility/",
       "title": "Health Care Benefits Eligibility",
       "options": []
     },
@@ -45,6 +46,7 @@
     "revision_translation_affected": true,
     "field_link": {
       "uri": "/health-care/how-to-apply/",
+      "url": "/health-care/how-to-apply/",
       "title": "How to Apply for Health Care Benefits",
       "options": []
     },
@@ -75,6 +77,7 @@
     "revision_translation_affected": true,
     "field_link": {
       "uri": "/health-care/health-needs-conditions/",
+      "url": "/health-care/health-needs-conditions/",
       "title": "Health Needs and Conditions",
       "options": []
     },

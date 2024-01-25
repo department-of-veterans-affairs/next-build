@@ -16,6 +16,7 @@
     "field_button_label": "Change VA direct deposit information",
     "field_button_link": {
       "uri": "https://www.va.gov/change-direct-deposit/",
+      "url": "https://www.va.gov/change-direct-deposit/",
       "title": "",
       "options": []
     },
@@ -50,6 +51,7 @@
     "field_button_label": "Sign in now",
     "field_button_link": {
       "uri": "https://www.va.gov/?next=%2Fsign-in-faq%2F",
+      "url": "https://www.va.gov/?next=%2Fsign-in-faq%2F",
       "title": "",
       "options": []
     },
@@ -84,6 +86,7 @@
     "field_button_label": "Change VA direct deposit information",
     "field_button_link": {
       "uri": "entity:node/710",
+      "url": "/change-direct-deposit",
       "title": "",
       "options": []
     },
