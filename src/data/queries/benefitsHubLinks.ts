@@ -2,7 +2,7 @@ import { QueryFormatter } from 'next-drupal-query'
 import { NodeLandingPage } from '@/types/drupal/node'
 import { BenefitsHubLink } from '@/types/formatted/benefitsHub'
 
-// Format
+// Format NodeLandingPage (Benefits Hub) into link teasers.
 export const formatter: QueryFormatter<NodeLandingPage[], BenefitsHubLink[]> = (
   entities: NodeLandingPage[]
 ) => {
