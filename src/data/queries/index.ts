@@ -11,6 +11,7 @@ import * as PersonProfile from './personProfile'
 import * as Button from './button'
 import * as AudienceTopics from './audienceTopics'
 import * as Alert from './alert'
+import * as AlertSingle from './alertSingle'
 import * as EmailContact from './emailContact'
 import * as BenefitsHub from './benefitsHub'
 import * as Wysiwyg from './wysiwyg'
@@ -37,6 +38,7 @@ export const QUERIES_MAP = {
   'paragraph--link_teaser': LinkTeaser,
   'paragraph--rich_text_char_limit_1000': Wysiwyg,
   'paragraph--wysiwyg': Wysiwyg,
+  'paragragh--alert_single': AlertSingle,
   'media--image': MediaImage,
   'block--alert': Alert,
   'block_content--promo': PromoBlock,

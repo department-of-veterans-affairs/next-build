@@ -70,7 +70,7 @@ export interface ParagraphAlert extends DrupalParagraph {
 }
 
 export interface ParagraphAlertSingle extends DrupalParagraph {
-  field_alert_section: string
+  field_alert_selection: string
   field_alert_block_reference: BlockAlert
   field_alert_non_reusable_ref: ParagraphNonReusableAlert
 }
