@@ -7,10 +7,7 @@ export function BenefitsHubLinks({
   benefitHubs,
 }: BenefitsHubLinksProps) {
   return (
-    <section
-      className="vads-u-padding-y--3 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0"
-      data-template="includes/benefit-hubs-links"
-    >
+    <section className="vads-u-padding-y--3 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
       <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">{title}</h2>
       {introText && <p>{introText}</p>}
 
@@ -25,7 +22,7 @@ export function BenefitsHubLinks({
                       recordEvent({
                         event: 'nav-linkslist',
                         'links-list-header': hub.label,
-                        'links-list-section-header': 'VA benefits',
+                        'links-list-section-header': title,
                       })
                     }
                     href={hub.path}

@@ -1,37 +1,32 @@
 import { render, screen } from '@testing-library/react'
 import { BenefitsHubLinks } from './index'
 
-const data = [
-  {
-    id: '1',
-    label: 'Burials and memorials',
-    path: '#',
-    title: 'VA burials',
-    teaserText:
-      "Get help planning a burial in a VA national cemetery, order a headstone or other memorial item to honor a Veteran's service, and apply for survivor and dependent benefits.",
-  },
-  {
-    id: '2',
-    label: 'Health care',
-    path: '#',
-    title: 'VA health care',
-    teaserText:
-      'Apply for VA health care, find out how to access services, and manage your health and benefits online.',
-  },
-  {
-    id: '3',
-    label: 'Education and training',
-    path: '#',
-    title: 'VA education',
-    teaserText:
-      'Apply for and manage your GI Bill and other education benefits to help pay for college and training programs.',
-  },
-]
+const data = {
+  title: 'Deciding how much life insurance to get',
+  benefitHubs: [
+    {
+      id: '386eb70d-696c-4af3-8986-306ce63d90de',
+      path: '/resources/helpful-va-phone-numbers',
+      title: 'VA health care',
+      label: 'Health Care',
+      teaserText:
+        'Apply for VA health care, find out how to access services, and manage your health and benefits online.',
+    },
+    {
+      id: '286eb70d-696c-4af3-8986-306ce63d90de',
+      path: '/resources/change-your-address-on-file-with-va',
+      title: 'VA disability compensation',
+      label: 'Education and training',
+      teaserText:
+        'Apply for and manage your GI Bill and other education benefits to help pay for college and training programs.',
+    },
+  ],
+}
 
 describe('BenefitsHubLinks with valid data', () => {
   test('renders BenefitsHubLinks component', () => {
-    render(<BenefitsHubLinks title="VA Health Care" benefitHubs={data} />)
+    render(<BenefitsHubLinks {...data} />)
 
-    expect(screen.queryByText(/Health care/)).toBeInTheDocument()
+    expect(screen.queryByText(/Health Care/)).toBeInTheDocument()
   })
 })
