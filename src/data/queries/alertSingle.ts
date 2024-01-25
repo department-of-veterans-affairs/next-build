@@ -8,11 +8,11 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
 import { ParagraphAlertSingle } from '@/types/drupal/paragraph'
 import { AlertSingle } from '@/types/formatted/alertSingle'
+import { transformAlertData } from '@/lib/drupal/query'
 
 export const params: QueryParams<null> = () => {
   return queries
     .getParams()
-    .addPageLimit(3)
     .addInclude([
       'field_alert_block_reference',
       'field_alert_block_reference.field_alert_content',
@@ -36,17 +36,6 @@ export const data: QueryData<DataOpts, AlertSingle[]> = async (
   return entities
 }
 
-const transformAlert = (alert) => ({
-  alertType:
-    alert.field_alert_type === 'information' ? 'info' : alert.field_alert_type,
-  id: alert.id,
-  title: alert.field_alert_title,
-  content: {
-    header: alert.field_alert_heading,
-    text: alert.field_alert_content?.field_wysiwyg?.processed ?? '',
-  },
-})
-
 export const formatter: QueryFormatter<
   ParagraphAlertSingle[],
   AlertSingle[]
@@ -55,10 +44,10 @@ export const formatter: QueryFormatter<
     id: entity.id,
     alertSelection: entity.field_alert_section ?? null,
     blockReference: entity.field_alert_block_reference
-      ? transformAlert(entity.field_alert_block_reference)
+      ? transformAlertData(entity.field_alert_block_reference)
       : null,
     nonReusableRef: entity.field_alert_non_reusable_ref
-      ? transformAlert(entity.field_alert_non_reusable_ref)
+      ? transformAlertData(entity.field_alert_non_reusable_ref)
       : null,
   }))
 }

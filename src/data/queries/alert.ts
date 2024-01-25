@@ -2,20 +2,10 @@
 import { BlockAlert } from '@/types/drupal/block'
 import { QueryFormatter } from 'next-drupal-query'
 import { Alert } from '@/types/formatted/alert'
+import { transformAlertData } from '@/lib/drupal/query'
 
 export const formatter: QueryFormatter<BlockAlert, Alert> = (
   entity: BlockAlert
 ) => {
-  return {
-    alertType:
-      entity.field_alert_type === 'information'
-        ? 'info'
-        : entity.field_alert_type,
-    id: entity.id,
-    title: entity.field_alert_title,
-    content: {
-      header: entity.field_alert_content.field_text_expander,
-      text: entity.field_alert_content.field_wysiwyg.processed,
-    },
-  }
+  return transformAlertData(entity)
 }
