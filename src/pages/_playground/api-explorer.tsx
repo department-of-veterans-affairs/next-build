@@ -15,28 +15,23 @@ export default function Page(props) {
 
 export async function getStaticProps() {
   // We do not want this in output.
-  if (process.env.NODE_ENV == 'production') {
+  if (process.env.SSG == 'true') {
     return {
       notFound: true,
     }
   }
 
-  const params = queries
-    .getParams()
-    .addPageLimit(3)
-    .addInclude([
-      'field_answer',
-      'field_buttons',
-      'field_related_benefit_hubs',
-      'field_related_information',
-      'field_tags.field_topics',
-      'field_tags.field_audience_beneficiares',
-      'field_tags.field_non_beneficiares',
-    ])
-  const data = await drupalClient.getResourceCollection('node--q_a', {
-    params: params.getQueryObject(),
-  })
-
+  const params = queries.getParams().addInclude(['field_cta'])
+  const data = await drupalClient.getResourceCollection(
+    'paragraph--featured_content',
+    {
+      params: params.getQueryObject(),
+      withAuth: {
+        clientId: process.env.DRUPAL_CLIENT_ID,
+        clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+      },
+    }
+  )
   return {
     props: {
       data: data,
