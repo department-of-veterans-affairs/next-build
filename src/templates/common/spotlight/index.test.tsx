@@ -13,7 +13,8 @@ describe('Spotlight with valid data', () => {
       title: 'Hello world',
       description: 'foo bar',
       link: {
-        href: '#',
+        id: '1',
+        url: '#',
         label: 'a link',
       },
     }

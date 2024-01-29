@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeaturedContent formatData outputs formatted data 1`] = `
+{
+  "description": "<p>Connection. Camaraderie. Community. Learn what these mean at your local Vet Center.</p>
+",
+  "link": {
+    "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+    "label": "View 2-minute video on YouTube",
+    "url": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
+  },
+  "title": "2-minute Video: Vet Center Services",
+}
+`;

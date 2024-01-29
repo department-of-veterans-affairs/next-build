@@ -1,13 +1,6 @@
-type SpotlightProps = {
-  title: string
-  description?: string
-  link?: {
-    href: string
-    label: string
-  }
-}
+import { FeaturedContent as FormattedSpotlight } from '@/types/formatted/featuredContent'
 
-export function Spotlight({ title, description, link }: SpotlightProps) {
+export function Spotlight({ title, description, link }: FormattedSpotlight) {
   return (
     <div className="feature featured-content-list-item vads-u-flex--fill vads-u-padding-y--1p5 vads-u-padding-x--1p5 vads-u-margin-bottom--0 medium-screen:vads-u-margin-bottom--2">
       {title && (
@@ -24,7 +17,7 @@ export function Spotlight({ title, description, link }: SpotlightProps) {
       {link && (
         <a
           className="vads-u-display--block vads-u-padding-top--1"
-          href={link.href}
+          href={link.url}
         >
           <span>
             {' '}

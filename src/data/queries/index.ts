@@ -22,6 +22,7 @@ import * as Event from './event'
 import * as EventTeaser from './eventTeaser'
 import * as EventListing from './eventListing'
 import * as VamcEhr from './vamcEhr'
+import * as FeaturedContent from './featuredContent'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 
 export const QUERIES_MAP = {
@@ -39,6 +40,7 @@ export const QUERIES_MAP = {
   'paragraph--button': Button,
   'paragraph--email_contact': EmailContact,
   'paragraph--expandable_text': ExpandableText,
+  'paragraph--featured_content': FeaturedContent,
   'paragraph--link_teaser': LinkTeaser,
   'paragraph--rich_text_char_limit_1000': Wysiwyg,
   'paragraph--wysiwyg': Wysiwyg,

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { Spotlight } from './index'
 
 const meta: Meta<typeof Spotlight> = {
-  title: 'Uncategorized/Spotlight',
+  title: 'Paragraphs/Featured Content',
   component: Spotlight,
 }
 export default meta
@@ -15,7 +15,8 @@ export const Example: Story = {
     title: 'Hello world',
     description: 'foo bar',
     link: {
-      href: '#',
+      id: '1',
+      url: '#',
       label: 'a link',
     },
   },
