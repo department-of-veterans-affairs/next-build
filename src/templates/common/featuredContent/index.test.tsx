@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react'
-import { Spotlight } from './index'
+import { FeaturedContent } from './index'
 
-describe('Spotlight with valid data', () => {
-  test('renders Spotlight component', () => {
-    render(<Spotlight title={'Hello world'} />)
+describe('FeaturedContent with valid data', () => {
+  test('renders FeaturedContent component', () => {
+    render(<FeaturedContent title={'Hello world'} />)
 
     expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
   })
 
-  test('renders Spotlight optional elements', () => {
+  test('renders FeaturedContent optional elements', () => {
     const data = {
       title: 'Hello world',
       description: 'foo bar',
@@ -19,7 +19,7 @@ describe('Spotlight with valid data', () => {
       },
     }
 
-    render(<Spotlight {...data} />)
+    render(<FeaturedContent {...data} />)
 
     expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
     expect(screen.queryByText(/foo bar/)).toBeInTheDocument()

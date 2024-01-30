@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Spotlight } from './index'
+import { FeaturedContent } from './index'
 
-const meta: Meta<typeof Spotlight> = {
+const meta: Meta<typeof FeaturedContent> = {
   title: 'Paragraphs/Featured Content',
-  component: Spotlight,
+  component: FeaturedContent,
 }
 export default meta
 
-type Story = StoryObj<typeof Spotlight>
+type Story = StoryObj<typeof FeaturedContent>
 
 export const Example: Story = {
   args: {
