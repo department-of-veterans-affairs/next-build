@@ -2934,10 +2934,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:^14.0.3":
-  version: 14.0.3
-  resolution: "@next/env@npm:14.0.3"
-  checksum: 88a10ead8e8ff613a87a6fd36db385403dbc8a8c40999c6caa0d268117325ed40f00d82e1409206b10c8c280b6c9f3e1dae3c8e0e581c8cf18cf85afa9b58b86
+"@next/env@npm:^14.1.0":
+  version: 14.1.0
+  resolution: "@next/env@npm:14.1.0"
+  checksum: ecec03a3e9745996ed1c7fc218fc9a1a4345a0cf368afb50f38a3b6fbf6f966a36dba174c90b5f90b568188dbd0eba48a2c5448b6742298417df4ff3351c6d40
   languageName: node
   linkType: hard
 
@@ -14240,7 +14240,7 @@ __metadata:
     "@department-of-veterans-affairs/web-components": ^4.45.31
     "@faker-js/faker": ^8.3.1
     "@fortawesome/fontawesome-free": ^6.4.2
-    "@next/env": ^14.0.3
+    "@next/env": ^14.1.0
     "@playwright/test": ^1.40.1
     "@storybook/addon-actions": ^7.6.10
     "@storybook/addon-essentials": ^7.6.3
