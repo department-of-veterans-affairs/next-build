@@ -31,13 +31,13 @@ const LINKCHECKER_CONFIG = {
     'https://resource.digital.voice.va.gov/wdcvoice/2/onsite/embed.js',
     // process.env.SKIP_IMAGES ? '' : null
   ],
-  timeout: 5000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
+  timeout: 10000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
   urlRewriteExpressions: [
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
-  retryErrors: true,
-  retryErrorsCount: 3,
+  // retryErrors: true,
+  // retryErrorsCount: 3,
 }
 
 /**
@@ -89,6 +89,7 @@ async function checkBrokenLinks() {
   // Tiny array of paths for debugging this script.
   const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
+  const initialPathCount = paths.length
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
   console.log(
@@ -129,7 +130,7 @@ async function checkBrokenLinks() {
   // How many links did we scan?
   console.log(`\n All batches complete in ${chalk.yellow(formattedTime)}!`)
   console.log(
-    `Scanned total of ${chalk.yellow(
+    `Of an initial ${initialPathCount} pages, scanned total of ${chalk.yellow(
       linksChecked.length
     )} links on ${chalk.yellow(pagesChecked.length)} pages!`
   )
@@ -142,6 +143,7 @@ async function checkBrokenLinks() {
   const jsonReport = {
     metrics: {
       domain: OPTIONS.sitemapUrl,
+      initialPathCount: initialPathCount,
       pagesScanned: pagesChecked.length,
       linksChecked: linksChecked.length,
       brokenLinkCount: brokenLinks.length,
