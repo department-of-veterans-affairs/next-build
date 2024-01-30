@@ -4,13 +4,13 @@ import nock from 'nock'
 axios.defaults.adapter = 'http'
 
 const getData = async () => {
-  const res = await axios.get('http://localhost:3999/api/')
+  const res = await axios.get(`http://localhost:${process.env.PORT}/api/`)
   const data = res.data
   return data
 }
 
 const slugRoute = async () => {
-  nock('http://localhost:3999/api/')
+  nock(`http://localhost:${process.env.PORT}/api/`)
     .get('/')
     .reply(200, {
       data: {
@@ -25,7 +25,7 @@ const slugRoute = async () => {
 }
 
 const homeRoute = async () => {
-  nock('http://localhost:3999/api/')
+  nock(`http://localhost:${process.env.PORT}/api/`)
     .get('/')
     .reply(200, {
       data: {
