@@ -3,14 +3,16 @@ import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
 import { AudienceTopic } from '@/types/formatted/audienceTopics'
 
-const getTagsList = (fieldTags) => {
-  if (!fieldTags) return null
+const getTagsList = (
+  entity: ParagraphAudienceTopics
+): AudienceTopic[] | null => {
+  if (!entity) return null
 
   const {
     field_topics: fieldTopics = [],
     field_audience_beneficiares: fieldAudienceBeneficiares,
     fieldNonBeneficiares: fieldNonBeneficiares,
-  } = fieldTags
+  } = entity
 
   const topics = fieldTopics.map((topic) => ({
     id: topic.id,

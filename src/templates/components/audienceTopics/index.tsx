@@ -6,10 +6,11 @@ export function AudienceTopics({ tags }: FormattedAudienceTopics) {
   if (isEmpty(tags)) return null
   const tagsList = tags.map(({ id, href, name }) => (
     <div key={id}>
-      <div className="vads-u-margin-right--1 vads-u-margin-bottom--1 medium-screen:vads-u-margin-bottom--0">
+      <div className="vads-u-margin-right--1 vads-u-margin-bottom--1 medium-screen:vads-u-margin-bottom--1p5">
         <Link
-          href={`${href}/${encodeURI(name)}`}
-          className="vads-u-margin-bottom--1p5 usa-button-secondary vads-u-font-size--sm vads-u-border--1px vads-u-border-color--primary vads-u-padding--0p25 vads-u-padding-x--0p5 vads-u-margin-left--1p5 vads-u-text-decoration--none vads-u-color--base"
+          href={href}
+          className="usa-button-secondary vads-u-font-size--sm vads-u-border--1px vads-u-border-color--primary vads-u-padding--0p25 vads-u-padding-x--0p5 vads-u-margin-left--1p5 vads-u-text-decoration--none vads-u-color--base"
+          style={{ borderRadius: '3px', lineHeight: '1.3' }}
         >
           {name}
         </Link>
