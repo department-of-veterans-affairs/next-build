@@ -18,7 +18,6 @@ export const data: QueryData<BannerDataOpts, any> = async (opts) => {
 
     const response = await drupalClient.fetch(bannerUrl)
     const json = await response.json()
-
     return json.data
   }
 
