@@ -3,14 +3,9 @@ import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
 import { AudienceTopic } from '@/types/formatted/audienceTopics'
 
-interface Tag {
-  id: string
-  href: string | undefined
-  name: string
-  categoryLabel: string
-}
-
-const getTagsList = (entity: ParagraphAudienceTopics): Tag[] | null => {
+const getTagsList = (
+  entity: ParagraphAudienceTopics
+): AudienceTopic[] | null => {
   if (!entity) return null
 
   const {
