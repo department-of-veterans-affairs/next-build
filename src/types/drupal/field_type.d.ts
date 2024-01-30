@@ -102,3 +102,31 @@ export interface BreadCrumbLink {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options?: any[]
 }
+
+/**
+ * Types for services and health services
+ */
+
+
+interface FieldServiceNameAndDescriptionEntity {
+  name: string;
+  fieldVetCenterTypeOfCare: string;
+  fieldVetCenterFriendlyName: string | null;
+  fieldAlsoKnownAs: string | null;
+  fieldVetCenterComConditions: string | null;
+  fieldCommonlyTreatedCondition: string | null;
+  fieldVetCenterServiceDescrip: string;
+  description: FieldFormattedText;
+}
+
+interface FieldServiceNameAndDescription {
+  entity: FieldServiceNameAndDescriptionEntity;
+}
+export interface HealthService {
+  entity: {
+    fieldBody: FieldFormattedText | null;
+    fieldServiceNameAndDescripti: FieldServiceNameAndDescription;
+  }
+}
+
+export type FieldHealthServicesArray = HealthService[];
