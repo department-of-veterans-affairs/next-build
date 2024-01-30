@@ -32,7 +32,9 @@ export const test = base.extend<NextFixtures>({
     async ({ context }, use, testInfo) => {
       // Any code here will be run as a before each hook
       await context.route(/gtm.js*/, (route) => route.abort())
-      await context.route(/:3000*/, (route) => route.abort())
+      // Do not make requests to the localhost server.
+      await context.route(`/:${process.env.PORT}*/`, (route) => route.abort())
+      // Do not make requests to a running vets-website server.
       await context.route(/:3001*/, (route) => route.abort())
 
       // This is the individual test run

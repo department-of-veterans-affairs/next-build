@@ -36,7 +36,7 @@ You should set these up before attempting to install the repo.
 
 8. Run `yarn dev`.
 
-You will now have a Next.js development server running at http://localhost:3000, which will refresh with changes to your local environment.
+You will now have a Next.js development server running at http://localhost:3999, which will refresh with changes to your local environment. (Note: your local port may differ if you changed the value for `PORT` in .env.local).
 
 ## Environment Flags
 
