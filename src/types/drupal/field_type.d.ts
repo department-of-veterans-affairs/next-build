@@ -27,7 +27,7 @@ export interface FieldFormattedTextWithSummary extends FieldFormattedText {
 
 export interface FieldLink {
   uri: string //e.g. `entity:node/2424`
-  url: string //e.g. `/outreach-and-events/events/2424`
+  url?: string //e.g. `/outreach-and-events/events/2424`
   title: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options: any[]

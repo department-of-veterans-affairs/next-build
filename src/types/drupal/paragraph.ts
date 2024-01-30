@@ -20,7 +20,6 @@ import {
   TaxonomyTermAudienceNonBeneficiaries,
   TaxonomyTermTopics,
 } from './taxonomy_term'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** Union of all paragraph types.  */
 export type ParagraphTypes =
@@ -33,6 +32,7 @@ export type ParagraphTypes =
   | ParagraphContactInformation
   | ParagraphEmailContact
   | ParagraphExpandableText
+  | ParagraphFeaturedContent
   | ParagraphHealthCareLocalFacilityService
   | ParagraphLinkTeaser
   | ParagraphListOfLinks
@@ -115,6 +115,12 @@ export interface ParagraphEmailContact extends DrupalParagraph {
 export interface ParagraphExpandableText extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
   field_text_expander: string
+}
+
+export interface ParagraphFeaturedContent extends DrupalParagraph {
+  field_section_header: string
+  field_description: FieldFormattedText
+  field_cta: ParagraphButton
 }
 
 export interface ParagraphHealthCareLocalFacilityService
@@ -206,44 +212,4 @@ export interface ParagraphTable extends DrupalParagraph {
 
 export interface ParagraphWysiwyg extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
-}
-
-/** General ParagraphProps to pass paragraphs into paragraph components. */
-export interface ParagraphProps {
-  paragraph: ParagraphTypes
-  componentParams?
-  className?: string
-}
-
-/** Each Paragraph component must export a ParagraphMetaInfo object `Meta`. This information helps next-build associate Drupal resource types with information for rendering them.
- *
- * Example, from {@link AudienceTopics}:
- * ```
- const params = new DrupalJsonApiParams().addInclude([
- 'field_topics',
- 'field_audience_beneficiares.image',
- ])
-
- export const Meta: ParagraphMetaInfo = {
-  resource: 'paragraph--audience_topics',
-  component: AudienceTopics,
-  params: params,
-}
- * ```
- */
-export interface ParagraphMetaInfo {
-  /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `paragraph--audience_topics`. */
-  resource: string
-  /** The component responsible for rendering or delegating rendering this data object. */
-  component: ({ paragraph, ...props }: ParagraphProps) => JSX.Element
-  /** A DrupalJsonApiParams object containing information necessary for the API query for this data object. */
-  params?: DrupalJsonApiParams
-}
-
-/** This interface enforces that the Paragraph meta information is indexable by type. */
-export interface ParagraphMetaOut {
-  [resource: string]: {
-    component: ({ paragraph }: ParagraphProps) => JSX.Element
-    params?: DrupalJsonApiParams
-  }
 }

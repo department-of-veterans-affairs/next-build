@@ -1,0 +1,78 @@
+{
+  "type": "paragraph--featured_content",
+  "id": "2020d016-0867-494f-b137-b3923c9c8b3a",
+  "drupal_internal__id": 68851,
+  "drupal_internal__revision_id": 400048,
+  "langcode": "en",
+  "status": true,
+  "created": "2021-07-29T16:51:28+00:00",
+  "parent_id": "3789",
+  "parent_type": "node",
+  "parent_field_name": "field_vet_center_feature_content",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_description": {
+    "value": "<p>Connection. Camaraderie. Community. Learn what these mean at your local Vet Center.</p>\r\n",
+    "format": "rich_text_limited",
+    "processed": "<p>Connection. Camaraderie. Community. Learn what these mean at your local Vet Center.</p>\n"
+  },
+  "field_section_header": "2-minute Video: Vet Center Services",
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/featured_content/2020d016-0867-494f-b137-b3923c9c8b3a?resourceVersion=id%3A400048"
+    }
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "b155f453-d9f4-463a-b875-88d9683088e2",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "featured_content"
+    }
+  },
+  "field_cta": {
+    "type": "paragraph--button",
+    "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+    "drupal_internal__id": 68850,
+    "drupal_internal__revision_id": 400047,
+    "langcode": "en",
+    "status": true,
+    "created": "2021-07-29T16:54:49+00:00",
+    "parent_id": "68851",
+    "parent_type": "paragraph",
+    "parent_field_name": "field_cta",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": null,
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": null,
+    "field_button_label": "View 2-minute video on YouTube",
+    "field_button_link": {
+      "uri": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
+      "title": "",
+      "options": []
+    },
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/button/4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12?resourceVersion=id%3A400047"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 400047,
+      "drupal_internal__target_id": 68850
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "button"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
+  },
+  "relationshipNames": ["paragraph_type", "field_cta"]
+}
