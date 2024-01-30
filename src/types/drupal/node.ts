@@ -75,9 +75,9 @@ export const enum NodeResourceType {
 
 /** Node types returned by the custom banner endpoint */
 export const enum NodeBannerType {
-  PROMO_BANNER = 'node--promo_banner',
-  FACILITY_BANNER = 'node--full_width_banner_alert',
-  BANNER = 'node--banner',
+  PROMO_BANNER = 'promo_banner',
+  FACILITY_BANNER = 'full_width_banner_alert',
+  BANNER = 'banner',
 }
 
 /** Shared type structure for resource nodes. */
