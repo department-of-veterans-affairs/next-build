@@ -10,7 +10,7 @@ export type BannerDataOpts = {
 // The banner data endpoint is a custom endpoint provided by Drupal due to how banners are associated with a page.
 // A given page does not reference a banner node via entity reference, banner node types have a field that lists what
 // paths they are supposed to be visible on. This endpoint queries banners based on their path lists.
-// See docroot/modules/custom/va_gov_api/src/Resources/BannerAlerts.php in va.gov-cms for more info.
+// See docroot/modules/custom/va_gov_api/src/Controller/BannerAlertsController.php in va.gov-cms for more info.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const data: QueryData<BannerDataOpts, any> = async (opts) => {
   if (opts.itemPath) {
