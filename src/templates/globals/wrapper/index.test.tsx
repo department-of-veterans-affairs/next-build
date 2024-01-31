@@ -11,7 +11,7 @@ const banners = [
     body: 'This is the banner body',
     alertType: 'information',
     dismiss: true,
-    type: 'node--banner',
+    type: 'banner',
   },
 ]
 const props = { bannerData: [], headerFooterData: {} }

@@ -28,12 +28,8 @@ describe('AudienceTopics with valid data', () => {
     const link2 = screen.getByText('Payments and debt')
 
     // Assert that the 'href' attributes are correct
-    expect(link1).toContainHTML(
-      'href="/resources/tag/all-veterans/All%20Veterans"'
-    )
-    expect(link2).toContainHTML(
-      'href="/resources/tag/payments-and-debt/Payments%20and%20debt"'
-    )
+    expect(link1).toContainHTML('href="/resources/tag/all-veterans"')
+    expect(link2).toContainHTML('href="/resources/tag/payments-and-debt"')
 
     // Assert that the text content is present in the document
     expect(screen.queryByText(/Tags/)).toBeInTheDocument()
