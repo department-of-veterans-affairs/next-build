@@ -1,6 +1,6 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
-import { Accordion } from './' // Adjust this path to where your Accordion component is located
+import { render } from '@testing-library/react'
+import { Accordion } from './'
 
 const accordionData = [
   {
