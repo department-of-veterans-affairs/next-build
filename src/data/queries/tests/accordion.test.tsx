@@ -1,6 +1,6 @@
 import { ParagraphAccordion } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/Accordion.mock.json'
+import mockData from '@/mocks/accordion.mock.json'
 
 const AccordionMock: ParagraphAccordion = mockData
 

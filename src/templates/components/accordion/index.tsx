@@ -1,10 +1,10 @@
-import { Accordion as AccordionType } from '@/types/formatted/accordion'
+import { Accordion as FormattedAccordion } from '@/types/formatted/accordion'
 import { stringToId } from '@/lib/utils/stringToId'
 
 type AccordionProps = {
   id: string
   bordered: boolean
-  items: AccordionType[]
+  items: FormattedAccordion[]
 }
 
 export function Accordion({ id, bordered, items }: AccordionProps) {

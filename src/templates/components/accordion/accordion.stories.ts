@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Accordion } from './'
-import { Accordion as AccordionType } from '@/types/formatted/accordion'
+import { Accordion as FormattedAccordion } from '@/types/formatted/accordion'
 
 const meta: Meta<typeof Accordion> = {
   title: 'Components/Accordion',
@@ -10,7 +10,7 @@ export default meta
 
 type Story = StoryObj<typeof Accordion>
 
-const accordionData: AccordionType[] = [
+const accordionData: FormattedAccordion[] = [
   {
     header: 'First Header',
     html: '<p>Content for the first item</p>',
