@@ -19,6 +19,8 @@ jobs:
     permissions:
       id-token: write
       contents: write
+    outputs:
+      SLACK_PAYLOAD: ${{ steps.export-slack-payload.outputs.SLACK_PAYLOAD }}
 
     steps:
       - uses: actions/checkout@v4
@@ -48,23 +50,33 @@ jobs:
           name: "broken-link-report-run-${{github.run_id}}"
           path: broken-link-report.json
 
-  # notify-success:
-  #   name: Notify Success
-  #   runs-on: ubuntu-latest
-  #   needs: broken-link-check
+      - name: Prepare Slack payload
+        run: |
+          node scripts/broken-links-slack-payload.js
 
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Export Slack payload
+        id: export-slack-payload
+        run: echo SLACK_PAYLOAD=$(cat broken-links-slack-payload.json) >> $GITHUB_OUTPUT
 
-  #     - name: Notify Slack
-  #       uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
-  #       continue-on-error: true
-  #       with:
-  #         payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully tagged new next-build release: ${{ needs.create-production-tag.outputs.RELEASE_NAME }}"}}]}]}'
-  #         channel_id: ${{ env.SLACK_CHANNEL }}
-  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+
+  notify-success:
+    name: Notify Success
+    runs-on: ubuntu-latest
+    needs: broken-link-check
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: ${{ needs.broken-link-check.outputs.SLACK_PAYLOAD }}
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   # notify-failure:
   #   name: Notify Failure
