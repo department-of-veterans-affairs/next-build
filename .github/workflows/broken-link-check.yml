@@ -52,7 +52,7 @@ jobs:
 
       - name: Prepare Slack payload
         run: |
-          node scripts/broken-links-slack-payload.js
+          node scripts/broken-links-slack-payload.mjs
 
       - name: Export Slack payload
         id: export-slack-payload
