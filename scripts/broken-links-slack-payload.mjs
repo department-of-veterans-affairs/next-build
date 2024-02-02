@@ -57,7 +57,7 @@ const createBrokenLinksSlackPayload = () => {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `${icon} *<!subteam^S010U41C30V|cms-helpdesk> ${brokenLinks.metrics.brokenLinkCount} broken links found during ${GITHUB_WORKFLOW}*\n\n${failMessage}Workflow run: <${SERVER_URL}>`,
+        text: `${icon} *${GROUP_TO_NOTIFY} ${brokenLinks.metrics.brokenLinkCount} broken links found on ${brokenLinks.metrics.pagesScanned} pages during ${GITHUB_WORKFLOW}*\n\n${failMessage}Workflow run: <${SERVER_URL}>`,
       },
     })
     let sourceIndex = 0
