@@ -5,6 +5,7 @@ import { program } from 'commander'
 
 const DEFAULT_INPUT_FILE = 'broken-link-report.json'
 const DEFAULT_OUTPUT_FILE = 'broken-links-slack-payload.json'
+const GROUP_TO_NOTIFY = 'subteam^S010U41C30V|cms-helpdesk' // '<!subteam^S010U41C30V|cms-helpdesk>'
 const SERVER_URL = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
 const BRANCH_NAME = process.env.GITHUB_REF
 const { GITHUB_WORKFLOW } = process.env
@@ -26,10 +27,6 @@ const say = (level, ...args) => {
   }
   return console.log(...args)
 }
-
-
-
-
 
 // Slack expects messages as structured JSON, with limits on how long an
 // individual "block" is allowed to be. This takes the output of a broken link
@@ -60,7 +57,7 @@ const createBrokenLinksSlackPayload = () => {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `${icon} *<!subteam^S010U41C30V|cms-helpdesk> ${brokenLinks.metrics.brokenLinksCount} broken links found during ${GITHUB_WORKFLOW}*\n\n${failMessage}Workflow run: <${SERVER_URL}>`,
+        text: `${icon} *<!subteam^S010U41C30V|cms-helpdesk> ${brokenLinks.metrics.brokenLinkCount} broken links found during ${GITHUB_WORKFLOW}*\n\n${failMessage}Workflow run: <${SERVER_URL}>`,
       },
     })
     let sourceIndex = 0
@@ -72,7 +69,7 @@ const createBrokenLinksSlackPayload = () => {
           brokenLink.url.substring(0, 1) === '/'
             ? `https://va.gov${brokenLink.url}`
             : brokenLink.url
-        return `*Broken link:* ${destination}`
+        return `*Broken link (error type: ${brokenLink.status}):* ${destination}`
       })
       // If there are more than 5, print 5 and a generic message.
       if (problemMarkup.length > 5) {
