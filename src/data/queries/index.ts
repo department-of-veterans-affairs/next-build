@@ -23,6 +23,7 @@ import * as EventTeaser from './eventTeaser'
 import * as EventListing from './eventListing'
 import * as VamcEhr from './vamcEhr'
 import * as FeaturedContent from './featuredContent'
+import * as Accordion from './accordion'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 
 export const QUERIES_MAP = {
@@ -36,6 +37,7 @@ export const QUERIES_MAP = {
   'node--event_listing': EventListing,
   'node--person_profile': PersonProfile,
   'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
+  'paragraph--basic_accordion': Accordion,
   'paragraph--audience_topics': AudienceTopics,
   'paragraph--button': Button,
   'paragraph--email_contact': EmailContact,

@@ -23,6 +23,7 @@ import {
 
 /** Union of all paragraph types.  */
 export type ParagraphTypes =
+  | ParagraphAccordion
   | ParagraphAlert
   | ParagraphAlertSingle
   | ParagraphAudienceTopics
@@ -60,6 +61,12 @@ export const enum ParagraphResourceType {
   Table = 'paragraph--table',
   Wysiwyg = 'paragraph--wysiwyg',
   RichTextCharLimit1000 = 'paragraph--rich_text_char_limit_1000',
+  Accordion = 'paragraph--basic_accordion',
+}
+
+export interface ParagraphAccordion extends DrupalParagraph {
+  field_header: string
+  field_rich_wysiwyg: FieldFormattedText
 }
 
 export interface ParagraphAlert extends DrupalParagraph {
