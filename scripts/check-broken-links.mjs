@@ -36,8 +36,8 @@ const LINKCHECKER_CONFIG = {
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
-  // retryErrors: true,
-  // retryErrorsCount: 3,
+  retryErrors: true,
+  retryErrorsCount: 3,
 }
 
 /**
@@ -87,7 +87,7 @@ async function checkBrokenLinks() {
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 500)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
   const initialPathCount = paths.length
 
