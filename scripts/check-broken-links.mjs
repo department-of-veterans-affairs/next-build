@@ -76,18 +76,19 @@ async function checkBrokenLinks() {
 
       linksChecked.push(result)
 
-      if (result.state === 'BROKEN') {
+      // 403 errors returned to the crawler by and large work for web users.
+      if (result.state === 'BROKEN' && result.status !== '403') {
         brokenLinks.push(result)
       }
     })
     .on('retry', (retryDetails) => {
-      console.log(retryDetails)
+      // console.log(retryDetails)
     })
 
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 2000)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 5000)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
   const initialPathCount = paths.length
 
