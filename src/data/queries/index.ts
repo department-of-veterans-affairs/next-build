@@ -13,6 +13,7 @@ import * as AudienceTopics from './audienceTopics'
 import * as Alert from './alert'
 import * as AlertSingle from './alertSingle'
 import * as EmailContact from './emailContact'
+import * as ContactInfo from './contactInfo'
 import * as BenefitsHub from './benefitsHubLinks'
 import * as Wysiwyg from './wysiwyg'
 import * as StaticPathResources from './staticPathResources'
@@ -23,6 +24,7 @@ import * as EventTeaser from './eventTeaser'
 import * as EventListing from './eventListing'
 import * as VamcEhr from './vamcEhr'
 import * as FeaturedContent from './featuredContent'
+import * as SupportServices from './supportServices'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 
 export const QUERIES_MAP = {
@@ -36,9 +38,11 @@ export const QUERIES_MAP = {
   'node--event_listing': EventListing,
   'node--person_profile': PersonProfile,
   'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
+  'node--support_service': SupportServices,
   'paragraph--audience_topics': AudienceTopics,
   'paragraph--button': Button,
   'paragraph--email_contact': EmailContact,
+  'paragraph--contact_information': ContactInfo,
   'paragraph--expandable_text': ExpandableText,
   'paragraph--featured_content': FeaturedContent,
   'paragraph--link_teaser': LinkTeaser,

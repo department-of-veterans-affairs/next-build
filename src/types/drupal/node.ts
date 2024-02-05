@@ -242,7 +242,6 @@ export interface NodeOffice extends DrupalNode {
   field_email_updates_link: FieldLink
   field_external_link: FieldLink
   field_description: string
-  field_meta_title: string
   field_office_id: string
   field_parent_office: NodeOffice
   field_social_media_links: FieldSocialMediaLinks

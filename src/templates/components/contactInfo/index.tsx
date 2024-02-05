@@ -1,34 +1,11 @@
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { EmailContact as FormattedEmailContact } from '@/types/formatted/emailContact'
 import Link from 'next/link'
-
-type FormattedContactInfo = {
-  contactType: string // 'DC' or 'BHC'
-  defaultContact?: DefaultContact
-  additionalContact?: AdditionalContact
-  benefitHubContacts?: DefaultContact[]
-}
-
-type DefaultContact = {
-  title: string
-  value: string
-  href: string
-}
-
-type PhoneContact = {
-  label: string
-  number: string
-  extension: string
-}
-
-type AdditionalContact = {
-  email: FormattedEmailContact
-  phone: PhoneContact
-}
-
-type BenefitHubContact = {
-  services: DefaultContact[]
-}
+import {
+  Contact,
+  AdditionalContact,
+  BenefitHubContact,
+  ContactInfo as FormattedContactInfo,
+} from '@/types/formatted/contactInfo'
 
 const analytic = (header) => {
   return {
@@ -39,7 +16,7 @@ const analytic = (header) => {
 }
 
 // simple contact info base component
-export const DefaultContact = ({ title, value, href }: DefaultContact) => {
+export const DefaultContact = ({ title, value, href }: Contact) => {
   return (
     <>
       <strong>{title} </strong>

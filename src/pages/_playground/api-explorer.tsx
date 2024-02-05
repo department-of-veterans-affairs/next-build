@@ -21,9 +21,18 @@ export async function getStaticProps() {
     }
   }
 
-  const params = queries.getParams().addInclude(['field_cta'])
+  const params = queries
+    .getParams()
+    .addInclude([
+      'field_additional_contact',
+      'field_contact_default',
+      'field_contact_default.field_office',
+      'field_benefit_hub_contacts',
+      'field_benefit_hub_contacts.field_support_services',
+    ])
+    .addPageLimit(1)
   const data = await drupalClient.getResourceCollection(
-    'paragraph--featured_content',
+    'paragraph--contact_information',
     {
       params: params.getQueryObject(),
       withAuth: {

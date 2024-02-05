@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactInfo formatData outputs formatted data 1`] = `
+{
+  "additionalContact": {
+    "email": {
+      "address": "email@email.com",
+      "label": "Loremipsum label here",
+    },
+  },
+  "benefitHubContacts": null,
+  "contactType": "DC",
+  "defaultContact": {
+    "href": "tel:1-800-698-2411",
+    "title": "MyVA411 main information line:",
+    "value": "800-698-2411",
+  },
+}
+`;
