@@ -1,18 +1,16 @@
-// HealthServices.stories.tsx
-import { Meta, StoryObj } from '@storybook/react';
-import HealthServices from './';
-import { HealthServices as HealthServicesType } from '@/types/formatted/healthServices'; // Import the type
+import { Meta, StoryObj } from '@storybook/react'
+import HealthServices from './'
+import { HealthServices as FormattedHealthServices } from '@/types/formatted/healthServices' // Import the type
 
 const meta: Meta<typeof HealthServices> = {
   title: 'Components/Health Services',
   component: HealthServices,
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<typeof HealthServices>;
+type Story = StoryObj<typeof HealthServices>
 
-
-const sampleServices: HealthServicesType = [
+const sampleServices: FormattedHealthServices = [
   {
     name: 'PTSD care',
     vetCenterTypeOfCare: 'counseling',
@@ -22,7 +20,7 @@ const sampleServices: HealthServicesType = [
     commonlyTreatedCondition: null,
     vetCenterServiceDescription: 'PTSD care description...',
     description: 'PTSD care detailed description...',
-    body: '<p>PTSD care body content...</p>'
+    body: '<p>PTSD care body content...</p>',
   },
   {
     name: 'Couples and family counseling',
@@ -33,7 +31,7 @@ const sampleServices: HealthServicesType = [
     commonlyTreatedCondition: null,
     vetCenterServiceDescription: 'Couples and family counseling...',
     description: 'Couples and family counseling detailed description...',
-    body: '<p>Couples and family counseling body content...</p>'
+    body: '<p>Couples and family counseling body content...</p>',
   },
   {
     name: 'Community engagement',
@@ -44,13 +42,13 @@ const sampleServices: HealthServicesType = [
     commonlyTreatedCondition: null,
     vetCenterServiceDescription: 'Community engagement description...',
     description: 'Community engagement detailed description...',
-    body: '<p>PCommunity engagement body content...</p>'
+    body: '<p>PCommunity engagement body content...</p>',
   },
-];
+]
 
 export const Example: Story = {
   args: {
     services: sampleServices,
-    typeOfCare: 'counseling'
+    typeOfCare: 'counseling',
   },
-};
+}

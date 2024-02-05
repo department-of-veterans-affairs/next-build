@@ -1,11 +1,13 @@
-import React from 'react';
-import { HealthServices as HealthServicesType } from '@/types/formatted/healthServices';
+import React from 'react'
+import { HealthServices as FormattedHealthServices } from '@/types/formatted/healthServices'
+import { stringToId } from '@/lib/utils/stringToId'
 
 interface ServicesListProps {
-  services: HealthServicesType;
+  services: FormattedHealthServices
 }
 
 function ServicesList({ services }: ServicesListProps) {
+  if (!services) return null
   return (
     <div className="vads-u-margin-bottom--3">
       <va-accordion bordered>
@@ -13,7 +15,7 @@ function ServicesList({ services }: ServicesListProps) {
           <va-accordion-item
             key={index}
             class="va-accordion-item"
-            id={`item-${service.name}`}
+            id={`item-${stringToId(service.name)}`}
             header={service.name}
             subheader={service.vetCenterFriendlyName}
             level="3"
@@ -28,11 +30,10 @@ function ServicesList({ services }: ServicesListProps) {
               <div dangerouslySetInnerHTML={{ __html: service.body }} />
             )}
           </va-accordion-item>
-
         ))}
       </va-accordion>
     </div>
-  );
+  )
 }
 
-export default ServicesList;
+export default ServicesList
