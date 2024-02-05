@@ -2,8 +2,9 @@ import { render, screen } from '@testing-library/react'
 import { Wysiwyg } from './index'
 import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
 import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
-const wysiwygProps: FormattedWysiwyg = {
+const wysiwygProps: ParagraphComponent<FormattedWysiwyg> = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   html: 'If you need support...',
   className: '',
