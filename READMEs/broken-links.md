@@ -21,7 +21,7 @@ Example with additional option usage:
 
 # Reporting
 
-A human-readable list of all broken links discovered is output at the end of a scan. The full report metrics & list of broken links are written to a file `broken-link-report.json` upon completion.
+A human-readable list of all broken links discovered is output at the end of a scan. The full report metrics & list of broken links are written to a file `broken-links-report.json` upon completion.
 
 Additionally, if the `VERBOSE` flag is true, this script will output results to the terminal for each link it scans in the form of dot notation (**.** for success, **-** is skipped, **x** for broken). This can be very noisy, not recommended for large sitemaps.
 
@@ -29,6 +29,6 @@ TODOs:
 
 - Wire up option to skip checking image links
 - Run this script in GHA on some cadence
-- Upload the GHA run's broken-link-report.json to S3
+- Upload the GHA run's broken-links-report.json to S3
 - Notify slack when broken links are found
 - Clean up this documentation
