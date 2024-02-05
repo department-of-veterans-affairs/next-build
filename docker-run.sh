@@ -4,7 +4,7 @@
 # Env vars must be present to populate cmd params.
 # Secrets (remaining required params) must be present at ./envs/.env.${ENV}.
 
-APP_ENV=${ENV} yarn dev \
+APP_ENV=${ENV} yarn build:preview && yarn start \
     --SITE_URL ${SITE_URL} \
     --NEXT_PUBLIC_DRUPAL_BASE_URL ${NEXT_PUBLIC_DRUPAL_BASE_URL} \
     --NEXT_IMAGE_DOMAIN ${NEXT_IMAGE_DOMAIN} \

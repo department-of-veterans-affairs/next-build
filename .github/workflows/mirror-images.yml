@@ -1,0 +1,37 @@
+name: Create and Commit Next-Build Docker Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: Image tag version
+        type: string
+        required: true
+        default: "1.0.0"
+jobs:
+  mirror:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-gov-west-1
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+          role-duration-seconds: 900
+          role-session-name: vsp-vagov-next-build-githubaction
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: "dsva/next-build-node"
+          IMAGE_TAG: ${{ inputs.image_tag }}
+        run: |
+          BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f docker/Dockerfile
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG

@@ -10,4 +10,6 @@ WORKDIR $HOME
 COPY . $HOME
 RUN yarn install --frozen-lockfile
 
+EXPOSE 80
+
 CMD ["sh", "-c", "docker-run.sh"]

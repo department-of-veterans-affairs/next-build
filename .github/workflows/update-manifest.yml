@@ -1,0 +1,48 @@
+name: Create and Commit Next-BUild Docker Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: Image tag version
+        type: string
+        required: true
+        default: "1.0.0"
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-gov-west-1
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+          role-duration-seconds: 900
+          role-session-name: vsp-vagov-next-build-githubaction
+      - name: Get bot token from Parameter Store
+        uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+          ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
+          env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
+      - name: Check out Manifest Repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          repository: department-of-veterans-affairs/vsp-infra-application-manifests
+          token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
+          fetch-depth: 1
+          path: vsp-infra-application-manifests
+      - name: Update image and helm chart versions
+        run: |
+            cd vsp-infra-application-manifests/apps/next-build/dev
+            yq e -i '.spec.template.spec.containers[0].image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ inputs.image_tag }}"' next-build-deployment.yaml
+            done
+            git diff
+      - name: Add and Commit file
+        uses: EndBug/add-and-commit@1bad3abcf0d6ec49a5857d124b0bfb52dc7bb081 # v9.1.3
+        with:
+          add: '*.yaml'
+          cwd: vsp-infra-application-manifests/apps/next-build-dev
+          author_name: va-vsp-bot
+          author_email: devops@va.gov
+          message: 'auto update next-build images and helm chart'
