@@ -21,6 +21,7 @@ jobs:
       contents: write
     outputs:
       SLACK_PAYLOAD: ${{ steps.export-slack-payload.outputs.SLACK_PAYLOAD }}
+      MARKDOWN_URL: ${{ steps.upload-report-markdown.outputs.artifact-url }}
 
     steps:
       - uses: actions/checkout@v4
@@ -59,7 +60,7 @@ jobs:
 
       - name: Prepare Slack payload
         run: |
-          node scripts/broken-links-slack-payload.mjs -m ${{ steps.upload-report-markdown.outputs.artifact-url }}
+          node scripts/broken-links-slack-payload.mjs -m ${{ needs.broken-link-check.outputs.MARKDOWN_URL }}
 
       - name: Export Slack payload
         id: export-slack-payload
