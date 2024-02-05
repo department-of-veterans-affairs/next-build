@@ -127,7 +127,7 @@
     "nock": "^13.4.0",
     "node_extra_ca_certs_mozilla_bundle": "^1.0.5",
     "prettier": "^2.8.8",
-    "storybook": "^7.6.10",
+    "storybook": "^7.6.12",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typedoc": "^0.25.7",
