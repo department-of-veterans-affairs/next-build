@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import HealthServices from './'
-import { HealthServices as FormattedHealthServices } from '@/types/formatted/healthServices' // Import the type
+import { HealthServices as FormattedHealthServices } from '@/types/formatted/healthServices'
 
 const meta: Meta<typeof HealthServices> = {
   title: 'Components/Health Services',
