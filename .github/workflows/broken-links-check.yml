@@ -21,6 +21,8 @@ jobs:
       contents: write
     outputs:
       SLACK_PAYLOAD: ${{ steps.export-slack-payload.outputs.SLACK_PAYLOAD }}
+      REPORT_FILE: ${{ steps.rename-report-file.outputs.REPORT_FILE }}
+      MARKDOWN_FILE: ${{ steps.rename-markdown-file.outputs.MARKDOWN_FILE }}
 
     steps:
       - uses: actions/checkout@v4
@@ -46,8 +48,11 @@ jobs:
           APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node --max-old-space-size=4000 scripts/check-broken-links.mjs
 
       - name: Rename broken link json
+        id: rename-report-file
         run: |
           mv broken-links-report.json "broken-links-report-run-${{github.run_id}}.json"
+          echo REPORT_FILE=broken-links-report-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
+
 
       - id: upload-report-json
         uses: actions/upload-artifact@v4
@@ -56,8 +61,10 @@ jobs:
           path: broken-links-report-run-${{github.run_id}}.json
 
       - name: Rename broken link markdown
+        id: rename-markdown-file
         run: |
           mv broken-links-report.md "broken-links-report-run-${{github.run_id}}.md"
+          echo MARKDOWN_FILE=broken-links-report-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
 
       - id: upload-report-markdown
         uses: actions/upload-artifact@v4
@@ -67,7 +74,7 @@ jobs:
 
       - name: Prepare Slack payload
         run: |
-          node scripts/broken-links-slack-payload.mjs -m ${{ steps.upload-report-markdown.outputs.artifact-url }}
+          node scripts/broken-links-slack-payload.mjs -m ${{ steps.upload-report-markdown.outputs.artifact-url }} -i ${{ steps.rename-report-file.outputs.REPORT_FILE}}
 
       - name: Export Slack payload
         id: export-slack-payload
