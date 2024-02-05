@@ -1,13 +1,14 @@
-import { FieldHealthServicesArray } from '@/types/drupal/field_type';
-import { HealthService, HealthServices } from '@/types/formatted/healthServices';
-import { QueryFormatter } from 'next-drupal-query';
+import { FieldHealthServicesArray } from '@/types/drupal/field_type'
+import { HealthService, HealthServices } from '@/types/formatted/healthServices'
+import { QueryFormatter } from 'next-drupal-query'
 
-export const formatter: QueryFormatter<FieldHealthServicesArray, HealthServices> = (
-  entities: FieldHealthServicesArray
-): HealthServices => {
+export const formatter: QueryFormatter<
+  FieldHealthServicesArray,
+  HealthServices
+> = (entities: FieldHealthServicesArray): HealthServices => {
   return entities.map((entity): HealthService => {
-    const { fieldBody, fieldServiceNameAndDescripti } = entity.entity;
-    const { entity: serviceEntity } = fieldServiceNameAndDescripti;
+    const { fieldBody, fieldServiceNameAndDescripti } = entity.entity
+    const { entity: serviceEntity } = fieldServiceNameAndDescripti
 
     return {
       name: serviceEntity.name,
@@ -18,7 +19,7 @@ export const formatter: QueryFormatter<FieldHealthServicesArray, HealthServices>
       commonlyTreatedCondition: serviceEntity.fieldCommonlyTreatedCondition,
       vetCenterServiceDescription: serviceEntity.fieldVetCenterServiceDescrip,
       description: serviceEntity.description.processed,
-      body: fieldBody?.processed || null
-    };
-  });
-};
+      body: fieldBody?.processed || null,
+    }
+  })
+}

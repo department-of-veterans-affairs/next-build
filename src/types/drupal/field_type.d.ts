@@ -107,26 +107,25 @@ export interface BreadCrumbLink {
  * Types for services and health services
  */
 
-
 interface FieldServiceNameAndDescriptionEntity {
-  name: string;
-  fieldVetCenterTypeOfCare: string;
-  fieldVetCenterFriendlyName: string | null;
-  fieldAlsoKnownAs: string | null;
-  fieldVetCenterComConditions: string | null;
-  fieldCommonlyTreatedCondition: string | null;
-  fieldVetCenterServiceDescrip: string;
-  description: FieldFormattedText;
+  name: string
+  fieldVetCenterTypeOfCare: string
+  fieldVetCenterFriendlyName: string | null
+  fieldAlsoKnownAs: string | null
+  fieldVetCenterComConditions: string | null
+  fieldCommonlyTreatedCondition: string | null
+  fieldVetCenterServiceDescrip: string
+  description: FieldFormattedText
 }
 
 interface FieldServiceNameAndDescription {
-  entity: FieldServiceNameAndDescriptionEntity;
+  entity: FieldServiceNameAndDescriptionEntity
 }
 export interface HealthService {
   entity: {
-    fieldBody: FieldFormattedText | null;
-    fieldServiceNameAndDescripti: FieldServiceNameAndDescription;
+    fieldBody: FieldFormattedText | null
+    fieldServiceNameAndDescripti: FieldServiceNameAndDescription
   }
 }
 
-export type FieldHealthServicesArray = HealthService[];
+export type FieldHealthServicesArray = HealthService[]
