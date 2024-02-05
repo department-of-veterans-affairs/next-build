@@ -53,7 +53,7 @@ const LINKCHECKER_CONFIG = {
  *
  * This will output dot notation to the terminal for each link as it is checked, plus
  * a list of broken links. A JSON file with the run's metrics is also output to
- * <repo root>/broken-link-report.json
+ * <repo root>/broken-links-report.json
  */
 async function checkBrokenLinks() {
   const start = Date.now()
@@ -88,7 +88,7 @@ async function checkBrokenLinks() {
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 5000)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
   const initialPathCount = paths.length
 
@@ -184,15 +184,44 @@ async function checkBrokenLinks() {
 
   // Write finished report to file.
   const json = JSON.stringify(jsonReport)
-  fs.writeFile('broken-link-report.json', json, (err) => {
+  fs.writeFile('broken-links-report.json', json, (err) => {
     if (err) {
       console.error(err)
     }
   })
 
-  return console.log(
+  console.log(
     `\n Report file written to: ${chalk.green(
-      process.cwd() + '/broken-link-report.json'
+      process.cwd() + '/broken-links-report.json'
+    )}`
+  )
+
+  let markDownReport = ''
+
+  // Output a markdown report for easy readability.
+  markDownReport += `# VA.gov broken link report\n`
+  markDownReport += `Found ${jsonReport.metrics.brokenLinkCount} broken links on ${jsonReport.metrics.pagesScanned} pages.\n`
+  const dateTime = new Date().toString()
+  markDownReport += `Report generated: ${dateTime}\n\n`
+  markDownReport += `## Broken links grouped by source page\n`
+  for (const parent of Object.keys(jsonReport.brokenLinksByParent)) {
+    markDownReport += `**Source: ${parent}**\n`
+    for (const child of jsonReport.brokenLinksByParent[parent]) {
+      markDownReport += `${child.url}, response code ${child.status}\n`
+    }
+    markDownReport += `\n`
+  }
+
+  // Write markdown report to file
+  fs.writeFile('broken-links-report.md', markDownReport, (err) => {
+    if (err) {
+      console.error(err)
+    }
+  })
+
+  console.log(
+    `\n Report Markdown file written to: ${chalk.green(
+      process.cwd() + '/broken-links-report.md'
     )}`
   )
 }

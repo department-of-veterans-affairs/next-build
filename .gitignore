@@ -20,7 +20,9 @@
 /coverage
 playwright/test-results
 playwright/test-report
-broken-link-report.json
+broken-links-report.json
+broken-links-slack-payload.json
+broken-links-report.md
 
 # next.js
 /.next/

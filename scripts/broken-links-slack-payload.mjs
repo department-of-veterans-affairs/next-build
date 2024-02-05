@@ -3,7 +3,7 @@ import fs from 'fs'
 import core from '@actions/core'
 import { program } from 'commander'
 
-const DEFAULT_INPUT_FILE = 'broken-link-report.json'
+const DEFAULT_INPUT_FILE = 'broken-links-report.json'
 const DEFAULT_OUTPUT_FILE = 'broken-links-slack-payload.json'
 const GROUP_TO_NOTIFY = 'subteam^S010U41C30V|cms-helpdesk' // '<!subteam^S010U41C30V|cms-helpdesk>'
 const SERVER_URL = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
@@ -15,6 +15,7 @@ program
   .version('1.0.0', '-v, --version') /* Not really necessary... */
   .option('-i, --input-file <input-file>', 'The broken link report to process', DEFAULT_INPUT_FILE)
   .option('-o, --output-file <output-file>', 'The output location of the Slack payload file', DEFAULT_OUTPUT_FILE)
+  .option('-m, --markdown-url <markdown-url>', 'The URL for the markdown report artifact')
   .option('-d, --debug', 'Output debug information')
   .parse(process.argv)
 
@@ -57,7 +58,7 @@ const createBrokenLinksSlackPayload = () => {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `${icon} *${GROUP_TO_NOTIFY} ${brokenLinks.metrics.brokenLinkCount} broken links found on ${brokenLinks.metrics.pagesScanned} pages during ${GITHUB_WORKFLOW}*\n\n${failMessage}Workflow run: <${SERVER_URL}>`,
+        text: `${icon} *${GROUP_TO_NOTIFY} ${brokenLinks.metrics.brokenLinkCount} broken links found on ${brokenLinks.metrics.pagesScanned} pages during ${GITHUB_WORKFLOW}*\n\n${failMessage}Workflow run: <${SERVER_URL}>\nMarkdown report: ${options.markdownUrl}`,
       },
     })
     let sourceIndex = 0
