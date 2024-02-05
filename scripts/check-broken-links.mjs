@@ -88,7 +88,7 @@ async function checkBrokenLinks() {
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 100)
+  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 3000)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
   const initialPathCount = paths.length
 
@@ -203,11 +203,25 @@ async function checkBrokenLinks() {
   markDownReport += `Found ${jsonReport.metrics.brokenLinkCount} broken links on ${jsonReport.metrics.pagesScanned} pages.\n`
   const dateTime = new Date().toString()
   markDownReport += `Report generated: ${dateTime}\n\n`
+
+  // First group by source page
   markDownReport += `## Broken links grouped by source page\n`
   for (const parent of Object.keys(jsonReport.brokenLinksByParent)) {
     markDownReport += `**Source: ${parent}**\n`
     for (const child of jsonReport.brokenLinksByParent[parent]) {
-      markDownReport += `${child.url}, response code ${child.status}\n`
+      markDownReport += `- ${child.url}, response code ${child.status}\n`
+    }
+    markDownReport += `\n`
+  }
+  markDownReport += `\n`
+
+  // Group by broken link.
+  markDownReport += `## Broken links grouped by destination\n`
+  markDownReport += `Each broken link and all the pages it appears on.\n\n`
+  for (const child of Object.keys(jsonReport.brokenLinksByLink)) {
+    markDownReport += `**Broken destination: ${child}**\n`
+    for (const parent of jsonReport.brokenLinksByLink[child]) {
+      markDownReport += `- ${parent.parent}\n`
     }
     markDownReport += `\n`
   }
