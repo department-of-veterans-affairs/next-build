@@ -25,5 +25,7 @@ declare namespace JSX {
     'va-alert'
     'va-link'
     'va-breadcrumbs'
+    'va-accordion'
+    'va-accordion-item'
   }
 }

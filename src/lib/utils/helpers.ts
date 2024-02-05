@@ -85,3 +85,15 @@ export const drupalToVaPath = (content) => {
 
   return replaced
 }
+
+export const toString = (text) => {
+  return text === null || typeof text === 'undefined' ? '' : String(text)
+}
+
+export const escape = (input) => {
+  return toString(input)
+    .replace(/&(?!\w+;)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
