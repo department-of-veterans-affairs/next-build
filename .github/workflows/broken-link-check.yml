@@ -21,7 +21,6 @@ jobs:
       contents: write
     outputs:
       SLACK_PAYLOAD: ${{ steps.export-slack-payload.outputs.SLACK_PAYLOAD }}
-      MARKDOWN_URL: ${{ steps.upload-report-markdown.outputs.artifact-url }}
 
     steps:
       - uses: actions/checkout@v4
@@ -46,13 +45,13 @@ jobs:
         run: |
           APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node --max-old-space-size=4000 scripts/check-broken-links.mjs
 
-      - name: upload-report-json
+      - id: upload-report-json
         uses: actions/upload-artifact@v4
         with:
           name: "broken-link-report-run-${{github.run_id}}"
           path: broken-links-report.json
 
-      - name: upload-report-markdown
+      - id: upload-report-markdown
         uses: actions/upload-artifact@v4
         with:
           name: "broken-link-report-markdown-run-${{github.run_id}}"
@@ -60,7 +59,7 @@ jobs:
 
       - name: Prepare Slack payload
         run: |
-          node scripts/broken-links-slack-payload.mjs -m ${{ needs.broken-link-check.outputs.MARKDOWN_URL }}
+          node scripts/broken-links-slack-payload.mjs -m ${{ steps.upload-report-markdown.outputs.artifact-url }}
 
       - name: Export Slack payload
         id: export-slack-payload
