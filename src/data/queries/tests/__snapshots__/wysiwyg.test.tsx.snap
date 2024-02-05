@@ -39,10 +39,12 @@ exports[`paragraph--wysiwyg formatData outputs formatted data 1`] = `
 	<li>Members of the religious community are encouraged to visit patients who are members of their local churches and/or synagogues. However, under no circumstances are they permitted to do general visitation by going from bed to bed, ward to ward or unit to unit.</li>
 </ul><p> </p>",
     "id": "58bd66a0-7f20-41e0-984a-975ee25a1aee",
+    "type": "paragraph--wysiwyg",
   },
   {
     "html": undefined,
     "id": "a0e63a12-9a23-4e7f-95a0-b3a6ce45a9e9",
+    "type": "paragraph--wysiwyg",
   },
 ]
 `;
