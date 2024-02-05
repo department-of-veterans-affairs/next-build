@@ -2,7 +2,7 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 import Link from 'next/link'
 import {
   Contact,
-  AdditionalContact,
+  AdditionalContact as FormattedAdditionalContact,
   BenefitHubContact,
   ContactInfo as FormattedContactInfo,
 } from '@/types/formatted/contactInfo'
@@ -33,10 +33,10 @@ export const DefaultContact = ({ title, value, href }: Contact) => {
 }
 
 // nested paragraphs
-const AdditionalContact = ({ email, phone }: AdditionalContact) => {
-  const phoneNumber = phone.extension
-    ? `${phone.number}p${phone.extension}`
-    : phone.number
+const AdditionalContact = ({ email, phone }: FormattedAdditionalContact) => {
+  const phoneNumber =
+    phone &&
+    (phone.extension ? `${phone.number}p${phone.extension}` : phone.number)
 
   return (
     <>

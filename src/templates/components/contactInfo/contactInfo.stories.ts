@@ -21,7 +21,25 @@ export const Default: Story = {
   },
 }
 
-export const AdditionalContact: Story = {
+export const AdditionalContactPhone: Story = {
+  args: {
+    contactType: 'DC',
+    defaultContact: {
+      title: 'Phone Number',
+      value: '(855) 867-5309',
+      href: 'tel:8558675309',
+    },
+    additionalContact: {
+      phone: {
+        label: 'Phone Number',
+        number: '(281) 330-8004',
+        extension: '444',
+      },
+    },
+  },
+}
+
+export const AdditionalContactEmail: Story = {
   args: {
     contactType: 'DC',
     defaultContact: {
@@ -33,11 +51,6 @@ export const AdditionalContact: Story = {
       email: {
         label: 'Email Address',
         address: 'johnsmith@va.gov',
-      },
-      phone: {
-        label: 'Phone Number',
-        number: '(281) 330-8004',
-        extension: '444',
       },
     },
   },
