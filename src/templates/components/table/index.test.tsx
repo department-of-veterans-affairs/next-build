@@ -32,6 +32,12 @@ describe('<Table> with valid data', () => {
     expect(vaTableEl).toBeTruthy()
     expect(vaTableRowEl).toHaveLength(4)
   })
+
+  test('renders <Table> component with caption', () => {
+    render(<Table data={tableData} title="Table Title" />)
+    const vaTableEl = document.querySelector('va-table')
+    expect(vaTableEl).toHaveAttribute('table-title')
+  })
 })
 
 describe('<Table> with inValid data', () => {

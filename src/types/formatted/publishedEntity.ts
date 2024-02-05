@@ -13,3 +13,9 @@ export interface PublishedEntity {
   metatags?: MetaTag[]
   lastUpdated: string
 }
+
+export interface PublishedParagraph {
+  id: string
+  type: string
+  entityId?: number
+}
