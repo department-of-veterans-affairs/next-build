@@ -36,8 +36,8 @@ const LINKCHECKER_CONFIG = {
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
-  retryErrors: true,
-  retryErrorsCount: 3,
+  // retryErrors: true,
+  // retryErrorsCount: 3,
 }
 
 /**
@@ -73,6 +73,7 @@ async function checkBrokenLinks() {
         // Prints . - or x for each link checked.
         process.stdout.write(LOGGER_MAP[result.state])
       }
+      console.log(`Received result for ${result.parent}`)
 
       linksChecked.push(result)
 
@@ -82,7 +83,7 @@ async function checkBrokenLinks() {
       }
     })
     .on('retry', (retryDetails) => {
-      // console.log(retryDetails)
+      console.log(retryDetails)
     })
 
   // Full array of sitemap defined URLs.
@@ -109,6 +110,7 @@ async function checkBrokenLinks() {
       batches.map(async (batch, index) => {
         for (const path of batch) {
           // Where the actual link check happens, uses options defined above
+          console.log(`Batch ${index}: checking ${path}`)
           await checker.check({ ...LINKCHECKER_CONFIG, path })
         }
         console.log(
