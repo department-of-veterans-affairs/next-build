@@ -6,7 +6,12 @@ const WebComponentProvider = ({ children }) => {
     defineCustomElements()
   }, [])
 
-  return <>{children}</>
+  return (
+    <>
+      {children}
+      <script src="/generated/static-pages.entry.js"></script>
+    </>
+  )
 }
 
 export default WebComponentProvider

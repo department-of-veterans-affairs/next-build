@@ -3926,6 +3926,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-a11y@npm:^7.6.13":
+  version: 7.6.13
+  resolution: "@storybook/addon-a11y@npm:7.6.13"
+  dependencies:
+    "@storybook/addon-highlight": 7.6.13
+    axe-core: ^4.2.0
+  checksum: e6fa76e6449711004038ac3d8d08f37651ffb382a7da17251a66bddbf1096cf607a006fc15a8c3ff4dc2659cdeb4e7ad40dd21f9aa005bd6a21f28bd944f00c4
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-actions@npm:7.6.13":
   version: 7.6.13
   resolution: "@storybook/addon-actions@npm:7.6.13"
@@ -4042,6 +4052,15 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: ba67659f6560a234b1a85092cc5a62e06761f7d711148a0a19586ca1d160327f24244f35a165bb77d5a06ea6c4bf1d9e17a388dacc767facacfccfb339ebc0ff
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-highlight@npm:7.6.13":
+  version: 7.6.13
+  resolution: "@storybook/addon-highlight@npm:7.6.13"
+  dependencies:
+    "@storybook/global": ^5.0.0
+  checksum: 6d391a62c7a2774ff01ef1c7571a6019dba01ac78a5a4899777f249e3d30c38728424955d07f4d653c11193745db639c2a15d78af2f40a0d478950e3d6fdd63b
   languageName: node
   linkType: hard
 
@@ -7042,6 +7061,13 @@ __metadata:
   version: 4.7.0
   resolution: "axe-core@npm:4.7.0"
   checksum: f086bcab42be1761ba2b0b127dec350087f4c3a853bba8dd58f69d898cefaac31a1561da23146f6f3c07954c76171d1f2ce460e555e052d2b02cd79af628fa4a
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:^4.2.0":
+  version: 4.8.3
+  resolution: "axe-core@npm:4.8.3"
+  checksum: f546c74d1f3a7bff81752457fe9e5573693a8ecce11d3c265db501a82105efe0cd29964a491dd98e5979f6f3d85db6776e5e46626c2b09ab579a3729108964fd
   languageName: node
   linkType: hard
 
@@ -14379,6 +14405,7 @@ __metadata:
     "@fortawesome/fontawesome-free": ^6.5.1
     "@next/env": ^14.1.0
     "@playwright/test": ^1.40.1
+    "@storybook/addon-a11y": ^7.6.13
     "@storybook/addon-actions": ^7.6.10
     "@storybook/addon-essentials": ^7.6.3
     "@storybook/addon-interactions": ^7.6.13
