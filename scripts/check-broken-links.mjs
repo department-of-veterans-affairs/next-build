@@ -73,7 +73,7 @@ async function checkBrokenLinks() {
         // Prints . - or x for each link checked.
         process.stdout.write(LOGGER_MAP[result.state])
       }
-      if (showLogs) console.log(`Received result for ${result.parent}`)
+     // if (showLogs) console.log(`Received result for ${result.parent}`)
 
       linksChecked.push(result)
 
@@ -89,8 +89,15 @@ async function checkBrokenLinks() {
   // Full array of sitemap defined URLs.
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
-  const paths = (await getSitemapLocations(OPTIONS.sitemapUrl)).slice(0, 3000)
+
+  const sliceSize = 500
+  const allPaths = (await getSitemapLocations(OPTIONS.sitemapUrl))
+  const maxStart = allPaths.length - sliceSize
+  const randStart = Math.floor(Math.random() * (maxStart))
+  const paths = allPaths.slice(17722, 18222) //allPaths.slice(randStart, randStart + sliceSize)
+  console.log(randStart, randStart + sliceSize)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
+
   const initialPathCount = paths.length
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
@@ -100,7 +107,6 @@ async function checkBrokenLinks() {
     )} batches for processing.`
   )
   const batches = splitPagesIntoSegments(paths, OPTIONS.batchSize)
-
   // A fake counter for the illusion of sequential completion.
   let counter = 1
   let showLogs = false
@@ -111,7 +117,7 @@ async function checkBrokenLinks() {
       batches.map(async (batch, index) => {
         for (const path of batch) {
           // Where the actual link check happens, uses options defined above
-          if (showLogs) console.log(`Batch ${index}: checking ${path}`)
+          //if (showLogs) console.log(`Batch ${index}: checking ${path}`)
           await checker.check({ ...LINKCHECKER_CONFIG, path })
         }
         console.log(
