@@ -6,7 +6,7 @@ import { HeadingElement } from '@/templates/common/heading'
 import { WysiwygField } from '@/templates/components/wysiwyg'
 import { Paragraph } from '@/templates/components/paragraph'
 import { escape } from '@/lib/utils/helpers'
-import { slugifyTitle } from '@/lib/utils/slug'
+import { slugifyString } from '@/lib/utils/slug'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
 import { conditionalAttr } from '@/lib/utils/helpers'
 
@@ -23,7 +23,7 @@ export const CollapsiblePanelItem = ({
     <va-accordion-item
       key={entityId}
       class="va-accordion-item"
-      id={`${slugifyTitle(title, 60)}-${id}`}
+      id={`${slugifyString(title, 60)}-${id}`}
       {...conditionalAttr(expanded, 'open', true)}
     >
       <HeadingElement headingLevel={headingLevel} slot="headline">
