@@ -1,25 +1,31 @@
 import { FieldHealthServicesArray } from '@/types/drupal/field_type'
-import { HealthService, HealthServices } from '@/types/formatted/healthServices'
+import {
+  HealthService as FormattedHealthService,
+  HealthServices as FormattedHealthServices,
+} from '@/types/formatted/healthServices'
 import { QueryFormatter } from 'next-drupal-query'
 
 export const formatter: QueryFormatter<
   FieldHealthServicesArray,
-  HealthServices
-> = (entities: FieldHealthServicesArray): HealthServices => {
-  return entities.map((entity): HealthService => {
-    const { fieldBody, fieldServiceNameAndDescripti } = entity.entity
-    const { entity: serviceEntity } = fieldServiceNameAndDescripti
+  FormattedHealthServices
+> = (entities: FieldHealthServicesArray): FormattedHealthServices => {
+  return entities.map((entity): FormattedHealthService => {
+    const serviceEntity = entity.entity.field_service_name_and_descripti
 
     return {
       name: serviceEntity.name,
-      vetCenterTypeOfCare: serviceEntity.fieldVetCenterTypeOfCare,
-      vetCenterFriendlyName: serviceEntity.fieldVetCenterFriendlyName,
-      alsoKnownAs: serviceEntity.fieldAlsoKnownAs,
-      vetCenterComConditions: serviceEntity.fieldVetCenterComConditions,
-      commonlyTreatedCondition: serviceEntity.fieldCommonlyTreatedCondition,
-      vetCenterServiceDescription: serviceEntity.fieldVetCenterServiceDescrip,
-      description: serviceEntity.description.processed,
-      body: fieldBody?.processed || null,
+      vetCenterTypeOfCare: serviceEntity.field_vet_center_type_of_care || null,
+      vetCenterFriendlyName:
+        serviceEntity.field_vet_center_friendly_name || null,
+      alsoKnownAs: serviceEntity.field_also_known_as || null,
+      vetCenterComConditions:
+        serviceEntity.field_vet_center_com_conditions || null,
+      commonlyTreatedCondition:
+        serviceEntity.field_commonly_treated_Condition || null,
+      vetCenterServiceDescription:
+        serviceEntity.field_vet_center_service_descrip || null,
+      description: serviceEntity.description?.processed || null,
+      body: entity.entity.field_body?.processed || null,
     }
   })
 }

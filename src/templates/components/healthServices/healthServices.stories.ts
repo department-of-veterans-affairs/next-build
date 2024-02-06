@@ -14,9 +14,9 @@ const sampleServices: FormattedHealthServices = [
   {
     name: 'PTSD care',
     vetCenterTypeOfCare: 'counseling',
-    vetCenterFriendlyName: null,
-    alsoKnownAs: null,
-    vetCenterComConditions: null,
+    vetCenterFriendlyName: 'Example name',
+    alsoKnownAs: 'AKA Name',
+    vetCenterComConditions: 'Common Conditions etc...',
     commonlyTreatedCondition: null,
     vetCenterServiceDescription: 'PTSD care description...',
     description: 'PTSD care detailed description...',

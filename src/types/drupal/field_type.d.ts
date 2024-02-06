@@ -1,3 +1,5 @@
+import { TaxonomyTermHealthCareServiceTaxonomy } from './taxonomy_term'
+
 export interface FieldAddress {
   langcode: string
   country_code: string
@@ -107,24 +109,13 @@ export interface BreadCrumbLink {
  * Types for services and health services
  */
 
-interface FieldServiceNameAndDescriptionEntity {
-  name: string
-  fieldVetCenterTypeOfCare: string
-  fieldVetCenterFriendlyName: string | null
-  fieldAlsoKnownAs: string | null
-  fieldVetCenterComConditions: string | null
-  fieldCommonlyTreatedCondition: string | null
-  fieldVetCenterServiceDescrip: string
-  description: FieldFormattedText
-}
-
-interface FieldServiceNameAndDescription {
-  entity: FieldServiceNameAndDescriptionEntity
-}
 export interface HealthService {
   entity: {
-    fieldBody: FieldFormattedText | null
-    fieldServiceNameAndDescripti: FieldServiceNameAndDescription
+    field_body: FieldFormattedText | null
+    field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy & {
+      // Overide the description as string type in  DrupalTaxonomyTerm
+      description: FieldFormattedText
+    }
   }
 }
 

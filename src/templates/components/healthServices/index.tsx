@@ -6,14 +6,14 @@ interface HealthServicesProps {
   typeOfCare: string
 }
 
+const headingsMap = {
+  counseling: 'Counseling Services',
+  referral: 'Referral Services',
+  default: 'Other Services',
+}
+
 function HealthServices({ services, typeOfCare }: HealthServicesProps) {
   if (!services.length) return null
-
-  const headingsMap = {
-    counseling: 'Counseling Services',
-    referral: 'Referral Services',
-    default: 'Other Services',
-  }
 
   const heading = headingsMap[typeOfCare] || headingsMap.default
 

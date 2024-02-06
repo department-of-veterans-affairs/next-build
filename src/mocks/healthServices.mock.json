@@ -167,9 +167,140 @@
   "field_service_name_and_descripti": {
     "type": "taxonomy_term--health_care_service_taxonomy",
     "id": "cbf56f2b-8941-4925-960b-875ec1c2f89e",
+    "drupal_internal__tid": 116,
+    "drupal_internal__revision_id": 1272,
+    "langcode": "en",
+    "revision_created": "2022-11-04T19:41:27+00:00",
+    "status": true,
+    "name": "Military sexual trauma care",
+    "description": {
+      "value": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.\r\n",
+      "format": "rich_text",
+      "processed": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment."
+    },
+    "weight": 0,
+    "changed": "2022-11-04T20:00:51+00:00",
+    "default_langcode": true,
+    "revision_translation_affected": null,
+    "moderation_state": "published",
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Military sexual trauma care | VA.gov CMS"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment."
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care/military-sexual-trauma-care"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/health-care/military-sexual-trauma-care",
+      "pid": 624,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_created": null,
+    "field_facility_service_header": null,
+    "field_health_service_api_id": "militarySexualTrauma",
+    "field_online_self_service": null,
+    "field_regional_service_descripti": null,
+    "field_regional_service_header": null,
+    "field_service_type_of_care": "Mental health care",
+    "field_show_for_vamc_facilities": true,
+    "field_show_for_vba_facilities": null,
+    "field_show_for_vet_centers": true,
+    "field_tricare_description": null,
+    "field_tricare_specific_service": null,
+    "field_vba_com_conditions": null,
+    "field_vba_friendly_name": null,
+    "field_vba_service_descrip": null,
+    "field_vba_type_of_care": null,
+    "field_vet_center_com_conditions": null,
+    "field_vet_center_friendly_name": null,
+    "field_vet_center_required_servic": true,
+    "field_vet_center_service_descrip": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+    "field_vet_center_type_of_care": "counseling",
+    "field_vha_healthservice_stopcode": null,
+    "field_also_known_as": null,
+    "field_commonly_treated_condition": null,
+    "field_enforce_unique_combo_servi": null,
+    "field_facility_service_descripti": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/health_care_service_taxonomy/cbf56f2b-8941-4925-960b-875ec1c2f89e?resourceVersion=id%3A1272"
+      }
+    },
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 116
-    }
+    },
+    "vid": {
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+      "id": "1ae4c52e-f750-44eb-9e53-e10234617743",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "health_care_service_taxonomy"
+      }
+    },
+    "revision_user": {
+      "type": "user--user",
+      "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 0
+      }
+    },
+    "parent": [
+      {
+        "type": "taxonomy_term--health_care_service_taxonomy",
+        "id": "virtual",
+        "resourceIdObjMeta": {
+          "links": {
+            "help": {
+              "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+              "meta": {
+                "about": "Usage and meaning of the 'virtual' resource identifier."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "content_translation_uid": null,
+    "field_owner": {
+      "type": "taxonomy_term--administration",
+      "id": "missing",
+      "resourceIdObjMeta": {
+        "links": {
+          "help": {
+            "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+            "meta": {
+              "about": "Usage and meaning of the 'missing' resource identifier."
+            }
+          }
+        }
+      }
+    },
+    "field_vba_service_regions": [],
+    "relationshipNames": [
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_owner",
+      "field_vba_service_regions"
+    ]
   },
   "relationshipNames": [
     "node_type",
