@@ -9,7 +9,8 @@ WORKDIR $HOME
 
 COPY . $HOME
 RUN yarn install --frozen-lockfile
+RUN BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
 
+RUN chmod +x docker-run.sh
 EXPOSE 80
-
-CMD ["sh", "-c", "docker-run.sh"]
+CMD "./docker-run.sh"
