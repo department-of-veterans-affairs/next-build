@@ -31,13 +31,13 @@ const LINKCHECKER_CONFIG = {
     'https://resource.digital.voice.va.gov/wdcvoice/2/onsite/embed.js',
     // process.env.SKIP_IMAGES ? '' : null
   ],
-  timeout: 10000, // Fail a link if it doesn't resolve within 5s, otherwise linkinator will hang until it resolves.
+  timeout: 10000, // Fail a link if it doesn't resolve, otherwise linkinator will hang until it resolves.
   urlRewriteExpressions: [
     // { pattern: '', replacement: '' }
   ],
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
-  // retryErrors: true,
-  // retryErrorsCount: 3,
+  retryErrors: true,
+  retryErrorsCount: 3,
 }
 
 /**
@@ -73,7 +73,7 @@ async function checkBrokenLinks() {
         // Prints . - or x for each link checked.
         process.stdout.write(LOGGER_MAP[result.state])
       }
-      console.log(`Received result for ${result.parent}`)
+      if (showLogs) console.log(`Received result for ${result.parent}`)
 
       linksChecked.push(result)
 
@@ -103,6 +103,7 @@ async function checkBrokenLinks() {
 
   // A fake counter for the illusion of sequential completion.
   let counter = 1
+  let showLogs = false
   // Request each batch at once. This takes a little bit of time depending on the size
   // of the sitemap. VA.gov builds a large one.
   try {
@@ -110,13 +111,16 @@ async function checkBrokenLinks() {
       batches.map(async (batch, index) => {
         for (const path of batch) {
           // Where the actual link check happens, uses options defined above
-          console.log(`Batch ${index}: checking ${path}`)
+          if (showLogs) console.log(`Batch ${index}: checking ${path}`)
           await checker.check({ ...LINKCHECKER_CONFIG, path })
         }
         console.log(
           chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
         )
         counter++
+        if (counter == 29) {
+          showLogs = true
+        }
       })
     )
   }
