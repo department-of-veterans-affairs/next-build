@@ -109,14 +109,11 @@ export interface BreadCrumbLink {
  * Types for services and health services
  */
 
-export interface HealthService {
+export interface FieldHealthService {
   entity: {
     field_body: FieldFormattedText | null
-    field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy & {
-      // Overide the description as string type in  DrupalTaxonomyTerm
-      description: FieldFormattedText
-    }
+    field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
   }
 }
 
-export type FieldHealthServicesArray = HealthService[]
+export type FieldHealthServicesArray = FieldHealthService[]

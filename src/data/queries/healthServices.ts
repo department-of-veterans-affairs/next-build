@@ -14,18 +14,15 @@ export const formatter: QueryFormatter<
 
     return {
       name: serviceEntity.name,
-      vetCenterTypeOfCare: serviceEntity.field_vet_center_type_of_care || null,
-      vetCenterFriendlyName:
-        serviceEntity.field_vet_center_friendly_name || null,
-      alsoKnownAs: serviceEntity.field_also_known_as || null,
-      vetCenterComConditions:
-        serviceEntity.field_vet_center_com_conditions || null,
-      commonlyTreatedCondition:
-        serviceEntity.field_commonly_treated_Condition || null,
+      vetCenterTypeOfCare: serviceEntity.field_vet_center_type_of_care,
+      vetCenterFriendlyName: serviceEntity.field_vet_center_friendly_name,
+      alsoKnownAs: serviceEntity.field_also_known_as,
+      vetCenterComConditions: serviceEntity.field_vet_center_com_conditions,
+      commonlyTreatedCondition: serviceEntity.field_commonly_treated_Condition,
       vetCenterServiceDescription:
-        serviceEntity.field_vet_center_service_descrip || null,
-      description: serviceEntity.description?.processed || null,
-      body: entity.entity.field_body?.processed || null,
+        serviceEntity.field_vet_center_service_descrip,
+      description: serviceEntity.description?.processed,
+      body: entity.entity.field_body?.processed,
     }
   })
 }

@@ -1,13 +1,13 @@
 export interface HealthService {
   name: string
-  vetCenterTypeOfCare: string | null
-  vetCenterFriendlyName: string | null
-  alsoKnownAs: string | null
-  vetCenterComConditions: string | null
-  commonlyTreatedCondition: string | null
-  vetCenterServiceDescription: string | null
-  description: string | null
-  body: string | null
+  vetCenterTypeOfCare?: string
+  vetCenterFriendlyName?: string
+  alsoKnownAs?: string
+  vetCenterComConditions?: string
+  commonlyTreatedCondition?: string
+  vetCenterServiceDescription?: string
+  description?: string
+  body?: string
 }
 
 export type HealthServices = HealthService[]
