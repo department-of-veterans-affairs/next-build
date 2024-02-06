@@ -1,6 +1,6 @@
 import React from 'react'
 import { HealthServices as FormattedHealthServices } from '@/types/formatted/healthServices'
-import { stringToId } from '@/lib/utils/stringToId'
+import { slugifyString } from '@/lib/utils/slug'
 
 interface ServicesListProps {
   services: FormattedHealthServices
@@ -15,7 +15,7 @@ function ServicesList({ services }: ServicesListProps) {
           <va-accordion-item
             key={index}
             class="va-accordion-item"
-            id={`item-${stringToId(service.name)}`}
+            id={`item-${slugifyString(service.name)}`}
             header={service.name}
             subheader={service.vetCenterFriendlyName}
             level="3"

@@ -8,9 +8,9 @@ export function pathToSlug(path: string): string[] {
   return path.split('/').filter((segment) => segment !== '')
 }
 
-export function slugifyTitle(title, truncateLength = 100) {
-  if (!title) return null
-  return title
+export function slugifyString(string, truncateLength = 100) {
+  if (!string) return null
+  return string
     .toString()
     .toLowerCase()
     .normalize('NFD') // normalize diacritics

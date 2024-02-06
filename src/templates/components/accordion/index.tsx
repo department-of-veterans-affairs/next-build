@@ -1,5 +1,5 @@
 import { Accordion as FormattedAccordion } from '@/types/formatted/accordion'
-import { stringToId } from '@/lib/utils/stringToId'
+import { slugifyString } from '@/lib/utils/slug'
 
 type AccordionProps = {
   id: string
@@ -14,10 +14,10 @@ export function Accordion({ id, bordered, items }: AccordionProps) {
       <va-accordion bordered={bordered} id={id}>
         {items.map((item) => (
           <va-accordion-item
-            key={`${id}-${stringToId(item.header)}`}
+            key={`${id}-${slugifyString(item.header)}`}
             header={item.header}
             class="va-accordion-item"
-            id={`${id}-${stringToId(item.header)}`}
+            id={`${id}-${slugifyString(item.header)}`}
           >
             {item.html && (
               <div dangerouslySetInnerHTML={{ __html: item.html }} />
