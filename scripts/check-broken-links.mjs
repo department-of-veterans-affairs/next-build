@@ -116,8 +116,9 @@ async function checkBrokenLinks() {
         }
         console.log(
           chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
-          chalk.yellow(`\n Actual batch #: ${index}.`)
         )
+        console.log(chalk.yellow(`\n Actual batch #: ${index}.`))
+
         counter++
         if (counter == 29) {
           showLogs = true
