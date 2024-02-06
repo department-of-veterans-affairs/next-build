@@ -26,7 +26,7 @@ export const CollapsiblePanelItem = ({
   return (
     <va-accordion-item
       key={entityId}
-      className="va-accordion-item"
+      class="va-accordion-item"
       id={`${slugifyTitle(title, 60)}-${id}`}
       {...accordionItemAttrs}
     >

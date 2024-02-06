@@ -16,7 +16,7 @@ export function Accordion({ id, bordered, items }: AccordionProps) {
           <va-accordion-item
             key={`${id}-${stringToId(item.header)}`}
             header={item.header}
-            className="va-accordion-item"
+            class="va-accordion-item"
             id={`${id}-${stringToId(item.header)}`}
           >
             {item.html && (

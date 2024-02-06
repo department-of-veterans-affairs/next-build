@@ -20,7 +20,7 @@ export function LovellSwitcher({
   return (
     <va-alert
       status="warning"
-      className="vads-u-margin-bottom--2"
+      class="vads-u-margin-bottom--2"
       id="va-info-alert"
     >
       <h2 slot="headline">
