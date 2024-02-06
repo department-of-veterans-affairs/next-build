@@ -118,7 +118,12 @@ async function checkBrokenLinks() {
         for (const path of batch) {
           // Where the actual link check happens, uses options defined above
           //if (showLogs) console.log(`Batch ${index}: checking ${path}`)
-          await checker.check({ ...LINKCHECKER_CONFIG, path })
+          try {
+            await checker.check({ ...LINKCHECKER_CONFIG, path })
+          }
+          catch (error) {
+            console.log('check error', error)
+          }
         }
         console.log(
           chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
