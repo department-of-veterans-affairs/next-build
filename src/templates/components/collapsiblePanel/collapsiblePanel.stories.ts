@@ -55,11 +55,11 @@ export const Bordered: Story = {
   },
 }
 
-export const MultiSelect: Story = {
+export const OpenSingle: Story = {
   args: {
     entityId: 3,
     paragraphs,
-    multiSelect: true,
+    multiSelect: false,
   },
 }
 

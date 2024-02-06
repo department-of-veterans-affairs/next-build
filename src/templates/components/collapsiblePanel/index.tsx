@@ -8,6 +8,7 @@ import { Paragraph } from '@/templates/components/paragraph'
 import { escape } from '@/lib/utils/helpers'
 import { slugifyTitle } from '@/lib/utils/slug'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { conditionalAttr } from '@/lib/utils/helpers'
 
 export const CollapsiblePanelItem = ({
   id,
@@ -18,17 +19,12 @@ export const CollapsiblePanelItem = ({
   expanded = false,
   paragraphs = [],
 }: ParagraphComponent<FormattedCollapsiblePanelItem>) => {
-  const accordionItemAttrs = {}
-  if (expanded) {
-    accordionItemAttrs['open'] = 'true'
-  }
-
   return (
     <va-accordion-item
       key={entityId}
       class="va-accordion-item"
       id={`${slugifyTitle(title, 60)}-${id}`}
-      {...accordionItemAttrs}
+      {...conditionalAttr(expanded, 'open', true)}
     >
       <HeadingElement headingLevel={headingLevel} slot="headline">
         {title}
@@ -63,14 +59,6 @@ export const CollapsiblePanel = ({
   multiSelect = true,
   headingLevel = 'h4',
 }: ParagraphComponent<FormattedCollapsiblePanel>) => {
-  const accordionAttrs = {}
-  if (bordered) {
-    accordionAttrs['bordered'] = ''
-  }
-  if (!multiSelect) {
-    accordionAttrs['open-single'] = ''
-  }
-
   return (
     <div
       id={id}
@@ -80,7 +68,10 @@ export const CollapsiblePanel = ({
       data-entity-id={entityId}
       data-multiselectable={multiSelect}
     >
-      <va-accordion {...accordionAttrs}>
+      <va-accordion
+        {...conditionalAttr(bordered, 'bordered')}
+        {...conditionalAttr(!multiSelect, 'open-single')}
+      >
         {paragraphs.map((collapsiblePanelItem, index) => {
           // These paragraphs will always be `paragraph--collapsible_panel_item
           return (
