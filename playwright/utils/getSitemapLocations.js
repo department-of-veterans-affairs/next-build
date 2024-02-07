@@ -45,7 +45,7 @@ async function getSitemapLocations(baseUrl) {
 // may want to parallelize checking that list (broken links, a11y, etc.)
 function splitPagesIntoSegments(pages, count) {
   const segmentSize = Math.ceil(pages.length / count)
-  return new Array(count).fill().map((_, index) => {
+  return new Array(Number(count)).fill().map((_, index) => {
     return pages.slice(index * segmentSize, (index + 1) * segmentSize)
   })
 }

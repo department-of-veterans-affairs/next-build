@@ -73,7 +73,6 @@ async function checkBrokenLinks() {
         // Prints . - or x for each link checked.
         process.stdout.write(LOGGER_MAP[result.state])
       }
-     // if (showLogs) console.log(`Received result for ${result.parent}`)
 
       linksChecked.push(result)
 
@@ -94,6 +93,7 @@ async function checkBrokenLinks() {
   const allPaths = (await getSitemapLocations(OPTIONS.sitemapUrl))
   const maxStart = allPaths.length - sliceSize
   const randStart = Math.floor(Math.random() * (maxStart))
+  // Temporary; just testing this specific slice since it produces failures reliably.
   const paths = allPaths.slice(17722, 18222) //allPaths.slice(randStart, randStart + sliceSize)
   console.log(randStart, randStart + sliceSize)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
@@ -110,25 +110,45 @@ async function checkBrokenLinks() {
   // A fake counter for the illusion of sequential completion.
   let counter = 1
   let showLogs = false
+  let batchesComplete = false
+
+  // Use this setTimeout loop to keep the event loop alive.
+  //
+  // During testing, we saw that the program would sometimes exit after the
+  // batch runs without executing the code below them. This a 'clean' exit,
+  // which for Node happens when the event loop empties out. T
+  function checkAndLoop() {
+    if (batchesComplete === true){
+      console.log('Batches complete, exiting the loop.')
+    } else {
+      console.log('Batches still running, keep the loop going.')
+      setTimeout(checkAndLoop, 5000) // this would be 5 seconds
+    }
+  }
+  checkAndLoop()
+
+
   // Request each batch at once. This takes a little bit of time depending on the size
   // of the sitemap. VA.gov builds a large one.
   try {
     await Promise.all(
       batches.map(async (batch, index) => {
+        let fakeIndex = 1
         for (const path of batch) {
           // Where the actual link check happens, uses options defined above
           //if (showLogs) console.log(`Batch ${index}: checking ${path}`)
           try {
+            console.log(`batch ${index}, path ${fakeIndex}: ${path}`)
             await checker.check({ ...LINKCHECKER_CONFIG, path })
           }
           catch (error) {
             console.log('check error', error)
           }
+          fakeIndex++
         }
         console.log(
           chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
         )
-        console.log(chalk.yellow(`\n Actual batch #: ${index}.`))
 
         counter++
         if (counter == 29) {
@@ -140,7 +160,7 @@ async function checkBrokenLinks() {
   catch (error) {
     console.log(`Checking failed: `, error)
   }
-
+  batchesComplete = true
   const end = Date.now()
 
   const time = new Date(end - start)
