@@ -89,12 +89,13 @@ async function checkBrokenLinks() {
   //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
   // Tiny array of paths for debugging this script.
 
-  const sliceSize = 500
+  const sliceSize = 3000
   const allPaths = (await getSitemapLocations(OPTIONS.sitemapUrl))
   const maxStart = allPaths.length - sliceSize
   const randStart = Math.floor(Math.random() * (maxStart))
   // Temporary; just testing this specific slice since it produces failures reliably.
-  const paths = allPaths.slice(17722, 18222) //allPaths.slice(randStart, randStart + sliceSize)
+  //const paths = allPaths.slice(17722, 18222)
+  const paths = allPaths.slice(randStart, randStart + sliceSize)
   console.log(randStart, randStart + sliceSize)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
 
