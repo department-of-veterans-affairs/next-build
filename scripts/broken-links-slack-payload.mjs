@@ -85,7 +85,7 @@ const createBrokenLinksSlackPayload = () => {
       // Truncating may break HTML structures or Markdown blocks.
       if (message.length > 2950) {
         message = `*Source ${sourceIndex +
-          1}: ${destination} *\nThere are too many broken links to display. Please correct the source page.`
+          1}: *\nThere are too many broken links to display. Please check the report for detail about this page.`
       }
       sourceIndex++
       linkBlocks.push({
