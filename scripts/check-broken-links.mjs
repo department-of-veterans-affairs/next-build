@@ -3,15 +3,23 @@ import { LinkChecker } from 'linkinator'
 import chalk from 'chalk'
 import {
   getSitemapLocations,
-  splitPagesIntoSegments,
+  splitPagesIntoBatches,
+  getPagesSlice,
 } from '../playwright/utils/getSitemapLocations.js'
 import fs from 'fs'
 
 const OPTIONS = {
   sitemapUrl: process.env.SITE_URL || 'http://www.va.gov/',
+  // totalInstances is the number of instances to split work among.
+  totalInstances: process.env.TOTAL_INSTANCES || 1,
+  // instanceNumber is the specifc instance currently running the check.
+  // In this and totalInstances case, the defaults will check the entire set.
+  instanceNumber: process.env.INSTANCE_NUMBER || 1,
+  // batchSize is the number of pararllel link check processes to run.
   batchSize: process.env.BATCH_SIZE || 32,
   verbose: process.env.VERBOSE || false,
   skipImageLinks: process.env.SKIP_IMAGES || false,
+
 }
 
 // Map of states and colors to use when logging link results.
@@ -86,19 +94,9 @@ async function checkBrokenLinks() {
     })
 
   // Full array of sitemap defined URLs.
-  //const paths = await getSitemapLocations(OPTIONS.sitemapUrl)
-  // Tiny array of paths for debugging this script.
-
-  const sliceSize = 3000
   const allPaths = (await getSitemapLocations(OPTIONS.sitemapUrl))
-  const maxStart = allPaths.length - sliceSize
-  const randStart = Math.floor(Math.random() * (maxStart))
-  // Temporary; just testing this specific slice since it produces failures reliably.
-  //const paths = allPaths.slice(17722, 18222)
-  const paths = allPaths.slice(randStart, randStart + sliceSize)
-  console.log(randStart, randStart + sliceSize)
+  const paths = getPagesSlice(allPaths, OPTIONS.totalInstances, OPTIONS.instanceNumber)
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
-
   const initialPathCount = paths.length
 
   // Wow! That's probably a lot of pages. Split it into batches for efficiency.
@@ -107,7 +105,7 @@ async function checkBrokenLinks() {
       OPTIONS.batchSize
     )} batches for processing.`
   )
-  const batches = splitPagesIntoSegments(paths, OPTIONS.batchSize)
+  const batches = splitPagesIntoBatches(paths, OPTIONS.batchSize)
   // A fake counter for the illusion of sequential completion.
   let counter = 1
   let showLogs = false
@@ -117,7 +115,10 @@ async function checkBrokenLinks() {
   //
   // During testing, we saw that the program would sometimes exit after the
   // batch runs without executing the code below them. This a 'clean' exit,
-  // which for Node happens when the event loop empties out. T
+  // which for Node happens when the event loop empties out.
+  //
+  // If we could figure out why the batch runs sometimes empty the event loop
+  // and thus trigger exit, this keep-alive loop wouldn't be necessary.
   function checkAndLoop() {
     if (batchesComplete === true){
       console.log('Batches complete, exiting the loop.')

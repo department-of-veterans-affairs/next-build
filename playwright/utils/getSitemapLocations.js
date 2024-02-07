@@ -1,3 +1,4 @@
+const { request } = require('http')
 const { getFetcher } = require('proxy-fetcher')
 
 // Given an .xml file, extracts every string inside a <loc> element.
@@ -43,11 +44,23 @@ async function getSitemapLocations(baseUrl) {
 
 // VA.gov sitemaps have a lot of urls in them. Helper function for things that
 // may want to parallelize checking that list (broken links, a11y, etc.)
-function splitPagesIntoSegments(pages, count) {
-  const segmentSize = Math.ceil(pages.length / count)
-  return new Array(Number(count)).fill().map((_, index) => {
-    return pages.slice(index * segmentSize, (index + 1) * segmentSize)
+function splitPagesIntoBatches(pages, batchCount) {
+  const batchSize = Math.ceil(pages.length / batchCount)
+  return new Array(Number(batchCount)).fill().map((_, index) => {
+    return pages.slice(index * batchSize, (index + 1) * batchSize)
   })
 }
 
-module.exports = { getSitemapLocations, splitPagesIntoSegments }
+// Based on a number of instances (i.e. 16) and a specific instance (i.e. 7),
+// divide pages into equal slices based on number of instances and return the
+// correct slice for the specific instance.
+// Number sequences are 1-based.
+function getPagesSlice(pages, totalSlices, requestedSlice) {
+  const sliceSize = Math.ceil(pages.length / totalSlices)
+  return pages.slice(
+    (requestedSlice - 1) * sliceSize,
+    requestedSlice * sliceSize
+  )
+}
+
+module.exports = { getSitemapLocations, splitPagesIntoBatches, getPagesSlice }
