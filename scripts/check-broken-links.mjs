@@ -123,7 +123,7 @@ async function checkBrokenLinks() {
       console.log('Batches complete, exiting the loop.')
     } else {
       console.log('Batches still running, keep the loop going.')
-      setTimeout(checkAndLoop, 5000) // this would be 5 seconds
+      setTimeout(checkAndLoop, 5000)
     }
   }
   checkAndLoop()
@@ -133,19 +133,16 @@ async function checkBrokenLinks() {
   // of the sitemap. VA.gov builds a large one.
   try {
     await Promise.all(
-      batches.map(async (batch, index) => {
-        let fakeIndex = 1
+      batches.map(async (batch) => {
         for (const path of batch) {
           // Where the actual link check happens, uses options defined above
           //if (showLogs) console.log(`Batch ${index}: checking ${path}`)
           try {
-            console.log(`batch ${index}, path ${fakeIndex}: ${path}`)
             await checker.check({ ...LINKCHECKER_CONFIG, path })
           }
           catch (error) {
-            console.log('check error', error)
+            console.log('check error: ', error)
           }
-          fakeIndex++
         }
         console.log(
           chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
