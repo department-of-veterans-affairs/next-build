@@ -93,9 +93,6 @@ async function checkBrokenLinks() {
         brokenLinks.push(result)
       }
     })
-    .on('retry', (retryDetails) => {
-      console.log(retryDetails)
-    })
 
   // Full array of sitemap defined URLs.
   const allPaths = (await getSitemapLocations(OPTIONS.sitemapUrl))
@@ -123,11 +120,11 @@ async function checkBrokenLinks() {
   //
   // If we could figure out why the batch runs sometimes empty the event loop
   // and thus trigger exit, this keep-alive loop wouldn't be necessary.
+  // @TODO this probably needs a second time-based condition.
   function checkAndLoop() {
     if (batchesComplete === true){
       console.log('Batches complete, exiting the loop.')
     } else {
-      console.log('Batches still running, keep the loop going.')
       setTimeout(checkAndLoop, 5000)
     }
   }
