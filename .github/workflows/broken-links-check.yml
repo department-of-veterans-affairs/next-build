@@ -17,13 +17,6 @@ jobs:
   broken-links-check:
     name: Broken link check
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: write
-    outputs:
-      SLACK_PAYLOAD: ${{ steps.export-slack-payload.outputs.SLACK_PAYLOAD }}
-      REPORT_FILE: ${{ steps.rename-report-file.outputs.REPORT_FILE }}
-      MARKDOWN_FILE: ${{ steps.rename-markdown-file.outputs.MARKDOWN_FILE }}
     strategy:
       fail-fast: false
       max-parallel: 32
@@ -31,7 +24,6 @@ jobs:
         # Strictly speaking total_instances doesn't need to be part of the
         # matrix; but it's convenient.
         instance_number: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
-
 
     steps:
       - uses: actions/checkout@v4
@@ -60,26 +52,35 @@ jobs:
         id: rename-report-file
         run: |
           mv broken-links-report.json "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
-          echo REPORT_FILE=broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json >> $GITHUB_OUTPUT
-
 
       - id: upload-report-json
         uses: actions/upload-artifact@v4
         with:
-          name: "broken-links-report-run-${{github.run_id}}.json"
+          name: "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
           path: broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json
+          retention-days: 1
 
-      - name: Rename broken link markdown
-        id: rename-markdown-file
-        run: |
-          mv broken-links-report.md "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.md"
-          echo MARKDOWN_FILE=broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.md >> $GITHUB_OUTPUT
-
-      - id: upload-report-markdown
-        uses: actions/upload-artifact@v4
+  create-combined-reports:
+    name: Create combined reports
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          name: "broken-links-report-run-${{github.run_id}}.md"
-          path: broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.md
+          node-version-file: .nvmrc
+
+      - name: Install Npm Dependencies
+        run: |
+          yarn set version 3.6.1
+          HUSKY=0 yarn install --immutable
+
+      - name: Download link reports
+        uses: actions/download-artifact@v4
+
+      - name: List files
+        run: ls -al
+
+
 
       # - name: Prepare Slack payload
       #   run: |
