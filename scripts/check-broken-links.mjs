@@ -19,8 +19,24 @@ const OPTIONS = {
   batchSize: process.env.BATCH_SIZE || 20,
   verbose: process.env.VERBOSE || false,
   skipImageLinks: process.env.SKIP_IMAGES || false,
-
 }
+
+// List of patterns to skip checking. Most of these are to avoid false positives
+// from servers that disallow bot traffic like ours.
+// These can be regular expressions.
+const LINKS_TO_SKIP = [
+    'www\.googletagmanager\.com',
+    'dap\.digitalgov\.gov\/Universal-Federated-Analytics-Min\.js',
+    'resource\.digital\.voice\.va\.gov',
+    'www\.choicehotels\.com',
+    'microsoft\.com',
+    'redroof\.com',
+    'motel6\.com',
+    'vetcenter\.va\.gov',
+    'visn\d+\.va\.gov',
+
+    // process.env.SKIP_IMAGES ? '' : null
+  ]
 
 // Map of states and colors to use when logging link results.
 const LOGGER_MAP = {
@@ -33,16 +49,7 @@ const LOGGER_MAP = {
 // See: https://github.com/JustinBeckwith/linkinator?tab=readme-ov-file#linkinatorcheckoptions
 const LINKCHECKER_CONFIG = {
   // Links in this array will not be checked. Will report as SKIPPED.
-  linksToSkip: [
-    'https://www.googletagmanager.com/',
-    'https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
-    'https://resource.digital.voice.va.gov/wdcvoice/2/onsite/embed.js',
-    'www.choicehotels.com',
-    'microsoft.com',
-    'redroof.com',
-    'motel6.com',
-    // process.env.SKIP_IMAGES ? '' : null
-  ],
+  linksToSkip: LINKS_TO_SKIP,
   timeout: 10000, // Fail a link if it doesn't resolve, otherwise linkinator will hang until it resolves.
   urlRewriteExpressions: [
     // { pattern: '', replacement: '' }
