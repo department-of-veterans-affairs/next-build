@@ -37,6 +37,10 @@ const LINKCHECKER_CONFIG = {
     'https://www.googletagmanager.com/',
     'https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
     'https://resource.digital.voice.va.gov/wdcvoice/2/onsite/embed.js',
+    'www.choicehotels.com',
+    'microsoft.com',
+    'redroof.com',
+    'motel6.com',
     // process.env.SKIP_IMAGES ? '' : null
   ],
   timeout: 10000, // Fail a link if it doesn't resolve, otherwise linkinator will hang until it resolves.
