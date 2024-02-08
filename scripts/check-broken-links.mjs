@@ -93,6 +93,9 @@ async function checkBrokenLinks() {
         brokenLinks.push(result)
       }
     })
+    .on('retry', (retryDetails) => {
+      console.log(`Retrying ${retryDetails.url}, status: ${retryDetails.status}`)
+    })
 
   // Full array of sitemap defined URLs.
   const allPaths = (await getSitemapLocations(OPTIONS.sitemapUrl))

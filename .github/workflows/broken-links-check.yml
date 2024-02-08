@@ -75,6 +75,7 @@ jobs:
           yarn set version 3.6.1
           HUSKY=0 yarn install --immutable
 
+      # This grabs all currently created artifacts i.e. individual json reports.
       - name: Download link reports
         uses: actions/download-artifact@v4
 

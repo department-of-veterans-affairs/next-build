@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import fs from 'fs'
+import chalk from 'chalk'
 
 const createCombinedReports = () => {
   // List any report files.
@@ -95,3 +96,5 @@ const createCombinedReports = () => {
     )}`
   )
 }
+
+createCombinedReports()
