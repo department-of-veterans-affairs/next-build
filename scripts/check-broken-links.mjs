@@ -159,6 +159,7 @@ async function checkBrokenLinks() {
         console.log(
           chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
         )
+        counter++
       })
     )
   }
