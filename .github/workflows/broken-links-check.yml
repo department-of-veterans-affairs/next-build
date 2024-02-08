@@ -44,9 +44,6 @@ jobs:
         run: |
           yarn certs
 
-      - name: quick check
-        run: ls -al
-
       - name: Run broken link check
         run: |
           TOTAL_INSTANCES=${{ env.TOTAL_INSTANCES }} INSTANCE_NUMBER=${{ matrix.instance_number }} APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node --max-old-space-size=4000 scripts/check-broken-links.mjs
@@ -81,6 +78,8 @@ jobs:
       # This grabs all currently created artifacts i.e. individual json reports.
       - name: Download link reports
         uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
 
       - name: Create reports
         run: |
