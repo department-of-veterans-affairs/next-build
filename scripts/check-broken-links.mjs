@@ -140,7 +140,6 @@ async function checkBrokenLinks() {
     await Promise.all(
       batches.map(async (batch) => {
         // truncate the batch for testing purposes
-        const newBatch = batch.slice(0,10)
         for (const path of newBatch) {
           // Where the actual link check happens, uses options defined above
           //if (showLogs) console.log(`Batch ${index}: checking ${path}`)
