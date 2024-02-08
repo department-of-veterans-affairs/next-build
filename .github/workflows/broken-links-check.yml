@@ -66,7 +66,7 @@ jobs:
       - id: upload-report-json
         uses: actions/upload-artifact@v4
         with:
-          name: "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
+          name: "broken-links-report-run-${{github.run_id}}.json"
           path: broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json
 
       - name: Rename broken link markdown
@@ -78,7 +78,7 @@ jobs:
       - id: upload-report-markdown
         uses: actions/upload-artifact@v4
         with:
-          name: "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.md"
+          name: "broken-links-report-run-${{github.run_id}}.md"
           path: broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.md
 
       # - name: Prepare Slack payload
