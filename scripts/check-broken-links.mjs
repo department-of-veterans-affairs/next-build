@@ -16,7 +16,7 @@ const OPTIONS = {
   // In this and totalInstances case, the defaults will check the entire set.
   instanceNumber: process.env.INSTANCE_NUMBER || 1,
   // batchSize is the number of pararllel link check processes to run.
-  batchSize: process.env.BATCH_SIZE || 32,
+  batchSize: process.env.BATCH_SIZE || 20,
   verbose: process.env.VERBOSE || false,
   skipImageLinks: process.env.SKIP_IMAGES || false,
 
@@ -94,7 +94,7 @@ async function checkBrokenLinks() {
       }
     })
     .on('retry', (retryDetails) => {
-      console.log(`Retrying ${retryDetails.url}, status: ${retryDetails.status}`)
+      console.log(`Retrying ${retryDetails.url} ; status: ${retryDetails.status}`)
     })
 
   // Full array of sitemap defined URLs.
@@ -112,8 +112,7 @@ async function checkBrokenLinks() {
   const batches = splitPagesIntoBatches(paths, OPTIONS.batchSize)
   // A fake counter for the illusion of sequential completion.
   let counter = 1
-  let showLogs = false
-  let batchesComplete = false
+ let batchesComplete = false
 
   // Use this setTimeout loop to keep the event loop alive.
   //
@@ -153,11 +152,6 @@ async function checkBrokenLinks() {
         console.log(
           chalk.yellow(`\n Batch #${counter} of ${OPTIONS.batchSize} complete.`)
         )
-
-        counter++
-        if (counter == 29) {
-          showLogs = true
-        }
       })
     )
   }
