@@ -91,7 +91,7 @@ jobs:
           mv broken-links-report-combined.json "broken-links-report-combined-run-${{github.run_id}}.json"
           mv broken-links-report.md "broken-links-report-run-${{github.run_id}}.md"
           mv broken-links-report.csv "broken-links-report-run-${{github.run_id}}.csv"
-          echo REPORT_JSON=broken-links-report-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
+          echo REPORT_JSON=broken-links-report-combined-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
 
       - id: upload-report-json
         uses: actions/upload-artifact@v4

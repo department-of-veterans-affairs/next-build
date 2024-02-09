@@ -34,7 +34,17 @@ const LINKS_TO_SKIP = [
     'motel6.com',
     'vetcenter.va.gov',
     /visn\d+.*?\.va\.gov/,
-
+    'instagram.com',
+    'caregiver.va.gov',
+    'desertpacific.va.gov',
+    'ptsd.va.gov',
+    'exclusions.oig.hhs.gov',
+    'patientportal.myhealth.va.gov',
+    'prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com',
+    's3-us-gov-west-1.amazonaws.com/content.www.va.gov',
+    'va-ams.intelliworxit.com',
+    'epilepsy.va.gov',
+    'sciencedirect.com',
     // process.env.SKIP_IMAGES ? '' : null
   ]
 
