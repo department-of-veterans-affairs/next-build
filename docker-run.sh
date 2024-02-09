@@ -5,4 +5,4 @@ APP_ENV=$APP_ENV yarn build:preview && yarn start \
     --NEXT_PUBLIC_DRUPAL_BASE_URL $NEXT_PUBLIC_DRUPAL_BASE_URL \
     --NEXT_IMAGE_DOMAIN $NEXT_IMAGE_DOMAIN \
     --REDIS_URL $REDIS_URL \
-    --NEXT_PUBLIC_ASSETS_URL=./public/generated/
+    --NEXT_PUBLIC_ASSETS_URL=/generated/
