@@ -6,8 +6,7 @@ import { program } from 'commander'
 const DEFAULT_INPUT_FILE = 'broken-links-report.json'
 const DEFAULT_OUTPUT_FILE = 'broken-links-slack-payload.json'
 const GROUP_TO_NOTIFY = 'subteam^S010U41C30V|cms-helpdesk' // '<!subteam^S010U41C30V|cms-helpdesk>'
-const SERVER_URL = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
-const { GITHUB_WORKFLOW } = process.env
+const RUN_URL = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
 
 // Gather any command line options or provide defaults
 program
@@ -49,7 +48,13 @@ const createBrokenLinksSlackPayload = () => {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `${icon} *${GROUP_TO_NOTIFY} ${brokenLinks.metrics.brokenLinkCount} broken links found on ${brokenLinks.metrics.pagesScanned} pages during ${GITHUB_WORKFLOW}*\n\nWorkflow run: <${SERVER_URL}>\nMarkdown report: ${options.markdownUrl}\nCSV report: ${options.csvUrl}\n`,
+        text: `
+          ${icon} *Broken link check* (Workflow run: <${RUN_URL}>)\n
+          *Pages scanned:* ${brokenLinks.metrics.pagesScanned}\n
+          *Broken links:* *${brokenLinks.metrics.brokenLinkCount}* out of ${brokenLinks.metrics.linksChecked} checked\n\n
+          *Markdown report:* ${options.markdownUrl}\n
+          *CSV report:* ${options.csvUrl}\n\n
+          cc: ${GROUP_TO_NOTIFY}`,
       },
     })
 
@@ -59,8 +64,6 @@ const createBrokenLinksSlackPayload = () => {
         console.error(err)
       }
     })
-
-
   }
 }
 
