@@ -13,6 +13,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
+        with:
+          path: next-build
+
+      - uses: actions/checkout@v3
+        with:
+          repository: department-of-veterans-affairs/vets-website
+          path: vets-website
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -32,6 +39,5 @@ jobs:
           ECR_REPOSITORY: "dsva/next-build-node"
           IMAGE_TAG: ${{ inputs.image_tag }}
         run: |
-          BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f docker/Dockerfile
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f next-build/docker/Dockerfile
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
