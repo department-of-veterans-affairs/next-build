@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils'
-import { FacilityBanner } from '@/templates/globals/banners/facilityBanner'
+import { FacilityBanner } from '@/templates/common/banners/facilityBanner'
 import { FacilityBanner as FormattedFacilityBanner } from '@/types/formatted/banners'
 
 const bannerData: FormattedFacilityBanner = {

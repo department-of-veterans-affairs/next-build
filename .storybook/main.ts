@@ -6,20 +6,16 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
 
   // Optional
-  staticDirs: ['../public'],
+  staticDirs: ['../public'], // include vets-website assets
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-a11y',
   ],
   docs: {
     autodocs: true,
   },
-
-  // previewBody: (body) => `
-  //   ${body}
-  //   <script src="/generated/static-pages.entry.js"></script>
-  // `,
 }
 
 export default config
