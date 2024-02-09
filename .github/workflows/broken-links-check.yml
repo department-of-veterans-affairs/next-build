@@ -64,6 +64,8 @@ jobs:
     name: Prepare reports
     needs: broken-links-check
     runs-on: ubuntu-latest
+    outputs:
+      SLACK_PAYLOAD: ${{ steps.export-slack-payload.outputs.SLACK_PAYLOAD }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -137,7 +139,7 @@ jobs:
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: ${{ needs.broken-links-check.outputs.SLACK_PAYLOAD }}
+          payload: ${{ needs.prepare-reports.outputs.SLACK_PAYLOAD }}
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
