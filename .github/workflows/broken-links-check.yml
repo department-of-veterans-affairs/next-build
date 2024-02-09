@@ -90,6 +90,8 @@ jobs:
         run: |
           mv broken-links-report-combined.json "broken-links-report-combined-run-${{github.run_id}}.json"
           mv broken-links-report.md "broken-links-report-run-${{github.run_id}}.md"
+          mv broken-links-report.csv "broken-links-report-run-${{github.run_id}}.csv"
+          echo REPORT_JSON=broken-links-report-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
 
       - id: upload-report-json
         uses: actions/upload-artifact@v4
@@ -105,16 +107,20 @@ jobs:
           path: broken-links-report-run-${{github.run_id}}.md
           retention-days: 30
 
+      - id: upload-report-csv
+        uses: actions/upload-artifact@v4
+        with:
+          name: "broken-links-report-run-${{github.run_id}}.csv"
+          path: broken-links-report-run-${{github.run_id}}.csv
+          retention-days: 30
 
+      - name: Prepare Slack payload
+        run: |
+          node scripts/broken-links-slack-payload.mjs -m ${{ steps.upload-report-markdown.outputs.artifact-url }} -i ${{ steps.rename-report-files.outputs.REPORT_JSON}} -c ${{ steps.upload-report-csv.outputs.artifact-url }}
 
-
-      # - name: Prepare Slack payload
-      #   run: |
-      #     node scripts/broken-links-slack-payload.mjs -m ${{ steps.upload-report-markdown.outputs.artifact-url }} -i ${{ steps.rename-report-file.outputs.REPORT_FILE}}
-
-      # - name: Export Slack payload
-      #   id: export-slack-payload
-      #   run: echo SLACK_PAYLOAD=$(cat broken-links-slack-payload.json) >> $GITHUB_OUTPUT
+      - name: Export Slack payload
+        id: export-slack-payload
+        run: echo SLACK_PAYLOAD=$(cat broken-links-slack-payload.json) >> $GITHUB_OUTPUT
 
 
 
