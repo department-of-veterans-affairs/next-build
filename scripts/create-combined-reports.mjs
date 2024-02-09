@@ -97,12 +97,12 @@ const createCombinedReports = () => {
   )
 
   // Generate a CSV report
-  let csvReport = `Parent Link, Child Link\n`
+  let csvReport = `Parent Link, Child Link, Error Code\n`
   for (const parent of Object.keys(combinedJson.brokenLinksByParent)) {
     const sanitizedParent = parent.replace(/,/g, '\\,')
     for (const child of combinedJson.brokenLinksByParent[parent]) {
-      const sanitizedChild = child.replace(/,/g, '\\,')
-      csvReport += `${sanitizedParent},${sanitizedChild}\n`
+      const sanitizedChildUrl = child.url.replace(/,/g, '\\,')
+      csvReport += `${sanitizedParent},${sanitizedChildUrl},${child.status}\n`
     }
   }
 
