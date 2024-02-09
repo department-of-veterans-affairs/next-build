@@ -45,6 +45,15 @@ const LINKS_TO_SKIP = [
     'va-ams.intelliworxit.com',
     'epilepsy.va.gov',
     'sciencedirect.com',
+    'twitter.com',
+    'volunteer.va.gov',
+    'womenshealth.va.gov',
+    'oefoif.va.gov',
+    'sci.va.gov',
+    'southeast.va.gov',
+    'va.gov/Geriatrics',
+    'va.gov/wholehealth',
+    'warrelatedillness.va.gov',
     // process.env.SKIP_IMAGES ? '' : null
   ]
 

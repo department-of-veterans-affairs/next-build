@@ -26,8 +26,8 @@ jobs:
         instance_number: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
         with:
           node-version-file: .nvmrc
 
@@ -54,7 +54,7 @@ jobs:
           mv broken-links-report.json "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
 
       - id: upload-report-json
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
           path: broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json
@@ -67,8 +67,8 @@ jobs:
     outputs:
       SLACK_PAYLOAD: ${{ steps.export-slack-payload.outputs.SLACK_PAYLOAD }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
         with:
           node-version-file: .nvmrc
 
@@ -79,7 +79,7 @@ jobs:
 
       # This grabs all currently created artifacts i.e. individual json reports.
       - name: Download link reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@eaceaf801fd36c7dee90939fad912460b18a1ffe
         with:
           merge-multiple: true
 
@@ -96,21 +96,21 @@ jobs:
           echo REPORT_JSON=broken-links-report-combined-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
 
       - id: upload-report-json
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: "broken-links-report-combined-run-${{github.run_id}}.json"
           path: broken-links-report-combined-run-${{github.run_id}}.json
           retention-days: 30
 
       - id: upload-report-markdown
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: "broken-links-report-run-${{github.run_id}}.md"
           path: broken-links-report-run-${{github.run_id}}.md
           retention-days: 30
 
       - id: upload-report-csv
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: "broken-links-report-run-${{github.run_id}}.csv"
           path: broken-links-report-run-${{github.run_id}}.csv
