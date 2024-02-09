@@ -23,17 +23,17 @@ const OPTIONS = {
 
 // List of patterns to skip checking. Most of these are to avoid false positives
 // from servers that disallow bot traffic like ours.
-// These can be regular expressions.
+// These can be regular expressions; no quotes around them in that case.
 const LINKS_TO_SKIP = [
-    'www\.googletagmanager\.com',
-    'dap\.digitalgov\.gov\/Universal-Federated-Analytics-Min\.js',
-    'resource\.digital\.voice\.va\.gov',
-    'www\.choicehotels\.com',
-    'microsoft\.com',
-    'redroof\.com',
-    'motel6\.com',
-    'vetcenter\.va\.gov',
-    'visn\d+\.va\.gov',
+    'www.googletagmanager.com',
+    'dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
+    'resource.digital.voice.va.gov',
+    'www.choicehotels.com',
+    'microsoft.com',
+    'redroof.com',
+    'motel6.com',
+    'vetcenter.va.gov',
+    /visn\d+.*?\.va\.gov/,
 
     // process.env.SKIP_IMAGES ? '' : null
   ]
