@@ -1,4 +1,4 @@
-name: Create and Commit Next-BUild Docker Image
+name: Update infrastructure manifest
 
 on:
   workflow_dispatch:
