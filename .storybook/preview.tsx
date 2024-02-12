@@ -8,6 +8,13 @@ const preview: Preview = {
   decorators: [
     (Story) => <WebComponentProvider>{Story()}</WebComponentProvider>,
   ],
+  parameters: {
+    options: {
+      storySort: {
+        order: ['Common', 'Components', 'Paragraphs', 'Layouts'],
+      },
+    },
+  },
 }
 
 export default preview

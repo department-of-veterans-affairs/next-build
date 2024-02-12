@@ -1,0 +1,313 @@
+{
+  "type": "node--vet_center_facility_health_servi",
+  "id": "e03928d8-ec40-4f0d-b53a-515d4625aa2c",
+  "drupal_internal__nid": 34316,
+  "drupal_internal__vid": 518499,
+  "langcode": "en",
+  "revision_timestamp": "2021-08-24T20:51:58+00:00",
+  "status": false,
+  "title": "Nashville Vet Center - Military sexual trauma care",
+  "created": "2021-08-24T20:40:07+00:00",
+  "changed": "2021-08-24T20:54:35+00:00",
+  "promote": true,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/nashville-vet-center",
+      "title": "Nashville Vet Center",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/nashville-vet-center/service/nashville-vet-center-military-sexual-trauma-care",
+      "title": "Nashville Vet Center - Military sexual trauma care",
+      "options": []
+    }
+  ],
+  "moderation_state": "draft",
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "Nashville Vet Center - Military sexual trauma care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "image_src",
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "Nashville Vet Center - Military sexual trauma care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "Nashville Vet Center - Military sexual trauma care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/nashville-vet-center/service/nashville-vet-center-military-sexual-trauma-care",
+    "pid": 40773,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_body": {
+    "value": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>\r\n",
+    "format": "rich_text_limited",
+    "processed": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>\n"
+  },
+  "field_enforce_unique_combo": false,
+  "field_last_saved_by_an_editor": null,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vet_center_facility_health_servi/e03928d8-ec40-4f0d-b53a-515d4625aa2c?resourceVersion=id%3A518499"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "c04196ba-18ef-4627-b057-966bda224bb1",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vet_center_facility_health_servi"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "612f6a71-2e48-4d71-884b-58ec5b533e6d",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 2019
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "612f6a71-2e48-4d71-884b-58ec5b533e6d",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 2019
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "27a3b37c-2a81-4736-8027-5488611fbbd4",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 396
+    }
+  },
+  "field_office": {
+    "type": "node--vet_center",
+    "id": "e16bc5b7-dd30-481a-8dfd-0ff288e64024",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3877
+    }
+  },
+  "field_service_name_and_descripti": {
+    "type": "taxonomy_term--health_care_service_taxonomy",
+    "id": "cbf56f2b-8941-4925-960b-875ec1c2f89e",
+    "drupal_internal__tid": 116,
+    "drupal_internal__revision_id": 1272,
+    "langcode": "en",
+    "revision_created": "2022-11-04T19:41:27+00:00",
+    "status": true,
+    "name": "Military sexual trauma care",
+    "description": {
+      "value": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.\r\n",
+      "format": "rich_text",
+      "processed": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment."
+    },
+    "weight": 0,
+    "changed": "2022-11-04T20:00:51+00:00",
+    "default_langcode": true,
+    "revision_translation_affected": null,
+    "moderation_state": "published",
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Military sexual trauma care | VA.gov CMS"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment."
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care/military-sexual-trauma-care"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/health-care/military-sexual-trauma-care",
+      "pid": 624,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_created": null,
+    "field_facility_service_header": null,
+    "field_health_service_api_id": "militarySexualTrauma",
+    "field_online_self_service": null,
+    "field_regional_service_descripti": null,
+    "field_regional_service_header": null,
+    "field_service_type_of_care": "Mental health care",
+    "field_show_for_vamc_facilities": true,
+    "field_show_for_vba_facilities": null,
+    "field_show_for_vet_centers": true,
+    "field_tricare_description": null,
+    "field_tricare_specific_service": null,
+    "field_vba_com_conditions": null,
+    "field_vba_friendly_name": null,
+    "field_vba_service_descrip": null,
+    "field_vba_type_of_care": null,
+    "field_vet_center_com_conditions": null,
+    "field_vet_center_friendly_name": null,
+    "field_vet_center_required_servic": true,
+    "field_vet_center_service_descrip": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+    "field_vet_center_type_of_care": "counseling",
+    "field_vha_healthservice_stopcode": null,
+    "field_also_known_as": null,
+    "field_commonly_treated_condition": null,
+    "field_enforce_unique_combo_servi": null,
+    "field_facility_service_descripti": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/health_care_service_taxonomy/cbf56f2b-8941-4925-960b-875ec1c2f89e?resourceVersion=id%3A1272"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 116
+    },
+    "vid": {
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+      "id": "1ae4c52e-f750-44eb-9e53-e10234617743",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "health_care_service_taxonomy"
+      }
+    },
+    "revision_user": {
+      "type": "user--user",
+      "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 0
+      }
+    },
+    "parent": [
+      {
+        "type": "taxonomy_term--health_care_service_taxonomy",
+        "id": "virtual",
+        "resourceIdObjMeta": {
+          "links": {
+            "help": {
+              "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+              "meta": {
+                "about": "Usage and meaning of the 'virtual' resource identifier."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "content_translation_uid": null,
+    "field_owner": {
+      "type": "taxonomy_term--administration",
+      "id": "missing",
+      "resourceIdObjMeta": {
+        "links": {
+          "help": {
+            "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+            "meta": {
+              "about": "Usage and meaning of the 'missing' resource identifier."
+            }
+          }
+        }
+      }
+    },
+    "field_vba_service_regions": [],
+    "relationshipNames": [
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_owner",
+      "field_vba_service_regions"
+    ]
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_office",
+    "field_service_name_and_descripti"
+  ]
+}

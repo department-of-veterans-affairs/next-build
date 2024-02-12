@@ -12,11 +12,13 @@ exports[`paragraph--wysiwyg formatData outputs formatted data 1`] = `
 <p>Read the full eligibility requirements for presumptive diseases and presumption of contact below.</p>
 ",
     "id": "c4d10aa1-3bb9-4f39-99fd-f110b465603f",
+    "type": "paragraph--rich_text_char_limit_1000",
   },
   {
     "html": "<p>We believe Agent Orange can cause certain illnesses, including some types of cancer. We call these presumptive diseases. If you have one of these illnesses, you won’t need to show that the illness started during—or got worse because of—your military service. </p>
 ",
     "id": "78f74d21-4120-45be-9f07-73e03e6b8f54",
+    "type": "paragraph--rich_text_char_limit_1000",
   },
 ]
 `;

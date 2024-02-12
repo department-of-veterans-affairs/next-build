@@ -16,6 +16,9 @@ export const formatter: QueryFormatter<
   const filteredData = filters.reduce((d, f) => d.filter(f), data)
 
   return {
+    type: entity.type as
+      | 'paragraph--wysiwyg'
+      | 'paragraph--rich_text_char_limit_1000',
     id: entity.id,
     html: filteredData[0],
   }

@@ -1,0 +1,37 @@
+{
+  "type": "paragraph--basic_accordion",
+  "id": "ca7c4618-6701-4f84-a636-8209c05c9eca",
+  "drupal_internal__id": 38313,
+  "drupal_internal__revision_id": 284296,
+  "langcode": "en",
+  "status": true,
+  "created": "2021-04-28T01:16:36+00:00",
+  "parent_id": "16142",
+  "parent_type": "node",
+  "parent_field_name": "field_content_block",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_header": "What are Vet Centers?",
+  "field_rich_wysiwyg": {
+    "value": "<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They're staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>\r\n\r\n<p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>\r\n",
+    "format": "rich_text_limited",
+    "processed": "<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They're staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>\n<p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>\n"
+  },
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/basic_accordion/ca7c4618-6701-4f84-a636-8209c05c9eca?resourceVersion=id%3A284296"
+    }
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "basic_accordion"
+    }
+  },
+  "relationshipNames": ["paragraph_type"]
+}

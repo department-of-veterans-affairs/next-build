@@ -9,3 +9,11 @@ export const RESOURCE_TYPES = {
 } as const
 
 export type ResourceType = (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
+
+export const PARAGRAPH_RESOURCE_TYPES = {
+  COLLAPSIBLE_PANEL: 'paragraph--collapsible_panel',
+  COLLAPSIBLE_PANEL_ITEM: 'paragraph--collapsible_panel_item',
+  TABLE: 'paragraph--table',
+  WYSIWYG: 'paragraph--wysiwyg',
+  RICH_TEXT_CHAR_LIMIT_1000: 'paragraph--rich_text_char_limit_1000',
+} as const

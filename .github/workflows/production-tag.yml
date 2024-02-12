@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Cancel workflow due to DSVA schedule, unless this is a manual build
         if: ${{ github.event_name != 'workflow_dispatch' && env.DSVA_SCHEDULE_ENABLED != 'true' }}
-        uses: andymckay/cancel-action@b9280e3f8986d7a8e91c7462efc0fa318010c8b1 # v0.3
+        uses: andymckay/cancel-action@271cfbfa11ca9222f7be99a47e8f929574549e0a # v0.4
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@010d0da01d0b5a38af31e9c3470dbfdabdecca3a # v4.0.1
@@ -68,7 +68,7 @@ jobs:
           echo "NEW_TAG=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | sed -E "s/\.[0-9]+/.$next_increment/2")" >> $GITHUB_ENV
 
       - name: Create next tag
-        uses: nick-invision/retry@14672906e672a08bd6eeb15720e9ed3ce869cdd4 # v2.9.0
+        uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e # v3.0.0
         with:
           timeout_seconds: 30
           max_attempts: 3
@@ -77,7 +77,7 @@ jobs:
 
 
       - name: Create release
-        uses: ncipollo/release-action@6c75be85e571768fa31b40abf38de58ba0397db5 # v1.13.0
+        uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5 # v1.14.0
         with:
           tag: ${{ env.NEW_TAG }}
           name: next-build/${{ env.new_NEW_TAG }}
