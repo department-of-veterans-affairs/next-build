@@ -43,5 +43,5 @@ jobs:
           ECR_REPOSITORY: "dsva/next-build-node"
           IMAGE_TAG: ${{ inputs.image_tag }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f next-build/docker/Dockerfile
+          docker build . -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f next-build/docker/Dockerfile
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
