@@ -1,3 +1,5 @@
+import { TaxonomyTermHealthCareServiceTaxonomy } from './taxonomy_term'
+
 export interface FieldAddress {
   langcode: string
   country_code: string
@@ -102,3 +104,16 @@ export interface BreadCrumbLink {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options?: any[]
 }
+
+/**
+ * Types for services and health services
+ */
+
+export interface FieldHealthService {
+  entity: {
+    field_body: FieldFormattedText | null
+    field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
+  }
+}
+
+export type FieldHealthServicesArray = FieldHealthService[]

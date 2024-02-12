@@ -1,6 +1,6 @@
 import React from 'react'
 import { parseDate, getDateParts } from '@/lib/utils/date'
-import { MedalliaAssets } from '@/templates/globals/medallia'
+import { MedalliaAssets } from '@/templates/common/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 

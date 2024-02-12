@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { QuestionAnswer } from './index'
 
 const meta: Meta<typeof QuestionAnswer> = {
-  title: 'Node/Question Answer',
+  title: 'Layouts/Question Answer',
   component: QuestionAnswer,
 }
 export default meta

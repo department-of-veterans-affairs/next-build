@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { Wrapper } from '@/templates/globals/wrapper'
+import { Wrapper } from '@/templates/layouts/wrapper'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { CommonAndPopular } from '@/templates/common/commonAndPopular'
 import Head from 'next/head'

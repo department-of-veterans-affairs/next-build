@@ -1,4 +1,4 @@
-import { LayoutProps } from '@/templates/globals/wrapper'
+import { LayoutProps } from '@/templates/layouts/wrapper'
 import { queries } from '@/data/queries'
 
 // Helper function to fetch global elements for layout. This is called once for every page during a build,

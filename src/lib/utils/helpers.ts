@@ -85,3 +85,41 @@ export const drupalToVaPath = (content) => {
 
   return replaced
 }
+
+export const toString = (text) => {
+  return text === null || typeof text === 'undefined' ? '' : String(text)
+}
+
+export const escape = (input) => {
+  return toString(input)
+    .replace(/&(?!\w+;)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+/**
+ * Returns an object that conditionally includes attrKey
+ * for passing to a JSX element
+ *
+ * E.g.
+ * <input {...conditionalAttr(!editable, 'readonly')} />
+ *   If (editable): <input />
+ *   Else: <input readonly />
+ *
+ * <my-custom-element {...conditionalAttr(includeCustomProp, 'custom-prop', 'custom-value')} />
+ *   If (includeCustomProp): <my-custom-element custom-prop="custom-value" />
+ *   Else: <my-custom-element />
+ */
+export const conditionalAttr = (
+  condition: boolean | (() => boolean),
+  attrKey,
+  attrValue: string | boolean = ''
+) => {
+  const includeAttr = typeof condition === 'function' ? condition() : condition
+  return includeAttr
+    ? {
+        [attrKey]: attrValue,
+      }
+    : {}
+}

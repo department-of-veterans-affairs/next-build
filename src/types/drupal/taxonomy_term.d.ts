@@ -9,7 +9,7 @@ export interface TaxonomyTermAudienceNonBeneficiaries
   field_audience_rs_homepage: boolean
 }
 export interface TaxonomyTermHealthCareServiceTaxonomy
-  extends DrupalTaxonomyTerm {
+  extends Omit<DrupalTaxonomyTerm, 'description'> {
   field_vet_center_com_conditions: string
   field_commonly_treated_Condition: string
   field_health_service_api_id: string
@@ -20,6 +20,9 @@ export interface TaxonomyTermHealthCareServiceTaxonomy
   field_service_type_of_care: string
   field_vet_center_type_of_care: string
   field_vha_healthservice_stopcode: number
+
+  // Override description with FieldFormattedText
+  description: FieldFormattedText
 }
 
 // Allow this for consistency, even though no fields are present.

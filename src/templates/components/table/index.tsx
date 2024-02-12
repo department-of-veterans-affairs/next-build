@@ -4,17 +4,17 @@ import {
   VaTable,
   VaTableRow,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+import { Table as FormattedTable } from '@/types/formatted/table'
 
-interface TableProps {
-  data: object[]
-}
-
-export function Table({ data }: TableProps) {
+export function Table({
+  data,
+  title = '',
+}: Pick<FormattedTable, 'data' | 'title'>) {
   if (isEmpty(data)) return
 
   return (
-    <VaTable table-title="">
-      {data.map((tableRow: [], tableRowIndex) => (
+    <VaTable table-title={title}>
+      {data.map((tableRow: string[], tableRowIndex) => (
         <VaTableRow
           key={tableRowIndex}
           slot={tableRowIndex === 0 ? 'headers' : ''}
