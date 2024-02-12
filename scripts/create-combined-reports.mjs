@@ -4,20 +4,19 @@ import chalk from 'chalk'
 
 const createCombinedReports = () => {
   // List any report files.
-  let combinedJson =
-    {
-      "metrics": {
-        "initialPathCount": 0,
-        "pagesScanned": 0,
-        "linksChecked": 0,
-        "brokenLinkCount": 0,
-      },
-      "brokenLinksByParent": {
-      },
-      "brokenLinksByLink": {
-      },
-    }
-  const files = fs.readdirSync('.').filter((filename) => filename.match(/^broken-links-report-run.*?\.json/))
+  let combinedJson = {
+    metrics: {
+      initialPathCount: 0,
+      pagesScanned: 0,
+      linksChecked: 0,
+      brokenLinkCount: 0,
+    },
+    brokenLinksByParent: {},
+    brokenLinksByLink: {},
+  }
+  const files = fs
+    .readdirSync('.')
+    .filter((filename) => filename.match(/^broken-links-report-run.*?\.json/))
   for (let i = 0; i < files.length; i++) {
     const fileJson = JSON.parse(fs.readFileSync(files[i], 'utf8'))
     // Add together the numbers. We drop the non-numeric metrics here.
@@ -33,24 +32,32 @@ const createCombinedReports = () => {
         combinedJson.brokenLinksByParent[parentLink] = []
       }
       combinedJson.brokenLinksByParent[parentLink] =
-        combinedJson.brokenLinksByParent[parentLink].concat(fileJson.brokenLinksByParent[parentLink])
+        combinedJson.brokenLinksByParent[parentLink].concat(
+          fileJson.brokenLinksByParent[parentLink]
+        )
     }
     for (const parentLink in fileJson.brokenLinksByLink) {
       if (!combinedJson.brokenLinksByLink[parentLink]) {
         combinedJson.brokenLinksByLink[parentLink] = []
       }
       combinedJson.brokenLinksByLink[parentLink] =
-        combinedJson.brokenLinksByLink[parentLink].concat(fileJson.brokenLinksByLink[parentLink])
+        combinedJson.brokenLinksByLink[parentLink].concat(
+          fileJson.brokenLinksByLink[parentLink]
+        )
     }
   }
   // Write finished report to file.
-  fs.writeFile('broken-links-report-combined.json', JSON.stringify(combinedJson), (err) => {
-    if (err) {
-      console.error(err)
+  fs.writeFile(
+    'broken-links-report-combined.json',
+    JSON.stringify(combinedJson),
+    (err) => {
+      if (err) {
+        console.error(err)
+      }
     }
-  })
+  )
 
-    console.log(
+  console.log(
     `\n Combined report file written to: ${chalk.green(
       process.cwd() + '/broken-links-report-combined.json'
     )}`
@@ -121,7 +128,6 @@ const createCombinedReports = () => {
       process.cwd() + '/broken-links-report.csv'
     )}`
   )
-
 }
 
 createCombinedReports()

@@ -24,37 +24,37 @@ const OPTIONS = {
 // from servers that disallow bot traffic like ours.
 // These can be regular expressions; no quotes around them in that case.
 const LINKS_TO_SKIP = [
-    'www.googletagmanager.com',
-    'dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
-    'resource.digital.voice.va.gov',
-    'www.choicehotels.com',
-    'microsoft.com',
-    'redroof.com',
-    'motel6.com',
-    'vetcenter.va.gov',
-    /visn\d+.*?\.va\.gov/,
-    'instagram.com',
-    'caregiver.va.gov',
-    'desertpacific.va.gov',
-    'ptsd.va.gov',
-    'exclusions.oig.hhs.gov',
-    'patientportal.myhealth.va.gov',
-    'prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com',
-    's3-us-gov-west-1.amazonaws.com/content.www.va.gov',
-    'va-ams.intelliworxit.com',
-    'epilepsy.va.gov',
-    'sciencedirect.com',
-    'twitter.com',
-    'volunteer.va.gov',
-    'womenshealth.va.gov',
-    'oefoif.va.gov',
-    'sci.va.gov',
-    'southeast.va.gov',
-    'va.gov/Geriatrics',
-    'va.gov/wholehealth',
-    'warrelatedillness.va.gov',
-    // process.env.SKIP_IMAGES ? '' : null
-  ]
+  'www.googletagmanager.com',
+  'dap.digitalgov.gov/Universal-Federated-Analytics-Min.js',
+  'resource.digital.voice.va.gov',
+  'www.choicehotels.com',
+  'microsoft.com',
+  'redroof.com',
+  'motel6.com',
+  'vetcenter.va.gov',
+  /visn\d+.*?\.va\.gov/,
+  'instagram.com',
+  'caregiver.va.gov',
+  'desertpacific.va.gov',
+  'ptsd.va.gov',
+  'exclusions.oig.hhs.gov',
+  'patientportal.myhealth.va.gov',
+  'prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com',
+  's3-us-gov-west-1.amazonaws.com/content.www.va.gov',
+  'va-ams.intelliworxit.com',
+  'epilepsy.va.gov',
+  'sciencedirect.com',
+  'twitter.com',
+  'volunteer.va.gov',
+  'womenshealth.va.gov',
+  'oefoif.va.gov',
+  'sci.va.gov',
+  'southeast.va.gov',
+  'va.gov/Geriatrics',
+  'va.gov/wholehealth',
+  'warrelatedillness.va.gov',
+  // process.env.SKIP_IMAGES ? '' : null
+]
 
 // Map of states and colors to use when logging link results.
 const LOGGER_MAP = {
@@ -119,12 +119,18 @@ async function checkBrokenLinks() {
       }
     })
     .on('retry', (retryDetails) => {
-      console.log(`Retrying ${retryDetails.url} ; status: ${retryDetails.status}`)
+      console.log(
+        `Retrying ${retryDetails.url} ; status: ${retryDetails.status}`
+      )
     })
 
   // Full array of sitemap defined URLs.
-  const allPaths = (await getSitemapLocations(OPTIONS.sitemapUrl))
-  const paths = getPagesSlice(allPaths, OPTIONS.totalInstances, OPTIONS.instanceNumber)
+  const allPaths = await getSitemapLocations(OPTIONS.sitemapUrl)
+  const paths = getPagesSlice(
+    allPaths,
+    OPTIONS.totalInstances,
+    OPTIONS.instanceNumber
+  )
   console.log(`Number of pages to check: ${chalk.yellow(paths.length)}`)
   const initialPathCount = paths.length
 
@@ -149,14 +155,13 @@ async function checkBrokenLinks() {
   // @TODO this probably needs a second time-based condition.
   let batchesComplete = false
   function checkAndLoop() {
-    if (batchesComplete === true){
+    if (batchesComplete === true) {
       console.log('Batches complete, exiting the loop.')
     } else {
       setTimeout(checkAndLoop, 5000)
     }
   }
   checkAndLoop()
-
 
   // Request each batch at once. This takes a little bit of time depending on the size
   // of the sitemap. VA.gov builds a large one.
@@ -169,8 +174,7 @@ async function checkBrokenLinks() {
           //if (showLogs) console.log(`Batch ${index}: checking ${path}`)
           try {
             await checker.check({ ...LINKCHECKER_CONFIG, path })
-          }
-          catch (error) {
+          } catch (error) {
             console.log('check error: ', error)
           }
         }
@@ -180,8 +184,7 @@ async function checkBrokenLinks() {
         counter++
       })
     )
-  }
-  catch (error) {
+  } catch (error) {
     console.log(`Checking failed: `, error)
   }
   batchesComplete = true
@@ -223,7 +226,8 @@ async function checkBrokenLinks() {
 
       // Group broken links by parent.
       if (parent !== undefined) {
-        jsonReport.brokenLinksByParent[parent] = jsonReport.brokenLinksByParent[parent] || []
+        jsonReport.brokenLinksByParent[parent] =
+          jsonReport.brokenLinksByParent[parent] || []
         jsonReport.brokenLinksByParent[parent].push({
           url,
           status,
@@ -231,7 +235,8 @@ async function checkBrokenLinks() {
       }
       // Group broken links by link.
       if (url !== undefined) {
-        jsonReport.brokenLinksByLink[url] = jsonReport.brokenLinksByLink[url] || []
+        jsonReport.brokenLinksByLink[url] =
+          jsonReport.brokenLinksByLink[url] || []
         jsonReport.brokenLinksByLink[url].push({
           parent,
           status,

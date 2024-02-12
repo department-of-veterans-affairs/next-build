@@ -11,9 +11,20 @@ const RUN_URL = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITOR
 // Gather any command line options or provide defaults
 program
   .version('1.0.0', '-v, --version') /* Not really necessary... */
-  .option('-i, --input-file <input-file>', 'The broken link report to process', DEFAULT_INPUT_FILE)
-  .option('-o, --output-file <output-file>', 'The output location of the Slack payload file', DEFAULT_OUTPUT_FILE)
-  .option('-m, --markdown-url <markdown-url>', 'The URL for the markdown report artifact')
+  .option(
+    '-i, --input-file <input-file>',
+    'The broken link report to process',
+    DEFAULT_INPUT_FILE
+  )
+  .option(
+    '-o, --output-file <output-file>',
+    'The output location of the Slack payload file',
+    DEFAULT_OUTPUT_FILE
+  )
+  .option(
+    '-m, --markdown-url <markdown-url>',
+    'The URL for the markdown report artifact'
+  )
   .option('-c, --csv-url <csv-url>', 'The URL for the CSV report artifact')
   .option('-d, --debug', 'Output debug information')
   .parse(process.argv)
@@ -67,6 +78,4 @@ const createBrokenLinksSlackPayload = () => {
   }
 }
 
-
-createBrokenLinksSlackPayload();
-
+createBrokenLinksSlackPayload()

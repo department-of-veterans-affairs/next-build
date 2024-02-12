@@ -16,6 +16,7 @@ out
 typedocs
 storybook-static
 packages/*/dist
+packages/*/node_modules
 
 # prettier doesn't play well with .hbs format
 generator-templates/
