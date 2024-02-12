@@ -24,6 +24,8 @@ Example with additional option usage:
 
 The full report metrics & list of broken links are written to a file `broken-links-report.json` upon completion.
 
+Additionally, if the `VERBOSE` flag is true, this script will output results to the terminal for each link it scans in the form of dot notation (**.** for success, **-** is skipped, **x** for broken). This can be very noisy, not recommended for large sitemaps.
+
 # Github Action
 
 This script is run against va.gov via a [Broken Links Check Github Action](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/broken-links-check.yml). Each individual run spreads the page scans across 64 instances. Once those are complete, the 64 reports are combined into a single report, and saved as files attached to the workflow run in json, markdown, and csv formats. Slack is informed after a workflow run with statistics on the scan and links to the full reports.

@@ -147,12 +147,13 @@ async function checkBrokenLinks() {
   // Use this setTimeout loop to keep the event loop alive.
   //
   // During testing, we saw that the program would sometimes exit after the
-  // batch runs without executing the code below them. This a 'clean' exit,
+  // batch runs without executing the code below them. This was a 'clean' exit,
   // which for Node happens when the event loop empties out.
   //
   // If we could figure out why the batch runs sometimes empty the event loop
   // and thus trigger exit, this keep-alive loop wouldn't be necessary.
-  // @TODO this probably needs a second time-based condition.
+  // @TODO this probably needs a second time-based condition, though GHA timeout
+  // can also prevent this from sitting forever.
   let batchesComplete = false
   function checkAndLoop() {
     if (batchesComplete === true) {

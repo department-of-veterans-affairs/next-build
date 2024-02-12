@@ -1,7 +1,6 @@
 name: Broken link check (va.gov)
 
 on:
-  pull_request:
   # Manual trigger
   workflow_dispatch:
   # Schedule; currently once nightly, at 7:20 UTC.
@@ -20,6 +19,7 @@ jobs:
   broken-links-check:
     name: Broken link check
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     strategy:
       fail-fast: false
       max-parallel: 64
