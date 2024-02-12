@@ -18,10 +18,10 @@ on:
         required: true
         default: "next-build-test"
       environment:
-        description: Deploy environment (dev, staging, prod)
+        description: Deploy environment (staging, prod)
         type: string
         required: true
-        default: "dev"
+        default: "staging"
 
 jobs:
   update-manifest:
