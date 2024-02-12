@@ -49,7 +49,7 @@ jobs:
       - name: Update image and helm chart versions
         run: |
             cd vsp-infra-application-manifests/apps/${{ inputs.app_name }}/${{ inputs.environment }}/templates
-            yq e -i '.spec.template.spec.containers[0].image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ inputs.image_tag }}"' next-build-deployment.yaml
+            yq e -i '.spec.template.spec.containers[0].image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ inputs.image_tag }}"' ${{ inputs.app_name }}-deployment.yaml
             done
             git diff
       - name: Add and Commit file
