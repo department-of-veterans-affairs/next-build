@@ -1,8 +1,12 @@
 name: Broken link check (va.gov)
 
 on:
-  workflow_dispatch:
   pull_request:
+  # Manual trigger
+  workflow_dispatch:
+  # Schedule; currently once nightly, at 7:20 UTC.
+  schedule:
+    - cron: 20 7 * * *
 
 concurrency:
   group: broken-links-check
@@ -10,7 +14,6 @@ concurrency:
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
-  DSVA_SCHEDULE_ENABLED: true
   TOTAL_INSTANCES: 64
 
 jobs:
@@ -21,13 +24,15 @@ jobs:
       fail-fast: false
       max-parallel: 64
       matrix:
-        # Strictly speaking total_instances doesn't need to be part of the
-        # matrix; but it's convenient.
+        # This is awkward, but necessary. There's no shorthand.
         instance_number: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]
 
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
-      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Set up node
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
         with:
           node-version-file: .nvmrc
 
@@ -36,6 +41,7 @@ jobs:
           yarn set version 3.6.1
           HUSKY=0 yarn install --immutable
 
+      # This is necessary in order for fetch to work.
       - name: Build proxy-fetcher dist
         run: |
           yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
@@ -44,6 +50,9 @@ jobs:
         run: |
           yarn certs
 
+      # Runs the link check on a given instance. Each instance is passed the
+      # total number of instances and a particular instance. The script uses
+      # this to restrict the link checking to a slice.
       - name: Run broken link check
         run: |
           TOTAL_INSTANCES=${{ env.TOTAL_INSTANCES }} INSTANCE_NUMBER=${{ matrix.instance_number }} APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node --max-old-space-size=4000 scripts/check-broken-links.mjs
@@ -53,7 +62,8 @@ jobs:
         run: |
           mv broken-links-report.json "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
 
-      - id: upload-report-json
+      - name: Upload individual report json
+        id: upload-report-json
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: "broken-links-report-run-${{github.run_id}}-instance-${{ matrix.instance_number }}.json"
@@ -67,8 +77,11 @@ jobs:
     outputs:
       SLACK_PAYLOAD: ${{ steps.export-slack-payload.outputs.SLACK_PAYLOAD }}
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
-      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      - name: Set up node
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
         with:
           node-version-file: .nvmrc
 
@@ -83,10 +96,12 @@ jobs:
         with:
           merge-multiple: true
 
+      # Combines the individual reports, creates and outputs json, md, csv.
       - name: Create reports
         run: |
           node scripts/create-combined-reports.mjs
 
+      # Renames help to identify the report, avoids broken-link-report (1).json
       - name: Rename report files
         id: rename-report-files
         run: |
@@ -95,27 +110,31 @@ jobs:
           mv broken-links-report.csv "broken-links-report-run-${{github.run_id}}.csv"
           echo REPORT_JSON=broken-links-report-combined-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
 
-      - id: upload-report-json
+      - name: Upload report json
+        id: upload-report-json
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: "broken-links-report-combined-run-${{github.run_id}}.json"
           path: broken-links-report-combined-run-${{github.run_id}}.json
           retention-days: 30
 
-      - id: upload-report-markdown
+      - name: Upload report markdown
+        id: upload-report-markdown
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: "broken-links-report-run-${{github.run_id}}.md"
           path: broken-links-report-run-${{github.run_id}}.md
           retention-days: 30
 
-      - id: upload-report-csv
+      - name: Upload report CSV
+        id: upload-report-csv
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: "broken-links-report-run-${{github.run_id}}.csv"
           path: broken-links-report-run-${{github.run_id}}.csv
           retention-days: 30
 
+      # Takes the information above and constructs json to deliver to Slack.
       - name: Prepare Slack payload
         run: |
           node scripts/broken-links-slack-payload.mjs -m ${{ steps.upload-report-markdown.outputs.artifact-url }} -i ${{ steps.rename-report-files.outputs.REPORT_JSON}} -c ${{ steps.upload-report-csv.outputs.artifact-url }}
@@ -132,7 +151,7 @@ jobs:
     needs: prepare-reports
 
     steps:
-      - name: Checkout
+      - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Notify Slack
@@ -155,11 +174,10 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Notify Slack
-        if: ${{ env.DSVA_SCHEDULE_ENABLED == 'true' }}
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">!here< New next-build release could not be tagged!: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warn: The broken links check failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

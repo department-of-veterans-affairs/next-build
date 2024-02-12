@@ -11,24 +11,25 @@ Run `SITE_URL="https://va.gov" node scripts/check-broken-links.mjs` to perform a
 A number of different options can be passed as environment variables to change this script's behavior.
 
 - `SITE_URL`: The site to run a scan on. It must provide a sitemap.xml. Defaults to https://www.va.gov
-- `BATCH_SIZE`: The number of batches the list of links found in the sitemap should be split into for processing. Defaults to 32.
+- `BATCH_SIZE`: The number of batches the list of links found in the sitemap should be split into for processing. Defaults to 20.
+- `TOTAL_INSTANCES`: When running multiple instances, this is total number being used. Each instance gets a slice of the total pages, `sitemap_urls.length / TOTAL_INSTANCES` roughly.
+- `INSTANCE_NUMBER`: When running multiple instances, this is the particular slice being run. These two vars can also be used locally to restrict the scan to a subset of the total set, which is useful for development purposes.
 - `VERBOSE`: Enable dot reporting of each link checked. Defaults to false, gets very noisy with large sitemaps.
-- `SKIP_IMAGES`: Whether to verify if image links resolve or not.
 - `NODE_EXTRA_CA_CERTS`: If you see a lot of STATUS: 0 errors, it likely means there was an SSL error with certificates. You can generate the `certs/VA-mozilla-combined.pem` file via `yarn certs` to resolve the vast majority of these.
 
 Example with additional option usage:
-`NODE_EXTRA_CA_CERTS=./certs/VA-mozilla-combined.pem SITE_URL="https://va.gov" BATCH_SIZE=15 VERBOSE=true node scripts/check-broken-links.mjs`
+`TOTAL_INSTANCES=64 INSTANCE_NUMBER=15 NODE_EXTRA_CA_CERTS=./certs/VA-mozilla-combined.pem SITE_URL="https://va.gov" BATCH_SIZE=15 VERBOSE=true node scripts/check-broken-links.mjs`
 
 # Reporting
 
-A human-readable list of all broken links discovered is output at the end of a scan. The full report metrics & list of broken links are written to a file `broken-links-report.json` upon completion.
+The full report metrics & list of broken links are written to a file `broken-links-report.json` upon completion.
 
-Additionally, if the `VERBOSE` flag is true, this script will output results to the terminal for each link it scans in the form of dot notation (**.** for success, **-** is skipped, **x** for broken). This can be very noisy, not recommended for large sitemaps.
+# Github Action
+
+This script is run against va.gov via a [Broken Links Check Github Action](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/broken-links-check.yml). Each individual run spreads the page scans across 64 instances. Once those are complete, the 64 reports are combined into a single report, and saved as files attached to the workflow run in json, markdown, and csv formats. Slack is informed after a workflow run with statistics on the scan and links to the full reports.
+
+Currently the scan runs nightly and can be run manually as well.
 
 TODOs:
 
-- Wire up option to skip checking image links
-- Run this script in GHA on some cadence
 - Upload the GHA run's broken-links-report.json to S3
-- Notify slack when broken links are found
-- Clean up this documentation

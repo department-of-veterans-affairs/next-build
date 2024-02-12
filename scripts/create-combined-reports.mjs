@@ -20,11 +20,14 @@ const createCombinedReports = () => {
   const files = fs.readdirSync('.').filter((filename) => filename.match(/^broken-links-report-run.*?\.json/))
   for (let i = 0; i < files.length; i++) {
     const fileJson = JSON.parse(fs.readFileSync(files[i], 'utf8'))
+    // Add together the numbers. We drop the non-numeric metrics here.
     for (const metric in fileJson.metrics) {
       if (typeof fileJson.metrics[metric] == 'number') {
         combinedJson.metrics[metric] += fileJson.metrics[metric]
       }
     }
+    // Iterate over source pages and then destination, making sure to not lose
+    // any data in the combination.
     for (const parentLink in fileJson.brokenLinksByParent) {
       if (!combinedJson.brokenLinksByParent[parentLink]) {
         combinedJson.brokenLinksByParent[parentLink] = []
@@ -99,9 +102,9 @@ const createCombinedReports = () => {
   // Generate a CSV report
   let csvReport = `Parent Link, Child Link, Error Code\n`
   for (const parent of Object.keys(combinedJson.brokenLinksByParent)) {
-    const sanitizedParent = parent.replace(/,/g, '\\,')
+    const sanitizedParent = parent.replace(/,/g, ',,')
     for (const child of combinedJson.brokenLinksByParent[parent]) {
-      const sanitizedChildUrl = child.url.replace(/,/g, '\\,')
+      const sanitizedChildUrl = child.url.replace(/,/g, ',,')
       csvReport += `${sanitizedParent},${sanitizedChildUrl},${child.status}\n`
     }
   }

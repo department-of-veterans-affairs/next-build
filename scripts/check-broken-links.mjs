@@ -18,7 +18,6 @@ const OPTIONS = {
   // batchSize is the number of pararllel link check processes to run.
   batchSize: process.env.BATCH_SIZE || 20,
   verbose: process.env.VERBOSE || false,
-  skipImageLinks: process.env.SKIP_IMAGES || false,
 }
 
 // List of patterns to skip checking. Most of these are to avoid false positives
@@ -138,7 +137,6 @@ async function checkBrokenLinks() {
   const batches = splitPagesIntoBatches(paths, OPTIONS.batchSize)
   // A fake counter for the illusion of sequential completion.
   let counter = 1
- let batchesComplete = false
 
   // Use this setTimeout loop to keep the event loop alive.
   //
@@ -149,6 +147,7 @@ async function checkBrokenLinks() {
   // If we could figure out why the batch runs sometimes empty the event loop
   // and thus trigger exit, this keep-alive loop wouldn't be necessary.
   // @TODO this probably needs a second time-based condition.
+  let batchesComplete = false
   function checkAndLoop() {
     if (batchesComplete === true){
       console.log('Batches complete, exiting the loop.')
@@ -221,11 +220,6 @@ async function checkBrokenLinks() {
   if (brokenLinks.length > 0) {
     for (const brokenLink of brokenLinks) {
       const { url, status, parent } = brokenLink
-
-      // // Output which links are broken on what pages.
-      // console.log(`\n${chalk.red(url)}`)
-      // console.log('  ', 'STATUS:', status)
-      // console.log('  ', 'SOURCE:', parent)
 
       // Group broken links by parent.
       if (parent !== undefined) {
