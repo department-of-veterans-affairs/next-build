@@ -1,6 +1,8 @@
-Dockerfile
-.dockerignore
-node_modules
-npm-debug.log
-READMEs
-.git
+# ignore directories
+**/node_modules/*
+**/envs/*
+**/READMEs/*
+**/.git/*
+**/.github/*
+# ignore files
+**/npm-debug.log
