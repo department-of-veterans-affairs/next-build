@@ -1,0 +1,35 @@
+{
+  "type": "paragraph--phone_number",
+  "id": "d3c1ded7-2314-41bb-ad25-8e59f8a28f84",
+  "drupal_internal__id": 14513,
+  "drupal_internal__revision_id": 171047,
+  "langcode": "en",
+  "status": true,
+  "created": "2020-11-23T16:14:35+00:00",
+  "parent_id": null,
+  "parent_type": null,
+  "parent_field_name": null,
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_phone_extension": null,
+  "field_phone_label": "Appointments",
+  "field_phone_number": "800-274-8387",
+  "field_phone_number_type": "tel",
+  "links": {
+    "self": {
+      "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/d3c1ded7-2314-41bb-ad25-8e59f8a28f84?resourceVersion=id%3A171047"
+    }
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "phone_number"
+    }
+  },
+  "relationshipNames": ["paragraph_type"]
+}

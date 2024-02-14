@@ -13,6 +13,7 @@ import * as AudienceTopics from './audienceTopics'
 import * as Alert from './alert'
 import * as AlertSingle from './alertSingle'
 import * as EmailContact from './emailContact'
+import * as PhoneNumber from './phoneNumber'
 import * as ContactInfo from './contactInfo'
 import * as BenefitsHub from './benefitsHubLinks'
 import * as Wysiwyg from './wysiwyg'
@@ -44,6 +45,7 @@ export const QUERIES_MAP = {
   'paragraph--audience_topics': AudienceTopics,
   'paragraph--button': Button,
   'paragraph--email_contact': EmailContact,
+  'paragraph--phone_number': PhoneNumber,
   'paragraph--contact_information': ContactInfo,
   'paragraph--expandable_text': ExpandableText,
   'paragraph--featured_content': FeaturedContent,

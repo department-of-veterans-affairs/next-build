@@ -5,6 +5,7 @@ exports[`ContactInfo formatData outputs formatted data 1`] = `
   "additionalContact": {
     "email": {
       "address": "email@email.com",
+      "id": "e5184527-0e7f-4071-bb0b-a99c3eb04839",
       "label": "Loremipsum label here",
     },
   },

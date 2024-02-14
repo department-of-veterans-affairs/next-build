@@ -11,7 +11,7 @@ export type Contact = {
   href: string
 }
 
-type PhoneContact = {
+export type PhoneContact = {
   label: string
   number: string
   extension: string
