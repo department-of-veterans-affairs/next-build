@@ -1,10 +1,10 @@
-import { {{pascalCase name}} } from '@/types/drupal/node'
+import { ParagraphContactInformation } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/{{camelCase name}}.mock.json'
+import mockData from '@/mocks/contactInfo.mock.json'
 
-const {{pascalCase name}}Mock: {{pascalCase name}} = mockData
+const ContactInfoMock: ParagraphContactInformation = mockData
 
-describe('{{pascalCase name}} formatData', () => {
+describe('ContactInfo formatData', () => {
   let windowSpy
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('{{pascalCase name}} formatData', () => {
     windowSpy.mockImplementation(() => undefined)
 
     expect(
-      queries.formatData('node--{{snakeCase name}}', {{pascalCase name}}Mock)
+      queries.formatData('paragraph--contact_information', ContactInfoMock)
     ).toMatchSnapshot()
   })
 })
