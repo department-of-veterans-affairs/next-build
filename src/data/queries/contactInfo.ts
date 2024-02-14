@@ -1,5 +1,9 @@
 import { QueryParams, QueryFormatter } from 'next-drupal-query'
-import { ParagraphContactInformation } from '@/types/drupal/paragraph'
+import {
+  ParagraphContactInformation,
+  ParagraphEmailContact,
+  ParagraphPhoneNumber,
+} from '@/types/drupal/paragraph'
 import { ContactInfo } from '@/types/formatted/contactInfo'
 import { queries } from '.'
 
@@ -24,19 +28,18 @@ export const formatter: QueryFormatter<
   switch (additionalContactType) {
     case 'paragraph--email_contact':
       additionalContact = {
-        email: {
-          label: entity.field_additional_contact.field_email_label,
-          address: entity.field_additional_contact.field_email_address,
-        },
+        email: queries.formatData(
+          'paragraph--email_contact',
+          entity.field_additional_contact as ParagraphEmailContact
+        ),
       }
       break
     case 'paragraph--phone_number':
       additionalContact = {
-        phone: {
-          label: entity.field_additional_contact.field_phone_label,
-          number: entity.field_additional_contact.field_phone_number,
-          extension: entity.field_additional_contact.field_phone_extension,
-        },
+        phone: queries.formatData(
+          'paragraph--phone_number',
+          entity.field_additional_contact as ParagraphPhoneNumber
+        ),
       }
       break
   }

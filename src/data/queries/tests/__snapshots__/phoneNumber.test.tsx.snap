@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`paragraph--phone_number formatData outputs formatted data 1`] = `
+{
+  "extension": null,
+  "id": "d3c1ded7-2314-41bb-ad25-8e59f8a28f84",
+  "label": "Appointments",
+  "number": "800-274-8387",
+  "phoneType": "tel",
+}
+`;
