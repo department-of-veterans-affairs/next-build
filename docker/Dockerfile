@@ -1,6 +1,6 @@
 # TODO: this has dev dependencies in order to get it working, not a final product.
 # Remove dev dependences to shrink image size too.
-# Note that this must be build from the 
+# Note that this must be build from the
 
 FROM node:18-alpine as build
 
@@ -12,7 +12,7 @@ COPY ./vets-website /app/vets-website
 
 WORKDIR /app/next-build
 RUN yarn install --frozen-lockfile
-RUN BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
+RUN BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.js
 
 
 
