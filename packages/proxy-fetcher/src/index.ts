@@ -8,9 +8,7 @@ export const getFetcher =
     const host = url.host
     // CI envs don't need the SOCKS proxy.
     const useProxy =
-      host.match(/cms\.va\.gov$/) &&
-      process.env.APP_ENV != 'tugboat' &&
-      process.env.APP_ENV != 'gha'
+      host.match(/cms\.va\.gov$/) && process.env.APP_ENV === 'local'
     const syswideCas = await import('syswide-cas')
 
     // If using an internal VA server, add VA cert.
