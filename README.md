@@ -32,7 +32,7 @@ You should set these up before attempting to install the repo.
 
 6. Make sure your SOCKS access is running. (e.g. `vtk socks on`)
 
-7. In the `next-build` directory, run `BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs` to pull initial built assets from the `vets-website` repo. This will grab a bunch of files from a vets-website S3 bucket and place them into the appropriate `public/` folders.
+7. In the `next-build` directory, run `yarn setup` to pull initial built assets from the `vets-website` repo. This will grab a bunch of files from a vets-website S3 bucket and place them into the appropriate `public/` folders.
 
 8. Run `yarn dev`.
 
@@ -113,6 +113,16 @@ Retrieve this value from AWS SSM @ /cms/staging/drupal_api_users/next_build_api/
 Retrieve this value from AWS SSM @ /cms/staging/drupal_api_users/next_build_api/private.key
 -----END RSA PRIVATE KEY-----
 ```
+
+## Local vets-website assets
+
+By default, the `yarn setup` command pulls assets from the prod S3 bucket. This can be changed base on the `BUILD_TYPE` env var.
+
+To use assets from your local vets-website branch, first run a local build in that repo to compile your desired changes.
+
+Then running `BUILD_TYPE=localhost yarn setup` will create a symlink to the local compiled output instead of downloading assets from a S3 bucket.
+
+See `./scripts/yarn/vets-website-assets.js` for more information.
 
 ## Generating the static site
 
