@@ -14,16 +14,11 @@ const path = require('path')
  * instead of requesting anything from a bucket.
  */
 
-// Exits with non-zero if a download failed
-process.on('unhandledRejection', (up) => {
-  throw up
-})
-
 const prodBucket = 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 const stagingBucket =
   'https://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 const devBucket = 'https://dev-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
-const localBucket = '../vets-website/build/localhost/generated'
+const localBucket = path.resolve(__dirname, '../../../vets-website/build/localhost/generated')
 
 // Available bucket options, defaults to the vagovprod bucket.
 const BUILD_TYPE_BUCKET = {
@@ -38,6 +33,8 @@ const fileManifestPath = 'generated/file-manifest.json'
 
 // Path to assets in a vets-website repo cloned adjacent to next-build.
 const vetsWebsiteAssetPath = '../vets-website/src/site/assets'
+
+const destinationPath = './public/generated/'
 
 // Function that loops through to download all compiled js assets listed in a bucket's manifest.
 async function downloadFromLiveBucket(buildtype) {
@@ -96,7 +93,7 @@ async function moveAssetsFromVetsWebsite() {
   console.log('Moving additional assets from adjacent vets-website repo...')
 
   try {
-    fs.copySync(`${vetsWebsiteAssetPath}/fonts`, './public/generated/')
+    fs.copySync(`${vetsWebsiteAssetPath}/fonts`, destinationPath)
     console.log('Copied font files from vets-website.')
 
     fs.copySync(`${vetsWebsiteAssetPath}/img`, './public/img/')
@@ -106,8 +103,8 @@ async function moveAssetsFromVetsWebsite() {
     // in the bucket files or in that repo's font folder. We source them directly from the node module.
     fs.copySync(
       './node_modules/@fortawesome/fontawesome-free/webfonts',
-      './public/generated',
-      { errorOnExist: false, force: false, dereference: true }
+      destinationPath,
+      { errorOnExist: false, force: true, dereference: true }
     )
     console.log('Copied fontawesome font files from node_modules package.')
   } catch (err) {
@@ -120,12 +117,16 @@ async function gatherAssets() {
   const buildtype = process.env.BUILD_TYPE || 'vagovprod'
 
   // Clean any existing assets or symlinks
-  await fs.remove('./public/generated', (err) => {
-    if (err) return console.error(err)
-    console.log(
-      `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
-    )
-  })
+  if (fs.pathExistsSync(destinationPath)) {
+    try {
+      fs.rmSync(destinationPath, {recursive: true, force: true})
+      console.log(
+        `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
+      )
+    } catch (err) {
+      console.error(err)
+    }
+  }
   // Download compiled js assets from the appropriate bucket.
   if (buildtype !== 'localhost') {
     await downloadFromLiveBucket(buildtype)
@@ -139,14 +140,12 @@ async function gatherAssets() {
       'Attempting to symlink assets from your local vets-website repo...'
     )
 
-    const symlinkPath = './public/generated'
-
     try {
       // Checks if symlink already exists
-      const exists = await fs.pathExists(symlinkPath)
+      const exists = fs.pathExistsSync(destinationPath)
 
       if (!exists) {
-        await fs.ensureSymlink(localBucket, symlinkPath, 'dir')
+        fs.ensureSymlinkSync(localBucket, path.resolve(__dirname, `../..${destinationPath}`), 'dir') // 'dir' is windows only, ignored elsewhere
         // eslint-disable-next-line no-console
         console.log('Symlink created successfully!')
       } else {
@@ -154,7 +153,8 @@ async function gatherAssets() {
         console.log('Symlink already exists.')
       }
     } catch (error) {
-      console.error('Error creating symlink:', error)
+      console.error('\nError creating symlink:', error)
+      console.log('\nRe-build your local vets-website assets and try again. \n')
     }
   }
 
