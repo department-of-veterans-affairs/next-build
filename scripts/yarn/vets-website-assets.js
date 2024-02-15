@@ -18,9 +18,12 @@ const prodBucket = 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 const stagingBucket =
   'https://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 const devBucket = 'https://dev-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
-const localBucket = path.resolve(__dirname, '../../../vets-website/build/localhost/generated')
+const localBucket = path.resolve(
+  __dirname,
+  '../../../vets-website/build/localhost/generated'
+)
 
-// Available bucket options, defaults to the vagovprod bucket.
+// Available bucket options, default is the vagovprod bucket.
 const BUILD_TYPE_BUCKET = {
   localhost: localBucket,
   vagovdev: devBucket,
@@ -119,7 +122,7 @@ async function gatherAssets() {
   // Clean any existing assets or symlinks
   if (fs.pathExistsSync(destinationPath)) {
     try {
-      fs.rmSync(destinationPath, {recursive: true, force: true})
+      fs.rmSync(destinationPath, { recursive: true, force: true })
       console.log(
         `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
       )
@@ -145,11 +148,13 @@ async function gatherAssets() {
       const exists = fs.pathExistsSync(destinationPath)
 
       if (!exists) {
-        fs.ensureSymlinkSync(localBucket, path.resolve(__dirname, `../..${destinationPath}`), 'dir') // 'dir' is windows only, ignored elsewhere
-        // eslint-disable-next-line no-console
+        fs.ensureSymlinkSync(
+          localBucket,
+          path.resolve(__dirname, `../..${destinationPath}`),
+          'dir'
+        ) // 'dir' is windows only, ignored elsewhere
         console.log('Symlink created successfully!')
       } else {
-        // eslint-disable-next-line no-console
         console.log('Symlink already exists.')
       }
     } catch (error) {
