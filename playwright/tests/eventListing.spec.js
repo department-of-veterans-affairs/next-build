@@ -9,16 +9,14 @@ test.describe('eventListing', () => {
     await expect(page).toHaveURL(/\/outreach-and-events\/events\//)
   })
 
-  test('Event Listing widget can switch between event types', async ({
+  test('Event Listing widget changes form fields based on selection', async ({
     page,
   }) => {
     await page.goto('/outreach-and-events/events/')
-    await page.getByLabel('Filter by').selectOption('past')
-    await page.getByLabel('Filter by').selectOption('upcoming')
     await page.getByLabel('Filter by').selectOption('specific-date')
 
-    const specificDateLabel = page.getByLabel('Please tell us a date ')
-    await expect(specificDateLabel).toBeVisible()
+    const specificMonth = page.getByLabel('Month')
+    await expect(specificMonth).toBeVisible()
   })
 
   test('Should render without a11y errors', async ({
