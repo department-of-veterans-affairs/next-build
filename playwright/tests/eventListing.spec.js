@@ -15,7 +15,9 @@ test.describe('eventListing', () => {
     await page.goto('/outreach-and-events/events/')
     await page.getByLabel('Filter by').selectOption('specific-date')
 
-    const specificMonth = page.getByLabel('Month', { exact: true })
+    const specificMonth = page.getByLabel(
+      'Please enter two digits for the month'
+    )
     await expect(specificMonth).toBeVisible()
   })
 
