@@ -14503,7 +14503,7 @@ __metadata:
     next-sitemap: ^4.2.3
     nock: ^13.4.0
     node_extra_ca_certs_mozilla_bundle: ^1.0.5
-    playwright-core: ^1.40.1
+    playwright-core: ^1.41.2
     plop: ^4.0.1
     prettier: ^2.8.8
     proxy-fetcher: 0.1.0
@@ -15755,12 +15755,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.40.1, playwright-core@npm:^1.40.1":
+"playwright-core@npm:1.40.1":
   version: 1.40.1
   resolution: "playwright-core@npm:1.40.1"
   bin:
     playwright-core: cli.js
   checksum: 84d92fb9b86e3c225b16b6886bf858eb5059b4e60fa1205ff23336e56a06dcb2eac62650992dede72f406c8e70a7b6a5303e511f9b4bc0b85022ede356a01ee0
+  languageName: node
+  linkType: hard
+
+"playwright-core@npm:^1.41.2":
+  version: 1.41.2
+  resolution: "playwright-core@npm:1.41.2"
+  bin:
+    playwright-core: cli.js
+  checksum: b41ede0db3fd3e3f7e0b0efbdfb2dbc4db345e113cf9c4451af21d1d5b5d9ab5e969f5662852925e37b2198ae5daab92aa48108fe3d4eb81c849ba8752aaf8cc
   languageName: node
   linkType: hard
 
