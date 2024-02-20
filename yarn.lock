@@ -5741,12 +5741,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.10.5":
-  version: 20.10.5
-  resolution: "@types/node@npm:20.10.5"
+"@types/node@npm:20.11.19":
+  version: 20.11.19
+  resolution: "@types/node@npm:20.11.19"
   dependencies:
     undici-types: ~5.26.4
-  checksum: e216b679f545a8356960ce985a0e53c3a58fff0eacd855e180b9e223b8db2b5bd07b744a002b8c1f0c37f9194648ab4578533b5c12df2ec10cc02f61d20948d2
+  checksum: 259d16643ba611ade617a8212e594a3ac014727457507389bbf7213971346ab052d870f1e6e2df0afd0876ecd7874f578bccb130be01e069263cfc7136ddc0c1
   languageName: node
   linkType: hard
 
@@ -14491,7 +14491,7 @@ __metadata:
     "@testing-library/user-event": ^14.5.1
     "@types/jest": ^29.5.11
     "@types/lodash": ^4.14.202
-    "@types/node": 20.10.5
+    "@types/node": 20.11.19
     "@types/react": ^18.2.55
     "@types/react-dom": ^18.2.18
     "@types/react-gtm-module": ^2.0.3
