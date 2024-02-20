@@ -7105,17 +7105,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.2":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
-  dependencies:
-    follow-redirects: ^1.14.9
-    form-data: ^4.0.0
-  checksum: 38cb7540465fe8c4102850c4368053c21683af85c5fdf0ea619f9628abbcb59415d1e22ebc8a6390d2bbc9b58a9806c874f139767389c862ec9b772235f06854
-  languageName: node
-  linkType: hard
-
-"axios@npm:^1.6.3":
+"axios@npm:^1.6.3, axios@npm:^1.6.5":
   version: 1.6.7
   resolution: "axios@npm:1.6.7"
   dependencies:
@@ -8453,15 +8443,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-env@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "cross-env@npm:6.0.3"
+"cross-env@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "cross-env@npm:7.0.3"
   dependencies:
-    cross-spawn: ^7.0.0
+    cross-spawn: ^7.0.1
   bin:
     cross-env: src/bin/cross-env.js
     cross-env-shell: src/bin/cross-env-shell.js
-  checksum: 1b2d532ad7beff8017db7c28fbee8f902377969b8090cd2b8716ec93bef958bb2838cd061c89c30e904d72f3ff7d3a4e80f0d762b14e60e8191a576be1376578
+  checksum: 26f2f3ea2ab32617f57effb70d329c2070d2f5630adc800985d8b30b56e8bf7f5f439dd3a0358b79cee6f930afc23cf8e23515f17ccfb30092c6b62c6b630a79
   languageName: node
   linkType: hard
 
@@ -8474,7 +8464,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
+"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.1, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
   dependencies:
@@ -10671,7 +10661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.4":
+"follow-redirects@npm:^1.15.4":
   version: 1.15.5
   resolution: "follow-redirects@npm:1.15.5"
   peerDependenciesMeta:
@@ -14502,7 +14492,7 @@ __metadata:
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
     nock: ^13.4.0
-    node_extra_ca_certs_mozilla_bundle: ^1.0.5
+    node_extra_ca_certs_mozilla_bundle: ^1.0.6
     playwright-core: ^1.41.2
     plop: ^4.0.1
     prettier: ^2.8.8
@@ -14934,14 +14924,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node_extra_ca_certs_mozilla_bundle@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "node_extra_ca_certs_mozilla_bundle@npm:1.0.5"
+"node_extra_ca_certs_mozilla_bundle@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "node_extra_ca_certs_mozilla_bundle@npm:1.0.6"
   dependencies:
-    axios: ^0.27.2
-    cross-env: ^6.0.3
+    axios: ^1.6.5
+    cross-env: ^7.0.3
     csvtojson: ^2.0.10
-  checksum: a80c17aa2a3675491dae3cf9fb92e36325a37c688179f89ad22ed5a2915815f2c74ec10c75cd259add24aa4123d793127fbc482a27b08b4104757b6e173b5e2f
+  checksum: 4774e8cb053625d0ca504c01f69eef0834e7b945e67a302516172e7cc5bf27ab580d8cc6dfe0b6d9979419dbfb811b53a3804662323977f50c76603b6e162f0f
   languageName: node
   linkType: hard
 

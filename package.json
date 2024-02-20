@@ -128,7 +128,7 @@
     "lint-staged": "^15.2.0",
     "msw": "^2.1.7",
     "nock": "^13.4.0",
-    "node_extra_ca_certs_mozilla_bundle": "^1.0.5",
+    "node_extra_ca_certs_mozilla_bundle": "^1.0.6",
     "prettier": "^2.8.8",
     "storybook": "^7.6.13",
     "ts-node": "^10.9.2",
