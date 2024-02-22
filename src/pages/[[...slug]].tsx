@@ -28,10 +28,14 @@ import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
 import { Event as FormattedEvent } from '@/types/formatted/event'
+
 import { Meta } from '@/templates/common/meta'
 import { PreviewCrumb } from '@/templates/common/preview'
 import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
 import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
+import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
+import { VetCenter } from '@/templates/layouts/vetCenter'
+
 
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
@@ -39,6 +43,7 @@ const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.EVENT,
   RESOURCE_TYPES.EVENT_LISTING,
   RESOURCE_TYPES.RESOURCES_SUPPORT,
+  RESOURCE_TYPES.VET_CENTER,
 ] as const
 
 export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
@@ -106,6 +111,9 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.RESOURCES_SUPPORT && (
             <ResourcesSupport {...(resource as FormattedResourcesSupport)} />
+          )}
+          {resource.type === RESOURCE_TYPES.VET_CENTER && (
+            <VetCenter {...(resource as FormattedVetCenter)} />
           )}
         </div>
       </main>

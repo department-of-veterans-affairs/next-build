@@ -37,11 +37,13 @@ import * as ReactWidget from './reactWidget'
 import * as QaParagraph from './qaParagraph'
 import * as QaSection from './qaSection'
 import * as QaGroup from './qaGroup'
-
+import * as VetCenter from './vetCenter'
+import * as HealthServices from './healthServices'
 import {
   ResourceType,
   ParagraphResourceType,
 } from '@/lib/constants/resourceTypes'
+
 
 export const QUERIES_MAP = {
   // Standard Drupal entity data queries
@@ -51,17 +53,20 @@ export const QUERIES_MAP = {
   'node--story_listing': StoryListing,
   'node--q_a': QuestionAnswer,
   'node--event': Event,
+  'node--vet_center_facility_health_servi': HealthServices,
   'node--event--teaser': EventTeaser,
   'node--event_listing': EventListing,
   'node--person_profile': PersonProfile,
   'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
   'node--support_service': SupportServices,
   'node--support_resources_detail_page': ResourcesSupport,
+  'node--vet_center': VetCenter,
+
   // Paragraphs
   'paragraph--alert': Alert,
   'paragraph--alert_single': AlertSingle,
-  'paragraph--audience_topics': AudienceTopics,
   'paragraph--basic_accordion': Accordion,
+  'paragraph--audience_topics': AudienceTopics,
   'paragraph--button': Button,
   'paragraph--collapsible_panel': CollapsiblePanel,
   'paragraph--collapsible_panel_item': CollapsiblePanelItem,
@@ -109,7 +114,7 @@ export type FormattedResource = ReturnType<
 >
 export type FormattedParagraph = ReturnType<
   (typeof QUERIES_MAP)[ParagraphResourceType &
-    keyof typeof QUERIES_MAP]['formatter']
+  keyof typeof QUERIES_MAP]['formatter']
 >
 
 // The type of resource passed to the formatter for the
@@ -132,8 +137,8 @@ export type FormattedResourceByType<
 // E.g. `block--alert` is NOT included because src/data/queries/alert.ts does not have a function `data` (only `formatter`)
 export type QueryType = {
   [K in keyof typeof QUERIES_MAP]: 'data' extends keyof (typeof QUERIES_MAP)[K]
-    ? K
-    : never
+  ? K
+  : never
 }[keyof typeof QUERIES_MAP]
 
 // Type mapping keys from QUERIES_MAP to the types of opts passable to the respective `data` function
@@ -145,10 +150,10 @@ export type QueryType = {
 /*eslint-disable @typescript-eslint/no-explicit-any*/
 type AllQueryDataOptsMap = {
   [K in keyof typeof QUERIES_MAP]: 'data' extends keyof (typeof QUERIES_MAP)[K]
-    ? (typeof QUERIES_MAP)[K] extends { data: (...args: infer U) => any }
-      ? U[0]
-      : never
-    : never
+  ? (typeof QUERIES_MAP)[K] extends { data: (...args: infer U) => any }
+  ? U[0]
+  : never
+  : never
 }
 /*eslint-enable @typescript-eslint/no-explicit-any*/
 type NonNeverKeys<T> = {

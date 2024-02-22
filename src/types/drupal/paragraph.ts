@@ -123,7 +123,22 @@ export interface ParagraphExpandableText extends DrupalParagraph {
 export interface ParagraphFeaturedContent extends DrupalParagraph {
   field_section_header: string
   field_description: FieldFormattedText
-  field_cta: ParagraphButton
+  field_cta?: ParagraphButton
+}
+
+export interface ParagraphCCFeaturedContent {
+  fetched: {
+    field_cta: Array<{
+      field_button_label: Array<{ value: string }>
+      field_button_link: Array<{
+        uri: string
+        title?: string
+        options: unknown
+      }>
+    }>
+    field_description: Array<FieldFormattedText>
+    field_section_header: Array<{ value: string }>
+  }
 }
 
 export interface ParagraphHealthCareLocalFacilityService

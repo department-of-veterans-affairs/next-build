@@ -12,10 +12,14 @@ import {
   FieldAdministration,
   FieldDateTimeRange,
   FieldNestedLink,
+  FieldCCText,
+  FieldGeoLocation,
+  FieldHealthServicesArray,
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import {
   ParagraphAlert,
+  ParagraphAccordion,
   ParagraphAlertSingle,
   ParagraphAudienceTopics,
   ParagraphButton,
@@ -32,6 +36,8 @@ import {
   ParagraphStepByStep,
   ParagraphTable,
   ParagraphWysiwyg,
+  ParagraphCCFeaturedContent,
+  ParagraphFeaturedContent,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -57,6 +63,7 @@ export type NodeTypes =
   | NodeSupportService
   | NodeEvent
   | NodeEventListing
+  | NodeVetCenter
 
 /** Node resource types. */
 export enum NodeResourceType {
@@ -71,6 +78,7 @@ export enum NodeResourceType {
   StoryListing = 'node--story_listing',
   EventListing = 'node--event_lising',
   SupportResourcesDetailPage = 'node--support_resources_detail_page',
+  VetCenter = 'node--vet_center',
 }
 
 /** Node types returned by the custom banner endpoint */
@@ -157,6 +165,32 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_phone_number: string
   field_operating_status_facility: string
   field_region_page: NodeHealthCareRegionPage
+}
+export interface NodeVetCenter extends DrupalNode {
+  field_address: FieldAddress
+  field_cc_non_traditional_hours: FieldCCText
+  field_cc_vet_center_call_center: FieldCCText
+  //TODO Fix after faq work
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  field_cc_vet_center_faqs: any
+  field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
+  field_geolocation: FieldGeoLocation
+  field_intro_text: string
+  field_last_saved_by_an_editor?: string | null
+  field_office_hours: FieldOfficeHours[]
+  field_official_name: string
+  field_operating_status_facility: string
+  field_operating_status_more_info?: string | null
+  field_phone_number: string
+  field_timezone: string
+  field_administration: FieldAdministration
+  field_health_services: FieldHealthServicesArray
+  field_media: DrupalMediaImage
+  //TODO Fix after accordion work
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  field_prepare_for_visit: any
+  field_vet_center_feature_content: ParagraphFeaturedContent[]
+  field_facility_locator_api_id: string
 }
 
 export interface NodeHealthCareLocalHealthService extends DrupalNode {

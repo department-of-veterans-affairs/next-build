@@ -6,6 +6,7 @@ export const RESOURCE_TYPES = {
   STORY: 'node--news_story',
   VAMC_FACILITY: 'node--health_care_local_facility',
   VAMC_SYSTEM: 'node--health_care_region_page',
+  VET_CENTER: 'node--vet_center',
   // QA: 'node--q_a',
 } as const
 
