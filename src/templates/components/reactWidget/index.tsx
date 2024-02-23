@@ -1,4 +1,5 @@
 import { ReactWidget as FormattedReactWidget } from '@/types/formatted/reactWidget'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 const CtaWidget = ({ entityId, widgetType }) => {
   return (
@@ -107,7 +108,7 @@ export const ReactWidget = ({
   errorMessage,
   defaultLink,
   buttonFormat,
-}: FormattedReactWidget) => {
+}: ParagraphComponent<FormattedReactWidget>) => {
   if (ctaWidget) {
     return <CtaWidget entityId={entityId} widgetType={widgetType} />
   } else {

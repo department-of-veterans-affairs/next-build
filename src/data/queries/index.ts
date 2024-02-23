@@ -11,7 +11,9 @@ import * as PersonProfile from './personProfile'
 import * as Button from './button'
 import * as AudienceTopics from './audienceTopics'
 import * as Alert from './alert'
+import * as AlertBlock from './alertBlock'
 import * as AlertSingle from './alertSingle'
+import * as AlertNonReusable from './alertNonReusable'
 import * as EmailContact from './emailContact'
 import * as PhoneNumber from './phoneNumber'
 import * as ContactInfo from './contactInfo'
@@ -27,10 +29,19 @@ import * as VamcEhr from './vamcEhr'
 import * as FeaturedContent from './featuredContent'
 import * as Accordion from './accordion'
 import * as SupportServices from './supportServices'
-import { ResourceType } from '@/lib/constants/resourceTypes'
+import * as ResourcesSupport from './resourcesSupport'
+import * as CollapsiblePanel from './collapsiblePanel'
+import * as CollapsiblePanelItem from './collapsiblePanelItem'
+import * as Table from './table'
+import * as ReactWidget from './reactWidget'
+import {
+  ResourceType,
+  ParagraphResourceType,
+} from '@/lib/constants/resourceTypes'
 
 export const QUERIES_MAP = {
   // Standard Drupal entity data queries
+  // Nodes
   'node--news_story': NewsStory,
   'node--news_story--teaser': NewsStoryTeaser,
   'node--story_listing': StoryListing,
@@ -41,21 +52,31 @@ export const QUERIES_MAP = {
   'node--person_profile': PersonProfile,
   'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
   'node--support_service': SupportServices,
-  'paragraph--basic_accordion': Accordion,
+  'node--support_resources_detail_page': ResourcesSupport,
+  // Paragraphs
+  'paragraph--alert': Alert,
+  'paragraph--alert_single': AlertSingle,
   'paragraph--audience_topics': AudienceTopics,
+  'paragraph--basic_accordion': Accordion,
   'paragraph--button': Button,
-  'paragraph--email_contact': EmailContact,
-  'paragraph--phone_number': PhoneNumber,
+  'paragraph--collapsible_panel': CollapsiblePanel,
+  'paragraph--collapsible_panel_item': CollapsiblePanelItem,
   'paragraph--contact_information': ContactInfo,
+  'paragraph--email_contact': EmailContact,
   'paragraph--expandable_text': ExpandableText,
   'paragraph--featured_content': FeaturedContent,
   'paragraph--link_teaser': LinkTeaser,
+  'paragraph--non_reusable_alert': AlertNonReusable,
+  'paragraph--phone_number': PhoneNumber,
+  'paragraph--react_widget': ReactWidget,
   'paragraph--rich_text_char_limit_1000': Wysiwyg,
+  'paragraph--table': Table,
   'paragraph--wysiwyg': Wysiwyg,
-  'paragragh--alert_single': AlertSingle,
-  'media--image': MediaImage,
-  'block--alert': Alert,
+  // Blocks
+  'block--alert': AlertBlock,
   'block_content--promo': PromoBlock,
+  // Media
+  'media--image': MediaImage,
 
   // Custom queries
   'banner-data': Banners,
@@ -69,15 +90,34 @@ export const QUERIES_MAP = {
 }
 
 // Type representing all possible object shapes returned from querying and formatting Drupal data.
-// E.g. StoryListingType | NewsStoryType | (other future resoource type)
+// E.g. StoryListingType | NewsStoryType | (other future resource type)
+// E.g. Accordion | Button (other paragraphs)
 // Type constructed by:
-//  1. Consider all ResourceType types
+//  1. Consider all ResourceType or ParagraphResourceType types
 //  2. Take subset of those types that have a key in QUERIES_MAP
 //  3. Map that subset of keys to their respective values, which are modules for querying data
 //  4. Within each of those modules, grab the return type of the `formatter` function
 export type FormattedResource = ReturnType<
   (typeof QUERIES_MAP)[ResourceType & keyof typeof QUERIES_MAP]['formatter']
 >
+export type FormattedParagraph = ReturnType<
+  (typeof QUERIES_MAP)[ParagraphResourceType &
+    keyof typeof QUERIES_MAP]['formatter']
+>
+
+// The type of resource passed to the formatter for the
+// given Drupal-named type of resource.
+// E.g. FormattedResourceByType<`node--news_story`> = NodeNewsStory
+export type DrupalResourceByType<
+  T extends (ResourceType | ParagraphResourceType) & keyof typeof QUERIES_MAP,
+> = Parameters<(typeof QUERIES_MAP)[T]['formatter']>[0]
+
+// The type of resource returned by the formatter for the
+// given Drupal-named type of resource.
+// E.g. FormattedResourceByType<`node--news_story`> = NewsStory
+export type FormattedResourceByType<
+  T extends (ResourceType | ParagraphResourceType) & keyof typeof QUERIES_MAP,
+> = ReturnType<(typeof QUERIES_MAP)[T]['formatter']>
 
 // Type representing all keys from QUERIES_MAP whose values have a 'data' function.
 // This type is used, for example, to type values we can pass to queries.getData()

@@ -4,9 +4,10 @@ jest.mock('@/lib/analytics/recordEvent')
 import * as recordEvent from '@/lib/analytics/recordEvent'
 import { LinkTeaser } from './index'
 import { LinkTeaser as FormattedLinkTeaser } from '@/types/formatted/linkTeaser'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 describe('<LinkTeaser> component renders without field_spokes', () => {
-  const LinkTeaserCollectionProps: FormattedLinkTeaser = {
+  const linkTeaserCollectionProps: ParagraphComponent<FormattedLinkTeaser> = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
@@ -28,7 +29,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
   test('and click event sends correct params to recordEvent', () => {
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )
@@ -45,7 +46,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
   test('and without boldTitle', () => {
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )
@@ -70,7 +71,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
     }
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )
@@ -86,10 +87,10 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
   })
 
   test('and with boldTitle and without title', () => {
-    LinkTeaserCollectionProps.title = ''
+    linkTeaserCollectionProps.title = ''
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )
@@ -106,7 +107,7 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
 })
 
 describe('<LinkTeaser> component renders with field_spokes', () => {
-  const LinkTeaserCollectionProps: FormattedLinkTeaser = {
+  const linkTeaserCollectionProps: ParagraphComponent<FormattedLinkTeaser> = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
@@ -124,7 +125,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
   test('and click event sends correct params to recordEvent', () => {
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )
@@ -140,7 +141,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
   test('and without boldTitle', () => {
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )
@@ -164,7 +165,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )
@@ -184,10 +185,10 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
   })
 
   test('and without boldTitle and without title', () => {
-    LinkTeaserCollectionProps.title = ''
+    linkTeaserCollectionProps.title = ''
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )
@@ -210,7 +211,7 @@ describe('<LinkTeaser> component renders with field_spokes', () => {
 
 describe('LinkTeaser with invalid data', () => {
   test('does render <LinkTeaser> component when uri is not present', () => {
-    const LinkTeaserCollectionProps: FormattedLinkTeaser = {
+    const linkTeaserCollectionProps: ParagraphComponent<FormattedLinkTeaser> = {
       id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
       uri: '/health-care/eligibility/',
       title: 'Health Care Benefits Eligibility',
@@ -224,10 +225,10 @@ describe('LinkTeaser with invalid data', () => {
       },
     }
     const linkTeaserParams = { boldTitle: false, sectionHeader: '' }
-    LinkTeaserCollectionProps.uri = null
+    linkTeaserCollectionProps.uri = null
     const { container } = render(
       <LinkTeaser
-        {...LinkTeaserCollectionProps}
+        {...linkTeaserCollectionProps}
         componentParams={linkTeaserParams}
       />
     )

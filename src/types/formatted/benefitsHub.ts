@@ -6,8 +6,8 @@ export type BenefitsHubLink = {
   teaserText: string
 }
 
-export type BenefitsHubLinksProps = {
+export type BenefitsHubLinks = {
   title: string
   introText?: string
-  benefitHubs: BenefitsHubLink[]
+  links: BenefitsHubLink[]
 }

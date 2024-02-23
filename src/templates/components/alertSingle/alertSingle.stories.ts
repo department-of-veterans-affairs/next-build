@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { AlertSingle } from './'
-import { Alert } from '@/types/formatted/alert'
+import { Alert, AlertBlock, AlertNonReusable } from '@/types/formatted/alert'
 
 const meta: Meta<typeof AlertSingle> = {
   title: 'Paragraphs/AlertSingle',
@@ -10,9 +10,9 @@ export default meta
 
 type Story = StoryObj<typeof AlertSingle>
 
-const blockReference: Alert = {
+const blockReference: AlertBlock = {
   id: '6ecdbf96-2a9e-4beb-9d95-d41fced1473b',
-  alertType: 'information',
+  alertType: 'info',
   title: 'Block Reference Title',
   content: {
     header: 'Block Reference Header',
@@ -20,14 +20,18 @@ const blockReference: Alert = {
   },
 }
 
-const nonReusableRef: Alert = {
+const nonReusableRef: AlertNonReusable = {
   id: '7fced1473b-2a9e-4beb-9d95-6ecdbf96',
+  type: 'paragraph--non_reusable_alert',
   alertType: 'warning',
-  title: 'Non-Reusable Reference Title',
-  content: {
-    header: 'Non-Reusable Reference Header',
-    text: '<p>This is the non-reusable reference content.</p>',
-  },
+  heading: 'Non-Reusable Reference Title',
+  paragraphs: [
+    {
+      id: 'w-01',
+      type: 'paragraph--wysiwyg',
+      html: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
+    },
+  ],
 }
 
 export const ReusableAlert: Story = {

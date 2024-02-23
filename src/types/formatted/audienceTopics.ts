@@ -1,3 +1,5 @@
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
+
 /**
  * This is the structure of an individual tag in AudienceTopics.
  */
@@ -11,6 +13,7 @@ export type AudienceTopic = {
 /**
  * This is for a collection of tags.
  */
-export type AudienceTopics = {
+export type AudienceTopics = PublishedParagraph & {
+  type: 'paragraph--audience_topics'
   tags: AudienceTopic[]
 }

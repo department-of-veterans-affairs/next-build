@@ -1,5 +1,7 @@
-export type LinkTeaser = {
-  id: string
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
+
+export type LinkTeaser = PublishedParagraph & {
+  type: 'paragraph--link_teaser'
   title: string
   summary: string
   uri: string

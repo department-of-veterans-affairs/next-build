@@ -1,5 +1,5 @@
 import { PublishedEntity } from './publishedEntity'
-import { AudienceTopic } from './audienceTopics'
+import { AudienceTopics } from './audienceTopics'
 import { LinkTeaser } from './linkTeaser'
 import { Button } from './button'
 
@@ -7,7 +7,7 @@ export type QuestionAnswer = PublishedEntity & {
   title: string
   answers: string
   buttons: Button[]
-  tags: AudienceTopic[]
+  tags: AudienceTopics
   teasers: LinkTeaser[]
   className?: string
   entityId: number

@@ -4,20 +4,28 @@ import { ReactWidget } from './index'
 describe('<ReactWidget> with valid data', () => {
   test('renders CTA <ReactWidget />', () => {
     render(
-      <ReactWidget entityId={2} widgetType="direct-deposit" ctaWidget={true} />
+      <ReactWidget
+        id="rw-02"
+        entityId={2}
+        widgetType="direct-deposit"
+        ctaWidget={true}
+      />
     )
     const ctaWidget = document.querySelector('[data-widget-type="cta"]')
     expect(ctaWidget).not.toBeNull()
   })
 
   test('renders (default) <ReactWidget />', () => {
-    render(<ReactWidget entityId={1} widgetType="pension-app-status" />)
+    render(
+      <ReactWidget id="rw-01" entityId={1} widgetType="pension-app-status" />
+    )
     expect(screen.queryByText(/Loading.../)).toBeInTheDocument()
   })
 
   test('renders button-format <ReactWidget />', () => {
     render(
       <ReactWidget
+        id="rw-01"
         entityId={1}
         widgetType="pension-app-status"
         buttonFormat={true}

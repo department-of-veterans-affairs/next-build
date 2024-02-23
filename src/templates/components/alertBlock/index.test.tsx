@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { AlertBlock } from './index'
-import { Alert } from '@/types/formatted/alert'
+import { AlertBlock as FormattedAlertBlock } from '@/types/formatted/alert'
 
-const blockContent: Alert = {
+const blockContent: FormattedAlertBlock = {
   id: '6ecdbf96-2a9e-4beb-9d95-d41fced1473b',
-  alertType: 'information',
+  alertType: 'info',
   title: 'Changes based on Blue Water Navy Vietnam Veterans Act of 2019',
   content: {
     header: 'Learn how to sign in',
@@ -14,7 +14,6 @@ const blockContent: Alert = {
 
 describe('<Alert> with valid data and with field_text_expander', () => {
   test('renders info <Alert> component', () => {
-    blockContent.alertType = 'info'
     render(<AlertBlock {...blockContent} />)
 
     const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
@@ -33,8 +32,8 @@ describe('<Alert> with valid data and with field_text_expander', () => {
     expect(screen.getByRole('alert')).toHaveAttribute('status', 'info')
   })
 
-  test('renders error <Alert> component', () => {
-    blockContent.alertType = 'error'
+  test('renders warning <Alert> component', () => {
+    blockContent.alertType = 'warning'
     render(<AlertBlock {...blockContent} />)
 
     const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
@@ -50,28 +49,7 @@ describe('<Alert> with valid data and with field_text_expander', () => {
     expect(
       screen.queryByText(/To use this feature, you'll need a Premium/)
     ).toBeInTheDocument()
-    expect(screen.getByRole('alert')).toHaveAttribute('status', 'error')
-  })
-
-  test('renders success <Alert> component', () => {
-    blockContent.content.header = 'Learn how to sign in'
-    blockContent.alertType = 'success'
-    render(<AlertBlock {...blockContent} />)
-
-    const vaAlertExpandableEl = document.querySelector('va-alert-expandable')
-    expect(vaAlertExpandableEl).toHaveAttribute(
-      'trigger',
-      'Learn how to sign in'
-    )
-    expect(
-      screen.queryByText(
-        /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
-      )
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/To use this feature, you'll need a Premium/)
-    ).toBeInTheDocument()
-    expect(screen.getByRole('alert')).toHaveAttribute('status', 'success')
+    expect(screen.getByRole('alert')).toHaveAttribute('status', 'warning')
   })
 
   test('renders <Alert> component without field_wysiwyg', () => {
@@ -115,9 +93,9 @@ describe('<Alert> with valid data and without field_text_expander', () => {
     expect(screen.getByRole('alert')).toHaveAttribute('status', 'info')
   })
 
-  test('renders error <Alert> component', () => {
+  test('renders warning <Alert> component', () => {
     blockContent.content.header = null
-    blockContent.alertType = 'error'
+    blockContent.alertType = 'warning'
     render(<AlertBlock {...blockContent} />)
 
     expect(
@@ -131,26 +109,7 @@ describe('<Alert> with valid data and without field_text_expander', () => {
     expect(
       screen.queryByText(/To use this feature, you'll need a Premium/)
     ).not.toBeInTheDocument()
-    expect(screen.getByRole('alert')).toHaveAttribute('status', 'error')
-  })
-
-  test('renders success <Alert> component', () => {
-    blockContent.content.header = null
-    blockContent.alertType = 'success'
-    render(<AlertBlock {...blockContent} />)
-
-    expect(
-      document.querySelector('va-alert-expandable')
-    ).not.toBeInTheDocument()
-    expect(
-      screen.queryByText(
-        /Changes based on Blue Water Navy Vietnam Veterans Act of 2019/
-      )
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/To use this feature, you'll need a Premium/)
-    ).not.toBeInTheDocument()
-    expect(screen.getByRole('alert')).toHaveAttribute('status', 'success')
+    expect(screen.getByRole('alert')).toHaveAttribute('status', 'warning')
   })
 
   test('renders <Alert> component without header', () => {

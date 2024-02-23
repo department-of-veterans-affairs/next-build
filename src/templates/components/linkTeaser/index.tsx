@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { LinkTeaser as FormattedLinkTeaser } from '@/types/formatted/linkTeaser'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 export const LinkTeaser = ({
   id,
@@ -11,7 +12,7 @@ export const LinkTeaser = ({
   parentField,
   componentParams,
   options,
-}: FormattedLinkTeaser) => {
+}: ParagraphComponent<FormattedLinkTeaser>) => {
   const { boldTitle, sectionHeader } = componentParams
 
   const analytic = {

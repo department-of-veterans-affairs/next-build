@@ -27,5 +27,7 @@ declare namespace JSX {
     'va-breadcrumbs'
     'va-accordion'
     'va-accordion-item'
+    'va-on-this-page'
+    'va-back-to-top'
   }
 }
