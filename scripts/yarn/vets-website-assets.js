@@ -46,13 +46,6 @@ async function downloadFromLiveBucket(buildtype) {
   const fileManifestRequest = await fetch(`${bucket}/${fileManifestPath}`)
   const fileManifest = await fileManifestRequest.json()
 
-  const files = []
-
-  files[fileManifestPath] = {
-    path: fileManifestPath,
-    contents: Buffer.from(JSON.stringify(fileManifest)),
-  }
-
   const entryNames = Object.keys(fileManifest)
 
   const downloads = entryNames.map(async (entryName) => {
@@ -71,13 +64,6 @@ async function downloadFromLiveBucket(buildtype) {
 
       if (bundleFileName.startsWith('/')) {
         bundleFileName = bundleFileName.slice(1)
-      }
-
-      files[bundleFileName] = {
-        path: bundleFileName,
-        // No need to store file contents here since
-        // assets will be stored directly on disk
-        contents: '',
       }
 
       // Store file contents directly on disk
