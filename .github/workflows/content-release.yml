@@ -22,7 +22,6 @@ jobs:
         APP_ENV: gha
         NEXT_PUBLIC_DRUPAL_BASE_URL: https://prod.cms.va.gov
         NEXT_PUBLIC_IMAGE_URL: https://prod.cms.va.gov
-        SITE_URL: https://www.va.gov
       ports:
         - 80
       volumes:
@@ -45,19 +44,32 @@ jobs:
         node-version: 18
     - name: Setup Yarn
       run: |
+        cd main
         corepack enable
         corepack install -g --cache-only .yarn/releases/corepack.tgz
 
     - name: Install dependencies
       run: |
+        cd main
         yarn
 
     # todo: update this command after cleanup PR lands
     - name: Gather vets-website assets
-      run: BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
+      run: |
+        cd main
+        BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
+
+    - name: Start redis container
+      run: |
+        cd main
+        yarn redis
 
     - name: Build site
-      run: yarn export
+      uses: nick-fields/retry@v3
+      with:
+        command: cd main && yarn export
+        max_attempts: 3
+        retry_on: error
 
     - name: Build sitemap
-      run: yarn build:sitemap --SITE_URL ${{ env.SITE_URL }}
+      run: cd main && yarn build:sitemap --SITE_URL https://www.va.gov
