@@ -27,19 +27,22 @@ jobs:
         - 80
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
+    defaults:
+      run:
+        working-directory: next-build
     steps:
-    # - name: Get latest tag
-    #   id: get-latest-tag
-    #   run: echo LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l | sort -V --reverse | head -n 1) >> $GITHUB_OUTPUT
+    - name: Get latest tag
+      id: get-latest-tag
+      run: echo LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l | sort -V --reverse | head -n 1) >> $GITHUB_OUTPUT
 
-    # - name: Checkout latest release
-    #   run: git clone git@github.com:department-of-veterans-affairs/next-build.git --branch ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }}
+    - name: Checkout latest release
+      run: git clone git@github.com:department-of-veterans-affairs/next-build.git --branch ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }}
 
     - name: Checkout vets-website
       uses: actions/checkout@v4
       with:
         repository: department-of-veterans-affairs/vets-website
-        path: ../vets-website
+        path: vets-website
 
     - uses: actions/setup-node@v4
       with:
