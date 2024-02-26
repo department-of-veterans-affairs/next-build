@@ -2,9 +2,9 @@ import {
   VaAlert,
   VaAlertExpandable,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { AlertBlock } from '@/types/formatted/alert'
+import { AlertBlock as FormattedAlertBlock } from '@/types/formatted/alert'
 
-export function AlertBlock(alertBlock: AlertBlock) {
+export function AlertBlock(alertBlock: FormattedAlertBlock) {
   if (!alertBlock) {
     return null
   }
