@@ -9,6 +9,13 @@ import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { queries } from '.'
 
 // TODO:
+//
+// EDIT:
+// It seems *maybe* that next-drupal-query is designed to handle this already.
+// You can pass an `id` to queries.getParams().
+// E.g.
+// queries.getParams('paragraph--alert_single'))
+//
 // We don't need this here:
 // export const params: QueryParams<null> = () => {
 //   return queries
