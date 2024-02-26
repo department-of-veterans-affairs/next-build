@@ -11,9 +11,9 @@ export function AlertSingle({
 }: ParagraphComponent<FormattedAlertSingle>) {
   switch (alertSelection) {
     case 'NR':
-      return <AlertNonReusable {...nonReusableRef} />
+      return nonReusableRef ? <AlertNonReusable {...nonReusableRef} /> : null
     case 'R':
-      return <AlertBlock {...blockReference} />
+      return blockReference ? <AlertBlock {...blockReference} /> : null
     default:
       return null
   }
