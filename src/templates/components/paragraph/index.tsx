@@ -2,6 +2,8 @@ import { FormattedParagraph } from '@/data/queries'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { AccordionItem } from '@/templates/components/accordion'
 import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
+import { Alert } from '@/templates/components/alert'
+import { Alert as FormattedAlert } from '@/types/formatted/alert'
 import { AlertSingle } from '@/templates/components/alertSingle'
 import { AlertSingle as FormattedAlertSingle } from '@/types/formatted/alert'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
@@ -40,6 +42,9 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
   switch (paragraph.type) {
     case PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM:
       return <AccordionItem {...(paragraph as FormattedAccordionItem)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.ALERT:
+      return <Alert {...(paragraph as FormattedAlert)} />
 
     case PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE:
       return <AlertSingle {...(paragraph as FormattedAlertSingle)} />
