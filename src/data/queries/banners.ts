@@ -61,7 +61,7 @@ export const formatter: QueryFormatter<any, BannersData> = (entities) => {
           emailUpdatesButton: banner.field_alert_email_updates_button,
           path: banner.path?.alias,
           findFacilities: banner.field_alert_find_facilities_cta,
-          bannerAlertVamcs: banner.field_banner_alert_vamcs.url,
+          // bannerAlertVamcs: banner.field_banner_alert_vamcs.url,
           type: banner.type.target_id,
         }
       default:
