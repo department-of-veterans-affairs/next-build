@@ -65,7 +65,7 @@ jobs:
         command: cd main && yarn export --USE_REDIS=false
         max_attempts: 3
         retry_on: error
-        timeout_minutes: 20
+        timeout_minutes: 30
 
     - name: Build sitemap
       run: cd main && yarn build:sitemap --SITE_URL=https://www.va.gov

@@ -15,7 +15,7 @@ export default function Page(props) {
 
 export async function getStaticProps() {
   // We do not want this in output.
-  if (process.env.SSG == 'true') {
+  if (process.env.SSG === 'true') {
     return {
       notFound: true,
     }
