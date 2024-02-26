@@ -59,17 +59,12 @@ jobs:
         cd main
         BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
 
-    - name: Start redis container
-      run: |
-        cd main
-        yarn redis
-
     - name: Build site
       uses: nick-fields/retry@v3
       with:
-        command: cd main && yarn export
+        command: cd main && yarn export --USE_REDIS=false
         max_attempts: 3
         retry_on: error
 
     - name: Build sitemap
-      run: cd main && yarn build:sitemap --SITE_URL https://www.va.gov
+      run: cd main && yarn build:sitemap --SITE_URL=https://www.va.gov
