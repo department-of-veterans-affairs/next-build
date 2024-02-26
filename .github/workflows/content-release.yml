@@ -1,0 +1,67 @@
+name: Content Release
+
+on:
+  # TODO: remove pull_request, run on repo dispatch
+  pull_request:
+  # repository_dispatch:
+  #   types: [content-release]
+  # workflow_run:
+  #   workflows: ['Continuous Integration']
+  #   types: [completed]
+  #   branches: [main]
+
+jobs:
+  build:
+    timeout-minutes: 15
+    runs-on: [self-hosted, asg]
+    container:
+      image: public.ecr.aws/docker/library/node:18.19.0-bullseye
+      # Certs added for the self hosted runner
+      env:
+        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+        APP_ENV: gha
+        NEXT_PUBLIC_DRUPAL_BASE_URL: https://prod.cms.va.gov
+        NEXT_PUBLIC_IMAGE_URL: https://prod.cms.va.gov
+        SITE_URL: https://www.va.gov
+      ports:
+        - 80
+      volumes:
+        - /etc/ssl/certs:/etc/ssl/certs
+    defaults:
+      run:
+        working-directory: next-build
+    steps:
+    # - name: Get latest tag
+    #   id: get-latest-tag
+    #   run: echo LATEST_TAG_VERSION=$(git fetch --all --tags > /dev/null && git tag -l | sort -V --reverse | head -n 1) >> $GITHUB_OUTPUT
+
+    # - name: Checkout latest release
+    #   run: git clone git@github.com:department-of-veterans-affairs/next-build.git --branch ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }}
+
+    - name: Checkout vets-website
+      uses: actions/checkout@v4
+      with:
+        repository: department-of-veterans-affairs/vets-website
+        path: vets-website
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - name: Setup Yarn
+      run: |
+        corepack enable
+        corepack install -g --cache-only .yarn/releases/corepack.tgz
+
+    - name: Install dependencies
+      run: |
+        yarn
+
+    # todo: update this command after cleanup PR lands
+    - name: Gather vets-website assets
+      run: BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
+
+    - name: Build site
+      run: yarn export
+
+    - name: Build sitemap
+      run: yarn build:sitemap --SITE_URL ${{ env.SITE_URL }}
