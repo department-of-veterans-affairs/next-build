@@ -7144,7 +7144,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.8.2, axe-core@npm:~4.8.2":
+"axe-core@npm:^4.8.4":
+  version: 4.8.4
+  resolution: "axe-core@npm:4.8.4"
+  checksum: 644da2fec17bcf6f834edaab1baa5a75a9a3ee370c323215c73da6d7e45fac11d01470d92d0a3d5f26695e15c1d9b781733dfbe1fe09d505076c58f09ed74e02
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:~4.8.2":
   version: 4.8.2
   resolution: "axe-core@npm:4.8.2"
   checksum: 8c19f507dabfcb8514e4280c7fc66e85143be303ddb57ec9f119338021228dc9b80560993938003837bda415fde7c07bba3a96560008ffa5f4145a248ed8f5fe
@@ -14499,7 +14506,7 @@ __metadata:
     "@types/uuid": ^9.0.7
     "@typescript-eslint/eslint-plugin": ^7.0.1
     "@typescript-eslint/parser": ^6.19.0
-    axe-core: ^4.8.2
+    axe-core: ^4.8.4
     axios: ^1.6.3
     chalk: ^5.3.0
     clsx: ^2.1.0
