@@ -12,7 +12,7 @@ export const formatter: QueryFormatter<
     id: entity.id,
     entityId: entity.drupal_internal__id,
     title: entity.field_title,
-    wysiwyg: entity.field_wysiwyg?.processed,
+    wysiwyg: entity.field_wysiwyg?.processed || null,
     paragraphs: entity.field_va_paragraphs?.map?.(formatParagraph),
   }
 }
