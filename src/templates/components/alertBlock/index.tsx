@@ -3,6 +3,8 @@ import {
   VaAlertExpandable,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { AlertBlock as FormattedAlertBlock } from '@/types/formatted/alert'
+import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { Wysiwyg } from '../wysiwyg'
 
 export function AlertBlock(alertBlock: FormattedAlertBlock) {
   if (!alertBlock) {
@@ -23,15 +25,11 @@ export function AlertBlock(alertBlock: FormattedAlertBlock) {
           {title}
         </h2>
 
-        {!content.header && (
-          <div
-            dangerouslySetInnerHTML={{
-              __html: content.text,
-            }}
-          />
+        {content.type === PARAGRAPH_RESOURCE_TYPES.WYSIWYG && (
+          <Wysiwyg {...content} />
         )}
 
-        {content.header && (
+        {content.type === PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT && (
           <VaAlertExpandable id={id} trigger={content.header}>
             {content.text && (
               <div

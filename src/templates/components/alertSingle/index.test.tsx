@@ -12,6 +12,8 @@ describe('AlertSingle Component', () => {
     alertType: 'info',
     title: 'Block Reference Title',
     content: {
+      id: 'et-1',
+      type: 'paragraph--expandable_text',
       header: 'Block Reference Header',
       text: 'Block reference content text.',
     },

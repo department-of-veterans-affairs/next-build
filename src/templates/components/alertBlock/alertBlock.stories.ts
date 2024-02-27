@@ -16,7 +16,9 @@ export const Default: Story = {
     alertType: 'info',
     title: 'Changes based on Blue Water Navy Vietnam Veterans Act of 2019',
     content: {
-      text: "<p>To use this feature, you'll need a Premium <strong>DS Logon</strong> account.</p>",
+      id: '1',
+      type: 'paragraph--wysiwyg',
+      html: "<p>To use this feature, you'll need a Premium <strong>DS Logon</strong> account.</p>",
     },
   },
 }
@@ -27,6 +29,8 @@ export const Expandable: Story = {
     alertType: 'info',
     title: 'Changes based on Blue Water Navy Vietnam Veterans Act of 2019',
     content: {
+      id: '2',
+      type: 'paragraph--expandable_text',
       header: 'Learn how to sign in',
       text: "<p>To use this feature, you'll need a Premium <strong>DS Logon</strong> account.</p>",
     },

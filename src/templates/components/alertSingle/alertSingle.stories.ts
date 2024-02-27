@@ -15,6 +15,8 @@ const blockReference: AlertBlock = {
   alertType: 'info',
   title: 'Block Reference Title',
   content: {
+    id: 'et-1',
+    type: 'paragraph--expandable_text',
     header: 'Block Reference Header',
     text: '<p>This is the block reference content.</p>',
   },
