@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "setup": "node scripts/yarn/setup.js",
+    "setup": "node ./scripts/yarn/vets-website-assets.js",
     "dev": "yarn build:env-loader && node ./scripts/yarn/dev.js --SSG=false",
     "build": "yarn build:env-loader && node ./scripts/yarn/build.js --USE_REDIS=true",
     "build:env-loader": "tsc -b ./packages/env-loader/tsconfig.json",
@@ -52,6 +52,7 @@
     "chalk": "^5.3.0",
     "clsx": "^2.1.0",
     "commander": "^12.0.0",
+    "cross-fetch": "^4.0.0",
     "debug": "^4.3.4",
     "drupal-jsonapi-params": "^2.3.1",
     "env-loader": "0.1.0",
