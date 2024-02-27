@@ -59,7 +59,7 @@ export type NodeTypes =
   | NodeEventListing
 
 /** Node resource types. */
-export const enum NodeResourceType {
+export enum NodeResourceType {
   Banner = 'node--banner',
   BannerAlert = 'node--full_width_banner_alert',
   Event = 'node--event',
@@ -346,12 +346,13 @@ export interface NodeStoryListing extends DrupalNode {
 }
 
 export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
-  field_table_of_content_boolean: boolean
+  field_table_of_contents_boolean: boolean
   field_content_block: (
     | ParagraphWysiwyg
     | ParagraphTable
     | ParagraphCollapsiblePanel
     | ParagraphReactWidget
+    | ParagraphQAGroup
   )[]
   field_buttons_repeat: boolean
 }

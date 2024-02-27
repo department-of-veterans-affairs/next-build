@@ -1,7 +1,12 @@
 import Link from 'next/link'
 import { Button as FormattedButton } from '@/types/formatted/button'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
-export function Button({ id, label, url }: FormattedButton) {
+export function Button({
+  id,
+  label,
+  url,
+}: ParagraphComponent<FormattedButton>) {
   return (
     label &&
     url && (

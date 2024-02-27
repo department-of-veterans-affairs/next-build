@@ -5,7 +5,11 @@ import {
   AdditionalContact as FormattedAdditionalContact,
   BenefitHubContact,
   ContactInfo as FormattedContactInfo,
+  EmailContact as FormattedEmailContact,
+  PhoneContact as FormattedPhoneContact,
 } from '@/types/formatted/contactInfo'
+import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 const analytic = (header) => {
   return {
@@ -32,37 +36,47 @@ export const DefaultContact = ({ title, value, href }: Contact) => {
   )
 }
 
-// nested paragraphs
-const AdditionalContact = ({ email, phone }: FormattedAdditionalContact) => {
-  const phoneNumber =
-    phone &&
-    (phone.extension ? `${phone.number}p${phone.extension}` : phone.number)
+export const EmailContact = (
+  email: ParagraphComponent<FormattedEmailContact>
+) => {
+  return (
+    <li className="vads-u-margin-top--1">
+      <DefaultContact
+        title={email.label}
+        value={email.address}
+        href={`mailto:${email.address}`}
+      />
+    </li>
+  )
+}
+
+export const PhoneContact = (
+  phone: ParagraphComponent<FormattedPhoneContact>
+) => {
+  const phoneNumber = phone.extension
+    ? `${phone.number}p${phone.extension}`
+    : phone.number
 
   return (
-    <>
-      {/* Email */}
-      {email && (
-        <li className="vads-u-margin-top--1">
-          <DefaultContact
-            title={email.label}
-            value={email.address}
-            href={`mailto:${email.address}`}
-          />
-        </li>
-      )}
-
-      {/* Phone number */}
-      {phone && (
-        <li className="vads-u-margin-top--1">
-          <DefaultContact
-            title={phone.label}
-            value={phoneNumber}
-            href={`tel:${phoneNumber}`}
-          />
-        </li>
-      )}
-    </>
+    <li className="vads-u-margin-top--1">
+      <DefaultContact
+        title={phone.label}
+        value={phoneNumber}
+        href={`tel:${phoneNumber}`}
+      />
+    </li>
   )
+}
+
+// nested paragraphs
+const AdditionalContact = (contact: FormattedAdditionalContact) => {
+  switch (contact.type) {
+    case PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT:
+      return <EmailContact {...(contact as FormattedEmailContact)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT:
+      return <PhoneContact {...(contact as FormattedPhoneContact)} />
+  }
 }
 
 // node--support-service nodes that get included
@@ -81,7 +95,7 @@ export function ContactInfo({
   defaultContact,
   additionalContact,
   benefitHubContacts,
-}: FormattedContactInfo) {
+}: ParagraphComponent<FormattedContactInfo>) {
   const useDefaultContact =
     contactType === 'DC' && defaultContact && !additionalContact
 

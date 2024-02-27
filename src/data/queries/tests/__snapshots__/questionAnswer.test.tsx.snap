@@ -9,8 +9,10 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
 ",
     "buttons": [
       {
+        "entityId": 13772,
         "id": "203de085-bb3c-4655-b8ca-0d859a65f5b6",
         "label": "Check your VA claim status",
+        "type": "paragraph--button",
         "url": "entity:node/711",
       },
     ],
@@ -19,31 +21,38 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "id": "c2839a4c-c13d-46da-b448-9d1ec389773b",
     "lastUpdated": "2020-10-19T17:10:51+00:00",
     "published": true,
-    "tags": [
-      {
-        "categoryLabel": "Audience",
-        "href": "/resources/tag/all-veterans",
-        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-        "name": "All Veterans",
-      },
-      {
-        "categoryLabel": "Topics",
-        "href": "/resources/tag/claims-and-appeals-status",
-        "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
-        "name": "Claims and appeals status",
-      },
-    ],
+    "tags": {
+      "entityId": 13779,
+      "id": "d7dd0c3a-5b28-4bb7-8a57-aa520fa7248b",
+      "tags": [
+        {
+          "categoryLabel": "Audience",
+          "href": "/resources/tag/all-veterans",
+          "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+          "name": "All Veterans",
+        },
+        {
+          "categoryLabel": "Topics",
+          "href": "/resources/tag/claims-and-appeals-status",
+          "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
+          "name": "Claims and appeals status",
+        },
+      ],
+      "type": "paragraph--audience_topics",
+    },
     "teasers": [
       {
         "componentParams": {
           "boldTitle": false,
           "sectionHeader": "",
         },
+        "entityId": 13774,
         "id": "b5dc447b-5832-4a3f-9e4b-b96cf08a9207",
         "options": [],
         "parentField": "field_related_information",
         "summary": null,
         "title": "How to check your VA claim or appeal status online",
+        "type": "paragraph--link_teaser",
         "uri": "entity:node/8520",
       },
       {
@@ -51,11 +60,13 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
           "boldTitle": false,
           "sectionHeader": "",
         },
+        "entityId": 13778,
         "id": "7de62b28-028d-40a1-bafa-fc1113c47aeb",
         "options": [],
         "parentField": "field_related_information",
         "summary": null,
         "title": "VA decision reviews and appeals",
+        "type": "paragraph--link_teaser",
         "uri": "entity:node/3071",
       },
       {
@@ -63,11 +74,13 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
           "boldTitle": false,
           "sectionHeader": "",
         },
+        "entityId": 14131,
         "id": "1af2cc04-07c7-4afa-86c9-6ae32b363d32",
         "options": [],
         "parentField": "field_related_information",
         "summary": null,
         "title": "Signing in to VA.gov ",
+        "type": "paragraph--link_teaser",
         "uri": "entity:node/8222",
       },
     ],
@@ -90,8 +103,10 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
 ",
     "buttons": [
       {
+        "entityId": 13894,
         "id": "21bf8a97-36ec-44ba-a245-1fbcb014b8a9",
         "label": "Find a VA location",
+        "type": "paragraph--button",
         "url": "internal:/find-locations/",
       },
     ],
@@ -100,25 +115,32 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "id": "eaff8edf-2cee-4e11-9373-7860a78295a6",
     "lastUpdated": "2020-10-19T21:42:01+00:00",
     "published": true,
-    "tags": [
-      {
-        "categoryLabel": "Audience",
-        "href": "/resources/tag/all-veterans",
-        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-        "name": "All Veterans",
-      },
-    ],
+    "tags": {
+      "entityId": 13897,
+      "id": "8765cf43-6284-4154-b1ec-919403e2b428",
+      "tags": [
+        {
+          "categoryLabel": "Audience",
+          "href": "/resources/tag/all-veterans",
+          "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+          "name": "All Veterans",
+        },
+      ],
+      "type": "paragraph--audience_topics",
+    },
     "teasers": [
       {
         "componentParams": {
           "boldTitle": false,
           "sectionHeader": "",
         },
+        "entityId": 14153,
         "id": "be43d17b-f642-49b6-bed2-b4ea7712ed88",
         "options": [],
         "parentField": "field_related_information",
         "summary": null,
         "title": "Learn about how to get a service dog with your VA health care benefits",
+        "type": "paragraph--link_teaser",
         "uri": "https://www.prosthetics.va.gov/ServiceAndGuideDogs.asp",
       },
     ],
@@ -130,13 +152,17 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
 ",
     "buttons": [
       {
+        "entityId": 13801,
         "id": "e22196d7-382b-4a51-aa1e-d6cb6976013a",
         "label": "Check your VA claim or appeal status",
+        "type": "paragraph--button",
         "url": "entity:node/711",
       },
       {
+        "entityId": 13802,
         "id": "12d69420-705e-40de-bb72-0b34a0f4fcdd",
         "label": "Sign in or create an account",
+        "type": "paragraph--button",
         "url": "https://www.va.gov/?next=%2Fprofile%2F",
       },
     ],
@@ -145,20 +171,25 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "id": "bcf87f05-f947-4631-8a86-a3c0c0fe9878",
     "lastUpdated": "2020-10-19T18:13:29+00:00",
     "published": true,
-    "tags": [
-      {
-        "categoryLabel": "Audience",
-        "href": "/resources/tag/all-veterans",
-        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-        "name": "All Veterans",
-      },
-      {
-        "categoryLabel": "Topics",
-        "href": "/resources/tag/claims-and-appeals-status",
-        "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
-        "name": "Claims and appeals status",
-      },
-    ],
+    "tags": {
+      "entityId": 13805,
+      "id": "4e4d770d-06a9-480d-b7b4-42a78970cd52",
+      "tags": [
+        {
+          "categoryLabel": "Audience",
+          "href": "/resources/tag/all-veterans",
+          "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+          "name": "All Veterans",
+        },
+        {
+          "categoryLabel": "Topics",
+          "href": "/resources/tag/claims-and-appeals-status",
+          "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
+          "name": "Claims and appeals status",
+        },
+      ],
+      "type": "paragraph--audience_topics",
+    },
     "teasers": [],
     "title": "What types of claims can I track online?",
     "type": "node--q_a",

@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { Button } from './index'
 import { Button as FormattedButton } from '@/types/formatted/button'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
-const buttonProps: FormattedButton = {
+const buttonProps: ParagraphComponent<FormattedButton> = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',
   label: 'Sign in now',
   url: 'https://www.va.gov/?next=sign-in-faq',

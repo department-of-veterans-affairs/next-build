@@ -103,62 +103,64 @@
         "drupal_internal__target_id": "audience_topics"
       }
     },
-    "field_audience_beneficiares": {
-      "type": "taxonomy_term--audience_beneficiaries",
-      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-      "drupal_internal__tid": 268,
-      "drupal_internal__revision_id": 268,
-      "langcode": "en",
-      "revision_created": "2020-09-10T22:27:56+00:00",
-      "revision_log_message": null,
-      "status": true,
-      "name": "All Veterans",
-      "description": null,
-      "weight": 0,
-      "changed": "2021-01-13T20:20:40+00:00",
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "metatag": null,
-      "path": {
-        "alias": "/resources/tag/all-veterans",
-        "pid": 11290,
-        "langcode": "en"
-      },
-      "field_audience_rs_homepage": true,
-      "links": {
-        "self": {
-          "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
-        }
-      },
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 268
-      },
-      "vid": {
-        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
-        "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
+    "field_audience_beneficiares": [
+      {
+        "type": "taxonomy_term--audience_beneficiaries",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "drupal_internal__tid": 268,
+        "drupal_internal__revision_id": 268,
+        "langcode": "en",
+        "revision_created": "2020-09-10T22:27:56+00:00",
+        "revision_log_message": null,
+        "status": true,
+        "name": "All Veterans",
+        "description": null,
+        "weight": 0,
+        "changed": "2021-01-13T20:20:40+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "metatag": null,
+        "path": {
+          "alias": "/resources/tag/all-veterans",
+          "pid": 11290,
+          "langcode": "en"
+        },
+        "field_audience_rs_homepage": true,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
+          }
+        },
         "resourceIdObjMeta": {
-          "drupal_internal__target_id": "audience_beneficiaries"
-        }
-      },
-      "revision_user": null,
-      "parent": [
-        {
-          "type": "taxonomy_term--audience_beneficiaries",
-          "id": "virtual",
+          "drupal_internal__target_id": 268
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
           "resourceIdObjMeta": {
-            "links": {
-              "help": {
-                "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
-                "meta": {
-                  "about": "Usage and meaning of the 'virtual' resource identifier."
+            "drupal_internal__target_id": "audience_beneficiaries"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--audience_beneficiaries",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
                 }
               }
             }
           }
-        }
-      ],
-      "relationshipNames": ["vid", "revision_user", "parent"]
-    },
+        ],
+        "relationshipNames": ["vid", "revision_user", "parent"]
+      }
+    ],
     "field_non_beneficiares": null,
     "field_topics": [
       {
@@ -252,62 +254,64 @@
         "drupal_internal__target_id": "audience_topics"
       }
     },
-    "field_audience_beneficiares": {
-      "type": "taxonomy_term--audience_beneficiaries",
-      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-      "drupal_internal__tid": 268,
-      "drupal_internal__revision_id": 268,
-      "langcode": "en",
-      "revision_created": "2020-09-10T22:27:56+00:00",
-      "revision_log_message": null,
-      "status": true,
-      "name": "All Veterans",
-      "description": null,
-      "weight": 0,
-      "changed": "2021-01-13T20:20:40+00:00",
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "metatag": null,
-      "path": {
-        "alias": "/resources/tag/all-veterans",
-        "pid": 11290,
-        "langcode": "en"
-      },
-      "field_audience_rs_homepage": true,
-      "links": {
-        "self": {
-          "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
-        }
-      },
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 268
-      },
-      "vid": {
-        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
-        "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
+    "field_audience_beneficiares": [
+      {
+        "type": "taxonomy_term--audience_beneficiaries",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "drupal_internal__tid": 268,
+        "drupal_internal__revision_id": 268,
+        "langcode": "en",
+        "revision_created": "2020-09-10T22:27:56+00:00",
+        "revision_log_message": null,
+        "status": true,
+        "name": "All Veterans",
+        "description": null,
+        "weight": 0,
+        "changed": "2021-01-13T20:20:40+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "metatag": null,
+        "path": {
+          "alias": "/resources/tag/all-veterans",
+          "pid": 11290,
+          "langcode": "en"
+        },
+        "field_audience_rs_homepage": true,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
+          }
+        },
         "resourceIdObjMeta": {
-          "drupal_internal__target_id": "audience_beneficiaries"
-        }
-      },
-      "revision_user": null,
-      "parent": [
-        {
-          "type": "taxonomy_term--audience_beneficiaries",
-          "id": "virtual",
+          "drupal_internal__target_id": 268
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
           "resourceIdObjMeta": {
-            "links": {
-              "help": {
-                "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
-                "meta": {
-                  "about": "Usage and meaning of the 'virtual' resource identifier."
+            "drupal_internal__target_id": "audience_beneficiaries"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--audience_beneficiaries",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
                 }
               }
             }
           }
-        }
-      ],
-      "relationshipNames": ["vid", "revision_user", "parent"]
-    },
+        ],
+        "relationshipNames": ["vid", "revision_user", "parent"]
+      }
+    ],
     "field_non_beneficiares": null,
     "field_topics": [
       {
@@ -591,62 +595,64 @@
         "drupal_internal__target_id": "audience_topics"
       }
     },
-    "field_audience_beneficiares": {
-      "type": "taxonomy_term--audience_beneficiaries",
-      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-      "drupal_internal__tid": 268,
-      "drupal_internal__revision_id": 268,
-      "langcode": "en",
-      "revision_created": "2020-09-10T22:27:56+00:00",
-      "revision_log_message": null,
-      "status": true,
-      "name": "All Veterans",
-      "description": null,
-      "weight": 0,
-      "changed": "2021-01-13T20:20:40+00:00",
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "metatag": null,
-      "path": {
-        "alias": "/resources/tag/all-veterans",
-        "pid": 11290,
-        "langcode": "en"
-      },
-      "field_audience_rs_homepage": true,
-      "links": {
-        "self": {
-          "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
-        }
-      },
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 268
-      },
-      "vid": {
-        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
-        "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
+    "field_audience_beneficiares": [
+      {
+        "type": "taxonomy_term--audience_beneficiaries",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "drupal_internal__tid": 268,
+        "drupal_internal__revision_id": 268,
+        "langcode": "en",
+        "revision_created": "2020-09-10T22:27:56+00:00",
+        "revision_log_message": null,
+        "status": true,
+        "name": "All Veterans",
+        "description": null,
+        "weight": 0,
+        "changed": "2021-01-13T20:20:40+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "metatag": null,
+        "path": {
+          "alias": "/resources/tag/all-veterans",
+          "pid": 11290,
+          "langcode": "en"
+        },
+        "field_audience_rs_homepage": true,
+        "links": {
+          "self": {
+            "href": "http://va-gov-cms.ddev.site/jsonapi/taxonomy_term/audience_beneficiaries/386eb70d-696c-4af3-8986-306ce63d90de"
+          }
+        },
         "resourceIdObjMeta": {
-          "drupal_internal__target_id": "audience_beneficiaries"
-        }
-      },
-      "revision_user": null,
-      "parent": [
-        {
-          "type": "taxonomy_term--audience_beneficiaries",
-          "id": "virtual",
+          "drupal_internal__target_id": 268
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
           "resourceIdObjMeta": {
-            "links": {
-              "help": {
-                "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
-                "meta": {
-                  "about": "Usage and meaning of the 'virtual' resource identifier."
+            "drupal_internal__target_id": "audience_beneficiaries"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--audience_beneficiaries",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
                 }
               }
             }
           }
-        }
-      ],
-      "relationshipNames": ["vid", "revision_user", "parent"]
-    },
+        ],
+        "relationshipNames": ["vid", "revision_user", "parent"]
+      }
+    ],
     "field_non_beneficiares": null,
     "field_topics": [],
     "relationshipNames": [

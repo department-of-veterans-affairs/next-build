@@ -3,9 +3,12 @@ import { fireEvent, getByRole } from '@testing-library/dom'
 jest.mock('@/lib/analytics/recordEvent')
 import * as recordEvent from '@/lib/analytics/recordEvent'
 import { ContactInfo } from './index'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { ContactInfo as FormattedContactInfo } from '@/types/formatted/contactInfo'
 
 describe('ContactInfo with valid data', () => {
-  const data = {
+  const data: ParagraphComponent<FormattedContactInfo> = {
+    id: '1',
     contactType: 'DC',
     defaultContact: {
       title: 'Phone Number',
@@ -21,18 +24,13 @@ describe('ContactInfo with valid data', () => {
   })
 
   test('renders ContactInfo component with an additional contact', () => {
-    const additional = {
+    const additional: ParagraphComponent<FormattedContactInfo> = {
       ...data,
       additionalContact: {
-        email: {
-          address: 'test.veteran@va.gov',
-          label: 'Minority Veterans Program',
-        },
-        phone: {
-          label: 'Phone Number',
-          number: '(281) 330-8004',
-          extension: '444',
-        },
+        id: '11',
+        type: 'paragraph--email_contact',
+        address: 'test.veteran@va.gov',
+        label: 'Minority Veterans Program',
       },
     }
 
@@ -42,7 +40,7 @@ describe('ContactInfo with valid data', () => {
   })
 
   test('renders Benefit Hub Contacts information when provided', () => {
-    const bhc = {
+    const bhc: ParagraphComponent<FormattedContactInfo> = {
       ...data,
       contactType: 'BHC',
       benefitHubContacts: [

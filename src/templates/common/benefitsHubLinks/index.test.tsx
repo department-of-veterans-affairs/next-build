@@ -3,7 +3,7 @@ import { BenefitsHubLinks } from './index'
 
 const data = {
   title: 'Deciding how much life insurance to get',
-  benefitHubs: [
+  links: [
     {
       id: '386eb70d-696c-4af3-8986-306ce63d90de',
       path: '/resources/helpful-va-phone-numbers',

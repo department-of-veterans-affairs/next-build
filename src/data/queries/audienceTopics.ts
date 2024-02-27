@@ -1,7 +1,7 @@
 // Define the query params for fetching node--news_story.
 import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
-import { AudienceTopic } from '@/types/formatted/audienceTopics'
+import { AudienceTopic, AudienceTopics } from '@/types/formatted/audienceTopics'
 
 const getTagsList = (
   entity: ParagraphAudienceTopics
@@ -11,7 +11,7 @@ const getTagsList = (
   const {
     field_topics: fieldTopics = [],
     field_audience_beneficiares: fieldAudienceBeneficiares,
-    fieldNonBeneficiares: fieldNonBeneficiares,
+    field_non_beneficiares: fieldNonBeneficiares,
   } = entity
 
   const topics = fieldTopics.map((topic) => ({
@@ -21,7 +21,10 @@ const getTagsList = (
     categoryLabel: 'Topics',
   }))
 
-  const audiences = [fieldAudienceBeneficiares, fieldNonBeneficiares]
+  const audiences = [
+    ...(fieldAudienceBeneficiares || []),
+    ...(fieldNonBeneficiares || []),
+  ]
     .filter((tag) => !!tag)
     .map((audience) => ({
       id: audience.id,
@@ -41,7 +44,12 @@ const getTagsList = (
  */
 export const formatter: QueryFormatter<
   ParagraphAudienceTopics,
-  AudienceTopic[]
+  AudienceTopics
 > = (entity: ParagraphAudienceTopics) => {
-  return getTagsList(entity)
+  return {
+    type: entity.type as AudienceTopics['type'],
+    id: entity.id,
+    entityId: entity.drupal_internal__id,
+    tags: getTagsList(entity),
+  }
 }

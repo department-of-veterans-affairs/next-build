@@ -30,11 +30,11 @@ export const AdditionalContactPhone: Story = {
       href: 'tel:8558675309',
     },
     additionalContact: {
-      phone: {
-        label: 'Phone Number',
-        number: '(281) 330-8004',
-        extension: '444',
-      },
+      type: 'paragraph--phone_number',
+      id: '1',
+      label: 'Phone Number',
+      number: '(281) 330-8004',
+      extension: '444',
     },
   },
 }
@@ -48,10 +48,10 @@ export const AdditionalContactEmail: Story = {
       href: 'tel:8558675309',
     },
     additionalContact: {
-      email: {
-        label: 'Email Address',
-        address: 'johnsmith@va.gov',
-      },
+      type: 'paragraph--email_contact',
+      id: '2',
+      label: 'Email Address',
+      address: 'johnsmith@va.gov',
     },
   },
 }

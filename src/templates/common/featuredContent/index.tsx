@@ -1,10 +1,11 @@
 import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 export function FeaturedContent({
   title,
   description,
   link,
-}: FormattedFeaturedContent) {
+}: ParagraphComponent<FormattedFeaturedContent>) {
   return (
     <div className="feature featured-content-list-item vads-u-flex--fill vads-u-padding-y--1p5 vads-u-padding-x--1p5 vads-u-margin-bottom--0 medium-screen:vads-u-margin-bottom--2">
       {title && (
