@@ -21,9 +21,7 @@ jobs:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
         APP_ENV: gha
         NEXT_PUBLIC_DRUPAL_BASE_URL: https://prod.cms.va.gov
-        NEXT_PUBLIC_IMAGE_URL: https://prod.cms.va.gov
-        DRUPAL_CLIENT_ID: ${{ secrets.PROD_DRUPAL_CLIENT_ID }}
-        DRUPAL_CLIENT_SECRET: ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }}
+        SITE_URL: https://www.va.gov
       ports:
         - 80
       volumes:
@@ -64,10 +62,17 @@ jobs:
     - name: Build site
       uses: nick-fields/retry@v3
       with:
-        command: cd main && yarn export --USE_REDIS=false
         max_attempts: 3
         retry_on: error
         timeout_minutes: 30
+        command: >-
+          cd main && yarn export \
+          --SITE_URL $SITE_URL \
+          --NEXT_PUBLIC_DRUPAL_BASE_URL $NEXT_PUBLIC_DRUPAL_BASE_URL \
+          --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} \
+          --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} \
+          --USE_REDIS=false \
+          --NEXT_PUBLIC_ASSETS_URL=/generated/
 
     - name: Build sitemap
-      run: cd main && yarn build:sitemap --SITE_URL=https://www.va.gov
+      run: cd main && yarn build:sitemap --SITE_URL $SITE_URL
