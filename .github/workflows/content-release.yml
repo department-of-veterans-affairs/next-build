@@ -19,9 +19,6 @@ jobs:
       # Certs added for the self hosted runner
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
-        APP_ENV: gha
-        NEXT_PUBLIC_DRUPAL_BASE_URL: https://prod.cms.va.gov
-        SITE_URL: https://www.va.gov
       ports:
         - 80
       volumes:
@@ -61,6 +58,10 @@ jobs:
 
     - name: Build site
       uses: nick-fields/retry@v3
+      env:
+        APP_ENV: gha
+        NEXT_PUBLIC_DRUPAL_BASE_URL: https://prod.cms.va.gov
+        SITE_URL: https://www.va.gov
       with:
         max_attempts: 3
         retry_on: error
