@@ -67,4 +67,4 @@ jobs:
         command: cd main && yarn export --SITE_URL https://www.va.gov --NEXT_PUBLIC_DRUPAL_BASE_URL https://prod.cms.va.gov --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --USE_REDIS=false --NEXT_PUBLIC_ASSETS_URL=/generated/
 
     - name: Build sitemap
-      run: cd main && yarn build:sitemap --SITE_URL https://www.va.gov
+      run: cd main && yarn build:sitemap --SITE_URL https://www.va.gov --NEXT_PUBLIC_DRUPAL_BASE_URL https://prod.cms.va.gov
