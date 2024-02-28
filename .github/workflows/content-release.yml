@@ -46,15 +46,10 @@ jobs:
         corepack install -g --cache-only .yarn/releases/corepack.tgz
 
     - name: Install dependencies
-      run: |
-        cd main
-        yarn
+      run: cd main && yarn
 
-    # todo: update this command after cleanup PR lands
     - name: Gather vets-website assets
-      run: |
-        cd main
-        BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
+      run: cd main && yarn setup
 
     - name: Build site
       uses: nick-fields/retry@v3
