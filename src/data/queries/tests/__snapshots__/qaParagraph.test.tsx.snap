@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QaParagraph formatData outputs formatted data 1`] = `
+{
+  "answers": [
+    {
+      "format": "rich_text",
+      "processed": "<p>asdfasdf</p>",
+      "value": "<p>asdfasdf</p>
+",
+    },
+  ],
+  "id": 2755,
+  "question": "asdf",
+  "type": "paragraph--q_a",
+}
+`;

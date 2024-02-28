@@ -1,0 +1,79 @@
+{
+  "type": "paragraph--q_a",
+  "id": "66125704-adec-474c-a47c-be2968a1f84a",
+  "drupal_internal__id": 2755,
+  "drupal_internal__revision_id": 3012,
+  "langcode": "en",
+  "status": true,
+  "created": "2019-03-04T22:24:09+00:00",
+  "parent_id": "2758",
+  "parent_type": "paragraph",
+  "parent_field_name": "field_questions",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_question": "asdf",
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/q_a/66125704-adec-474c-a47c-be2968a1f84a?resourceVersion=id%3A3012"
+    }
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "q_a"
+    }
+  },
+  "field_answer": [
+    {
+      "type": "paragraph--wysiwyg",
+      "id": "f6dfd8da-877f-46bd-9707-28861c27003e",
+      "drupal_internal__id": 2754,
+      "drupal_internal__revision_id": 3011,
+      "langcode": "en",
+      "status": true,
+      "created": "2019-03-04T22:24:09+00:00",
+      "parent_id": "2755",
+      "parent_type": "paragraph",
+      "parent_field_name": "field_answer",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_wysiwyg": {
+        "value": "<p>asdfasdf</p>\r\n",
+        "format": "rich_text",
+        "processed": "<p>asdfasdf</p>"
+      },
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/f6dfd8da-877f-46bd-9707-28861c27003e?resourceVersion=id%3A3011"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 3011,
+        "drupal_internal__target_id": 2754
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "wysiwyg"
+        }
+      },
+      "relationshipNames": [
+        "paragraph_type"
+      ]
+    }
+  ],
+  "relationshipNames": [
+    "paragraph_type",
+    "field_answer"
+  ]
+}
