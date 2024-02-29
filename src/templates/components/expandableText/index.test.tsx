@@ -9,49 +9,19 @@ const expandableTextProps = {
 
 describe('ExpandableText with valid data', () => {
   test('renders ExpandableText component', () => {
-    render(
-      <ExpandableText key={expandableTextProps.id} {...expandableTextProps} />
-    )
+    render(<ExpandableText {...expandableTextProps} />)
 
-    const vaAccordionItemEl = document.querySelector('va-accordion-item')
-    expect(vaAccordionItemEl).toHaveAttribute('header', 'Show more')
-    expect(screen.queryByText(/If you need support.../)).toBeInTheDocument()
+    const vaAlertExpandable = document.querySelector('va-alert-expandable')
+    expect(vaAlertExpandable).toHaveAttribute('trigger', 'Show more')
   })
 })
 
 describe('ExpandableText with invalid data', () => {
   test('does not render ExpandableText component when header is not present', () => {
     expandableTextProps.header = null
+    render(<ExpandableText {...expandableTextProps} />)
 
-    render(
-      <ExpandableText key={expandableTextProps.id} {...expandableTextProps} />
-    )
-
-    const vaAccordionItemEl = document.querySelector('va-accordion-item')
-    expect(vaAccordionItemEl).toBeFalsy()
-  })
-
-  test('does not render the text info when text is not present', () => {
-    expandableTextProps.header = 'Show more'
-    expandableTextProps.text = null
-    render(
-      <ExpandableText key={expandableTextProps.id} {...expandableTextProps} />
-    )
-
-    const vaAccordionItemEl = document.querySelector('va-accordion-item')
-    expect(vaAccordionItemEl).toHaveAttribute('header', 'Show more')
-    expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
-  })
-
-  test('does not render the text info when processed is not present', () => {
-    expandableTextProps.header = 'Show more'
-    expandableTextProps.text = null
-    render(
-      <ExpandableText key={expandableTextProps.id} {...expandableTextProps} />
-    )
-
-    const vaAccordionItemEl = document.querySelector('va-accordion-item')
-    expect(vaAccordionItemEl).toHaveAttribute('header', 'Show more')
-    expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
+    const vaAlertExpandable = document.querySelector('va-alert-expandable')
+    expect(vaAlertExpandable).toBeFalsy()
   })
 })
