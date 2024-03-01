@@ -10,8 +10,6 @@ exports[`QaParagraph formatData outputs formatted data 1`] = `
 ",
     },
   ],
-  "id": 2755,
   "question": "asdf",
-  "type": "paragraph--q_a",
 }
 `;

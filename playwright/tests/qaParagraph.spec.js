@@ -1,9 +1,7 @@
 const { test, expect } = require('../utils/next-test')
 
 test.describe('qaParagraph', () => {
-  test('qaParagraph page renders', async ({
-    page,
-  }) => {
+  test('qaParagraph page renders', async ({ page }) => {
     await page.goto('/update-this-link')
     await expect(page).toHaveURL('/update-this-link')
   })

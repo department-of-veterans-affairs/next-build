@@ -67,13 +67,8 @@
           "drupal_internal__target_id": "wysiwyg"
         }
       },
-      "relationshipNames": [
-        "paragraph_type"
-      ]
+      "relationshipNames": ["paragraph_type"]
     }
   ],
-  "relationshipNames": [
-    "paragraph_type",
-    "field_answer"
-  ]
+  "relationshipNames": ["paragraph_type", "field_answer"]
 }
