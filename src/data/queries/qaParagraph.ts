@@ -7,8 +7,8 @@ export const formatter: QueryFormatter<ParagraphQaParagraph, QaParagraph> = (
 ) => {
   return {
     question: entity.field_question,
-    answers: entity.field_answer.map(paragraphWysiwyg => paragraphWysiwyg.field_wysiwyg),
-    type: entity.type,
-    id: entity.drupal_internal__id
+    answers: entity.field_answer.map(
+      (paragraphWysiwyg) => paragraphWysiwyg.field_wysiwyg
+    ),
   }
 }

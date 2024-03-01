@@ -1,8 +1,7 @@
+import { FieldFormattedText } from '../drupal/field_type'
+import { FormattedParagraph } from '@/data/queries'
 
-import { FieldFormattedText } from "../drupal/field_type"
 export type QaParagraph = {
   question: string
-  answers: FieldFormattedText[]
-  type: string
-  id: number
+  answers: FormattedParagraph[]
 }

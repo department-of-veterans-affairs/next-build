@@ -62,7 +62,7 @@ export const enum ParagraphResourceType {
   Wysiwyg = 'paragraph--wysiwyg',
   RichTextCharLimit1000 = 'paragraph--rich_text_char_limit_1000',
   Accordion = 'paragraph--basic_accordion',
-  ParagraphQaParagraph = 'paragraph--q_a'
+  ParagraphQaParagraph = 'paragraph--q_a',
 }
 
 export interface ParagraphAccordion extends DrupalParagraph {
@@ -168,7 +168,7 @@ export interface ParagraphQAGroup extends DrupalParagraph {
 }
 
 export interface ParagraphQaParagraph extends DrupalParagraph {
-  field_answer: ParagraphWysiwyg[]
+  field_answer: DrupalParagraph[]
   field_question: string
   type: string
 }

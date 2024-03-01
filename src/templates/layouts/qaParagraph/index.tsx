@@ -1,23 +1,20 @@
-import { QaParagraph as FormattedQaParagraph } from "@/types/formatted/qaParagraph"
+import { QaParagraph as FormattedQaParagraph } from '@/types/formatted/qaParagraph'
+import { Paragraph } from '@/templates/components/paragraph'
 
-export function QaParagraph({ question, answers, id }: FormattedQaParagraph) {
+export function QaParagraph({ question, answers }: FormattedQaParagraph) {
   return (
-    <div data-template="paragraphs/q_a" data-entity-id={`${id}`}>
-      <div id={`${id}`}>
+    <div data-template="paragraphs/q_a">
+      <div>
         <div className="vads-u-display--flex">
-          <h2>
-            {question}
-          </h2>
+          <h2>{question}</h2>
         </div>
         {answers && (
-          <div data-entity-id={id}>
+          <div>
             {answers.map((answer, index) => {
-              return (<>{/* TODO Paragraph component logic */}</>)
+              return <Paragraph key={index} {...answer} />
             })}
-
           </div>
         )}
-
       </div>
     </div>
   )
