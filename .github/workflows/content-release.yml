@@ -72,7 +72,6 @@ jobs:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
         role-duration-seconds: 900
-        role-skip-session-tagging: true
 
     - name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
