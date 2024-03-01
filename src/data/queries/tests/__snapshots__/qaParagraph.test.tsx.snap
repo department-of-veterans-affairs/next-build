@@ -4,10 +4,9 @@ exports[`QaParagraph formatData outputs formatted data 1`] = `
 {
   "answers": [
     {
-      "format": "rich_text",
-      "processed": "<p>asdfasdf</p>",
-      "value": "<p>asdfasdf</p>
-",
+      "html": "<p>asdfasdf</p>",
+      "id": "f6dfd8da-877f-46bd-9707-28861c27003e",
+      "type": "paragraph--wysiwyg",
     },
   ],
   "question": "asdf",

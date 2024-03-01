@@ -1,8 +1,8 @@
-import { ParagraphQaParagraph } from '@/types/drupal/paragraph'
+import { ParagraphQA } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/qaParagraph.mock.json'
 
-const QaParagraphMock: ParagraphQaParagraph = mockData
+const QaParagraphMock: ParagraphQA = mockData
 
 describe('QaParagraph formatData', () => {
   let windowSpy
