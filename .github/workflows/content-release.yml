@@ -79,6 +79,5 @@ jobs:
     - name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
-        DEPLOY_BUCKET: next-content.www.va.gov
         SRC: ./out/
-        DEST: s3://${{ env.DEPLOY_BUCKET }}
+        DEST: s3://next-content.www.va.gov
