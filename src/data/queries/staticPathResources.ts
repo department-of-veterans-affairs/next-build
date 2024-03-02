@@ -9,7 +9,7 @@ import { ResourceType } from '@/lib/constants/resourceTypes'
 import { StaticPathResource } from '@/types/formatted/staticPathResource'
 import { FieldAdministration } from '@/types/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
-import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { fetchAndConcatAllResourceCollectionPages } from '@/lib/drupal/query'
 
 const PAGE_SIZE = PAGE_SIZES.MAX
@@ -19,8 +19,7 @@ export const params: QueryParams<ResourceType> = (
   resourceType: ResourceType
 ) => {
   return (
-    queries
-      .getParams()
+    new DrupalJsonApiParams()
       // Note: We can't put `path` first:
       // See:
       //  https://next-drupal.org/guides/page-limit

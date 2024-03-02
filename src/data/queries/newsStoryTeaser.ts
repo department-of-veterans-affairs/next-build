@@ -1,13 +1,16 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory } from '@/types/drupal/node'
 import { NewsStoryTeaser } from '@/types/formatted/newsStory'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude(['field_media', 'field_media.image', 'field_listing'])
+  return new DrupalJsonApiParams().addInclude([
+    'field_media',
+    'field_media.image',
+    'field_listing',
+  ])
 }
 
 export const formatter: QueryFormatter<NodeNewsStory, NewsStoryTeaser> = (

@@ -1,5 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { fetchAndConcatAllResourceCollectionPages } from '@/lib/drupal/query'
 import { VamcEhr as DrupalVamcEhr } from '@/types/drupal/vamcEhr'
@@ -10,8 +10,7 @@ const PAGE_SIZE = PAGE_SIZES.MAX
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
+  return new DrupalJsonApiParams()
     .addFields(RESOURCE_TYPES.VAMC_FACILITY, [
       'title',
       'field_facility_locator_api_id',

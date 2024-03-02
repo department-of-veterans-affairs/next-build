@@ -1,7 +1,6 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { JsonApiResponse } from 'next-drupal'
 import { QueryParams } from 'next-drupal-query'
-import { queries } from '@/data/queries'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeTypes } from '@/types/drupal/node'
@@ -94,8 +93,7 @@ export async function fetchAndConcatAllResourceCollectionPages<T>(
 
 // Fetch drupal menu resource with cache.
 export async function getMenu(name: string, params?: QueryParams<null>) {
-  const defaultMenuParams = queries
-    .getParams()
+  const defaultMenuParams = new DrupalJsonApiParams()
     .addFields('menu_items', ['title,url'])
     .getQueryObject()
 

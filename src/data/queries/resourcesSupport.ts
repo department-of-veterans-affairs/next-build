@@ -1,5 +1,6 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -15,9 +16,8 @@ import { Button } from '@/types/formatted/button'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
 
 // Define the query params for fetching node--news_story.
-const test = ['a', 'b']
 export const params: QueryParams<null> = () => {
-  return queries.getParams().addInclude([
+  return new DrupalJsonApiParams().addInclude([
     // alert
     'field_alert_single',
     'field_alert_single.field_alert_block_reference',

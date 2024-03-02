@@ -5,6 +5,7 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeEvent } from '@/types/drupal/node'
 import { Event } from '@/types/formatted/event'
 import { GetServerSidePropsContext } from 'next'
@@ -15,15 +16,13 @@ import {
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude([
-      'field_media',
-      'field_media.image',
-      'field_listing',
-      'field_administration',
-      'field_facility_location',
-    ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_media',
+    'field_media.image',
+    'field_listing',
+    'field_administration',
+    'field_facility_location',
+  ])
 }
 
 // Define the option types for the data loader.
