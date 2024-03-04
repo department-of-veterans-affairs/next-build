@@ -44,8 +44,8 @@ jobs:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
 
-    - name: set PATH
-      run: echo "export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin" >> $GITHUB_ENV
+    - name: find PATH
+      run: echo $PATH
 
     - name: Test AWS
       run: aws help
