@@ -80,7 +80,7 @@ jobs:
         uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5 # v1.14.0
         with:
           tag: ${{ env.NEW_TAG }}
-          name: next-build/${{ env.new_NEW_TAG }}
+          name: next-build/${{ env.NEW_TAG }}
           token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
           commit: ${{ steps.get-current-ref.outputs.REF }}
 
@@ -88,6 +88,16 @@ jobs:
         id: export-release-name
         run: |
           echo RELEASE_NAME=${{ env.NEW_TAG }} >> $GITHUB_OUTPUT
+
+      - name: Write release name as artifact
+        run: |
+          mkdir -p ./tag
+          echo $NEW_TAG > ./tag/tag
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tag
+          path: tag/
 
   notify-success:
     name: Notify Success
