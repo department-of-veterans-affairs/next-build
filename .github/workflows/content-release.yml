@@ -30,6 +30,7 @@ jobs:
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
     steps:
+
     # todo: make sure this uses latest tagged release
     - name: Checkout next-build
       uses: actions/checkout@v4
@@ -43,11 +44,11 @@ jobs:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
 
+    - name: set PATH
+      run: echo "export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin" >> $GITHUB_ENV
+
     - name: Test AWS
       run: aws help
-
-    - name: Test AWS (2)
-      run: cd main && aws help
 
     - uses: actions/setup-node@v4
       with:
