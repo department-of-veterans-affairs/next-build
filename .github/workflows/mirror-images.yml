@@ -12,9 +12,19 @@ on:
         type: string
         required: true
         default: "1.0.0"
+  workflow_run:
+    workflows: ['Create Production Tag']
+    types: [completed]
+#    branches: [main]
+
 jobs:
   mirror:
     runs-on: ubuntu-20.04
+    env:
+      ECR_REPOSITORY: "dsva/next-build-node"
+      IMAGE_TAG: ${{ inputs.image_tag }}
+    if: ${{ !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure') }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,6 +34,35 @@ jobs:
         with:
           repository: department-of-veterans-affairs/vets-website
           path: vets-website
+
+      - name: 'Download artifact'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: context.payload.workflow_run.id,
+            });
+            let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "tag"
+            })[0];
+            let download = await github.rest.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            let fs = require('fs');
+            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/tag.zip`, Buffer.from(download.data));
+
+      - name: 'Unzip artifact'
+        run: unzip tag.zip
+
+      - name: 'Read tag version'
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: |
+          echo "IMAGE_TAG=$(echo tag)" >> $GITHUB_ENV
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -40,8 +79,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: "dsva/next-build-node"
-          IMAGE_TAG: ${{ inputs.image_tag }}
+
         run: |
           cp next-build/docker/Dockerfile .
           cp next-build/docker/.dockerignore .
