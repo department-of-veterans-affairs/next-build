@@ -76,7 +76,6 @@ export const QUERIES_MAP = {
   'paragraph--wysiwyg': Wysiwyg,
   // Blocks
   'block--alert': AlertBlock,
-  'paragragh--alert_single': AlertSingle,
   'block_content--promo': PromoBlock,
   // Media
   'media--image': MediaImage,
