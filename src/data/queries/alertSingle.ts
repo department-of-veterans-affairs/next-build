@@ -18,8 +18,7 @@ import { queries } from '.'
 //
 // We don't need this here:
 // export const params: QueryParams<null> = () => {
-//   return queries
-//     .getParams()
+//   return new DrupalJsonApiParams()
 //     .addInclude([
 //       'field_alert_block_reference',
 //       'field_alert_block_reference.field_alert_content',
@@ -51,7 +50,7 @@ import { queries } from '.'
 // /* src/data/queries/resourcesSupport.ts */
 // import { include } from '@/data/queries/alertSingle'
 // export const params: QueryParams<null> = () => {
-//   return queries.getParams().addInclude([
+//   return new DrupalJsonApiParams().addInclude([
 //     ...getIncludedSubFields('field_alert_single', include)
 //   ])
 // }

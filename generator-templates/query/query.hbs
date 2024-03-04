@@ -1,6 +1,6 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '.'
 import { Node{{pascalCase name}} } from '@/types/drupal/node'
 import { {{pascalCase name}} } from '@/types/formatted/{{camelCase name}}'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -12,8 +12,7 @@ import {
 
 // Define the query params for fetching node--{{snakeCase name}}.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
+  return new DrupalJsonApiParams()
     // uncomment to add referenced entity data to the response
     // .addInclude([
     //  'field_media',

@@ -1,5 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Menu, HeaderMegaMenu } from '@/types/drupal/menu'
 import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
@@ -13,14 +13,12 @@ export type RawHeaderFooterData = {
 
 // Define extra equery params for fetching header megamenu data. Include referenced promo block data, if present
 export const megaMenuParams: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude([
-      'field_promo_reference',
-      'field_promo_reference.field_image',
-      'field_promo_reference.field_image.image',
-      'field_promo_reference.field_promo_link',
-    ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_promo_reference',
+    'field_promo_reference.field_image',
+    'field_promo_reference.field_image.image',
+    'field_promo_reference.field_promo_link',
+  ])
 }
 
 export const data: QueryData<null, RawHeaderFooterData> = async () => {

@@ -1,18 +1,16 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
-import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeEvent } from '@/types/drupal/node'
 import { EventWidgetTeaser } from '@/types/formatted/event'
 import { formatDateObject } from '@/lib/utils/date'
 
 // Define the query params for fetching node--event--teaser.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude([
-      'field_listing',
-      'field_administration',
-      'field_facility_location',
-    ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_listing',
+    'field_administration',
+    'field_facility_location',
+  ])
 }
 
 // This formats Event nodes in the manner that the events widget from vets-website expects.

@@ -1,5 +1,6 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeStoryListing, NodeNewsStory } from '@/types/drupal/node'
 import { Menu } from '@/types/drupal/menu'
 import { StoryListing } from '@/types/formatted/storyListing'
@@ -19,7 +20,7 @@ const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
 
 // Define the query params for fetching node--story_listing.
 export const params: QueryParams<null> = () => {
-  return queries.getParams().addInclude(['field_office'])
+  return new DrupalJsonApiParams().addInclude(['field_office'])
 }
 
 const listingParams: QueryParams<string> = (listingEntityId: string) => {

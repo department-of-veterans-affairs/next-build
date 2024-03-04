@@ -5,7 +5,7 @@ import { queries } from '.'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 
 // export const params: QueryParams<null> = () => {
-//   return queries.getParams().addInclude([
+//   return new DrupalJsonApiParams().addInclude([
 //     'field_additional_contact', // can be paragraph--phone_number or paragraph--email_contact
 //     'field_contact_default',
 //     'field_contact_default.field_office',

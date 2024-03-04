@@ -6,12 +6,13 @@ import {
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeQA } from '@/types/drupal/node'
 import { QuestionAnswer } from '@/types/formatted/questionAnswer'
 
 // Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {
-  return queries.getParams().addInclude([
+  return new DrupalJsonApiParams().addInclude([
     'field_answer',
     'field_buttons',
     'field_related_benefit_hubs',
