@@ -29,10 +29,6 @@ jobs:
         - 80
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
-        # the following are for the aws cli
-        - /usr/bin/aws:/usr/bin/aws
-        - /usr/bin/groff:/user/bin/groff
-        - /usr/lib/python3/dist-packages:/usr/lib/python3/dist-packages
     steps:
 
     # todo: make sure this uses latest tagged release
@@ -47,6 +43,12 @@ jobs:
       with:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
+
+    - uses: unfor19/install-aws-cli-action@v1
+      with:
+        version: 2
+        verbose: false
+        arch: amd64
 
     - name: Test AWS
       run: aws help
