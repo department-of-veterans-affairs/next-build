@@ -29,7 +29,8 @@ jobs:
         - 80
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
-        - /usr/bin:/usr/bin
+        - /usr/bin/aws:/usr/bin/aws
+        - /usr/lib/python3/dist-packages:/usr/lib/python3/dist-packages
     steps:
 
     # todo: make sure this uses latest tagged release
