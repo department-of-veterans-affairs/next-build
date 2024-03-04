@@ -19,7 +19,7 @@ jobs:
   broken-links-check:
     name: Broken link check
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       max-parallel: 64
