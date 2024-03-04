@@ -44,11 +44,18 @@ jobs:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
 
-    - uses: unfor19/install-aws-cli-action@v1
-      with:
-        version: 2
-        verbose: false
-        arch: amd64
+    - name: Install awscli
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        ./aws/install
+
+    # - id: install-aws-cli
+    #   uses: unfor19/install-aws-cli-action@v1
+    #   with:
+    #     version: 2
+    #     verbose: false
+    #     arch: amd64
 
     - name: Test AWS
       run: aws help
