@@ -107,7 +107,7 @@
     "@types/react-dom": "^18.2.18",
     "@types/testing-library__react": "^10.2.0",
     "@types/uuid": "^9.0.7",
-    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^6.19.0",
     "axe-core": "^4.8.4",
     "debug": "^4.3.4",
