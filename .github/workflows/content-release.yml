@@ -19,16 +19,19 @@ jobs:
     name: Build static pages & deploy to S3
     timeout-minutes: 60
     runs-on: [self-hosted, asg]
-    container:
-      image: public.ecr.aws/docker/library/node:18.19.0-bullseye
-      # Certs added for the self hosted runner
-      env:
-        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
-        APP_ENV: prod
-      ports:
-        - 80
-      volumes:
-        - /etc/ssl/certs:/etc/ssl/certs
+    # container:
+    #   image: public.ecr.aws/docker/library/node:18.19.0-bullseye
+    #   # Certs added for the self hosted runner
+    #   env:
+    #     NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+    #     APP_ENV: prod
+    #   ports:
+    #     - 80
+    #   volumes:
+    #     - /etc/ssl/certs:/etc/ssl/certs
+    env:
+      NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+      APP_ENV: prod
     steps:
 
     # todo: make sure this uses latest tagged release
@@ -43,9 +46,6 @@ jobs:
       with:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
-
-    - name: find PATH
-      run: echo $PATH
 
     - name: Test AWS
       run: aws help
