@@ -5355,9 +5355,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "@testing-library/jest-dom@npm:6.2.0"
+"@testing-library/jest-dom@npm:^6.4.2":
+  version: 6.4.2
+  resolution: "@testing-library/jest-dom@npm:6.4.2"
   dependencies:
     "@adobe/css-tools": ^4.3.2
     "@babel/runtime": ^7.9.2
@@ -5369,11 +5369,14 @@ __metadata:
     redent: ^3.0.0
   peerDependencies:
     "@jest/globals": ">= 28"
+    "@types/bun": "*"
     "@types/jest": ">= 28"
     jest: ">= 28"
     vitest: ">= 0.32"
   peerDependenciesMeta:
     "@jest/globals":
+      optional: true
+    "@types/bun":
       optional: true
     "@types/jest":
       optional: true
@@ -5381,7 +5384,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: 3d46e36b1b7c2cb3c92f64d55d458aab44ae135ac77299df14d14dcf567a286590de58b2f140011b8f7a343f0703ff88f144f27c6ae4921fd612741771d8ee2c
+  checksum: 631aeadbf4e738080ae095242cf1a29a0b4ee2f09c8bdd0d3f00a923707da64c1617e088ba9a961d098481afabdc1d19149fb7ef98edf15132348eb222f345ae
   languageName: node
   linkType: hard
 
@@ -14728,7 +14731,7 @@ __metadata:
     "@storybook/react": ^7.6.3
     "@storybook/testing-library": ^0.2.2
     "@testing-library/dom": ^9.3.4
-    "@testing-library/jest-dom": ^6.2.0
+    "@testing-library/jest-dom": ^6.4.2
     "@testing-library/react": ^14.1.2
     "@testing-library/user-event": ^14.5.1
     "@types/jest": ^29.5.12
