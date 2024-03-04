@@ -29,6 +29,7 @@ jobs:
         - 80
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
+        - /usr/bin/aws:/usr/bin/aws
     steps:
 
     # todo: make sure this uses latest tagged release
@@ -43,13 +44,6 @@ jobs:
       with:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
-
-    # todo: move this to the image via volumes or some other mechanism. shouldn't need to install every time.
-    - name: Install aws-cli
-      run: |
-        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        unzip awscliv2.zip
-        sudo ./aws/install
 
     - name: Test AWS
       run: aws help
