@@ -82,6 +82,7 @@ jobs:
         if: ${{ env.IMAGE_TAG != '' }}
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+
         run: |
           cp next-build/docker/Dockerfile .
           cp next-build/docker/.dockerignore .
