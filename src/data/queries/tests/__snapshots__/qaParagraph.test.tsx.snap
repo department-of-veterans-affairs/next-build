@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QaParagraph formatData outputs formatted data 1`] = `
+{
+  "answers": [
+    {
+      "html": "<p>asdfasdf</p>",
+      "id": "f6dfd8da-877f-46bd-9707-28861c27003e",
+      "type": "paragraph--wysiwyg",
+    },
+  ],
+  "question": "asdf",
+}
+`;
