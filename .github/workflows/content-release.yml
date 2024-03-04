@@ -29,7 +29,7 @@ jobs:
         - 80
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
-        - /usr/bin/aws:/usr/bin/aws
+        - /usr/bin:/usr/bin
     steps:
 
     # todo: make sure this uses latest tagged release
