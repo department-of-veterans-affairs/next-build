@@ -57,7 +57,13 @@ jobs:
     #     verbose: false
     #     arch: amd64
 
+    - name: display PATH
+      run: echo $PATH
+
     - name: Test AWS
+      run: /usr/local/bin/aws --version
+
+    - name: Test AWS (2)
       run: aws help
 
     - uses: actions/setup-node@v4
