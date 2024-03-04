@@ -43,6 +43,12 @@ jobs:
         repository: department-of-veterans-affairs/vets-website
         path: vets-website
 
+    - name: Test AWS
+      run: aws help
+
+    - name: Test AWS (2)
+      run: cd main && aws help
+
     - uses: actions/setup-node@v4
       with:
         node-version: 18
