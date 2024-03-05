@@ -51,7 +51,7 @@ jobs:
             let download = await github.rest.actions.downloadArtifact({
                owner: context.repo.owner,
                repo: context.repo.repo,
-               artifact_id: matchArtifact.id,
+               artifact_id: matchArtifact.id,`
                archive_format: 'zip',
             });
             let fs = require('fs');
@@ -77,6 +77,10 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Debug
+        run: |
+          echo "${{ github.env.IMAGE_TAG }}"
 
       - name: Build, tag, and push image to Amazon ECR
         if: ${{ github.env.IMAGE_TAG != '' }}
