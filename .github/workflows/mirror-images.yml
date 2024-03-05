@@ -64,7 +64,7 @@ jobs:
       - name: 'Read tag version'
         if: ${{ github.event_name == 'workflow_run' }}
         run: |
-          echo "IMAGE_TAG=$(echo tag.txt)" >> $GITHUB_ENV
+          echo "IMAGE_TAG=$(cat tag.txt)" >> $GITHUB_ENV
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
