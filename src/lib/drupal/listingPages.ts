@@ -15,7 +15,14 @@ const LISTING_RESOURCE_TYPES = [
   RESOURCE_TYPES.EVENT_LISTING,
 ] as const
 
+const SINGLE_PAGE_LISTING_RESOURCE_TYPES = [
+  RESOURCE_TYPES.EVENT_LISTING,
+] as const
+
 export type ListingResourceType = (typeof LISTING_RESOURCE_TYPES)[number]
+
+export type SinglePageListingResourceType =
+  (typeof SINGLE_PAGE_LISTING_RESOURCE_TYPES)[number]
 
 export type StaticPathResourceTypeWithPaging = StaticPathResource & {
   paging: {
@@ -62,6 +69,14 @@ export const LISTING_RESOURCE_TYPE_URL_SEGMENTS: Readonly<{
 
 export function isListingResourceType(resourceType: ResourceType): boolean {
   return (LISTING_RESOURCE_TYPES as readonly string[]).includes(resourceType)
+}
+
+export function isSinglePageListingResourceType(
+  resourceType: ResourceType
+): boolean {
+  return (SINGLE_PAGE_LISTING_RESOURCE_TYPES as readonly string[]).includes(
+    resourceType
+  )
 }
 
 export async function getListingPageCounts(

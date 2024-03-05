@@ -3,6 +3,7 @@ import {
   ListingResourceType,
   getAllPagedListingStaticPathResources,
   isListingResourceType,
+  isSinglePageListingResourceType,
 } from '@/lib/drupal/listingPages'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { queries } from '@/data/queries'
@@ -33,10 +34,14 @@ async function modifyStaticPathResourcesByResourceType(
 
   if (isListingResourceType(resourceType)) {
     const lovellFederalRemoved = removeLovellFederalPathResources(resources)
-    return await getAllPagedListingStaticPathResources(
-      lovellFederalRemoved,
-      resourceType as ListingResourceType
-    )
+    if (!isSinglePageListingResourceType(resourceType)) {
+      return await getAllPagedListingStaticPathResources(
+        lovellFederalRemoved,
+        resourceType as ListingResourceType
+      )
+    }
+
+    return lovellFederalRemoved
   }
 
   return resources
