@@ -92,11 +92,11 @@ jobs:
       - name: Write release name as artifact
         run: |
           mkdir -p ./tag
-          echo $NEW_TAG > ./tag/tag
+          echo $NEW_TAG > ./tag/tag.txt
 
       - uses: actions/upload-artifact@v4
         with:
-          name: tag
+          name: tag.txt
           path: tag/
 
   notify-success:

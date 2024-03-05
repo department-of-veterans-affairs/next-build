@@ -62,7 +62,7 @@ jobs:
       - name: 'Read tag version'
         if: ${{ github.event_name == 'workflow_run' }}
         run: |
-          echo "IMAGE_TAG=$(echo tag)" >> $GITHUB_ENV
+          echo "IMAGE_TAG=$(echo tag.txt)" >> $GITHUB_ENV
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -77,11 +77,13 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build, tag, and push image to Amazon ECR
+        if: ${{ github.env.IMAGE_TAG != '' }}
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-
         run: |
           cp next-build/docker/Dockerfile .
           cp next-build/docker/.dockerignore .
           docker build . -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f ./Dockerfile
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+        ## Needs failure state handling, and in general this and update manifest need notification handling.
