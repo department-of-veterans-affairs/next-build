@@ -15,6 +15,11 @@ const LISTING_RESOURCE_TYPES = [
   RESOURCE_TYPES.EVENT_LISTING,
 ] as const
 
+// Some listing pages do not need all "paged" pages generated
+// statically because the paging mechanism is done client side.
+// These listing pages are "single page". They are still
+// listing pages in some regards, but we need to be able to
+// skip subsequent-page generation for these resources.
 const SINGLE_PAGE_LISTING_RESOURCE_TYPES = [
   RESOURCE_TYPES.EVENT_LISTING,
 ] as const
