@@ -1,6 +1,7 @@
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import {
   isListingResourceType,
+  isSinglePageListingResourceType,
   getListingPageStaticPropsContext,
 } from './listingPages'
 import { slugToPath } from '@/lib/utils/slug'
@@ -22,6 +23,22 @@ describe('isListingResourceType', () => {
   test('should return false when not listing resource type', () => {
     const storyResult = isListingResourceType(RESOURCE_TYPES.STORY)
     expect(storyResult).toBe(false)
+  })
+})
+
+describe('isSinglePageListingResourceType', () => {
+  test('should return true when single-page listing resource type', () => {
+    const eventListingResult = isSinglePageListingResourceType(
+      RESOURCE_TYPES.EVENT_LISTING
+    )
+    expect(eventListingResult).toBe(true)
+  })
+
+  test('should return false when not single-page listing resource type', () => {
+    const storyListingResult = isListingResourceType(
+      RESOURCE_TYPES.STORY_LISTING
+    )
+    expect(storyListingResult).toBe(false)
   })
 })
 
