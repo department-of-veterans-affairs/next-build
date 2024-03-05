@@ -36,6 +36,7 @@ jobs:
           path: vets-website
 
       - name: 'Download artifact'
+        if: ${{ github.event_name == 'workflow_run' }}
         uses: actions/github-script@v6
         with:
           script: |
@@ -57,6 +58,7 @@ jobs:
             fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/tag.zip`, Buffer.from(download.data));
 
       - name: 'Unzip artifact'
+        if: ${{ github.event_name == 'workflow_run' }}
         run: unzip tag.zip
 
       - name: 'Read tag version'
