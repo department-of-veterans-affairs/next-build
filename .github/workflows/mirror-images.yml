@@ -36,6 +36,7 @@ jobs:
           path: vets-website
 
       - name: 'Download artifact'
+        if: ${{ github.event_name == 'workflow_run' }}
         uses: actions/github-script@v6
         with:
           script: |
@@ -45,7 +46,7 @@ jobs:
                run_id: context.payload.workflow_run.id,
             });
             let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
-              return artifact.name == "tag"
+              return artifact.name == "tag.txt"
             })[0];
             let download = await github.rest.actions.downloadArtifact({
                owner: context.repo.owner,
@@ -57,6 +58,7 @@ jobs:
             fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/tag.zip`, Buffer.from(download.data));
 
       - name: 'Unzip artifact'
+        if: ${{ github.event_name == 'workflow_run' }}
         run: unzip tag.zip
 
       - name: 'Read tag version'
@@ -77,7 +79,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build, tag, and push image to Amazon ECR
-        if: ${{ github.env.IMAGE_TAG != '' }}
+        if: ${{ env.IMAGE_TAG != '' }}
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
