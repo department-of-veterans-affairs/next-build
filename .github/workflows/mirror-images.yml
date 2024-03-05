@@ -80,7 +80,7 @@ jobs:
 
       - name: Debug
         run: |
-          echo "${{ fromJSON(env.IMAGE_TAG) }}"
+          echo "${{ env.IMAGE_TAG }}"
 
       - name: Build, tag, and push image to Amazon ECR
         if: ${{ env.IMAGE_TAG != '' }}
