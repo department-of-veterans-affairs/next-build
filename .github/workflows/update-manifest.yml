@@ -33,12 +33,6 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       IMAGE_TAG: ${{ inputs.image_tag }}
-    strategy:
-      fail-fast: false
-      max-parallel: 4
-      matrix:
-        app_name: ['next-build', 'next-build-test']
-        environment: ['staging', prod]
     steps:
       - name: 'Download tag artifact'
         if: ${{ github.event_name == 'workflow_run' }}
@@ -111,21 +105,71 @@ jobs:
           author_email: devops@va.gov
           message: 'auto update next-build images and helm chart'
 
-      # If this is triggered via workflow_run, run as a matrix and deploy all
-      # apps and envs.
-      - name: Update image and helm chart versions (triggered by upstream)
+      # If this is triggered via workflow_run, update all 4 app/environment combinations.
+      - name: Update image and helm chart versions, Staging Next Build
         if: ${{ github.event_name == 'workflow_run' }}
         run: |
-            cd vsp-infra-application-manifests/apps/${{ matrix.app_name }}/${{ matrix.environment }}
+            cd vsp-infra-application-manifests/apps/next-build/staging
             yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
             git diff
 
-      - name: Add and Commit file (triggered by upstream)
+      - name: Add and Commit file, Staging Next Build
         if: ${{ github.event_name == 'workflow_run' }}
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
         with:
           add: '*.yaml'
-          cwd: vsp-infra-application-manifests/apps/${{ matrix.app_name }}/${{ matrix.environment }}
+          cwd: vsp-infra-application-manifests/apps/next-build/staging
+          author_name: va-vsp-bot
+          author_email: devops@va.gov
+          message: 'auto update next-build images and helm chart'
+
+      - name: Update image and helm chart versions, Prod Next Build
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: |
+            cd vsp-infra-application-manifests/apps/next-build/prod
+            yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
+            git diff
+
+      - name: Add and Commit file, Prod Next Build
+        if: ${{ github.event_name == 'workflow_run' }}
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        with:
+          add: '*.yaml'
+          cwd: vsp-infra-application-manifests/apps/next-build/prod
+          author_name: va-vsp-bot
+          author_email: devops@va.gov
+          message: 'auto update next-build images and helm chart'
+
+      - name: Update image and helm chart versions, Staging Next Build Test
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: |
+            cd vsp-infra-application-manifests/apps/next-build-test/staging
+            yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
+            git diff
+
+      - name: Add and Commit file, Staging Next Build Test
+        if: ${{ github.event_name == 'workflow_run' }}
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        with:
+          add: '*.yaml'
+          cwd: vsp-infra-application-manifests/apps/next-build-test/staging
+          author_name: va-vsp-bot
+          author_email: devops@va.gov
+          message: 'auto update next-build images and helm chart'
+
+      - name: Update image and helm chart versions, Prod Next Build Test
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: |
+            cd vsp-infra-application-manifests/apps/next-build-test/prod
+            yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
+            git diff
+
+      - name: Add and Commit file, Prod Next Build Test
+        if: ${{ github.event_name == 'workflow_run' }}
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        with:
+          add: '*.yaml'
+          cwd: vsp-infra-application-manifests/apps/next-build-test/prod
           author_name: va-vsp-bot
           author_email: devops@va.gov
           message: 'auto update next-build images and helm chart'
