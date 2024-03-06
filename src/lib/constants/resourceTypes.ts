@@ -31,6 +31,8 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   // STAFF_PROFILE: 'paragraph--staff_profile',
   TABLE: 'paragraph--table',
   WYSIWYG: 'paragraph--wysiwyg',
+  QA_PARAGRAPH: 'paragraph--q_a',
+  QA_SECTION: 'paragraph--q_a_section',
 } as const
 
 export type ParagraphResourceType =

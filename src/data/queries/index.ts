@@ -35,6 +35,7 @@ import * as CollapsiblePanelItem from './collapsiblePanelItem'
 import * as Table from './table'
 import * as ReactWidget from './reactWidget'
 import * as QaParagraph from './qaParagraph'
+import * as QaSection from './qaSection'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -70,6 +71,7 @@ export const QUERIES_MAP = {
   'paragraph--non_reusable_alert': AlertNonReusable,
   'paragraph--phone_number': PhoneNumber,
   'paragraph--q_a': QaParagraph,
+  'paragraph--q_a_section': QaSection,
   'paragraph--react_widget': ReactWidget,
   'paragraph--rich_text_char_limit_1000': Wysiwyg,
   'paragraph--table': Table,

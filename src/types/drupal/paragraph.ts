@@ -173,6 +173,13 @@ export interface ParagraphQA extends DrupalParagraph {
   type: string
 }
 
+export interface ParagraphQaSection extends DrupalParagraph {
+  field_section_header: string
+  field_accordion_display: boolean
+  field_section_intro: string
+  field_questions: DrupalParagraph[]
+}
+
 export interface ParagraphReactWidget extends DrupalParagraph {
   field_cta_widget: boolean
   field_default_link: FieldLink

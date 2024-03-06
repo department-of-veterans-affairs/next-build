@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QaSection formatData outputs formatted data 1`] = `
+{
+  "displayAccordion": true,
+  "header": "Frequently asked quesitons about thing",
+  "intro": "asdfasdf",
+  "questions": [
+    {
+      "answers": [
+        {
+          "html": undefined,
+          "id": "f6dfd8da-877f-46bd-9707-28861c27003e",
+          "type": "paragraph--wysiwyg",
+        },
+      ],
+      "question": "asdf",
+      "type": "paragraph--q_a",
+    },
+    {
+      "answers": [
+        {
+          "html": undefined,
+          "id": "004d4d31-9e5f-4dcd-ab19-1aef98daefd4",
+          "type": "paragraph--wysiwyg",
+        },
+      ],
+      "question": "another question?",
+      "type": "paragraph--q_a",
+    },
+  ],
+}
+`;
