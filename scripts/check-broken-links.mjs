@@ -53,7 +53,6 @@ const LINKS_TO_SKIP = [
   'va.gov/Geriatrics',
   'va.gov/wholehealth',
   'warrelatedillness.va.gov',
-  'protection.outlook.com',
   // process.env.SKIP_IMAGES ? '' : null
 ]
 
@@ -76,6 +75,7 @@ const LINKCHECKER_CONFIG = {
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
   retryErrors: true,
   retryErrorsCount: 3,
+  concurrency: 20,
 }
 
 /**
