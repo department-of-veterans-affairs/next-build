@@ -15,7 +15,7 @@ on:
   workflow_run:
     workflows: ['Create Production Tag']
     types: [completed]
-#    branches: [main]
+    branches: [main]
 
 jobs:
   mirror:
@@ -35,7 +35,7 @@ jobs:
           repository: department-of-veterans-affairs/vets-website
           path: vets-website
 
-      - name: 'Download artifact'
+      - name: 'Download tag artifact'
         if: ${{ github.event_name == 'workflow_run' }}
         uses: actions/github-script@v6
         with:
@@ -88,4 +88,13 @@ jobs:
           docker build . -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f ./Dockerfile
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
+      - name: Write release name as artifact
+        run: |
+          mkdir -p ./tag
+          echo $IMAGE_TAG > ./tag/tag.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tag.txt
+          path: tag/
         ## Needs failure state handling, and in general this and update manifest need notification handling.
