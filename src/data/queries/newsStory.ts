@@ -1,5 +1,6 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory } from '@/types/drupal/node'
 import { NewsStory } from '@/types/formatted/newsStory'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
@@ -11,15 +12,13 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude([
-      'field_media',
-      'field_media.image',
-      'field_author',
-      'field_listing',
-      'field_administration',
-    ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_media',
+    'field_media.image',
+    'field_author',
+    'field_listing',
+    'field_administration',
+  ])
 }
 
 // Define the option types for the data loader.

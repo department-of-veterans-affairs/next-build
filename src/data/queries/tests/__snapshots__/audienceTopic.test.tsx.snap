@@ -2,48 +2,98 @@
 
 exports[`paragraph--audience_topics formatData outputs formatted data 1`] = `
 [
-  [],
-  [],
-  [
-    {
-      "categoryLabel": "Audience",
-      "href": "/resources/tag/all-veterans",
-      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-      "name": "All Veterans",
-    },
-    {
-      "categoryLabel": "Topics",
-      "href": "/resources/tag/payments-and-debt",
-      "id": "8360523e-a4bb-4d36-851f-1c445501c8bf",
-      "name": "Payments and debt",
-    },
-  ],
-  [
-    {
-      "categoryLabel": "Audience",
-      "href": "/resources/tag/all-veterans",
-      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-      "name": "All Veterans",
-    },
-    {
-      "categoryLabel": "Topics",
-      "href": "/resources/tag/sign-in",
-      "id": "946a0f82-f1f5-42c4-8ea4-bb7683db662a",
-      "name": "Sign in",
-    },
-  ],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [
-    {
-      "categoryLabel": "Audience",
-      "href": "/resources/tag/all-veterans",
-      "id": "386eb70d-696c-4af3-8986-306ce63d90de",
-      "name": "All Veterans",
-    },
-  ],
+  {
+    "entityId": 13655,
+    "id": "825866c9-05ea-4f4d-9593-b9376d16043c",
+    "tags": [],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13850,
+    "id": "9dacf621-0d71-4efb-81ce-5a1a2b0f1188",
+    "tags": [],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13394,
+    "id": "0f0561f5-6af7-4511-870f-7bc42347cbdf",
+    "tags": [
+      {
+        "categoryLabel": "Audience",
+        "href": "/resources/tag/all-veterans",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "name": "All Veterans",
+      },
+      {
+        "categoryLabel": "Topics",
+        "href": "/resources/tag/payments-and-debt",
+        "id": "8360523e-a4bb-4d36-851f-1c445501c8bf",
+        "name": "Payments and debt",
+      },
+    ],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13273,
+    "id": "5748d86f-2b16-4a51-997d-d0b65837661b",
+    "tags": [
+      {
+        "categoryLabel": "Audience",
+        "href": "/resources/tag/all-veterans",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "name": "All Veterans",
+      },
+      {
+        "categoryLabel": "Topics",
+        "href": "/resources/tag/sign-in",
+        "id": "946a0f82-f1f5-42c4-8ea4-bb7683db662a",
+        "name": "Sign in",
+      },
+    ],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13581,
+    "id": "2bade0de-a01a-4b1a-a52d-faac81941041",
+    "tags": [],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13643,
+    "id": "38f0f719-90c8-4b43-80a7-a473c4470aaa",
+    "tags": [],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13575,
+    "id": "2e7f51db-bf4f-4060-9b1a-52124ca6501e",
+    "tags": [],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13617,
+    "id": "b2c1a1d6-d549-4758-9278-0bbaa81dbceb",
+    "tags": [],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13704,
+    "id": "801d5199-2495-4797-adbb-094195d9e8cc",
+    "tags": [],
+    "type": "paragraph--audience_topics",
+  },
+  {
+    "entityId": 13668,
+    "id": "c711c534-4ad2-4440-a81e-9b1577a258c8",
+    "tags": [
+      {
+        "categoryLabel": "Audience",
+        "href": "/resources/tag/all-veterans",
+        "id": "386eb70d-696c-4af3-8986-306ce63d90de",
+        "name": "All Veterans",
+      },
+    ],
+    "type": "paragraph--audience_topics",
+  },
 ]
 `;

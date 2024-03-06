@@ -69,7 +69,7 @@ services:
         - yarn install
 
         # Get vets-website assets in the right place
-        - BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.mjs
+        - BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.js
 
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn export

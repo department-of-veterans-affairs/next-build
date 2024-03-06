@@ -30,12 +30,15 @@ import { EventListing as FormattedEventListing } from '@/types/formatted/eventLi
 import { Event as FormattedEvent } from '@/types/formatted/event'
 import { Meta } from '@/templates/common/meta'
 import { PreviewCrumb } from '@/templates/common/preview'
+import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
+import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
 
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
   RESOURCE_TYPES.EVENT,
   RESOURCE_TYPES.EVENT_LISTING,
+  RESOURCE_TYPES.RESOURCES_SUPPORT,
 ] as const
 
 export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
@@ -100,6 +103,9 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.EVENT && (
             <Event {...(resource as FormattedEvent)} />
+          )}
+          {resource.type === RESOURCE_TYPES.RESOURCES_SUPPORT && (
+            <ResourcesSupport {...(resource as FormattedResourcesSupport)} />
           )}
         </div>
       </main>

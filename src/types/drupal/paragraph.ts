@@ -62,6 +62,7 @@ export const enum ParagraphResourceType {
   Wysiwyg = 'paragraph--wysiwyg',
   RichTextCharLimit1000 = 'paragraph--rich_text_char_limit_1000',
   Accordion = 'paragraph--basic_accordion',
+  ParagraphQA = 'paragraph--q_a',
 }
 
 export interface ParagraphAccordion extends DrupalParagraph {
@@ -84,8 +85,8 @@ export interface ParagraphAlertSingle extends DrupalParagraph {
 
 export interface ParagraphAudienceTopics extends DrupalParagraph {
   field_audience_selection: string | null
-  field_audience_beneficiares: TaxonomyTermAudienceBeneficiaries
-  field_non_beneficiares: TaxonomyTermAudienceNonBeneficiaries
+  field_audience_beneficiares: TaxonomyTermAudienceBeneficiaries[]
+  field_non_beneficiares: TaxonomyTermAudienceNonBeneficiaries[]
   field_topics: TaxonomyTermTopics[] // Up to 4; can this be typed?
 }
 
@@ -164,6 +165,12 @@ export interface ParagraphQAGroup extends DrupalParagraph {
   field_accordion_display: boolean
   field_q_as: NodeQA[]
   field_section_header: string
+}
+
+export interface ParagraphQA extends DrupalParagraph {
+  field_answer: DrupalParagraph[]
+  field_question: string
+  type: string
 }
 
 export interface ParagraphReactWidget extends DrupalParagraph {

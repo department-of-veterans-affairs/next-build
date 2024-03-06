@@ -1,28 +1,34 @@
-import { Accordion as FormattedAccordion } from '@/types/formatted/accordion'
+import {
+  Accordion as FormattedAccordion,
+  AccordionItem as FormattedAccordionItem,
+} from '@/types/formatted/accordion'
 import { slugifyString } from '@/lib/utils/slug'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
-type AccordionProps = {
-  id: string
-  bordered: boolean
-  items: FormattedAccordion[]
+export function AccordionItem({
+  id,
+  header,
+  html,
+}: ParagraphComponent<FormattedAccordionItem>) {
+  return (
+    <va-accordion-item
+      key={`${id}-${slugifyString(header)}`}
+      header={header}
+      class="va-accordion-item"
+      id={`${id}-${slugifyString(header)}`}
+    >
+      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+    </va-accordion-item>
+  )
 }
 
-export function Accordion({ id, bordered, items }: AccordionProps) {
+export function Accordion({ id, bordered, items }: FormattedAccordion) {
   if (!items) return null
   return (
     <div>
       <va-accordion bordered={bordered} id={id}>
         {items.map((item) => (
-          <va-accordion-item
-            key={`${id}-${slugifyString(item.header)}`}
-            header={item.header}
-            class="va-accordion-item"
-            id={`${id}-${slugifyString(item.header)}`}
-          >
-            {item.html && (
-              <div dangerouslySetInnerHTML={{ __html: item.html }} />
-            )}
-          </va-accordion-item>
+          <AccordionItem key={item.id} {...item} />
         ))}
       </va-accordion>
     </div>

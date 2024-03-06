@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import { isEmpty } from 'lodash'
 import { AudienceTopics as FormattedAudienceTopics } from '@/types/formatted/audienceTopics'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
-export function AudienceTopics({ tags }: FormattedAudienceTopics) {
+export function AudienceTopics({
+  tags,
+}: ParagraphComponent<FormattedAudienceTopics>) {
   if (isEmpty(tags)) return null
   const tagsList = tags.map(({ id, href, name }) => (
     <div key={id}>

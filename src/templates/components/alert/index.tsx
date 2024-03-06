@@ -1,42 +1,40 @@
-import {
-  VaAlert,
-  VaAlertExpandable,
-} from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { Alert } from '@/types/formatted/alert'
+import React from 'react'
+import { Alert as FormattedAlert } from '@/types/formatted/alert'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { AlertBlock } from '../alertBlock'
+import { Paragraph } from '../paragraph'
 
-export function AlertBlock({ alertType, id, title, content }: Alert) {
+export function Alert(alert: ParagraphComponent<FormattedAlert>) {
+  if (!alert) {
+    return null
+  }
+
+  const { entityId, alertType, heading, blockReference, paragraphs } = alert
+
+  if (blockReference) {
+    return <AlertBlock {...blockReference} />
+  }
+
   return (
-    <>
-      <VaAlert
-        id={id}
-        status={alertType}
-        class="vads-u-margin-top--3"
-        role="alert"
-      >
-        <h2 slot="headline" className="vads-u-font-size--h3">
-          {title}
-        </h2>
+    <va-alert
+      data-template="paragraphs/alert"
+      data-paragraph-type="paragraph--alert"
+      data-next-component="templates/components/alert"
+      data-entity-id={entityId}
+      status={alertType}
+      class="vads-u-margin-top--3"
+      role="alert"
+      uswds="false"
+    >
+      <h2 slot="headline" className="vads-u-font-size--h3">
+        {heading}
+      </h2>
 
-        {!content.header && (
-          <div
-            dangerouslySetInnerHTML={{
-              __html: content.text,
-            }}
-          />
-        )}
-
-        {content.header && (
-          <VaAlertExpandable id={id} trigger={content.header}>
-            {content.text && (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: content.text,
-                }}
-              />
-            )}
-          </VaAlertExpandable>
-        )}
-      </VaAlert>
-    </>
+      {paragraphs.map((paragraph) => (
+        <Paragraph key={paragraph.id} {...paragraph} />
+      ))}
+    </va-alert>
   )
 }
+
+export default Alert

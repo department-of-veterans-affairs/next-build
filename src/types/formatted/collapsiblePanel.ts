@@ -1,4 +1,4 @@
-import { Paragraph } from '@/types/formatted/paragraph'
+import { FormattedParagraph } from '@/data/queries'
 import { HeadingLevel } from '@/types/formatted/headingElement'
 import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 
@@ -7,7 +7,7 @@ export type CollapsiblePanelItem = PublishedParagraph & {
   title: string
   wysiwyg: string
   headingLevel?: HeadingLevel
-  paragraphs?: Paragraph[]
+  paragraphs?: FormattedParagraph[]
   expanded?: boolean
 }
 

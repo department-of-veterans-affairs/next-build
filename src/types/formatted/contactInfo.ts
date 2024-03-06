@@ -1,5 +1,8 @@
-export type ContactInfo = {
-  contactType: string // 'DC' or 'BHC'
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
+
+export type ContactInfo = PublishedParagraph & {
+  type: 'paragraph--contact_information'
+  contactType: 'DC' | 'BHC'
   defaultContact?: Contact
   additionalContact?: AdditionalContact
   benefitHubContacts?: Contact[]
@@ -11,22 +14,22 @@ export type Contact = {
   href: string
 }
 
-export type PhoneContact = {
+export type PhoneContact = PublishedParagraph & {
+  type: 'paragraph--phone_number'
   label: string
   number: string
   extension: string
 }
 
-export type EmailContact = {
+export type EmailContact = PublishedParagraph & {
+  type: 'paragraph--email_contact'
   label: string
   address: string
 }
 
-export type AdditionalContact = {
-  email?: EmailContact
-  phone?: PhoneContact
-}
+export type AdditionalContact = PhoneContact | EmailContact
 
+// TODO: Is this being used? benefitHubContacts is typed as Contact[] not BenefitHubcontact[]
 export type BenefitHubContact = {
   services: Contact[]
 }

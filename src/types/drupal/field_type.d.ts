@@ -64,7 +64,7 @@ export interface FieldSocialMediaLinks {
 }
 
 export interface FieldTable {
-  value: [string[]]
+  value: string[][]
   caption: string
 }
 

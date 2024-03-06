@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '@/data/queries'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /**
  * This is a simple page used to return serialized but unformatted data for use
@@ -21,7 +21,7 @@ export async function getStaticProps() {
     }
   }
 
-  const params = queries.getParams().addInclude(['field_cta'])
+  const params = new DrupalJsonApiParams().addInclude(['field_cta'])
   const data = await drupalClient.getResourceCollection(
     'paragraph--featured_content',
     {

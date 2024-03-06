@@ -22,11 +22,55 @@ on:
         type: string
         required: true
         default: "staging"
+  workflow_run:
+    workflows: ['Create and Commit Next-Build Docker Image']
+    types: [completed]
+    branches: [main]
 
 jobs:
   update-manifest:
+    if: ${{ !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure') }}
     runs-on: ubuntu-20.04
+    env:
+      IMAGE_TAG: ${{ inputs.image_tag }}
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        app_name: ['next-build', 'next-build-test']
+        environment: ['staging', prod]
     steps:
+      - name: 'Download tag artifact'
+        if: ${{ github.event_name == 'workflow_run' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: context.payload.workflow_run.id,
+            });
+            let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "tag.txt"
+            })[0];
+            let download = await github.rest.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            let fs = require('fs');
+            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/tag.zip`, Buffer.from(download.data));
+
+      - name: 'Unzip artifact'
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: unzip tag.zip
+
+      - name: 'Read tag version'
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: |
+          echo "IMAGE_TAG=$(cat tag.txt)" >> $GITHUB_ENV
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -34,11 +78,13 @@ jobs:
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
           role-duration-seconds: 900
           role-session-name: vsp-vagov-next-build-githubaction
+
       - name: Get bot token from Parameter Store
         uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
         with:
           ssm_parameter: /devops/VA_VSP_BOT_GITHUB_TOKEN
           env_variable_name: VA_VSP_BOT_GITHUB_TOKEN
+
       - name: Check out Manifest Repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
@@ -46,16 +92,40 @@ jobs:
           token: ${{ env.VA_VSP_BOT_GITHUB_TOKEN }}
           fetch-depth: 1
           path: vsp-infra-application-manifests
-      - name: Update image and helm chart versions
+
+      # If this is triggered manually, use the input values
+      - name: Update image and helm chart versions (dispatch)
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
-            cd vsp-infra-application-manifests/apps/${{ inputs.app_name }}/${{ inputs.environment }}/templates
-            yq e -i '.spec.template.spec.containers[0].image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ inputs.image_tag }}"' ${{ inputs.app_name }}-deployment.yaml
+            cd vsp-infra-application-manifests/apps/${{ inputs.app_name }}/${{ inputs.environment }}
+            yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
             git diff
-      - name: Add and Commit file
+
+      - name: Add and Commit file (dispatch)
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
         with:
           add: '*.yaml'
-          cwd: vsp-infra-application-manifests/apps/${{ inputs.app_name }}/${{ inputs.environment }}/templates
+          cwd: vsp-infra-application-manifests/apps/${{ inputs.app_name }}/${{ inputs.environment }}
+          author_name: va-vsp-bot
+          author_email: devops@va.gov
+          message: 'auto update next-build images and helm chart'
+
+      # If this is triggered via workflow_run, run as a matrix and deploy all
+      # apps and envs.
+      - name: Update image and helm chart versions (triggered by upstream)
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: |
+            cd vsp-infra-application-manifests/apps/${{ matrix.app_name }}/${{ matrix.environment }}
+            yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
+            git diff
+
+      - name: Add and Commit file (triggered by upstream)
+        if: ${{ github.event_name == 'workflow_run' }}
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        with:
+          add: '*.yaml'
+          cwd: vsp-infra-application-manifests/apps/${{ matrix.app_name }}/${{ matrix.environment }}
           author_name: va-vsp-bot
           author_email: devops@va.gov
           message: 'auto update next-build images and helm chart'

@@ -1,9 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { AudienceTopics } from './index'
 import { AudienceTopics as FormattedAudienceTopics } from '@/types/formatted/audienceTopics'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 describe('AudienceTopics with valid data', () => {
-  const audienceTopicProps: FormattedAudienceTopics = {
+  const audienceTopicProps: ParagraphComponent<FormattedAudienceTopics> = {
+    id: '1',
     tags: [
       {
         id: '386eb70d-696c-4af3-8986-306ce63d90de',
@@ -39,7 +41,8 @@ describe('AudienceTopics with valid data', () => {
 })
 
 describe('AudienceTopics without Topics', () => {
-  const audienceTopicProps: FormattedAudienceTopics = {
+  const audienceTopicProps: ParagraphComponent<FormattedAudienceTopics> = {
+    id: '2',
     tags: [
       {
         id: '386eb70d-696c-4af3-8986-306ce63d90de',
@@ -60,7 +63,8 @@ describe('AudienceTopics without Topics', () => {
 })
 
 describe('AudienceTopics without Audience', () => {
-  const audienceTopicProps: FormattedAudienceTopics = {
+  const audienceTopicProps: ParagraphComponent<FormattedAudienceTopics> = {
+    id: '3',
     tags: [
       {
         id: '8360523e-a4bb-4d36-851f-1c445501c8bf',
@@ -81,7 +85,8 @@ describe('AudienceTopics without Audience', () => {
 })
 
 describe('AudienceTopics without Topics and Audience', () => {
-  const audienceTopicProps: FormattedAudienceTopics = {
+  const audienceTopicProps: ParagraphComponent<FormattedAudienceTopics> = {
+    id: '4',
     tags: [],
   }
 

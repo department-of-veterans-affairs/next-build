@@ -28,7 +28,7 @@ export const QuestionAnswer = ({
   tags,
   teasers,
 }: FormattedQuestionAnswer) => {
-  const tag = tags ? <AudienceTopics tags={tags} /> : null
+  const tag = tags ? <AudienceTopics {...tags} /> : null
 
   const button = map(buttons, (data) =>
     data ? <Button key={data.id} {...data} /> : null

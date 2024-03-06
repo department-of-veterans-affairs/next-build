@@ -14,7 +14,7 @@ export const Example: Story = {
   args: {
     title: 'Evidence to support VA pension, DIC, or accrued benefits claims',
     introText: 'Find the phone number to call for the help you need.',
-    benefitHubs: [
+    links: [
       {
         id: '386eb70d-696c-4af3-8986-306ce63d90de',
         path: '/resources/helpful-va-phone-numbers',

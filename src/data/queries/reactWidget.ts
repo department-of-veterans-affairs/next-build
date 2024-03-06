@@ -6,6 +6,8 @@ export const formatter: QueryFormatter<ParagraphReactWidget, ReactWidget> = (
   entity: ParagraphReactWidget
 ) => {
   return {
+    type: entity.type as ReactWidget['type'],
+    id: entity.id,
     entityId: entity.drupal_internal__id,
     widgetType: entity.field_widget_type,
     ctaWidget: entity.field_cta_widget,

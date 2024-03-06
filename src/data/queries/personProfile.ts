@@ -5,19 +5,18 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePersonProfile } from '@/types/drupal/node'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { PersonProfile } from '@/types/formatted/personProfile'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude([
-      'field_media.image',
-      'field_office',
-      'field_complete_biography',
-    ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_media.image',
+    'field_office',
+    'field_complete_biography',
+  ])
 }
 
 // Define the option types for the data loader.

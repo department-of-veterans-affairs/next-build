@@ -12,9 +12,19 @@ on:
         type: string
         required: true
         default: "1.0.0"
+  workflow_run:
+    workflows: ['Create Production Tag']
+    types: [completed]
+    branches: [main]
+
 jobs:
   mirror:
     runs-on: ubuntu-20.04
+    env:
+      ECR_REPOSITORY: "dsva/next-build-node"
+      IMAGE_TAG: ${{ inputs.image_tag }}
+    if: ${{ !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure') }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,6 +34,37 @@ jobs:
         with:
           repository: department-of-veterans-affairs/vets-website
           path: vets-website
+
+      - name: 'Download tag artifact'
+        if: ${{ github.event_name == 'workflow_run' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: context.payload.workflow_run.id,
+            });
+            let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "tag.txt"
+            })[0];
+            let download = await github.rest.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            let fs = require('fs');
+            fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/tag.zip`, Buffer.from(download.data));
+
+      - name: 'Unzip artifact'
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: unzip tag.zip
+
+      - name: 'Read tag version'
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: |
+          echo "IMAGE_TAG=$(cat tag.txt)" >> $GITHUB_ENV
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -38,12 +79,22 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build, tag, and push image to Amazon ECR
+        if: ${{ env.IMAGE_TAG != '' }}
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: "dsva/next-build-node"
-          IMAGE_TAG: ${{ inputs.image_tag }}
         run: |
           cp next-build/docker/Dockerfile .
           cp next-build/docker/.dockerignore .
           docker build . -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f ./Dockerfile
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Write release name as artifact
+        run: |
+          mkdir -p ./tag
+          echo $IMAGE_TAG > ./tag/tag.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tag.txt
+          path: tag/
+        ## Needs failure state handling, and in general this and update manifest need notification handling.

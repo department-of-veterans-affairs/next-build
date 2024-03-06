@@ -3,11 +3,11 @@
 exports[`ContactInfo formatData outputs formatted data 1`] = `
 {
   "additionalContact": {
-    "email": {
-      "address": "email@email.com",
-      "id": "e5184527-0e7f-4071-bb0b-a99c3eb04839",
-      "label": "Loremipsum label here",
-    },
+    "address": "email@email.com",
+    "entityId": 13333,
+    "id": "e5184527-0e7f-4071-bb0b-a99c3eb04839",
+    "label": "Loremipsum label here",
+    "type": "paragraph--email_contact",
   },
   "benefitHubContacts": null,
   "contactType": "DC",
@@ -16,5 +16,8 @@ exports[`ContactInfo formatData outputs formatted data 1`] = `
     "title": "MyVA411 main information line:",
     "value": "800-698-2411",
   },
+  "entityId": 13094,
+  "id": "ebfce5d0-1bc5-45b9-93e9-669a1c1da645",
+  "type": "paragraph--contact_information",
 }
 `;

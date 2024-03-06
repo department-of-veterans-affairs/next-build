@@ -4,16 +4,18 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import { queries } from '.'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { BlockPromo } from '@/types/drupal/block'
 import { MegaMenuPromoColumn } from '@/types/formatted/headerFooter'
 
 // Define the query params for fetching block_content--promo.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude(['field_image', 'field_image.image', 'field_promo_link'])
+  return new DrupalJsonApiParams().addInclude([
+    'field_image',
+    'field_image.image',
+    'field_promo_link',
+  ])
 }
 
 // Define the option types for the data loader.
