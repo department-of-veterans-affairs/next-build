@@ -159,6 +159,7 @@ async function checkBrokenLinks() {
     if (batchesComplete === true) {
       console.log('Batches complete, exiting the loop.')
     } else {
+      console.log('Resetting the timeout.')
       setTimeout(checkAndLoop, 5000)
     }
   }
