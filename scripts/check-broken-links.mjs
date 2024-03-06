@@ -53,6 +53,7 @@ const LINKS_TO_SKIP = [
   'va.gov/Geriatrics',
   'va.gov/wholehealth',
   'warrelatedillness.va.gov',
+  'protection.outlook.com',
   // process.env.SKIP_IMAGES ? '' : null
 ]
 
