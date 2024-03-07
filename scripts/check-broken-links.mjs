@@ -259,6 +259,16 @@ async function checkBrokenLinks() {
       process.cwd() + '/broken-links-report.json'
     )}`
   )
+  // We are seeing situations where the node process does not stop, even if this
+  // point in the script is reached. We have been unable to determine what
+  // process(es) are keeping the event loop open, and why it only happens
+  // in limited cases.
+  // Using process.exit() here is extremely ugly and I do not like it. If you
+  // see this and are moved to examine this, remove it or comment it out and see
+  // if you can figure out why the node process hangs sometimes.
+  // In any event, if this part of the script is reached, we are done, so
+  // manually exiting is acceptable.
+  setTimeout(() => process.exit(), 15000)
 }
 
 // Run the script.
