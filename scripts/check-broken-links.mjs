@@ -160,9 +160,7 @@ async function checkBrokenLinks() {
   function checkAndLoop() {
     if (batchesComplete === true) {
       console.log('Batches complete, exiting the loop.')
-      console.log(log())
     } else {
-      console.log('Resetting the timeout.')
       setTimeout(checkAndLoop, 5000)
     }
   }
@@ -263,6 +261,8 @@ async function checkBrokenLinks() {
       process.cwd() + '/broken-links-report.json'
     )}`
   )
+  // Wait 30 seconds and then see what's still running.
+  setTimeout(() => log(), 30000)
 }
 
 // Run the script.
