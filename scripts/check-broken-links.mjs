@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import log from 'why-is-node-running'
 import { LinkChecker } from 'linkinator'
 import chalk from 'chalk'
 import {
@@ -159,6 +160,7 @@ async function checkBrokenLinks() {
   function checkAndLoop() {
     if (batchesComplete === true) {
       console.log('Batches complete, exiting the loop.')
+      console.log(log())
     } else {
       console.log('Resetting the timeout.')
       setTimeout(checkAndLoop, 5000)
