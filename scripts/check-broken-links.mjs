@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import log from 'why-is-node-running'
 import { LinkChecker } from 'linkinator'
 import chalk from 'chalk'
 import {
@@ -76,7 +75,6 @@ const LINKCHECKER_CONFIG = {
   // recurse: true, // not recursing through links that are checked because we scan the full known sitemap
   retryErrors: true,
   retryErrorsCount: 3,
-  concurrency: 20,
 }
 
 /**
@@ -261,8 +259,6 @@ async function checkBrokenLinks() {
       process.cwd() + '/broken-links-report.json'
     )}`
   )
-  // Wait 30 seconds and then see what's still running.
-  setTimeout(() => log(), 30000)
 }
 
 // Run the script.
