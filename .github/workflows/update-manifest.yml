@@ -33,12 +33,6 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       IMAGE_TAG: ${{ inputs.image_tag }}
-    strategy:
-      fail-fast: false
-      max-parallel: 4
-      matrix:
-        app_name: ['next-build', 'next-build-test']
-        environment: ['staging', prod]
     steps:
       - name: 'Download tag artifact'
         if: ${{ github.event_name == 'workflow_run' }}
@@ -109,23 +103,27 @@ jobs:
           cwd: vsp-infra-application-manifests/apps/${{ inputs.app_name }}/${{ inputs.environment }}
           author_name: va-vsp-bot
           author_email: devops@va.gov
-          message: 'auto update next-build images and helm chart'
+          message: 'Update ${{ inputs.app_name }} images and helm chart for ${{ inputs.environment }} environment with version ${{ env.IMAGE_TAG }}'
 
-      # If this is triggered via workflow_run, run as a matrix and deploy all
-      # apps and envs.
-      - name: Update image and helm chart versions (triggered by upstream)
+      # If this is triggered via workflow_run, update all 4 app/environment combinations.
+      - name: Update image and helm chart versions, all apps and envs
         if: ${{ github.event_name == 'workflow_run' }}
         run: |
-            cd vsp-infra-application-manifests/apps/${{ matrix.app_name }}/${{ matrix.environment }}
+            pushd vsp-infra-application-manifests/apps/next-build/staging
             yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
-            git diff
+            popd && pushd vsp-infra-application-manifests/apps/next-build/prod
+            yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
+            popd && pushd vsp-infra-application-manifests/apps/next-build-test/staging
+            yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
+            popd && pushd vsp-infra-application-manifests/apps/next-build-test/prod
+            yq e -i '.deployment.container.image = "008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/dsva/next-build-node:${{ env.IMAGE_TAG }}"' values.yaml
 
-      - name: Add and Commit file (triggered by upstream)
+      - name: Add and Commit helm chart changes
         if: ${{ github.event_name == 'workflow_run' }}
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
         with:
           add: '*.yaml'
-          cwd: vsp-infra-application-manifests/apps/${{ matrix.app_name }}/${{ matrix.environment }}
+          cwd: vsp-infra-application-manifests/apps
           author_name: va-vsp-bot
           author_email: devops@va.gov
-          message: 'auto update next-build images and helm chart'
+          message: 'Auto update next-build images and helm chart for apps and environments with version ${{ env.IMAGE_TAG }}'
