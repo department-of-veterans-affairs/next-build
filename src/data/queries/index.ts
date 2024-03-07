@@ -36,6 +36,8 @@ import * as Table from './table'
 import * as ReactWidget from './reactWidget'
 import * as QaParagraph from './qaParagraph'
 import * as QaSection from './qaSection'
+import * as QaGroup from './qaGroup'
+
 import {
   ResourceType,
   ParagraphResourceType,
@@ -72,6 +74,7 @@ export const QUERIES_MAP = {
   'paragraph--phone_number': PhoneNumber,
   'paragraph--q_a': QaParagraph,
   'paragraph--q_a_section': QaSection,
+  'paragraph--q_a_group': QaGroup,
   'paragraph--react_widget': ReactWidget,
   'paragraph--rich_text_char_limit_1000': Wysiwyg,
   'paragraph--table': Table,

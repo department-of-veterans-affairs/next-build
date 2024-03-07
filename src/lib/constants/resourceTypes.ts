@@ -33,6 +33,7 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   WYSIWYG: 'paragraph--wysiwyg',
   QA_PARAGRAPH: 'paragraph--q_a',
   QA_SECTION: 'paragraph--q_a_section',
+  QA_GROUP: 'paragraph--q_a_group',
 } as const
 
 export type ParagraphResourceType =

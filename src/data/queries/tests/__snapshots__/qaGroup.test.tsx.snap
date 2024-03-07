@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QaGroup formatData outputs formatted data 1`] = `
+{
+  "displayAccordion": false,
+  "header": null,
+  "id": "284e0f5b-0fbd-4eb4-96bd-350abff3214e",
+  "intro": undefined,
+  "questions": [
+    {
+      "answer": {
+        "html": "<p>If you’re having trouble connecting to an app, contact the app’s customer support for help.</p>
+",
+        "id": "c285aa42-285f-488c-89eb-c796c8d6c67e",
+        "type": "paragraph--rich_text_char_limit_1000",
+      },
+      "title": "Will my school refund money to VA if I drop a class?",
+    },
+  ],
+  "type": "paragraph--q_a_group",
+}
+`;

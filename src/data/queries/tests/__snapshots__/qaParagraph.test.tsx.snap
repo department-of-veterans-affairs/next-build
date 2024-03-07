@@ -9,6 +9,7 @@ exports[`QaParagraph formatData outputs formatted data 1`] = `
       "type": "paragraph--wysiwyg",
     },
   ],
+  "id": "66125704-adec-474c-a47c-be2968a1f84a",
   "question": "asdf",
   "type": "paragraph--q_a",
 }

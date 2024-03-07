@@ -9,6 +9,7 @@ export function QaSection({
   questions,
   displayAccordion,
 }: FormattedQaSection) {
+  const setHeaderh3 = header ? true : false
   return (
     <div data-template="paragraphs/q_a_section">
       {header && <h2>{header}</h2>}
@@ -23,6 +24,7 @@ export function QaSection({
             answers={questionObject.answers}
             question={questionObject.question}
             id={questionObject.id}
+            setHeaderh3={setHeaderh3}
           />
         ))
       )}
