@@ -1,14 +1,14 @@
 import { Wysiwyg as FormattedWysiwyg } from './wysiwyg'
+import { PublishedParagraph } from './publishedEntity'
+import { FormattedParagraph } from '@/data/queries'
 
 type QaGroupQa = {
   title: string
-  answer: FormattedWysiwyg
+  answer: FormattedParagraph
 }
 
-export type QaGroup = {
+export type QaGroup = PublishedParagraph & {
   questions: QaGroupQa[]
-  type: string
-  id: string
   header: string
   displayAccordion: boolean
   intro: string

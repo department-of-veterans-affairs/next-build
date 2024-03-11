@@ -8,7 +8,7 @@ export const formatter: QueryFormatter<ParagraphQaSection, QaSection> = (
 ) => {
   return {
     header: entity.field_section_header,
-    intro: entity.field_section_intro,
+    intro: entity.field_section_intro || null,
     questions: entity.field_questions.map?.(formatParagraph) || [],
     displayAccordion: entity.field_accordion_display,
     type: entity.type,

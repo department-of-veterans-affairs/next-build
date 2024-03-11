@@ -1,5 +1,6 @@
 import { FormattedParagraph } from '@/data/queries'
 import { PublishedParagraph } from './publishedEntity'
+import { HeadingLevel } from './headingElement'
 
 export type QaSection = PublishedParagraph & {
   header: string
@@ -8,5 +9,5 @@ export type QaSection = PublishedParagraph & {
   questions: FormattedParagraph[]
   id: string
   type: string
-  headerTagLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  headerTagLevel?: HeadingLevel
 }

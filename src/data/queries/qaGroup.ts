@@ -1,7 +1,7 @@
 import { QueryFormatter } from 'next-drupal-query'
-import { queries } from '.'
 import { ParagraphQaGroup } from '@/types/drupal/paragraph'
 import { QaGroup } from '@/types/formatted/qaGroup'
+import { formatParagraph } from '@/lib/drupal/paragraphs'
 
 export const formatter: QueryFormatter<ParagraphQaGroup, QaGroup> = (
   entity: ParagraphQaGroup
@@ -10,12 +10,13 @@ export const formatter: QueryFormatter<ParagraphQaGroup, QaGroup> = (
     questions:
       entity.field_q_as.map?.((item) => ({
         title: item.title,
-        answer: queries.formatData('paragraph--wysiwyg', item.field_answer),
+        answer: formatParagraph(item.field_answer),
       })) || [],
     type: entity.type,
     id: entity.id,
-    intro: entity.field_section_intro,
-    header: entity.field_section_header,
-    displayAccordion: entity.field_accordion_display,
+    entityId: entity.drupal_internal__id,
+    intro: entity.field_section_intro ?? null,
+    header: entity.field_section_header ?? null,
+    displayAccordion: entity.field_accordion_display ?? false,
   }
 }
