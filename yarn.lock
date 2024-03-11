@@ -3953,13 +3953,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:^7.6.13":
-  version: 7.6.13
-  resolution: "@storybook/addon-a11y@npm:7.6.13"
+"@storybook/addon-a11y@npm:^7.6.17":
+  version: 7.6.17
+  resolution: "@storybook/addon-a11y@npm:7.6.17"
   dependencies:
-    "@storybook/addon-highlight": 7.6.13
+    "@storybook/addon-highlight": 7.6.17
     axe-core: ^4.2.0
-  checksum: e6fa76e6449711004038ac3d8d08f37651ffb382a7da17251a66bddbf1096cf607a006fc15a8c3ff4dc2659cdeb4e7ad40dd21f9aa005bd6a21f28bd944f00c4
+  checksum: fc7b8dbf00ff1c7a498491ae9c6192d74091fb06e76e6a598baec8ab1f6c754d39d3fde85f67f286bbc512a849a87d01d835c166eeac3aebee2ba9bfe1726a3e
   languageName: node
   linkType: hard
 
@@ -4082,12 +4082,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-highlight@npm:7.6.13":
-  version: 7.6.13
-  resolution: "@storybook/addon-highlight@npm:7.6.13"
+"@storybook/addon-highlight@npm:7.6.17":
+  version: 7.6.17
+  resolution: "@storybook/addon-highlight@npm:7.6.17"
   dependencies:
     "@storybook/global": ^5.0.0
-  checksum: 6d391a62c7a2774ff01ef1c7571a6019dba01ac78a5a4899777f249e3d30c38728424955d07f4d653c11193745db639c2a15d78af2f40a0d478950e3d6fdd63b
+  checksum: 0b5f5dae9aae48b9386b167b4941f7b790a9e2502c352f21b1e114379cda7f4897f0e61babe9967fb258c551004cade1a0cbeddbc2e917c6a18b65617b503b09
   languageName: node
   linkType: hard
 
@@ -14721,7 +14721,7 @@ __metadata:
     "@fortawesome/fontawesome-free": ^6.5.1
     "@next/env": ^14.1.0
     "@playwright/test": ^1.40.1
-    "@storybook/addon-a11y": ^7.6.13
+    "@storybook/addon-a11y": ^7.6.17
     "@storybook/addon-actions": ^7.6.14
     "@storybook/addon-essentials": ^7.6.3
     "@storybook/addon-interactions": ^7.6.13
