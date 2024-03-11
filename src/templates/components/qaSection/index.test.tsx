@@ -6,7 +6,7 @@ const QaSectionAccordionProps: FormattedQaSection = {
   header: 'Accordion test header',
   intro: 'intro text',
   displayAccordion: true,
-  type: 'paragraph--q_a',
+  type: 'paragraph--q_a_section',
   id: '1',
   questions: [
     {
@@ -33,7 +33,7 @@ const QaSectionOtherProps: FormattedQaSection = {
   header: 'Other test header',
   intro: 'intro text',
   displayAccordion: false,
-  type: 'paragraph--q_a',
+  type: 'paragraph--q_a_section',
   id: '1',
   questions: [
     {

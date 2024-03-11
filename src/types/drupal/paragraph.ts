@@ -1,4 +1,4 @@
-import { DrupalParagraph } from 'next-drupal'
+import { DrupalNode, DrupalParagraph } from 'next-drupal'
 
 import { BlockAlert } from './block'
 import {
@@ -168,7 +168,7 @@ export interface ParagraphQaGroup extends DrupalParagraph {
   field_section_header: string
 }
 
-export interface ParagraphSectionQas {
+export interface ParagraphSectionQas extends DrupalNode {
   title: string
   field_answer: ParagraphWysiwyg
 }

@@ -3,18 +3,23 @@
 exports[`QaGroup formatData outputs formatted data 1`] = `
 {
   "displayAccordion": false,
+  "entityId": 80861,
   "header": null,
   "id": "284e0f5b-0fbd-4eb4-96bd-350abff3214e",
-  "intro": undefined,
+  "intro": null,
   "questions": [
     {
-      "answer": {
-        "html": "<p>If you’re having trouble connecting to an app, contact the app’s customer support for help.</p>
+      "answers": [
+        {
+          "html": "<p>If you’re having trouble connecting to an app, contact the app’s customer support for help.</p>
 ",
-        "id": "c285aa42-285f-488c-89eb-c796c8d6c67e",
-        "type": "paragraph--rich_text_char_limit_1000",
-      },
-      "title": "Will my school refund money to VA if I drop a class?",
+          "id": "c285aa42-285f-488c-89eb-c796c8d6c67e",
+          "type": "paragraph--rich_text_char_limit_1000",
+        },
+      ],
+      "id": "fe41f870-be14-4c49-a6bc-52cb51096d86",
+      "question": "Will my school refund money to VA if I drop a class?",
+      "type": "node--q_a",
     },
   ],
   "type": "paragraph--q_a_group",

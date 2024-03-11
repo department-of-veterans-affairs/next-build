@@ -7,7 +7,6 @@ export type QaSection = PublishedParagraph & {
   intro: string
   displayAccordion: boolean
   questions: FormattedParagraph[]
-  id: string
-  type: string
+  type: 'paragraph--q_a_section' | 'paragraph--q_a_group'
   headerTagLevel?: HeadingLevel
 }

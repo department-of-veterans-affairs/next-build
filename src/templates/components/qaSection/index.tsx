@@ -2,13 +2,14 @@ import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 import { QaCollapsiblePanel } from '../qaCollapsiblePanel'
 import { QaParagraph } from '../qaParagraph'
 import { QaParagraph as FormattedQaParagraph } from '@/types/formatted/qaParagraph'
+import { QaGroup as FormattedQaGroup } from '@/types/formatted/qaGroup'
 
 export function QaSection({
   header,
   intro,
   questions,
   displayAccordion,
-}: FormattedQaSection) {
+}: FormattedQaSection | FormattedQaGroup) {
   const setHeaderh3 = header ? true : false
   return (
     <div data-template="paragraphs/q_a_section">

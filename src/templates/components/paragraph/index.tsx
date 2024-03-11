@@ -30,6 +30,9 @@ import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/f
 import { LinkTeaser } from '@/templates/components/linkTeaser'
 import { LinkTeaser as FormattedLinkTeaser } from '@/types/formatted/linkTeaser'
 import { PhoneContact } from '@/templates/components/contactInfo'
+import { QaSection } from '@/templates/components/qaSection'
+import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
+import { QaGroup as FormattedQaGroup } from '@/types/formatted/qaGroup'
 import { PhoneContact as FormattedPhoneContact } from '@/types/formatted/contactInfo'
 import { ReactWidget } from '@/templates/components/reactWidget'
 import { ReactWidget as FormattedReactWidget } from '@/types/formatted/reactWidget'
@@ -88,6 +91,12 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
 
     case PARAGRAPH_RESOURCE_TYPES.TABLE:
       return <Table {...(paragraph as FormattedTable)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.QA_GROUP:
+      return <QaSection {...(paragraph as FormattedQaGroup)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.QA_SECTION:
+      return <QaSection {...(paragraph as FormattedQaSection)} />
 
     case PARAGRAPH_RESOURCE_TYPES.WYSIWYG:
     case PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000:

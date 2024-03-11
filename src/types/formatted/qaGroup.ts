@@ -1,10 +1,11 @@
-import { Wysiwyg as FormattedWysiwyg } from './wysiwyg'
 import { PublishedParagraph } from './publishedEntity'
 import { FormattedParagraph } from '@/data/queries'
 
 type QaGroupQa = {
-  title: string
-  answer: FormattedParagraph
+  question: string
+  answers: FormattedParagraph[]
+  type: string
+  id: string
 }
 
 export type QaGroup = PublishedParagraph & {
