@@ -4858,14 +4858,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/node-logger@npm:7.6.17":
+"@storybook/node-logger@npm:7.6.17, @storybook/node-logger@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/node-logger@npm:7.6.17"
   checksum: cb39fa5a93b84a52251e324000a0cad7df1e56553542d06ebc50f3aea0b790b7b3774f7c4a6bb4d3bf6764eb7951caa82decd8e091ef4c73aa5c09c9fa446f40
   languageName: node
   linkType: hard
 
-"@storybook/node-logger@npm:7.6.3, @storybook/node-logger@npm:^7.6.3":
+"@storybook/node-logger@npm:7.6.3":
   version: 7.6.3
   resolution: "@storybook/node-logger@npm:7.6.3"
   checksum: 2288fcc23e9240e1b236cb074fd1be932ccee38e75aab2884725548366f1be6b757ce0736af05c1e584b9a30fe999e15737cd7a2e6007db57a6baa796b04b127
@@ -14727,7 +14727,7 @@ __metadata:
     "@storybook/addon-interactions": ^7.6.13
     "@storybook/addon-links": ^7.6.17
     "@storybook/nextjs": ^7.6.17
-    "@storybook/node-logger": ^7.6.3
+    "@storybook/node-logger": ^7.6.17
     "@storybook/react": ^7.6.3
     "@storybook/testing-library": ^0.2.2
     "@testing-library/dom": ^9.3.4
