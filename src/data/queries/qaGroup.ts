@@ -1,6 +1,7 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphQaGroup } from '@/types/drupal/paragraph'
 import { QaGroup } from '@/types/formatted/qaGroup'
+import { QaGroupQa } from '@/types/formatted/qaGroup'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 
 export const formatter: QueryFormatter<ParagraphQaGroup, QaGroup> = (
@@ -15,10 +16,10 @@ export const formatter: QueryFormatter<ParagraphQaGroup, QaGroup> = (
       filteredQAs.map?.((item) => ({
         question: item.title,
         answers: [formatParagraph(item.field_answer)],
-        type: item.type,
+        type: item.type as QaGroupQa['type'],
         id: item.id,
       })) || [],
-    type: entity.type,
+    type: entity.type as QaGroup['type'],
     id: entity.id,
     entityId: entity.drupal_internal__id,
     intro: entity.field_section_intro || null,

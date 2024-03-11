@@ -7,9 +7,9 @@ export const formatter: QueryFormatter<ParagraphQA, QaParagraph> = (
   entity: ParagraphQA
 ) => {
   return {
+    type: entity.type as QaParagraph['type'],
     question: entity.field_question,
     answers: entity.field_answer.map?.(formatParagraph) || [],
-    type: entity.type,
     id: entity.id,
   }
 }
