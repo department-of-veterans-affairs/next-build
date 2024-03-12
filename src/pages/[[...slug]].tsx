@@ -36,7 +36,6 @@ import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 
-
 const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
