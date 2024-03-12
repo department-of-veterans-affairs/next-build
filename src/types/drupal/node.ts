@@ -19,7 +19,6 @@ import {
 import { DrupalMediaImage } from './media'
 import {
   ParagraphAlert,
-  ParagraphAccordion,
   ParagraphAlertSingle,
   ParagraphAudienceTopics,
   ParagraphButton,
@@ -176,11 +175,11 @@ export interface NodeVetCenter extends DrupalNode {
   field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
   field_geolocation: FieldGeoLocation
   field_intro_text: string
-  field_last_saved_by_an_editor?: string | null
+  field_last_saved_by_an_editor?: string
   field_office_hours: FieldOfficeHours[]
   field_official_name: string
   field_operating_status_facility: string
-  field_operating_status_more_info?: string | null
+  field_operating_status_more_info?: string
   field_phone_number: string
   field_timezone: string
   field_administration: FieldAdministration

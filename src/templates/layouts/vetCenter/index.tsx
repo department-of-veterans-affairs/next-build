@@ -2,7 +2,7 @@ import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
-import { AlertBlock } from '@/templates/components/alert'
+import { AlertBlock } from '@/templates/components/alertBlock'
 import { Wysiwyg, WysiwygField } from '@/templates/components/wysiwyg'
 import HealthServices from '@/templates/components/healthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
@@ -108,9 +108,9 @@ export function VetCenter({
           '@type': 'PostalAddress',
           streetAddress:
             fieldAddress.address_line1 +
-            (fieldAddress.address_line2
-              ? `, ${fieldAddress.address_line2}`
-              : ''),
+            (address.address_line2
+              ? `${address.address_line1}${address.address_line2}`
+              : address.address_line1),
           addressLocality: fieldAddress.locality,
           addressRegion: fieldAddress.administrative_area,
           postalCode: fieldAddress.postal_code,
@@ -261,7 +261,7 @@ export function VetCenter({
               className="vads-u-font-weight--bold"
               id="field-cc-non-traditional-hours"
             >
-              <WysiwygField html={ccNonTraditionalHours.content.html} />
+              <WysiwygField html={ccNonTraditionalHours.html} />
             </div>
           )}
 
@@ -272,7 +272,7 @@ export function VetCenter({
                 alertType="info"
                 id="field-cc-vet-call-center"
                 title="Need help after hours?"
-                content={{ text: ccVetCenterCallCenter.content.html }}
+                content={ccVetCenterCallCenter}
               />
             </div>
           )}
@@ -288,20 +288,22 @@ export function VetCenter({
             className="vads-u-margin-top--0 vads-u-font-size--lg
           small-screen:vads-u-font-size--xl vads-u-margin-bottom--2"
           >
-            In the spotlight at {title}{' '}
+            In the spotlight at {title}
           </h2>
           <div
             id="field-vet-center-feature-content"
             className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4 "
           >
-            {featuredContent.map((content, index) => (
-              <FeaturedContent
-                key={index}
-                title={content.title}
-                description={content.description}
-                link={content.link}
-              />
-            ))}
+            {featuredContent &&
+              featuredContent.map((content, index) => (
+                <FeaturedContent
+                  key={index}
+                  title={content.title}
+                  description={content.description}
+                  link={content.link}
+                  id={content.id || ''}
+                />
+              ))}
           </div>
 
           {/* Health Services */}

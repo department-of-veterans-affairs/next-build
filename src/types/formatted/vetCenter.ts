@@ -9,18 +9,12 @@ import { HealthServices as FormattedHealthServices } from './healthServices'
 import { FeaturedContent as FormattedFeaturedContent } from './featuredContent'
 import { MediaImage as FormattedMediaImage } from './media'
 import { Accordion as FormattedAccordion } from './accordion'
-
-type ccWysiwyg = {
-  contentType: string
-  content: {
-    html: string
-  }
-}
+import { Wysiwyg as FormattedWysiwyg } from './wysiwyg'
 
 export type VetCenter = PublishedEntity & {
   address: FieldAddress
-  ccNonTraditionalHours: ccWysiwyg
-  ccVetCenterCallCenter: ccWysiwyg
+  ccNonTraditionalHours: FormattedWysiwyg
+  ccVetCenterCallCenter: FormattedWysiwyg
   // TODO with q_a
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ccVetCenterFaqs: any

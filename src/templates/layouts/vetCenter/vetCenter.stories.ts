@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { VetCenter } from './index'
-import data from '@/mocks/VetCenter.mock.json'
+import { mockResponse } from '@/mocks/vetCenter.mock'
+import { formatter } from '@/data/queries/vetCenter'
 
 const meta: Meta<typeof VetCenter> = {
   title: 'Layouts/VetCenter',
@@ -9,6 +10,8 @@ const meta: Meta<typeof VetCenter> = {
 export default meta
 
 type Story = StoryObj<typeof VetCenter>
+
+const vetCenterData = formatter({ ...mockResponse })
 
 export const Example: Story = {
   args: {
@@ -21,16 +24,14 @@ export const Example: Story = {
       address_line2: '',
     },
     ccNonTraditionalHours: {
-      contentType: 'wysiwyg',
-      content: {
-        html: '<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>',
-      },
+      id: '1',
+      type: 'paragraph--wysiwyg',
+      html: '<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>',
     },
     ccVetCenterCallCenter: {
-      contentType: 'wysiwyg',
-      content: {
-        html: '<p>Our call center is available 24/7. Call us anytime at <a href="tel:+18779278387" aria-label="8 7 7. 9 2 7. 8 3 8 7.">877-927-8387</a>.</p>',
-      },
+      id: '1',
+      type: 'paragraph--wysiwyg',
+      html: '<p>Our call center is available 24/7. Call us anytime at <a href="tel:+18779278387" aria-label="8 7 7. 9 2 7. 8 3 8 7.">877-927-8387</a>.</p>',
     },
     ccVetCenterFaqs: {},
     geolocation: {
@@ -47,6 +48,8 @@ export const Example: Story = {
     },
     featuredContent: [
       {
+        id: '1',
+        type: 'paragraph--featured_content',
         title: 'New Vet Centers and Satellite Locations Announced',
         description:
           '<p>To improve access to counseling, we are adding three Vet Centers and six satellite locations across the US and its territories. We will continue to expand our program to meet Veteran demand and provide local support to those who served.&nbsp;</p>\n',
@@ -57,6 +60,8 @@ export const Example: Story = {
         },
       },
       {
+        id: '2',
+        type: 'paragraph--featured_content',
         title: 'Group Session Available Virtual and In Person',
         description:
           '<p><strong>Vietnam Era Group -&nbsp;</strong>Tues 1-3pm</p>\n<p><strong>Vietnam Era Group - </strong>Wed 1-3pm</p>\n<p><strong>African American Vietnam Group at the Heinz VAMC </strong>1st, 2nd, 4th Thurs 4:30-6:30 pm</p>\n<p><strong>Strength at Home Couples Group&nbsp;</strong>Wed 9-11am</p>\n<p><strong>OIF/OEF Group-</strong>&nbsp;2nd &amp; 4th Mon 6-7:30pm</p>\n<p>&nbsp;</p>\n',

@@ -74,7 +74,7 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
               const DayTag = headerType === 'clinical' ? 'strong' : 'span'
               return (
                 <li key={index}>
-                  <DayTag>{dayNames[dayIndex]}:</DayTag>{' '}
+                  <DayTag className="abbrv-day">{dayNames[dayIndex]}.</DayTag>{' '}
                   {hoursItem.starthours === null
                     ? 'Closed'
                     : `${formatHours(hoursItem.starthours)} to ${formatHours(

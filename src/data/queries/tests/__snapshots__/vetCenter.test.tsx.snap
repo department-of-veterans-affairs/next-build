@@ -113,16 +113,14 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
     },
   ],
   "ccNonTraditionalHours": {
-    "content": {
-      "html": "<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>",
-    },
-    "contentType": "wysiwyg",
+    "html": "<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>",
+    "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
+    "type": "paragraph--wysiwyg",
   },
   "ccVetCenterCallCenter": {
-    "content": {
-      "html": "<p>Our call center is available 24/7. Call us anytime at <a href="tel:+18779278387" aria-label="8 7 7. 9 2 7. 8 3 8 7.">877-927-8387</a>.</p>",
-    },
-    "contentType": "wysiwyg",
+    "html": "<p>Our call center is available 24/7. Call us anytime at <a href="tel:+18779278387" aria-label="8 7 7. 9 2 7. 8 3 8 7.">877-927-8387</a>.</p>",
+    "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
+    "type": "paragraph--wysiwyg",
   },
   "ccVetCenterFaqs": {
     "fetched": {
@@ -492,35 +490,61 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
     "target_id": "32957",
     "target_type": "paragraph",
   },
-  "counselingHealthServices": [],
+  "counselingHealthServices": [
+    {
+      "alsoKnownAs": null,
+      "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
+",
+      "commonlyTreatedCondition": null,
+      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
+      "name": "Military sexual trauma care",
+      "vetCenterComConditions": null,
+      "vetCenterFriendlyName": null,
+      "vetCenterServiceDescription": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+      "vetCenterTypeOfCare": "counseling",
+    },
+  ],
   "entityId": 3599,
   "entityPath": "/springfield-ma-vet-center",
   "featuredContent": [
     {
       "description": "<p>To improve access to counseling, we are adding three Vet Centers and six satellite locations across the US and its territories. We will continue to expand our program to meet Veteran demand and provide local support to those who served.&nbsp;</p>
 ",
+      "entityId": null,
+      "id": "32957",
       "link": {
+        "entityId": "32956",
         "id": "32956",
         "label": "View the new locations here!",
+        "type": "paragraph--button",
         "url": "https://www.vetcenter.va.gov/New_Vet_Centers.asp",
       },
       "title": "New Vet Centers and Satellite Locations Announced",
+      "type": "paragraph--featured_content",
     },
     {
       "description": "<p>We partner with the Massachusetts Bonus Division to make sure Veterans get their Welcome Home bonuses.&nbsp; You may be eligible for $250-$1000&nbsp; per deployment.&nbsp;</p>
 ",
+      "entityId": 102531,
+      "id": "373e794c-923d-4bd9-8a7b-436ed6d47cb9",
       "link": {
-        "id": "577f3d0c-52d9-4514-8c64-a8c4ce8e9faf",
-        "label": null,
-        "url": null,
+        "entityId": 68850,
+        "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+        "label": "View 2-minute video on YouTube",
+        "type": "paragraph--button",
+        "url": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
       },
       "title": "Make Sure to Receive Your Welcome Home Bonuses",
+      "type": "paragraph--featured_content",
     },
     {
       "description": "<p>Qigong is a mind-body-spirit practice that involves breathing, movement, sound, self-massage, and focused intent. This weekly Vet Center class is designed to help with stress, chronic pain, anger issues, fitness and overall health.</p>
 ",
+      "entityId": 141076,
+      "id": "1a1c758b-e45f-4b99-9594-9793b1674f76",
       "link": null,
       "title": "Qi Gong is back by popular demand",
+      "type": "paragraph--featured_content",
     },
   ],
   "fieldFacilityLocatorApiId": "vc_0103V",
@@ -537,21 +561,18 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
     "value": "POINT (-72.62449885 42.13908173)",
   },
   "healthServices": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    {
+      "alsoKnownAs": null,
+      "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
+",
+      "commonlyTreatedCondition": null,
+      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
+      "name": "Military sexual trauma care",
+      "vetCenterComConditions": null,
+      "vetCenterFriendlyName": null,
+      "vetCenterServiceDescription": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+      "vetCenterTypeOfCare": "counseling",
+    },
   ],
   "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
   "image": {
@@ -965,12 +986,17 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
   "vetCenterFeatureContent": {
     "description": "<p>We partner with the Massachusetts Bonus Division to make sure Veterans get their Welcome Home bonuses.&nbsp; You may be eligible for $250-$1000&nbsp; per deployment.&nbsp;</p>
 ",
+    "entityId": 102531,
+    "id": "373e794c-923d-4bd9-8a7b-436ed6d47cb9",
     "link": {
-      "id": "577f3d0c-52d9-4514-8c64-a8c4ce8e9faf",
-      "label": null,
-      "url": null,
+      "entityId": 68850,
+      "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+      "label": "View 2-minute video on YouTube",
+      "type": "paragraph--button",
+      "url": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
     },
     "title": "Make Sure to Receive Your Welcome Home Bonuses",
+    "type": "paragraph--featured_content",
   },
 }
 `;

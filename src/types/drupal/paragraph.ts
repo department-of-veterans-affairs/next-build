@@ -128,15 +128,9 @@ export interface ParagraphFeaturedContent extends DrupalParagraph {
 
 export interface ParagraphCCFeaturedContent {
   fetched: {
-    field_cta: Array<{
-      field_button_label: Array<{ value: string }>
-      field_button_link: Array<{
-        uri: string
-        title?: string
-        options: unknown
-      }>
-    }>
-    field_description: Array<FieldFormattedText>
+    // This normalizes the centralized content field_cta field to allow formatting
+    field_cta: Omit<ParagraphButton, 'drupal_internal__id' | 'id'>[]
+    field_description: FieldFormattedText[]
     field_section_header: Array<{ value: string }>
   }
 }

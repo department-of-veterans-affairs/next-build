@@ -11,7 +11,7 @@ export interface TaxonomyTermAudienceNonBeneficiaries
 export interface TaxonomyTermHealthCareServiceTaxonomy
   extends Omit<DrupalTaxonomyTerm, 'description'> {
   field_vet_center_com_conditions: string
-  field_commonly_treated_Condition?: string
+  field_commonly_treated_condition?: string
   field_health_service_api_id: string
   field_also_known_as: string
   field_vet_center_friendly_name: string

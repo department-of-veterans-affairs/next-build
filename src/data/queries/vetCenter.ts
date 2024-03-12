@@ -73,16 +73,23 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     if (!ccFeaturedContent || !ccFeaturedContent.fetched) {
       return vetCenterFeatureContentArray
     }
+
     const { field_description, field_section_header, field_cta } =
       ccFeaturedContent.fetched
 
+    // Centralized content needs to be normalized to match the shape of a standard drupal paragraph in order to be formatted
     const featuredContentObject = {
       field_description: field_description[0],
       field_section_header: field_section_header[0].value,
+      type: 'paragraph--featured_content',
+      id: ccFeaturedContent.target_id || '',
+
       field_cta: {
         id: field_cta[0].target_id || null,
         field_button_label: field_cta[0].field_button_label[0].value || null,
         field_button_link: field_cta[0].field_button_link[0] || null,
+        type: 'paragraph--button',
+        drupal_internal__id: field_cta[0].target_id,
       },
     }
     const combinedArray = [
@@ -99,18 +106,16 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     ...entityBaseFields(entity),
     address: entity.field_address,
     ccNonTraditionalHours: {
-      contentType: entity.field_cc_non_traditional_hours.fetched_bundle,
-      content: {
-        html: entity.field_cc_non_traditional_hours.fetched.field_wysiwyg[0]
-          .processed,
-      },
+      type: 'paragraph--wysiwyg',
+      id: entity.id || null,
+      html: entity.field_cc_non_traditional_hours.fetched.field_wysiwyg[0]
+        .processed,
     },
     ccVetCenterCallCenter: {
-      contentType: entity.field_cc_vet_center_call_center.fetched_bundle,
-      content: {
-        html: entity.field_cc_vet_center_call_center.fetched.field_wysiwyg[0]
-          .processed,
-      },
+      type: 'paragraph--wysiwyg',
+      html: entity.field_cc_vet_center_call_center.fetched.field_wysiwyg[0]
+        .processed,
+      id: entity.id || null,
     },
     ccVetCenterFaqs: entity.field_cc_vet_center_faqs,
     featuredContent: buildFeaturedContentArray(

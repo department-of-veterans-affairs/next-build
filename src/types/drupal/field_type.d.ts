@@ -110,7 +110,7 @@ export interface BreadCrumbLink {
  */
 
 export interface FieldHealthService {
-  field_body: FieldFormattedText | null
+  field_body?: FieldFormattedText
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
 }
 
@@ -120,7 +120,7 @@ export interface FieldCCText {
   target_id?: string
   fetched_bundle: string
   fetched: {
-    field_wysiwyg: Array<FieldFormattedText>
+    field_wysiwyg: FieldFormattedText[]
   }
 }
 

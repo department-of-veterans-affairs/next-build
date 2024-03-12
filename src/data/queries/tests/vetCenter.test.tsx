@@ -1,8 +1,8 @@
 import { NodeVetCenter } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/VetCenter.mock.json'
+import { mockResponse } from '@/mocks/vetCenter.mock'
 
-const VetCenterMock: NodeVetCenter = mockData
+const VetCenterMock: NodeVetCenter = mockResponse
 
 describe('VetCenter formatData', () => {
   let windowSpy

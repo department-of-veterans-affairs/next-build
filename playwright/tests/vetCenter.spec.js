@@ -4,6 +4,7 @@ test.describe('vetCenter', () => {
   test('vetCenter page renders', async ({ page }) => {
     await page.goto('/pittsburgh-vet-center')
     await expect(page).toHaveURL('/pittsburgh-vet-center')
+    await expect(page.locator('body')).toContainText('Pittsburgh Vet Center')
   })
 
   test('Should render without a11y errors', async ({

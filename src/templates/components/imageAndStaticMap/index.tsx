@@ -12,13 +12,14 @@ export const ImageAndStaticMap: React.FC<ImageAndStaticMapProps> = ({
   image,
   facilityId,
 }) => {
-  const handleImageClick = () => {
-    recordEvent({ event: 'image-click', 'facility-name': facilityId })
-  }
-
   return (
     <div className="usa-width-one-third inline-table-helper vads-u-order--first small-screen:vads-u-order--initial vads-u-margin-bottom--2 vads-u-margin-left--auto facility">
-      <div onClick={handleImageClick} style={{ cursor: 'pointer' }}>
+      <div
+        onClick={() =>
+          recordEvent({ event: 'image-click', 'facility-name': facilityId })
+        }
+        style={{ cursor: 'pointer' }}
+      >
         <MediaImage
           {...image}
           imageStyle="2_1_large"
