@@ -5,6 +5,7 @@ import { NodeVetCenter } from '@/types/drupal/node'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
@@ -101,6 +102,32 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     )
     return formattedFeaturedContentArray
   }
+  // Similarly, this formats centralized content FAQs to match what our QA components are expecting
+  const buildFaqs = (faqs) => {
+    const buildQuestionArray = (questions) => {
+      if (!questions) return []
+      return questions.map((question) => ({
+        id: question.target_id || null,
+        question: question.field_question[0]?.value || null,
+        answers: [
+          {
+            html: question.field_answer[0]?.field_wysiwyg[0]?.value || null,
+          },
+        ],
+        header: question.label || null,
+      }))
+    }
+
+    return {
+      type: 'paragraph--q_a_section' as FormattedQaSection['type'],
+      id: faqs.target_id,
+      header: faqs.fetched.field_section_header[0]?.value || null,
+      intro: faqs.fetched.field_section_intro[0]?.value || null,
+      displayAccordion:
+        Boolean(faqs.fetched.field_accordion_display[0]?.value) || false,
+      questions: buildQuestionArray(faqs.fetched.field_questions),
+    }
+  }
 
   return {
     ...entityBaseFields(entity),
@@ -117,7 +144,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
         .processed,
       id: entity.id || null,
     },
-    ccVetCenterFaqs: entity.field_cc_vet_center_faqs,
+    ccVetCenterFaqs: buildFaqs(entity.field_cc_vet_center_faqs),
     featuredContent: buildFeaturedContentArray(
       entity.field_cc_vet_center_featured_con,
       entity.field_vet_center_feature_content

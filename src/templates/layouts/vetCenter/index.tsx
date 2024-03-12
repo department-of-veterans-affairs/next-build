@@ -3,10 +3,10 @@ import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { AlertBlock } from '@/templates/components/alertBlock'
-import { Wysiwyg, WysiwygField } from '@/templates/components/wysiwyg'
+import { WysiwygField } from '@/templates/components/wysiwyg'
 import HealthServices from '@/templates/components/healthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
-
+import { QaSection } from '@/templates/components/qaSection'
 export function VetCenter({
   address,
   ccNonTraditionalHours,
@@ -318,7 +318,7 @@ export function VetCenter({
           <HealthServices services={otherHealthServices} typeOfCare={'other'} />
 
           {/* FAQs */}
-          {ccVetCenterFaqs && <div>{/* TODO ADD FAQ COMPONENT */}</div>}
+          {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
 
           <va-back-to-top></va-back-to-top>
 

@@ -123,194 +123,38 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
     "type": "paragraph--wysiwyg",
   },
   "ccVetCenterFaqs": {
-    "fetched": {
-      "field_accordion_display": [
-        {
-          "value": "1",
-        },
-      ],
-      "field_questions": [
-        {
-          "bundle": "q_a",
-          "field_answer": [
-            {
-              "bundle": "wysiwyg",
-              "field_wysiwyg": [
-                {
-                  "format": "rich_text",
-                  "processed": "<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They’re staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>
-
-<p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>",
-                  "value": "<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They’re staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>
+    "displayAccordion": true,
+    "header": "How we’re different than a clinic",
+    "id": "5f582f12-b72f-4a35-a9df-411485c8e446",
+    "intro": "Click on a topic for more details.",
+    "questions": [
+      {
+        "answers": [
+          {
+            "html": "<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They’re staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>
 
 <p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>
 ",
-                },
-              ],
-              "label": "Vet Center -- Facility pages > Content > Questions > Answer",
-              "langcode": "en",
-              "pid": "29902",
-              "status": true,
-              "target_id": "29902",
-              "target_revision_id": "1156768",
-              "type": "paragraph",
-            },
-          ],
-          "field_question": [
-            {
-              "value": "What are Vet Centers?",
-            },
-          ],
-          "label": "Vet Center -- Facility pages > Content > Questions",
-          "langcode": "en",
-          "pid": "29903",
-          "status": true,
-          "target_id": "29903",
-          "target_revision_id": "1156769",
-          "type": "paragraph",
-        },
-        {
-          "bundle": "q_a",
-          "field_answer": [
-            {
-              "bundle": "wysiwyg",
-              "field_wysiwyg": [
-                {
-                  "format": "rich_text",
-                  "processed": "<p>You may be eligible for Vet Center services no matter your discharge status or eligibility for VA health care. And we encourage you to contact us, even if you’re not sure if you’re eligible. If we can’t help you, we’ll find someone who can.&nbsp;</p><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re eligible if you meet any of these service requirements:&nbsp;</strong></p><ul><li>You served on active duty in any combat theater or area of hostility, <strong>or</strong>&nbsp;</li><li>You provided mortuary services or direct emergency medical care to treat the casualties of war while on active duty, <strong>or&nbsp;</strong></li><li>You were a member of an unmanned aerial vehicle crew that provided direct support to operations in a combat theater or area of hostility, <strong>or&nbsp;</strong></li><li>You served on active duty in response to a national emergency or major disaster declared by the president, or under orders of the governor or chief executive of a state in response to a disaster or civil disorder, <strong>or</strong> &nbsp;</li><li>You’re a current or former member of the Coast Guard who participated in a drug interdiction operation, <strong>or</strong>&nbsp;</li><li>You’re a current member of the Reserve Component assigned to a military command in a drill status, including active Reserves, and you need to address a behavioral health condition or psychological trauma that is related to your military service</li></ul><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re also eligible for Vet Center services if any of these descriptions is true for you:&nbsp;</strong></p><ul><li>You’re a Vietnam Era Veteran who used Vet Center services before January 2, 2013, <strong>or</strong>&nbsp;</li><li>You experienced military sexual trauma (no matter your gender or service era), <strong>or</strong>&nbsp;</li><li>You&nbsp;currently use any covered VA educational assistance benefits</li></ul>",
-                  "value": "<p>You may be eligible for Vet Center services no matter your discharge status or eligibility for VA health care. And we encourage you to contact us, even if you’re not sure if you’re eligible. If we can’t help you, we’ll find someone who can.&nbsp;</p><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re eligible if you meet any of these service requirements:&nbsp;</strong></p><ul><li>You served on active duty in any combat theater or area of hostility, <strong>or</strong>&nbsp;</li><li>You provided mortuary services or direct emergency medical care to treat the casualties of war while on active duty, <strong>or&nbsp;</strong></li><li>You were a member of an unmanned aerial vehicle crew that provided direct support to operations in a combat theater or area of hostility, <strong>or&nbsp;</strong></li><li>You served on active duty in response to a national emergency or major disaster declared by the president, or under orders of the governor or chief executive of a state in response to a disaster or civil disorder, <strong>or</strong> &nbsp;</li><li>You’re a current or former member of the Coast Guard who participated in a drug interdiction operation, <strong>or</strong>&nbsp;</li><li>You’re a current member of the Reserve Component assigned to a military command in a drill status, including active Reserves, and you need to address a behavioral health condition or psychological trauma that is related to your military service</li></ul><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re also eligible for Vet Center services if any of these descriptions is true for you:&nbsp;</strong></p><ul><li>You’re a Vietnam Era Veteran who used Vet Center services before January 2, 2013, <strong>or</strong>&nbsp;</li><li>You experienced military sexual trauma (no matter your gender or service era), <strong>or</strong>&nbsp;</li><li>You&nbsp;currently use any covered VA educational assistance benefits</li></ul>",
-                },
-              ],
-              "label": "Vet Center -- Facility pages > Content > Questions > Answer",
-              "langcode": "en",
-              "pid": "29904",
-              "status": true,
-              "target_id": "29904",
-              "target_revision_id": "1156770",
-              "type": "paragraph",
-            },
-            {
-              "bundle": "alert",
-              "field_alert_block_reference": [],
-              "field_alert_heading": [
-                {
-                  "value": "What are the covered educational assistance benefits?",
-                },
-              ],
-              "field_alert_type": [
-                {
-                  "value": "information",
-                },
-              ],
-              "field_va_paragraphs": [
-                {
-                  "bundle": "expandable_text",
-                  "field_text_expander": [
-                    {
-                      "value": "They're benefits from any of these programs",
-                    },
-                  ],
-                  "field_wysiwyg": [
-                    {
-                      "format": "rich_text",
-                      "processed": "<ul>
-	<li>Montgomery GI Bill Active Duty</li>
-	<li>Montgomery GI Bill Selected Reserve</li>
-	<li>Post-9/11 GI Bill</li>
-	<li>Reserve Educational Assistance Program (REAP)</li>
-	<li>Veteran Rapid Retraining Assistance Program (VRRAP)</li>
-	<li>Veteran Readiness and Employment (VR&amp;E)</li>
-	<li>Veterans’ Educational Assistance Program (VEAP)</li>
-	<li>Veteran Employment Through Technology Education Courses (VET TEC)</li>
-</ul>",
-                      "value": "<ul>
-	<li>Montgomery GI Bill Active Duty</li>
-	<li>Montgomery GI Bill Selected Reserve</li>
-	<li>Post-9/11 GI Bill</li>
-	<li>Reserve Educational Assistance Program (REAP)</li>
-	<li>Veteran Rapid Retraining Assistance Program (VRRAP)</li>
-	<li>Veteran Readiness and Employment (VR&amp;E)</li>
-	<li>Veterans’ Educational Assistance Program (VEAP)</li>
-	<li>Veteran Employment Through Technology Education Courses (VET TEC)</li>
-</ul>
-",
-                    },
-                  ],
-                  "label": "Vet Center -- Facility pages > Content > Questions > Answer > Alert content",
-                  "langcode": "en",
-                  "pid": "135321",
-                  "status": true,
-                  "target_id": "135321",
-                  "target_revision_id": "1156771",
-                  "type": "paragraph",
-                },
-              ],
-              "label": "Vet Center -- Facility pages > Content > Questions > Answer",
-              "langcode": "en",
-              "pid": "135322",
-              "status": true,
-              "target_id": "135322",
-              "target_revision_id": "1156772",
-              "type": "paragraph",
-            },
-            {
-              "bundle": "wysiwyg",
-              "field_wysiwyg": [
-                {
-                  "format": "rich_text",
-                  "processed": "<p><strong>Remember: </strong>You don’t need to be enrolled in VA health care to be eligible for Vet Center services. You don’t need to have a service-connected disability. And you can have any character of discharge.</p>",
-                  "value": "<p><strong>Remember: </strong>You don’t need to be enrolled in VA health care to be eligible for Vet Center services. You don’t need to have a service-connected disability. And you can have any character of discharge.</p>",
-                },
-              ],
-              "label": "Vet Center -- Facility pages > Content > Questions > Answer",
-              "langcode": "en",
-              "pid": "136482",
-              "status": true,
-              "target_id": "136482",
-              "target_revision_id": "1156773",
-              "type": "paragraph",
-            },
-          ],
-          "field_question": [
-            {
-              "value": "Am I eligible for Vet Center services as a Veteran or service member?",
-            },
-          ],
-          "label": "Vet Center -- Facility pages > Content > Questions",
-          "langcode": "en",
-          "pid": "29905",
-          "status": true,
-          "target_id": "29905",
-          "target_revision_id": "1156774",
-          "type": "paragraph",
-        },
-        {
-          "bundle": "q_a",
-          "field_answer": [
-            {
-              "bundle": "wysiwyg",
-              "field_wysiwyg": [
-                {
-                  "format": "rich_text",
-                  "processed": "<p>You can use our counseling and other support services when your participation would support the growth and goals of the Veteran or service member in your family. If the Veteran or service member considers you family, so do we.&nbsp;&nbsp;</p>
-
-<p>You can also use our bereavement services if any of these descriptions is true for your family:&nbsp;</p>
-
-<ul>
-	<li>
-	<p>The Veteran or service member died while serving on active duty, <strong>or</strong></p>
-	</li>
-	<li>
-	<p>The Veteran was using Vet Center services at the time of their death, <strong>or</strong></p>
-	</li>
-</ul>
-
-<ul>
-	<li>
-	<p>The Veteran or service member died by suicide&nbsp;</p>
-	</li>
-</ul>",
-                  "value": "<p>You can use our counseling and other support services when your participation would support the growth and goals of the Veteran or service member in your family. If the Veteran or service member considers you family, so do we.&nbsp;&nbsp;</p>
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29903",
+        "question": "What are Vet Centers?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>You may be eligible for Vet Center services no matter your discharge status or eligibility for VA health care. And we encourage you to contact us, even if you’re not sure if you’re eligible. If we can’t help you, we’ll find someone who can.&nbsp;</p><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re eligible if you meet any of these service requirements:&nbsp;</strong></p><ul><li>You served on active duty in any combat theater or area of hostility, <strong>or</strong>&nbsp;</li><li>You provided mortuary services or direct emergency medical care to treat the casualties of war while on active duty, <strong>or&nbsp;</strong></li><li>You were a member of an unmanned aerial vehicle crew that provided direct support to operations in a combat theater or area of hostility, <strong>or&nbsp;</strong></li><li>You served on active duty in response to a national emergency or major disaster declared by the president, or under orders of the governor or chief executive of a state in response to a disaster or civil disorder, <strong>or</strong> &nbsp;</li><li>You’re a current or former member of the Coast Guard who participated in a drug interdiction operation, <strong>or</strong>&nbsp;</li><li>You’re a current member of the Reserve Component assigned to a military command in a drill status, including active Reserves, and you need to address a behavioral health condition or psychological trauma that is related to your military service</li></ul><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re also eligible for Vet Center services if any of these descriptions is true for you:&nbsp;</strong></p><ul><li>You’re a Vietnam Era Veteran who used Vet Center services before January 2, 2013, <strong>or</strong>&nbsp;</li><li>You experienced military sexual trauma (no matter your gender or service era), <strong>or</strong>&nbsp;</li><li>You&nbsp;currently use any covered VA educational assistance benefits</li></ul>",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29905",
+        "question": "Am I eligible for Vet Center services as a Veteran or service member?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>You can use our counseling and other support services when your participation would support the growth and goals of the Veteran or service member in your family. If the Veteran or service member considers you family, so do we.&nbsp;&nbsp;</p>
 
 <p>You can also use our bereavement services if any of these descriptions is true for your family:&nbsp;</p>
 
@@ -329,116 +173,36 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
 	</li>
 </ul>
 ",
-                },
-              ],
-              "label": "Vet Center -- Facility pages > Content > Questions > Answer",
-              "langcode": "en",
-              "pid": "132827",
-              "status": true,
-              "target_id": "132827",
-              "target_revision_id": "1156775",
-              "type": "paragraph",
-            },
-          ],
-          "field_question": [
-            {
-              "value": "Am I eligible for Vet Center services as a military family member?",
-            },
-          ],
-          "label": "Vet Center -- Facility pages > Content > Questions",
-          "langcode": "en",
-          "pid": "132828",
-          "status": true,
-          "target_id": "132828",
-          "target_revision_id": "1156776",
-          "type": "paragraph",
-        },
-        {
-          "bundle": "q_a",
-          "field_answer": [
-            {
-              "bundle": "wysiwyg",
-              "field_wysiwyg": [
-                {
-                  "format": "rich_text",
-                  "processed": "<p>No. You don’t have to be enrolled in VA health care or have a service-connected disability.</p>",
-                  "value": "<p>No. You don’t have to be enrolled in VA health care or have a service-connected disability.</p>
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "132828",
+        "question": "Am I eligible for Vet Center services as a military family member?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>No. You don’t have to be enrolled in VA health care or have a service-connected disability.</p>
 ",
-                },
-              ],
-              "label": "Vet Center -- Facility pages > Content > Questions > Answer",
-              "langcode": "en",
-              "pid": "29906",
-              "status": true,
-              "target_id": "29906",
-              "target_revision_id": "1156777",
-              "type": "paragraph",
-            },
-          ],
-          "field_question": [
-            {
-              "value": "Do I have to be enrolled in VA health care to access Vet Center services?",
-            },
-          ],
-          "label": "Vet Center -- Facility pages > Content > Questions",
-          "langcode": "en",
-          "pid": "29907",
-          "status": true,
-          "target_id": "29907",
-          "target_revision_id": "1156778",
-          "type": "paragraph",
-        },
-        {
-          "bundle": "q_a",
-          "field_answer": [
-            {
-              "bundle": "wysiwyg",
-              "field_wysiwyg": [
-                {
-                  "format": "rich_text",
-                  "processed": "<p><strong>Safe and confidential.</strong> Our records can’t be accessed by other VA offices, the DoD, military units, or other community networks and providers without your permission or unless required to avert a life-threatening situation. Here, you can be as open as you want—there’s absolutely no judgment.</p>",
-                  "value": "<p><strong>Safe and confidential.</strong> Our records can’t be accessed by other VA offices, the DoD, military units, or other community networks and providers without your permission or unless required to avert a life-threatening situation. Here, you can be as open as you want—there’s absolutely no judgment.</p>
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29907",
+        "question": "Do I have to be enrolled in VA health care to access Vet Center services?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p><strong>Safe and confidential.</strong> Our records can’t be accessed by other VA offices, the DoD, military units, or other community networks and providers without your permission or unless required to avert a life-threatening situation. Here, you can be as open as you want—there’s absolutely no judgment.</p>
 ",
-                },
-              ],
-              "label": "Vet Center -- Facility pages > Content > Questions > Answer",
-              "langcode": "en",
-              "pid": "29908",
-              "status": true,
-              "target_id": "29908",
-              "target_revision_id": "1156779",
-              "type": "paragraph",
-            },
-          ],
-          "field_question": [
-            {
-              "value": "What about my privacy?",
-            },
-          ],
-          "label": "Vet Center -- Facility pages > Content > Questions",
-          "langcode": "en",
-          "pid": "29909",
-          "status": true,
-          "target_id": "29909",
-          "target_revision_id": "1156780",
-          "type": "paragraph",
-        },
-      ],
-      "field_section_header": [
-        {
-          "value": "How we’re different than a clinic",
-        },
-      ],
-      "field_section_intro": [
-        {
-          "value": "Click on a topic for more details.",
-        },
-      ],
-    },
-    "fetched_bundle": "q_a_section",
-    "target_field": null,
-    "target_id": "5f582f12-b72f-4a35-a9df-411485c8e446",
-    "target_type": "paragraph",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29909",
+        "question": "What about my privacy?",
+      },
+    ],
+    "type": "paragraph--q_a_section",
   },
   "ccVetCenterFeaturedCon": {
     "fetched": {

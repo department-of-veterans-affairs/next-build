@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react'
 import { VetCenter } from './index'
 import { mockResponse } from '@/mocks/vetCenter.mock'
 import { formatter } from '@/data/queries/vetCenter'
+import { Wysiwyg as FormattedWysiwg } from '@/types/formatted/wysiwyg'
+import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 
 const meta: Meta<typeof VetCenter> = {
   title: 'Layouts/VetCenter',
@@ -33,7 +35,28 @@ export const Example: Story = {
       type: 'paragraph--wysiwyg',
       html: '<p>Our call center is available 24/7. Call us anytime at <a href="tel:+18779278387" aria-label="8 7 7. 9 2 7. 8 3 8 7.">877-927-8387</a>.</p>',
     },
-    ccVetCenterFaqs: {},
+    ccVetCenterFaqs: {
+      type: 'paragraph--q_a_section',
+      id: '5f582f12-b72f-4a35-a9df-411485c8e446',
+      header: 'How we’re different than a clinic',
+      intro: 'Click on a topic for more details.',
+      displayAccordion: true,
+      questions: [
+        {
+          id: '29903',
+          type: 'paragraph--q_a_section' as FormattedQaSection['type'],
+          question: 'What are Vet Centers?',
+          answers: [
+            {
+              type: 'paragraph--wysiwyg' as FormattedWysiwg['type'],
+              id: '1',
+              html: '<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They’re staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>\r\n\r\n<p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>\r\n',
+            },
+          ],
+          header: 'Vet Center -- Facility pages > Content > Questions',
+        },
+      ],
+    },
     geolocation: {
       value: 'POINT (-80.05719073 40.42665609)',
       geo_type: 'Point',

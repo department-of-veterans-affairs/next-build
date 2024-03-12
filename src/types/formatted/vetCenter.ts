@@ -10,14 +10,13 @@ import { FeaturedContent as FormattedFeaturedContent } from './featuredContent'
 import { MediaImage as FormattedMediaImage } from './media'
 import { Accordion as FormattedAccordion } from './accordion'
 import { Wysiwyg as FormattedWysiwyg } from './wysiwyg'
+import { QaSection as PublishedQaSection } from './qaSection'
 
 export type VetCenter = PublishedEntity & {
   address: FieldAddress
   ccNonTraditionalHours: FormattedWysiwyg
   ccVetCenterCallCenter: FormattedWysiwyg
-  // TODO with q_a
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ccVetCenterFaqs: any
+  ccVetCenterFaqs: PublishedQaSection
   geolocation: FieldGeoLocation
   introText: string
   lastSavedByAnEditor: string | null
