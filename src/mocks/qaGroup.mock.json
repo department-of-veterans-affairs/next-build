@@ -1,0 +1,286 @@
+{
+  "type": "paragraph--q_a_group",
+  "id": "284e0f5b-0fbd-4eb4-96bd-350abff3214e",
+  "drupal_internal__id": 80861,
+  "drupal_internal__revision_id": 687146,
+  "langcode": "en",
+  "status": true,
+  "created": "2021-08-30T13:26:52+00:00",
+  "parent_id": "34659",
+  "parent_type": "node",
+  "parent_field_name": "field_q_a_groups",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_accordion_display": false,
+  "field_rich_wysiwyg": null,
+  "field_section_header": null,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/q_a_group/284e0f5b-0fbd-4eb4-96bd-350abff3214e?resourceVersion=id%3A687146"
+    }
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "cc3b3e2c-a7f5-4f62-a1ce-fcf307fbc28b",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "q_a_group"
+    }
+  },
+  "field_q_as": [
+    {
+      "type": "node--q_a",
+      "id": "fe41f870-be14-4c49-a6bc-52cb51096d86",
+      "drupal_internal__nid": 34647,
+      "drupal_internal__vid": 662628,
+      "langcode": "en",
+      "revision_timestamp": "2022-07-06T06:35:56+00:00",
+      "status": false,
+      "title": "Will my school refund money to VA if I drop a class?",
+      "created": "2021-08-30T13:05:12+00:00",
+      "changed": "2022-07-06T06:35:56+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources",
+          "title": "Resources and support",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/will-my-school-refund-money-to-va-if-i-drop-a-class",
+          "title": "Will my school refund money to VA if I drop a class?",
+          "options": []
+        }
+      ],
+      "moderation_state": "draft",
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Will my school refund money to VA if I drop a class? | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "Will my school refund money to VA if I drop a class? | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image",
+            "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image:alt",
+            "content": "U.S. Department of Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "Will my school refund money to VA if I drop a class? | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image",
+            "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image:alt",
+            "content": "U.S. Department of Veterans Affairs"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/resources/will-my-school-refund-money-to-va-if-i-drop-a-class",
+        "pid": 41234,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_last_saved_by_an_editor": null,
+      "field_standalone_page": false,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/q_a/fe41f870-be14-4c49-a6bc-52cb51096d86?resourceVersion=id%3A662628"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 34647
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "e1c04503-bcc8-4285-b2be-fa27af3634e4",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "q_a"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "5d0d8292-185a-44ca-8153-6bdaafc21070",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4194
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "5d0d8292-185a-44ca-8153-6bdaafc21070",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4194
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 194
+        }
+      },
+      "field_alert_single": {
+        "type": "paragraph--alert_single",
+        "id": "592c4dbe-a45c-4bc7-910d-731a97044e06",
+        "resourceIdObjMeta": {
+          "target_revision_id": 687314,
+          "drupal_internal__target_id": 80766
+        }
+      },
+      "field_answer": {
+        "type": "paragraph--rich_text_char_limit_1000",
+        "id": "c285aa42-285f-488c-89eb-c796c8d6c67e",
+        "drupal_internal__id": 14357,
+        "drupal_internal__revision_id": 769307,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-11-17T16:14:37+00:00",
+        "parent_id": "9622",
+        "parent_type": "node",
+        "parent_field_name": "field_answer",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_wysiwyg": {
+          "value": "<p>If you’re having trouble connecting to an app, contact the app’s customer support for help.</p>\r\n",
+          "format": "rich_text_limited",
+          "processed": "<p>If you’re having trouble connecting to an app, contact the app’s customer support for help.</p>\n"
+        },
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/rich_text_char_limit_1000/c285aa42-285f-488c-89eb-c796c8d6c67e?resourceVersion=id%3A769307"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 769307,
+          "drupal_internal__target_id": 14357
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "3ffc29ff-5b72-4f6a-a51b-7076c3f62f22",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "rich_text_char_limit_1000"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      },
+      "field_buttons": [],
+      "field_contact_information": {
+        "type": "paragraph--contact_information",
+        "id": "3621b22f-af17-4917-b11e-9f6dc2cf0ce0",
+        "resourceIdObjMeta": {
+          "target_revision_id": 687316,
+          "drupal_internal__target_id": 80769
+        }
+      },
+      "field_other_categories": [],
+      "field_primary_category": null,
+      "field_related_benefit_hubs": [
+        {
+          "type": "node--landing_page",
+          "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 67
+          }
+        }
+      ],
+      "field_related_information": [],
+      "field_tags": {
+        "type": "paragraph--audience_topics",
+        "id": "114cb52a-e468-44ee-9e48-5604469f427a",
+        "resourceIdObjMeta": {
+          "target_revision_id": 687317,
+          "drupal_internal__target_id": 80770
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_alert_single",
+        "field_answer",
+        "field_buttons",
+        "field_contact_information",
+        "field_other_categories",
+        "field_primary_category",
+        "field_related_benefit_hubs",
+        "field_related_information",
+        "field_tags"
+      ]
+    }
+  ],
+  "relationshipNames": ["paragraph_type", "field_q_as"]
+}

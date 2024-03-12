@@ -29,6 +29,7 @@ export const params: QueryParams<null> = () => {
     // content blocks (main content)
     'field_content_block',
     'field_content_block.field_q_as',
+    'field_content_block.field_q_as.field_answer',
     'field_content_block.field_va_paragraphs',
     'field_content_block.field_va_paragraphs.field_va_paragraphs',
     // tags

@@ -1,0 +1,134 @@
+{
+  "type": "paragraph--q_a_section",
+  "id": "5d52e032-b77c-48fb-bae1-4449f242484f",
+  "drupal_internal__id": 2758,
+  "drupal_internal__revision_id": 3015,
+  "langcode": "en",
+  "status": true,
+  "created": "2019-03-04T22:24:09+00:00",
+  "parent_id": "127",
+  "parent_type": "node",
+  "parent_field_name": "field_content_block",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_accordion_display": true,
+  "field_section_header": "Frequently asked quesitons about thing",
+  "field_section_intro": "asdfasdf",
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/q_a_section/5d52e032-b77c-48fb-bae1-4449f242484f?resourceVersion=id%3A3015"
+    }
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "f7351783-e298-425f-9b27-ac95be2ed069",
+    "label": "Page-Specific Q&A Group",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraphs_type/paragraphs_type/f7351783-e298-425f-9b27-ac95be2ed069"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "q_a_section"
+    }
+  },
+  "field_questions": [
+    {
+      "type": "paragraph--q_a",
+      "id": "66125704-adec-474c-a47c-be2968a1f84a",
+      "drupal_internal__id": 2755,
+      "drupal_internal__revision_id": 3012,
+      "langcode": "en",
+      "status": true,
+      "created": "2019-03-04T22:24:09+00:00",
+      "parent_id": "2758",
+      "parent_type": "paragraph",
+      "parent_field_name": "field_questions",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_question": "asdf",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/q_a/66125704-adec-474c-a47c-be2968a1f84a?resourceVersion=id%3A3012"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 3012,
+        "drupal_internal__target_id": 2755
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "q_a"
+        }
+      },
+      "field_answer": [
+        {
+          "type": "paragraph--wysiwyg",
+          "id": "f6dfd8da-877f-46bd-9707-28861c27003e",
+          "resourceIdObjMeta": {
+            "target_revision_id": 3011,
+            "drupal_internal__target_id": 2754
+          }
+        }
+      ],
+      "relationshipNames": ["paragraph_type", "field_answer"]
+    },
+    {
+      "type": "paragraph--q_a",
+      "id": "71df0e11-b6fa-482f-9c6f-8f16449d6f3a",
+      "drupal_internal__id": 2757,
+      "drupal_internal__revision_id": 3014,
+      "langcode": "en",
+      "status": true,
+      "created": "2019-03-04T22:25:58+00:00",
+      "parent_id": "2758",
+      "parent_type": "paragraph",
+      "parent_field_name": "field_questions",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_question": "another question?",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/q_a/71df0e11-b6fa-482f-9c6f-8f16449d6f3a?resourceVersion=id%3A3014"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 3014,
+        "drupal_internal__target_id": 2757
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "525c8535-c6fa-4e64-8824-82c889785a6a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "q_a"
+        }
+      },
+      "field_answer": [
+        {
+          "type": "paragraph--wysiwyg",
+          "id": "004d4d31-9e5f-4dcd-ab19-1aef98daefd4",
+          "resourceIdObjMeta": {
+            "target_revision_id": 3013,
+            "drupal_internal__target_id": 2756
+          }
+        }
+      ],
+      "relationshipNames": ["paragraph_type", "field_answer"]
+    }
+  ],
+  "relationshipNames": ["paragraph_type", "field_questions"]
+}

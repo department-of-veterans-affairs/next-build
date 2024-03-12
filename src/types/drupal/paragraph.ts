@@ -1,4 +1,4 @@
-import { DrupalParagraph } from 'next-drupal'
+import { DrupalNode, DrupalParagraph } from 'next-drupal'
 
 import { BlockAlert } from './block'
 import {
@@ -9,12 +9,7 @@ import {
   FieldTable,
 } from './field_type'
 import { DrupalMediaImage } from './media'
-import {
-  NodeLandingPage,
-  NodePersonProfile,
-  NodeQA,
-  NodeSupportService,
-} from './node'
+import { NodeLandingPage, NodePersonProfile, NodeSupportService } from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
   TaxonomyTermAudienceNonBeneficiaries,
@@ -39,7 +34,7 @@ export type ParagraphTypes =
   | ParagraphListOfLinks
   | ParagraphNonReusableAlert
   | ParagraphPhoneNumber
-  | ParagraphQAGroup
+  | ParagraphQaGroup
   | ParagraphReactWidget
   | ParagraphRichTextCharLimit1000
   | ParagraphServiceLocation
@@ -161,16 +156,28 @@ export interface ParagraphPhoneNumber extends DrupalParagraph {
   field_phone_number_type: string
 }
 
-export interface ParagraphQAGroup extends DrupalParagraph {
-  field_accordion_display: boolean
-  field_q_as: NodeQA[]
-  field_section_header: string
-}
-
 export interface ParagraphQA extends DrupalParagraph {
   field_answer: DrupalParagraph[]
   field_question: string
   type: string
+}
+
+export interface ParagraphQaGroup extends DrupalParagraph {
+  field_accordion_display: boolean
+  field_q_as: ParagraphSectionQas[]
+  field_section_header: string
+}
+
+export interface ParagraphSectionQas extends DrupalNode {
+  title: string
+  field_answer: ParagraphWysiwyg
+}
+
+export interface ParagraphQaSection extends DrupalParagraph {
+  field_section_header: string
+  field_accordion_display: boolean
+  field_section_intro: string
+  field_questions: DrupalParagraph[]
 }
 
 export interface ParagraphReactWidget extends DrupalParagraph {

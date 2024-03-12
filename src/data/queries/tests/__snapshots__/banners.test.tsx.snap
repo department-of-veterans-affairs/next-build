@@ -19,7 +19,6 @@ exports[`Banners return formatted data outputs formatted data 1`] = `
   },
   {
     "alertType": "warning",
-    "bannerAlertVamcs": "/butler-health-care/operating-status",
     "body": "<p>this is a full width banner alert</p>",
     "dismiss": true,
     "emailUpdatesButton": true,

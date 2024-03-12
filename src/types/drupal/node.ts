@@ -25,7 +25,7 @@ import {
   ParagraphLinkTeaser,
   ParagraphListOfLinks,
   ParagraphPhoneNumber,
-  ParagraphQAGroup,
+  ParagraphQaGroup,
   ParagraphReactWidget,
   ParagraphRichTextCharLimit1000,
   ParagraphServiceLocation,
@@ -134,7 +134,7 @@ export interface NodeBasicLandingPage extends DrupalNode {
 }
 
 export interface NodeFaqMultipleQA extends NodeAbstractResource {
-  field_q_a_groups: ParagraphQAGroup[]
+  field_q_a_groups: ParagraphQaGroup[]
   field_table_of_content_boolean: boolean
   field_buttons_repeat: boolean
 }
@@ -352,7 +352,7 @@ export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
     | ParagraphTable
     | ParagraphCollapsiblePanel
     | ParagraphReactWidget
-    | ParagraphQAGroup
+    | ParagraphQaGroup
   )[]
   field_buttons_repeat: boolean
 }
