@@ -18,7 +18,7 @@ export function QaSection({
       {displayAccordion ? (
         <QaCollapsiblePanel questions={questions} />
       ) : (
-        questions.map((questionContent: FormattedParagraph, index) => (
+        questions.map((questionContent: FormattedParagraph) => (
           <Paragraph
             key={questionContent.id}
             setHeaderh3={setHeaderh3}
