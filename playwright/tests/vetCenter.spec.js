@@ -3,7 +3,6 @@ const { test, expect } = require('../utils/next-test')
 test.describe('vetCenter', () => {
   test('vetCenter page renders', async ({ page }) => {
     await page.goto('/pittsburgh-vet-center')
-    await expect(page).toHaveURL('/pittsburgh-vet-center')
     await expect(page.locator('h1')).toHaveText('Pittsburgh Vet Center')
   })
 

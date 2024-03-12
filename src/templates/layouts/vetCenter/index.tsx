@@ -74,15 +74,15 @@ export function VetCenter({
       '@context': 'https://schema.org',
       '@type': 'GovernmentService',
       name: title,
-      alternateName: service.fieldVetCenterFriendlyName,
-      serviceType: service.vetCenterTypeOfCare,
+      alternateName: service?.fieldVetCenterFriendlyName || null,
+      serviceType: service?.vetCenterTypeOfCare || null,
       serviceOperator: {
         '@type': 'GovernmentOrganization',
         name: 'US Department of Veterans Affairs',
       },
       areaServed: {
         '@type': 'AdministrativeArea',
-        name: fieldAddress.administrative_area,
+        name: fieldAddress?.administrative_area || null,
       },
       audience: {
         '@type': 'Audience',
@@ -93,7 +93,7 @@ export function VetCenter({
         serviceUrl: 'https://www.va.gov',
         servicePhone: {
           '@type': 'ContactPoint',
-          telephone: phoneNumber,
+          telephone: service?.phoneNumber || null,
         },
       },
       provider: {
@@ -111,9 +111,9 @@ export function VetCenter({
             (address.address_line2
               ? `${address.address_line1}${address.address_line2}`
               : address.address_line1),
-          addressLocality: fieldAddress.locality,
-          addressRegion: fieldAddress.administrative_area,
-          postalCode: fieldAddress.postal_code,
+          addressLocality: fieldAddress?.locality,
+          addressRegion: fieldAddress?.administrative_area,
+          postalCode: fieldAddress?.postal_code,
         },
         geo: {
           '@type': 'GeoCoordinates',
