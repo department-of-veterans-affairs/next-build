@@ -123,7 +123,24 @@ export interface ParagraphExpandableText extends DrupalParagraph {
 export interface ParagraphFeaturedContent extends DrupalParagraph {
   field_section_header: string
   field_description: FieldFormattedText
-  field_cta: ParagraphButton
+  field_cta?: ParagraphButton
+}
+
+export interface ParagraphCCFeaturedContent {
+  fetched: {
+    // This normalizes the centralized content field_cta field to allow formatting
+    field_cta: Omit<ParagraphButton, 'drupal_internal__id' | 'id'>[]
+    field_description: FieldFormattedText[]
+    field_section_header: Array<{ value: string }>
+  }
+}
+
+export interface ParagraphCCVetCenterFaqs {
+  fetched_bundle: string
+  fetched: {
+    field_accordion_display: Array<{ value: string }>
+    field_questions: Omit<ParagraphQA, 'drupal_internal__id' | 'id'>[]
+  }
 }
 
 export interface ParagraphHealthCareLocalFacilityService

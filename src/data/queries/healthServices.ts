@@ -9,20 +9,24 @@ export const formatter: QueryFormatter<
   FieldHealthServicesArray,
   FormattedHealthServices
 > = (entities: FieldHealthServicesArray): FormattedHealthServices => {
-  return entities.map((entity): FormattedHealthService => {
-    const serviceEntity = entity.entity.field_service_name_and_descripti
+  return entities.map((item): FormattedHealthService => {
+    const serviceEntity = item.field_service_name_and_descripti
+    if (!serviceEntity) return null
 
     return {
-      name: serviceEntity.name,
-      vetCenterTypeOfCare: serviceEntity.field_vet_center_type_of_care,
-      vetCenterFriendlyName: serviceEntity.field_vet_center_friendly_name,
-      alsoKnownAs: serviceEntity.field_also_known_as,
-      vetCenterComConditions: serviceEntity.field_vet_center_com_conditions,
-      commonlyTreatedCondition: serviceEntity.field_commonly_treated_Condition,
+      name: serviceEntity.name || null,
+      vetCenterTypeOfCare: serviceEntity.field_vet_center_type_of_care || null,
+      vetCenterFriendlyName:
+        serviceEntity.field_vet_center_friendly_name || null,
+      alsoKnownAs: serviceEntity.field_also_known_as || null,
+      vetCenterComConditions:
+        serviceEntity.field_vet_center_com_conditions || null,
+      commonlyTreatedCondition:
+        serviceEntity.field_commonly_treated_condition || null,
       vetCenterServiceDescription:
-        serviceEntity.field_vet_center_service_descrip,
-      description: serviceEntity.description?.processed,
-      body: entity.entity.field_body?.processed,
+        serviceEntity.field_vet_center_service_descrip || null,
+      description: serviceEntity.description?.processed || null,
+      body: item.field_body?.processed || null,
     }
   })
 }

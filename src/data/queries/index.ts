@@ -37,7 +37,8 @@ import * as ReactWidget from './reactWidget'
 import * as QaParagraph from './qaParagraph'
 import * as QaSection from './qaSection'
 import * as QaGroup from './qaGroup'
-
+import * as VetCenter from './vetCenter'
+import * as HealthServices from './healthServices'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -57,6 +58,9 @@ export const QUERIES_MAP = {
   'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
   'node--support_service': SupportServices,
   'node--support_resources_detail_page': ResourcesSupport,
+  'node--vet_center': VetCenter,
+  'node--vet_center_facility_health_servi': HealthServices,
+
   // Paragraphs
   'paragraph--alert': Alert,
   'paragraph--alert_single': AlertSingle,

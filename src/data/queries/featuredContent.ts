@@ -7,12 +7,15 @@ export const formatter: QueryFormatter<
   ParagraphFeaturedContent,
   FeaturedContent
 > = (entity: ParagraphFeaturedContent) => {
+  if (!entity) return null
   return {
     type: entity.type as FeaturedContent['type'],
     id: entity.id,
-    entityId: entity.drupal_internal__id,
+    entityId: entity.drupal_internal__id || null,
     title: entity.field_section_header,
-    description: entity.field_description.processed,
-    link: queries.formatData('paragraph--button', entity.field_cta),
+    description: entity.field_description.processed || null,
+    link: entity.field_cta
+      ? queries.formatData('paragraph--button', entity.field_cta)
+      : null,
   }
 }

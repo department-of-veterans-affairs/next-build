@@ -75,6 +75,7 @@ export const shouldHideHomeBreadcrumb = (resourceType) => {
   const typesToShowHomeBreadcrumb = [
     RESOURCE_TYPES.EVENT,
     RESOURCE_TYPES.EVENT_LISTING,
+    RESOURCE_TYPES.VET_CENTER,
   ]
 
   return !typesToShowHomeBreadcrumb.includes(resourceType)
