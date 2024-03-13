@@ -33,6 +33,7 @@ export function VetCenter({
     address?.locality,
     address?.administrative_area,
   ]
+
   const structuredSchemaData = {
     '@context': 'https://schema.org',
     '@type': 'Place',
