@@ -13,8 +13,6 @@ export default meta
 
 type Story = StoryObj<typeof VetCenter>
 
-const vetCenterData = formatter({ ...mockResponse })
-
 export const Example: Story = {
   args: {
     address: {
