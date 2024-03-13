@@ -18,6 +18,7 @@ import {
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import {
+  ParagraphAccordion,
   ParagraphAlert,
   ParagraphAlertSingle,
   ParagraphAudienceTopics,
@@ -36,6 +37,7 @@ import {
   ParagraphTable,
   ParagraphWysiwyg,
   ParagraphCCFeaturedContent,
+  ParagraphCCVetCenterFaqs,
   ParagraphFeaturedContent,
 } from './paragraph'
 import {
@@ -169,9 +171,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_address: FieldAddress
   field_cc_non_traditional_hours: FieldCCText
   field_cc_vet_center_call_center: FieldCCText
-  //TODO Fix after faq work
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  field_cc_vet_center_faqs: any
+  field_cc_vet_center_faqs: ParagraphCCVetCenterFaqs
   field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
   field_geolocation: FieldGeoLocation
   field_intro_text: string
@@ -185,9 +185,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_administration: FieldAdministration
   field_health_services: FieldHealthServicesArray
   field_media: DrupalMediaImage
-  //TODO Fix after accordion work
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  field_prepare_for_visit: any
+  field_prepare_for_visit: ParagraphAccordion[]
   field_vet_center_feature_content: ParagraphFeaturedContent[]
   field_facility_locator_api_id: string
 }

@@ -166,7 +166,14 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     referralHealthServices: referralServicesArray,
     otherHealthServices: otherServicesArray,
     image: queries.formatData('media--image', entity.field_media),
-    prepareForVisit: entity.field_prepare_for_visit,
+    prepareForVisit: entity.field_prepare_for_visit.map(
+      (prepareForVisitItem) => {
+        return queries.formatData(
+          'paragraph--basic_accordion',
+          prepareForVisitItem
+        )
+      }
+    ),
     vetCenterFeatureContent: queries.formatData(
       'paragraph--featured_content',
       entity.field_vet_center_feature_content[0]

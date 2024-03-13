@@ -135,6 +135,14 @@ export interface ParagraphCCFeaturedContent {
   }
 }
 
+export interface ParagraphCCVetCenterFaqs {
+  fetched_bundle: string
+  fetched: {
+    field_accordion_display: Array<{ value: string }>
+    field_questions: Omit<ParagraphQA, 'drupal_internal__id' | 'id'>[]
+  }
+}
+
 export interface ParagraphHealthCareLocalFacilityService
   extends DrupalParagraph {
   field_title: string

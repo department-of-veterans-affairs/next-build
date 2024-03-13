@@ -8,7 +8,7 @@ import { PublishedEntity } from './publishedEntity'
 import { HealthServices as FormattedHealthServices } from './healthServices'
 import { FeaturedContent as FormattedFeaturedContent } from './featuredContent'
 import { MediaImage as FormattedMediaImage } from './media'
-import { Accordion as FormattedAccordion } from './accordion'
+import { AccordionItem as FormattedAccordionItem } from './accordion'
 import { Wysiwyg as FormattedWysiwyg } from './wysiwyg'
 import { QaSection as PublishedQaSection } from './qaSection'
 
@@ -33,7 +33,7 @@ export type VetCenter = PublishedEntity & {
   referralHealthServices: FormattedHealthServices
   otherHealthServices: FormattedHealthServices
   image: FormattedMediaImage
-  prepareForVisit: FormattedAccordion[]
+  prepareForVisit: FormattedAccordionItem[]
   fieldFacilityLocatorApiId: string
   path: string
 }

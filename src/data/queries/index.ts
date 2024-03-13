@@ -52,7 +52,6 @@ export const QUERIES_MAP = {
   'node--story_listing': StoryListing,
   'node--q_a': QuestionAnswer,
   'node--event': Event,
-  'node--vet_center_facility_health_servi': HealthServices,
   'node--event--teaser': EventTeaser,
   'node--event_listing': EventListing,
   'node--person_profile': PersonProfile,
@@ -60,12 +59,13 @@ export const QUERIES_MAP = {
   'node--support_service': SupportServices,
   'node--support_resources_detail_page': ResourcesSupport,
   'node--vet_center': VetCenter,
+  'node--vet_center_facility_health_servi': HealthServices,
 
   // Paragraphs
   'paragraph--alert': Alert,
   'paragraph--alert_single': AlertSingle,
-  'paragraph--basic_accordion': Accordion,
   'paragraph--audience_topics': AudienceTopics,
+  'paragraph--basic_accordion': Accordion,
   'paragraph--button': Button,
   'paragraph--collapsible_panel': CollapsiblePanel,
   'paragraph--collapsible_panel_item': CollapsiblePanelItem,

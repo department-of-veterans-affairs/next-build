@@ -7,6 +7,8 @@ import { WysiwygField } from '@/templates/components/wysiwyg'
 import HealthServices from '@/templates/components/healthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
+import { Accordion } from '@/templates/components/accordion'
+
 export function VetCenter({
   address,
   ccNonTraditionalHours,
@@ -57,7 +59,7 @@ export function VetCenter({
     hasMap: `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
       `${address.address_line1}, ${address.locality}, ${address.postal_code}`
     )}`,
-    // "image": [media.entity.image.derivative.url],
+    image: image.links?.['2_1_large']?.href,
     branchCode: fieldFacilityLocatorApiId,
     geo: {
       '@type': 'GeoCoordinates',
@@ -143,20 +145,11 @@ export function VetCenter({
         </h2>
         <p>Click on a topic for more details.</p>
         <div className="vads-u-margin-bottom--3">
-          {/* TODO: Look at this again after paragraph/basic_accordion work is complete */}
-          <va-accordion bordered id="prepare-for-your-visit-accordion">
-            {visitItems.map((item, index) => (
-              <va-accordion-item
-                key={`prepare-for-your-visit-accordion-item-${index}`}
-                class="va-accordion-item"
-                id={`prepare-for-your-visit-accordion-item-${index}`}
-                header={item.field_header}
-                level="3"
-              >
-                <WysiwygField html={item.field_rich_wysiwyg.processed} />
-              </va-accordion-item>
-            ))}
-          </va-accordion>
+          <Accordion
+            id={'prepare-for-your-visit'}
+            bordered
+            items={prepareForVisit}
+          />
         </div>
       </>
     )

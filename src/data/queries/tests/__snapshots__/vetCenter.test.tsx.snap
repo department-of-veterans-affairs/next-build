@@ -508,18 +508,9 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
   "phoneNumber": "413-737-5167",
   "prepareForVisit": [
     {
-      "behavior_settings": [],
-      "content_translation_changed": null,
-      "content_translation_outdated": false,
-      "content_translation_source": "und",
-      "created": "2021-06-03T20:11:06+00:00",
-      "default_langcode": true,
-      "drupal_internal__id": 44704,
-      "drupal_internal__revision_id": 1130728,
-      "field_header": "Appointments",
-      "field_rich_wysiwyg": {
-        "format": "rich_text_limited",
-        "processed": "<p><strong>Contacting the Springfield Vet Center</strong></p>
+      "entityId": 44704,
+      "header": "Appointments",
+      "html": "<p><strong>Contacting the Springfield Vet Center</strong></p>
 <ul>
 <li>Please call <strong>413-737-5167</strong> to speak with a staff member that will assist you with scheduling an appointment, questions you may have or provide an appropriate referral.</li>
 <li>Same day services available, call for details.</li>
@@ -532,164 +523,33 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
 <li>If you have an appointment conflict and need to reschedule please notify us as soon as possible so we can reschedule your appointment an make that time available for another Veteran.</li>
 </ul>
 ",
-        "value": "<p><strong>Contacting the Springfield Vet Center</strong></p>
-
-<ul>
-	<li>Please call <strong>413-737-5167</strong> to speak with a staff member that will assist you with scheduling an appointment, questions you may have or provide an appropriate referral.</li>
-	<li>Same day services available, call for details.</li>
-	<li>Non-traditional hours (including every other Saturday) available by appointment.</li>
-	<li>If you call us and reach the 24/7 Vet Center Call Center which is located in Colorado, you may leave a message with their team.&nbsp; They can provide a warm hand-off to us and we will contact you right away.&nbsp; If you call outside of our normal operating hours the Vet Center Call Center will answer your call.</li>
-	<li>
-	<p><strong>Cancelling or rescheduling an appointment:</strong></p>
-	</li>
-	<li>If&nbsp; you know you will miss an appointment please call to cancel 24 hours in advance.</li>
-	<li>If you have an appointment conflict and need to reschedule please notify us as soon as possible so we can reschedule your appointment an make that time available for another Veteran.</li>
-</ul>
-",
-      },
       "id": "a8fd29f6-abfa-4e0a-9e50-2a97ffa0ac2d",
-      "langcode": "en",
-      "links": {
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/basic_accordion/a8fd29f6-abfa-4e0a-9e50-2a97ffa0ac2d?resourceVersion=id%3A1130728",
-        },
-      },
-      "paragraph_type": {
-        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "basic_accordion",
-        },
-        "type": "paragraphs_type--paragraphs_type",
-      },
-      "parent_field_name": "field_prepare_for_visit",
-      "parent_id": "3599",
-      "parent_type": "node",
-      "relationshipNames": [
-        "paragraph_type",
-      ],
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 44704,
-        "target_revision_id": 1130728,
-      },
-      "revision_translation_affected": true,
-      "status": true,
       "type": "paragraph--basic_accordion",
     },
     {
-      "behavior_settings": [],
-      "content_translation_changed": null,
-      "content_translation_outdated": false,
-      "content_translation_source": "und",
-      "created": "2021-06-03T20:14:07+00:00",
-      "default_langcode": true,
-      "drupal_internal__id": 44705,
-      "drupal_internal__revision_id": 1130729,
-      "field_header": "Parking",
-      "field_rich_wysiwyg": {
-        "format": "rich_text_limited",
-        "processed": "<p>Cost: Free</p>
+      "entityId": 44705,
+      "header": "Parking",
+      "html": "<p>Cost: Free</p>
 <p>We have a large well-lit parking area. In addition, we have a motorcycle parking pad located at the front of the facility. Please feel free to park in any available space.</p>
 ",
-        "value": "<p>Cost: Free</p>
-
-<p>We have a large well-lit parking area. In addition, we have a motorcycle parking pad located at the front of the facility. Please feel free to park in any available space.</p>
-",
-      },
       "id": "3302175a-0070-4a4b-838b-7115c5d61d64",
-      "langcode": "en",
-      "links": {
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/basic_accordion/3302175a-0070-4a4b-838b-7115c5d61d64?resourceVersion=id%3A1130729",
-        },
-      },
-      "paragraph_type": {
-        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "basic_accordion",
-        },
-        "type": "paragraphs_type--paragraphs_type",
-      },
-      "parent_field_name": "field_prepare_for_visit",
-      "parent_id": "3599",
-      "parent_type": "node",
-      "relationshipNames": [
-        "paragraph_type",
-      ],
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 44705,
-        "target_revision_id": 1130729,
-      },
-      "revision_translation_affected": true,
-      "status": true,
       "type": "paragraph--basic_accordion",
     },
     {
-      "behavior_settings": [],
-      "content_translation_changed": null,
-      "content_translation_outdated": false,
-      "content_translation_source": "und",
-      "created": "2021-06-03T20:15:17+00:00",
-      "default_langcode": true,
-      "drupal_internal__id": 44706,
-      "drupal_internal__revision_id": 1130730,
-      "field_header": "Transportation services and schedule",
-      "field_rich_wysiwyg": {
-        "format": "rich_text_limited",
-        "processed": "<p><strong>Bus:</strong> Pioneer Valley Transit Authority has a stop within 500 ft of the Springfield Vet Center. Visit <a href="http://www.pvta.com/schedules.php">http://www.pvta.com/schedules.php</a>.</p>
+      "entityId": 44706,
+      "header": "Transportation services and schedule",
+      "html": "<p><strong>Bus:</strong> Pioneer Valley Transit Authority has a stop within 500 ft of the Springfield Vet Center. Visit <a href="http://www.pvta.com/schedules.php">http://www.pvta.com/schedules.php</a>.</p>
 <p>&nbsp;</p>
 <p><strong>DAV: </strong>Local DAV Transportation may be contacted&nbsp;directly at <strong>413-582-3078</strong>. Veteran must provide the following information to schedule transportation services; first and last name, Last 4 SSN, pick up street address, contact number, location of appointment, and time of appointment.</p>
 <p>Check with your local senior center for low cost transportation options.</p>
 ",
-        "value": "<p><strong>Bus:</strong> Pioneer Valley Transit Authority has a stop within 500 ft of the Springfield Vet Center. Visit <a href="/admin/content/linky/1227">http://www.pvta.com/schedules.php</a>.</p>
-
-<p>&nbsp;</p>
-
-<p><strong>DAV: </strong>Local DAV Transportation may be contacted&nbsp;directly at <strong>413-582-3078</strong>. Veteran must provide the following information to schedule transportation services; <em>first and last name, Last 4 SSN, pick up street address, contact number, location of appointment, and time of appointment.</em></p>
-
-<p>Check with your local senior center for low cost transportation options.</p>
-",
-      },
       "id": "90289c88-e193-4237-a74e-8cef0152413f",
-      "langcode": "en",
-      "links": {
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/basic_accordion/90289c88-e193-4237-a74e-8cef0152413f?resourceVersion=id%3A1130730",
-        },
-      },
-      "paragraph_type": {
-        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "basic_accordion",
-        },
-        "type": "paragraphs_type--paragraphs_type",
-      },
-      "parent_field_name": "field_prepare_for_visit",
-      "parent_id": "3599",
-      "parent_type": "node",
-      "relationshipNames": [
-        "paragraph_type",
-      ],
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 44706,
-        "target_revision_id": 1130730,
-      },
-      "revision_translation_affected": true,
-      "status": true,
       "type": "paragraph--basic_accordion",
     },
     {
-      "behavior_settings": [],
-      "content_translation_changed": null,
-      "content_translation_outdated": false,
-      "content_translation_source": "und",
-      "created": "2021-06-03T20:17:15+00:00",
-      "default_langcode": true,
-      "drupal_internal__id": 44707,
-      "drupal_internal__revision_id": 1130731,
-      "field_header": "What to bring",
-      "field_rich_wysiwyg": {
-        "format": "rich_text_limited",
-        "processed": "<p>You do not need to be registered for care at VA, rated for a service connected disability, or receiving any other form of VA benefits. On your first visit, we will look for one or more of the following:</p>
+      "entityId": 44707,
+      "header": "What to bring",
+      "html": "<p>You do not need to be registered for care at VA, rated for a service connected disability, or receiving any other form of VA benefits. On your first visit, we will look for one or more of the following:</p>
 <ul>
 <li>Discharge documents (such as a DD214)</li>
 <li>Receipt of certain awards</li>
@@ -699,46 +559,7 @@ exports[`VetCenter formatData outputs formatted data 1`] = `
 <p><a href="https://www.va.gov/records/get-military-service-records/">Request your military service records online</a>.</p>
 <p>If you don’t have these documents on-hand, come in and we can work with you to establish your eligibility and also answer any questions you might have.</p>
 ",
-        "value": "<p>You do not need to be registered for care at VA, rated for a service connected disability, or receiving any other form of VA benefits. On your first visit, we will look for one or more of the following:</p>
-
-<ul>
-	<li>Discharge documents (such as a DD214)</li>
-	<li>Receipt of certain awards</li>
-	<li>Deployment orders</li>
-	<li>Other documents that show qualifying military service</li>
-</ul>
-
-<p><a href="/admin/content/linky/9">Request your military service records online</a>.</p>
-
-<p>If you don’t have these documents on-hand, come in and we can work with you to establish your eligibility and also answer any questions you might have.</p>
-",
-      },
       "id": "51f4fa5e-d955-4262-8143-219654843227",
-      "langcode": "en",
-      "links": {
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/basic_accordion/51f4fa5e-d955-4262-8143-219654843227?resourceVersion=id%3A1130731",
-        },
-      },
-      "paragraph_type": {
-        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "basic_accordion",
-        },
-        "type": "paragraphs_type--paragraphs_type",
-      },
-      "parent_field_name": "field_prepare_for_visit",
-      "parent_id": "3599",
-      "parent_type": "node",
-      "relationshipNames": [
-        "paragraph_type",
-      ],
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 44707,
-        "target_revision_id": 1130731,
-      },
-      "revision_translation_affected": true,
-      "status": true,
       "type": "paragraph--basic_accordion",
     },
   ],

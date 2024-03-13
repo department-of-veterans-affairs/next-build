@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { VetCenter } from './index'
-import { mockResponse } from '@/mocks/vetCenter.mock'
-import { formatter } from '@/data/queries/vetCenter'
 import { Wysiwyg as FormattedWysiwg } from '@/types/formatted/wysiwyg'
 import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 
