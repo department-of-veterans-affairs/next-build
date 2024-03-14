@@ -13,7 +13,7 @@ describe('NumberCallout with valid data', () => {
       />
     )
 
-    expect(screen.queryByText(/Test Phrase 1/)).toBeInTheDocument()
+    expect(screen.queryByText(/1234 Test/)).toBeInTheDocument()
     expect(screen.queryByText(/Test description/)).toBeInTheDocument()
   })
 })
