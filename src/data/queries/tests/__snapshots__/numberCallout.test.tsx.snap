@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberCallout formatData outputs formatted data 1`] = `
+{
+  "description": "Patient advocate programs at VA [LINK: <a href="https://www.va.gov/HEALTH/patientadvocate/">https://www.va.gov/HEALTH/patientadvocate/</a>]
+Learn more about how patient advocates support Veterans at VA.",
+  "entityId": 2849,
+  "id": "2ef3f5e9-6785-44c8-ba68-9f4d47069e02",
+  "numberPhrase": "Patient advocate programs at VA ",
+  "type": "paragraph--number_callout",
+}
+`;

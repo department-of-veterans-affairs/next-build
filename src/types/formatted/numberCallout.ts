@@ -1,5 +1,7 @@
-export type NumberCallout = {
+import { PublishedParagraph } from './publishedEntity'
+
+export type NumberCallout = PublishedParagraph & {
   type: 'paragraph--number_callout'
-  phrase: string
+  numberPhrase: string
   description: string
 }
