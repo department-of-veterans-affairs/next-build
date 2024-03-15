@@ -1,13 +1,8 @@
 import { MediaImage } from './media'
 import { NodeOffice, NodeHealthCareRegionPage } from '@/types/drupal/node'
+import { PublishedEntity } from './publishedEntity'
 
-export type PersonProfile = {
-  id: string
-  type: string
-  entityId: number
-  entityPath: string
-  path: string
-  title?: string
+export type PersonProfile = PublishedEntity & {
   firstName: string
   lastName: string
   suffix?: string

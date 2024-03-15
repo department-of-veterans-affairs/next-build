@@ -3,13 +3,19 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { NodeVetCenter } from '@/types/drupal/node'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { FeaturedContent } from '@/types/formatted/featuredContent'
+import { Button } from '@/types/formatted/button'
+import { Wysiwyg } from '@/types/formatted/wysiwyg'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -50,7 +56,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
 ) => {
   // format health services / filter per category
   const healthServicesArray = queries.formatData(
-    'node--vet_center_facility_health_servi',
+    RESOURCE_TYPES.HEALTH_SERVICES,
     entity.field_health_services
   )
   const counselingServicesArray = healthServicesArray.filter(
@@ -82,14 +88,14 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     const featuredContentObject = {
       field_description: field_description[0],
       field_section_header: field_section_header[0].value,
-      type: 'paragraph--featured_content',
+      type: PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT as FeaturedContent['type'],
       id: ccFeaturedContent.target_id || '',
 
       field_cta: {
         id: field_cta[0].target_id || null,
         field_button_label: field_cta[0].field_button_label[0].value || null,
         field_button_link: field_cta[0].field_button_link[0] || null,
-        type: 'paragraph--button',
+        type: PARAGRAPH_RESOURCE_TYPES.BUTTON as Button['type'],
         drupal_internal__id: field_cta[0].target_id,
       },
     }
@@ -98,7 +104,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
       ...vetCenterFeatureContentArray,
     ]
     const formattedFeaturedContentArray = combinedArray.map((item) =>
-      queries.formatData('paragraph--featured_content', item)
+      queries.formatData(PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT, item)
     )
     return formattedFeaturedContentArray
   }
@@ -119,7 +125,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     }
 
     return {
-      type: 'paragraph--q_a_section' as FormattedQaSection['type'],
+      type: PARAGRAPH_RESOURCE_TYPES.QA_SECTION as FormattedQaSection['type'],
       id: faqs.target_id,
       header: faqs.fetched.field_section_header[0]?.value || null,
       intro: faqs.fetched.field_section_intro[0]?.value || null,
@@ -133,13 +139,13 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     ...entityBaseFields(entity),
     address: entity.field_address,
     ccNonTraditionalHours: {
-      type: 'paragraph--wysiwyg',
+      type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
       id: entity.id || null,
       html: entity.field_cc_non_traditional_hours.fetched.field_wysiwyg[0]
         .processed,
     },
     ccVetCenterCallCenter: {
-      type: 'paragraph--wysiwyg',
+      type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
       html: entity.field_cc_vet_center_call_center.fetched.field_wysiwyg[0]
         .processed,
       id: entity.id || null,
@@ -169,13 +175,13 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     prepareForVisit: entity.field_prepare_for_visit.map(
       (prepareForVisitItem) => {
         return queries.formatData(
-          'paragraph--basic_accordion',
+          PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM,
           prepareForVisitItem
         )
       }
     ),
     vetCenterFeatureContent: queries.formatData(
-      'paragraph--featured_content',
+      PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT,
       entity.field_vet_center_feature_content[0]
     ),
     fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,

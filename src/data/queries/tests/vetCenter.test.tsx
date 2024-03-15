@@ -1,10 +1,11 @@
 import { NodeVetCenter } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import { mockResponse } from '@/mocks/vetCenter.mock'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const VetCenterMock: NodeVetCenter = mockResponse
 
-describe('VetCenter formatData', () => {
+describe(`${RESOURCE_TYPES.VET_CENTER} formatData`, () => {
   let windowSpy
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('VetCenter formatData', () => {
     windowSpy.mockImplementation(() => undefined)
 
     expect(
-      queries.formatData('node--vet_center', VetCenterMock)
+      queries.formatData(RESOURCE_TYPES.VET_CENTER, VetCenterMock)
     ).toMatchSnapshot()
   })
 })

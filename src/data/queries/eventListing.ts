@@ -38,7 +38,7 @@ type EventListingData = {
 
 const listingParams: QueryParams<string> = (listingEntityId: string) => {
   return queries
-    .getParams('node--event--teaser')
+    .getParams(`${RESOURCE_TYPES.EVENT}--teaser`)
     .addFilter('field_listing.id', listingEntityId)
     .addSort('-created')
 }
@@ -88,7 +88,7 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
   totalPages,
 }) => {
   const formattedEvents = events.map((event) => {
-    return queries.formatData('node--event--teaser', event)
+    return queries.formatData(`${RESOURCE_TYPES.EVENT}--teaser`, event)
   })
 
   let formattedMenu = null
