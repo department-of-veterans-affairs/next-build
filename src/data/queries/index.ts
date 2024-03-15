@@ -21,6 +21,7 @@ import * as BenefitsHub from './benefitsHubLinks'
 import * as Wysiwyg from './wysiwyg'
 import * as StaticPathResources from './staticPathResources'
 import * as HeaderFooter from './headerFooter'
+import * as ProcessList from './processList'
 import * as PromoBlock from './promoBlock'
 import * as Event from './event'
 import * as EventTeaser from './eventTeaser'
@@ -76,6 +77,7 @@ export const QUERIES_MAP = {
   'paragraph--link_teaser': LinkTeaser,
   'paragraph--non_reusable_alert': AlertNonReusable,
   'paragraph--phone_number': PhoneNumber,
+  'paragraph--process': ProcessList,
   'paragraph--q_a': QaParagraph,
   'paragraph--q_a_section': QaSection,
   'paragraph--q_a_group': QaGroup,
