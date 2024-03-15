@@ -27,6 +27,7 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   FEATURED_CONTENT: 'paragraph--featured_content',
   LINK_TEASER: 'paragraph--link_teaser',
   PHONE_CONTACT: 'paragraph--phone_number',
+  PROCESS_LIST: 'paragraph--process',
   REACT_WIDGET: 'paragraph--react_widget',
   RICH_TEXT_CHAR_LIMIT_1000: 'paragraph--rich_text_char_limit_1000',
   // STAFF_PROFILE: 'paragraph--staff_profile',
