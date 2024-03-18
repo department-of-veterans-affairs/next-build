@@ -178,6 +178,10 @@ export interface ParagraphPhoneNumber extends DrupalParagraph {
   field_phone_number_type: string
 }
 
+export interface ParagraphProcessList extends DrupalParagraph {
+  field_steps: FieldFormattedText[]
+}
+
 export interface ParagraphQA extends DrupalParagraph {
   field_answer: DrupalParagraph[]
   field_question: string

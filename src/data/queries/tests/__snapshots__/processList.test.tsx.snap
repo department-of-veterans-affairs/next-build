@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProcessList formatData outputs formatted data 1`] = `
+{
+  "entityId": 3389,
+  "id": "0b61cbed-f04d-4258-b33e-6673a418863f",
+  "steps": [
+    {
+      "html": "<p>Sign in to eBenefits with your premium account.</p>",
+    },
+    {
+      "html": "<p>Go to “Manage Health.”</p>",
+    },
+    {
+      "html": "<p>Select “Share your VA Medical Records.”</p>",
+    },
+    {
+      "html": "<p>Select “Login to Manage My Consent (Authorizations) and Preferences.” Then select “Start Consent (Authorization).”</p>",
+    },
+    {
+      "html": "<p>Select "Accept the terms and conditions." You must click “Yes” to continue. Then, select “Save and Continue.”</p>",
+    },
+    {
+      "html": "<p>Mark the box and select “Sign.” Then, you'll be asked to re-enter your username and password.</p>",
+    },
+    {
+      "html": "<p>Click “Reauthenticate.” Note that this next step may take a couple minutes to process.</p>",
+    },
+  ],
+  "type": "paragraph--process",
+}
+`;
