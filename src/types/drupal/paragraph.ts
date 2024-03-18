@@ -166,6 +166,11 @@ export interface ParagraphNonReusableAlert extends DrupalParagraph {
   field_va_paragraphs: (ParagraphExpandableText | ParagraphWysiwyg)[]
 }
 
+export interface ParagraphNumberCallout extends DrupalParagraph {
+  field_short_phrase_with_a_number: string
+  field_wysiwyg: FieldFormattedText
+}
+
 export interface ParagraphPhoneNumber extends DrupalParagraph {
   field_phone_extension: string
   field_phone_label: string

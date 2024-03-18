@@ -32,6 +32,7 @@ import * as SupportServices from './supportServices'
 import * as ResourcesSupport from './resourcesSupport'
 import * as CollapsiblePanel from './collapsiblePanel'
 import * as CollapsiblePanelItem from './collapsiblePanelItem'
+import * as NumberCallout from './numberCallout'
 import * as Table from './table'
 import * as ReactWidget from './reactWidget'
 import * as QaParagraph from './qaParagraph'
@@ -75,6 +76,7 @@ export const QUERIES_MAP = {
   'paragraph--featured_content': FeaturedContent,
   'paragraph--link_teaser': LinkTeaser,
   'paragraph--non_reusable_alert': AlertNonReusable,
+  'paragraph--number_callout': NumberCallout,
   'paragraph--phone_number': PhoneNumber,
   'paragraph--q_a': QaParagraph,
   'paragraph--q_a_section': QaSection,
