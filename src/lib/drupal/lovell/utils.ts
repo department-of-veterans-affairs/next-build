@@ -10,7 +10,7 @@ import {
   LOVELL_BIFURCATED_RESOURCE_TYPES,
 } from './constants'
 import { StaticPathResource } from '@/types/formatted/staticPathResource'
-import { FormattedResource } from '@/data/queries'
+import { FormattedPageResource } from '@/data/queries'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
 import { SideNavItem, SideNavMenu } from '@/types/formatted/sideNav'
@@ -207,7 +207,7 @@ export function getLovellVariantOfBreadcrumbs(
 }
 
 export function isLovellBifurcatedResource(
-  resource: FormattedResource
+  resource: FormattedPageResource
 ): boolean {
   return (
     isLovellBifurcatedResourceType(resource.type as ResourceType) &&

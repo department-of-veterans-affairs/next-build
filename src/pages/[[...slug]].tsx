@@ -22,13 +22,12 @@ import {
   getStaticPropsResource,
 } from '@/lib/drupal/staticProps'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
-import { FormattedResource } from '@/data/queries'
+import { FormattedPageResource } from '@/data/queries'
 import { LayoutProps } from '@/templates/layouts/wrapper'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
 import { Event as FormattedEvent } from '@/types/formatted/event'
-
 import { Meta } from '@/templates/common/meta'
 import { PreviewCrumb } from '@/templates/common/preview'
 import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
@@ -36,7 +35,8 @@ import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 
-const RESOURCE_TYPES_TO_BUILD = [
+// We define this here because, theoretically, another file could build other types.
+export const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.STORY,
   RESOURCE_TYPES.EVENT,
@@ -44,8 +44,6 @@ const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.RESOURCES_SUPPORT,
   RESOURCE_TYPES.VET_CENTER,
 ] as const
-
-export type BuiltResourceType = (typeof RESOURCE_TYPES_TO_BUILD)[number]
 
 export const DynamicBreadcrumbs = dynamic(
   () => import('@/templates/common/breadcrumbs'),
@@ -59,7 +57,7 @@ export default function ResourcePage({
   headerFooterData,
   preview,
 }: {
-  resource: StaticPropsResource<FormattedResource>
+  resource: StaticPropsResource<FormattedPageResource>
   bannerData: LayoutProps['bannerData']
   headerFooterData: LayoutProps['headerFooterData']
   preview: boolean
@@ -171,8 +169,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
 
     // If the requested path isn't a type we're building, 404
-    const resourceType = pathInfo.jsonapi.resourceName as BuiltResourceType
-    if (!Object.values(RESOURCE_TYPES).includes(resourceType)) {
+    const resourceType = pathInfo.jsonapi.resourceName
+    if (!RESOURCE_TYPES_TO_BUILD.includes(resourceType)) {
       return {
         notFound: true,
       }

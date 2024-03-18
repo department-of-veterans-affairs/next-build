@@ -88,7 +88,7 @@ export const formatter: QueryFormatter<
       entity.field_contact_information
     ) as ContactInfo,
     benefitsHubLinks: queries.formatData(
-      'node--landing_page',
+      RESOURCE_TYPES.BENEFITS_HUB,
       entity.field_related_benefit_hubs
     ),
   }

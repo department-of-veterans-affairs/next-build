@@ -44,52 +44,57 @@ import * as HealthServices from './healthServices'
 import {
   ResourceType,
   ParagraphResourceType,
+  RESOURCE_TYPES,
+  PARAGRAPH_RESOURCE_TYPES,
+  PageResourceType,
 } from '@/lib/constants/resourceTypes'
 
 export const QUERIES_MAP = {
   // Standard Drupal entity data queries
   // Nodes
-  'node--news_story': NewsStory,
-  'node--news_story--teaser': NewsStoryTeaser,
-  'node--story_listing': StoryListing,
-  'node--q_a': QuestionAnswer,
-  'node--event': Event,
-  'node--event--teaser': EventTeaser,
-  'node--event_listing': EventListing,
-  'node--person_profile': PersonProfile,
-  'node--landing_page': BenefitsHub, // "Benefits Hub Landing Page"
-  'node--support_service': SupportServices,
-  'node--support_resources_detail_page': ResourcesSupport,
-  'node--vet_center': VetCenter,
-  'node--vet_center_facility_health_servi': HealthServices,
+  [RESOURCE_TYPES.STORY]: NewsStory,
+  [`${RESOURCE_TYPES.STORY}--teaser` as const]: NewsStoryTeaser,
+  [RESOURCE_TYPES.STORY_LISTING]: StoryListing,
+  [RESOURCE_TYPES.QA]: QuestionAnswer,
+  [RESOURCE_TYPES.EVENT]: Event,
+  [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
+  [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
+  [RESOURCE_TYPES.PERSON_PROFILE]: PersonProfile,
+  [RESOURCE_TYPES.BENEFITS_HUB]: BenefitsHub, // "Benefits Hub Landing Page"
+  [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
+  [RESOURCE_TYPES.RESOURCES_SUPPORT]: ResourcesSupport,
+  [RESOURCE_TYPES.VET_CENTER]: VetCenter,
+  [RESOURCE_TYPES.HEALTH_SERVICES]: HealthServices,
 
   // Paragraphs
-  'paragraph--alert': Alert,
-  'paragraph--alert_single': AlertSingle,
-  'paragraph--audience_topics': AudienceTopics,
-  'paragraph--basic_accordion': Accordion,
-  'paragraph--button': Button,
-  'paragraph--collapsible_panel': CollapsiblePanel,
-  'paragraph--collapsible_panel_item': CollapsiblePanelItem,
-  'paragraph--contact_information': ContactInfo,
-  'paragraph--email_contact': EmailContact,
-  'paragraph--expandable_text': ExpandableText,
-  'paragraph--featured_content': FeaturedContent,
-  'paragraph--link_teaser': LinkTeaser,
-  'paragraph--non_reusable_alert': AlertNonReusable,
-  'paragraph--number_callout': NumberCallout,
-  'paragraph--phone_number': PhoneNumber,
-  'paragraph--process': ProcessList,
-  'paragraph--q_a': QaParagraph,
-  'paragraph--q_a_section': QaSection,
-  'paragraph--q_a_group': QaGroup,
-  'paragraph--react_widget': ReactWidget,
-  'paragraph--rich_text_char_limit_1000': Wysiwyg,
-  'paragraph--table': Table,
-  'paragraph--wysiwyg': Wysiwyg,
+  [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
+  [PARAGRAPH_RESOURCE_TYPES.ALERT]: Alert,
+  [PARAGRAPH_RESOURCE_TYPES.ALERT_NON_REUSABLE]: AlertNonReusable,
+  [PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE]: AlertSingle,
+  [PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS]: AudienceTopics,
+  [PARAGRAPH_RESOURCE_TYPES.BUTTON]: Button,
+  [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL]: CollapsiblePanel,
+  [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL_ITEM]: CollapsiblePanelItem,
+  [PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION]: ContactInfo,
+  [PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT]: EmailContact,
+  [PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT]: ExpandableText,
+  [PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT]: FeaturedContent,
+  [PARAGRAPH_RESOURCE_TYPES.LINK_TEASER]: LinkTeaser,
+  [PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT]: NumberCallout,
+  [PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT]: PhoneNumber,
+  [PARAGRAPH_RESOURCE_TYPES.PROCESS_LIST]: ProcessList,
+  [PARAGRAPH_RESOURCE_TYPES.QA]: QaParagraph,
+  [PARAGRAPH_RESOURCE_TYPES.QA_SECTION]: QaSection,
+  [PARAGRAPH_RESOURCE_TYPES.QA_GROUP]: QaGroup,
+  [PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET]: ReactWidget,
+  [PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000]: Wysiwyg,
+  [PARAGRAPH_RESOURCE_TYPES.TABLE]: Table,
+  [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
+
   // Blocks
   'block--alert': AlertBlock,
   'block_content--promo': PromoBlock,
+
   // Media
   'media--image': MediaImage,
 
@@ -104,20 +109,53 @@ export const QUERIES_MAP = {
   'vamc-ehr': VamcEhr,
 }
 
-// Type representing all possible object shapes returned from querying and formatting Drupal data.
-// E.g. StoryListingType | NewsStoryType | (other future resource type)
-// E.g. Accordion | Button (other paragraphs)
-// Type constructed by:
-//  1. Consider all ResourceType or ParagraphResourceType types
-//  2. Take subset of those types that have a key in QUERIES_MAP
-//  3. Map that subset of keys to their respective values, which are modules for querying data
-//  4. Within each of those modules, grab the return type of the `formatter` function
+// All resource types that have a `data` function defined
+export type QueryableType = {
+  [K in keyof typeof QUERIES_MAP]: 'data' extends keyof (typeof QUERIES_MAP)[K]
+    ? K
+    : never
+}[keyof typeof QUERIES_MAP]
+
+// (Node) Resources that have a `data` function defined
+export type QueryableResourceType = QueryableType & ResourceType
+
+// Page-level (node) resources that have a `data` function defined
+export type QueryablePageResourceType = QueryableType & PageResourceType
+
+// Paragraph resources that have a `data` function defined
+export type QueryableParagraphResourceType = QueryableType &
+  ParagraphResourceType
+
+// All resource types that have a `formatter` function defined
+export type FormattableType = {
+  [K in keyof typeof QUERIES_MAP]: 'formatter' extends keyof (typeof QUERIES_MAP)[K]
+    ? K
+    : never
+}[keyof typeof QUERIES_MAP]
+
+// (Node) Resources that have a `formatter` function defined
+export type FormattableResourceType = FormattableType & ResourceType
+
+// Page-level (node) resource types that have a `formatter` function defined
+export type FormattablePageResourceType = FormattableType & PageResourceType
+
+// Paragraph resources that have a `formatter` function defined
+export type FormattableParagraphResourceType = FormattableType &
+  ParagraphResourceType
+
+// The types of (node) resources returned from `formatter` functions
 export type FormattedResource = ReturnType<
-  (typeof QUERIES_MAP)[ResourceType & keyof typeof QUERIES_MAP]['formatter']
+  (typeof QUERIES_MAP)[FormattableResourceType]['formatter']
 >
+
+// The types of page-level (node) resources returned from `formatter` functions
+export type FormattedPageResource = ReturnType<
+  (typeof QUERIES_MAP)[FormattablePageResourceType]['formatter']
+>
+
+// The types of paragraph resources returned from `formatter` functions
 export type FormattedParagraph = ReturnType<
-  (typeof QUERIES_MAP)[ParagraphResourceType &
-    keyof typeof QUERIES_MAP]['formatter']
+  (typeof QUERIES_MAP)[FormattableParagraphResourceType]['formatter']
 >
 
 // The type of resource passed to the formatter for the
@@ -133,16 +171,6 @@ export type DrupalResourceByType<
 export type FormattedResourceByType<
   T extends (ResourceType | ParagraphResourceType) & keyof typeof QUERIES_MAP,
 > = ReturnType<(typeof QUERIES_MAP)[T]['formatter']>
-
-// Type representing all keys from QUERIES_MAP whose values have a 'data' function.
-// This type is used, for example, to type values we can pass to queries.getData()
-// E.g. `node--news_story` is included because src/data/queries/newsStory.ts has a function `data`
-// E.g. `block--alert` is NOT included because src/data/queries/alert.ts does not have a function `data` (only `formatter`)
-export type QueryType = {
-  [K in keyof typeof QUERIES_MAP]: 'data' extends keyof (typeof QUERIES_MAP)[K]
-    ? K
-    : never
-}[keyof typeof QUERIES_MAP]
 
 // Type mapping keys from QUERIES_MAP to the types of opts passable to the respective `data` function
 //  of the key's value.
@@ -166,11 +194,5 @@ export type QueryDataOptsMap = Pick<
   AllQueryDataOptsMap,
   NonNeverKeys<AllQueryDataOptsMap>
 >
-
-// Type representing resource types that have queries defined
-// E.g. `node--news_story` is included because it's a resource type and has an entry in QUERIES_MAP
-// E.g. `node--health_care_local_facility` is not included because it does not have an entry in QUERIES_MAP
-// E.g. `vamc-ehr` is not included because it's not a resource type
-export type QueryResourceType = QueryType & ResourceType
 
 export const queries = createQueries(QUERIES_MAP)

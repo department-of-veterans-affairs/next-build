@@ -66,29 +66,6 @@ export type NodeTypes =
   | NodeEventListing
   | NodeVetCenter
 
-/** Node resource types. */
-export enum NodeResourceType {
-  Banner = 'node--banner',
-  BannerAlert = 'node--full_width_banner_alert',
-  Event = 'node--event',
-  NewsStory = 'node--news_story',
-  FieldListing = 'node--field_listing',
-  PersonProfile = 'node--person_profile',
-  PromoBanner = 'node--promo_banner',
-  QuestionAnswer = 'node--q_a',
-  StoryListing = 'node--story_listing',
-  EventListing = 'node--event_lising',
-  SupportResourcesDetailPage = 'node--support_resources_detail_page',
-  VetCenter = 'node--vet_center',
-}
-
-/** Node types returned by the custom banner endpoint */
-export const enum NodeBannerType {
-  PROMO_BANNER = 'promo_banner',
-  FACILITY_BANNER = 'full_width_banner_alert',
-  BANNER = 'banner',
-}
-
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
   field_other_categories: TaxonomyTermLcCategories[]

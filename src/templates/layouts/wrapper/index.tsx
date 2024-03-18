@@ -4,11 +4,11 @@ import { PromoBanner } from '@/templates/common/banners/promoBanner'
 import { FacilityBanner } from '@/templates/common/banners/facilityBanner'
 import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import { BannersData } from '@/types/formatted/banners'
-import { NodeBannerType } from '@/types/drupal/node'
+import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { handleSkipLink } from '@/lib/utils/handleSkipLink'
 import { UnpublishedBanner } from '@/templates/common/preview'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
-import { FormattedResource } from '@/data/queries'
+import { FormattedPageResource } from '@/data/queries'
 import { Footer } from '../../common/footer'
 import { Header } from '../../common/header'
 
@@ -25,16 +25,16 @@ export interface LayoutProps {
   headerFooterData: HeaderFooterData
   children?: React.ReactNode
   preview?: boolean
-  resource?: StaticPropsResource<FormattedResource>
+  resource?: StaticPropsResource<FormattedPageResource>
 }
 
 export const formatBannerType = (bannerData) => {
   switch (bannerData?.type as string) {
-    case NodeBannerType.PROMO_BANNER:
+    case BANNER_RESOURCE_TYPES.PROMO:
       return <PromoBanner key={bannerData.id} {...bannerData} />
-    case NodeBannerType.FACILITY_BANNER:
+    case BANNER_RESOURCE_TYPES.FACILITY:
       return <FacilityBanner key={bannerData.id} {...bannerData} />
-    case NodeBannerType.BANNER:
+    case BANNER_RESOURCE_TYPES.BASIC:
       return <Banner key={bannerData.id} {...bannerData} />
     default:
       return null
