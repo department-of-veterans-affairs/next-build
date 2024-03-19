@@ -61,7 +61,16 @@ export const formatter: QueryFormatter<any, BannersData> = (entities) => {
           emailUpdatesButton: banner.field_alert_email_updates_button,
           path: banner.path?.alias,
           findFacilities: banner.field_alert_find_facilities_cta,
-          // bannerAlertVamcs: banner.field_banner_alert_vamcs.url,
+          // Normalizes banner alert data as it can come from api as a single object or array
+          bannerAlertVamcs: []
+            .concat(banner.field_banner_alert_vamcs)
+            .map((vamc) => ({
+              id: vamc.target_id,
+              path: vamc.url,
+              office: {
+                path: vamc.office?.url || null,
+              },
+            })),
           type: banner.type.target_id,
         }
       default:
