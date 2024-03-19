@@ -1,7 +1,12 @@
 import { GetStaticPropsContext } from 'next'
 import { DrupalTranslatedPath } from 'next-drupal'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '@/data/queries'
+import {
+  FormattedPageResource,
+  QueryablePageResourceType,
+  queries,
+  QUERIES_MAP,
+} from '@/data/queries'
 import {
   ListingPageStaticPropsContextProps,
   getListingPageStaticPropsContext,
@@ -17,12 +22,7 @@ import {
   LovellStaticPropsResource,
   LovellFormattedResource,
 } from './lovell/types'
-import {
-  FormattedResource,
-  QueryResourceType,
-  QUERIES_MAP,
-} from '@/data/queries'
-import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
+import { ResourceType } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { NewsStoryDataOpts } from '@/data/queries/newsStory'
 
@@ -33,7 +33,7 @@ export type ExpandedStaticPropsContext = GetStaticPropsContext & {
   lovell: LovellStaticPropsContextProps
 }
 
-export type StaticPropsResource<T extends FormattedResource> =
+export type StaticPropsResource<T extends FormattedPageResource> =
   | T
   | LovellStaticPropsResource<LovellFormattedResource>
 
@@ -103,10 +103,13 @@ export async function fetchSingleStaticPropsResource(
   resourceType: ResourceType,
   pathInfo: DrupalTranslatedPath,
   queryOpts: StaticPropsQueryOpts
-): Promise<FormattedResource> {
+): Promise<FormattedPageResource> {
   // Request resource based on type
   const resource = Object.keys(QUERIES_MAP).includes(resourceType)
-    ? await queries.getData(resourceType as QueryResourceType, queryOpts)
+    ? await queries.getData(
+        resourceType as QueryablePageResourceType,
+        queryOpts
+      )
     : null
   if (!resource) {
     throw new Error(`Failed to fetch resource: ${pathInfo.jsonapi.individual}`)
@@ -118,7 +121,7 @@ export async function getDefaultStaticPropsResource(
   resourceType: ResourceType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
-): Promise<FormattedResource> {
+): Promise<FormattedPageResource> {
   // Set up query for resource at the given path
   const id = pathInfo.entity?.uuid
   const queryOpts = getStaticPropsQueryOpts(resourceType, id, context)
@@ -129,7 +132,7 @@ export async function getStaticPropsResource(
   resourceType: ResourceType,
   pathInfo: DrupalTranslatedPath,
   context: ExpandedStaticPropsContext
-): Promise<StaticPropsResource<FormattedResource>> {
+): Promise<StaticPropsResource<FormattedPageResource>> {
   // Lovell (TRICARE or VA) pages
   if (context.lovell.isLovellVariantPage) {
     return getLovellStaticPropsResource(

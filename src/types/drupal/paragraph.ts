@@ -45,21 +45,6 @@ export type ParagraphTypes =
   | ParagraphTable
   | ParagraphWysiwyg
 
-/** Paragraph resource types. */
-export const enum ParagraphResourceType {
-  AudienceTopics = 'paragraph--audience_topics',
-  Button = 'paragraph--button',
-  EmailContact = 'paragraph--email_contact',
-  ExpandableText = 'paragraph--expandable_text',
-  LinkTeaser = 'paragraph--link_teaser',
-  StaffProfile = 'paragraph--staff_profile',
-  Table = 'paragraph--table',
-  Wysiwyg = 'paragraph--wysiwyg',
-  RichTextCharLimit1000 = 'paragraph--rich_text_char_limit_1000',
-  Accordion = 'paragraph--basic_accordion',
-  ParagraphQA = 'paragraph--q_a',
-}
-
 export interface ParagraphAccordion extends DrupalParagraph {
   field_header: string
   field_rich_wysiwyg: FieldFormattedText
@@ -166,11 +151,20 @@ export interface ParagraphNonReusableAlert extends DrupalParagraph {
   field_va_paragraphs: (ParagraphExpandableText | ParagraphWysiwyg)[]
 }
 
+export interface ParagraphNumberCallout extends DrupalParagraph {
+  field_short_phrase_with_a_number: string
+  field_wysiwyg: FieldFormattedText
+}
+
 export interface ParagraphPhoneNumber extends DrupalParagraph {
   field_phone_extension: string
   field_phone_label: string
   field_phone_number: string
   field_phone_number_type: string
+}
+
+export interface ParagraphProcessList extends DrupalParagraph {
+  field_steps: FieldFormattedText[]
 }
 
 export interface ParagraphQA extends DrupalParagraph {

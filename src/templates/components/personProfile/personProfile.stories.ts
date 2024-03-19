@@ -27,9 +27,8 @@ const personProfileData: FormattedPersonProfile = {
   id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
   type: 'node--person-profile',
   title: 'Zachary M. Sage',
-  path: '/illiana-health-care/staff-profiles/zachary-m-sage/',
   entityId: 1234,
-  entityPath: 'sample/path',
+  entityPath: '/illiana-health-care/staff-profiles/zachary-m-sage/',
   firstName: 'Zachary',
   lastName: 'Sage',
   suffix: null,
@@ -47,6 +46,8 @@ const personProfileData: FormattedPersonProfile = {
   photoAllowHiresDownload: false,
   vamcOfficalName: 'Pittsburgh VA Medical Center',
   office: null,
+  published: true,
+  lastUpdated: '2024-01-01T15:00:00.000Z',
 }
 
 const meta: Meta<typeof PersonProfile> = {

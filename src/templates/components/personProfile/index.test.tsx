@@ -28,10 +28,9 @@ const mediaImage: MediaImage = {
 const personProfileData: FormattedPersonProfile = {
   id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
   entityId: 1234,
-  entityPath: 'sample/path/url',
+  entityPath: '/pittsburgh-health-care/staff-profiles/raab-john',
   type: 'node--person-profile',
   title: 'Heather Steele',
-  path: '/pittsburgh-health-care/staff-profiles/raab-john',
   firstName: 'Heather',
   lastName: 'Steele',
   suffix: null,
@@ -48,6 +47,8 @@ const personProfileData: FormattedPersonProfile = {
   photoAllowHiresDownload: false,
   vamcOfficalName: 'Pittsburgh VA Medical Center',
   office: null,
+  published: true,
+  lastUpdated: '2023-08-01T14:00:00.000Z',
 }
 
 describe('PersonProfile with valid data', () => {

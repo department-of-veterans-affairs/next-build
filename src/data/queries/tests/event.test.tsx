@@ -1,10 +1,11 @@
 import { NodeEvent } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/event.mock.json'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const nodeEventMock: NodeEvent = mockData
 
-describe('node--event formatData', () => {
+describe(`${RESOURCE_TYPES.EVENT} formatData`, () => {
   let windowSpy
 
   beforeEach(() => {
@@ -17,7 +18,10 @@ describe('node--event formatData', () => {
 
   test('outputs formatted data', () => {
     windowSpy.mockImplementation(() => undefined)
-    const formattedData = queries.formatData('node--event', nodeEventMock)
+    const formattedData = queries.formatData(
+      RESOURCE_TYPES.EVENT,
+      nodeEventMock
+    )
     expect(formattedData).toMatchSnapshot()
   })
 })

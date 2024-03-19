@@ -9,6 +9,10 @@ import { queries } from '.'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeQA } from '@/types/drupal/node'
 import { QuestionAnswer } from '@/types/formatted/questionAnswer'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 
 // Define the query params for fetching node--q_a.
 export const params: QueryParams<null> = () => {
@@ -37,9 +41,13 @@ type DataOpts = QueryOpts<{
 export const data: QueryData<DataOpts, NodeQA> = async (
   opts
 ): Promise<NodeQA> => {
-  const entity = await drupalClient.getResource<NodeQA>('node--q_a', opts?.id, {
-    params: params().getQueryObject(),
-  })
+  const entity = await drupalClient.getResource<NodeQA>(
+    RESOURCE_TYPES.QA,
+    opts?.id,
+    {
+      params: params().getQueryObject(),
+    }
+  )
 
   return entity
 }
@@ -48,10 +56,10 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
   entity: NodeQA
 ) => {
   const buttons = entity.field_buttons?.map((button) => {
-    return queries.formatData('paragraph--button', button)
+    return queries.formatData(PARAGRAPH_RESOURCE_TYPES.BUTTON, button)
   })
   const teasers = entity.field_related_information?.map((teaser) => {
-    return queries.formatData('paragraph--link_teaser', teaser)
+    return queries.formatData(PARAGRAPH_RESOURCE_TYPES.LINK_TEASER, teaser)
   })
   return {
     id: entity.id,
@@ -61,7 +69,10 @@ export const formatter: QueryFormatter<NodeQA, QuestionAnswer> = (
     published: entity.status,
     title: entity.title,
     answers: entity.field_answer?.field_wysiwyg?.processed,
-    tags: queries.formatData('paragraph--audience_topics', entity.field_tags),
+    tags: queries.formatData(
+      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS,
+      entity.field_tags
+    ),
     buttons: buttons,
     teasers: teasers,
     lastUpdated: entity.field_last_saved_by_an_editor || entity.created,

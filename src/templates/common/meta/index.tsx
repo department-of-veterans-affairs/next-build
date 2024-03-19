@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { MetaTag } from '@/types/formatted/metatags'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
-import { FormattedResource } from '@/data/queries'
+import { FormattedPageResource } from '@/data/queries'
 import { generateAbsoluteUrlFromEnv } from '@/lib/utils/environment'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 
@@ -73,7 +73,7 @@ const CustomTags = ({ tags }: { tags: MetaTag[] }) => (
 const DefaultTags = ({
   resource,
 }: {
-  resource: StaticPropsResource<FormattedResource>
+  resource: StaticPropsResource<FormattedPageResource>
 }) => {
   const metaTitle = `${resource.title} | Veterans Affairs`
 
@@ -107,7 +107,7 @@ const DefaultTags = ({
 export const Meta = ({
   resource,
 }: {
-  resource: StaticPropsResource<FormattedResource>
+  resource: StaticPropsResource<FormattedPageResource>
 }) => {
   const noIndex = process.env.NEXT_PUBLIC_BUILD_TYPE !== BUILD_TYPES.PROD
   const canonicalLink =

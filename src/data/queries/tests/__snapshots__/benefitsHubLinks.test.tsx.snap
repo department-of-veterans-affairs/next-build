@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`node--news_story formatData outputs formatted data 1`] = `
+exports[`node--landing_page formatData outputs formatted data 1`] = `
 [
   {
     "id": "ef71edfa-9fe8-4d31-b84c-270af94539c4",

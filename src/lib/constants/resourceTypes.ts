@@ -1,16 +1,31 @@
 export const RESOURCE_TYPES = {
+  BENEFITS_HUB: 'node--landing_page',
   EVENT: 'node--event',
   EVENT_LISTING: 'node--event_listing',
+  HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
+  PERSON_PROFILE: 'node--person_profile',
   RESOURCES_SUPPORT: 'node--support_resources_detail_page',
-  STORY_LISTING: 'node--story_listing',
   STORY: 'node--news_story',
+  STORY_LISTING: 'node--story_listing',
+  SUPPORT_SERVICES: 'node--support_service',
   VAMC_FACILITY: 'node--health_care_local_facility',
   VAMC_SYSTEM: 'node--health_care_region_page',
   VET_CENTER: 'node--vet_center',
-  // QA: 'node--q_a',
+  QA: 'node--q_a',
 } as const
 
-export type ResourceType = (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
+// (Node) resources that generate full pages.
+// Other entries in RESOURCE_TYPES are Drupal
+// nodes that are entity references but that
+// do not have individual pages.
+export const PAGE_RESOURCE_TYPES = [
+  RESOURCE_TYPES.EVENT,
+  RESOURCE_TYPES.EVENT_LISTING,
+  RESOURCE_TYPES.RESOURCES_SUPPORT,
+  RESOURCE_TYPES.STORY,
+  RESOURCE_TYPES.STORY_LISTING,
+  RESOURCE_TYPES.VET_CENTER,
+]
 
 export const PARAGRAPH_RESOURCE_TYPES = {
   ACCORDION_ITEM: 'paragraph--basic_accordion',
@@ -26,10 +41,12 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   EXPANDABLE_TEXT: 'paragraph--expandable_text',
   FEATURED_CONTENT: 'paragraph--featured_content',
   LINK_TEASER: 'paragraph--link_teaser',
+  NUMBER_CALLOUT: 'paragraph--number_callout',
   PHONE_CONTACT: 'paragraph--phone_number',
+  PROCESS_LIST: 'paragraph--process',
   REACT_WIDGET: 'paragraph--react_widget',
   RICH_TEXT_CHAR_LIMIT_1000: 'paragraph--rich_text_char_limit_1000',
-  // STAFF_PROFILE: 'paragraph--staff_profile',
+  STAFF_PROFILE: 'paragraph--staff_profile',
   TABLE: 'paragraph--table',
   WYSIWYG: 'paragraph--wysiwyg',
   QA: 'paragraph--q_a',
@@ -37,5 +54,15 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   QA_GROUP: 'paragraph--q_a_group',
 } as const
 
+export const BANNER_RESOURCE_TYPES = {
+  BASIC: 'banner',
+  FACILITY: 'full_width_banner_alert',
+  PROMO: 'promo_banner',
+} as const
+
+export type ResourceType = (typeof RESOURCE_TYPES)[keyof typeof RESOURCE_TYPES]
+export type PageResourceType = (typeof PAGE_RESOURCE_TYPES)[number]
 export type ParagraphResourceType =
   (typeof PARAGRAPH_RESOURCE_TYPES)[keyof typeof PARAGRAPH_RESOURCE_TYPES]
+export type BannerResourceType =
+  (typeof BANNER_RESOURCE_TYPES)[keyof typeof BANNER_RESOURCE_TYPES]
