@@ -43,6 +43,9 @@ const BATCH_SIZE = 5
 test.describe('Accessibility Tests', async () => {
   test.setTimeout(4200000)
 
+  // todo: this is probably better as some kind of global setup & env var, so sitemap isn't processed on each test
+  // see the process.env properties example here:
+  // https://playwright.dev/docs/test-global-setup-teardown#option-2-configure-globalsetup-and-globalteardown
   test.beforeAll(async () => {
     console.log('before all')
     const pages = await getSitemapLocations(
