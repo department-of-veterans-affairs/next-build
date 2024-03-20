@@ -1,0 +1,90 @@
+name: Content Release
+
+permissions:
+  id-token: write # This is required for requesting the JWT for AWS creds
+  contents: read  # This is required for actions/checkout
+
+on:
+  # TODO: remove pull_request, run on repo dispatch
+  pull_request:
+  # repository_dispatch:
+  #   types: [content-release]
+  # workflow_run:
+  #   workflows: ['Continuous Integration']
+  #   types: [completed]
+  #   branches: [main]
+
+jobs:
+  build:
+    name: Build static pages & deploy to S3
+    timeout-minutes: 60
+    runs-on: [self-hosted, asg]
+    container:
+      image: public.ecr.aws/docker/library/node:18.19.0-bullseye
+      # Certs added for the self hosted runner
+      env:
+        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+        APP_ENV: prod
+      ports:
+        - 80
+      volumes:
+        - /etc/ssl/certs:/etc/ssl/certs
+    steps:
+
+    # todo: make sure this uses latest tagged release
+    - name: Checkout next-build
+      uses: actions/checkout@v4
+      with:
+        repository: department-of-veterans-affairs/next-build
+        path: main
+
+    - name: Checkout vets-website
+      uses: actions/checkout@v4
+      with:
+        repository: department-of-veterans-affairs/vets-website
+        path: vets-website
+
+    - name: Install awscli
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip -o awscliv2.zip
+        ./aws/install
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - name: Setup Yarn
+      run: |
+        cd main
+        corepack enable
+        corepack install -g --cache-only .yarn/releases/corepack.tgz
+
+    - name: Install dependencies
+      run: cd main && yarn
+
+    - name: Gather vets-website assets
+      run: cd main && yarn setup
+
+    - name: Build site
+      uses: nick-fields/retry@v3
+      with:
+        max_attempts: 3
+        retry_on: error
+        timeout_minutes: 30
+        command: cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --USE_REDIS=false
+
+    - name: Build sitemap
+      run: cd main && yarn build:sitemap
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-gov-west-1
+        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+        role-duration-seconds: 900
+
+    - name: Deploy to S3
+      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      env:
+        SRC: ./out/
+        DEST: s3://next-content.www.va.gov
