@@ -1,5 +1,5 @@
-const { request } = require('http')
-const { getFetcher } = require('proxy-fetcher')
+import { getFetcher } from 'proxy-fetcher'
+import crossFetch from 'cross-fetch'
 
 // Given an .xml file, extracts every string inside a <loc> element.
 function extractUrlsFromXML(xml) {
@@ -15,7 +15,8 @@ function extractUrlsFromXML(xml) {
 
 // Gets all URLs included in the output from `yarn build:sitemap` from all sitemaps
 async function getSitemapLocations(baseUrl) {
-  const fetcher = getFetcher(baseUrl)
+  const fetcher =
+    process.env.USE_PROXY === true ? getFetcher(baseUrl) : crossFetch
   // handle trailing slash
   const base = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
   const mainSitemapUrl = `${base}/sitemap.xml`
