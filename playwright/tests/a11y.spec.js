@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
-import { test } from '../utils/next-test'
+import { test, expect } from '../utils/next-test'
 import {
   getSitemapLocations,
   splitPagesIntoBatches,
 } from '../utils/getSitemapLocations'
+import AxeBuilder from '@axe-core/playwright'
 
 async function runA11yTestsForPages(pages, testName, page, makeAxeBuilder) {
   let a11yFailures = []
@@ -11,7 +12,12 @@ async function runA11yTestsForPages(pages, testName, page, makeAxeBuilder) {
   for (const pageUrl of pages) {
     await page.goto(pageUrl)
     console.log('testing page:', pageUrl)
-    const accessibilityScanResults = await makeAxeBuilder().analyze()
+    // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
+    // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze()
+
+    console.log('page violations:', accessibilityScanResults.violations)
+    expect(accessibilityScanResults.violations).toEqual([])
 
     if (accessibilityScanResults.violations.length > 0) {
       accessibilityScanResults.violations.forEach((violation) => {
@@ -51,7 +57,8 @@ test.describe('Accessibility Tests', async () => {
     const pages = await getSitemapLocations(
       process.env.BASE_URL || 'http://127.0.0.1:8001'
     )
-    const slim = pages.slice(0, 50) // for faster testing
+    console.log('number of pages total', pages.length)
+    const slim = pages.slice(0, 1000) // for faster testing
 
     pageSegments = splitPagesIntoBatches(slim, BATCH_SIZE)
   })
