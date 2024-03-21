@@ -32,7 +32,7 @@ jobs:
 #          yarn link $GITHUB_WORKSPACE/packages/env-loader
 
       - name: Run Playwright tests
-        run: yarn playwright test --project=a11y --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - name: Upload blob report to GitHub Actions Artifacts
         if: always()

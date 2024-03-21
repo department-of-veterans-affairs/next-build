@@ -68,32 +68,43 @@ async function runA11yTestsForPages(pages, page, testInfo) {
 
 let pageSegments = []
 const BATCH_SIZE = 5
-for (let i = 0; i < BATCH_SIZE; i++) {
-  test.describe(`Accessibility Tests - Segment ${i + 1}`, async () => {
-    test.setTimeout(4200000)
+// for (let i = 0; i < BATCH_SIZE; i++) {
+test.describe(`Accessibility Tests`, async () => {
+  test.setTimeout(4200000)
 
-    // todo: this is probably better as some kind of global setup & env var, so sitemap isn't processed on each test
-    // see the process.env properties example here:
-    // https://playwright.dev/docs/test-global-setup-teardown#option-2-configure-globalsetup-and-globalteardown
-    test.beforeAll(async () => {
-      console.log('before all')
-      const pages = await getSitemapLocations(
-        process.env.BASE_URL || 'http://127.0.0.1:8001'
-      )
-      console.log('number of pages total', pages.length)
-      const slim = pages.slice(0, 50) // for faster testing
+  // todo: this is probably better as some kind of global setup & env var, so sitemap isn't processed on each test
+  // see the process.env properties example here:
+  // https://playwright.dev/docs/test-global-setup-teardown#option-2-configure-globalsetup-and-globalteardown
+  // test.beforeAll(async () => {
+  //   console.log('before all')
+  //   const pages = await getSitemapLocations(
+  //     process.env.BASE_URL || 'http://127.0.0.1:8001'
+  //   )
+  //   console.log('number of pages total', pages.length)
+  //   const slim = pages.slice(0, 50) // for faster testing
+  //
+  //   pageSegments = splitPagesIntoBatches(slim, BATCH_SIZE)
+  // })
 
-      pageSegments = splitPagesIntoBatches(slim, BATCH_SIZE)
-    })
+  test(`the site should be accessible`, async ({
+    page,
+    // makeAxeBuilder,
+  }, testInfo) => {
+    const pages = await getSitemapLocations(
+      process.env.BASE_URL || 'http://127.0.0.1:8001'
+    )
+    console.log('number of pages total', pages.length)
+    console.log('segment index', process.env.SEGMENT_INDEX)
+    const slim = pages.slice(0, 50) // for faster testing
+    pageSegments = splitPagesIntoBatches(slim, BATCH_SIZE)
+    const segment = process.env.SEGMENT_INDEX
+      ? pageSegments[process.env.SEGMENT_INDEX]
+      : slim
 
-    test(`the site should be accessible - Segment ${i + 1}`, async ({
-      page,
-      // makeAxeBuilder,
-    }, testInfo) => {
-      await runA11yTestsForPages(pageSegments[i], page, testInfo)
-    })
+    await runA11yTestsForPages(segment, page, testInfo)
   })
-}
+})
+// }
 
 async function getSitemapLocations(baseUrl) {
   // handle trailing slash
