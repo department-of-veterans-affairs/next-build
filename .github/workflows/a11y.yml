@@ -25,12 +25,13 @@ jobs:
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
-
+# @todo Figure out how to link local packages.
       - name: Link local packages
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          ls -al $GITHUB_WORKSPACE
+          ls -al
           cd $GITHUB_WORKSPACE/packages/proxy-fetcher
+          ls -al
           yarn link
           cd $GITHUB_WORKSPACE/packages/env-loader
           yarn link
