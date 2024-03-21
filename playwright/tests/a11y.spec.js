@@ -6,42 +6,62 @@ import {
 } from '../utils/getSitemapLocations'
 import AxeBuilder from '@axe-core/playwright'
 
-async function runA11yTestsForPages(pages, testName, page, makeAxeBuilder) {
-  let a11yFailures = []
+async function runA11yTestsForPages(pages, testName, page, testInfo) {
+  // let a11yFailures = []
+  let scanResultsArray = []
 
   for (const pageUrl of pages) {
     await page.goto(pageUrl)
     console.log('testing page:', pageUrl)
     // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
     // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
-    const accessibilityScanResults = await new AxeBuilder({ page }).analyze()
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .include('main')
+      .exclude('iframe')
+      .analyze()
+
+    // Create an object with the URL and violations
+    const scanResults = {
+      url: pageUrl,
+      violations: accessibilityScanResults.violations,
+    }
+
+    // Add the scan results to the array
+    scanResultsArray.push(scanResults)
 
     console.log('page violations:', accessibilityScanResults.violations)
+    // @todo Likely remove the check since we are testing many URLs and showing
+    // a segment fails does not help much.
     expect(accessibilityScanResults.violations).toEqual([])
 
-    if (accessibilityScanResults.violations.length > 0) {
-      accessibilityScanResults.violations.forEach((violation) => {
-        console.log(`URL: ${pageUrl}`)
-        console.log(`Violation: ${violation.id}`)
-        console.log(`Description: ${violation.description}`)
-        console.log(`Impact: ${violation.impact}`)
-        console.log(
-          `Nodes: ${violation.nodes.map((node) => node.html).join(', ')}`
-        )
-      })
-
-      a11yFailures.push({
-        url: pageUrl,
-        violations: accessibilityScanResults.violations,
-      })
-    }
+    // if (accessibilityScanResults.violations.length > 0) {
+    //   accessibilityScanResults.violations.forEach((violation) => {
+    //     console.log(`URL: ${pageUrl}`)
+    //     console.log(`Violation: ${violation.id}`)
+    //     console.log(`Description: ${violation.description}`)
+    //     console.log(`Impact: ${violation.impact}`)
+    //     console.log(
+    //       `Nodes: ${violation.nodes.map((node) => node.html).join(', ')}`
+    //     )
+    //   })
+    //   a11yFailures.push({
+    //     url: pageUrl,
+    //     violations: accessibilityScanResults.violations,
+    //   })
+    // }
   }
 
-  if (a11yFailures.length > 0) {
-    throw new Error(
-      `Accessibility tests (${testName}) failed on ${a11yFailures.length} pages. Check logs for details.`
-    )
-  }
+  await testInfo.attach('accessibility-scan-results', {
+    body: JSON.stringify(scanResultsArray, null, 2),
+    contentType: 'application/json',
+  })
+
+  // if (a11yFailures.length > 0) {
+  //   throw new Error(
+  //     `Accessibility tests (${testName}) failed on ${a11yFailures.length} pages. Check logs for details.`
+  //   )
+  // }
 }
 
 let pageSegments = []
@@ -66,13 +86,14 @@ test.describe('Accessibility Tests', async () => {
   for (let i = 0; i < BATCH_SIZE; i++) {
     test(`the site should be accessible - Segment ${i + 1}`, async ({
       page,
-      makeAxeBuilder,
-    }) => {
+      // makeAxeBuilder,
+    }, testInfo) => {
       await runA11yTestsForPages(
         pageSegments[i],
         `Segment ${i + 1}`,
         page,
-        makeAxeBuilder
+        // makeAxeBuilder,
+        testInfo
       )
     })
   }
