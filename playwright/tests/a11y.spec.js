@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
 import { test, expect } from '../utils/next-test'
-import {
-  getSitemapLocations,
-  splitPagesIntoBatches,
-} from '../utils/getSitemapLocations'
+// import {
+//   getSitemapLocations,
+//   splitPagesIntoBatches,
+// } from '../utils/getSitemapLocations'
 import AxeBuilder from '@axe-core/playwright'
+// import { getFetcher } from 'proxy-fetcher'
+import fetch from 'cross-fetch'
 
 async function runA11yTestsForPages(pages, testName, page, testInfo) {
   // let a11yFailures = []
@@ -98,3 +100,50 @@ test.describe('Accessibility Tests', async () => {
     })
   }
 })
+
+async function getSitemapLocations(baseUrl) {
+  // handle trailing slash
+  const base = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+  const mainSitemapUrl = `${base}/sitemap.xml`
+
+  const response = await fetch(mainSitemapUrl)
+
+  const xml = await response.text()
+  const locs = []
+
+  const urls = extractUrlsFromXML(xml)
+
+  for (const url of urls) {
+    // toplevel sitemap is an index of additional sitemaps
+    if (url.endsWith('.xml')) {
+      const response = await fetch(url)
+      const xml = await response.text()
+      const urls = extractUrlsFromXML(xml)
+      locs.push(urls)
+    } else {
+      locs.push(url)
+    }
+  }
+
+  return locs.flat()
+}
+
+// VA.gov sitemaps have a lot of urls in them. Helper function for things that
+// may want to parallelize checking that list (broken links, a11y, etc.)
+function splitPagesIntoBatches(pages, batchCount) {
+  const batchSize = Math.ceil(pages.length / batchCount)
+  return new Array(Number(batchCount)).fill().map((_, index) => {
+    return pages.slice(index * batchSize, (index + 1) * batchSize)
+  })
+}
+
+function extractUrlsFromXML(xml) {
+  return [...xml.matchAll(new RegExp(`<loc>(.|\n)*?</loc>`, 'g'))].map(
+    ([loc]) => {
+      return loc
+        .replace('<loc>', '')
+        .replace('</loc>', '')
+        .replace(/^https:/, 'http:')
+    }
+  )
+}
