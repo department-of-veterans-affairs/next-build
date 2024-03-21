@@ -26,10 +26,10 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-#      - name: Link local packages
-#        run: |
-#          yarn link $GITHUB_WORKSPACE/packages/proxy-fetcher
-#          yarn link $GITHUB_WORKSPACE/packages/env-loader
+      # This is necessary in order for fetch to work.
+      - name: Build proxy-fetcher dist
+        run: |
+          yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
 
       - name: Run Playwright tests
         run: SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
