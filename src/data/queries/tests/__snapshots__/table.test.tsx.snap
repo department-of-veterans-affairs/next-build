@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`table formatData outputs formatted data 1`] = `
+{
+  "data": [
+    [
+      "<strong>School name</strong>",
+      "<strong>VSOC counselor email address</strong>",
+      "<strong>Regional office</strong>",
+    ],
+    [
+      "Troy University",
+      "Rickey Jones <a href="mailto:Rickey.Jones@va.gov">Rickey.Jones@va.gov</a>",
+      "Montgomery (322)",
+    ],
+    [
+      "University of Alabama",
+      "Lisa Fells <a href="mailto:Lisa.Fells@va.gov">Lisa.Fells@va.gov</a>",
+      "Montgomery (322)",
+    ],
+  ],
+  "entityId": 4528,
+  "id": "90824b6b-bc4d-4082-96c9-d82a5ce5ee15",
+  "title": "",
+  "type": "paragraph--table",
+}
+`;
