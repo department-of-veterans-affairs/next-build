@@ -38,9 +38,9 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: blob-report-${{ matrix.shardIndex }}
-          path: blob-report
-          retention-days: 1
+          name: segment-${{ matrix.shardIndex }}.txt
+          path: segment-${{ matrix.shardIndex }}.txt
+          retention-days: 7
 
   merge-reports:
     # Merge reports after playwright-tests, even if some shards have failed
@@ -59,17 +59,21 @@ jobs:
       - name: Download blob reports from GitHub Actions Artifacts
         uses: actions/download-artifact@v4
         with:
-          path: all-blob-reports
-          pattern: blob-report-*
+          pattern: segment-*
           merge-multiple: true
 
-      - name: Merge into HTML Report
-        run: npx playwright merge-reports --reporter html ./all-blob-reports
+      - name: Debug merged reports
+        run: |
+          ls -al
+          cat segment-*.txt
 
-      - name: Upload HTML report
-        uses: actions/upload-artifact@v4
-        with:
-          name: html-report--attempt-${{ github.run_attempt }}
-          path: playwright-report
-          retention-days: 14
+#      - name: Merge into HTML Report
+#        run: npx playwright merge-reports --reporter html ./all-blob-reports
+#
+#      - name: Upload HTML report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: html-report--attempt-${{ github.run_attempt }}
+#          path: playwright-report
+#          retention-days: 14
 

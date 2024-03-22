@@ -6,6 +6,7 @@ import {
 } from '../utils/getSitemapLocations'
 import AxeBuilder from '@axe-core/playwright'
 // import fetch from 'cross-fetch'
+import fs from 'fs'
 
 async function runA11yTestsForPages(pages, page, testInfo) {
   // let a11yFailures = []
@@ -66,7 +67,12 @@ async function runA11yTestsForPages(pages, page, testInfo) {
 }
 
 let pageSegments = []
-const BATCH_SIZE = 5
+const batchSize = 5
+// Either segment passed in or a random integer.
+const segmentNumber = process.env.SEGMENT_INDEX
+  ? Number(process.env.SEGMENT_INDEX)
+  : Math.floor(Math.random() * 5) + 1
+
 // for (let i = 0; i < BATCH_SIZE; i++) {
 test.describe(`Accessibility Tests`, async () => {
   test.setTimeout(4200000)
@@ -92,15 +98,22 @@ test.describe(`Accessibility Tests`, async () => {
     const pages = await getSitemapLocations(
       process.env.BASE_URL || 'http://127.0.0.1:8001'
     )
+
     console.log('number of pages total', pages.length)
     console.log('segment index', process.env.SEGMENT_INDEX)
-    const slim = pages.slice(0, 50) // for faster testing
-    pageSegments = splitPagesIntoBatches(slim, BATCH_SIZE)
+
+    // @todo Delete this line after testing.
+    const slim = pages.slice(0, 5)
+
+    pageSegments = splitPagesIntoBatches(slim, batchSize)
     const segment = process.env.SEGMENT_INDEX
       ? pageSegments[process.env.SEGMENT_INDEX - 1]
       : slim
 
     await runA11yTestsForPages(segment, page, testInfo)
+
+    // Write file with segment number for debugging.
+    fs.writeFileSync(`segment-${segmentNumber}.txt`, segmentNumber.toString())
   })
 })
 // }
