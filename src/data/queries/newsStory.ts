@@ -9,12 +9,12 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
-    'field_media',
-    'field_media.image',
+    ...getNestedIncludes('field_media', 'media--image'),
     'field_author',
     'field_listing',
     'field_administration',
