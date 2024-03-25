@@ -5,14 +5,12 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 on:
-  # TODO: remove pull_request, run on repo dispatch
-  pull_request:
-  # repository_dispatch:
-  #   types: [content-release]
-  # workflow_run:
-  #   workflows: ['Continuous Integration']
-  #   types: [completed]
-  #   branches: [main]
+  repository_dispatch:
+    types: [content-release]
+  workflow_run:
+    workflows: ['Continuous Integration']
+    types: [completed]
+    branches: [main]
 
 jobs:
   build:
