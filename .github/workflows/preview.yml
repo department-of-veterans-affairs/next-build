@@ -1,9 +1,15 @@
 name: CMS Preview Check
+
+permissions:
+  id-token: write # This is required for requesting the JWT for AWS creds
+  contents: read  # This is required for actions/checkout
+
 on:
   push:
     branches:
       - 'main'
   pull_request:
+
 jobs:
   # This is necessary to get credentials to use the private ECR image defined in the test job container.
   login-to-amazon-ecr:
