@@ -1,4 +1,9 @@
 name: Playwright Tests
+
+permissions:
+  id-token: write # This is required for requesting the JWT for AWS creds
+  contents: read  # This is required for actions/checkout
+
 on:
   deployment_status:
 jobs:
