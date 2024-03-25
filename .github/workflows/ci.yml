@@ -31,7 +31,7 @@ jobs:
         run: yarn test:format
 
       - name: Jest tests
-        run: set -o -e pipefail && yarn test:ci
+        run: yarn test:ci && echo $?
 
       - name: Example tests
-        run: set -o -e pipefail && yarn test:examples
+        run: yarn test:examples
