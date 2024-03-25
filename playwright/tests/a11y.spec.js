@@ -51,7 +51,7 @@ async function runA11yTestsForPages(pages, page, testInfo) {
   }
 }
 
-const batchSize = 5
+const totalSegments = 32
 const segmentNumber = process.env.SEGMENT_INDEX
   ? Number(process.env.SEGMENT_INDEX)
   : 0
@@ -76,7 +76,7 @@ test.describe(`Accessibility Tests`, async () => {
 
     let segment = slim
     if (segmentNumber !== 0) {
-      segment = splitPagesIntoBatches(slim, batchSize)[segmentNumber - 1]
+      segment = splitPagesIntoBatches(slim, totalSegments)[segmentNumber - 1]
     }
 
     await runA11yTestsForPages(segment, page, testInfo)
