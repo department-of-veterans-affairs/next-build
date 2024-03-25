@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 15
     runs-on: [self-hosted, asg]
     container:
-      image: public.ecr.aws/docker/library/node:18.19.0-bullseye
+      image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
       # Certs added for the self hosted runner
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
