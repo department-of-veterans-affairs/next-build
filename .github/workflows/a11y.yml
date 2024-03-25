@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
-        shardTotal: [32]
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
+        shardTotal: [48]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -32,14 +32,14 @@ jobs:
           yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
 
       - name: Run Playwright tests
-        run: SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
+        run: TOTAL_SEGMENTS=${{ matrix.shardTotal }} SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
       - name: Upload blob report to GitHub Actions Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: segment-${{ matrix.shardIndex }}.txt
-          path: segment-${{ matrix.shardIndex }}.txt
+          name: segment-${{ matrix.shardIndex }}.json
+          path: segment-${{ matrix.shardIndex }}.json
           retention-days: 7
 
   merge-reports:
@@ -64,13 +64,13 @@ jobs:
 
       - name: Merge reports
         run: |
-          cat segment-*.txt > all-segments.txt
-          cat all-segments.txt
+          cat segment-*.json > all-segments.json
+          cat all-segments.json
 
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
           name: a11y-scan-${{ github.run_attempt }}
-          path: all-segments.txt
+          path: all-segments.json
           retention-days: 14
 

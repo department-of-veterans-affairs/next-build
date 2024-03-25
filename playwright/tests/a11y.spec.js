@@ -51,7 +51,9 @@ async function runA11yTestsForPages(pages, page, testInfo) {
   }
 }
 
-const totalSegments = 32
+const totalSegments = process.env.TOTAL_SEGMENTS
+  ? Number(process.env.TOTAL_SEGMENTS)
+  : 32
 const segmentNumber = process.env.SEGMENT_INDEX
   ? Number(process.env.SEGMENT_INDEX)
   : 0
