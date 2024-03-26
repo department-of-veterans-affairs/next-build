@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`healthServices formatData outputs formatted data 1`] = `
+[
+  {
+    "alsoKnownAs": null,
+    "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
+",
+    "commonlyTreatedCondition": null,
+    "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
+    "name": "Military sexual trauma care",
+    "vetCenterComConditions": null,
+    "vetCenterFriendlyName": null,
+    "vetCenterServiceDescription": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+    "vetCenterTypeOfCare": "counseling",
+  },
+]
+`;
