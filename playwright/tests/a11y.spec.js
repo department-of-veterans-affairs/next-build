@@ -68,8 +68,8 @@ test.describe(`Accessibility Tests`, async () => {
     console.log('segment index', segmentNumber)
 
     // @todo Delete this line after testing.
-    const slim = pages.slice(0, 1000)
-    // const slim = pages
+    // const slim = pages.slice(0, 1000)
+    const slim = pages
 
     let segment = slim
     if (segmentNumber !== 0) {
