@@ -109,6 +109,13 @@ export const QUERIES_MAP = {
   'vamc-ehr': VamcEhr,
 }
 
+// All resource types that have a `params` function defined
+export type ParamsType = {
+  [K in keyof typeof QUERIES_MAP]: 'params' extends keyof (typeof QUERIES_MAP)[K]
+    ? K
+    : never
+}[keyof typeof QUERIES_MAP]
+
 // All resource types that have a `data` function defined
 export type QueryableType = {
   [K in keyof typeof QUERIES_MAP]: 'data' extends keyof (typeof QUERIES_MAP)[K]
