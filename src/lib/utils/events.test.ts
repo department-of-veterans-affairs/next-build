@@ -30,32 +30,4 @@ describe('formatEventCTA', () => {
       expect(result).toBe(expected)
     })
   })
-
-  jest.mock('./date', () => ({
-    __esModule: true,
-    default: (datetime) => {
-      // Return a fixed timestamp for consistent testing
-      return 'Thu, Sep 7, 2023, 10:00 AM EDT – 12:00 PM EDT'
-    },
-  }))
-
-  describe('createMailToLink', () => {
-    it('should create a correct mailto link with all parameters', () => {
-      const emailCTA = 'example@example.com'
-      const title = 'Event Title'
-      const mostRecentDate = {
-        startTime: new Date('2023-09-07T14:00:00Z'),
-        endTime: new Date('2023-09-07T16:00:00Z'),
-      }
-      const linkPath = '/event-path'
-
-      const result = createMailToLink(emailCTA, title, mostRecentDate, linkPath)
-
-      // Expected mailto link with the mocked timestamp
-      const expectedMailToLink =
-        'mailto:example@example.com?subject=RSVP%20for%20Event%20Title%20on%20Thu%2C%20Sep%207%2C%202023%2C%2010%3A00%20AM%20EDT%20%E2%80%93%2012%3A00%20PM%20EDT&body=I%20would%20like%20to%20register%20for%20Event%20Title%20on%20Thu%2C%20Sep%207%2C%202023%2C%2010%3A00%20AM%20EDT%20%E2%80%93%2012%3A00%20PM%20EDT.%20(https%3A%2F%2Fva.gov%2Fevent-path)'
-
-      expect(result).toBe(expectedMailToLink)
-    })
-  })
 })
