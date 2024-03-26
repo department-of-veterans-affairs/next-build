@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`event teaser formatData outputs formatted data 1`] = `
+{
+  "changed": "2023-08-16T15:20:30+00:00",
+  "entityBundle": "node--event",
+  "entityId": "16349f16-be65-46e3-9660-1d3d598a4a0b",
+  "entityPublished": true,
+  "entityUrl": {
+    "path": "/central-iowa-health-care/events/52265",
+  },
+  "fieldAdditionalInformationAbo": null,
+  "fieldAdditionalListings": null,
+  "fieldAddress": {
+    "addressLine1": "9000 Douglas Ave",
+    "addressLine2": null,
+    "administrativeArea": "IA",
+    "countryCode": "US",
+    "locality": "Urbandale",
+    "postalCode": null,
+  },
+  "fieldAdministration": {
+    "entity": {
+      "entityId": "3a530a55-e922-48de-b18c-9c9f92a9ae98",
+    },
+  },
+  "fieldBody": {
+    "format": "rich_text",
+    "processed": "<p>Pickleball Club</p>
+
+<p>Meets Thursdays from 9 to 11 a.m. </p>
+
+<p>Contact Kay Queck (515) 214-4578</p>",
+    "value": "<p>Pickleball Club</p>
+
+<p>Meets Thursdays from 9 to 11 a.m.&nbsp;</p>
+
+<p>Contact Kay Queck (515) 214-4578</p>
+",
+  },
+  "fieldCtaEmail": "test@va.gov",
+  "fieldDatetimeRangeTimezone": [
+    {
+      "duration": 120,
+      "endTime": "2023-09-07T16:00:00+00:00",
+      "endValue": 1694102400,
+      "end_value": "2023-09-07T16:00:00+00:00",
+      "rrule": 180,
+      "rrule_index": 1,
+      "startTime": "2023-09-07T14:00:00+00:00",
+      "timezone": "America/Chicago",
+      "value": 1694095200,
+    },
+    {
+      "duration": 120,
+      "endTime": "2023-09-14T16:00:00+00:00",
+      "endValue": 1694707200,
+      "end_value": "2023-09-14T16:00:00+00:00",
+      "rrule": 180,
+      "rrule_index": 2,
+      "startTime": "2023-09-14T14:00:00+00:00",
+      "timezone": "America/Chicago",
+      "value": 1694700000,
+    },
+  ],
+  "fieldDescription": "Pickleball ",
+  "fieldEventCost": "Free",
+  "fieldEventCta": null,
+  "fieldEventRegistrationrequired": false,
+  "fieldFacilityLocation": null,
+  "fieldFeatured": false,
+  "fieldHowToSignUp": "email",
+  "fieldLink": null,
+  "fieldListing": {
+    "entity": {
+      "entityId": "55cb823c-df6d-4f77-814d-6024e08cd4f6",
+    },
+  },
+  "fieldLocationHumanreadable": "Walker Johnston Park",
+  "fieldLocationType": "non_facility",
+  "fieldOrder": null,
+  "fieldUrlOfAnOnlineEvent": null,
+  "title": "Pickleball Club",
+}
+`;
