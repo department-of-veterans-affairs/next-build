@@ -37,8 +37,11 @@ export const processEnv = async (command: string): Promise<void> => {
   }
 
   // Pass additional arguments through to the underlying command
-  spawn(`${command} ${cliArgs.join(' ')}`, {
+  const cmd = spawn(`${command} ${cliArgs.join(' ')}`, {
     shell: true,
     stdio: 'inherit',
+  })
+  cmd.on('exit', (code) => {
+    process.exit(code)
   })
 }
