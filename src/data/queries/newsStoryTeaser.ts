@@ -3,12 +3,12 @@ import { queries } from '.'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory } from '@/types/drupal/node'
 import { NewsStoryTeaser } from '@/types/formatted/newsStory'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
-    'field_media',
-    'field_media.image',
+    ...getNestedIncludes('field_media', 'media--image'),
     'field_listing',
   ])
 }

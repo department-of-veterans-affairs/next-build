@@ -1,7 +1,16 @@
 // Define the query params for fetching node--news_story.
 import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { AudienceTopic, AudienceTopics } from '@/types/formatted/audienceTopics'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
+export const params: QueryParams<null> = () => {
+  return new DrupalJsonApiParams().addInclude([
+    'field_audience_beneficiares',
+    'field_non_beneficiares',
+    'field_topics',
+  ])
+}
 
 const getTagsList = (
   entity: ParagraphAudienceTopics
