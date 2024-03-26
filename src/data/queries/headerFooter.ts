@@ -4,6 +4,7 @@ import { Menu, HeaderMegaMenu } from '@/types/drupal/menu'
 import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import { buildHeaderFooterData } from '@/lib/utils/headerFooter'
 import { getMenu } from '@/lib/drupal/query'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 export type RawHeaderFooterData = {
   footerColumns: Menu
@@ -14,10 +15,7 @@ export type RawHeaderFooterData = {
 // Define extra equery params for fetching header megamenu data. Include referenced promo block data, if present
 export const megaMenuParams: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
-    'field_promo_reference',
-    'field_promo_reference.field_image',
-    'field_promo_reference.field_image.image',
-    'field_promo_reference.field_promo_link',
+    ...getNestedIncludes('field_promo_reference', 'block_content--promo'),
   ])
 }
 

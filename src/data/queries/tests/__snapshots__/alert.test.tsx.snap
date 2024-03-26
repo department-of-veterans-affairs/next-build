@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`alert formatData outputs formatted data 1`] = `
+{
+  "alertType": "information",
+  "blockReference": null,
+  "entityId": 6003,
+  "heading": "Blue Water Navy Veterans and Agent Orange",
+  "id": "019070f3-9e3e-4c69-83e4-c7eace8c414f",
+  "paragraphs": [
+    {
+      "html": "<p>Blue Water Navy Veterans are now entitled to a presumption of service connection for illnesses related to Agent Orange exposure. This is a result of <a href="https://www.congress.gov/bill/116th-congress/house-bill/299/text" target="_blank">Public Law 116-23</a>, the Blue Water Navy Vietnam Veterans Act of 2019. The law was signed on June 25, 2019, and takes effect on January 1, 2020.</p><p>Read below to learn more about eligibility requirements and how to file a claim. If we denied your claim in the past, you can file a new claim based on this change in law.</p>",
+      "id": "abb45dcb-b33f-4080-b20f-2f89d4281806",
+      "type": "paragraph--wysiwyg",
+    },
+  ],
+  "type": "paragraph--alert",
+}
+`;
