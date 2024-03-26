@@ -17,7 +17,6 @@ const customJestConfig = {
     path.join(__dirname, 'test'),
   ],
   moduleNameMapper: {
-    // Handle module aliases (this will be automatically configured for you soon)
     '^@/__tests__/(.*)$': '<rootDir>/src/__tests__/$1',
     '^@/data/(.*)$': '<rootDir>/src/data/$1',
     '^@/hooks/(.*)$': '<rootDir>/src/hooks/$1',
