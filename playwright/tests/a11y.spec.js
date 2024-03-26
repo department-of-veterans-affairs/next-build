@@ -1,15 +1,10 @@
 /* eslint-disable no-console */
-import { test, expect } from '../utils/next-test'
-import {
-  getSitemapLocations,
-  splitPagesIntoBatches,
-} from '../utils/getSitemapLocations'
+import { test } from '../utils/next-test'
+import { getSitemapLocations } from '../utils/getSitemapLocations'
 import AxeBuilder from '@axe-core/playwright'
-// import fetch from 'cross-fetch'
 import fs from 'fs'
 
 async function runA11yTestsForPages(pages, page, testInfo) {
-  // let a11yFailures = []
   let scanResultsArray = []
 
   for (const pageUrl of pages) {
@@ -70,17 +65,32 @@ test.describe(`Accessibility Tests`, async () => {
     )
 
     console.log('number of pages total', pages.length)
-    console.log('segment index', process.env.SEGMENT_INDEX)
+    console.log('segment index', segmentNumber)
 
     // @todo Delete this line after testing.
-    // const slim = pages.slice(100, 150)
-    const slim = pages
+    const slim = pages.slice(0, 1000)
+    // const slim = pages
 
     let segment = slim
     if (segmentNumber !== 0) {
-      segment = splitPagesIntoBatches(slim, totalSegments)[segmentNumber - 1]
+      segment = splitArray(slim, totalSegments)[segmentNumber - 1]
     }
 
     await runA11yTestsForPages(segment, page, testInfo)
   })
 })
+
+function splitArray(array, numChunks) {
+  const chunkSize = Math.floor(array.length / numChunks)
+  const remainder = array.length % numChunks
+  const result = []
+
+  let index = 0
+  for (let i = 0; i < numChunks; i++) {
+    const end = index + chunkSize + (i < remainder ? 1 : 0)
+    result.push(array.slice(index, end))
+    index = end
+  }
+
+  return result
+}
