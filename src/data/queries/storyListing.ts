@@ -25,7 +25,7 @@ export const params: QueryParams<null> = () => {
 
 const listingParams: QueryParams<string> = (listingEntityId: string) => {
   return queries
-    .getParams('node--news_story--teaser')
+    .getParams(`${RESOURCE_TYPES.STORY}--teaser`)
     .addFilter('field_listing.id', listingEntityId)
     .addSort('-created')
 }
@@ -92,7 +92,7 @@ export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
   current,
 }) => {
   const formattedStories = stories.map((story) => {
-    return queries.formatData('node--news_story--teaser', story)
+    return queries.formatData(`${RESOURCE_TYPES.STORY}--teaser`, story)
   })
 
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)

@@ -35,7 +35,7 @@ describe('isSinglePageListingResourceType', () => {
   })
 
   test('should return false when not single-page listing resource type', () => {
-    const storyListingResult = isListingResourceType(
+    const storyListingResult = isSinglePageListingResourceType(
       RESOURCE_TYPES.STORY_LISTING
     )
     expect(storyListingResult).toBe(false)

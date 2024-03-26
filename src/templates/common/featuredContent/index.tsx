@@ -17,9 +17,12 @@ export function FeaturedContent({
         </>
       )}
       {description && (
-        <div id={`featured-content-description${title}`}>{description}</div>
+        <div
+          id={`featured-content-description${title}`}
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       )}
-      {link && (
+      {link && link.url && (
         <a
           className="vads-u-display--block vads-u-padding-top--1"
           href={link.url}

@@ -1,4 +1,4 @@
-import { DrupalParagraph } from 'next-drupal'
+import { DrupalNode, DrupalParagraph } from 'next-drupal'
 
 import { BlockAlert } from './block'
 import {
@@ -9,12 +9,7 @@ import {
   FieldTable,
 } from './field_type'
 import { DrupalMediaImage } from './media'
-import {
-  NodeLandingPage,
-  NodePersonProfile,
-  NodeQA,
-  NodeSupportService,
-} from './node'
+import { NodeLandingPage, NodePersonProfile, NodeSupportService } from './node'
 import {
   TaxonomyTermAudienceBeneficiaries,
   TaxonomyTermAudienceNonBeneficiaries,
@@ -39,7 +34,7 @@ export type ParagraphTypes =
   | ParagraphListOfLinks
   | ParagraphNonReusableAlert
   | ParagraphPhoneNumber
-  | ParagraphQAGroup
+  | ParagraphQaGroup
   | ParagraphReactWidget
   | ParagraphRichTextCharLimit1000
   | ParagraphServiceLocation
@@ -49,21 +44,6 @@ export type ParagraphTypes =
   | ParagraphStepByStep
   | ParagraphTable
   | ParagraphWysiwyg
-
-/** Paragraph resource types. */
-export const enum ParagraphResourceType {
-  AudienceTopics = 'paragraph--audience_topics',
-  Button = 'paragraph--button',
-  EmailContact = 'paragraph--email_contact',
-  ExpandableText = 'paragraph--expandable_text',
-  LinkTeaser = 'paragraph--link_teaser',
-  StaffProfile = 'paragraph--staff_profile',
-  Table = 'paragraph--table',
-  Wysiwyg = 'paragraph--wysiwyg',
-  RichTextCharLimit1000 = 'paragraph--rich_text_char_limit_1000',
-  Accordion = 'paragraph--basic_accordion',
-  ParagraphQA = 'paragraph--q_a',
-}
 
 export interface ParagraphAccordion extends DrupalParagraph {
   field_header: string
@@ -128,7 +108,24 @@ export interface ParagraphExpandableText extends DrupalParagraph {
 export interface ParagraphFeaturedContent extends DrupalParagraph {
   field_section_header: string
   field_description: FieldFormattedText
-  field_cta: ParagraphButton
+  field_cta?: ParagraphButton
+}
+
+export interface ParagraphCCFeaturedContent {
+  fetched: {
+    // This normalizes the centralized content field_cta field to allow formatting
+    field_cta: Omit<ParagraphButton, 'drupal_internal__id' | 'id'>[]
+    field_description: FieldFormattedText[]
+    field_section_header: Array<{ value: string }>
+  }
+}
+
+export interface ParagraphCCVetCenterFaqs {
+  fetched_bundle: string
+  fetched: {
+    field_accordion_display: Array<{ value: string }>
+    field_questions: Omit<ParagraphQA, 'drupal_internal__id' | 'id'>[]
+  }
 }
 
 export interface ParagraphHealthCareLocalFacilityService
@@ -154,6 +151,11 @@ export interface ParagraphNonReusableAlert extends DrupalParagraph {
   field_va_paragraphs: (ParagraphExpandableText | ParagraphWysiwyg)[]
 }
 
+export interface ParagraphNumberCallout extends DrupalParagraph {
+  field_short_phrase_with_a_number: string
+  field_wysiwyg: FieldFormattedText
+}
+
 export interface ParagraphPhoneNumber extends DrupalParagraph {
   field_phone_extension: string
   field_phone_label: string
@@ -161,16 +163,32 @@ export interface ParagraphPhoneNumber extends DrupalParagraph {
   field_phone_number_type: string
 }
 
-export interface ParagraphQAGroup extends DrupalParagraph {
-  field_accordion_display: boolean
-  field_q_as: NodeQA[]
-  field_section_header: string
+export interface ParagraphProcessList extends DrupalParagraph {
+  field_steps: FieldFormattedText[]
 }
 
 export interface ParagraphQA extends DrupalParagraph {
   field_answer: DrupalParagraph[]
   field_question: string
   type: string
+}
+
+export interface ParagraphQaGroup extends DrupalParagraph {
+  field_accordion_display: boolean
+  field_q_as: ParagraphSectionQas[]
+  field_section_header: string
+}
+
+export interface ParagraphSectionQas extends DrupalNode {
+  title: string
+  field_answer: ParagraphWysiwyg
+}
+
+export interface ParagraphQaSection extends DrupalParagraph {
+  field_section_header: string
+  field_accordion_display: boolean
+  field_section_intro: string
+  field_questions: DrupalParagraph[]
 }
 
 export interface ParagraphReactWidget extends DrupalParagraph {

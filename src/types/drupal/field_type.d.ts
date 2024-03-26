@@ -110,10 +110,29 @@ export interface BreadCrumbLink {
  */
 
 export interface FieldHealthService {
-  entity: {
-    field_body: FieldFormattedText | null
-    field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
-  }
+  field_body?: FieldFormattedText
+  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
 }
 
 export type FieldHealthServicesArray = FieldHealthService[]
+
+export interface FieldCCText {
+  target_id?: string
+  fetched_bundle: string
+  fetched: {
+    field_wysiwyg: FieldFormattedText[]
+  }
+}
+
+export interface FieldGeoLocation {
+  value: string
+  geo_type: string
+  lat: number
+  lon: number
+  left: number
+  top: number
+  right: number
+  bottom: number
+  geohash: string
+  latlon: string
+}

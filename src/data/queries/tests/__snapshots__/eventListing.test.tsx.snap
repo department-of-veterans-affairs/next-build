@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EventListing formatData outputs formatted data 1`] = `
+exports[`node--event_listing formatData outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {

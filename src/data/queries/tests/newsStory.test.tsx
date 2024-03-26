@@ -1,10 +1,11 @@
 import { NodeNewsStory } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/newsStory.mock.json'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const nodeNewsStoryMock: NodeNewsStory = mockData
 
-describe('node--news_story formatData', () => {
+describe(`${RESOURCE_TYPES.STORY} formatData`, () => {
   let windowSpy
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('node--news_story formatData', () => {
     windowSpy.mockImplementation(() => undefined)
 
     expect(
-      queries.formatData('node--news_story', nodeNewsStoryMock)
+      queries.formatData(RESOURCE_TYPES.STORY, nodeNewsStoryMock)
     ).toMatchSnapshot()
   })
 })

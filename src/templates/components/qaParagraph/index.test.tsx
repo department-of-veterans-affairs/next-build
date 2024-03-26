@@ -4,6 +4,8 @@ import { QaParagraph as FormattedQaParagraph } from '@/types/formatted/qaParagra
 
 const qaParagraphProps: FormattedQaParagraph = {
   question: 'Sample Question',
+  id: '1111-1111-1111',
+  type: 'paragraph--q_a',
   answers: [
     {
       id: '1',

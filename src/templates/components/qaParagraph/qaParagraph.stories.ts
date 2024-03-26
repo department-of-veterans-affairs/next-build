@@ -1,10 +1,9 @@
 // QaParagraph.stories.tsx
 import { Meta, StoryObj } from '@storybook/react'
 import { QaParagraph } from '.'
-import { QaParagraph as FormattedQaParagraph } from '@/types/formatted/qaParagraph'
 
 const meta: Meta<typeof QaParagraph> = {
-  title: 'Components/QA Paragraph',
+  title: 'Paragraphs/QA Paragraph',
   component: QaParagraph,
 }
 export default meta

@@ -8,44 +8,46 @@ import {
 } from '@/lib/drupal/query'
 import { NodeSupportResourcesDetailPage } from '@/types/drupal/node'
 import { ResourcesSupport } from '@/types/formatted/resourcesSupport'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { AlertSingle } from '@/types/formatted/alert'
 import { ContactInfo } from '@/types/formatted/contactInfo'
 import { Button } from '@/types/formatted/button'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     // alert
-    'field_alert_single',
-    'field_alert_single.field_alert_block_reference',
-    'field_alert_single.field_alert_block_reference.field_alert_content',
-    'field_alert_single.field_alert_non_reusable_ref',
-    'field_alert_single.field_alert_non_reusable_ref.field_va_paragraphs',
+    ...getNestedIncludes(
+      'field_alert_single',
+      PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE
+    ),
     // buttons
     'field_buttons',
     // content blocks (main content)
-    'field_content_block',
-    'field_content_block.field_q_as',
-    'field_content_block.field_va_paragraphs',
-    'field_content_block.field_va_paragraphs.field_va_paragraphs',
+    ...getNestedIncludes('field_content_block', [
+      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL,
+      PARAGRAPH_RESOURCE_TYPES.QA_GROUP,
+    ]),
     // tags
-    'field_tags',
-    'field_tags.field_audience_beneficiares',
-    'field_tags.field_non_beneficiares',
-    'field_tags.field_topics',
+    ...getNestedIncludes(
+      'field_tags',
+      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS
+    ),
     // related information
     'field_related_information',
     // related benefit hubs
     'field_related_benefit_hubs',
     // contact information
-    'field_contact_information',
-    'field_contact_information.field_additional_contact',
-    'field_contact_information.field_benefit_hub_contacts',
-    'field_contact_information.field_benefit_hub_contacts.field_support_services',
-    'field_contact_information.field_contact_default',
+    ...getNestedIncludes(
+      'field_contact_information',
+      PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION
+    ),
   ])
 }
 
@@ -87,7 +89,7 @@ export const formatter: QueryFormatter<
       entity.field_contact_information
     ) as ContactInfo,
     benefitsHubLinks: queries.formatData(
-      'node--landing_page',
+      RESOURCE_TYPES.BENEFITS_HUB,
       entity.field_related_benefit_hubs
     ),
   }

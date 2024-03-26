@@ -29,8 +29,15 @@ import { FeaturedContent } from '@/templates/common/featuredContent'
 import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
 import { LinkTeaser } from '@/templates/components/linkTeaser'
 import { LinkTeaser as FormattedLinkTeaser } from '@/types/formatted/linkTeaser'
+import { NumberCallout } from '@/templates/components/numberCallout'
+import { NumberCallout as FormattedNumberCallout } from '@/types/formatted/numberCallout'
 import { PhoneContact } from '@/templates/components/contactInfo'
+import { QaSection } from '@/templates/components/qaSection'
+import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
+import { QaGroup as FormattedQaGroup } from '@/types/formatted/qaGroup'
 import { PhoneContact as FormattedPhoneContact } from '@/types/formatted/contactInfo'
+import { ProcessList } from '@/templates/components/processList'
+import { ProcessList as FormattedProcessList } from '@/types/formatted/processList'
 import { ReactWidget } from '@/templates/components/reactWidget'
 import { ReactWidget as FormattedReactWidget } from '@/types/formatted/reactWidget'
 import { Table } from '@/templates/components/table'
@@ -80,14 +87,26 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
     case PARAGRAPH_RESOURCE_TYPES.LINK_TEASER:
       return <LinkTeaser {...(paragraph as FormattedLinkTeaser)} />
 
+    case PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT:
+      return <NumberCallout {...(paragraph as FormattedNumberCallout)} />
+
     case PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT:
       return <PhoneContact {...(paragraph as FormattedPhoneContact)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.PROCESS_LIST:
+      return <ProcessList {...(paragraph as FormattedProcessList)} />
 
     case PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET:
       return <ReactWidget {...(paragraph as FormattedReactWidget)} />
 
     case PARAGRAPH_RESOURCE_TYPES.TABLE:
       return <Table {...(paragraph as FormattedTable)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.QA_GROUP:
+      return <QaSection {...(paragraph as FormattedQaGroup)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.QA_SECTION:
+      return <QaSection {...(paragraph as FormattedQaSection)} />
 
     case PARAGRAPH_RESOURCE_TYPES.WYSIWYG:
     case PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000:

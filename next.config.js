@@ -1,3 +1,5 @@
+const isProd = process.env.APP_ENV === 'prod'
+
 /**
  * @type {import('next').NextConfig}
  */
@@ -10,7 +12,13 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
+  assetPrefix: isProd
+    ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/'
+    : undefined,
   staticPageGenerationTimeout: 180, //arbitrary; 60 is default but it's too small
+  experimental: {
+    largePageDataBytes: 550, // 128kb by default
+  },
 }
 
 module.exports = nextConfig

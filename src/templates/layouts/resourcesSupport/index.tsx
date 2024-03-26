@@ -7,6 +7,7 @@ import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { Button } from '@/templates/common/button'
 import { BenefitsHubLinks } from '@/templates/common/benefitsHubLinks'
 import { ContactInfo } from '@/templates/components/contactInfo'
+import { RateYourExperience } from '@/templates/components/rateYourExperience'
 
 const Buttons = ({
   buttons,
@@ -97,7 +98,7 @@ export const ResourcesSupport = ({
               {tags && <AudienceTopics {...tags} />}
 
               {/* How do you rate? */}
-              {/* {% include "src/site/includes/how-do-you-rate.drupal.liquid" %} */}
+              <RateYourExperience />
 
               {/* Related information */}
               {/* {% include "src/site/includes/related-information.drupal.liquid" with fieldRelatedInformation = fieldRelatedInformation %} */}
