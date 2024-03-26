@@ -25,6 +25,21 @@ describe('getNestedIncludes', () => {
         'some_field.field_b',
       ])
     })
+
+    test('ParamsType is an array', () => {
+      const result = getNestedIncludes('some_field', [
+        'mock_param_type_1' as ParamsType,
+        'mock_param_type_2' as ParamsType,
+      ])
+
+      expect(result).toStrictEqual([
+        'some_field',
+        'some_field.field_a',
+        'some_field.field_b',
+        'some_field.field_a',
+        'some_field.field_b',
+      ])
+    })
   })
 
   describe('fieldName is not provided', () => {
@@ -32,6 +47,15 @@ describe('getNestedIncludes', () => {
       const result = getNestedIncludes(null, 'mock_param_type' as ParamsType)
 
       expect(result).toStrictEqual(['field_a', 'field_b'])
+    })
+
+    test('ParamsType is an array', () => {
+      const result = getNestedIncludes(null, [
+        'mock_param_type_1' as ParamsType,
+        'mock_param_type_2' as ParamsType,
+      ])
+
+      expect(result).toStrictEqual(['field_a', 'field_b', 'field_a', 'field_b'])
     })
   })
 })

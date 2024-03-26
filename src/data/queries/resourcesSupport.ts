@@ -30,11 +30,10 @@ export const params: QueryParams<null> = () => {
     // buttons
     'field_buttons',
     // content blocks (main content)
-    'field_content_block',
-    'field_content_block.field_q_as',
-    'field_content_block.field_q_as.field_answer',
-    'field_content_block.field_va_paragraphs',
-    'field_content_block.field_va_paragraphs.field_va_paragraphs',
+    ...getNestedIncludes('field_content_block', [
+      PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL,
+      PARAGRAPH_RESOURCE_TYPES.QA_GROUP,
+    ]),
     // tags
     ...getNestedIncludes(
       'field_tags',
