@@ -3,7 +3,14 @@ import {
   HealthService as FormattedHealthService,
   HealthServices as FormattedHealthServices,
 } from '@/types/formatted/healthServices'
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
+export const params: QueryParams<null> = () => {
+  return new DrupalJsonApiParams().addInclude([
+    'field_service_name_and_descripti',
+  ])
+}
 
 export const formatter: QueryFormatter<
   FieldHealthServicesArray,

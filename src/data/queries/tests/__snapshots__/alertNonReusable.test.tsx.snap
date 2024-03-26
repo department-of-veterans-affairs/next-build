@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`alert non reusable formatData outputs formatted data 1`] = `
+{
+  "alertType": "info",
+  "entityId": 13072,
+  "heading": "Sample non-reusable alert",
+  "id": "4eff76c1-5e3e-410b-a56a-64b572f98756",
+  "paragraphs": [
+    {
+      "html": "<p>This is where the text goes for the alert</p>",
+      "id": "2fc092f1-969a-4136-9039-4fc50a9f93c4",
+      "type": "paragraph--wysiwyg",
+    },
+  ],
+  "type": "paragraph--non_reusable_alert",
+}
+`;

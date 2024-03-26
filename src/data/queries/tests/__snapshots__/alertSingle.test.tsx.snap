@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`alert single formatData outputs formatted data 1`] = `
+{
+  "alertSelection": "R",
+  "blockReference": {
+    "alertType": "info",
+    "content": {
+      "html": "<p>Get the latest information about in-person services, claim exams, extensions, paperwork, decision reviews and appeals, and how best to contact us during this time.</p>
+
+<p><a href="/coronavirus-veteran-frequently-asked-questions/#claims-and-applications">Go to our coronavirus FAQs</a></p>",
+      "id": "65fda9e9-1bbb-45f2-bc39-d3c659ba30d1",
+      "type": "paragraph--wysiwyg",
+    },
+    "id": "ba9dd3f4-4260-4e21-bbf9-a5cf0db49fc1",
+    "title": "You can still file a claim and apply for benefits during the coronavirus pandemic",
+  },
+  "entityId": 13070,
+  "id": "0e71c5cd-a4e2-4dec-9b1e-0ef1c5666f65",
+  "nonReusableRef": null,
+  "type": "paragraph--alert_single",
+}
+`;

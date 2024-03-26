@@ -1,5 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { queries } from '.'
 import { NodeVetCenter } from '@/types/drupal/node'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
@@ -16,21 +16,23 @@ import {
 import { FeaturedContent } from '@/types/formatted/featuredContent'
 import { Button } from '@/types/formatted/button'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
-  return queries
-    .getParams()
-    .addInclude([
-      'field_media',
-      'field_media.image',
-      'field_administration',
-      'field_prepare_for_visit',
+  return new DrupalJsonApiParams().addInclude([
+    ...getNestedIncludes('field_media', 'media--image'),
+    'field_administration',
+    'field_prepare_for_visit',
+    ...getNestedIncludes(
       'field_vet_center_feature_content',
-      'field_vet_center_feature_content.field_cta',
+      PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT
+    ),
+    ...getNestedIncludes(
       'field_health_services',
-      'field_health_services.field_service_name_and_descripti',
-    ])
+      RESOURCE_TYPES.HEALTH_SERVICES
+    ),
+  ])
 }
 
 // Define the option types for the data loader.

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapsible Panel Item formatData outputs formatted data 1`] = `
+{
+  "entityId": 17,
+  "id": "c6436d3e-9c0f-4ead-a930-a20bc53dae12",
+  "paragraphs": [],
+  "title": "I have a service-connected dental disability or condition for which I receive compensation (monthly payments).",
+  "type": "paragraph--collapsible_panel_item",
+  "wysiwyg": "<p><strong>You’re in:</strong> Class I</p> <p><strong>You may qualify for:</strong> Any needed dental care</p>",
+}
+`;
