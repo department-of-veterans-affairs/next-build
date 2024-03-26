@@ -1,4 +1,5 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from 'next-drupal-query'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ParagraphAlertSingle } from '@/types/drupal/paragraph'
 import {
   AlertSingle,
@@ -8,52 +9,14 @@ import {
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { queries } from '.'
 
-// TODO:
-//
-// EDIT:
-// It seems *maybe* that next-drupal-query is designed to handle this already.
-// You can pass an `id` to queries.getParams().
-// E.g.
-// queries.getParams('paragraph--alert_single'))
-//
-// We don't need this here:
-// export const params: QueryParams<null> = () => {
-//   return new DrupalJsonApiParams()
-//     .addInclude([
-//       'field_alert_block_reference',
-//       'field_alert_block_reference.field_alert_content',
-//       'field_alert_non_reusable_ref',
-//       'field_alert_non_reusable_ref.field_va_paragraphs',
-//     ])
-// }
-//
-// ...but it seems like we might want to define
-// paragraph-specific `includes` within the paragraph's
-// query file (this file), and then somehow reference these in
-// the node query when we need to include fields of a specific
-// paragraph type.
-//
-// E.g.
-// export const include = [
-//   'field_alert_block_reference',
-//   'field_alert_block_reference.field_alert_content',
-//   'field_alert_non_reusable_ref',
-//   'field_alert_non_reusable_ref.field_va_paragraphs',
-// ]
-//
-// /* Some util file*/
-// export const getIncludedSubFields = (
-//   parentField: string,
-//   subFields: string[]
-// ) => [parentField, ...subFields.map((subField) => `${parentField}.${subField}`)]
-//
-// /* src/data/queries/resourcesSupport.ts */
-// import { include } from '@/data/queries/alertSingle'
-// export const params: QueryParams<null> = () => {
-//   return new DrupalJsonApiParams().addInclude([
-//     ...getIncludedSubFields('field_alert_single', include)
-//   ])
-// }
+export const params: QueryParams<null> = () => {
+  return new DrupalJsonApiParams().addInclude([
+    'field_alert_block_reference',
+    'field_alert_block_reference.field_alert_content',
+    'field_alert_non_reusable_ref',
+    'field_alert_non_reusable_ref.field_va_paragraphs',
+  ])
+}
 
 export const formatter: QueryFormatter<ParagraphAlertSingle, AlertSingle> = (
   entity: ParagraphAlertSingle
