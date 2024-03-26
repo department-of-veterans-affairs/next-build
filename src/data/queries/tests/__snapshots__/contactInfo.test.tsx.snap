@@ -9,7 +9,7 @@ exports[`ContactInfo formatData outputs formatted data 1`] = `
     "label": "Loremipsum label here",
     "type": "paragraph--email_contact",
   },
-  "benefitHubContacts": undefined,
+  "benefitHubContacts": null,
   "contactType": "DC",
   "defaultContact": {
     "href": "tel:1-800-698-2411",

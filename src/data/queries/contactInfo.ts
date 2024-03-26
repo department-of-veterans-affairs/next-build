@@ -52,6 +52,6 @@ export const formatter: QueryFormatter<
       entity.field_benefit_hub_contacts?.field_support_services.map(
         (supportService) =>
           queries.formatData(RESOURCE_TYPES.SUPPORT_SERVICES, supportService)
-      ),
+      ) || null,
   }
 }
