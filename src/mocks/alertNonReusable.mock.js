@@ -1,0 +1,75 @@
+export const mockResponse = {
+  type: 'paragraph--non_reusable_alert',
+  id: '4eff76c1-5e3e-410b-a56a-64b572f98756',
+  drupal_internal__id: 13072,
+  drupal_internal__revision_id: 145559,
+  langcode: 'en',
+  status: true,
+  created: '2020-10-01T17:08:59+00:00',
+  parent_id: '13073',
+  parent_type: 'paragraph',
+  parent_field_name: 'field_alert_non_reusable_ref',
+  behavior_settings: [],
+  default_langcode: true,
+  revision_translation_affected: null,
+  content_translation_source: 'und',
+  content_translation_outdated: false,
+  content_translation_changed: null,
+  field_alert_heading: 'Sample non-reusable alert',
+  field_alert_type: 'information',
+  links: {
+    self: {
+      href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/non_reusable_alert/4eff76c1-5e3e-410b-a56a-64b572f98756?resourceVersion=id%3A145559',
+    },
+  },
+  paragraph_type: {
+    type: 'paragraphs_type--paragraphs_type',
+    id: '3d633fc0-97d6-4087-b709-edfa2d1e6a1e',
+    resourceIdObjMeta: {
+      drupal_internal__target_id: 'non_reusable_alert',
+    },
+  },
+  field_va_paragraphs: [
+    {
+      type: 'paragraph--wysiwyg',
+      id: '2fc092f1-969a-4136-9039-4fc50a9f93c4',
+      drupal_internal__id: 13071,
+      drupal_internal__revision_id: 141493,
+      langcode: 'en',
+      status: true,
+      created: '2020-10-01T17:09:17+00:00',
+      parent_id: '13072',
+      parent_type: 'paragraph',
+      parent_field_name: 'field_va_paragraphs',
+      behavior_settings: [],
+      default_langcode: true,
+      revision_translation_affected: true,
+      content_translation_source: 'und',
+      content_translation_outdated: false,
+      content_translation_changed: null,
+      field_wysiwyg: {
+        value: '<p>This is where the text goes for the alert</p>\r\n',
+        format: 'rich_text',
+        processed: '<p>This is where the text goes for the alert</p>',
+      },
+      links: {
+        self: {
+          href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/2fc092f1-969a-4136-9039-4fc50a9f93c4?resourceVersion=id%3A141493',
+        },
+      },
+      resourceIdObjMeta: {
+        target_revision_id: 141493,
+        drupal_internal__target_id: 13071,
+      },
+      paragraph_type: {
+        type: 'paragraphs_type--paragraphs_type',
+        id: '885e4b61-cfd2-44b9-94ae-f068ba2b48b6',
+        resourceIdObjMeta: {
+          drupal_internal__target_id: 'wysiwyg',
+        },
+      },
+      relationshipNames: ['paragraph_type'],
+    },
+  ],
+  relationshipNames: ['paragraph_type', 'field_va_paragraphs'],
+}

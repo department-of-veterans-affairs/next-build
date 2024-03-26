@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`React widget formatData outputs formatted data 1`] = `
+{
+  "buttonFormat": true,
+  "ctaWidget": false,
+  "defaultLink": {
+    "title": "Apply for Veterans Pension Benefits",
+    "url": "/pension/application/527EZ",
+  },
+  "entityId": 4102,
+  "errorMessage": "<strong>We’re sorry. Something went wrong when we tried to load your saved application.</strong><br>Please try refreshing your browser in a few minutes.",
+  "id": "5663a0dd-a69c-40b7-b50b-526646e32204",
+  "loadingMessage": "Checking your application status.",
+  "timeout": 20,
+  "type": "paragraph--react_widget",
+  "widgetType": "health-care-app-status",
+}
+`;

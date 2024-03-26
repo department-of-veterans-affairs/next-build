@@ -1,7 +1,13 @@
 import { ParagraphCollapsiblePanelItem } from '@/types/drupal/paragraph'
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { CollapsiblePanelItem } from '@/types/formatted/collapsiblePanel'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
+// Define the query params for fetching paragraph--collapsible_panel_item.
+export const params: QueryParams<null> = () => {
+  return new DrupalJsonApiParams().addInclude(['field_va_paragraphs'])
+}
 
 export const formatter: QueryFormatter<
   ParagraphCollapsiblePanelItem,

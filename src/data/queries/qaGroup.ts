@@ -1,8 +1,18 @@
-import { QueryFormatter } from 'next-drupal-query'
+import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { ParagraphQaGroup } from '@/types/drupal/paragraph'
 import { QaGroup } from '@/types/formatted/qaGroup'
 import { QaGroupQa } from '@/types/formatted/qaGroup'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { getNestedIncludes } from '@/lib/utils/queries'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+
+// Define the query params for fetching paragraph--q_a_group.
+export const params: QueryParams<null> = () => {
+  return new DrupalJsonApiParams().addInclude([
+    ...getNestedIncludes('field_q_as', RESOURCE_TYPES.QA),
+  ])
+}
 
 export const formatter: QueryFormatter<ParagraphQaGroup, QaGroup> = (
   entity: ParagraphQaGroup
