@@ -68,13 +68,15 @@ test.describe(`Accessibility Tests`, async () => {
     console.log('segment index', segmentNumber)
 
     // @todo Delete this line after testing.
-    const slim = pages.slice(0, 1000)
-    // const slim = pages
+    // const slim = pages.slice(0, 1000)
+    const slim = pages
 
     let segment = slim
     if (segmentNumber !== 0) {
       segment = splitArray(slim, totalSegments)[segmentNumber - 1]
     }
+
+    console.log('number of pages in segment', segment.length)
 
     await runA11yTestsForPages(segment, page, testInfo)
   })
