@@ -11,9 +11,37 @@ on:
   pull_request:
 
 jobs:
+  # This is necessary to get credentials to use the private ECR image defined in the build job container.
+  login-to-amazon-ecr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-gov-west-1
+        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+        mask-aws-account-id: 'false'
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+      with:
+        mask-password: 'false'
+    outputs:
+      docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+      docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+
   validate-build-status:
     name: Validate Build Status
     runs-on: [self-hosted, asg]
+    needs: login-to-amazon-ecr
+    container:
+      image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
+      credentials:
+        username: ${{ needs.login-to-amazon-ecr.outputs.docker_username }}
+        password: ${{ needs.login-to-amazon-ecr.outputs.docker_password }}
+      # Certs added for the self hosted runner
+      env:
+        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
     outputs:
       REF: ${{ steps.get-latest-release.outputs.target_commitish }}
       TAG: ${{ steps.get-latest-release.outputs.tag_name }}
@@ -58,26 +86,6 @@ jobs:
         run: node ./scripts/github-actions/validate-build-status.js ${{ steps.get-latest-release.outputs.target_commitish }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-  # This is necessary to get credentials to use the private ECR image defined in the build job container.
-  login-to-amazon-ecr:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-region: us-gov-west-1
-        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
-        mask-aws-account-id: 'false'
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2
-      with:
-        mask-password: 'false'
-    outputs:
-      docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
-      docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
 
   build:
     name: Archive static build on S3
