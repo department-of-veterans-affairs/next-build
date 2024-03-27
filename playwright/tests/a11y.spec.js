@@ -75,6 +75,10 @@ test.describe(`Accessibility Tests`, async () => {
 
     console.log('number of pages total', pages.length)
     console.log('segment index', segmentNumber)
+    // Log the browser being used.
+    console.log('browser name:', page.context().browser().browserType())
+    // Log viewport size.
+    console.log('viewport size:', page.viewportSize())
 
     // @todo Delete this line after testing.
     const slim = pages.slice(0, 1000)

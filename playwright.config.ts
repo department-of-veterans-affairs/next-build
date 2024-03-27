@@ -1,10 +1,4 @@
-import {
-  defineConfig,
-  ScreenshotMode,
-  TraceMode,
-  VideoMode,
-  ViewportSize,
-} from '@playwright/test'
+import { defineConfig, ViewportSize } from '@playwright/test'
 
 export default defineConfig({
   testDir: './playwright/tests',
@@ -29,14 +23,10 @@ export default defineConfig({
     },
 
     // Collect trace when retrying the failed test.
-    trace: (process.env.PW_TRACE as TraceMode) || 'on-first-retry',
-    screenshot:
-      (process.env.PW_SCREENSHOT as ScreenshotMode) || 'only-on-failure',
-    video: (process.env.PW_VIDEO as VideoMode) || 'on-first-retry',
-    viewport: ({
-      width: Number(process.env.PW_WIDTH_VALUE),
-      height: Number(process.env.PW_HEIGHT_VALUE),
-    } as ViewportSize) || { width: 1280, height: 720 },
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'on-first-retry',
+    viewport: { width: 1280, height: 720 },
   },
 
   projects: [
@@ -49,6 +39,18 @@ export default defineConfig({
     {
       name: 'a11y',
       testMatch: /.a11y.spec.js/,
+      use: {
+        browserName:
+          (process.env.PW_BROWSER_VALUE as 'chromium' | 'firefox' | 'webkit') ||
+          'chromium',
+        trace: 'off',
+        screenshot: 'off',
+        video: 'off',
+        viewport: {
+          width: Number(process.env.PW_WIDTH_VALUE),
+          height: Number(process.env.PW_HEIGHT_VALUE),
+        } as ViewportSize,
+      },
     },
   ],
 })

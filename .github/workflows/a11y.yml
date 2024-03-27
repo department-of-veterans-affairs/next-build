@@ -9,9 +9,6 @@ jobs:
     env:
       BASE_URL: 'https://va.gov'
       USE_PROXY: false
-      PW_TRACE: 'off'
-      PW_SCREENSHOT: 'off'
-      PW_VIDEO: 'off'
       PW_BROWSER: '["chromium", "firefox", "webkit"]'
       PW_WIDTH: '[320, 768, 1024, 1280, 1920]'
       PW_HEIGHT: '[720, 1080, 1440]'
