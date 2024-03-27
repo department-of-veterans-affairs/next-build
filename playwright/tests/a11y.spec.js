@@ -39,18 +39,13 @@ async function runA11yTestsForPages(pages, page, testInfo) {
 
   // Write file with segment number for debugging.
   if (scanResultsArray.length > 0) {
+    // Remove root array from scanResultsArray.
+    // It starts with "[" and ends with "]".
+    const trimmedScanResultsArray = scanResultsArray.replace(/^\[|]$/g, '')
+
     fs.writeFileSync(
       `segment-${segmentNumber}.json`,
-      JSON.stringify(
-        scanResultsArray,
-        (key, value) => {
-          if (Array.isArray(value)) {
-            return value.join(',\n')
-          }
-          return value
-        },
-        2
-      )
+      JSON.stringify(trimmedScanResultsArray, null, 2)
     )
   }
 }
@@ -76,7 +71,7 @@ test.describe(`Accessibility Tests`, async () => {
     console.log('number of pages total', pages.length)
     console.log('segment index', segmentNumber)
     // Log the browser being used.
-    console.log('browser name:', page.context().browser().browserType())
+    // console.log('browser name:', page.context().browser().browserType())
     // Log viewport size.
     console.log('viewport size:', page.viewportSize())
 
