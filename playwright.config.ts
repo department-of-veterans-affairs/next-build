@@ -1,10 +1,16 @@
-import { defineConfig } from '@playwright/test'
+import {
+  defineConfig,
+  ScreenshotMode,
+  TraceMode,
+  VideoMode,
+  ViewportSize,
+} from '@playwright/test'
 
 export default defineConfig({
   testDir: './playwright/tests',
   outputDir: './playwright/test-results',
   reporter: [['html', { outputFolder: './playwright/test-report' }]],
-  fullyParallel: process.env.CI ? false : true,
+  fullyParallel: !process.env.CI,
 
   // Fail the build on CI if you accidentally left test.only in the source code.
   forbidOnly: !!process.env.CI,
@@ -23,10 +29,14 @@ export default defineConfig({
     },
 
     // Collect trace when retrying the failed test.
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'on-first-retry',
-    viewport: { width: 1280, height: 720 },
+    trace: (process.env.PW_TRACE as TraceMode) || 'on-first-retry',
+    screenshot:
+      (process.env.PW_SCREENSHOT as ScreenshotMode) || 'only-on-failure',
+    video: (process.env.PW_VIDEO as VideoMode) || 'on-first-retry',
+    viewport: ({
+      width: Number(process.env.PW_WIDTH_VALUE),
+      height: Number(process.env.PW_HEIGHT_VALUE),
+    } as ViewportSize) || { width: 1280, height: 720 },
   },
 
   projects: [

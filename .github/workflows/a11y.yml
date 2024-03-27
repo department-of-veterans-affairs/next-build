@@ -9,16 +9,46 @@ jobs:
     env:
       BASE_URL: 'https://va.gov'
       USE_PROXY: false
+      PW_TRACE: 'off'
+      PW_SCREENSHOT: 'off'
+      PW_VIDEO: 'off'
+      PW_BROWSER: '["chromium", "firefox", "webkit"]'
+      PW_WIDTH: '[320, 768, 1024, 1280, 1920]'
+      PW_HEIGHT: '[720, 1080, 1440]'
     strategy:
       fail-fast: false
       matrix:
-        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]
-        shardTotal: [64]
+#        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]
+        shardIndex: [1, 2, 3]
+        shardTotal: [3]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Run command with random values from arrays
+        run: |
+          arrays=("PW_BROWSER" "PW_WIDTH" "PW_HEIGHT")
+
+          for array_name in "${arrays[@]}"; do
+            json_string="${{ env[$array_name] }}"
+            array=$(echo "$json_string" | jq -c '.')
+            random_index=$((RANDOM % $(echo "$array" | jq 'length')))
+            random_value=$(echo "$array" | jq -r ".[$random_index]")
+            echo "Selected random value from $array_name: $random_value"
+            echo "${array_name}_VALUE=$random_value" >> $GITHUB_ENV
+          done
+
+      - name: Use random values in a command
+        run: |
+          echo "Using random values: $PW_BROWSER_VALUE, $PW_WIDTH_VALUE, $PW_HEIGHT_VALUE"
+          cd foo-bar
 
       - name: Install dependencies
         run: yarn install
@@ -64,7 +94,7 @@ jobs:
 
       - name: Merge reports
         run: |
-          cat segment-*.json > all-segments.json
+          echo '[' > all-segments.json && cat segment-*.json >> all-segments.json && echo ']' >> all-segments.json
           cat all-segments.json
 
       - name: Upload report

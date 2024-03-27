@@ -41,7 +41,16 @@ async function runA11yTestsForPages(pages, page, testInfo) {
   if (scanResultsArray.length > 0) {
     fs.writeFileSync(
       `segment-${segmentNumber}.json`,
-      JSON.stringify(scanResultsArray, null, 2)
+      JSON.stringify(
+        scanResultsArray,
+        (key, value) => {
+          if (Array.isArray(value)) {
+            return value.join(',\n')
+          }
+          return value
+        },
+        2
+      )
     )
   }
 }
