@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
-import { Octokit } from '@octokit/rest'
+const { Octokit } = require('@octokit/rest')
 
 const { GITHUB_TOKEN: auth, GITHUB_REPOSITORY } = process.env
 const args = process.argv.slice(2)
