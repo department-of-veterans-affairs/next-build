@@ -34,11 +34,11 @@ jobs:
     name: Validate Build Status
     runs-on: [self-hosted, asg]
     needs: login-to-amazon-ecr
-    container:
-      image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
-      credentials:
-        username: ${{ needs.login-to-amazon-ecr.outputs.docker_username }}
-        password: ${{ needs.login-to-amazon-ecr.outputs.docker_password }}
+    # container:
+    #   image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
+    #   credentials:
+    #     username: ${{ needs.login-to-amazon-ecr.outputs.docker_username }}
+    #     password: ${{ needs.login-to-amazon-ecr.outputs.docker_password }}
     outputs:
       REF: ${{ steps.get-latest-release.outputs.target_commitish }}
       TAG: ${{ steps.get-latest-release.outputs.tag_name }}
