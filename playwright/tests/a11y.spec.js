@@ -41,12 +41,13 @@ async function runA11yTestsForPages(pages, page, testInfo) {
   if (scanResultsArray.length > 0) {
     // Remove root array from scanResultsArray.
     // It starts with "[" and ends with "]".
-    const trimmedScanResultsArray = scanResultsArray.replace(/^\[|]$/g, '')
+    const trimmedScanResultsArray = JSON.stringify(
+      trimmedScanResultsArray,
+      null,
+      2
+    ).replace(/^\[|]$/g, '')
 
-    fs.writeFileSync(
-      `segment-${segmentNumber}.json`,
-      JSON.stringify(trimmedScanResultsArray, null, 2)
-    )
+    fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResultsArray)
   }
 }
 
