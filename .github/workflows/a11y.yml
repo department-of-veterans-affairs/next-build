@@ -37,7 +37,7 @@ jobs:
           arrays=("PW_BROWSER" "PW_WIDTH" "PW_HEIGHT")
 
           for array_name in "${arrays[@]}"; do
-            json_string="${{ env[$array_name] }}"
+            json_string="${{ env[env.$array_name] }}"
             array=$(echo "$json_string" | jq -c '.')
             random_index=$((RANDOM % $(echo "$array" | jq 'length')))
             random_value=$(echo "$array" | jq -r ".[$random_index]")
