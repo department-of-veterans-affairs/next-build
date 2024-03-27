@@ -39,13 +39,11 @@ async function runA11yTestsForPages(pages, page, testInfo) {
 
   // Write file with segment number for debugging.
   if (scanResultsArray.length > 0) {
-    // Remove root array from scanResultsArray.
-    // It starts with "[" and ends with "]".
-    const trimmedScanResultsArray = JSON.stringify(
-      scanResultsArray,
-      null,
-      2
-    ).replace(/^\[|]$/g, '')
+    // Remove root array from scanResultsArray so we can merge results more cleanly.
+    const trimmedScanResultsArray =
+      JSON.stringify(scanResultsArray, null, 2).replace(/^\[|]$/g, '') +
+      // Add a trailing comma to the output so JSON is valid when merged.
+      ',\n'
 
     fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResultsArray)
   }
