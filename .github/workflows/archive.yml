@@ -39,9 +39,6 @@ jobs:
       credentials:
         username: ${{ needs.login-to-amazon-ecr.outputs.docker_username }}
         password: ${{ needs.login-to-amazon-ecr.outputs.docker_password }}
-      # Certs added for the self hosted runner
-      env:
-        NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
     outputs:
       REF: ${{ steps.get-latest-release.outputs.target_commitish }}
       TAG: ${{ steps.get-latest-release.outputs.tag_name }}
