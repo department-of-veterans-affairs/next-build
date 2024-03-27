@@ -83,7 +83,7 @@ jobs:
     name: Archive static build on S3
     timeout-minutes: 60
     runs-on: [self-hosted, asg]
-    needs: login-to-amazon-ecr
+    needs: [validate-build-status, login-to-amazon-ecr]
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
       credentials:
