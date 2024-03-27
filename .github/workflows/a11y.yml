@@ -34,10 +34,13 @@ jobs:
 
       - name: Run command with random values from arrays
         run: |
-          arrays=("PW_BROWSER" "PW_WIDTH" "PW_HEIGHT")
+          arrays=('${{ env.PW_BROWSER }}' '${{ env.PW_HEIGHT }}' '${{ env.PW_WIDTH }}')
+          array_names=('PW_BROWSER' 'PW_HEIGHT' 'PW_WIDTH')
 
-          for array_name in "${arrays[@]}"; do
-            json_string="${{ env[env.$array_name] }}"
+          for i in "${!arrays[@]}"; do
+            json_string="${arrays[$i]}"
+            array_name="${array_names[$i]}"
+
             array=$(echo "$json_string" | jq -c '.')
             random_index=$((RANDOM % $(echo "$array" | jq 'length')))
             random_value=$(echo "$array" | jq -r ".[$random_index]")
