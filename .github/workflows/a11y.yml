@@ -51,7 +51,6 @@ jobs:
       - name: Use random values in a command
         run: |
           echo "Using random values: $PW_BROWSER_VALUE, $PW_WIDTH_VALUE, $PW_HEIGHT_VALUE"
-          cd foo-bar
 
       - name: Install dependencies
         run: yarn install
