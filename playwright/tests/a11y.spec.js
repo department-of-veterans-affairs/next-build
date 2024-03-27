@@ -42,7 +42,7 @@ async function runA11yTestsForPages(pages, page, testInfo) {
     // Remove root array from scanResultsArray.
     // It starts with "[" and ends with "]".
     const trimmedScanResultsArray = JSON.stringify(
-      trimmedScanResultsArray,
+      scanResultsArray,
       null,
       2
     ).replace(/^\[|]$/g, '')
