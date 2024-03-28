@@ -23,7 +23,7 @@ async function runA11yTestsForPages(pages, page, testInfo) {
 
     // @todo Likely remove the check since we are testing many URLs and showing
     // a segment fails does not help much.
-    // expect(accessibilityScanResults.violations).toEqual([])
+    expect(accessibilityScanResults.violations).toEqual([])
 
     if (accessibilityScanResults.violations.length > 0) {
       const scanResults = {
