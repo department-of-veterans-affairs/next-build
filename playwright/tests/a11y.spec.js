@@ -13,9 +13,11 @@ async function runA11yTestsForPages(pages, page, testInfo) {
 
     // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
     // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
+
     const accessibilityScanResults = await new AxeBuilder({ page })
       .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
       .exclude('iframe')
+      // @todo do the header and footer need to be scanned every page since I think they are the same?
       // .exclude('header')
       // .exclude('footer')
       .analyze()
@@ -30,7 +32,6 @@ async function runA11yTestsForPages(pages, page, testInfo) {
         url: pageUrl,
         violations: accessibilityScanResults.violations,
       }
-
       scanResultsArray.push(scanResults)
     }
   }

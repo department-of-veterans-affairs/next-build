@@ -83,6 +83,7 @@ The full scan will run daily in CI using a GitHub Workflow and multiple
 runners, but you can also run it locally for testing and debugging purposes.
 
 - Workflow file: `.github/workflows/a11y.yml`
+- Test file: `playwright/tests/a11y.spec.js`
 - Yarn command: `yarn test:playwright:a11y`
 
 #### GitHub Workflow
@@ -99,19 +100,82 @@ a `SEGMENT_INDEX` that the test uses to split the sitemap into multiple
 pages based on the total number of runners used.
 
 Several environmental variables control different parts of the test
-configuration.
+configuration and can be found at the top-level of the `playwright-tests` job.
 
-```yaml
-env:
-  BASE_URL: 'https://va.gov'
-  USE_PROXY: false
-  PW_BROWSER: '["chromium", "firefox", "webkit"]'
-  PW_WIDTH: '[320, 768, 1024, 1280, 1920]'
-  PW_HEIGHT: '[720, 1080, 1440]'
-  TOTAL_SEGMENTS: 64
-```
+- `BASE_URL`: Where to go look for "/sitemap.xml"
+- `USE_PROXY`: Whether to use the proxy in the custom fetcher. We don't want
+  to use it for the a11y scan.
+- `PW_BROWSER`: An array of Playwright browser types. These are randomly
+  read per runner and used as `PW_BROWSER_VALUE` in test config.
+- `PW_WIDTH`: An array of viewport widths to test against. These are randomly
+  read per runner and used as `PW_WIDTH_VALUE` in test config.
+- `PW_HEIGHT`: An array of viewport widths to test against. These are randomly
+  read per runner and used as `PW_WIDTH_VALUE` in test config. The viewport
+  height might not matter for a11y testing, I'm not sure.
+- `TOTAL_SEGMENTS`: The number of total segments. This was in the matrix
+  variables but pulled out since it is always one value and not a list of
+  values.
+
+You can alter those values to be picked up by each test run.
+
+Random values are picked in the "Run command with random values from arrays"
+step using some shell commands and `jq` foo. Then, those are used in the
+test run as env vars with `_VALUE` as a suffix.
+
+More detail about configuration and how the env vars are used is located in the
+[Test Config](#test-config) section.
+
+After the run the JSON output from the test run is uploaded into a file with
+the segment name included, e.g. `segment-${{ matrix.shardIndex }}.json`.
+
+Then the `merge-reports` job waits for all the runners to finish before
+concatenating the results and making sure the final JSON output is valid.
+
+In the future, the report will be uploaded and sent to who needs it, but for
+now you can download it from GitHub on the Actions summary view for the a11y
+test workflow.
+
+#### Test Config
+
+The `playwright.config.ts` file contains all the Playwright config used for
+any test using Playwright in the next-build repo. We set up a different
+Playwright Project named `a11y` to filter tests for accessibility as well as
+provide different configuration. Let's go over the configuration differences:
+
+- `retries` - The test performs no assertions and retrying would scan all
+  the pages again. Plus, there was a weird error on GitHub where the URLs
+  were being scanned multiple times. Might be worth revisiting in the future.
+- `browserName`: Allows processing `PW_BROWSER_VALUE` to run different browser
+  types.
+- `trace`: No need to trace for code coverage.
+- `screenshot`: Taking screenshots slowed down the tests and isn't necessary
+  to report violations
+- `video`: No need to take video
+- `viewport`: Allows `PW_WIDTH_VALUE` and `PW_HEIGHT_VALUE`
+
+It might be useful to look over the Playwright config and see if there are
+more config options that would be helpful to use in testing.
 
 #### The Full Scan "Test"
+
+The actual test doesn't actually run any assertions. The reason for this is
+that we are scanning many pages in one test. We could split it up so each
+URL is run in an isolated test but that would require more setup and
+teardown costing time. Also...just being honest...passing data to each test
+via async/await was finicky.
+
+Test run:
+
+1. Get pages of the sitemap.
+2. Split the pages into segments if the segment index is not zero. This
+   allows to run against all pages locally or use segment indexes on GH.
+3. Pages are looped through and navigated to.
+4. `AxeBuilder` analyzes each page.
+5. If violations are found, they are pushed into an array with the URL and
+   violations as keys.
+6. After all pages are scanned, the final results are written to a JSON file.
+   The root element is stripped to make merging the reports easier as well
+   as adding a trailing comma.
 
 #### Local Testing
 
@@ -123,6 +187,7 @@ fresh next-build instance, you can follow these steps:
 2. `yarn export` to generate the static pages for the site
 3. `yarn build:sitemap` to generate the sitemap for pages from step 1.
 4. `yarn export:serve` to host the static pages locally
-
-5. `BASE_URL= yarn test:playwright:a11y` to run the scan. This runs
+5. Take note of the port being used for the `BASE_URL` variable you will
+   pass in.
+6. `BASE_URL=${your-url} yarn test:playwright:a11y` to run the scan. This runs
    `playwright/tests/a11y.spec.js` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
