@@ -26,13 +26,11 @@ async function runA11yTestsForPages(pages, page, testInfo) {
     // expect(accessibilityScanResults.violations).toEqual([])
 
     if (accessibilityScanResults.violations.length > 0) {
-      // Create an object with the URL and violations
       const scanResults = {
         url: pageUrl,
         violations: accessibilityScanResults.violations,
       }
 
-      // Add the scan results to the array
       scanResultsArray.push(scanResults)
     }
   }
@@ -74,8 +72,8 @@ test.describe(`Accessibility Tests`, async () => {
     console.log('viewport size:', page.viewportSize())
 
     // @todo Delete this line after testing.
-    const slim = pages.slice(0, 1000)
-    // const slim = pages
+    // const slim = pages.slice(0, 1000)
+    const slim = pages
 
     let segment = slim
     if (segmentNumber !== 0) {
