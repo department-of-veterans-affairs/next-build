@@ -62,11 +62,6 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-#          if [ ${{ matrix.shardIndex }} -eq ${{ matrix.shardTotal }} ]; then
-#            echo "Exiting early because this is the last shard"
-#            exit 0
-#          fi
-
           TOTAL_SEGMENTS=${{ matrix.shardTotal }} SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
       - name: Upload blob report to GitHub Actions Artifacts
