@@ -77,7 +77,10 @@ This project can be tested for a11y compliance in several ways:
 
 - A full site scan of all urls known to next-build (generated in the sitemap) using Playwright: `yarn test:playwright:a11y`
 
-The full scan will run (TKTK: some cadence, weekly?) in CI.
+The full scan will run daily in CI using GitHub Actions and multiple runners.
+
+###
+
 You can run it manually after generating the sitemap with a few steps:
 
 1. `yarn export` to generate the static pages for the site
