@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { test } from '../utils/next-test'
+import { test, expect } from '../utils/next-test'
 import { getSitemapLocations } from '../utils/getSitemapLocations'
 import AxeBuilder from '@axe-core/playwright'
 import fs from 'fs'
