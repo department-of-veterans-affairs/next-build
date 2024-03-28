@@ -37,7 +37,6 @@ async function runA11yTestsForPages(pages, page, testInfo) {
     }
   }
 
-  // Write file with segment number for debugging.
   if (scanResultsArray.length > 0) {
     // Remove root array from scanResultsArray so we can merge results more cleanly.
     const trimmedScanResultsArray =

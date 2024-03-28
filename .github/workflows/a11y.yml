@@ -91,9 +91,12 @@ jobs:
           pattern: segment-*
           merge-multiple: true
 
-      - name: Merge reports
+      - name: Merge reports in valid JSON format
         run: |
-          echo '[' > all-segments.json && cat segment-*.json >> all-segments.json && echo ']' >> all-segments.json
+          echo '[' > all-segments.json
+          cat segment-*.json >> all-segments.json
+          sed -i '$s/,$//' all-segments.json
+          echo ']' >> all-segments.json
           cat all-segments.json
 
       - name: Upload report
