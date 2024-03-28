@@ -6,9 +6,8 @@ permissions:
 
 on:
   # Schedule; currently once nightly, at 7:20 UTC.
-  # schedule:
-  #   - cron: 20 7 * * *
-  pull_request:
+  schedule:
+    - cron: 20 7 * * *
 
 env:
   BUILD_TYPE: vagovprod
