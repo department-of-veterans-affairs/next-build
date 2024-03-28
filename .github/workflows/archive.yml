@@ -1,0 +1,153 @@
+name: Nightly Archive
+
+permissions:
+  id-token: write # This is required for requesting the JWT for AWS creds
+  contents: read  # This is required for actions/checkout
+
+on:
+  # Schedule; currently once nightly, at 7:20 UTC.
+  schedule:
+    - cron: 20 7 * * *
+
+env:
+  BUILD_TYPE: vagovprod
+  APP_ENV: prod
+  NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+
+jobs:
+  # This is necessary to get credentials to use the private ECR image defined in the build job container.
+  login-to-amazon-ecr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-gov-west-1
+        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+        mask-aws-account-id: 'false'
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+      with:
+        mask-password: 'false'
+    outputs:
+      docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+      docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+
+  validate-build-status:
+    name: Validate Build Status
+    runs-on: ubuntu-latest
+    outputs:
+      REF: ${{ steps.get-latest-release.outputs.target_commitish }}
+      TAG: ${{ steps.get-latest-release.outputs.tag_name }}
+      APPROX_WORKFLOW_START_TIME: ${{ steps.export-approx-workflow-start-time.outputs.APPROX_WORKFLOW_START_TIME }}
+    timeout-minutes: 15
+
+    steps:
+      - name: Export approximate workflow start time
+        id: export-approx-workflow-start-time
+        run: echo APPROX_WORKFLOW_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20 # the validate-build-status requires node12, node16, node20...
+      - name: Setup Yarn
+        run: |
+          corepack enable
+          corepack install -g --cache-only .yarn/releases/corepack.tgz
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Get latest release
+        id: get-latest-release
+        uses: ./.github/workflows/fetch-latest-release
+
+      - name: Validate build status
+        run: node ./scripts/github-actions/validate-build-status.js ${{ steps.get-latest-release.outputs.target_commitish }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    name: Archive static build on S3
+    timeout-minutes: 60
+    runs-on: [self-hosted, asg]
+    needs: [validate-build-status, login-to-amazon-ecr]
+    container:
+      image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
+      credentials:
+        username: ${{ needs.login-to-amazon-ecr.outputs.docker_username }}
+        password: ${{ needs.login-to-amazon-ecr.outputs.docker_password }}
+      # Certs added for the self hosted runner
+      env:
+        NODE_EXTRA_CA_CERTS: ${{ env.NODE_EXTRA_CA_CERTS }}
+        APP_ENV: ${{ env.APP_ENV }}
+      ports:
+        - 80
+      volumes:
+        - /etc/ssl/certs:/etc/ssl/certs
+    steps:
+
+    - name: Checkout next-build
+      uses: actions/checkout@v4
+      with:
+        repository: department-of-veterans-affairs/next-build
+        ref: ${{ needs.validate-build-status.outputs.TAG }}
+        path: main
+
+    - name: Checkout vets-website
+      uses: actions/checkout@v4
+      with:
+        repository: department-of-veterans-affairs/vets-website
+        path: vets-website
+
+    - name: Install awscli
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip -o awscliv2.zip
+        ./aws/install
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - name: Setup Yarn
+      run: |
+        cd main
+        corepack enable
+        corepack install -g --cache-only .yarn/releases/corepack.tgz
+
+    - name: Install dependencies
+      run: cd main && yarn
+
+    - name: Gather vets-website assets
+      run: cd main && yarn setup
+
+    - name: Build site
+      uses: nick-fields/retry@v3
+      with:
+        max_attempts: 3
+        retry_on: error
+        timeout_minutes: 30
+        command: cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --USE_REDIS=false
+
+    - name: Build sitemap
+      run: cd main && yarn build:sitemap
+
+    - name: Compress built site for archive
+      run: tar -c main/out/ -cf ${{ env.BUILD_TYPE }}.tar.bz2 .
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-gov-west-1
+        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+        role-duration-seconds: 900
+
+    - name: Upload archive to S3
+      run: aws s3 cp ${{ env.BUILD_TYPE }}.tar.bz2 s3://vetsgov-website-builds-s3-upload/next-build/${{needs.validate-build-status.outputs.REF}}/${{ env.BUILD_TYPE }}.tar.bz2 --acl public-read --region us-gov-west-1 --no-progress
+      env:
+        SRC: ./out/
+        DEST: s3://next-content.www.va.gov
