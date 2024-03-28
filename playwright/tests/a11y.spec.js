@@ -1,66 +1,101 @@
 /* eslint-disable no-console */
-const { test } = require('../utils/next-test')
-const {
-  getSitemapLocations,
-  splitPagesIntoSegments,
-} = require('../utils/getSitemapLocations')
+import { test } from '../utils/next-test'
+import { getSitemapLocations } from '../utils/getSitemapLocations'
+import AxeBuilder from '@axe-core/playwright'
+import fs from 'fs'
 
-async function runA11yTestsForPages(pages, testName, page, makeAxeBuilder) {
-  let a11yFailures = []
+async function runA11yTestsForPages(pages, page, testInfo) {
+  let scanResultsArray = []
 
   for (const pageUrl of pages) {
     await page.goto(pageUrl)
-    const accessibilityScanResults = await makeAxeBuilder().analyze()
+    console.log('testing page:', pageUrl)
+    // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
+    // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+      .exclude('iframe')
+      // .exclude('header')
+      // .exclude('footer')
+      .analyze()
+
+    console.log('page violations:', accessibilityScanResults.violations)
+
+    // @todo Likely remove the check since we are testing many URLs and showing
+    // a segment fails does not help much.
+    // expect(accessibilityScanResults.violations).toEqual([])
 
     if (accessibilityScanResults.violations.length > 0) {
-      accessibilityScanResults.violations.forEach((violation) => {
-        console.log(`URL: ${pageUrl}`)
-        console.log(`Violation: ${violation.id}`)
-        console.log(`Description: ${violation.description}`)
-        console.log(`Impact: ${violation.impact}`)
-        console.log(
-          `Nodes: ${violation.nodes.map((node) => node.html).join(', ')}`
-        )
-      })
-
-      a11yFailures.push({
+      const scanResults = {
         url: pageUrl,
         violations: accessibilityScanResults.violations,
-      })
+      }
+
+      scanResultsArray.push(scanResults)
     }
   }
 
-  if (a11yFailures.length > 0) {
-    throw new Error(
-      `Accessibility tests (${testName}) failed on ${a11yFailures.length} pages. Check logs for details.`
-    )
+  if (scanResultsArray.length > 0) {
+    // Remove root array from scanResultsArray so we can merge results more cleanly.
+    const trimmedScanResultsArray =
+      JSON.stringify(scanResultsArray, null, 2).replace(/^\[|]$/g, '') +
+      // Add a trailing comma to the output so JSON is valid when merged.
+      ',\n'
+
+    fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResultsArray)
   }
 }
 
-test.describe('Accessibility Tests', async () => {
+const totalSegments = process.env.TOTAL_SEGMENTS
+  ? Number(process.env.TOTAL_SEGMENTS)
+  : 32
+const segmentNumber = process.env.SEGMENT_INDEX
+  ? Number(process.env.SEGMENT_INDEX)
+  : 0
+
+test.describe(`Accessibility Tests`, async () => {
   test.setTimeout(4200000)
 
-  const pages = await getSitemapLocations(
-    process.env.BASE_URL || 'http://127.0.0.1:8001'
-  )
+  test(`the site should be accessible`, async ({
+    page,
+    browserName,
+    // makeAxeBuilder,
+  }, testInfo) => {
+    const pages = await getSitemapLocations(
+      process.env.BASE_URL || 'http://127.0.0.1:8001'
+    )
 
-  let pageSegments
+    console.log('number of pages total', pages.length)
+    console.log('segment index', segmentNumber)
+    console.log('browser name:', browserName)
+    console.log('viewport size:', page.viewportSize())
 
-  test.beforeAll(async () => {
-    pageSegments = await splitPagesIntoSegments(pages, 5)
+    // @todo Delete this line after testing.
+    // const slim = pages.slice(0, 1000)
+    const slim = pages
+
+    let segment = slim
+    if (segmentNumber !== 0) {
+      segment = splitArray(slim, totalSegments)[segmentNumber - 1]
+    }
+
+    console.log('number of pages in segment', segment.length)
+
+    await runA11yTestsForPages(segment, page, testInfo)
   })
-
-  for (let i = 0; i < 5; i++) {
-    test(`the site should be accessible - Segment ${i + 1}`, async ({
-      page,
-      makeAxeBuilder,
-    }) => {
-      await runA11yTestsForPages(
-        pageSegments[i],
-        `Segment ${i + 1}`,
-        page,
-        makeAxeBuilder
-      )
-    })
-  }
 })
+
+function splitArray(array, numChunks) {
+  const chunkSize = Math.floor(array.length / numChunks)
+  const remainder = array.length % numChunks
+  const result = []
+
+  let index = 0
+  for (let i = 0; i < numChunks; i++) {
+    const end = index + chunkSize + (i < remainder ? 1 : 0)
+    result.push(array.slice(index, end))
+    index = end
+  }
+
+  return result
+}

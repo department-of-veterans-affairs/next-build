@@ -1,0 +1,108 @@
+name: A11y Tests
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  playwright-tests:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: 'https://va.gov'
+      USE_PROXY: false
+      PW_BROWSER: '["chromium", "firefox", "webkit"]'
+      PW_WIDTH: '[320, 768, 1024, 1280, 1920]'
+      PW_HEIGHT: '[720, 1080, 1440]'
+      TOTAL_SEGMENTS: 64
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Run command with random values from arrays
+        run: |
+          arrays=('${{ env.PW_BROWSER }}' '${{ env.PW_HEIGHT }}' '${{ env.PW_WIDTH }}')
+          array_names=('PW_BROWSER' 'PW_HEIGHT' 'PW_WIDTH')
+
+          for i in "${!arrays[@]}"; do
+            json_string="${arrays[$i]}"
+            array_name="${array_names[$i]}"
+
+            array=$(echo "$json_string" | jq -c '.')
+            random_index=$((RANDOM % $(echo "$array" | jq 'length')))
+            random_value=$(echo "$array" | jq -r ".[$random_index]")
+            echo "Selected random value from $array_name: $random_value"
+            echo "${array_name}_VALUE=$random_value" >> $GITHUB_ENV
+          done
+
+      - name: Ensure random values are set
+        run: |
+          echo "Using random values: $PW_BROWSER_VALUE, $PW_WIDTH_VALUE, $PW_HEIGHT_VALUE"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      # This is necessary in order for fetch to work.
+      - name: Build proxy-fetcher dist
+        run: |
+          yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
+
+      - name: Run Playwright tests
+        run: |
+          SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
+
+      - name: Upload blob report to GitHub Actions Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: segment-${{ matrix.shardIndex }}.json
+          path: segment-${{ matrix.shardIndex }}.json
+          retention-days: 7
+
+  merge-reports:
+    # Merge reports after playwright-tests, even if some shards have failed
+    if: always()
+    needs: [playwright-tests]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: segment-*
+          merge-multiple: true
+
+      - name: Merge reports in valid JSON format
+        run: |
+          echo '[' > all-segments.json
+          cat segment-*.json >> all-segments.json
+          sed -i '$s/,$//' all-segments.json
+          echo ']' >> all-segments.json
+          cat all-segments.json
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-scan-${{ github.run_attempt }}
+          path: all-segments.json
+          retention-days: 14
+
