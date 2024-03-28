@@ -21,7 +21,7 @@ async function runA11yTestsForPages(pages, page, testInfo) {
       .analyze()
 
     // dummy expect so page has time to analyze, perhaps
-    await expect(page).toHaveURL(pageUrl)
+    await expect(page.locator('body')).toBeVisible()
 
     console.log('page violations:', accessibilityScanResults.violations)
 
