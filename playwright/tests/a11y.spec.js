@@ -58,6 +58,7 @@ test.describe(`Accessibility Tests`, async () => {
 
   test(`the site should be accessible`, async ({
     page,
+    browserName,
     // makeAxeBuilder,
   }, testInfo) => {
     const pages = await getSitemapLocations(
@@ -66,9 +67,7 @@ test.describe(`Accessibility Tests`, async () => {
 
     console.log('number of pages total', pages.length)
     console.log('segment index', segmentNumber)
-    // Log the browser being used.
-    // console.log('browser name:', page.context().browser().browserType())
-    // Log viewport size.
+    console.log('browser name:', browserName)
     console.log('viewport size:', page.viewportSize())
 
     // @todo Delete this line after testing.
