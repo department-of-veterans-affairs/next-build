@@ -85,7 +85,7 @@ runners, but you can also run it locally for testing and debugging purposes.
 - Workflow file: `.github/workflows/a11y.yml`
 - Yarn command: `yarn test:playwright:a11y`
 
-#### Setup
+#### GitHub Workflow
 
 We designed the scan to run against the production va.gov/sitemap.xml to
 ensure accessibility issues facing actual users are caught. Testing locally
@@ -93,14 +93,16 @@ and in lower environments is great, but to get the most bang for your buck,
 running it on the actual output ensures that any fixes carry through to
 production.
 
+#### Local Instance
+
 You don't have to build a site locally, but if you want to test against a
-fresh next-build instancecan
-run it manually after
-generating the sitemap
-with a few steps:
+fresh next-build instance, you can follow these steps:
 
-1. `yarn export` to generate the static pages for the site
-2. `yarn build:sitemap` to generate the sitemap for pages from step 1.
-3. `yarn export:serve` to host the static pages locally
+1. Run all the steps needed to set up next-build listed in the root README.
+   md file.
+2. `yarn export` to generate the static pages for the site
+3. `yarn build:sitemap` to generate the sitemap for pages from step 1.
+4. `yarn export:serve` to host the static pages locally
 
-4. `yarn test:playwright:a11y` to run the scan. This runs `playwright/tests/a11y.spec.js` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
+5. `BASE_URL= yarn test:playwright:a11y` to run the scan. This runs
+   `playwright/tests/a11y.spec.js` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
