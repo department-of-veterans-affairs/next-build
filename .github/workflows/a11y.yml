@@ -24,13 +24,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Exit if last shard
-        run: |
-          if [ ${{ matrix.shardIndex }} -eq ${{ matrix.shardTotal }} ]; then
-            echo "Exiting early because this is the last shard"
-            exit 0
-          fi
-
       - name: Install jq
         run: |
           sudo apt-get update
@@ -68,7 +61,13 @@ jobs:
           yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
 
       - name: Run Playwright tests
-        run: TOTAL_SEGMENTS=${{ matrix.shardTotal }} SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
+        run: |
+          if [ ${{ matrix.shardIndex }} -eq ${{ matrix.shardTotal }} ]; then
+            echo "Exiting early because this is the last shard"
+            exit 0
+          fi
+
+          TOTAL_SEGMENTS=${{ matrix.shardTotal }} SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
       - name: Upload blob report to GitHub Actions Artifacts
         if: always()
