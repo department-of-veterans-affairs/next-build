@@ -44,7 +44,7 @@ jobs:
             echo "${array_name}_VALUE=$random_value" >> $GITHUB_ENV
           done
 
-      - name: Use random values in a command
+      - name: Ensure random values are set
         run: |
           echo "Using random values: $PW_BROWSER_VALUE, $PW_WIDTH_VALUE, $PW_HEIGHT_VALUE"
 
@@ -61,7 +61,7 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-          TOTAL_SEGMENTS=${{ matrix.shardTotal }} SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
+          SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
       - name: Upload blob report to GitHub Actions Artifacts
         if: always()

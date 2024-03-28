@@ -93,7 +93,27 @@ and in lower environments is great, but to get the most bang for your buck,
 running it on the actual output ensures that any fixes carry through to
 production.
 
-#### Local Instance
+The workflow file `.github/workflows/a11y.yml` has all the contents of the
+test run which currently uses 64 runners in a matrix. Each runner passes in
+a `SEGMENT_INDEX` that the test uses to split the sitemap into multiple
+pages based on the total number of runners used.
+
+Several environmental variables control different parts of the test
+configuration.
+
+```yaml
+env:
+  BASE_URL: 'https://va.gov'
+  USE_PROXY: false
+  PW_BROWSER: '["chromium", "firefox", "webkit"]'
+  PW_WIDTH: '[320, 768, 1024, 1280, 1920]'
+  PW_HEIGHT: '[720, 1080, 1440]'
+  TOTAL_SEGMENTS: 64
+```
+
+#### The Full Scan "Test"
+
+#### Local Testing
 
 You don't have to build a site locally, but if you want to test against a
 fresh next-build instance, you can follow these steps:
