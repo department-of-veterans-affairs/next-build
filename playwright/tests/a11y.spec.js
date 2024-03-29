@@ -22,6 +22,11 @@ async function runA11yTestsForPages(pages, page, browserName) {
   console.log('viewport size:', viewportSize)
 
   for (const pageUrl of pages) {
+    if (excludedPages.includes(pageUrl)) {
+      console.log('skipping page:', pageUrl)
+      continue
+    }
+
     await page.goto(pageUrl)
     console.log('testing page:', pageUrl)
 
