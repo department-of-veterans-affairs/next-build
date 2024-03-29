@@ -12,7 +12,10 @@ const segmentNumber = process.env.SEGMENT_INDEX
   : 0
 
 // Exclude pages with redirects.
-const excludedPages = ['http://www.va.gov/manage-va-debt/summary/']
+const excludedPages = [
+  'http://www.va.gov/manage-va-debt/summary/',
+  'http://www.va.gov/housing-assistance/home-loans/check-coe-status/your-coe/',
+]
 
 async function runA11yTestsForPages(pages, page, browserName) {
   let scanResultsArray = []
