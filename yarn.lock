@@ -2063,12 +2063,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/component-library@npm:^33.0.0":
-  version: 33.0.0
-  resolution: "@department-of-veterans-affairs/component-library@npm:33.0.0"
+"@department-of-veterans-affairs/component-library@npm:^38.0.3":
+  version: 38.0.3
+  resolution: "@department-of-veterans-affairs/component-library@npm:38.0.3"
   dependencies:
-    "@department-of-veterans-affairs/react-components": 26.0.0
-    "@department-of-veterans-affairs/web-components": 4.51.0
+    "@department-of-veterans-affairs/react-components": 28.0.0
+    "@department-of-veterans-affairs/web-components": 6.0.5
     i18next: ^21.6.14
     i18next-browser-languagedetector: ^6.1.4
     react-focus-on: ^3.5.1
@@ -2077,16 +2077,16 @@ __metadata:
     "@department-of-veterans-affairs/formation": "*"
     react: ^18
     react-dom: "*"
-  checksum: da79b7a533e490b471eab9265e10bf799524bbcdc965e80a52647e5cd407d6f381c56838fee2910436efe812de36c5db519998727336c88c04e04c679e3a2e60
+  checksum: c468e4eb220d2d2ccd8ba90ddda70709754344cb1b9a1e400ea1c2aa9af836d9e5bc915282e0a4fc652ca39539d58917a2a28e3298ca163d69130f3d5c101538
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/css-library@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "@department-of-veterans-affairs/css-library@npm:0.0.2"
+"@department-of-veterans-affairs/css-library@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@department-of-veterans-affairs/css-library@npm:0.5.1"
   dependencies:
     "@divriots/style-dictionary-to-figma": ^0.4.0
-  checksum: 381d3cf2b5fa19f8b7c143848494e1d8c863807247c6768861e22550a20a160d9e9f048888e451453102af9733902ec56b671d7f53d6cb08bd8f345cec47abc0
+  checksum: dec6d07d2b9b5fa5543c580099fb0aa87f9205cf5fd0327f72d46ef633991fb4123a584d8baa6d049e111843d5b0aa77b4b9949ca7ce4060e7216fd7305bd840
   languageName: node
   linkType: hard
 
@@ -2106,9 +2106,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/react-components@npm:26.0.0":
-  version: 26.0.0
-  resolution: "@department-of-veterans-affairs/react-components@npm:26.0.0"
+"@department-of-veterans-affairs/react-components@npm:28.0.0":
+  version: 28.0.0
+  resolution: "@department-of-veterans-affairs/react-components@npm:28.0.0"
   dependencies:
     classnames: ^2.2.6
     prop-types: ^15.6.2
@@ -2121,25 +2121,26 @@ __metadata:
     i18next-browser-languagedetector: "*"
     react: ^17
     react-dom: "*"
-  checksum: 3b9d8e6efcebb94df4f60fcef823cc749dffd315b637593eb2c360b901f610d7dae8d5cdca52d0935c15de930cf2b04bd8d263d0485ebf94eed154b633e2e654
+  checksum: 8541ce63165c0a09d43194b918fa1c341246830c2e8512ed54a32ab4881ce16ae0c15ba0d68b98f297020e2ca8da70683b3376bc1eacdfca2dcaf8e850730465
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:4.51.0":
-  version: 4.51.0
-  resolution: "@department-of-veterans-affairs/web-components@npm:4.51.0"
+"@department-of-veterans-affairs/web-components@npm:6.0.5":
+  version: 6.0.5
+  resolution: "@department-of-veterans-affairs/web-components@npm:6.0.5"
   dependencies:
-    "@department-of-veterans-affairs/css-library": ^0.0.2
+    "@department-of-veterans-affairs/css-library": ^0.5.1
     "@stencil/core": ^2.19.2
     aria-hidden: ^1.1.3
     body-scroll-lock: ^4.0.0-beta.0
+    chromatic: ^11.0.4
     classnames: ^2.3.1
     intersection-observer: ^0.12.0
   peerDependencies:
-    "@department-of-veterans-affairs/formation": ^9.0.1
+    "@department-of-veterans-affairs/formation": ^10.1.2
     i18next: "*"
     i18next-browser-languagedetector: "*"
-  checksum: be165798cc35d8c40dfc7abc15bdc1283347c878587436ac63300e5d6ba2b27a66561f72bbf893db395263cadc59bf8e571599acaa3c4351a86c459444a64309
+  checksum: baca55b7038cc20603c6cc12d9b73213d96bc711cf2a738d1fb881ec3ff75c4546c7fc87407cee06efbc7d73278db4a92d54b1c2d74e7194c5a797c1c7623fa9
   languageName: node
   linkType: hard
 
@@ -8327,6 +8328,25 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: c57cf9dd0791e2f18a5ee9c1a299ae6e801ff58fee96dc8bfd0dcb4738a6ce58dd252a3605b1c93c6418fe4f9d5093b28ffbf4d66648cb2a9c67eaef9679be2f
+  languageName: node
+  linkType: hard
+
+"chromatic@npm:^11.0.4":
+  version: 11.3.0
+  resolution: "chromatic@npm:11.3.0"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+  bin:
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: 267bf4f4b5b548e065f770e6909229e67089f560233f04f8be3dc176583bd640a4637ad8f6f7e796b86b37af2a512b14b5e16ec7c0f6d07abf529ece740c62db
   languageName: node
   linkType: hard
 
@@ -14892,7 +14912,7 @@ __metadata:
     "@actions/core": ^1.10.1
     "@actions/github": ^6.0.0
     "@axe-core/playwright": ^4.8.2
-    "@department-of-veterans-affairs/component-library": ^33.0.0
+    "@department-of-veterans-affairs/component-library": ^38.0.3
     "@department-of-veterans-affairs/formation": ^10.1.0
     "@department-of-veterans-affairs/web-components": ^4.45.31
     "@faker-js/faker": ^8.4.1
