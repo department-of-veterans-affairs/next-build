@@ -102,7 +102,7 @@ test.describe(`Accessibility Tests`, async () => {
     )
 
     // Try reversing the pages to see if the last ones are the problem.
-    const slim = pages.reverse().slice(0, 500)
+    const slim = pages.reverse()
 
     // fs.writeFileSync(`redirects.js`, JSON.stringify(slim, null, 2))
 
