@@ -73,7 +73,8 @@ test.describe(`Accessibility Tests`, async () => {
 
     // @todo Delete this line after testing.
     // const slim = pages.slice(0, 15000)
-    const slim = pages
+    // Try reversing the pages to see if the last ones are the problem.
+    const slim = pages.reverse()
 
     let segment = slim
     if (segmentNumber !== 0) {
