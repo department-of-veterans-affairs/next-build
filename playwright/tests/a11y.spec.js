@@ -11,9 +11,8 @@ const segmentNumber = process.env.SEGMENT_INDEX
   ? Number(process.env.SEGMENT_INDEX)
   : 0
 
-async function runA11yTestsForPages(pages, page, testInfo) {
+async function runA11yTestsForPages(pages, page, browserName) {
   let scanResultsArray = []
-  const browserName = testInfo.browserName
   const viewportSize = page.viewportSize()
 
   console.log('browser name:', browserName)
@@ -73,8 +72,8 @@ test.describe(`Accessibility Tests`, async () => {
     )
 
     // @todo Delete this line after testing.
-    const slim = pages.slice(0, 15000)
-    // const slim = pages
+    // const slim = pages.slice(0, 15000)
+    const slim = pages
 
     let segment = slim
     if (segmentNumber !== 0) {
@@ -83,7 +82,7 @@ test.describe(`Accessibility Tests`, async () => {
 
     console.log('number of pages in segment', segment.length)
 
-    const results = await runA11yTestsForPages(segment, page, testInfo)
+    const results = await runA11yTestsForPages(segment, page, browserName)
     // expect(results).toEqual([])
   })
 })
