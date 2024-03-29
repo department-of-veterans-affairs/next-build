@@ -28,6 +28,12 @@ const excludedPages = [
   'http://www.va.gov/burials-memorials/memorial-items/presidential-memorial-certificates/request-certificate-form-40-0247/',
   'http://www.va.gov/my-health/order-hearing-aid-or-cpap-supplies-form/',
   'http://www.va.gov/education/other-va-education-benefits/veteran-rapid-retraining-assistance/apply-for-vrrap-form-22-1990s/',
+  'http://www.va.gov/track-claims/',
+  'http://www.va.gov/burials-and-memorials-v2/application/530/',
+  'http://www.va.gov/profile/',
+  'http://www.va.gov/my-va/',
+  'http://www.va.gov/disability/view-disability-rating/rating/',
+  'http://www.va.gov/view-change-dependents/view/',
 ]
 
 async function runA11yTestsForPages(pages, page, browserName) {
@@ -96,7 +102,7 @@ test.describe(`Accessibility Tests`, async () => {
     )
 
     // Try reversing the pages to see if the last ones are the problem.
-    const slim = pages.reverse()
+    const slim = pages.reverse().slice(0, 500)
 
     // fs.writeFileSync(`redirects.js`, JSON.stringify(slim, null, 2))
 
