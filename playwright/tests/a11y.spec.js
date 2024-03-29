@@ -34,6 +34,8 @@ const excludedPages = [
   'http://www.va.gov/my-va/',
   'http://www.va.gov/disability/view-disability-rating/rating/',
   'http://www.va.gov/view-change-dependents/view/',
+  'http://www.va.gov/supporting-forms-for-claims/substitute-claimant-form-21P-0847/',
+  'http://www.va.gov/supporting-forms-for-claims/alternate-signer-form-21-0972/',
 ]
 
 async function runA11yTestsForPages(pages, page, browserName) {
