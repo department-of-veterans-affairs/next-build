@@ -11,6 +11,9 @@ const segmentNumber = process.env.SEGMENT_INDEX
   ? Number(process.env.SEGMENT_INDEX)
   : 0
 
+// Exclude pages with redirects.
+const excludedPages = ['http://www.va.gov/manage-va-debt/summary/']
+
 async function runA11yTestsForPages(pages, page, browserName) {
   let scanResultsArray = []
   const viewportSize = page.viewportSize()
