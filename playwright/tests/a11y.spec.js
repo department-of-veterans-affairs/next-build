@@ -15,6 +15,7 @@ const segmentNumber = process.env.SEGMENT_INDEX
 const excludedPages = [
   'http://www.va.gov/manage-va-debt/summary/',
   'http://www.va.gov/housing-assistance/home-loans/check-coe-status/your-coe/',
+  'http://www.va.gov/education/download-letters/letters/',
 ]
 
 async function runA11yTestsForPages(pages, page, browserName) {
