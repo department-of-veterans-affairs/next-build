@@ -16,6 +16,18 @@ const excludedPages = [
   'http://www.va.gov/manage-va-debt/summary/',
   'http://www.va.gov/housing-assistance/home-loans/check-coe-status/your-coe/',
   'http://www.va.gov/education/download-letters/letters/',
+  'http://www.va.gov/health-care/appointment-pre-check-in/',
+  'http://www.va.gov/resources/search/',
+  'http://www.va.gov/va-payment-history/payments/',
+  'http://www.va.gov/records/get-veteran-id-cards/apply/',
+  'http://www.va.gov/health-care/order-hearing-aid-or-CPAP-supplies-form/',
+  'http://www.va.gov/education/gi-bill/post-9-11/ch-33-benefit/status/',
+  'http://www.va.gov/housing-assistance/home-loans/request-coe-form-26-1880/',
+  'http://www.va.gov/records/download-va-letters/letters/',
+  'http://www.va.gov/decision-reviews/board-appeal/request-board-appeal-form-10182/',
+  'http://www.va.gov/burials-memorials/memorial-items/presidential-memorial-certificates/request-certificate-form-40-0247/',
+  'http://www.va.gov/my-health/order-hearing-aid-or-cpap-supplies-form/',
+  'http://www.va.gov/education/other-va-education-benefits/veteran-rapid-retraining-assistance/apply-for-vrrap-form-22-1990s/',
 ]
 
 async function runA11yTestsForPages(pages, page, browserName) {
@@ -83,10 +95,10 @@ test.describe(`Accessibility Tests`, async () => {
       process.env.BASE_URL || 'http://127.0.0.1:8001'
     )
 
-    // @todo Delete this line after testing.
-    // const slim = pages.slice(0, 15000)
     // Try reversing the pages to see if the last ones are the problem.
     const slim = pages.reverse()
+
+    // fs.writeFileSync(`redirects.js`, JSON.stringify(slim, null, 2))
 
     let segment = slim
     if (segmentNumber !== 0) {

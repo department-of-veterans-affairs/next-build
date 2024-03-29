@@ -5,10 +5,8 @@ import crossFetch from 'cross-fetch'
 function extractUrlsFromXML(xml) {
   return [...xml.matchAll(new RegExp(`<loc>(.|\n)*?</loc>`, 'g'))].map(
     ([loc]) => {
-      return loc
-        .replace('<loc>', '')
-        .replace('</loc>', '')
-        .replace(/^https:/, 'http:')
+      return loc.replace('<loc>', '').replace('</loc>', '')
+      // .replace(/^https:/, 'http:')
     }
   )
 }
