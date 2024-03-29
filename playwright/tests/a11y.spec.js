@@ -4,6 +4,13 @@ import { getSitemapLocations } from '../utils/getSitemapLocations'
 import AxeBuilder from '@axe-core/playwright'
 import fs from 'fs'
 
+const totalSegments = process.env.TOTAL_SEGMENTS
+  ? Number(process.env.TOTAL_SEGMENTS)
+  : 32
+const segmentNumber = process.env.SEGMENT_INDEX
+  ? Number(process.env.SEGMENT_INDEX)
+  : 0
+
 async function runA11yTestsForPages(pages, page, testInfo) {
   let scanResultsArray = []
 
@@ -22,8 +29,14 @@ async function runA11yTestsForPages(pages, page, testInfo) {
       // .exclude('footer')
       .analyze()
 
-    // dummy expect so page has time to analyze, perhaps
-    await expect(page.locator('body')).toBeVisible()
+    // If last segment, then pause for a bit to allow for any final processing.
+    // Also wait for the last few pages.
+    if (
+      segmentNumber === totalSegments &&
+      pages.indexOf(pageUrl) >= pages.length - 5
+    ) {
+      await page.waitForTimeout(5000)
+    }
 
     console.log('page violations:', accessibilityScanResults.violations)
 
@@ -48,13 +61,6 @@ async function runA11yTestsForPages(pages, page, testInfo) {
 
   return scanResultsArray
 }
-
-const totalSegments = process.env.TOTAL_SEGMENTS
-  ? Number(process.env.TOTAL_SEGMENTS)
-  : 32
-const segmentNumber = process.env.SEGMENT_INDEX
-  ? Number(process.env.SEGMENT_INDEX)
-  : 0
 
 test.describe(`Accessibility Tests`, async () => {
   test.setTimeout(4200000)
