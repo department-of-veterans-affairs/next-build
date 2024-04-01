@@ -21,6 +21,7 @@ export const formatter: QueryFormatter<NodeSupportService, Contact> = (
       href: entity.field_link.uri,
     }
   } else {
+    console.log('no status: ', entity)
     return null
   }
 }
