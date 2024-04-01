@@ -14962,7 +14962,7 @@ __metadata:
     next-drupal: ^1.6.0
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
-    nock: ^13.4.0
+    nock: ^13.5.4
     node_extra_ca_certs_mozilla_bundle: ^1.0.6
     playwright-core: ^1.42.1
     plop: ^4.0.1
@@ -15209,14 +15209,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nock@npm:^13.4.0":
-  version: 13.4.0
-  resolution: "nock@npm:13.4.0"
+"nock@npm:^13.5.4":
+  version: 13.5.4
+  resolution: "nock@npm:13.5.4"
   dependencies:
     debug: ^4.1.0
     json-stringify-safe: ^5.0.1
     propagate: ^2.0.0
-  checksum: 30c3751854f9c412df5f99e01eeaef25b2583d3cae80b8c46524acb39d8b7fa61043603472ad94a3adc4b7d1e0f3098e6bb06e787734cbfbde2751891115b311
+  checksum: d31f924e34c87ae985edfb7b5a56e8a4dcfc3a072334ceb6d686326581f93090b3e23492663a64ce61b8df4f365b113231d926bc300bcfe9e5eb309c3e4b8628
   languageName: node
   linkType: hard
 
