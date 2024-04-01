@@ -42,7 +42,7 @@ jobs:
     steps:
       - name: Auth to ECR
         id: login-to-ecr
-        uses: ./.github/workflows/login-to-ecr
+        uses: ./.github/workflows/login-to-ecr/action.yml
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
