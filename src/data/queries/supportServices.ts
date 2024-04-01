@@ -14,14 +14,9 @@ export const formatter: QueryFormatter<NodeSupportService, Contact> = (
 ) => {
   if (!entity) return null
 
-  if (entity.status) {
-    return {
-      title: entity.title,
-      value: entity.field_phone_number,
-      href: entity.field_link.uri,
-    }
-  } else {
-    console.log('no status: ', entity)
-    return null
+  return {
+    title: entity.title,
+    value: entity.field_phone_number,
+    href: entity.field_link.uri,
   }
 }

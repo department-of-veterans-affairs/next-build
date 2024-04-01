@@ -47,7 +47,7 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
   ],
   "contactInformation": {
     "additionalContact": null,
-    "benefitHubContacts": null,
+    "benefitHubContacts": undefined,
     "contactType": "DC",
     "defaultContact": {
       "href": "tel:1-800-698-2411",
