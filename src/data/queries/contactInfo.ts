@@ -53,6 +53,6 @@ export const formatter: QueryFormatter<
         .filter((supportService) => supportService.status)
         .map((supportService) =>
           queries.formatData(RESOURCE_TYPES.SUPPORT_SERVICES, supportService)
-        ),
+        ) || null,
   }
 }
