@@ -14,8 +14,11 @@ on:
   # for testing only
   pull_request:
 
+env:
+  SLACK_CHANNEL: C06DSBT7CBW #status-next-build
+
 jobs:
-  # This is necessary to get credentials to use the private ECR image defined in the test job container.
+  # This is necessary to get credentials to use the private ECR image defined in the build job container.
   login-to-amazon-ecr:
     runs-on: ubuntu-latest
     steps:
@@ -34,19 +37,7 @@ jobs:
       docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
       docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
 
-  # login-to-amazon-ecr:
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     docker_username: ${{ steps.login-to-ecr.outputs.docker_username }}
-  #     docker_password: ${{ steps.login-to-ecr.outputs.docker_password }}
-  #   steps:
-  #     - name: Auth to ECR
-  #       id: login-to-ecr
-  #       uses: ./.github/workflows/login-to-ecr/action.yml
-  #       with:
-  #         aws-region: us-gov-west-1
-  #         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
-
+  # Ensure latest build from main is passing CI, grab the latest published tag for content-release
   validate-build-status:
     name: Validate Build Status
     runs-on: ubuntu-latest
@@ -161,3 +152,39 @@ jobs:
       env:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
+
+  notify-success:
+    name: Notify Success
+    needs: [validate-build-status, build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully released content to S3 with next-build release: ${{ needs.validate-build-status.outputs.TAG }}"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  notify-failure:
+    name: Notify Failure
+    runs-on: ubuntu-latest
+    if: ${{ failure() || cancelled() }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warn: The latest content-release failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
