@@ -16,36 +16,36 @@ on:
 
 jobs:
   # This is necessary to get credentials to use the private ECR image defined in the test job container.
-  # login-to-amazon-ecr:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Configure AWS credentials
-  #     uses: aws-actions/configure-aws-credentials@v4
-  #     with:
-  #       aws-region: us-gov-west-1
-  #       role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
-  #       mask-aws-account-id: 'false'
-  #   - name: Login to Amazon ECR
-  #     id: login-ecr
-  #     uses: aws-actions/amazon-ecr-login@v2
-  #     with:
-  #       mask-password: 'false'
-  #   outputs:
-  #     docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
-  #     docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
-
   login-to-amazon-ecr:
     runs-on: ubuntu-latest
-    outputs:
-      docker_username: ${{ steps.login-to-ecr.outputs.docker_username }}
-      docker_password: ${{ steps.login-to-ecr.outputs.docker_password }}
     steps:
-      - name: Auth to ECR
-        id: login-to-ecr
-        uses: ./.github/workflows/login-to-ecr/action.yml
-        with:
-          aws-region: us-gov-west-1
-          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-gov-west-1
+        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+        mask-aws-account-id: 'false'
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+      with:
+        mask-password: 'false'
+    outputs:
+      docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+      docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+
+  # login-to-amazon-ecr:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     docker_username: ${{ steps.login-to-ecr.outputs.docker_username }}
+  #     docker_password: ${{ steps.login-to-ecr.outputs.docker_password }}
+  #   steps:
+  #     - name: Auth to ECR
+  #       id: login-to-ecr
+  #       uses: ./.github/workflows/login-to-ecr/action.yml
+  #       with:
+  #         aws-region: us-gov-west-1
+  #         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
 
   validate-build-status:
     name: Validate Build Status
