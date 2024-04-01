@@ -11,32 +11,84 @@ on:
     workflows: ['Continuous Integration']
     types: [completed]
     branches: [main]
+  # for testing only
+  pull_request:
 
 jobs:
   # This is necessary to get credentials to use the private ECR image defined in the test job container.
+  # login-to-amazon-ecr:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Configure AWS credentials
+  #     uses: aws-actions/configure-aws-credentials@v4
+  #     with:
+  #       aws-region: us-gov-west-1
+  #       role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+  #       mask-aws-account-id: 'false'
+  #   - name: Login to Amazon ECR
+  #     id: login-ecr
+  #     uses: aws-actions/amazon-ecr-login@v2
+  #     with:
+  #       mask-password: 'false'
+  #   outputs:
+  #     docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+  #     docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+
   login-to-amazon-ecr:
     runs-on: ubuntu-latest
-    steps:
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-region: us-gov-west-1
-        role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
-        mask-aws-account-id: 'false'
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2
-      with:
-        mask-password: 'false'
     outputs:
-      docker_username: ${{ steps.login-ecr.outputs.docker_username_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
-      docker_password: ${{ steps.login-ecr.outputs.docker_password_008577686731_dkr_ecr_us_gov_west_1_amazonaws_com }}
+      docker_username: ${{ steps.login-to-ecr.outputs.docker_username }}
+      docker_password: ${{ steps.login-to-ecr.outputs.docker_password }}
+    steps:
+      - name: Auth to ECR
+        id: login-to-ecr
+        uses: ./.github/workflows/login-to-ecr
+        with:
+          aws-region: us-gov-west-1
+          role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
+
+  validate-build-status:
+    name: Validate Build Status
+    runs-on: ubuntu-latest
+    outputs:
+      REF: ${{ steps.get-latest-release.outputs.target_commitish }}
+      TAG: ${{ steps.get-latest-release.outputs.tag_name }}
+      APPROX_WORKFLOW_START_TIME: ${{ steps.export-approx-workflow-start-time.outputs.APPROX_WORKFLOW_START_TIME }}
+    timeout-minutes: 15
+
+    steps:
+      - name: Export approximate workflow start time
+        id: export-approx-workflow-start-time
+        run: echo APPROX_WORKFLOW_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20 # the validate-build-status requires node12, node16, node20...
+      - name: Setup Yarn
+        run: |
+          corepack enable
+          corepack install -g --cache-only .yarn/releases/corepack.tgz
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Get latest release
+        id: get-latest-release
+        uses: ./.github/workflows/fetch-latest-release
+
+      - name: Validate build status
+        run: node ./scripts/github-actions/validate-build-status.js ${{ steps.get-latest-release.outputs.target_commitish }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     name: Build static pages & deploy to S3
     timeout-minutes: 60
     runs-on: [self-hosted, asg]
-    needs: login-to-amazon-ecr
+    needs: [validate-build-status, login-to-amazon-ecr]
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
       credentials:
@@ -52,11 +104,11 @@ jobs:
         - /etc/ssl/certs:/etc/ssl/certs
     steps:
 
-    # todo: make sure this uses latest tagged release
     - name: Checkout next-build
       uses: actions/checkout@v4
       with:
         repository: department-of-veterans-affairs/next-build
+        ref: ${{ needs.validate-build-status.outputs.TAG }}
         path: main
 
     - name: Checkout vets-website
