@@ -104,7 +104,7 @@
     "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.14.202",
-    "@types/node": "20.11.19",
+    "@types/node": "20.12.2",
     "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.18",
     "@types/testing-library__react": "^10.2.0",
