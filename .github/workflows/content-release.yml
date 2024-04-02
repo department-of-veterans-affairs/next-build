@@ -76,7 +76,7 @@ jobs:
 
   notify-start-slack:
     name: Notify Start (Slack)
-    runs-on: [self-hosted, asg]
+    runs-on: ubuntu-latest
     needs: validate-build-status
     steps:
       - name: Checkout
