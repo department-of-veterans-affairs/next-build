@@ -15,20 +15,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src",
     "typeRoots": ["node_modules/@types"],
     "types": ["node", "jest"],
     "paths": {
-      "@/assets/*": ["assets/*"],
-      "@/api/*": ["pages/api/*"],
-      "@/data/*": ["data/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/lib/*": ["lib/*"],
-      "@/mocks/*": ["mocks/*"],
-      "@/pages/*": ["pages/*"],
-      "@/stories/*": ["stories/*"],
-      "@/templates/*": ["templates/*"],
-      "@/types/*": ["types/*"],
+      "@/*": ["./src/*"],
       "react": ["./node_modules/@types/react"]
     }
   },
