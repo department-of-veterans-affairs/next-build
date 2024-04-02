@@ -11,7 +11,6 @@ on:
     workflows: ['Continuous Integration']
     types: [completed]
     branches: [main]
-  pull_request:
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
@@ -197,6 +196,7 @@ jobs:
       - name: Get Datadog token from Parameter Store
         uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
         with:
+          # The parameter name here is misleading. In Datadog, it's defined as CMS_CI_DD_API_KEY, for use across all CMS CI, not just content-build.
           ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_API_KEY
           env_variable_name: GHA_CONTENT_BUILD_DATADOG_API_KEY
 
@@ -250,6 +250,7 @@ jobs:
       - name: Get Datadog token from Parameter Store
         uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
         with:
+          # The parameter name here is misleading. In Datadog, it's defined as CMS_CI_DD_API_KEY, for use across all CMS CI, not just content-build.
           ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_API_KEY
           env_variable_name: GHA_CONTENT_BUILD_DATADOG_API_KEY
 
