@@ -11,7 +11,6 @@ on:
     workflows: ['Continuous Integration']
     types: [completed]
     branches: [main]
-  # testing
   pull_request:
 
 env:
@@ -177,7 +176,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@v4
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -213,7 +212,6 @@ jobs:
           jq '.tags[2] = "workflow:content-release"' | \
           jq '.tags[3] = "env:prod"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
-          jq '.tags[6] = "trigger:${{env.BUILD_TRIGGER}}"' | \
           jq '.alert_type = "success"' > event.json
 
       - name: Send event to Datadog
@@ -231,7 +229,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@v4
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -267,7 +265,6 @@ jobs:
           jq '.tags[2] = "workflow:content-release"' | \
           jq '.tags[3] = "env:prod"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
-          jq '.tags[6] = "trigger:${{env.BUILD_TRIGGER}}"' | \
           jq '.alert_type = "error"' > event.json
 
       - name: Send event to Datadog
