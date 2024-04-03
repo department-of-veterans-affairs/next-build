@@ -5,7 +5,7 @@ import { getCmsFeatureFlags } from './cms-feature-flags'
 import { spawn } from 'child_process'
 
 export type EnvVars = {
-  [key: string]: string
+  [key: string]: string | boolean
 }
 
 export const processEnv = async (command: string): Promise<void> => {
@@ -24,7 +24,10 @@ export const processEnv = async (command: string): Promise<void> => {
     const drupalBaseUrlProp = 'NEXT_PUBLIC_DRUPAL_BASE_URL'
     const drupalBaseUrl =
       cliOptions[drupalBaseUrlProp] || envVars[drupalBaseUrlProp]
-    cmsFeatureFlags = await getCmsFeatureFlags(drupalBaseUrl)
+    cmsFeatureFlags = await getCmsFeatureFlags(
+      drupalBaseUrl as string,
+      cliOptions.DEBUG as boolean
+    )
   }
 
   process.env = {
