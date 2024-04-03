@@ -13,6 +13,7 @@ env:
   BUILD_TYPE: vagovprod
   APP_ENV: prod
   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+  SLACK_CHANNEL: C06DSBT7CBW #status-next-build
 
 jobs:
   # This is necessary to get credentials to use the private ECR image defined in the build job container.
@@ -151,3 +152,40 @@ jobs:
       env:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
+
+  notify-success:
+    name: Notify Success (Slack)
+    needs: [validate-build-status, build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully archived next-build release: ${{ needs.validate-build-status.outputs.TAG }} at s3://vetsgov-website-builds-s3-upload/next-build/${{needs.validate-build-status.outputs.REF}}/${{ env.BUILD_TYPE }}.tar.bz2"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  notify-failure:
+    name: Notify Failure (Slack)
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ failure() || cancelled() }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Notify Slack
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{"attachments": [{"color": "#D33834","blocks": [{"type": "section","text": {"type": "mrkdwn","text": ">:warning: The latest nightly archive failed to complete: <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
