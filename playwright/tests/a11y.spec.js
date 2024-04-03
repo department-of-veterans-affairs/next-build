@@ -48,6 +48,7 @@ test.describe(`Accessibility Tests`, async () => {
     // makeAxeBuilder,
   }, testInfo) => {
     let scanResultsArray = []
+    let faliedPagesArray = []
     const viewportSize = page.viewportSize()
     const pages = await getSitemapLocations(
       process.env.BASE_URL || 'http://127.0.0.1:8001'
@@ -97,6 +98,7 @@ test.describe(`Accessibility Tests`, async () => {
         }
       } catch (error) {
         console.log('error:', error)
+        faliedPagesArray.push({ url: pageUrl, error })
       }
     }
 
@@ -108,6 +110,18 @@ test.describe(`Accessibility Tests`, async () => {
         ',\n'
 
       fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResultsArray)
+    }
+
+    if (faliedPagesArray.length > 0) {
+      const trimmedFailedPagesArray =
+        JSON.stringify(faliedPagesArray, null, 2).replace(/^\[|]$/g, '') +
+        // Add a trailing comma to the output so JSON is valid when merged.
+        ',\n'
+
+      fs.writeFileSync(
+        `failed-pages-segment-${segmentNumber}.json`,
+        trimmedFailedPagesArray
+      )
     }
   })
 })

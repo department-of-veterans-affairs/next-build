@@ -64,7 +64,7 @@ jobs:
         run: |
           SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
-      - name: Upload blob report to GitHub Actions Artifacts
+      - name: Upload scan report to GitHub Actions Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -72,7 +72,15 @@ jobs:
           path: segment-${{ matrix.shardIndex }}.json
           retention-days: 7
 
-  merge-reports:
+      - name: Upload failed pages report to GitHub Actions Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failed-pages-segment-${{ matrix.shardIndex }}.json
+          path: failed-pages-segment-${{ matrix.shardIndex }}.json
+          retention-days: 7
+
+  merge-scan-reports:
     if: always()
     needs: [playwright-tests]
 
@@ -104,5 +112,39 @@ jobs:
         with:
           name: a11y-scan-${{ github.run_attempt }}
           path: all-segments.json
+          retention-days: 14
+
+  merge-failed-pages-reports:
+    if: always()
+    needs: [playwright-tests]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: failed-pages-segment-*
+          merge-multiple: true
+
+      - name: Merge reports in valid JSON format
+        run: |
+          echo '[' > all-failed-pages.json
+          cat failed-pages-segment-*.json >> all-failed-pages.json
+          sed -i '$s/,$//' all-failed-pages.json
+          echo ']' >> all-failed-pages.json
+          cat all-failed-pages.json
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-scan-failed-pages-${{ github.run_attempt }}
+          path: all-failed-pages.json
           retention-days: 14
 
