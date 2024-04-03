@@ -5,9 +5,10 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 on:
-  # Schedule; currently once nightly, at 7:20 UTC.
+  # Schedule; currently once nightly, at 5:00 UTC.
+  # This is deliberately set at a different time than the broken link check to reduce load on runners.
   schedule:
-    - cron: 20 7 * * *
+    - cron: 0 5 * * *
 
 env:
   BUILD_TYPE: vagovprod
@@ -160,7 +161,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@v4
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
@@ -179,7 +180,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@v4
 
       - name: Notify Slack
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
