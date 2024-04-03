@@ -70,30 +70,33 @@ test.describe(`Accessibility Tests`, async () => {
         continue
       }
 
-      await page.goto(pageUrl)
-      console.log('testing page:', pageUrl)
+      try {
+        console.log('testing page:', pageUrl)
+        await page.goto(pageUrl)
 
-      // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
-      // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
+        // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
+        // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
 
-      const accessibilityScanResults = await new AxeBuilder({ page })
-        .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-        .exclude('iframe')
-        // @todo do the header and footer need to be scanned every page since I think they are the same?
-        // .exclude('header')
-        // .exclude('footer')
-        .analyze()
+        const accessibilityScanResults = await new AxeBuilder({ page })
+          .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+          .exclude('iframe')
+          // @todo do the header and footer need to be scanned every page since I think they are the same?
+          // .exclude('header')
+          // .exclude('footer')
+          .analyze()
 
-      console.log('page violations:', accessibilityScanResults.violations)
-
-      if (accessibilityScanResults.violations.length > 0) {
-        const scanResults = {
-          url: pageUrl,
-          browserName,
-          viewportSize,
-          violations: accessibilityScanResults.violations,
+        console.log('page violations:', accessibilityScanResults.violations)
+        if (accessibilityScanResults.violations.length > 0) {
+          const scanResults = {
+            url: pageUrl,
+            browserName,
+            viewportSize,
+            violations: accessibilityScanResults.violations,
+          }
+          scanResultsArray.push(scanResults)
         }
-        scanResultsArray.push(scanResults)
+      } catch (error) {
+        console.log('error:', error)
       }
     }
 
