@@ -64,7 +64,7 @@ test.describe(`Accessibility Tests`, async () => {
     console.log('browser name:', browserName)
     console.log('viewport size:', viewportSize)
 
-    for (const pageUrl of pages) {
+    for (const pageUrl of segment) {
       if (excludedPages.includes(pageUrl)) {
         console.log('skipping page:', pageUrl)
         continue
@@ -80,9 +80,9 @@ test.describe(`Accessibility Tests`, async () => {
         const accessibilityScanResults = await new AxeBuilder({ page })
           .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
           .exclude('iframe')
-          // @todo do the header and footer need to be scanned every page since I think they are the same?
-          // .exclude('header')
-          // .exclude('footer')
+          // Exclude header and footer since they are shared on every page.
+          .exclude('header')
+          .exclude('footer')
           .analyze()
 
         console.log('page violations:', accessibilityScanResults.violations)
