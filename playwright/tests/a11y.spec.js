@@ -36,6 +36,7 @@ const excludedPages = [
   'http://www.va.gov/view-change-dependents/view/',
   'http://www.va.gov/supporting-forms-for-claims/substitute-claimant-form-21P-0847/',
   'http://www.va.gov/supporting-forms-for-claims/alternate-signer-form-21-0972/',
+  'http://www.va.gov/careers-employment/education-and-career-counseling/apply-career-guidance-form-25-8832/',
 ]
 
 test.describe(`Accessibility Tests`, async () => {
