@@ -39,8 +39,9 @@ export default defineConfig({
     {
       name: 'a11y',
       testMatch: /.a11y.spec.js/,
-      // No retries so last GH runner doesn't fail.
+      // No retries since no assertions are made.
       retries: 0,
+      timeout: 4200000,
       use: {
         browserName:
           (process.env.PW_BROWSER_VALUE as 'chromium' | 'firefox' | 'webkit') ||

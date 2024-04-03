@@ -55,6 +55,7 @@ jobs:
         run: npx playwright install --with-deps
 
       # This is necessary in order for fetch to work.
+      # Finally, made fetch happen...
       - name: Build proxy-fetcher dist
         run: |
           yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
@@ -72,7 +73,6 @@ jobs:
           retention-days: 7
 
   merge-reports:
-    # Merge reports after playwright-tests, even if some shards have failed
     if: always()
     needs: [playwright-tests]
 

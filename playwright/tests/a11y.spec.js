@@ -38,59 +38,6 @@ const excludedPages = [
   'http://www.va.gov/supporting-forms-for-claims/alternate-signer-form-21-0972/',
 ]
 
-async function runA11yTestsForPages(pages, page, browserName) {
-  let scanResultsArray = []
-  const viewportSize = page.viewportSize()
-
-  console.log('browser name:', browserName)
-  console.log('viewport size:', viewportSize)
-
-  for (const pageUrl of pages) {
-    if (excludedPages.includes(pageUrl)) {
-      console.log('skipping page:', pageUrl)
-      continue
-    }
-
-    await page.goto(pageUrl)
-    console.log('testing page:', pageUrl)
-
-    // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
-    // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
-
-    const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-      .exclude('iframe')
-      // @todo do the header and footer need to be scanned every page since I think they are the same?
-      // .exclude('header')
-      // .exclude('footer')
-      .analyze()
-
-    console.log('page violations:', accessibilityScanResults.violations)
-
-    if (accessibilityScanResults.violations.length > 0) {
-      const scanResults = {
-        url: pageUrl,
-        browserName,
-        viewportSize,
-        violations: accessibilityScanResults.violations,
-      }
-      scanResultsArray.push(scanResults)
-    }
-  }
-
-  if (scanResultsArray.length > 0) {
-    // Remove root array from scanResultsArray so we can merge results more cleanly.
-    const trimmedScanResultsArray =
-      JSON.stringify(scanResultsArray, null, 2).replace(/^\[|]$/g, '') +
-      // Add a trailing comma to the output so JSON is valid when merged.
-      ',\n'
-
-    fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResultsArray)
-  }
-
-  return scanResultsArray
-}
-
 test.describe(`Accessibility Tests`, async () => {
   test.setTimeout(4200000)
 
@@ -99,24 +46,65 @@ test.describe(`Accessibility Tests`, async () => {
     browserName,
     // makeAxeBuilder,
   }, testInfo) => {
+    let scanResultsArray = []
+    const viewportSize = page.viewportSize()
     const pages = await getSitemapLocations(
       process.env.BASE_URL || 'http://127.0.0.1:8001'
     )
 
-    // Try reversing the pages to see if the last ones are the problem.
-    const slim = pages.reverse()
-
-    // fs.writeFileSync(`redirects.js`, JSON.stringify(slim, null, 2))
-
-    let segment = slim
+    // Reverse the pages since the last sitemap links were causing issues.
+    // Easier to look at the first failed segment in GH Actions.
+    let segment = pages.reverse()
     if (segmentNumber !== 0) {
-      segment = splitArray(slim, totalSegments)[segmentNumber - 1]
+      segment = splitArray(segment, totalSegments)[segmentNumber - 1]
     }
 
     console.log('number of pages in segment', segment.length)
+    console.log('browser name:', browserName)
+    console.log('viewport size:', viewportSize)
 
-    const results = await runA11yTestsForPages(segment, page, browserName)
-    // expect(results).toEqual([])
+    for (const pageUrl of pages) {
+      if (excludedPages.includes(pageUrl)) {
+        console.log('skipping page:', pageUrl)
+        continue
+      }
+
+      await page.goto(pageUrl)
+      console.log('testing page:', pageUrl)
+
+      // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
+      // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
+
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .exclude('iframe')
+        // @todo do the header and footer need to be scanned every page since I think they are the same?
+        // .exclude('header')
+        // .exclude('footer')
+        .analyze()
+
+      console.log('page violations:', accessibilityScanResults.violations)
+
+      if (accessibilityScanResults.violations.length > 0) {
+        const scanResults = {
+          url: pageUrl,
+          browserName,
+          viewportSize,
+          violations: accessibilityScanResults.violations,
+        }
+        scanResultsArray.push(scanResults)
+      }
+    }
+
+    if (scanResultsArray.length > 0) {
+      // Remove root array from scanResultsArray so we can merge results more cleanly.
+      const trimmedScanResultsArray =
+        JSON.stringify(scanResultsArray, null, 2).replace(/^\[|]$/g, '') +
+        // Add a trailing comma to the output so JSON is valid when merged.
+        ',\n'
+
+      fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResultsArray)
+    }
   })
 })
 
