@@ -72,7 +72,7 @@ describe('<Event /> Component', () => {
           title: '',
           width: 0,
           height: 0,
-          links: {},
+          links: { '2_1_large': { href: '/foo' } },
         }}
         date={''}
         facilityLocation={undefined}

@@ -49,9 +49,10 @@ export const formatter: QueryFormatter<
     // For now, we can drill down into `field_support_services` and pass that to the formatter for
     // RESOURCE_TYPES.SUPPORT_SERVICE.
     benefitHubContacts:
-      entity.field_benefit_hub_contacts?.field_support_services.map(
-        (supportService) =>
+      entity.field_benefit_hub_contacts?.field_support_services
+        .filter((supportService) => supportService.status)
+        .map((supportService) =>
           queries.formatData(RESOURCE_TYPES.SUPPORT_SERVICES, supportService)
-      ),
+        ) || null,
   }
 }
