@@ -101,6 +101,10 @@ jobs:
 
       - name: Merge reports in valid JSON format
         run: |
+          if [ ! -f segment-*.json ]; then
+              echo "No segment-*.json files found."
+              exit 1
+          fi
           echo '[' > all-segments.json
           cat segment-*.json >> all-segments.json
           sed -i '$s/,$//' all-segments.json
@@ -135,6 +139,10 @@ jobs:
 
       - name: Merge reports in valid JSON format
         run: |
+          if [ ! -f failed-pages-segment-*.json ]; then
+              echo "No failed-pages-segment-*.json files found."
+              exit 1
+          fi
           echo '[' > all-failed-pages.json
           cat failed-pages-segment-*.json >> all-failed-pages.json
           sed -i '$s/,$//' all-failed-pages.json
