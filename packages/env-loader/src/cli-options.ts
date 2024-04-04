@@ -66,7 +66,8 @@ export const getCliOptionsAndArgs = (): CliOptionsAndArgs => {
 
   program
     .passThroughOptions()
-    .option('-d, --DEBUG', 'Verbose logging on build', false)
+    .option('--DEBUG', 'Verbose logging on build', false)
+    .option('--no-DEBUG', 'No verbose logging on build')
     .option('--NEXT_IMAGE_DOMAIN <url>', 'Drupal image domain')
     .option(
       '--NEXT_PUBLIC_ASSETS_URL <url>',
@@ -86,12 +87,17 @@ export const getCliOptionsAndArgs = (): CliOptionsAndArgs => {
     .option('--DRUPAL_PREVIEW_SECRET <secret>', 'Drupal preview secret')
     .option('--DRUPAL_SITE_ID <id>', 'Drupal site ID')
     .option('--USE_REDIS', 'Enable redis', false)
+    .option('--no-USE_REDIS', 'Disable redis')
     .option('--REDIS_URL <url>', 'Redis URL')
     .option('--SITE_URL <url>', 'Origin used for generated absolute paths')
     .option(
       '--SSG',
       'Run logic in getStaticPaths to generate all page URLs',
       false
+    )
+    .option(
+      '--no-SSG',
+      'Skip logic in getStaticPaths to generate all page URLs'
     )
 
   const additionalHelpText = getAdditionalHelpText()
