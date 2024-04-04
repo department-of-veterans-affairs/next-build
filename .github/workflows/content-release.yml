@@ -8,7 +8,7 @@ on:
   repository_dispatch:
     types: [content-release]
   workflow_run:
-    workflows: ['Continuous Integration']
+    workflows: ['Create Production Tag']
     types: [completed]
     branches: [main]
 
