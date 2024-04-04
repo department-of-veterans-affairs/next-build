@@ -5,8 +5,10 @@ import { getFetcher } from 'proxy-fetcher'
 const baseUrl =
   process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'https://va-gov-cms.ddev.site'
 
+const debug = process.env.DEBUG === 'true'
+
 export const drupalClient = new DrupalClient(baseUrl, {
-  fetcher: getFetcher(baseUrl),
+  fetcher: getFetcher(baseUrl, debug),
   useDefaultResourceTypeEntry: true,
   throwJsonApiErrors: false,
   auth: {
