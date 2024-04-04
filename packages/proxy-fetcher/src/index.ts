@@ -2,7 +2,7 @@ import crossFetch from 'cross-fetch'
 import { SocksProxyAgent } from 'socks-proxy-agent'
 
 export const getFetcher =
-  (baseUrl: string) =>
+  (baseUrl: string, debug: boolean = false) =>
   async (input: RequestInfo, init: RequestInit = {}) => {
     const url = new URL(baseUrl)
     const host = url.host
@@ -35,13 +35,21 @@ export const getFetcher =
       const response = await crossFetch(input, {
         ...options,
       })
+
+      // Log request failures:
+      //  In debug mode: always
+      //  In non-debug mode: only on final attempt
+      const logFailedRequest = debug ? true : attempt === retryCount + 1
+
       if (!response.ok) {
-        /*eslint-disable-next-line*/
-        console.log(
-          `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${
-            response.url
-          }`
-        )
+        if (logFailedRequest) {
+          /*eslint-disable-next-line*/
+          console.log(
+            `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${
+              response.url
+            }`
+          )
+        }
         throw new Error('Failed request')
       }
       return response

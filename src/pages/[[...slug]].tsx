@@ -129,10 +129,10 @@ export default function ResourcePage({
 export async function getStaticPaths(
   context: GetStaticPathsContext
 ): Promise<GetStaticPathsResult> {
-  // `getStaticPaths` is run on every request in dev mode (`next dev`). We don't need this,
-  // so we set SSG=true on `next build/export` and SSG=false on `next dev`.
-  // `getStaticPaths` will never be called during runtime (`next start`), but we could set
-  // SSG=false there as well, for good measure.
+  // `getStaticPaths` is called on every request in dev mode (`next dev`). We don't need this,
+  // so we set SSG=false (default) for `next dev` and set SSG=true on `next build/export`.
+  // `getStaticPaths` will never be called during runtime (`next start`), but SSG will default
+  // to false there as well.
   if (process.env.SSG === 'false') {
     return {
       paths: [],

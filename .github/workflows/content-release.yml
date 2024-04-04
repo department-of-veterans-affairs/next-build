@@ -8,7 +8,7 @@ on:
   repository_dispatch:
     types: [content-release]
   workflow_run:
-    workflows: ['Continuous Integration']
+    workflows: ['Create Production Tag']
     types: [completed]
     branches: [main]
 
@@ -150,7 +150,7 @@ jobs:
         max_attempts: 3
         retry_on: error
         timeout_minutes: 30
-        command: cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --USE_REDIS=false
+        command: cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS
 
     - name: Build sitemap
       run: cd main && yarn build:sitemap
