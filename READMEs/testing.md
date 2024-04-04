@@ -84,7 +84,8 @@ runners, but you can also run it locally for testing and debugging purposes.
 
 - Workflow file: `.github/workflows/a11y.yml`
 - Test file: `playwright/tests/a11y.spec.js`
-- Yarn command: `yarn test:playwright:a11y`
+- Yarn command with plenty of env var config options: `yarn 
+test:playwright:a11y`
 
 #### GitHub Workflow
 
@@ -128,8 +129,13 @@ More detail about configuration and how the env vars are used is located in the
 After the run the JSON output from the test run is uploaded into a file with
 the segment name included, e.g. `segment-${{ matrix.shardIndex }}.json`.
 
+To deal with an issue where pages were redirecting when Axe was trying to
+scan them, we added a `try/catch` to log those to a separate
+`failed-pages-segment-${{ matrix.shardIndex }}.json` report.
+
 Then the `merge-reports` job waits for all the runners to finish before
-concatenating the results and making sure the final JSON output is valid.
+concatenating the results of both reports and making sure the final JSON
+output is valid.
 
 In the future, the report will be uploaded and sent to who needs it, but for
 now you can download it from GitHub on the Actions summary view for the a11y
@@ -162,9 +168,10 @@ The actual test doesn't actually run any assertions. The reason for this is
 that we are scanning many pages in one test. We could split it up so each
 URL is run in an isolated test but that would require more setup and
 teardown costing time. Also...just being honest...passing data to each test
-via async/await was finicky.
+via async/await was finicky, and I never went back to try and invesitgate
+further.
 
-Test run:
+Test run workflow:
 
 1. Get pages of the sitemap.
 2. Split the pages into segments if the segment index is not zero. This
@@ -173,9 +180,10 @@ Test run:
 4. `AxeBuilder` analyzes each page.
 5. If violations are found, they are pushed into an array with the URL and
    violations as keys.
-6. After all pages are scanned, the final results are written to a JSON file.
-   The root element is stripped to make merging the reports easier as well
-   as adding a trailing comma.
+6. If an error occurs, then catch it and log to a separate failed pages array.
+7. After all pages are scanned, the final results are written to a JSON file
+   for pages scanned and failures. The root element is stripped to make
+   merging the reports easier as well as adding a trailing comma.
 
 #### Local Testing
 
@@ -191,3 +199,8 @@ fresh next-build instance, you can follow these steps:
    pass in.
 6. `BASE_URL=${your-url} yarn test:playwright:a11y` to run the scan. This runs
    `playwright/tests/a11y.spec.js` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
+
+You should also add the config values you want locally to end up with
+something like: `BASE_URL=${...} USE_PROXY=false PW_WIDTH_VALUE=768 
+PW_HEIGHT_VALUE=720 PW_BROWSER_VALUE=firefox yarn playwright test --project=a11y
+`
