@@ -131,7 +131,8 @@ the segment name included, e.g. `segment-${{ matrix.shardIndex }}.json`.
 
 To deal with an issue where pages were redirecting when Axe was trying to
 scan them, we added a `try/catch` to log those to a separate
-`failed-pages-segment-${{ matrix.shardIndex }}.json` report.
+`failed-pages-segment-${{ matrix.shardIndex }}.json` report. Some pages were
+still trouble so those are excluded from the scan entirely.
 
 Then the `merge-reports` job waits for all the runners to finish before
 concatenating the results of both reports and making sure the final JSON
@@ -168,15 +169,18 @@ The actual test doesn't actually run any assertions. The reason for this is
 that we are scanning many pages in one test. We could split it up so each
 URL is run in an isolated test but that would require more setup and
 teardown costing time. Also...just being honest...passing data to each test
-via async/await was finicky, and I never went back to try and invesitgate
+via async/await was finicky, and I never went back to try and investigate
 further.
+
+Some pages end up redirecting
 
 Test run workflow:
 
 1. Get pages of the sitemap.
 2. Split the pages into segments if the segment index is not zero. This
    allows to run against all pages locally or use segment indexes on GH.
-3. Pages are looped through and navigated to.
+3. Pages are looped through and navigated to as long as the page isn't in
+   the list of excluded pages.
 4. `AxeBuilder` analyzes each page.
 5. If violations are found, they are pushed into an array with the URL and
    violations as keys.
