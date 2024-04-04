@@ -7,7 +7,7 @@ import { Meta } from '@storybook/blocks';
 
 # Welcome to the next-build Storybook!
 
-Here, you'll find the components and layouts available for use on the front end of VA.gov.
+Here, you'll find the components and layouts available for use on the front end of **[VA.gov](https://va.gov)**.
 Check out the navigation in the left panel for that list.
 Each item will have one or more "stories" on it so you can see the various states it can have.
 
@@ -19,32 +19,6 @@ reach out to us in **#accelerated-publishing**.
 Visit the VA Design System Team's helpful explainer: **[How to use Storybook](https://design.va.gov/storybook/?path=/docs/about-how-to-use-storybook--page)** for some quick guidance on how to navigate
 around the Storybook UI.
 
-
-## Using the Design System
-Next-build imports the VA Design System. These styles are imported into Storybook and the overall next-build application for you automatically.
-
-See the **[VA.gov Design System](https://design.va.gov/foundation/)** for more information about the available CSS utility classes.
-
-To see where these are imported, look at the following files for next-build:
-- `@/assets/styles/globals.css`
-- `@/pages/app.tsx`
-- `@/pages/_document.tsx`
-
-For this Storybook:
-- `.storybook/preview.tsx`
-
-## Using the Design System's web components or vets-website widgets
-Next-build imports web components from the VA Design System as well as widgets from vets-website (Header, Footer, Facility Sidebar Navigation, etc.)
-
-**[v3 components](https://design.va.gov/components/) from the Design System should be used whenever possible!**
-
-
-Some of the widgets from vets-website may need additional data passed to them via the `window` object.
-If this happens in the component itself, these values can be passed in as props in storybook. See `wrapper.stories.tsx`.
-
-For components that do not need extra data passed to them, we have a Storybook Decorator automatically applied to all stories by default, so they "just work".
-This decorator stubs out some `window` object data for widgets to load correctly, as we currently load the full static-pages-entry bundle.
-See `@/stories/webComponentProvider.tsx` and `.storybook/preview.tsx` for more information.
 
 ## Report an Issue
 We are always looking to make improvements.
