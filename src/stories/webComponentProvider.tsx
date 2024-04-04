@@ -30,8 +30,7 @@ const WebComponentProvider = ({ children }) => {
 
       const emptyFooter = document.createElement('div')
       emptyFooter.id = 'footerNav'
-      // @ts-expect-error custom data attr doesn't exist on HTMLDivElement
-      emptyFooter.dataMinimalFooter = 'false'
+      emptyFooter['data-minimal-footer'] = 'false'
       emptyFooter.style.display = 'none' // so the fake footer isn't visible. (:
       document.body.appendChild(emptyFooter)
     }
