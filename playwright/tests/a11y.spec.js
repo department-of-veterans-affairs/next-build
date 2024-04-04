@@ -39,33 +39,30 @@ const segmentNumber = process.env.SEGMENT_INDEX
 //   'http://www.va.gov/careers-employment/education-and-career-counseling/apply-career-guidance-form-25-8832/',
 // ]
 
-test.describe(`Accessibility Tests`, async () => {
+test.describe(`Accessibility Site Scan`, async () => {
   test.setTimeout(4200000)
 
-  test(`the site should be accessible`, async ({
+  test(`The sitemap should contain accessible pages`, async ({
     page,
     browserName,
     // makeAxeBuilder,
   }, testInfo) => {
-    let scanResultsArray = []
-    let faliedPagesArray = []
     const viewportSize = page.viewportSize()
-    const pages = await getSitemapLocations(
+    let scanResults = []
+    let failedPages = []
+    let pages = await getSitemapLocations(
       process.env.BASE_URL || 'http://127.0.0.1:8001'
     )
 
-    // Reverse the pages since the last sitemap links were causing issues.
-    // Easier to look at the first failed segment in GH Actions.
-    let segment = pages.reverse()
     if (segmentNumber !== 0) {
-      segment = splitArray(segment, totalSegments)[segmentNumber - 1]
+      pages = splitArray(pages, totalSegments)[segmentNumber - 1]
     }
 
-    console.log('number of pages in segment', segment.length)
+    console.log('number of pages in segment', pages.length)
     console.log('browser name:', browserName)
     console.log('viewport size:', viewportSize)
 
-    for (const pageUrl of segment) {
+    for (const pageUrl of pages) {
       // if (excludedPages.includes(pageUrl)) {
       //   console.log('skipping page:', pageUrl)
       //   continue
@@ -88,39 +85,48 @@ test.describe(`Accessibility Tests`, async () => {
 
         console.log('page violations:', accessibilityScanResults.violations)
         if (accessibilityScanResults.violations.length > 0) {
-          const scanResults = {
+          scanResults.push({
             url: pageUrl,
             browserName,
             viewportSize,
             violations: accessibilityScanResults.violations,
-          }
-          scanResultsArray.push(scanResults)
+          })
         }
       } catch (error) {
-        console.log('error:', error)
-        faliedPagesArray.push({ url: pageUrl, error })
+        let message = error
+        if (error instanceof Error) {
+          message = error.message
+        }
+
+        console.log('error:', message)
+        failedPages.push({
+          url: pageUrl,
+          browserName,
+          viewportSize,
+          error: message,
+        })
       }
     }
 
-    if (scanResultsArray.length > 0) {
-      // Remove root array from scanResultsArray so we can merge results more cleanly.
-      const trimmedScanResultsArray =
-        JSON.stringify(scanResultsArray, null, 2).replace(/^\[|]$/g, '') +
+    if (scanResults.length > 0) {
+      // Remove root array from scanResults so we can merge results more cleanly.
+      const trimmedScanResults =
+        JSON.stringify(scanResults, null, 2).replace(/^\[|]$/g, '') +
         // Add a trailing comma to the output so JSON is valid when merged.
         ',\n'
 
-      fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResultsArray)
+      fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResults)
     }
 
-    if (faliedPagesArray.length > 0) {
-      const trimmedFailedPagesArray =
-        JSON.stringify(faliedPagesArray, null, 2).replace(/^\[|]$/g, '') +
+    if (failedPages.length > 0) {
+      const trimmedFailedPages =
+        JSON.stringify(failedPages, null, 2).replace(/^\[|]$/g, '') +
         // Add a trailing comma to the output so JSON is valid when merged.
         ',\n'
 
       fs.writeFileSync(
         `failed-pages-segment-${segmentNumber}.json`,
-        trimmedFailedPagesArray
+        trimmedFailedPages
       )
     }
   })
