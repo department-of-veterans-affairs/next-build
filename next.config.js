@@ -17,7 +17,7 @@ const nextConfig = {
     : undefined,
   staticPageGenerationTimeout: 180, //arbitrary; 60 is default but it's too small
   experimental: {
-    largePageDataBytes: 550 * 1000, // 550kb, is 128kb by default
+    largePageDataBytes: 512 * 1000, // 512kb, is 128kb by default
   },
 }
 
