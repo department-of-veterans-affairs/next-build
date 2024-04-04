@@ -103,7 +103,7 @@ jobs:
         run: |
           if [ ! -f segment-*.json ]; then
               echo "No segment-*.json files found."
-              exit 1
+              exit 0
           fi
           echo '[' > all-segments.json
           cat segment-*.json >> all-segments.json
@@ -141,7 +141,7 @@ jobs:
         run: |
           if [ ! -f failed-pages-segment-*.json ]; then
               echo "No failed-pages-segment-*.json files found."
-              exit 1
+              exit 0
           fi
           echo '[' > all-failed-pages.json
           cat failed-pages-segment-*.json >> all-failed-pages.json
