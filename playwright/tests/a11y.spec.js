@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
-import { test, expect } from '../utils/next-test'
-import { getSitemapLocations } from '../utils/getSitemapLocations'
+import { test } from '../utils/next-test'
+import {
+  getSitemapLocations,
+  splitPagesIntoBatches,
+} from '../utils/getSitemapLocations'
 import AxeBuilder from '@axe-core/playwright'
 import fs from 'fs'
 
@@ -52,7 +55,7 @@ test.describe(`Accessibility Site Scan`, async () => {
     let pages = await getSitemapLocations(baseUrl)
 
     if (segmentNumber !== 0) {
-      pages = splitArray(pages, totalSegments)[segmentNumber - 1]
+      pages = splitPagesIntoBatches(pages, totalSegments)[segmentNumber - 1]
     }
 
     console.log('number of pages in segment', pages.length)
@@ -68,9 +71,6 @@ test.describe(`Accessibility Site Scan`, async () => {
       try {
         console.log('testing page:', pageUrl)
         await page.goto(pageUrl)
-
-        // @todo The shared "makeAxeBuilder" never reports errors for whatever reason so not using for now.
-        // const accessibilityScanResults = await makeAxeBuilder({ page }).analyze()
 
         const accessibilityScanResults = await new AxeBuilder({ page })
           .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
@@ -107,23 +107,26 @@ test.describe(`Accessibility Site Scan`, async () => {
 
     if (scanResults.length > 0) {
       // Remove root array from scanResults so we can merge results more cleanly.
-      const trimmedScanResults =
-        JSON.stringify(scanResults, null, 2).replace(/^\[|]$/g, '') +
-        // Add a trailing comma to the output so JSON is valid when merged.
-        ',\n'
+      // const trimmedScanResults =
+      //   JSON.stringify(scanResults, null, 2).replace(/^\[|]$/g, '') +
+      //   // Add a trailing comma to the output so JSON is valid when merged.
+      //   ',\n'
 
-      fs.writeFileSync(`segment-${segmentNumber}.json`, trimmedScanResults)
+      fs.writeFileSync(
+        `segment-${segmentNumber}.json`,
+        JSON.stringify(scanResults, null, 2)
+      )
     }
 
     if (failedPages.length > 0) {
-      const trimmedFailedPages =
-        JSON.stringify(failedPages, null, 2).replace(/^\[|]$/g, '') +
-        // Add a trailing comma to the output so JSON is valid when merged.
-        ',\n'
+      // const trimmedFailedPages =
+      //   JSON.stringify(failedPages, null, 2).replace(/^\[|]$/g, '') +
+      //   // Add a trailing comma to the output so JSON is valid when merged.
+      //   ',\n'
 
       fs.writeFileSync(
         `failed-pages-segment-${segmentNumber}.json`,
-        trimmedFailedPages
+        JSON.stringify(failedPages, null, 2)
       )
     }
   })

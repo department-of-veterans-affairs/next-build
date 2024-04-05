@@ -65,7 +65,7 @@ jobs:
           SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
       - name: Upload scan report to GitHub Actions Artifacts
-        if: always()
+        if: hashFiles('segment-${{ matrix.shardIndex }}.json') != ''
         uses: actions/upload-artifact@v4
         with:
           name: segment-${{ matrix.shardIndex }}.json
@@ -73,7 +73,7 @@ jobs:
           retention-days: 7
 
       - name: Upload failed pages report to GitHub Actions Artifacts
-        if: always()
+        if: hashFiles('failed-pages-segment-${{ matrix.shardIndex }}.json') != ''
         uses: actions/upload-artifact@v4
         with:
           name: failed-pages-segment-${{ matrix.shardIndex }}.json
@@ -105,11 +105,7 @@ jobs:
               echo "No segment-*.json files found."
               exit 0
           fi
-          echo '[' > all-segments.json
-          cat segment-*.json >> all-segments.json
-          sed -i '$s/,$//' all-segments.json
-          echo ']' >> all-segments.json
-          cat all-segments.json
+          jq -s '.' *.json | jq 'flatten' > all-segments.json
 
       - name: Upload report
         uses: actions/upload-artifact@v4
@@ -143,11 +139,7 @@ jobs:
               echo "No failed-pages-segment-*.json files found."
               exit 0
           fi
-          echo '[' > all-failed-pages.json
-          cat failed-pages-segment-*.json >> all-failed-pages.json
-          sed -i '$s/,$//' all-failed-pages.json
-          echo ']' >> all-failed-pages.json
-          cat all-failed-pages.json
+          jq -s '.' failed-pages-segment-*.json | jq 'flatten' > all-failed-pages.json
 
       - name: Upload report
         uses: actions/upload-artifact@v4
