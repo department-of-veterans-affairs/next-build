@@ -5,7 +5,7 @@
   "dependencies": {
     "cross-fetch": "^4.0.0",
     "p-retry": "^6.2.0",
-    "socks-proxy-agent": "^8.0.2",
+    "socks-proxy-agent": "^8.0.3",
     "syswide-cas": "^5.3.0"
   },
   "packageManager": "yarn@3.6.1"
