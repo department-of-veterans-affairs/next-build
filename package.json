@@ -105,7 +105,7 @@
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.14.202",
     "@types/node": "20.12.2",
-    "@types/react": "^18.2.58",
+    "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.18",
     "@types/testing-library__react": "^10.2.0",
     "@types/uuid": "^9.0.7",
@@ -142,7 +142,7 @@
   },
   "resolutions": {
     "drupal-jsonapi-params": "2.3.1",
-    "@types/react": "18.2.58"
+    "@types/react": "18.2.74"
   },
   "packageManager": "yarn@3.6.1"
 }
