@@ -95,7 +95,7 @@
     "@storybook/addon-essentials": "^7.6.3",
     "@storybook/addon-interactions": "^7.6.13",
     "@storybook/addon-links": "^7.6.17",
-    "@storybook/nextjs": "^7.6.17",
+    "@storybook/nextjs": "^8.0.6",
     "@storybook/node-logger": "^8.0.0",
     "@storybook/testing-library": "^0.2.2",
     "@testing-library/dom": "^9.3.4",
