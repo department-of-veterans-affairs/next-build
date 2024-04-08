@@ -2445,10 +2445,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-free@npm:^6.5.1":
-  version: 6.5.1
-  resolution: "@fortawesome/fontawesome-free@npm:6.5.1"
-  checksum: 8905de0ad0cab9b6c4a3503267d96c9b34df703d3e1331e18f37f775722eaef9e93a55ead53cca6f5a68559c7cbc77dfd871e75a7932b2a54dfa99352b5dc7d3
+"@fortawesome/fontawesome-free@npm:^6.5.2":
+  version: 6.5.2
+  resolution: "@fortawesome/fontawesome-free@npm:6.5.2"
+  checksum: b77c1751721f355edc3bbc5c305d3ae87130156846511dfd3f66d5e218e246a7b3b5c57839f7b57729864b9d8b166e76aba2a11472a3e2f2ff597c24d39999df
   languageName: node
   linkType: hard
 
@@ -14903,7 +14903,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": ^10.1.0
     "@department-of-veterans-affairs/web-components": ^4.45.31
     "@faker-js/faker": ^8.4.1
-    "@fortawesome/fontawesome-free": ^6.5.1
+    "@fortawesome/fontawesome-free": ^6.5.2
     "@next/env": ^14.1.0
     "@octokit/rest": ^20.0.2
     "@playwright/test": ^1.40.1
