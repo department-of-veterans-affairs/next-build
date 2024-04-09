@@ -113,6 +113,7 @@ jobs:
           name: a11y-scan-${{ github.run_attempt }}
           path: all-segments.json
           retention-days: 14
+          if-no-files-found: ignore
 
   merge-failed-pages-reports:
     if: always()
@@ -147,4 +148,5 @@ jobs:
           name: a11y-scan-failed-pages-${{ github.run_attempt }}
           path: all-failed-pages.json
           retention-days: 14
+          if-no-files-found: ignore
 
