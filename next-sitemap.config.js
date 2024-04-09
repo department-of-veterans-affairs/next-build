@@ -9,4 +9,8 @@ module.exports = {
   exclude: [],
 
   generateRobotsTxt: true, // (optional)
+
+  // todo: migrate to server side sitemap to include last edited date from content for lastmod
+  // will need to update static-path-resources to optionally include that field when requested
+  // https://www.npmjs.com/package/next-sitemap#server-side-sitemap-getserversidesitemap
 }
