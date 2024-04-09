@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: './playwright/tests',
   outputDir: './playwright/test-results',
   reporter: [['html', { outputFolder: './playwright/test-report' }]],
-  // fullyParallel: process.env.CI ? false : true,
+  fullyParallel: process.env.CI ? false : true,
 
   // Fail the build on CI if you accidentally left test.only in the source code.
   forbidOnly: !!process.env.CI,
