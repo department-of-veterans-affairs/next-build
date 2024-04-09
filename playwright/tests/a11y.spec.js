@@ -4,7 +4,6 @@ import {
   getSitemapLocations,
   splitPagesIntoBatches,
 } from '../utils/getSitemapLocations'
-import AxeBuilder from '@axe-core/playwright'
 import fs from 'fs'
 
 const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:8001'
@@ -39,6 +38,8 @@ const excludedPages = [
   'http://www.va.gov/supporting-forms-for-claims/substitute-claimant-form-21P-0847/',
   'http://www.va.gov/supporting-forms-for-claims/alternate-signer-form-21-0972/',
   'http://www.va.gov/careers-employment/education-and-career-counseling/apply-career-guidance-form-25-8832/',
+  'http://www.va.gov/js/smartbanner/README/',
+  'http://www.va.gov/js/smartbanner/LICENSE/',
 ]
 
 test.describe(`Accessibility Site Scan`, async () => {
@@ -48,7 +49,7 @@ test.describe(`Accessibility Site Scan`, async () => {
     page,
     browserName,
     makeAxeBuilder,
-  }, testInfo) => {
+  }) => {
     const viewportSize = page.viewportSize()
     let scanResults = []
     let failedPages = []
