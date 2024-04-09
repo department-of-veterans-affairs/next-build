@@ -65,20 +65,20 @@ jobs:
           SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
 
       - name: Upload scan report to GitHub Actions Artifacts
-        if: hashFiles('segment-${{ matrix.shardIndex }}.json') != ''
         uses: actions/upload-artifact@v4
         with:
           name: segment-${{ matrix.shardIndex }}.json
           path: segment-${{ matrix.shardIndex }}.json
           retention-days: 7
+          if-no-files-found: ignore
 
       - name: Upload failed pages report to GitHub Actions Artifacts
-        if: hashFiles('failed-pages-segment-${{ matrix.shardIndex }}.json') != ''
         uses: actions/upload-artifact@v4
         with:
           name: failed-pages-segment-${{ matrix.shardIndex }}.json
           path: failed-pages-segment-${{ matrix.shardIndex }}.json
           retention-days: 7
+          if-no-files-found: ignore
 
   merge-scan-reports:
     if: always()
