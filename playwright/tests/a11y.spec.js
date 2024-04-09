@@ -47,7 +47,7 @@ test.describe(`Accessibility Site Scan`, async () => {
   test(`The sitemap should contain accessible pages`, async ({
     page,
     browserName,
-    // makeAxeBuilder,
+    makeAxeBuilder,
   }, testInfo) => {
     const viewportSize = page.viewportSize()
     let scanResults = []
@@ -72,7 +72,7 @@ test.describe(`Accessibility Site Scan`, async () => {
         console.log('testing page:', pageUrl)
         await page.goto(pageUrl)
 
-        const accessibilityScanResults = await new AxeBuilder({ page })
+        const accessibilityScanResults = await makeAxeBuilder({ page })
           .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
           .exclude('iframe')
           // Exclude header and footer since they are shared on every page.
@@ -86,7 +86,20 @@ test.describe(`Accessibility Site Scan`, async () => {
             url: pageUrl,
             browserName,
             viewportSize,
-            violations: accessibilityScanResults.violations,
+            violations: accessibilityScanResults.violations.map((violation) => {
+              return {
+                id: violation.id,
+                description: violation.description,
+                nodes: violation.nodes.map((node) => {
+                  return {
+                    html: node.html,
+                    impact: node.impact,
+                    target: node.target,
+                    failureSummary: node.failureSummary,
+                  }
+                }),
+              }
+            }),
           })
         }
       } catch (error) {
@@ -106,12 +119,6 @@ test.describe(`Accessibility Site Scan`, async () => {
     }
 
     if (scanResults.length > 0) {
-      // Remove root array from scanResults so we can merge results more cleanly.
-      // const trimmedScanResults =
-      //   JSON.stringify(scanResults, null, 2).replace(/^\[|]$/g, '') +
-      //   // Add a trailing comma to the output so JSON is valid when merged.
-      //   ',\n'
-
       fs.writeFileSync(
         `segment-${segmentNumber}.json`,
         JSON.stringify(scanResults, null, 2)
@@ -119,11 +126,6 @@ test.describe(`Accessibility Site Scan`, async () => {
     }
 
     if (failedPages.length > 0) {
-      // const trimmedFailedPages =
-      //   JSON.stringify(failedPages, null, 2).replace(/^\[|]$/g, '') +
-      //   // Add a trailing comma to the output so JSON is valid when merged.
-      //   ',\n'
-
       fs.writeFileSync(
         `failed-pages-segment-${segmentNumber}.json`,
         JSON.stringify(failedPages, null, 2)
@@ -131,18 +133,3 @@ test.describe(`Accessibility Site Scan`, async () => {
     }
   })
 })
-
-function splitArray(array, numChunks) {
-  const chunkSize = Math.floor(array.length / numChunks)
-  const remainder = array.length % numChunks
-  const result = []
-
-  let index = 0
-  for (let i = 0; i < numChunks; i++) {
-    const end = index + chunkSize + (i < remainder ? 1 : 0)
-    result.push(array.slice(index, end))
-    index = end
-  }
-
-  return result
-}

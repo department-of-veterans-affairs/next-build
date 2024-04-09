@@ -105,7 +105,7 @@ jobs:
               echo "No segment-*.json files found."
               exit 0
           fi
-          jq -s '.' *.json | jq 'flatten' > all-segments.json
+          jq -s '.' segment-*.json | jq 'flatten' > all-segments.json
 
       - name: Upload report
         uses: actions/upload-artifact@v4
