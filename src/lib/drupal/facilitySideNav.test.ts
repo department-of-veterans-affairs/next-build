@@ -2,7 +2,6 @@ import { buildSideNavDataFromMenu } from './facilitySideNav' // Adjust the impor
 import { Menu } from '@/types/drupal/menu'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
-// Mock data generation with minimal fields, leveraging type assertions for simplification
 const mockMenu: Partial<Menu> = {
   items: [],
   tree: [
@@ -36,7 +35,6 @@ describe('SideNav Data Building Function', () => {
     expect(sideNavData.data?.links[0].url.path).toEqual('/test-url')
   })
 
-  // Additional tests for null cases or other branches can be added here
   it('returns null for empty menu tree', () => {
     const emptyMenu: Partial<Menu> = { items: [], tree: [] }
     const sideNavData: SideNavMenu = buildSideNavDataFromMenu(

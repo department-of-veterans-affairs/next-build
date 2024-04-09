@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Banner } from './'
 
-// Reset mockBannerData for each test to prevent test interference
 const getMockBannerData = () => ({
   id: 'ccd9d30f-78f9-4358-80d7-191f99b18d43',
   title: 'COVID-19 vaccines at VA',
@@ -54,7 +53,7 @@ describe('<Banner> component does not render', () => {
     mockBannerData.body = ''
     render(<Banner {...mockBannerData} />)
 
-    expect(screen.queryByRole('region')).toBeInTheDocument() // The region will render but should be empty
+    expect(screen.queryByRole('region')).toBeInTheDocument()
     expect(
       screen.queryByText(
         /The banner component is part of the VSP Design System Storybook/
