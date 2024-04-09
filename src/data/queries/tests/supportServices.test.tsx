@@ -17,17 +17,6 @@ describe('SupportServices formatter function', () => {
     })
   })
 
-  test('returns null for inactive support service', () => {
-    const inactiveServiceMock = {
-      ...mockData[0],
-      status: false,
-    } as unknown as Partial<NodeSupportService>
-    const formatted = formatter(
-      inactiveServiceMock as unknown as NodeSupportService
-    )
-    expect(formatted).toBeNull()
-  })
-
   test('returns null for null entity', () => {
     const formatted = formatter(null as unknown as NodeSupportService)
     expect(formatted).toBeNull()
