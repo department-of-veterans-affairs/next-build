@@ -173,6 +173,7 @@ export function getDateParts(
 }
 
 export const formatDateObject = (datetimeRange) => {
+  if (!datetimeRange) return []
   return datetimeRange.map((dateObject) => {
     const startTime = new Date(dateObject.value)
     const endTime = new Date(dateObject.end_value)

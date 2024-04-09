@@ -12,7 +12,7 @@ export const params: QueryParams<null> = () => {
   ])
 }
 
-const getTagsList = (
+export const getTagsList = (
   entity: ParagraphAudienceTopics
 ): AudienceTopic[] | null => {
   if (!entity) return null

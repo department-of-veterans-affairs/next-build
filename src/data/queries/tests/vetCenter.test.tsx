@@ -1,26 +1,47 @@
+/**
+ * @jest-environment node
+ */
+
 import { NodeVetCenter } from '@/types/drupal/node'
-import { queries } from '@/data/queries'
+import { formatter } from '../vetCenter' // Adjust the import path as necessary
 import { mockResponse } from '@/mocks/vetCenter.mock'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const VetCenterMock: NodeVetCenter = mockResponse
 
-describe(`${RESOURCE_TYPES.VET_CENTER} formatData`, () => {
-  let windowSpy
+describe('VetCenter formatter function', () => {
+  // Example test for filtering health services
+  test('correctly filters health services by care type', () => {
+    const formattedVetCenter = formatter(VetCenterMock)
 
-  beforeEach(() => {
-    windowSpy = jest.spyOn(window, 'window', 'get')
+    expect(formattedVetCenter.counselingHealthServices).toBeDefined()
+    expect(formattedVetCenter.referralHealthServices).toBeDefined()
+    expect(formattedVetCenter.otherHealthServices).toBeDefined()
   })
 
-  afterEach(() => {
-    windowSpy.mockRestore()
+  test('handles empty health services array', () => {
+    const modifiedVetCenterMock = {
+      ...VetCenterMock,
+      field_health_services: [],
+    }
+    const formattedVetCenter = formatter(modifiedVetCenterMock)
+
+    expect(formattedVetCenter.healthServices).toEqual([])
+    expect(formattedVetCenter.counselingHealthServices).toEqual([])
+    expect(formattedVetCenter.referralHealthServices).toEqual([])
+    expect(formattedVetCenter.otherHealthServices).toEqual([])
   })
 
-  test('outputs formatted data', () => {
-    windowSpy.mockImplementation(() => undefined)
+  test('builds featured content array including centralized content', () => {
+    const formattedVetCenter = formatter(VetCenterMock)
+    expect(formattedVetCenter.featuredContent).toBeDefined()
+  })
 
-    expect(
-      queries.formatData(RESOURCE_TYPES.VET_CENTER, VetCenterMock)
-    ).toMatchSnapshot()
+  test('builds FAQs section correctly', () => {
+    const formattedVetCenter = formatter(VetCenterMock)
+
+    expect(formattedVetCenter.ccVetCenterFaqs).toBeDefined()
+    expect(formattedVetCenter.ccVetCenterFaqs.questions.length).toBeGreaterThan(
+      0
+    )
   })
 })

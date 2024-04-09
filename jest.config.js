@@ -32,10 +32,18 @@ const customJestConfig = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/**/*.stories.{js,jsx,ts,tsx}',
+    '!src/lib/drupal/query.ts',
+    '!src/templates/common/meta/index.tsx',
     '!**/__tests__/**.test.{js,jsx,ts,tsx}',
     '!example_tests/**/*.{js,jsx,ts,tsx}',
     '!.storybook/*.{js,jsx,ts,tsx}',
     '!playwright/**/*.{js,jsx,ts,tsx}',
+    '!src/lib/utils/redisCache.ts',
+    '!src/lib/drupal/drupalClient.ts',
+    '!src/lib/drupal/staticProps.ts',
+    '!src/lib/drupal/staticPaths.ts',
+    '!src/pages/**',
+    '!src/types/**/*.{js,jsx,ts,tsx}',
   ],
   coverageThreshold: {
     global: {

@@ -302,3 +302,12 @@ describe('isEventInPast', () => {
     expect(isEventInPast(futureEventTime)).toBeFalsy()
   })
 })
+
+test('getDateParts should return null for falsy values', () => {
+  //@ts-expect-error for testing
+  expect(getDateParts('')).toBe(null)
+})
+
+test('parseDate should return null for inputs that do not match any date format', () => {
+  expect(parseDate('')).toBe(null)
+})
