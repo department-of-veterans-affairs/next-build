@@ -23,7 +23,7 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude(['field_office'])
 }
 
-const listingParams: QueryParams<string> = (listingEntityId: string) => {
+export const listingParams: QueryParams<string> = (listingEntityId: string) => {
   return queries
     .getParams(`${RESOURCE_TYPES.STORY}--teaser`)
     .addFilter('field_listing.id', listingEntityId)

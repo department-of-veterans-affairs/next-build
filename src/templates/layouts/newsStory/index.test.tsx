@@ -103,4 +103,18 @@ describe('<newsStory> with valid data', () => {
     ).toBeInTheDocument()
     expect(screen.queryByText(/Keith Gottschalk/)).toBeInTheDocument()
   })
+
+  test('sets correct imageClassName when caption is provided', () => {
+    const dataWithCaption = { ...data, caption: 'Sample caption' }
+    render(<NewsStory {...dataWithCaption} />)
+    const imageElement = screen.getByRole('img')
+    expect(imageElement).toHaveClass('vads-u-margin-bottom--1')
+  })
+
+  test('sets correct imageClassName when caption is not provided', () => {
+    const dataWithoutCaption = { ...data, caption: null }
+    render(<NewsStory {...dataWithoutCaption} />)
+    const imageElement = screen.getByRole('img')
+    expect(imageElement).toHaveClass('vads-u-margin-bottom--2p5')
+  })
 })
