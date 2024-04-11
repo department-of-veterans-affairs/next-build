@@ -21,6 +21,7 @@
 playwright/test-results
 playwright/test-report
 broken-links-*
+!broken-links-slack-payload.js
 
 # next.js
 /.next/
