@@ -1,6 +1,7 @@
 // Run `yarn plop` to use the generators defined in this file.
 // see READMEs/generators.md for more information.
-module.exports = function (plop) {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default function (plop) {
   // Create a new component with a test stub and Storybook entry.
   plop.setGenerator('Component', {
     description: 'New React component',
