@@ -3,7 +3,7 @@ import { test } from '../utils/next-test'
 import {
   getSitemapLocations,
   splitPagesIntoBatches,
-} from '../utils/getSitemapLocations'
+} from '../../test/getSitemapLocations'
 import fs from 'fs'
 
 const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:8001'

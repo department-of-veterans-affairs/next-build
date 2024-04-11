@@ -34,10 +34,12 @@
   "include": [
     "next-env.d.ts",
     "additional.d.ts",
+    "jest.config.ts",
     "src/**/*",
     "*.{ts|tsx|js|jsx}",
     "scripts/*",
     "test/*",
+    "example_tests/*",
     ".storybook/*"
   ],
   "exclude": ["node_modules", "src/__tests__", "public/generated"],

@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+const sitemapConfig = {
   // see https://www.npmjs.com/package/next-sitemap for all options
   siteUrl: process.env.SITE_URL || 'https://localhost:8001',
   // output: 'export' directory from next config
@@ -14,3 +14,5 @@ module.exports = {
   // will need to update static-path-resources to optionally include that field when requested
   // https://www.npmjs.com/package/next-sitemap#server-side-sitemap-getserversidesitemap
 }
+
+export default sitemapConfig

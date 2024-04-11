@@ -1,4 +1,4 @@
-module.exports = {
+const lintStaged = {
   // Type check TypeScript files
   '**/*.(ts|tsx)': () => 'yarn test:types',
 
@@ -22,3 +22,5 @@ module.exports = {
   '**/*.(md|json|yml)': (filenames) =>
     `yarn prettier ${filenames.join(' ')} --write`,
 }
+
+export default lintStaged

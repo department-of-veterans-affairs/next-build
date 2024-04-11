@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
-const fetch = require('cross-fetch')
-const fs = require('fs-extra')
-const path = require('path')
+import fetch from 'cross-fetch'
+import fs from 'fs-extra'
+import path from 'path'
 
 /**
  * This script gathers additional assets for building the front-end of VA.gov.

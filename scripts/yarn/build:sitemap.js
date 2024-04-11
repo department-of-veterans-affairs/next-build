@@ -1,3 +1,3 @@
-const { processEnv } = require('env-loader')
+import { processEnv } from 'env-loader'
 
 processEnv('next-sitemap')
