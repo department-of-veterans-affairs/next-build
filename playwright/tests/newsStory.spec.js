@@ -1,4 +1,4 @@
-const { test, expect } = require('../utils/next-test')
+import { test, expect } from '../utils/next-test'
 
 test.describe('News Story', () => {
   test('News Story page renders with navigation back to parent story list', async ({

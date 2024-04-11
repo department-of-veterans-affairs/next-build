@@ -1,8 +1,9 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
-const fetch = require('cross-fetch')
-const fs = require('fs-extra')
-const path = require('path')
+import fetch from 'cross-fetch'
+import fs from 'fs-extra'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 /**
  * This script gathers additional assets for building the front-end of VA.gov.
@@ -18,6 +19,10 @@ const prodBucket = 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 const stagingBucket =
   'https://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 const devBucket = 'https://dev-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
+
+// __dirname is not defined in ES module scope, need to do this to get localbucket path
+const __filename = fileURLToPath(import.meta.url) // get the resolved path to the file
+const __dirname = path.dirname(__filename) // get the name of the directory
 const localBucket = path.resolve(
   __dirname,
   '../../../vets-website/build/localhost/generated'

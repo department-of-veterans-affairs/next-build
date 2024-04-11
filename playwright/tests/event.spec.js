@@ -1,4 +1,4 @@
-const { test, expect } = require('../utils/next-test')
+import { test, expect } from '../utils/next-test'
 
 test.describe('Event Page', () => {
   test('Event page renders with correct title and details', async ({

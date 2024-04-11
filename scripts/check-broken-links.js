@@ -5,7 +5,7 @@ import {
   getSitemapLocations,
   splitPagesIntoBatches,
   getPagesSlice,
-} from '../playwright/utils/getSitemapLocations.js'
+} from '../test/getSitemapLocations.js'
 import fs from 'fs'
 
 const OPTIONS = {

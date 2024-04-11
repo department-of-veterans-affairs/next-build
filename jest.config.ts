@@ -1,15 +1,14 @@
-const nextJest = require('next/jest')
-const path = require('path')
+import type { Config } from 'jest'
+import nextJest from 'next/jest.js'
+import path from 'path'
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: './',
-  // This is necessary in order to mock window.location.href in tests that require it
-  testUrl: 'https://localhost.com/',
 })
 
 // Add any custom config to be passed to Jest
-const customJestConfig = {
+const customJestConfig: Config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleDirectories: [
     'node_modules',
@@ -36,6 +35,7 @@ const customJestConfig = {
     '!.storybook/*.{js,jsx,ts,tsx}',
     '!playwright/**/*.{js,jsx,ts,tsx}',
     '!src/**/*.stories.{js,jsx,ts,tsx}',
+    '!src/stories/**',
     // Some files excluded from unit test coverage reporting in favor of e2e tests
     '!src/lib/utils/redisCache.ts',
     '!src/lib/drupal/drupalClient.ts',
@@ -68,4 +68,4 @@ const customJestConfig = {
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig)
+export default createJestConfig(customJestConfig)
