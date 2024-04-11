@@ -26,7 +26,7 @@ test.describe('Story Listing', () => {
     await expect(nextPageLink).toBeEnabled()
   })
 
-  // This test fails because there are no stories at portland. TODO refactor or find another url
+  // This test fails because there are now stories at portland. TODO refactor or find another url
   // test('Should render a message if there are no stories', async ({ page }) => {
   //   await page.goto('/portland-health-care/stories')
   //   await expect(page.locator('.usa-unstyled-list')).toHaveText(
