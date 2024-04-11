@@ -5,8 +5,6 @@ import path from 'path'
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: './',
-  // // This is necessary in order to mock window.location.href in tests that require it
-  // testUrl: 'https://localhost.com/',
 })
 
 // Add any custom config to be passed to Jest
