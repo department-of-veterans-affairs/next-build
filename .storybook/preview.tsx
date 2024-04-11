@@ -1,8 +1,10 @@
 import { Preview } from '@storybook/react'
-import WebComponentProvider from './webComponentProvider'
+import WebComponentProvider from '@/stories/webComponentProvider'
 
 // include global styles here for storybook
 import '../src/assets/styles/globals.css'
+import '../public/generated/static-pages.css'
+// import '../public/generated/style.css' // svg imports break this
 
 const preview: Preview = {
   decorators: [
@@ -11,7 +13,13 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ['Common', 'Components', 'Paragraphs', 'Layouts'],
+        order: [
+          'Introduction',
+          'Common',
+          'Components',
+          'Paragraphs',
+          'Layouts',
+        ],
       },
     },
   },
