@@ -1,0 +1,155 @@
+name: A11y Tests
+on:
+  # Manual trigger.
+  workflow_dispatch:
+  # Schedule; currently once nightly, at 3:20 UTC.
+  schedule:
+    - cron: '20 3 * * *'
+jobs:
+  playwright-tests:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: 'https://va.gov'
+      USE_PROXY: false
+      PW_BROWSER: '["chromium", "firefox", "webkit"]'
+      PW_WIDTH: '[320, 768, 1024, 1280, 1920]'
+      PW_HEIGHT: '[720, 1080, 1440]'
+      TOTAL_SEGMENTS: 128
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Run command with random values from arrays
+        run: |
+          arrays=('${{ env.PW_BROWSER }}' '${{ env.PW_HEIGHT }}' '${{ env.PW_WIDTH }}')
+          array_names=('PW_BROWSER' 'PW_HEIGHT' 'PW_WIDTH')
+
+          for i in "${!arrays[@]}"; do
+            json_string="${arrays[$i]}"
+            array_name="${array_names[$i]}"
+
+            array=$(echo "$json_string" | jq -c '.')
+            random_index=$((RANDOM % $(echo "$array" | jq 'length')))
+            random_value=$(echo "$array" | jq -r ".[$random_index]")
+            echo "Selected random value from $array_name: $random_value"
+            echo "${array_name}_VALUE=$random_value" >> $GITHUB_ENV
+          done
+
+      - name: Ensure random values are set
+        run: |
+          echo "Using random values: $PW_BROWSER_VALUE, $PW_WIDTH_VALUE, $PW_HEIGHT_VALUE"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      # This is necessary in order for fetch to work.
+      # Finally, made fetch happen...
+      - name: Build proxy-fetcher dist
+        run: |
+          yarn tsc -b ./packages/proxy-fetcher/tsconfig.json
+
+      - name: Run Playwright tests
+        run: |
+          SEGMENT_INDEX=${{ matrix.shardIndex }} yarn playwright test --project=a11y
+
+      - name: Upload scan report to GitHub Actions Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: segment-${{ matrix.shardIndex }}.json
+          path: segment-${{ matrix.shardIndex }}.json
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Upload failed pages report to GitHub Actions Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: failed-pages-segment-${{ matrix.shardIndex }}.json
+          path: failed-pages-segment-${{ matrix.shardIndex }}.json
+          retention-days: 7
+          if-no-files-found: ignore
+
+  merge-scan-reports:
+    if: always()
+    needs: [playwright-tests]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: segment-*
+          merge-multiple: true
+
+      - name: Merge reports in valid JSON format
+        run: |
+          if [ ! -f segment-*.json ]; then
+              echo "No segment-*.json files found."
+              exit 0
+          fi
+          jq -s '.' segment-*.json | jq 'flatten' > all-segments.json
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-scan-${{ github.run_attempt }}
+          path: all-segments.json
+          retention-days: 14
+          if-no-files-found: ignore
+
+  merge-failed-pages-reports:
+    if: always()
+    needs: [playwright-tests]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: failed-pages-segment-*
+          merge-multiple: true
+
+      - name: Merge reports in valid JSON format
+        run: |
+          if [ ! -f failed-pages-segment-*.json ]; then
+              echo "No failed-pages-segment-*.json files found."
+              exit 0
+          fi
+          jq -s '.' failed-pages-segment-*.json | jq 'flatten' > all-failed-pages.json
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-scan-failed-pages-${{ github.run_attempt }}
+          path: all-failed-pages.json
+          retention-days: 14
+          if-no-files-found: ignore
+
