@@ -55,7 +55,7 @@ jobs:
       # this to restrict the link checking to a slice.
       - name: Run broken link check
         run: |
-          TOTAL_INSTANCES=${{ env.TOTAL_INSTANCES }} INSTANCE_NUMBER=${{ matrix.instance_number }} APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node --max-old-space-size=4000 scripts/check-broken-links.mjs
+          TOTAL_INSTANCES=${{ env.TOTAL_INSTANCES }} INSTANCE_NUMBER=${{ matrix.instance_number }} APP_ENV=gha NODE_EXTRA_CA_CERTS=certs/VA-mozilla-combined.pem SITE_URL=https://va.gov/ node --max-old-space-size=4000 scripts/check-broken-links.js
 
       - name: Rename broken link json
         id: rename-report-file
@@ -99,7 +99,7 @@ jobs:
       # Combines the individual reports, creates and outputs json, md, csv.
       - name: Create reports
         run: |
-          node scripts/create-combined-reports.mjs
+          node scripts/create-combined-reports.js
 
       # Renames help to identify the report, avoids broken-link-report (1).json
       - name: Rename report files
@@ -137,7 +137,7 @@ jobs:
       # Takes the information above and constructs json to deliver to Slack.
       - name: Prepare Slack payload
         run: |
-          node scripts/broken-links-slack-payload.mjs -m ${{ steps.upload-report-markdown.outputs.artifact-url }} -i ${{ steps.rename-report-files.outputs.REPORT_JSON}} -c ${{ steps.upload-report-csv.outputs.artifact-url }}
+          node scripts/broken-links-slack-payload.js -m ${{ steps.upload-report-markdown.outputs.artifact-url }} -i ${{ steps.rename-report-files.outputs.REPORT_JSON}} -c ${{ steps.upload-report-csv.outputs.artifact-url }}
 
       - name: Export Slack payload
         id: export-slack-payload
