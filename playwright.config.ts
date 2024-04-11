@@ -1,10 +1,10 @@
-import { defineConfig } from '@playwright/test'
+import { defineConfig, ViewportSize } from '@playwright/test'
 
 export default defineConfig({
   testDir: './playwright/tests',
   outputDir: './playwright/test-results',
   reporter: [['html', { outputFolder: './playwright/test-report' }]],
-  fullyParallel: process.env.CI ? false : true,
+  fullyParallel: !process.env.CI,
 
   // Fail the build on CI if you accidentally left test.only in the source code.
   forbidOnly: !!process.env.CI,
@@ -39,6 +39,21 @@ export default defineConfig({
     {
       name: 'a11y',
       testMatch: /.a11y.spec.js/,
+      // No retries since no assertions are made.
+      retries: 0,
+      timeout: 4200000,
+      use: {
+        browserName:
+          (process.env.PW_BROWSER_VALUE as 'chromium' | 'firefox' | 'webkit') ||
+          'chromium',
+        trace: 'off',
+        screenshot: 'off',
+        video: 'off',
+        viewport: {
+          width: Number(process.env.PW_WIDTH_VALUE),
+          height: Number(process.env.PW_HEIGHT_VALUE),
+        } as ViewportSize,
+      },
     },
   ],
 })
