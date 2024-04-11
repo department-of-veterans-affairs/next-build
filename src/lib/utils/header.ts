@@ -71,7 +71,12 @@ function makeLinkList(hostUrl, links): MegaMenuLink[] {
  *
  * @return {Array} columns - A set of columns formatted correctly for the megaMenu React widget.
  */
-function makeColumns(hostUrl, linkData, arrayDepth, promo): MegaMenuLinkObject {
+export function makeColumns(
+  hostUrl,
+  linkData,
+  arrayDepth,
+  promo
+): MegaMenuLinkObject {
   const columns: MegaMenuLinkObject = {}
   const columnNames = [
     // Possible column names.
@@ -117,7 +122,7 @@ function makeColumns(hostUrl, linkData, arrayDepth, promo): MegaMenuLinkObject {
   return columns
 }
 
-const makeSection = (item, hostUrl, arrayDepth): MegaMenuColumn => {
+export const makeSection = (item, hostUrl, arrayDepth): MegaMenuColumn => {
   const sections = item.items
   const promo = item.field_promo_reference
 

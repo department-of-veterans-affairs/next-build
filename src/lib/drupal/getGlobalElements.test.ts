@@ -1,5 +1,6 @@
 import axios from 'axios'
 import nock from 'nock'
+import { getGlobalElements } from './getGlobalElements'
 
 axios.defaults.adapter = 'http'
 
@@ -76,5 +77,18 @@ describe('drupalClient renders slug data', () => {
       visible = false
     }
     expect(visible).toEqual(false)
+  })
+})
+// Mock the queries module to prevent calling getQueryData during the test
+jest.mock('@/data/queries', () => ({
+  queries: {
+    getData: jest.fn().mockResolvedValue({}),
+  },
+}))
+
+describe('getGlobalElements', () => {
+  test('invokes getGlobalElements without error', async () => {
+    const result = await getGlobalElements()
+    expect(result).toBeTruthy()
   })
 })

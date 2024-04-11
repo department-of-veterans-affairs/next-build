@@ -105,3 +105,21 @@ test('camelKeys() called with a complex object should return an appropriate obje
     },
   })
 })
+
+test('camelKeys() called with an object containing null values returns the object with camel-cased keys, preserving nulls', () => {
+  const objWithNulls = {
+    a: null,
+    null_key: null,
+    b_c: null,
+  }
+  expect(camelKeys(objWithNulls)).toStrictEqual({
+    a: null,
+    nullKey: null,
+    bC: null,
+  })
+})
+
+test('toCamelCase() does not add uppercase letters if there is no character following the delimiter', () => {
+  const stringWithDelimiterAtEnd = 'test-string-'
+  expect(toCamelCase(stringWithDelimiterAtEnd)).toStrictEqual('testString')
+})
