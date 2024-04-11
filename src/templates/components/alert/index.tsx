@@ -30,7 +30,7 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
         {heading}
       </h2>
 
-      {paragraphs.map((paragraph) => (
+      {paragraphs?.map((paragraph) => (
         <Paragraph key={paragraph.id} {...paragraph} />
       ))}
     </va-alert>
