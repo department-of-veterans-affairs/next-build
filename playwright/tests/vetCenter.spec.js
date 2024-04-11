@@ -1,4 +1,4 @@
-const { test, expect } = require('../utils/next-test')
+import { test, expect } from '../utils/next-test'
 
 test.describe('vetCenter', () => {
   test('vetCenter page renders', async ({ page }) => {

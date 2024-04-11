@@ -54,6 +54,14 @@ describe('<StoryListing> component renders', () => {
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
   })
+
+  test('with no stories', () => {
+    const sansStories = { ...storyListingProps, stories: null }
+
+    render(<StoryListing {...sansStories} />)
+    expect(screen.queryByText(/Stories/)).toBeInTheDocument()
+    expect(screen.queryByText(/No stories at this time/)).toBeInTheDocument()
+  })
 })
 
 describe('<StoryListing> component does not render', () => {
