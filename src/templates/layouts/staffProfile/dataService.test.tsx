@@ -1,5 +1,5 @@
 import { transformStaffProfileData } from './dataService'
-import { mockResponse } from './mock'
+import { mockResponse } from '../../../mocks/staffProfile.mock'
 
 jest.mock('@/data/queries', () => ({
   queries: {
