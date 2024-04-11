@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   # Schedule; currently once nightly, at 3:20 UTC.
   schedule:
-    - cron: 20 3 * * *
+    - cron: '20 3 * * *'
 jobs:
   playwright-tests:
     timeout-minutes: 60
