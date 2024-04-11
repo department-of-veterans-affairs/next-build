@@ -35,6 +35,7 @@ const customJestConfig: Config = {
     '!.storybook/*.{js,jsx,ts,tsx}',
     '!playwright/**/*.{js,jsx,ts,tsx}',
     '!src/**/*.stories.{js,jsx,ts,tsx}',
+    '!src/stories/**',
     // Some files excluded from unit test coverage reporting in favor of e2e tests
     '!src/lib/utils/redisCache.ts',
     '!src/lib/drupal/drupalClient.ts',
