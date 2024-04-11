@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 import { ParagraphAccordion } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/accordion.mock.json'
@@ -5,21 +9,27 @@ import mockData from '@/mocks/accordion.mock.json'
 const AccordionMock: ParagraphAccordion = mockData
 
 describe('Accordion formatData', () => {
-  let windowSpy
-
-  beforeEach(() => {
-    windowSpy = jest.spyOn(window, 'window', 'get')
-  })
-
-  afterEach(() => {
-    windowSpy.mockRestore()
-  })
-
   test('outputs formatted data', () => {
-    windowSpy.mockImplementation(() => undefined)
+    const formattedData = queries.formatData(
+      'paragraph--basic_accordion',
+      AccordionMock
+    )
+    expect(formattedData).toMatchSnapshot()
+  })
 
-    expect(
-      queries.formatData('paragraph--basic_accordion', AccordionMock)
-    ).toMatchSnapshot()
+  test('handles null field_header gracefully', () => {
+    const accordionMockWithNullHeader: ParagraphAccordion = {
+      ...mockData,
+      field_header: null,
+    }
+
+    const formattedData = queries.formatData(
+      'paragraph--basic_accordion',
+      accordionMockWithNullHeader
+    )
+    expect(formattedData.header).toBeNull()
+    expect(formattedData.html).toBe(
+      accordionMockWithNullHeader.field_rich_wysiwyg.processed
+    )
   })
 })

@@ -1,4 +1,31 @@
-import { generateAbsoluteUrl } from './environment'
+import { generateAbsoluteUrl, generateAbsoluteUrlFromEnv } from './environment'
+
+describe('generateAbsoluteUrlFromEnv', () => {
+  const originalEnvironmentVariables = process.env
+
+  beforeEach(() => {
+    jest.resetModules()
+    process.env = { ...originalEnvironmentVariables }
+  })
+
+  afterAll(() => {
+    process.env = originalEnvironmentVariables
+  })
+
+  test('should use SITE_URL environment variable when provided', () => {
+    process.env.SITE_URL = 'https://www.example.com'
+    const relativeUrl = 'path/to/resource'
+    const result = generateAbsoluteUrlFromEnv(relativeUrl)
+    expect(result).toBe('https://www.example.com/path/to/resource')
+  })
+
+  test('should handle missing SITE_URL environment variable', () => {
+    process.env.SITE_URL = ''
+    const relativeUrl = 'path/to/resource'
+    const result = generateAbsoluteUrlFromEnv(relativeUrl)
+    expect(result).toBe('/path/to/resource')
+  })
+})
 
 describe('generateAbsoluteUrl', () => {
   const origin = 'https://www.va.gov'

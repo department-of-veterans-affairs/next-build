@@ -72,4 +72,16 @@ describe('<NewsStoryTeaser> with valid data', () => {
       )
     ).toBeInTheDocument()
   })
+
+  it('renders correctly with default heading level', () => {
+    render(<NewsStoryTeaser {...teaserData} headingLevel={undefined} />)
+    expect(document.querySelector('h2')).toBeInTheDocument()
+    expect(screen.getByText(teaserData.title)).toBeInTheDocument()
+  })
+
+  it('renders correctly with specified heading level', () => {
+    render(<NewsStoryTeaser {...teaserData} headingLevel="h3" />)
+    expect(document.querySelector('h3')).toBeInTheDocument()
+    expect(screen.getByText(teaserData.title)).toBeInTheDocument()
+  })
 })

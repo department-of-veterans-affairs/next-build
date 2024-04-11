@@ -6,10 +6,6 @@ import { Alert } from '@/templates/components/alert'
 export function AlertNonReusable(
   alertNonReusable: ParagraphComponent<FormattedAlertNonReusable>
 ) {
-  if (!alertNonReusable) {
-    return null
-  }
-
   const alert = {
     blockReference: null,
     ...alertNonReusable,

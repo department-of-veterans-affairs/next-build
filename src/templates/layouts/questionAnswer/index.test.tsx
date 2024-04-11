@@ -138,4 +138,18 @@ describe('<QuestionAnswerData> component renders with data', () => {
     render(<QuestionAnswer {...QuestionAnswerData} />)
     expect(screen.queryByText(/Tags/)).toBeInTheDocument()
   })
+
+  test('Component still renders when TAGS data is NOT provided', () => {
+    delete QuestionAnswerData.tags
+    render(<QuestionAnswer {...QuestionAnswerData} />)
+    expect(screen.queryByText(/Tags/)).not.toBeInTheDocument()
+  })
+
+  test('Component still renders when BUTTONS data is NOT provided', () => {
+    delete QuestionAnswerData.buttons
+    render(<QuestionAnswer {...QuestionAnswerData} />)
+    expect(
+      screen.queryByText(/Update your name on file with VA/)
+    ).not.toBeInTheDocument()
+  })
 })

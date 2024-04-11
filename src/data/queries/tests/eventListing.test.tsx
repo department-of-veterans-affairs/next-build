@@ -1,26 +1,27 @@
+/**
+ * @jest-environment node
+ */
+
 import { NodeEvent, NodeEventListing } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import { mockResponse } from '@/mocks/eventListing.mock.js'
 import mockEventData from '@/mocks/event.mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { params } from '../eventListing'
 
 const EventListingMock: NodeEventListing = mockResponse
 const EventMock: NodeEvent[] = [mockEventData]
 
+describe('DrupalJsonApiParams configuration', () => {
+  test('params function sets the correct include fields', () => {
+    const paramsInstance = params()
+    const queryString = decodeURIComponent(paramsInstance.getQueryString())
+    expect(queryString).toMatch(/include=field_office/)
+  })
+})
+
 describe(`${RESOURCE_TYPES.EVENT_LISTING} formatData`, () => {
-  let windowSpy
-
-  beforeEach(() => {
-    windowSpy = jest.spyOn(window, 'window', 'get')
-  })
-
-  afterEach(() => {
-    windowSpy.mockRestore()
-  })
-
   test('outputs formatted data', () => {
-    windowSpy.mockImplementation(() => undefined)
-
     expect(
       queries.formatData(RESOURCE_TYPES.EVENT_LISTING, {
         entity: EventListingMock,
