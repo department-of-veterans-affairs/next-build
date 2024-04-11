@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Banners return formatted data outputs formatted data 1`] = `
+exports[`Banners return formatted data outputs formatted data for BASIC banner type 1`] = `
 [
   {
     "alertType": "information",
@@ -10,13 +10,11 @@ exports[`Banners return formatted data outputs formatted data 1`] = `
     "title": "a banner",
     "type": "banner",
   },
-  {
-    "alertType": "news",
-    "href": "entity:node/47702",
-    "id": 65138,
-    "title": "testing draft story content",
-    "type": "promo_banner",
-  },
+]
+`;
+
+exports[`Banners return formatted data outputs formatted data for FACILITY banner type 1`] = `
+[
   {
     "alertType": "warning",
     "bannerAlertVamcs": [
@@ -81,6 +79,18 @@ exports[`Banners return formatted data outputs formatted data 1`] = `
     },
     "title": "test sitch updates",
     "type": "full_width_banner_alert",
+  },
+]
+`;
+
+exports[`Banners return formatted data outputs formatted data for PROMO banner type 1`] = `
+[
+  {
+    "alertType": "news",
+    "href": "entity:node/47702",
+    "id": 65138,
+    "title": "testing draft story content",
+    "type": "promo_banner",
   },
 ]
 `;

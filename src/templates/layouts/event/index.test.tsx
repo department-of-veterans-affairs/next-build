@@ -101,4 +101,32 @@ describe('<Event /> Component', () => {
       event: 'nav-secondary-button-click',
     })
   })
+  it('renders online event information correctly', () => {
+    const onlineEventProps = {
+      ...eventProps,
+      locationType: 'online',
+      urlOfOnlineEvent: { uri: '/online-event', title: 'online', options: [] },
+    }
+
+    render(
+      <Event
+        id={''}
+        type={''}
+        published={false}
+        lastUpdated={''}
+        image={{
+          id: '',
+          alt: '',
+          title: '',
+          width: 0,
+          height: 0,
+          links: {},
+        }}
+        date={''}
+        facilityLocation={undefined}
+        {...onlineEventProps}
+      />
+    )
+    expect(screen.getByText('This is an online event.')).toBeInTheDocument()
+  })
 })
