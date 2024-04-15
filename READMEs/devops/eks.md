@@ -1,4 +1,4 @@
-# Deploy Process
+# EKS Deploy Process
 
 Environment updates run through the following steps using GitHub Actions and ArgoCD:
 
