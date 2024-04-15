@@ -2,7 +2,7 @@
 
 Environment updates run through the following steps using GitHub Actions and ArgoCD:
 
-1. Run ["Create Production Tag" workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/production-tag.yml)
+1. Passing CI workflow in main branch triggers ["Create Production Tag" workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/production-tag.yml)
 
 2. Tag creation triggers ["Create and Commit Next-Build Docker Image" workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/mirror-images.yml)
 
