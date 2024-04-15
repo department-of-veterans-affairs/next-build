@@ -9,8 +9,8 @@ Existing content-build analytics tags for reference:
 - [vagovstaging](https://github.com/department-of-veterans-affairs/content-build/blob/main/src/site/assets/js/google-analytics/vagovstaging.js)
 - [vagovprod](https://github.com/department-of-veterans-affairs/content-build/blob/main/src/site/assets/js/google-analytics/vagovprod.js)
 
-2. VA.gov participates in the US government’s analytics program. See the data at analytics.usa.gov.
+3. VA.gov participates in the US government’s analytics program. See the data at analytics.usa.gov.
 
 - https://github.com/digital-analytics-program/gov-wide-code
 
-3. Datadog integration coming soon. Some metrics are sent during GHA workflows. Real user monitoring (RUM) and other analytics of that nature still need to be integrated in next-build proper. See: https://www.datadoghq.com/product/real-user-monitoring/
+4. Datadog integration coming soon. Some metrics are sent during GHA workflows. Real user monitoring (RUM) and other analytics of that nature still need to be integrated in next-build proper. See: https://www.datadoghq.com/product/real-user-monitoring/
