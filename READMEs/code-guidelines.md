@@ -1,9 +1,9 @@
 # Code guidelines
 
 Next-build is primarily a TypeScript project. ES6+ syntax is preferred, and code style is enforced using ESLint and Prettier.
-We are using the ESLint settings from Next.js with some extra plugins to ease friction with other tooling (jest, storybook, etc).
+We are using the [ESLint settings from Next.js](https://nextjs.org/docs/pages/building-your-application/configuring/eslint) with some extra plugins to ease friction with other tooling (jest, storybook, etc).
 
-ESLint handles Javascript syntax rules and Prettier ensures consistent code formatting of things like indentations, quote styles, etc.
+ESLint handles Javascript syntax rules and [Prettier](https://prettier.io/) ensures consistent code formatting of things like indentations, quote styles, etc.
 
 ## Code style
 
