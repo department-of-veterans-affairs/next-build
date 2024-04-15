@@ -1,18 +1,30 @@
 # Code guidelines
 
-## Code style
-
-This is primarily a TypeScript project. ES6+ tsx is preferred, and code style is enforced using ESLint and Prettier.
+Next-build is primarily a TypeScript project. ES6+ syntax is preferred, and code style is enforced using ESLint and Prettier.
 We are using the ESLint settings from Next.js with some extra plugins to ease friction with other tooling (jest, storybook, etc).
+
+ESLint handles Javascript syntax rules and Prettier ensures consistent code formatting of things like indentations, quote styles, etc.
+
+## Code style
 
 You can check code style at any time by using:
 
 - `yarn lint` to lint all files
 - `yarn format` to format all files
 
-These run automatically on all git staged files as part of our pre-commit hooks.
+Lint and format run automatically on all git staged files as part of our pre-commit hooks using [lint-staged](https://github.com/lint-staged/lint-staged).
 
-Additionally, we use an `.editorconfig` file to enforce consistency on a developer's editor.
+Additionally, we use an [`.editorconfig` file](https://editorconfig.org/) to ensure consistency across developers' IDEs.
+
+### Configuration
+
+ESLint configuration is found in `.eslintrc.json` and `.eslintignore`. As stated, these are mostly OOTB settings from next.js' eslint settings, with some additional settings to ease friction with other tools that we use. Additional rules can be configured as needed inside of the `"rules":` object.
+
+Settings for Prettier are found in `.prettierrc.json` and `.prettierignore`.
+
+Lint-staged settings are found in `lint-staged.config.js`. This file essentially takes a glob of file formats and the command to run for those file types.
+
+EditorConfig settings can be found in `.editorconfig`
 
 ### Editor Integration
 
