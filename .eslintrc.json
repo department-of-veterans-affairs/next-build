@@ -47,8 +47,9 @@
         "devDependencies": [
           "src/**/*.test.*",
           "test/*",
-          "jest.config.js",
+          "jest.config.ts",
           "jest.setup.js",
+          "playwright.config.ts",
           "**/playwright/**/*.js"
         ]
       }
