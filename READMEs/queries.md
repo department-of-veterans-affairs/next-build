@@ -150,12 +150,12 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
 
 It takes the `entity` returned from the data function, which is in the shape of `NodeNewsStory` and it outputs a generic `NewsStory` object.
 
-You'll notice that all of the object keys are generic names, mapped to the Drupal field names on the entity. This is how the front-end prop names stay agnostic.
+You'll notice that all of the object keys are generic names, mapped to the Drupal field names on the entity. This is how the front-end prop names stay agnostic to their data source.
 
-We also re-use a formatter defined elsewhere for our image field: `image: queries.formatData('media--image', entity.field_media),`
-This says, go find the formatter function previously defined for `media--image` and use it to shape the data from this field: `entity.field_media`. We don't need to re-request the media data, but we do want it in a consistent shape for the front-end component to ingest.
+News Story also re-uses a formatter defined elsewhere for its image field: `image: queries.formatData('media--image', entity.field_media),`
+This says, go find the formatter function previously defined for the `media--image` resource and use it to shape the data from this field: `entity.field_media`. We don't need to re-request the media data, but we do want it in a consistent shape for the front-end component to ingest.
 
-`entityBaseFiseFields` is a helper function that returns fields common to all node types that would be tedious to type out manually each time a new node type is migrated, but build-breaking to forget.
+`entityBaseFields` is a helper function that returns fields common to all node types. They would be tedious to type out manually each time a new node type is migrated, but potentially build-breaking to forget. e.g. CMS Preview functionality will not work correctly without the `published` key being present.
 
 ```js
 // Helper function to return a consistent set of base fields for resources.
@@ -175,7 +175,7 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
 }
 ```
 
-This normalized `NewsStory` object is the `resource` used by [\[\[...slug\]\]](/src/pages/[[...slug]].tsx) that gets passed to the [\<NewsStory\> template](/src/templates/layouts/newsStory/index.tsx).
+Ultimately, the normalized `NewsStory` object returned by the formatter is the `resource` used by [\[\[...slug\]\]](/src/pages/[[...slug]].tsx). That resource then gets passed to the [\<NewsStory\> template](/src/templates/layouts/newsStory/index.tsx), **so the formatter's object keys and the prop names should almost always match**! There may be slight differences, say if a component also depends on a parent template's state, but this is largely one-way differences. If a template doesn't need the formatted data... why include it?
 
 ## Additional reading
 
