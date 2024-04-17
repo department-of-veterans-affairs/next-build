@@ -1,4 +1,4 @@
-import { test, expect } from '../utils/next-test'
+import { test, expect } from '@/playwright/utils/next-test'
 
 test.describe('vetCenter', () => {
   test('vetCenter page renders', async ({ page }) => {
