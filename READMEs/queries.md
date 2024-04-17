@@ -6,7 +6,11 @@ Queries are how data makes it to the front end templates of next-build. They con
 - **data**: where the fetch to the endpoint is actually performed
 - **formatter**: shaping the response from the data function to an agnostic format for the front end (i.e. front end templates should not be using drupal field names)
 
-We'll break down each of these in detail, using News Story as our example. But first, let's look at what Drupal's JSON:API gives us.
+These three work together to create consistent requests and responses for all configured query types. They are independent functions so they can be called in isolation when needed. For example, you may need to consistenly format some portion of data returned by multiple query types or have to include similar query parameters to multiple resource requests.
+
+**Not every query file has all three parts!** Some may contain just a `formatter`, as they will never be queried individually (e.g. many Paragraphs are included in larger requests for Drupal Nodes).
+
+We'll break down each of these functions in detail, using News Story as our example. But first, let's look at what Drupal's JSON:API gives us.
 
 ## How JSON:API works
 
@@ -48,11 +52,14 @@ Now that we have an idea of what JSON:API provides, how do we use that data in n
 
 There is a master list of all queries available in `src/data/queries/index.ts`. This file contains reference to all configured queries in the repo as well as a number of helper types for our build processes. All we really need to know is that the queries defined in `QUERIES_MAP` are made up of the functions previously mentioned: **params**, **data** and **formatter**.
 
-These three work together to create consistent requests and responses for all configured query types. They are independent functions so they can be called in isolation when needed. For example, you may need to consistenly format some portion of data returned by multiple query types or have to include similar query parameters to multiple resource requests.
+Following this structure allows us to treat queries as a sort of interface, and functions with these exact names allow
+us to leverage `next-drupal-query`'s plumbing for some convenience methods when calling specific query functions in isolation. These convenience methods allow us to do things like:
 
-**Not every query file has all three parts!** Some may contain just a `formatter`, as they will never be queried individually (e.g. many Paragraphs).
+- `queries.getParams('node--news_story')` to re-use query parameters
+- `queries.formatData('media--image', entity.field_media)` to re-use a formatter
+- `await queries.getData('header-footer-data')` to call a specific data query
 
-The helper types mentioned above help ensure the correct query files and functions are being referenced, so errors will be thrown when you try to query resources without data functions defined or other incongruous usages.
+The helper types ensure the correct query files and functions are being referenced, so errors will be thrown when you try to query resources without data functions defined or other incongruous usages.
 
 ### Params
 
@@ -75,22 +82,15 @@ In this example, we ask for 5 additional fields to be included. We want our requ
 The dot notation from the last field there is how you tell [JSON:API to include references on references](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module/includes). We have a custom helper function `getNestedIncludes` to help re-use defined query parameters for arbitrary field names. Image fields may not always be
 named `field_media`, but you will always want to include the `.image` reference on that entity.
 
-The params object can get more complex if needed. For example, listing pages may want to limit results to a specific VAMC System, or use different fields for sorting.
-
-```js
-export const listingParams: QueryParams<string> = (listingEntityId: string) => {
-  return queries
-    .getParams(`${RESOURCE_TYPES.STORY}--teaser`)
-    .addFilter('field_listing.id', listingEntityId)
-    .addSort('-created')
-}
-```
-
 The returned object will be used in the data function as the `params` object for drupalClient's resource requests.
+
+**Note:** The `params` object can get more complex if needed. For example, listing pages may want to limit results to a specific VAMC System, or use different fields for sorting. See the [Story Listing query file](/src/data/queries/storyListing.ts) for more examples.
 
 ### Data
 
-The data function is where we `fetch` data. We have a number of wrappers around that fetch (drupalClient, proxy-fetcher, redis, helper functions for pagination & preview, etc), but at it's core, the data function is performing `fetch` to read data from the JSONAPI endpoint. Any data fetched here happens on the server and will be present on the page when it is generated statically. If you have data that needs to be dynamic, it must be fetched in a `useEffect` hook in the template itself. This is generally a rare occurence.
+The data function is where we fetch data. We have a number of wrappers around that fetch (drupalClient, proxy-fetcher, redis, helper functions for pagination & preview, etc), but at it's core, the data function is performing fetch to read data from the JSONAPI endpoint. This function is executed via next-drupal-query - in this case of a News Story - when calling `queries.getData('node--news_story').
+
+It's important to note: This mechanism is for use during static-page generation. Any data-fetching defined in this fashion is intended solely for use on the server during static builds. Fetching data from the browser is a completely different landscape. First, we do not have a live connection from the outside world (e.g. browser) to Drupal, so fetching Drupal data in this fashion from the browser is impossible. There are (currently rare) cases where you might need to make a request to other data sources from the browser, and, in those cases, that must be done in a `useEffect` hook in the template itself.
 
 ```js
 // Implement the data loader.

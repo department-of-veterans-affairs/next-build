@@ -15,3 +15,5 @@ No matter the template category, it should have at least three files:
 With these three files, we can ensure that a given template has adequate test coverage and can be viewed or tested in isolation in Storybook.
 
 ## Template Structure & Types
+
+The templates in next-build are functional React components.
