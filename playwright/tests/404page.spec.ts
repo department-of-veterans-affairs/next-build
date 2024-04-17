@@ -1,4 +1,4 @@
-import { test, expect } from '../utils/next-test'
+import { test, expect } from '@/playwright/utils/next-test'
 
 test.describe('404 Error Page', () => {
   test('Displays the 404 Error page content', async ({ page }) => {

@@ -1,4 +1,4 @@
-import { test, expect } from '../utils/next-test'
+import { test, expect } from '@/playwright/utils/next-test'
 
 test.describe('News Story', () => {
   test('News Story page renders with navigation back to parent story list', async ({

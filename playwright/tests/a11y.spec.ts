@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import { test } from '../utils/next-test'
+import { test } from '@/playwright/utils/next-test'
 import {
   getSitemapLocations,
   splitPagesIntoBatches,
 } from '../../test/getSitemapLocations'
-import fs from 'fs'
+import * as fs from 'fs'
 
 const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:8001'
 const totalSegments = process.env.TOTAL_SEGMENTS
@@ -51,8 +51,8 @@ test.describe(`Accessibility Site Scan`, async () => {
     makeAxeBuilder,
   }) => {
     const viewportSize = page.viewportSize()
-    let scanResults = []
-    let failedPages = []
+    const scanResults = []
+    const failedPages = []
     let pages = await getSitemapLocations(baseUrl)
 
     if (segmentNumber !== 0) {
@@ -73,7 +73,7 @@ test.describe(`Accessibility Site Scan`, async () => {
         console.log('testing page:', pageUrl)
         await page.goto(pageUrl)
 
-        const accessibilityScanResults = await makeAxeBuilder({ page })
+        const accessibilityScanResults = await makeAxeBuilder()
           .withTags(['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
           .exclude('iframe')
           // Exclude header and footer since they are shared on every page.
