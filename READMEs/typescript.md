@@ -45,3 +45,5 @@ Typescript configuration is contained at the root of the repo at [tsconfig.json]
 IntelliJ setup @todo.
 
 Other IDEs @todo, as needed.
+
+This will not get merged; just testing.
