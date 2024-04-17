@@ -19,6 +19,12 @@ const nextConfig = {
   experimental: {
     largePageDataBytes: 512 * 1000, // 512kb, is 128kb by default
   },
+  // This ensures the generated files use a consistent hash inside of the generated `.next/` directory.
+  // Necessary in order for correct asset references in various locations (S3 static files, cms preview server, etc)
+  generateBuildId: async () => {
+    // this could be anything, use latest git hash if it exists
+    return process.env.GIT_HASH ?? 'vagovprod'
+  },
 }
 
 export default nextConfig
