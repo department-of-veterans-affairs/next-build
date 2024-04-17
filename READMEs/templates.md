@@ -16,4 +16,4 @@ With these three files, we can ensure that a given template has adequate test co
 
 ## Template Structure & Types
 
-The templates in next-build are functional React components.
+The templates in next-build are functional React components. The types or interfaces for a component will likely come from the `@/types/formatted/` directory. This helps ensure that data formatted by a query matches the shape the front end component expects.
