@@ -28,6 +28,7 @@
       "@/stories/*": ["./src/stories/*"],
       "@/templates/*": ["./src/templates/*"],
       "@/types/*": ["./src/types/*"],
+      "@/playwright/*": ["./playwright/*"],
       "react": ["./node_modules/@types/react"]
     }
   },
@@ -40,7 +41,8 @@
     "scripts/*",
     "test/*",
     "example_tests/*",
-    ".storybook/*"
+    ".storybook/*",
+    "playwright/**/*"
   ],
   "exclude": ["node_modules", "src/__tests__", "public/generated"],
   "typedocOptions": {

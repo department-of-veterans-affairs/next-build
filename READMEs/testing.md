@@ -83,8 +83,8 @@ The full scan will run daily in CI using a GitHub Workflow and multiple
 runners, but you can also run it locally for testing and debugging purposes.
 
 - Workflow file: `.github/workflows/a11y.yml`
-- Test file: `playwright/tests/a11y.spec.js`
-- Yarn command with plenty of env var config options: `yarn 
+- Test file: `playwright/tests/a11y.spec.ts`
+- Yarn command with plenty of env var config options: `yarn
 test:playwright:a11y`
 
 #### GitHub Workflow
@@ -202,9 +202,9 @@ fresh next-build instance, you can follow these steps:
 5. Take note of the port being used for the `BASE_URL` variable you will
    pass in.
 6. `BASE_URL=${your-url} yarn test:playwright:a11y` to run the scan. This runs
-   `playwright/tests/a11y.spec.js` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
+   `playwright/tests/a11y.spec.ts` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
 
 You should also add the config values you want locally to end up with
-something like: `BASE_URL=${...} USE_PROXY=false PW_WIDTH_VALUE=768 
+something like: `BASE_URL=${...} USE_PROXY=false PW_WIDTH_VALUE=768
 PW_HEIGHT_VALUE=720 PW_BROWSER_VALUE=firefox yarn playwright test --project=a11y
 `

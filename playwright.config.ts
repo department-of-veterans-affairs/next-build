@@ -33,12 +33,12 @@ export default defineConfig({
     // Test everything except full sitemap a11y check
     {
       name: 'main',
-      testIgnore: /.a11y.spec.js/,
+      testIgnore: /.a11y.spec.ts/,
     },
     // Sitemap a11y test only
     {
       name: 'a11y',
-      testMatch: /.a11y.spec.js/,
+      testMatch: /.a11y.spec.ts/,
       // No retries since no assertions are made.
       retries: 0,
       timeout: 4200000,
