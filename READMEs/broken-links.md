@@ -4,7 +4,7 @@ Separately from the [testing suite](./testing.md), we run an HTML scan on every 
 
 # Quickstart
 
-Run `SITE_URL="https://va.gov" node scripts/check-broken-links.mjs` to perform a scan. Change SITE_URL to any environment you want. It uses the proxy-fetcher package from this repo, so it is A-OK to check environments behind the VA network.
+Run `SITE_URL="https://va.gov" node scripts/check-broken-links.js` to perform a scan. Change SITE_URL to any environment you want. It uses the proxy-fetcher package from this repo, so it is A-OK to check environments behind the VA network.
 
 # Additional Options
 
@@ -18,7 +18,7 @@ A number of different options can be passed as environment variables to change t
 - `NODE_EXTRA_CA_CERTS`: If you see a lot of STATUS: 0 errors, it likely means there was an SSL error with certificates. You can generate the `certs/VA-mozilla-combined.pem` file via `yarn certs` to resolve the vast majority of these.
 
 Example with additional option usage:
-`TOTAL_INSTANCES=64 INSTANCE_NUMBER=15 NODE_EXTRA_CA_CERTS=./certs/VA-mozilla-combined.pem SITE_URL="https://va.gov" BATCH_SIZE=15 VERBOSE=true node scripts/check-broken-links.mjs`
+`TOTAL_INSTANCES=64 INSTANCE_NUMBER=15 NODE_EXTRA_CA_CERTS=./certs/VA-mozilla-combined.pem SITE_URL="https://va.gov" BATCH_SIZE=15 VERBOSE=true node scripts/check-broken-links.js`
 
 # Reporting
 

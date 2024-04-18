@@ -30,14 +30,28 @@ This happens using `husky` and `lint-staged`. See `lint-staged.config.js` for mo
 
 ## Linting, Static Analysis, and Unit Tests
 
-Our tools for these tasks currently include:
+This is the "fast" part of the testing suite. Our tools for these tasks currently include:
 
 - **Typechecking**, static typechecking on all .tsx files using the typescript compiler.
 - **ESLint**, an ECMAScript/JavaScript linter and static analysis tool.
 - **Prettier**, a file formatter that ensures consistent code style.
 - **Jest**, a Javascript testing framework with an accessible API
 
-All four of these run as part of the pre-commit hooks on staged files (and/or their related tests, in Jest's case).
+All four of these tools run as part of the pre-commit hooks on staged files (and/or their related tests, in Jest's case).
+
+Typechecking happens at the beginning of the build process, but it can also be run manually at any time using `yarn test:types`. If there are incorrect types found (e.g. a function expects a string but is receiving a boolean), errors will be thrown.
+
+See [Code Guidelines](/READMEs/code-guidelines.md) for more information around ESLint and Prettier.
+
+### Jest Tests
+
+Run `yarn test` to run the full Jest suite. To update snapshots, `yarn test -- -u`. We need the double dash in order to pass flags to the underlying command, instead of environment variables. See the [env-loader README](/READMEs/env-loader.md) for more information on how that works.
+
+Run `yarn test:coverage` to run the full Jest suite and see the coverage report.
+
+If running `yarn test:ci`, Jest will assume a CI environment and fail if snapshots are out of date.
+
+To use Jest in interactive watch mode, run `yarn test:watch`. This will keep the Jest process running and it will re-run tests against the files you change. See the console output from this command for a full list of options and usage.
 
 ## Functional and Behavioral Tests
 
@@ -194,17 +208,13 @@ Test run workflow:
 You don't have to build a site locally, but if you want to test against a
 fresh next-build instance, you can follow these steps:
 
-1. Run all the steps needed to set up next-build listed in the root README.
-   md file.
+1. Run all the steps needed to set up next-build listed in the root README.md file.
 2. `yarn export` to generate the static pages for the site
 3. `yarn build:sitemap` to generate the sitemap for pages from step 1.
 4. `yarn export:serve` to host the static pages locally
-5. Take note of the port being used for the `BASE_URL` variable you will
-   pass in.
+5. Take note of the port being used for the `BASE_URL` variable you will pass in.
 6. `BASE_URL=${your-url} yarn test:playwright:a11y` to run the scan. This runs
    `playwright/tests/a11y.spec.ts` which loops over the sitemap and tests each page individually using `@axe-core/playwright`.
 
 You should also add the config values you want locally to end up with
-something like: `BASE_URL=${...} USE_PROXY=false PW_WIDTH_VALUE=768
-PW_HEIGHT_VALUE=720 PW_BROWSER_VALUE=firefox yarn playwright test --project=a11y
-`
+something like: `BASE_URL=${...} USE_PROXY=false PW_WIDTH_VALUE=768 PW_HEIGHT_VALUE=720 PW_BROWSER_VALUE=firefox yarn playwright test --project=a11y`

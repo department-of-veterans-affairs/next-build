@@ -2,6 +2,8 @@
 
 Next-build interacts with several different caching layers during its operations. Some of these layers it can control and others it lives with.
 
+## Redis
+
 One of the caching layers that next-build does control is [drupalClient's](/src/lib/drupal/drupalClient.ts) cache. For this layer, we use [redis](https://redis.io/).
 
 To use the redis cache during your local static builds, start redis locally using `yarn redis`.
@@ -43,7 +45,7 @@ OK
 
 Either approach will ensure a clean cache for a new build.
 
-## drupalClient integration
+### drupalClient integration
 
 The drupalClient from `next-drupal` expects a cache it is provided to implement this interface:
 
@@ -74,3 +76,9 @@ export async function getMenu(name: string, params: QueryParams<null>) {
 ```
 
 See [next-drupal's docs](https://next-drupal.org/docs/cache) for more information.
+
+## Other Caches that next-build interacts with
+
+- Drupal's cache (updated when a user saves a node, can effect what data is returned from JSON:API)
+- Browser cache (downloaded CSS & assets, local session storage for banners, etc.)
+- [next.js caching](https://nextjs.org/docs/app/building-your-application/caching). This will be more relevant when ISR is implemented.
