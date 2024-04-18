@@ -2,7 +2,7 @@
 
 ## Summary of Tugboat
 
-[Tugboat]() is a container-based tool for generating QA Environments. Tugboat creates "Previews" which are environments that you can test proposed code changes in, login with a web shell, and view logs in the UI. Each Preview is built from a Base Preview.
+[Tugboat](https://docs.tugboatqa.com/) is a container-based tool for generating QA Environments. Tugboat creates "Previews" which are environments that you can test proposed code changes in, login with a web shell, and view logs in the UI. Each Preview is built from a Base Preview.
 
 Tugboat contains **Projects**. Each Project can contain **Repositories** (not related to Github). Each Repository then has a **Base Preview**, and **Previews**.
 
