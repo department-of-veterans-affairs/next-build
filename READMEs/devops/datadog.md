@@ -16,4 +16,12 @@ Adjust time range as needed to find the log entries you are interested in, or us
 
 ## Monitoring and Alerting
 
-TODO: awaiting PR approval
+Two Datadog synthetics are deployed for monitoring staging and production next-build apps. These are defined using Terraform in the devops repo, in [terraform/environments/datadog/cms.tf](https://github.com/department-of-veterans-affairs/devops/blob/master/terraform/environments/datadog/cms.tf) (see `next_build_staging_preview_test` and `next_build_prod_preview_test`).
+
+![Datadog synthetics location](images/datadog-synthetics-menu.png)
+
+![Datadog synthetics listing](images/datadog-synthetics.png)
+
+Each test alerts to the status-next-build Slack channel.
+
+![Datadog Slack alert](images/datadog-synthetics-slack.png)
