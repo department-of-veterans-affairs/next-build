@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Wysiwyg } from './index'
+import { Wysiwyg, WysiwygField } from './index'
 import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
 import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
@@ -60,5 +60,13 @@ describe('ParagraphWysiwyg with invalid data', () => {
     wysiwygProps.html = null
     render(<Wysiwyg key={wysiwygProps.id} {...wysiwygProps} />)
     expect(screen.queryByText(/If you need support.../)).not.toBeInTheDocument()
+  })
+})
+
+describe('WysiwygField', () => {
+  test('returns if invalid data passed', () => {
+    const html = null
+    const element = WysiwygField({ html })
+    expect(element).toBe(undefined)
   })
 })

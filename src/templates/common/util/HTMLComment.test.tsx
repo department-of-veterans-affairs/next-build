@@ -21,4 +21,16 @@ describe('HTMLComment Component', () => {
     expect(commentElement.nodeType).toBe(Node.COMMENT_NODE)
     expect(commentElement.nodeValue).toBe(content)
   })
+  test('appends comment to empty head', () => {
+    document.head.innerHTML = ''
+
+    const content = 'Test comment for empty head'
+    render(<HTMLComment position="head" content={content} />)
+
+    const commentElement = document.head.firstChild as Comment
+
+    expect(commentElement).toBeDefined()
+    expect(commentElement.nodeType).toBe(Node.COMMENT_NODE)
+    expect(commentElement.nodeValue).toBe(content)
+  })
 })

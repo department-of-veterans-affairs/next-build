@@ -46,4 +46,9 @@ describe('<ServicesList> Component', () => {
     expect(firstService).toBeFalsy()
     expect(secondService).toBeFalsy()
   })
+
+  it('returns if services is invalid', () => {
+    const { container } = render(<ServicesList services={null} />)
+    expect(container.firstChild).toBeNull()
+  })
 })
