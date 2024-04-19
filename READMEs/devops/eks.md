@@ -1,4 +1,6 @@
-# EKS Deploy Process
+# EKS
+
+## Deploy Process
 
 Environment updates run through the following steps using GitHub Actions and ArgoCD:
 
@@ -6,7 +8,6 @@ Environment updates run through the following steps using GitHub Actions and Arg
 
 2. Tag creation triggers ["Create and Commit Next-Build Docker Image" workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/mirror-images.yml)
 
-   - The next-build container is built from docker/Dockerfile and is designed for use within this workflow. There are dependencies on vets-website during the app build, so in the first stage it sets up both next-build and vets-website next to one another so that the necessary assets can be found. The second stage only preserves the next-build app, however, and discards vets-website as it is no longer needed.
    - Docker image uploaded to Amazon Elastic Container Registry [dsva/next-build-node](https://us-gov-west-1.console.amazonaws-us-gov.com/ecr/repositories/dsva/next-build-node?region=us-gov-west-1).
 
 3. Successful image creation triggers ["Update infrastructure manifest" workflow](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/update-manifest.yml)
@@ -24,3 +25,27 @@ Environment updates run through the following steps using GitHub Actions and Arg
 
    - https://us-gov-west-1.console.amazonaws-us-gov.com/eks/home?region=us-gov-west-1#/clusters/dsva-vagov-staging-cluster
    - https://us-gov-west-1.console.amazonaws-us-gov.com/eks/home?region=us-gov-west-1#/clusters/dsva-vagov-prod-cluster
+
+## Build Details
+
+The next-build container is built from docker/Dockerfile which is designed for use within the workflow detailed above. There are dependencies on vets-website during the app build, so it sets up both next-build and vets-website next to one another so that the necessary assets can be found. The second stage in the Dockerfile only preserves the next-build app, however, and discards vets-website as it is no longer needed. The Dockerfile needs to run from a context like this:
+
+```
+/(Context Directory)
+   .dockerignore
+   Dockerfile
+   /next-build
+      (next-build repo clone)
+   /vets-website
+      (vets-website repo clone)
+```
+
+You can see this arrangement set up in .github/workflows/mirror-images.yml, where it clones the two repos and copies Dockerfile and .dockerignore to the root directory of both before building.
+
+## Helm Charts and Kubernetes Environment
+
+The application Helm charts within the [vsp-infra-application-manifests repo](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests) use an init container to set up the appropriate env file for a given deploy.
+
+Secrets, such as DRUPAL_CLIENT_ID and DRUPAL_CLIENT_SECRET, are stored as external secrets (see secrets.yaml).
+
+These secret (and non-secret) values are pulled in from values.yaml and configmap.yaml. The `data` from configmap.yaml is used by the init container to populate the env config file used by the next-build app. This is mounted from a /secrets volume, visible as /app/envs from next-build (see next-build-deployment.yaml)
