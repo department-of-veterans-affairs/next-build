@@ -10,7 +10,7 @@ For this stage of next-build when it coexists with content-build (i.e. both syst
 
 ![updated diagram with fallback mechanism between buckets](/READMEs/images/web-infra-updated.png)
 
-Essentially, we check the next-content bucket first. If a file is found, serve it. The existing bucket is never requested. If the response to the next-content bucket returns a 404, the revproxy forwards the request back to the existing content bucket and serves that response, whatever it is.
+Essentially, we check the next-content bucket first. If a file is found, serve it. The original content bucket is never requested. If the response to the next-content bucket returns a 404, the revproxy forwards the request back to the original content bucket and serves that response, whatever it is.
 
 See the [revproxy readme](/READMEs/devops/revproxy.md) for more details.
 
