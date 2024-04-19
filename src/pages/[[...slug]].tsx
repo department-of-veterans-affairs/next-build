@@ -1,3 +1,8 @@
+/**
+ * This is the top-level page template that drives the static generation of all CMS pages.
+ *
+ * For more information on this file, see READMEs/[[...slug]].md
+ */
 import * as React from 'react'
 import {
   GetStaticPathsContext,

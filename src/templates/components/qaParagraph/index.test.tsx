@@ -27,6 +27,22 @@ describe('<QaParagraph> component renders', () => {
     expect(screen.queryByText(/test string 1/)).toBeInTheDocument()
     expect(screen.queryByText(/test string 2/)).toBeInTheDocument()
   })
+
+  test('with valid data and setHeader = true', () => {
+    const propsWithTrueHeader = { setHeaderh3: true, ...qaParagraphProps }
+    render(<QaParagraph {...propsWithTrueHeader} />)
+    expect(screen.queryByText(/Sample Question/)).toBeInTheDocument()
+    expect(screen.queryByText(/test string 1/)).toBeInTheDocument()
+    expect(screen.queryByText(/test string 2/)).toBeInTheDocument()
+  })
+
+  test('with valid data and setHeader = false', () => {
+    const propsWithFalseHeader = { setHeaderh3: false, ...qaParagraphProps }
+    render(<QaParagraph {...propsWithFalseHeader} />)
+    expect(screen.queryByText(/Sample Question/)).toBeInTheDocument()
+    expect(screen.queryByText(/test string 1/)).toBeInTheDocument()
+    expect(screen.queryByText(/test string 2/)).toBeInTheDocument()
+  })
 })
 
 describe('<QaParagraph> component does not render', () => {
