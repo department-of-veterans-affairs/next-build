@@ -1,6 +1,10 @@
 import { render, screen } from 'test-utils'
 import '@testing-library/jest-dom'
-import { Wrapper } from './index'
+import { Wrapper, formatBannerType } from './index'
+import { PromoBanner } from '@/templates/common/banners/promoBanner'
+import { FacilityBanner } from '@/templates/common/banners/facilityBanner'
+import { Banner } from '@/templates/common/banners/banner'
+import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const children = <div></div>
 const banners = [
@@ -61,5 +65,49 @@ describe('<Wrapper> renders', () => {
     const footer = screen.getByTestId('footer')
     // not sure why, there is only one contentinfo role present
     expect(screen.getAllByRole('contentinfo')[0]).toContainElement(footer)
+  })
+})
+
+describe('formatBannerType function', () => {
+  test('returns PromoBanner for BANNER_RESOURCE_TYPES.PROMO', () => {
+    const bannerData = {
+      id: '1',
+      type: BANNER_RESOURCE_TYPES.PROMO,
+      title: '',
+      key: '1',
+    }
+    const result = formatBannerType(bannerData)
+    expect(result).toEqual(<PromoBanner {...bannerData} />)
+  })
+
+  test('returns FacilityBanner for BANNER_RESOURCE_TYPES.FACILITY', () => {
+    const bannerData = {
+      id: '2',
+      type: BANNER_RESOURCE_TYPES.FACILITY,
+      title: '',
+      key: '2',
+    }
+    const result = formatBannerType(bannerData)
+    expect(result).toEqual(<FacilityBanner {...bannerData} />)
+  })
+
+  test('returns Banner for BANNER_RESOURCE_TYPES.BASIC', () => {
+    const bannerData = {
+      id: '3',
+      type: BANNER_RESOURCE_TYPES.BASIC,
+      title: '',
+      key: '3',
+    }
+    const result = formatBannerType(bannerData)
+    expect(result).toEqual(<Banner {...bannerData} />)
+  })
+
+  test('returns null for unknown banner type', () => {
+    const bannerData = {
+      id: '4',
+      type: 'unknown',
+    }
+    const result = formatBannerType(bannerData)
+    expect(result).toBeNull()
   })
 })

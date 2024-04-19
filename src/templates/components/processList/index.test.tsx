@@ -14,4 +14,12 @@ describe('ProcessList with valid data', () => {
 
     expect(screen.queryByText(/test step 1/)).toBeInTheDocument()
   })
+
+  test('returns with no steps provided', () => {
+    render(
+      <ProcessList id="1" type="paragraph--process" entityId={1} steps={null} />
+    )
+
+    expect(screen.queryByText(/test step 1/)).toBeFalsy()
+  })
 })
