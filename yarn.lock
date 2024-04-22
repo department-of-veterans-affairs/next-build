@@ -3628,10 +3628,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/node-logger@npm:8.0.6, @storybook/node-logger@npm:^8.0.5":
+"@storybook/node-logger@npm:8.0.6":
   version: 8.0.6
   resolution: "@storybook/node-logger@npm:8.0.6"
   checksum: 022d71c41ff042df9c7388af28b1d314890971262f9b2b61e8b0ca7453887ce80072c48841f6a0b7f2f2b64e6bed0516cb55467ab51dc87f7d3fb2b17d465b0a
+  languageName: node
+  linkType: hard
+
+"@storybook/node-logger@npm:^8.0.8":
+  version: 8.0.8
+  resolution: "@storybook/node-logger@npm:8.0.8"
+  checksum: c7d2bc23cace21640b30c7a270c986932007c02b22c24ac271dfe9405bab4f70f45cb5847c630bd18913e45e975f4f69f3c57aa75badfb77757afef41069a278
   languageName: node
   linkType: hard
 
@@ -12710,7 +12717,7 @@ __metadata:
     "@storybook/addon-interactions": ^8.0.5
     "@storybook/addon-links": ^8.0.5
     "@storybook/nextjs": ^8.0.5
-    "@storybook/node-logger": ^8.0.5
+    "@storybook/node-logger": ^8.0.8
     "@storybook/react": ^8.0.5
     "@storybook/testing-library": ^0.2.2
     "@testing-library/dom": ^9.3.4
