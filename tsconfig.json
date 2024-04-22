@@ -44,16 +44,5 @@
     ".storybook/*",
     "playwright/**/*"
   ],
-  "exclude": ["node_modules", "src/__tests__", "public/generated"],
-  "typedocOptions": {
-    "entryPoints": ["src/"],
-    "exclude": [
-      "**/**+(.test|.stories).ts",
-      "**/**+(.test|.stories).tsx",
-      "**/(templates|mocks)/**"
-    ],
-    "out": "typedocs",
-    "entryPointStrategy": "expand",
-    "readme": "./READMEs/typescript.md"
-  }
+  "exclude": ["node_modules", "src/__tests__", "public/generated"]
 }

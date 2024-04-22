@@ -37,7 +37,6 @@ dump.rdb
 
 # static output for production
 /storybook-static
-/typedocs/
 /out/
 
 # misc
