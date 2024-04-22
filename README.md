@@ -114,6 +114,8 @@ Retrieve this value from AWS SSM @ /cms/staging/drupal_api_users/next_build_api/
 -----END RSA PRIVATE KEY-----
 ```
 
+See the [Preview README](/READMEs/preview.md) for more information.
+
 ## Local vets-website assets
 
 By default, the `yarn setup` command pulls assets from the prod S3 bucket. This can be changed base on the `BUILD_TYPE` env var.

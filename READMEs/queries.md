@@ -88,7 +88,7 @@ The returned object will be used in the data function as the `params` object for
 
 ### Data
 
-The data function is where we fetch data. We have a number of wrappers around that fetch (drupalClient, proxy-fetcher, redis, helper functions for pagination & preview, etc), but at it's core, the data function is performing fetch to read data from the JSONAPI endpoint. This function is executed via next-drupal-query - in this case of a News Story - when calling `queries.getData('node--news_story').
+The data function is where we fetch data. We have a number of wrappers around that fetch (drupalClient, proxy-fetcher, redis, helper functions for pagination & preview, etc), but at its core, the data function is performing fetch to read data from the JSON:API endpoint. This function is executed via `next-drupal-query` - in this case of a News Story - when calling `queries.getData('node--news_story')`.
 
 It's important to note: This mechanism is for use during static-page generation. Any data-fetching defined in this fashion is intended solely for use on the server during static builds. Fetching data from the browser is a completely different landscape. First, we do not have a live connection from the outside world (e.g. browser) to Drupal, so fetching Drupal data in this fashion from the browser is impossible. There are (currently rare) cases where you might need to make a request to other data sources from the browser, and, in those cases, that must be done in a `useEffect` hook in the template itself.
 
