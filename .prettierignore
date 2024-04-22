@@ -13,7 +13,6 @@ coverage
 public
 .next
 out
-typedocs
 storybook-static
 packages/*/dist
 packages/*/node_modules
