@@ -156,7 +156,18 @@ Notably, this accommodation is only in place for paragraph types. It is not in p
 
 ### Other types
 
-Engineers are encouraged to write types for any data structures that will be used within `next-build`. Use judgement, but in general, if a data structure is exported from a component or other module, to be used elsewhere, it should be typed.
+In addition to specific individual types like those described above (i.e. a type for an individual News Story or Button), we also have to define types for variables that might represent one of many different kinds of objects. For example, in the `getStaticProps` function of our `[[...slug]].tsx` file, we first fetch an entity from the CMS based on a given URL/path. When we fetch that entity, we don't know what type of entity it might be. We have to be able to accommodate in code the reality that the returned entity can be one of many different types. Specifically, it could be any of the types for which we have a query defined. This sort of [union type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) gets somewhat complex in our application because we define them based on the query layer, but we have things set up so that future additions should "just work". You can see these type definitions in the [main query file](../src/data/queries/index.ts), but here is one example:
+
+```
+// All resource types that have a `formatter` function defined
+export type FormattableType = {
+  [K in keyof typeof QUERIES_MAP]: 'formatter' extends keyof (typeof QUERIES_MAP)[K]
+    ? K
+    : never
+}[keyof typeof QUERIES_MAP]
+```
+
+Finally, engineers are encouraged to write types for any data structures that will be used within `next-build`. Use judgement, but in general, if a data structure is exported from a component or other module, to be used elsewhere, it should be typed.
 
 ## Development configuration
 
