@@ -1,4 +1,5 @@
 import { createQueries } from 'next-drupal-query'
+import * as  PressRelease from './pressRelease'
 import * as NewsStory from './newsStory'
 import * as NewsStoryTeaser from './newsStoryTeaser'
 import * as StoryListing from './storyListing'
@@ -6,6 +7,8 @@ import * as QuestionAnswer from './questionAnswer'
 import * as ExpandableText from './expandableText'
 import * as LinkTeaser from './linkTeaser'
 import * as MediaImage from './mediaImage'
+import * as MediaDocument from './mediaDocument'
+import * as MediaVideo from './mediaVideo'
 import * as Banners from './banners'
 import * as PersonProfile from './personProfile'
 import * as Button from './button'
@@ -49,6 +52,8 @@ import {
   PageResourceType,
 } from '@/lib/constants/resourceTypes'
 
+
+
 export const QUERIES_MAP = {
   // Standard Drupal entity data queries
   // Nodes
@@ -60,6 +65,7 @@ export const QUERIES_MAP = {
   [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
   [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
   [RESOURCE_TYPES.PERSON_PROFILE]: PersonProfile,
+  [RESOURCE_TYPES.PRESS_RELEASE]: PressRelease,
   [RESOURCE_TYPES.BENEFITS_HUB]: BenefitsHub, // "Benefits Hub Landing Page"
   [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
   [RESOURCE_TYPES.RESOURCES_SUPPORT]: ResourcesSupport,
@@ -97,6 +103,8 @@ export const QUERIES_MAP = {
 
   // Media
   'media--image': MediaImage,
+  'media--document': MediaDocument,
+  'media--video': MediaVideo,
 
   // Custom queries
   'banner-data': Banners,

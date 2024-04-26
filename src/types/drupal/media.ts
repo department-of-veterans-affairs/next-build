@@ -4,6 +4,7 @@ import { DrupalMedia, DrupalFile } from 'next-drupal'
 export const enum MediaResourceType {
   Image = 'media--image',
   Document = 'media--document',
+  Video = 'media--video',
 }
 
 export interface DrupalMediaImage extends DrupalMedia {
@@ -12,5 +13,9 @@ export interface DrupalMediaImage extends DrupalMedia {
 }
 
 export interface DrupalMediaDocument extends DrupalMedia {
-  field_document: DrupalFile
+  document: DrupalFile
+}
+
+export interface DrupalMediaVideo extends DrupalMedia {
+  video: DrupalFile
 }

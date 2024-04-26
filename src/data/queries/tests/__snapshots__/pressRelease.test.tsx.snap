@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`node--press_release formatData output formatted data 1`] = `
+{
+  "address": undefined,
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA Wilmington health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/wilmington-health-care",
+    },
+    {
+      "options": [],
+      "title": "News releases",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/wilmington-health-care/news-releases",
+    },
+    {
+      "options": [],
+      "title": "Wilmington VAMC 2019 Annual Report",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report",
+    },
+  ],
+  "contacts": undefined,
+  "downloads": undefined,
+  "entityId": 18141,
+  "entityPath": "/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report",
+  "fullText": undefined,
+  "id": "6153ed5b-85c2-4ead-9893-3d656ad5d758",
+  "introText": undefined,
+  "lastUpdated": "2021-04-12T14:25:27+00:00",
+  "listing": undefined,
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Wilmington VAMC 2019 Annual Report | VA Wilmington health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We invite you to come and read our 2019 Annual Report.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Wilmington VAMC 2019 Annual Report | VA Wilmington health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We invite you to come and read our 2019 Annual Report.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We invite you to come and read our 2019 Annual Report.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Wilmington VAMC 2019 Annual Report | VA Wilmington health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "draft",
+  "office": undefined,
+  "pdfVersion": undefined,
+  "published": false,
+  "releaseDate": undefined,
+  "title": "Wilmington VAMC 2019 Annual Report",
+  "type": "node--press_release",
+}
+`;
