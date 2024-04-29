@@ -74,7 +74,7 @@
     "playwright-core": "^1.42.1",
     "plop": "^4.0.1",
     "proxy-fetcher": "0.1.0",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-dom": "^18.2.0",
     "react-gtm-module": "^2.0.11",
     "redis": "^4.6.11",
@@ -105,7 +105,7 @@
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.14.202",
     "@types/node": "20.12.7",
-    "@types/react": "^18.2.74",
+    "@types/react": "^18.3.1",
     "@types/react-dom": "^18.2.18",
     "@types/uuid": "^9.0.7",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
@@ -140,7 +140,7 @@
   },
   "resolutions": {
     "drupal-jsonapi-params": "2.3.1",
-    "@types/react": "18.2.74"
+    "@types/react": "18.3.1"
   },
   "packageManager": "yarn@3.6.1"
 }
