@@ -12,8 +12,13 @@ export interface DrupalMediaImage extends DrupalMedia {
   image: DrupalFile
 }
 
+interface UpdatedDrupalFile extends Omit<DrupalFile, 'drupal_internal__fid'| 'drupal_internal__mid'> {
+  drupal_internal__fid: number
+  drupal_internal__mid?: number
+}
+
 export interface DrupalMediaDocument extends DrupalMedia {
-  document: DrupalFile
+  field_document: UpdatedDrupalFile
 }
 
 export interface DrupalMediaVideo extends DrupalMedia {

@@ -9,7 +9,7 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from '../pressRelease'
 
 const nodePressReleaseMock: NodePressRelease = { ...mockData
-} as unknown as NodePressRelease;
+}
 
 describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('output formatted data', () => {
@@ -31,7 +31,6 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
     )
     expect(formattedData.contacts).toBeNull()
     expect(formattedData.downloads).toBeNull()
-    expect(formattedData.office).toBeUndefined() // Check if field_office is undefined
   })
 })
 

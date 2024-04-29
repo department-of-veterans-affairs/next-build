@@ -53,7 +53,6 @@ export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
     fullText: entity.fieldFullText,
     contacts: entity.fieldContacts,
     downloads: entity.fieldDownloads,
-    office: entity.fieldOffice,
     listing: entity.fieldListing?.path.alias,
   }
 }

@@ -14,7 +14,7 @@ export const PressRelease = ({
   fullText,
   contacts,
   downloads,
-  office,
+
   /*listing,*/
   lovellVariant,
   lovellSwitchPath,
@@ -131,7 +131,7 @@ export const PressRelease = ({
                 </section>
 
                 <section className="vads-u-margin-bottom--3">
-                  {office?.processed}{' '}
+
                   {/* should be fieldOffice.entity.fieldPressReleaseBlurb.processed */}
                 </section>
                 <a

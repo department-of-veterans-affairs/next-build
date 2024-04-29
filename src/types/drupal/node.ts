@@ -307,7 +307,7 @@ export interface NodePressRelease extends DrupalNode {
   /** List of media assets to be downloads */
   field_press_release_downloads: DrupalMediaImage[]
   /** Office information NOT in Mock Data*/
-  field_office: FieldFormattedText
+
   /** field_listing: NEED TO CREATE */
 }
 

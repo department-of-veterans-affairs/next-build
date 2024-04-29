@@ -13,7 +13,6 @@ export type PressRelease = PublishedEntity & {
   /* fieldPressReleaseContact is a reference to a Staff Profile, which is actually a person_profile*/
   contacts: NodePersonProfile[]
   downloads: (DrupalMediaImage | DrupalMediaDocument | DrupalMediaVideo)[]
-  office: FieldFormattedText
   /*listing: NodeEventListing
      - Currently does not exist yet*/
 }
