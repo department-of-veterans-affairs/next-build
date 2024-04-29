@@ -61,7 +61,7 @@ export const PressRelease = ({
                     {introText}
                   </p>
                   {/* Body */}
-                  <div>{fullText.processed}</div>
+                  <div dangerouslySetInnerHTML={{__html: fullText.processed}}></div>
                 </section>
                 <section className="vads-u-margin-bottom--6">
                   <div className="vads-u-font-weight--bold">Media contacts</div>
@@ -131,7 +131,7 @@ export const PressRelease = ({
                 </section>
 
                 <section className="vads-u-margin-bottom--3">
-                  {office.processed}{' '}
+                  {office?.processed}{' '}
                   {/* should be fieldOffice.entity.fieldPressReleaseBlurb.processed */}
                 </section>
                 <a

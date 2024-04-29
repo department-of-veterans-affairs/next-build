@@ -1,6 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodePressRelease } from '@/types/drupal/node'
 import { PressRelease } from '@/types/formatted/pressRelease'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -48,7 +47,7 @@ export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
     ...entityBaseFields(entity),
     title: entity.title,
     releaseDate: entity.fieldReleaseDate,
-    pdfVersion: entity.fieldPdfVersion,
+    pdfVersion: entity?.fieldPdfVersion,
     introText: entity.fieldIntroText,
     address: entity.fieldAddress,
     fullText: entity.fieldFullText,

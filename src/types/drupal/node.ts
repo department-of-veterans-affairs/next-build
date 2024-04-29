@@ -295,7 +295,7 @@ export interface NodePressRelease extends DrupalNode {
   /** Date article was released */
   field_release_date: string
   /** Link to download PDF */
-  /** field_pdf_version: NEED TO CREATE */
+  field_pdf_version: DrupalMediaDocument
   /** Text Invitation to Annual Report event*/
   field_intro_text: string
   /** Address for Annual Report event */
@@ -307,7 +307,7 @@ export interface NodePressRelease extends DrupalNode {
   /** List of media assets to be downloads */
   field_press_release_downloads: DrupalMediaImage[]
   /** Office information NOT in Mock Data*/
-  /** field_office: NodeOffice */
+  field_office: FieldFormattedText
   /** field_listing: NEED TO CREATE */
 }
 

@@ -8,7 +8,8 @@ import mockData from '@/mocks/pressRelease.mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from '../pressRelease'
 
-const nodePressReleaseMock: NodePressRelease = mockData
+const nodePressReleaseMock: NodePressRelease = { ...mockData
+} as unknown as NodePressRelease;
 
 describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('output formatted data', () => {
@@ -26,12 +27,11 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
 
     const formattedData = queries.formatData(
       RESOURCE_TYPES.PRESS_RELEASE,
-      nodePressReleaseMock
+      modifiedMock
     )
-    console.log(formattedData)
     expect(formattedData.contacts).toBeNull()
     expect(formattedData.downloads).toBeNull()
-    expect(formattedData.office).toBeNull()
+    expect(formattedData.office).toBeUndefined() // Check if field_office is undefined
   })
 })
 
