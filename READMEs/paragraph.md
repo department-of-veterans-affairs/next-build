@@ -161,4 +161,4 @@ We can examine one last piece of this by looking at our unit tests. In [our mock
       .
 ```
 
-This is because `field_answer` _can_ hold a `wysiwyg` paragraph. As we saw above, though, it can _also_ hold other types of paragraphs. As such, we could quicky test, that any content type could be passed into that answers array and render the expected output.
+This is because `field_answer` _can_ hold a `wysiwyg` paragraph. As we saw above, though, it can _also_ hold other types of paragraphs. As such, we could quickly test that any content type could be passed into that answers array and render the expected output.
