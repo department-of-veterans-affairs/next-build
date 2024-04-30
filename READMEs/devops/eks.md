@@ -46,6 +46,14 @@ You can see this arrangement set up in .github/workflows/mirror-images.yml, wher
 
 The application Helm charts within the [vsp-infra-application-manifests repo](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests) use an init container to set up the appropriate env file for a given deploy.
 
-Secrets, such as DRUPAL_CLIENT_ID and DRUPAL_CLIENT_SECRET, are stored as external secrets (see secrets.yaml).
+The charts under `apps/next-build-test` are for testing and define `staging` and `prod` environment configs in their respective subdirectories.
 
-These secret (and non-secret) values are pulled in from values.yaml and configmap.yaml. The `data` from configmap.yaml is used by the init container to populate the env config file used by the next-build app. This is mounted from a /secrets volume, visible as /app/envs from next-build (see next-build-deployment.yaml)
+The charts under `apps/next-build` are for production use and also define `staging` and `prod` under their respective subdirectories. Note that there is a `dev` subdirectory, but it is currently not used.
+
+Refer to each `values.yaml` (eg. [next-build-test/staging/values.yaml](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests/blob/main/apps/next-build-test/staging/values.yaml)) file for the specific environmental differences. In general this will be the configmap values used by the node.js app's env file, the Datadog environment, and the Docker container image.
+
+Even though there is one set of app deploys designated as "test", there are currently no specific processes or automation around acceptance testing or other gatekeeping for production deploys. They could be considered a safe playground for evaluating changes or expanded in the future for more rigorous QA processes. As described above, the ArgoCD deploy pushes changes everywhere if the main branch passes CI.
+
+Secrets, such as DRUPAL_CLIENT_ID and DRUPAL_CLIENT_SECRET, are stored as external secrets (see `secrets.yaml`).
+
+These secret (and non-secret) values are pulled in from values.yaml and configmap.yaml. The init container uses `data` from `configmap.yaml` to populate the env config file, which is used by the next-build app. This is mounted from a /secrets volume, visible as /app/envs from next-build (see `next-build-deployment.yaml`)
