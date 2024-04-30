@@ -7,6 +7,7 @@ import {
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
   PhoneContact as FormattedPhoneContact,
+  PressContact,
 } from '@/types/formatted/contactInfo'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
@@ -86,6 +87,11 @@ const BenefitHubContacts = ({ services }: BenefitHubContact) => {
       <DefaultContact {...s} />
     </li>
   ))
+}
+
+// node--press_release for listing Media contacts
+const PressReleaseContact = (contact : PressContact[] ) => {
+     
 }
 
 // wrapper around all types of contact info

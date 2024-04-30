@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Media image returns formatted data outputs formatted data 1`] = `
+{
+  "alt": undefined,
+  "height": undefined,
+  "id": undefined,
+  "links": undefined,
+  "title": undefined,
+  "type": "media--image",
+  "width": undefined,
+}
+`;

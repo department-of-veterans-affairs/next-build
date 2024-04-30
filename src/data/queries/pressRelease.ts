@@ -14,11 +14,14 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 // Define the query params for fetching node--press_release.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
-    ...getNestedIncludes('field_press_release_downloads', ["media--image","media--document", "media--video"] ),
-    'field_press_release_contacts',
-    'field_press_release_pdf_version',
-    'field_press_release_office',
-     ])
+    ...getNestedIncludes('field_press_release_downloads', [
+      'media--image',
+      'media--document',
+    ]),
+    'field_press_release_contact',
+    'field_listing',
+    'field_administration',
+  ])
 }
 
 // Define the option types for the data loader.
@@ -31,29 +34,68 @@ export type PressReleaseDataOpts = {
 export const data: QueryData<PressReleaseDataOpts, NodePressRelease> = async (
   opts
 ): Promise<NodePressRelease> => {
-const entity = (await fetchSingleEntityOrPreview(
+  const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.PRESS_RELEASE,
     params
   )) as NodePressRelease
-
   return entity
 }
 
 export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
   entity: NodePressRelease
 ) => {
+  const downloads = entity.field_press_release_downloads.map((download) => {
+    if (download.type === 'media--document') {
+      return {
+        id: download.id,
+        type: download.type,
+        name: download.name,
+        uri: download?.field_document?.uri.url || null,
+      }
+    }
+    if (download.type === 'media--image') {
+      return {
+        id: download.id,
+        type: download.type,
+        name: download.name,
+        uri: download?.image.uri.url || null,
+      }
+    }
+    //No clear download field option; entering a url potential redirect option
+    if (download.type === 'media--video') {
+      return {
+        id: download.id,
+        type: download.type,
+        name: download.name,
+        uri: download?.field_media_video_embed_field || null,
+      }
+    }
+  })
+  const formattedContacts = entity.field_press_release_contact.map(
+    (contact) => {
+      return {
+        id: contact.id,
+        description: contact.field_description,
+        name: contact.title,
+        email: contact.field_email_address,
+        phone: contact.field_phone_number,
+      }
+    }
+  )
   return {
     ...entityBaseFields(entity),
-    title: entity.title,
-    releaseDate: entity.fieldReleaseDate,
-    pdfVersion: entity?.fieldPdfVersion,
-    introText: entity.fieldIntroText,
-    address: entity.fieldAddress,
-    fullText: entity.fieldFullText,
-    contacts: entity.fieldContacts,
-    downloads: entity.fieldDownloads,
-    listing: entity.fieldListing?.path.alias,
+    releaseDate: entity.field_release_date,
+    pdfVersion: entity.field_pdf_version?.field_document?.uri.url || null,
+    introText: entity.field_intro_text,
+    address: entity.field_address,
+    fullText: entity.field_press_release_fulltext.processed,
+    contacts: formattedContacts,
+    downloads: downloads,
+    listing: entity.field_listing?.path.alias,
+    administration: {
+      id: entity.field_administration?.drupal_internal__tid || null,
+      name: entity.field_administration?.name || null,
+    },
   }
 }
-

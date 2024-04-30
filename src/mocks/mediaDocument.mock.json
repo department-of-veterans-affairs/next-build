@@ -1,4 +1,9 @@
 {
-  "note": "Replace this data! The file should contain an example response for the desired query before formatting",
-  "example": "See src/mocks/newsStory.mock.json for an example response from va.gov-cms's JSON:API"
+  "type": "file--file",
+  "id": "649c7052-f0b4-4772-a047-5344dad2e6b5",
+  "resourceIdObjMeta": {
+    "display": true,
+    "description": "",
+    "drupal_internal__target_id": 3519
+  }
 }

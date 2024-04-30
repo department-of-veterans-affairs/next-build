@@ -6,7 +6,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 
 // Define the query params for fetching node--media_video.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams().addInclude(['video'])
+  return new DrupalJsonApiParams().addInclude([])
 }
 
 // Define the option types for the data loader.
@@ -35,12 +35,11 @@ export const formatter: QueryFormatter<DrupalMediaVideo, MediaVideo> = (
 ) => {
   if(!entity) return null
   return {
-    id: entity.video.id,
+    id: entity.id,
     type: entity.type,
-    links: entity.video?.links,
-    alt: entity.video?.resourceIdObjMeta?.alt,
-    width: entity.video?.resourceIdObjMeta?.width,
-    height: entity.video?.resourceIdObjMeta?.height,
-    title: entity.video?.resourceIdObjMeta?.title,
+    name: entity.name,
+    field_description: entity?.field_description,
+    field_duration: entity?.field_duration,
+    field_media_video_embed_field: entity?.field_media_video_embed_field,
   }
 }

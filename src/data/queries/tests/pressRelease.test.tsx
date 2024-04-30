@@ -8,8 +8,7 @@ import mockData from '@/mocks/pressRelease.mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from '../pressRelease'
 
-const nodePressReleaseMock: NodePressRelease = { ...mockData
-}
+const nodePressReleaseMock: NodePressRelease = mockData as unknown as NodePressRelease;
 
 describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('output formatted data', () => {
@@ -21,7 +20,6 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
     const modifiedMock = {
       ...nodePressReleaseMock,
       field_press_release_contacts: null,
-      field_press_release_office: undefined,
       field_press_release_downloads: null,
     }
 

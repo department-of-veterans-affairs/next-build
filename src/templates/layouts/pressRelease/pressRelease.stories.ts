@@ -27,14 +27,9 @@ const data = {
     address_line1: '',
     address_line2: '',
   },
-  fullText: {
-    processed: '<p>We invite you to come and read our 2019 Annual Report. </p>',
-    value: '<p>We invite you to come and read our 2019 Annual Report.<em> </em></p>\r\n',
-    format: 'rich_text',
-  },
+  fullText: '<p>We invite you to come and read our 2019 Annual Report. </p>',
   contacts: [],
   downloads: [],
-  office: undefined,
 }
 
 

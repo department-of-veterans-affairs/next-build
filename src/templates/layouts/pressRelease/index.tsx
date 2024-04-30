@@ -14,8 +14,7 @@ export const PressRelease = ({
   fullText,
   contacts,
   downloads,
-
-  /*listing,*/
+  listing,
   lovellVariant,
   lovellSwitchPath,
 }: LovellStaticPropsResource<FormattedPressRelease>) => {
@@ -35,7 +34,7 @@ export const PressRelease = ({
                   <h1 className="vads-u-margin-bottom--2p5">{title}</h1>
                   <p className="vads-u-margin-bottom--0p5">PRESS RELEASE</p>
                   <p className="vads-u-font-weight--bold vads-u-margin-bottom--3 vads-u-margin-top--0">
-                    {releaseDate || formatDate(releaseDate)}
+                    {formatDate(releaseDate)}
                   </p>
                   <div>
                     <button
@@ -50,7 +49,7 @@ export const PressRelease = ({
                       Print
                     </button>
                     {pdfVersion && (
-                      <a href={pdfVersion.field_document.uri.url} download>
+                      <a href={pdfVersion} download>
                         <i className="fa fa-download vads--u-padding-right--1"></i>
                         Download press release (PDF)
                       </a>
@@ -61,7 +60,7 @@ export const PressRelease = ({
                     {introText}
                   </p>
                   {/* Body */}
-                  <div dangerouslySetInnerHTML={{__html: fullText.processed}}></div>
+                  <div dangerouslySetInnerHTML={{ __html: fullText}}></div>
                 </section>
                 <section className="vads-u-margin-bottom--6">
                   <div className="vads-u-font-weight--bold">Media contacts</div>
@@ -73,17 +72,17 @@ export const PressRelease = ({
                     return (
                       <div key={contact.id}>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                          {contact.title}{' '}
-                          {contact.field_description &&
-                            `, ${contact.field_description}`}
+                          {contact.name}{' '}
+                          {contact.description &&
+                            `, ${contact.description}`}
                         </p>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                          {contact.field_phone_number}
+                          {contact.phone}
                         </p>
-                        {contact.field_email_address && (
+                        {contact.email && (
                           <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                            <a href={`mailto:${contact.field_email_address}`}>
-                              {contact.field_email_address}
+                            <a href={`mailto:${contact.email}`}>
+                              {contact.email}
                             </a>
                           </p>
                         )}
@@ -97,32 +96,20 @@ export const PressRelease = ({
                       Download media assets
                     </div>
                     {/*Print out unorder list links per type*/}
-                    {downloads.map((asset) => {
-                      if (!asset) {
-                        return null
-                      }
-                      return (
-                        <ul key={asset.id}>
-                          <li>
-                            {asset.type === 'DrupalMediaDocument' && (
-                              <a href={asset.field_document.uri.url} download>
-                                {asset.name}
-                              </a>
-                            )}
-                            {asset.type === 'DrupalMediaImage' && (
-                              <a href={asset.image.uri.url} download>
-                                {asset.name}
-                              </a>
-                            )}
-                            {asset.type === 'DrupalMediaVideo' && (
-                              <a href={asset.field_document.uri.url} download>
-                                {asset.name}
-                              </a>
-                            )}
+                    <ul>
+                      {downloads.map((asset) => {
+                        if (!asset.uri) {
+                          return null
+                        }
+                        return (
+                          <li key={asset.id}>
+                            <a href={asset.uri} download>
+                              {asset.name}
+                            </a>
                           </li>
-                        </ul>
-                      )
-                    })}
+                        )
+                      })}
+                    </ul>
                   </section>
                 )}
 
@@ -131,14 +118,13 @@ export const PressRelease = ({
                 </section>
 
                 <section className="vads-u-margin-bottom--3">
-
                   {/* should be fieldOffice.entity.fieldPressReleaseBlurb.processed */}
                 </section>
                 <a
                   onClick={() =>
                     recordEvent({ event: 'nav-secondary-button-click' })
                   }
-                  href="#"
+                  href={listing}
                 >
                   {' '}
                   {/*fieldListing.path.alias*/}
