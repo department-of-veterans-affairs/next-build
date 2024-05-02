@@ -13,12 +13,13 @@ export interface DrupalMediaImage extends DrupalMedia {
 }
 /** There is an underlying bug in next-drupal types. Some are being sent as strings and others as numbers
 /* causing type conflicts */
-interface UpdatedDrupalFile extends Omit<DrupalFile, 'drupal_internal__mid'> {
+interface UpdatedDrupalFile extends Omit<DrupalFile, 'drupal_internal__fid'| 'drupal_internal__mid'> {
   drupal_internal__fid: number
-  drupal_internal__mid?: number
+
 }
 
-export interface DrupalMediaDocument extends DrupalMedia {
+export interface DrupalMediaDocument extends Omit<DrupalMedia, 'drupal_internal__mid'> {
+  drupal_internal__mid: number
   field_document: UpdatedDrupalFile
 }
 

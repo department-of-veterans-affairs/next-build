@@ -2,12 +2,11 @@
 
 exports[`Media image returns formatted data outputs formatted data 1`] = `
 {
-  "alt": undefined,
-  "height": undefined,
-  "id": undefined,
-  "links": undefined,
-  "title": undefined,
-  "type": undefined,
-  "width": undefined,
+  "filemime": undefined,
+  "filename": undefined,
+  "filesize": undefined,
+  "id": "649c7052-f0b4-4772-a047-5344dad2e6b5",
+  "type": "file--file",
+  "uri": undefined,
 }
 `;

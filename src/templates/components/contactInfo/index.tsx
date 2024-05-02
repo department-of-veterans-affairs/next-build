@@ -89,11 +89,6 @@ const BenefitHubContacts = ({ services }: BenefitHubContact) => {
   ))
 }
 
-// node--press_release for listing Media contacts
-const PressReleaseContact = (contact : PressContact[] ) => {
-     
-}
-
 // wrapper around all types of contact info
 // content-build/src/site/paragraphs/contact_information.drupal.liquid
 export function ContactInfo({

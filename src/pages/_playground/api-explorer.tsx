@@ -23,7 +23,8 @@ export async function getStaticProps() {
   }
 
   const params = new DrupalJsonApiParams().addInclude([
-'field_pdf_version',
+    'field_listing',
+    'field_administration',
   ])
   const data = await drupalClient.getResourceCollection(
     'node--press_release',

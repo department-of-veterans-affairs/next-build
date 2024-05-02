@@ -9,8 +9,9 @@ const data = {
   lastUpdated: '',
   releaseDate: '2020-06-19T10:25:28-04:00',
   pdfVersion: undefined,
-  introText: 'We invite you to come and read our 2019 Annual Report. ',
-  address:{
+  introText:
+    'Virtual Town Hall Discusses COVID-19 Vaccine Hesitancy for BIPOC Veterans WEBEX Event Wednesday, April 28',
+  address: {
     langcode: 'en',
     country_code: 'US',
     administrative_area: 'DE',
@@ -18,22 +19,45 @@ const data = {
     address_line1: '',
     address_line2: '',
   },
-  fullText: '<p>We invite you to come and read our 2019 Annual Report. </p>',
+  fullText: '<p>Houston health care Placeholder - News release</p>',
   contacts: [],
   downloads: [],
-  listing:'',
-   administration:{
+  listing: '',
+  administration: {
     id: 0,
-    name: ''
-   },
+    name: '',
+  },
   office: undefined,
-};
+}
 
-describe('PressRelease with valid data', () => {
-  test('renders PressRelease component', () => {
-    render(
-      <PressRelease {...data} />
-    )
-    expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
+describe('<pressRelease> with valid data', () => {
+  let spy: jest.SpyInstance
+  beforeEach(() => {
+    spy = jest.spyOn(console, 'error').mockImplementation(() => null)
+  })
+  afterEach(() => {
+    spy.mockRestore()
+  })
+  test('renders component', () => {
+    const { container } = render(<PressRelease {...data} />)
+    expect(
+      screen.queryByText(/Wilmington VAMC 2019 Annual Report/)
+    ).toBeInTheDocument()
+    expect(screen.queryByText(/PRESS RELEASE/)).toBeInTheDocument()
+    expect(screen.queryByText(/June 19, 2020/)).toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /Virtual Town Hall Discusses COVID-19 Vaccine Hesitancy for BIPOC Veterans WEBEX Event Wednesday, April 28/
+      )
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /Wilimington, DE - Virtual Town Hall Discusses COVID-19 Vaccine Hesitancy for BIPOC Veterans WEBEX Event Wednesday, April 28/
+      )
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/Houston health care Placeholder - News release/)
+    ).toBeInTheDocument()
+    expect(container.querySelectorAll('button')).toBeTruthy()
   })
 })

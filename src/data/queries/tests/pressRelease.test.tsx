@@ -8,7 +8,7 @@ import mockData from '@/mocks/pressRelease.mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from '../pressRelease'
 
-const nodePressReleaseMock: NodePressRelease = mockData as unknown as NodePressRelease;
+const nodePressReleaseMock: NodePressRelease = mockData;
 
 describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('output formatted data', () => {
@@ -19,7 +19,7 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('handles missing or null fields correctly', () => {
     const modifiedMock = {
       ...nodePressReleaseMock,
-      field_press_release_contacts: null,
+      field_press_release_contact: null,
       field_press_release_downloads: null,
     }
 
@@ -37,7 +37,7 @@ describe('DrupalJsonApiParams configuration for pressRelease', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     expect(queryString).toMatch(
-      /include=field_media,field_media.image,field_author,field_listing,field_administration/
+      /include=field_press_release_contact,field_press_release_downloads/
     )
   })
 })
