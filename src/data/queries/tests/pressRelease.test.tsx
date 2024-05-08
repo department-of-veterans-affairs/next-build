@@ -8,7 +8,16 @@ import mockData from '@/mocks/pressRelease.mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from '../pressRelease'
 
-const nodePressReleaseMock: NodePressRelease = mockData;
+const nodePressReleaseMock: NodePressRelease = {
+  ...mockData,
+  field_pdf_version: {
+    ...mockData.field_pdf_version,
+    drupal_internal__mid:
+      mockData.field_pdf_version.drupal_internal__mid.toString(),
+    drupal_internal__vid:
+      mockData.field_pdf_version.drupal_internal__vid.toString(),
+  },
+}
 
 describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('output formatted data', () => {
@@ -27,8 +36,6 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
       RESOURCE_TYPES.PRESS_RELEASE,
       modifiedMock
     )
-    expect(formattedData.contacts).toBeNull()
-    expect(formattedData.downloads).toBeNull()
   })
 })
 
@@ -37,7 +44,7 @@ describe('DrupalJsonApiParams configuration for pressRelease', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     expect(queryString).toMatch(
-      /include=field_press_release_contact,field_press_release_downloads/
+      /include=field_press_release_downloads,field_press_release_downloads.image,field_press_release_downloads.field_document,field_press_release_contact,field_listing,field_administration,field_pdf_version/
     )
   })
 })

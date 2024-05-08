@@ -21,6 +21,7 @@ export const params: QueryParams<null> = () => {
     'field_press_release_contact',
     'field_listing',
     'field_administration',
+    'field_pdf_version',
   ])
 }
 
@@ -45,48 +46,50 @@ export const data: QueryData<PressReleaseDataOpts, NodePressRelease> = async (
 export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
   entity: NodePressRelease
 ) => {
-  const downloads = entity.field_press_release_downloads.map((download) => {
-    if (download.type === 'media--document') {
-      return {
-        id: download.id,
-        type: download.type,
-        name: download.name,
-        uri: download?.field_document?.uri.url || null,
-      }
-    }
-    if (download.type === 'media--image') {
-      return {
-        id: download.id,
-        type: download.type,
-        name: download.name,
-        uri: download?.image.uri.url || null,
-      }
-    }
-    //No clear download field option; entering a url potential redirect option
-    if (download.type === 'media--video') {
-      return {
-        id: download.id,
-        type: download.type,
-        name: download.name,
-        uri: download?.field_media_video_embed_field || null,
-      }
-    }
-  })
-  const formattedContacts = entity.field_press_release_contact.map(
-    (contact) => {
-      return {
-        id: contact.id,
-        description: contact.field_description,
-        name: contact.title,
-        email: contact.field_email_address,
-        phone: contact.field_phone_number,
-      }
-    }
-  )
+  const downloads = entity.field_press_release_downloads
+    ? entity.field_press_release_downloads.map((download) => {
+        if (download.type === 'media--document') {
+          return {
+            id: download.id,
+            type: download.type,
+            name: download.name,
+            uri: download?.field_document?.uri?.url || null,
+          }
+        }
+        if (download.type === 'media--image') {
+          return {
+            id: download.id,
+            type: download.type,
+            name: download.name,
+            uri: download?.image.uri?.url || null,
+          }
+        }
+        //No clear download field option; entering a url potential redirect option
+        if (download.type === 'media--video') {
+          return {
+            id: download.id,
+            type: download.type,
+            name: download.name,
+            uri: download?.field_media_video_embed_field || null,
+          }
+        }
+      })
+    : []
+  const formattedContacts = entity.field_press_release_contact
+    ? entity.field_press_release_contact.map((contact) => {
+        return {
+          id: contact.id,
+          description: contact.field_description,
+          name: contact.title,
+          email: contact.field_email_address,
+          phone: contact.field_phone_number,
+        }
+      })
+    : []
   return {
     ...entityBaseFields(entity),
     releaseDate: entity.field_release_date,
-    pdfVersion: entity.field_pdf_version?.field_document?.uri.url || null,
+    pdfVersion: entity.field_pdf_version?.field_document?.uri?.url || null,
     introText: entity.field_intro_text,
     address: entity.field_address,
     fullText: entity.field_press_release_fulltext.processed,

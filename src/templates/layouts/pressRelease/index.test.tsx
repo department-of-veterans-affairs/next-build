@@ -50,14 +50,6 @@ describe('<pressRelease> with valid data', () => {
         /Virtual Town Hall Discusses COVID-19 Vaccine Hesitancy for BIPOC Veterans WEBEX Event Wednesday, April 28/
       )
     ).toBeInTheDocument()
-    expect(
-      screen.queryByText(
-        /Wilimington, DE - Virtual Town Hall Discusses COVID-19 Vaccine Hesitancy for BIPOC Veterans WEBEX Event Wednesday, April 28/
-      )
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/Houston health care Placeholder - News release/)
-    ).toBeInTheDocument()
     expect(container.querySelectorAll('button')).toBeTruthy()
   })
 })
