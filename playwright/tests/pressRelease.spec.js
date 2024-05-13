@@ -1,9 +1,7 @@
 import { test, expect } from '../utils/next-test'
 
 test.describe('pressRelease', () => {
-  test('pressRelease page renders', async ({
-    page,
-  }) => {
+  test('pressRelease page renders', async ({ page }) => {
     await page.goto('/update-this-link')
     await expect(page).toHaveURL('/update-this-link')
   })

@@ -19,7 +19,7 @@ export type DataOpts = {
 export const data: QueryData<DataOpts, DrupalMediaVideo> = async (
   opts
 ): Promise<DrupalMediaVideo> => {
- const entity = await drupalClient.getResource<DrupalMediaVideo>(
+  const entity = await drupalClient.getResource<DrupalMediaVideo>(
     'media--video',
     opts.id,
     {
@@ -33,7 +33,7 @@ export const data: QueryData<DataOpts, DrupalMediaVideo> = async (
 export const formatter: QueryFormatter<DrupalMediaVideo, MediaVideo> = (
   entity: DrupalMediaVideo
 ) => {
-  if(!entity) return null
+  if (!entity) return null
   return {
     id: entity.id,
     type: entity.type,

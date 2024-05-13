@@ -1,5 +1,5 @@
 import { createQueries } from 'next-drupal-query'
-import * as  PressRelease from './pressRelease'
+import * as PressRelease from './pressRelease'
 import * as NewsStory from './newsStory'
 import * as NewsStoryTeaser from './newsStoryTeaser'
 import * as StoryListing from './storyListing'
@@ -51,8 +51,6 @@ import {
   PARAGRAPH_RESOURCE_TYPES,
   PageResourceType,
 } from '@/lib/constants/resourceTypes'
-
-
 
 export const QUERIES_MAP = {
   // Standard Drupal entity data queries

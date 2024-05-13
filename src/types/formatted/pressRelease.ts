@@ -1,6 +1,10 @@
 import { PublishedEntity } from './publishedEntity'
 import { NodeOffice, NodePersonProfile, NodeEventListing } from '../drupal/node'
-import { DrupalMediaDocument, DrupalMediaImage, DrupalMediaVideo } from '../drupal/media'
+import {
+  DrupalMediaDocument,
+  DrupalMediaImage,
+  DrupalMediaVideo,
+} from '../drupal/media'
 import { FieldAddress, FieldFormattedText } from '../drupal/field_type'
 import { Administration } from './administration'
 import { PressContact } from './contactInfo'

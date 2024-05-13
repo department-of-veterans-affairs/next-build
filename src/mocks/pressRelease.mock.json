@@ -193,72 +193,73 @@
       "langcode": "en"
     },
     "drupal_internal__nid": 3047,
-      "drupal_internal__vid": 859557,
-      "langcode": "en",
-      "revision_timestamp": "2024-04-02T13:36:41+00:00",
-      "status": true,
-      "title": "News releases",
-      "created": "2020-03-02T21:29:22+00:00",
-      "changed": "2024-04-02T13:36:41+00:00",
-      "promote": false,
-      "sticky": false,
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "moderation_state": "published",
-      "metatag": null,
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "field_description": "Get the latest news from Wilmington-area medical centers and clinics. For further information, contact our Public Affairs Office at 302-994-2511, ext. 5389.",
-      "field_enforce_unique_combo": false,
-      "field_intro_text": "For more information about Wilmington health care, contact our Public Affairs Office at 302-994-2511, ext. 5389. You can also visit us online, like us on Facebook, or follow us on Twitter. ",
-      "field_last_saved_by_an_editor": "2024-04-02T13:36:47+00:00",
-      "field_meta_tags": null,
-      "field_press_release_blurb": {
-        "value": "<p>For more information about Wilmington health care, contact our Public Affairs Office at <a href=\"tel:+13029942511\" aria-label=\"3 0 2. 9 9 4. 2 5 1 1.\">302-994-2511</a>, ext. 5389.</p><p>You can also visit us <a href=\"/node/2362\" data-entity-type=\"node\" data-entity-uuid=\"56fc04f4-46c8-4e20-8c4a-09aba2229894\" data-entity-substitution=\"canonical\">online</a>, like us on<a href=\"/admin/content/linky/1582\"> Facebook</a>, or follow us on <a href=\"/admin/content/linky/1583\">Twitter</a>.&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>",
-        "format": "rich_text",
-        "processed": "<p>For more information about Wilmington health care, contact our Public Affairs Office at <a href=\"tel:+13029942511\" aria-label=\"3 0 2. 9 9 4. 2 5 1 1.\">302-994-2511</a>, ext. 5389.</p><p>You can also visit us <a href=\"/wilmington-health-care\" data-entity-type=\"node\" data-entity-uuid=\"56fc04f4-46c8-4e20-8c4a-09aba2229894\" data-entity-substitution=\"canonical\" title=\"VA Wilmington health care\">online</a>, like us on<a href=\"https://www.facebook.com/WilmingtonVAMC\"> Facebook</a>, or follow us on <a href=\"https://twitter.com/WilmingtonVAMC\">Twitter</a>.&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>"
-      },
-      "links": {
-        "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/node/press_releases_listing/e3227296-c490-424c-abe7-42d80d0364cc?resourceVersion=id%3A859557"
-        }
-      },
+    "drupal_internal__vid": 859557,
+    "langcode": "en",
+    "revision_timestamp": "2024-04-02T13:36:41+00:00",
+    "status": true,
+    "title": "News releases",
+    "created": "2020-03-02T21:29:22+00:00",
+    "changed": "2024-04-02T13:36:41+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "moderation_state": "published",
+    "metatag": null,
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_description": "Get the latest news from Wilmington-area medical centers and clinics. For further information, contact our Public Affairs Office at 302-994-2511, ext. 5389.",
+    "field_enforce_unique_combo": false,
+    "field_intro_text": "For more information about Wilmington health care, contact our Public Affairs Office at 302-994-2511, ext. 5389. You can also visit us online, like us on Facebook, or follow us on Twitter. ",
+    "field_last_saved_by_an_editor": "2024-04-02T13:36:47+00:00",
+    "field_meta_tags": null,
+    "field_press_release_blurb": {
+      "value": "<p>For more information about Wilmington health care, contact our Public Affairs Office at <a href=\"tel:+13029942511\" aria-label=\"3 0 2. 9 9 4. 2 5 1 1.\">302-994-2511</a>, ext. 5389.</p><p>You can also visit us <a href=\"/node/2362\" data-entity-type=\"node\" data-entity-uuid=\"56fc04f4-46c8-4e20-8c4a-09aba2229894\" data-entity-substitution=\"canonical\">online</a>, like us on<a href=\"/admin/content/linky/1582\"> Facebook</a>, or follow us on <a href=\"/admin/content/linky/1583\">Twitter</a>.&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>",
+      "format": "rich_text",
+      "processed": "<p>For more information about Wilmington health care, contact our Public Affairs Office at <a href=\"tel:+13029942511\" aria-label=\"3 0 2. 9 9 4. 2 5 1 1.\">302-994-2511</a>, ext. 5389.</p><p>You can also visit us <a href=\"/wilmington-health-care\" data-entity-type=\"node\" data-entity-uuid=\"56fc04f4-46c8-4e20-8c4a-09aba2229894\" data-entity-substitution=\"canonical\" title=\"VA Wilmington health care\">online</a>, like us on<a href=\"https://www.facebook.com/WilmingtonVAMC\"> Facebook</a>, or follow us on <a href=\"https://twitter.com/WilmingtonVAMC\">Twitter</a>.&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>"
+    },
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/node/press_releases_listing/e3227296-c490-424c-abe7-42d80d0364cc?resourceVersion=id%3A859557"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3047
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "4dd9e832-53d6-4587-a9f7-5040ac950e0a",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 3047
-      },
-      "node_type": {
-        "type": "node_type--node_type",
-        "id": "4dd9e832-53d6-4587-a9f7-5040ac950e0a",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "press_releases_listing"
-        }
-      },
-      "revision_uid": {
-        "type": "user--user",
-        "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 1486
-        }
-      }, "uid": {
-        "type": "user--user",
-        "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 197
-        }
-      },
-      "field_administration": {
-        "type": "taxonomy_term--administration",
-        "id": "f55a34b8-f0cc-41f1-a6a3-8375160003ab",
-        "resourceIdObjMeta": [null]
-      },
-      "field_office": null,
-      "relationshipNames": [
-        "node_type",
-        "revision_uid",
-        "uid",
-        "field_administration",
-        "field_office"
-      ]
+        "drupal_internal__target_id": "press_releases_listing"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1486
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 197
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "f55a34b8-f0cc-41f1-a6a3-8375160003ab",
+      "resourceIdObjMeta": [null]
+    },
+    "field_office": null,
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_office"
+    ]
   },
   "field_pdf_version": {
     "type": "media--document",
@@ -357,9 +358,7 @@
           "drupal_internal__target_id": 1486
         }
       },
-      "relationshipNames": [
-        "uid"
-      ]
+      "relationshipNames": ["uid"]
     },
     "field_owner": {
       "type": "taxonomy_term--administration",
