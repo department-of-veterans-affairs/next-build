@@ -39,28 +39,27 @@ export const PressRelease = ({
                   <div>
                     <button
                       type="button"
-                      className="va-u-margin-right--4 va-button-link"
+                      className="vads-u-margin-right--4 va-button-link"
                       onClick={() => {
                         window.print()
                         return false
                       }}
                     >
-                      <i className="fa fa-print vads--u-padding-right--1"></i>
+                      <i className="fa fa-print vads-u-padding-right--1"></i>
                       Print
                     </button>
                     {pdfVersion && (
                       <a href={pdfVersion} download>
-                        <i className="fa fa-download vads--u-padding-right--1"></i>
+                        <i className="fa fa-download vads-u-padding-right--1"></i>
                         Download press release (PDF)
                       </a>
                     )}
                   </div>
                   <p className="va-introtext vads-u-font-size--lg vads-u-margin-top--3">
-                    {address.locality},{address.administrative_area} -
-                    {introText}
+                    {`${address.locality}, ${address.administrative_area} - ${introText}`}
                   </p>
                   {/* Body */}
-                  <div dangerouslySetInnerHTML={{ __html: fullText}}></div>
+                  <div dangerouslySetInnerHTML={{ __html: fullText }}></div>
                 </section>
                 <section className="vads-u-margin-bottom--6">
                   <div className="vads-u-font-weight--bold">Media contacts</div>
@@ -73,8 +72,7 @@ export const PressRelease = ({
                       <div key={contact.id}>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
                           {contact.name}{' '}
-                          {contact.description &&
-                            `, ${contact.description}`}
+                          {contact.description && `, ${contact.description}`}
                         </p>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
                           {contact.phone}
@@ -92,19 +90,23 @@ export const PressRelease = ({
                 </section>
                 {downloads.length > 0 && (
                   <section className="vads-u-margin-bottom--6">
-                    <div className="vads-u-font-weight--bold vades-u-margin-bottom--1">
+                    <div className="vads-u-font-weight--bold vads-u-margin-bottom--1">
                       Download media assets
                     </div>
                     {/*Print out unorder list links per type*/}
-                    <ul>
+                    <ul className="vads-u-margin-bottom--1 usa-unstyled-list">
                       {downloads.map((asset) => {
                         if (!asset.uri) {
                           return null
                         }
                         return (
-                          <li key={asset.id}>
+                          <li
+                            key={asset.id}
+                            className="vads-u-margin-bottom--1"
+                          >
                             <a href={asset.uri} download>
-                              {asset.name}
+                              <i className="fa fa-download vads-u-padding-right--1"></i>
+                              Download {asset.name}
                             </a>
                           </li>
                         )
@@ -126,7 +128,6 @@ export const PressRelease = ({
                   }
                   href={listing}
                 >
-                  {' '}
                   {/*fieldListing.path.alias*/}
                   See all news releases
                 </a>

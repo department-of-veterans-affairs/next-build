@@ -21,7 +21,7 @@ export const params: QueryParams<null> = () => {
     'field_press_release_contact',
     'field_listing',
     'field_administration',
-    'field_pdf_version',
+    ...getNestedIncludes('field_pdf_version', 'media--document'),
   ])
 }
 

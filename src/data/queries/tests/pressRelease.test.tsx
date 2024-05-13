@@ -28,14 +28,14 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('handles missing or null fields correctly', () => {
     const modifiedMock = {
       ...nodePressReleaseMock,
-      field_press_release_contact: null,
-      field_press_release_downloads: null,
+      field_administration: undefined,
     }
-
     const formattedData = queries.formatData(
       RESOURCE_TYPES.PRESS_RELEASE,
       modifiedMock
     )
+    expect(formattedData.administration.id).toBeNull()
+    expect(formattedData.administration.name).toBeNull()
   })
 })
 
@@ -44,7 +44,7 @@ describe('DrupalJsonApiParams configuration for pressRelease', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     expect(queryString).toMatch(
-      /include=field_press_release_downloads,field_press_release_downloads.image,field_press_release_downloads.field_document,field_press_release_contact,field_listing,field_administration,field_pdf_version/
+      /include=field_press_release_downloads,field_press_release_downloads.image,field_press_release_downloads.field_document,field_press_release_contact,field_listing,field_administration,field_pdf_version,field_pdf_version.field_document/
     )
   })
 })
