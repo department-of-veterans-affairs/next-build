@@ -27,40 +27,6 @@ env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
 
 jobs:
-  set-environment:
-    name: Set deployment environment
-    runs-on: ubuntu-latest
-    outputs:
-      environment: ${{ steps.set-output.outputs.environment }}
-
-    env:
-      dev: "{
-            \\\"DEST\\\": \\\"s3://next-content.dev.va.gov\\\" 
-          }"
-      staging: "{
-            \\\"DEST\\\": \\\"s3://next-content.staging.va.gov\\\" 
-          }"
-      prod: "{
-            \\\"DEST\\\": \\\"s3://next-content.www.va.gov\\\" 
-          }"
-    steps:
-      - name: Set output
-        id: set-output
-        run: |
-          if [[ ${{ github.event.inputs.build_type }} == 'dev' ]]; then
-            echo environment={\"include\":[${{env.dev}}]} >> $GITHUB_OUTPUT
-          elif [[ ${{ github.event.inputs.build_type }} == 'staging' ]]; then
-            echo environment={\"include\":[${{env.staging}}]} >> $GITHUB_OUTPUT
-          else
-            echo environment={\"include\":[${{env.dev}},${{env.staging}}]} >> $GITHUB_OUTPUT
-          fi
-  init-build-matrix:
-    name: Build
-    runs-on: ubuntu-latest
-    needs: set-environment
-    strategy:
-      matrix: ${{ fromJson(needs.set-environment.outputs.environment) }}
-
   # This is necessary to get credentials to use the private ECR image defined in the build job container.
   login-to-amazon-ecr:
     runs-on: ubuntu-latest
@@ -207,11 +173,24 @@ jobs:
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
         role-duration-seconds: 900
 
-    - name: Deploy to S3
+    - if: github.event.inputs.build_type == 'dev'
+      name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
         SRC: ./out/
-        DEST: ${{ matrix.DEST }}
+        DEST: s3://next-content.dev.va.gov
+    - if: github.event.inputs.build_type == 'staging'
+      name: Deploy to S3
+      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      env:
+        SRC: ./out/
+        DEST: s3://next-content.staging.va.gov
+    - if: github.event.inputs.build_type == 'prod'
+      name: Deploy to S3
+      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      env:
+        SRC: ./out/
+        DEST: s3://next-content.www.va.gov
 
   notify-success:
     name: Notify Success
