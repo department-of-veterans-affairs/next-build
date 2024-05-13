@@ -11,6 +11,7 @@ on:
     workflows: ['Create Production Tag']
     types: [completed]
     branches: [main]
+  workflow_dispatch:
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
