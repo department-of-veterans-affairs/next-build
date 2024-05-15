@@ -309,7 +309,7 @@ jobs:
 
   record-metrics:
       name: Record metrics in Datadog
-      runs-on: [self-hosted, asg]
+      runs-on: [ubuntu-latest]
       needs:
         - build
         - validate-build-status
