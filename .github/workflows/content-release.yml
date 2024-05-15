@@ -96,6 +96,13 @@ jobs:
     timeout-minutes: 60
     runs-on: [self-hosted, asg]
     needs: [validate-build-status, login-to-amazon-ecr]
+    outputs:
+      DEPLOY_END_TIME: ${{ steps.export-deploy-end-time.outputs.DEPLOY_END_TIME }}
+      DEPLOY_START_TIME: ${{ steps.export-deploy-end-time.outputs.DEPLOY_START_TIME }}
+      BUILD_START_TIME: ${{ steps.export-build-start-time.outputs.BUILD_START_TIME }}
+      BUILD_END_TIME: ${{ steps.export-build-end-time.outputs.BUILD_END_TIME }}
+      SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
+      SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
       credentials:
@@ -110,6 +117,10 @@ jobs:
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
     steps:
+    
+    - name: Export setup start time
+      id: export-setup-start-time
+      run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
     - name: Checkout next-build
       uses: actions/checkout@v4
@@ -142,6 +153,14 @@ jobs:
     - name: Install dependencies
       run: cd main && yarn
 
+    - name: Export setup end time
+      id: export-setup-end-time
+      run: echo SETUP_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
+    - name: Export build start time
+      id: export-build-start-time
+      run: echo BUILD_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
     - name: Gather vets-website assets
       run: cd main && yarn setup
 
@@ -163,11 +182,23 @@ jobs:
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
         role-duration-seconds: 900
 
+    - name: Export build end time
+      id: export-build-end-time
+      run: echo BUILD_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
+    - name: Export deploy start time
+      id: export-deploy-start-time
+      run: echo DEPLOY_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
     - name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
+
+    - name: Export deploy end time
+      id: export-deploy-end-time
+      run: echo DEPLOY_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
   notify-success:
     name: Notify Success
@@ -275,3 +306,75 @@ jobs:
           -H "Content-Type: text/json" \
           -H "DD-API-KEY: ${{ env.GHA_CONTENT_BUILD_DATADOG_API_KEY }}" \
           -d @- < event.json
+
+  record-metrics:
+      name: Record metrics in Datadog
+      runs-on: [self-hosted, asg]
+      needs:
+        - build
+        - validate-build-status
+      env:
+        METRIC_NAMESPACE: dsva_vagov.next_build
+      steps:
+        - name: Checkout
+          uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+        - name: Get current timestamp
+          run: echo "NOW=$(date +"%s")" >> $GITHUB_ENV
+
+        - name: Set vars for CMS-triggered runs
+          if: ${{ github.event_name == 'repository_dispatch' }}
+          run: |
+            echo "DEPLOY_ENV=prod" >> $GITHUB_ENV
+            echo "BUILD_TRIGGER=cms" >> $GITHUB_ENV
+
+        - name: Calculate durations
+          run: |
+            echo "SETUP_DURATION=$(expr ${{needs.build.outputs.SETUP_END_TIME}} - ${{needs.build.outputs.SETUP_START_TIME}})" >> $GITHUB_ENV
+            echo "BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
+            echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_START_TIME}} - ${{needs.build.outputs.BUILD_END_TIME}})" >> $GITHUB_ENV
+            echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
+
+        - name: Build JSON object
+          run: |
+            jq --null-input '{}' | \
+            jq '.series[0].metric = "${{env.METRIC_NAMESPACE}}.setup.duration"' | \
+            jq '.series[0].points[0] = [${{env.NOW}}, ${{env.SETUP_DURATION}}]' | \
+            jq '.series[1].metric = "${{env.METRIC_NAMESPACE}}.build.duration"' | \
+            jq '.series[1].points[0] = [${{env.NOW}}, ${{env.BUILD_DURATION}}]' | \
+            jq '.series[6].metric = "${{env.METRIC_NAMESPACE}}.deploy.duration"' | \
+            jq '.series[6].points[0] = [${{env.NOW}}, ${{env.DEPLOY_DURATION}}]' | \
+            jq '.series[7].metric = "${{env.METRIC_NAMESPACE}}.overall.duration"' | \
+            jq '.series[7].points[0] = [${{env.NOW}}, ${{env.OVERALL_DURATION}}]' | \
+            jq '.series[8].metric = "${{env.METRIC_NAMESPACE}}.build.broken-links.count"' | \
+            jq '.series[8].points[0] = [${{env.NOW}}, ${{needs.build.outputs.BROKEN_LINK_COUNT}}]' | \
+            jq '.series[].tags[0] = "env:${{env.DEPLOY_ENV}}"' | \
+            jq '.series[].tags[1] = "build_number:${{github.run_number}}"' | \
+            jq '.series[].tags[2] = "status:${{needs.deploy.result}}"' | \
+            jq '.series[].tags[3] = "trigger:${{env.BUILD_TRIGGER}}"' > metrics.json
+
+        - name: Configure AWS credentials
+          uses: aws-actions/configure-aws-credentials@e1e17a757e536f70e52b5a12b2e8d1d1c60e04ef # v2.0.0
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: us-gov-west-1
+
+        - name: Get Datadog api key from Parameter Store
+          uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+          with:
+            ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_API_KEY
+            env_variable_name: GHA_CONTENT_BUILD_DATADOG_API_KEY
+
+        - name: Get Datadog app key from Parameter Store
+          uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+          with:
+            ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_APP_KEY
+            env_variable_name: GHA_CONTENT_BUILD_DATADOG_APP_KEY
+
+        - name: Send metrics to Datadog
+          run: |
+            curl -X POST "https://api.ddog-gov.com/api/v1/series" \
+            -H "Content-Type: text/json" \
+            -H "DD-API-KEY: ${{ env.GHA_CONTENT_BUILD_DATADOG_API_KEY }}" \
+            -d @- < metrics.json
