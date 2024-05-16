@@ -335,6 +335,7 @@ jobs:
             echo "BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
             echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_START_TIME}} - ${{needs.build.outputs.BUILD_END_TIME}})" >> $GITHUB_ENV
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
+            echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
 
         - name: Build JSON object
           run: |
@@ -343,12 +344,10 @@ jobs:
             jq '.series[0].points[0] = [${{env.NOW}}, ${{env.SETUP_DURATION}}]' | \
             jq '.series[1].metric = "${{env.METRIC_NAMESPACE}}.build.duration"' | \
             jq '.series[1].points[0] = [${{env.NOW}}, ${{env.BUILD_DURATION}}]' | \
-            jq '.series[6].metric = "${{env.METRIC_NAMESPACE}}.deploy.duration"' | \
-            jq '.series[6].points[0] = [${{env.NOW}}, ${{env.DEPLOY_DURATION}}]' | \
-            jq '.series[7].metric = "${{env.METRIC_NAMESPACE}}.overall.duration"' | \
-            jq '.series[7].points[0] = [${{env.NOW}}, ${{env.OVERALL_DURATION}}]' | \
-            jq '.series[8].metric = "${{env.METRIC_NAMESPACE}}.build.broken-links.count"' | \
-            jq '.series[8].points[0] = [${{env.NOW}}, ${{needs.build.outputs.BROKEN_LINK_COUNT}}]' | \
+            jq '.series[2].metric = "${{env.METRIC_NAMESPACE}}.deploy.duration"' | \
+            jq '.series[2].points[0] = [${{env.NOW}}, ${{env.DEPLOY_DURATION}}]' | \
+            jq '.series[3].metric = "${{env.METRIC_NAMESPACE}}.overall.duration"' | \
+            jq '.series[3].points[0] = [${{env.NOW}}, ${{env.OVERALL_DURATION}}]' | \
             jq '.series[].tags[0] = "env:${{env.DEPLOY_ENV}}"' | \
             jq '.series[].tags[1] = "build_number:${{github.run_number}}"' | \
             jq '.series[].tags[2] = "status:${{needs.deploy.result}}"' | \
