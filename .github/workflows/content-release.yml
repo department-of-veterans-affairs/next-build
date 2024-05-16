@@ -98,7 +98,7 @@ jobs:
     needs: [validate-build-status, login-to-amazon-ecr]
     outputs:
       DEPLOY_END_TIME: ${{ steps.export-deploy-end-time.outputs.DEPLOY_END_TIME }}
-      DEPLOY_START_TIME: ${{ steps.export-deploy-end-time.outputs.DEPLOY_START_TIME }}
+      DEPLOY_START_TIME: ${{ steps.export-deploy-start-time.outputs.DEPLOY_START_TIME }}
       BUILD_START_TIME: ${{ steps.export-build-start-time.outputs.BUILD_START_TIME }}
       BUILD_END_TIME: ${{ steps.export-build-end-time.outputs.BUILD_END_TIME }}
       SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
