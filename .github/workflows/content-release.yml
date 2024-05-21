@@ -103,6 +103,7 @@ jobs:
       BUILD_END_TIME: ${{ steps.export-build-end-time.outputs.BUILD_END_TIME }}
       SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
       SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
+      YARN_OUTPUT: ${{ steps.export-setup-end-time.outputs.YARN_OUTPUT }}
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
       credentials:
@@ -165,12 +166,13 @@ jobs:
       run: cd main && yarn setup
 
     - name: Build site
+      id: export-yarn-output
       uses: nick-fields/retry@v3
       with:
         max_attempts: 3
         retry_on: error
         timeout_minutes: 30
-        command: cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS
+        command: echo YARN_OUTPUT=$(cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS) >> $GITHUB_OUTPUT
 
     - name: Build sitemap
       run: cd main && yarn build:sitemap
@@ -336,6 +338,7 @@ jobs:
             echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_START_TIME}} - ${{needs.build.outputs.BUILD_END_TIME}})" >> $GITHUB_ENV
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
             echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
+            echo "BUILT_PAGES=$(cat ${{needs.build.outputs.YARN_OUTPUT}} | grep "Generating static pages" | tail -1 | grep  -oE '*[0-9]+' | head -n1)"
 
         - name: Build JSON object
           run: |
