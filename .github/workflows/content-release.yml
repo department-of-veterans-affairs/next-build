@@ -338,7 +338,7 @@ jobs:
             echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_START_TIME}} - ${{needs.build.outputs.BUILD_END_TIME}})" >> $GITHUB_ENV
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
             echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
-            ${{needs.build.outputs.YARN_OUTPUT}} >> yarn.out
+            echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarn.out
             echo "BUILT_PAGES=$(grep "Generating static pages" ./yarn.out | tail -1 | grep  -oE '*[0-9]+' | head -n1)" >> $GITHUB_ENV
 
         - name: Build JSON object
