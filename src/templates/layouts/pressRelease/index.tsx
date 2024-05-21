@@ -96,7 +96,7 @@ export const PressRelease = ({
                     {/*Print out unorder list links per type*/}
                     <ul className="vads-u-margin-bottom--1 usa-unstyled-list">
                       {downloads.map((asset) => {
-                        if (!asset.uri) {
+                        if (!asset?.uri) {
                           return null
                         }
                         return (

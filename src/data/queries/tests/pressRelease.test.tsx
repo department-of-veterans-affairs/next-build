@@ -28,14 +28,20 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('handles missing or null fields correctly', () => {
     const modifiedMock = {
       ...nodePressReleaseMock,
+      field_listing: undefined,
+      field_press_release_contact: undefined,
       field_administration: undefined,
+      field_pdf_version: undefined,
     }
     const formattedData = queries.formatData(
       RESOURCE_TYPES.PRESS_RELEASE,
       modifiedMock
     )
+    expect(formattedData.listing).toBeUndefined()
+    expect(formattedData.contacts).toEqual([])
     expect(formattedData.administration.id).toBeNull()
     expect(formattedData.administration.name).toBeNull()
+    expect(formattedData.pdfVersion).toBeNull()
   })
 })
 

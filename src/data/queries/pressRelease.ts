@@ -95,7 +95,7 @@ export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
     fullText: entity.field_press_release_fulltext.processed,
     contacts: formattedContacts,
     downloads: downloads,
-    listing: entity.field_listing.path.alias,
+    listing: entity.field_listing?.path?.alias,
     administration: {
       id: entity.field_administration?.drupal_internal__tid || null,
       name: entity.field_administration?.name || null,
