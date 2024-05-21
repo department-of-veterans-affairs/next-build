@@ -335,7 +335,7 @@ jobs:
           run: |
             echo "SETUP_DURATION=$(expr ${{needs.build.outputs.SETUP_END_TIME}} - ${{needs.build.outputs.SETUP_START_TIME}})" >> $GITHUB_ENV
             echo "BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
-            echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_START_TIME}} - ${{needs.build.outputs.BUILD_END_TIME}})" >> $GITHUB_ENV
+            echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
             echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
             echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarn.out
