@@ -103,7 +103,7 @@ jobs:
       BUILD_END_TIME: ${{ steps.export-build-end-time.outputs.BUILD_END_TIME }}
       SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
       SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
-      YARN_OUTPUT: ${{ steps.export-setup-end-time.outputs.YARN_OUTPUT }}
+      YARN_OUTPUT: ${{ steps.export-yarn-output.outputs.YARN_OUTPUT }}
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
       credentials:
@@ -351,6 +351,8 @@ jobs:
             jq '.series[2].points[0] = [${{env.NOW}}, ${{env.DEPLOY_DURATION}}]' | \
             jq '.series[3].metric = "${{env.METRIC_NAMESPACE}}.overall.duration"' | \
             jq '.series[3].points[0] = [${{env.NOW}}, ${{env.OVERALL_DURATION}}]' | \
+            jq '.series[4].metric = "${{env.METRIC_NAMESPACE}}.built.pages"' | \
+            jq '.series[4].points[0] = [${{env.NOW}}, ${{env.BUILT_PAGES}}]' | \
             jq '.series[].tags[0] = "env:${{env.DEPLOY_ENV}}"' | \
             jq '.series[].tags[1] = "build_number:${{github.run_number}}"' | \
             jq '.series[].tags[2] = "status:${{needs.deploy.result}}"' | \
