@@ -2937,13 +2937,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:^8.0.5":
-  version: 8.0.6
-  resolution: "@storybook/addon-a11y@npm:8.0.6"
+"@storybook/addon-a11y@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "@storybook/addon-a11y@npm:8.1.1"
   dependencies:
-    "@storybook/addon-highlight": 8.0.6
+    "@storybook/addon-highlight": 8.1.1
     axe-core: ^4.2.0
-  checksum: 90a96e457b10c132548ce2e45fdf1dcece3caa66c05f7bbae7191d46d6690424dce8bb2edd64c46d4836f970484731a2fb9f8d82eb4993ae44ce85ce3f92861c
+  checksum: e403c82f2260d2516295fb7f6a48f058c1476203f884198c9a1e3f4f58b44ebc19386def48f92bb88d762016a426e57b3a9c47cd95b432bf7e6209eec3449ec9
   languageName: node
   linkType: hard
 
@@ -3039,6 +3039,15 @@ __metadata:
   dependencies:
     "@storybook/global": ^5.0.0
   checksum: 0f1adfb5be854478efd67d9e4a3fbb74dbeba05ebc8e9fe7a6c31adc43b4fb729aa264d68ccc1b9c21600d6df8ca769dc9ebec7ed2e993639f07fe950cdf47ab
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-highlight@npm:8.1.1":
+  version: 8.1.1
+  resolution: "@storybook/addon-highlight@npm:8.1.1"
+  dependencies:
+    "@storybook/global": ^5.0.0
+  checksum: 4d68f40705f6e769943013150a39fb2ef96d9852b821a844454d6b3604392fe94156d218fae1298cc4c16c3fdbfd8e103a2b89c55a49b1eb5657b3b303f4c7c2
   languageName: node
   linkType: hard
 
@@ -12778,7 +12787,7 @@ __metadata:
     "@next/env": ^14.1.0
     "@octokit/rest": ^20.0.2
     "@playwright/test": ^1.43.1
-    "@storybook/addon-a11y": ^8.0.5
+    "@storybook/addon-a11y": ^8.1.1
     "@storybook/addon-actions": ^8.0.5
     "@storybook/addon-essentials": ^8.0.5
     "@storybook/addon-interactions": ^8.0.9
