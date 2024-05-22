@@ -151,7 +151,10 @@ jobs:
       
       - name: Export failed pages
         id: export-failed-pages
-        run: echo FAILED_PAGES=$(jq length all-failed-pages.json) >> $GITHUB_ENV
+        uses: actions/download-artifact@v4
+        with:
+          path: all-failed-pages.json
+          run: echo FAILED_PAGES=$(jq length all-failed-pages.json) >> $GITHUB_ENV
 
       - name: Build json for failed pages
         run: |
