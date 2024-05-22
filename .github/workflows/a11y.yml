@@ -126,7 +126,7 @@ jobs:
     env:
       METRIC_NAMESPACE: dsva_vagov.next_build
     outputs:
-        FAILED_PAGES: ${{steps.export-failed-pages.outputs.FAILED_PAGES}}
+        FAILED_PAGES: ${{steps.export-report.outputs.FAILED_PAGES}}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -140,24 +140,20 @@ jobs:
         with:
           pattern: failed-pages-segment-*
           merge-multiple: true
+      
+      - name: Get current timestamp
+        run: echo "NOW=$(date +"%s")" >> $GITHUB_ENV
 
       - name: Merge reports in valid JSON format
+        id: export-report
         run: |
           if [ ! -f failed-pages-segment-*.json ]; then
               echo "No failed-pages-segment-*.json files found."
               exit 0
           fi
           jq -s '.' failed-pages-segment-*.json | jq 'flatten' > all-failed-pages.json
-          pwd
-          ls
-      
-      - name: Export failed pages
-        id: export-failed-pages
-        run: |
-          pwd
-          ls
           echo FAILED_PAGES=$(jq length all-failed-pages.json) >> $GITHUB_ENV
-
+      
       - name: Build json for failed pages
         run: |
             jq --null-input '{}' | \
