@@ -154,11 +154,19 @@ jobs:
           jq -s '.' failed-pages-segment-*.json | jq 'flatten' > all-failed-pages.json
           echo FAILED_PAGES=$(jq length ./all-failed-pages.json) >> $GITHUB_ENV
       
-      - name: Build json for failed pages
+      - name: Build json for failed pages when there are pages captured
+        if: ${{env.FAILED_PAGES != ''}}
         run: |
             jq --null-input '{}' | \
             jq '.series[0].metric = "${{env.METRIC_NAMESPACE}}.page.errors"' | \
             jq '.series[0].points[0] = [${{env.NOW}}, ${{env.FAILED_PAGES}}]' > metrics.json
+            
+      - name: Build json for failed pages when no pages captured
+        if: ${{env.FAILED_PAGES == ''}}
+        run: |
+          jq --null-input '{}' | \
+          jq '.series[0].metric = "${{env.METRIC_NAMESPACE}}.page.errors"' | \
+          jq '.series[0].points[0] = [${{env.NOW}}, 0]' > metrics.json
 
       - name: Upload report
         uses: actions/upload-artifact@v4
