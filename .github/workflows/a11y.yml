@@ -148,13 +148,15 @@ jobs:
               exit 0
           fi
           jq -s '.' failed-pages-segment-*.json | jq 'flatten' > all-failed-pages.json
+          pwd
+          ls
       
       - name: Export failed pages
         id: export-failed-pages
-        uses: actions/download-artifact@v4
-        with:
-          path: all-failed-pages.json
-          run: echo FAILED_PAGES=$(jq length all-failed-pages.json) >> $GITHUB_ENV
+        run: |
+          pwd
+          ls
+          echo FAILED_PAGES=$(jq length all-failed-pages.json) >> $GITHUB_ENV
 
       - name: Build json for failed pages
         run: |
