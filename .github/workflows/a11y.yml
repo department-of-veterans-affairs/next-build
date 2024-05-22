@@ -152,7 +152,7 @@ jobs:
               exit 0
           fi
           jq -s '.' failed-pages-segment-*.json | jq 'flatten' > all-failed-pages.json
-          echo FAILED_PAGES=$(jq length all-failed-pages.json) >> $GITHUB_ENV
+          echo FAILED_PAGES=$(jq length ./all-failed-pages.json) >> $GITHUB_ENV
       
       - name: Build json for failed pages
         run: |
