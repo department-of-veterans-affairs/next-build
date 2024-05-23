@@ -78,11 +78,11 @@ export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
   const formattedContacts = entity.field_press_release_contact
     ? entity.field_press_release_contact.map((contact) => {
         return {
-          id: contact.id,
-          description: contact.field_description,
-          name: contact.title,
-          email: contact.field_email_address,
-          phone: contact.field_phone_number,
+          id: contact?.id || null,
+          description: contact?.field_description || null,
+          name: contact?.title || null,
+          email: contact?.field_email_address || null,
+          phone: contact?.field_phone_number || null,
         }
       })
     : []
