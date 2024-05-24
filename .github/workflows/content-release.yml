@@ -270,7 +270,7 @@ jobs:
           jq '.tags[0] = "project:vagov"' | \
           jq '.tags[1] = "repo:next-build"' | \
           jq '.tags[2] = "workflow:content-release"' | \
-          jq '.tags[3] = "${{ github.event.inputs.build_type }}' | \
+          jq '.tags[3] = "env:${{ github.event.inputs.build_type }}"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
           jq '.alert_type = "success"' > event.json
 
@@ -324,7 +324,7 @@ jobs:
           jq '.tags[0] = "project:vagov"' | \
           jq '.tags[1] = "repo:next-build"' | \
           jq '.tags[2] = "workflow:content-release"' | \
-          jq '.tags[3] = "${{ github.event.inputs.build_type }}"' | \
+          jq '.tags[3] = "env:${{ github.event.inputs.build_type }}"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
           jq '.alert_type = "error"' > event.json
 
