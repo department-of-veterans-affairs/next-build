@@ -12,6 +12,19 @@ on:
     types: [completed]
     branches: [main]
   workflow_dispatch:
+    inputs:
+      build_type:
+        type: choice
+        description: "Environment this workflow runs against"
+        required: true
+        default: 'PROD'
+        options:
+          - dev
+          - staging
+          - prod
+
+concurrency:
+  group: ${{ github.event.inputs.build_type }}
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
@@ -192,7 +205,20 @@ jobs:
       id: export-deploy-start-time
       run: echo DEPLOY_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - name: Deploy to S3
+    - if: github.event.inputs.build_type == 'dev'
+      name: Deploy to S3
+      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      env:
+        SRC: ./out/
+        DEST: s3://next-content.dev.va.gov
+    - if: github.event.inputs.build_type == 'staging'
+      name: Deploy to S3
+      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      env:
+        SRC: ./out/
+        DEST: s3://next-content.staging.va.gov
+    - if: github.event.inputs.build_type == 'prod'
+      name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
         SRC: ./out/

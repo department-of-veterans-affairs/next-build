@@ -6,9 +6,10 @@ export const getFetcher =
   async (input: RequestInfo, init: RequestInit = {}) => {
     const url = new URL(baseUrl)
     const host = url.host
+
     // CI envs don't need the SOCKS proxy.
     const useProxy =
-      host.match(/cms\.va\.gov$/) &&
+      (host.match(/cms\.va\.gov$/) || host.match(/vfs\.va\.gov$/)) &&
       (process.env.APP_ENV === 'local' ||
         typeof process.env.APP_ENV === 'undefined')
     const syswideCas = await import('syswide-cas')

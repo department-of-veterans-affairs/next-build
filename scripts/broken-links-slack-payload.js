@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import fs from 'fs'
-import core from '@actions/core'
 import { program } from 'commander'
 
 const DEFAULT_INPUT_FILE = 'broken-links-report.json'
