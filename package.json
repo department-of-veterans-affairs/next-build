@@ -88,7 +88,7 @@
     "@axe-core/playwright": "^4.8.2",
     "@faker-js/faker": "^8.4.1",
     "@next/env": "^14.1.0",
-    "@playwright/test": "^1.43.1",
+    "@playwright/test": "^1.44.1",
     "@storybook/addon-a11y": "^8.1.1",
     "@storybook/addon-actions": "^8.0.5",
     "@storybook/addon-essentials": "^8.0.5",
