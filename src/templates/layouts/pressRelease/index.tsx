@@ -62,7 +62,11 @@ export const PressRelease = ({
                   <div dangerouslySetInnerHTML={{ __html: fullText }}></div>
                 </section>
                 <section className="vads-u-margin-bottom--6">
-                  <div className="vads-u-font-weight--bold">Media contacts</div>
+                  {contacts && (
+                    <div className="vads-u-font-weight--bold">
+                      Media contacts
+                    </div>
+                  )}
                   {/* Print each media contact */}
                   {contacts.map((contact) => {
                     if (!contact) {
