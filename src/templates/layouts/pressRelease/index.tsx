@@ -68,7 +68,7 @@ export const PressRelease = ({
                     </div>
                   )}
                   {/* Print each media contact */}
-                  {contacts.map((contact) => {
+                  {contacts?.map((contact) => {
                     if (!contact) {
                       return null
                     }
@@ -99,7 +99,7 @@ export const PressRelease = ({
                     </div>
                     {/*Print out unorder list links per type*/}
                     <ul className="vads-u-margin-bottom--1 usa-unstyled-list">
-                      {downloads.map((asset) => {
+                      {downloads?.map((asset) => {
                         if (!asset?.uri) {
                           return null
                         }
