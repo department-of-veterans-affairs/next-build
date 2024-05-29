@@ -73,18 +73,18 @@ export const PressRelease = ({
                       return null
                     }
                     return (
-                      <div key={contact.id}>
+                      <div key={contact?.id}>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
                           {contact.name}{' '}
                           {contact.description && `, ${contact.description}`}
                         </p>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                          {contact.phone}
+                          {contact?.phone}
                         </p>
-                        {contact.email && (
+                        {contact?.email && (
                           <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                            <a href={`mailto:${contact.email}`}>
-                              {contact.email}
+                            <a href={`mailto:${contact?.email}`}>
+                              {contact?.email}
                             </a>
                           </p>
                         )}
