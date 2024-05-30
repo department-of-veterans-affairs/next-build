@@ -75,8 +75,8 @@ export const PressRelease = ({
                     return (
                       <div key={contact?.id}>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                          {contact.name}{' '}
-                          {contact.description && `, ${contact.description}`}
+                          {contact?.name}{' '}
+                          {contact?.description && `, ${contact?.description}`}
                         </p>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
                           {contact?.phone}
