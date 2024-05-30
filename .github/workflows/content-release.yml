@@ -11,6 +11,13 @@ on:
     workflows: ['Create Production Tag']
     types: [completed]
     branches: [main]
+  workflow_call:
+    inputs:
+      build_type:
+        type: string
+        description: "Environment this workflow runs against"
+        required: true
+        default: 'PROD'
   workflow_dispatch:
     inputs:
       build_type:
