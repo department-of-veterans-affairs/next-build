@@ -1,0 +1,16 @@
+name: release-on-push
+on:
+    push: # build anytime there is a push to main
+        branches:
+        - main
+    workflow_dispatch:
+    schedule:
+        - cron: "*/30 * * * 1-5"
+          
+jobs:
+    content-release:
+        runs-on: ubuntu-latest
+        steps: 
+        - uses: ./content-release.yaml
+          with:
+            build_type: "PROD"
