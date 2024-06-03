@@ -132,7 +132,7 @@ jobs:
       # Certs added for the self hosted runner
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
-        APP_ENV: prod
+        APP_ENV: dev
       ports:
         - 80
       volumes:
