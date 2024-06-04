@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 /**
  * This is a simple page used to return serialized but unformatted data for use
@@ -21,17 +22,16 @@ export async function getStaticProps() {
     }
   }
 
-  const params = new DrupalJsonApiParams().addInclude(['field_cta'])
-  const data = await drupalClient.getResourceCollection(
-    'paragraph--featured_content',
-    {
-      params: params.getQueryObject(),
-      withAuth: {
-        clientId: process.env.DRUPAL_CLIENT_ID,
-        clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-      },
-    }
+  const params = new DrupalJsonApiParams().addInclude(
+    getNestedIncludes('field_pdf_version', 'media--document')
   )
+  const data = await drupalClient.getResourceCollection('node--press_release', {
+    params: params.getQueryObject(),
+    withAuth: {
+      clientId: process.env.DRUPAL_CLIENT_ID,
+      clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+    },
+  })
   return {
     props: {
       data: data,

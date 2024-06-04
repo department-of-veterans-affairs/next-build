@@ -16,7 +16,7 @@ import {
   FieldGeoLocation,
   FieldHealthServicesArray,
 } from './field_type'
-import { DrupalMediaImage } from './media'
+import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
   ParagraphAccordion,
   ParagraphAlert,
@@ -55,6 +55,7 @@ export type NodeTypes =
   | NodeNewsStory
   | NodeOffice
   | NodePersonProfile
+  | NodePressRelease
   | NodePromoBanner
   | NodeQA
   | NodeRegionalHealthCareServiceDes
@@ -286,6 +287,31 @@ export interface NodePersonProfile extends DrupalNode {
   field_office: NodeOffice | NodeHealthCareRegionPage
   /** Any honorific suffix, i.e. MD, LCSW, PhD, etc. */
   field_suffix: string
+}
+/**
+ * An individual press release published by a facility.
+ */
+export interface NodePressRelease extends DrupalNode {
+  /** Date article was released */
+  field_release_date: string
+  /** Link to download PDF */
+  field_pdf_version: DrupalMediaDocument | null
+  /** Text Invitation to Annual Report event*/
+  field_intro_text: string
+  /** Address for Annual Report event */
+  field_address: FieldAddress
+  /** Primary story */
+  field_press_release_fulltext: FieldFormattedText
+  /** List of media contacts*/
+  field_press_release_contact: NodePersonProfile[]
+  /** List of media assets to be downloads */
+  field_press_release_downloads: DrupalMediaImage[]
+  /** Office information NOT in Mock Data*/
+  /** field_office: NodeOffice */
+  /** Which Story Listing page this story should display on. */
+  field_listing: NodeStoryListing
+  /** Administration */
+  field_administration: FieldAdministration | null
 }
 
 /** A individual event published by a facility.

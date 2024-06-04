@@ -7,6 +7,7 @@ import {
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
   PhoneContact as FormattedPhoneContact,
+  PressContact,
 } from '@/types/formatted/contactInfo'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
