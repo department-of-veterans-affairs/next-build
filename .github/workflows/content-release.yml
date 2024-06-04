@@ -212,19 +212,19 @@ jobs:
       id: export-deploy-start-time
       run: echo DEPLOY_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
 
-    - if: github.event.inputs.build_type == 'dev'
+    - if: inputs.build_type == 'dev'
       name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
         SRC: ./out/
         DEST: s3://next-content.dev.va.gov
-    - if: github.event.inputs.build_type == 'staging'
+    - if: inputs.build_type == 'staging'
       name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
         SRC: ./out/
         DEST: s3://next-content.staging.va.gov
-    - if: github.event.inputs.build_type == 'prod'
+    - if: inputs.build_type == 'prod'
       name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
@@ -277,7 +277,7 @@ jobs:
           jq '.tags[0] = "project:vagov"' | \
           jq '.tags[1] = "repo:next-build"' | \
           jq '.tags[2] = "workflow:content-release"' | \
-          jq '.tags[3] = "env:${{ github.event.inputs.build_type }}"' | \
+          jq '.tags[3] = "env:${{ inputs.build_type }}"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
           jq '.alert_type = "success"' > event.json
 
@@ -331,7 +331,7 @@ jobs:
           jq '.tags[0] = "project:vagov"' | \
           jq '.tags[1] = "repo:next-build"' | \
           jq '.tags[2] = "workflow:content-release"' | \
-          jq '.tags[3] = "env:${{ github.event.inputs.build_type }}"' | \
+          jq '.tags[3] = "env:${{ inputs.build_type }}"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
           jq '.alert_type = "error"' > event.json
 
@@ -361,7 +361,7 @@ jobs:
         - name: Set vars for CMS-triggered runs
           if: ${{ github.event_name == 'repository_dispatch' }}
           run: |
-            echo "DEPLOY_ENV=${{ github.event.inputs.build_type }}" >> $GITHUB_ENV
+            echo "DEPLOY_ENV=${{ inputs.build_type }}" >> $GITHUB_ENV
             echo "BUILD_TRIGGER=cms" >> $GITHUB_ENV
 
         - name: Calculate durations
