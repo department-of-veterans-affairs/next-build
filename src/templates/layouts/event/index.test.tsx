@@ -7,6 +7,73 @@ jest.mock('@/lib/analytics/recordEvent', () => ({
   recordEvent: jest.fn(),
 }))
 
+const data = {
+  id: '',
+  type: '',
+  published: null,
+  title: '',
+  lastUpdated: '',
+  image: null,
+  date: '',
+  socialLinks: undefined,
+  listing: '',
+  additionalInfo: undefined,
+  address: undefined,
+  locationHumanReadable: '',
+  eventCTA: '',
+  emailCTA: '',
+  howToSignUp: '',
+  cost: '',
+  datetimeRange: undefined,
+  body: undefined,
+  locationType: '',
+  description: '',
+  link: undefined,
+  urlOfOnlineEvent: undefined,
+  facilityLocation: {
+    type: 'node--health_care_local_facility',
+    id: '1741a5af-05f4-4e71-83ce-f9a425dbdb91',
+    drupal_internal__nid: 1111,
+    drupal_internal__vid: 837565,
+    langcode: 'en',
+    changed: '2024-03-02T13:13:13+00:00',
+    title: 'Aberdeen VA Clinic',
+    status: null,
+    created: '2019-10-31T19:52:10+00:00',
+    sticky: null,
+    default_langcode: null,
+    path: null,
+    resourceIdObjMeta: null,
+    field_address: {
+      langcode: null,
+      country_code: 'US',
+      administrative_area: 'SD',
+      locality: 'Aberdeen',
+      dependent_locality: null,
+      postal_code: '57401-8027',
+      address_line1: '3307 10th Avenue Southeast',
+    },
+    field_facility_classification: '3',
+    field_operating_status_more_info: null,
+    field_facility_locator_api_id: 'vha_438GD',
+    field_local_health_care_service_: null,
+    field_facility_hours: null,
+    field_office_hours: null,
+    field_media: null,
+    field_location_services: null,
+    field_main_location: null,
+    field_mental_health_phone: '605-336-3230, ext. 6890',
+    field_description:
+      'Get address and hours, parking and transportation information, and health services offered at Aberdeen VA Clinic',
+    field_mobile: null,
+    field_intro_text:
+      'Our outpatient clinic provides primary care to help you stay healthy and well throughout your life. Below, you’ll find our address and hours, parking and transportation information, and the other health services we offer at our Aberdeen VA Clinic.',
+    field_phone_number: '605-229-3500',
+    field_operating_status_facility: 'normal',
+    field_region_page: null,
+  },
+}
+
 describe('<Event /> Component', () => {
   const eventProps = {
     title: 'Test Event',
@@ -128,5 +195,9 @@ describe('<Event /> Component', () => {
       />
     )
     expect(screen.getByText('This is an online event.')).toBeInTheDocument()
+  })
+  it('renders address', () => {
+    render(<Event {...data} />)
+    expect(screen.getByText('3307 10th Avenue Southeast')).toBeInTheDocument()
   })
 })

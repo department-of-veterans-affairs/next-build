@@ -30,6 +30,7 @@ import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
 import { LayoutProps } from '@/templates/layouts/wrapper'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
+import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
 import { Event as FormattedEvent } from '@/types/formatted/event'
@@ -39,6 +40,7 @@ import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted
 import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { VetCenter } from '@/templates/layouts/vetCenter'
+import { PressRelease } from '@/templates/layouts/pressRelease'
 
 // We define this here because, theoretically, another file could build other types.
 export const RESOURCE_TYPES_TO_BUILD = [
@@ -46,6 +48,7 @@ export const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY,
   RESOURCE_TYPES.EVENT,
   RESOURCE_TYPES.EVENT_LISTING,
+  RESOURCE_TYPES.PRESS_RELEASE,
   RESOURCE_TYPES.RESOURCES_SUPPORT,
   RESOURCE_TYPES.VET_CENTER,
 ] as const
@@ -101,6 +104,9 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.STORY && (
             <NewsStory {...(resource as FormattedNewsStory)} />
+          )}
+          {resource.type === RESOURCE_TYPES.PRESS_RELEASE && (
+            <PressRelease {...(resource as FormattedPressRelease)} />
           )}
           {/* {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />

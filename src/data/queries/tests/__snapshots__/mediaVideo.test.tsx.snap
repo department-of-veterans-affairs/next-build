@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Media image returns formatted data outputs formatted data 1`] = `
+{
+  "field_description": null,
+  "field_duration": undefined,
+  "field_media_video_embed_field": undefined,
+  "id": "7252cad5-7ff8-49d3-add4-7f5b009761ce",
+  "name": "health-care.png",
+  "type": "media--image",
+}
+`;
