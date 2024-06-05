@@ -1,0 +1,13 @@
+name: recurring release
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '*/30 8-20 * * 1-5'
+
+jobs:
+  content-release:
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+    with:
+      build_type: 'PROD'
+    secrets: inherit
