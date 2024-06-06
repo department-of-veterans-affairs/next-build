@@ -9,7 +9,8 @@ export const getCmsFeatureFlags = async (
   debug: boolean = true
 ): Promise<EnvVars> => {
   const fetcher = getFetcher(drupalBaseUrl, debug)
-  const featureFlagUrl = `${removeTrailingSlash(drupalBaseUrl)}/flags_list`
+  //const featureFlagUrl = `${removeTrailingSlash(drupalBaseUrl)}/flags_list`
+  const featureFlagUrl = `${drupalBaseUrl}/flags_list`
   const response = await fetcher(featureFlagUrl)
   const json = await response.json()
   return json.data
