@@ -192,8 +192,8 @@ jobs:
         max_attempts: 3
         retry_on: error
         timeout_minutes: 30
-        command: echo YARN_OUTPUT=$(cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS) >> $GITHUB_OUTPUT
-
+        #command: echo YARN_OUTPUT=$(cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS) >> $GITHUB_OUTPUT
+        command: cd main && yarn export --DRUPAL_CLIENT_ID fs_19dvAsXNZvKvvKON_BjKq7Z95byFZN1WazBkRBYs --DRUPAL_DLIENT_SECRET 2759cfc4732965124780a7c5db99844f --no-USE_REDIS
     - name: Build sitemap
       run: cd main && yarn build:sitemap
 
