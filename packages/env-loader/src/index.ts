@@ -22,12 +22,14 @@ export const processEnv = async (command: string): Promise<void> => {
     cmsFeatureFlags = {}
   } else {
     const drupalBaseUrlProp = 'NEXT_PUBLIC_DRUPAL_BASE_URL'
+
     const drupalBaseUrl =
       cliOptions[drupalBaseUrlProp] || envVars[drupalBaseUrlProp]
     cmsFeatureFlags = await getCmsFeatureFlags(
       drupalBaseUrl as string,
       cliOptions.DEBUG as boolean
     )
+    console.log('drupal base url is', drupalBaseUrlProp)
   }
 
   process.env = {
