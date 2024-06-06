@@ -8,8 +8,8 @@ export interface FieldAddress {
   dependent_locality?: string
   postal_code?: string
   sorting_code?: string
-  address_line1: string
-  address_line2: string
+  address_line1?: string
+  address_line2?: string
 }
 
 export interface FieldFormattedText {
