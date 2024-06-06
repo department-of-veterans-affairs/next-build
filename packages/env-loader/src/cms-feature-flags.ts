@@ -6,7 +6,7 @@ const removeTrailingSlash = (s: string): string =>
 
 export const getCmsFeatureFlags = async (
   drupalBaseUrl: string,
-  debug: boolean = false
+  debug: boolean = true
 ): Promise<EnvVars> => {
   const fetcher = getFetcher(drupalBaseUrl, debug)
   const featureFlagUrl = `${removeTrailingSlash(drupalBaseUrl)}/flags_list`
