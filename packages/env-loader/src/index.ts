@@ -29,7 +29,7 @@ export const processEnv = async (command: string): Promise<void> => {
       drupalBaseUrl as string,
       cliOptions.DEBUG as boolean
     )
-    console.log('drupal base url is', drupalBaseUrlProp)
+    //console.log('drupal base url is', drupalBaseUrlProp)
   }
 
   process.env = {

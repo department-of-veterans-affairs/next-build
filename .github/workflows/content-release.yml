@@ -133,6 +133,8 @@ jobs:
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
         APP_ENV: ${{ inputs.build_type }}
+         
+
       ports:
         - 80
       volumes:
@@ -148,7 +150,7 @@ jobs:
       with:
         repository: department-of-veterans-affairs/next-build
         ref: ${{ needs.validate-build-status.outputs.TAG }}
-        path: main
+        path: ${{ github.head_ref || github.ref_name }}
 
     - name: Checkout vets-website
       uses: actions/checkout@v4
