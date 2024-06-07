@@ -1,8 +1,8 @@
 import { getFetcher } from 'proxy-fetcher'
 import { EnvVars } from '.'
 
-const removeTrailingSlash = (s: string): string =>
-  s.endsWith('/') ? s.substring(0, s.length - 1) : s
+// const removeTrailingSlash = (s: string): string =>
+//   s.endsWith('/') ? s.substring(0, s.length - 1) : s
 
 export const getCmsFeatureFlags = async (
   drupalBaseUrl: string,
