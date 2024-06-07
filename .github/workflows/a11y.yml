@@ -123,6 +123,10 @@ jobs:
     needs: [playwright-tests]
 
     runs-on: ubuntu-latest
+    env:
+      METRIC_NAMESPACE: dsva_vagov.next_build
+    outputs:
+        FAILED_PAGES: ${{steps.export-report.outputs.FAILED_PAGES}}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -136,14 +140,33 @@ jobs:
         with:
           pattern: failed-pages-segment-*
           merge-multiple: true
+      
+      - name: Get current timestamp
+        run: echo "NOW=$(date +"%s")" >> $GITHUB_ENV
 
       - name: Merge reports in valid JSON format
+        id: export-report
         run: |
           if [ ! -f failed-pages-segment-*.json ]; then
               echo "No failed-pages-segment-*.json files found."
               exit 0
           fi
           jq -s '.' failed-pages-segment-*.json | jq 'flatten' > all-failed-pages.json
+          echo FAILED_PAGES=$(jq length ./all-failed-pages.json) >> $GITHUB_ENV
+      
+      - name: Build json for failed pages when there are pages captured
+        if: ${{env.FAILED_PAGES != ''}}
+        run: |
+            jq --null-input '{}' | \
+            jq '.series[0].metric = "${{env.METRIC_NAMESPACE}}.page.errors"' | \
+            jq '.series[0].points[0] = [${{env.NOW}}, ${{env.FAILED_PAGES}}]' > metrics.json
+            
+      - name: Build json for failed pages when no pages captured
+        if: ${{env.FAILED_PAGES == ''}}
+        run: |
+          jq --null-input '{}' | \
+          jq '.series[0].metric = "${{env.METRIC_NAMESPACE}}.page.errors"' | \
+          jq '.series[0].points[0] = [${{env.NOW}}, 0]' > metrics.json
 
       - name: Upload report
         uses: actions/upload-artifact@v4
@@ -152,4 +175,31 @@ jobs:
           path: all-failed-pages.json
           retention-days: 14
           if-no-files-found: ignore
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@e1e17a757e536f70e52b5a12b2e8d1d1c60e04ef # v2.0.0
+        with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: us-gov-west-1
+
+      - name: Get Datadog api key from Parameter Store
+        uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+            ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_API_KEY
+            env_variable_name: GHA_CONTENT_BUILD_DATADOG_API_KEY
+
+      - name: Get Datadog app key from Parameter Store
+        uses: department-of-veterans-affairs/action-inject-ssm-secrets@d8e6de3bde4dd728c9d732baef58b3c854b8c4bb # latest
+        with:
+            ssm_parameter: /dsva-vagov/content-build/GHA_CONTENT_BUILD_DATADOG_APP_KEY
+            env_variable_name: GHA_CONTENT_BUILD_DATADOG_APP_KEY
+
+      - name: Send metrics to Datadog
+        run: |
+            curl -X POST "https://api.ddog-gov.com/api/v1/series" \
+            -H "Content-Type: text/json" \
+            -H "DD-API-KEY: ${{ env.GHA_CONTENT_BUILD_DATADOG_API_KEY }}" \
+            -d @- < metrics.json
+
 
