@@ -150,7 +150,8 @@ jobs:
       with:
         repository: department-of-veterans-affairs/next-build
         #ref: ${{ needs.validate-build-status.outputs.TAG }}
-        path: ${{ github.head_ref || github.ref_name }}
+        ref: ${{ github.head_ref || github.ref_name }}
+        path: main
         sparse-checkout-cone-mode: false
 
     - name: Checkout vets-website
