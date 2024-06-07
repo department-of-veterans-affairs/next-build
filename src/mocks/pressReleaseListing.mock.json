@@ -1,0 +1,205 @@
+{
+  "type": "node--press_releases_listing",
+  "id": "c56246c6-4a86-4b06-b576-241eb01a5e0e",
+  "drupal_internal__nid": 3052,
+  "drupal_internal__vid": 502336,
+  "langcode": "en",
+  "revision_timestamp": "2021-08-05T15:27:01+00:00",
+  "status": false,
+  "title": "News releases",
+  "created": "2020-03-02T21:29:22+00:00",
+  "changed": "2021-08-05T15:27:01+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/coatesville-health-care",
+      "title": "VA Coatesville health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "News and events",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "News releases",
+      "options": []
+    }
+  ],
+  "moderation_state": "archived",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "News releases | VA Coatesville health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "description",
+        "content": "Get the latest news from Coatesville-area medical centers and clinics. For more information about Coatesville health care, contact our Public Affairs Office at 610-380-4348."
+      }
+    },
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "image_src",
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "News releases | VA Coatesville health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:description",
+        "content": "Get the latest news from Coatesville-area medical centers and clinics. For more information about Coatesville health care, contact our Public Affairs Office at 610-380-4348."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:description",
+        "content": "Get the latest news from Coatesville-area medical centers and clinics. For more information about Coatesville health care, contact our Public Affairs Office at 610-380-4348."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "News releases | VA Coatesville health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/coatesville-health-care/news-releases",
+    "pid": 3896,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_description": "Get the latest news from Coatesville-area medical centers and clinics. For more information about Coatesville health care, contact our Public Affairs Office at 610-380-4348.",
+  "field_enforce_unique_combo": false,
+  "field_intro_text": "Get the latest news from Coatesville-area medical centers and clinics. For more information about Coatesville health care, contact our Public Affairs Office at 610-380-4348.",
+  "field_last_saved_by_an_editor": null,
+  "field_meta_tags": null,
+  "field_press_release_blurb": {
+    "value": "<p>For more information about Coatesville health care, contact our Public Affairs Office at <a aria-label=\"6 1 0. 3 8 0. 4 3 4 8.\" href=\"tel:+16103804348\">610-380-4348</a>. You can also visit us <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"34f5ff37-78ac-4444-88d5-d31b4c3e3f4f\" href=\"/node/2359\">online</a>, or like us on<a href=\"https://www.facebook.com/CoatesvilleVAMC\"> Facebook</a>.&nbsp;</p>\r\n",
+    "format": "rich_text",
+    "processed": "<p>For more information about Coatesville health care, contact our Public Affairs Office at <a aria-label=\"6 1 0. 3 8 0. 4 3 4 8.\" href=\"tel:+16103804348\">610-380-4348</a>. You can also visit us <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"34f5ff37-78ac-4444-88d5-d31b4c3e3f4f\" href=\"/coatesville-health-care\" title=\"VA Coatesville health care\">online</a>, or like us on<a href=\"https://www.facebook.com/CoatesvilleVAMC\"> Facebook</a>.&nbsp;</p>"
+  },
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/press_releases_listing/c56246c6-4a86-4b06-b576-241eb01a5e0e?resourceVersion=id%3A502336"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "4dd9e832-53d6-4587-a9f7-5040ac950e0a",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "press_releases_listing"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "09929e30-ce11-4e17-a4ef-e2a5b7d86b24",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1443
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 197
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "fde46275-08f9-44ad-8ec3-d7cd8fbb746e",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 184
+    }
+  },
+  "field_office": {
+    "type": "node--health_care_region_page",
+    "id": "34f5ff37-78ac-4444-88d5-d31b4c3e3f4f",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 2359
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_office"
+  ]
+}
