@@ -90,7 +90,7 @@
     "@next/env": "^14.1.0",
     "@playwright/test": "^1.43.1",
     "@storybook/addon-a11y": "^8.1.1",
-    "@storybook/addon-actions": "^8.0.5",
+    "@storybook/addon-actions": "^8.1.6",
     "@storybook/addon-essentials": "^8.0.5",
     "@storybook/addon-interactions": "^8.0.9",
     "@storybook/addon-links": "^8.0.5",
