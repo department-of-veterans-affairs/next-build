@@ -234,10 +234,10 @@ jobs:
         <?xml version="1.0" encoding="UTF-8"?>
           <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <sitemap>
-              <loc>${{needs.build.outputs.NEXT_SITEMAP_LOCATION}}</loc>
+              <loc>${{env.NEXT_SITEMAP_LOCATION}}</loc>
             </sitemap>
             <sitemap>
-              <loc>${{needs.build.outputs.OLD_SITEMAP_LOCATION}}</loc>
+              <loc>${{env.OLD_SITEMAP_LOCATION}}</loc>
             </sitemap>
           </sitemapindex>
         EOF
