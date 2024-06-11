@@ -230,14 +230,15 @@ jobs:
       run: |
        cd main
        cd out
+       echo "${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}"
        cat <<'EOF' >> sitemap.xml
         <?xml version="1.0" encoding="UTF-8"?>
           <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <sitemap>
-              <loc>${{env.NEXT_SITEMAP_LOCATION}}</loc>
+              <loc>${{steps.bucket-descriptor.outputs.NEXT_SITEMAP_LOCATION}}</loc>
             </sitemap>
             <sitemap>
-              <loc>${{env.OLD_SITEMAP_LOCATION}}</loc>
+              <loc>${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}</loc>
             </sitemap>
           </sitemapindex>
         EOF
