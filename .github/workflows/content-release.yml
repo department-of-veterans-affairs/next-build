@@ -207,6 +207,23 @@ jobs:
         cd main && yarn build:sitemap
         cd out
         mv sitemap.xml sitemap-nb.xml 
+
+    - name: setup bucket descriptor
+      id: bucket-descriptor
+      run: |
+        if [ "${{ inputs.build_type }}" == 'dev' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/content.dev.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.dev.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        elif [ ${{ inputs.build_type }} == 'staging'] ; then
+          echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.staging.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/content.staging.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        elif [ ${{ inputs.build_type }} == 'prod' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        else
+          echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+      shell: bash
     
     - name: Generate new sitemap
       run: |
@@ -238,22 +255,6 @@ jobs:
     - name: Export deploy start time
       id: export-deploy-start-time
       run: echo DEPLOY_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
-
-    - name: setup bucket descriptor
-      id: bucket-descriptor
-      run: |
-        if [${{ inputs.build_type }} == 'dev']; then
-          echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/content.dev.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
-          echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.dev.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
-        elif [${{ inputs.build_type }} == 'staging']; then
-          echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.staging.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
-          echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/content.staging.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
-        elif [${{ inputs.build_type }} == 'prod']]
-          echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
-          echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
-        else
-          echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
-          echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
 
     - if: inputs.build_type == 'dev'
       name: Deploy to S3
