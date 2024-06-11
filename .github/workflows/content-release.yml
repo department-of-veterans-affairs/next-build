@@ -208,16 +208,14 @@ jobs:
         <?xml version="1.0" encoding="UTF-8"?>
           <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <sitemap>
-              <loc>https://www.example.com/sitemap1.xml.gz</loc>
+              <loc>${{needs.build.outputs.NEXT_SITEMAP_LOCATION}}</loc>
             </sitemap>
             <sitemap>
-              <loc>https://www.example.com/sitemap2.xml.gz</loc>
+              <loc>${{needs.build.outputs.OLD_SITEMAP_LOCATION}}</loc>
             </sitemap>
           </sitemapindex>
         EOF
-      env:
-
-
+      
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
