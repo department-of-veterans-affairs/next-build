@@ -210,7 +210,9 @@ jobs:
     
     - name: Generate new sitemap
       run: |
-       cat <<'EOF' >> ./out/sitemap.xml
+       cd main
+       cd out
+       cat <<'EOF' >> sitemap.xml
         <?xml version="1.0" encoding="UTF-8"?>
           <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <sitemap>
