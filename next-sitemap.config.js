@@ -5,6 +5,7 @@ const sitemapConfig = {
   // output: 'export' directory from next config
   outDir: 'out',
   generateIndexSitemap: true,
+  sitemapSize: 100000, //set some large size in bytes so we have one sitemap.xml?
   // relative paths to exclude
   exclude: [],
 

@@ -124,6 +124,9 @@ jobs:
       SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
       SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
       YARN_OUTPUT: ${{ steps.export-yarn-output.outputs.YARN_OUTPUT }}
+      NEXT_SITEMAP_LOCATION: ${{steps.bucket-descriptor.outputs.NEXT_SITEMAP_LOCATION}}
+      OLD_SITEMAP_LOCATION: ${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}
+
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
       credentials:
@@ -195,7 +198,23 @@ jobs:
         command: echo YARN_OUTPUT=$(cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS) >> $GITHUB_OUTPUT
 
     - name: Build sitemap
-      run: cd main && yarn build:sitemap
+      run: | 
+        cd main && yarn build:sitemap
+        mv sitemap.xml sitemap-nb.xml 
+    
+    - name: Generate new sitemap
+      run: |
+       cat <<'EOF' >> ./out/sitemap.xml
+        <?xml version="1.0" encoding="UTF-8"?>
+          <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <sitemap>
+              <loc>https://www.example.com/sitemap1.xml.gz</loc>
+            </sitemap>
+            <sitemap>
+              <loc>https://www.example.com/sitemap2.xml.gz</loc>
+            </sitemap>
+          </sitemapindex>
+        EOF
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
@@ -214,19 +233,33 @@ jobs:
 
     - if: inputs.build_type == 'dev'
       name: Deploy to S3
-      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      id: bucket-descriptor
+      run: |
+        cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+        echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/content.dev.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.dev.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
       env:
         SRC: ./out/
         DEST: s3://next-content.dev.va.gov
+
     - if: inputs.build_type == 'staging'
       name: Deploy to S3
-      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      id: bucket-descriptor
+      run: |
+        cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+        echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.staging.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/content.staging.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
       env:
         SRC: ./out/
         DEST: s3://next-content.staging.va.gov
+
     - if: inputs.build_type == 'prod'
       name: Deploy to S3
-      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      id: bucket-descriptor
+      run: |
+        cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+        echo NEXT_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        echo OLD_SITEMAP_LOCATION="https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
       env:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
