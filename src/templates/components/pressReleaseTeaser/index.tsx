@@ -1,11 +1,32 @@
-type PressReleaseTeaserProps = {
-  title: string
-}
+import { truncateWordsOrChar } from "@/lib/utils/helpers"
+import {PressReleaseTeaser as FormattedPressReleaseTeaser} from '@/types/formatted/pressRelease'
+import {formatDate} from '@/lib/utils/helpers'
 
-export function PressReleaseTeaser({ title }: PressReleaseTeaserProps) {
+/** Teaser press release */
+
+export function PressReleaseTeaser({
+  headingLevel,
+  title,
+  link,
+  introText,
+  lastUpdated
+  }: FormattedPressReleaseTeaser) {
+    const TitleTag = ({ children, className }) => {
+      const Heading = headingLevel ? headingLevel : 'h2'
+      return <Heading className={className}>{children}</Heading>
+    }
+
   return (
-    <div>
-      <p>{title}</p>
-    </div>
+    <>
+    <section className="vads-u-margin-bottom--4">
+          <TitleTag className="vads-u-margin-bottom--1p5 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
+            <a href={link}>{title}</a>
+          </TitleTag>
+          <strong>{formatDate(lastUpdated)}</strong>
+          <p className="vads-u-margin-top--0">
+            {truncateWordsOrChar(introText, 60, true)}
+          </p>
+      </section>
+    </>
   )
 }

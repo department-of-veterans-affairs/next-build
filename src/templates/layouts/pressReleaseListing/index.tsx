@@ -71,11 +71,32 @@ export function PressReleaseListing({
           <div className="vads-l-grid-container--full">
             <div className="va-introtext">
               {introText &&
-              <p className="events-show" id="office-events-description">{introText}</p>}
+                <p className="events-show" id="office-events-description">
+                  {introText}
+                </p>
+              }
             </div>
-            {}
+            <div className="vads-l-grid-container--full">
+              <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
+            </div>
+            {totalPages > 1 && (
+              <VaPagination
+                page={currentPage}
+                pages={totalPages}
+                onPageSelect={(page) => {
+                  const newPage =
+                    page.detail.page > 1 ? `page-${page.detail.page}` : ''
+                  const newUrl = window.location.href.replace(
+                    /(?<=news-releases\/).*/, // everything after /news-releases/
+                    newPage
+                  )
+                  window.location.assign(newUrl)
+                }}
+              />
+            )}
           </div>
         </article>
+        <ContentFooter />
       </div>
     </div>
   )

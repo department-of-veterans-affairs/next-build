@@ -5,7 +5,8 @@ import { PressReleaseTeaser } from '@/types/formatted/pressRelease'
 
 // Define the query params for fetching node--press_release_teaser.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
+  return new DrupalJsonApiParams().addInclude([
+    'field_listing'])
 }
 
 

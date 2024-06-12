@@ -1,25 +1,40 @@
-import { PressReleaseTeaser } from '@/types/drupal/node'
+import { NodePressRelease } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/pressReleaseTeaser.mock.json'
+import mockData from '@/mocks/pressRelease.mock.json'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { params, formatter } from '../pressReleaseTeaser'
+import { de } from '@faker-js/faker'
 
-const PressReleaseTeaserMock: PressReleaseTeaser = mockData
+const nodePressReleaseTeaserMock: NodePressRelease = {
+  ...mockData,
+  field_pdf_version: {
+    ...mockData.field_pdf_version,
+    drupal_internal__mid: mockData.field_pdf_version.drupal_internal__mid.toString(),
+    drupal_internal__vid: mockData.field_pdf_version.drupal_internal__vid.toString(),
+  },
+};
 
-describe('PressReleaseTeaser formatData', () => {
-  let windowSpy
-
-  beforeEach(() => {
-    windowSpy = jest.spyOn(window, 'window', 'get')
-  })
-
-  afterEach(() => {
-    windowSpy.mockRestore()
-  })
-
+describe(`${RESOURCE_TYPES.PRESS_RELEASE}Teaser formatData`, () => {
   test('outputs formatted data', () => {
-    windowSpy.mockImplementation(() => undefined)
+    const formattedData = formatter(nodePressReleaseTeaserMock)
+    expect(formattedData).toMatchSnapshot()
+  })
+  test('handles missing or null fields correctly', () => {
+    const modifiedMock = {
+      ...nodePressReleaseTeaserMock,
+    }
 
-    expect(
-      queries.formatData('node--press_release_teaser', PressReleaseTeaserMock)
-    ).toMatchSnapshot()
+    const formattedData = formatter(modifiedMock)
+    expect(formattedData.link).toBe(modifiedMock.path.alias)
+  })
+})
+
+describe('DrupalJsonApiParams configuration for pressReleaseTeaser', () => {
+  test('params function sets the correct include fields', () => {
+    const paramsInstance = params()
+    const queryString = decodeURIComponent(paramsInstance.getQueryString())
+    expect(queryString).toMatch(
+      /include=field_listing/
+    )
   })
 })
