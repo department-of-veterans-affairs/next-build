@@ -1,15 +1,15 @@
-name: release on push
+name: recurring release
 on:
-    push: # build anytime there is a push to main
-        branches:
-          - main
     workflow_dispatch:
     
+    schedule:
+        - cron: "*/30 8-20 * * 1-5" # run a build to prod every 30 minutes from 8am to 8pm monday to friday
+          
 jobs:
     content-release:
         uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
         with:
-            build_type: "stgprod"
+            build_type: "prod"
         secrets: inherit
         
 
