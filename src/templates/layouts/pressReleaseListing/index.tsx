@@ -44,13 +44,13 @@ export function PressReleaseListing({
 
   const pressReleaseTeasers =
     releases?.length > 0 ? (
-      releases?.map((story: FormattedPressReleaseTeaser) => (
-        <li key={story.id}>
-          <PressReleaseTeaser {...story} />
+      releases?.map((release: FormattedPressReleaseTeaser) => (
+        <li key={release.id}>
+          <PressReleaseTeaser {...release} />
         </li>
       ))
     ) : (
-      <li className="clearfix-text">No stories at this time.</li>
+      <div className="clearfix-text">No stories at this time.</div>
     )
 
   return (
@@ -70,19 +70,18 @@ export function PressReleaseListing({
           <h1 id="article-heading">{title}</h1>
           <div className="vads-l-grid-container--full">
             <div className="va-introtext">
-              {introText &&
+              {introText && (
                 <p className="events-show" id="office-events-description">
                   {introText}
                 </p>
-              }
+              )}
             </div>
-            <div className="vads-l-grid-container--full">
-              <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
-            </div>
+            <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
             {totalPages > 1 && (
               <VaPagination
                 page={currentPage}
                 pages={totalPages}
+                maxPageListLength={3}
                 onPageSelect={(page) => {
                   const newPage =
                     page.detail.page > 1 ? `page-${page.detail.page}` : ''

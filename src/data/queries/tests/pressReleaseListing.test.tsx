@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 import {
   params as pressReleaseListingParams,
   listingParams,
@@ -15,7 +19,7 @@ jest.mock('@/lib/drupal/query', () => {
     field_office: {
       field_system_menu: {
         resourceIdObjMeta: {
-          drupal_internal__target_id: 'va-coatesville-health-care',
+          drupal_internal__target_id: '1111-1111-1111',
         },
       },
     },

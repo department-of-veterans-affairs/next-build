@@ -9,10 +9,12 @@ const nodePressReleaseTeaserMock: NodePressRelease = {
   ...mockData,
   field_pdf_version: {
     ...mockData.field_pdf_version,
-    drupal_internal__mid: mockData.field_pdf_version.drupal_internal__mid.toString(),
-    drupal_internal__vid: mockData.field_pdf_version.drupal_internal__vid.toString(),
+    drupal_internal__mid:
+      mockData.field_pdf_version.drupal_internal__mid.toString(),
+    drupal_internal__vid:
+      mockData.field_pdf_version.drupal_internal__vid.toString(),
   },
-};
+}
 
 describe(`${RESOURCE_TYPES.PRESS_RELEASE}Teaser formatData`, () => {
   test('outputs formatted data', () => {
@@ -33,8 +35,6 @@ describe('DrupalJsonApiParams configuration for pressReleaseTeaser', () => {
   test('params function sets the correct include fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
-    expect(queryString).toMatch(
-      /include=field_listing/
-    )
+    expect(queryString).toMatch(/include=field_listing/)
   })
 })

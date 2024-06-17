@@ -18,7 +18,7 @@ import {
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.PRESS_RELEASE_LISTING]
 
-// Define the query params for fetching node--press_release_listing.
+// Define the query params for fetching node--press_releases_listing.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude(['field_office'])
 }
@@ -41,10 +41,11 @@ type PressReleaseListingData = {
 }
 
 // Implement the data loader.
-export const data: QueryData<ListingPageDataOpts, PressReleaseListingData> = async (
-  opts
-) => {
-const entity = (await fetchSingleEntityOrPreview(
+export const data: QueryData<
+  ListingPageDataOpts,
+  PressReleaseListingData
+> = async (opts) => {
+  const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.PRESS_RELEASE_LISTING,
     params
@@ -84,20 +85,19 @@ const entity = (await fetchSingleEntityOrPreview(
   }
 }
 
-export const formatter: QueryFormatter<PressReleaseListingData, PressReleaseListing> = ({
-  entity,
-  releases,
-  menu,
-  totalItems,
-  totalPages,
-  current,
-}) => {
+export const formatter: QueryFormatter<
+  PressReleaseListingData,
+  PressReleaseListing
+> = ({ entity, releases, menu, totalItems, totalPages, current }) => {
   const formattedReleases = releases.map((release) => {
-    return queries.formatData(`${RESOURCE_TYPES.PRESS_RELEASE}--teaser`, release)
+    return queries.formatData(
+      `${RESOURCE_TYPES.PRESS_RELEASE}--teaser`,
+      release
+    )
   })
 
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
-  
+
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,

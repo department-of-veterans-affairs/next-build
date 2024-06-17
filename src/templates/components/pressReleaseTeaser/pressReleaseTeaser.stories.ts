@@ -10,12 +10,13 @@ export default meta
 
 type Story = StoryObj<typeof PressReleaseTeaser>
 
-export const Example: Story = {
+export const Teaser: Story = {
   args: {
     headingLevel: 'h2',
     title: 'Wilmington VAMC 2019 Annual Report',
     introText:
       'When a hospital has a host of great doctors, honoring just two every year is challenging.',
-    link: '/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report'
+    link: '/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report',
+    lastUpdated: '2021-07-01T14:00:00.000Z',
   },
 }

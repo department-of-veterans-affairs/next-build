@@ -44,7 +44,6 @@ import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 
-
 // We define this here because, theoretically, another file could build other types.
 export const RESOURCE_TYPES_TO_BUILD = [
   RESOURCE_TYPES.STORY_LISTING,
@@ -109,11 +108,13 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.STORY && (
             <NewsStory {...(resource as FormattedNewsStory)} />
           )}
+          {resource.type === RESOURCE_TYPES.PRESS_RELEASE_LISTING && (
+            <PressReleaseListing
+              {...(resource as FormattedPressReleaseListing)}
+            />
+          )}
           {resource.type === RESOURCE_TYPES.PRESS_RELEASE && (
             <PressRelease {...(resource as FormattedPressRelease)} />
-          )}
-          {resource.type === RESOURCE_TYPES.PRESS_RELEASE_LISTING && (
-            <PressReleaseListing {...(resource as FormattedPressReleaseListing)} />
           )}
           {/* {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />

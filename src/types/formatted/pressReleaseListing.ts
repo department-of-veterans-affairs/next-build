@@ -6,7 +6,7 @@ export type PressReleaseListingLink = {
   path: string
 }
 
-export type PressReleaseListing = PublishedEntity &{
+export type PressReleaseListing = PublishedEntity & {
   introText: string
   releases: PressReleaseTeaser[]
   menu: SideNavMenu

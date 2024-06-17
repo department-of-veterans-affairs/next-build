@@ -1,14 +1,12 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodePressRelease} from '@/types/drupal/node'
+import { NodePressRelease } from '@/types/drupal/node'
 import { PressReleaseTeaser } from '@/types/formatted/pressRelease'
 
 // Define the query params for fetching node--press_release_teaser.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams().addInclude([
-    'field_listing'])
+  return new DrupalJsonApiParams().addInclude(['field_listing'])
 }
-
 
 export const formatter: QueryFormatter<NodePressRelease, PressReleaseTeaser> = (
   entity: NodePressRelease
