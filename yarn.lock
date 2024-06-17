@@ -3524,9 +3524,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:^8.0.5":
-  version: 8.1.4
-  resolution: "@storybook/addon-links@npm:8.1.4"
+"@storybook/addon-links@npm:^8.1.9":
+  version: 8.1.9
+  resolution: "@storybook/addon-links@npm:8.1.9"
   dependencies:
     "@storybook/csf": ^0.1.7
     "@storybook/global": ^5.0.0
@@ -3536,7 +3536,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: b2f1a31dadd52387dcfd0556b13f994301021fade55ce71c971b8e3f98b46d6437c824c05039d25d4e176972d7afeec3520307d594f200aaa1db72ce59b03f61
+  checksum: d55bc7ab841d245a6c2c2609cb07534d958a30e915afb424d5646889296ff98d008b025b66b8f8f0a4eaf70f72241ff169c48c6c24ff51456ebee8e09f65d2e7
   languageName: node
   linkType: hard
 
@@ -13170,7 +13170,7 @@ __metadata:
     "@storybook/addon-actions": ^8.0.5
     "@storybook/addon-essentials": ^8.0.5
     "@storybook/addon-interactions": ^8.0.9
-    "@storybook/addon-links": ^8.0.5
+    "@storybook/addon-links": ^8.1.9
     "@storybook/nextjs": ^8.0.5
     "@storybook/node-logger": ^8.1.1
     "@storybook/react": ^8.0.5
