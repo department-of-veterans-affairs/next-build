@@ -21,4 +21,8 @@ export const drupalClient = new DrupalClient(baseUrl, {
       ? redisCache(createRedisClient(process.env.REDIS_URL))
       : null,
   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
+  // Add request header to tell the CMS to return public-facing URLs for files.
+  headers: {
+    'File-Public-Base-Url-Check': 'true',
+  },
 })
