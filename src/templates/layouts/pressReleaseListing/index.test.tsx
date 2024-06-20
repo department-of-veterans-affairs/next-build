@@ -8,15 +8,20 @@ describe('PressReleaseListing component renders', () => {
 
   beforeEach(() => {
     pressReleaseListingProps = {
-      id: 'c56246c6-4a86-4b06-b576-241eb01a5e0e',
+      id: '7134a789-abc0-4583-8795-70d65a3e03fd',
       breadcrumbs: [
         { title: 'Home', uri: '/', options: [] },
-        { title: 'News', uri: '/news', options: [] },
+        {
+          title: 'VA Birmingham health care',
+          uri: '/birmingham-health-care',
+          options: [],
+        },
       ],
       title: 'News releases',
       entityId: 1234,
       entityPath: 'sample/path/url',
-      introText: 'News Releases for VA Southern Nevada health care.',
+      introText:
+        'Get the latest news from the Birmingham VA Health Care System.\\r\\n',
       type: 'node--press_releases_listing',
       published: true,
       releases: formattedPressReleases,
@@ -33,7 +38,7 @@ describe('PressReleaseListing component renders', () => {
           attributes: {
             name: 'title',
             content:
-              'News releases | VA Coatesville health care | Veterans Affairs',
+              'News Releases | VA Birmingham health care | Veterans Affairs',
           },
         },
         {
@@ -41,19 +46,27 @@ describe('PressReleaseListing component renders', () => {
           attributes: {
             name: 'description',
             content:
-              'Get the latest news from Coatesville-area medical centers and clinics. For more information about Coatesville health care, contact our Public Affairs Office at 610-380-4348.',
+              'Get the latest news from the Birmingham VA Health Care System.',
           },
         },
       ],
-      lastUpdated: '2021-07-01T14:00:00.000Z',
+      lastUpdated: '2021-10-22T18:53:30+00:00',
     }
   })
+
+  /*test('press release rendered per listing page', () => {
+    render(<PressReleaseListing {...pressReleaseListingProps} />)
+    const listinglength = pressReleaseListingProps.releases.length
+    expect(listinglength).toBeLessThanOrEqual(10)
+  })*/
 
   test('with valid data', () => {
     render(<PressReleaseListing {...pressReleaseListingProps} />)
     expect(screen.queryByText(/News releases/)).toBeInTheDocument()
     expect(
-      screen.queryByText(/News Releases for VA Southern Nevada health care./)
+      screen.queryByText(
+        /Get the latest news from the Birmingham VA Health Care System./
+      )
     ).toBeInTheDocument()
   })
 
@@ -72,7 +85,7 @@ describe('PressReleaseListing component does not render', () => {
     expect(screen.queryByText(/News releases/)).not.toBeInTheDocument()
     expect(
       screen.queryByText(
-        /Get the latest news from Coatesville-area medical centers and clinics. For more information about Coatesville health care, contact our Public Affairs Office at 610-380-4348./
+        /Get the latest news from the Birmingham VA Health Care System./
       )
     ).not.toBeInTheDocument()
   })

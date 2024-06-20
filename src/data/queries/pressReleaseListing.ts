@@ -97,7 +97,6 @@ export const formatter: QueryFormatter<
   })
 
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
-
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,

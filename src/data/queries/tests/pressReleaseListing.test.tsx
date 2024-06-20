@@ -11,7 +11,7 @@ import * as queryModule from '@/lib/drupal/query'
 
 jest.mock('@/lib/drupal/query', () => {
   const mockEntity = {
-    id: 'test-press-release-listing-id',
+    id: 'c0d78f6e-3787-42e8-a7b2-fb81f6587059',
     type: 'node--press_releases_listing',
     attributes: {},
     langcode: 'en',
@@ -19,7 +19,7 @@ jest.mock('@/lib/drupal/query', () => {
     field_office: {
       field_system_menu: {
         resourceIdObjMeta: {
-          drupal_internal__target_id: '1111-1111-1111',
+          drupal_internal__target_id: 'va-birmingham-health-care',
         },
       },
     },
