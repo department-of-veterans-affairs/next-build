@@ -54,12 +54,6 @@ describe('PressReleaseListing component renders', () => {
     }
   })
 
-  /*test('press release rendered per listing page', () => {
-    render(<PressReleaseListing {...pressReleaseListingProps} />)
-    const listinglength = pressReleaseListingProps.releases.length
-    expect(listinglength).toBeLessThanOrEqual(10)
-  })*/
-
   test('with valid data', () => {
     render(<PressReleaseListing {...pressReleaseListingProps} />)
     expect(screen.queryByText(/News releases/)).toBeInTheDocument()
