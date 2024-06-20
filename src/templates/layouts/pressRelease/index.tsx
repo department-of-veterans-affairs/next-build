@@ -21,7 +21,7 @@ export const PressRelease = ({
   return (
     <>
       <div>
-        <main className="va-l-detail-page va-facility-page">
+        <div className="va-l-detail-page va-facility-page">
           <div className="usa-grid usa-grid-full">
             {/* nav here */}
             <div className="usa-width-three-fourths">
@@ -139,7 +139,7 @@ export const PressRelease = ({
               <ContentFooter />
             </div>
           </div>
-        </main>
+        </div>
       </div>
     </>
   )
