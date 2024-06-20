@@ -71,7 +71,7 @@ export const LISTING_RESOURCE_TYPE_URL_SEGMENTS: Readonly<{
 }> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
   [RESOURCE_TYPES.EVENT_LISTING]: 'events',
-  [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: 'press-releases',
+  [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: 'news-releases',
 }
 
 export function isListingResourceType(resourceType: ResourceType): boolean {
