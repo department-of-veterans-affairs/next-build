@@ -1,13 +1,14 @@
+import { ComponentType } from 'react'
 import { PublishedEntity } from './publishedEntity'
-import { NodeOffice, NodePersonProfile, NodeEventListing } from '../drupal/node'
-import {
-  DrupalMediaDocument,
-  DrupalMediaImage,
-  DrupalMediaVideo,
-} from '../drupal/media'
-import { FieldAddress, FieldFormattedText } from '../drupal/field_type'
+import { FieldAddress } from '../drupal/field_type'
 import { Administration } from './administration'
 import { PressContact } from './contactInfo'
+
+export type PressReleaseTeaser = PublishedEntity & {
+  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
+  link: string
+  introText: string
+}
 
 export type PressReleaseDownload = {
   id: string
