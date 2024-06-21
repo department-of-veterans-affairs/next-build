@@ -60,3 +60,6 @@ certs/VA-mozilla-combined.pem
 
 # typescript
 *.tsbuildinfo
+
+# vscode
+.vscode
