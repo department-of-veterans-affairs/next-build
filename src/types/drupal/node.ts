@@ -56,6 +56,7 @@ export type NodeTypes =
   | NodeOffice
   | NodePersonProfile
   | NodePressRelease
+  | NodePressReleaseListing
   | NodePromoBanner
   | NodeQA
   | NodeRegionalHealthCareServiceDes
@@ -309,7 +310,7 @@ export interface NodePressRelease extends DrupalNode {
   /** Office information NOT in Mock Data*/
   /** field_office: NodeOffice */
   /** Which Story Listing page this story should display on. */
-  field_listing: NodeStoryListing
+  field_listing: NodePressReleaseListing
   /** Administration */
   field_administration: FieldAdministration | null
 }
@@ -348,6 +349,12 @@ export interface NodeEventListing extends DrupalNode {
   field_description: string
   field_intro_text: string
   field_enforce_unique_combo: boolean
+}
+
+export interface NodePressReleaseListing extends DrupalNode {
+  field_description: string
+  field_office: NodeOffice | NodeHealthCareRegionPage
+  field_intro_text: string
 }
 
 export interface NodePromoBanner extends DrupalNode {

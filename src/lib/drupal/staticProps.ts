@@ -25,6 +25,7 @@ import {
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { NewsStoryDataOpts } from '@/data/queries/newsStory'
+import { PressReleaseDataOpts } from '@/data/queries/pressRelease'
 
 export type ExpandedStaticPropsContext = GetStaticPropsContext & {
   path: string
@@ -37,7 +38,10 @@ export type StaticPropsResource<T extends FormattedPageResource> =
   | T
   | LovellStaticPropsResource<LovellFormattedResource>
 
-type StaticPropsQueryOpts = NewsStoryDataOpts | ListingPageDataOpts
+type StaticPropsQueryOpts =
+  | NewsStoryDataOpts
+  | PressReleaseDataOpts
+  | ListingPageDataOpts
 
 /**
  * Decorates the original context with expanded details:
