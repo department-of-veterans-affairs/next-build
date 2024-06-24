@@ -24,7 +24,7 @@ on:
           - prod
 
 concurrency:
-  group: ${{ github.event.inputs.build_type }}
+  group: ${{ inputs.build_type }}
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
@@ -125,7 +125,7 @@ jobs:
       # Certs added for the self hosted runner
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
-        APP_ENV: prod
+        APP_ENV: ${{ inputs.build_type }}
       ports:
         - 80
       volumes:
@@ -270,7 +270,7 @@ jobs:
           jq '.tags[0] = "project:vagov"' | \
           jq '.tags[1] = "repo:next-build"' | \
           jq '.tags[2] = "workflow:content-release"' | \
-          jq '.tags[3] = "env:${{ github.event.inputs.build_type }}"' | \
+          jq '.tags[3] = "env:${{ inputs.build_type }}"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
           jq '.alert_type = "success"' > event.json
 
@@ -324,7 +324,7 @@ jobs:
           jq '.tags[0] = "project:vagov"' | \
           jq '.tags[1] = "repo:next-build"' | \
           jq '.tags[2] = "workflow:content-release"' | \
-          jq '.tags[3] = "env:${{ github.event.inputs.build_type }}"' | \
+          jq '.tags[3] = "env:${{ inputs.build_type }}"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
           jq '.alert_type = "error"' > event.json
 
@@ -354,7 +354,7 @@ jobs:
         - name: Set vars for CMS-triggered runs
           if: ${{ github.event_name == 'repository_dispatch' }}
           run: |
-            echo "DEPLOY_ENV=${{ github.event.inputs.build_type }}" >> $GITHUB_ENV
+            echo "DEPLOY_ENV=${{ inputs.build_type }}" >> $GITHUB_ENV
             echo "BUILD_TRIGGER=cms" >> $GITHUB_ENV
 
         - name: Calculate durations
