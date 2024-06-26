@@ -222,13 +222,17 @@ jobs:
 
     - if: inputs.build_type == 'dev'
       name: Deploy to S3
-      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      run: |
+        cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+        ls
       env:
         SRC: ./out/
         DEST: s3://next-content.dev.va.gov
     - if: inputs.build_type == 'staging'
       name: Deploy to S3
-      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+      run: | 
+        cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
+        ls
       env:
         SRC: ./out/
         DEST: s3://next-content.staging.va.gov
