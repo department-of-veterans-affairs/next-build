@@ -10,7 +10,7 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
-  output: 'out',
+  output: 'export',
   swcMinify: true,
   trailingSlash: true,
   assetPrefix: isProd
