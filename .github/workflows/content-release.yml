@@ -24,7 +24,7 @@ on:
           - prod
 
 concurrency:
-  group: ${{ inputs.build_type }}
+  group: ${{ github.workflow || inputs.build_type }}
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
