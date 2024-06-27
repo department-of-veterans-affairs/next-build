@@ -23,6 +23,8 @@ export const drupalClient = new DrupalClient(baseUrl, {
   previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
   // Add request header to tell the CMS to return public-facing URLs for files.
   headers: {
-    'File-Public-Base-Url-Check': 'true',
+    "Content-Type": "application/vnd.api+json", 
+    Accept: "application/vnd.api+json",
+    "File-Public-Base-Url-Check": "true",
   },
 })
