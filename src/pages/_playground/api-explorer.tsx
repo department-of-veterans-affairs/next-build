@@ -22,16 +22,17 @@ export async function getStaticProps() {
     }
   }
 
-  const params = new DrupalJsonApiParams().addInclude(
-    getNestedIncludes('field_pdf_version', 'media--document')
+  const params = new DrupalJsonApiParams().addInclude([])
+  const data = await drupalClient.getResourceCollection(
+    'node--press_releases_listing',
+    {
+      params: params.getQueryObject(),
+      withAuth: {
+        clientId: process.env.DRUPAL_CLIENT_ID,
+        clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+      },
+    }
   )
-  const data = await drupalClient.getResourceCollection('node--press_release', {
-    params: params.getQueryObject(),
-    withAuth: {
-      clientId: process.env.DRUPAL_CLIENT_ID,
-      clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-    },
-  })
   return {
     props: {
       data: data,
