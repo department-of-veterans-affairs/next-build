@@ -7,10 +7,11 @@ permissions:
 on:
   repository_dispatch:
     types: [content-release]
-  workflow_run:
-    workflows: ['Create Production Tag']
-    types: [completed]
-    branches: [main]
+  workflow_call:
+    inputs:
+      build_type:
+        required: true
+        type: string
   workflow_dispatch:
     inputs:
       build_type:
@@ -24,7 +25,7 @@ on:
           - prod
 
 concurrency:
-  group: ${{ github.workflow || inputs.build_type }}
+    group: ${{ inputs.build_type }}
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
