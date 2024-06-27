@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies */
 import fetch from 'cross-fetch'
 import fs from 'fs-extra'
 import path from 'path'
@@ -15,10 +16,10 @@ import { fileURLToPath } from 'url'
  * instead of requesting anything from a bucket.
  */
 
-const prodBucket = 'https://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
+const prodBucket = 'http://prod-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 const stagingBucket =
-  'https://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
-const devBucket = 'https://dev-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
+  'http://staging-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
+const devBucket = 'http://dev-va-gov-assets.s3-us-gov-west-1.amazonaws.com'
 
 // __dirname is not defined in ES module scope, need to do this to get localbucket path
 const __filename = fileURLToPath(import.meta.url) // get the resolved path to the file

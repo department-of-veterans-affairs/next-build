@@ -1,5 +1,7 @@
 import { createQueries } from 'next-drupal-query'
 import * as PressRelease from './pressRelease'
+import * as PressReleaseTeaser from './pressReleaseTeaser'
+import * as PressReleaseListing from './pressReleaseListing'
 import * as NewsStory from './newsStory'
 import * as NewsStoryTeaser from './newsStoryTeaser'
 import * as StoryListing from './storyListing'
@@ -64,6 +66,8 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
   [RESOURCE_TYPES.PERSON_PROFILE]: PersonProfile,
   [RESOURCE_TYPES.PRESS_RELEASE]: PressRelease,
+  [`${RESOURCE_TYPES.PRESS_RELEASE}--teaser` as const]: PressReleaseTeaser,
+  [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: PressReleaseListing,
   [RESOURCE_TYPES.BENEFITS_HUB]: BenefitsHub, // "Benefits Hub Landing Page"
   [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
   [RESOURCE_TYPES.RESOURCES_SUPPORT]: ResourcesSupport,
