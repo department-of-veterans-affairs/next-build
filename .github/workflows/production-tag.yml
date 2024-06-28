@@ -121,7 +121,7 @@ jobs:
     strategy:
       matrix:
         target: [dev, stage, prod]
-    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@jbolling-issue-550
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
     with:
       build_type: ${{ matrix.target }}
     needs: create-production-tag
