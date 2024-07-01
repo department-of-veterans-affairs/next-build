@@ -118,9 +118,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           
   CallContentReleaseWorkflowDev:
-    # strategy:
-    #   matrix:
-    #     target: [dev, stage, prod]
     uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@jbolling-issue-550
     with:
       build_type: dev
