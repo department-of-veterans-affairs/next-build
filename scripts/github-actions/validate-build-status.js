@@ -53,7 +53,7 @@ function getLatestWorkflow(page) {
   const params = {
     owner,
     repo,
-    workflow_id: 'ci.yml',
+    workflow_file_name: 'ci.yml',
     branch: 'main',
     per_page: '50',
     page,
