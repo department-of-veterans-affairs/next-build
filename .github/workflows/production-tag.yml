@@ -117,14 +117,26 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           
-  CallContentReleaseWorkflow:
-    strategy:
-      matrix:
-        target: [dev, stage, prod]
+  CallContentReleaseWorkflowDev:
+    # strategy:
+    #   matrix:
+    #     target: [dev, stage, prod]
     uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@jbolling-issue-550
     with:
-      build_type: ${{ matrix.target }}
+      build_type: dev
     needs: create-production-tag
+
+  CallContentReleaseWorkflowStaging:
+      uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@jbolling-issue-550
+      with:
+        build_type: staging
+      needs: create-production-tag
+  CallContentReleaseWorkflowProd:
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@jbolling-issue-550
+    with:
+      build_type: prod
+    needs: create-production-tag
+
           
   notify-failure:
     name: Notify Failure
