@@ -1641,12 +1641,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/component-library@npm:^33.0.0":
-  version: 33.0.0
-  resolution: "@department-of-veterans-affairs/component-library@npm:33.0.0"
+"@department-of-veterans-affairs/component-library@npm:^42.2.2":
+  version: 42.2.2
+  resolution: "@department-of-veterans-affairs/component-library@npm:42.2.2"
   dependencies:
-    "@department-of-veterans-affairs/react-components": 26.0.0
-    "@department-of-veterans-affairs/web-components": 4.51.0
+    "@department-of-veterans-affairs/react-components": 28.1.0
+    "@department-of-veterans-affairs/web-components": 10.0.2
     i18next: ^21.6.14
     i18next-browser-languagedetector: ^6.1.4
     react-focus-on: ^3.5.1
@@ -1655,16 +1655,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": "*"
     react: ^18
     react-dom: "*"
-  checksum: da79b7a533e490b471eab9265e10bf799524bbcdc965e80a52647e5cd407d6f381c56838fee2910436efe812de36c5db519998727336c88c04e04c679e3a2e60
-  languageName: node
-  linkType: hard
-
-"@department-of-veterans-affairs/css-library@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "@department-of-veterans-affairs/css-library@npm:0.0.2"
-  dependencies:
-    "@divriots/style-dictionary-to-figma": ^0.4.0
-  checksum: 381d3cf2b5fa19f8b7c143848494e1d8c863807247c6768861e22550a20a160d9e9f048888e451453102af9733902ec56b671d7f53d6cb08bd8f345cec47abc0
+  checksum: 21aa4de6781c586f947ca54efd2e716aa0357be34bb6362b90c35f8306577a518ad9d4bf74ad63b0f466d990d81312941680c29b66236ba18cb7212f54c16737
   languageName: node
   linkType: hard
 
@@ -1674,6 +1665,17 @@ __metadata:
   dependencies:
     "@divriots/style-dictionary-to-figma": ^0.4.0
   checksum: 550504db117697a9627c7b56b9c960a688aed380f0444b4accec3c6e123e6dd3f7f66359f532d80feba299ac4f8e5edea96d5980adbf962d13929467ab49539f
+  languageName: node
+  linkType: hard
+
+"@department-of-veterans-affairs/css-library@npm:^0.8.1":
+  version: 0.8.4
+  resolution: "@department-of-veterans-affairs/css-library@npm:0.8.4"
+  dependencies:
+    "@divriots/style-dictionary-to-figma": ^0.4.0
+    "@uswds/uswds": ^3.7.1
+    rimraf: ^5.0.5
+  checksum: ca381c475ffd3ef1b873402c69abc242665568ba1914fbd27112a5226371ae40171b60a831ecb4216d44af75927ccc6582a37428c69f1a0410bdfbda814f765d
   languageName: node
   linkType: hard
 
@@ -1693,9 +1695,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/react-components@npm:26.0.0":
-  version: 26.0.0
-  resolution: "@department-of-veterans-affairs/react-components@npm:26.0.0"
+"@department-of-veterans-affairs/react-components@npm:28.1.0":
+  version: 28.1.0
+  resolution: "@department-of-veterans-affairs/react-components@npm:28.1.0"
   dependencies:
     classnames: ^2.2.6
     prop-types: ^15.6.2
@@ -1708,25 +1710,26 @@ __metadata:
     i18next-browser-languagedetector: "*"
     react: ^17
     react-dom: "*"
-  checksum: 3b9d8e6efcebb94df4f60fcef823cc749dffd315b637593eb2c360b901f610d7dae8d5cdca52d0935c15de930cf2b04bd8d263d0485ebf94eed154b633e2e654
+  checksum: 30926edfa6d01cd3d8f1da3ca213c6429b7ebba1108eeedc0cea97dd8b2823e956176841b14d658e20e367c5fa7299bb6d486dd6703ad2f0b51e60a69474f125
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:4.51.0":
-  version: 4.51.0
-  resolution: "@department-of-veterans-affairs/web-components@npm:4.51.0"
+"@department-of-veterans-affairs/web-components@npm:10.0.2":
+  version: 10.0.2
+  resolution: "@department-of-veterans-affairs/web-components@npm:10.0.2"
   dependencies:
-    "@department-of-veterans-affairs/css-library": ^0.0.2
+    "@department-of-veterans-affairs/css-library": ^0.8.1
     "@stencil/core": ^2.19.2
     aria-hidden: ^1.1.3
     body-scroll-lock: ^4.0.0-beta.0
+    chromatic: ^11.0.4
     classnames: ^2.3.1
     intersection-observer: ^0.12.0
   peerDependencies:
-    "@department-of-veterans-affairs/formation": ^9.0.1
+    "@department-of-veterans-affairs/formation": ^11.0.6
     i18next: "*"
     i18next-browser-languagedetector: "*"
-  checksum: be165798cc35d8c40dfc7abc15bdc1283347c878587436ac63300e5d6ba2b27a66561f72bbf893db395263cadc59bf8e571599acaa3c4351a86c459444a64309
+  checksum: 1ba3549d10c43fda35239346c5924dd85dcd04cc4e41f537266d089cb087f1abd7926d1e5f732b65395a360c54568f1ae5dfa14db6ab9764a4c292321871e62e
   languageName: node
   linkType: hard
 
@@ -3414,7 +3417,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:8.1.4, @storybook/addon-actions@npm:^8.0.5":
+"@storybook/addon-actions@npm:8.1.4":
   version: 8.1.4
   resolution: "@storybook/addon-actions@npm:8.1.4"
   dependencies:
@@ -3425,6 +3428,20 @@ __metadata:
     polished: ^4.2.2
     uuid: ^9.0.0
   checksum: 8e3de3e603a3700342637edb3f7a511ea3b23e88eea87e8b48d1daee4ddd8761a419170cefb7bff52e6e666f0df87fde234bc7b4172272ba062e7bc92bd36b3b
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-actions@npm:^8.1.11":
+  version: 8.1.11
+  resolution: "@storybook/addon-actions@npm:8.1.11"
+  dependencies:
+    "@storybook/core-events": 8.1.11
+    "@storybook/global": ^5.0.0
+    "@types/uuid": ^9.0.1
+    dequal: ^2.0.2
+    polished: ^4.2.2
+    uuid: ^9.0.0
+  checksum: e4711bc4acdcad5402176e9715410a34e634ab3ce183eaf2589a18024e745292f78c276c015ae7074115766bf82b5d125833e518fc82a718188bb5f80ed345f7
   languageName: node
   linkType: hard
 
@@ -3835,6 +3852,16 @@ __metadata:
     prettier:
       optional: true
   checksum: 2228cba9baaafd3778bb5f4ecb03494b1657be6771082f0d8280761d8c865a1e082cdde2e77ed8eaeb231223252991c03adb3420e561120113cde684d7a21aff
+  languageName: node
+  linkType: hard
+
+"@storybook/core-events@npm:8.1.11":
+  version: 8.1.11
+  resolution: "@storybook/core-events@npm:8.1.11"
+  dependencies:
+    "@storybook/csf": ^0.1.7
+    ts-dedent: ^2.0.0
+  checksum: 3b3231b299367def8d6d9ee8dc939ad145473bbd561d495f0dac3e5cd3adb93b7e87f1d0a6787917275f8dfae8193959c872336530930ad90207b6df5de37910
   languageName: node
   linkType: hard
 
@@ -5315,6 +5342,18 @@ __metadata:
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
   checksum: 4f656b7b4672f2ce6e272f2427d8b0824ed11546a601d8d5412b9d7704e83db38a8d9f402ecdf2b9063fc164af842ad0ec4a55819f621ed7e7ea4d1efcc74524
+  languageName: node
+  linkType: hard
+
+"@uswds/uswds@npm:^3.7.1":
+  version: 3.8.1
+  resolution: "@uswds/uswds@npm:3.8.1"
+  dependencies:
+    classlist-polyfill: 1.2.0
+    object-assign: 4.1.1
+    receptor: 1.0.0
+    resolve-id-refs: 0.1.0
+  checksum: 7fb3490421b8a6269bae93acd1080557ca6f4817484e6187c5ea4ff08f7bf4f233a9cf96a5e4a1019fca7637990c86ee580c7c24538f6fe672d474c433868a4f
   languageName: node
   linkType: hard
 
@@ -6920,6 +6959,25 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: c57cf9dd0791e2f18a5ee9c1a299ae6e801ff58fee96dc8bfd0dcb4738a6ce58dd252a3605b1c93c6418fe4f9d5093b28ffbf4d66648cb2a9c67eaef9679be2f
+  languageName: node
+  linkType: hard
+
+"chromatic@npm:^11.0.4":
+  version: 11.5.4
+  resolution: "chromatic@npm:11.5.4"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+  bin:
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: cc3356578017cd07f5af75aa52c60a94db5a04e02a831d698d6dd1563ea8cb35ed3a4005343e03214abea3c8dd91b31137ce66ab909cfafb1dd559180e5e3718
   languageName: node
   linkType: hard
 
@@ -10024,6 +10082,22 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 5d33c686c80bf6877f4284adf99a8c3cbb2a6eccbc92342943fe5d4b42c01d78c1881f2223d950c92a938d0f857e12e37b86a8e5483ab2141822e053b67d0dde
+  languageName: node
+  linkType: hard
+
+"glob@npm:^10.3.7":
+  version: 10.4.2
+  resolution: "glob@npm:10.4.2"
+  dependencies:
+    foreground-child: ^3.1.0
+    jackspeak: ^3.1.2
+    minimatch: ^9.0.4
+    minipass: ^7.1.2
+    package-json-from-dist: ^1.0.0
+    path-scurry: ^1.11.1
+  bin:
+    glob: dist/esm/bin.mjs
+  checksum: bd7c0e30701136e936f414e5f6f82c7f04503f01df77408f177aa584927412f0bde0338e6ec541618cd21eacc57dde33e7b3c6c0a779cc1c6e6a0e14f3d15d9b
   languageName: node
   linkType: hard
 
@@ -13158,7 +13232,7 @@ __metadata:
     "@actions/core": ^1.10.1
     "@actions/github": ^6.0.0
     "@axe-core/playwright": ^4.8.2
-    "@department-of-veterans-affairs/component-library": ^33.0.0
+    "@department-of-veterans-affairs/component-library": ^42.2.2
     "@department-of-veterans-affairs/formation": ^10.1.2
     "@department-of-veterans-affairs/web-components": ^4.45.31
     "@faker-js/faker": ^8.4.1
@@ -13167,7 +13241,7 @@ __metadata:
     "@octokit/rest": ^20.0.2
     "@playwright/test": ^1.43.1
     "@storybook/addon-a11y": ^8.1.1
-    "@storybook/addon-actions": ^8.0.5
+    "@storybook/addon-actions": ^8.1.11
     "@storybook/addon-essentials": ^8.0.5
     "@storybook/addon-interactions": ^8.0.9
     "@storybook/addon-links": ^8.1.11
@@ -13967,6 +14041,13 @@ __metadata:
   version: 2.2.0
   resolution: "p-try@npm:2.2.0"
   checksum: f8a8e9a7693659383f06aec604ad5ead237c7a261c18048a6e1b5b85a5f8a067e469aa24f5bc009b991ea3b058a87f5065ef4176793a200d4917349881216cae
+  languageName: node
+  linkType: hard
+
+"package-json-from-dist@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "package-json-from-dist@npm:1.0.0"
+  checksum: ac706ec856a5a03f5261e4e48fa974f24feb044d51f84f8332e2af0af04fbdbdd5bbbfb9cbbe354190409bc8307c83a9e38c6672c3c8855f709afb0006a009ea
   languageName: node
   linkType: hard
 
@@ -15576,6 +15657,17 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
+  languageName: node
+  linkType: hard
+
+"rimraf@npm:^5.0.5":
+  version: 5.0.7
+  resolution: "rimraf@npm:5.0.7"
+  dependencies:
+    glob: ^10.3.7
+  bin:
+    rimraf: dist/esm/bin.mjs
+  checksum: 884852abf8aefd4667448d87bdab04120a8641266c828cf382ac811713547eda18f81799d2146ffec3178f357d83d44ec01c10095949c82e23551660732bf14f
   languageName: node
   linkType: hard
 
