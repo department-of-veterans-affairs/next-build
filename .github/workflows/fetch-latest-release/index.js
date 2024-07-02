@@ -38,6 +38,7 @@ async function run() {
 
   const { data } = latestRelease
 
+  core.info(JSON.stringify(data))
   core.setOutput('url', data.url)
   core.setOutput('assets_url', data.assets_url)
   core.setOutput('upload_url', data.upload_url)
