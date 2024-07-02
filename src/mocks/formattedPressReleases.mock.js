@@ -1,0 +1,118 @@
+export const formattedPressReleases = [
+  {
+    type: 'node--press_release',
+    id: '6153ed5b-85c2-4ead-9893-3d656ad5d758',
+    published: true,
+    title: 'Wilmington VAMC 2019 Annual Report',
+    lastUpdated: '2021-04-12T14:25:27+00:00',
+    link: '/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report',
+    introText: 'We invite you to come and read our 2019 Annual Report. ',
+  },
+  {
+    type: 'node--press_release',
+    id: '7944e9dd-7a8c-4a4a-bc72-992b2088b8ba',
+    published: true,
+    title: 'Houston health care Placeholder - News release',
+    lastUpdated: '2021-04-05T14:42:45+00:00',
+    link: '/houston-health-care/news-releases/houston-health-care-placeholder-news-release',
+    introText: 'Houston health care Placeholder - News release',
+  },
+  {
+    type: 'node--press_release',
+    id: 'f731e5a9-7cc3-4706-858b-06d04d61df76',
+    published: true,
+    title: 'Virtual town hall discusses vaccine hesitancy for BIPOC Veterans',
+    lastUpdated: '2021-04-26T15:12:03+00:00',
+    link: '/central-arkansas-health-care/news-releases/virtual-town-hall-discusses-vaccine-hesitancy-for-bipoc-veterans',
+    introText:
+      'Virtual Town Hall Discusses COVID-19 Vaccine Hesitancy for BIPOC Veterans WEBEX Event Wednesday, April 28',
+  },
+  {
+    type: 'node--press_release',
+    id: '6836c044-37f6-4434-ab1c-f8710991ec53',
+    published: true,
+    title: 'Minneapolis health care Placeholder - News release',
+    lastUpdated: '2021-04-16T16:14:29+00:00',
+    link: '/minneapolis-health-care/news-releases/minneapolis-health-care-placeholder-news-release',
+    introText: 'Minneapolis health care Placeholder - News release',
+  },
+  {
+    type: 'node--press_release',
+    id: '1836c5c3-f55e-4925-9248-f3ef1855078e',
+    published: true,
+    title: 'Town Hall Meeting for Veterans at Southeastern Veterans Center',
+    lastUpdated: '2020-04-22T19:05:51+00:00',
+    link: '/coatesville-health-care/news-releases/town-hall-meeting-for-veterans-at-southeastern-veterans',
+    introText:
+      'Coatesville VA Medical Center and Spring City VA Outpatient Clinic Leaders to Host Town Hall Meeting for Veterans at Southeastern Veterans Center',
+  },
+  {
+    type: 'node--press_release',
+    id: '52c7e10e-2759-4305-b56f-a0566adf4ae8',
+    published: true,
+    title: 'Palo Alto health care Placeholder - News release',
+    lastUpdated: '2021-04-08T19:12:52+00:00',
+    link: '/palo-alto-health-care/news-releases/palo-alto-health-care-placeholder-news-release',
+    introText: 'Palo Alto health care Placeholder - News release',
+  },
+  {
+    type: 'node--press_release',
+    id: 'a98976fd-a7f8-4171-9729-a7b82d7c339b',
+    published: true,
+    title: 'Fayetteville Coastal Placeholder - News release',
+    lastUpdated: '2021-03-18T20:10:27+00:00',
+    link: '/fayetteville-coastal-health-care/news-releases/fayetteville-coastal-placeholder-news-release',
+    introText: 'Fayetteville Coastal Placeholder News release',
+  },
+  {
+    type: 'node--press_release',
+    id: '19bd7edc-7cf9-461b-ac1e-9caa833fbecc',
+    published: true,
+    title:
+      'Fayetteville NC VA Health Care System Encourages Veterans ‘Reach Out’ For Mental Health Assistance',
+    lastUpdated: '2021-09-21T13:11:45+00:00',
+    link: '/fayetteville-coastal-health-care/news-releases/fayetteville-nc-va-health-care-system-encourages-veterans-reach-out-for-mental-health-assistance-0',
+    introText:
+      'FAYETTEVILLE, NC — In conjunction with September’s Suicide Prevention Month, Fayetteville NC VA Coastal Health Care System is raising awareness of its mental health resources available for Veterans throughout Southeastern North Carolina.',
+  },
+  {
+    type: 'node--press_release',
+    id: '1ef3153b-c998-42cd-a6b1-8c12061b632d',
+    published: true,
+    title: 'VA Innovation: Here’s an idea that won’t keep you awake at night',
+    lastUpdated: '2021-08-24T16:39:57+00:00',
+    link: '/asheville-health-care/news-releases/va-innovation-heres-an-idea-that-wont-keep-you-awake-at-night',
+    introText:
+      'Let’s face it – for most people, it’s hard to sleep in a hospital. That’s because it’s an unfamiliar setting with unfamiliar people and unfamiliar sounds all around you. Couple that with the stress of being treated, and it makes the perfect recipe for a lack of restful sleep.  \r\n',
+  },
+  {
+    type: 'node--press_release',
+    id: '057ada0d-2f15-4bd9-9bfb-8e815ff89b67',
+    published: true,
+    title: 'Columbus VA Transitions to New Electronic Health Record',
+    lastUpdated: '2022-05-02T11:15:12+00:00',
+    link: '/central-ohio-health-care/news-releases/columbus-va-transitions-to-new-electronic-health-record',
+    introText:
+      'The VA Central Ohio Healthcare System transitioned to VA’s new electronic health record (EHR), April 30. ',
+  },
+  {
+    type: 'node--press_release',
+    id: 'eba7c8e2-b2bc-4ed6-9389-17891136eb3d',
+    published: true,
+    title: 'VA SURVEY OF VETERAN ENROLLEES’ HEALTH AND USE OF HEALTH CARE',
+    lastUpdated: '2022-04-22T13:23:04+00:00',
+    link: '/mountain-home-health-care/news-releases/va-survey-of-veteran-enrollees-health-and-use-of-health-care',
+    introText:
+      'The Survey of Enrollees is a nationwide survey of Veterans enrolled in the VA Health Care system. The survey is conducted every year. The survey asks questions about your use of health care, insurance benefits, and your health status. ',
+  },
+  {
+    type: 'node--press_release',
+    id: 'cbbcebd5-94a2-4cd0-a29f-a98fad87f400',
+    published: true,
+    title: 'State Senate Honors JHQVAMC with Resolution',
+    lastUpdated: '2022-06-08T12:14:47+00:00',
+    link: '/mountain-home-health-care/news-releases/state-senate-honors-jhqvamc-with-resolution',
+    introText:
+      'State Senator Rusty Crowe of Tennessee’s District 3 presented James H. Quillen VA Medical Center (JHQVAMC) with Senate Joint Resolution 1114 during a ceremony June 6, 2022, honoring the medical center for its recognition as a top hospital for nurse-to-patient communication by a national publication. ',
+  },
+]

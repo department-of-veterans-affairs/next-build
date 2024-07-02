@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Media image returns formatted data outputs formatted data 1`] = `
+{
+  "filemime": undefined,
+  "filename": undefined,
+  "filesize": undefined,
+  "id": "649c7052-f0b4-4772-a047-5344dad2e6b5",
+  "type": "file--file",
+  "uri": undefined,
+}
+`;

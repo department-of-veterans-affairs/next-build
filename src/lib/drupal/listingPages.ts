@@ -13,6 +13,7 @@ import { ExpandedStaticPropsContext } from './staticProps'
 const LISTING_RESOURCE_TYPES = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.EVENT_LISTING,
+  RESOURCE_TYPES.PRESS_RELEASE_LISTING,
 ] as const
 
 // Some listing pages do not need all "paged" pages generated
@@ -70,6 +71,7 @@ export const LISTING_RESOURCE_TYPE_URL_SEGMENTS: Readonly<{
 }> = {
   [RESOURCE_TYPES.STORY_LISTING]: 'stories',
   [RESOURCE_TYPES.EVENT_LISTING]: 'events',
+  [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: 'news-releases',
 }
 
 export function isListingResourceType(resourceType: ResourceType): boolean {

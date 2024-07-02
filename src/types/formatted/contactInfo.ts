@@ -33,3 +33,11 @@ export type AdditionalContact = PhoneContact | EmailContact
 export type BenefitHubContact = {
   services: Contact[]
 }
+
+export type PressContact = {
+  id: string
+  name: string
+  description: string
+  phone: string
+  email: string
+}
