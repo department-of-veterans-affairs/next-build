@@ -54,7 +54,7 @@ function getLatestWorkflow(page) {
     owner,
     repo,
     workflow_id: 'ci.yml',
-    branch: 'main',
+    branch: 'jbolling-issue-550',
     per_page: '500',
     page,
   }
