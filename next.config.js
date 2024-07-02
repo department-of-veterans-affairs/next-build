@@ -1,3 +1,5 @@
+const isDev = process.env.APP_ENV === 'dev'
+const isStaging = process.env.APP_ENV === 'staging'
 const isProd = process.env.APP_ENV === 'prod'
 
 /**
@@ -12,6 +14,12 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
+  assetPrefix: isDev
+    ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.dev.va.gov'
+    : undefined,
+  assetPrefix: isStaging
+    ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.staging.va.gov'
+    : undefined,
   assetPrefix: isProd
     ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/'
     : undefined,
