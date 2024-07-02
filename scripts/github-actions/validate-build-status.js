@@ -54,7 +54,7 @@ function getLatestWorkflow(page) {
     owner,
     repo,
     workflow_id: 'ci.yml',
-    branch: 'jbolling-issue-550',
+    branch: 'main',
     per_page: '500',
     page,
   }
@@ -126,11 +126,11 @@ async function main() {
 
     if (!success) {
       await getJobsFailed(workflow.id)
-      process.exit(0)
+      process.exit(1)
     }
   } catch (e) {
     console.error(e)
-    process.exit(0)
+    process.exit(1)
   }
 }
 
