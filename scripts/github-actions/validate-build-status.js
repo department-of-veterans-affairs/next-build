@@ -72,7 +72,7 @@ function getLatestWorkflow(page) {
       if (workflow_runs.length === 0) {
         throw new Error('No workflows found. Aborting.')
       }
-
+      console.out('The head SHA we are looking for ' + { head_sha })
       const workflow = workflow_runs.find(
         ({ head_sha }) => head_sha === commitSHA
       )
