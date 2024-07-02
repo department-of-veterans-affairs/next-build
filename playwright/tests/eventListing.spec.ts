@@ -5,7 +5,7 @@ test.describe('eventListing', () => {
     page,
   }) => {
     await page.goto('/outreach-and-events/events/')
-    await page.locator('.events a').first().click()
+    await page.locator('.events va-link').first().click()
     await expect(page).toHaveURL(/\/outreach-and-events\/events\//)
   })
 
