@@ -31,7 +31,7 @@ on:
           - prod
 
 concurrency:
-    group: ${{ inputs.build_type }}
+  group: ${{ inputs.build_type }}
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
@@ -94,6 +94,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check CI
+        id: check-ci
+        uses: LASER-Yi/workflow-status@v0.0.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: ci.yml
+          event: push
+          branch: development
+          
   notify-start-slack:
     name: Notify Start (Slack)
     runs-on: ubuntu-latest
