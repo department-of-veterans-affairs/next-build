@@ -16,6 +16,24 @@ env:
   DSVA_SCHEDULE_ENABLED: true
 
 jobs:
+  content-release:
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+    with:
+        build_type: "dev"
+    secrets: inherit
+  
+  content-release-staging:
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+    with:
+        build_type: "staging"
+    secrets: inherit
+
+  content-release-prod:
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+    with:
+        build_type: "prod"
+    secrets: inherit
+
   create-production-tag:
     name: Create Production Tag
     runs-on: ubuntu-latest
