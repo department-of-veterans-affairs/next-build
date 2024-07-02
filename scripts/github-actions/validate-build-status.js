@@ -73,6 +73,7 @@ function getLatestWorkflow(page) {
         throw new Error('No workflows found. Aborting.')
       }
 
+      console.log('SHA that we are looking for: ' + commitSHA)
       const workflow = workflow_runs.find(
         ({ head_sha }) => head_sha === commitSHA
       )
