@@ -1,0 +1,387 @@
+{
+  "type": "node--press_release",
+  "id": "6153ed5b-85c2-4ead-9893-3d656ad5d758",
+  "drupal_internal__nid": 18141,
+  "drupal_internal__vid": 398575,
+  "langcode": "en",
+  "revision_timestamp": "2021-04-12T14:27:39+00:00",
+  "status": false,
+  "title": "Wilmington VAMC 2019 Annual Report",
+  "created": "2021-04-12T14:25:27+00:00",
+  "changed": "2021-04-12T14:27:39+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/wilmington-health-care",
+      "title": "VA Wilmington health care",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/wilmington-health-care/news-releases",
+      "title": "News releases",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report",
+      "title": "Wilmington VAMC 2019 Annual Report",
+      "options": []
+    }
+  ],
+  "moderation_state": "draft",
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "Wilmington VAMC 2019 Annual Report | VA Wilmington health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "description",
+        "content": "We invite you to come and read our 2019 Annual Report."
+      }
+    },
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "image_src",
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "Wilmington VAMC 2019 Annual Report | VA Wilmington health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:description",
+        "content": "We invite you to come and read our 2019 Annual Report."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:description",
+        "content": "We invite you to come and read our 2019 Annual Report."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "Wilmington VAMC 2019 Annual Report | VA Wilmington health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report",
+    "pid": 22184,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_intro_text": "We invite you to come and read our 2019 Annual Report. ",
+  "field_last_saved_by_an_editor": null,
+  "field_meta_tags": null,
+  "field_press_release_fulltext": {
+    "value": "<p>We invite you to come and read our 2019 Annual Report.<em> </em></p>\r\n",
+    "format": "rich_text",
+    "processed": "<p>We invite you to come and read our 2019 Annual Report. </p>"
+  },
+  "field_release_date": "2020-06-19T10:25:28-04:00",
+  "field_address": {
+    "langcode": null,
+    "country_code": "US",
+    "administrative_area": "DE",
+    "locality": "Wilmington"
+  },
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/press_release/6153ed5b-85c2-4ead-9893-3d656ad5d758?resourceVersion=id%3A398575"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "46fab8b2-83ee-448c-86e5-09151964e5c0",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "press_release"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1486
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1486
+    }
+  },
+  "field_listing": {
+    "type": "node--press_releases_listing",
+    "id": "e3227296-c490-424c-abe7-42d80d0364cc",
+    "path": {
+      "alias": "/wilmington-health-care/news-releases",
+      "pid": 3891,
+      "langcode": "en"
+    },
+    "drupal_internal__nid": 3047,
+    "drupal_internal__vid": 859557,
+    "langcode": "en",
+    "revision_timestamp": "2024-04-02T13:36:41+00:00",
+    "status": true,
+    "title": "News releases",
+    "created": "2020-03-02T21:29:22+00:00",
+    "changed": "2024-04-02T13:36:41+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "moderation_state": "published",
+    "metatag": null,
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_description": "Get the latest news from Wilmington-area medical centers and clinics. For further information, contact our Public Affairs Office at 302-994-2511, ext. 5389.",
+    "field_enforce_unique_combo": false,
+    "field_intro_text": "For more information about Wilmington health care, contact our Public Affairs Office at 302-994-2511, ext. 5389. You can also visit us online, like us on Facebook, or follow us on Twitter. ",
+    "field_last_saved_by_an_editor": "2024-04-02T13:36:47+00:00",
+    "field_meta_tags": null,
+    "field_press_release_blurb": {
+      "value": "<p>For more information about Wilmington health care, contact our Public Affairs Office at <a href=\"tel:+13029942511\" aria-label=\"3 0 2. 9 9 4. 2 5 1 1.\">302-994-2511</a>, ext. 5389.</p><p>You can also visit us <a href=\"/node/2362\" data-entity-type=\"node\" data-entity-uuid=\"56fc04f4-46c8-4e20-8c4a-09aba2229894\" data-entity-substitution=\"canonical\">online</a>, like us on<a href=\"/admin/content/linky/1582\"> Facebook</a>, or follow us on <a href=\"/admin/content/linky/1583\">Twitter</a>.&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>",
+      "format": "rich_text",
+      "processed": "<p>For more information about Wilmington health care, contact our Public Affairs Office at <a href=\"tel:+13029942511\" aria-label=\"3 0 2. 9 9 4. 2 5 1 1.\">302-994-2511</a>, ext. 5389.</p><p>You can also visit us <a href=\"/wilmington-health-care\" data-entity-type=\"node\" data-entity-uuid=\"56fc04f4-46c8-4e20-8c4a-09aba2229894\" data-entity-substitution=\"canonical\" title=\"VA Wilmington health care\">online</a>, like us on<a href=\"https://www.facebook.com/WilmingtonVAMC\"> Facebook</a>, or follow us on <a href=\"https://twitter.com/WilmingtonVAMC\">Twitter</a>.&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>"
+    },
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/node/press_releases_listing/e3227296-c490-424c-abe7-42d80d0364cc?resourceVersion=id%3A859557"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3047
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "4dd9e832-53d6-4587-a9f7-5040ac950e0a",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "press_releases_listing"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1486
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 197
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "f55a34b8-f0cc-41f1-a6a3-8375160003ab",
+      "resourceIdObjMeta": [null]
+    },
+    "field_office": null,
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_office"
+    ]
+  },
+  "field_pdf_version": {
+    "type": "media--document",
+    "id": "523bbd93-436a-4d36-83b4-810caa7bd7a3",
+    "drupal_internal__mid": 3208,
+    "drupal_internal__vid": 3410,
+    "langcode": "en",
+    "revision_created": "2021-04-12T14:27:34+00:00",
+    "status": true,
+    "name": "WilmingtonVAMC_Annual_Report_2019_web.pdf",
+    "created": "2021-04-12T14:27:28+00:00",
+    "changed": "2021-04-12T14:27:28+00:00",
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "| Veterans Affairs"
+        }
+      }
+    ],
+    "path": {
+      "alias": null,
+      "pid": null,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_media_in_library": true,
+    "field_media_submission_guideline": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/document/523bbd93-436a-4d36-83b4-810caa7bd7a3?resourceVersion=id%3A3410"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3208
+    },
+    "bundle": {
+      "type": "media_type--media_type",
+      "id": "584b28c1-b73f-43c8-b1e9-02c86ac63d49",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "document"
+      }
+    },
+    "revision_user": null,
+    "uid": {
+      "type": "user--user",
+      "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1486
+      }
+    },
+    "thumbnail": {
+      "type": "file--file",
+      "id": "bd3b1fc6-cb65-4def-9c2e-21cca6aa48d1",
+      "resourceIdObjMeta": {
+        "alt": "",
+        "title": null,
+        "width": null,
+        "height": null,
+        "drupal_internal__target_id": 11
+      }
+    },
+    "field_document": {
+      "type": "file--file",
+      "id": "649c7052-f0b4-4772-a047-5344dad2e6b5",
+      "drupal_internal__fid": 3519,
+      "langcode": "en",
+      "filename": "WilmingtonVAMC_Annual_Report_2019_web.pdf",
+      "uri": {
+        "value": "public://2021-04/WilmingtonVAMC_Annual_Report_2019_web.pdf",
+        "url": "/sites/default/files/2021-04/WilmingtonVAMC_Annual_Report_2019_web.pdf"
+      },
+      "filemime": "application/pdf",
+      "filesize": 6416065,
+      "status": true,
+      "created": "2021-04-12T14:27:28+00:00",
+      "changed": "2021-04-12T14:27:34+00:00",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/649c7052-f0b4-4772-a047-5344dad2e6b5"
+        }
+      },
+      "resourceIdObjMeta": {
+        "display": true,
+        "description": "",
+        "drupal_internal__target_id": 3519
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "412272ee-6e47-4d26-9e46-b424d1d390d8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1486
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "field_owner": {
+      "type": "taxonomy_term--administration",
+      "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5
+      }
+    }
+  },
+  "field_press_release_contact": [],
+  "field_press_release_downloads": [],
+  "field_administration": {
+    "drupal_internal__tid": 188,
+    "name": "VA Wilmington health care"
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_listing",
+    "field_pdf_version",
+    "field_press_release_contact",
+    "field_press_release_downloads",
+    "field_administration"
+  ]
+}

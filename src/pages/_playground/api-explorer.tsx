@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 /**
  * This is a simple page used to return serialized but unformatted data for use
@@ -21,9 +22,9 @@ export async function getStaticProps() {
     }
   }
 
-  const params = new DrupalJsonApiParams().addInclude(['field_cta'])
+  const params = new DrupalJsonApiParams().addInclude([])
   const data = await drupalClient.getResourceCollection(
-    'paragraph--featured_content',
+    'node--press_releases_listing',
     {
       params: params.getQueryObject(),
       withAuth: {
