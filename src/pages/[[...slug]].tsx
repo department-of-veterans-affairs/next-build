@@ -201,6 +201,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     )
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
+    // Do not merge this bogus change.
     if (!expandedContext.preview && !resource?.published) {
       return {
         notFound: true,
