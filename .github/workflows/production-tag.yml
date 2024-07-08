@@ -116,7 +116,26 @@ jobs:
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          
+  CallContentReleaseWorkflowDev:
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+    with:
+      build_type: "dev"
+    secrets: inherit
+    
+  CallContentReleaseWorkflowStaging:
+      uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+      with:
+        build_type: "staging"
+      secrets: inherit
+      
+  CallContentReleaseWorkflowProd:
+    uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
+    with:
+      build_type: "prod"
+    secrets: inherit
 
+          
   notify-failure:
     name: Notify Failure
     runs-on: ubuntu-latest

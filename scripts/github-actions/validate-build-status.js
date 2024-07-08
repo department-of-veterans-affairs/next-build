@@ -55,7 +55,7 @@ function getLatestWorkflow(page) {
     repo,
     workflow_id: 'ci.yml',
     branch: 'main',
-    per_page: '50',
+    per_page: '500',
     page,
   }
   return octokit.rest.actions
