@@ -59,7 +59,7 @@ export function VetCenter({
     hasMap: `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
       `${address.address_line1}, ${address.locality}, ${address.postal_code}`
     )}`,
-    image: image?.links?.['2_1_large']?.href,
+    image: image.links?.['2_1_large']?.href,
     branchCode: fieldFacilityLocatorApiId,
     geo: {
       '@type': 'GeoCoordinates',
