@@ -200,11 +200,12 @@ jobs:
           cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee -a yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput)
           ls
-          if [ -d out ] then;
-          cd out
-          ls -l
+          if [[ `ls out` !=0 ]] then;
+            echo "One or more pages failed to build. Exiting."
+            exit 1
           else
-          exit 1
+            cd out
+            ls -l
           fi
           
         #command: cd main && yarn export --NEXT_PUBLIC_DRUPAL_BASE_URL https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov --NEXT_IMAGE_DOMAIN https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov --SITE_URL https://www.va.gov --DRUPAL_CLIENT_ID  ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS
