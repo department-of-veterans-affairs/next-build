@@ -20,20 +20,13 @@ The templates in next-build are functional React components. The types or interf
 
 ## Available Template List
 
-Developers are required to update this session when creating a new layout.
+Developers are required to update this section when adding a new layout.
 The following layouts are available in next-build.
 
-- Event
-  - http://next-content.staging.va.gov.s3-website-us-gov-west-1.amazonaws.com/outreach-and-events/events/69619/
-- Event Listings
-  - http://next-content.staging.va.gov.s3-website-us-gov-west-1.amazonaws.com/outreach-and-events/events/
-- News Story
-  - http://next-content.staging.va.gov.s3-website-us-gov-west-1.amazonaws.com/eastern-oklahoma-health-care/stories/access-va-health-care-during-federal-holidays-and-247-365-with-va-health-connect/
-- Press Release
-  - http://next-content.staging.va.gov.s3-website-us-gov-west-1.amazonaws.com/southern-nevada-health-care/news-releases/vasnhs-to-host-laughlin-pact-act-veterans-town-hall-june-27/
-- Press Release Listings
-  - http://next-content.staging.va.gov.s3-website-us-gov-west-1.amazonaws.com/southern-nevada-health-care/news-releases
-- Story Listings
-  - http://next-content.staging.va.gov.s3-website-us-gov-west-1.amazonaws.com/eastern-oklahoma-health-care/stories/
-- Vets Center
-  - http://next-content.staging.va.gov.s3-website-us-gov-west-1.amazonaws.com/abilene-vet-center
+- (Event) [http://next-content.www.va.gov.s3-website-us-gov-west-1.amazonaws.com/outreach-and-events/events/69619/]
+- (Event Listings) [http://next-content.www.va.gov.s3-website-us-gov-west-1.amazonaws.com/outreach-and-events/events/]
+- (News Story) [http://next-content.www.va.gov.s3-website-us-gov-west-1.amazonaws.com/eastern-oklahoma-health-care/stories/access-va-health-care-during-federal-holidays-and-247-365-with-va-health-connect/]
+- (Press Release) [http://next-content.www.va.gov.s3-website-us-gov-west-1.amazonaws.com/southern-nevada-health-care/news-releases/vasnhs-to-host-laughlin-pact-act-veterans-town-hall-june-27/]
+- (Press Release Listings) [http://next-content.www.va.gov.s3-website-us-gov-west-1.amazonaws.com/southern-nevada-health-care/news-releases]
+- (Story Listings) [http://next-content.www.va.gov.s3-website-us-gov-west-1.amazonaws.com/eastern-oklahoma-health-care/stories/]
+- (Vets Center) [http://next-content.www.va.gov.s3-website-us-gov-west-1.amazonaws.com/abilene-vet-center]
