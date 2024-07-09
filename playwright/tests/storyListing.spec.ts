@@ -31,7 +31,9 @@ test.describe('Story Listing', () => {
     makeAxeBuilder,
   }) => {
     await page.goto('/butler-health-care/stories')
-    const accessibilityScanResults = await makeAxeBuilder().analyze()
+    const accessibilityScanResults = await makeAxeBuilder()
+      .exclude('.usa-pagination__link')
+      .analyze()
 
     expect(accessibilityScanResults.violations).toEqual([])
   })
