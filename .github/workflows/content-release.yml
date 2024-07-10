@@ -201,7 +201,7 @@ jobs:
           echo YARN_OUTPUT=$(<yarnoutput)
           ls
           ls out
-          if [[ $? -ne 0 ]] then;
+          if [[ $? -ne 0 ]]; then
             echo "One or more pages failed to build. Exiting."
             exit 1
           else
