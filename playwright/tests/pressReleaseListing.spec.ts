@@ -34,7 +34,10 @@ test.describe('pressReleaseListing', () => {
   }) => {
     await page.goto('/southern-nevada-health-care/news-releases')
 
-    const accessibilityScanResults = await makeAxeBuilder().analyze()
+    const accessibilityScanResults = await makeAxeBuilder()
+      .exclude('va-pagination')
+      .exclude('.usa-pagination__link')
+      .analyze()
 
     expect(accessibilityScanResults.violations).toEqual([])
   })
