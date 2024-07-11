@@ -31,7 +31,7 @@ on:
           - prod
 
 concurrency:
-  group: ${{ inputs.build_type }}
+  group: ${{ inputs.build_type || 'prod' }} 
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
@@ -132,7 +132,7 @@ jobs:
       # Certs added for the self hosted runner
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
-        APP_ENV: ${{ inputs.build_type }}
+        APP_ENV: ${{ inputs.build_type || 'prod' }}
          
 
       ports:
@@ -200,8 +200,14 @@ jobs:
           cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee -a yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput)
           ls
-          cd out
-          ls -l
+          ls out
+          if [[ $? -ne 0 ]]; then
+            echo "One or more pages failed to build. Exiting."
+            exit 1
+          else
+            cd out
+            ls -l
+          fi
           
         #command: cd main && yarn export --NEXT_PUBLIC_DRUPAL_BASE_URL https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov --NEXT_IMAGE_DOMAIN https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov --SITE_URL https://www.va.gov --DRUPAL_CLIENT_ID  ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS
         
@@ -249,21 +255,13 @@ jobs:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
     
-    - if: inputs.build_type =='stgprod'
-      name: Deploy to staging and prod
-      run: | 
-        cd main 
-        ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
-        ./scripts/github-actions/deploy.sh -s $SRC -d $DEST2 -v
+    - if: inputs.build_type == '' 
+      name: Deploy to S3
+      run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
         SRC: ./out/
-        DEST: s3://next-content.staging.va.gov
-        DEST2: s3://next-content.dev.va.gov
-      
-    - name: Export deploy end time
-      id: export-deploy-end-time
-      run: echo DEPLOY_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
-
+        DEST: s3://next-content.www.va.gov
+    
   notify-success:
     name: Notify Success
     needs: [validate-build-status, build]
@@ -306,7 +304,7 @@ jobs:
           jq '.tags[0] = "project:vagov"' | \
           jq '.tags[1] = "repo:next-build"' | \
           jq '.tags[2] = "workflow:content-release"' | \
-          jq '.tags[3] = "env:${{ inputs.build_type }}"' | \
+          jq '.tags[3] = "env:${{ inputs.build_type || 'prod' }}"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
           jq '.alert_type = "success"' > event.json
 
@@ -360,7 +358,7 @@ jobs:
           jq '.tags[0] = "project:vagov"' | \
           jq '.tags[1] = "repo:next-build"' | \
           jq '.tags[2] = "workflow:content-release"' | \
-          jq '.tags[3] = "env:${{ inputs.build_type }}"' | \
+          jq '.tags[3] = "env:${{ inputs.build_type || 'prod' }}"' | \
           jq '.tags[5] = "status:${{needs.build.result}}"' | \
           jq '.alert_type = "error"' > event.json
 
@@ -390,7 +388,7 @@ jobs:
         - name: Set vars for CMS-triggered runs
           if: ${{ github.event_name == 'repository_dispatch' }}
           run: |
-            echo "DEPLOY_ENV=${{ inputs.build_type }}" >> $GITHUB_ENV
+            echo "DEPLOY_ENV=${{ inputs.build_type || 'prod' }}" >> $GITHUB_ENV
             echo "BUILD_TRIGGER=cms" >> $GITHUB_ENV
 
         - name: Calculate durations
