@@ -89,6 +89,7 @@ exports[`node--event formatData outputs formatted data 1`] = `
   "metatags": null,
   "moderationState": "published",
   "published": true,
+  "registrationRequired": false,
   "socialLinks": {
     "path": "/central-iowa-health-care/events/52265",
     "title": "Pickleball Club",

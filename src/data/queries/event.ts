@@ -64,6 +64,7 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     emailCTA: entity.field_cta_email,
     howToSignUp: entity.field_how_to_sign_up,
     cost: entity.field_event_cost,
+    registrationRequired: entity.field_event_registrationrequired,
     datetimeRange: entity.field_datetime_range_timezone,
     facilityLocation: entity.field_facility_location,
     body: entity.field_body,

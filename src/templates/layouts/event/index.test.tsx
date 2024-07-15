@@ -25,6 +25,7 @@ const data = {
   emailCTA: '',
   howToSignUp: '',
   cost: '',
+  registrationRequired: false,
   datetimeRange: undefined,
   body: undefined,
   locationType: '',
@@ -103,6 +104,7 @@ describe('<Event /> Component', () => {
       address_line2: '',
     },
     cost: '$10',
+    registrationRequired: false,
     socialLinks: {
       title: 'test links',
       path: '/social-links',

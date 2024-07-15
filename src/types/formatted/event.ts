@@ -37,6 +37,7 @@ export type Event = PublishedEntity & {
   emailCTA: string | null
   howToSignUp: string | null
   cost: string
+  registrationRequired: boolean
   datetimeRange: DateTimeRangeItem[]
   facilityLocation: NodeHealthCareLocalFacility | null
   body: FieldFormattedText | null

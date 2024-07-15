@@ -25,6 +25,7 @@ export const Event = ({
   urlOfOnlineEvent,
   address,
   cost,
+  registrationRequired,
   socialLinks,
   administration,
   link,
@@ -36,7 +37,6 @@ export const Event = ({
   listing,
   listingOffice,
 }: FormattedEvent) => {
-  const [showRecurringEvents, setShowRecurringEvents] = useState(false)
   const [mostRecentDate, setMostRecentDate] = useState(null)
   const [showAllEvents, setShowAllEvents] = useState(false)
 
@@ -55,10 +55,6 @@ export const Event = ({
     const recentDate = deriveMostRecentDate(formattedDates)
     setMostRecentDate(recentDate)
   }, [formattedDates])
-
-  const toggleRecurringEvents = () => {
-    setShowRecurringEvents((prevState) => !prevState)
-  }
 
   const handleAllEventsToggle = () => {
     if (showAllEvents) {
@@ -107,10 +103,7 @@ export const Event = ({
               <p className="vads-u-margin--0">{formattedTimestamp}</p>
               {formattedDates.length > 1 && (
                 <p className="vads-u-margin--0">
-                  <i
-                    aria-hidden="true"
-                    className="fa fa-sync vads-u-font-size--sm vads-u-margin-right--0p5"
-                  ></i>
+                  <va-icon icon="autorenew" size="3" />
                   Repeats
                 </p>
               )}
@@ -194,6 +187,17 @@ export const Event = ({
               <p className="vads-u-margin--0">{cost}</p>
             </div>
           )}
+          {/* Registration */}
+          {registrationRequired && (
+            <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-margin-bottom--3">
+              <p className="vads-u-margin--0 vads-u-margin-right--0p5">
+                {eventCTA == 'register' && <strong>Registration:</strong>}
+                {eventCTA == 'apply' && <strong>Apply:</strong>}
+                {eventCTA == 'rsvp' && <strong>RSVP:</strong>}
+              </p>
+              <p className="vads-u-margin--0">Required</p>
+            </div>
+          )}
 
           <SocialLinks
             path={socialLinks?.path}
@@ -274,7 +278,7 @@ export const Event = ({
                       className="recurring-event vads-u-margin-bottom--2"
                     >
                       <p className="vads-u-margin--0">
-                        {deriveFormattedTimestamp(mostRecentDate)}
+                        {deriveFormattedTimestamp(dateRange)}
                       </p>
                       <va-link
                         calendar
@@ -297,6 +301,7 @@ export const Event = ({
                         id="show-all-recurring-events"
                         secondary
                         text="Show all times"
+                        onClick={handleAllEventsToggle}
                       />
                     </div>
                   )}
