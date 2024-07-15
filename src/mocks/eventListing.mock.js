@@ -924,6 +924,12 @@ export const mockResponse = {
       'field_related_links',
       'field_system_menu',
     ],
+    field_body: 'mock body',
+    field_email_updates_link: null,
+    field_external_link: null,
+    field_office_id: 'mock office id',
+    field_parent_office: null,
+    field_social_media_links: null,
   },
   relationshipNames: ['node_type', 'field_administration', 'field_office'],
 }
