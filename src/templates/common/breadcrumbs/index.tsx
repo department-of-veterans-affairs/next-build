@@ -69,6 +69,7 @@ const Breadcrumbs = ({
       disable-analytics={disableAnalytics}
       class="hydrated va-nav-breadcrumbs"
       wrapping={false}
+      uswds={false}
     >
       {filteredCrumbs.map((crumb, index) => {
         return (
