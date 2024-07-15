@@ -222,8 +222,9 @@ export const Event = ({
                         className="vads-c-action-link--green"
                         href={link?.url?.path}
                       >
-                        {eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1) ||
-                          'More details'}
+                        {eventCTA
+                          ? eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
+                          : 'More details'}
                       </a>
                     </p>
                   )}
