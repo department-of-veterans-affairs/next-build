@@ -316,7 +316,8 @@ export const Event = ({
             Other VA events
           </h2>
           {administration?.id != 7 &&
-            listingOffice != 'Outreach and events' && (
+            listingOffice != 'Outreach and events' &&
+            administration?.name && (
               <va-link
                 class="vads-u-display--block vads-u-margin-top--2"
                 href={listing}
