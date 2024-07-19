@@ -11,6 +11,10 @@ exports[`node--event formatData outputs formatted data 1`] = `
     "langcode": "en",
     "locality": "Urbandale",
   },
+  "administration": {
+    "id": null,
+    "name": null,
+  },
   "body": {
     "format": "rich_text",
     "processed": "<p>Pickleball Club</p>
@@ -76,14 +80,16 @@ exports[`node--event formatData outputs formatted data 1`] = `
   "howToSignUp": "email",
   "id": "16349f16-be65-46e3-9660-1d3d598a4a0b",
   "image": null,
-  "lastUpdated": "2022-12-30T14:49:05+00:00",
+  "lastUpdated": "2023-08-16T15:20:30+00:00",
   "link": null,
   "listing": "/central-iowa-health-care/events",
+  "listingOffice": "Outreach and events",
   "locationHumanReadable": "Walker Johnston Park",
   "locationType": "non_facility",
   "metatags": null,
   "moderationState": "published",
   "published": true,
+  "registrationRequired": false,
   "socialLinks": {
     "path": "/central-iowa-health-care/events/52265",
     "title": "Pickleball Club",

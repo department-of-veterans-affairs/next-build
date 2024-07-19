@@ -91,7 +91,12 @@ export const SocialLinks = ({
       <ul className={ulClass} role="list">
         {isEvent && (
           <li className="vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-right--2p5">
-            <a
+            <va-icon
+              class="va-c-social-icon vads-u-margin-right--0p5"
+              icon="calendar_today"
+              size="3"
+            />
+            <va-link
               data-description={description}
               data-end={dateObject?.endValue}
               data-location={address}
@@ -99,14 +104,8 @@ export const SocialLinks = ({
               data-subject={title}
               href={path}
               id="add-to-calendar-link"
-            >
-              <i
-                className="va-c-social-icon fas fa-calendar-check vads-u-margin-right--0p5"
-                aria-hidden="true"
-                role="presentation"
-              ></i>
-              Add to Calendar
-            </a>
+              text="Add to Calendar"
+            />
           </li>
         )}
 
@@ -122,30 +121,28 @@ export const SocialLinks = ({
         ) : (
           <>
             <li className="vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-right--2p5">
-              <a
+              <va-icon
+                class="va-c-social-icon vads-u-margin-right--0p5"
+                icon="facebook"
+                size="3"
+              />
+              <va-link
                 className="va-js-share-link"
                 href={`https://www.facebook.com/sharer/sharer.php?href=${path}`}
-              >
-                <i
-                  aria-hidden="true"
-                  className="va-c-social-icon fab fa-facebook vads-u-margin-right--0p5"
-                  role="presentation"
-                ></i>
-                Share on Facebook
-              </a>
+                text="Share on Facebook"
+              />
             </li>
             <li className="medium-screen:vads-u-margin-right--2p5">
-              <a
+              <va-icon
+                class="va-c-social-icon vads-u-margin-right--0p5"
+                icon="x"
+                size="3"
+              />
+              <va-link
                 className="va-js-share-link"
                 href={`https://twitter.com/intent/tweet?text=${title}&url=${path}`}
-              >
-                <i
-                  aria-hidden="true"
-                  className="va-c-social-icon fab fa-twitter vads-u-margin-right--0p5"
-                  role="presentation"
-                ></i>
-                Share on Twitter
-              </a>
+                text="Share on Twitter"
+              />
             </li>
           </>
         )}
