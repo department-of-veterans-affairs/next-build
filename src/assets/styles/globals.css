@@ -19,3 +19,7 @@ body {
   margin-top: 0;
   padding-top: 1.25rem;
 }
+
+.feedback-button {
+  width: 133px;
+}
