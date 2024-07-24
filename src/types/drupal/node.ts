@@ -349,6 +349,7 @@ export interface NodeEventListing extends DrupalNode {
   field_description: string
   field_intro_text: string
   field_enforce_unique_combo: boolean
+  field_office: NodeOffice
 }
 
 export interface NodePressReleaseListing extends DrupalNode {

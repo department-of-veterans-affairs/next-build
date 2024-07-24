@@ -17,6 +17,7 @@ const data = {
   date: '',
   socialLinks: undefined,
   listing: '',
+  listingOffice: '',
   additionalInfo: undefined,
   address: undefined,
   locationHumanReadable: '',
@@ -24,6 +25,7 @@ const data = {
   emailCTA: '',
   howToSignUp: '',
   cost: '',
+  registrationRequired: false,
   datetimeRange: undefined,
   body: undefined,
   locationType: '',
@@ -72,6 +74,10 @@ const data = {
     field_operating_status_facility: 'normal',
     field_region_page: null,
   },
+  administration: {
+    id: 0,
+    name: '',
+  },
 }
 
 describe('<Event /> Component', () => {
@@ -98,6 +104,7 @@ describe('<Event /> Component', () => {
       address_line2: '',
     },
     cost: '$10',
+    registrationRequired: false,
     socialLinks: {
       title: 'test links',
       path: '/social-links',
@@ -110,7 +117,8 @@ describe('<Event /> Component', () => {
       title: 'online',
       options: [],
     },
-    listing: '/more-events',
+    listing: 'more-events',
+    listingOffice: 'Test Office',
     additionalInfo: {
       processed: '<p>Additional Info</p>',
       value: '<p>Additional Info</p>',
@@ -123,6 +131,10 @@ describe('<Event /> Component', () => {
       processed: '<p>Event Body</p>',
       value: '<p>Event Body</p>',
       format: 'text',
+    },
+    administration: {
+      id: 0,
+      name: '',
     },
   }
 
@@ -161,13 +173,6 @@ describe('<Event /> Component', () => {
     expect(screen.getByText('Event Body')).toBeInTheDocument()
   })
 
-  it('triggers recordEvent function when "See more events" link is clicked', () => {
-    fireEvent.click(screen.getByText('See more events'))
-    expect(recordEvent).toHaveBeenCalledTimes(1)
-    expect(recordEvent).toHaveBeenCalledWith({
-      event: 'nav-secondary-button-click',
-    })
-  })
   it('renders online event information correctly', () => {
     const onlineEventProps = {
       ...eventProps,

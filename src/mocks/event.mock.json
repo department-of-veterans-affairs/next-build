@@ -223,11 +223,361 @@
       ]
     },
     "field_office": {
-      "type": "node--health_care_region_page",
-      "id": "fd6a1fc9-0514-4d71-a6b7-ccbba3f2cf85",
+      "type": "node--office",
+      "id": "c71e29a0-431f-44a5-ac5c-cee0c0ef0ceb",
+      "drupal_internal__nid": 735,
+      "drupal_internal__vid": 859858,
+      "langcode": "en",
+      "revision_timestamp": "2024-04-02T15:39:51+00:00",
+      "status": true,
+      "title": "Outreach and events",
+      "created": "2019-07-23T18:19:30+00:00",
+      "changed": "2024-04-02T15:39:51+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Outreach and events",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Outreach and events",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Outreach and events | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "VA proudly works alongside others to connect Veterans to the benefits they’ve earned. Explore resources for our outreach partners such as Veteran Service Organizations (VSOs), and sign up for events."
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "Outreach and events | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:description",
+            "content": "VA proudly works alongside others to connect Veterans to the benefits they’ve earned. Explore resources for our outreach partners such as Veteran Service Organizations (VSOs), and sign up for events."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image",
+            "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image:alt",
+            "content": "U.S. Department of Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:description",
+            "content": "VA proudly works alongside others to connect Veterans to the benefits they’ve earned. Explore resources for our outreach partners such as Veteran Service Organizations (VSOs), and sign up for events."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "Outreach and events | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image",
+            "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image:alt",
+            "content": "U.S. Department of Veterans Affairs"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/outreach-and-events",
+        "pid": 1049,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_last_saved_by_an_editor": "2024-04-02T15:39:51+00:00",
+      "field_social_media_links": {
+        "platform": null,
+        "value": null,
+        "platform_values": {
+          "twitter": {
+            "value": ""
+          },
+          "facebook": {
+            "value": ""
+          },
+          "youtube": {
+            "value": ""
+          },
+          "instagram": {
+            "value": ""
+          },
+          "linkedin": {
+            "value": ""
+          }
+        }
+      },
+      "field_body": "mock body",
+      "field_description": "VA proudly works alongside others to connect Veterans to the benefits they’ve earned. Explore resources for our outreach partners such as Veteran Service Organizations (VSOs), and sign up for events.",
+      "field_email_updates_link": null,
+      "field_external_link": null,
+      "field_meta_tags": null,
+      "field_office_id": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c71e29a0-431f-44a5-ac5c-cee0c0ef0ceb?resourceVersion=id%3A859858"
+        }
+      },
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 8121
-      }
+        "drupal_internal__target_id": 735
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "office"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "5ee5ac4c-32ad-4c7b-b180-5279efaa9131",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4742
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "1d2fb45c-58b4-409b-9fef-24d15a56aba7",
+        "drupal_internal__tid": 7,
+        "drupal_internal__revision_id": 7,
+        "langcode": "en",
+        "revision_created": "2021-05-05T21:17:45+00:00",
+        "status": true,
+        "name": "Outreach Hub",
+        "description": null,
+        "weight": 0,
+        "changed": "2021-05-05T21:17:45+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "moderation_state": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "Outreach Hub | VA.gov CMS"
+            }
+          },
+          {
+            "tag": "link",
+            "attributes": {
+              "rel": "canonical",
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vaco/outreach-hub"
+            }
+          }
+        ],
+        "path": {
+          "alias": "/section/vaco/outreach-hub",
+          "pid": 985,
+          "langcode": "en"
+        },
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "field_description": "A library community outreach content that outreach partners need to conduct outreach with Veterans in aid of helping Veterans understand and access the benefits and services they are have earned from the VA.",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/1d2fb45c-58b4-409b-9fef-24d15a56aba7?resourceVersion=id%3A7"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 7
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "645055c5-e567-4683-b6db-459ce04522ce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "administration"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--administration",
+            "id": "9bd6745e-cf06-4000-992c-bf9e4dbe8ab0",
+            "drupal_internal__tid": 995,
+            "drupal_internal__revision_id": 995,
+            "langcode": "en",
+            "revision_created": "2021-04-15T19:11:25+00:00",
+            "status": true,
+            "name": "Veterans Experience Office",
+            "description": null,
+            "weight": 0,
+            "changed": "2021-05-05T21:17:20+00:00",
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "moderation_state": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "Veterans Experience Office | VA.gov CMS"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "canonical",
+                  "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/veterans-experience-office"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/section/veterans-experience-office",
+              "pid": 22420,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "content_translation_created": null,
+            "field_description": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/9bd6745e-cf06-4000-992c-bf9e4dbe8ab0?resourceVersion=id%3A995"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 995
+            },
+            "vid": {
+              "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+              "id": "645055c5-e567-4683-b6db-459ce04522ce",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "administration"
+              }
+            },
+            "revision_user": null,
+            "parent": [
+              {
+                "type": "taxonomy_term--administration",
+                "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 5
+                }
+              }
+            ],
+            "content_translation_uid": null,
+            "field_product": null,
+            "relationshipNames": [
+              "vid",
+              "revision_user",
+              "parent",
+              "content_translation_uid",
+              "field_product"
+            ]
+          }
+        ],
+        "content_translation_uid": null,
+        "field_product": {
+          "type": "taxonomy_term--products",
+          "id": "aba5cc42-2e33-4af5-992a-bfb4b128b4a0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 286
+          }
+        },
+        "relationshipNames": [
+          "vid",
+          "revision_user",
+          "parent",
+          "content_translation_uid",
+          "field_product"
+        ]
+      },
+      "field_parent_office": null,
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_parent_office"
+      ]
     },
     "relationshipNames": ["node_type", "field_administration", "field_office"]
   },

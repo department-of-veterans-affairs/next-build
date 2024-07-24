@@ -23,16 +23,13 @@ export async function getStaticProps() {
   }
 
   const params = new DrupalJsonApiParams().addInclude([])
-  const data = await drupalClient.getResourceCollection(
-    'node--press_releases_listing',
-    {
-      params: params.getQueryObject(),
-      withAuth: {
-        clientId: process.env.DRUPAL_CLIENT_ID,
-        clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-      },
-    }
-  )
+  const data = await drupalClient.getResourceCollection('node--event', {
+    params: params.getQueryObject(),
+    withAuth: {
+      clientId: process.env.DRUPAL_CLIENT_ID,
+      clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+    },
+  })
   return {
     props: {
       data: data,
