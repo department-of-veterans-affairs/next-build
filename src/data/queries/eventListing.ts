@@ -39,7 +39,9 @@ type EventListingData = {
 const listingParams: QueryParams<string> = (listingEntityId: string) => {
   return queries
     .getParams(`${RESOURCE_TYPES.EVENT}--teaser`)
-    .addFilter('field_listing.id', listingEntityId)
+    .addGroup('parentgroup', 'OR')
+    .addFilter('field_listing.id', listingEntityId, '=', 'parentgroup')
+    .addFilter('field_publish_to_outreach_cal', '1', 'IN', 'parentgroup')
     .addSort('-created')
 }
 
