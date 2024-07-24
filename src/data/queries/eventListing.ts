@@ -41,7 +41,7 @@ const listingParams: QueryParams<string> = (listingEntityId: string) => {
     .getParams(`${RESOURCE_TYPES.EVENT}--teaser`)
     .addGroup('parentgroup', 'OR')
     .addFilter('field_listing.id', listingEntityId, '=', 'parentgroup')
-    .addFilter('field_publish_to_outreach_cal', '1', 'IN', 'parentgroup')
+    .addFilter('field_publish_to_outreach_cal', '1', 'IN', 'parentgroup') //check if an event has the "outreach cal" button checked. IDK WHY 1 WORKS BUT TRUE DOSENT :(
     .addSort('-created')
 }
 
