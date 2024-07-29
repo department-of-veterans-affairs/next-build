@@ -45,7 +45,7 @@
     "@actions/github": "^6.0.0",
     "@department-of-veterans-affairs/component-library": "^43.0.0",
     "@department-of-veterans-affairs/formation": "^11.0.12",
-    "@department-of-veterans-affairs/web-components": "^10.0.2",
+    "@department-of-veterans-affairs/web-components": "^11.2.6",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@octokit/rest": "^20.0.2",
     "@storybook/react": "^8.0.5",
