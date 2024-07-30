@@ -209,7 +209,7 @@ export const Event = ({
 
           {/* CTA */}
           {(link || additionalInfo || eventCTA) && (
-            <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1">
+            <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1 vads-u-padding-x--1p5 medium-screen:vads-u-padding--0">
               {isEventInPast(mostRecentDate?.value) ? (
                 <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
                   This event already happened.
@@ -218,10 +218,7 @@ export const Event = ({
                 <>
                   {link && (
                     <p className="vads-u-margin--0">
-                      <a
-                        className="vads-c-action-link--green"
-                        href={link?.url?.path}
-                      >
+                      <a className="vads-c-action-link--green" href={link?.uri}>
                         {eventCTA
                           ? eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
                           : 'More details'}
@@ -238,7 +235,7 @@ export const Event = ({
                               emailCTA,
                               title,
                               mostRecentDate,
-                              link?.url?.path
+                              link?.uri
                             )}
                           >
                             {eventCTA && formatEventCTA(eventCTA)}
