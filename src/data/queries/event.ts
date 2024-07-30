@@ -19,7 +19,7 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     ...getNestedIncludes('field_media', 'media--image'),
-    'field_listing',
+    ...getNestedIncludes('field_listing', 'node--event_listing'),
     'field_administration',
     'field_facility_location',
   ])
@@ -50,11 +50,13 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     ...entityBaseFields(entity),
     image: queries.formatData('media--image', entity.field_media), //cropType: '2_1_large'
     date: entity.created,
+    lastUpdated: entity.changed,
     socialLinks: {
       path: entity.path.alias,
       title: entity.title,
     },
     listing: entity.field_listing.path.alias,
+    listingOffice: entity.field_listing.field_office.title,
     additionalInfo: entity.field_additional_information_abo,
     address: entity.field_address,
     locationHumanReadable: entity.field_location_humanreadable,
@@ -62,6 +64,7 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     emailCTA: entity.field_cta_email,
     howToSignUp: entity.field_how_to_sign_up,
     cost: entity.field_event_cost,
+    registrationRequired: entity.field_event_registrationrequired,
     datetimeRange: entity.field_datetime_range_timezone,
     facilityLocation: entity.field_facility_location,
     body: entity.field_body,
@@ -69,5 +72,9 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     description: entity.field_description,
     link: entity.field_link,
     urlOfOnlineEvent: entity.field_url_of_an_online_event,
+    administration: {
+      id: entity.field_administration?.drupal_internal__tid || null,
+      name: entity.field_administration?.name || null,
+    },
   }
 }

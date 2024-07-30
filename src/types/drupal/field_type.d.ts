@@ -77,6 +77,8 @@ export interface FieldNestedLink {
   url: {
     path: string
   }
+  uri: string
+  title: string
 }
 
 export interface FieldDateTimeRange {
