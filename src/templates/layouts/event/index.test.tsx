@@ -111,6 +111,8 @@ describe('<Event /> Component', () => {
     },
     link: {
       url: { path: '/event-link' },
+      uri: '/event-link',
+      title: 'A title',
     },
     urlOfOnlineEvent: {
       uri: '/online-event',
