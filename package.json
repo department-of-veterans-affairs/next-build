@@ -10,7 +10,7 @@
     "setup": "node ./scripts/yarn/vets-website-assets.js",
     "dev": "yarn build:env-loader && node ./scripts/yarn/dev.js",
     "build": "yarn build:env-loader && node ./scripts/yarn/build.js --SSG --USE_REDIS",
-    "lighthouse": "npx run ./lighthouse/lighthouse.js",
+    "lighthouse": "npx run ./lighthouse/lighthouseMobile.js ",
     "build:env-loader": "tsc -b ./packages/env-loader/tsconfig.json",
     "build:preview": "yarn build:env-loader && node ./scripts/yarn/build.js",
     "build:sitemap": "yarn build:env-loader & node ./scripts/yarn/build:sitemap.js",
