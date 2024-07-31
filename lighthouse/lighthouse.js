@@ -10,8 +10,14 @@ const require = createRequire(import.meta.url)
 const { join } = require('path')
 const __filename = fileURLToPath(import.meta.url) // get the resolved path to the file
 const __dirname = path.dirname(__filename) // get the name of the directory
+
 const chrome = await ChromeLauncher.launch({
-  chromeFlags: ['--headless', '--no-sandbox', '--disable-gpu'],
+  chromeFlags: [
+    '--no-first-run',
+    '--headless',
+    '--no-sandbox',
+    '--disable-gpu',
+  ],
 })
 
 var urls = [
