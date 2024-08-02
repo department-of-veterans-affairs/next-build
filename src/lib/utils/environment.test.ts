@@ -21,6 +21,7 @@ describe('generateAbsoluteUrlFromEnv', () => {
 
   test('should handle missing SITE_URL environment variable', () => {
     process.env.SITE_URL = ''
+    process.env.NEXT_PUBLIC_SITE_URL = ''
     const relativeUrl = 'path/to/resource'
     const result = generateAbsoluteUrlFromEnv(relativeUrl)
     expect(result).toBe('/path/to/resource')
