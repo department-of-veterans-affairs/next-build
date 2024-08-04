@@ -22,6 +22,8 @@ interface Link {
   url: {
     path: string
   }
+  uri: string
+  title: string
 }
 
 export type Event = PublishedEntity & {

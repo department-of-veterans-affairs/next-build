@@ -6,7 +6,7 @@ test.describe('eventListing', () => {
   }) => {
     await page.goto('/outreach-and-events/events/')
     await page.locator('.events va-link').first().click()
-    await expect(page).toHaveURL(/\/outreach-and-events\/events\//)
+    await expect(page).toHaveURL(/\/events\//)
   })
 
   test('Event Listing widget changes form fields based on selection', async ({
