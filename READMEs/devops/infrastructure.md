@@ -91,3 +91,22 @@ Lets also dive into more specifics of our jobs.
 It is worth noting that the intention of the GitHub workflows to be fully automated. When we took over the repo, we modified the content-release workflow. Our updates include changes to allow it to publish to any "environment". As noted above we don't really have gitops. IE we do not push changes to dev, then stating, then prod. We just have preview environments that use tugboat for PR changes and a production environment. We do, however, still need to publish to dev and test enviromnets as per the VA requirements.
 
 Also at the time, we belived the content-release workflow was the main entry to the system and as a result modified it to be able to be called on demand from another cron job utilizing github reusable workflows. We now believe that because the runs of content-release are re-used some of the results are hidden. We may want to change this functionality so that: 1: we maintain our practice of running ci, codeql, and preview before we run content-release and 2: that we setup runs with a matrix so that we can more clearly see results in github.
+
+## Monitoring
+
+We do all of our monitoring through datadog as it is VA's chosen tool. We have a few different places that we collect metrics and do platform monitoring.
+
+### GitHub Actions Monitoring
+
+Currently, the folloing actions have monitoring events that we send to datadog: content-release and a11y.
+
+1. Content-release: Content release tracks crutial metrics to datadog to make sure we can debug our deployment times and keep our SLA limits in check. We track:
+   a. The project title
+   b. The project repo
+   c. The workflow
+   d. How long it takes to setup the tools to build the service
+   e. How long it takes to build next
+   f. How long it takes for the github job to run
+   G. Build status
+
+2. A11y: Tracks our
