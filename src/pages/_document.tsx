@@ -19,6 +19,14 @@ const Document = () => {
         {/* Preconnect to google tag manager domain */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
 
+        {/* Add web components */}
+        <link rel="stylesheet" href={`${ASSETS_URL}web-components.css`} />
+        <Script
+          id="web-components"
+          strategy="afterInteractive"
+          src={`${ASSETS_URL}web-components.entry.js`}
+        />
+
         {/* Preload main fonts */}
         <link
           rel="preload"
@@ -73,14 +81,6 @@ const Document = () => {
           rel="shortcut icon"
           sizes="any"
           href="/img/design/icons/favicon.ico"
-        />
-
-        {/* Add web components */}
-        <link rel="stylesheet" href={`${ASSETS_URL}web-components.css`} />
-        <Script
-          id="web-components"
-          strategy="afterInteractive"
-          src={`${ASSETS_URL}web-components.entry.js`}
         />
 
         {/* Add vendor file */}
