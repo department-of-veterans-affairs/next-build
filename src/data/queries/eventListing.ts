@@ -16,6 +16,8 @@ import {
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+// See listingParams for more information about this value and its use.
+const OUTREACH_CAL_UUID = '30295cab-89be-4173-a33c-8c0ca0a85d07'
 
 // Define the query params for fetching node--event_listing.
 export const params: QueryParams<null> = () => {
@@ -37,10 +39,26 @@ type EventListingData = {
 }
 
 const listingParams: QueryParams<string> = (listingEntityId: string) => {
-  return queries
+  let eventParams = queries
     .getParams(`${RESOURCE_TYPES.EVENT}--teaser`)
-    .addFilter('field_listing.id', listingEntityId)
+    .addGroup('outreach_cal_group', 'OR')
+    .addFilter('field_listing.id', listingEntityId, '=', 'outreach_cal_group')
     .addSort('-created')
+  // The National Outreach Calendar is a special case.
+  // https://www.va.gov/outreach-and-events/events/
+  // There are two ways an event can end up on this calendar:
+  // - directly assigned on field_listing (the way most events do)
+  // - assigned via the checkbox field field_publish_to_outreach_cal
+  // This additional filter grabs that second case.
+  if (listingEntityId === OUTREACH_CAL_UUID) {
+    eventParams = eventParams.addFilter(
+      'field_publish_to_outreach_cal',
+      '1',
+      '=',
+      'outreach_cal_group'
+    )
+  }
+  return eventParams
 }
 
 // Implement the data loader.
