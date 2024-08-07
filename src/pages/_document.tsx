@@ -83,14 +83,6 @@ const Document = () => {
           href="/img/design/icons/favicon.ico"
         />
 
-        {/* Add web components
-        <link rel="stylesheet" href={`${ASSETS_URL}web-components.css`} />
-        <Script
-          id="web-components"
-          strategy="afterInteractive"
-          src={`${ASSETS_URL}web-components.entry.js`}
-        /> */}
-
         {/* Add vendor file */}
         <Script
           id="vendor"
