@@ -218,3 +218,19 @@ fresh next-build instance, you can follow these steps:
 
 You should also add the config values you want locally to end up with
 something like: `BASE_URL=${...} USE_PROXY=false PW_WIDTH_VALUE=768 PW_HEIGHT_VALUE=720 PW_BROWSER_VALUE=firefox yarn playwright test --project=a11y`
+
+#### Load Testing
+
+As per the advice of platform team, and confirmed by our product stakeholder, we created the ability to load test the reverse proxy. We use [locust.io](https://locust.io/) to do this testing.
+
+You will find the test file in the `load-testing` project directory. You will need python [3.x](https://www.python.org/) to run it. Once you have python installed follow the guide [here](https://locust.io) to install locust. Once you have locust installed go to the load-test directory.
+
+1. Open terminal in load testing directory
+2. Run locusts with `locust`
+3. Open browser to `http://localhost:8089/`
+4. The test file we have will automatically scales up users and will take an hour to complete
+5. Set number of users to 1
+6. Set host to the system you want to test. EX: `https://dev.va.gov`, `https://www.va.gov/`
+7. Click the start button
+8. Wait aproximatly 1.5 hours for the test to complete automatically.
+9. Go to the download data tab and download your full report.
