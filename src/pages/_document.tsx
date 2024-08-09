@@ -16,6 +16,19 @@ const Document = () => {
         />
         <link rel="stylesheet" href={`${ASSETS_URL}style.css`} />
 
+        <Script
+          id="web-components"
+          strategy="beforeInteractive"
+          src={`${ASSETS_URL}web-components.entry.js`}
+        />
+
+        {/* Add vendor file */}
+        <Script
+          id="vendor"
+          strategy="beforeInteractive"
+          src={`${ASSETS_URL}vendor.entry.js`}
+        />
+
         {/* Preconnect to google tag manager domain */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
 
@@ -77,18 +90,6 @@ const Document = () => {
 
         {/* Add web components */}
         <link rel="stylesheet" href={`${ASSETS_URL}web-components.css`} />
-        <Script
-          id="web-components"
-          strategy="afterInteractive"
-          src={`${ASSETS_URL}web-components.entry.js`}
-        />
-
-        {/* Add vendor file */}
-        <Script
-          id="vendor"
-          strategy="afterInteractive"
-          src={`${ASSETS_URL}vendor.entry.js`}
-        />
 
         {/* Add polyfills */}
         <Script
