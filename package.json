@@ -58,8 +58,6 @@
     "drupal-jsonapi-params": "^2.3.1",
     "env-loader": "0.1.0",
     "fs-extra": "^11.2.0",
-    "i18next": "^23.12.2",
-    "i18next-browser-languagedetector": "^8.0.0",
     "jest-axe": "^8.0.0",
     "jest-extended": "^4.0.2",
     "jsona": "^1.12.1",
