@@ -16,16 +16,21 @@ const Document = () => {
         />
         <link rel="stylesheet" href={`${ASSETS_URL}style.css`} />
 
-        {/* Preconnect to google tag manager domain */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-
-        {/* Add web components */}
-        <link rel="stylesheet" href={`${ASSETS_URL}web-components.css`} />
         <Script
           id="web-components"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           src={`${ASSETS_URL}web-components.entry.js`}
         />
+
+        {/* Add vendor file */}
+        <Script
+          id="vendor"
+          strategy="beforeInteractive"
+          src={`${ASSETS_URL}vendor.entry.js`}
+        />
+
+        {/* Preconnect to google tag manager domain */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
 
         {/* Preload main fonts */}
         <link
@@ -83,12 +88,8 @@ const Document = () => {
           href="/img/design/icons/favicon.ico"
         />
 
-        {/* Add vendor file */}
-        <Script
-          id="vendor"
-          strategy="afterInteractive"
-          src={`${ASSETS_URL}vendor.entry.js`}
-        />
+        {/* Add web components */}
+        <link rel="stylesheet" href={`${ASSETS_URL}web-components.css`} />
 
         {/* Add polyfills */}
         <Script
