@@ -242,7 +242,7 @@ export const deriveFormattedTimestamp = (datetime) => {
   const formattedTime = `${formattedStartTime} – ${formattedEndTime}`
 
   function reformatTime(str) {
-    return str.replaceAll('AM', 'am').replace('PM', 'pm').replace(',', '.')
+    return str.replaceAll('AM', 'am').replaceAll('PM', 'pm').replace(',', '.')
   }
 
   return reformatTime(formattedTime)
