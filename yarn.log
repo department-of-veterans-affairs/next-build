@@ -1,0 +1,95 @@
+Using environment variables from: envs/.env.local
+   Linting and checking validity of types ...
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Collecting page data ...
+Redis connected
+Redis ready!
+Redis connected
+Redis connected
+Redis ready!
+Redis ready!
+Redis connected
+Redis ready!
+   Generating static pages (0/15715) ...
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+Redis connected
+Redis ready!
+   Generating static pages (652/15715) 
+   Generating static pages (1406/15715) 
+   Generating static pages (2139/15715) 
+   Generating static pages (2712/15715) 
+   Generating static pages (3225/15715) 
+   Generating static pages (3804/15715) 
+   Generating static pages (3928/15715) 
+   Generating static pages (4459/15715) 
+   Generating static pages (4959/15715) 
+   Generating static pages (5399/15715) 
+   Generating static pages (5877/15715) 
+   Generating static pages (6281/15715) 
+   Generating static pages (6545/15715) 
+   Generating static pages (6904/15715) 
+   Generating static pages (7323/15715) 
+   Generating static pages (7702/15715) 
+   Generating static pages (7857/15715) 
+   Generating static pages (8201/15715) 
+   Generating static pages (8548/15715) 
+   Generating static pages (8918/15715) 
+   Generating static pages (9276/15715) 
+   Generating static pages (9626/15715) 
+   Generating static pages (9967/15715) 
+   Generating static pages (10296/15715) 
+   Generating static pages (10623/15715) 
+   Generating static pages (10911/15715) 
+   Generating static pages (11196/15715) 
+   Generating static pages (11447/15715) 
+   Generating static pages (11750/15715) 
+   Generating static pages (11786/15715) 
+   Generating static pages (12082/15715) 
+   Generating static pages (12350/15715) 
+   Generating static pages (12571/15715) 
+   Generating static pages (12795/15715) 
+   Generating static pages (12969/15715) 
+   Generating static pages (13210/15715) 
+   Generating static pages (13461/15715) 
+   Generating static pages (13709/15715) 
+   Generating static pages (13892/15715) 
+   Generating static pages (14138/15715) 
+   Generating static pages (14378/15715) 
+   Generating static pages (14585/15715) 
+   Generating static pages (14805/15715) 
+   Generating static pages (14983/15715) 
+   Generating static pages (15152/15715) 
+   Generating static pages (15286/15715) 
+   Generating static pages (15414/15715) 
+   Generating static pages (15592/15715) 
+Redis connected
+Redis ready!
+ ✓ Generating static pages (15715/15715) 
