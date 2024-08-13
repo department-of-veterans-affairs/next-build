@@ -14,7 +14,7 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: true,
   assetPrefix: undefined,
-  option: isExport ? 'export' : undefined,
+  output: isExport ? 'export' : undefined,
   // assetPrefix: isProd
   //   ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/'
   //   : undefined,

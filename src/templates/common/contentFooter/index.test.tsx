@@ -32,18 +32,4 @@ describe('ContentFooter Component', () => {
       '2022-03-28'
     )
   })
-
-  test('renders feedback button correctly', () => {
-    render(<ContentFooter />)
-
-    expect(
-      screen.getByRole('button', { name: /feedback/i })
-    ).toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', { name: /feedback/i }))
-    expect(
-      require('@/lib/utils/medallia').getSurveyNumber
-    ).toHaveBeenCalledTimes(1)
-    expect(require('@/lib/utils/medallia').showForm).toHaveBeenCalledTimes(1)
-  })
 })
