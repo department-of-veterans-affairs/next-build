@@ -232,3 +232,19 @@ To run on WSL you will need to install chrome and set the `CHROME_PATH` variable
    B. `sudo dpkg -i google-chrome-stable_current_amd64.deb`
    C. `sudo apt --fix-broken install`
 2. Set the chome path env variable to the location of google chrome for me I run `export CHROME_PATH="/opt/google/chrome/google-chrome"`
+
+#### Load Testing
+
+As per the advice of platform team, and confirmed by our product stakeholder, we created the ability to load test the reverse proxy. We use [locust.io](https://locust.io/) to do this testing.
+
+You will find the test file in the `load-testing` project directory. You will need python [3.x](https://www.python.org/) to run it. Once you have python installed follow the guide [here](https://locust.io) to install locust. Once you have locust installed go to the load-test directory.
+
+1. Open terminal in load testing directory
+2. Run locusts with `locust`
+3. Open browser to `http://localhost:8089/`
+4. The test file we have will automatically scales up users and will take an hour to complete
+5. Set number of users to 1
+6. Set host to the system you want to test. EX: `https://dev.va.gov`, `https://www.va.gov/`
+7. Click the start button
+8. Wait aproximatly 1.5 hours for the test to complete automatically.
+9. Go to the download data tab and download your full report.
