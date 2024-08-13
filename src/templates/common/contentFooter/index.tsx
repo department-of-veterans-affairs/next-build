@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { MedalliaAssets } from '@/templates/common/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
@@ -37,11 +37,8 @@ function FeedbackButton() {
   return (
     <>
       <MedalliaAssets />
-      <button
-        type="button"
-        className="feedback-button usa-button"
+      <va-button
         id="mdFormButton"
-        aria-label="give feedback"
         onClick={() => {
           const isProduction =
             process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
@@ -51,9 +48,8 @@ function FeedbackButton() {
           )
           showForm(surveyNumber)
         }}
-      >
-        Feedback
-      </button>
+        text="Feedback"
+      ></va-button>
     </>
   )
 }
