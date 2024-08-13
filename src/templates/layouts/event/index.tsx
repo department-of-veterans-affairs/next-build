@@ -85,9 +85,9 @@ export const Event = ({
           {/* Image */}
           {image && (
             <MediaImage
-              className="event-detail-img"
+              className="event-detail-img vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4"
               {...image}
-              imageStyle="2_1_large"
+              imageStyle="7_2_medium_thumbnail"
             />
           )}
 
