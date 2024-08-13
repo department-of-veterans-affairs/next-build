@@ -11,10 +11,13 @@ describe('GoogleMapsDirections Component', () => {
 
     render(<GoogleMapsDirections title={title} address={address} />)
 
-    const anchorElement = screen.getByRole('link', {
-      name: /get directions on google maps/i,
-    })
+    // const anchorElement = screen.getByRole('va-link', {
+    //   name: "maps-directions",
+    // })
+    //const anchorElement = screen.getByText('Get directions on Google Maps')
+    const anchorElement = screen.getByTestId('maps-directions')
     expect(anchorElement).toBeInTheDocument()
+
     expect(anchorElement).toHaveAttribute('href', expectedUrl)
   })
 })
