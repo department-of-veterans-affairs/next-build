@@ -12882,6 +12882,7 @@ __metadata:
     uswds: ^2.14.0
     uuid: ^9.0.1
     validator: ^13.11.0
+    yarn.lock: ^0.0.1-security
   languageName: unknown
   linkType: soft
 
@@ -17888,6 +17889,13 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^21.1.1
   checksum: 73b572e863aa4a8cbef323dd911d79d193b772defd5a51aab0aca2d446655216f5002c42c5306033968193bdbf892a7a4c110b0d77954a7fdf563e653967b56a
+  languageName: node
+  linkType: hard
+
+"yarn.lock@npm:^0.0.1-security":
+  version: 0.0.1-security
+  resolution: "yarn.lock@npm:0.0.1-security"
+  checksum: 247a60a82cb355617a26b49fe9097154ed3ab325116897a6bc7e6794984e96856d4a612d9e5e1854859b5338e95c0d8f53a87436f3455189e927a3679ff43bbe
   languageName: node
   linkType: hard
 
