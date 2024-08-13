@@ -197,7 +197,7 @@ jobs:
         retry_on: error
         timeout_minutes: 70
         command: |
-          cd main && yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee -a yarnoutput
+          cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee -a yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput)
           ls
           ls out

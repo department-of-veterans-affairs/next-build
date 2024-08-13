@@ -20,7 +20,9 @@ export function PressReleaseTeaser({
     <>
       <section className="vads-u-margin-bottom--4">
         <TitleTag className="vads-u-margin-bottom--1p5 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
-          <a href={link}>{title}</a>
+          <va-link href={link} text={title}>
+            {title}
+          </va-link>
         </TitleTag>
         <strong>{formatDate(lastUpdated)}</strong>
         <p className="vads-u-margin-top--0">

@@ -1,4 +1,5 @@
 const isProd = process.env.APP_ENV === 'prod'
+const isExport = process.env.BUILD_OPTION === 'static'
 
 /**
  * @type {import('next').NextConfig}
@@ -13,6 +14,7 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: true,
   assetPrefix: undefined,
+  output: isExport ? 'export' : undefined,
   // assetPrefix: isProd
   //   ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/'
   //   : undefined,
