@@ -37,8 +37,9 @@ function FeedbackButton() {
   return (
     <>
       <MedalliaAssets />
-      <va-button
+      <button
         id="mdFormButton"
+        className="feedback-button usa-button"
         onClick={() => {
           const isProduction =
             process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
@@ -48,8 +49,9 @@ function FeedbackButton() {
           )
           showForm(surveyNumber)
         }}
-        text="Feedback"
-      ></va-button>
+      >
+        Feedback
+      </button>
     </>
   )
 }
