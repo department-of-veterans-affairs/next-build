@@ -59,8 +59,8 @@ function FeedbackButton() {
   return (
     <>
       <MedalliaAssets />
-      <va-button
-        class="feedback-button"
+      <button
+        className="feedback-button usa-button"
         id="mdFormButton"
         onClick={() => {
           const isProduction =
@@ -71,8 +71,9 @@ function FeedbackButton() {
           )
           showForm(surveyNumber)
         }}
-        text="Feedback"
-      ></va-button>
+      >
+        Feedback
+      </button>
     </>
   )
 }
