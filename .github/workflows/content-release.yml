@@ -197,7 +197,7 @@ jobs:
         retry_on: error
         timeout_minutes: 70
         command: |
-          cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee -a yarnoutput
+          cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
           echo YARN_OUTPUT=$(<yarnoutput)
           ls
           ls out
@@ -261,7 +261,11 @@ jobs:
       env:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
-    
+
+    - name: Export deploy end time
+      id: export-deploy-end-time
+      run: echo DEPLOY_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+      
   notify-success:
     name: Notify Success
     needs: [validate-build-status, build]
@@ -398,7 +402,7 @@ jobs:
             echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
             echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
-            echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarn.out
+            echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarnoutput
             echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarn.out | head -1 | sed 's/\///g')" >> $GITHUB_ENV
 
         - name: Build JSON object
