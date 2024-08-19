@@ -1677,9 +1677,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/formation@npm:^11.0.12":
-  version: 11.0.12
-  resolution: "@department-of-veterans-affairs/formation@npm:11.0.12"
+"@department-of-veterans-affairs/formation@npm:^11.0.13":
+  version: 11.0.13
+  resolution: "@department-of-veterans-affairs/formation@npm:11.0.13"
   dependencies:
     "@fortawesome/fontawesome-free": ^5.15.4
     domready: ^1.0.8
@@ -1689,7 +1689,7 @@ __metadata:
     "@fortawesome/fontawesome-free": ^5.15.4
     foundation-sites: 5
     uswds: ^1.6.10
-  checksum: c093060ab7f2bbb6186501f300e761ed07c3565b1c3dd19bec14c68707d06b6fefe2b90abfa49805631052c6d40fe169d49970b272952ce4fc9e83ce69ff06f9
+  checksum: 6cb5553ff0ae805ff81427cb40ced570d6b84e3b5db41c2de1630d73d69f0c5d2c99eeaf790033c408dbf1f8cbccf4d050dcf0f650080b812d480158848fe7b3
   languageName: node
   linkType: hard
 
@@ -13641,7 +13641,7 @@ __metadata:
     "@actions/github": ^6.0.0
     "@axe-core/playwright": ^4.8.2
     "@department-of-veterans-affairs/component-library": ^43.0.2
-    "@department-of-veterans-affairs/formation": ^11.0.12
+    "@department-of-veterans-affairs/formation": ^11.0.13
     "@department-of-veterans-affairs/web-components": ^11.2.9
     "@faker-js/faker": ^8.4.1
     "@fortawesome/fontawesome-free": ^5.15.4
