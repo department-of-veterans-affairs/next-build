@@ -108,7 +108,7 @@
     "@types/uuid": "^9.0.7",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.17.0",
-    "axe-core": "^4.8.4",
+    "axe-core": "^4.10.0",
     "debug": "^4.3.4",
     "eslint": "8.57.0",
     "eslint-config-next": "^14.2.5",
