@@ -403,7 +403,7 @@ jobs:
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
             echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
             echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarnoutput
-            echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarn.out | head -1 | sed 's/\///g')" >> $GITHUB_ENV
+            echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g')" >> $GITHUB_ENV
 
         - name: Build JSON object
           run: |
