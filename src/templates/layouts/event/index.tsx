@@ -220,7 +220,10 @@ export const Event = ({
                     <p className="vads-u-margin--0">
                       <a className="vads-c-action-link--green" href={link?.uri}>
                         {eventCTA
-                          ? eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
+                          ? eventCTA.toLowerCase() === 'rsvp'
+                            ? eventCTA.toUpperCase()
+                            : eventCTA.charAt(0).toUpperCase() +
+                              eventCTA.slice(1)
                           : 'More details'}
                       </a>
                     </p>
