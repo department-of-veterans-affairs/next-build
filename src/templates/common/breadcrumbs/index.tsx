@@ -1,7 +1,7 @@
 import {
   transformBreadcrumbs,
   deriveLastBreadcrumbFromPath,
-  deriveLcBreadcrumbs,
+  deriveRcBreadcrumbs,
   filterInvalidCrumbs,
 } from '@/lib/utils/breadcrumbs'
 import { BreadcrumbItem, BreadCrumbLink } from '@/types/drupal/field_type'
@@ -12,8 +12,8 @@ interface BreadcrumbProps {
   disableAnalytics?: boolean
   deriveBreadcrumbsFromUrl?: boolean
   replaceLastItem?: boolean
-  constructLcBreadcrumbs?: boolean
-  lcBreadcrumbsTitleInclude?: boolean
+  constructRcBreadcrumbs?: boolean
+  RcBreadcrumbsTitleInclude?: boolean
   hideHomeBreadcrumb?: boolean
   customCrumbHomeText?: string
   entityPath?: string
@@ -25,8 +25,8 @@ const Breadcrumbs = ({
   disableAnalytics,
   deriveBreadcrumbsFromUrl,
   replaceLastItem,
-  constructLcBreadcrumbs,
-  lcBreadcrumbsTitleInclude,
+  constructRcBreadcrumbs,
+  RcBreadcrumbsTitleInclude,
   hideHomeBreadcrumb,
   customCrumbHomeText,
 }: BreadcrumbProps) => {
@@ -52,12 +52,12 @@ const Breadcrumbs = ({
     )
   }
 
-  if (constructLcBreadcrumbs) {
-    breadcrumbs = deriveLcBreadcrumbs(
+  if (constructRcBreadcrumbs) {
+    breadcrumbs = deriveRcBreadcrumbs(
       breadcrumbs,
       breadcrumbTitle,
       entityPath,
-      lcBreadcrumbsTitleInclude
+      RcBreadcrumbsTitleInclude
     )
   }
 
@@ -65,20 +65,14 @@ const Breadcrumbs = ({
   const filteredCrumbs: BreadCrumbLink[] = filterInvalidCrumbs(breadcrumbList)
 
   return (
-    <va-breadcrumbs
-      disable-analytics={disableAnalytics}
-      class="hydrated va-nav-breadcrumbs"
-      wrapping={false}
-      uswds={false}
-    >
-      {filteredCrumbs.map((crumb, index) => {
-        return (
-          <a key={index} href={crumb.href}>
-            {crumb.label}
-          </a>
-        )
-      })}
-    </va-breadcrumbs>
+    <div className="va-nav-breadcrumbs">
+      <va-breadcrumbs
+        class="row va-nav-breadcrumbs-list columns hydrated"
+        uswds={true}
+        wrapping
+        breadcrumb-list={JSON.stringify(filteredCrumbs)}
+      />
+    </div>
   )
 }
 
