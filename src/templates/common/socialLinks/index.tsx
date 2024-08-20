@@ -141,7 +141,7 @@ export const SocialLinks = ({
               <va-link
                 className="va-js-share-link"
                 href={`https://twitter.com/intent/tweet?text=${title}&url=${path}`}
-                text="Share on Twitter"
+                text="Share on X (formerly Twitter)"
               />
             </li>
           </>
