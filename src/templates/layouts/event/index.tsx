@@ -93,7 +93,7 @@ export const Event = ({
 
           {/* Description */}
           {description && (
-            <p className="va-introtext vads-u-margin-top--0 ">{description}</p>
+            <p className="va-introtext vads-u-margin-top--0">{description}</p>
           )}
 
           {/* When */}
