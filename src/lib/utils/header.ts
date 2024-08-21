@@ -27,14 +27,7 @@ export function getArrayDepth(arr): number {
 }
 
 export function convertLinkToAbsolute(hostUrl, pathName): string {
-  let url
-  try {
-    url = new URL(pathName, hostUrl)
-  } catch {
-    /* eslint-disable no-console */
-    console.log(`${pathName} failed to be converted to a URL`)
-    url = new URL('https://google.com')
-  }
+  const url = new URL(pathName, hostUrl)
   return url.href
 }
 
