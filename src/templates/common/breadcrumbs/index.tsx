@@ -65,9 +65,10 @@ const Breadcrumbs = ({
   const filteredCrumbs: BreadCrumbLink[] = filterInvalidCrumbs(breadcrumbList)
 
   return (
-    <div className="va-nav-breadcrumbs">
+    <div className="vads-u-padding-x--1p5">
       <va-breadcrumbs
-        class="row va-nav-breadcrumbs-list columns hydrated"
+        id="va-breadcrumbs-list"
+        class="row hydrated"
         uswds={true}
         wrapping
         breadcrumb-list={JSON.stringify(filteredCrumbs)}
