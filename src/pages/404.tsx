@@ -87,6 +87,11 @@ export async function getStaticProps() {
     }
   } catch (error) {
     console.error('Failed to fetch global elements:', error)
+    return {
+      props: {
+        headerFooterData: null,
+      },
+    }
   }
 }
 
