@@ -1,6 +1,7 @@
-import HTMLComment from 'react-html-comment'
+import HTMLComment from '@/templates/common/util/HTMLComment'
 
 export const Footer = () => {
+  const content = `VA's mission: To fulfill President Lincoln's promise to care for those who have served in our nation's military and for their families, caregivers, and survivors.`
   return (
     <>
       <footer className="footer">
@@ -11,11 +12,7 @@ export const Footer = () => {
         ></div>
       </footer>
       <div id="logout-modal-root"></div>
-      <HTMLComment
-        text="
-      VA's mission: To fulfill President Lincoln's promise to care for those who have served in our nation's military and for their families, caregivers, and survivors.
-      "
-      />
+      <HTMLComment position="footer" content={content} />
     </>
   )
 }
