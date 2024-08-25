@@ -77,7 +77,7 @@ services:
 
       # Run any commands after the site is built.
       # online:
-      #   # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
+      #   Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
       #   - yarn storybook:build
 
   # Redis cache for fetching data
