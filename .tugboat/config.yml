@@ -42,7 +42,7 @@ services:
         - cp -f "${TUGBOAT_ROOT}"/.tugboat/vhost-web.conf /etc/nginx/conf.d/default.conf
 
         # Setup storybook-*. vhost to serve compiled storybook.
-        - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
+        # - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
 
         # Restart nginx with the new config
         - sudo service nginx reload
@@ -76,9 +76,9 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
 
       # Run any commands after the site is built.
-      online:
-        # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
-        - yarn storybook:build
+      # online:
+      #   # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
+      #   - yarn storybook:build
 
   # Redis cache for fetching data
   redis:
