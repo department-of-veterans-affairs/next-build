@@ -14,7 +14,7 @@
     "build:preview": "yarn build:env-loader && node ./scripts/yarn/build.js",
     "build:sitemap": "yarn build:env-loader & node ./scripts/yarn/build:sitemap.js",
     "start": "yarn build:env-loader && node ./scripts/yarn/start.js",
-    "export": "yarn build:env-loader && node ./scripts/yarn/export.js --SSG --USE_REDIS",
+    "export": "yarn build:env-loader && node ./scripts/yarn/export.js --SSG",
     "export:serve": "http-server out -p 8001",
     "redis": "docker run --name next-redis -p 6379:6379 -d redis",
     "redis:cli": "docker exec -it next-redis redis-cli",
