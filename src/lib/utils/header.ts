@@ -28,14 +28,8 @@ export function getArrayDepth(arr): number {
 
 export function convertLinkToAbsolute(hostUrl, pathName): string {
   /* eslint-disable no-console */
-  let url
-  try {
-    const url = new URL(pathName, hostUrl)
-  }
-  catch (error) {
-    console.log(`Problem building URL for ${pathName}: ${error}`)
-    return
-  }
+  console.log(hostUrl)
+  const url = new URL(pathName)
   return url.href
 }
 
