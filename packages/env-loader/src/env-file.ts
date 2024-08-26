@@ -3,23 +3,21 @@ import dotenv from 'dotenv'
 import dotenvExpand from 'dotenv-expand'
 import { EnvVars } from '.'
 
-/* eslint-disable no-console */
 const loadEnvVarsFromPath = (path: string): EnvVars => {
+  //const envVars = {}
+  dotenvExpand.expand(
+    dotenv.config({
+      path,
+      override: true,
+      //    processEnv: envVars,
+    })
+  )
+  /* eslint-disable no-console */
   console.log(process.env)
-  const envVars = {}
-  const placeholder = dotenv.config({
-    path,
-    override: true,
-    processEnv: envVars,
-  })
-  console.log(placeholder)
-  dotenvExpand.expand(placeholder)
-  console.log(envVars)
-
   // eslint-disable-next-line no-console
   console.log(`Using environment variables from: ${path}`)
 
-  return envVars
+  return process.env
 }
 
 export const getEnvFileVars = (appEnv?: string): EnvVars => {
