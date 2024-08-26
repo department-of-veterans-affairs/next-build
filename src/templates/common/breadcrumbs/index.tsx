@@ -63,6 +63,7 @@ const Breadcrumbs = ({
 
   const breadcrumbList: BreadCrumbLink[] = transformBreadcrumbs(breadcrumbs)
   const filteredCrumbs: BreadCrumbLink[] = filterInvalidCrumbs(breadcrumbList)
+  const fcString = JSON.stringify(filteredCrumbs)
 
   return (
     <div className="vads-u-padding-x--1p5">
@@ -71,7 +72,8 @@ const Breadcrumbs = ({
         class="row hydrated"
         uswds={true}
         wrapping
-        breadcrumb-list={JSON.stringify(filteredCrumbs)}
+        breadcrumb-list={fcString}
+        disableAnalytics={disableAnalytics}
       />
     </div>
   )
