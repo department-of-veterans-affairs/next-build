@@ -286,7 +286,7 @@ describe('deriveFormattedTimestamp', () => {
     const result = deriveFormattedTimestamp(datetime)
 
     expect(result).toMatch(
-      /Thu, Sep 7, 2023, \d{1,2}:\d{2} [APM]{2} [A-Z]{2,4} – \d{1,2}:\d{2} [APM]{2} [A-Z]{2,4}/
+      /Thu. Sep 7, 2023, \d{1,2}:\d{2} [apm]{2} [A-Z]{2,4} – \d{1,2}:\d{2} [apm]{2} [A-Z]{2,4}/
     )
   })
 })
