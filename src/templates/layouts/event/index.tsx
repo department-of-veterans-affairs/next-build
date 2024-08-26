@@ -119,9 +119,11 @@ export const Event = ({
             {facilityLocation ? (
               <div className="vads-u-display--flex vads-u-flex-direction--column">
                 <p className="vads-u-margin--0">
-                  <a href={facilityLocation?.path?.alias}>
-                    {facilityLocation?.title}
-                  </a>
+                  <va-link
+                    class="vads-u-padding-bottom--1 vads-u-margin-top--0 vads-u-display--block"
+                    href={facilityLocation?.path?.alias}
+                    text={facilityLocation?.title}
+                  ></va-link>
                 </p>
                 <p className="vads-u-margin--0">{locationHumanReadable}</p>
                 {facilityLocation?.field_address.address_line1 && (
