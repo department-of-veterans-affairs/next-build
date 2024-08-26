@@ -4,16 +4,12 @@ import dotenvExpand from 'dotenv-expand'
 import { EnvVars } from '.'
 
 const loadEnvVarsFromPath = (path: string): EnvVars => {
-  //const envVars = {}
   dotenvExpand.expand(
     dotenv.config({
       path,
       override: true,
-      //    processEnv: envVars,
     })
   )
-  /* eslint-disable no-console */
-  console.log(process.env)
   // eslint-disable-next-line no-console
   console.log(`Using environment variables from: ${path}`)
 
