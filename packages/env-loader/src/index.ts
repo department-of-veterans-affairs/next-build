@@ -39,6 +39,8 @@ export const processEnv = async (command: string): Promise<void> => {
     },
   }
 
+  /* eslint-disable no-console */
+  console.log(process.env)
   // Pass additional arguments through to the underlying command
   const cmd = spawn(`${command} ${cliArgs.join(' ')}`, {
     shell: true,

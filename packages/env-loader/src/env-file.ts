@@ -13,12 +13,8 @@ const loadEnvVarsFromPath = (path: string): EnvVars => {
     })
   )
 
-  /* eslint-disable no-console */
+  // eslint-disable-next-line no-console
   console.log(`Using environment variables from: ${path}`)
-  console.log(`SITE_ENV: ${process.env.SITE_ENV}`)
-  console.log(
-    `TUGBOAT_DEFAULT_SERVICE_URL: ${process.env.TUGBOAT_DEFAULT_SERVICE_URL}`
-  )
 
   return envVars
 }
