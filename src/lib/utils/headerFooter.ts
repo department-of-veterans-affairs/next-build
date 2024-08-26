@@ -35,8 +35,8 @@ export const buildHeaderFooterData = ({
   footerColumns,
   headerMegaMenu,
 }: RawHeaderFooterData): HeaderFooterData => {
-  // todo: target env handling for what hostUrl should map to
-  const hostUrl = 'https://va.gov/'
+  // Use the SITE_URL with a fallback in the event it is missing.
+  const hostUrl = 'https://www.va.gov/'
 
   // Assemble footer menu data from Drupal
   const footerBottomRailData =
