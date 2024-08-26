@@ -1,8 +1,5 @@
 import { useEffect } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { Wrapper } from '@/templates/layouts/wrapper'
-import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
-import { CommonAndPopular } from '@/templates/common/commonAndPopular'
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -56,8 +53,6 @@ const Error404Page = () => {
           </div>
         </div>
       </div>
-
-      <CommonAndPopular />
 
       {/* Loads widgets built from vets-website after data has been added to window */}
       <Script
