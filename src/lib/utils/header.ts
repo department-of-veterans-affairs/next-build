@@ -27,6 +27,8 @@ export function getArrayDepth(arr): number {
 }
 
 export function convertLinkToAbsolute(hostUrl, pathName): string {
+  /* eslint-disable no-console */
+  console.log(pathName)
   const url = new URL(pathName, hostUrl)
   return url.href
 }
