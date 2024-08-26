@@ -392,6 +392,7 @@ jobs:
             echo "DEPLOY_ENV=${{ inputs.build_type || 'prod' }}" >> $GITHUB_ENV
             echo "BUILD_TRIGGER=cms" >> $GITHUB_ENV
 
+          # Calculate all of our metrics that we send to data dog
         - name: Calculate durations
           run: |
             echo "SETUP_DURATION=$(expr ${{needs.build.outputs.SETUP_END_TIME}} - ${{needs.build.outputs.SETUP_START_TIME}})" >> $GITHUB_ENV
