@@ -35,7 +35,12 @@
     "@typescript-eslint/no-var-requires": "off",
     "react/display-name": "off",
     "react/prop-types": "off",
-    "no-console": "off",
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
     "import/no-extraneous-dependencies": [
       "error",
       {
