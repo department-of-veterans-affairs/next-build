@@ -32,15 +32,16 @@ const Breadcrumbs = ({
 }: BreadcrumbProps) => {
   if (!breadcrumbs) return null
 
-  if (customCrumbHomeText) {
-    breadcrumbs = breadcrumbs.map((crumb) => {
-      if (crumb.title === 'Home') {
-        return { ...crumb, title: customCrumbHomeText }
-      }
-      return crumb
-    })
-  } else if (hideHomeBreadcrumb) {
-    breadcrumbs = breadcrumbs.filter((crumb) => crumb.title !== 'Home')
+  if (!hideHomeBreadcrumb) {
+    if (customCrumbHomeText) {
+      breadcrumbs = breadcrumbs.map((crumb) => {
+        if (crumb.title === 'Home') {
+          return { ...crumb, title: customCrumbHomeText }
+        }
+        return crumb
+      })
+    }
+    //breadcrumbs = breadcrumbs.filter((crumb) => crumb.title !== 'Home')
   }
 
   if (deriveBreadcrumbsFromUrl) {
