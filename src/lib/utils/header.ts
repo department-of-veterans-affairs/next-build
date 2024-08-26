@@ -28,7 +28,22 @@ export function getArrayDepth(arr): number {
 
 export function convertLinkToAbsolute(hostUrl, pathName): string {
   const url = new URL(pathName, hostUrl)
-  return url.href
+
+  url.pathname = url.pathname.split('/').map(encodeURIComponent).join('/')
+
+  url.search = url.search
+    .split('&')
+    .map((param) => param.split('=').map(encodeURIComponent).join('='))
+    .join('&')
+
+  // Clean the hash fragment by encoding it
+  if (url.hash) {
+    url.hash = '#' + encodeURIComponent(url.hash.slice(1))
+  }
+
+  // Reconstruct and return the cleaned URL
+  return url.toString()
+  // return url.href
 }
 
 function createLinkObj(hostUrl, link): MegaMenuLink {
