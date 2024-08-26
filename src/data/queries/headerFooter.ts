@@ -39,6 +39,8 @@ export const formatter: QueryFormatter<
   RawHeaderFooterData,
   HeaderFooterData
 > = ({ footerColumns, footerBottomRail, headerMegaMenu }) => {
+  /* eslint-disable no-console */
+  console.log(footerBottomRail)
   const { footerData, megaMenuData } = buildHeaderFooterData({
     footerBottomRail,
     footerColumns,
