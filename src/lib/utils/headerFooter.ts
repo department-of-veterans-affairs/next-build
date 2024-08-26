@@ -36,7 +36,7 @@ export const buildHeaderFooterData = ({
   headerMegaMenu,
 }: RawHeaderFooterData): HeaderFooterData => {
   // Use the SITE_URL with a fallback in the event it is missing.
-  const hostUrl = process.env.SITE_URL || 'https://www.va.gov/'
+  const hostUrl = 'https://www.va.gov/'
 
   // Assemble footer menu data from Drupal
   const footerBottomRailData =
