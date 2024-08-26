@@ -5,6 +5,7 @@ import { EnvVars } from '.'
 
 /* eslint-disable no-console */
 const loadEnvVarsFromPath = (path: string): EnvVars => {
+  console.log(process.env)
   const envVars = {}
   const placeholder = dotenv.config({
     path,
