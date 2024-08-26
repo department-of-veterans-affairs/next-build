@@ -6,7 +6,7 @@ import { CommonAndPopular } from '@/templates/common/commonAndPopular'
 import Head from 'next/head'
 import Script from 'next/script'
 
-const Error404Page = ({ headerFooterData }) => {
+const Error404Page = () => {
   useEffect(() => {
     recordEvent({ event: 'nav-404-error' })
   })
@@ -70,18 +70,10 @@ const Error404Page = ({ headerFooterData }) => {
 }
 
 export async function getStaticProps() {
-  try {
-    const { headerFooterData } = await getGlobalElements(
-      undefined, // no banners on 404
-      true // header only
-    )
-    return {
-      props: {
-        headerFooterData,
-      },
-    }
-  } catch (error) {
-    console.error('Failed to fetch global elements:', error)
+  return {
+    props: {
+      data: [],
+    },
   }
 }
 
