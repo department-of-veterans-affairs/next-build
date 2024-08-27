@@ -1,7 +1,7 @@
 import {
   transformBreadcrumbs,
   deriveLastBreadcrumbFromPath,
-  deriveLcBreadcrumbs,
+  deriveRcBreadcrumbs,
   filterInvalidCrumbs,
 } from '@/lib/utils/breadcrumbs'
 import { BreadcrumbItem, BreadCrumbLink } from '@/types/drupal/field_type'
@@ -12,8 +12,8 @@ interface BreadcrumbProps {
   disableAnalytics?: boolean
   deriveBreadcrumbsFromUrl?: boolean
   replaceLastItem?: boolean
-  constructLcBreadcrumbs?: boolean
-  lcBreadcrumbsTitleInclude?: boolean
+  constructRcBreadcrumbs?: boolean
+  RcBreadcrumbsTitleInclude?: boolean
   hideHomeBreadcrumb?: boolean
   customCrumbHomeText?: string
   entityPath?: string
@@ -25,22 +25,23 @@ const Breadcrumbs = ({
   disableAnalytics,
   deriveBreadcrumbsFromUrl,
   replaceLastItem,
-  constructLcBreadcrumbs,
-  lcBreadcrumbsTitleInclude,
+  constructRcBreadcrumbs,
+  RcBreadcrumbsTitleInclude,
   hideHomeBreadcrumb,
   customCrumbHomeText,
 }: BreadcrumbProps) => {
   if (!breadcrumbs) return null
 
-  if (customCrumbHomeText) {
-    breadcrumbs = breadcrumbs.map((crumb) => {
-      if (crumb.title === 'Home') {
-        return { ...crumb, title: customCrumbHomeText }
-      }
-      return crumb
-    })
-  } else if (hideHomeBreadcrumb) {
-    breadcrumbs = breadcrumbs.filter((crumb) => crumb.title !== 'Home')
+  if (!hideHomeBreadcrumb) {
+    if (customCrumbHomeText) {
+      breadcrumbs = breadcrumbs.map((crumb) => {
+        if (crumb.title === 'Home') {
+          return { ...crumb, title: customCrumbHomeText }
+        }
+        return crumb
+      })
+    }
+    //breadcrumbs = breadcrumbs.filter((crumb) => crumb.title !== 'Home')
   }
 
   if (deriveBreadcrumbsFromUrl) {
@@ -52,33 +53,30 @@ const Breadcrumbs = ({
     )
   }
 
-  if (constructLcBreadcrumbs) {
-    breadcrumbs = deriveLcBreadcrumbs(
+  if (constructRcBreadcrumbs) {
+    breadcrumbs = deriveRcBreadcrumbs(
       breadcrumbs,
       breadcrumbTitle,
       entityPath,
-      lcBreadcrumbsTitleInclude
+      RcBreadcrumbsTitleInclude
     )
   }
 
   const breadcrumbList: BreadCrumbLink[] = transformBreadcrumbs(breadcrumbs)
   const filteredCrumbs: BreadCrumbLink[] = filterInvalidCrumbs(breadcrumbList)
+  const fcString = JSON.stringify(filteredCrumbs)
 
   return (
-    <va-breadcrumbs
-      disable-analytics={disableAnalytics}
-      class="hydrated va-nav-breadcrumbs"
-      wrapping={false}
-      uswds={false}
-    >
-      {filteredCrumbs.map((crumb, index) => {
-        return (
-          <a key={index} href={crumb.href}>
-            {crumb.label}
-          </a>
-        )
-      })}
-    </va-breadcrumbs>
+    <div className="vads-u-padding-x--1p5">
+      <va-breadcrumbs
+        id="va-breadcrumbs-list"
+        class="row hydrated"
+        uswds={true}
+        wrapping
+        breadcrumb-list={fcString}
+        disableAnalytics={disableAnalytics}
+      />
+    </div>
   )
 }
 
