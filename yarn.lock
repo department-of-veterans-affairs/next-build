@@ -1648,12 +1648,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/component-library@npm:^43.0.2":
-  version: 43.0.2
-  resolution: "@department-of-veterans-affairs/component-library@npm:43.0.2"
+"@department-of-veterans-affairs/component-library@npm:^45.0.0":
+  version: 45.0.0
+  resolution: "@department-of-veterans-affairs/component-library@npm:45.0.0"
   dependencies:
     "@department-of-veterans-affairs/react-components": 28.1.0
-    "@department-of-veterans-affairs/web-components": 11.2.9
+    "@department-of-veterans-affairs/web-components": 13.0.0
     i18next: ^21.6.14
     i18next-browser-languagedetector: ^6.1.4
     react-focus-on: ^3.5.1
@@ -1662,7 +1662,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": "*"
     react: ^18
     react-dom: "*"
-  checksum: 79fffdf017c96729bf2d10261ea0df595ae77bcc794c0b620aa896ffc342b14a7a52392b9747c58ceb19ec49287906f7ab42dd1b9ae13bf85b00358a8843fdff
+  checksum: e9ef80ff5f06bd34290e1f0b57f4634add30b8a0e0ad24d9ab6ee491bfa86891419d9da3573252444e0c1b1aeab141166cfdd2e18d44e5dcafe9f78330083b5e
   languageName: node
   linkType: hard
 
@@ -1712,7 +1712,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:11.2.9, @department-of-veterans-affairs/web-components@npm:^11.2.9":
+"@department-of-veterans-affairs/web-components@npm:13.0.0":
+  version: 13.0.0
+  resolution: "@department-of-veterans-affairs/web-components@npm:13.0.0"
+  dependencies:
+    "@department-of-veterans-affairs/css-library": ^0.8.1
+    "@stencil/core": ^2.19.2
+    aria-hidden: ^1.1.3
+    body-scroll-lock: ^4.0.0-beta.0
+    chromatic: ^11.0.4
+    classnames: ^2.3.1
+    intersection-observer: ^0.12.0
+  peerDependencies:
+    "@department-of-veterans-affairs/formation": ^11.0.6
+    i18next: "*"
+    i18next-browser-languagedetector: "*"
+  checksum: b9732eae26eaa47634ae821a1f930a05cbd73b315c51d0734ac1e2102469d39f8429fabf063eea86dfe2a06d536a69492007cb2e4992ac1cc16bff962c153c1f
+  languageName: node
+  linkType: hard
+
+"@department-of-veterans-affairs/web-components@npm:^11.2.9":
   version: 11.2.9
   resolution: "@department-of-veterans-affairs/web-components@npm:11.2.9"
   dependencies:
@@ -13640,7 +13659,7 @@ __metadata:
     "@actions/core": ^1.10.1
     "@actions/github": ^6.0.0
     "@axe-core/playwright": ^4.8.2
-    "@department-of-veterans-affairs/component-library": ^43.0.2
+    "@department-of-veterans-affairs/component-library": ^45.0.0
     "@department-of-veterans-affairs/formation": ^11.0.12
     "@department-of-veterans-affairs/web-components": ^11.2.9
     "@faker-js/faker": ^8.4.1
@@ -13716,7 +13735,6 @@ __metadata:
     react: ^18.3.1
     react-dom: ^18.2.0
     react-gtm-module: ^2.0.11
-    react-html-comment: ^2.0.16
     redis: ^4.7.0
     safe-json-stringify: ^1.2.0
     storybook: ^8.0.5
@@ -15508,18 +15526,6 @@ __metadata:
   version: 2.0.11
   resolution: "react-gtm-module@npm:2.0.11"
   checksum: 93b4659f0d10248f59113a3eb488ea8848712cab2e28b7c45d080b373d6736a96b9855d637c4447819493366bf25185c3f88e6b4107a8f06d8ab2a39f7a725b9
-  languageName: node
-  linkType: hard
-
-"react-html-comment@npm:^2.0.16":
-  version: 2.0.16
-  resolution: "react-html-comment@npm:2.0.16"
-  dependencies:
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ">17.x"
-    react-dom: ">17.x"
-  checksum: f6ad62bbf67b1b6fa73cbb7bec09b1ca75f74cf1bb7ea22fd080a1c0f4952ce0580583edc34935dbbb20cec4369f817a13528729f984380c9467d83c48cd0a13
   languageName: node
   linkType: hard
 
