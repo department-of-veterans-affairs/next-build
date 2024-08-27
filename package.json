@@ -83,8 +83,7 @@
     "swr": "^2.2.4",
     "uswds": "^2.14.0",
     "uuid": "^9.0.1",
-    "validator": "^13.11.0",
-    "yarn.lock": "^0.0.1-security"
+    "validator": "^13.11.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.8.2",
