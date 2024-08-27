@@ -29,6 +29,6 @@ Developers are required to update this section when adding or updating a layout.
 | News Story             | [Link](https://dev.va.gov/eastern-oklahoma-health-care/stories/access-va-health-care-during-federal-holidays-and-247-365-with-va-health-connect/) | QA - AP     |
 | Press Release          | [Link](https://dev.va.gov/southern-nevada-health-care/news-releases/vasnhs-to-host-laughlin-pact-act-veterans-town-hall-june-27/)                 | QA - AP     |
 | Press Release Listings | [Link](https://dev.va.gov/southern-nevada-health-care/news-releases)                                                                              | QA - AP     |
-| Story Listings         | [Link](https://dev.va.gov/outreach-and-events/events/)                                                                                            | QA - AP     |
-| Vets Center            | [Link](https://dev.va.gov/outreach-and-events/events/)                                                                                            | QA - AP     |
+| Story Listings         | [Link](https://dev.va.gov/eastern-oklahoma-health-care/stories/)                                                                                  | QA - AP     |
+| Vets Center            | [Link](https://dev.va.gov/des-moines-vet-center/)                                                                                                 | QA - AP     |
 | Step By Step           | N/A                                                                                                                                               | Planning    |

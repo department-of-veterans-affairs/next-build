@@ -4,11 +4,13 @@ export const GoogleMapsDirections = ({ title, address }) => {
   )}`
 
   return (
-    <div>
-      <a href={googleMapsUrl}>
-        Get directions on Google Maps
-        <span className="sr-only">to {title}</span>
-      </a>
-    </div>
+    <va-link
+      class="vads-u-display--block vads-u-margin-top--0"
+      href={googleMapsUrl}
+      name="maps-directions"
+      id="google-map-directions"
+      text={`Get directions on Google Maps`}
+      data-testid="maps-directions"
+    ></va-link>
   )
 }
