@@ -22,12 +22,12 @@ export function deriveLastBreadcrumbFromPath(
   return breadcrumbs
 }
 
-// Intended for handling breadcrumbs for learning center content types
-export function deriveLcBreadcrumbs(
+// Intended for handling breadcrumbs for resource center content types
+export function deriveRcBreadcrumbs(
   breadcrumbs: BreadcrumbItem[],
   breadcrumbTitle: string,
   currentPath: string,
-  lcBreadcrumbsTitleInclude?: boolean
+  rcBreadcrumbsTitleInclude?: boolean
 ): BreadcrumbItem[] {
   const filteredCrumbs: BreadcrumbItem[] = breadcrumbs.filter(
     (crumb) => crumb.uri !== '/resources'
@@ -39,7 +39,7 @@ export function deriveLcBreadcrumbs(
     options: [],
   })
 
-  if (lcBreadcrumbsTitleInclude) {
+  if (rcBreadcrumbsTitleInclude) {
     filteredCrumbs.push({
       uri: currentPath,
       title: breadcrumbTitle,
