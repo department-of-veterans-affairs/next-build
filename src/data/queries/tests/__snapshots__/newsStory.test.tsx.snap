@@ -467,7 +467,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
   "moderationState": "published",
   "published": true,
   "socialLinks": {
-    "path": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
+    "path": "http://127.0.0.1:8001/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
     "title": "We honor outstanding doctors",
   },
   "title": "We honor outstanding doctors",
