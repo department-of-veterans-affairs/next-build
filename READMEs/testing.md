@@ -237,7 +237,7 @@ You will find the test file in the `load-testing` project directory. You will ne
 
 #### Lighthouse performance testing
 
-A node script has been added to run lighthouse performance testing. In the lighthouse directory, there is a file called lightouse.js. This file will test some events listings. Currently it is configured to test specific url's in staging. However, a qucik find and replace can change the urls to match whichever target enviroment we want. We may consider using a command line switch to change the base url.
+A node script has been added to run lighthouse performance testing. In the lighthouse directory, there is a file called lighthouse.js. This file will test some events listings. Currently it is configured to test specific url's in staging. However, a quick find and replace can change the urls to match whichever target environment we want. We may consider using a command line switch to change the base url.
 
 To run the script a new switch has been added to our package.json to run it simply call `yarn lighthouse`
 
@@ -247,4 +247,4 @@ To run on WSL you will need to install chrome and set the `CHROME_PATH` variable
    A. `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
    B. `sudo dpkg -i google-chrome-stable_current_amd64.deb`
    C. `sudo apt --fix-broken install`
-2. Set the chome path env variable to the location of google chrome for me I run `export CHROME_PATH="/opt/google/chrome/google-chrome"`
+2. Set the chrome path env variable to the location of google chrome for me I run `export CHROME_PATH="/opt/google/chrome/google-chrome"`
