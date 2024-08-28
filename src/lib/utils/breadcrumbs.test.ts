@@ -1,6 +1,6 @@
 import {
   deriveLastBreadcrumbFromPath,
-  deriveLcBreadcrumbs,
+  deriveRcBreadcrumbs,
   transformBreadcrumbs,
   filterInvalidCrumbs,
   shouldHideHomeBreadcrumb,
@@ -43,24 +43,24 @@ describe('breadcrumbUtils', () => {
     })
   })
 
-  describe('deriveLcBreadcrumbs', () => {
+  describe('deriveRcBreadcrumbs', () => {
     it('should add "Resources and support" breadcrumb and exclude "/resources" breadcrumb', () => {
       const input: BreadcrumbItem[] = [
         { uri: '/test1', title: 'Test1', options: [] },
         { uri: '/resources', title: 'Resources', options: [] },
       ]
-      const result = deriveLcBreadcrumbs(input, 'Test2', '/test2')
+      const result = deriveRcBreadcrumbs(input, 'Test2', '/test2')
       expect(result).toEqual([
         { uri: '/test1', title: 'Test1', options: [] },
         { uri: '/test2', title: 'Resources and support', options: [] },
       ])
     })
 
-    it('should include the title when lcBreadcrumbsTitleInclude is true', () => {
+    it('should include the title when rcBreadcrumbsTitleInclude is true', () => {
       const input: BreadcrumbItem[] = [
         { uri: '/test1', title: 'Test1', options: [] },
       ]
-      const result = deriveLcBreadcrumbs(input, 'Test2', '/test2', true)
+      const result = deriveRcBreadcrumbs(input, 'Test2', '/test2', true)
       expect(result).toEqual([
         { uri: '/test1', title: 'Test1', options: [] },
         { uri: '/test2', title: 'Resources and support', options: [] },
