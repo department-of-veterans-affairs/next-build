@@ -67,7 +67,7 @@ services:
         - BUILD_TYPE=vagovprod node ./scripts/yarn/vets-website-assets.js
 
         # Build the static pages. Set for self-signed certs
-        - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt BUILD_OPTION=static yarn export --DEBUG
+        - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt BUILD_OPTION=static yarn export
         # Generate sitemap
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn build:sitemap --SITE_URL ${TUGBOAT_DEFAULT_SERVICE_URL}
         # Set the webroot to the output folder.
