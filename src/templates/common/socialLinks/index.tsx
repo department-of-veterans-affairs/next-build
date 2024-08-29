@@ -48,7 +48,7 @@ export const SocialLinks = ({
     fieldYoutube
 
   const divClass = isEvent
-    ? 'va-c-social-share'
+    ? ''
     : 'vads-u-margin-bottom--0p5 medium-screen:vads-u-margin-bottom--2'
 
   const ulClass = 'usa-unstyled-list' + (isEvent ? '' : ' vads-u-display--flex')
@@ -87,10 +87,14 @@ export const SocialLinks = ({
   ].filter(Boolean)
 
   return (
-    <div className={divClass}>
+    <div
+      data-template="includes/social-share"
+      className={divClass}
+      id="va-c-social-share"
+    >
       <ul className={ulClass} role="list">
         {isEvent && (
-          <li className="vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-right--2p5">
+          <li className="vads-u-margin-bottom--2p5 ">
             <va-icon
               class="va-c-social-icon vads-u-margin-right--0p5"
               icon="calendar_today"
@@ -120,7 +124,7 @@ export const SocialLinks = ({
           </>
         ) : (
           <>
-            <li className="vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-right--2p5">
+            <li className="vads-u-margin-bottom--2p5 ">
               <va-icon
                 class="va-c-social-icon vads-u-margin-right--0p5"
                 icon="facebook"
@@ -132,7 +136,7 @@ export const SocialLinks = ({
                 text="Share on Facebook"
               />
             </li>
-            <li className="medium-screen:vads-u-margin-right--2p5">
+            <li>
               <va-icon
                 class="va-c-social-icon vads-u-margin-right--0p5"
                 icon="x"
@@ -141,7 +145,7 @@ export const SocialLinks = ({
               <va-link
                 className="va-js-share-link"
                 href={`https://twitter.com/intent/tweet?text=${title}&url=${path}`}
-                text="Share on Twitter"
+                text="Share on X (formerly Twitter)"
               />
             </li>
           </>
