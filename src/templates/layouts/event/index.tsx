@@ -92,7 +92,9 @@ export const Event = ({
           )}
 
           {/* Description */}
-          {description && <p className="va-introtext">{description}</p>}
+          {description && (
+            <p className="va-introtext vads-u-margin-top--0">{description}</p>
+          )}
 
           {/* When */}
           <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-margin-bottom--1">
@@ -182,7 +184,7 @@ export const Event = ({
 
           {/* Cost */}
           {cost && (
-            <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-margin-bottom--2">
+            <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-margin-bottom--1">
               <p className="vads-u-margin--0 vads-u-margin-right--0p5">
                 <strong>Cost:</strong>
               </p>
@@ -200,140 +202,140 @@ export const Event = ({
               <p className="vads-u-margin--0">Required</p>
             </div>
           )}
-
-          <SocialLinks
-            path={socialLinks?.path}
-            title={socialLinks?.title}
-            description={description}
-            address={directionsString}
-            dateObject={mostRecentDate}
-          />
-
-          {/* CTA */}
-          {(link || additionalInfo || eventCTA) && (
-            <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1 vads-u-padding-x--1p5 medium-screen:vads-u-padding--0">
-              {isEventInPast(mostRecentDate?.value) ? (
-                <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
-                  This event already happened.
-                </p>
-              ) : (
-                <>
-                  {link && (
-                    <p className="vads-u-margin--0">
-                      <a className="vads-c-action-link--green" href={link?.uri}>
-                        {eventCTA
-                          ? eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
-                          : 'More details'}
-                      </a>
-                    </p>
-                  )}
-                  {howToSignUp === 'email' && (
-                    <>
-                      {mostRecentDate && (
-                        <p className="vads-u-margin--0">
-                          <a
-                            className="vads-c-action-link--green"
-                            href={createMailToLink(
-                              emailCTA,
-                              title,
-                              mostRecentDate,
-                              link?.uri
-                            )}
-                          >
-                            {eventCTA && formatEventCTA(eventCTA)}
-                          </a>
-                        </p>
-                      )}
-                    </>
-                  )}
-                  {additionalInfo && (
-                    <div
-                      className="vads-u-margin--0"
-                      dangerouslySetInnerHTML={{
-                        __html: additionalInfo?.processed,
-                      }}
-                    />
-                  )}
-                </>
-              )}
-            </div>
-          )}
-
-          {/* Body */}
-          {body && (
-            <div dangerouslySetInnerHTML={{ __html: body?.processed }} />
-          )}
-
-          {/* Recurring Events */}
-          {formattedDates.length > 1 && (
-            <div>
-              <va-accordion open-single id="expand-recurring-events">
-                <va-accordion-item
-                  header="View other times for this event"
-                  bordered
-                >
-                  {currentFormattedDates.map((dateRange, index) => (
-                    <div
-                      key={index}
-                      className="recurring-event vads-u-margin-bottom--2"
-                    >
-                      <p className="vads-u-margin--0">
-                        {deriveFormattedTimestamp(dateRange)}
-                      </p>
-                      <va-link
-                        calendar
-                        className="recurrent-event"
-                        data-description={description}
-                        data-end={dateRange?.endValue}
-                        data-location={directionsString}
-                        data-start={dateRange?.value}
-                        data-subject={title}
-                        href={socialLinks?.path}
-                        rel="noreferrer noopener"
-                        text="Add to Calendar"
-                      />
-                    </div>
-                  ))}
-
-                  {formattedDates.length > 5 && (
-                    <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-justify-content--flex-end vads-u-width--full medium-screen:vads-u-width--auto">
-                      <va-button
-                        id="show-all-recurring-events"
-                        secondary
-                        text="Show all times"
-                        onClick={handleAllEventsToggle}
-                      />
-                    </div>
-                  )}
-                </va-accordion-item>
-              </va-accordion>
-            </div>
-          )}
-
-          {/* See more events */}
-          <h2 className="vads-u-font-size--h3 vads-u-margin-bottom--0">
-            Other VA events
-          </h2>
-          {administration?.id != 7 &&
-            listingOffice != 'Outreach and events' &&
-            administration?.name && (
-              <va-link
-                class="vads-u-display--block vads-u-margin-top--2"
-                href={listing}
-                onClick={() =>
-                  recordEvent({ event: 'nav-secondary-button-click' })
-                }
-                id="see-more-events"
-                text={`Browse the ${administration.name} events calendar`}
-              ></va-link>
-            )}
-          <va-link
-            class="vads-u-padding-bottom--3 vads-u-margin-top--2 vads-u-display--block"
-            href="/outreach-and-events/events/"
-            text="Browse the VA outreach events calendar"
-          ></va-link>
-          <ContentFooter lastUpdated={lastUpdated} />
+          <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-flex--1">
+            <SocialLinks
+              path={socialLinks?.path}
+              title={socialLinks?.title}
+              description={description}
+              address={directionsString}
+              dateObject={mostRecentDate}
+            />
+          </div>
         </div>
+        {/* CTA */}
+        {(link || additionalInfo || eventCTA) && (
+          <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1 vads-u-padding-x--1p5 medium-screen:vads-u-padding--0">
+            {isEventInPast(mostRecentDate?.value) ? (
+              <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
+                This event already happened.
+              </p>
+            ) : (
+              <>
+                {link && (
+                  <p className="vads-u-margin--0">
+                    <a className="vads-c-action-link--green" href={link?.uri}>
+                      {eventCTA
+                        ? eventCTA.toLowerCase() === 'rsvp'
+                          ? eventCTA.toUpperCase()
+                          : eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
+                        : 'More details'}
+                    </a>
+                  </p>
+                )}
+                {howToSignUp === 'email' && (
+                  <>
+                    {mostRecentDate && (
+                      <p className="vads-u-margin--0">
+                        <a
+                          className="vads-c-action-link--green"
+                          href={createMailToLink(
+                            emailCTA,
+                            title,
+                            mostRecentDate,
+                            link?.uri
+                          )}
+                        >
+                          {eventCTA && formatEventCTA(eventCTA)}
+                        </a>
+                      </p>
+                    )}
+                  </>
+                )}
+                {additionalInfo && (
+                  <div
+                    className="vads-u-margin--0"
+                    dangerouslySetInnerHTML={{
+                      __html: additionalInfo?.processed,
+                    }}
+                  />
+                )}
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Body */}
+        {body && <div dangerouslySetInnerHTML={{ __html: body?.processed }} />}
+
+        {/* Recurring Events */}
+        {formattedDates.length > 1 && (
+          <div>
+            <va-accordion open-single id="expand-recurring-events">
+              <va-accordion-item
+                header="View other times for this event"
+                bordered
+              >
+                {currentFormattedDates.map((dateRange, index) => (
+                  <div
+                    key={index}
+                    className="recurring-event vads-u-margin-bottom--2"
+                  >
+                    <p className="vads-u-margin--0">
+                      {deriveFormattedTimestamp(dateRange)}
+                    </p>
+                    <va-link
+                      calendar
+                      className="recurrent-event"
+                      data-description={description}
+                      data-end={dateRange?.endValue}
+                      data-location={directionsString}
+                      data-start={dateRange?.value}
+                      data-subject={title}
+                      href={socialLinks?.path}
+                      rel="noreferrer noopener"
+                      text="Add to Calendar"
+                    />
+                  </div>
+                ))}
+
+                {formattedDates.length > 5 && (
+                  <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-justify-content--flex-end vads-u-width--full medium-screen:vads-u-width--auto">
+                    <va-button
+                      id="show-all-recurring-events"
+                      secondary
+                      text="Show all times"
+                      onClick={handleAllEventsToggle}
+                    />
+                  </div>
+                )}
+              </va-accordion-item>
+            </va-accordion>
+          </div>
+        )}
+
+        {/* See more events */}
+        <h2 className="vads-u-font-size--h3 vads-u-margin-bottom--0">
+          Other VA events
+        </h2>
+        {administration?.id != 7 &&
+          listingOffice != 'Outreach and events' &&
+          administration?.name && (
+            <va-link
+              class="vads-u-display--block vads-u-margin-top--2"
+              href={listing}
+              onClick={() =>
+                recordEvent({ event: 'nav-secondary-button-click' })
+              }
+              id="see-more-events"
+              text={`Browse the ${administration.name} events calendar`}
+            ></va-link>
+          )}
+        <va-link
+          class="vads-u-padding-bottom--3 vads-u-margin-top--2 vads-u-display--block"
+          href="/outreach-and-events/events/"
+          text="Browse the VA outreach events calendar"
+        ></va-link>
+        <ContentFooter lastUpdated={lastUpdated} />
       </div>
     </div>
   )
