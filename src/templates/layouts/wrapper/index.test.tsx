@@ -39,10 +39,6 @@ describe('<Wrapper> renders', () => {
         {children}
       </Wrapper>
     )
-    expect(screen.getByRole('region')).toHaveAttribute(
-      'headline',
-      'COVID-19 vaccines at VA'
-    )
     expect(screen.queryByText(/This is the banner body/)).toBeInTheDocument()
   })
 

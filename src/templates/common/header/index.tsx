@@ -1,3 +1,4 @@
+import { MaintenanceBanner } from '../banners/maintenanceBanner'
 import { TopNav } from './TopNav'
 
 export const Header = () => {
@@ -14,6 +15,9 @@ export const Header = () => {
 
       {/* Tablet/desktop layout */}
       <TopNav />
+
+      {/* Maintenance banner */}
+      <MaintenanceBanner />
     </header>
   )
 }
