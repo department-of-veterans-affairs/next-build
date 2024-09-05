@@ -10,10 +10,10 @@ Under the hood, Next.js also abstracts and automatically configures tooling need
 
 ## Table of contents
 
-- Quickstart
-- Guide to other readmes
-- Troubleshooting
-- FAQ
+- [Quickstart](#quickstart)
+- [Guide to other readmes](#guide-to-other-readmes)
+- [Troubleshooting](#troubleshooting)
+- [FAQ](#faq)
 
 ## Quickstart
 
@@ -151,12 +151,7 @@ docker run --name next-redis -p 6379:6379 -d redis
 
 This container can be reached from your localhost (e.g. `redis://localhost:6379`). You can interact directly with the redis container by running `yarn redis:cli`. For more on how this project uses redis, check the [caching readme](READMEs/caching.md).
 
-## Documentation (WIP)
-
-- [Code Guidelines](READMEs/code-guidelines.md)
-- [Testing](READMEs/testing.md)
-- [TypeScript](READMEs/typescript.md)
-- [Example Tests](example_tests/README.md)
+<a name="others"></a>
 
 ## Guide to other READMES
 
@@ -178,9 +173,14 @@ This container can be reached from your localhost (e.g. `redis://localhost:6379`
 | [Storybook](READMEs/storybook.md)                    |                                                                                                                                                           |
 | [Templates](READMEs/templates.md)                    |                                                                                                                                                           |
 | [Testing](READMEs/testing.md)                        | Information about our various testing procedures such as: Jest, playwright, a11y, load testing, and lighthouse testing                                    |
+| [Example Testing](example_tests/README.md)           | Information about our various testing procedures such as: Jest, playwright, a11y, load testing, and lighthouse testing                                    |
 | [Tugboat](READMEs/tugboat.md)                        |                                                                                                                                                           |
 | [Content Release](READMEs/devops/content-release.md) | Information about our github action "content-release" which is largely responsible for producing consumable content                                       |
 | [Datadog](READMEs/devops/datadog.md)                 |                                                                                                                                                           |
 | [Datasync](READMEs/devops/datasync.md)               |                                                                                                                                                           |
 | [EKS](READMEs/devops/eks.md)                         | Information about how we leverage the persistent server and how we leverage EKS to host it                                                                |
 | [Infrastructure](READMEs/devops/infrastructure.md)   | Informational catch all for how our infrastructure works. If you are looking for an understanding of our system architecture, this is the file to look at |
+
+## Troubleshooting
+
+## FAQ
