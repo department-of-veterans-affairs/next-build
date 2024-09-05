@@ -1,12 +1,23 @@
 # next-build
 
-Front-end templating, build, and deploy for VA.gov CMS content.
+Front-end templating, build, and deploy for VA.gov CMS content. Next.js is a React framework for building full-stack web applications. You use React Components to build user interfaces, and Next.js for additional features and optimizations.
+
+Under the hood, Next.js also abstracts and automatically configures tooling needed for React, like bundling, compiling, and more. This allows you to focus on building your application instead of spending time with configuration.
 
 ![CI](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/ci.yml/badge.svg)
 ![CodeQL](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/codeql-analysis.yml/badge.svg)
 ![Playwright Tests](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/playwright.yml/badge.svg)
 
-## Local setup
+## Table of contents
+
+- Quickstart
+- Guide to other readmes
+- Troubleshooting
+- FAQ
+
+## Quickstart
+
+### Local setup
 
 Prerequisites
 
@@ -17,7 +28,7 @@ Prerequisites
 
 You should set these up before attempting to install the repo.
 
-## Basic local installation
+### Basic local installation
 
 1. Clone the repo if you haven't.
    `git clone git@github.com:department-of-veterans-affairs/next-build.git`
@@ -38,7 +49,7 @@ You should set these up before attempting to install the repo.
 
 You will now have a Next.js development server running at http://localhost:3999, which will refresh with changes to your local environment. (Note: your local port may differ if you changed the value for `PORT` in .env.local).
 
-## Environment Flags
+### Environment Flags
 
 The APP_ENV flag can be used to designate which .env file you want to use. Ensure your env files are in `./envs`, and then run your build or dev command with a leading `APP_ENV=local`.
 
@@ -48,7 +59,7 @@ Ensure the value passed into APP_ENV matches the file name of the .env file you 
 
 If no value is passed `.env.local` will be used as the default
 
-### Additional flags
+#### Additional flags
 
 Additional env flags can be set by prepending them with "--". To pass arguments through to the underlying utility (e.g. jest) use "--" as a separator.
 
@@ -73,7 +84,7 @@ yarn test -h
 yarn build -h
 ```
 
-## Local CMS endpoint
+### Local CMS endpoint
 
 To use the local CMS as an endpoint, follow the install directions for [the CMS repo here](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/getting-started.md).
 
@@ -98,7 +109,7 @@ NEXT_IMAGE_DOMAIN=https://va-gov-cms.ddev.site
 
 Now you can run `yarn dev` and data will be coming from your local CMS environment instead.
 
-### Local CMS Preview
+#### Local CMS Preview
 
 To test the preview API route locally, you will also need to add public and private OAuth keys to your local clone of the va.gov-cms root directory at `public.key` and `private.key` respectively. These files are gitignored in the va.gov-cms repo.
 
@@ -116,7 +127,7 @@ Retrieve this value from AWS SSM @ /cms/staging/drupal_api_users/next_build_api/
 
 See the [Preview README](/READMEs/preview.md) for more information.
 
-## Local vets-website assets
+### Local vets-website assets
 
 By default, the `yarn setup` command pulls assets from the prod S3 bucket. This can be changed base on the `BUILD_TYPE` env var.
 
@@ -126,7 +137,7 @@ Then running `BUILD_TYPE=localhost yarn setup` will create a symlink to the loca
 
 See `./scripts/yarn/vets-website-assets.js` for more information.
 
-## Generating the static site
+### Generating the static site
 
 To generate the static pages for https://va.gov, run `yarn export`. This command will generate static pages for all paths that next-build is aware of.
 
@@ -146,3 +157,30 @@ This container can be reached from your localhost (e.g. `redis://localhost:6379`
 - [Testing](READMEs/testing.md)
 - [TypeScript](READMEs/typescript.md)
 - [Example Tests](example_tests/README.md)
+
+## Guide to other READMES
+
+| README                                               | Purpose                                                                                                                                                   |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Slug](READMEs/[[...slug]].md)                       |                                                                                                                                                           |
+| [Analytics](READMEs/analytics.md)                    |                                                                                                                                                           |
+| [Broken links](READMEs/broken-links.md)              |                                                                                                                                                           |
+| [Caching](READMEs/caching.md)                        |                                                                                                                                                           |
+| [Code guidelines](READMEs/code-guidelines.md)        |                                                                                                                                                           |
+| [Environment loader](READMEs/env-loader.md)          |                                                                                                                                                           |
+| [Generators](READMEs/generators.md)                  |                                                                                                                                                           |
+| [Lovell](READMEs/lovell.md)                          | Information about how nextbuild handles the custom code needed for the James A Lovell health care center. It is both an army hospital and a VA hospital   |
+| [Status](READMEs/next-build-status.md)               |                                                                                                                                                           |
+| [Pagination](READMEs/pagination.md)                  |                                                                                                                                                           |
+| [Paragraph](READMEs/paragraph.md)                    |                                                                                                                                                           |
+| [Preview](READMEs/preview.md)                        |                                                                                                                                                           |
+| [Queries](READMEs/queries.md)                        |                                                                                                                                                           |
+| [Storybook](READMEs/storybook.md)                    |                                                                                                                                                           |
+| [Templates](READMEs/templates.md)                    |                                                                                                                                                           |
+| [Testing](READMEs/testing.md)                        | Information about our various testing procedures such as: Jest, playwright, a11y, load testing, and lighthouse testing                                    |
+| [Tugboat](READMEs/tugboat.md)                        |                                                                                                                                                           |
+| [Content Release](READMEs/devops/content-release.md) | Information about our github action "content-release" which is largely responsible for producing consumable content                                       |
+| [Datadog](READMEs/devops/datadog.md)                 |                                                                                                                                                           |
+| [Datasync](READMEs/devops/datasync.md)               |                                                                                                                                                           |
+| [EKS](READMEs/devops/eks.md)                         | Information about how we leverage the persistent server and how we leverage EKS to host it                                                                |
+| [Infrastructure](READMEs/devops/infrastructure.md)   | Informational catch all for how our infrastructure works. If you are looking for an understanding of our system architecture, this is the file to look at |
