@@ -34,10 +34,33 @@ function formatDate(date: Date, format: 'display' | 'machine'): string {
 }
 
 function FeedbackButton() {
+  useEffect(() => {
+    const vaButton = document.getElementById('mdFormButton') as HTMLElement & {
+      shadowRoot?: ShadowRoot
+    }
+    if (vaButton && vaButton.shadowRoot) {
+      const shadowRoot = vaButton.shadowRoot
+
+      // Create a new observer
+      const observer = new MutationObserver(() => {
+        const button = shadowRoot.querySelector(
+          '.usa-button'
+        ) as HTMLButtonElement
+        if (button) {
+          button.classList.add('feedback-button')
+          observer.disconnect() // Stop observing once we've found the button and added the class
+        }
+      })
+
+      // Start observing the shadow root with the configured parameters
+      observer.observe(shadowRoot, { childList: true, subtree: true })
+    }
+  }, [])
   return (
     <>
       <MedalliaAssets />
-      <va-button
+      <button
+        className="feedback-button usa-button"
         id="mdFormButton"
         onClick={() => {
           const isProduction =
@@ -48,8 +71,9 @@ function FeedbackButton() {
           )
           showForm(surveyNumber)
         }}
-        text="Feedback"
-      ></va-button>
+      >
+        Feedback
+      </button>
     </>
   )
 }
@@ -65,25 +89,34 @@ export function ContentFooter({ lastUpdated }: ContentFooterProps) {
   return (
     <>
       <div className="last-updated vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
-        <div className="small-screen:vads-u-display--flex above-footer-elements-container">
-          <div className="vads-u-flex--auto">
-            <span className="vads-u-text-align--justify">
-              <p>
-                {displayDate && (
+        {displayDate && (
+          <div className="small-screen:vads-u-display--flex above-footer-elements-container">
+            <div className="vads-u-flex--auto">
+              <span className="vads-u-text-align--justify">
+                <p>
                   <>
                     Last updated:{' '}
                     <time dateTime={machineDate}>{displayDate}</time>
                   </>
-                )}
-              </p>
-            </span>
+                </p>
+              </span>
+            </div>
+            <div className="vads-u-flex--1 vads-u-text-align--right">
+              <span className="vads-u-text-align--right">
+                <FeedbackButton />
+              </span>
+            </div>
           </div>
-          <div className="vads-u-flex--1 vads-u-text-align--right">
-            <span className="vads-u-text-align--right">
-              <FeedbackButton />
-            </span>
+        )}
+        {!displayDate && (
+          <div className="vads-u-display--flex above-footer-elements-container">
+            <div className="vads-u-flex--1 vads-u-text-align--right">
+              <span className="vads-u-text-align--right">
+                <FeedbackButton />
+              </span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   )
