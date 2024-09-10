@@ -237,7 +237,15 @@ export const deriveFormattedTimestamp = (datetime) => {
   })
 
   // Format: Mon. Dec 11, 2023, 10:30 am – 11:30 am ET
-  return `${formattedStartTime} – ${formattedEndTime}`
+  // return `${formattedStartTime} – ${formattedEndTime}`
+
+  const formattedTime = `${formattedStartTime} – ${formattedEndTime}`
+
+  function reformatTime(str) {
+    return str.replaceAll('AM', 'am').replaceAll('PM', 'pm').replace(',', '.')
+  }
+
+  return reformatTime(formattedTime)
 }
 
 export const isEventInPast = (eventTime) => {

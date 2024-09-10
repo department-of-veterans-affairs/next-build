@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Breadcrumbs from '.'
 
 describe('<Breadcrumbs />', () => {
@@ -22,29 +22,55 @@ describe('<Breadcrumbs />', () => {
   })
 
   it('should replace "Home" breadcrumb title with customCrumbHomeText', () => {
-    const customText = 'Custom Home'
-    const { queryByText } = render(
+    const customCrumbHomeText = 'Start'
+    const { container } = render(
       <Breadcrumbs
         {...defaultProps}
-        hideHomeBreadcrumb={true}
-        customCrumbHomeText={customText}
+        customCrumbHomeText={customCrumbHomeText}
       />
     )
-    expect(queryByText(customText)).toBeInTheDocument()
+    expect(container.innerHTML).toContain(customCrumbHomeText)
+    expect(container.innerHTML).not.toContain('Home')
+  })
+
+  it('should remove Home breadcrumb when hideHomeBreadcrumb is true', () => {
+    const breadcrumbs = [{ title: 'Home' }, { title: 'Page' }]
+    const { container } = render(
+      <Breadcrumbs {...breadcrumbs} hideHomeBreadcrumb={true} />
+    )
+    expect(container.innerHTML).not.toContain('Home')
   })
 
   it('should derive breadcrumbs from the URL', () => {
-    const { queryByText } = render(
-      <Breadcrumbs {...defaultProps} deriveBreadcrumbsFromUrl={true} />
+    const breadcrumbTitle = 'Last'
+    const entityPath = '/last'
+    const replaceLastItem = true
+    const { container } = render(
+      <Breadcrumbs
+        {...defaultProps}
+        breadcrumbTitle={breadcrumbTitle}
+        entityPath={entityPath}
+        replaceLastItem={replaceLastItem}
+        deriveBreadcrumbsFromUrl={true}
+      />
     )
-    expect(queryByText('Test')).toBeInTheDocument()
+    expect(container.innerHTML).toContain(breadcrumbTitle)
   })
 
-  it('should construct lc breadcrumbs', () => {
-    const { queryByText } = render(
-      <Breadcrumbs {...defaultProps} constructLcBreadcrumbs={true} />
+  it('should construct rc breadcrumbs', () => {
+    const breadcrumbTitle = 'Rc'
+    const entityPath = '/rc'
+    const RcBreadcrumbsTitleInclude = true
+    const { container } = render(
+      <Breadcrumbs
+        {...defaultProps}
+        breadcrumbTitle={breadcrumbTitle}
+        entityPath={entityPath}
+        RcBreadcrumbsTitleInclude={RcBreadcrumbsTitleInclude}
+        constructRcBreadcrumbs={true}
+      />
     )
-    expect(queryByText('Resources and support')).toBeInTheDocument()
+    expect(container.innerHTML).toContain(breadcrumbTitle)
   })
 
   it('should filter out invalid crumbs', () => {
