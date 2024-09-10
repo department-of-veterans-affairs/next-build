@@ -128,7 +128,7 @@ export const Event = ({
                   ></va-link>
                 </p>
                 <p className="vads-u-margin--0">{locationHumanReadable}</p>
-                {facilityLocation?.field_address.address_line1 && (
+                {facilityLocation?.field_address?.address_line1 && (
                   <p className="vads-u-margin--0">
                     {facilityLocation?.field_address?.address_line1}
                   </p>
