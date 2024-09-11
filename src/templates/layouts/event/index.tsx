@@ -152,7 +152,11 @@ export const Event = ({
             ) : locationType === 'online' ? (
               <p className="vads-u-margin--0 vads-u-margin-bottom--2">
                 {urlOfOnlineEvent ? (
-                  <a href={urlOfOnlineEvent.uri}>This is an online event.</a>
+                  <va-link
+                    href={urlOfOnlineEvent.uri}
+                    text="This is an online event."
+                    data-test-id="online-event-link"
+                  />
                 ) : (
                   'This is an online event.'
                 )}

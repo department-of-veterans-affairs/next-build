@@ -201,8 +201,13 @@ describe('<Event /> Component', () => {
         {...onlineEventProps}
       />
     )
-    expect(screen.getByText('This is an online event.')).toBeInTheDocument()
+
+    const linkElement = document.querySelector(
+      '[data-test-id="online-event-link"]'
+    )
+    expect(linkElement).toBeInTheDocument()
   })
+
   it('renders address', () => {
     render(<Event {...data} />)
     expect(screen.getByText('3307 10th Avenue Southeast')).toBeInTheDocument()
