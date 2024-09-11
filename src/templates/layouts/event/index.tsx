@@ -155,6 +155,7 @@ export const Event = ({
                   <va-link
                     href={urlOfOnlineEvent.uri}
                     text="This is an online event."
+                    data-test-id="online-event-link"
                   />
                 ) : (
                   'This is an online event.'
