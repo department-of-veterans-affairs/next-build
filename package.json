@@ -104,13 +104,13 @@
     "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.17.7",
-    "@types/node": "20.12.7",
+    "@types/node": "22.5.4",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.2.18",
     "@types/uuid": "^9.0.7",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.17.0",
-    "axe-core": "^4.8.4",
+    "@typescript-eslint/parser": "^8.2.0",
+    "axe-core": "^4.10.0",
     "debug": "^4.3.4",
     "eslint": "8.57.0",
     "eslint-config-next": "^14.2.5",
@@ -137,7 +137,7 @@
     "storybook": "^8.0.5",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.6.2"
   },
   "resolutions": {
     "drupal-jsonapi-params": "2.3.1",
