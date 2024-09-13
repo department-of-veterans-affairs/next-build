@@ -176,11 +176,13 @@ This container can be reached from your localhost (e.g. `redis://localhost:6379`
 | [Example Testing](example_tests/README.md)           | Information about our various testing procedures such as: Jest, playwright, a11y, load testing, and lighthouse testing                                    |
 | [Tugboat](READMEs/tugboat.md)                        |                                                                                                                                                           |
 | [Content Release](READMEs/devops/content-release.md) | Information about our github action "content-release" which is largely responsible for producing consumable content                                       |
-| [Datadog](READMEs/devops/datadog.md)                 |                                                                                                                                                           |
+| [Datadog](READMEs/devops/datadog.md)                 | Application Performance Monitoring and alerting                                                                                                                                                          |
 | [Datasync](READMEs/devops/datasync.md)               |                                                                                                                                                           |
 | [EKS](READMEs/devops/eks.md)                         | Information about how we leverage the persistent server and how we leverage EKS to host it                                                                |
 | [Infrastructure](READMEs/devops/infrastructure.md)   | Informational catch all for how our infrastructure works. If you are looking for an understanding of our system architecture, this is the file to look at |
 
 ## Troubleshooting
+
+## Common Problems
 
 ## FAQ
