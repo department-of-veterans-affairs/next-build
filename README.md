@@ -13,6 +13,7 @@ Under the hood, Next.js also abstracts and automatically configures tooling need
 - [Quickstart](#quickstart)
 - [Guide to other readmes](#guide-to-other-readmes)
 - [Troubleshooting](#troubleshooting)
+- [Common Problems](#common-problems)
 - [FAQ](#faq)
 
 ## Quickstart
