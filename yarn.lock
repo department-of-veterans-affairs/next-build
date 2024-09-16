@@ -4728,13 +4728,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.3.1":
-  version: 18.3.1
-  resolution: "@types/react@npm:18.3.1"
+"@types/react@npm:18.3.5":
+  version: 18.3.5
+  resolution: "@types/react@npm:18.3.5"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
-  checksum: 9224ef319a0c2b7f66e7e7f06012aa5eb638a6c76c9742843eab1a5d243f2bed5ff829ddbb41efd60d33a266420528adfcb84cb93f238b00e905f98c3a355768
+  checksum: 63d2ff473b348c902b68c20be55d2c5124d078c4336c2d1778f316c27789ed596657e8e714022ce14fb24994b0960fc64c913e629bb0bf85815355b0c31eb46b
   languageName: node
   linkType: hard
 
@@ -13582,7 +13582,7 @@ __metadata:
     "@types/jest": ^29.5.12
     "@types/lodash": ^4.17.7
     "@types/node": 22.5.4
-    "@types/react": ^18.3.1
+    "@types/react": ^18.3.5
     "@types/react-dom": ^18.2.18
     "@types/react-gtm-module": ^2.0.3
     "@types/uuid": ^9.0.7
