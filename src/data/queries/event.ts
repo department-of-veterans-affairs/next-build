@@ -52,7 +52,7 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     date: entity.created,
     lastUpdated: entity.changed,
     socialLinks: {
-      path: entity.path.alias,
+      path: `${process.env.SITE_URL}${entity.path.alias}`,
       title: entity.title,
     },
     listing: entity.field_listing.path.alias,
