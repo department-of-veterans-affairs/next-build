@@ -62,7 +62,9 @@ A video walkthrough should be available to assist in setting up. If not compress
 
 > [!NOTE]
 > Not all generated files are required to be used. It acts as a structured template of what is needed to build a layout.
-> When creating a new layout, create a new layout, create a new feature branch from main and use `yarn plop` to generate a layout template. Running this comand will prompt you to choose the type of content you want to generate. The following insctrustion will go through each option.
+
+When creating a new layout, create a new layout, create a new feature branch from main and use `yarn plop` to generate a layout template. Running this comand will prompt you to choose the type of content you want to generate. The following insctrustion will go through each option.
+
 > [!NOTE]
 > Branch naming has not been consistent and had followed the trend of what works best for the team. The AP Team of 2024 followed the naming conventions of `issue_#_(summary of ticket/task)`
 
