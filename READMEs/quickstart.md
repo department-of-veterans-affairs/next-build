@@ -70,6 +70,7 @@ When creating a new layout, create a new layout, create a new feature branch fro
 > Branch naming has not been consistent and had followed the trend of what works best for the team. The AP Team of 2024 followed the naming conventions of `issue_#_(summary of ticket/task)`
 
 - Yarn Plop > Select **Content Type**
+  <img width="501" alt="Screenshot 2024-09-19 at 11 40 53 AM" src="https://github.com/user-attachments/assets/ca808770-50d7-4407-a236-07c45b58d83c">
   - **Content Type** generate these files
     - Path `src/templates/layouts/`
       - Within `<folder layout name>`
