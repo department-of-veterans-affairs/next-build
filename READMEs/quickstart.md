@@ -29,10 +29,10 @@ A video walkthrough should be available to assist in setting up. If not compress
 > DRUPAL_CLIENT_ID=Retrieve this from AWS SSM /cms/consumers/next-build/client_id
 > DRUPAL_CLIENT_SECRET=Retrieve this from AWS SSM /cms/consumers/next-build/client_secret
 > ```
->
+
 > [!NOTE]
+> Make sure you socks is on with `vtk socks on` if you are not using local CMS preview.
 >
-> - Make sure you socks is on with `vtk socks on` if you are not using local CMS preview.
 > - Without socks on, you won't be able to view tugboat, which is another area of testing that occurs after making a pull request. Un able to view tugboat prevents access to tugboats error logs.
 > - [Mac installation for sock](https://vfs.atlassian.net/wiki/spaces/~6218e48cc34549007199170b/pages/2178187323/Install+SOCKS+proxy+on+Mac)
 > - [Windos installation for socks](https://depo-platform-documentation.scrollhelp.site/getting-started/accessing-internal-tools-via-socks-proxy)
