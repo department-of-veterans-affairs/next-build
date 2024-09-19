@@ -58,7 +58,8 @@ As listed above, please read [generators.md](READMEs/generators.md)
 [Link to environment setup documentation](https://github.com/department-of-veterans-affairs/next-build/tree/main?tab=readme-ov-file#next-build)
 A video walkthrough should be available to assist in setting up. If not compressed and posted here yet. The Slack thread in which they exist is [here](https://dsva.slack.com/archives/D071CCW690E/p1723650927105169). The 30 minute video is the layout creation walkthrough
 
-> [!NOTE] Next-Build is not involve in the creation of completly new layouts from scratch at the moment. The goal is to translate all of Content-Build's existing layouts into Next-Build.
+> [!NOTE]
+> Next-Build is not involve in the creation of completly new layouts from scratch at the moment. The goal is to translate all of Content-Build's existing layouts into Next-Build.
 
 > [!NOTE]
 > Not all generated files are required to be used. It acts as a structured template of what is needed to build a layout.
