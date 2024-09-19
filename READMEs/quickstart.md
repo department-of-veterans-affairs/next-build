@@ -13,7 +13,7 @@ This goal of this document is to be used as a reference sheet to quickstart deve
 - [preview.md](READMEs/preview.md) : Recommended README for preview issue during setup
   The rest of the available READMEs relating to information occuring in the background in which a developer won't be actively working on day-to-day,used for specific scenarios, or to make development easier but not impossible to do without.
 
-  The rest of the READMEs still hold valuable information, but might either be things running in the background, used for specific situations, or holds information that will make the development process easier, but is not mandatory to get things up and running
+  The rest of the READMEs still hold valuable information, but might either running in the background, used for specific situations, or holds information that will make the development process easier, but is not mandatory to get things up and running
 
 ## Setting up the environment
 
