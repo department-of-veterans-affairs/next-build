@@ -13,12 +13,12 @@ This goal of this document is to be used as a reference sheet to quickstart deve
 - [preview.md](READMEs/preview.md) : Recommended README for preview issue during setup
   The rest of the available READMEs relating to information occuring in the background in which a developer won't be actively working on day-to-day,used for specific scenarios, or to make development easier but not impossible to do without.
 
----
+  The rest of the READMEs still hold valuable information, but might either be things running in the background, used for specific situations, or holds information that will make the development process easier, but is not mandatory to get things up and running
 
 ## Setting up the environment
 
 [Link to environment setup documentation](https://github.com/department-of-veterans-affairs/next-build/tree/main?tab=readme-ov-file#next-build)
-A video walkthrough should be available to assist in setting up.
+A video walkthrough should be available to assist in setting up. If not compressed and posted here yet. The Slack thread in which they exist is [here](https://dsva.slack.com/archives/D071CCW690E/p1723650927105169). The 7 minute video is for setting up Next-Build
 
 ### Next-Build walkthrough setup
 
@@ -37,8 +37,6 @@ A video walkthrough should be available to assist in setting up.
 > - [Mac installation for sock](https://vfs.atlassian.net/wiki/spaces/~6218e48cc34549007199170b/pages/2178187323/Install+SOCKS+proxy+on+Mac)
 > - [Windos installation for socks](https://depo-platform-documentation.scrollhelp.site/getting-started/accessing-internal-tools-via-socks-proxy)
 
----
-
 ## Structure
 
 This is a high-level breakdown of what will the core areas in the repository you will frequently hop between during development.
@@ -53,12 +51,14 @@ This is a high-level breakdown of what will the core areas in the repository you
 - Types
   - When generating new layouts, new types will be created and existing types might need to be updated to work with new layouts.
 
----
-
 ## Generating a layout
 
 As listed above, please read [generators.md](READMEs/generators.md)
-Next-Build is not involve in the creation of completly new layouts from scratch at the moment. The goal is to translate all of Content-Build's existing layouts into Next-Build.
+
+[Link to environment setup documentation](https://github.com/department-of-veterans-affairs/next-build/tree/main?tab=readme-ov-file#next-build)
+A video walkthrough should be available to assist in setting up. If not compressed and posted here yet. The Slack thread in which they exist is [here](https://dsva.slack.com/archives/D071CCW690E/p1723650927105169). The 30 minute video is the layout creation walkthrough
+
+> [!NOTE] Next-Build is not involve in the creation of completly new layouts from scratch at the moment. The goal is to translate all of Content-Build's existing layouts into Next-Build.
 
 > [!NOTE]
 > Not all generated files are required to be used. It acts as a structured template of what is needed to build a layout.
@@ -95,18 +95,19 @@ Next-Build is not involve in the creation of completly new layouts from scratch 
 - Yarn Plop > Select **Query**
   - This will generate query file under the data/queries folder relating test
 
----
-
 ## Development breakdown
 
 Formatting data, updating data, and creating new data types and objects will be the majority of the development time.
 This is the suggested order to approach development, to not be overwhelmed with too many error messages. You can develop in any order.
 
+> [!TIP] I highly recommend creating a layout that shares a similar structure as an existing one in Next-Build for easier transition.
+
 1. Start with api-explorer.ts and your layout query[^1] to set up and format the data that is needed for your layout
    - Api-explorer to see the values Drupal is sending via the JSON:API
      - `yarn dev` to turn localhost on then navigate to [http://localhost:3999/\_playground/api-explorer/](http://localhost:3999/_playground/api-explorer/)
      - Useful for filling out mock.json and traversing through nested values
-   - if properties with nested properties are required, utilize the `...getNestedIncludes()` method to traveers through the nested properties in the api-explorer and for your query file's `query param` section.
+   - if properties with nested properties are required, utilize the `...getNestedIncludes()` function to traveers through the nested properties in the api-explorer and for your query file's `query param` section.
+   - This function can cause more unexpected work, especially if the type needed to traverse the property has not been made yet. Existing ones would be `media-image` and `media-document` You might have to create a new component and/or query to fulfill the input needed to use `...getNestedIncludes()`.
 2. In layout query file[^2]
    - Update the `query params` section with the properties needed for the layout.
    - Update the `data loader` to use the correct `RESOURCE_TYPES`
@@ -118,9 +119,9 @@ This is the suggested order to approach development, to not be overwhelmed with 
    - This is where the layout object is decalred and uses the object's properties made from the `formatter` as arguments to be injects into the html structure to be rendered
      > [!IMPORTANT] Try to use va-components whenever possible. The va-components are imported to next build and exist in the `additional.d.ts` file. There will be some instance where va-component, such as content-build is not using the va-component and we must match production as closely as possible or there is a data-widget-type handling the rendering.
 
----
-
 ## Other existing relevant files
+
+Most of these files will also need to be updated when you create a new layout.
 
 - Pagination
   - pageSizes.ts
@@ -138,21 +139,17 @@ This is the suggested order to approach development, to not be overwhelmed with 
 - Reuse existing field type
   - field_types_d.ts
 
----
-
 ## Passing tests
 
 You won’t be able to commit unless:
 
 - There are no errors
   - Passing threshold must be 80% or above
-  - To bypass with intentions to created draft PRs for code help and review you can use the –no-verify with your commit command
+  - To bypass with intentions to created draft PRs for code help and review you can use the -–no-verify with your commit command
 - Yarn test will run tests on the entirety of next-build
   Once you commit and push for pull request, a series of tests will run on the pull request
 - One of the common points of failed passing is tugboat which will have an error log to view why tugboat failed
   - Our [tugboat ReadME](READMEs/tugboat.md) is brief but should redirect to the VA tugboat doc for more information.
-
----
 
 ## Test commands
 
@@ -160,8 +157,7 @@ You won’t be able to commit unless:
 - yarn test:format
 - yarn test:coverage
 - yarn test – -u
-
----
+  - used to update snapshot when you receive an error that they are conflicting
 
 ## Helpful tools and commands
 
@@ -178,8 +174,6 @@ You won’t be able to commit unless:
 - Working around shadow DOMs for Jest testing:
   - Use .innerHTML to check if something is rendered
   - Using the event callbacks bound to the component.\_\_events value
-
----
 
 ## Troubleshooting
 
