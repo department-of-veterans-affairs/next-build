@@ -105,7 +105,7 @@
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.17.7",
     "@types/node": "22.5.4",
-    "@types/react": "^18.3.1",
+    "@types/react": "^18.3.8",
     "@types/react-dom": "^18.2.18",
     "@types/uuid": "^9.0.7",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
@@ -141,7 +141,7 @@
   },
   "resolutions": {
     "drupal-jsonapi-params": "2.3.1",
-    "@types/react": "18.3.1"
+    "@types/react": "18.3.8"
   },
   "packageManager": "yarn@3.6.1"
 }
