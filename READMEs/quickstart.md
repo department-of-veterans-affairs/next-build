@@ -1,6 +1,6 @@
 # Quickstart
 
-This goal of this document is to be used as a reference sheet to quickstart developing the frontend of next-build. It should be used as a reminder of common steps in the development process and redirect you to the relating documentation for more in-depth understanding.
+The goal of this document is to be used as a reference sheet to quickstart developing the frontend of next-build. It should be used as a reminder of common steps in the development process and redirect you to the relating documentation for more in-depth understanding.
 
 ## Recommended READMEs to start with
 
@@ -11,14 +11,14 @@ This goal of this document is to be used as a reference sheet to quickstart deve
 - [testing.md](READMEs/testing.md) : Read to understand the testing procedures.
 - [[...slug.md]]() : Read to understand how next-build handles page routing and the history and thought process to its decision.
 - [preview.md](READMEs/preview.md) : Recommended README for preview issue during setup
-  The rest of the available READMEs relating to information occuring in the background in which a developer won't be actively working on day-to-day,used for specific scenarios, or to make development easier but not impossible to do without.
+
 
   The rest of the READMEs still hold valuable information, but might be running in the background, used for specific situations, or holds information that will make the development process easier, but is not mandatory to get things up and running
 
 ## Setting up the environment
 
 [Link to environment setup documentation](https://github.com/department-of-veterans-affairs/next-build/tree/main?tab=readme-ov-file#next-build)
-A video walkthrough should be available to assist in setting up. If not compressed and posted here yet. The Slack thread in which they exist is [here](https://dsva.slack.com/archives/D071CCW690E/p1723650927105169). The 7 minute video is for setting up Next-Build
+A video walkthrough should be available to assist in setting up. If not compressed and posted here yet. The Slack thread in which they exist is [here](https://dsva.slack.com/archives/D071CCW690E/p1723650927105169). The 7 minute video is for setting up Next-Build.
 
 ### Next-Build walkthrough setup
 
@@ -56,21 +56,23 @@ This is a high-level breakdown of what will the core areas in the repository you
 As listed above, please read [generators.md](READMEs/generators.md)
 
 [Link to environment setup documentation](https://github.com/department-of-veterans-affairs/next-build/tree/main?tab=readme-ov-file#next-build)
-A video walkthrough should be available to assist in setting up. If not compressed and posted here yet. The Slack thread in which they exist is [here](https://dsva.slack.com/archives/D071CCW690E/p1723650927105169). The 30 minute video is the layout creation walkthrough
+A video walkthrough should be available to assist in setting up. If not compressed and posted here yet. The Slack thread in which they exist is [here](https://dsva.slack.com/archives/D071CCW690E/p1723650927105169). The 30 minute video is the layout creation walkthrough.
 
 > [!NOTE]
-> Next-Build is not involve in the creation of completly new layouts from scratch at the moment. The goal is to translate all of Content-Build's existing layouts into Next-Build.
+> Next-Build is not involve in the creation of new layouts from scratch at the moment. The goal is to translate all of Content-Build's existing layouts into Next-Build.
 
 > [!NOTE]
 > Not all generated files are required to be used. It acts as a structured template of what is needed to build a layout.
 
-When creating a new layout, create a new layout, create a new feature branch from main and use `yarn plop` to generate a layout template. Running this comand will prompt you to choose the type of content you want to generate. The following insctrustion will go through each option.
+When creating a new layout, create a new feature branch from main and use `yarn plop` to generate a layout template. Running this comand will prompt you to choose the type of content you want to generate. The following instructions will go through each option.
 
 > [!NOTE]
 > Branch naming has not been consistent and had followed the trend of what works best for the team. The AP Team of 2024 followed the naming conventions of `issue_#_(summary of ticket/task)`
 
 - Yarn Plop > Select **Content Type**
+  
   <img width="501" alt="Screenshot 2024-09-19 at 11 40 53 AM" src="https://github.com/user-attachments/assets/ca808770-50d7-4407-a236-07c45b58d83c">
+  
   - **Content Type** generate these files
     - Path `src/templates/layouts/`
       - Within `<folder layout name>`
@@ -89,13 +91,13 @@ When creating a new layout, create a new layout, create a new feature branch fro
     - Path `src/data/queries/tests/snapshots/<layout name.test.tsx.snap>`
       - Automatically generated jest snapshot
       - Compares current output of `formatData` to the snapshot
-        > [!TIP] Snapshot may not update immediately and run manual `yarn test -- -u`. Details from [testing.md](READMEs/testing.md)
+        - Snapshot may not update immediately and would require to run a manual `yarn test -- -u`. Details from [testing.md](READMEs/testing.md)
     - Path `src/mocks/<layout name.mock.json>`
       - Copy and paste one JSON object from Drupal API to be used in Jest tests
     - Path `playwright/tests/<layout name.spec.js>`
       - Test Suite for playwright
 - Yarn Plop > Select **Component**
-  - This will only generate the component folder `<layout name>` and the realting three files ` index.ts, index.tsx, and <layout name>.stories.ts` under the `component` folder
+  - This will only generate the component folder `<layout name>` and the relating three files ` index.ts, index.tsx, and <layout name>.stories.ts` under the `component` folder
 - Yarn Plop > Select **Query**
   - This will generate query file under the data/queries folder relating test
 
@@ -104,14 +106,15 @@ When creating a new layout, create a new layout, create a new feature branch fro
 Formatting data, updating data, and creating new data types and objects will be the majority of the development time.
 This is the suggested order to approach development, to not be overwhelmed with too many error messages. You can develop in any order.
 
-> [!TIP] I highly recommend creating a layout that shares a similar structure as an existing one in Next-Build for easier transition.
+> [!TIP]
+> I highly recommend starting with a layout that shares a similar structure as an existing one in Next-Build for easier transition.
 
 1. Start with api-explorer.ts and your layout query[^1] to set up and format the data that is needed for your layout
 
    - Api-explorer to see the values Drupal is sending via the JSON:API
-     - `yarn dev` to turn localhost on then navigate to [http://localhost:3999/\_playground/api-explorer/](http://localhost:3999/_playground/api-explorer/)
+     - `yarn dev` to turn localhost on and then navigate to [http://localhost:3999/\_playground/api-explorer/](http://localhost:3999/_playground/api-explorer/)
      - Useful for filling out mock.json and traversing through nested values
-   - if properties with nested properties are required, utilize the `...getNestedIncludes()` function to traveers through the nested properties in the api-explorer and for your query file's `query param` section.
+   - if properties with nested properties are required, utilize the `...getNestedIncludes()` function to traverse through the nested properties in the api-explorer and for your query file's `query param` section.
 
      - `.getResourceCollection()` is where you specify the node, paragraph, etc from Drupal to grab
      - `.addInclude([])` will return the highest level JSON of the specified node
@@ -122,15 +125,19 @@ This is the suggested order to approach development, to not be overwhelmed with 
 
 2. In layout query file[^2]
    - Update the `query params` section with the properties needed for the layout.
-   - Update the `data loader` to use the correct `RESOURCE_TYPES`
+   - Update the `data loader` to use the correct `RESOURCE_TYPES`.
    - Create more defined fields in the `formatter` and map the data to those fields. The new fields should be refined to hold only the necessary data needed to build your layout and remove the excess data.
 3. Setting types the layout's formatted file[^3]
    - A formatted file will generate as a part of the layout template. Here you will need to set the correct data types to the new fields created from the `formatter` in the relating query file[^4]
-   - This should resolve any errors relating to type conflicts or error messages claiming that property does not exist in the query file[^5]
+   - This should resolve any errors relating to type conflicts or error messages claiming that property does not exist in the query file[^5].
 4. In the index.tsx file from the layout folder[^6]
    - This is where the layout object is declared and uses the object's properties made from the `formatter` as arguments to be injects into the html structure to be rendered
-     > [!IMPORTANT] Try to use va-components whenever possible. The va-components are imported to next build and exist in the `additional.d.ts` file. There will be some instance where va-component, such as content-build is not using the va-component and we must match production as closely as possible or there is a data-widget-type handling the rendering.
-     > [!REMINDER] The main tag is already applied to the wrapper file. Translate content below the main tag of the liquid template to prevent confusion on Ally or accessibility applications with having two <main> tags
+     
+> [!IMPORTANT]
+> Try to use va-components whenever possible. The va-components are imported to next build and exist in the `additional.d.ts` file. There will be some instance where va-component, such as content-build is not using the va-component and we must match production as closely as possible or there is a data-widget-type handling the rendering.
+     
+> [!WARNING]
+> The main tag is already applied to the wrapper file. Translate content below the main tag of the liquid template to prevent confusion on Ally or accessibility applications with having two `<main>` tags
 
 ## Other existing relevant files
 
@@ -170,7 +177,7 @@ You won’t be able to commit unless:
   - To bypass with intentions to created draft PRs for code help and review you can use the -–no-verify with your commit command
 
 - Yarn test will run tests on the entirety of next-build
-  Once you commit and push for pull request, a series of tests will run on the pull request
+  - Once you commit and push for pull request, a series of tests will run on the pull request
 - One of the common points of failed passing is tugboat which will have an error log to view why tugboat failed
   - Our [tugboat ReadME](READMEs/tugboat.md) is brief but should redirect to the VA tugboat doc for more information.
 
