@@ -107,11 +107,19 @@ This is the suggested order to approach development, to not be overwhelmed with 
 > [!TIP] I highly recommend creating a layout that shares a similar structure as an existing one in Next-Build for easier transition.
 
 1. Start with api-explorer.ts and your layout query[^1] to set up and format the data that is needed for your layout
+
    - Api-explorer to see the values Drupal is sending via the JSON:API
      - `yarn dev` to turn localhost on then navigate to [http://localhost:3999/\_playground/api-explorer/](http://localhost:3999/_playground/api-explorer/)
      - Useful for filling out mock.json and traversing through nested values
    - if properties with nested properties are required, utilize the `...getNestedIncludes()` function to traveers through the nested properties in the api-explorer and for your query file's `query param` section.
+
+     - `.getResourceCollection()` is where you specify the node, paragraph, etc from Drupal to grab
+     - `.addInclude([])` will return the highest level JSON of the specified node
+       - Specify which fields of interests to obtain the nest property information
+     - `.getNestedIncludes()` used to get multi-nested properties within fields
+
    - This function can cause more unexpected work, especially if the type needed to traverse the property has not been made yet. Existing ones would be `media-image` and `media-document` You might have to create a new component and/or query to fulfill the input needed to use `...getNestedIncludes()`.
+
 2. In layout query file[^2]
    - Update the `query params` section with the properties needed for the layout.
    - Update the `data loader` to use the correct `RESOURCE_TYPES`
@@ -120,15 +128,19 @@ This is the suggested order to approach development, to not be overwhelmed with 
    - A formatted file will generate as a part of the layout template. Here you will need to set the correct data types to the new fields created from the `formatter` in the relating query file[^4]
    - This should resolve any errors relating to type conflicts or error messages claiming that property does not exist in the query file[^5]
 4. In the index.tsx file from the layout folder[^6]
-   - This is where the layout object is decalred and uses the object's properties made from the `formatter` as arguments to be injects into the html structure to be rendered
+   - This is where the layout object is declared and uses the object's properties made from the `formatter` as arguments to be injects into the html structure to be rendered
      > [!IMPORTANT] Try to use va-components whenever possible. The va-components are imported to next build and exist in the `additional.d.ts` file. There will be some instance where va-component, such as content-build is not using the va-component and we must match production as closely as possible or there is a data-widget-type handling the rendering.
+     > [!REMINDER] The main tag is already applied to the wrapper file. Translate content below the main tag of the liquid template to prevent confusion on Ally or accessibility applications with having two <main> tags
 
 ## Other existing relevant files
 
 Most of these files will also need to be updated when you create a new layout.
 
-- Pagination
+- Pagination and Listings
   - pageSizes.ts
+  - listingPages.ts
+- Growing aggregated area for media types
+  - media.ts (both formatted/ and drupal/)
 - Create identifies and Typescript types for resources
   - resourceTypes.ts
 - Folder types/drupal contains all the interfaces to extract and extend.
@@ -142,14 +154,21 @@ Most of these files will also need to be updated when you create a new layout.
   - [[...slug]].tsx
 - Reuse existing field type
   - field_types_d.ts
+- Another area to add your new node and types here for everything to connect
+  - queries/index.ts
 
 ## Passing tests
 
 You won’t be able to commit unless:
 
 - There are no errors
+
   - Passing threshold must be 80% or above
+
+    - Opening this file in the browser can identify which lines of code are not covered. `coverage/lcov-report/index.html`
+
   - To bypass with intentions to created draft PRs for code help and review you can use the -–no-verify with your commit command
+
 - Yarn test will run tests on the entirety of next-build
   Once you commit and push for pull request, a series of tests will run on the pull request
 - One of the common points of failed passing is tugboat which will have an error log to view why tugboat failed
@@ -183,8 +202,27 @@ You won’t be able to commit unless:
 
 - Placing console.log
   - in the catch error section of [[...slug]].tsx can output helpful error messages in your terminal
+  - Cycle yarn dev and refresh your localhost to generate more detailed error message in your terminal
+  - Before return might appear like an error, but it should still work. React just doesn't like it.
 - Identifying areas to increase passing score for Jest
   - Open coverage/lcov-report/index.html in a browser to find which files and lines that are not being covered
+
+## Specific errors and failures
+
+- Tugboat failed:
+  - Check that quota limit has been reached and then merge the dependabots to make room
+  - Check tugboat logs
+    - Data may be null for specific fields
+      - Update field in your formatter (data/queries/<name>.ts)
+- Getting TypeError on Storybook on all paragraphs, layouts, commons, and components
+  - Delete & install node modules
+  - Delete & install yarn.lock
+- Getting TypeError … null… static-pages.entry.js
+  - Check if you are calling a null property in your index.tsx
+- If you see /bin/sh: <text>: No such file or directory
+  - You might be using < > in your test title and should remove them
+- If you get this error `if (typeof window !== "undefined") {throw new Error("You should not call getQueryParams on the client. This is a server-only call.");}`
+  - Then check if you have /_\*\* @jest-environment node_/ placed on your test file; otherwise your window will return defined rather than undefined
 
 [^1]: Refers to this file `src/data/queries/<layout name.ts>`
 
