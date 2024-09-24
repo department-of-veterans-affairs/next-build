@@ -50,7 +50,6 @@ When the user opens an event article about the event on www.va.gov/`<facility na
 Then on the event article, the `when` section should show the user the date and time, updated to the user's time localization, of when the event is being held.
 <img width="707" alt="Screenshot 2024-09-23 at 2 30 35 PM" src="https://github.com/user-attachments/assets/8d8c8ad7-e7b4-4b3f-a02a-70aa1d965490">
 
-
 ## Implementation
 
 The timezone calculations can be found in the [date.ts](src/lib/utils/date.ts) file line 219 deriveFormattedTimestamp.
