@@ -12,7 +12,6 @@ The goal of this document is to be used as a reference sheet to quickstart devel
 - [[...slug.md]]() : Read to understand how next-build handles page routing and the history and thought process to its decision.
 - [preview.md](READMEs/preview.md) : Recommended README for preview issue during setup
 
-
   The rest of the READMEs still hold valuable information, but might be running in the background, used for specific situations, or holds information that will make the development process easier, but is not mandatory to get things up and running
 
 ## Setting up the environment
@@ -70,9 +69,9 @@ When creating a new layout, create a new feature branch from main and use `yarn 
 > Branch naming has not been consistent and had followed the trend of what works best for the team. The AP Team of 2024 followed the naming conventions of `issue_#_(summary of ticket/task)`
 
 - Yarn Plop > Select **Content Type**
-  
+
   <img width="501" alt="Screenshot 2024-09-19 at 11 40 53 AM" src="https://github.com/user-attachments/assets/ca808770-50d7-4407-a236-07c45b58d83c">
-  
+
   - **Content Type** generate these files
     - Path `src/templates/layouts/`
       - Within `<folder layout name>`
@@ -96,6 +95,7 @@ When creating a new layout, create a new feature branch from main and use `yarn 
       - Copy and paste one JSON object from Drupal API to be used in Jest tests
     - Path `playwright/tests/<layout name.spec.js>`
       - Test Suite for playwright
+
 - Yarn Plop > Select **Component**
   - This will only generate the component folder `<layout name>` and the relating three files ` index.ts, index.tsx, and <layout name>.stories.ts` under the `component` folder
 - Yarn Plop > Select **Query**
@@ -132,10 +132,10 @@ This is the suggested order to approach development, to not be overwhelmed with 
    - This should resolve any errors relating to type conflicts or error messages claiming that property does not exist in the query file[^5].
 4. In the index.tsx file from the layout folder[^6]
    - This is where the layout object is declared and uses the object's properties made from the `formatter` as arguments to be injects into the html structure to be rendered
-     
+
 > [!IMPORTANT]
 > Try to use va-components whenever possible. The va-components are imported to next build and exist in the `additional.d.ts` file. There will be some instance where va-component, such as content-build is not using the va-component and we must match production as closely as possible or there is a data-widget-type handling the rendering.
-     
+
 > [!WARNING]
 > The main tag is already applied to the wrapper file. Translate content below the main tag of the liquid template to prevent confusion on Ally or accessibility applications with having two `<main>` tags
 

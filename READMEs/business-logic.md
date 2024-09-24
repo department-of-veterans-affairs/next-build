@@ -48,7 +48,7 @@ For event articles, it was decided to keep time localization on Next rather than
 - Given a user wants to know about when an event is being held.
 - When the user opens an event article about the event on www.va.gov/`<facility name>`/events
 - Then on the event article, the `when` section should show the user the date and time, updated to the user's time localization, of when the event is being held.
-<img width="707" alt="Screenshot 2024-09-23 at 2 30 35 PM" src="https://github.com/user-attachments/assets/8d8c8ad7-e7b4-4b3f-a02a-70aa1d965490">
+  <img width="707" alt="Screenshot 2024-09-23 at 2 30 35 PM" src="https://github.com/user-attachments/assets/8d8c8ad7-e7b4-4b3f-a02a-70aa1d965490">
 
 ## Implementation
 
@@ -81,7 +81,7 @@ Next has a condition that detects whether an event has passed. If the event has 
 - Given a user wants to register for an event.
 - When the user opens the event article and the event has passed,
 - Then the text "This event already happened" should be placed where the registration link would have been.
-<img width="840" alt="Screenshot 2024-09-24 at 11 43 42 AM" src="https://github.com/user-attachments/assets/44c148b8-1856-455e-808c-fd7037f21942">
+  <img width="840" alt="Screenshot 2024-09-24 at 11 43 42 AM" src="https://github.com/user-attachments/assets/44c148b8-1856-455e-808c-fd7037f21942">
 
 ## Implementation
 
