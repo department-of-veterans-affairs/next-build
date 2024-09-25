@@ -5,9 +5,6 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 on:
-  # Runs on API call. Used for CMS-driven build triggers.
-  repository_dispatch:
-    types: [content-release]
   # Runs when called from other workflows. Used for ongoing releases for dev/staging/prod.
   workflow_call:
     inputs:

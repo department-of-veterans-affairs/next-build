@@ -6,6 +6,9 @@ on:
   # This currently UTC -> EDT.
   schedule:
     - cron: "*/30 0,12-23 * * 1-5"
+  # Runs on API call. Used for CMS-driven build triggers.
+  repository_dispatch:
+    types: [content-release]
 
 jobs:
   content-release:
