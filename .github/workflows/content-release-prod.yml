@@ -1,4 +1,4 @@
-name: "Recurring release: Prod"
+name: "Content release: Prod"
 on:
   # Can be manually triggered
   workflow_dispatch:

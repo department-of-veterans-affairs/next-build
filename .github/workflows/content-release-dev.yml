@@ -1,11 +1,11 @@
-name: "Recurring release: Dev"
+name: "Content release: Dev"
 on:
   # Can be manually triggered
   workflow_dispatch:
-  # Runs 5:35 am EDT Monday to Friday.
+  # Runs 5:05 am EDT Monday to Friday.
   # This currently UTC -> EDT.
   schedule:
-    - cron: "35 9 * * 1-5"
+    - cron: "05 9 * * 1-5"
   # Runs each time there is a new Production Tag created.
   workflow_run:
     workflows: ['Create Production Tag']
@@ -13,12 +13,12 @@ on:
     branches: [main]
 
 jobs:
-  content-release-staging:
+  content-release-dev:
     # This job should run for any valid event besides workflow_run, or workflow_run if the conclusion was successful.
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     uses: department-of-veterans-affairs/next-build/.github/workflows/content-release.yml@main
     with:
-      build_type: "staging"
+      build_type: "dev"
     secrets: inherit
 
 
