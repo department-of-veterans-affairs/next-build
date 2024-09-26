@@ -184,6 +184,36 @@ This container can be reached from your localhost (e.g. `redis://localhost:6379`
 
 ## Troubleshooting
 
-## Common Problems
+## Common Issues
+
+### Issue 1
+
+Tugboat will fail due to data validation errors when creating PRs sometimes. Assume data will be present which causes PRs to fail when that assumption is false and the expected data isn't there.
+
+**Solution**: Developers should wrap their code in conditional logic to ensure the desired data exists.
+
+### Issue 2
+
+Local export (yarn export) takes an extremely long time (50+ minutes in some cases).
+
+**Solution**: Developers should open the slug file and disable page types other than what you want to build
+
+### Issue 3
+
+Tugboat base preview fails occasionally for no known reason.
+
+**Solution**: Reset the base preview in Tugboat
+
+### Issue 4
+
+When a large number of PRs (i.e. dependabot upgrades) are opened a large number of associated preview environments are created in Tugboat which can cause general instability.
+
+**Solution**: Manually prune preview environments as needed
+
+### Issue 5
+
+Occasionally, GitHub runners don't function as expected.
+
+**Solution**: Open a ticket with platform team to find out of the issue may be due to a larger problem on the platform side before digging further into the issue yourself.
 
 ## FAQ
