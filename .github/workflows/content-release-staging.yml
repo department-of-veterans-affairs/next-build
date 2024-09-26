@@ -12,6 +12,8 @@ on:
     types: [completed]
     branches: [main]
 
+concurrency: next-build-content-release-staging
+
 jobs:
   content-release-staging:
     # This job should run for any valid event besides workflow_run, or workflow_run if the conclusion was successful.
