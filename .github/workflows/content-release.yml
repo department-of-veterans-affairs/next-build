@@ -5,12 +5,7 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 on:
-  repository_dispatch:
-    types: [content-release]
-  workflow_run:
-    workflows: ['Create Production Tag']
-    types: [completed]
-    branches: [main]
+  # Runs when called from other workflows. Used for ongoing releases for dev/staging/prod.
   workflow_call:
     inputs:
       build_type:
@@ -18,6 +13,7 @@ on:
         description: "Environment this workflow runs against"
         required: true
         default: 'PROD'
+  # Manual release.
   workflow_dispatch:
     inputs:
       build_type:
@@ -31,7 +27,7 @@ on:
           - prod
 
 concurrency:
-  group: ${{ inputs.build_type || 'prod' }} 
+  group: ${{ inputs.build_type || 'prod' }}
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
@@ -107,7 +103,7 @@ jobs:
         continue-on-error: true
         with:
           payload: '{"attachments": [{"color": "#2EB67D","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Stand by, content release for next-build coming up (using ${{ needs.validate-build-status.outputs.TAG }}). <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
-          channel_id: ${{ env.SLACK_CHANNEL }} 
+          channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
@@ -133,14 +129,14 @@ jobs:
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
         APP_ENV: ${{ inputs.build_type || 'prod' }}
-         
+
 
       ports:
         - 80
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
     steps:
-    
+
     - name: Export setup start time
       id: export-setup-start-time
       run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
@@ -208,7 +204,7 @@ jobs:
             cd out
             ls -l
           fi
-                  
+
     - name: Build sitemap
       run: cd main && yarn build:sitemap
 
@@ -237,7 +233,7 @@ jobs:
         DEST: s3://next-content.dev.va.gov
     - if: inputs.build_type == 'staging'
       name: Deploy to S3
-      run: | 
+      run: |
         cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
         ls
         cd out
@@ -251,8 +247,8 @@ jobs:
       env:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
-    
-    - if: inputs.build_type == '' 
+
+    - if: inputs.build_type == ''
       name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
@@ -262,7 +258,7 @@ jobs:
     - name: Export deploy end time
       id: export-deploy-end-time
       run: echo DEPLOY_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
-      
+
   notify-success:
     name: Notify Success
     needs: [validate-build-status, build]
@@ -380,7 +376,7 @@ jobs:
         METRIC_NAMESPACE: dsva_vagov.next_build
       steps:
         - name: Checkout
-          uses: actions/checkout@v4  
+          uses: actions/checkout@v4
         #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
         - name: Get current timestamp
