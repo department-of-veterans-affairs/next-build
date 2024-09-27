@@ -4,11 +4,27 @@ Content Release is what VA teams call the process of moving new published conten
 
 See [CMS Content Release](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/READMES/cms-content-release.md) for more information on how content release is currently triggered via CMS for `content-build` and BRD.
 
-In the short term, next-build will operate in very much the same way. When content is published in Drupal, a dispatch to our [content-release workflow](/.github/workflows/content-release.yml) will be triggered. This workflow builds all the static pages and assets currently known to next-build (as discovered by `RESOURCE_TYPES_TO_BUILD` in the catchall [slug file](/READMEs/slug.md)). It also generates a sitemap for these pages. Once the build process is completed, all of these items are pushed to the appropriate [S3 bucket](/READMEs/devops/infrastructure.md). Once the files are uploaded to S3, they are available for public traffic.
+In the short term, next-build will operate in very much the same way. All content that is managed by Next Build will be built with each content release, regardless of whether it is new/changed or unchanged.
 
-This workflow also happens whenever new code is merged to the main branch, to ensure the S3 bucket has the most up-to-date changes.
+## Production content release
 
-Right now, the workflow always runs using prod.cms.va.gov as it's data source and pushes output to the production next-content.www S3 bucket. If/when the workflow is parameterized to run against multiple targets (similar to how content-build builds `vagovdev`, `vagovstaging` and `vagovprod`), the sources and output buckets should also be adjusted.
+Production content release currently is triggered by the following events:
+
+- On a schedule, every 30 minutes between 8 am and 8 pm ET
+- Manually through the Github Actions interface
+- When specific content is published in the CMS
+
+Production content releases use https://prod.cms.va.gov/ as their content source.
+
+## Dev and Staging content release
+
+Dev and Staging content releases are triggered by the following events:
+
+- On a schedule, nightly at 5:05 am ET or 5:35 am ET for Dev arnd Staging respectively. This keeps content relatively fresh even when there are no code changes to trigger a Dev or Staging content release.
+- When any code is merged to the `main` branch of Next Build and has a successfull CI run on main - this is to keep Dev and Staging up-to-date with code changes they come in.
+- Manually through the Github Actions interface
+
+Dev and Staging content releases use https://main-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/ as their content source.
 
 # Archiving
 
