@@ -1,4 +1,4 @@
-# Layout rollout
+# Feature Flags
 
 Creating a template for CMS content in Next Build requires coordination between Next Build and the CMS. Migrating an existing template in Content Build into Next Build additionally requires coordination in that repo.
 
@@ -21,6 +21,8 @@ A checked value corresponds to 'on' or 'true' for the string in question.
 Adding a new feature flag is a CMS code change. The list of feature flags is maintained in the repo at [config/sync/feature_toggle.features.yml](https://github.com/department-of-veterans-affairs/va.gov-cms/blob/main/config/sync/feature_toggle.features.yml). Adding a new flag is as simple as adding a new item under `features:`.
 
 ### Using feature flags in code
+
+In order to help understand how the feature flags work, there is [a set of testing steps that shows how feature flags should function in code](#local-testing-of-feature-flags) at the end of this readme.
 
 #### Next Build
 
@@ -134,7 +136,7 @@ Using the flag can be done by using `${}` within that string literal to include 
 
 Note the negation in front of the feature flag value. In most cases we want this code to be active when the feature flag is _inactive_. Activating the feature flag should deactivate the code.
 
-## Rollout
+## Layout Rollout to Production
 
 In order to roll out a content type on production, the procedure is simple:
 
@@ -149,3 +151,41 @@ In order to roll out a content type on production, the procedure is simple:
    b. If flags are used in Content Build, the change will also become active there. Typically this would turn off that content type in Content Build.
 
    c. CMS will begin using Next Build Preview Server links for that content type. Without the flag active, a content type will use Content Build Preview for its preview. Turning the flag on tells the CMS to use the Next Build link.
+
+## Local testing of feature flags
+
+To get a handle on how feature flags work, the following testing steps may help demonstrate how it is intended to work.
+
+### Setup
+
+1. In your local CMS instance, check out main, pull the latest DB (`ddev pull va --skip-files`), and then ensure it is running correctly.
+2. Check this branch out for Next Build.
+3. Make sure that your .env.local file is pointed towards your local CMS in .env.local. Make sure this is `http://va-gov-cms.ddev.site` rather than `https`
+4. Start Next Build locally: `yarn dev`
+
+### First tests - enabling content types from the CMS.
+
+1. Visit an events listing page: http://localhost:3999/pittsburgh-health-care/events/. This should return a 404/page not found.
+2. Visit the system feature toggle page, https://va-gov-cms.ddev.site/admin/config/system/feature_toggle. Find the Event Listing flag, check it, and save (`FEATURE_NEXT_BUILD_CONTENT_EVENT_LISTING`).
+3. Stop and restart local Next Build.
+4. Reload http://localhost:3999/pittsburgh-health-care/events/ (it may reload on its own). This should now load.
+5. Visit any event page, i.e. http://localhost:3999/pittsburgh-health-care/events/72337/. It should return a 404.
+6. Visit the system feature toggle page, https://va-gov-cms.ddev.site/admin/config/system/feature_toggle. Find the Event flag, check it, and save (`FEATURE_NEXT_BUILD_CONTENT_EVENT`).
+7. Stop and restart local Next Build.
+8. Reload http://localhost:3999/pittsburgh-health-care/events/72337/ (it may reload on its own). This page should now load.
+
+### Enabling content types from the environment file.
+
+1. Start your local Next Build if it is not running.
+2. Visit a Vet Center page: http://localhost:3999/oklahoma-city-vet-center/. It should return a 404.
+3. In your envs/.env.local file, add the following variable: `FEATURE_NEXT_BUILD_CONTENT_VET_CENTER=true`
+4. Stop and restart local Next Build.
+5. Reload http://localhost:3999/oklahoma-city-vet-center/ (it may reload on its own). The page should now load.
+
+### Testing the special all content variable.
+
+1. Start your local Next Build if it is not running.
+2. Visit a Story page: http://localhost:3999/portland-health-care/stories/portland-veteran-receives-first-place-award-for-poetry-entry/. It should return a 404.
+3. In your envs/.env.local file, add the following variable: `FEATURE_NEXT_BUILD_CONTENT_ALL=true`
+4. Stop and restart local Next Build.
+5. Reload http://localhost:3999/portland-health-care/stories/portland-veteran-receives-first-place-award-for-poetry-entry/ (it may reload on its own). The page should now load.
