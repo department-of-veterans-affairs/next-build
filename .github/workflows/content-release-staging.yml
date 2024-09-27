@@ -1,4 +1,4 @@
-name: "Content release: Dev"
+name: "Content release: Staging"
 on:
   # Can be manually triggered
   workflow_dispatch:
