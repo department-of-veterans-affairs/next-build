@@ -4,17 +4,17 @@ The env-loader package is our custom solution for ingesting environment variable
 
 It collects variables from:
 
-1. appropriate `.env` file in `envs/` based on the `APP_ENV` env var
-
-- (defaults to `.env.local`)
-
-2. the CMS environment's defined feature flags
+1. the CMS environment's defined feature flags
 
 - which CMS enviroment determined via `NEXT_PUBLIC_BASE_DRUPAL_URL` env var
 
+2. appropriate `.env` file in `envs/` based on the `APP_ENV` env var
+
+- (defaults to `.env.local`)
+
 3. CLI options included with the command
 
-After collecting (and overwriting values as needed based on the order above), all env vars are set and the command runs.
+After collecting (and overwriting values as needed based on the order above), all env vars are set and the command runs. Keep in mind the ordering. If the same environment variable is set in both the CMS feature flags and in the .env file, the value in the .env file will be chosen.
 
 For a full list of CLI options available, see [cli-options.tsx](packages/env-loader/src/cli-options.ts)
 

@@ -23,7 +23,10 @@ import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import { Event } from '@/templates/layouts/event'
 import { EventListing } from '@/templates/layouts/eventListing'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  RESOURCE_TYPES,
+  PAGE_RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import {
   getExpandedStaticPropsContext,
   getStaticPropsResource,
@@ -44,17 +47,31 @@ import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 
-// We define this here because, theoretically, another file could build other types.
-export const RESOURCE_TYPES_TO_BUILD = [
-  RESOURCE_TYPES.STORY_LISTING,
-  RESOURCE_TYPES.STORY,
-  RESOURCE_TYPES.EVENT,
-  RESOURCE_TYPES.EVENT_LISTING,
-  RESOURCE_TYPES.PRESS_RELEASE,
-  RESOURCE_TYPES.PRESS_RELEASE_LISTING,
-  RESOURCE_TYPES.RESOURCES_SUPPORT,
-  RESOURCE_TYPES.VET_CENTER,
-] as const
+// IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
+// environment variable set in one of two places:
+// 1. The CMS feature flags for the target environment
+// 2. The .env file for the given environment (i.e. .env.local)
+//
+// Please see READMEs/layout-rollout.md for more detailed information.
+
+// RESOURCE_TYPES_TO_BUILD technically is not guaranteed to be reassigned.
+// eslint-disable-next-line prefer-const
+let RESOURCE_TYPES_TO_BUILD = []
+// FEATURE_NEXT_BUILD_CONTENT_ALL is checked to allow local developers to bypass flag checks.
+if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
+  RESOURCE_TYPES_TO_BUILD = PAGE_RESOURCE_TYPES
+} else {
+  // Check the env variables loaded from the CMS feature flags and env files to determine what
+  // content types to build.
+  for (let x = 0; x < PAGE_RESOURCE_TYPES.length; x++) {
+    const typeName = PAGE_RESOURCE_TYPES[x].replace(/^node--/, '').toUpperCase()
+    const flagName = `FEATURE_NEXT_BUILD_CONTENT_${typeName}`
+    // Note 'true' as a string is correct here. Env variables are always strings.
+    if (process.env[flagName] === 'true') {
+      RESOURCE_TYPES_TO_BUILD.push(PAGE_RESOURCE_TYPES[x])
+    }
+  }
+}
 
 export const DynamicBreadcrumbs = dynamic(
   () => import('@/templates/common/breadcrumbs'),
