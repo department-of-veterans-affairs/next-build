@@ -1944,10 +1944,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:^8.4.1":
-  version: 8.4.1
-  resolution: "@faker-js/faker@npm:8.4.1"
-  checksum: d802d531f8929562715adc279cfec763c9a4bc596ec67b0ce43fd0ae61b285d2b0eec6f1f4aa852452a63721a842fe7e81926dce7bd92acca94b01e2a1f55f5a
+"@faker-js/faker@npm:^9.0.3":
+  version: 9.0.3
+  resolution: "@faker-js/faker@npm:9.0.3"
+  checksum: 69e8af494117ec845de3ca740af105560fffffa4daa83ee0efc49026b0e44420b866987d664108957d49951fc5170adcbd4595770f91df1e18d776da32ddff8e
   languageName: node
   linkType: hard
 
@@ -13561,7 +13561,7 @@ __metadata:
     "@department-of-veterans-affairs/component-library": ^45.0.0
     "@department-of-veterans-affairs/formation": ^11.0.12
     "@department-of-veterans-affairs/web-components": ^11.2.9
-    "@faker-js/faker": ^8.4.1
+    "@faker-js/faker": ^9.0.3
     "@fortawesome/fontawesome-free": ^5.15.4
     "@next/env": ^14.1.0
     "@octokit/rest": ^21.0.1
