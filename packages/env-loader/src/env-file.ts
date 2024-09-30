@@ -4,7 +4,7 @@ import dotenvExpand from 'dotenv-expand'
 import { EnvVars } from '.'
 
 const loadEnvVarsFromPath = (path: string): EnvVars => {
-  const envVars = {}
+  let envVars = {}
   dotenvExpand.expand(
     dotenv.config({
       path,
