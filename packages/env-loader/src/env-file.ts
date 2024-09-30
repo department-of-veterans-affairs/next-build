@@ -4,12 +4,15 @@ import dotenvExpand from 'dotenv-expand'
 import { EnvVars } from '.'
 
 const loadEnvVarsFromPath = (path: string): EnvVars => {
-  let envVars = {}
+  const envVars = {}
+  // eslint-disable-next-line no-console
+  console.log(`trying to load vars from ${path}`)
   dotenvExpand.expand(
     dotenv.config({
-      path,
+      path: path,
       override: true,
       processEnv: envVars,
+      debug: true,
     })
   )
 
