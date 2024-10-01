@@ -52,7 +52,7 @@ For event articles, it was decided to keep time localization on Next rather than
 
 ## Implementation
 
-The timezone calculations can be found in the [date.ts](src/lib/utils/date.ts) file line 219 `deriveFormattedTimestamp`.
+The timezone calculations can be found in the [date.ts](../src/lib/utils/date.ts) file line 219 `deriveFormattedTimestamp`.
 
 ## Contact/Owner
 
@@ -85,7 +85,7 @@ Next has a condition that detects whether an event has passed. If the event has 
 
 ## Implementation
 
-The business logic can be found in the [event index.ts](src/templates/layouts/event/index.tsx) file line 224.
+The business logic can be found in the [event index.ts](../src/templates/layouts/event/index.tsx) file line 224.
 
 ## Contact/Owner
 

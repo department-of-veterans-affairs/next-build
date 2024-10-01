@@ -4,13 +4,13 @@ The goal of this document is to be used as a reference sheet to quickstart devel
 
 ## Recommended READMEs to start with
 
-- [generators.md](READMEs/generators.md) : Read to understand how to quickly generate layout, component, and query templates
-- [queries.md](READMEs/quickstart.md) : Read to understand the database queries or search parameters that are being used in your project, as this file typically contains information or documentation related to database interactions.
-- [templates.md](READMEs/templates.md) : Read to understand the structure and organization of front-end templates in the src/templates directory, including their categorization, required files, and usage of React components and types.
-- [typescript.md](READMEs/typescript.md) : Read to understand how Typescript is used in the next-build application, including the structure and usage of specific types, the flow of data through the application, and how to configure Typescript for development. It also provides insights into the application's architecture and the rationale behind certain design decisions.
-- [testing.md](READMEs/testing.md) : Read to understand the testing procedures.
-- [[...slug.md]]() : Read to understand how next-build handles page routing and the history and thought process to its decision.
-- [preview.md](READMEs/preview.md) : Recommended README for preview issue during setup
+- [generators.md](generators.md) : Read to understand how to quickly generate layout, component, and query templates
+- [queries.md](queries.md) : Read to understand the database queries or search parameters that are being used in your project, as this file typically contains information or documentation related to database interactions.
+- [templates.md](templates.md) : Read to understand the structure and organization of front-end templates in the src/templates directory, including their categorization, required files, and usage of React components and types.
+- [typescript.md](typescript.md) : Read to understand how Typescript is used in the next-build application, including the structure and usage of specific types, the flow of data through the application, and how to configure Typescript for development. It also provides insights into the application's architecture and the rationale behind certain design decisions.
+- [testing.md](testing.md) : Read to understand the testing procedures.
+- [[...slug.md]]([[...slug]].md) : Read to understand how next-build handles page routing and the history and thought process to its decision.
+- [preview.md](preview.md) : Recommended README for preview issue during setup
 
   The rest of the READMEs still hold valuable information, but might be running in the background, used for specific situations, or holds information that will make the development process easier, but is not mandatory to get things up and running
 
@@ -52,9 +52,8 @@ This is a high-level breakdown of what will the core areas in the repository you
 
 ## Generating a layout
 
-As listed above, please read [generators.md](READMEs/generators.md)
+As listed above, please read [generators.md](generators.md)
 
-[Link to environment setup documentation](https://github.com/department-of-veterans-affairs/next-build/tree/main?tab=readme-ov-file#next-build)
 A video walkthrough should be available to assist in setting up. If not compressed and posted here yet. The Slack thread in which they exist is [here](https://dsva.slack.com/archives/D071CCW690E/p1723650927105169). The 30 minute video is the layout creation walkthrough.
 
 > [!NOTE]
@@ -90,7 +89,7 @@ When creating a new layout, create a new feature branch from main and use `yarn 
     - Path `src/data/queries/tests/snapshots/<layout name.test.tsx.snap>`
       - Automatically generated jest snapshot
       - Compares current output of `formatData` to the snapshot
-        - Snapshot may not update immediately and would require to run a manual `yarn test -- -u`. Details from [testing.md](READMEs/testing.md)
+        - Snapshot may not update immediately and would require to run a manual `yarn test -- -u`. Details from [testing.md](testing.md)
     - Path `src/mocks/<layout name.mock.json>`
       - Copy and paste one JSON object from Drupal API to be used in Jest tests
     - Path `playwright/tests/<layout name.spec.js>`
@@ -179,7 +178,7 @@ You won’t be able to commit unless:
 - Yarn test will run tests on the entirety of next-build
   - Once you commit and push for pull request, a series of tests will run on the pull request
 - One of the common points of failed passing is tugboat which will have an error log to view why tugboat failed
-  - Our [tugboat ReadME](READMEs/tugboat.md) is brief but should redirect to the VA tugboat doc for more information.
+  - Our [tugboat ReadME](tugboat.md) is brief but should redirect to the VA tugboat doc for more information.
 
 ## Test commands
 
