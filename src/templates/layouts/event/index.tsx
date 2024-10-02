@@ -289,7 +289,6 @@ export const Event = ({
                     </p>
                     <va-link
                       calendar
-                      className="recurrent-event"
                       data-description={description}
                       data-end={dateRange?.endValue}
                       data-location={directionsString}

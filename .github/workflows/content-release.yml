@@ -216,8 +216,6 @@ jobs:
             touch sitemap-nb.xml
         fi
         
-
-
         - name: setup bucket descriptor
         id: bucket-descriptor
         run: |
