@@ -70,11 +70,7 @@ export function PressReleaseListing({
           <h1 id="article-heading">{title}</h1>
           <div className="vads-l-grid-container--full">
             <div className="va-introtext">
-              {introText && (
-                <p className="events-show" id="office-events-description">
-                  {introText}
-                </p>
-              )}
+              {introText && <p id="office-events-description">{introText}</p>}
             </div>
             <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
             {totalPages > 1 && (
