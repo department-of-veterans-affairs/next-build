@@ -147,7 +147,7 @@ jobs:
         repository: department-of-veterans-affairs/next-build
         #ref: ${{ needs.validate-build-status.outputs.TAG }}
         ref: ${{ github.head_ref || github.ref_name }}
-        path: main
+        #path: main
         sparse-checkout-cone-mode: false
 
     - name: Checkout vets-website
@@ -209,6 +209,7 @@ jobs:
       run: | 
         cd main && yarn build:sitemap
         cd out
+        ls
         cp sitemap.xml sitemap-nb.xml 
 
         - name: setup bucket descriptor
