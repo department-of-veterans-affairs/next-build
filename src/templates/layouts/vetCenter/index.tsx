@@ -163,9 +163,7 @@ export function VetCenter({
             <>
               <h1 aria-describedby="vet-center-title">{title}</h1>
               {officialName && title !== officialName && (
-                <p id="vet-center-title" className="field-official-name">
-                  Also called the {officialName}
-                </p>
+                <p id="vet-center-title">Also called the {officialName}</p>
               )}
             </>
           )}
