@@ -212,11 +212,10 @@ jobs:
         if [ -f sitemap.xml ]; then
             echo "File found!"
             cp sitemap.xml sitemap-nb.xml 
-        fi
-        if [! -f sitemap.xml ]; then
-            echo "File Not found!"
+        else
             touch sitemap-nb.xml
         fi
+        
 
 
         - name: setup bucket descriptor
