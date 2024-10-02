@@ -215,24 +215,25 @@ jobs:
         else
             touch sitemap-nb.xml
         fi
+      shell: bash
         
-        - name: setup bucket descriptor
-        id: bucket-descriptor
-        run: |
-          if [ "${{ inputs.build_type }}" == 'dev' ]; then
-            echo NEXT_SITEMAP_LOCATION="https://dev.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-            echo OLD_SITEMAP_LOCATION="https://dev.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-          elif [ "${{ inputs.build_type }}" == 'staging'] ; then
-            echo NEXT_SITEMAP_LOCATION="https://staging.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-            echo OLD_SITEMAP_LOCATION="https://staging.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-          elif [ "${{ inputs.build_type }}" == 'prod' ]; then
-            echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-            echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-          else
-            echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-            echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-          fi
-        shell: bash
+    - name: setup bucket descriptor
+      id: bucket-descriptor
+      run: |
+        if [ "${{ inputs.build_type }}" == 'dev' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://dev.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://dev.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.build_type }}" == 'staging'] ; then
+          echo NEXT_SITEMAP_LOCATION="https://staging.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://staging.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.build_type }}" == 'prod' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        else
+          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        fi
+      shell: bash
   
     - name: Generate new sitemap
       run: |
