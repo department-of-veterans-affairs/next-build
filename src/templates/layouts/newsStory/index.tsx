@@ -46,7 +46,7 @@ export const NewsStory = ({
                 {caption}
               </div>
               {author && <StaffNewsProfile {...author} />}
-              <div className="created-line vads-u-margin-bottom--2p5">
+              <div className="vads-u-margin-bottom--2p5">
                 <time dateTime={formatDate(date)}>{formatDate(date)}</time>
               </div>
 
@@ -57,7 +57,7 @@ export const NewsStory = ({
                   <p>{introText}</p>
                 </div>
                 <div
-                  className="full-story"
+                  className=""
                   dangerouslySetInnerHTML={{
                     __html: bodyContent,
                   }}

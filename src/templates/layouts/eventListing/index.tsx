@@ -62,11 +62,7 @@ export function EventListing({
 
           <h1 id="article-heading">{title}</h1>
           <div className="va-introtext">
-            {introText && (
-              <p className="events-show" id="office-events-description">
-                {introText}
-              </p>
-            )}
+            {introText && <p id="office-events-description">{introText}</p>}
           </div>
         </div>
 
