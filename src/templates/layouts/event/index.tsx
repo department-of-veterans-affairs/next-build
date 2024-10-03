@@ -303,12 +303,14 @@ export const Event = ({
 
                 {formattedDates.length > 5 && (
                   <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-justify-content--flex-end vads-u-width--full medium-screen:vads-u-width--auto">
-                    <va-button
-                      id="show-all-recurring-events"
-                      secondary
-                      text="Show all times"
-                      onClick={handleAllEventsToggle}
-                    />
+                    {!showAllEvents && (
+                      <va-button
+                        id="show-all-recurring-events"
+                        secondary
+                        text="Show all times"
+                        onClick={handleAllEventsToggle}
+                      />
+                    )}
                   </div>
                 )}
               </va-accordion-item>
