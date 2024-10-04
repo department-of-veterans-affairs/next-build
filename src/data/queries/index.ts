@@ -8,6 +8,7 @@ import * as AudienceTopics from './audienceTopics'
 import * as Banners from './banners'
 import * as BenefitsHub from './benefitsHubLinks'
 import * as Button from './button'
+import * as Checklist from './checklist';
 import * as CollapsiblePanel from './collapsiblePanel'
 import * as CollapsiblePanelItem from './collapsiblePanelItem'
 import * as ContactInfo from './contactInfo'
@@ -58,6 +59,7 @@ export const QUERIES_MAP = {
   // Standard Drupal entity data queries
   // Nodes
   [RESOURCE_TYPES.BENEFITS_HUB]: BenefitsHub, // "Benefits Hub Landing Page"
+  [RESOURCE_TYPES.CHECKLIST]: Checklist,
   [RESOURCE_TYPES.EVENT]: Event,
   [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
   [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
