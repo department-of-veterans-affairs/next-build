@@ -1,5 +1,6 @@
 export const RESOURCE_TYPES = {
   BENEFITS_HUB: 'node--landing_page',
+  CHECKLIST: 'node--checklist',
   EVENT: 'node--event',
   EVENT_LISTING: 'node--event_listing',
   HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
@@ -21,6 +22,7 @@ export const RESOURCE_TYPES = {
 // nodes that are entity references but that
 // do not have individual pages.
 export const PAGE_RESOURCE_TYPES = [
+  RESOURCE_TYPES.CHECKLIST,
   RESOURCE_TYPES.EVENT,
   RESOURCE_TYPES.EVENT_LISTING,
   RESOURCE_TYPES.RESOURCES_SUPPORT,
