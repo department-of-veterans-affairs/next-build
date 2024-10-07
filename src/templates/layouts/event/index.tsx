@@ -196,14 +196,16 @@ export const Event = ({
             </div>
           )}
           {/* Registration */}
-          {registrationRequired && (
+          {registrationRequired && eventCTA && (
             <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-margin-bottom--3">
               <p className="vads-u-margin--0 vads-u-margin-right--0p5">
                 {eventCTA == 'register' && <strong>Registration:</strong>}
-                {eventCTA == 'apply' && <strong>Apply:</strong>}
+                {eventCTA == 'apply' && <strong>Application:</strong>}
                 {eventCTA == 'rsvp' && <strong>RSVP:</strong>}
               </p>
-              <p className="vads-u-margin--0">Required</p>
+              {eventCTA != 'more_details' && (
+                <p className="vads-u-margin--0">Required</p>
+              )}
             </div>
           )}
           <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-flex--1">
@@ -228,7 +230,7 @@ export const Event = ({
                 {link && (
                   <p className="vads-u-margin--0">
                     <a className="vads-c-action-link--green" href={link?.uri}>
-                      {eventCTA
+                      {eventCTA && eventCTA != 'more_details'
                         ? eventCTA.toLowerCase() === 'rsvp'
                           ? eventCTA.toUpperCase()
                           : eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
