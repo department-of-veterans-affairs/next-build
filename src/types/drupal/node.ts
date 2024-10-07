@@ -49,6 +49,7 @@ import {
 export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
+  | NodeChecklist
   | NodeFaqMultipleQA
   | NodeHealthCareLocalFacility
   | NodeLandingPage
@@ -397,6 +398,21 @@ export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
     | ParagraphQaGroup
   )[]
   field_buttons_repeat: boolean
+}
+
+export interface NodeChecklistSection extends DrupalNode {
+  field_checklist_items: string[]
+  field_section_header: string
+  field_section_intro: string
+}
+
+export interface NodeChecklistSections {
+  field_checklist_sections: NodeChecklistSection[]
+}
+
+export interface NodeChecklist extends NodeAbstractResource {
+  field_buttons_repeat: boolean
+  field_checklist: NodeChecklistSections
 }
 
 export interface NodeSupportService extends DrupalNode {

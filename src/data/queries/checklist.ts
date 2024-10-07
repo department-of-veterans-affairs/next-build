@@ -1,8 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { NodeChecklist } from '@/types/drupal/node'
-import { Checklist } from '@/types/formatted/checklist'
+import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -10,15 +9,34 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 
+// Types
+import { AlertSingle } from '@/types/formatted/alert'
+import { AudienceTopics } from '@/types/formatted/audienceTopics'
+import { Button } from '@/types/formatted/button'
+import { Checklist } from '@/types/formatted/checklist'
+import { ContactInfo } from '@/types/formatted/contactInfo'
+import { NodeChecklist } from '@/types/drupal/node'
+import { TaxonomyTermLcCategories } from '@/types/drupal/taxonomy_term'
+
 // Define the query params for fetching node--checklist.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-    // uncomment to add referenced entity data to the response
-    // .addInclude([
-    //  'field_media',
-    //  'field_media.image',
-    //  'field_administration',
-    // ])
+  return new DrupalJsonApiParams().addInclude([
+    ...getNestedIncludes(
+      'field_alert_single',
+      PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE
+    ),
+    'field_buttons',
+    ...getNestedIncludes(
+      'field_contact_information',
+      PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION
+    ),
+    'field_related_benefit_hubs',
+    'field_related_information',
+    ...getNestedIncludes(
+      'field_tags',
+      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS
+    ),
+  ])
 }
 
 // Define the option types for the data loader.
@@ -55,6 +73,15 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
 
   return {
     ...entityBaseFields(entity),
-    sections: formattedChecklistSections
+    alert: formatParagraph(entity.field_alert_single) as AlertSingle,
+    buttons: entity.field_buttons.map?.(formatParagraph) as Button[],
+    contactInformation: formatParagraph(
+      entity.field_contact_information
+    ) as ContactInfo,
+    intro: entity.field_intro_text_limited_html.processed,
+    otherCategories: entity.field_other_categories.map?.(formatParagraph) as TaxonomyTermLcCategories[],
+    primaryCategory: entity.field_primary_category,
+    repeatButtons: entity.field_buttons_repeat,
+    sections: formattedChecklistSections,
   }
 }
