@@ -18,7 +18,7 @@ The salient pieces of that application architecture can be summarized via the fo
 
 As we follow the data flow through the steps outlined above, the first important piece of the flow is fetching data from our CMS, in this case Drupal. In order to reap the benefits of strongly typed programming, we need to be able to define types for all of the possible data structures that Drupal might give us (e.g. News Story, Event, etc.)
 
-Fortunately, we have some additional building blocks at our disposal for defining each of these types. `next-build` is built on top of [Next.js for Drupal](https://next-drupal.org/) (`next-drupal`) - which is also written in Typescript - and `next-drupal`[provides a number of types](https://github.com/chapter-three/next-drupal/blob/main/packages/next-drupal/src/types.ts) for standard Drupal data structures. For example, `next-drupal` defines a type `DrupalNode` which provides a defined structure that is shared by any node data. Our defined types for our Drupal nodes extend this basic type, adding information about the specific fields the node makes use of. The News Story node provides a good example:
+Fortunately, we have some additional building blocks at our disposal for defining each of these types. `next-build` is built on top of [Next.js for Drupal](https://next-drupal.org/) (`next-drupal`) - which is also written in Typescript - and `next-drupal`[provides a number of types](https://github.com/chapter-three/next-drupal/blob/main/packages/next-drupal/src/types/drupal.ts) for standard Drupal data structures. For example, `next-drupal` defines a type `DrupalNode` which provides a defined structure that is shared by any node data. Our defined types for our Drupal nodes extend this basic type, adding information about the specific fields the node makes use of. The News Story node provides a good example:
 
 ```
 export interface NodeNewsStory extends DrupalNode {
@@ -54,7 +54,7 @@ One thing that stands out when looking at the type definitions above is some ver
 1. The names are a mouthful and require a lot of excess key strokes.
 2. We don't want our business logic tightly coupled with the specific CMS instance. One good rule of thumb for achieving loose coupling with the CMS is to structure things so that the CMS could be swapped out.
 
-So, acknowledging those two considerations, the next key step in our process is converting these data structures into a standardized format. We shorten the names and make them CMS agnostic. Throughout this applicaion, we refer to these types as our "formatted" types. The best way to demonstrate this is to look at the corresponding examples to what we saw above:
+So, acknowledging those two considerations, the next key step in our process is converting these data structures into a standardized format. We shorten the names and make them CMS agnostic. Throughout this application, we refer to these types as our "formatted" types. The best way to demonstrate this is to look at the corresponding examples to what we saw above:
 
 ```
 export type NewsStory = PublishedEntity & {

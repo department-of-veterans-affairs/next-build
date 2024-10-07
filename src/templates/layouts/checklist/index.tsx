@@ -1,8 +1,6 @@
-type ChecklistProps = {
-  title: string
-}
+import { Checklist } from '@/types/formatted/checklist'
 
-export function Checklist({ title }: ChecklistProps) {
+export function Checklist({ title }: Checklist) {
   return (
     <div>
       <p>{title}</p>
