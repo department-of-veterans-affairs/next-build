@@ -193,14 +193,14 @@ export const deriveMostRecentDate = (
 ) => {
   const currentTime = Math.floor(Date.now() / 1000)
 
-  // Filter for ongoing and future events
-  const ongoingAndFutureEvents = datetimeRange.filter((event) => {
-    return event.endValue > currentTime
-  })
+  // Filter for future events
+  const futureEvents = datetimeRange.filter(
+    (event) => event.value > currentTime
+  )
 
   // If there are future events, return closest event
-  if (ongoingAndFutureEvents.length > 0) {
-    return ongoingAndFutureEvents.reduce((closest, current) => {
+  if (futureEvents.length > 0) {
+    return futureEvents.reduce((closest, current) => {
       return closest.value < current.value ? closest : current
     })
   }
