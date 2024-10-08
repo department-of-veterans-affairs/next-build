@@ -2,12 +2,13 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { PARAGRAPH_RESOURCE_TYPES, RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Types
 import { AlertSingle } from '@/types/formatted/alert'
@@ -18,7 +19,6 @@ import { ContactInfo } from '@/types/formatted/contactInfo'
 import { NodeChecklist } from '@/types/drupal/node'
 import { TaxonomyTermLcCategories } from '@/types/drupal/taxonomy_term'
 
-// Define the query params for fetching node--checklist.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     ...getNestedIncludes(
@@ -39,13 +39,11 @@ export const params: QueryParams<null> = () => {
   ])
 }
 
-// Define the option types for the data loader.
 export type ChecklistDataOpts = {
   id: string
   context?: ExpandedStaticPropsContext
 }
 
-// Implement the data loader.
 export const data: QueryData<ChecklistDataOpts, NodeChecklist> = async (
   opts
 ): Promise<NodeChecklist> => {
