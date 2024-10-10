@@ -70,7 +70,7 @@ export function StoryListing({
           <h1>{title}</h1>
           <div className="vads-l-grid-container--full">
             <div className="va-introtext">
-              {introText && <p className="events-show">{introText}</p>}
+              {introText && <p>{introText}</p>}
             </div>
             <div className="vads-l-grid-container--full">
               <ul className="usa-unstyled-list">{storyTeasers}</ul>

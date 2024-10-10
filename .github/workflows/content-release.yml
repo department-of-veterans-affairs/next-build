@@ -206,7 +206,52 @@ jobs:
           fi
 
     - name: Build sitemap
-      run: cd main && yarn build:sitemap
+      run: | 
+        cd main && yarn build:sitemap
+        cd out
+        if [ -f sitemap.xml ]; then
+            echo "File found!"
+            cp sitemap.xml sitemap-nb.xml 
+        else
+            touch sitemap-nb.xml
+        fi
+      shell: bash
+        
+    - name: setup bucket descriptor
+      id: bucket-descriptor
+      run: |
+        if [ "${{ inputs.build_type }}" == 'dev' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://dev.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://dev.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.build_type }}" == 'staging'] ; then
+          echo NEXT_SITEMAP_LOCATION="https://staging.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://staging.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.build_type }}" == 'prod' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        else
+          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        fi
+      shell: bash
+  
+    - name: Generate new sitemap
+      run: |
+        cd main
+        cd out
+        echo "${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}"
+        cat <<'EOF' >> sitemap.xml
+        <?xml version="1.0" encoding="UTF-8"?>
+          <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <sitemap>
+              <loc>${{steps.bucket-descriptor.outputs.NEXT_SITEMAP_LOCATION}}</loc>
+            </sitemap>
+            <sitemap>
+              <loc>${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}</loc>
+            </sitemap>
+          </sitemapindex>
+        EOF
+        
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4.0.2
