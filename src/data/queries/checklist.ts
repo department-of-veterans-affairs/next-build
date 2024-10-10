@@ -1,5 +1,6 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { queries } from '.'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { PARAGRAPH_RESOURCE_TYPES, RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -15,6 +16,7 @@ import { AlertSingle } from '@/types/formatted/alert'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
 import { Button } from '@/types/formatted/button'
 import { Checklist } from '@/types/formatted/checklist'
+import { ChecklistItems } from '@/types/formatted/checklistItems'
 import { ContactInfo } from '@/types/formatted/contactInfo'
 import { NodeChecklist } from '@/types/drupal/node'
 import { TaxonomyTermLcCategories } from '@/types/drupal/taxonomy_term'
@@ -26,6 +28,11 @@ export const params: QueryParams<null> = () => {
       PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE
     ),
     'field_buttons',
+    // 'field_checklist',
+    ...getNestedIncludes(
+      'field_checklist',
+      PARAGRAPH_RESOURCE_TYPES.CHECKLIST
+    ),
     ...getNestedIncludes(
       'field_contact_information',
       PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION
@@ -59,20 +66,15 @@ const entity = (await fetchSingleEntityOrPreview(
 export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
   entity: NodeChecklist
 ) => {
-  const formattedChecklistSections = entity.field_checklist_sections
-    ? entity.field_checklist_sections.map(section => {
-      return {
-        items: section.field_checklist_items,
-        header: section.field_section_header,
-        intro: section.field_section_intro
-      }
-    })
-    : []
-
   return {
     ...entityBaseFields(entity),
     alert: formatParagraph(entity.field_alert_single) as AlertSingle,
     buttons: entity.field_buttons.map?.(formatParagraph) as Button[],
+    checklist: entity.field_checklist,
+    // checklist: queries.formatData(PARAGRAPH_RESOURCE_TYPES.CHECKLIST, entity.field_checklist.field_checklist_sections),
+    // checklist: entity.field_checklist.field_checklist_sections.map(section => {
+    //   return [...getNestedIncludes('field_checklist', PARAGRAPH_RESOURCE_TYPES.CHECKLIST)]
+    // }),
     contactInformation: formatParagraph(
       entity.field_contact_information
     ) as ContactInfo,
@@ -80,6 +82,5 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
     otherCategories: entity.field_other_categories.map?.(formatParagraph) as TaxonomyTermLcCategories[],
     primaryCategory: entity.field_primary_category,
     repeatButtons: entity.field_buttons_repeat,
-    sections: formattedChecklistSections,
   }
 }
