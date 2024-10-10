@@ -9,7 +9,7 @@ export function Checklist({
   intro,
   title
 }: Checklist) {
-  console.log('checklist: ', checklist);
+  console.log('checklist: ', checklist[0]);
   return (
     <main className="va-l-detail-page">
       <div className="usa-grid usa-grid-full">
@@ -24,6 +24,14 @@ export function Checklist({
               {intro && <div className="va-introtext" dangerouslySetInnerHTML={{ __html: intro }} />}
               {alert && <AlertSingle {...alert} />}
               {buttons && <SecondaryButtonGroup buttons={buttons} />}
+              {checklist?.length > 0 && (
+                checklist.map(list =>
+                  <>
+                    {list.header && <h2>{list.header}</h2>}
+                    {list.intro && <p>{list.intro}</p>}
+                  </>
+                )
+              )}
             </article>
           </div>
         </div>
