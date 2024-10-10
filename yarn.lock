@@ -13400,7 +13400,7 @@ __metadata:
     nock: ^13.5.4
     node_extra_ca_certs_mozilla_bundle: ^1.0.6
     npm: ^10.8.2
-    playwright-core: ^1.42.1
+    playwright-core: ^1.47.2
     plop: ^4.0.1
     prettier: ^3.2.5
     prettier-eslint: ^16.3.0
@@ -14693,7 +14693,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.48.0, playwright-core@npm:^1.42.1":
+"playwright-core@npm:1.48.0, playwright-core@npm:^1.47.2":
   version: 1.48.0
   resolution: "playwright-core@npm:1.48.0"
   bin:
@@ -15157,8 +15157,8 @@ __metadata:
   linkType: hard
 
 "puppeteer-core@npm:^23.3.0":
-  version: 23.5.1
-  resolution: "puppeteer-core@npm:23.5.1"
+  version: 23.5.2
+  resolution: "puppeteer-core@npm:23.5.2"
   dependencies:
     "@puppeteer/browsers": 2.4.0
     chromium-bidi: 0.8.0
@@ -15166,7 +15166,7 @@ __metadata:
     devtools-protocol: 0.0.1342118
     typed-query-selector: ^2.12.0
     ws: ^8.18.0
-  checksum: 49ec8d2387cea37360e0862c4d7f50917f8d58c7d24fbb44d24106d5e5b28e2e8871612814c71416a8bc262be57057d2b0f0660f859e3b05c747ac09065778f6
+  checksum: ff49c11a6f1e0a80990902ce2b0aeac9cd2aca0f3b23cb02e45377f29bae01e9d065e269b6e8f85897eb296d29d3a0702a3f45f83a574a7571758c7b7cd477d9
   languageName: node
   linkType: hard
 
