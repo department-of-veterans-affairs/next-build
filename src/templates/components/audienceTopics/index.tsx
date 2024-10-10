@@ -6,7 +6,9 @@ import { ParagraphComponent } from '@/types/formatted/paragraph'
 export function AudienceTopics({
   tags,
 }: ParagraphComponent<FormattedAudienceTopics>) {
+  console.log('getting here: ', tags);
   if (isEmpty(tags)) return null
+
   const tagsList = tags.map(({ id, href, name }) => (
     <div key={id}>
       <div className="vads-u-margin-right--1 vads-u-margin-bottom--1 medium-screen:vads-u-margin-bottom--1p5">
