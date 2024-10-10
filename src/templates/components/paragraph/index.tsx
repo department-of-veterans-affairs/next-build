@@ -62,9 +62,6 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
     case PARAGRAPH_RESOURCE_TYPES.BUTTON:
       return <Button {...(paragraph as FormattedButton)} />
 
-    case PARAGRAPH_RESOURCE_TYPES.CHECKLIST:
-      return <p>CHECKLIST!!!</p>
-
     case PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL:
       return <CollapsiblePanel {...(paragraph as FormattedCollapsiblePanel)} />
 
