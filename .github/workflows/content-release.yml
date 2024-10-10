@@ -5,12 +5,7 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 on:
-  repository_dispatch:
-    types: [content-release]
-  workflow_run:
-    workflows: ['Create Production Tag']
-    types: [completed]
-    branches: [main]
+  # Runs when called from other workflows. Used for ongoing releases for dev/staging/prod.
   workflow_call:
     inputs:
       build_type:
@@ -18,6 +13,7 @@ on:
         description: "Environment this workflow runs against"
         required: true
         default: 'PROD'
+  # Manual release.
   workflow_dispatch:
     inputs:
       build_type:
@@ -31,7 +27,7 @@ on:
           - prod
 
 concurrency:
-  group: ${{ inputs.build_type || 'prod' }} 
+  group: ${{ inputs.build_type || 'prod' }}
 
 env:
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
@@ -42,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v4.0.2
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -107,7 +103,7 @@ jobs:
         continue-on-error: true
         with:
           payload: '{"attachments": [{"color": "#2EB67D","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Stand by, content release for next-build coming up (using ${{ needs.validate-build-status.outputs.TAG }}). <https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}>"}}]}]}'
-          channel_id: ${{ env.SLACK_CHANNEL }} 
+          channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
@@ -133,14 +129,14 @@ jobs:
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
         APP_ENV: ${{ inputs.build_type || 'prod' }}
-         
+
 
       ports:
         - 80
       volumes:
         - /etc/ssl/certs:/etc/ssl/certs
     steps:
-    
+
     - name: Export setup start time
       id: export-setup-start-time
       run: echo SETUP_START_TIME=$(date +"%s") >> $GITHUB_OUTPUT
@@ -197,8 +193,8 @@ jobs:
         retry_on: error
         timeout_minutes: 70
         command: |
-          cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee -a yarnoutput
-          echo YARN_OUTPUT=$(<yarnoutput)
+          cd main && BUILD_OPTION=static yarn export --DRUPAL_CLIENT_ID ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS | tee yarnoutput
+          echo YARN_OUTPUT=$(<yarnoutput) >> $GITHUB_OUTPUT
           ls
           ls out
           if [[ $? -ne 0 ]]; then
@@ -208,15 +204,57 @@ jobs:
             cd out
             ls -l
           fi
-          
-        #command: cd main && yarn export --NEXT_PUBLIC_DRUPAL_BASE_URL https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov --NEXT_IMAGE_DOMAIN https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov --SITE_URL https://www.va.gov --DRUPAL_CLIENT_ID  ${{ secrets.PROD_DRUPAL_CLIENT_ID }} --DRUPAL_CLIENT_SECRET ${{ secrets.PROD_DRUPAL_CLIENT_SECRET }} --no-USE_REDIS
-        
 
     - name: Build sitemap
-      run: cd main && yarn build:sitemap
+      run: | 
+        cd main && yarn build:sitemap
+        cd out
+        if [ -f sitemap.xml ]; then
+            echo "File found!"
+            cp sitemap.xml sitemap-nb.xml 
+        else
+            touch sitemap-nb.xml
+        fi
+      shell: bash
+        
+    - name: setup bucket descriptor
+      id: bucket-descriptor
+      run: |
+        if [ "${{ inputs.build_type }}" == 'dev' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://dev.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://dev.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.build_type }}" == 'staging'] ; then
+          echo NEXT_SITEMAP_LOCATION="https://staging.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://staging.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.build_type }}" == 'prod' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        else
+          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
+        fi
+      shell: bash
+  
+    - name: Generate new sitemap
+      run: |
+        cd main
+        cd out
+        echo "${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}"
+        cat <<'EOF' >> sitemap.xml
+        <?xml version="1.0" encoding="UTF-8"?>
+          <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <sitemap>
+              <loc>${{steps.bucket-descriptor.outputs.NEXT_SITEMAP_LOCATION}}</loc>
+            </sitemap>
+            <sitemap>
+              <loc>${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}</loc>
+            </sitemap>
+          </sitemapindex>
+        EOF
+        
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v4.0.2
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -240,7 +278,7 @@ jobs:
         DEST: s3://next-content.dev.va.gov
     - if: inputs.build_type == 'staging'
       name: Deploy to S3
-      run: | 
+      run: |
         cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
         ls
         cd out
@@ -254,14 +292,18 @@ jobs:
       env:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
-    
-    - if: inputs.build_type == '' 
+
+    - if: inputs.build_type == ''
       name: Deploy to S3
       run: cd main && ./scripts/github-actions/deploy.sh -s $SRC -d $DEST -v
       env:
         SRC: ./out/
         DEST: s3://next-content.www.va.gov
-    
+
+    - name: Export deploy end time
+      id: export-deploy-end-time
+      run: echo DEPLOY_END_TIME=$(date +"%s") >> $GITHUB_OUTPUT
+
   notify-success:
     name: Notify Success
     needs: [validate-build-status, build]
@@ -281,7 +323,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v4.0.2
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -335,7 +377,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v4.0.2
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -379,7 +421,7 @@ jobs:
         METRIC_NAMESPACE: dsva_vagov.next_build
       steps:
         - name: Checkout
-          uses: actions/checkout@v4  
+          uses: actions/checkout@v4
         #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
         - name: Get current timestamp
@@ -391,6 +433,7 @@ jobs:
             echo "DEPLOY_ENV=${{ inputs.build_type || 'prod' }}" >> $GITHUB_ENV
             echo "BUILD_TRIGGER=cms" >> $GITHUB_ENV
 
+          # Calculate all of our metrics that we send to data dog
         - name: Calculate durations
           run: |
             echo "SETUP_DURATION=$(expr ${{needs.build.outputs.SETUP_END_TIME}} - ${{needs.build.outputs.SETUP_START_TIME}})" >> $GITHUB_ENV
@@ -398,8 +441,8 @@ jobs:
             echo "NEXT_BUILD_DURATION=$(expr ${{needs.build.outputs.BUILD_END_TIME}} - ${{needs.build.outputs.BUILD_START_TIME}})" >> $GITHUB_ENV
             echo "OVERALL_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.validate-build-status.outputs.APPROX_WORKFLOW_START_TIME}})" >> $GITHUB_ENV
             echo "DEPLOY_DURATION=$(expr ${{needs.build.outputs.DEPLOY_END_TIME}} - ${{needs.build.outputs.DEPLOY_START_TIME}})" >> $GITHUB_ENV
-            echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarn.out
-            echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarn.out | head -1 | sed 's/\///g')" >> $GITHUB_ENV
+            echo "${{needs.build.outputs.YARN_OUTPUT}}" >> yarnoutput
+            echo "BUILT_PAGES=$(grep -oE "*\/([0-9]{4,})" ./yarnoutput| head -1 | sed 's/\///g')" >> $GITHUB_ENV
 
         - name: Build JSON object
           run: |

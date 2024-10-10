@@ -33,8 +33,8 @@ export const processEnv = async (command: string): Promise<void> => {
   process.env = {
     ...process.env,
     ...{
-      ...envVars,
       ...cmsFeatureFlags,
+      ...envVars,
       ...cliOptions,
     },
   }

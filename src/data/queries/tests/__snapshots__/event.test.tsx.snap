@@ -91,7 +91,7 @@ exports[`node--event formatData outputs formatted data 1`] = `
   "published": true,
   "registrationRequired": false,
   "socialLinks": {
-    "path": "/central-iowa-health-care/events/52265",
+    "path": "http://127.0.0.1:8001/central-iowa-health-care/events/52265",
     "title": "Pickleball Club",
   },
   "title": "Pickleball Club",
