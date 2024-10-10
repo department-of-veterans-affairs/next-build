@@ -9,6 +9,7 @@ import * as Banners from './banners'
 import * as BenefitsHub from './benefitsHubLinks'
 import * as Button from './button'
 import * as Checklist from './checklist';
+import * as ChecklistItems from './checklistItems'
 import * as CollapsiblePanel from './collapsiblePanel'
 import * as CollapsiblePanelItem from './collapsiblePanelItem'
 import * as ContactInfo from './contactInfo'
@@ -83,6 +84,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE]: AlertSingle,
   [PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS]: AudienceTopics,
   [PARAGRAPH_RESOURCE_TYPES.BUTTON]: Button,
+  [PARAGRAPH_RESOURCE_TYPES.CHECKLIST]: ChecklistItems,
   [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL]: CollapsiblePanel,
   [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL_ITEM]: CollapsiblePanelItem,
   [PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION]: ContactInfo,
