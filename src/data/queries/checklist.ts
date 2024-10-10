@@ -12,6 +12,7 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Types
 import { AlertSingle } from '@/types/formatted/alert'
+import { AudienceTopics } from '@/types/formatted/audienceTopics'
 import { Button } from '@/types/formatted/button'
 import { Checklist } from '@/types/formatted/checklist'
 import { ChecklistItem } from '@/types/formatted/checklistItem'
@@ -77,5 +78,6 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
     otherCategories: entity.field_other_categories.map?.(formatParagraph) as TaxonomyTermLcCategories[],
     primaryCategory: entity.field_primary_category,
     repeatButtons: entity.field_buttons_repeat,
+    tags: formatParagraph(entity.field_tags).tags as AudienceTopics
   }
 }
