@@ -5,9 +5,11 @@ import { SecondaryButtonGroup } from '@/templates/common/SecondaryButtonGroup'
 export function Checklist({
   alert,
   buttons,
+  checklist,
   intro,
   title
 }: Checklist) {
+  console.log('checklist: ', checklist);
   return (
     <main className="va-l-detail-page">
       <div className="usa-grid usa-grid-full">

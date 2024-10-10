@@ -40,6 +40,8 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   ALERT_SINGLE: 'paragraph--alert_single',
   AUDIENCE_TOPICS: 'paragraph--audience_topics',
   BUTTON: 'paragraph--button',
+  // Checklist is both a page type and a paragraph type
+  CHECKLIST: 'paragraph--checklist',
   COLLAPSIBLE_PANEL: 'paragraph--collapsible_panel',
   COLLAPSIBLE_PANEL_ITEM: 'paragraph--collapsible_panel_item',
   CONTACT_INFORMATION: 'paragraph--contact_information',
