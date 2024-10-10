@@ -23,7 +23,7 @@ export async function getStaticProps() {
   }
 
   const params = new DrupalJsonApiParams().addInclude([])
-  const data = await drupalClient.getResourceCollection('node--event', {
+  const data = await drupalClient.getResourceCollection('node--va_form', {
     params: params.getQueryObject(),
     withAuth: {
       clientId: process.env.DRUPAL_CLIENT_ID,
