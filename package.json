@@ -60,7 +60,7 @@
     "drupal-jsonapi-params": "^2.3.1",
     "env-loader": "0.1.0",
     "fs-extra": "^11.2.0",
-    "jest-axe": "^8.0.0",
+    "jest-axe": "^9.0.0",
     "jest-extended": "^4.0.2",
     "jsona": "^1.12.1",
     "lighthouse": "^12.2.0",
