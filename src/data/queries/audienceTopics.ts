@@ -57,7 +57,6 @@ export const getTagsList = (
     }))
 
   const tagList = [...topics, ...audiences]
-  console.log('🚀 ~ tagList:', tagList);
 
   return tagList.sort((a, b) => a.name.localeCompare(b.name))
 }

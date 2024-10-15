@@ -70,7 +70,6 @@ const Breadcrumbs = ({
     <div className="vads-u-padding-x--1p5">
       <va-breadcrumbs
         id="va-breadcrumbs-list"
-        class="row hydrated"
         uswds={true}
         wrapping
         breadcrumb-list={fcString}
