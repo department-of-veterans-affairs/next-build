@@ -2,12 +2,14 @@ import { Fragment } from 'react';
 import { Checklist } from '@/types/formatted/checklist'
 import AlertSingle from '@/templates/components/alertSingle'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
+import { BenefitsHubLinks } from '@/templates/common/benefitsHubLinks'
 import { RateYourExperience } from '@/templates/components/rateYourExperience'
 import { RelatedInformation } from '@/templates/common/relatedInformation'
 import { SecondaryButtonGroup } from '@/templates/common/secondaryButtonGroup'
 
 export function Checklist({
   alert,
+  benefitsHubLinks,
   buttons,
   checklist,
   intro,
@@ -58,6 +60,7 @@ export function Checklist({
             {tags && <AudienceTopics {...tags} />}
             <RateYourExperience />
             {relatedInformation && <RelatedInformation relatedInformation={relatedInformation} />}
+            {benefitsHubLinks && <BenefitsHubLinks links={benefitsHubLinks} />}
           </div>
         </div>
       </div>
