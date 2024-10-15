@@ -2,9 +2,9 @@ import { isEmpty } from 'lodash'
 import { Button as FormattedButton } from '@/types/formatted/button'
 
 // Used for R&S pages; either a single blue CTA link or multiple
-export function SecondaryButtonGroup ({
+export const SecondaryButtonGroup = ({
   buttons
-}: FormattedButton[]): JSX.Element {
+}: FormattedButton[]): JSX.Element => {
   if (isEmpty(buttons)) {
     return null
   }
@@ -26,11 +26,17 @@ export function SecondaryButtonGroup ({
     )
   }
 
-  return (
-    <va-link-action
-      href={button.url}
-      text={button.label}
-      type="secondary"
-    />
-  )
+  const button = buttons[0]
+
+  if (button) {
+    return (
+      <va-link-action
+        href={button.url}
+        text={button.label}
+        type="secondary"
+      />
+    )
+  }
+
+  return null
 }

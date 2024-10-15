@@ -1,4 +1,3 @@
-// Define the query params for fetching node--news_story.
 import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { AudienceTopic, AudienceTopics } from '@/types/formatted/audienceTopics'
@@ -12,6 +11,18 @@ export const params: QueryParams<null> = () => {
   ])
 }
 
+const formatBeneficiariesData = beneficiaries => {
+  if (!beneficiaries || beneficiaries.length === 0) {
+    return []
+  }
+
+  if (!Array.isArray(beneficiaries)) {
+    return [beneficiaries]
+  }
+
+  return beneficiaries
+}
+
 export const getTagsList = (
   entity: ParagraphAudienceTopics
 ): AudienceTopic[] | null => {
@@ -23,6 +34,9 @@ export const getTagsList = (
     field_non_beneficiares: fieldNonBeneficiares,
   } = entity
 
+  const audienceBeneficiaries = formatBeneficiariesData(fieldAudienceBeneficiares)
+  const nonBeneficiaries = formatBeneficiariesData(fieldNonBeneficiares)
+
   const topics = fieldTopics.map((topic) => ({
     id: topic.id,
     href: topic.path?.alias,
@@ -31,8 +45,8 @@ export const getTagsList = (
   }))
 
   const audiences = [
-    ...(fieldAudienceBeneficiares || []),
-    ...(fieldNonBeneficiares || []),
+    ...audienceBeneficiaries,
+    ...nonBeneficiaries,
   ]
     .filter((tag) => !!tag)
     .map((audience) => ({
@@ -43,8 +57,9 @@ export const getTagsList = (
     }))
 
   const tagList = [...topics, ...audiences]
+  console.log('🚀 ~ tagList:', tagList);
 
-  return tagList.sort((a, b) => a.categoryLabel.localeCompare(b.categoryLabel))
+  return tagList.sort((a, b) => a.name.localeCompare(b.name))
 }
 
 /**
