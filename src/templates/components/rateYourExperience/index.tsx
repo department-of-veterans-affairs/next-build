@@ -39,9 +39,8 @@ const SubmitButton = ({
     aria-hidden={!isActive}
     onClick={onClick}
     secondary
-  >
-    Submit feedback
-  </va-button>
+    text="Submit feedback"
+  />
 )
 
 const ErrorMessage = ({ isActive }: { isActive: boolean }) => (
@@ -53,23 +52,6 @@ const ErrorMessage = ({ isActive }: { isActive: boolean }) => (
   >
     <span className="sr-only">Error</span> Please select an answer
   </span>
-)
-
-const ThankYouMessage = ({ isActive }: { isActive: boolean }) => (
-  <p
-    aria-hidden={!isActive}
-    id="rate-your-experience--thank-you-message"
-    className={`vads-u-margin-bottom-0 ${isActive ? 'vads-u-display--block' : 'vads-u-display--none'}`}
-  >
-    Want to share more feedback? We'll use it to keep improving VA.gov for all Veterans and their families.&nbsp;
-    <button
-      // onClick={KAMPYLE_ONSITE_SDK.showForm('{{ buildtype | getSurvey: entityUrl.path }}')}
-      type="button"
-      className="va-button-link"
-    >
-      Complete our 3-question survey.
-    </button>
-  </p>
 )
 
 export const RateYourExperience = () => {
@@ -100,6 +82,12 @@ export const RateYourExperience = () => {
       })
     }
 
+    setIsSubmitted(true)
+  }
+
+  const handleSurveyClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+
     const isProduction = process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
 
     const surveyNumber = getSurveyNumber(
@@ -108,47 +96,43 @@ export const RateYourExperience = () => {
     )
 
     showForm(surveyNumber)
-
-    setIsSubmitted(true)
   }
 
   return (
-    <form
-      className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0"
-      data-template="includes/how-do-you-rate"
-      id="how-do-you-rate-form"
-    >
-      <fieldset
-        id="rating-options"
-        className={`fieldset-input vads-u-margin-top--1 ${isError ? 'usa-input-error' : ''}`}
+    <form className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
+      <ErrorMessage isActive={isError} />
+      <va-radio
+        error={isError ? 'Please select an answer' : ''}
+        className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0"
+        aria-hidden={isSubmitted}
+        label={header}
+        label-header-level="2"
       >
-        <ErrorMessage isActive={isError} />
-
-        <div
-          className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0"
-          aria-hidden={isSubmitted}
-        >
-          <va-radio
-            label={header}
-            label-header-level="2"
-          >
-            <RatingButton
-              rating={RatingOption.Good}
-              isChecked={rating === RatingOption.Good}
-              onChange={() => handleRatingChange(RatingOption.Good)}
-            />
-            <RatingButton
-              rating={RatingOption.Bad}
-              isChecked={rating === RatingOption.Bad}
-              onChange={() => handleRatingChange(RatingOption.Bad)}
-            />
-          </va-radio>
-        </div>
-      </fieldset>
-
+        <RatingButton
+          rating={RatingOption.Good}
+          isChecked={rating === RatingOption.Good}
+          onChange={() => handleRatingChange(RatingOption.Good)}
+        />
+        <RatingButton
+          rating={RatingOption.Bad}
+          isChecked={rating === RatingOption.Bad}
+          onChange={() => handleRatingChange(RatingOption.Bad)}
+        />
+      </va-radio>
       <SubmitButton isActive={!isSubmitted} onClick={handleSubmit} />
-
-      <ThankYouMessage isActive={isSubmitted} />
+      <p
+        aria-hidden={!isSubmitted}
+        id="rate-your-experience--thank-you-message"
+        className={`vads-u-margin-bottom-0 ${isSubmitted ? 'vads-u-display--block' : 'vads-u-display--none'}`}
+      >
+        Want to share more feedback? We&apos;ll use it to keep improving VA.gov for all Veterans and their families.&nbsp;
+        <va-button
+          onClick={handleSurveyClick}
+          type="button"
+          className="va-button-link"
+          text="Complete our 3-question survey."
+        />
+      </p>
     </form>
   )
 }

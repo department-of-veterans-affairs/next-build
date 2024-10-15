@@ -3,7 +3,7 @@ import { Checklist } from '@/types/formatted/checklist'
 import AlertSingle from '@/templates/components/alertSingle'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { RateYourExperience } from '@/templates/components/rateYourExperience'
-import { SecondaryButtonGroup } from '@/templates/common/SecondaryButtonGroup'
+import { SecondaryButtonGroup } from '@/templates/common/secondaryButtonGroup'
 
 export function Checklist({
   alert,
@@ -43,7 +43,7 @@ export function Checklist({
                             ''}
                             key={index}
                           >
-                            <va-checkbox label={item} />
+                            <va-checkbox class="hydrated" label={item} />
                           </li>
                         ))}
                       </ul>
@@ -53,8 +53,9 @@ export function Checklist({
               )}
               {repeatButtons && buttons && <SecondaryButtonGroup buttons={buttons} />}
             </article>
-            {tags && <AudienceTopics tags={tags} />}
-            <RateYourExperience />
+            {/* {tags && <AudienceTopics tags={tags} />} */}
+            {tags && <AudienceTopics {...tags} />}
+            {/* <RateYourExperience /> */}
           </div>
         </div>
       </div>
