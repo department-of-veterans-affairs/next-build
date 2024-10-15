@@ -18,7 +18,6 @@ import { Checklist } from '@/types/formatted/checklist'
 import { ChecklistItem } from '@/types/formatted/checklistItem'
 import { ContactInfo } from '@/types/formatted/contactInfo'
 import { NodeChecklist } from '@/types/drupal/node'
-import { TaxonomyTermLcCategories } from '@/types/drupal/taxonomy_term'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -75,9 +74,7 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
       entity.field_contact_information
     ) as ContactInfo,
     intro: entity.field_intro_text_limited_html.processed,
-    otherCategories: entity.field_other_categories.map?.(formatParagraph) as TaxonomyTermLcCategories[],
-    primaryCategory: entity.field_primary_category,
     repeatButtons: entity.field_buttons_repeat,
-    tags: formatParagraph(entity.field_tags).tags as AudienceTopics
+    tags: formatParagraph(entity.field_tags) as AudienceTopics
   }
 }
