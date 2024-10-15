@@ -2,11 +2,7 @@ import { MouseEvent, ChangeEvent, useState } from 'react'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
-
-const enum RatingOption {
-  Good = 'Good',
-  Bad = 'Bad',
-}
+import { VaRadio, VaRadioOption } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
 const RatingButton = ({
   rating,
@@ -19,6 +15,7 @@ const RatingButton = ({
 }) => {
   return (
     <va-radio-option
+      class="hydrated"
       label={rating}
       name="rating"
       value={rating}
@@ -35,23 +32,12 @@ const SubmitButton = ({
   onClick: (e: MouseEvent<HTMLButtonElement>) => void
 }) => (
   <va-button
-    className={`usa-button usa-button-secondary vads-u-width--full medium-screen:vads-u-width--auto vads-u-margin--0 vads-u-margin-top--2p5 ${isActive ? '' : 'vads-u-display--none'}`}
+    class={`vads-u-width--full medium-screen:vads-u-width--auto vads-u-margin--0 vads-u-margin-top--2p5 ${isActive ? '' : 'vads-u-display--none'}`}
     aria-hidden={!isActive}
     onClick={onClick}
     secondary
     text="Submit feedback"
   />
-)
-
-const ErrorMessage = ({ isActive }: { isActive: boolean }) => (
-  <span
-    className={`usa-input-error-message ${isActive ? '' : 'vads-u-display--none'}`}
-    aria-hidden={!isActive}
-    role="alert"
-    id="rate-your-experience--error-message"
-  >
-    <span className="sr-only">Error</span> Please select an answer
-  </span>
 )
 
 export const RateYourExperience = () => {
@@ -100,25 +86,33 @@ export const RateYourExperience = () => {
 
   return (
     <form className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
-      <ErrorMessage isActive={isError} />
-      <va-radio
+      <VaRadio
         error={isError ? 'Please select an answer' : ''}
-        className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0"
+        class="hydrated"
         aria-hidden={isSubmitted}
         label={header}
         label-header-level="2"
       >
-        <RatingButton
-          rating={RatingOption.Good}
-          isChecked={rating === RatingOption.Good}
-          onChange={() => handleRatingChange(RatingOption.Good)}
+        <VaRadioOption
+          checked={rating === 'Good'}
+          class="hydrated"
+          id="Good"
+          label="Good"
+          name="rating"
+          onChange={() => handleRatingChange('Good')}
+          value="Good"
         />
-        <RatingButton
-          rating={RatingOption.Bad}
-          isChecked={rating === RatingOption.Bad}
-          onChange={() => handleRatingChange(RatingOption.Bad)}
+        <VaRadioOption
+          checked={rating === 'Bad'}
+          class="hydrated"
+          id="Bad"
+          label="Bad"
+          name="rating"
+          onChange={() => handleRatingChange('Bad')}
+          value="Bad"
         />
-      </va-radio>
+      </VaRadio>
+
       <SubmitButton isActive={!isSubmitted} onClick={handleSubmit} />
       <p
         aria-hidden={!isSubmitted}
@@ -129,7 +123,7 @@ export const RateYourExperience = () => {
         <va-button
           onClick={handleSurveyClick}
           type="button"
-          className="va-button-link"
+          class="va-button-link"
           text="Complete our 3-question survey."
         />
       </p>

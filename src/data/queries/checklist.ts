@@ -14,9 +14,9 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 import { AlertSingle } from '@/types/formatted/alert'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
 import { Button } from '@/types/formatted/button'
-import { Checklist } from '@/types/formatted/checklist'
-import { ChecklistItem } from '@/types/formatted/checklistItem'
+import { Checklist, ChecklistItem } from '@/types/formatted/checklist'
 import { ContactInfo } from '@/types/formatted/contactInfo'
+import { LinkTeaser } from '@/types/formatted/linkTeaser'
 import { NodeChecklist } from '@/types/drupal/node'
 
 export const params: QueryParams<null> = () => {
@@ -74,6 +74,7 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
       entity.field_contact_information
     ) as ContactInfo,
     intro: entity.field_intro_text_limited_html.processed,
+    relatedInformation: entity.field_related_information.map?.(formatParagraph) as LinkTeaser[],
     repeatButtons: entity.field_buttons_repeat,
     tags: formatParagraph(entity.field_tags) as AudienceTopics
   }
