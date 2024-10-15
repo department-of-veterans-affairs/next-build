@@ -13,6 +13,7 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 // Types
 import { AlertSingle } from '@/types/formatted/alert'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
+import { BenefitsHubLink } from '@/types/formatted/benefitsHub'
 import { Button } from '@/types/formatted/button'
 import { Checklist, ChecklistItem } from '@/types/formatted/checklist'
 import { ContactInfo } from '@/types/formatted/contactInfo'
@@ -63,6 +64,10 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
   return {
     ...entityBaseFields(entity),
     alert: formatParagraph(entity.field_alert_single) as AlertSingle,
+    benefitsHubLinks: queries.formatData(
+      RESOURCE_TYPES.BENEFITS_HUB,
+      entity.field_related_benefit_hubs
+    ) as BenefitsHubLink[],
     buttons: entity.field_buttons.map?.(formatParagraph) as Button[],
     checklist: entity.field_checklist.field_checklist_sections?.map(section =>
       queries.formatData(
