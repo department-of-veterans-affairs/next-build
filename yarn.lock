@@ -1610,7 +1610,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/formation@npm:^11.0.12":
+"@department-of-veterans-affairs/formation@npm:^11.0.26":
   version: 11.0.26
   resolution: "@department-of-veterans-affairs/formation@npm:11.0.26"
   dependencies:
@@ -13330,7 +13330,7 @@ __metadata:
     "@actions/github": ^6.0.0
     "@axe-core/playwright": ^4.8.2
     "@department-of-veterans-affairs/component-library": ^45.0.0
-    "@department-of-veterans-affairs/formation": ^11.0.12
+    "@department-of-veterans-affairs/formation": ^11.0.26
     "@department-of-veterans-affairs/web-components": ^11.2.9
     "@faker-js/faker": ^8.4.1
     "@fortawesome/fontawesome-free": ^5.15.4
