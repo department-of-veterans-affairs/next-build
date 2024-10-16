@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checklist formatData outputs formatted data 1`] = `
+{
+  "alert": null,
+  "benefitsHubLinks": [
+    {
+      "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+      "label": undefined,
+      "path": undefined,
+      "teaserText": undefined,
+      "title": undefined,
+    },
+    {
+      "id": "ea251553-7aa5-4613-8824-47965c489a86",
+      "label": undefined,
+      "path": undefined,
+      "teaserText": undefined,
+      "title": undefined,
+    },
+    {
+      "id": "18ca8756-9f78-43ef-95ea-04bd106063c5",
+      "label": undefined,
+      "path": undefined,
+      "teaserText": undefined,
+      "title": undefined,
+    },
+  ],
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "Resources and Support",
+      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/resources",
+    },
+    {
+      "options": [],
+      "title": "Test Checklist Page",
+      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/resources/test-checklist-page",
+    },
+  ],
+  "buttons": [
+    {
+      "entityId": undefined,
+      "id": "818d2959-a00f-4aec-9366-5164eeeae67a",
+      "label": null,
+      "type": "paragraph--button",
+      "url": null,
+    },
+    {
+      "entityId": undefined,
+      "id": "5cb4f676-0e67-4929-81c4-c5fac1b8ee2e",
+      "label": null,
+      "type": "paragraph--button",
+      "url": null,
+    },
+  ],
+  "checklist": undefined,
+  "contactInformation": null,
+  "entityId": 73664,
+  "entityPath": "/resources/test-checklist-page",
+  "id": "1f681975-6c2a-4d42-a294-785e165c7eff",
+  "intro": "<p>This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.</p>
+",
+  "lastUpdated": "2024-10-16T20:04:12+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Test Checklist Page | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Test Checklist Page | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Test Checklist Page | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "published": true,
+  "relatedInformation": undefined,
+  "repeatButtons": true,
+  "tags": null,
+  "title": "Test Checklist Page",
+  "type": "node--checklist",
+}
+`;
