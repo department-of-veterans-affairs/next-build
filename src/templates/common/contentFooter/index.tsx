@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { MedalliaAssets } from '@/templates/common/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
@@ -8,6 +8,8 @@ import { BUILD_TYPES } from '@/lib/constants/environment'
 
 type ContentFooterProps = {
   lastUpdated?: string | number
+  // responsiveLayout should be passed by the "landing_page" content type only
+  responsiveLayout?: string
 }
 
 function formatDate(date: Date, format: 'display' | 'machine'): string {
@@ -82,9 +84,9 @@ function FeedbackButton() {
   )
 }
 
-export function ContentFooter({ lastUpdated }: ContentFooterProps) {
-  const [isDesktop, setIsDesktop] = useState(true)
-  let displayDate, machineDate, wrapperClasses
+export function ContentFooter({ lastUpdated, responsiveLayout }: ContentFooterProps) {
+  let displayDate, machineDate
+  let wrapperClasses = ''
   const date = parseDate(lastUpdated)
 
   if (date) {
@@ -92,23 +94,15 @@ export function ContentFooter({ lastUpdated }: ContentFooterProps) {
     machineDate = formatDate(date, 'machine')
   }
 
-  useEffect(() => {
-    if (window && window?.innerWidth < 768) {
-      setIsDesktop(false)
-    } else {
-      setIsDesktop(true)
-    }
-  }, [])
-
-  if (isDesktop) {
-    wrapperClasses = 'vads-u-display--none medium-screen:vads-u-display--block'
-  } else {
-    wrapperClasses = 'medium-screen:vads-u-display--none'
+  if (responsiveLayout === 'desktop') {
+    wrapperClasses = ' vads-u-display--none medium-screen:vads-u-display--block'
+  } else if (responsiveLayout === 'mobile') {
+    wrapperClasses = ' medium-screen:vads-u-display--none'
   }
 
   return (
     <div
-      className={`last-updated usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0 ${wrapperClasses}`}
+      className={`last-updated usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0${wrapperClasses}`}
       data-next-component="templates/common/contentFooter"
     >
       <div className="mobile-lg:vads-u-display--flex above-footer-elements-container">
