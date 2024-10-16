@@ -39,4 +39,27 @@ describe('Checklist formatData', () => {
       )
     ).toMatchSnapshot()
   })
+
+  test('handles absence of optional fields gracefully', () => {
+    const modifiedMock = {
+      ...ChecklistMock,
+      field_alert_single: null,
+      field_buttons: [],
+      field_contact_information: null,
+      field_related_benefit_hubs: [],
+      field_related_information: [],
+      field_tags: null,
+    }
+    const formattedData = queries.formatData(
+      'node--checklist',
+      modifiedMock
+    )
+
+    expect(formattedData.alert).toBeNull()
+    expect(formattedData.buttons).toEqual([])
+    expect(formattedData.contactInformation).toBeNull()
+    expect(formattedData.benefitsHubLinks).toEqual([])
+    expect(formattedData.relatedInformation).toEqual([])
+    expect(formattedData.tags).toBeNull()
+  })
 })
