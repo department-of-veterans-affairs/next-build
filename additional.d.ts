@@ -40,5 +40,6 @@ declare namespace JSX {
     'va-on-this-page'
     'va-radio'
     'va-radio-option'
+    'va-telephone'
   }
 }

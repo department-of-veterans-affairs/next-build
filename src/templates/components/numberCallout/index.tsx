@@ -7,7 +7,7 @@ export function NumberCallout({
 }: FormattedNumberCallout) {
   return (
     <div
-      data-template="paragraphs/number_callout"
+      data-next-component="templates/components/numberCallout"
       data-entity-id={entityId}
       className="card information"
     >

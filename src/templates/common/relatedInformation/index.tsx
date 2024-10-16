@@ -20,7 +20,10 @@ export const RelatedInformation = ({
   )
 
   return (
-    <section className="vads-u-padding-top--3 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
+    <section
+      className="vads-u-padding-top--3 vads-u-display--flex vads-u-flex-direction--column"
+      data-next-component="templates/common/relatedInformation"
+    >
       <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">Related information</h2>
 
       {relatedInformation?.length > 1 && (
