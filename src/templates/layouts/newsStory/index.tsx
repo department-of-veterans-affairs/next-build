@@ -27,7 +27,7 @@ export const NewsStory = ({
 
   return (
     <>
-      <div className="va-l-detail-page va-facility-page">
+      <div className="va-l-detail-page va-facility-page" data-next-component="templates/layouts/newsStory">
         <div className="usa-grid usa-grid-full">
           {/* nav here */}
           <div className="usa-width-three-fourths">

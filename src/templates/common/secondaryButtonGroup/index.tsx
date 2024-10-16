@@ -11,17 +11,19 @@ export const SecondaryButtonGroup = ({
 
   if (buttons.length > 1) {
     return (
-      <ul className="vads-u-margin-y--3 usa-unstyled-list">
+      <ul
+        className="vads-u-margin-y--3 usa-unstyled-list"
+        data-next-component="templates/common/secondaryButtonGroup"
+      >
         {buttons?.map((button, index) => (
-            <li key={index} className="vads-u-margin-bottom--2">
-              <va-link-action
-                href={button.url}
-                text={button.label}
-                type="secondary"
-              />
-            </li>
-          )
-        )}
+          <li key={index} className="vads-u-margin-bottom--2">
+            <va-link-action
+              href={button.url}
+              text={button.label}
+              type="secondary"
+            />
+          </li>
+        ))}
       </ul>
     )
   }
@@ -31,6 +33,7 @@ export const SecondaryButtonGroup = ({
   if (button) {
     return (
       <va-link-action
+        data-next-component="templates/common/secondaryButtonGroup"
         href={button.url}
         text={button.label}
         type="secondary"

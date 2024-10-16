@@ -61,7 +61,6 @@ export const CollapsiblePanel = ({
   return (
     <div
       id={id}
-      data-template="paragraphs/collapsible_panel"
       data-paragraph-type="paragraph--collapsible_panel"
       data-entity-id={entityId}
       data-multiselectable={multiSelect}

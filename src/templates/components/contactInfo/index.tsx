@@ -12,7 +12,7 @@ import {
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
 
-const analytic = (header) => {
+const analytic = header => {
   return {
     event: 'nav-linkslist',
     'links-list-header': `${encodeURIComponent(header)}`,
@@ -20,11 +20,23 @@ const analytic = (header) => {
   }
 }
 
+const useTelephoneWebComponent = telephone => {
+  if (!telephone || /[a-zA-Z+]/.test(telephone)) {
+    return false
+  }
+
+  return true
+}
+
 // simple contact info base component
-export const DefaultContact = ({ title, value, href }: Contact) => {
+export const BasicContact = ({ title, value, href }: Contact) => {
+  if (!title || !value || !href) {
+    return null
+  }
+
   return (
     <>
-      <strong>{title} </strong>
+      <strong>{title}&nbsp;</strong>
       <Link
         onClick={() => recordEvent(analytic(value))}
         href={href}
@@ -42,7 +54,7 @@ export const EmailContact = (
 ) => {
   return (
     <li className="vads-u-margin-top--1">
-      <DefaultContact
+      <BasicContact
         title={email.label}
         value={email.address}
         href={`mailto:${email.address}`}
@@ -54,13 +66,31 @@ export const EmailContact = (
 export const PhoneContact = (
   phone: ParagraphComponent<FormattedPhoneContact>
 ) => {
+  const {
+    extension,
+    label,
+    number
+  } = phone
+
+  if (useTelephoneWebComponent(number) && label) {
+    return (
+      <li className="vads-u-margin-top--1">
+        <strong>{label}&nbsp;</strong>
+        <va-telephone
+          contact={number}
+          extension={extension || null}
+        />
+      </li>
+    )
+  }
+
   const phoneNumber = phone.extension
     ? `${phone.number}p${phone.extension}`
     : phone.number
 
   return (
     <li className="vads-u-margin-top--1">
-      <DefaultContact
+      <BasicContact
         title={phone.label}
         value={phoneNumber}
         href={`tel:${phoneNumber}`}
@@ -82,9 +112,9 @@ const AdditionalContact = (contact: FormattedAdditionalContact) => {
 
 // node--support-service nodes that get included
 const BenefitHubContacts = ({ services }: BenefitHubContact) => {
-  return services.map((s) => (
-    <li className="vads-u-margin-top--1" key={s.title}>
-      <DefaultContact {...s} />
+  return services.map(service => (
+    <li className="vads-u-margin-top--1" key={service.title}>
+      <BasicContact {...service} />
     </li>
   ))
 }
@@ -101,7 +131,10 @@ export function ContactInfo({
     contactType === 'DC' && defaultContact && !additionalContact
 
   return (
-    <div className="vads-u-background-color--gray-light-alt">
+    <div
+      data-next-component="templates/components/contactInfo"
+      className="vads-u-background-color--gray-light-alt"
+    >
       <div className="usa-grid usa-grid-full">
         <div className="usa-width-three-fourths">
           <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
@@ -113,12 +146,9 @@ export function ContactInfo({
                 Need more help?
               </h2>
               {useDefaultContact ? (
-                <DefaultContact {...defaultContact} />
+                <BasicContact {...defaultContact} />
               ) : (
-                <ul
-                  className="usa-unstyled-list vads-u-display--flex vads-u-flex-direction--column"
-                  role="list"
-                >
+                <ul className="usa-unstyled-list vads-u-display--flex vads-u-flex-direction--column">
                   {additionalContact && (
                     <AdditionalContact {...additionalContact} />
                   )}

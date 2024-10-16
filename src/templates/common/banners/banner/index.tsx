@@ -10,6 +10,7 @@ export const Banner = ({
 }: FormattedBanner): JSX.Element => {
   return (
     <VaBanner
+      data-next-component="templates/common/banners/banner"
       id={id}
       role="region"
       showClose={dismiss ? 'perm' : false}

@@ -12,7 +12,7 @@ export function StaffProfile({
   email,
 }: FormattedStaffProfile) {
   return (
-    <article key={id} className="usa-content">
+    <article key={id} className="usa-content" data-next-component="templates/layouts/staffProfile">
       <div className="vads-u-display--flex vads-u-margin-bottom--4 vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
         {!thumbnail ? (
           <div className="vads-u-flex--auto medium-screen:vads-u-margin-right--3 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">

@@ -15,6 +15,7 @@ export function AlertBlock(alertBlock: FormattedAlertBlock) {
   return (
     <>
       <VaAlert
+        data-next-component="templates/components/alertBlock"
         id={id}
         status={alertType}
         class="vads-u-margin-top--3"
