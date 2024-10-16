@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { MedalliaAssets } from '@/templates/common/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
