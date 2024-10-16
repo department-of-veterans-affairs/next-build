@@ -1,4 +1,429 @@
 {
-  "note": "Replace this data! The file should contain an example response for the desired query before formatting",
-  "example": "See src/mocks/newsStory.mock.json for an example response from va.gov-cms's JSON:API"
+  "type": "node--checklist",
+  "id": "1f681975-6c2a-4d42-a294-785e165c7eff",
+  "links": {
+    "self": {
+      "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff?resourceVersion=id%3A925128"
+    }
+  },
+  "drupal_internal__nid": 73664,
+  "drupal_internal__vid": 925128,
+  "langcode": "en",
+  "revision_timestamp": "2024-10-16T20:04:12+00:00",
+  "revision_log": "Text tweaks",
+  "status": true,
+  "title": "Test Checklist Page",
+  "created": "2024-10-14T19:10:25+00:00",
+  "changed": "2024-10-16T20:04:12+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/resources",
+      "title": "Resources and Support",
+      "options": []
+    },
+    {
+      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/resources/test-checklist-page",
+      "title": "Test Checklist Page",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "Test Checklist Page | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "description",
+        "content": "This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus."
+      }
+    },
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "image_src",
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "Test Checklist Page | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:description",
+        "content": "This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "Test Checklist Page | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/resources/test-checklist-page",
+    "pid": 114918,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_buttons_repeat": true,
+  "field_intro_text_limited_html": {
+    "value": "\u003Cp\u003EThis is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.\u003C/p\u003E",
+    "format": "rich_text_limited",
+    "processed": "\u003Cp\u003EThis is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.\u003C/p\u003E\n"
+  },
+  "field_last_saved_by_an_editor": "2024-10-16T20:04:12+00:00",
+  "field_table_of_contents_boolean": true,
+  "node_type": {
+    "data": {
+      "type": "node_type--node_type",
+      "id": "e9ca1f1d-ca89-4884-aebd-9ca2a506c0d5",
+      "meta": {
+        "drupal_internal__target_id": "checklist"
+      }
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/node_type?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/node_type?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "revision_uid": {
+    "data": {
+      "type": "user--user",
+      "id": "f490d4c9-5b27-4207-b1ef-6ee240853879",
+      "meta": {
+        "drupal_internal__target_id": 4492
+      }
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/revision_uid?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/revision_uid?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "uid": {
+    "data": {
+      "type": "user--user",
+      "id": "f490d4c9-5b27-4207-b1ef-6ee240853879",
+      "meta": {
+        "drupal_internal__target_id": 4492
+      }
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/uid?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/uid?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "field_administration": {
+    "data": {
+      "type": "taxonomy_term--administration",
+      "id": "356c5fa2-16d2-4f72-9a8f-60c214e51535",
+      "meta": {
+        "drupal_internal__target_id": 369
+      }
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_administration?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_administration?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "field_alert_single": {
+    "data": {
+      "type": "paragraph--alert_single",
+      "id": "b79f22d1-a8f7-4215-9735-e183231ce7ab",
+      "meta": {
+        "target_revision_id": 1519158,
+        "drupal_internal__target_id": 161725
+      }
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_alert_single?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_alert_single?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "field_buttons": [
+    {
+      "type": "paragraph--button",
+      "id": "818d2959-a00f-4aec-9366-5164eeeae67a",
+      "meta": {
+        "target_revision_id": 1519159,
+        "drupal_internal__target_id": 161726
+      }
+    },
+    {
+      "type": "paragraph--button",
+      "id": "5cb4f676-0e67-4929-81c4-c5fac1b8ee2e",
+      "meta": {
+        "target_revision_id": 1519160,
+        "drupal_internal__target_id": 161727
+      }
+    }
+  ],
+  "links": {
+    "related": {
+      "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_buttons?resourceVersion=id%3A925128"
+    },
+    "self": {
+      "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_buttons?resourceVersion=id%3A925128"
+    }
+  },
+  "field_checklist": {
+    "type": "paragraph--checklist",
+    "id": "c68b53cd-ec79-4ecb-a73d-4141e52964c7",
+    "meta": {
+      "target_revision_id": 1519164,
+      "drupal_internal__target_id": 161731
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_checklist?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_checklist?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "field_contact_information": {
+    "data": {
+      "type": "paragraph--contact_information",
+      "id": "364e7548-c5f0-4769-943a-19f8a05eae1d",
+      "meta": {
+        "target_revision_id": 1519166,
+        "drupal_internal__target_id": 161733
+      }
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_contact_information?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_contact_information?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "field_other_categories": {
+    "data": [
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "c0996420-619f-4aa3-b546-fc2c2f37496a",
+        "meta": {
+          "drupal_internal__target_id": 299
+        }
+      },
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "1b07f2c7-b7af-4e68-af74-0a2ded6f4fc3",
+        "meta": {
+          "drupal_internal__target_id": 303
+        }
+      },
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "d5115fb7-ae5b-4c20-a6f6-327804914dd3",
+        "meta": {
+          "drupal_internal__target_id": 305
+        }
+      },
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "4efc1792-24d7-4328-b121-d7e6f70daacc",
+        "meta": {
+          "drupal_internal__target_id": 306
+        }
+      },
+      {
+        "type": "taxonomy_term--lc_categories",
+        "id": "8a5d89da-deb3-4b94-9cc3-71e9984b4f03",
+        "meta": {
+          "drupal_internal__target_id": 1044
+        }
+      }
+    ],
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_other_categories?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_other_categories?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "field_primary_category": {
+    "data": {
+      "type": "taxonomy_term--lc_categories",
+      "id": "593d7523-f562-442a-a940-f81956da5e96",
+      "meta": {
+        "drupal_internal__target_id": 301
+      }
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_primary_category?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_primary_category?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "field_related_benefit_hubs": [
+    {
+      "type": "node--landing_page",
+      "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+      "meta": {
+        "drupal_internal__target_id": 67
+      }
+    },
+    {
+      "type": "node--landing_page",
+      "id": "ea251553-7aa5-4613-8824-47965c489a86",
+      "meta": {
+        "drupal_internal__target_id": 78
+      }
+    },
+    {
+      "type": "node--landing_page",
+      "id": "18ca8756-9f78-43ef-95ea-04bd106063c5",
+      "meta": {
+        "drupal_internal__target_id": 71
+      }
+    }
+  ],
+  "field_related_information": {
+    "data": [
+      {
+        "type": "paragraph--link_teaser",
+        "id": "f69522b5-ef26-45ba-9a00-2950936f1b2c",
+        "meta": {
+          "target_revision_id": 1519167,
+          "drupal_internal__target_id": 161734
+        }
+      },
+      {
+        "type": "paragraph--link_teaser",
+        "id": "13fd0971-cce7-4a81-94c6-088a985caf30",
+        "meta": {
+          "target_revision_id": 1519168,
+          "drupal_internal__target_id": 161735
+        }
+      }
+    ],
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_related_information?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_related_information?resourceVersion=id%3A925128"
+      }
+    }
+  },
+  "field_tags": {
+    "data": {
+      "type": "paragraph--audience_topics",
+      "id": "d63ccc20-055f-4712-9b5e-28179fe92e3b",
+      "meta": {
+        "target_revision_id": 1519169,
+        "drupal_internal__target_id": 161736
+      }
+    },
+    "links": {
+      "related": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_tags?resourceVersion=id%3A925128"
+      },
+      "self": {
+        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_tags?resourceVersion=id%3A925128"
+      }
+    }
+  }
 }
