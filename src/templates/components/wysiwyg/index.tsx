@@ -33,6 +33,7 @@ export function Wysiwyg({
   return (
     <div
       data-entity-id={entityId}
+      data-paragraph-type="paragraph--wysiwyg"
       data-next-component="templates/components/wysiwyg"
     >
       <WysiwygField html={html} />
