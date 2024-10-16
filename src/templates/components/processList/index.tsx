@@ -4,7 +4,7 @@ export function ProcessList({ steps, entityId }: FormattedProcessList) {
   if (!steps) return
   return (
     <div
-      data-template="paragraphs/process"
+      data-next-component="templates/components/processList"
       data-entity-id={entityId}
       className="process schemaform-process"
     >

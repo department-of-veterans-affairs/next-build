@@ -9,8 +9,8 @@ export type ContactInfo = PublishedParagraph & {
 }
 
 export type Contact = {
-  label: string
-  number: string
+  title: string
+  value: string
   href: string
 }
 
@@ -28,6 +28,11 @@ export type EmailContact = PublishedParagraph & {
 }
 
 export type AdditionalContact = PhoneContact | EmailContact
+
+// TODO: Is this being used? benefitHubContacts is typed as Contact[] not BenefitHubcontact[]
+export type BenefitHubContact = {
+  services: Contact[]
+}
 
 export type PressContact = {
   id: string
