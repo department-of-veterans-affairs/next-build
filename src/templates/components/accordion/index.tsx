@@ -25,7 +25,7 @@ export function AccordionItem({
 export function Accordion({ id, bordered, items }: FormattedAccordion) {
   if (!items) return null
   return (
-    <div>
+    <div data-next-component="templates/components/accordion">
       <va-accordion bordered={bordered} id={id}>
         {items.map((item) => (
           <AccordionItem key={item.id} {...item} />

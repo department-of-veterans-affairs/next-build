@@ -86,7 +86,8 @@ export const RateYourExperience = () => {
 
   return (
     <form
-      className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0"
+      className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column"
+      data-next-component="templates/components/rateYourExperience"
     >
       <VaRadio
         error={isError ? 'Please select an answer' : ''}

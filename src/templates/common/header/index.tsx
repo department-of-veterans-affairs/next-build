@@ -3,7 +3,11 @@ import { TopNav } from './TopNav'
 
 export const Header = () => {
   return (
-    <header className="header" role="banner">
+    <header
+      className="header"
+      role="banner"
+      data-next-component="templates/common/header"
+    >
       {/*  Mobile Layout */}
       <div
         data-widget-type="header"

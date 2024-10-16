@@ -22,6 +22,7 @@ export function LovellSwitcher({
       status="warning"
       class="vads-u-margin-bottom--2"
       id="va-info-alert"
+      data-next-component="templates/components/lovellSwitcher"
     >
       <h2 slot="headline">
         You are viewing this page as a {currentVariant.toUpperCase()}{' '}
