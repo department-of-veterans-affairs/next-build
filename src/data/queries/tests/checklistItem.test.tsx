@@ -16,10 +16,18 @@ describe('ChecklistItem formatData', () => {
   })
 
   test('handles no answers correctly', () => {
-    expect(queries.formatData('paragraph--checklist_item', {
+    const emptyData = {
       field_checklist_items: [],
       field_section_header: '',
       field_section_intro: ''
-    }))
+    }
+
+    const formattedDataEmpty = queries.formatData('paragraph--checklist_item', emptyData)
+
+    expect(formattedDataEmpty).toEqual({
+      items: [],
+      header: '',
+      intro: ''
+    })
   })
 })
