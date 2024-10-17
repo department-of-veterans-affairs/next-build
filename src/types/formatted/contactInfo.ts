@@ -30,7 +30,7 @@ export type EmailContact = PublishedParagraph & {
 export type AdditionalContact = PhoneContact | EmailContact
 
 export type BenefitHubContact = {
-  services: (Contact|PhoneContact)[]
+  services: (Contact | PhoneContact)[]
 }
 
 export type PressContact = {

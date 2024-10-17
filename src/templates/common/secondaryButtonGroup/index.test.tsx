@@ -22,7 +22,6 @@ describe('SecondaryButtonGroup Component', () => {
     expect(container.innerHTML).toContain('href="https://www.va.gov/button-one"')
     expect(container.innerHTML).toContain('Button two')
     expect(container.innerHTML).toContain('href="https://www.va.gov/button-two"')
-
   })
 
   test('renders action link correctly when there is only one', () => {

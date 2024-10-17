@@ -23,7 +23,7 @@ describe('RelatedInformation Component', () => {
     expect(container.innerHTML).toContain('Button one')
     expect(container.innerHTML).toContain('href="/button-one"')
     expect(container.innerHTML).toContain('Button two')
-    expect(container.innerHTML).toContain('href="/button-one"')
+    expect(container.innerHTML).toContain('href="/button-two"')
   })
 
   test('renders link correctly when there is only one', () => {
