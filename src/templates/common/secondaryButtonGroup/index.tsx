@@ -1,14 +1,9 @@
-import { isEmpty } from 'lodash'
 import { Button as FormattedButton } from '@/types/formatted/button'
 
 // Used for R&S pages; either a single blue CTA link or multiple
 export const SecondaryButtonGroup = ({
   buttons
 }: FormattedButton[]): JSX.Element => {
-  if (isEmpty(buttons)) {
-    return null
-  }
-
   if (buttons.length > 1) {
     return (
       <ul
