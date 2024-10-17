@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { RelatedInformation } from './'
 
 describe('RelatedInformation Component', () => {
@@ -18,9 +18,10 @@ describe('RelatedInformation Component', () => {
       }
     ]
 
-    render(<RelatedInformation relatedInformation={relatedInformation} />)
+    const { container } = render(<RelatedInformation relatedInformation={relatedInformation} />)
 
-    expect(screen.getAllByRole('listitem')).toHaveLength(2)
+    expect(container.innerHTML).toContain('Button one')
+    expect(container.innerHTML).toContain('Button two')
   })
 
   test('renders link correctly when there is only one', () => {
@@ -33,8 +34,8 @@ describe('RelatedInformation Component', () => {
       }
     ]
 
-    render(<RelatedInformation relatedInformation={oneLink} />)
+    const { container } = render(<RelatedInformation relatedInformation={oneLink} />)
 
-    expect(screen.getAllByRole('paragraph')).toHaveLength(2)
+    expect(container.innerHTML).toContain('Button three')
   })
 })

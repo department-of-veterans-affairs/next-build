@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { BenefitsHubLinks as FormattedBenefitsHubLinks } from '@/types/formatted/benefitsHub'
 
@@ -5,6 +6,10 @@ import { BenefitsHubLinks as FormattedBenefitsHubLinks } from '@/types/formatted
 export function BenefitsHubLinks({
   links
 }: FormattedBenefitsHubLinks) {
+  if (isEmpty(links)) {
+    return null
+  }
+
   let link
   const renderLink = (path, label, teaserText) => (
     <>
