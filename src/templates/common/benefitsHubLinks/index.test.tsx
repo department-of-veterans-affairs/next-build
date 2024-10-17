@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { BenefitsHubLinks } from './index'
 
 describe('BenefitsHubLinks with valid data', () => {
@@ -22,9 +22,10 @@ describe('BenefitsHubLinks with valid data', () => {
       },
     ]
 
-    render(<BenefitsHubLinks links={links} />)
+    const { container } = render(<BenefitsHubLinks links={links} />)
 
-    expect(screen.getAllByRole('listitem')).toHaveLength(2)
+    expect(container.innerHTML).toContain('Apply for VA health care, find out how to access services, and manage your health and benefits online.')
+    expect(container.innerHTML).toContain('Apply for and manage your GI Bill and other education benefits to help pay for college and training programs.')
   })
 
   test('renders link correctly when there is only one', () => {
@@ -39,8 +40,8 @@ describe('BenefitsHubLinks with valid data', () => {
       }
     ]
 
-    render(<BenefitsHubLinks links={link} />)
+    const { container } = render(<BenefitsHubLinks links={link} />)
 
-    expect(screen.getAllByRole('paragraph')).toHaveLength(2)
+    expect(container.innerHTML).toContain('Apply for VA health care, find out how to access services, and manage your health and benefits online.')
   })
 })
