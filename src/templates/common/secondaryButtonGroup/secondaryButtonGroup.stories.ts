@@ -6,7 +6,6 @@ const meta: Meta<typeof SecondaryButtonGroup> = {
   title: 'Common/Secondary Button Group',
   component: SecondaryButtonGroup,
 }
-
 export default meta
 
 type Story = StoryObj<typeof SecondaryButtonGroup>
