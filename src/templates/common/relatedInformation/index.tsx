@@ -5,6 +5,10 @@ import { LinkTeaser } from '@/types/formatted/linkTeaser'
 export const RelatedInformation = ({
   relatedInformation
 }: LinkTeaser[]): JSX.Element => {
+  if (isEmpty(relatedInformation)) {
+    return null
+  }
+
   let link
   const renderLink = (uri, title, summary) => (
     <>
