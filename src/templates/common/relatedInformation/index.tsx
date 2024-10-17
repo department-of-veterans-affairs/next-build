@@ -5,6 +5,7 @@ import { LinkTeaser } from '@/types/formatted/linkTeaser'
 export const RelatedInformation = ({
   relatedInformation
 }: LinkTeaser[]): JSX.Element => {
+  let link
   const renderLink = (uri, title, summary) => (
     <>
       <p className="vads-u-margin--0">
@@ -19,6 +20,10 @@ export const RelatedInformation = ({
     </>
   )
 
+  if (relatedInformation.length === 1) {
+    link = relatedInformation[0]
+  }
+
   return (
     <section
       className="vads-u-padding-top--3 vads-u-display--flex vads-u-flex-direction--column"
@@ -26,7 +31,7 @@ export const RelatedInformation = ({
     >
       <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">Related information</h2>
 
-      {relatedInformation?.length > 1 && (
+      {relatedInformation.length > 1 && (
         <ul className="usa-unstyled-list">
         {relatedInformation.map(link => (
           <li className="vads-u-margin-y--2" key={link.id}>
