@@ -25,7 +25,9 @@ describe('BenefitsHubLinks with valid data', () => {
     const { container } = render(<BenefitsHubLinks links={links} />)
 
     expect(container.innerHTML).toContain('Apply for VA health care, find out how to access services, and manage your health and benefits online.')
+    expect(container.innerHTML).toContain('href="/resources/helpful-va-phone-numbers"')
     expect(container.innerHTML).toContain('Apply for and manage your GI Bill and other education benefits to help pay for college and training programs.')
+    expect(container.innerHTML).toContain('href="/resources/change-your-address-on-file-with-va"')
   })
 
   test('renders link correctly when there is only one', () => {
@@ -43,5 +45,6 @@ describe('BenefitsHubLinks with valid data', () => {
     const { container } = render(<BenefitsHubLinks links={link} />)
 
     expect(container.innerHTML).toContain('Apply for VA health care, find out how to access services, and manage your health and benefits online.')
+    expect(container.innerHTML).toContain('href="/resources/helpful-va-phone-numbers"')
   })
 })
