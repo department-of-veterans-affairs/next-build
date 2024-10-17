@@ -20,7 +20,7 @@ const analytic = header => {
   }
 }
 
-const useTelephoneWebComponent = telephone => {
+const canUseWebComponent = telephone => {
   if (!telephone || /[a-zA-Z+]/.test(telephone)) {
     return false
   }
@@ -72,7 +72,7 @@ export const PhoneContact = (
     number
   } = phone
 
-  if (useTelephoneWebComponent(number) && label) {
+  if (label && number) {
     return (
       <li className="vads-u-margin-top--1">
         <strong>{label}&nbsp;</strong>
@@ -84,19 +84,7 @@ export const PhoneContact = (
     )
   }
 
-  const phoneNumber = phone.extension
-    ? `${phone.number}p${phone.extension}`
-    : phone.number
-
-  return (
-    <li className="vads-u-margin-top--1">
-      <BasicContact
-        title={phone.label}
-        value={phoneNumber}
-        href={`tel:${phoneNumber}`}
-      />
-    </li>
-  )
+  return null;
 }
 
 // nested paragraphs
@@ -112,11 +100,27 @@ const AdditionalContact = (contact: FormattedAdditionalContact) => {
 
 // node--support-service nodes that get included
 const BenefitHubContacts = ({ services }: BenefitHubContact) => {
-  return services.map(service => (
-    <li className="vads-u-margin-top--1" key={service.title}>
-      <BasicContact {...service} />
-    </li>
-  ))
+  return services.map(service => {
+    if (canUseWebComponent(service.value)) {
+      const phone = {
+        extension: null,
+        label: service.title,
+        number: service.value
+      }
+
+      return <PhoneContact {...phone} key={service.title} />
+    }
+
+    return (
+      <li className="vads-u-margin-top--1" key={service.title}>
+        <BasicContact
+          title={service.title}
+          value={service.value}
+          href={service.href}
+        />
+      </li>
+    )
+  })
 }
 
 // wrapper around all types of contact info

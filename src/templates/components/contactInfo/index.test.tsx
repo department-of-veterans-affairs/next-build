@@ -72,10 +72,11 @@ describe('ContactInfo with valid data', () => {
       ],
     }
 
-    render(<ContactInfo {...bhc} />)
+    const { container } = render(<ContactInfo {...bhc} />)
 
     expect(screen.queryByText(/Phone Number/)).not.toBeInTheDocument()
     expect(screen.queryByText(/My HealtheVet help desk/)).toBeInTheDocument()
+    expect(container.innerHTML).toContain('<va-telephone contact=\"800-983-0937\">')
   })
 
   test('click event sends correct params to recordEvent', () => {
