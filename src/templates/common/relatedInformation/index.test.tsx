@@ -21,7 +21,9 @@ describe('RelatedInformation Component', () => {
     const { container } = render(<RelatedInformation relatedInformation={relatedInformation} />)
 
     expect(container.innerHTML).toContain('Button one')
+    expect(container.innerHTML).toContain('href="/button-one"')
     expect(container.innerHTML).toContain('Button two')
+    expect(container.innerHTML).toContain('href="/button-one"')
   })
 
   test('renders link correctly when there is only one', () => {
@@ -37,5 +39,6 @@ describe('RelatedInformation Component', () => {
     const { container } = render(<RelatedInformation relatedInformation={oneLink} />)
 
     expect(container.innerHTML).toContain('Button three')
+    expect(container.innerHTML).toContain('href="/button-three"')
   })
 })
