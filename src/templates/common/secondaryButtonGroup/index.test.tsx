@@ -19,7 +19,10 @@ describe('SecondaryButtonGroup Component', () => {
     const { container } = render(<SecondaryButtonGroup buttons={multipleButtons} />)
 
     expect(container.innerHTML).toContain('Button one')
+    expect(container.innerHTML).toContain('href="https://www.va.gov/button-one"')
     expect(container.innerHTML).toContain('Button two')
+    expect(container.innerHTML).toContain('href="https://www.va.gov/button-two"')
+
   })
 
   test('renders action link correctly when there is only one', () => {
@@ -34,5 +37,6 @@ describe('SecondaryButtonGroup Component', () => {
     const { container } = render(<SecondaryButtonGroup buttons={oneButton} />)
 
     expect(container.innerHTML).toContain('Single button')
+    expect(container.innerHTML).toContain('href="https://www.va.gov/single-button"')
   })
 })
