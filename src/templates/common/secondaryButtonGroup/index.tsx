@@ -1,13 +1,17 @@
-import { isEmpty } from 'lodash'
 import { Button as FormattedButton } from '@/types/formatted/button'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 // Used for R&S pages; either a single blue CTA link or multiple
 export const SecondaryButtonGroup = ({
+<<<<<<< HEAD
   buttons,
 }: {
   buttons: ParagraphComponent<FormattedButton>[]
 }): JSX.Element => {
+=======
+  buttons
+}: FormattedButton[]): JSX.Element => {
+>>>>>>> 53ec1d5e (Adding/updating more unit tests)
   if (buttons.length > 1) {
     return (
       <ul
