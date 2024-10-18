@@ -2,7 +2,10 @@ import Link from 'next/link'
 
 export function CommonAndPopular() {
   return (
-    <div className="row vads-u-padding-bottom--9">
+    <div
+      className="row vads-u-padding-bottom--9"
+      data-next-component="templates/common/commonAndPopular"
+    >
       <div className="small-12 usa-width-one-half medium-6 columns">
         <h3 className="va-h-ruled vads-u-margin-bottom--2 vads-u-padding-bottom--1 vads-u-font-size--xl">
           Common Questions

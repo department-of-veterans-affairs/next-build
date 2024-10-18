@@ -63,7 +63,11 @@ export const LinkTeaser = ({
   }
 
   return (
-    <li key={id} onClick={() => recordEvent(analytic)}>
+    <li
+      key={id}
+      onClick={() => recordEvent(analytic)}
+      data-next-component="templates/components/linkTeaser"
+    >
       {title !== '' && (
         <h3 className="va-nav-linkslist-title vads-u-font-size--h4">
           <a

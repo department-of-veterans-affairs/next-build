@@ -23,6 +23,7 @@ import {
   ParagraphAlertSingle,
   ParagraphAudienceTopics,
   ParagraphButton,
+  ParagraphChecklistItems,
   ParagraphCollapsiblePanel,
   ParagraphContactInformation,
   ParagraphHealthCareLocalFacilityService,
@@ -42,13 +43,14 @@ import {
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
-  TaxonomyTermHealthCareServiceTaxonomy,
+  TaxonomyTermHealthCareServiceTaxonomy
 } from './taxonomy_term'
 
 /** Union of all node types.  */
 export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
+  | NodeChecklist
   | NodeFaqMultipleQA
   | NodeHealthCareLocalFacility
   | NodeLandingPage
@@ -397,6 +399,14 @@ export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
     | ParagraphQaGroup
   )[]
   field_buttons_repeat: boolean
+}
+
+export interface NodeChecklist extends NodeAbstractResource {
+  field_buttons_repeat: boolean
+  field_checklist: {
+    field_checklist_sections: ParagraphChecklistItems[]
+  }
+  field_related_benefit_hubs: BenefitsHubLink[]
 }
 
 export interface NodeSupportService extends DrupalNode {

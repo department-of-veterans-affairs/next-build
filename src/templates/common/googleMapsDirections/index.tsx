@@ -5,6 +5,7 @@ export const GoogleMapsDirections = ({ title, address }) => {
 
   return (
     <va-link
+      data-next-component="templates/common/googleMapsDirections"
       class="vads-u-display--block vads-u-margin-top--0"
       href={googleMapsUrl}
       name="maps-directions"

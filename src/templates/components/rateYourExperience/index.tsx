@@ -1,11 +1,8 @@
 import { MouseEvent, ChangeEvent, useState } from 'react'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-
-const enum RatingOption {
-  Good = 'Good',
-  Bad = 'Bad',
-}
+import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
+import { VaRadio, VaRadioOption } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
 const RatingButton = ({
   rating,
@@ -16,24 +13,14 @@ const RatingButton = ({
   isChecked: boolean
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }) => {
-  const buttonId = `rate-your-experience--${rating.toLowerCase()}`
   return (
-    <div className="radio-button">
-      <input
-        id={buttonId}
-        name="rating"
-        type="radio"
-        value={rating}
-        checked={isChecked}
-        onChange={onChange}
-      />
-      <label
-        className="vads-u-margin--0 vads-u-margin-right--2"
-        htmlFor={buttonId}
-      >
-        {rating}
-      </label>
-    </div>
+    <va-radio-option
+      class="hydrated"
+      label={rating}
+      name="rating"
+      value={rating}
+      checked={isChecked}
+    />
   )
 }
 
@@ -44,42 +31,15 @@ const SubmitButton = ({
   isActive: boolean
   onClick: (e: MouseEvent<HTMLButtonElement>) => void
 }) => (
-  <div>
-    <button
-      className={`usa-button usa-button-secondary vads-u-width--full medium-screen:vads-u-width--auto vads-u-margin--0 vads-u-margin-top--2p5 ${isActive ? '' : 'vads-u-display--none'}`}
-      aria-hidden={!isActive}
-      id="rate-your-experience--rating-submit"
-      type="submit"
-      onClick={onClick}
-    >
-      Submit feedback
-    </button>
-  </div>
-)
-
-const ErrorMessage = ({ isActive }: { isActive: boolean }) => (
-  <span
-    className={`usa-input-error-message ${isActive ? '' : 'vads-u-display--none'}`}
+  <va-button
+    class={`vads-u-width--full medium-screen:vads-u-width--auto vads-u-margin--0 vads-u-margin-top--2p5 ${isActive ? '' : 'vads-u-display--none'}`}
     aria-hidden={!isActive}
-    role="alert"
-    id="rate-your-experience--error-message"
-  >
-    <span className="sr-only">Error</span> Please select an answer
-  </span>
+    onClick={onClick}
+    secondary
+    text="Submit feedback"
+  />
 )
 
-const ThankYouMessage = ({ isActive }: { isActive: boolean }) => (
-  <p
-    aria-hidden={!isActive}
-    aria-live="assertive"
-    id="rate-your-experience--thank-you-message"
-    className={`vads-u-margin--0 ${isActive ? 'vads-u-display--block' : 'vads-u-display--none'}`}
-  >
-    Thank you for your feedback.
-  </p>
-)
-
-/* RateYourExperience */
 export const RateYourExperience = () => {
   const header = 'How do you rate your experience on this page?'
   const [rating, setRating] = useState<RatingOption>(null)
@@ -111,45 +71,65 @@ export const RateYourExperience = () => {
     setIsSubmitted(true)
   }
 
+  const handleSurveyClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+
+    const isProduction = process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
+
+    const surveyNumber = getSurveyNumber(
+      window.location.pathname,
+      isProduction
+    )
+
+    showForm(surveyNumber)
+  }
+
   return (
     <form
-      className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0"
-      data-template="includes/how-do-you-rate"
-      id="how-do-you-rate-form"
+      className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column"
+      data-next-component="templates/components/rateYourExperience"
     >
-      <fieldset
-        id="rating-options"
-        className={`fieldset-input vads-u-margin-top--1 ${isError ? 'usa-input-error' : ''}`}
+      <VaRadio
+        error={isError ? 'Please select an answer' : ''}
+        class="hydrated"
+        aria-hidden={isSubmitted}
+        label={header}
+        label-header-level="2"
       >
-        <legend>
-          <h2 className="vads-u-margin--0 vads-u-margin-bottom--1p5 vads-u-font-size--h3">
-            {header}
-          </h2>
-        </legend>
-
-        <ErrorMessage isActive={isError} />
-
-        <div
-          id="rating-buttons"
-          className={`form-radio-buttons vads-u-align-items--center ${isSubmitted ? 'vads-u-display--none' : 'vads-u-display--flex'}`}
-          aria-hidden={isSubmitted}
-        >
-          <RatingButton
-            rating={RatingOption.Good}
-            isChecked={rating === RatingOption.Good}
-            onChange={() => handleRatingChange(RatingOption.Good)}
-          />
-          <RatingButton
-            rating={RatingOption.Bad}
-            isChecked={rating === RatingOption.Bad}
-            onChange={() => handleRatingChange(RatingOption.Bad)}
-          />
-        </div>
-      </fieldset>
+        <VaRadioOption
+          checked={rating === 'Good'}
+          class="hydrated"
+          id="Good"
+          label="Good"
+          name="rating"
+          onChange={() => handleRatingChange('Good')}
+          value="Good"
+        />
+        <VaRadioOption
+          checked={rating === 'Bad'}
+          class="hydrated"
+          id="Bad"
+          label="Bad"
+          name="rating"
+          onChange={() => handleRatingChange('Bad')}
+          value="Bad"
+        />
+      </VaRadio>
 
       <SubmitButton isActive={!isSubmitted} onClick={handleSubmit} />
-
-      <ThankYouMessage isActive={isSubmitted} />
+      <p
+        aria-hidden={!isSubmitted}
+        id="rate-your-experience--thank-you-message"
+        className={`vads-u-margin-bottom-0 ${isSubmitted ? 'vads-u-display--block' : 'vads-u-display--none'}`}
+      >
+        Want to share more feedback? We&apos;ll use it to keep improving VA.gov for all Veterans and their families.&nbsp;
+        <va-button
+          onClick={handleSurveyClick}
+          type="button"
+          class="va-button-link"
+          text="Complete our 3-question survey."
+        />
+      </p>
     </form>
   )
 }

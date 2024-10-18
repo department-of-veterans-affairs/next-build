@@ -17,7 +17,6 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
 
   return (
     <va-alert
-      data-template="paragraphs/alert"
       data-paragraph-type="paragraph--alert"
       data-next-component="templates/components/alert"
       data-entity-id={entityId}
@@ -30,8 +29,8 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
         {heading}
       </h2>
 
-      {paragraphs?.map((paragraph) => (
-        <Paragraph key={paragraph.id} {...paragraph} />
+      {paragraphs?.map((paragraph, index) => (
+        <Paragraph key={index} {...paragraph} />
       ))}
     </va-alert>
   )

@@ -23,7 +23,11 @@ export const PersonProfile = ({
   office,
 }: FormattedPersonProfile): JSX.Element => {
   return (
-    <div id="content" className="interior">
+    <div
+      id="content"
+      className="interior"
+      data-next-component="templates/components/personProfile/(PersonProfile)"
+    >
       <main className="va-l-detail-page va-facility-page">
         <div className="usa-grid usa-grid-full">
           <div className="usa-width-three-fourths">
@@ -136,7 +140,10 @@ export const StaffNewsProfile = ({
   description,
 }: PersonProfileTeaserProps): JSX.Element => {
   return (
-    <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
+    <div
+      className="vads-u-font-size--sm vads-u-margin-bottom--2p5"
+      data-next-component="templates/components/personProfile/(StaffNewsProfile)"
+    >
       <div className="vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
         By {title}
         {description ? `, ${description}` : null}
