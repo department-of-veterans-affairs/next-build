@@ -1,10 +1,10 @@
 import { isEmpty } from 'lodash'
-import { LinkTeaser } from '@/types/formatted/linkTeaser'
+import { RelatedInformationLinks } from '@/types/formatted/relatedInformation'
 
 // Used for R&S pages; group of links under a "Related information" header
 export const RelatedInformation = ({
   relatedInformation
-}: LinkTeaser[]): JSX.Element => {
+}: RelatedInformationLinks): JSX.Element => {
   if (isEmpty(relatedInformation)) {
     return null
   }

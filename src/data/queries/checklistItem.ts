@@ -1,6 +1,6 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphChecklistItems } from '@/types/drupal/paragraph'
-import { ChecklistItem } from '@/types/formatted/checklistItem'
+import { ChecklistItem } from '@/types/formatted/checklist'
 
 export const formatter: QueryFormatter<ParagraphChecklistItems, ChecklistItem> = (
   entity: ParagraphChecklistItems

@@ -247,7 +247,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       },
     }
   } catch (err) {
-    console.log('ERROR: ', err);
     return {
       notFound: true,
     }
