@@ -101,7 +101,7 @@ const AdditionalContact = (contact: FormattedAdditionalContact) => {
 // node--support-service nodes that get included
 const BenefitHubContacts = ({ services }: BenefitHubContact) => {
   return services.map(service => {
-    if (canUseWebComponent(service.value)) {
+    if ('value' in service && canUseWebComponent(service.value)) {
       const phone = {
         extension: null,
         label: service.title,
