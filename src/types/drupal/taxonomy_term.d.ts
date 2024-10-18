@@ -25,10 +25,9 @@ export interface TaxonomyTermHealthCareServiceTaxonomy
   description: FieldFormattedText
 }
 
-export interface TaxonomyTermLcCategories extends DrupalTaxonomyTerm {
-  field_enforce_unique_value: boolean
-  field_topic_id: string
-}
+// Allow this for consistency, even though no fields are present.
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface TaxonomyTermLcCategories extends DrupalTaxonomyTerm {}
 
 // Allow this for consistency, even though no fields are present.
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
