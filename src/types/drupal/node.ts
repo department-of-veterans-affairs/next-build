@@ -401,6 +401,7 @@ export interface NodeChecklist extends NodeAbstractResource {
   field_checklist: {
     field_checklist_sections: ParagraphChecklistItems[]
   }
+  field_related_benefit_hubs: BenefitsHubLink[]
 }
 
 export interface NodeSupportService extends DrupalNode {
