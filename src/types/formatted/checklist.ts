@@ -14,7 +14,7 @@ export type ChecklistItem = {
 
 export type Checklist = PublishedEntity & {
   alert: AlertSingle
-  benefitHubsLinks: BenefitsHubLink[]
+  benefitsHubLinks: BenefitsHubLink[]
   buttons: Button[]
   checklist: ChecklistItem[]
   contactInformation: ContactInfo
