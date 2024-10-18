@@ -41,7 +41,10 @@ import {
   ParagraphCCVetCenterFaqs,
   ParagraphFeaturedContent,
 } from './paragraph'
-import { TaxonomyTermHealthCareServiceTaxonomy } from './taxonomy_term'
+import {
+  TaxonomyTermLcCategories,
+  TaxonomyTermHealthCareServiceTaxonomy
+} from './taxonomy_term'
 
 /** Union of all node types.  */
 export type NodeTypes =
@@ -69,10 +72,12 @@ export type NodeTypes =
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
+  field_other_categories: TaxonomyTermLcCategories[]
   field_alert_single: ParagraphAlertSingle
   field_buttons: ParagraphButton[]
   field_contact_information: ParagraphContactInformation
   field_intro_text_limited_html: FieldFormattedText
+  field_primary_category: TaxonomyTermLcCategories
   field_related_information: ParagraphLinkTeaser[]
   field_tags: ParagraphAudienceTopics
   field_related_benefit_hubs: NodeLandingPage[]
