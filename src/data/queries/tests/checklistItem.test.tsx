@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { ChecklistItem } from '@/types/drupal/node'
+import { ChecklistItem } from '@/types/formatted/checklist'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/checklistItem.mock.json'
 
@@ -19,7 +19,13 @@ describe('ChecklistItem formatData', () => {
     const emptyData = {
       field_checklist_items: [],
       field_section_header: '',
-      field_section_intro: ''
+      field_section_intro: '',
+      type: 'paragraph--checklist_item',
+      id: 'c4d10aa1-3bb9-4f39-99fd-f110b465603f',
+      'drupal_internal__id': 13919,
+      'drupal_internal__revision_id': 149239,
+      langcode: 'en',
+      status: true,
     }
 
     const formattedDataEmpty = queries.formatData('paragraph--checklist_item', emptyData)

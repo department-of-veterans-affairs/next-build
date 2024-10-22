@@ -45,6 +45,7 @@ import {
   TaxonomyTermLcCategories,
   TaxonomyTermHealthCareServiceTaxonomy
 } from './taxonomy_term'
+import { BenefitsHubLink } from '@/types/formatted'
 
 /** Union of all node types.  */
 export type NodeTypes =

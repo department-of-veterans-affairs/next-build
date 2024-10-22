@@ -9,44 +9,44 @@ describe('<RateYourExperience>', () => {
   test('renders <RateYourExperience />', () => {
     const { queryByText } = render(<RateYourExperience />)
 
-    const good = document.querySelector('#rate-your-experience--good')
-    const bad = document.querySelector('#rate-your-experience--bad')
+    const good = document.querySelector('#Good')
+    const bad = document.querySelector('#Bad')
+    const radioHeader = document.querySelector('[label="How do you rate your experience on this page?')
+    const submitButton = document.querySelector('va-button[text="Submit feedback"]')
 
-    expect(
-      queryByText(/How do you rate your experience on this page?/)
-    ).toBeInTheDocument()
+    expect(radioHeader).toBeInTheDocument()
     expect(good).toBeInTheDocument()
     expect(bad).toBeInTheDocument()
+    expect(submitButton).toBeInTheDocument()
   })
 
-  test('shows error message when submitted without selection', async () => {
+  test.only('shows error message when submitted without selection', async () => {
     const user = userEvent.setup()
-    render(<RateYourExperience />)
+    const { screen } = render(<RateYourExperience />)
 
-    const submitButton = document.querySelector(
-      '#rate-your-experience--rating-submit'
-    )
-    const errorMessage = document.querySelector(
-      '#rate-your-experience--error-message'
-    )
-    expect(errorMessage).toBeInTheDocument()
-    expect(errorMessage).toHaveClass('vads-u-display--none')
+    const submitButton = document.querySelector('va-button[text="Submit feedback"]')
+    const errorMessage = document.querySelector('va-radio[error="Please select an answer"]')
+
+    expect(submitButton).toBeInTheDocument()
+    expect(errorMessage).not.toBeInTheDocument()
 
     user.click(submitButton)
-    await waitFor(() =>
-      expect(errorMessage).not.toHaveClass('vads-u-display--none')
-    )
+
+    await waitFor(() => {
+      expect(screen.queryByText(/Please select an answer/)).toBeInTheDocument()
+      expect(errorMessage).toBeInTheDocument()
+    })
   })
 
   test('shows thank-you message when submitted with selection', async () => {
     const user = userEvent.setup()
-    render(<RateYourExperience />)
+    const { screen } = render(<RateYourExperience />)
 
     const goodRatingInput = document.querySelector(
-      '#rate-your-experience--good'
+      '#Good'
     )
     const submitButton = document.querySelector(
-      '#rate-your-experience--rating-submit'
+      'va-button[text="Submit feedback"]'
     )
     const thankYouMessage = document.querySelector(
       '#rate-your-experience--thank-you-message'
