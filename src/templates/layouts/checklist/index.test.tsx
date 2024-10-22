@@ -1,10 +1,11 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Checklist } from './index'
-import checklistMock from '@/mocks/checklist.mock.json'
 
 describe('Checklist with valid data', () => {
   const data = {
+    type: 'node--checklist',
+    id: '1',
     alert: {
       alertSelection: 'R',
       blockReference: {

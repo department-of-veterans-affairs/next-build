@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Checklist } from '@/types/formatted/checklist'
+import { Checklist as FormattedChecklist } from '@/types/formatted/checklist'
 import AlertSingle from '@/templates/components/alertSingle'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { BenefitsHubLinks } from '@/templates/common/benefitsHubLinks'
@@ -21,7 +21,7 @@ export function Checklist({
   repeatButtons,
   tags,
   title
-}: Checklist) {
+}: FormattedChecklist) {
   const {
     additionalContact,
     benefitHubContacts,

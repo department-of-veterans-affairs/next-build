@@ -6,39 +6,51 @@ describe('RelatedInformation Component', () => {
     const relatedInformation = [
       {
         id: '1',
-        summary: 'Summary for button one',
-        title: 'Button one',
-        uri: '/button-one'
+        type: 'paragraph--link_teaser',
+        uri: 'https://va.gov/burials-memorials/eligibility',
+        title: 'Eligibility for burial in a VA national cemetery',
+        summary: null,
+        parentField: null,
+        options: [],
+        componentParams: null
       },
       {
         id: '2',
-        summary: 'Summary for button two',
-        title: 'Button two',
-        uri: '/button-two'
+        type: 'paragraph--link_teaser',
+        uri: 'https://va.gov/burials-memorials/schedule-a-burial',
+        title: 'Schedule a burial for a Veteran or family member',
+        summary: null,
+        parentField: null,
+        options: [],
+        componentParams: null
       }
     ]
 
     const { container } = render(<RelatedInformation relatedInformation={relatedInformation} />)
 
-    expect(container.innerHTML).toContain('Button one')
-    expect(container.innerHTML).toContain('href="/button-one"')
-    expect(container.innerHTML).toContain('Button two')
-    expect(container.innerHTML).toContain('href="/button-two"')
+    expect(container.innerHTML).toContain('Eligibility for burial in a VA national cemetery')
+    expect(container.innerHTML).toContain('href="https://va.gov/burials-memorials/eligibility"')
+    expect(container.innerHTML).toContain('Schedule a burial for a Veteran or family member')
+    expect(container.innerHTML).toContain('href="https://va.gov/burials-memorials/schedule-a-burial"')
   })
 
   test('renders link correctly when there is only one', () => {
     const oneLink = [
       {
         id: '3',
-        summary: 'Summary for button three',
-        title: 'Button three',
-        uri: '/button-three'
+        type: 'paragraph--link_teaser',
+        uri: 'https://va.gov/burials-memorials/schedule-a-burial',
+        title: 'Schedule a burial for a Veteran or family member',
+        summary: null,
+        parentField: null,
+        options: [],
+        componentParams: null
       }
     ]
 
     const { container } = render(<RelatedInformation relatedInformation={oneLink} />)
 
-    expect(container.innerHTML).toContain('Button three')
-    expect(container.innerHTML).toContain('href="/button-three"')
+    expect(container.innerHTML).toContain('Schedule a burial for a Veteran or family member')
+    expect(container.innerHTML).toContain('href="https://va.gov/burials-memorials/schedule-a-burial"')
   })
 })

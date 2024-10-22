@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { Checklist } from '@/types/drupal/node'
+import { Checklist, ChecklistItem } from '@/types/formatted/checklist'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/checklist.mock.json'
 import { params } from '../checklist';

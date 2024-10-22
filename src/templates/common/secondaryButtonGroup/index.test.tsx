@@ -7,11 +7,13 @@ describe('SecondaryButtonGroup Component', () => {
   test('renders action links correctly when there are multiple', () => {
     const multipleButtons: ParagraphComponent<FormattedButton>[] = [
       {
+        type: 'paragraph--button',
         id: '1',
         label: 'Button one',
         url: 'https://www.va.gov/button-one',
       },
       {
+        type: 'paragraph--button',
         id: '2',
         label: 'Button two',
         url: 'https://www.va.gov/button-two',
