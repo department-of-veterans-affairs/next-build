@@ -108,7 +108,7 @@ const BenefitHubContacts = ({ services }: BenefitHubContact) => {
         number: service.value
       }
 
-      return <PhoneContact {...phone} key={service.title} />
+      return <PhoneContact {...phone} id={service.title} key={service.title} />
     }
 
     return (

@@ -4,26 +4,6 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
 import { VaRadio, VaRadioOption } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
-const RatingButton = ({
-  rating,
-  isChecked,
-  onChange,
-}: {
-  rating: RatingOption
-  isChecked: boolean
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
-}) => {
-  return (
-    <va-radio-option
-      class="hydrated"
-      label={rating}
-      name="rating"
-      value={rating}
-      checked={isChecked}
-    />
-  )
-}
-
 const SubmitButton = ({
   isActive,
   onClick,
@@ -42,11 +22,11 @@ const SubmitButton = ({
 
 export const RateYourExperience = () => {
   const header = 'How do you rate your experience on this page?'
-  const [rating, setRating] = useState<RatingOption>(null)
+  const [rating, setRating] = useState(null)
   const [isError, setIsError] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleRatingChange = (ratingOption: RatingOption) => {
+  const handleRatingChange = (ratingOption: string) => {
     setIsError(false)
     setRating(ratingOption)
   }
