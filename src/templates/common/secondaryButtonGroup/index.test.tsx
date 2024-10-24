@@ -1,17 +1,17 @@
 import { render } from '@testing-library/react'
 import { SecondaryButtonGroup } from './'
+import { Button as FormattedButton } from '@/types/formatted/button'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 describe('SecondaryButtonGroup Component', () => {
   test('renders action links correctly when there are multiple', () => {
-    const multipleButtons = [
+    const multipleButtons: ParagraphComponent<FormattedButton>[] = [
       {
-        type: 'paragraph--button',
         id: '1',
         label: 'Button one',
         url: 'https://www.va.gov/button-one'
       },
       {
-        type: 'paragraph--button',
         id: '2',
         label: 'Button two',
         url: 'https://www.va.gov/button-two'
@@ -27,7 +27,7 @@ describe('SecondaryButtonGroup Component', () => {
   })
 
   test('renders action link correctly when there is only one', () => {
-    const oneButton = [
+    const oneButton: ParagraphComponent<FormattedButton>[] = [
       {
         id: '1',
         label: 'Single button',

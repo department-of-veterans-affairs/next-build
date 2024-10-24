@@ -3,6 +3,7 @@ import * as React from 'react'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { PARAGRAPH_RESOURCE_TYPES, RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 /**
  * This is a simple page used to return serialized but unformatted data for use
@@ -22,8 +23,25 @@ export async function getStaticProps() {
     }
   }
 
-  const params = new DrupalJsonApiParams().addInclude([])
-  const data = await drupalClient.getResourceCollection('node--va_form', {
+  const params = new DrupalJsonApiParams().addInclude([
+    ...getNestedIncludes(
+      'field_alert_single',
+      PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE
+    ),
+    'field_buttons',
+    'field_checklist.field_checklist_sections',
+    ...getNestedIncludes(
+      'field_contact_information',
+      PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION
+    ),
+    'field_related_benefit_hubs',
+    'field_related_information',
+    ...getNestedIncludes(
+      'field_tags',
+      PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS
+    ),
+  ]).addPageLimit(3)
+  const data = await drupalClient.getResourceCollection('node--checklist', {
     params: params.getQueryObject(),
     withAuth: {
       clientId: process.env.DRUPAL_CLIENT_ID,

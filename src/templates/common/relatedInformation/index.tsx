@@ -1,10 +1,11 @@
 import { isEmpty } from 'lodash'
-import { RelatedInformationLinks } from '@/types/formatted/relatedInformation'
+import { LinkTeaser } from '@/types/formatted/linkTeaser'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 // Used for R&S pages; group of links under a "Related information" header
 export const RelatedInformation = ({
   relatedInformation
-}: RelatedInformationLinks): JSX.Element => {
+}: { relatedInformation: ParagraphComponent<LinkTeaser>[] }): JSX.Element => {
   if (isEmpty(relatedInformation)) {
     return null
   }

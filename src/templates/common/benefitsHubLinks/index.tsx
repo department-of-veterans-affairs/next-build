@@ -1,5 +1,4 @@
 import { isEmpty } from 'lodash'
-import { recordEvent } from '@/lib/analytics/recordEvent'
 import { BenefitsHubLinks as FormattedBenefitsHubLinks } from '@/types/formatted/benefitsHub'
 
 // Used for R&S pages; group of links to benefit hubs under a "VA benefits" header
