@@ -45,7 +45,6 @@ import {
   TaxonomyTermLcCategories,
   TaxonomyTermHealthCareServiceTaxonomy
 } from './taxonomy_term'
-import { BenefitsHubLink } from '@/types/formatted'
 
 /** Union of all node types.  */
 export type NodeTypes =
@@ -407,7 +406,7 @@ export interface NodeChecklist extends NodeAbstractResource {
   field_checklist: {
     field_checklist_sections: ParagraphChecklistItems[]
   }
-  field_related_benefit_hubs: BenefitsHubLink[]
+  field_related_benefit_hubs: NodeLandingPage[]
 }
 
 export interface NodeSupportService extends DrupalNode {

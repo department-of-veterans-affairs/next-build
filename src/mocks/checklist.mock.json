@@ -1,42 +1,36 @@
 {
   "type": "node--checklist",
-  "id": "1f681975-6c2a-4d42-a294-785e165c7eff",
-  "links": {
-    "self": {
-      "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff?resourceVersion=id%3A925128"
-    }
-  },
-  "drupal_internal__nid": 73664,
-  "drupal_internal__vid": 925128,
+  "id": "0e46640e-4c58-44c7-b02d-fd0f3f8449ed",
+  "drupal_internal__nid": 9544,
+  "drupal_internal__vid": 346274,
   "langcode": "en",
-  "revision_timestamp": "2024-10-16T20:04:12+00:00",
-  "revision_log": "Text tweaks",
-  "status": true,
-  "title": "Test Checklist Page",
-  "created": "2024-10-14T19:10:25+00:00",
-  "changed": "2024-10-16T20:04:12+00:00",
+  "revision_timestamp": "2020-12-02T21:04:25+00:00",
+  "status": false,
+  "title": "test registry exam checklist",
+  "created": "2020-11-04T16:57:33+00:00",
+  "changed": "2020-12-02T21:04:25+00:00",
   "promote": false,
   "sticky": false,
   "default_langcode": true,
   "revision_translation_affected": true,
   "breadcrumbs": [
     {
-      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
       "title": "Home",
       "options": []
     },
     {
-      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/resources",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources",
       "title": "Resources and Support",
       "options": []
     },
     {
-      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/resources/test-checklist-page",
-      "title": "Test Checklist Page",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/test-registry-exam-checklist",
+      "title": "Test Registry Exam Checklist",
       "options": []
     }
   ],
-  "moderation_state": "published",
+  "moderation_state": "draft",
   "expiration_date": null,
   "warning_date": null,
   "metatag": [
@@ -44,14 +38,14 @@
       "tag": "meta",
       "attributes": {
         "name": "title",
-        "content": "Test Checklist Page | Veterans Affairs"
+        "content": "test registry exam checklist | Veterans Affairs"
       }
     },
     {
       "tag": "meta",
       "attributes": {
         "name": "description",
-        "content": "This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus."
+        "content": "test checklist intro with test reusable alert below intro block. "
       }
     },
     {
@@ -72,14 +66,14 @@
       "tag": "meta",
       "attributes": {
         "property": "og:title",
-        "content": "Test Checklist Page | Veterans Affairs"
+        "content": "test registry exam checklist | Veterans Affairs"
       }
     },
     {
       "tag": "meta",
       "attributes": {
         "property": "og:description",
-        "content": "This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus."
+        "content": "test checklist intro with test reusable alert below intro block. "
       }
     },
     {
@@ -114,7 +108,7 @@
       "tag": "meta",
       "attributes": {
         "name": "twitter:title",
-        "content": "Test Checklist Page | Veterans Affairs"
+        "content": "test registry exam checklist | Veterans Affairs"
       }
     },
     {
@@ -133,171 +127,425 @@
     }
   ],
   "path": {
-    "alias": "/resources/test-checklist-page",
-    "pid": 114918,
+    "alias": "/resources/test-registry-exam-checklist",
+    "pid": 11329,
     "langcode": "en"
   },
   "content_translation_source": "und",
   "content_translation_outdated": false,
   "field_buttons_repeat": true,
   "field_intro_text_limited_html": {
-    "value": "\u003Cp\u003EThis is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.\u003C/p\u003E",
+    "value": "<p>test checklist intro with test reusable alert below intro block.&nbsp;</p>\r\n",
     "format": "rich_text_limited",
-    "processed": "\u003Cp\u003EThis is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.\u003C/p\u003E\n"
+    "processed": "<p>test checklist intro with test reusable alert below intro block.&nbsp;</p>\n"
   },
-  "field_last_saved_by_an_editor": "2024-10-16T20:04:12+00:00",
-  "field_table_of_contents_boolean": true,
+  "field_last_saved_by_an_editor": null,
+  "field_table_of_contents_boolean": false,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/checklist/0e46640e-4c58-44c7-b02d-fd0f3f8449ed?resourceVersion=id%3A346274"
+    }
+  },
   "node_type": {
-    "data": {
-      "type": "node_type--node_type",
-      "id": "e9ca1f1d-ca89-4884-aebd-9ca2a506c0d5",
-      "meta": {
-        "drupal_internal__target_id": "checklist"
-      }
-    },
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/node_type?resourceVersion=id%3A925128"
-      },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/node_type?resourceVersion=id%3A925128"
-      }
+    "type": "node_type--node_type",
+    "id": "e9ca1f1d-ca89-4884-aebd-9ca2a506c0d5",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "checklist"
     }
   },
   "revision_uid": {
-    "data": {
-      "type": "user--user",
-      "id": "f490d4c9-5b27-4207-b1ef-6ee240853879",
-      "meta": {
-        "drupal_internal__target_id": 4492
-      }
-    },
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/revision_uid?resourceVersion=id%3A925128"
-      },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/revision_uid?resourceVersion=id%3A925128"
-      }
+    "type": "user--user",
+    "id": "e2851f34-b8bf-4bc0-8187-2c632a40578f",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 85
     }
   },
   "uid": {
-    "data": {
-      "type": "user--user",
-      "id": "f490d4c9-5b27-4207-b1ef-6ee240853879",
-      "meta": {
-        "drupal_internal__target_id": 4492
-      }
-    },
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/uid?resourceVersion=id%3A925128"
-      },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/uid?resourceVersion=id%3A925128"
-      }
+    "type": "user--user",
+    "id": "e2851f34-b8bf-4bc0-8187-2c632a40578f",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 85
     }
   },
   "field_administration": {
-    "data": {
-      "type": "taxonomy_term--administration",
-      "id": "356c5fa2-16d2-4f72-9a8f-60c214e51535",
-      "meta": {
-        "drupal_internal__target_id": 369
-      }
-    },
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_administration?resourceVersion=id%3A925128"
-      },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_administration?resourceVersion=id%3A925128"
-      }
+    "type": "taxonomy_term--administration",
+    "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 194
     }
   },
   "field_alert_single": {
-    "data": {
-      "type": "paragraph--alert_single",
-      "id": "b79f22d1-a8f7-4215-9735-e183231ce7ab",
-      "meta": {
-        "target_revision_id": 1519158,
-        "drupal_internal__target_id": 161725
+    "type": "paragraph--alert_single",
+    "id": "029f58ce-a498-452c-b849-f029e4dafd77",
+    "drupal_internal__id": 14251,
+    "drupal_internal__revision_id": 184891,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-11-04T16:57:33+00:00",
+    "parent_id": "9544",
+    "parent_type": "node",
+    "parent_field_name": "field_alert_single",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": null,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": null,
+    "field_alert_selection": "R",
+    "field_markup": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/alert_single/029f58ce-a498-452c-b849-f029e4dafd77?resourceVersion=id%3A184891"
       }
     },
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_alert_single?resourceVersion=id%3A925128"
-      },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_alert_single?resourceVersion=id%3A925128"
+    "resourceIdObjMeta": {
+      "target_revision_id": 184891,
+      "drupal_internal__target_id": 14251
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "f2e64319-f14b-4bc1-8674-4661358e4242",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "alert_single"
       }
-    }
+    },
+    "field_alert_block_reference": {
+      "type": "block_content--alert",
+      "id": "4e43f3ca-7301-4f22-826a-67c9470c31d6",
+      "drupal_internal__id": 34,
+      "drupal_internal__revision_id": 559,
+      "langcode": "en",
+      "revision_created": "2021-05-21T21:32:32+00:00",
+      "status": true,
+      "info": "Visit the CDC",
+      "changed": "2021-05-21T21:32:32+00:00",
+      "reusable": true,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/system/403",
+          "title": "Access Denied",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "| Veterans Affairs"
+          }
+        }
+      ],
+      "field_alert_title": "Get general COVID-19 information from the CDC",
+      "field_alert_type": "information",
+      "field_reusability": "reusable",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/block_content/alert/4e43f3ca-7301-4f22-826a-67c9470c31d6?resourceVersion=id%3A559"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 34
+      },
+      "block_content_type": {
+        "type": "block_content_type--block_content_type",
+        "id": "278a3f4b-8d89-4768-ab03-869b8cc98613",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "alert"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "985a2360-2506-4a2a-98cc-26cb1a05a178",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1341
+        }
+      },
+      "field_alert_content": {
+        "type": "paragraph--wysiwyg",
+        "id": "9c774c76-ac42-453a-a8d6-b83998c24cbe",
+        "drupal_internal__id": 8882,
+        "drupal_internal__revision_id": 304823,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-03-17T21:35:05+00:00",
+        "parent_id": "34",
+        "parent_type": "block_content",
+        "parent_field_name": "field_alert_content",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_wysiwyg": {
+          "value": "<p>For general questions about COVID-19, such as symptoms, prevention, and guidance for travelers, go to the Centers for Disease Control and Prevention (CDC) website.</p>\r\n\r\n<p><a href=\"https://www.cdc.gov/coronavirus/2019-ncov/index.html\">Get general COVID-19 information from the CDC</a></p>\r\n",
+          "format": "rich_text",
+          "processed": "<p>For general questions about COVID-19, such as symptoms, prevention, and guidance for travelers, go to the Centers for Disease Control and Prevention (CDC) website.</p>\n\n<p><a href=\"https://www.cdc.gov/coronavirus/2019-ncov/index.html\">Get general COVID-19 information from the CDC</a></p>"
+        },
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/9c774c76-ac42-453a-a8d6-b83998c24cbe?resourceVersion=id%3A304823"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 304823,
+          "drupal_internal__target_id": 8882
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "wysiwyg"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
+      },
+      "field_owner": {
+        "type": "taxonomy_term--administration",
+        "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 5
+        }
+      },
+      "relationshipNames": [
+        "block_content_type",
+        "revision_user",
+        "field_alert_content",
+        "field_owner"
+      ]
+    },
+    "field_alert_non_reusable_ref": null,
+    "relationshipNames": [
+      "paragraph_type",
+      "field_alert_block_reference",
+      "field_alert_non_reusable_ref"
+    ]
   },
   "field_buttons": [
     {
       "type": "paragraph--button",
-      "id": "818d2959-a00f-4aec-9366-5164eeeae67a",
-      "meta": {
-        "target_revision_id": 1519159,
-        "drupal_internal__target_id": 161726
-      }
-    },
-    {
-      "type": "paragraph--button",
-      "id": "5cb4f676-0e67-4929-81c4-c5fac1b8ee2e",
-      "meta": {
-        "target_revision_id": 1519160,
-        "drupal_internal__target_id": 161727
-      }
+      "id": "31b51586-d53a-478f-8718-ffcb0b18e14f",
+      "drupal_internal__id": 14252,
+      "drupal_internal__revision_id": 184892,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-11-04T16:57:33+00:00",
+      "parent_id": "9544",
+      "parent_type": "node",
+      "parent_field_name": "field_buttons",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": null,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_button_label": "test button",
+      "field_button_link": {
+        "uri": "entity:node/298",
+        "title": "",
+        "options": [],
+        "url": "/check-your-va-claim-or-appeal-status"
+      },
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/button/31b51586-d53a-478f-8718-ffcb0b18e14f?resourceVersion=id%3A184892"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 184892,
+        "drupal_internal__target_id": 14252
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "button"
+        }
+      },
+      "relationshipNames": [
+        "paragraph_type"
+      ]
     }
   ],
-  "links": {
-    "related": {
-      "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_buttons?resourceVersion=id%3A925128"
-    },
-    "self": {
-      "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_buttons?resourceVersion=id%3A925128"
-    }
-  },
   "field_checklist": {
     "type": "paragraph--checklist",
-    "id": "c68b53cd-ec79-4ecb-a73d-4141e52964c7",
-    "meta": {
-      "target_revision_id": 1519164,
-      "drupal_internal__target_id": 161731
-    },
+    "id": "08159dcb-727c-4d5c-97dc-44207baf60ea",
+    "drupal_internal__id": 14255,
+    "drupal_internal__revision_id": 184895,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-11-04T16:57:33+00:00",
+    "parent_id": "9544",
+    "parent_type": "node",
+    "parent_field_name": "field_checklist",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": null,
     "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_checklist?resourceVersion=id%3A925128"
-      },
       "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_checklist?resourceVersion=id%3A925128"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/checklist/08159dcb-727c-4d5c-97dc-44207baf60ea?resourceVersion=id%3A184895"
       }
-    }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 184895,
+      "drupal_internal__target_id": 14255
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "a8725f9d-0287-44aa-9e2c-0482bdf67d4f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "checklist"
+      }
+    },
+    "field_checklist_sections": [
+      {
+        "type": "paragraph--checklist_item",
+        "id": "ab47b094-f62d-4ea7-b936-3e9bf7bf9fed",
+        "drupal_internal__id": 14253,
+        "drupal_internal__revision_id": 184893,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-11-04T16:57:33+00:00",
+        "parent_id": "14255",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_checklist_sections",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_checklist_items": [
+          "checklist item 1: this text field should allow 300 characters including spaces",
+          "checklist item 2",
+          "checklist item 3",
+          "checklist item 4",
+          "checklist item 5"
+        ],
+        "field_section_header": "Part 1: Before your exam",
+        "field_section_intro": "why does CMS have duplicate checklist section header required? duplicate section intro field",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/checklist_item/ab47b094-f62d-4ea7-b936-3e9bf7bf9fed?resourceVersion=id%3A184893"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 184893,
+          "drupal_internal__target_id": 14253
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "c5513c2b-e633-4c76-891f-2339fbbfe50b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "checklist_item"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
+      },
+      {
+        "type": "paragraph--checklist_item",
+        "id": "80585b80-cb5d-4446-8f12-2df56ca80891",
+        "drupal_internal__id": 14254,
+        "drupal_internal__revision_id": 184894,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-11-04T17:02:09+00:00",
+        "parent_id": "14255",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_checklist_sections",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_checklist_items": [
+          "part 2 checklist item 1",
+          "part 2 checklist item 1",
+          "part 2 checklist item 1",
+          "part 2 checklist item 1",
+          "part 2 checklist item 1"
+        ],
+        "field_section_header": "Part 2 checklist section header: After your exam",
+        "field_section_intro": "part 2 section intro text",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/checklist_item/80585b80-cb5d-4446-8f12-2df56ca80891?resourceVersion=id%3A184894"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 184894,
+          "drupal_internal__target_id": 14254
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "c5513c2b-e633-4c76-891f-2339fbbfe50b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "checklist_item"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
+      }
+    ],
+    "relationshipNames": [
+      "paragraph_type",
+      "field_checklist_sections"
+    ]
   },
   "field_contact_information": {
     "type": "paragraph--contact_information",
-    "id": "ebfce5d0-1bc5-45b9-93e9-669a1c1da645",
-    "drupal_internal__id": 13094,
-    "drupal_internal__revision_id": 145722,
+    "id": "2bdede24-a29d-40e9-8eb1-12998aef2813",
+    "drupal_internal__id": 14256,
+    "drupal_internal__revision_id": 184896,
     "langcode": "en",
     "status": true,
-    "created": "2020-10-05T20:32:42+00:00",
-    "parent_id": "6950",
+    "created": "2020-11-04T16:57:33+00:00",
+    "parent_id": "9544",
     "parent_type": "node",
     "parent_field_name": "field_contact_information",
     "behavior_settings": [],
     "default_langcode": true,
-    "revision_translation_affected": true,
+    "revision_translation_affected": null,
+    "breadcrumbs": [],
     "content_translation_source": "und",
     "content_translation_outdated": false,
     "content_translation_changed": null,
-    "field_contact_info_switch": "DC",
+    "field_contact_info_switch": "BHC",
     "field_markup": null,
     "links": {
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/contact_information/ebfce5d0-1bc5-45b9-93e9-669a1c1da645?resourceVersion=id%3A145722"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/contact_information/2bdede24-a29d-40e9-8eb1-12998aef2813?resourceVersion=id%3A184896"
       }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 184896,
+      "drupal_internal__target_id": 14256
     },
     "paragraph_type": {
       "type": "paragraphs_type--paragraphs_type",
@@ -306,44 +554,1972 @@
         "drupal_internal__target_id": "contact_information"
       }
     },
-    "field_additional_contact": {
-      "type": "paragraph--email_contact",
-      "id": "e5184527-0e7f-4071-bb0b-a99c3eb04839",
-      "drupal_internal__id": 13333,
-      "drupal_internal__revision_id": 145721,
+    "field_additional_contact": null,
+    "field_benefit_hub_contacts": {
+      "type": "node--landing_page",
+      "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
+      "drupal_internal__nid": 67,
+      "drupal_internal__vid": 901253,
       "langcode": "en",
+      "revision_timestamp": "2024-06-27T19:38:41+00:00",
       "status": true,
-      "created": "2020-10-13T16:23:49+00:00",
-      "parent_id": "13094",
-      "parent_type": "paragraph",
-      "parent_field_name": "field_additional_contact",
-      "behavior_settings": [],
+      "title": "VA health care",
+      "created": "2019-02-06T16:35:23+00:00",
+      "changed": "2024-06-27T19:38:41+00:00",
+      "promote": false,
+      "sticky": false,
       "default_langcode": true,
       "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Health care",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "VA Health Care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you’ve earned."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "keywords",
+            "content": "va health care, veterans health care"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/hub_promos/health-care.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "VA health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:description",
+            "content": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you’ve earned."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/hub_promos/health-care.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image:alt",
+            "content": "U.S. Department of Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:description",
+            "content": "Learn how to apply for and manage VA health care benefits for Veterans. We offer primary and specialty Veterans health care services, including home health, geriatric (elder), women’s health, and mental health care, as well as prescriptions."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "VA health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/hub_promos/health-care.png"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/health-care",
+        "pid": 382,
+        "langcode": "en"
+      },
       "content_translation_source": "und",
       "content_translation_outdated": false,
-      "content_translation_changed": null,
-      "field_email_address": "email@email.com",
-      "field_email_label": "Loremipsum label here",
+      "field_description": "Learn how to apply for and manage VA health care benefits for Veterans. We offer primary and specialty Veterans health care services, including home health, geriatric (elder), women’s health, and mental health care, as well as prescriptions.",
+      "field_home_page_hub_label": "Health care",
+      "field_intro_text": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you’ve earned.",
+      "field_last_saved_by_an_editor": "2024-06-27T19:38:42+00:00",
+      "field_links": [],
+      "field_meta_tags": "{\"keywords\":\"va health care, veterans health care\",\"title\":\"VA Health Care | Veterans Affairs\"}",
+      "field_plainlanguage_date": null,
+      "field_teaser_text": "Apply for VA health care, find out how to access services, and manage your health and benefits online.",
+      "field_title_icon": "health-care",
       "links": {
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/email_contact/e5184527-0e7f-4071-bb0b-a99c3eb04839?resourceVersion=id%3A145721"
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/landing_page/fd822f25-788f-489c-a0fc-b1f7ad6c20d5?resourceVersion=id%3A901253"
+        },
+        "working-copy": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/landing_page/fd822f25-788f-489c-a0fc-b1f7ad6c20d5?resourceVersion=rel%3Aworking-copy"
         }
       },
       "resourceIdObjMeta": {
-        "target_revision_id": 145721,
-        "drupal_internal__target_id": 13333
+        "drupal_internal__target_id": 67
       },
-      "paragraph_type": {
-        "type": "paragraphs_type--paragraphs_type",
-        "id": "513ef69e-72dd-4dac-bbc0-d3b16aa176fa",
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
         "resourceIdObjMeta": {
-          "drupal_internal__target_id": "email_contact"
+          "drupal_internal__target_id": "landing_page"
         }
       },
-      "relationshipNames": ["paragraph_type"]
+      "revision_uid": {
+        "type": "user--user",
+        "id": "6502418d-3e06-427d-99a6-0717afaad249",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4031
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "e5820ec7-83b0-4d03-8ebf-ed50fa8cc211",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3
+        }
+      },
+      "field_alert": {
+        "type": "block_content--alert",
+        "id": "4c654c30-eb94-4c01-8c5a-6aade97f6984",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4
+        }
+      },
+      "field_promo": {
+        "type": "block_content--promo",
+        "id": "81ea599e-8def-4309-a2ef-c61dac2ade58",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 6
+        }
+      },
+      "field_related_links": {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "80d34624-18cd-443a-9598-00f2042085e0",
+        "resourceIdObjMeta": {
+          "target_revision_id": 1390095,
+          "drupal_internal__target_id": 3547
+        }
+      },
+      "field_related_office": {
+        "type": "node--office",
+        "id": "1fc78fe7-f1d1-4fba-8d5d-ab5cf5ffaa37",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 38440
+        }
+      },
+      "field_spokes": [
+        {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "901a07e1-07e4-4904-ad3e-10a6189cf0a7",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1390104,
+            "drupal_internal__target_id": 3553
+          }
+        },
+        {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "dd1d18ff-8c75-41f9-a37b-890d26803069",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1390114,
+            "drupal_internal__target_id": 3560
+          }
+        },
+        {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "3f901501-c2c9-4b4a-8c18-3189531152b3",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1390126,
+            "drupal_internal__target_id": 3571
+          }
+        }
+      ],
+      "field_support_services": [
+        {
+          "type": "node--support_service",
+          "id": "6ab87079-1b6c-4ef9-9a20-937f92199aef",
+          "drupal_internal__nid": 65,
+          "drupal_internal__vid": 18490,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "Health benefits hotline:",
+          "created": "2019-01-28T20:48:55+00:00",
+          "changed": "2019-06-03T18:39:41+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/health-benefits-hotline",
+              "title": "Health Benefits Hotline:",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "Health benefits hotline: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "Health benefits hotline: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "Health benefits hotline: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/health-benefits-hotline",
+            "pid": 203,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1-877-222-VETS(8387)",
+            "title": "",
+            "options": [],
+            "url": "tel:1-877-222-VETS(8387)"
+          },
+          "field_phone_number": "877-222-VETS (8387)",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/6ab87079-1b6c-4ef9-9a20-937f92199aef?resourceVersion=id%3A18490"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 65
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        },
+        {
+          "type": "node--support_service",
+          "id": "fd3a6f5f-ab6b-460d-a35f-7f0cb7edb4b3",
+          "drupal_internal__nid": 66,
+          "drupal_internal__vid": 18491,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "My HealtheVet help desk:",
+          "created": "2019-01-28T20:48:55+00:00",
+          "changed": "2019-06-03T18:39:41+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/my-healthevet-help-desk",
+              "title": "My HealtheVet Help Desk:",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "My HealtheVet help desk: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "My HealtheVet help desk: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "My HealtheVet help desk: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/my-healthevet-help-desk",
+            "pid": 204,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1-877-327-0022",
+            "title": "",
+            "options": [],
+            "url": "tel:1-877-327-0022"
+          },
+          "field_phone_number": "877-327-0022",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/fd3a6f5f-ab6b-460d-a35f-7f0cb7edb4b3?resourceVersion=id%3A18491"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 66
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        },
+        {
+          "type": "node--support_service",
+          "id": "c6e3d4cd-698d-406c-b2b0-cf9f93e5b7ec",
+          "drupal_internal__nid": 60,
+          "drupal_internal__vid": 18485,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "eBenefits technical support:",
+          "created": "2019-01-28T20:48:53+00:00",
+          "changed": "2019-06-03T18:39:41+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/ebenefits-technical-support",
+              "title": "EBenefits Technical Support:",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "eBenefits technical support: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "eBenefits technical support: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "eBenefits technical support: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/ebenefits-technical-support",
+            "pid": 198,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1-800-983-0937",
+            "title": "",
+            "options": [],
+            "url": "tel:1-800-983-0937"
+          },
+          "field_phone_number": "800-983-0937",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/c6e3d4cd-698d-406c-b2b0-cf9f93e5b7ec?resourceVersion=id%3A18485"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 60
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        },
+        {
+          "type": "node--support_service",
+          "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+          "drupal_internal__nid": 61,
+          "drupal_internal__vid": 338480,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "MyVA411 main information line:",
+          "created": "2019-01-28T20:48:53+00:00",
+          "changed": "2019-06-03T18:39:41+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/myva411-main-information-line",
+              "title": "MyVA411 Main Information Line:",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "MyVA411 main information line: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "MyVA411 main information line: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "MyVA411 main information line: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/myva411-main-information-line",
+            "pid": 199,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1-800-698-2411",
+            "title": "",
+            "options": [],
+            "url": "tel:1-800-698-2411"
+          },
+          "field_phone_number": "800-698-2411",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/79938f13-7be8-4ce6-92ea-35671532c645?resourceVersion=id%3A338480"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 61
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        },
+        {
+          "type": "node--support_service",
+          "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+          "drupal_internal__nid": 62,
+          "drupal_internal__vid": 781876,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "Telecommunications Relay Services (using TTY)",
+          "created": "2019-01-28T20:48:53+00:00",
+          "changed": "2023-06-14T23:15:19+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/if-you-have-hearing-loss-call-tty-711",
+              "title": "Telecommunications Relay Services (using TTY)",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "Telecommunications Relay Services (using TTY) | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "Telecommunications Relay Services (using TTY) | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "Telecommunications Relay Services (using TTY) | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/if-you-have-hearing-loss-call-tty-711",
+            "pid": 200,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1+711",
+            "title": "",
+            "options": [],
+            "url": "tel:1+711"
+          },
+          "field_phone_number": "TTY: 711",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/f01de83a-b111-444a-b7cc-748e0faf10fd?resourceVersion=id%3A781876"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 62
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        }
+      ],
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_alert",
+        "field_promo",
+        "field_related_links",
+        "field_related_office",
+        "field_spokes",
+        "field_support_services"
+      ]
     },
-    "field_benefit_hub_contacts": null,
     "field_contact_default": {
       "type": "node--support_service",
       "id": "79938f13-7be8-4ce6-92ea-35671532c645",
@@ -361,22 +2537,24 @@
       "revision_translation_affected": true,
       "breadcrumbs": [
         {
-          "uri": "https://va-gov-cms.ddev.site/",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
           "title": "Home",
           "options": []
         },
         {
-          "uri": "https://va-gov-cms.ddev.site/va-central-office",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
           "title": "VA Central Office",
           "options": []
         },
         {
-          "uri": "https://va-gov-cms.ddev.site/va-central-office/myva411-main-information-line",
-          "title": "MyVA411 main information line:",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/myva411-main-information-line",
+          "title": "MyVA411 Main Information Line:",
           "options": []
         }
       ],
       "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
       "metatag": [
         {
           "tag": "meta",
@@ -430,15 +2608,15 @@
         {
           "tag": "meta",
           "attributes": {
-            "name": "twitter:title",
-            "content": "MyVA411 main information line: | Veterans Affairs"
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
           }
         },
         {
           "tag": "meta",
           "attributes": {
-            "name": "twitter:site",
-            "content": "@DeptVetAffairs"
+            "name": "twitter:title",
+            "content": "MyVA411 main information line: | Veterans Affairs"
           }
         },
         {
@@ -467,12 +2645,13 @@
       "field_link": {
         "uri": "tel:1-800-698-2411",
         "title": "",
-        "options": []
+        "options": [],
+        "url": "tel:1-800-698-2411"
       },
       "field_phone_number": "800-698-2411",
       "links": {
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/node/support_service/79938f13-7be8-4ce6-92ea-35671532c645?resourceVersion=id%3A338480"
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/79938f13-7be8-4ce6-92ea-35671532c645?resourceVersion=id%3A338480"
         }
       },
       "resourceIdObjMeta": {
@@ -523,17 +2702,19 @@
         "revision_translation_affected": true,
         "breadcrumbs": [
           {
-            "uri": "https://va-gov-cms.ddev.site/",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
             "title": "Home",
             "options": []
           },
           {
-            "uri": "https://va-gov-cms.ddev.site/va-central-office",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
             "title": "VA Central Office",
             "options": []
           }
         ],
         "moderation_state": "archived",
+        "expiration_date": null,
+        "warning_date": null,
         "metatag": [
           {
             "tag": "meta",
@@ -587,15 +2768,15 @@
           {
             "tag": "meta",
             "attributes": {
-              "name": "twitter:title",
-              "content": "VA Central Office | Veterans Affairs"
+              "name": "twitter:site",
+              "content": "@DeptVetAffairs"
             }
           },
           {
             "tag": "meta",
             "attributes": {
-              "name": "twitter:site",
-              "content": "@DeptVetAffairs"
+              "name": "twitter:title",
+              "content": "VA Central Office | Veterans Affairs"
             }
           },
           {
@@ -630,7 +2811,7 @@
         "field_social_media_links": null,
         "links": {
           "self": {
-            "href": "https://va-gov-cms.ddev.site/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
           }
         },
         "resourceIdObjMeta": {
@@ -688,137 +2869,2561 @@
       "field_contact_default"
     ]
   },
-  "field_other_categories": {
-    "data": [
-      {
-        "type": "taxonomy_term--lc_categories",
-        "id": "c0996420-619f-4aa3-b546-fc2c2f37496a",
-        "meta": {
-          "drupal_internal__target_id": 299
-        }
-      },
-      {
-        "type": "taxonomy_term--lc_categories",
-        "id": "1b07f2c7-b7af-4e68-af74-0a2ded6f4fc3",
-        "meta": {
-          "drupal_internal__target_id": 303
-        }
-      },
-      {
-        "type": "taxonomy_term--lc_categories",
-        "id": "d5115fb7-ae5b-4c20-a6f6-327804914dd3",
-        "meta": {
-          "drupal_internal__target_id": 305
-        }
-      },
-      {
-        "type": "taxonomy_term--lc_categories",
-        "id": "4efc1792-24d7-4328-b121-d7e6f70daacc",
-        "meta": {
-          "drupal_internal__target_id": 306
-        }
-      },
-      {
-        "type": "taxonomy_term--lc_categories",
-        "id": "8a5d89da-deb3-4b94-9cc3-71e9984b4f03",
-        "meta": {
-          "drupal_internal__target_id": 1044
-        }
-      }
-    ],
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_other_categories?resourceVersion=id%3A925128"
-      },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_other_categories?resourceVersion=id%3A925128"
-      }
-    }
-  },
-  "field_primary_category": {
-    "data": {
+  "field_other_categories": [
+    {
       "type": "taxonomy_term--lc_categories",
-      "id": "593d7523-f562-442a-a940-f81956da5e96",
-      "meta": {
-        "drupal_internal__target_id": 301
+      "id": "f32f076f-359d-4919-a4aa-941a3c3d53e6",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 297
       }
     },
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_primary_category?resourceVersion=id%3A925128"
-      },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_primary_category?resourceVersion=id%3A925128"
+    {
+      "type": "taxonomy_term--lc_categories",
+      "id": "c0996420-619f-4aa3-b546-fc2c2f37496a",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 299
       }
+    },
+    {
+      "type": "taxonomy_term--lc_categories",
+      "id": "ba77a546-f04b-46bb-a2a9-cf6f48a966ab",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 302
+      }
+    },
+    {
+      "type": "taxonomy_term--lc_categories",
+      "id": "1b07f2c7-b7af-4e68-af74-0a2ded6f4fc3",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 303
+      }
+    },
+    {
+      "type": "taxonomy_term--lc_categories",
+      "id": "d5115fb7-ae5b-4c20-a6f6-327804914dd3",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 305
+      }
+    }
+  ],
+  "field_primary_category": {
+    "type": "taxonomy_term--lc_categories",
+    "id": "bec35951-59b3-4260-a484-95153fbd9a08",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 300
     }
   },
   "field_related_benefit_hubs": [
     {
       "type": "node--landing_page",
       "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
-      "meta": {
+      "drupal_internal__nid": 67,
+      "drupal_internal__vid": 901253,
+      "langcode": "en",
+      "revision_timestamp": "2024-06-27T19:38:41+00:00",
+      "status": true,
+      "title": "VA health care",
+      "created": "2019-02-06T16:35:23+00:00",
+      "changed": "2024-06-27T19:38:41+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Health care",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "VA Health Care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you’ve earned."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "keywords",
+            "content": "va health care, veterans health care"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/hub_promos/health-care.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "VA health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:description",
+            "content": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you’ve earned."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/hub_promos/health-care.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image:alt",
+            "content": "U.S. Department of Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:description",
+            "content": "Learn how to apply for and manage VA health care benefits for Veterans. We offer primary and specialty Veterans health care services, including home health, geriatric (elder), women’s health, and mental health care, as well as prescriptions."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "VA health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/hub_promos/health-care.png"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/health-care",
+        "pid": 382,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_description": "Learn how to apply for and manage VA health care benefits for Veterans. We offer primary and specialty Veterans health care services, including home health, geriatric (elder), women’s health, and mental health care, as well as prescriptions.",
+      "field_home_page_hub_label": "Health care",
+      "field_intro_text": "With VA health care, you’re covered for regular checkups with your primary care provider and appointments with specialists (like cardiologists, gynecologists, and mental health providers). You can access Veterans health care services like home health and geriatric (elder) care, and you can get medical equipment, prosthetics, and prescriptions. Find out how to apply for and manage the health care benefits you’ve earned.",
+      "field_last_saved_by_an_editor": "2024-06-27T19:38:42+00:00",
+      "field_links": [],
+      "field_meta_tags": "{\"keywords\":\"va health care, veterans health care\",\"title\":\"VA Health Care | Veterans Affairs\"}",
+      "field_plainlanguage_date": null,
+      "field_teaser_text": "Apply for VA health care, find out how to access services, and manage your health and benefits online.",
+      "field_title_icon": "health-care",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/landing_page/fd822f25-788f-489c-a0fc-b1f7ad6c20d5?resourceVersion=id%3A901253"
+        },
+        "working-copy": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/landing_page/fd822f25-788f-489c-a0fc-b1f7ad6c20d5?resourceVersion=rel%3Aworking-copy"
+        }
+      },
+      "resourceIdObjMeta": {
         "drupal_internal__target_id": 67
-      }
-    },
-    {
-      "type": "node--landing_page",
-      "id": "ea251553-7aa5-4613-8824-47965c489a86",
-      "meta": {
-        "drupal_internal__target_id": 78
-      }
-    },
-    {
-      "type": "node--landing_page",
-      "id": "18ca8756-9f78-43ef-95ea-04bd106063c5",
-      "meta": {
-        "drupal_internal__target_id": 71
-      }
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "9bf68a65-e5fb-42ab-b13e-ee905507aeac",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "landing_page"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "6502418d-3e06-427d-99a6-0717afaad249",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4031
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "e5820ec7-83b0-4d03-8ebf-ed50fa8cc211",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3
+        }
+      },
+      "field_alert": {
+        "type": "block_content--alert",
+        "id": "4c654c30-eb94-4c01-8c5a-6aade97f6984",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4
+        }
+      },
+      "field_promo": {
+        "type": "block_content--promo",
+        "id": "81ea599e-8def-4309-a2ef-c61dac2ade58",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 6
+        }
+      },
+      "field_related_links": {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "80d34624-18cd-443a-9598-00f2042085e0",
+        "resourceIdObjMeta": {
+          "target_revision_id": 1390095,
+          "drupal_internal__target_id": 3547
+        }
+      },
+      "field_related_office": {
+        "type": "node--office",
+        "id": "1fc78fe7-f1d1-4fba-8d5d-ab5cf5ffaa37",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 38440
+        }
+      },
+      "field_spokes": [
+        {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "901a07e1-07e4-4904-ad3e-10a6189cf0a7",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1390104,
+            "drupal_internal__target_id": 3553
+          }
+        },
+        {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "dd1d18ff-8c75-41f9-a37b-890d26803069",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1390114,
+            "drupal_internal__target_id": 3560
+          }
+        },
+        {
+          "type": "paragraph--list_of_link_teasers",
+          "id": "3f901501-c2c9-4b4a-8c18-3189531152b3",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1390126,
+            "drupal_internal__target_id": 3571
+          }
+        }
+      ],
+      "field_support_services": [
+        {
+          "type": "node--support_service",
+          "id": "6ab87079-1b6c-4ef9-9a20-937f92199aef",
+          "drupal_internal__nid": 65,
+          "drupal_internal__vid": 18490,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "Health benefits hotline:",
+          "created": "2019-01-28T20:48:55+00:00",
+          "changed": "2019-06-03T18:39:41+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/health-benefits-hotline",
+              "title": "Health Benefits Hotline:",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "Health benefits hotline: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "Health benefits hotline: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "Health benefits hotline: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/health-benefits-hotline",
+            "pid": 203,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1-877-222-VETS(8387)",
+            "title": "",
+            "options": [],
+            "url": "tel:1-877-222-VETS(8387)"
+          },
+          "field_phone_number": "877-222-VETS (8387)",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/6ab87079-1b6c-4ef9-9a20-937f92199aef?resourceVersion=id%3A18490"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 65
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        },
+        {
+          "type": "node--support_service",
+          "id": "fd3a6f5f-ab6b-460d-a35f-7f0cb7edb4b3",
+          "drupal_internal__nid": 66,
+          "drupal_internal__vid": 18491,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "My HealtheVet help desk:",
+          "created": "2019-01-28T20:48:55+00:00",
+          "changed": "2019-06-03T18:39:41+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/my-healthevet-help-desk",
+              "title": "My HealtheVet Help Desk:",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "My HealtheVet help desk: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "My HealtheVet help desk: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "My HealtheVet help desk: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/my-healthevet-help-desk",
+            "pid": 204,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1-877-327-0022",
+            "title": "",
+            "options": [],
+            "url": "tel:1-877-327-0022"
+          },
+          "field_phone_number": "877-327-0022",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/fd3a6f5f-ab6b-460d-a35f-7f0cb7edb4b3?resourceVersion=id%3A18491"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 66
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        },
+        {
+          "type": "node--support_service",
+          "id": "c6e3d4cd-698d-406c-b2b0-cf9f93e5b7ec",
+          "drupal_internal__nid": 60,
+          "drupal_internal__vid": 18485,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "eBenefits technical support:",
+          "created": "2019-01-28T20:48:53+00:00",
+          "changed": "2019-06-03T18:39:41+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/ebenefits-technical-support",
+              "title": "EBenefits Technical Support:",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "eBenefits technical support: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "eBenefits technical support: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "eBenefits technical support: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/ebenefits-technical-support",
+            "pid": 198,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1-800-983-0937",
+            "title": "",
+            "options": [],
+            "url": "tel:1-800-983-0937"
+          },
+          "field_phone_number": "800-983-0937",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/c6e3d4cd-698d-406c-b2b0-cf9f93e5b7ec?resourceVersion=id%3A18485"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 60
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        },
+        {
+          "type": "node--support_service",
+          "id": "79938f13-7be8-4ce6-92ea-35671532c645",
+          "drupal_internal__nid": 61,
+          "drupal_internal__vid": 338480,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "MyVA411 main information line:",
+          "created": "2019-01-28T20:48:53+00:00",
+          "changed": "2019-06-03T18:39:41+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/myva411-main-information-line",
+              "title": "MyVA411 Main Information Line:",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "MyVA411 main information line: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "MyVA411 main information line: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "MyVA411 main information line: | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/myva411-main-information-line",
+            "pid": 199,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1-800-698-2411",
+            "title": "",
+            "options": [],
+            "url": "tel:1-800-698-2411"
+          },
+          "field_phone_number": "800-698-2411",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/79938f13-7be8-4ce6-92ea-35671532c645?resourceVersion=id%3A338480"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 61
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        },
+        {
+          "type": "node--support_service",
+          "id": "f01de83a-b111-444a-b7cc-748e0faf10fd",
+          "drupal_internal__nid": 62,
+          "drupal_internal__vid": 781876,
+          "langcode": "en",
+          "revision_timestamp": "2019-06-03T18:39:41+00:00",
+          "status": true,
+          "title": "Telecommunications Relay Services (using TTY)",
+          "created": "2019-01-28T20:48:53+00:00",
+          "changed": "2023-06-14T23:15:19+00:00",
+          "promote": false,
+          "sticky": false,
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              "title": "Home",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+              "title": "VA Central Office",
+              "options": []
+            },
+            {
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office/if-you-have-hearing-loss-call-tty-711",
+              "title": "Telecommunications Relay Services (using TTY)",
+              "options": []
+            }
+          ],
+          "moderation_state": "published",
+          "expiration_date": null,
+          "warning_date": null,
+          "metatag": [
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "title",
+                "content": "Telecommunications Relay Services (using TTY) | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "link",
+              "attributes": {
+                "rel": "image_src",
+                "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:site_name",
+                "content": "Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:title",
+                "content": "Telecommunications Relay Services (using TTY) | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "property": "og:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:card",
+                "content": "summary_large_image"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:site",
+                "content": "@DeptVetAffairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:title",
+                "content": "Telecommunications Relay Services (using TTY) | Veterans Affairs"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image",
+                "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+              }
+            },
+            {
+              "tag": "meta",
+              "attributes": {
+                "name": "twitter:image:alt",
+                "content": "U.S. Department of Veterans Affairs"
+              }
+            }
+          ],
+          "path": {
+            "alias": "/va-central-office/if-you-have-hearing-loss-call-tty-711",
+            "pid": 200,
+            "langcode": "en"
+          },
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "field_last_saved_by_an_editor": "2019-06-03T18:39:40+00:00",
+          "field_link": {
+            "uri": "tel:1+711",
+            "title": "",
+            "options": [],
+            "url": "tel:1+711"
+          },
+          "field_phone_number": "TTY: 711",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/support_service/f01de83a-b111-444a-b7cc-748e0faf10fd?resourceVersion=id%3A781876"
+            }
+          },
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 62
+          },
+          "node_type": {
+            "type": "node_type--node_type",
+            "id": "27533ffc-851f-4edc-8465-518ea2414b27",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "support_service"
+            }
+          },
+          "revision_uid": {
+            "type": "user--user",
+            "id": "e62ded06-1de9-4617-bd70-595036edc7ee",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 89
+            }
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_administration": {
+            "type": "taxonomy_term--administration",
+            "id": "2c331a6d-b525-4f0c-8bea-4ecde41c7ef0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1
+            }
+          },
+          "field_office": {
+            "type": "node--office",
+            "id": "c715d441-b6cb-4067-92eb-0650e97b7d62",
+            "drupal_internal__nid": 126,
+            "drupal_internal__vid": 10606,
+            "langcode": "en",
+            "revision_timestamp": "2019-09-04T19:14:37+00:00",
+            "status": false,
+            "title": "VA Central Office",
+            "created": "2019-03-04T14:12:28+00:00",
+            "changed": "2019-09-04T19:14:37+00:00",
+            "promote": false,
+            "sticky": false,
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                "title": "Home",
+                "options": []
+              },
+              {
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/va-central-office",
+                "title": "VA Central Office",
+                "options": []
+              }
+            ],
+            "moderation_state": "archived",
+            "expiration_date": null,
+            "warning_date": null,
+            "metatag": [
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "link",
+                "attributes": {
+                  "rel": "image_src",
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:site_name",
+                  "content": "Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "property": "og:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:card",
+                  "content": "summary_large_image"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:site",
+                  "content": "@DeptVetAffairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:title",
+                  "content": "VA Central Office | Veterans Affairs"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image",
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+                }
+              },
+              {
+                "tag": "meta",
+                "attributes": {
+                  "name": "twitter:image:alt",
+                  "content": "U.S. Department of Veterans Affairs"
+                }
+              }
+            ],
+            "path": {
+              "alias": "/va-central-office",
+              "pid": 192,
+              "langcode": "en"
+            },
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "field_body": null,
+            "field_description": null,
+            "field_email_updates_link": null,
+            "field_external_link": null,
+            "field_last_saved_by_an_editor": null,
+            "field_meta_tags": null,
+            "field_office_id": null,
+            "field_social_media_links": null,
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/c715d441-b6cb-4067-92eb-0650e97b7d62?resourceVersion=id%3A10606"
+              }
+            },
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 126
+            },
+            "node_type": {
+              "type": "node_type--node_type",
+              "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "office"
+              }
+            },
+            "revision_uid": {
+              "type": "user--user",
+              "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 197
+              }
+            },
+            "uid": {
+              "type": "user--user",
+              "id": "b02c2ff5-dfe1-4542-beec-3fd410a3f267",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1
+              }
+            },
+            "field_administration": {
+              "type": "taxonomy_term--administration",
+              "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 5
+              }
+            },
+            "field_parent_office": null,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_administration",
+              "field_parent_office"
+            ]
+          },
+          "relationshipNames": [
+            "node_type",
+            "revision_uid",
+            "uid",
+            "field_administration",
+            "field_office"
+          ]
+        }
+      ],
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_alert",
+        "field_promo",
+        "field_related_links",
+        "field_related_office",
+        "field_spokes",
+        "field_support_services"
+      ]
     }
   ],
-  "field_related_information": {
-    "data": [
-      {
-        "type": "paragraph--link_teaser",
-        "id": "f69522b5-ef26-45ba-9a00-2950936f1b2c",
-        "meta": {
-          "target_revision_id": 1519167,
-          "drupal_internal__target_id": 161734
+  "field_related_information": [
+    {
+      "type": "paragraph--link_teaser",
+      "id": "2d114e1a-37b0-49ce-854c-c88c47e30bca",
+      "drupal_internal__id": 14257,
+      "drupal_internal__revision_id": 184897,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-11-04T16:57:33+00:00",
+      "parent_id": "9544",
+      "parent_type": "node",
+      "parent_field_name": "field_related_information",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": null,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_link": {
+        "uri": "entity:node/8548",
+        "title": "What your claim status means",
+        "options": [],
+        "url": "/resources/what-your-claim-status-means"
+      },
+      "field_link_summary": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/2d114e1a-37b0-49ce-854c-c88c47e30bca?resourceVersion=id%3A184897"
         }
       },
-      {
-        "type": "paragraph--link_teaser",
-        "id": "13fd0971-cce7-4a81-94c6-088a985caf30",
-        "meta": {
-          "target_revision_id": 1519168,
-          "drupal_internal__target_id": 161735
-        }
-      }
-    ],
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_related_information?resourceVersion=id%3A925128"
+      "resourceIdObjMeta": {
+        "target_revision_id": 184897,
+        "drupal_internal__target_id": 14257
       },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_related_information?resourceVersion=id%3A925128"
-      }
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "072db7a4-476e-41a6-ab49-c44184281451",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "link_teaser"
+        }
+      },
+      "relationshipNames": [
+        "paragraph_type"
+      ]
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "3b010a65-6f6b-48f8-9b06-8597100fe0e4",
+      "drupal_internal__id": 14258,
+      "drupal_internal__revision_id": 184898,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-11-04T17:05:38+00:00",
+      "parent_id": "9544",
+      "parent_type": "node",
+      "parent_field_name": "field_related_information",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": null,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_link": {
+        "uri": "entity:node/8538",
+        "title": "Are service dogs allowed in VA facilities?",
+        "options": [],
+        "url": "/resources/are-service-dogs-allowed-in-va-facilities"
+      },
+      "field_link_summary": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/3b010a65-6f6b-48f8-9b06-8597100fe0e4?resourceVersion=id%3A184898"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 184898,
+        "drupal_internal__target_id": 14258
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "072db7a4-476e-41a6-ab49-c44184281451",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "link_teaser"
+        }
+      },
+      "relationshipNames": [
+        "paragraph_type"
+      ]
     }
-  },
+  ],
   "field_tags": {
-    "data": {
-      "type": "paragraph--audience_topics",
-      "id": "d63ccc20-055f-4712-9b5e-28179fe92e3b",
-      "meta": {
-        "target_revision_id": 1519169,
-        "drupal_internal__target_id": 161736
+    "type": "paragraph--audience_topics",
+    "id": "93d0be99-c01e-4cec-9da3-5eba7876bf2c",
+    "drupal_internal__id": 14259,
+    "drupal_internal__revision_id": 184899,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-11-04T16:57:33+00:00",
+    "parent_id": "9544",
+    "parent_type": "node",
+    "parent_field_name": "field_tags",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": null,
+    "field_audience_selection": "beneficiaries",
+    "field_markup": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/audience_topics/93d0be99-c01e-4cec-9da3-5eba7876bf2c?resourceVersion=id%3A184899"
       }
     },
-    "links": {
-      "related": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/field_tags?resourceVersion=id%3A925128"
-      },
-      "self": {
-        "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/node/checklist/1f681975-6c2a-4d42-a294-785e165c7eff/relationships/field_tags?resourceVersion=id%3A925128"
+    "resourceIdObjMeta": {
+      "target_revision_id": 184899,
+      "drupal_internal__target_id": 14259
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "1b952f0b-ff2c-486b-8404-266e1aad73fb",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "audience_topics"
       }
-    }
-  }
+    },
+    "field_non_beneficiares": null,
+    "field_topics": [
+      {
+        "type": "taxonomy_term--topics",
+        "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
+        "drupal_internal__tid": 293,
+        "drupal_internal__revision_id": 293,
+        "langcode": "en",
+        "revision_created": "2020-10-08T23:28:19+00:00",
+        "status": true,
+        "name": "Claims and appeals status",
+        "description": null,
+        "weight": 0,
+        "changed": "2020-11-03T18:02:16+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources",
+            "title": "Resources and Support",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/tag/claims-and-appeals-status",
+            "title": "Claims and Appeals Status",
+            "options": []
+          }
+        ],
+        "moderation_state": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "Claims and appeals status | VA.gov CMS"
+            }
+          },
+          {
+            "tag": "link",
+            "attributes": {
+              "rel": "canonical",
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/tag/claims-and-appeals-status"
+            }
+          }
+        ],
+        "path": {
+          "alias": "/resources/tag/claims-and-appeals-status",
+          "pid": 11287,
+          "langcode": "en"
+        },
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/topics/564808ad-d6b8-4337-8bf4-af296bc23e24?resourceVersion=id%3A293"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 293
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "2129b23f-4ca1-4783-9e15-68f4ee58c330",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "topics"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--topics",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "content_translation_uid": null,
+        "relationshipNames": [
+          "vid",
+          "revision_user",
+          "parent",
+          "content_translation_uid"
+        ]
+      },
+      {
+        "type": "taxonomy_term--topics",
+        "id": "09ab304d-19dc-4a66-9c51-ea4a69486641",
+        "drupal_internal__tid": 296,
+        "drupal_internal__revision_id": 1035,
+        "langcode": "en",
+        "revision_created": "2022-02-11T22:00:28+00:00",
+        "status": true,
+        "name": "Guide and service dogs",
+        "description": null,
+        "weight": 0,
+        "changed": "2022-02-11T22:00:28+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources",
+            "title": "Resources and Support",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/tag/guide-and-service-dogs",
+            "title": "Guide and Service Dogs",
+            "options": []
+          }
+        ],
+        "moderation_state": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "Guide and service dogs | VA.gov CMS"
+            }
+          },
+          {
+            "tag": "link",
+            "attributes": {
+              "rel": "canonical",
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/tag/guide-and-service-dogs"
+            }
+          }
+        ],
+        "path": {
+          "alias": "/resources/tag/guide-and-service-dogs",
+          "pid": 11444,
+          "langcode": "en"
+        },
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/topics/09ab304d-19dc-4a66-9c51-ea4a69486641?resourceVersion=id%3A1035"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 296
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "2129b23f-4ca1-4783-9e15-68f4ee58c330",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "topics"
+          }
+        },
+        "revision_user": {
+          "type": "user--user",
+          "id": "efa9900b-7446-41bf-b6a9-a99287ae2235",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1215
+          }
+        },
+        "parent": [
+          {
+            "type": "taxonomy_term--topics",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "content_translation_uid": null,
+        "relationshipNames": [
+          "vid",
+          "revision_user",
+          "parent",
+          "content_translation_uid"
+        ]
+      },
+      {
+        "type": "taxonomy_term--topics",
+        "id": "8360523e-a4bb-4d36-851f-1c445501c8bf",
+        "drupal_internal__tid": 294,
+        "drupal_internal__revision_id": 294,
+        "langcode": "en",
+        "revision_created": "2020-10-08T23:28:26+00:00",
+        "status": true,
+        "name": "Payments and debt",
+        "description": null,
+        "weight": 0,
+        "changed": "2020-11-03T18:02:30+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources",
+            "title": "Resources and Support",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/tag/payments-and-debt",
+            "title": "Payments and Debt",
+            "options": []
+          }
+        ],
+        "moderation_state": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "Payments and debt | VA.gov CMS"
+            }
+          },
+          {
+            "tag": "link",
+            "attributes": {
+              "rel": "canonical",
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/tag/payments-and-debt"
+            }
+          }
+        ],
+        "path": {
+          "alias": "/resources/tag/payments-and-debt",
+          "pid": 11288,
+          "langcode": "en"
+        },
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/topics/8360523e-a4bb-4d36-851f-1c445501c8bf?resourceVersion=id%3A294"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 294
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "2129b23f-4ca1-4783-9e15-68f4ee58c330",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "topics"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--topics",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "content_translation_uid": null,
+        "relationshipNames": [
+          "vid",
+          "revision_user",
+          "parent",
+          "content_translation_uid"
+        ]
+      }
+    ],
+    "field_audience_beneficiares": [
+      {
+        "type": "taxonomy_term--audience_beneficiaries",
+        "id": "671a99c6-466c-4b92-83d2-d4e187bd9b46",
+        "drupal_internal__tid": 277,
+        "drupal_internal__revision_id": 277,
+        "langcode": "en",
+        "revision_created": "2020-09-10T22:28:58+00:00",
+        "status": true,
+        "name": "Vietnam War Veterans",
+        "description": null,
+        "weight": 0,
+        "changed": "2021-01-13T20:22:02+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources",
+            "title": "Resources and Support",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/tag/vietnam-war-veterans",
+            "title": "Vietnam War Veterans",
+            "options": []
+          }
+        ],
+        "moderation_state": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "Vietnam War Veterans | VA.gov CMS"
+            }
+          },
+          {
+            "tag": "link",
+            "attributes": {
+              "rel": "canonical",
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/tag/vietnam-war-veterans"
+            }
+          }
+        ],
+        "path": {
+          "alias": "/resources/tag/vietnam-war-veterans",
+          "pid": 11298,
+          "langcode": "en"
+        },
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "field_audience_rs_homepage": true,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/audience_beneficiaries/671a99c6-466c-4b92-83d2-d4e187bd9b46?resourceVersion=id%3A277"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 277
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "181dd6ed-50cb-4c8f-a1ec-3529ea20869f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "audience_beneficiaries"
+          }
+        },
+        "revision_user": null,
+        "parent": [
+          {
+            "type": "taxonomy_term--audience_beneficiaries",
+            "id": "virtual",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                  "meta": {
+                    "about": "Usage and meaning of the 'virtual' resource identifier."
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "content_translation_uid": null,
+        "relationshipNames": [
+          "vid",
+          "revision_user",
+          "parent",
+          "content_translation_uid"
+        ]
+      }
+    ],
+    "relationshipNames": [
+      "paragraph_type",
+      "field_non_beneficiares",
+      "field_topics",
+      "field_audience_beneficiares"
+    ]
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_alert_single",
+    "field_buttons",
+    "field_checklist",
+    "field_contact_information",
+    "field_other_categories",
+    "field_primary_category",
+    "field_related_benefit_hubs",
+    "field_related_information",
+    "field_tags"
+  ]
 }

@@ -6,5 +6,6 @@ export type BenefitsHubLink = {
 }
 
 export type BenefitsHubLinks = {
+  introText?: string
   links: BenefitsHubLink[]
 }

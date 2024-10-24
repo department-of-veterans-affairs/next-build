@@ -16,7 +16,6 @@ export const formatter: QueryFormatter<NodeLandingPage[], BenefitsHubLink[]> = (
     return {
       id: entity.id,
       path: entity.path?.alias,
-      title: entity.title,
       label: entity.field_home_page_hub_label,
       teaserText: entity.field_teaser_text,
     }

@@ -2,12 +2,12 @@
  * @jest-environment node
  */
 
-import { Checklist, ChecklistItem } from '@/types/formatted/checklist'
+import { NodeChecklist } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/checklist.mock.json'
 import { params } from '../checklist';
 
-const ChecklistMock: Checklist = mockData
+const ChecklistMock: NodeChecklist = mockData
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {

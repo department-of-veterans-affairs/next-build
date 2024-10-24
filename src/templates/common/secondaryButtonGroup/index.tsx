@@ -1,9 +1,10 @@
-import { SecondaryButtonGroup as FormattedSecondaryButtonGroup } from '@/types/formatted/secondaryButtonGroup'
+import { Button as FormattedButton } from '@/types/formatted/button'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 // Used for R&S pages; either a single blue CTA link or multiple
 export const SecondaryButtonGroup = ({
   buttons
-}: FormattedSecondaryButtonGroup): JSX.Element => {
+}: { buttons: ParagraphComponent<FormattedButton>[] }): JSX.Element => {
   if (buttons.length > 1) {
     return (
       <ul

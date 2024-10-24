@@ -1,12 +1,13 @@
 import { render } from '@testing-library/react'
 import { RelatedInformation } from './'
+import { LinkTeaser } from '@/types/formatted/linkTeaser'
+import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 describe('RelatedInformation Component', () => {
   test('renders the correct number of links when there are multiple', () => {
-    const relatedInformation = [
+    const relatedInformation: ParagraphComponent<LinkTeaser>[] = [
       {
         id: '1',
-        type: 'paragraph--link_teaser',
         uri: 'https://va.gov/burials-memorials/eligibility',
         title: 'Eligibility for burial in a VA national cemetery',
         summary: null,
@@ -16,7 +17,6 @@ describe('RelatedInformation Component', () => {
       },
       {
         id: '2',
-        type: 'paragraph--link_teaser',
         uri: 'https://va.gov/burials-memorials/schedule-a-burial',
         title: 'Schedule a burial for a Veteran or family member',
         summary: null,
@@ -35,10 +35,9 @@ describe('RelatedInformation Component', () => {
   })
 
   test('renders link correctly when there is only one', () => {
-    const oneLink = [
+    const oneLink: ParagraphComponent<LinkTeaser>[] = [
       {
         id: '3',
-        type: 'paragraph--link_teaser',
         uri: 'https://va.gov/burials-memorials/schedule-a-burial',
         title: 'Schedule a burial for a Veteran or family member',
         summary: null,
