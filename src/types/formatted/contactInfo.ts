@@ -27,9 +27,8 @@ export type EmailContact = PublishedParagraph & {
   address: string
 }
 
-export type AdditionalContact = PhoneContact | EmailContact
+export type AdditionalContact = PhoneContact | Contact
 
-// TODO: Is this being used? benefitHubContacts is typed as Contact[] not BenefitHubcontact[]
 export type BenefitHubContact = {
   services: Contact[]
 }

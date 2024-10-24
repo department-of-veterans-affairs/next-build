@@ -42,7 +42,7 @@ export const CollapsiblePanelItem = ({
           <WysiwygField html={wysiwyg} />
 
           {paragraphs.map((paragraph, index) => {
-            return <Paragraph key={paragraph.id} {...paragraph} />
+            return <Paragraph key={index} {...paragraph} />
           })}
         </div>
       </div>
@@ -62,7 +62,6 @@ export const CollapsiblePanel = ({
   return (
     <div
       id={id}
-      data-template="paragraphs/collapsible_panel"
       data-paragraph-type="paragraph--collapsible_panel"
       data-next-component="templates/components/collapsiblePanel/(CollapsiblePanel)"
       data-entity-id={entityId}

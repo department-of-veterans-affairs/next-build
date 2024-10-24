@@ -1,41 +1,51 @@
-import { recordEvent } from '@/lib/analytics/recordEvent'
+import { isEmpty } from 'lodash'
 import { BenefitsHubLinks as FormattedBenefitsHubLinks } from '@/types/formatted/benefitsHub'
 
+// Used for R&S pages; group of links to benefit hubs under a "VA benefits" header
 export function BenefitsHubLinks({
-  title,
-  introText,
-  links,
+  links
 }: FormattedBenefitsHubLinks) {
-  return (
-    <section className="vads-u-padding-y--3 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
-      <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">{title}</h2>
-      {introText && <p>{introText}</p>}
+  if (isEmpty(links)) {
+    return null
+  }
 
-      <ul className="usa-unstyled-list" role="list">
-        {links.map((link) => {
-          return (
+  let link
+  const renderLink = (path, label, teaserText) => (
+    <>
+      <p className="vads-u-margin--0">
+        <strong>
+          <va-link
+            href={path}
+            text={label}
+          />
+        </strong>
+      </p>
+      <p className="vads-u-margin--0">{teaserText}</p>
+    </>
+  )
+
+  if (links.length === 1) {
+    link = links[0]
+  }
+
+  return (
+    <section
+      className="vads-u-padding-y--3 vads-u-display--flex vads-u-flex-direction--column"
+      data-next-component="templates/common/benefitsHubLinks"
+    >
+      <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">VA benefits</h2>
+
+      {links.length > 1 && (
+        <ul className="usa-unstyled-list">
+          {links.map(link => (
             <li className="vads-u-margin-y--2" key={link.id}>
-              <p className="vads-u-margin--0">
-                <strong>
-                  <a
-                    onClick={() =>
-                      recordEvent({
-                        event: 'nav-linkslist',
-                        'links-list-header': link.label,
-                        'links-list-section-header': title,
-                      })
-                    }
-                    href={link.path}
-                  >
-                    {link.label}
-                  </a>
-                </strong>
-              </p>
-              <p className="vads-u-margin--0">{link.teaserText}</p>
+              {renderLink(link.path, link.label, link.teaserText)}
             </li>
-          )
-        })}
-      </ul>
+          ))}
+        </ul>
+      )}
+
+      {links.length === 1 && renderLink(link.path, link.label, link.teaserText)}
     </section>
   )
 }

@@ -2,7 +2,6 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 import Link from 'next/link'
 import {
   Contact,
-  AdditionalContact as FormattedAdditionalContact,
   BenefitHubContact,
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
@@ -12,7 +11,7 @@ import {
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
 
-const analytic = (header) => {
+const analytic = header => {
   return {
     event: 'nav-linkslist',
     'links-list-header': `${encodeURIComponent(header)}`,
@@ -20,11 +19,23 @@ const analytic = (header) => {
   }
 }
 
+const canUseWebComponent = telephone => {
+  if (!telephone || /[a-zA-Z+]/.test(telephone)) {
+    return false
+  }
+
+  return true
+}
+
 // simple contact info base component
-export const DefaultContact = ({ title, value, href }: Contact) => {
+export const BasicContact = ({ title, value, href }: Contact) => {
+  if (!title || !value || !href) {
+    return null
+  }
+
   return (
     <>
-      <strong>{title} </strong>
+      <strong>{title}&nbsp;</strong>
       <Link
         onClick={() => recordEvent(analytic(value))}
         href={href}
@@ -42,7 +53,7 @@ export const EmailContact = (
 ) => {
   return (
     <li className="vads-u-margin-top--1">
-      <DefaultContact
+      <BasicContact
         title={email.label}
         value={email.address}
         href={`mailto:${email.address}`}
@@ -54,23 +65,29 @@ export const EmailContact = (
 export const PhoneContact = (
   phone: ParagraphComponent<FormattedPhoneContact>
 ) => {
-  const phoneNumber = phone.extension
-    ? `${phone.number}p${phone.extension}`
-    : phone.number
+  const {
+    extension,
+    label,
+    number
+  } = phone
 
-  return (
-    <li className="vads-u-margin-top--1">
-      <DefaultContact
-        title={phone.label}
-        value={phoneNumber}
-        href={`tel:${phoneNumber}`}
-      />
-    </li>
-  )
+  if (label && number) {
+    return (
+      <li className="vads-u-margin-top--1">
+        <strong>{label}&nbsp;</strong>
+        <va-telephone
+          contact={number}
+          extension={extension || null}
+        />
+      </li>
+    )
+  }
+
+  return null;
 }
 
 // nested paragraphs
-const AdditionalContact = (contact: FormattedAdditionalContact) => {
+const AdditionalContact = (contact: FormattedEmailContact | FormattedPhoneContact) => {
   switch (contact.type) {
     case PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT:
       return <EmailContact {...(contact as FormattedEmailContact)} />
@@ -82,11 +99,27 @@ const AdditionalContact = (contact: FormattedAdditionalContact) => {
 
 // node--support-service nodes that get included
 const BenefitHubContacts = ({ services }: BenefitHubContact) => {
-  return services.map((s) => (
-    <li className="vads-u-margin-top--1" key={s.title}>
-      <DefaultContact {...s} />
-    </li>
-  ))
+  return services.map(service => {
+    if ('value' in service && canUseWebComponent(service.value)) {
+      const phone = {
+        extension: null,
+        label: service.title,
+        number: service.value
+      }
+
+      return <PhoneContact {...phone} id={service.title} key={service.title} />
+    }
+
+    return (
+      <li className="vads-u-margin-top--1" key={service.title}>
+        <BasicContact
+          title={service.title}
+          value={service.value}
+          href={service.href}
+        />
+      </li>
+    )
+  })
 }
 
 // wrapper around all types of contact info
@@ -101,10 +134,13 @@ export function ContactInfo({
     contactType === 'DC' && defaultContact && !additionalContact
 
   return (
-    <div className="vads-u-background-color--gray-light-alt">
+    <div
+      data-next-component="templates/components/contactInfo"
+      className="vads-u-background-color--gray-light-alt"
+    >
       <div className="usa-grid usa-grid-full">
         <div className="usa-width-three-fourths">
-          <div className="usa-content vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
+          <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
             <section
               className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-y--2"
               data-template="paragraphs/contact_information"
@@ -113,12 +149,9 @@ export function ContactInfo({
                 Need more help?
               </h2>
               {useDefaultContact ? (
-                <DefaultContact {...defaultContact} />
+                <BasicContact {...defaultContact} />
               ) : (
-                <ul
-                  className="usa-unstyled-list vads-u-display--flex vads-u-flex-direction--column"
-                  role="list"
-                >
+                <ul className="usa-unstyled-list vads-u-display--flex vads-u-flex-direction--column">
                   {additionalContact && (
                     <AdditionalContact {...additionalContact} />
                   )}

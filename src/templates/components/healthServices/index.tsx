@@ -21,8 +21,8 @@ function HealthServices({ services, typeOfCare }: HealthServicesProps) {
     <>
       <h2
         id={typeOfCare}
-        className="vads-u-margin-top--0 vads-u-font-size--lg
-          small-screen:vads-u-font-size--xl vads-u-margin-bottom--2"
+        className="vads-u-margin-top--0 vads-u-font-size--lg small-screen:vads-u-font-size--xl vads-u-margin-bottom--2"
+        data-next-component="templates/components/healthServices"
       >
         {heading}
       </h2>
