@@ -23,7 +23,7 @@ import {
   ParagraphAlertSingle,
   ParagraphAudienceTopics,
   ParagraphButton,
-  ParagraphChecklistItems,
+  ParagraphChecklist,
   ParagraphCollapsiblePanel,
   ParagraphContactInformation,
   ParagraphHealthCareLocalFacilityService,
@@ -403,9 +403,7 @@ export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
 
 export interface NodeChecklist extends NodeAbstractResource {
   field_buttons_repeat: boolean
-  field_checklist: {
-    field_checklist_sections: ParagraphChecklistItems[]
-  }
+  field_checklist: ParagraphChecklist
   field_related_benefit_hubs: NodeLandingPage[]
 }
 

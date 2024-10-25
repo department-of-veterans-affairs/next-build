@@ -72,12 +72,9 @@ const Breadcrumbs = ({
       data-next-component="templates/common/breadcrumbs"
     >
       <va-breadcrumbs
-        id="va-breadcrumbs-list"
         class="row"
-        uswds={true}
         wrapping
         breadcrumb-list={fcString}
-        disableAnalytics={disableAnalytics}
       />
     </div>
   )

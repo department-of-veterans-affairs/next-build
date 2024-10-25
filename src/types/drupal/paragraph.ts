@@ -23,7 +23,7 @@ export type ParagraphTypes =
   | ParagraphAlertSingle
   | ParagraphAudienceTopics
   | ParagraphButton
-  | ParagraphChecklistItems
+  | ParagraphChecklistItem
   | ParagraphCollapsiblePanel
   | ParagraphCollapsiblePanelItem
   | ParagraphContactInformation
@@ -76,7 +76,11 @@ export interface ParagraphButton extends DrupalParagraph {
   field_button_link: FieldLink
 }
 
-export interface ParagraphChecklistItems extends DrupalParagraph {
+export interface ParagraphChecklist extends DrupalParagraph {
+  field_checklist_sections: ParagraphChecklistItem[]
+}
+
+export interface ParagraphChecklistItem extends DrupalParagraph {
   field_checklist_items: string[]
   field_section_header: string
   field_section_intro: string
