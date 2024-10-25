@@ -71,7 +71,7 @@ export function Checklist({
             {tags && <AudienceTopics {...tags} />}
             <RateYourExperience />
             {relatedInformation && <RelatedInformation relatedInformation={relatedInformation} />}
-            {benefitsHubLinks && <BenefitsHubLinks links={benefitsHubLinks} />}
+            {benefitsHubLinks && <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />}
           </div>
         </div>
       </div>

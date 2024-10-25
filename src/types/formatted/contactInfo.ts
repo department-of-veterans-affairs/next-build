@@ -9,8 +9,8 @@ export type ContactInfo = PublishedParagraph & {
 }
 
 export type Contact = {
-  title: string
-  value: string
+  label: string
+  number: string
   href: string
 }
 
@@ -27,11 +27,7 @@ export type EmailContact = PublishedParagraph & {
   address: string
 }
 
-export type AdditionalContact = PhoneContact | Contact
-
-export type BenefitHubContact = {
-  services: Contact[]
-}
+export type AdditionalContact = PhoneContact | EmailContact
 
 export type PressContact = {
   id: string

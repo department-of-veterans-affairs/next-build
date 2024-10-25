@@ -1,23 +1,11 @@
-import { recordEvent } from '@/lib/analytics/recordEvent'
-import Link from 'next/link'
 import {
   Contact,
-  BenefitHubContact,
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
   PhoneContact as FormattedPhoneContact,
-  PressContact,
 } from '@/types/formatted/contactInfo'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
-
-const analytic = header => {
-  return {
-    event: 'nav-linkslist',
-    'links-list-header': `${encodeURIComponent(header)}`,
-    'links-list-section-header': 'Need more help?',
-  }
-}
 
 const canUseWebComponent = telephone => {
   if (!telephone || /[a-zA-Z+]/.test(telephone)) {
@@ -27,49 +15,30 @@ const canUseWebComponent = telephone => {
   return true
 }
 
-// simple contact info base component
-export const BasicContact = ({ title, value, href }: Contact) => {
-  if (!title || !value || !href) {
-    return null
-  }
-
-  return (
-    <>
-      <strong>{title}&nbsp;</strong>
-      <Link
-        onClick={() => recordEvent(analytic(value))}
-        href={href}
-        rel="noreferrer noopener"
-        passHref
-      >
-        {value}
-      </Link>
-    </>
-  )
-}
-
 export const EmailContact = (
   email: ParagraphComponent<FormattedEmailContact>
 ) => {
-  return (
-    <li className="vads-u-margin-top--1">
-      <BasicContact
-        title={email.label}
-        value={email.address}
-        href={`mailto:${email.address}`}
-      />
-    </li>
-  )
+  const { address, label } = email
+
+  if (label && address) {
+    return (
+      <li className="vads-u-margin-top--1">
+        <strong>{label}&nbsp;</strong>
+        <va-link
+          href={`mailto:${address}`}
+          text={address}
+        />
+      </li>
+    )
+  }
+
+  return null
 }
 
 export const PhoneContact = (
   phone: ParagraphComponent<FormattedPhoneContact>
 ) => {
-  const {
-    extension,
-    label,
-    number
-  } = phone
+  const { extension, label, number } = phone
 
   if (label && number) {
     return (
@@ -83,7 +52,7 @@ export const PhoneContact = (
     )
   }
 
-  return null;
+  return null
 }
 
 // nested paragraphs
@@ -98,24 +67,27 @@ const AdditionalContact = (contact: FormattedEmailContact | FormattedPhoneContac
 }
 
 // node--support-service nodes that get included
-const BenefitHubContacts = ({ services }: BenefitHubContact) => {
-  return services.map(service => {
-    if ('value' in service && canUseWebComponent(service.value)) {
+const BenefitHubContacts = ({ contacts }) => {
+  console.log('contacts: ', contacts);
+  return contacts.map(contact => {
+    const { href, label, number } = contact;
+
+    if (number && canUseWebComponent(number)) {
       const phone = {
         extension: null,
-        label: service.title,
-        number: service.value
+        label,
+        number
       }
 
-      return <PhoneContact {...phone} id={service.title} key={service.title} />
+      return <PhoneContact {...phone} id={label} key={label} />
     }
 
     return (
-      <li className="vads-u-margin-top--1" key={service.title}>
-        <BasicContact
-          title={service.title}
-          value={service.value}
-          href={service.href}
+      <li className="vads-u-margin-top--1" key={label}>
+        <strong>{label}&nbsp;</strong>
+        <va-link
+          href={href}
+          text={number}
         />
       </li>
     )
@@ -130,6 +102,7 @@ export function ContactInfo({
   additionalContact,
   benefitHubContacts,
 }: ParagraphComponent<FormattedContactInfo>) {
+  console.log('🚀 ~ additionalContact:', additionalContact);
   const useDefaultContact =
     contactType === 'DC' && defaultContact && !additionalContact
 
@@ -149,7 +122,13 @@ export function ContactInfo({
                 Need more help?
               </h2>
               {useDefaultContact ? (
-                <BasicContact {...defaultContact} />
+                <>
+                  <strong>{defaultContact.label}&nbsp;</strong>
+                  <va-link
+                    href={defaultContact.href}
+                    text={defaultContact.label}
+                  />
+                </>
               ) : (
                 <ul className="usa-unstyled-list vads-u-display--flex vads-u-flex-direction--column">
                   {additionalContact && (
@@ -157,7 +136,7 @@ export function ContactInfo({
                   )}
 
                   {contactType === 'BHC' && benefitHubContacts && (
-                    <BenefitHubContacts services={benefitHubContacts} />
+                    <BenefitHubContacts contacts={benefitHubContacts} />
                   )}
                 </ul>
               )}
