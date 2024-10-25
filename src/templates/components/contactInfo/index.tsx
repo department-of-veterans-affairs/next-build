@@ -2,6 +2,7 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 import Link from 'next/link'
 import {
   Contact,
+  AdditionalContact as FormattedAdditionalContact,
   BenefitHubContact,
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
@@ -69,7 +70,7 @@ export const PhoneContact = (
 }
 
 // nested paragraphs
-const AdditionalContact = (contact: FormattedEmailContact | FormattedPhoneContact) => {
+const AdditionalContact = (contact: FormattedAdditionalContact) => {
   switch (contact.type) {
     case PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT:
       return <EmailContact {...(contact as FormattedEmailContact)} />
