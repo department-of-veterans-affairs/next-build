@@ -68,7 +68,6 @@ const AdditionalContact = (contact: FormattedEmailContact | FormattedPhoneContac
 
 // node--support-service nodes that get included
 const BenefitHubContacts = ({ contacts }) => {
-  console.log('contacts: ', contacts);
   return contacts.map(contact => {
     const { href, label, number } = contact;
 
@@ -102,7 +101,6 @@ export function ContactInfo({
   additionalContact,
   benefitHubContacts,
 }: ParagraphComponent<FormattedContactInfo>) {
-  console.log('🚀 ~ additionalContact:', additionalContact);
   const useDefaultContact =
     contactType === 'DC' && defaultContact && !additionalContact
 

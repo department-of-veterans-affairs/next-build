@@ -6,7 +6,7 @@ import { BenefitsHubLinks } from '@/templates/common/benefitsHubLinks'
 import { ContactInfo } from '@/templates/components/contactInfo'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { RateYourExperience } from '@/templates/components/rateYourExperience'
-import { RelatedInformation } from '@/templates/common/relatedInformation'
+import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { SecondaryButtonGroup } from '@/templates/common/secondaryButtonGroup'
 
 export function Checklist({
@@ -28,6 +28,9 @@ export function Checklist({
     contactType,
     defaultContact
   } = contactInformation
+
+  console.log('benefitsHubLinks: ', benefitsHubLinks)
+  console.log('relatedInformation: ', relatedInformation)
 
   return (
     <main className="va-l-detail-page" data-next-component="templates/layouts/checklist">
@@ -70,8 +73,8 @@ export function Checklist({
             </article>
             {tags && <AudienceTopics {...tags} />}
             <RateYourExperience />
-            {relatedInformation && <RelatedInformation relatedInformation={relatedInformation} />}
-            {benefitsHubLinks && <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />}
+            {/* {relatedInformation && <RelatedLinks links={relatedInformation} />} */}
+            {/* {benefitsHubLinks && <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />} */}
           </div>
         </div>
       </div>
