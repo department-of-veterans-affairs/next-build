@@ -246,14 +246,27 @@ describe('formatDateObject', () => {
 })
 
 describe('deriveMostRecentDate', () => {
-  it('should return the closest future event', () => {
-    const mockCurrentTime = new Date('2023-08-01T12:00:00Z').getTime()
+  it('should return the closest future or ongoing event', () => {
+    const mockCurrentTime = new Date('2023-08-01T18:00:00Z').getTime()
     jest.spyOn(Date, 'now').mockImplementation(() => mockCurrentTime)
 
     const datetimeRange = [
-      { value: new Date('2023-07-01T14:00:00Z').getTime() / 1000 }, // Past event
-      { value: new Date('2023-09-01T14:00:00Z').getTime() / 1000 }, // Closest future event
-      { value: new Date('2023-10-01T14:00:00Z').getTime() / 1000 }, // Later future event
+      {
+        value: new Date('2023-07-01T14:00:00Z').getTime() / 1000,
+        endValue: new Date('2023-07-01T16:00:00Z').getTime() / 1000,
+      }, // Past event
+      {
+        value: new Date('2023-08-01T14:00:00Z').getTime() / 1000,
+        endValue: new Date('2023-08-01T19:00:00Z').getTime() / 1000,
+      },
+      {
+        value: new Date('2023-09-01T14:00:00Z').getTime() / 1000,
+        endValue: new Date('2023-09-01T16:00:00Z').getTime() / 1000,
+      }, // Closest future event
+      {
+        value: new Date('2023-10-01T14:00:00Z').getTime() / 1000,
+        endValue: new Date('2023-10-01T16:00:00Z').getTime() / 1000,
+      }, // Later future event
     ]
 
     const closestEvent = deriveMostRecentDate(datetimeRange)
