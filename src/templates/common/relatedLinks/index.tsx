@@ -41,13 +41,13 @@ export const RelatedLinks = ({
         <ul className="usa-unstyled-list">
         {links.map((link, index) => (
           <li className="vads-u-margin-y--2" key={index}>
-            {renderLink(link.url, link.title, link.summary)}
+            {renderLink(link.uri, link.title, link.summary)}
           </li>
         ))}
         </ul>
       )}
 
-      {links.length === 1 && renderLink(link.url, link.title, link.summary)}
+      {links.length === 1 && renderLink(link.uri, link.title, link.summary)}
     </section>
   )
 }

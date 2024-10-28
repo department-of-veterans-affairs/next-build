@@ -4,7 +4,7 @@ import { AlertSingle } from '@/types/formatted/alert'
 import { ContactInfo } from '@/types/formatted/contactInfo'
 import { Button } from '@/types/formatted/button'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
-import { BenefitsHubLink } from './benefitsHub'
+import { RelatedLink } from '@/types/formatted/relatedLinks'
 
 export type ResourcesSupport = PublishedEntity & {
   title: string
@@ -16,5 +16,5 @@ export type ResourcesSupport = PublishedEntity & {
   mainContent: FormattedParagraph[]
   tags: AudienceTopics
   contactInformation: ContactInfo
-  benefitsHubLinks: BenefitsHubLink[]
+  benefitsHubLinks: RelatedLink[]
 }

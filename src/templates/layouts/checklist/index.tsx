@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import { Checklist as FormattedChecklist } from '@/types/formatted/checklist'
 import AlertSingle from '@/templates/components/alertSingle'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
-import { BenefitsHubLinks } from '@/templates/common/benefitsHubLinks'
 import { ContactInfo } from '@/templates/components/contactInfo'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { RateYourExperience } from '@/templates/components/rateYourExperience'
@@ -28,9 +27,6 @@ export function Checklist({
     contactType,
     defaultContact
   } = contactInformation
-
-  console.log('benefitsHubLinks: ', benefitsHubLinks)
-  console.log('relatedInformation: ', relatedInformation)
 
   return (
     <main className="va-l-detail-page" data-next-component="templates/layouts/checklist">
@@ -73,8 +69,8 @@ export function Checklist({
             </article>
             {tags && <AudienceTopics {...tags} />}
             <RateYourExperience />
-            {/* {relatedInformation && <RelatedLinks links={relatedInformation} />} */}
-            {/* {benefitsHubLinks && <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />} */}
+            {relatedInformation && <RelatedLinks sectionTitle="Related information" links={relatedInformation} />}
+            {benefitsHubLinks && <RelatedLinks sectionTitle="VA benefits" links={benefitsHubLinks} />}
           </div>
         </div>
       </div>

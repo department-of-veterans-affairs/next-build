@@ -16,17 +16,13 @@ describe('Checklist with valid data', () => {
     },
     benefitsHubLinks: [
       {
-        id: '76',
-        label: 'Health care',
-        path: '/health-care',
-        teaserText: 'Apply for VA health care, find out how to access services, and manage your health and benefits online.',
+        uri: '/health-care',
+        summary: 'Apply for VA health care, find out how to access services, and manage your health and benefits online.',
         title: 'VA health care'
       },
       {
-        id: '77',
-        label: 'Burials and memorials',
-        path: '/burials-memorials',
-        teaserText: `Get help planning a burial in a VA national cemetery, order a headstone or other memorial item to honor a Veteran's service, and apply for survivor and dependent benefits.`,
+        uri: '/burials-memorials',
+        summary: `Get help planning a burial in a VA national cemetery, order a headstone or other memorial item to honor a Veteran's service, and apply for survivor and dependent benefits.`,
         title: 'VA burial benefits and memorial items'
       }
     ],

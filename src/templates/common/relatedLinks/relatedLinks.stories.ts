@@ -12,14 +12,15 @@ type Story = StoryObj<typeof RelatedLinks>
 
 export const Example: Story = {
   args: {
+    sectionTitle: 'VA benefits',
     links: [
       {
-        url: 'https://va.gov/burials-memorials/eligibility',
+        uri: 'https://va.gov/burials-memorials/eligibility',
         title: 'Eligibility for burial in a VA national cemetery',
         summary: null,
       },
       {
-        url: 'https://va.gov/burials-memorials/schedule-a-burial',
+        uri: 'https://va.gov/burials-memorials/schedule-a-burial',
         title: 'Schedule a burial for a Veteran or family member',
         summary: null,
       }

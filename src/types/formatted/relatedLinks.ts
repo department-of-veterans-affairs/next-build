@@ -1,6 +1,6 @@
 export type RelatedLink = {
   title: string
-  url: string
+  uri: string
   summary: string
 }
 
