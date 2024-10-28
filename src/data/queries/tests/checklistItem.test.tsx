@@ -2,11 +2,11 @@
  * @jest-environment node
  */
 
-import { ChecklistItem } from '@/types/formatted/checklist'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/checklistItem.mock.json'
+import { ParagraphChecklistItem } from '@/types/drupal/paragraph'
 
-const ChecklistItemMock: ChecklistItem = mockData
+const ChecklistItemMock: ParagraphChecklistItem = mockData
 
 describe('ChecklistItem formatData', () => {
   test('outputs formatted data', () => {

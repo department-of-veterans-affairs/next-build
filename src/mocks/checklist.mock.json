@@ -209,7 +209,132 @@
       "resourceIdObjMeta": {
         "drupal_internal__target_id": "alert_single"
       }
-    }
+    },
+    "field_alert_block_reference": {
+      "type": "block_content--alert",
+      "id": "4e43f3ca-7301-4f22-826a-67c9470c31d6",
+      "drupal_internal__id": 34,
+      "drupal_internal__revision_id": 559,
+      "langcode": "en",
+      "revision_created": "2021-05-21T21:32:32+00:00",
+      "status": true,
+      "info": "Visit the CDC",
+      "changed": "2021-05-21T21:32:32+00:00",
+      "reusable": true,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/system/403",
+          "title": "Access Denied",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "| Veterans Affairs"
+          }
+        }
+      ],
+      "field_alert_title": "Get general COVID-19 information from the CDC",
+      "field_alert_type": "information",
+      "field_reusability": "reusable",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/block_content/alert/4e43f3ca-7301-4f22-826a-67c9470c31d6?resourceVersion=id%3A559"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 34
+      },
+      "block_content_type": {
+        "type": "block_content_type--block_content_type",
+        "id": "278a3f4b-8d89-4768-ab03-869b8cc98613",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "alert"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "985a2360-2506-4a2a-98cc-26cb1a05a178",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1341
+        }
+      },
+      "field_alert_content": {
+        "type": "paragraph--wysiwyg",
+        "id": "9c774c76-ac42-453a-a8d6-b83998c24cbe",
+        "drupal_internal__id": 8882,
+        "drupal_internal__revision_id": 304823,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-03-17T21:35:05+00:00",
+        "parent_id": "34",
+        "parent_type": "block_content",
+        "parent_field_name": "field_alert_content",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_wysiwyg": {
+          "value": "<p>For general questions about COVID-19, such as symptoms, prevention, and guidance for travelers, go to the Centers for Disease Control and Prevention (CDC) website.</p>\r\n\r\n<p><a href=\"https://www.cdc.gov/coronavirus/2019-ncov/index.html\">Get general COVID-19 information from the CDC</a></p>\r\n",
+          "format": "rich_text",
+          "processed": "<p>For general questions about COVID-19, such as symptoms, prevention, and guidance for travelers, go to the Centers for Disease Control and Prevention (CDC) website.</p>\n\n<p><a href=\"https://www.cdc.gov/coronavirus/2019-ncov/index.html\">Get general COVID-19 information from the CDC</a></p>"
+        },
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/9c774c76-ac42-453a-a8d6-b83998c24cbe?resourceVersion=id%3A304823"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 304823,
+          "drupal_internal__target_id": 8882
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "wysiwyg"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
+      },
+      "field_owner": {
+        "type": "taxonomy_term--administration",
+        "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 5
+        }
+      },
+      "relationshipNames": [
+        "block_content_type",
+        "revision_user",
+        "field_alert_content",
+        "field_owner"
+      ]
+    },
+    "field_alert_non_reusable_ref": null,
+    "relationshipNames": [
+      "paragraph_type",
+      "field_alert_block_reference",
+      "field_alert_non_reusable_ref"
+    ]
   },
   "field_buttons": [
     {
@@ -617,104 +742,10 @@
       },
       "field_alert": {
         "type": "block_content--alert",
-        "id": "ba9dd3f4-4260-4e21-bbf9-a5cf0db49fc1",
-        "drupal_internal__id": 45,
-        "drupal_internal__revision_id": 994,
-        "langcode": "en",
-        "revision_created": "2022-09-06T17:30:19+00:00",
-        "revision_log": "Archiving as no longer needed per Sitewide Content convo",
-        "status": false,
-        "info": "COVID-19 alert: Claims and other services",
-        "changed": "2022-09-06T17:30:19+00:00",
-        "reusable": true,
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "moderation_state": "archived",
-        "metatag": [
-          {
-            "tag": "meta",
-            "attributes": {
-              "name": "title",
-              "content": "| Veterans Affairs"
-            }
-          }
-        ],
-        "field_alert_title": "You can still file a claim and apply for benefits during the coronavirus pandemic",
-        "field_alert_type": "information",
-        "field_reusability": "reusable",
-        "links": {
-          "self": {
-            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/block_content/alert/ba9dd3f4-4260-4e21-bbf9-a5cf0db49fc1?resourceVersion=id%3A994"
-          }
-        },
+        "id": "4c654c30-eb94-4c01-8c5a-6aade97f6984",
         "resourceIdObjMeta": {
-          "drupal_internal__target_id": 45
-        },
-        "block_content_type": {
-          "type": "block_content_type--block_content_type",
-          "id": "278a3f4b-8d89-4768-ab03-869b8cc98613",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": "alert"
-          }
-        },
-        "revision_user": {
-          "type": "user--user",
-          "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": 295
-          }
-        },
-        "field_alert_content": {
-          "type": "paragraph--wysiwyg",
-          "id": "65fda9e9-1bbb-45f2-bc39-d3c659ba30d1",
-          "drupal_internal__id": 10536,
-          "drupal_internal__revision_id": 729754,
-          "langcode": "en",
-          "status": true,
-          "created": "2020-05-30T16:44:57+00:00",
-          "parent_id": "45",
-          "parent_type": "block_content",
-          "parent_field_name": "field_alert_content",
-          "behavior_settings": [],
-          "default_langcode": true,
-          "revision_translation_affected": true,
-          "content_translation_source": "und",
-          "content_translation_outdated": false,
-          "content_translation_changed": null,
-          "field_wysiwyg": {
-            "value": "sample text"
-          },
-          "links": {
-            "self": {
-              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/wysiwyg/65fda9e9-1bbb-45f2-bc39-d3c659ba30d1?resourceVersion=id%3A729754"
-            }
-          },
-          "resourceIdObjMeta": {
-            "target_revision_id": 729754,
-            "drupal_internal__target_id": 10536
-          },
-          "paragraph_type": {
-            "type": "paragraphs_type--paragraphs_type",
-            "id": "885e4b61-cfd2-44b9-94ae-f068ba2b48b6",
-            "resourceIdObjMeta": {
-              "drupal_internal__target_id": "wysiwyg"
-            }
-          },
-          "relationshipNames": ["paragraph_type"]
-        },
-        "field_owner": {
-          "type": "taxonomy_term--administration",
-          "id": "40ef8d64-fa92-41b6-88c0-4d85dc24e191",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": 194
-          }
-        },
-        "relationshipNames": [
-          "block_content_type",
-          "revision_user",
-          "field_alert_content",
-          "field_owner"
-        ],
+          "drupal_internal__target_id": 4
+        }
       },
       "field_promo": {
         "type": "block_content--promo",
@@ -2898,7 +2929,6 @@
       "sticky": false,
       "default_langcode": true,
       "revision_translation_affected": true,
-      "field_meta_title": "",
       "breadcrumbs": [
         {
           "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
@@ -3093,200 +3123,10 @@
       },
       "field_related_office": {
         "type": "node--office",
-        "id": "d7357aee-37bd-45e3-b8df-9f405614e56d",
-        "drupal_internal__nid": 38442,
-        "drupal_internal__vid": 605216,
-        "langcode": "en",
-        "revision_timestamp": "2022-01-11T21:13:42+00:00",
-        "status": false,
-        "title": "VACO",
-        "created": "2021-11-10T16:02:33+00:00",
-        "changed": "2022-01-11T21:13:42+00:00",
-        "promote": false,
-        "sticky": false,
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "breadcrumbs": [
-          {
-            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-            "title": "Home",
-            "options": []
-          },
-          {
-            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/vaco",
-            "title": "VACO",
-            "options": []
-          }
-        ],
-        "moderation_state": "draft",
-        "metatag": [
-          {
-            "tag": "meta",
-            "attributes": {
-              "name": "title",
-              "content": "VACO | Veterans Affairs"
-            }
-          },
-          {
-            "tag": "link",
-            "attributes": {
-              "rel": "image_src",
-              "href": "https://www.va.gov/img/design/logo/va-og-image.png"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "property": "og:site_name",
-              "content": "Veterans Affairs"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "property": "og:title",
-              "content": "VACO | Veterans Affairs"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "property": "og:image",
-              "content": "https://www.va.gov/img/design/logo/va-og-image.png"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "property": "og:image:alt",
-              "content": "U.S. Department of Veterans Affairs"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "name": "twitter:card",
-              "content": "summary_large_image"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "name": "twitter:site",
-              "content": "@DeptVetAffairs"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "name": "twitter:title",
-              "content": "VACO | Veterans Affairs"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "name": "twitter:image",
-              "content": "https://www.va.gov/img/design/logo/va-og-image.png"
-            }
-          },
-          {
-            "tag": "meta",
-            "attributes": {
-              "name": "twitter:image:alt",
-              "content": "U.S. Department of Veterans Affairs"
-            }
-          }
-        ],
-        "path": {
-          "alias": "/vaco",
-          "pid": 47721,
-          "langcode": "en"
-        },
-        "content_translation_source": "und",
-        "content_translation_outdated": false,
-        "field_body": null,
-        "field_description": null,
-        "field_email_updates_link": {
-          "uri": "https://public.govdelivery.com/accounts/USVA/subscriber/new/",
-          "title": "VACO Email Updates",
-          "options": [],
-          "url": "https://public.govdelivery.com/accounts/USVA/subscriber/new/"
-        },
-        "field_external_link": {
-          "uri": "https://www.va.gov/",
-          "title": "Veterans Affairs",
-          "options": [],
-          "url": "https://www.va.gov/"
-        },
-        "field_last_saved_by_an_editor": null,
-        "field_meta_tags": null,
-        "field_office_id": null,
-        "field_social_media_links": {
-          "platform": null,
-          "value": null,
-          "platform_values": {
-            "twitter": {
-              "value": "DeptVetAffairs"
-            },
-            "facebook": {
-              "value": "VeteransAffairs"
-            },
-            "youtube": {
-              "value": "DeptVetAffairs"
-            },
-            "instagram": {
-              "value": "deptvetaffairs"
-            },
-            "linkedin": {
-              "value": ""
-            }
-          }
-        },
-        "links": {
-          "self": {
-            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/office/d7357aee-37bd-45e3-b8df-9f405614e56d?resourceVersion=id%3A605216"
-          }
-        },
+        "id": "1fc78fe7-f1d1-4fba-8d5d-ab5cf5ffaa37",
         "resourceIdObjMeta": {
-          "drupal_internal__target_id": 38442
-        },
-        "node_type": {
-          "type": "node_type--node_type",
-          "id": "60cde818-b36c-4c05-a3c9-4c045a14787a",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": "office"
-          }
-        },
-        "revision_uid": {
-          "type": "user--user",
-          "id": "c487c496-7d2f-45b5-86b9-5afa00640084",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": 3237
-          }
-        },
-        "uid": {
-          "type": "user--user",
-          "id": "c487c496-7d2f-45b5-86b9-5afa00640084",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": 3237
-          }
-        },
-        "field_administration": {
-          "type": "taxonomy_term--administration",
-          "id": "c20f3989-e93e-49bd-8c95-ad3821042a02",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": 5
-          }
-        },
-        "field_parent_office": null,
-        "relationshipNames": [
-          "node_type",
-          "revision_uid",
-          "uid",
-          "field_administration",
-          "field_parent_office"
-        ]
+          "drupal_internal__target_id": 38440
+        }
       },
       "field_spokes": [
         {
