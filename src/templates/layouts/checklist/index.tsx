@@ -21,13 +21,6 @@ export function Checklist({
   tags,
   title
 }: FormattedChecklist) {
-  const {
-    additionalContact,
-    benefitHubContacts,
-    contactType,
-    defaultContact
-  } = contactInformation
-
   return (
     <main className="va-l-detail-page" data-next-component="templates/layouts/checklist">
       <div className="usa-grid usa-grid-full vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
@@ -75,12 +68,7 @@ export function Checklist({
         </div>
       </div>
       {contactInformation &&
-        <ContactInfo
-          additionalContact={additionalContact}
-          benefitHubContacts={benefitHubContacts}
-          contactType={contactType}
-          defaultContact={defaultContact}
-        />
+        <ContactInfo {...contactInformation} />
       }
       <div className="usa-grid usa-grid-full">
         <div className="usa-width-three-fourths">

@@ -4,15 +4,15 @@ import { Checklist } from './index'
 
 describe('Checklist with valid data', () => {
   const data = {
-    type: 'node--checklist',
-    id: '1',
     alert: {
       alertSelection: 'R',
       blockReference: {
         alertType: 'info',
         content: '<p>If you have 2 or more qualifying periods of active duty, you may now qualify for up to 48 months of entitlement. You must be eligible for benefits through the Post-9/11 GI Bill and either Montgomery GI Bill Active Duty (MGIB-AD) or Montgomery GI Bill Selected Reserve (MGIB-SR).</p><p><strong>Note: </strong>Even if you gave up your right to use MGIB-AD or MGIB-SR benefits in the past (we call this “relinquishing” your benefits), you may now qualify to use some of that entitlement.&nbsp;</p><p><a href="/education/about-gi-bill-benefits/montgomery-active-duty#what-if-im-eligible-for-more-t" data-entity-type="node" data-entity-uuid="ba4617ed-4c37-4a40-a770-ed9a087a1a2c" data-entity-substitution="canonical" title="Montgomery GI Bill Active Duty (MGIB-AD)">Find out if you can use more than 1 education benefit</a>&nbsp;</p>',
         title: 'You may qualify for additional entitlement under more than 1 education benefit'
-      }
+      },
+      id: '1',
+      type: 'paragraph--alert_single'
     },
     benefitsHubLinks: [
       {
@@ -127,7 +127,14 @@ describe('Checklist with valid data', () => {
   }
 
   test('renders Checklist component', () => {
-    const { container } = render(<Checklist {...data} />)
+    const { container } = render(
+      <Checklist
+        id=""
+        type=""
+        published={false}
+        {...data}
+      />
+    )
 
     // Header and intro
     expect(screen.getByText('Test Checklist Page')).toBeInTheDocument()
