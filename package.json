@@ -44,21 +44,9 @@
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "@department-of-veterans-affairs/component-library": "^48.0.1",
     "@department-of-veterans-affairs/formation": "^12.0.0",
     "@department-of-veterans-affairs/web-components": "^16.0.1",
-=======
-    "@department-of-veterans-affairs/component-library": "^47.1.0",
-    "@department-of-veterans-affairs/formation": "^11.0.26",
-    "@department-of-veterans-affairs/web-components": "^15.1.0",
->>>>>>> cc9d385f (Updating design system, fixing tags issues, still working on web components)
-=======
-    "@department-of-veterans-affairs/component-library": "^45.0.0",
-    "@department-of-veterans-affairs/formation": "^11.0.12",
-    "@department-of-veterans-affairs/web-components": "^11.2.9",
->>>>>>> f19fe3df (Trying to revert dependency updates)
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@octokit/rest": "^21.0.1",
     "@storybook/react": "^8.0.5",
