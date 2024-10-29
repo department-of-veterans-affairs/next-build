@@ -58,12 +58,9 @@ describe('<ResourcesSupport /> Component', () => {
       type: 'paragraph--contact_information' as ContactInfo['type'],
       contactType: 'DC' as ContactInfo['contactType'],
       defaultContact: {
-        name: 'Test Name',
-        phone: '123-456-7890',
-        email: 'test@example.com',
-        title: 'Test contact title',
-        value: 'Test Value',
-        href: '/test-contact-href/',
+        href: 'tel:1-800-698-2411',
+        label: 'MyVA411 main information line:',
+        number: '800-698-2411',
       },
     },
     benefitsHubLinks: [
@@ -98,6 +95,6 @@ describe('<ResourcesSupport /> Component', () => {
     expect(screen.getByText('If you need support...')).toBeInTheDocument()
     expect(screen.getByText('Test Audience')).toBeInTheDocument()
     expect(screen.getByText('Test Topic')).toBeInTheDocument()
-    expect(screen.getByText('Test contact title')).toBeInTheDocument()
+    expect(screen.getByText('Need more help?')).toBeInTheDocument()
   })
 })
