@@ -54,7 +54,11 @@ export function PressReleaseListing({
     )
 
   return (
-    <div key={id} className="usa-grid usa-grid-full" data-next-component="templates/layouts/pressReleaseListing">
+    <div
+      key={id}
+      className="usa-grid usa-grid-full"
+      data-next-component="templates/layouts/pressReleaseListing"
+    >
       {/* Widget coming from vets-website */}
       <nav
         data-template="navigation/facility_sidebar_nav"

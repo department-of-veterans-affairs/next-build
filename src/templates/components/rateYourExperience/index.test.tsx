@@ -7,8 +7,12 @@ describe('<RateYourExperience>', () => {
 
     const good = document.querySelector('#Good')
     const bad = document.querySelector('#Bad')
-    const radioHeader = document.querySelector('[label="How do you rate your experience on this page?')
-    const submitButton = document.querySelector('va-button[text="Submit feedback"]')
+    const radioHeader = document.querySelector(
+      '[label="How do you rate your experience on this page?'
+    )
+    const submitButton = document.querySelector(
+      'va-button[text="Submit feedback"]'
+    )
 
     expect(radioHeader).toBeInTheDocument()
     expect(good).toBeInTheDocument()

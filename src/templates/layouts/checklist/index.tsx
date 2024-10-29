@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment } from 'react'
 import { Checklist as FormattedChecklist } from '@/types/formatted/checklist'
 import AlertSingle from '@/templates/components/alertSingle'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
@@ -19,35 +19,49 @@ export function Checklist({
   relatedInformation,
   repeatButtons,
   tags,
-  title
+  title,
 }: FormattedChecklist) {
   return (
-    <main className="va-l-detail-page" data-next-component="templates/layouts/checklist">
+    <main
+      className="va-l-detail-page"
+      data-next-component="templates/layouts/checklist"
+    >
       <div className="usa-grid usa-grid-full vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
         <div className="usa-width-three-fourths">
           <div className="usa-content">
             <div data-widget-type="i18-select" />
             <div className="medium-screen:vads-u-border-bottom--2px vads-u-border-color--gray-light medium-screen:vads-u-margin-bottom--3">
-              <div className="va-hide-on-print-view" data-widget-type="resources-and-support-search" />
+              <div
+                className="va-hide-on-print-view"
+                data-widget-type="resources-and-support-search"
+              />
             </div>
             <article className="vads-u-padding-x--0">
               <h1>{title}</h1>
-              {intro && <div className="va-introtext" dangerouslySetInnerHTML={{ __html: intro }} />}
+              {intro && (
+                <div
+                  className="va-introtext"
+                  dangerouslySetInnerHTML={{ __html: intro }}
+                />
+              )}
               {alert && <AlertSingle {...alert} />}
               {buttons && <SecondaryButtonGroup buttons={buttons} />}
-              {checklist?.length && (
-                checklist.map((list, index) =>
+              {checklist?.length &&
+                checklist.map((list, index) => (
                   <Fragment key={index}>
                     {list.header && <h2>{list.header}</h2>}
-                    {list.intro && <p className="vads-u-margin-bottom--4">{list.intro}</p>}
+                    {list.intro && (
+                      <p className="vads-u-margin-bottom--4">{list.intro}</p>
+                    )}
                     {list.items && list.items?.length && (
                       <ul className="usa-unstyled-list">
                         {list.items.map((item, index) => (
                           <li
                             className={
-                              index < list.items.length - 1 ?
-                              `vads-u-margin-bottom--4` :
-                            ''}
+                              index < list.items.length - 1
+                                ? `vads-u-margin-bottom--4`
+                                : ''
+                            }
                             key={index}
                           >
                             <va-checkbox label={item} />
@@ -56,20 +70,29 @@ export function Checklist({
                       </ul>
                     )}
                   </Fragment>
-                )
+                ))}
+              {repeatButtons && buttons && (
+                <SecondaryButtonGroup buttons={buttons} />
               )}
-              {repeatButtons && buttons && <SecondaryButtonGroup buttons={buttons} />}
             </article>
             {tags && <AudienceTopics {...tags} />}
             <RateYourExperience />
-            {relatedInformation && <RelatedLinks sectionTitle="Related information" links={relatedInformation} />}
-            {benefitsHubLinks && <RelatedLinks sectionTitle="VA benefits" links={benefitsHubLinks} />}
+            {relatedInformation && (
+              <RelatedLinks
+                sectionTitle="Related information"
+                links={relatedInformation}
+              />
+            )}
+            {benefitsHubLinks && (
+              <RelatedLinks
+                sectionTitle="VA benefits"
+                links={benefitsHubLinks}
+              />
+            )}
           </div>
         </div>
       </div>
-      {contactInformation &&
-        <ContactInfo {...contactInformation} />
-      }
+      {contactInformation && <ContactInfo {...contactInformation} />}
       <div className="usa-grid usa-grid-full">
         <div className="usa-width-three-fourths">
           <div className="usa-content">

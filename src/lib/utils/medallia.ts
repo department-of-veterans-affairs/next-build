@@ -51,12 +51,12 @@ const medalliaSurveys = {
       staging: SURVEY_NUMBERS.DEFAULT_STAGING_SURVEY,
     },
   },
-};
+}
 
 export function getSurveyNumber(url: string, isProduction = false): number {
-  const defaultSurvey = isProduction ?
-    SURVEY_NUMBERS.DEFAULT_PROD_SURVEY :
-    SURVEY_NUMBERS.DEFAULT_STAGING_SURVEY
+  const defaultSurvey = isProduction
+    ? SURVEY_NUMBERS.DEFAULT_PROD_SURVEY
+    : SURVEY_NUMBERS.DEFAULT_STAGING_SURVEY
 
   const buildEnv = isProduction ? 'production' : 'staging'
 
@@ -68,21 +68,15 @@ export function getSurveyNumber(url: string, isProduction = false): number {
   if (url in medalliaSurveys.urls) {
     const surveyInfo = medalliaSurveys.urls[url]
 
-    return (
-      surveyInfo[buildEnv] ||
-      defaultSurvey
-    )
+    return surveyInfo[buildEnv] || defaultSurvey
   }
 
   // Check for subpath match
   for (const [subpath, surveyInfo] of Object.entries(
-    medalliaSurveys.urlsWithSubPaths,
+    medalliaSurveys.urlsWithSubPaths
   )) {
     if (url.startsWith(subpath)) {
-      return (
-        surveyInfo[buildEnv] ||
-        defaultSurvey
-      )
+      return surveyInfo[buildEnv] || defaultSurvey
     }
   }
 

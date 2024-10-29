@@ -43,7 +43,7 @@ import {
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
-  TaxonomyTermHealthCareServiceTaxonomy
+  TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 
 /** Union of all node types.  */

@@ -5,7 +5,7 @@
 import { NodeChecklist } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/checklist.mock.json'
-import { params } from '../checklist';
+import { params } from '../checklist'
 
 const ChecklistMock: NodeChecklist = mockData
 
@@ -21,7 +21,7 @@ describe('DrupalJsonApiParams configuration', () => {
       'field_contact_information',
       'field_related_benefit_hubs',
       'field_related_information',
-      'field_tags'
+      'field_tags',
     ]
 
     expectedIncludes.forEach((include) => {
@@ -33,10 +33,7 @@ describe('DrupalJsonApiParams configuration', () => {
 describe('Checklist formatData', () => {
   test('outputs formatted data', () => {
     expect(
-      queries.formatData(
-        'node--checklist',
-        ChecklistMock
-      )
+      queries.formatData('node--checklist', ChecklistMock)
     ).toMatchSnapshot()
   })
 
@@ -50,10 +47,7 @@ describe('Checklist formatData', () => {
       field_related_information: [],
       field_tags: null,
     }
-    const formattedData = queries.formatData(
-      'node--checklist',
-      modifiedMock
-    )
+    const formattedData = queries.formatData('node--checklist', modifiedMock)
 
     expect(formattedData.alert).toBeNull()
     expect(formattedData.benefitsHubLinks).toEqual([])
