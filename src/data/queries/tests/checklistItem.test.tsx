@@ -25,7 +25,7 @@ describe('ChecklistItem formatData', () => {
       'drupal_internal__id': 13919,
       'drupal_internal__revision_id': 149239,
       langcode: 'en',
-      status: true,
+      status: true
     }
 
     const formattedDataEmpty = queries.formatData('paragraph--checklist_item', emptyData)
@@ -33,7 +33,9 @@ describe('ChecklistItem formatData', () => {
     expect(formattedDataEmpty).toEqual({
       items: [],
       header: '',
-      intro: ''
+      intro: '',
+      type: 'paragraph--checklist_item',
+      id: 'c4d10aa1-3bb9-4f39-99fd-f110b465603f'
     })
   })
 })

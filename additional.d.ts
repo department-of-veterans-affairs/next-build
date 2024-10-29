@@ -17,7 +17,6 @@ declare module '@department-of-veterans-affairs/component-library/Modal'
 declare module '@department-of-veterans-affairs/component-library/Pagination'
 declare module '@department-of-veterans-affairs/component-library/ProgressButton'
 declare module '@department-of-veterans-affairs/component-library/PromoBanner'
-declare module '@department-of-veterans-affairs/component-library/VaCheckbox'
 declare module '@department-of-veterans-affairs/component-library/VaRadio'
 declare module '@department-of-veterans-affairs/component-library/VaRadioOption'
 declare module '@department-of-veterans-affairs/component-library/dist/react-bindings'
@@ -37,8 +36,6 @@ declare namespace JSX {
     'va-link'
     'va-link-action'
     'va-on-this-page'
-    'va-radio'
-    'va-radio-option'
     'va-telephone'
   }
 }

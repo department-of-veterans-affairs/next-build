@@ -2,100 +2,142 @@
 
 exports[`Checklist formatData outputs formatted data 1`] = `
 {
-  "alert": null,
+  "alert": {
+    "alertSelection": "R",
+    "blockReference": {
+      "alertType": "info",
+      "content": {
+        "html": "<p>For general questions about COVID-19, such as symptoms, prevention, and guidance for travelers, go to the Centers for Disease Control and Prevention (CDC) website.</p>
+
+<p><a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">Get general COVID-19 information from the CDC</a></p>",
+        "id": "9c774c76-ac42-453a-a8d6-b83998c24cbe",
+        "type": "paragraph--wysiwyg",
+      },
+      "id": "4e43f3ca-7301-4f22-826a-67c9470c31d6",
+      "title": "Get general COVID-19 information from the CDC",
+    },
+    "entityId": 14251,
+    "id": "029f58ce-a498-452c-b849-f029e4dafd77",
+    "nonReusableRef": null,
+    "type": "paragraph--alert_single",
+  },
   "benefitsHubLinks": [
     {
-      "id": "fd822f25-788f-489c-a0fc-b1f7ad6c20d5",
-      "label": undefined,
-      "path": undefined,
-      "teaserText": undefined,
-      "title": undefined,
-    },
-    {
-      "id": "ea251553-7aa5-4613-8824-47965c489a86",
-      "label": undefined,
-      "path": undefined,
-      "teaserText": undefined,
-      "title": undefined,
-    },
-    {
-      "id": "18ca8756-9f78-43ef-95ea-04bd106063c5",
-      "label": undefined,
-      "path": undefined,
-      "teaserText": undefined,
-      "title": undefined,
+      "summary": "",
+      "title": "",
+      "uri": "/resources/tag/guide-and-service-dogs",
     },
   ],
   "breadcrumbs": [
     {
       "options": [],
       "title": "Home",
-      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
       "options": [],
       "title": "Resources and Support",
-      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/resources",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources",
     },
     {
       "options": [],
-      "title": "Test Checklist Page",
-      "uri": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/resources/test-checklist-page",
+      "title": "Test Registry Exam Checklist",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/resources/test-registry-exam-checklist",
     },
   ],
   "buttons": [
     {
-      "entityId": undefined,
-      "id": "818d2959-a00f-4aec-9366-5164eeeae67a",
-      "label": null,
+      "entityId": 14252,
+      "id": "31b51586-d53a-478f-8718-ffcb0b18e14f",
+      "label": "test button",
       "type": "paragraph--button",
-      "url": null,
-    },
-    {
-      "entityId": undefined,
-      "id": "5cb4f676-0e67-4929-81c4-c5fac1b8ee2e",
-      "label": null,
-      "type": "paragraph--button",
-      "url": null,
+      "url": "entity:node/298",
     },
   ],
-  "checklist": undefined,
-  "contactInformation": {
-    "additionalContact": {
-      "address": "email@email.com",
-      "entityId": 13333,
-      "id": "e5184527-0e7f-4071-bb0b-a99c3eb04839",
-      "label": "Loremipsum label here",
-      "type": "paragraph--email_contact",
+  "checklist": [
+    {
+      "header": "Part 1: Before your exam",
+      "id": "ab47b094-f62d-4ea7-b936-3e9bf7bf9fed",
+      "intro": "why does CMS have duplicate checklist section header required? duplicate section intro field",
+      "items": [
+        "checklist item 1: this text field should allow 300 characters including spaces",
+        "checklist item 2",
+        "checklist item 3",
+        "checklist item 4",
+        "checklist item 5",
+      ],
+      "type": "paragraph--checklist_item",
     },
-    "benefitHubContacts": null,
-    "contactType": "DC",
+    {
+      "header": "Part 2 checklist section header: After your exam",
+      "id": "80585b80-cb5d-4446-8f12-2df56ca80891",
+      "intro": "part 2 section intro text",
+      "items": [
+        "part 2 checklist item 1",
+        "part 2 checklist item 1",
+        "part 2 checklist item 1",
+        "part 2 checklist item 1",
+        "part 2 checklist item 1",
+      ],
+      "type": "paragraph--checklist_item",
+    },
+  ],
+  "contactInformation": {
+    "additionalContact": null,
+    "benefitHubContacts": [
+      {
+        "href": "tel:1-877-222-VETS(8387)",
+        "label": "Health benefits hotline:",
+        "number": "877-222-VETS (8387)",
+      },
+      {
+        "href": "tel:1-877-327-0022",
+        "label": "My HealtheVet help desk:",
+        "number": "877-327-0022",
+      },
+      {
+        "href": "tel:1-800-983-0937",
+        "label": "eBenefits technical support:",
+        "number": "800-983-0937",
+      },
+      {
+        "href": "tel:1-800-698-2411",
+        "label": "MyVA411 main information line:",
+        "number": "800-698-2411",
+      },
+      {
+        "href": "tel:1+711",
+        "label": "Telecommunications Relay Services (using TTY)",
+        "number": "TTY: 711",
+      },
+    ],
+    "contactType": "BHC",
     "defaultContact": {
       "href": "tel:1-800-698-2411",
-      "title": "MyVA411 main information line:",
-      "value": "800-698-2411",
+      "label": "MyVA411 main information line:",
+      "number": "800-698-2411",
     },
-    "entityId": 13094,
-    "id": "ebfce5d0-1bc5-45b9-93e9-669a1c1da645",
+    "entityId": 14256,
+    "id": "2bdede24-a29d-40e9-8eb1-12998aef2813",
     "type": "paragraph--contact_information",
   },
-  "entityId": 73664,
-  "entityPath": "/resources/test-checklist-page",
-  "id": "1f681975-6c2a-4d42-a294-785e165c7eff",
-  "intro": "<p>This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.</p>
+  "entityId": 9544,
+  "entityPath": "/resources/test-registry-exam-checklist",
+  "id": "0e46640e-4c58-44c7-b02d-fd0f3f8449ed",
+  "intro": "<p>test checklist intro with test reusable alert below intro block.&nbsp;</p>
 ",
-  "lastUpdated": "2024-10-16T20:04:12+00:00",
+  "lastUpdated": "2020-12-02T21:04:25+00:00",
   "metatags": [
     {
       "attributes": {
-        "content": "Test Checklist Page | Veterans Affairs",
+        "content": "test registry exam checklist | Veterans Affairs",
         "name": "title",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.",
+        "content": "test checklist intro with test reusable alert below intro block. ",
         "name": "description",
       },
       "tag": "meta",
@@ -116,14 +158,14 @@ exports[`Checklist formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "Test Checklist Page | Veterans Affairs",
+        "content": "test registry exam checklist | Veterans Affairs",
         "property": "og:title",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "This is the page introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus malesuada neque, id mattis ligula venenatis dapibus. Nulla purus ligula, ultricies id maximus eu, venenatis eu nulla. Suspendisse auctor turpis non iaculis molestie. Mauris luctus libero erat, sed tempor est hendrerit eu. Cras sodales egestas mi, et porta sapien pharetra eget. Pellentesque ornare metus sed eros ornare porta. Sed egestas, felis sed imperdiet commodo, eros mauris venenatis velit, vitae mattis augue velit sed lectus.",
+        "content": "test checklist intro with test reusable alert below intro block. ",
         "property": "og:description",
       },
       "tag": "meta",
@@ -158,7 +200,7 @@ exports[`Checklist formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "Test Checklist Page | Veterans Affairs",
+        "content": "test registry exam checklist | Veterans Affairs",
         "name": "twitter:title",
       },
       "tag": "meta",
@@ -178,12 +220,47 @@ exports[`Checklist formatData outputs formatted data 1`] = `
       "tag": "meta",
     },
   ],
-  "moderationState": "published",
-  "published": true,
-  "relatedInformation": undefined,
+  "moderationState": "draft",
+  "published": false,
+  "relatedInformation": [
+    {
+      "summary": null,
+      "title": "What your claim status means",
+      "uri": "entity:node/8548",
+    },
+    {
+      "summary": null,
+      "title": "Are service dogs allowed in VA facilities?",
+      "uri": "entity:node/8538",
+    },
+  ],
   "repeatButtons": true,
-  "tags": null,
-  "title": "Test Checklist Page",
+  "tags": {
+    "entityId": 14259,
+    "id": "93d0be99-c01e-4cec-9da3-5eba7876bf2c",
+    "tags": [
+      {
+        "categoryLabel": "Topics",
+        "href": "/resources/tag/claims-and-appeals-status",
+        "id": "564808ad-d6b8-4337-8bf4-af296bc23e24",
+        "name": "Claims and appeals status",
+      },
+      {
+        "categoryLabel": "Topics",
+        "href": "/resources/tag/payments-and-debt",
+        "id": "8360523e-a4bb-4d36-851f-1c445501c8bf",
+        "name": "Payments and debt",
+      },
+      {
+        "categoryLabel": "Audience",
+        "href": "/resources/tag/vietnam-war-veterans",
+        "id": "671a99c6-466c-4b92-83d2-d4e187bd9b46",
+        "name": "Vietnam War Veterans",
+      },
+    ],
+    "type": "paragraph--audience_topics",
+  },
+  "title": "test registry exam checklist",
   "type": "node--checklist",
 }
 `;
