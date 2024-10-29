@@ -11,8 +11,8 @@ describe('ContactInfo with valid data', () => {
     id: '1',
     contactType: 'DC',
     defaultContact: {
-      label: 'Phone Number',
-      number: '(855) 867-5309',
+      title: 'Phone Number',
+      value: '(855) 867-5309',
       href: 'tel:8558675309',
     },
   }
@@ -45,28 +45,28 @@ describe('ContactInfo with valid data', () => {
       contactType: 'BHC',
       benefitHubContacts: [
         {
-          label: 'Health benefits hotline: ',
-          number: '877-222-VETS (8387)',
+          title: 'Health benefits hotline: ',
+          value: '877-222-VETS (8387)',
           href: 'tel:8772228387',
         },
         {
-          label: 'My HealtheVet help desk: ',
-          number: '877-327-0022',
+          title: 'My HealtheVet help desk: ',
+          value: '877-327-0022',
           href: 'tel:8773270022',
         },
         {
-          label: 'eBenefits technical support:',
-          number: '800-983-0937',
+          title: 'eBenefits technical support:',
+          value: '800-983-0937',
           href: 'tel:8009830937',
         },
         {
-          label: 'MyVA411 main information line:',
-          number: '800-698-2411',
+          title: 'MyVA411 main information line:',
+          value: '800-698-2411',
           href: 'tel:8006982411',
         },
         {
-          label: 'Telecommunications Relay Services (using TTY)',
-          number: 'TTY: 711',
+          title: 'Telecommunications Relay Services (using TTY)',
+          value: 'TTY: 711',
           href: 'tel:1+711',
         },
       ],
@@ -79,7 +79,7 @@ describe('ContactInfo with valid data', () => {
   })
 
   test('click event sends correct params to recordEvent', () => {
-    data.defaultContact.number = 't$st.vet=ran@va.gov'
+    data.defaultContact.value = 't$st.vet=ran@va.gov'
     const { container } = render(<ContactInfo {...data} />)
     const link = getByRole(container, 'link')
 
