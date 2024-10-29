@@ -56,9 +56,9 @@ describe('Checklist formatData', () => {
     )
 
     expect(formattedData.alert).toBeNull()
+    expect(formattedData.benefitsHubLinks).toEqual([])
     expect(formattedData.buttons).toEqual([])
     expect(formattedData.contactInformation).toBeNull()
-    expect(formattedData.benefitsHubLinks).toEqual([])
     expect(formattedData.relatedInformation).toEqual([])
     expect(formattedData.tags).toBeNull()
   })

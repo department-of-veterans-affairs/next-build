@@ -8,7 +8,6 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude(['field_support_services'])
 }
 
-// Format NodeLandingPage (Benefits Hub) into related link (teasers)
 export const formatter: QueryFormatter<NodeLandingPage[], RelatedLink[]> = (
   entities: NodeLandingPage[]
 ) => {
