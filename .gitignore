@@ -42,7 +42,6 @@ dump.rdb
 # misc
 .DS_Store
 .idea/
-src/pages/_playground/api-explorer.tsx
 
 # debug
 npm-debug.log*
