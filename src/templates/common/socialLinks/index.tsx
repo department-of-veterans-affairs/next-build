@@ -88,7 +88,7 @@ export const SocialLinks = ({
 
   return (
     <div
-      data-template="includes/social-share"
+      data-next-component="templates/common/socialLinks"
       className={divClass}
       id="va-c-social-share"
     >

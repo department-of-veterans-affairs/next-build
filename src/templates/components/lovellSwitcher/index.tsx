@@ -19,6 +19,7 @@ export function LovellSwitcher({
 
   return (
     <va-alert
+      data-next-component="templates/components/lovellSwitcher"
       status="warning"
       class="vads-u-margin-bottom--2"
       id="va-info-alert"

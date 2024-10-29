@@ -11,7 +11,11 @@ export function ExpandableText({
   if (isEmpty(header)) return
 
   return (
-    <VaAlertExpandable id={id} trigger={header}>
+    <VaAlertExpandable
+      data-next-component="templates/components/expandableText"
+      id={id}
+      trigger={header}
+    >
       {text && (
         <div
           dangerouslySetInnerHTML={{

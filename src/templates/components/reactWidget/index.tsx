@@ -4,7 +4,7 @@ import { ParagraphComponent } from '@/types/formatted/paragraph'
 const CtaWidget = ({ entityId, widgetType }) => {
   return (
     <div
-      data-template="paragraphs/react_widget"
+      data-next-component="templates/components/reactWidget"
       data-entity-id={entityId}
       className="cta-widget"
       data-widget-type="cta"

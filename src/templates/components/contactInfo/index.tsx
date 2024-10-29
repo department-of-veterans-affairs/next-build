@@ -104,7 +104,7 @@ export function ContactInfo({
     <div className="vads-u-background-color--gray-light-alt">
       <div className="usa-grid usa-grid-full">
         <div className="usa-width-three-fourths">
-          <div className="usa-content vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
+          <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
             <section
               className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-y--2"
               data-template="paragraphs/contact_information"

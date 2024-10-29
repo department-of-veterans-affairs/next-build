@@ -42,12 +42,16 @@ export const QuestionAnswer = ({
     }
   }
   return (
-    <div id="content" className="interior" data-template="node-q_a">
+    <div
+      id="content"
+      className="interior"
+      data-next-component="templates/layouts/questionAnswer"
+    >
       <div className="va-l-detail-page">
         <div className="usa-grid usa-grid-full">
           <div className="usa-width-three-fourths">
             <div className="usa-content">
-              <article className="vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
+              <article className="vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
                 <h1>{title}</h1>
                 {answers && (
                   <div dangerouslySetInnerHTML={createAnswersMarkup()} />

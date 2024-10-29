@@ -17,7 +17,10 @@ export const NewsStoryTeaser = ({
 
   return (
     <>
-      <div className="usa-grid usa-grid-full vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
+      <div
+        className="usa-grid usa-grid-full vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row"
+        data-next-component="templates/components/newsStoryTeaser"
+      >
         <div className="usa-width-two-thirds">
           <TitleTag className="vads-u-font-size--md medium-screen:vads-u-font-size--lg medium-screen:vads-u-margin-bottom--0p5">
             <va-link href={link} text={title}>

@@ -63,11 +63,14 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
   }
 
   return (
-    <div className="vads-u-margin-bottom--0" data-template="hours">
+    <div
+      className="vads-u-margin-bottom--0"
+      data-next-component="templates/components/hours"
+    >
       <div className="clinicalhours">
         {renderHeader()}
-        <div className="vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row vads-u-margin-bottom--0">
-          <ul className="vads-u-flex--1 va-c-facility-hours-list vads-u-margin-top--0 vads-u-margin-bottom--1 small-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
+        <div className="vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row vads-u-margin-bottom--0">
+          <ul className="vads-u-flex--1 va-c-facility-hours-list vads-u-margin-top--0 vads-u-margin-bottom--1 mobile-lg:vads-u-margin-bottom--0 vads-u-margin-right--3">
             {sortedHours.map((hoursItem, index) => {
               const dayIndex = hoursItem.day === 0 ? 6 : hoursItem.day - 1
               const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']

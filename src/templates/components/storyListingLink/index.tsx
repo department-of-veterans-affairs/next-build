@@ -5,6 +5,7 @@ export const StoryListingLink = ({ path }: FormattedStoryListingLink) => {
   return (
     // @todo can <Link /> be used here?
     <a
+      data-next-component="templates/components/storyListingLink"
       onClick={() =>
         recordEvent({
           event: 'nav-secondary-button-click',

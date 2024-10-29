@@ -20,7 +20,7 @@ It's important to note here that the language around these pages can become a bi
 
 - We collectively refer to certain content types as "Listing Pages" (e.g. Story Listing Pages, Event Listing Pages).
 - Individual listing "pages" are often, themselves, comprised of multiple "pages" of content.
-- We'll often refer to "paged pages" to distinguish the individual pages from the higher level of organziation.
+- We'll often refer to "paged pages" to distinguish the individual pages from the higher level of organization.
 
 ### All-Static Listing Pages
 

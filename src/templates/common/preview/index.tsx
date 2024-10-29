@@ -37,7 +37,10 @@ export const UnpublishedBanner = ({ resource }) => {
   }
 
   return (
-    <div className="vads-u-background-color--primary-alt-lightest vads-u-padding--1">
+    <div
+      className="vads-u-background-color--primary-alt-lightest vads-u-padding--1"
+      data-next-component="templates/common/preview"
+    >
       <div className="vads-l-grid-container medium-screen:vads-u-padding-x--0">
         You are viewing {modState} revision of {resource?.entityPath}.
         <a
