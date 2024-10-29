@@ -102,7 +102,10 @@ export const ResourcesSupport = ({
               {/* {% include "src/site/includes/related-information.drupal.liquid" with fieldRelatedInformation = fieldRelatedInformation %} */}
 
               {/* VA benefits */}
-              <RelatedLinks sectionTitle="VA benefits" links={benefitsHubLinks} />
+              <RelatedLinks
+                sectionTitle="VA benefits"
+                links={benefitsHubLinks}
+              />
             </div>
           </div>
         </div>

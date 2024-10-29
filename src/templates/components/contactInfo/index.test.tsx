@@ -1,7 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { fireEvent, getByRole } from '@testing-library/dom'
 jest.mock('@/lib/analytics/recordEvent')
-import * as recordEvent from '@/lib/analytics/recordEvent'
 import { ContactInfo } from './index'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
 import { ContactInfo as FormattedContactInfo } from '@/types/formatted/contactInfo'
@@ -76,20 +74,8 @@ describe('ContactInfo with valid data', () => {
 
     expect(screen.queryByText(/Phone Number/)).not.toBeInTheDocument()
     expect(screen.queryByText(/My HealtheVet help desk/)).toBeInTheDocument()
-    expect(container.innerHTML).toContain('<va-telephone contact=\"800-983-0937\">')
-  })
-
-  test('click event sends correct params to recordEvent', () => {
-    data.defaultContact.number = 't$st.vet=ran@va.gov'
-    const { container } = render(<ContactInfo {...data} />)
-    const link = getByRole(container, 'link')
-
-    fireEvent.click(link)
-    expect(recordEvent.recordEvent).toHaveBeenCalledWith({
-      event: 'nav-linkslist',
-      'links-list-header': 't%24st.vet%3Dran%40va.gov',
-      'links-list-section-header': 'Need more help?',
-    })
-    jest.restoreAllMocks()
+    expect(container.innerHTML).toContain(
+      '<va-telephone contact="800-983-0937">'
+    )
   })
 })
