@@ -7,7 +7,7 @@ import {
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
 
-const canUseWebComponent = telephone => {
+const canUseWebComponent = (telephone) => {
   if (!telephone || /[a-zA-Z+]/.test(telephone)) {
     return false
   }
@@ -24,10 +24,7 @@ export const EmailContact = (
     return (
       <li className="vads-u-margin-top--1">
         <strong>{label}&nbsp;</strong>
-        <va-link
-          href={`mailto:${address}`}
-          text={address}
-        />
+        <va-link href={`mailto:${address}`} text={address} />
       </li>
     )
   }
@@ -44,10 +41,7 @@ export const PhoneContact = (
     return (
       <li className="vads-u-margin-top--1">
         <strong>{label}&nbsp;</strong>
-        <va-telephone
-          contact={number}
-          extension={extension || null}
-        />
+        <va-telephone contact={number} extension={extension || null} />
       </li>
     )
   }
@@ -56,7 +50,9 @@ export const PhoneContact = (
 }
 
 // nested paragraphs
-const AdditionalContact = (contact: FormattedEmailContact | FormattedPhoneContact) => {
+const AdditionalContact = (
+  contact: FormattedEmailContact | FormattedPhoneContact
+) => {
   switch (contact.type) {
     case PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT:
       return <EmailContact {...(contact as FormattedEmailContact)} />
@@ -68,14 +64,14 @@ const AdditionalContact = (contact: FormattedEmailContact | FormattedPhoneContac
 
 // node--support-service nodes that get included
 const BenefitHubContacts = ({ contacts }) => {
-  return contacts.map(contact => {
-    const { href, label, number } = contact;
+  return contacts.map((contact) => {
+    const { href, label, number } = contact
 
     if (number && canUseWebComponent(number)) {
       const phone = {
         extension: null,
         label,
-        number
+        number,
       }
 
       return <PhoneContact {...phone} id={label} key={label} />
@@ -84,10 +80,7 @@ const BenefitHubContacts = ({ contacts }) => {
     return (
       <li className="vads-u-margin-top--1" key={label}>
         <strong>{label}&nbsp;</strong>
-        <va-link
-          href={href}
-          text={number}
-        />
+        <va-link href={href} text={number} />
       </li>
     )
   })

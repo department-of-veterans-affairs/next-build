@@ -8,7 +8,7 @@ import * as AudienceTopics from './audienceTopics'
 import * as Banners from './banners'
 import * as BenefitsHub from './benefitsHubLinks'
 import * as Button from './button'
-import * as Checklist from './checklist';
+import * as Checklist from './checklist'
 import * as ChecklistItem from './checklistItem'
 import * as CollapsiblePanel from './collapsiblePanel'
 import * as CollapsiblePanelItem from './collapsiblePanelItem'

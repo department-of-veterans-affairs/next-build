@@ -11,7 +11,7 @@ export const params: QueryParams<null> = () => {
   ])
 }
 
-const formatBeneficiariesData = beneficiaries => {
+const formatBeneficiariesData = (beneficiaries) => {
   if (!beneficiaries || beneficiaries.length === 0) {
     return []
   }
@@ -34,7 +34,9 @@ export const getTagsList = (
     field_non_beneficiares: fieldNonBeneficiares,
   } = entity
 
-  const audienceBeneficiaries = formatBeneficiariesData(fieldAudienceBeneficiares)
+  const audienceBeneficiaries = formatBeneficiariesData(
+    fieldAudienceBeneficiares
+  )
   const nonBeneficiaries = formatBeneficiariesData(fieldNonBeneficiares)
 
   const topics = fieldTopics.map((topic) => ({
@@ -44,10 +46,7 @@ export const getTagsList = (
     categoryLabel: 'Topics',
   }))
 
-  const audiences = [
-    ...audienceBeneficiaries,
-    ...nonBeneficiaries,
-  ]
+  const audiences = [...audienceBeneficiaries, ...nonBeneficiaries]
     .filter((tag) => !!tag)
     .map((audience) => ({
       id: audience.id,

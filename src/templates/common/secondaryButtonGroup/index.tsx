@@ -3,8 +3,10 @@ import { ParagraphComponent } from '@/types/formatted/paragraph'
 
 // Used for R&S pages; either a single blue CTA link or multiple
 export const SecondaryButtonGroup = ({
-  buttons
-}: { buttons: ParagraphComponent<FormattedButton>[] }): JSX.Element => {
+  buttons,
+}: {
+  buttons: ParagraphComponent<FormattedButton>[]
+}): JSX.Element => {
   if (buttons.length > 1) {
     return (
       <ul

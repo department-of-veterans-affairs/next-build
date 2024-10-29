@@ -23,7 +23,7 @@ export const Example: Story = {
         uri: 'https://va.gov/burials-memorials/schedule-a-burial',
         title: 'Schedule a burial for a Veteran or family member',
         summary: null,
-      }
-    ]
+      },
+    ],
   },
 }

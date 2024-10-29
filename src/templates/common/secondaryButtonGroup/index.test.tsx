@@ -9,21 +9,27 @@ describe('SecondaryButtonGroup Component', () => {
       {
         id: '1',
         label: 'Button one',
-        url: 'https://www.va.gov/button-one'
+        url: 'https://www.va.gov/button-one',
       },
       {
         id: '2',
         label: 'Button two',
-        url: 'https://www.va.gov/button-two'
-      }
+        url: 'https://www.va.gov/button-two',
+      },
     ]
 
-    const { container } = render(<SecondaryButtonGroup buttons={multipleButtons} />)
+    const { container } = render(
+      <SecondaryButtonGroup buttons={multipleButtons} />
+    )
 
     expect(container.innerHTML).toContain('Button one')
-    expect(container.innerHTML).toContain('href="https://www.va.gov/button-one"')
+    expect(container.innerHTML).toContain(
+      'href="https://www.va.gov/button-one"'
+    )
     expect(container.innerHTML).toContain('Button two')
-    expect(container.innerHTML).toContain('href="https://www.va.gov/button-two"')
+    expect(container.innerHTML).toContain(
+      'href="https://www.va.gov/button-two"'
+    )
   })
 
   test('renders action link correctly when there is only one', () => {
@@ -31,13 +37,15 @@ describe('SecondaryButtonGroup Component', () => {
       {
         id: '1',
         label: 'Single button',
-        url: 'https://www.va.gov/single-button'
-      }
+        url: 'https://www.va.gov/single-button',
+      },
     ]
 
     const { container } = render(<SecondaryButtonGroup buttons={oneButton} />)
 
     expect(container.innerHTML).toContain('Single button')
-    expect(container.innerHTML).toContain('href="https://www.va.gov/single-button"')
+    expect(container.innerHTML).toContain(
+      'href="https://www.va.gov/single-button"'
+    )
   })
 })

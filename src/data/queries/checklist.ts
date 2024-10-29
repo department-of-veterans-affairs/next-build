@@ -2,7 +2,10 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { queries } from '.'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
-import { PARAGRAPH_RESOURCE_TYPES, RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -48,7 +51,7 @@ export type ChecklistDataOpts = {
 export const data: QueryData<ChecklistDataOpts, NodeChecklist> = async (
   opts
 ): Promise<NodeChecklist> => {
-const entity = (await fetchSingleEntityOrPreview(
+  const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.CHECKLIST,
     params
@@ -61,10 +64,10 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
   entity: NodeChecklist
 ) => {
   const formatRelatedLinks = (links): RelatedLink[] =>
-    links?.map(link => ({
+    links?.map((link) => ({
       uri: link?.field_link?.uri,
       title: link?.field_link?.title,
-      summary: link.field_link_summary
+      summary: link.field_link_summary,
     }))
 
   return {
@@ -75,11 +78,8 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
       entity.field_related_benefit_hubs
     ),
     buttons: entity.field_buttons.map?.(formatParagraph) as Button[],
-    checklist: entity.field_checklist.field_checklist_sections?.map(section =>
-      queries.formatData(
-        PARAGRAPH_RESOURCE_TYPES.CHECKLIST,
-        section
-      )
+    checklist: entity.field_checklist.field_checklist_sections?.map((section) =>
+      queries.formatData(PARAGRAPH_RESOURCE_TYPES.CHECKLIST, section)
     ) as ChecklistItem[],
     contactInformation: formatParagraph(
       entity.field_contact_information
@@ -87,6 +87,6 @@ export const formatter: QueryFormatter<NodeChecklist, Checklist> = (
     intro: entity.field_intro_text_limited_html.processed,
     relatedInformation: formatRelatedLinks(entity.field_related_information),
     repeatButtons: entity.field_buttons_repeat,
-    tags: formatParagraph(entity.field_tags) as AudienceTopics
+    tags: formatParagraph(entity.field_tags) as AudienceTopics,
   }
 }

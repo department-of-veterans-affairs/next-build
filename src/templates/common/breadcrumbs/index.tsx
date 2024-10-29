@@ -71,11 +71,7 @@ const Breadcrumbs = ({
       className="vads-u-padding-x--1p5"
       data-next-component="templates/common/breadcrumbs"
     >
-      <va-breadcrumbs
-        class="row"
-        wrapping
-        breadcrumb-list={fcString}
-      />
+      <va-breadcrumbs class="row" wrapping breadcrumb-list={fcString} />
     </div>
   )
 }

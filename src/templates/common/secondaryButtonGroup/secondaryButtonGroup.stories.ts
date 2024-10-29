@@ -17,14 +17,14 @@ export const Example: Story = {
         id: '1',
         type: 'paragraph--button',
         url: 'https://www.va.gov/careers-employment/vocational-rehabilitation/eligibility',
-        label: 'See eligibility for VR&E benefits'
+        label: 'See eligibility for VR&E benefits',
       },
       {
         id: '2',
         type: 'paragraph--button',
         url: 'https://www.va.gov/careers-employment/vocational-rehabilitation/how-to-apply',
-        label: 'Find out how to apply for VR&E benefits'
-      }
-    ]
+        label: 'Find out how to apply for VR&E benefits',
+      },
+    ],
   },
 }

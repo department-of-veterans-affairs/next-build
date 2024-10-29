@@ -5,7 +5,7 @@ import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
 // Does not map directly to any one Drupal type; it is simply a shared UI component
 export const RelatedLinks = ({
   links,
-  sectionTitle
+  sectionTitle,
 }: FormattedRelatedLinks): JSX.Element => {
   if (isEmpty(links)) {
     return null
@@ -16,10 +16,7 @@ export const RelatedLinks = ({
     <>
       <p className="vads-u-margin--0">
         <strong>
-          <va-link
-            href={uri}
-            text={title}
-          />
+          <va-link href={uri} text={title} />
         </strong>
       </p>
       <p className="vads-u-margin--0">{summary}</p>
@@ -35,15 +32,19 @@ export const RelatedLinks = ({
       className="vads-u-margin-bottom--3 vads-u-display--flex vads-u-flex-direction--column"
       data-next-component="templates/common/RelatedLinks"
     >
-      {sectionTitle && <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">{sectionTitle}</h2>}
+      {sectionTitle && (
+        <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">
+          {sectionTitle}
+        </h2>
+      )}
 
       {links.length > 1 && (
         <ul className="usa-unstyled-list">
-        {links.map((link, index) => (
-          <li className="vads-u-margin-y--2" key={index}>
-            {renderLink(link.uri, link.title, link.summary)}
-          </li>
-        ))}
+          {links.map((link, index) => (
+            <li className="vads-u-margin-y--2" key={index}>
+              {renderLink(link.uri, link.title, link.summary)}
+            </li>
+          ))}
         </ul>
       )}
 

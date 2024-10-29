@@ -11,7 +11,7 @@ export const params: QueryParams<null> = () => {
 export const formatter: QueryFormatter<NodeLandingPage[], RelatedLink[]> = (
   entities: NodeLandingPage[]
 ) => {
-  return entities.map(entity => {
+  return entities.map((entity) => {
     return {
       uri: entity.path?.alias,
       title: entity.field_home_page_hub_label,
