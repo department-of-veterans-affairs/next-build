@@ -32,6 +32,8 @@ export const CollapsiblePanelItem = ({
 
       <div
         id={id}
+        data-template="paragraphs/collapsible_panel__panel"
+        data-paragraph-type="paragraph--collapsible_panel_item"
         data-entity-id={entityId}
         data-analytics-faq-text={escape(title)}
       >
@@ -57,7 +59,13 @@ export const CollapsiblePanel = ({
   headingLevel = 'h4',
 }: ParagraphComponent<FormattedCollapsiblePanel>) => {
   return (
-    <div id={id} data-entity-id={entityId} data-multiselectable={multiSelect}>
+    <div
+      id={id}
+      data-template="paragraphs/collapsible_panel"
+      data-paragraph-type="paragraph--collapsible_panel"
+      data-entity-id={entityId}
+      data-multiselectable={multiSelect}
+    >
       <va-accordion
         {...conditionalAttr(bordered, 'bordered')}
         {...conditionalAttr(!multiSelect, 'open-single')}

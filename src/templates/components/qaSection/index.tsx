@@ -12,7 +12,7 @@ export function QaSection({
 }: FormattedQaSection | FormattedQaGroup) {
   const setHeaderh3 = header ? true : false
   return (
-    <div>
+    <div data-template="paragraphs/q_a_section">
       {header && <h2>{header}</h2>}
       {intro && <p>{intro}</p>}
       {displayAccordion ? (

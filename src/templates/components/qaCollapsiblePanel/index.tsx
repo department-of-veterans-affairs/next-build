@@ -1,6 +1,6 @@
 export const QaCollapsiblePanel = ({ questions }) => {
   return (
-    <div data-testid="qa-collapsible-panel">
+    <div data-template="paragraphs/q_a.collapsible_panel">
       <va-accordion>
         {questions.map((questionObject) => (
           <va-accordion-item
@@ -12,6 +12,7 @@ export const QaCollapsiblePanel = ({ questions }) => {
           >
             <div
               id={questionObject.id}
+              data-template="paragraphs/q_a.collapsible_panel__qa"
               data-entity-id={questionObject.id}
               data-analytics-faq-section={questionObject.header}
               data-analytics-faq-text={questionObject.question}

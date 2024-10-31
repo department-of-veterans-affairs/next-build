@@ -25,7 +25,7 @@ describe('QaCollapsiblePanel with valid data', () => {
     render(<QaCollapsiblePanel questions={questionsData} />)
 
     const panelDiv = document.querySelector(
-      'div[data-testid="qa-collapsible-panel"]'
+      'div[data-template="paragraphs/q_a.collapsible_panel"]'
     )
     expect(panelDiv).toBeInTheDocument()
   })

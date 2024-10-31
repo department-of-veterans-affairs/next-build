@@ -56,7 +56,11 @@ export function PressReleaseListing({
   return (
     <div key={id} className="usa-grid usa-grid-full">
       {/* Widget coming from vets-website */}
-      <nav aria-label="secondary" data-widget-type="side-nav"></nav>
+      <nav
+        data-template="navigation/facility_sidebar_nav"
+        aria-label="secondary"
+        data-widget-type="side-nav"
+      ></nav>
       <div className="usa-width-three-fourths">
         <article className="usa-content">
           <LovellSwitcher

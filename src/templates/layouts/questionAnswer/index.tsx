@@ -42,7 +42,7 @@ export const QuestionAnswer = ({
     }
   }
   return (
-    <div id="content" className="interior">
+    <div id="content" className="interior" data-template="node-q_a">
       <div className="va-l-detail-page">
         <div className="usa-grid usa-grid-full">
           <div className="usa-width-three-fourths">

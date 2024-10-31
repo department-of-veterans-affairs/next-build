@@ -31,7 +31,11 @@ export function Wysiwyg({
   if (!isValidData(html)) return
 
   return (
-    <div data-entity-id={entityId}>
+    <div
+      data-entity-id={entityId}
+      data-template="paragraphs/wysiwyg"
+      data-paragraph-type="paragraph--wysiwyg"
+    >
       <WysiwygField html={html} />
     </div>
   )

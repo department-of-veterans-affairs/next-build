@@ -105,7 +105,10 @@ export function ContactInfo({
       <div className="usa-grid usa-grid-full">
         <div className="usa-width-three-fourths">
           <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
-            <section className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-y--2">
+            <section
+              className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-y--2"
+              data-template="paragraphs/contact_information"
+            >
               <h2 className="vads-u-font-size--h3 vads-u-border-bottom--4px vads-u-border-color--primary vads-u-margin--0 vads-u-margin-y--1 vads-u-padding-bottom--1">
                 Need more help?
               </h2>
