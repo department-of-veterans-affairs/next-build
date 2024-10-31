@@ -44,11 +44,7 @@ export const ResourcesSupport = ({
   lastUpdated,
 }: FormattedResourcesSupport) => {
   return (
-    <div
-      id="content"
-      className="interior"
-      data-resource-type="node--support_resources_detail_page"
-    >
+    <div id="content" className="interior">
       <main className="va-l-detail-page">
         <div className="usa-grid usa-grid-full">
           <div className="usa-width-three-fourths">
