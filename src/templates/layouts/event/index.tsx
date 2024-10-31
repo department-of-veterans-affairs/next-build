@@ -76,10 +76,7 @@ export const Event = ({
     .join(', ')
 
   return (
-    <div
-      className="va-l-detail-page va-facility-page"
-      data-next-component="templates/layouts/event"
-    >
+    <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
         <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 desktop-lg:vads-u-padding-x--0 vads-u-padding-bottom--2">
           {/* Title */}

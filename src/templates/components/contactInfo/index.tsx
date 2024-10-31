@@ -98,10 +98,7 @@ export function ContactInfo({
     contactType === 'DC' && defaultContact && !additionalContact
 
   return (
-    <div
-      data-next-component="templates/components/contactInfo"
-      className="vads-u-background-color--gray-light-alt"
-    >
+    <div className="vads-u-background-color--gray-light-alt">
       <div className="usa-grid usa-grid-full">
         <div className="usa-width-three-fourths">
           <div className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">

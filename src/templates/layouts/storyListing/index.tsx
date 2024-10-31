@@ -53,11 +53,7 @@ export function StoryListing({
     )
 
   return (
-    <div
-      key={id}
-      className="usa-grid usa-grid-full"
-      data-next-component="templates/layouts/storyListing"
-    >
+    <div key={id} className="usa-grid usa-grid-full">
       {/* Widget coming from vets-website */}
       <nav
         data-template="navigation/facility_sidebar_nav"

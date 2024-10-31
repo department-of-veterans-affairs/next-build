@@ -9,10 +9,7 @@ export const SecondaryButtonGroup = ({
 }): JSX.Element => {
   if (buttons.length > 1) {
     return (
-      <ul
-        className="vads-u-margin-y--3 usa-unstyled-list"
-        data-next-component="templates/common/secondaryButtonGroup"
-      >
+      <ul className="vads-u-margin-y--3 usa-unstyled-list">
         {buttons?.map((button, index) => (
           <li key={index} className="vads-u-margin-bottom--2">
             <va-link-action
@@ -30,12 +27,7 @@ export const SecondaryButtonGroup = ({
 
   if (button) {
     return (
-      <va-link-action
-        data-next-component="templates/common/secondaryButtonGroup"
-        href={button.url}
-        text={button.label}
-        type="secondary"
-      />
+      <va-link-action href={button.url} text={button.label} type="secondary" />
     )
   }
 

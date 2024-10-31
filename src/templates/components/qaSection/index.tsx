@@ -12,7 +12,7 @@ export function QaSection({
 }: FormattedQaSection | FormattedQaGroup) {
   const setHeaderh3 = header ? true : false
   return (
-    <div data-next-component="templates/components/qaSection">
+    <div>
       {header && <h2>{header}</h2>}
       {intro && <p>{intro}</p>}
       {displayAccordion ? (

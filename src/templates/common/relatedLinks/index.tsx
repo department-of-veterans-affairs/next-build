@@ -28,10 +28,7 @@ export const RelatedLinks = ({
   }
 
   return (
-    <section
-      className="vads-u-margin-bottom--3 vads-u-display--flex vads-u-flex-direction--column"
-      data-next-component="templates/common/RelatedLinks"
-    >
+    <section className="vads-u-margin-bottom--3 vads-u-display--flex vads-u-flex-direction--column">
       {sectionTitle && (
         <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">
           {sectionTitle}

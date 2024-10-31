@@ -22,10 +22,7 @@ export function Checklist({
   title,
 }: FormattedChecklist) {
   return (
-    <main
-      className="va-l-detail-page"
-      data-next-component="templates/layouts/checklist"
-    >
+    <main className="va-l-detail-page">
       <div className="usa-grid usa-grid-full vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
         <div className="usa-width-three-fourths">
           <div className="usa-content">
