@@ -13,10 +13,7 @@ export function Table({
   if (isEmpty(data)) return
 
   return (
-    <VaTable
-      data-next-component="templates/components/table"
-      table-title={title}
-    >
+    <VaTable table-title={title}>
       {data.map((tableRow: string[], tableRowIndex) => (
         <VaTableRow
           key={tableRowIndex}

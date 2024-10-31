@@ -63,10 +63,7 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
   }
 
   return (
-    <div
-      className="vads-u-margin-bottom--0"
-      data-next-component="templates/components/hours"
-    >
+    <div className="vads-u-margin-bottom--0">
       <div className="clinicalhours">
         {renderHeader()}
         <div className="vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row vads-u-margin-bottom--0">

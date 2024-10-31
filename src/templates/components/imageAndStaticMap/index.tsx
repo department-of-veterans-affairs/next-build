@@ -13,10 +13,7 @@ export const ImageAndStaticMap: React.FC<ImageAndStaticMapProps> = ({
   facilityId,
 }) => {
   return (
-    <div
-      className="usa-width-one-third inline-table-helper vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2 vads-u-margin-left--auto facility"
-      data-next-component="templates/components/imageAndStaticMap"
-    >
+    <div className="usa-width-one-third inline-table-helper vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2 vads-u-margin-left--auto facility">
       <div
         onClick={() =>
           recordEvent({ event: 'image-click', 'facility-name': facilityId })

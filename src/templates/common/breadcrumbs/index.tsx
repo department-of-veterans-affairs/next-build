@@ -67,10 +67,7 @@ const Breadcrumbs = ({
   const fcString = JSON.stringify(filteredCrumbs)
 
   return (
-    <div
-      className="vads-u-padding-x--1p5"
-      data-next-component="templates/common/breadcrumbs"
-    >
+    <div className="vads-u-padding-x--1p5">
       <va-breadcrumbs
         id="va-breadcrumbs-list"
         class="row hydrated"

@@ -44,11 +44,7 @@ export function EventListing({
 
   return (
     <>
-      <div
-        key={id}
-        className="usa-grid usa-grid-full vads-u-padding-bottom--3"
-        data-next-component="templates/layouts/eventListing"
-      >
+      <div key={id} className="usa-grid usa-grid-full vads-u-padding-bottom--3">
         {/* Widget coming from vets-website */}
         {menu && (
           <nav

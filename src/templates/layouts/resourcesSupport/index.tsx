@@ -48,7 +48,6 @@ export const ResourcesSupport = ({
       id="content"
       className="interior"
       data-resource-type="node--support_resources_detail_page"
-      data-next-component="templates/layouts/resourcesSupport"
     >
       <main className="va-l-detail-page">
         <div className="usa-grid usa-grid-full">

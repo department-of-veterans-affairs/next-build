@@ -1,6 +1,6 @@
 export const QaCollapsiblePanel = ({ questions }) => {
   return (
-    <div data-next-component="templates/components/qaCollapsiblePanel">
+    <div data-testid="qa-collapsible-panel">
       <va-accordion>
         {questions.map((questionObject) => (
           <va-accordion-item
