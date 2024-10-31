@@ -60,7 +60,7 @@ describe('QaSection with with valid data', () => {
   test('renders QaSection component with accordion', () => {
     render(<QaSection {...QaSectionAccordionProps} />)
     const accordionDiv = document.querySelector(
-      'div[data-next-component="templates/components/qaCollapsiblePanel"]'
+      'div[data-template="paragraphs/q_a.collapsible_panel"]'
     )
     expect(accordionDiv).toBeInTheDocument()
     expect(screen.queryByText(/Accordion test header/)).toBeInTheDocument()
@@ -69,7 +69,7 @@ describe('QaSection with with valid data', () => {
   test('renders QaSection component without accordion', () => {
     render(<QaSection {...QaSectionOtherProps} />)
     const accordionDiv = document.querySelector(
-      'div[data-next-component="templates/components/qaCollapsiblePanel"]'
+      'div[data-template="paragraphs/q_a.collapsible_panel"]'
     )
     expect(accordionDiv).not.toBeInTheDocument()
     expect(screen.queryByText(/Other test header/)).toBeInTheDocument()

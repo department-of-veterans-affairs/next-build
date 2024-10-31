@@ -101,7 +101,6 @@ export const FacilityBanner = ({
     <>
       {outputStatus && (
         <VaBanner
-          data-next-component="templates/common/banners/facilityBanner"
           id={id}
           role="region"
           showClose={dismiss}

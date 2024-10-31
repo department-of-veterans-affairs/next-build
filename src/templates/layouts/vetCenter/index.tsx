@@ -156,10 +156,7 @@ export function VetCenter({
   }
 
   return (
-    <div
-      className="usa-grid usa-grid-full"
-      data-next-component="templates/layouts/vetCenter"
-    >
+    <div className="usa-grid usa-grid-full">
       <div className="usa-width-three-fourths">
         <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
           {title && (

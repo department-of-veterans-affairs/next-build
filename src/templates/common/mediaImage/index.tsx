@@ -59,7 +59,6 @@ export const MediaImage = (
 
   return (
     <Image
-      data-next-component="templates/common/mediaImage"
       id={props.id}
       alt={props.alt}
       src={props.links?.[props.imageStyle]?.href}

@@ -10,7 +10,7 @@ export function Button({
   return (
     label &&
     url && (
-      <div key={id} data-next-component="templates/common/button">
+      <div key={id}>
         <Link href={url} passHref className="vads-c-action-link--blue">
           {label}
         </Link>

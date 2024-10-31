@@ -3,11 +3,7 @@ import { numToWord } from '@/lib/utils/helpers'
 export function ProcessList({ steps, entityId }: FormattedProcessList) {
   if (!steps) return
   return (
-    <div
-      data-next-component="templates/components/processList"
-      data-entity-id={entityId}
-      className="process schemaform-process"
-    >
+    <div data-entity-id={entityId} className="process schemaform-process">
       <ol>
         {steps &&
           steps.map((step, index) => (

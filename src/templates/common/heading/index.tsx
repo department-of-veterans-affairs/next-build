@@ -8,7 +8,6 @@ export const HeadingElement = ({
   const HeadingElement = headingLevel
   return (
     <HeadingElement
-      data-next-component="templates/common/heading"
       slot={slot}
       dangerouslySetInnerHTML={{ __html: children }}
     ></HeadingElement>

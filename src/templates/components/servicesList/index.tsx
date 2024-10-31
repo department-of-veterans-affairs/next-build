@@ -9,10 +9,7 @@ interface ServicesListProps {
 function ServicesList({ services }: ServicesListProps) {
   if (!services) return null
   return (
-    <div
-      className="vads-u-margin-bottom--3"
-      data-next-component="templates/components/servicesList"
-    >
+    <div className="vads-u-margin-bottom--3">
       <va-accordion bordered>
         {services.map((service, index) => (
           <va-accordion-item

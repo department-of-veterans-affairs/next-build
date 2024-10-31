@@ -21,10 +21,7 @@ export const PressRelease = ({
   return (
     <>
       <div>
-        <div
-          className="va-l-detail-page va-facility-page"
-          data-next-component="templates/layouts/pressRelease"
-        >
+        <div className="va-l-detail-page va-facility-page">
           <div className="usa-grid usa-grid-full">
             {/* nav here */}
             <div className="usa-width-three-fourths">

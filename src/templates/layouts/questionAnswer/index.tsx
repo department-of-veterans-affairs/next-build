@@ -42,11 +42,7 @@ export const QuestionAnswer = ({
     }
   }
   return (
-    <div
-      id="content"
-      className="interior"
-      data-next-component="templates/layouts/questionAnswer"
-    >
+    <div id="content" className="interior">
       <div className="va-l-detail-page">
         <div className="usa-grid usa-grid-full">
           <div className="usa-width-three-fourths">
