@@ -18,7 +18,7 @@ const nextConfig = {
   // assetPrefix: isProd
   //   ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/'
   //   : undefined,
-  staticPageGenerationTimeout: 180, //arbitrary; 60 is default but it's too small
+  staticPageGenerationTimeout: 800, //arbitrary; 60 is default but it's too small
   experimental: {
     largePageDataBytes: 512 * 1000, // 512kb, is 128kb by default
   },
