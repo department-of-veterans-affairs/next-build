@@ -21,7 +21,6 @@ const Document = () => {
           id="web-components"
           strategy="beforeInteractive"
           src={`${ASSETS_URL}web-components.entry.js`}
-          data-nb-nonce={nonce}
         />
 
         {/* Add vendor file */}
@@ -29,7 +28,6 @@ const Document = () => {
           id="vendor"
           strategy="beforeInteractive"
           src={`${ASSETS_URL}vendor.entry.js`}
-          data-nb-nonce={nonce}
         />
 
         {/* Preconnect to google tag manager domain */}
