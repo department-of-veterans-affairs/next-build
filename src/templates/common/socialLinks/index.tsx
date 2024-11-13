@@ -87,11 +87,7 @@ export const SocialLinks = ({
   ].filter(Boolean)
 
   return (
-    <div
-      data-template="includes/social-share"
-      className={divClass}
-      id="va-c-social-share"
-    >
+    <div className={divClass} id="va-c-social-share">
       <ul className={ulClass} role="list">
         {isEvent && (
           <li className="vads-u-margin-bottom--2p5 ">

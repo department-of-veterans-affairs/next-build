@@ -113,7 +113,7 @@ export const RateYourExperience = () => {
 
   return (
     <form
-      className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 large-screen:vads-u-padding-x--0"
+      className="vads-u-padding-top--3 vads-u-padding-bottom--1 vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0"
       data-template="includes/how-do-you-rate"
       id="how-do-you-rate-form"
     >

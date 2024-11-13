@@ -88,9 +88,9 @@ export function ContentFooter({ lastUpdated }: ContentFooterProps) {
 
   return (
     <>
-      <div className="last-updated vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
+      <div className="last-updated vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
         {displayDate && (
-          <div className="small-screen:vads-u-display--flex above-footer-elements-container">
+          <div className="mobile-lg:vads-u-display--flex above-footer-elements-container">
             <div className="vads-u-flex--auto">
               <span className="vads-u-text-align--justify">
                 <p>

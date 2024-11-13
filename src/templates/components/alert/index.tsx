@@ -19,7 +19,6 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
     <va-alert
       data-template="paragraphs/alert"
       data-paragraph-type="paragraph--alert"
-      data-next-component="templates/components/alert"
       data-entity-id={entityId}
       status={alertType}
       class="vads-u-margin-top--3"

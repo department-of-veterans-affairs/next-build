@@ -34,7 +34,6 @@ export const CollapsiblePanelItem = ({
         id={id}
         data-template="paragraphs/collapsible_panel__panel"
         data-paragraph-type="paragraph--collapsible_panel_item"
-        data-next-component="templates/components/collapsiblePanel/(CollapsiblePanelItem)"
         data-entity-id={entityId}
         data-analytics-faq-text={escape(title)}
       >
@@ -64,7 +63,6 @@ export const CollapsiblePanel = ({
       id={id}
       data-template="paragraphs/collapsible_panel"
       data-paragraph-type="paragraph--collapsible_panel"
-      data-next-component="templates/components/collapsiblePanel/(CollapsiblePanel)"
       data-entity-id={entityId}
       data-multiselectable={multiSelect}
     >
