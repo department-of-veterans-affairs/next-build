@@ -20,7 +20,7 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
       data-paragraph-type="paragraph--alert"
       data-entity-id={entityId}
       status={alertType}
-      class="vads-u-margin-top--3"
+      class="vads-u-margin-top--3 hydrated"
       role="alert"
       uswds="false"
     >

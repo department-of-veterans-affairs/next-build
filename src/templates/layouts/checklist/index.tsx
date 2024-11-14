@@ -61,7 +61,7 @@ export function Checklist({
                             }
                             key={index}
                           >
-                            <va-checkbox label={item} />
+                            <va-checkbox class="hydrated" label={item} />
                           </li>
                         ))}
                       </ul>

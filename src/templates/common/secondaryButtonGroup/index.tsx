@@ -13,6 +13,7 @@ export const SecondaryButtonGroup = ({
         {buttons?.map((button, index) => (
           <li key={index} className="vads-u-margin-bottom--2">
             <va-link-action
+              class="hydrated"
               href={button.url}
               text={button.label}
               type="secondary"

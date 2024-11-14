@@ -51,6 +51,7 @@ export const RateYourExperience = () => {
   return (
     <form className="vads-u-margin-top--3 vads-u-margin-bottom--4 vads-u-display--flex vads-u-flex-direction--column">
       <VaRadio
+        class="hydrated"
         error={isError ? 'Please select an answer' : ''}
         aria-hidden={isSubmitted}
         label={header}
