@@ -108,7 +108,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "All hospital environments can be intense and demanding and come with general and specific challenges. But having co-workers whom one can count on makes my job at VA an invaluable opportunity."
     </p>
         n
-    
+
 
     <p>Decker
     said
@@ -149,7 +149,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "The 'aha moment' when it all comes together is very gratifying."
     </p>
         n
-    
+
 <p>Even so, Decker says preventing illness in the first place is even more gratifying.</p>
 
 
@@ -160,7 +160,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "Preventing 10 patients from getting sick is even better, and that's what we strive to do in Infection Prevention."
     </p>
         n
-    
+
 <p>Rahman said he's been fascinated since childhood with how the human body works.</p>
 
 
@@ -171,7 +171,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "Cardiology is not just a career choice, but a calling, and I think it found me."
     </p>
         n
-    
+
 <p>Both doctors said the best part of working at VA is listening to Veterans' stories.</p>
 
 
@@ -182,7 +182,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "I've met some truly great people working at VA."
     </p>
         n
-    
+
 <p>Rahman said Veterans' stories make every day at work interesting.</p>
 
 
@@ -193,7 +193,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "It's never a dull day at work."
     </p>
         n
-    
+
 <p>Decker and Rahman were formally recognized as Outstanding Physicians of the Year on April 26 during the medical staff's quarterly meeting at University Drive.</p>",
   "breadcrumbs": [
     {
@@ -362,7 +362,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "width": 456,
   },
   "introText": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
-  "lastUpdated": "2020-03-24T20:10:28+00:00",
+  "lastUpdated": "2019-05-14T15:35:12+00:00",
   "listing": "/pittsburgh-health-care/stories",
   "metatags": [
     {

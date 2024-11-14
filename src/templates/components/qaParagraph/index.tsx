@@ -8,7 +8,7 @@ export function QaParagraph({
 }: FormattedQaParagraph) {
   const DynamicHeader = setHeaderh3 ? 'h3' : 'h2'
   return (
-    <div>
+    <div data-template="paragraphs/q_a">
       <div>
         <div className="vads-u-display--flex">
           <DynamicHeader>{question}</DynamicHeader>

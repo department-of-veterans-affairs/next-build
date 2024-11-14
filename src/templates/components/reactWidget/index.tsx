@@ -80,6 +80,7 @@ const DefaultWidget = ({
 }) => {
   return (
     <div
+      data-template="paragraphs/react_widget"
       data-entity-id={entityId}
       data-widget-type={widgetType}
       data-widget-timeout={timeout}

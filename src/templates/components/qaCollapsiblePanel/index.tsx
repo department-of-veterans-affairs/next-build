@@ -12,6 +12,7 @@ export const QaCollapsiblePanel = ({ questions }) => {
           >
             <div
               id={questionObject.id}
+              data-template="paragraphs/q_a.collapsible_panel__qa"
               data-entity-id={questionObject.id}
               data-analytics-faq-section={questionObject.header}
               data-analytics-faq-text={questionObject.question}
