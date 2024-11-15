@@ -1537,12 +1537,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/component-library@npm:^47.2.0":
-  version: 47.3.0
-  resolution: "@department-of-veterans-affairs/component-library@npm:47.3.0"
+"@department-of-veterans-affairs/component-library@npm:^48.0.1":
+  version: 48.0.1
+  resolution: "@department-of-veterans-affairs/component-library@npm:48.0.1"
   dependencies:
     "@department-of-veterans-affairs/react-components": 28.1.0
-    "@department-of-veterans-affairs/web-components": 15.3.0
+    "@department-of-veterans-affairs/web-components": 16.0.1
     i18next: ^21.6.14
     i18next-browser-languagedetector: ^6.1.4
     react-focus-on: ^3.5.1
@@ -1551,18 +1551,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": "*"
     react: ^18
     react-dom: "*"
-  checksum: 50194ad5b16e5d45414008e234d9cbfcf3b8eea722d5b787c305b84a9c9e63f64068b7905ff70da4858b8e7cb28d8df844c2ddf87115f54e61bdf313b3b1df15
-  languageName: node
-  linkType: hard
-
-"@department-of-veterans-affairs/css-library@npm:^0.13.1":
-  version: 0.13.1
-  resolution: "@department-of-veterans-affairs/css-library@npm:0.13.1"
-  dependencies:
-    "@divriots/style-dictionary-to-figma": ^0.4.0
-    "@uswds/uswds": ^3.8.1
-    rimraf: ^5.0.5
-  checksum: 8536f0a36431df5b03e445511ce408a5efc124a76db2855bc1801128b68be8ddb68adc8ec59b8905ee174dd4f32690b2705b1bbbbfc4085c5d5a7b835adc7357
+  checksum: 05df1e119d5dbbc3644c1df496c7c4ad72d990664d8d07a04ce2eb01c8460a587a652972a4b87de036bea5b9da44a773be308fd0748fed3c1fca9e83f76251d3
   languageName: node
   linkType: hard
 
@@ -1601,11 +1590,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:15.3.0, @department-of-veterans-affairs/web-components@npm:^15.2.0":
-  version: 15.3.0
-  resolution: "@department-of-veterans-affairs/web-components@npm:15.3.0"
+"@department-of-veterans-affairs/web-components@npm:16.0.1, @department-of-veterans-affairs/web-components@npm:^16.0.1":
+  version: 16.0.1
+  resolution: "@department-of-veterans-affairs/web-components@npm:16.0.1"
   dependencies:
-    "@department-of-veterans-affairs/css-library": ^0.13.1
     "@stencil/core": 4.20.0
     aria-hidden: ^1.1.3
     body-scroll-lock: ^4.0.0-beta.0
@@ -1616,14 +1604,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": ^11.0.6
     i18next: "*"
     i18next-browser-languagedetector: "*"
-  checksum: 5015c90aaf471bae06e4827aed1f081b86eb909ae66d61497109140c8110864a695bac29102be1e7bb0095102e2ac8e65096319cff01da1f01d037c9cdfbf25e
-  languageName: node
-  linkType: hard
-
-"@divriots/style-dictionary-to-figma@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@divriots/style-dictionary-to-figma@npm:0.4.0"
-  checksum: 122dd221fa34ed40c40900c2d2adec2c345e12bb2d99f0a56b65cc381de94fbfc51ccf5a032f6ca22752a89b654ae1d2fa6ae86b7338bd19ff23f5322cf91828
+  checksum: 63cb0a4a6668da1ffd3638dcaeec7d4c84537af20d5efeec99bb9ed03fbdf71e05dc5832d5b7c6d1ef4b335051ddcb384e61868e4a42893eb42ae07a27e479ec
   languageName: node
   linkType: hard
 
@@ -4995,16 +4976,6 @@ __metadata:
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
   checksum: 4f656b7b4672f2ce6e272f2427d8b0824ed11546a601d8d5412b9d7704e83db38a8d9f402ecdf2b9063fc164af842ad0ec4a55819f621ed7e7ea4d1efcc74524
-  languageName: node
-  linkType: hard
-
-"@uswds/uswds@npm:^3.8.1":
-  version: 3.10.0
-  resolution: "@uswds/uswds@npm:3.10.0"
-  dependencies:
-    receptor: 1.0.0
-    resolve-id-refs: 0.1.0
-  checksum: e1a275a26c39c9d2b8ae38bf0ee8fff6dec4e0cf65292d9c4ec038cac12dc3745d5d7eb847907c5c6827b980bd1b6154fad8834bfcfba5b9dcf598a3ad354e90
   languageName: node
   linkType: hard
 
@@ -12837,9 +12808,9 @@ __metadata:
     "@actions/core": ^1.10.1
     "@actions/github": ^6.0.0
     "@axe-core/playwright": ^4.8.2
-    "@department-of-veterans-affairs/component-library": ^47.2.0
+    "@department-of-veterans-affairs/component-library": ^48.0.1
     "@department-of-veterans-affairs/formation": ^12.0.0
-    "@department-of-veterans-affairs/web-components": ^15.2.0
+    "@department-of-veterans-affairs/web-components": ^16.0.1
     "@faker-js/faker": ^8.4.1
     "@fortawesome/fontawesome-free": ^5.15.4
     "@next/env": ^14.1.0
