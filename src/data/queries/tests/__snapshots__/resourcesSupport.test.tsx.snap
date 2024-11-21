@@ -12,11 +12,9 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
   },
   "benefitsHubLinks": [
     {
-      "id": "33cd69ba-e93c-460a-bf9e-41aaf8ff67af",
-      "label": "Life insurance",
-      "path": "/life-insurance",
-      "teaserText": "Explore VA life insurance options for Veterans, service members, and families. Manage your policy online, file claims for benefits, and access helpful resources.",
-      "title": "VA life insurance",
+      "summary": "Explore VA life insurance options for Veterans, service members, and families. Manage your policy online, file claims for benefits, and access helpful resources.",
+      "title": "Life insurance",
+      "uri": "/life-insurance",
     },
   ],
   "breadcrumbs": [
