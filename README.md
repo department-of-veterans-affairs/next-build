@@ -34,7 +34,9 @@ You should set these up before attempting to install the repo.
 
 7. In the `next-build` directory, run `yarn setup` to pull initial built assets from the `vets-website` repo. This will grab a bunch of files from a vets-website S3 bucket and place them into the appropriate `public/` folders.
 
-8. Run `yarn dev`.
+8. In your `envs/.env.local` file, uncomment `FEATURE_NEXT_BUILD_CONTENT_ALL=true`.
+
+9. Run `yarn dev`.
 
 You will now have a Next.js development server running at http://localhost:3999, which will refresh with changes to your local environment. (Note: your local port may differ if you changed the value for `PORT` in .env.local).
 
