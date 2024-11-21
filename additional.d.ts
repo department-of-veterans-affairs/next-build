@@ -22,14 +22,15 @@ declare module 'debug'
 
 declare namespace JSX {
   interface IntrinsicElements {
-    'va-alert'
-    'va-link'
-    'va-icon'
-    'va-button'
-    'va-breadcrumbs'
     'va-accordion'
     'va-accordion-item'
-    'va-on-this-page'
+    'va-alert'
     'va-back-to-top'
+    'va-breadcrumbs'
+    'va-button'
+    'va-icon'
+    'va-link'
+    'va-link-action'
+    'va-on-this-page'
   }
 }
