@@ -19,7 +19,7 @@ export const RelatedLinks = ({
           <va-link href={uri} text={title} />
         </strong>
       </p>
-      <p className="vads-u-margin--0">{summary}</p>
+      {summary && <p className="vads-u-margin--0">{summary}</p>}
     </>
   )
 
@@ -30,7 +30,7 @@ export const RelatedLinks = ({
   return (
     <section className="vads-u-margin-bottom--3 vads-u-display--flex vads-u-flex-direction--column">
       {sectionTitle && (
-        <h2 className="vads-u-margin-y--0 vads-u-font-size--h3">
+        <h2 className="vads-u-margin-top--0 vads-u-margin-bottom--2 vads-u-font-size--h3">
           {sectionTitle}
         </h2>
       )}
@@ -38,14 +38,14 @@ export const RelatedLinks = ({
       {links.length > 1 && (
         <ul className="usa-unstyled-list">
           {links.map((link, index) => (
-            <li className="vads-u-margin-y--2" key={index}>
-              {renderLink(link.uri, link.title, link.summary)}
+            <li className="vads-u-margin-bottom--2" key={index}>
+              {renderLink(link.uri, link.title, link?.summary)}
             </li>
           ))}
         </ul>
       )}
 
-      {links.length === 1 && renderLink(link.uri, link.title, link.summary)}
+      {links.length === 1 && renderLink(link.uri, link.title, link?.summary)}
     </section>
   )
 }

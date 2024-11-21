@@ -1,7 +1,7 @@
 export type RelatedLink = {
   title: string
   uri: string
-  summary: string
+  summary?: string
 }
 
 export type FormattedRelatedLinks = {

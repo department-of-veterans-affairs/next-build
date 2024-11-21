@@ -9,7 +9,8 @@ describe('RelatedLinks Component', () => {
         {
           uri: 'https://va.gov/burials-memorials/eligibility',
           title: 'Eligibility for burial in a VA national cemetery',
-          summary: null,
+          summary:
+            'Here is a summary for this URL so you can see how it displays underneath.',
         },
         {
           uri: 'https://va.gov/burials-memorials/schedule-a-burial',
@@ -27,6 +28,9 @@ describe('RelatedLinks Component', () => {
     )
     expect(container.innerHTML).toContain(
       'href="https://va.gov/burials-memorials/eligibility"'
+    )
+    expect(container.innerHTML).toContain(
+      'Here is a summary for this URL so you can see how it displays underneath.'
     )
     expect(container.innerHTML).toContain(
       'Schedule a burial for a Veteran or family member'
