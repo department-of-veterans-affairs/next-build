@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChecklistItem formatData outputs formatted data 1`] = `
+{
+  "header": "Part 1: Before your exam",
+  "id": "ab47b094-f62d-4ea7-b936-3e9bf7bf9fed",
+  "intro": "why does CMS have duplicate checklist section header required? duplicate section intro field",
+  "items": [
+    "checklist item 1: this text field should allow 300 characters including spaces",
+    "checklist item 2",
+    "checklist item 3",
+    "checklist item 4",
+    "checklist item 5",
+  ],
+  "type": "paragraph--checklist_item",
+}
+`;
