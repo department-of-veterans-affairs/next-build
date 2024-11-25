@@ -22,6 +22,8 @@ export const processEnv = async (command: string): Promise<void> => {
     cmsFeatureFlags = {}
   } else {
     const drupalBaseUrlProp = 'NEXT_PUBLIC_DRUPAL_BASE_URL'
+    // eslint-disable-next-line no-console
+    console.log(envVars)
     const drupalBaseUrl =
       cliOptions[drupalBaseUrlProp] || envVars[drupalBaseUrlProp]
     cmsFeatureFlags = await getCmsFeatureFlags(
