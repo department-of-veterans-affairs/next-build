@@ -51,8 +51,8 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
     "contactType": "DC",
     "defaultContact": {
       "href": "tel:1-800-698-2411",
-      "title": "MyVA411 main information line:",
-      "value": "800-698-2411",
+      "label": "MyVA411 main information line:",
+      "number": "800-698-2411",
     },
     "entityId": 23309,
     "id": "ab6ce4bb-c9c4-426a-a157-7db1b9c4e70e",
