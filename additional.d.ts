@@ -32,5 +32,6 @@ declare namespace JSX {
     'va-link'
     'va-link-action'
     'va-on-this-page'
+    'va-telephone'
   }
 }
