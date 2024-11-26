@@ -17,6 +17,7 @@ export type MediaImage = {
   width: number
   height: number
   links: MediaImageLinks
+  loading?: 'eager' | 'lazy'
 }
 
 export type MediaVideo = {

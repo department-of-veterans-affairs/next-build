@@ -88,6 +88,7 @@ export const Event = ({
               className="event-detail-img vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4"
               {...image}
               imageStyle="7_2_medium_thumbnail"
+              loading="eager"
             />
           )}
 

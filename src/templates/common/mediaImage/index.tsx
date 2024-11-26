@@ -67,6 +67,7 @@ export const MediaImage = (
       title={props.title}
       className={props.className}
       style={props.style}
+      loading={props.loading}
     />
   )
 }
