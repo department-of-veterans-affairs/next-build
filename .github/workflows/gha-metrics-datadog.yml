@@ -3,6 +3,9 @@ on:
   workflow_run:
     workflows:
       - 'Content Release'
+      - 'Content release: Dev'
+      - 'Content release: Staging'
+      - 'Content release: Prod'
     types:
       - completed
 jobs:
