@@ -102,7 +102,7 @@ jobs:
           add: '*.yaml'
           cwd: vsp-infra-application-manifests/apps/${{ inputs.app_name }}/${{ inputs.environment }}
           author_name: va-vsp-bot
-          author_email: devops@va.gov
+          author_email: 70344339+va-vsp-bot@users.noreply.github.com
           message: 'Update ${{ inputs.app_name }} images and helm chart for ${{ inputs.environment }} environment with version ${{ env.IMAGE_TAG }}'
 
       # If this is triggered via workflow_run, update all 4 app/environment combinations.
@@ -125,5 +125,5 @@ jobs:
           add: '*.yaml'
           cwd: vsp-infra-application-manifests/apps
           author_name: va-vsp-bot
-          author_email: devops@va.gov
+          author_email: 70344339+va-vsp-bot@users.noreply.github.com
           message: 'Auto update next-build images and helm chart for apps and environments with version ${{ env.IMAGE_TAG }}'
