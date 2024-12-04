@@ -66,12 +66,14 @@ export const data: QueryData<ListingPageDataOpts, StoryListingData> = async (
         listingParams(entity.id),
         PAGE_SIZE
       )
-
   // Fetch the menu name dynamically off of the field_office reference
-  const menu = await getMenu(
-    entity.field_office.field_system_menu.resourceIdObjMeta
-      .drupal_internal__target_id
-  )
+  let menu = null
+  if (entity.field_office.field_system_menu) {
+    menu = await getMenu(
+      entity.field_office.field_system_menu.resourceIdObjMeta
+        ?.drupal_internal__target_id
+    )
+  }
 
   return {
     entity,

@@ -49,7 +49,6 @@ export const ResourcesSupport = ({
       className="interior"
       data-template="node-support_resources_detail_page"
       data-resource-type="node--support_resources_detail_page"
-      data-next-component="templates/layouts/resourcesSupport"
     >
       <main className="va-l-detail-page">
         <div className="usa-grid usa-grid-full">
@@ -62,7 +61,7 @@ export const ResourcesSupport = ({
                 {/* TODO: SearchBar */}
               </div>
 
-              <article className="usa-content vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
+              <article className="usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
                 <h1>{title}</h1>
 
                 {/* Intro */}

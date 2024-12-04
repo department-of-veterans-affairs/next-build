@@ -24,7 +24,7 @@ const normalizeMenuItem = (item: MenuItem): SideNavItem => {
 
 const normalizeMenuData = (menu: Menu): SideNavData => {
   // Bail early if no tree is provided
-  if (!menu.tree || menu.tree.length === 0) return null
+  if (!menu || !menu.tree || menu.tree.length === 0) return null
 
   const links = []
   menu.tree.forEach((item) => {

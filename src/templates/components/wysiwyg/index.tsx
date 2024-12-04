@@ -35,7 +35,6 @@ export function Wysiwyg({
       data-entity-id={entityId}
       data-template="paragraphs/wysiwyg"
       data-paragraph-type="paragraph--wysiwyg"
-      data-next-component="templates/components/wysiwyg"
     >
       <WysiwygField html={html} />
     </div>

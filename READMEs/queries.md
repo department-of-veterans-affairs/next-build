@@ -6,7 +6,7 @@ Queries are how data makes it to the front end templates of next-build. They con
 - **data**: where the fetch to the endpoint is actually performed
 - **formatter**: shaping the response from the data function to an agnostic format for the front end (i.e. front end templates should not be using drupal field names)
 
-These three work together to create consistent requests and responses for all configured query types. They are independent functions so they can be called in isolation when needed. For example, you may need to consistenly format some portion of data returned by multiple query types or have to include similar query parameters to multiple resource requests.
+These three work together to create consistent requests and responses for all configured query types. They are independent functions so they can be called in isolation when needed. For example, you may need to consistently format some portion of data returned by multiple query types or have to include similar query parameters to multiple resource requests.
 
 **Not every query file has all three parts!** Some may contain just a `formatter`, as they will never be queried individually (e.g. many Paragraphs are included in larger requests for Drupal Nodes).
 
