@@ -1,0 +1,12 @@
+# These owners will be the default owners for everything in the repo
+# Unless a later match takes precedence
+
+* @department-of-veterans-affairs/vfs-cms-team
+
+src/data/queries @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+src/hooks @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+src/lib @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+src/pages @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+src/types @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
