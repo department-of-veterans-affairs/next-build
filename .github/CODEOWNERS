@@ -1,12 +1,95 @@
 # These owners will be the default owners for everything in the repo
 # Unless a later match takes precedence
 
-* @department-of-veterans-affairs/vfs-cms-team
+* @department-of-veterans-affairs/cms-infrastructure @department-of-veterans-affairs/va-platform-cop-frontend
 
-src/data/queries @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+# Public Websites & Facilities
+src/assets @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+src/data @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
 src/hooks @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
 src/lib @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
 src/mocks @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
 src/pages @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
 src/templates @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
 src/types @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/vfs-facilities-frontend
+
+# Public Websites
+src/mocks/audienceTopics.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/benefitHubs.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/contactInfo.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/emailContact.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/event*.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/media*.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/processList.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/qa*.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/qa*.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/questionAnswer.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/reactWidget.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/resourcesSupport.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/mocks/richTextCharLimit1000.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/common/benefitsHubLinks @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/common/commonAndPopular @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/common/contentFooter @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/common/medallia @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/common/socialLinks @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/components/audienceTopics @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/components/processList @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/components/qa* @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/components/rateYourExperience @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/components/reactWidget @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/layouts/event* @department-of-veterans-affairs/vfs-public-websites-frontend
+src/templates/layouts/resourcesSupport @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/event*.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/headerFooter.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/media*.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/processList.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/qa*.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/questionAnswer.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/reactWidget.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/resourcesSupport.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+src/types/formatted/sideNav.ts @department-of-veterans-affairs/vfs-public-websites-frontend
+
+# Facilities
+src/mocks/featuredContent.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/formattedNewsStories.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/formattedPressReleases.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/healthServices.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/newsStory.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/personProfile.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/press*.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/staffProfile.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/storyListing.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/mocks/vetCenter.mock.json @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/common/featuredContent @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/common/googleMapsDirections @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/healthServices @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/hours @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/imageAndStaticMap @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/lovellSwitcher @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/newsStoryTeaser @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/personProfile @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/pressReleaseTeaser @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/servicesList @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/components/storyListingLink @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/layouts/newsStory @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/layouts/press* @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/layouts/storyListing @department-of-veterans-affairs/vfs-facilities-frontend
+src/templates/layouts/vetCenter @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/administration.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/featuredContent.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/healthServices.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/linkTeaser.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/newsStory.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/personProfile.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/press*.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/staffProfile.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/storyListing.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/vamcEhr.ts @department-of-veterans-affairs/vfs-facilities-frontend
+src/types/formatted/vetCenter.ts @department-of-veterans-affairs/vfs-facilities-frontend
+
+# Public Websites & Platform Design System
+src/mocks/headerFooter.mock.json @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/platform-design-system-fe
+src/templates/common/breadcrumbs @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/platform-design-system-fe
+src/templates/common/footer @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/platform-design-system-fe
+src/templates/common/header @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/platform-design-system-fe
+src/templates/layouts/wrapper @department-of-veterans-affairs/vfs-public-websites-frontend @department-of-veterans-affairs/platform-design-system-fe
