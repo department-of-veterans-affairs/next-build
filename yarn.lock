@@ -13292,7 +13292,7 @@ __metadata:
     "@department-of-veterans-affairs/component-library": ^48.0.1
     "@department-of-veterans-affairs/formation": ^12.0.0
     "@department-of-veterans-affairs/web-components": ^16.0.1
-    "@faker-js/faker": ^8.4.1
+    "@faker-js/faker": ^9.3.0
     "@fortawesome/fontawesome-free": ^5.15.4
     "@next/env": ^14.1.0
     "@octokit/rest": ^21.0.1
