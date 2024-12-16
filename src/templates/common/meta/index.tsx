@@ -58,21 +58,17 @@ const IOSBanner = () => (
   </Head>
 )
 
-const CustomTags = ({ tags }: { tags: MetaTag[] }) => {
-  return (
-    <Head>
-      {tags.map?.(({ tag: Tag, attributes }, i) => {
-        if (attributes?.property === 'og:title') {
-          return <title key={i}>{attributes.content}</title>
-        } else if (attributes?.name === 'title') {
-          return <title key={i}>{attributes.content}</title>
-        } else {
-          return <Tag key={i} {...attributes} />
-        }
-      })}
-    </Head>
-  )
-}
+const CustomTags = ({ tags }: { tags: MetaTag[] }) => (
+  <Head>
+    {tags.map?.(({ tag: Tag, attributes }, i) =>
+      attributes.name === 'title' ? (
+        <title key={i}>{attributes.content}</title>
+      ) : (
+        <Tag key={i} {...attributes} />
+      )
+    )}
+  </Head>
+)
 
 const DefaultTags = ({
   resource,
