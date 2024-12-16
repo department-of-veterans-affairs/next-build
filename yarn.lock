@@ -1477,16 +1477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.19.0":
-  version: 7.26.0
-  resolution: "@babel/runtime@npm:7.26.0"
-  dependencies:
-    regenerator-runtime: ^0.14.0
-  checksum: c8e2c0504ab271b3467a261a8f119bf2603eb857a0d71e37791f4e3fae00f681365073cc79f141ddaa90c6077c60ba56448004ad5429d07ac73532be9f7cf28a
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.24.4, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.19.0, @babel/runtime@npm:^7.24.4, @babel/runtime@npm:^7.8.4":
   version: 7.25.7
   resolution: "@babel/runtime@npm:7.25.7"
   dependencies:
@@ -1591,11 +1582,11 @@ __metadata:
   linkType: hard
 
 "@department-of-veterans-affairs/component-library@npm:^48.0.1":
-  version: 48.0.1
-  resolution: "@department-of-veterans-affairs/component-library@npm:48.0.1"
+  version: 48.2.0
+  resolution: "@department-of-veterans-affairs/component-library@npm:48.2.0"
   dependencies:
     "@department-of-veterans-affairs/react-components": 28.1.0
-    "@department-of-veterans-affairs/web-components": 16.0.1
+    "@department-of-veterans-affairs/web-components": 16.2.0
     i18next: ^21.6.14
     i18next-browser-languagedetector: ^6.1.4
     react-focus-on: ^3.5.1
@@ -1604,7 +1595,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": "*"
     react: ^18
     react-dom: "*"
-  checksum: 05df1e119d5dbbc3644c1df496c7c4ad72d990664d8d07a04ce2eb01c8460a587a652972a4b87de036bea5b9da44a773be308fd0748fed3c1fca9e83f76251d3
+  checksum: 16d626de2e3fe1d6079e3fe8ccaa36eab6085994258c130597a847af317a897c7d5d76d71668b0efbf7e5eced2380c6654e9d54f99ebab9864944df791747382
   languageName: node
   linkType: hard
 
@@ -1643,9 +1634,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:16.0.1, @department-of-veterans-affairs/web-components@npm:^16.0.1":
-  version: 16.0.1
-  resolution: "@department-of-veterans-affairs/web-components@npm:16.0.1"
+"@department-of-veterans-affairs/web-components@npm:16.2.0, @department-of-veterans-affairs/web-components@npm:^16.0.1":
+  version: 16.2.0
+  resolution: "@department-of-veterans-affairs/web-components@npm:16.2.0"
   dependencies:
     "@stencil/core": 4.20.0
     aria-hidden: ^1.1.3
@@ -1657,7 +1648,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": ^11.0.6
     i18next: "*"
     i18next-browser-languagedetector: "*"
-  checksum: 63cb0a4a6668da1ffd3638dcaeec7d4c84537af20d5efeec99bb9ed03fbdf71e05dc5832d5b7c6d1ef4b335051ddcb384e61868e4a42893eb42ae07a27e479ec
+  checksum: 4507acb2ad962ae7bd5356cbb8c7ad76421b0e6e285184b37c16751db4718927369f87ca5e33fbc3e0adf4e9e3755697fec2a8b5592c7705e63eedfd4aff916a
   languageName: node
   linkType: hard
 
@@ -6788,8 +6779,8 @@ __metadata:
   linkType: hard
 
 "chromatic@npm:^11.0.4":
-  version: 11.18.1
-  resolution: "chromatic@npm:11.18.1"
+  version: 11.12.5
+  resolution: "chromatic@npm:11.12.5"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -6802,7 +6793,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: c55e34915599acf223bd14b82ce2269adcfe8c4b377ed51ccc0f8cb48290263683617cd15eabb0591d221442cd629ff2326807d294b234e06bcbb8f7f3c158ee
+  checksum: 92b8de184ec1ca2895c6606284da2fd64bf3da9f5fdf5ccda3e9fb0296b122b46b7da181f085ba47ed984da53daf51da14ec13ca9e5034d6e5036d26061a6739
   languageName: node
   linkType: hard
 
@@ -17500,17 +17491,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.4.0, tslib@npm:^2.4.1":
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.4.1":
   version: 2.7.0
   resolution: "tslib@npm:2.7.0"
   checksum: 1606d5c89f88d466889def78653f3aab0f88692e80bb2066d090ca6112ae250ec1cfa9dbfaab0d17b60da15a4186e8ec4d893801c67896b277c17374e36e1d28
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.3.1":
-  version: 2.8.1
-  resolution: "tslib@npm:2.8.1"
-  checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
   languageName: node
   linkType: hard
 
