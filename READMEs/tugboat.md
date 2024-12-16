@@ -17,7 +17,7 @@ See the [va.gov-cms tugboat docs](https://github.com/department-of-veterans-affa
 At VA, our lower environments are each built from a Tugboat Base Preview, in some fashion. Our Tugboat configuration is relevant to the discussion:
 
 1. **Project**: [next-build](https://tugboat.vfs.va.gov/64d5537c2d3036648da7c7ff)
-   1. **Repository**: [next-build Pull Request Environments](https://tugboat.vfs.va.gov/64d5537c2d3036648da7c7ff5fd3b8ee7b4657022b5722d6) — Is used for managing PR Previews, automatically triggered by Pull Requests in next-build repo.
+   1. **Repository**: [next-build Pull Request Environments](https://tugboat.vfs.va.gov/64d5537c2d3036648da7c7ff) — Is used for managing PR Previews, automatically triggered by Pull Requests in next-build repo.
       1. **Base Preview**: Built nightly at 11am UTC (6am EST, 5am EDT). It is built one hour later than the CMS Mirror Base Preview's nightly refresh because it is the default target endpoint for data. This data will then be used for all next-build PR Preview envs until the next time this Base Preview is refreshed.
 
 ## CLI Setup
