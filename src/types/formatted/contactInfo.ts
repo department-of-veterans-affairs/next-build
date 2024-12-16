@@ -1,11 +1,10 @@
 import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 
-export type ContactInfo = PublishedParagraph & {
-  type: 'paragraph--contact_information'
-  contactType: 'DC' | 'BHC'
-  defaultContact?: Contact
-  additionalContact?: AdditionalContact
-  benefitHubContacts?: Contact[]
+export type AdditionalContact = PhoneContact | EmailContact
+
+// TODO: Is this being used? benefitHubContacts is typed as Contact[] not BenefitHubcontact[]
+export type BenefitHubContact = {
+  services: Contact[]
 }
 
 export type Contact = {
@@ -14,11 +13,12 @@ export type Contact = {
   href: string
 }
 
-export type PhoneContact = PublishedParagraph & {
-  type: 'paragraph--phone_number'
-  label: string
-  number: string
-  extension: string
+export type ContactInfo = PublishedParagraph & {
+  type: 'paragraph--contact_information'
+  contactType: 'DC' | 'BHC'
+  defaultContact?: Contact
+  additionalContact?: AdditionalContact
+  benefitHubContacts?: Contact[]
 }
 
 export type EmailContact = PublishedParagraph & {
@@ -27,11 +27,11 @@ export type EmailContact = PublishedParagraph & {
   address: string
 }
 
-export type AdditionalContact = PhoneContact | EmailContact
-
-// TODO: Is this being used? benefitHubContacts is typed as Contact[] not BenefitHubcontact[]
-export type BenefitHubContact = {
-  services: Contact[]
+export type PhoneContact = PublishedParagraph & {
+  type: 'paragraph--phone_number'
+  label: string
+  number: string
+  extension: string
 }
 
 export type PressContact = {

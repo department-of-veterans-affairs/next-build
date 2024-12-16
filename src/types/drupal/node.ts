@@ -3,18 +3,18 @@ import { DrupalFile, DrupalNode } from 'next-drupal'
 import { BlockAlert, BlockPromo } from './block'
 import {
   FieldAddress,
+  FieldAdministration,
+  FieldCCText,
+  FieldDateTimeRange,
   FieldFormattedText,
   FieldFormattedTextWithSummary,
+  FieldGeoLocation,
+  FieldHealthServicesArray,
   FieldLink,
+  FieldNestedLink,
   FieldOfficeHours,
   FieldSocialMediaLinks,
   FieldTable,
-  FieldAdministration,
-  FieldDateTimeRange,
-  FieldNestedLink,
-  FieldCCText,
-  FieldGeoLocation,
-  FieldHealthServicesArray,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -23,8 +23,11 @@ import {
   ParagraphAlertSingle,
   ParagraphAudienceTopics,
   ParagraphButton,
+  ParagraphCCFeaturedContent,
+  ParagraphCCVetCenterFaqs,
   ParagraphCollapsiblePanel,
   ParagraphContactInformation,
+  ParagraphFeaturedContent,
   ParagraphHealthCareLocalFacilityService,
   ParagraphLinkTeaser,
   ParagraphListOfLinks,
@@ -36,9 +39,6 @@ import {
   ParagraphStepByStep,
   ParagraphTable,
   ParagraphWysiwyg,
-  ParagraphCCFeaturedContent,
-  ParagraphCCVetCenterFaqs,
-  ParagraphFeaturedContent,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -49,6 +49,8 @@ import {
 export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
+  | NodeEvent
+  | NodeEventListing
   | NodeFaqMultipleQA
   | NodeHealthCareLocalFacility
   | NodeLandingPage
@@ -64,8 +66,6 @@ export type NodeTypes =
   | NodeStoryListing
   | NodeSupportResourcesDetailPage
   | NodeSupportService
-  | NodeEvent
-  | NodeEventListing
   | NodeVetCenter
 
 /** Shared type structure for resource nodes. */
@@ -88,19 +88,6 @@ export interface NodeBanner extends DrupalNode {
   field_dismissible_option: string
 }
 
-export interface NodeFullWidthBannerAlert extends DrupalNode {
-  field_body: FieldFormattedText
-  field_alert_dismissable: boolean
-  field_alert_type: string
-  field_banner_alert_situationinfo: FieldFormattedText
-  field_alert_find_facilities_cta: boolean
-  field_alert_operating_status_cta: boolean
-  field_alert_email_updates_button: boolean
-  field_alert_inheritance_subpages: boolean
-  field_operating_status_sendemail: boolean
-  field_banner_alert_vamcs: NodeBannerAlertVAMCS[]
-}
-
 export interface NodeBannerAlertVAMCS extends DrupalNode {
   field_banner_alert: string[]
   field_facility_operating_status: NodeHealthCareLocalFacility
@@ -121,10 +108,52 @@ export interface NodeBasicLandingPage extends DrupalNode {
   field_intro_text_limited_html: FieldFormattedText
 }
 
+export interface NodeEvent extends DrupalNode {
+  field_additional_information_abo: FieldFormattedText
+  field_address?: FieldAddress
+  field_location_humanreadable: string
+  field_event_cta: string
+  field_cta_email: string
+  field_how_to_sign_up: string
+  field_event_cost: string
+  field_datetime_range_timezone: FieldDateTimeRange[]
+  field_facility_location: NodeHealthCareLocalFacility
+  field_featured: boolean
+  field_body: FieldFormattedText
+  field_include_registration_info: boolean
+  field_location_type: string
+  field_order: string
+  field_publish_to_outreach_cal: boolean
+  field_event_registrationrequired: boolean
+  field_description: string
+  field_link: FieldNestedLink
+  field_url_of_an_online_event: FieldLink
+  field_listing: NodeEventListing
+  field_last_saved_by_an_editor?: string | null
+}
+
+export interface NodeEventListing extends DrupalNode {
+  field_description: string
+  field_intro_text: string
+  field_enforce_unique_combo: boolean
+  field_office: NodeOffice
+}
 export interface NodeFaqMultipleQA extends NodeAbstractResource {
   field_q_a_groups: ParagraphQaGroup[]
   field_table_of_content_boolean: boolean
   field_buttons_repeat: boolean
+}
+export interface NodeFullWidthBannerAlert extends DrupalNode {
+  field_body: FieldFormattedText
+  field_alert_dismissable: boolean
+  field_alert_type: string
+  field_banner_alert_situationinfo: FieldFormattedText
+  field_alert_find_facilities_cta: boolean
+  field_alert_operating_status_cta: boolean
+  field_alert_email_updates_button: boolean
+  field_alert_inheritance_subpages: boolean
+  field_operating_status_sendemail: boolean
+  field_banner_alert_vamcs: NodeBannerAlertVAMCS[]
 }
 
 export interface NodeHealthCareLocalFacility extends DrupalNode {
@@ -145,28 +174,6 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_phone_number: string
   field_operating_status_facility: string
   field_region_page: NodeHealthCareRegionPage
-}
-export interface NodeVetCenter extends DrupalNode {
-  field_address: FieldAddress
-  field_cc_non_traditional_hours: FieldCCText
-  field_cc_vet_center_call_center: FieldCCText
-  field_cc_vet_center_faqs: ParagraphCCVetCenterFaqs
-  field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
-  field_geolocation: FieldGeoLocation
-  field_intro_text: string
-  field_last_saved_by_an_editor?: string
-  field_office_hours: FieldOfficeHours[]
-  field_official_name: string
-  field_operating_status_facility: string
-  field_operating_status_more_info?: string
-  field_phone_number: string
-  field_timezone: string
-  field_administration: FieldAdministration
-  field_health_services: FieldHealthServicesArray
-  field_media: DrupalMediaImage
-  field_prepare_for_visit: ParagraphAccordion[]
-  field_vet_center_feature_content: ParagraphFeaturedContent[]
-  field_facility_locator_api_id: string
 }
 
 export interface NodeHealthCareLocalHealthService extends DrupalNode {
@@ -218,32 +225,17 @@ export interface NodeLandingPage extends DrupalNode {
   field_support_services: NodeSupportService[]
 }
 
-/**
- * An individual story published by a Facility.
- *
- * @see https://prod.cms.va.gov/admin/structure/types/manage/news_story/fields */
 export interface NodeNewsStory extends DrupalNode {
-  /** The credited author of the story. {@link NodePersonProfile} */
   field_author: NodePersonProfile
-  /** The primary story text. */
   field_full_story: string
-  /** Caption for the attached image. */
   field_image_caption: string
-  /** Whether this story is floated to the top of its listing. */
   field_featured: boolean
-  /** Lede text that is printed larger. */
   field_intro_text: string
-  /** An attached image for the story. */
   field_media: DrupalMediaImage
-  /** Where in the story listing this story should display. */
   field_order: number
-  /** Which Story Listing page this story should display on. */
   field_listing: NodeStoryListing
-  /** Administration */
   field_administration: FieldAdministration
-  /** When the node was created. */
   created: string
-  /** When the node was last saved by an editor. */
   field_last_saved_by_an_editor?: string | null
 }
 
@@ -257,99 +249,32 @@ export interface NodeOffice extends DrupalNode {
   field_social_media_links: FieldSocialMediaLinks
 }
 
-/** A representation of a staff member of the VA or a VA facility.
- *
- *  @see https://prod.cms.va.gov/admin/structure/types/manage/person_profile/fields
- */
 export interface NodePersonProfile extends DrupalNode {
-  /** The bio text displayed on the page. */
   field_body: FieldFormattedText
-  /** A PDF containing an official biography for distribution. */
   field_complete_biography: DrupalFile
-  /** Whether to create a biography. */
   field_complete_biography_create: boolean
-  /** The email address of the person. */
   field_email_address: string
-  /** First name. */
   field_name_first: string
-  /** Introductory text. */
   field_intro_text: string
-  /** Whether this person's photo is allowed to be downloaded. */
   field_photo_allow_hires_download: boolean
-  /** A brief description of this person's role. */
   field_description: string
-  /** Last name. */
   field_last_name: string
-  /** Phone number. */
   field_phone_number: string
-  /** A photo of the person. */
   field_media: DrupalMediaImage
-  /** The office or facility which this person is associated with. */
   field_office: NodeOffice | NodeHealthCareRegionPage
-  /** Any honorific suffix, i.e. MD, LCSW, PhD, etc. */
   field_suffix: string
 }
-/**
- * An individual press release published by a facility.
- */
+
 export interface NodePressRelease extends DrupalNode {
-  /** Date article was released */
   field_release_date: string
-  /** Link to download PDF */
   field_pdf_version: DrupalMediaDocument | null
-  /** Text Invitation to Annual Report event*/
   field_intro_text: string
-  /** Address for Annual Report event */
   field_address: FieldAddress
-  /** Primary story */
   field_press_release_fulltext: FieldFormattedText
-  /** List of media contacts*/
   field_press_release_contact: NodePersonProfile[]
-  /** List of media assets to be downloads */
   field_press_release_downloads: DrupalMediaImage[]
-  /** Office information NOT in Mock Data*/
-  /** field_office: NodeOffice */
-  /** Which Story Listing page this story should display on. */
   field_listing: NodePressReleaseListing
-  /** Administration */
   field_administration: FieldAdministration | null
-}
-
-/** A individual event published by a facility.
- *
- *  @see https://prod.cms.va.gov/admin/structure/types/manage/event/fields
- */
-export interface NodeEvent extends DrupalNode {
-  field_additional_information_abo: FieldFormattedText
-  field_address?: FieldAddress
-  field_location_humanreadable: string
-  field_event_cta: string
-  field_cta_email: string
-  field_how_to_sign_up: string
-  field_event_cost: string
-  field_datetime_range_timezone: FieldDateTimeRange[]
-
-  field_facility_location: NodeHealthCareLocalFacility
-  field_featured: boolean
-  field_body: FieldFormattedText
-  field_include_registration_info: boolean
-  field_location_type: string
-  field_order: string
-  field_publish_to_outreach_cal: boolean
-  field_event_registrationrequired: boolean
-
-  field_description: string
-  field_link: FieldNestedLink
-  field_url_of_an_online_event: FieldLink
-  field_listing: NodeEventListing
-  field_last_saved_by_an_editor?: string | null
-}
-
-export interface NodeEventListing extends DrupalNode {
-  field_description: string
-  field_intro_text: string
-  field_enforce_unique_combo: boolean
-  field_office: NodeOffice
 }
 
 export interface NodePressReleaseListing extends DrupalNode {
@@ -403,4 +328,27 @@ export interface NodeSupportService extends DrupalNode {
   field_link: FieldLink
   field_phone_number: string
   field_office: NodeOffice
+}
+
+export interface NodeVetCenter extends DrupalNode {
+  field_address: FieldAddress
+  field_cc_non_traditional_hours: FieldCCText
+  field_cc_vet_center_call_center: FieldCCText
+  field_cc_vet_center_faqs: ParagraphCCVetCenterFaqs
+  field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
+  field_geolocation: FieldGeoLocation
+  field_intro_text: string
+  field_last_saved_by_an_editor?: string
+  field_office_hours: FieldOfficeHours[]
+  field_official_name: string
+  field_operating_status_facility: string
+  field_operating_status_more_info?: string
+  field_phone_number: string
+  field_timezone: string
+  field_administration: FieldAdministration
+  field_health_services: FieldHealthServicesArray
+  field_media: DrupalMediaImage
+  field_prepare_for_visit: ParagraphAccordion[]
+  field_vet_center_feature_content: ParagraphFeaturedContent[]
+  field_facility_locator_api_id: string
 }

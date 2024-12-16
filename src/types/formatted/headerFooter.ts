@@ -6,6 +6,17 @@ export type FooterLink = {
   title: string
 }
 
+// type expected by window.VetsGov.headerFooter
+export type HeaderFooterData = {
+  footerData?: FooterLink[]
+  megaMenuData?: MegaMenuSection[]
+}
+
+export type MegaMenuColumn = {
+  title: string
+  links: MegaMenuLinkObject | MegaMenuLink[]
+}
+
 export type MegaMenuLink = {
   text: string
   href: string
@@ -20,19 +31,6 @@ export type MegaMenuLinkObject = {
   seeAllLink?: MegaMenuLink
 }
 
-export type MegaMenuSection = {
-  title: string
-  href?: string
-  menuSections?:
-    | (MegaMenuColumn | MegaMenuPromoColumn | MegaMenuLink)[]
-    | MegaMenuLinkObject
-}
-
-export type MegaMenuColumn = {
-  title: string
-  links: MegaMenuLinkObject | MegaMenuLink[]
-}
-
 export type MegaMenuPromoColumn = {
   img: {
     src: string
@@ -42,8 +40,10 @@ export type MegaMenuPromoColumn = {
   description: string
 }
 
-// type expected by window.VetsGov.headerFooter
-export type HeaderFooterData = {
-  footerData?: FooterLink[]
-  megaMenuData?: MegaMenuSection[]
+export type MegaMenuSection = {
+  title: string
+  href?: string
+  menuSections?:
+    | (MegaMenuColumn | MegaMenuPromoColumn | MegaMenuLink)[]
+    | MegaMenuLinkObject
 }

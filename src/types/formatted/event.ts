@@ -18,14 +18,6 @@ interface DateTimeRangeItem {
   timezone: string
 }
 
-interface Link {
-  url: {
-    path: string
-  }
-  uri: string
-  title: string
-}
-
 export type Event = PublishedEntity & {
   image: MediaImage | null
   date: string
@@ -121,5 +113,14 @@ export type EventWidgetTeaser = {
   fieldLocationType: string
   fieldOrder: string
   fieldUrlOfAnOnlineEvent: { uri: string; title: string }
+  title: string
+}
+
+/** @todo: this type feels far too general to be placed here. - TFC */
+interface Link {
+  url: {
+    path: string
+  }
+  uri: string
   title: string
 }

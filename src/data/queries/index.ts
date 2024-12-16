@@ -1,88 +1,88 @@
 import { createQueries } from 'next-drupal-query'
-import * as PressRelease from './pressRelease'
-import * as PressReleaseTeaser from './pressReleaseTeaser'
-import * as PressReleaseListing from './pressReleaseListing'
-import * as NewsStory from './newsStory'
-import * as NewsStoryTeaser from './newsStoryTeaser'
-import * as StoryListing from './storyListing'
-import * as QuestionAnswer from './questionAnswer'
-import * as ExpandableText from './expandableText'
-import * as LinkTeaser from './linkTeaser'
-import * as MediaImage from './mediaImage'
-import * as MediaDocument from './mediaDocument'
-import * as MediaVideo from './mediaVideo'
-import * as Banners from './banners'
-import * as PersonProfile from './personProfile'
-import * as Button from './button'
-import * as AudienceTopics from './audienceTopics'
+import * as Accordion from './accordion'
 import * as Alert from './alert'
 import * as AlertBlock from './alertBlock'
-import * as AlertSingle from './alertSingle'
 import * as AlertNonReusable from './alertNonReusable'
-import * as EmailContact from './emailContact'
-import * as PhoneNumber from './phoneNumber'
-import * as ContactInfo from './contactInfo'
+import * as AlertSingle from './alertSingle'
+import * as AudienceTopics from './audienceTopics'
+import * as Banners from './banners'
 import * as BenefitsHub from './benefitsHubLinks'
-import * as Wysiwyg from './wysiwyg'
-import * as StaticPathResources from './staticPathResources'
-import * as HeaderFooter from './headerFooter'
-import * as ProcessList from './processList'
-import * as PromoBlock from './promoBlock'
-import * as Event from './event'
-import * as EventTeaser from './eventTeaser'
-import * as EventListing from './eventListing'
-import * as VamcEhr from './vamcEhr'
-import * as FeaturedContent from './featuredContent'
-import * as Accordion from './accordion'
-import * as SupportServices from './supportServices'
-import * as ResourcesSupport from './resourcesSupport'
+import * as Button from './button'
 import * as CollapsiblePanel from './collapsiblePanel'
 import * as CollapsiblePanelItem from './collapsiblePanelItem'
+import * as ContactInfo from './contactInfo'
+import * as EmailContact from './emailContact'
+import * as Event from './event'
+import * as EventListing from './eventListing'
+import * as EventTeaser from './eventTeaser'
+import * as ExpandableText from './expandableText'
+import * as FeaturedContent from './featuredContent'
+import * as HeaderFooter from './headerFooter'
+import * as HealthServices from './healthServices'
+import * as LinkTeaser from './linkTeaser'
+import * as MediaDocument from './mediaDocument'
+import * as MediaImage from './mediaImage'
+import * as MediaVideo from './mediaVideo'
+import * as NewsStory from './newsStory'
+import * as NewsStoryTeaser from './newsStoryTeaser'
 import * as NumberCallout from './numberCallout'
-import * as Table from './table'
-import * as ReactWidget from './reactWidget'
+import * as PersonProfile from './personProfile'
+import * as PhoneNumber from './phoneNumber'
+import * as PressRelease from './pressRelease'
+import * as PressReleaseListing from './pressReleaseListing'
+import * as PressReleaseTeaser from './pressReleaseTeaser'
+import * as ProcessList from './processList'
+import * as PromoBlock from './promoBlock'
+import * as QaGroup from './qaGroup'
 import * as QaParagraph from './qaParagraph'
 import * as QaSection from './qaSection'
-import * as QaGroup from './qaGroup'
+import * as QuestionAnswer from './questionAnswer'
+import * as ReactWidget from './reactWidget'
+import * as ResourcesSupport from './resourcesSupport'
+import * as StaticPathResources from './staticPathResources'
+import * as StoryListing from './storyListing'
+import * as SupportServices from './supportServices'
+import * as Table from './table'
+import * as VamcEhr from './vamcEhr'
 import * as VetCenter from './vetCenter'
-import * as HealthServices from './healthServices'
+import * as Wysiwyg from './wysiwyg'
 import {
-  ResourceType,
+  PageResourceType,
+  PARAGRAPH_RESOURCE_TYPES,
   ParagraphResourceType,
   RESOURCE_TYPES,
-  PARAGRAPH_RESOURCE_TYPES,
-  PageResourceType,
+  ResourceType,
 } from '@/lib/constants/resourceTypes'
 
 export const QUERIES_MAP = {
   // Standard Drupal entity data queries
   // Nodes
-  [RESOURCE_TYPES.STORY]: NewsStory,
-  [`${RESOURCE_TYPES.STORY}--teaser` as const]: NewsStoryTeaser,
-  [RESOURCE_TYPES.STORY_LISTING]: StoryListing,
-  [RESOURCE_TYPES.QA]: QuestionAnswer,
+  [RESOURCE_TYPES.BENEFITS_HUB]: BenefitsHub, // "Benefits Hub Landing Page"
+  [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
   [RESOURCE_TYPES.EVENT]: Event,
   [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
-  [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
+  [RESOURCE_TYPES.HEALTH_SERVICES]: HealthServices,
   [RESOURCE_TYPES.PERSON_PROFILE]: PersonProfile,
+  [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: PressReleaseListing,
   [RESOURCE_TYPES.PRESS_RELEASE]: PressRelease,
   [`${RESOURCE_TYPES.PRESS_RELEASE}--teaser` as const]: PressReleaseTeaser,
-  [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: PressReleaseListing,
-  [RESOURCE_TYPES.BENEFITS_HUB]: BenefitsHub, // "Benefits Hub Landing Page"
-  [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
+  [RESOURCE_TYPES.QA]: QuestionAnswer,
   [RESOURCE_TYPES.RESOURCES_SUPPORT]: ResourcesSupport,
+  [RESOURCE_TYPES.STORY_LISTING]: StoryListing,
+  [RESOURCE_TYPES.STORY]: NewsStory,
+  [`${RESOURCE_TYPES.STORY}--teaser` as const]: NewsStoryTeaser,
+  [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
-  [RESOURCE_TYPES.HEALTH_SERVICES]: HealthServices,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
-  [PARAGRAPH_RESOURCE_TYPES.ALERT]: Alert,
   [PARAGRAPH_RESOURCE_TYPES.ALERT_NON_REUSABLE]: AlertNonReusable,
   [PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE]: AlertSingle,
+  [PARAGRAPH_RESOURCE_TYPES.ALERT]: Alert,
   [PARAGRAPH_RESOURCE_TYPES.AUDIENCE_TOPICS]: AudienceTopics,
   [PARAGRAPH_RESOURCE_TYPES.BUTTON]: Button,
-  [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL]: CollapsiblePanel,
   [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL_ITEM]: CollapsiblePanelItem,
+  [PARAGRAPH_RESOURCE_TYPES.COLLAPSIBLE_PANEL]: CollapsiblePanel,
   [PARAGRAPH_RESOURCE_TYPES.CONTACT_INFORMATION]: ContactInfo,
   [PARAGRAPH_RESOURCE_TYPES.EMAIL_CONTACT]: EmailContact,
   [PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT]: ExpandableText,
@@ -91,9 +91,9 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT]: NumberCallout,
   [PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT]: PhoneNumber,
   [PARAGRAPH_RESOURCE_TYPES.PROCESS_LIST]: ProcessList,
-  [PARAGRAPH_RESOURCE_TYPES.QA]: QaParagraph,
-  [PARAGRAPH_RESOURCE_TYPES.QA_SECTION]: QaSection,
   [PARAGRAPH_RESOURCE_TYPES.QA_GROUP]: QaGroup,
+  [PARAGRAPH_RESOURCE_TYPES.QA_SECTION]: QaSection,
+  [PARAGRAPH_RESOURCE_TYPES.QA]: QaParagraph,
   [PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET]: ReactWidget,
   [PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000]: Wysiwyg,
   [PARAGRAPH_RESOURCE_TYPES.TABLE]: Table,
@@ -104,8 +104,8 @@ export const QUERIES_MAP = {
   'block_content--promo': PromoBlock,
 
   // Media
-  'media--image': MediaImage,
   'media--document': MediaDocument,
+  'media--image': MediaImage,
   'media--video': MediaVideo,
 
   // Custom queries

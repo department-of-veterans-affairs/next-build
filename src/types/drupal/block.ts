@@ -1,11 +1,11 @@
 import { DrupalBlock } from 'next-drupal'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { DrupalMediaImage } from './media'
 import {
   ParagraphExpandableText,
   ParagraphLinkTeaser,
   ParagraphWysiwyg,
 } from './paragraph'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 /** Union of all block content types.  */
 export type BlockContentTypes = BlockAlert | BlockPromo
@@ -23,16 +23,15 @@ export interface BlockAlert extends DrupalBlock {
   field_alert_content: ParagraphExpandableText | ParagraphWysiwyg
 }
 
-export interface BlockPromo extends DrupalBlock {
-  field_image: DrupalMediaImage
-  field_promo_link: ParagraphLinkTeaser
-}
-
 /** General BlockContentProps to pass blocks into block components. */
 export interface BlockContentProps {
   blockContent: BlockContentTypes
   componentParams?
   className?: string
+}
+export interface BlockPromo extends DrupalBlock {
+  field_image: DrupalMediaImage
+  field_promo_link: ParagraphLinkTeaser
 }
 
 /** Each Block component must export a BlockContentMetaInfo object `Meta`. This information helps next-build associate Drupal resource types with information for rendering them.
