@@ -2,10 +2,6 @@ import { PublishedEntity } from './publishedEntity'
 import { NewsStoryTeaser } from '@/types/formatted/newsStory'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
-export type StoryListingLink = {
-  path: string
-}
-
 export type StoryListing = PublishedEntity & {
   introText: string
   stories: NewsStoryTeaser[]
@@ -13,4 +9,8 @@ export type StoryListing = PublishedEntity & {
   currentPage: number
   totalItems: number
   totalPages: number
+}
+
+export type StoryListingLink = {
+  path: string
 }
