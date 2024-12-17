@@ -174,6 +174,7 @@ export function getDateParts(
 
 export const formatDateObject = (datetimeRange) => {
   if (!datetimeRange) return []
+
   return datetimeRange.map((dateObject) => {
     const startTime = new Date(dateObject.value)
     const endTime = new Date(dateObject.end_value)
@@ -185,6 +186,15 @@ export const formatDateObject = (datetimeRange) => {
       endValue: Math.floor(endTime.getTime() / 1000),
     }
   })
+}
+
+export const filterPastEvents = (eventTimes) => {
+  const now = new Date()
+  const filteredEventTimes = eventTimes.filter((dateObject) => {
+    const endTime = new Date(dateObject.end_value)
+    return endTime > now // Keep only if end_time is in the future
+  })
+  return formatDateObject(filteredEventTimes)
 }
 
 export const deriveMostRecentDate = (

@@ -8,6 +8,7 @@ import {
   deriveMostRecentDate,
   deriveFormattedTimestamp,
   isEventInPast,
+  filterPastEvents,
 } from './date'
 
 describe('isISOString', () => {
@@ -238,6 +239,27 @@ describe('formatDateObject', () => {
       },
     ]
     const result = formatDateObject(datetimeRange)
+    expect(result[0]).toHaveProperty('startTime')
+    expect(result[0]).toHaveProperty('endTime')
+    expect(result[0]).toHaveProperty('value')
+    expect(result[0]).toHaveProperty('endValue')
+  })
+})
+
+describe('FilterPastEvents', () => {
+  it('should filter out past events from date time range for events', () => {
+    const datetimeRange = [
+      {
+        value: new Date('2023-09-07T14:00:00Z'),
+        end_value: new Date('2023-09-07T16:00:00Z'),
+      },
+      {
+        value: new Date('2999-09-07T14:00:00Z'),
+        end_value: new Date('2999-09-07T16:00:00Z'),
+      },
+    ]
+    const result = filterPastEvents(datetimeRange)
+    expect(result).toHaveLength(1)
     expect(result[0]).toHaveProperty('startTime')
     expect(result[0]).toHaveProperty('endTime')
     expect(result[0]).toHaveProperty('value')
