@@ -14,6 +14,7 @@ Relates to #[TICKET_NUMBER](https://github.com/department-of-veterans-affairs/va
 - [ ] Provided before and after screenshots of your changes (if applicable).
 - [ ] Alerted the #accelerated-publishing Slack channel to request a PR review.
 - [ ] You understand that once approved, you are responsible for merging your changes into `main`. (Note that changes to `main` will move automatically into production.)
+- [ ] If you added new files, you have assigned all of those files to the proper teams in the `CODEOWNERS` file
 ```
 
 ## Testing Steps
