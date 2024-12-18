@@ -75,15 +75,7 @@ export const Event = ({
     .filter(Boolean)
     .join(', ')
 
-  const getEventCTAText = () => {
-    if (eventCTA === 'more_details') {
-      return 'More details'
-    } else if (eventCTA.toLowerCase() === 'rsvp') {
-      return 'RSVP'
-    } else {
-      return eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
-    }
-  }
+  const eventCTAText = formatEventCTA(eventCTA)
 
   return (
     <div className="va-l-detail-page va-facility-page">
@@ -238,16 +230,16 @@ export const Event = ({
               </p>
             ) : (
               <>
-                {link && eventCTA && (
+                {link && eventCTAText && (
                   <va-link-action
                     class="vads-u-display--block"
                     href={link?.uri}
-                    text={getEventCTAText()}
+                    text={eventCTAText}
                   />
                 )}
                 {howToSignUp === 'email' && (
                   <>
-                    {mostRecentDate && eventCTA && (
+                    {mostRecentDate && eventCTAText && (
                       <va-link-action
                         class="vads-u-display--block"
                         href={createMailToLink(
@@ -256,7 +248,7 @@ export const Event = ({
                           mostRecentDate,
                           link?.uri
                         )}
-                        text={formatEventCTA(eventCTA)}
+                        text={eventCTAText}
                       />
                     )}
                   </>
