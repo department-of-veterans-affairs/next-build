@@ -75,15 +75,13 @@ export const Event = ({
     .filter(Boolean)
     .join(', ')
 
-  let eventCTAText = ''
-
-  if (eventCTA) {
+  const getEventCTAText = () => {
     if (eventCTA === 'more_details') {
-      eventCTAText = 'More details'
+      return 'More details'
     } else if (eventCTA.toLowerCase() === 'rsvp') {
-      eventCTAText = 'RSVP'
+      return 'RSVP'
     } else {
-      eventCTAText = eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
+      return eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
     }
   }
 
@@ -240,11 +238,11 @@ export const Event = ({
               </p>
             ) : (
               <>
-                {link && (
+                {link && eventCTA && (
                   <va-link-action
                     class="vads-u-display--block"
                     href={link?.uri}
-                    text={eventCTAText}
+                    text={getEventCTAText()}
                   />
                 )}
                 {howToSignUp === 'email' && (
