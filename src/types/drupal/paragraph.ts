@@ -75,6 +75,23 @@ export interface ParagraphButton extends DrupalParagraph {
   field_button_link: FieldLink
 }
 
+export interface ParagraphCCFeaturedContent {
+  fetched: {
+    // This normalizes the centralized content field_cta field to allow formatting
+    field_cta: Omit<ParagraphButton, 'drupal_internal__id' | 'id'>[]
+    field_description: FieldFormattedText[]
+    field_section_header: Array<{ value: string }>
+  }
+}
+
+export interface ParagraphCCVetCenterFaqs {
+  fetched_bundle: string
+  fetched: {
+    field_accordion_display: Array<{ value: string }>
+    field_questions: Omit<ParagraphQA, 'drupal_internal__id' | 'id'>[]
+  }
+}
+
 export interface ParagraphCollapsiblePanel extends DrupalParagraph {
   field_collapsible_panel_bordered: boolean
   field_collapsible_panel_expand: boolean
@@ -109,23 +126,6 @@ export interface ParagraphFeaturedContent extends DrupalParagraph {
   field_section_header: string
   field_description: FieldFormattedText
   field_cta?: ParagraphButton
-}
-
-export interface ParagraphCCFeaturedContent {
-  fetched: {
-    // This normalizes the centralized content field_cta field to allow formatting
-    field_cta: Omit<ParagraphButton, 'drupal_internal__id' | 'id'>[]
-    field_description: FieldFormattedText[]
-    field_section_header: Array<{ value: string }>
-  }
-}
-
-export interface ParagraphCCVetCenterFaqs {
-  fetched_bundle: string
-  fetched: {
-    field_accordion_display: Array<{ value: string }>
-    field_questions: Omit<ParagraphQA, 'drupal_internal__id' | 'id'>[]
-  }
 }
 
 export interface ParagraphHealthCareLocalFacilityService
@@ -179,11 +179,6 @@ export interface ParagraphQaGroup extends DrupalParagraph {
   field_section_header: string
 }
 
-export interface ParagraphSectionQas extends DrupalNode {
-  title: string
-  field_answer: ParagraphWysiwyg
-}
-
 export interface ParagraphQaSection extends DrupalParagraph {
   field_section_header: string
   field_accordion_display: boolean
@@ -203,6 +198,11 @@ export interface ParagraphReactWidget extends DrupalParagraph {
 
 export interface ParagraphRichTextCharLimit1000 extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
+}
+
+export interface ParagraphSectionQas extends DrupalNode {
+  title: string
+  field_answer: ParagraphWysiwyg
 }
 
 export interface ParagraphServiceLocation extends DrupalParagraph {

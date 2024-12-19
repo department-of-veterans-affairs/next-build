@@ -1,5 +1,22 @@
 import { TaxonomyTermHealthCareServiceTaxonomy } from './taxonomy_term'
 
+/**
+ * Types for breadcrumb data
+ */
+export interface BreadcrumbItem {
+  uri: string
+  title: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options: any[]
+}
+
+export interface BreadCrumbLink {
+  href: string
+  label: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options?: any[]
+}
+
 export interface FieldAddress {
   langcode: string
   country_code: string
@@ -12,20 +29,57 @@ export interface FieldAddress {
   address_line2?: string
 }
 
+export interface FieldAdministration {
+  drupal_internal__tid: number
+  name: string
+}
+
+export interface FieldCCText {
+  target_id?: string
+  fetched_bundle: string
+  fetched: {
+    field_wysiwyg: FieldFormattedText[]
+  }
+}
+
+export interface FieldDateTimeRange {
+  value: string
+  end_value: string
+  duration: number
+  rrule: number
+  rrule_index: number
+  timezone: string
+}
+
 export interface FieldFormattedText {
   value: string
   format: string
   processed: string
 }
 
-export interface SocialLinksProps {
-  path: string
-  title: string
-}
-
 export interface FieldFormattedTextWithSummary extends FieldFormattedText {
   summary: string
 }
+
+export interface FieldGeoLocation {
+  value: string
+  geo_type: string
+  lat: number
+  lon: number
+  left: number
+  top: number
+  right: number
+  bottom: number
+  geohash: string
+  latlon: string
+}
+
+export interface FieldHealthService {
+  field_body?: FieldFormattedText
+  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
+}
+
+export type FieldHealthServicesArray = FieldHealthService[]
 
 export interface FieldLink {
   uri: string //e.g. `entity:node/2424`
@@ -34,6 +88,15 @@ export interface FieldLink {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options: any[]
 }
+
+export interface FieldNestedLink {
+  url: {
+    path: string
+  }
+  uri: string
+  title: string
+}
+
 export interface FieldOfficeHours {
   day: number
   starthours: number
@@ -68,73 +131,7 @@ export interface FieldTable {
   caption: string
 }
 
-export interface FieldAdministration {
-  drupal_internal__tid: number
-  name: string
-}
-
-export interface FieldNestedLink {
-  url: {
-    path: string
-  }
-  uri: string
+export interface SocialLinksProps {
+  path: string
   title: string
-}
-
-export interface FieldDateTimeRange {
-  value: string
-  end_value: string
-  duration: number
-  rrule: number
-  rrule_index: number
-  timezone: string
-}
-
-/**
- * Types for breadcrumb data
- */
-export interface BreadcrumbItem {
-  uri: string
-  title: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  options: any[]
-}
-
-export interface BreadCrumbLink {
-  href: string
-  label: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  options?: any[]
-}
-
-/**
- * Types for services and health services
- */
-
-export interface FieldHealthService {
-  field_body?: FieldFormattedText
-  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
-}
-
-export type FieldHealthServicesArray = FieldHealthService[]
-
-export interface FieldCCText {
-  target_id?: string
-  fetched_bundle: string
-  fetched: {
-    field_wysiwyg: FieldFormattedText[]
-  }
-}
-
-export interface FieldGeoLocation {
-  value: string
-  geo_type: string
-  lat: number
-  lon: number
-  left: number
-  top: number
-  right: number
-  bottom: number
-  geohash: string
-  latlon: string
 }

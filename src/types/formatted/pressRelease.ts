@@ -4,19 +4,6 @@ import { FieldAddress } from '../drupal/field_type'
 import { Administration } from './administration'
 import { PressContact } from './contactInfo'
 
-export type PressReleaseTeaser = PublishedEntity & {
-  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
-  link: string
-  introText: string
-}
-
-export type PressReleaseDownload = {
-  id: string
-  type: string
-  name: string
-  uri: string
-}
-
 export type PressRelease = PublishedEntity & {
   releaseDate: string
   /* ex. '2021-07-01T00:00:00-04:00' */
@@ -29,4 +16,17 @@ export type PressRelease = PublishedEntity & {
   downloads: PressReleaseDownload[]
   listing: string
   administration: Administration
+}
+
+export type PressReleaseDownload = {
+  id: string
+  type: string
+  name: string
+  uri: string
+}
+
+export type PressReleaseTeaser = PublishedEntity & {
+  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
+  link: string
+  introText: string
 }

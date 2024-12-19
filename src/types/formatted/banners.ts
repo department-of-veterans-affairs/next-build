@@ -9,15 +9,6 @@ export type Banner = {
   type?: string
 }
 
-export type PromoBanner = {
-  id: string
-  title?: string
-  href?: string
-  alertType?: string
-  dismiss?: boolean
-  type?: string
-}
-
 export type BannerAlertVamcs = {
   id: string
   path?: string
@@ -36,4 +27,13 @@ export type FacilityBanner = {
   findFacilities?: string
   inheritanceSubpages?: boolean
   bannerAlertVamcs?: BannerAlertVamcs[]
+}
+
+export type PromoBanner = {
+  id: string
+  title?: string
+  href?: string
+  alertType?: string
+  dismiss?: boolean
+  type?: string
 }
