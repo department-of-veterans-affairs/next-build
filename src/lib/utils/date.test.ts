@@ -260,10 +260,6 @@ describe('FilterPastEvents', () => {
     ]
     const result = filterPastEvents(datetimeRange)
     expect(result).toHaveLength(1)
-    expect(result[0]).toHaveProperty('startTime')
-    expect(result[0]).toHaveProperty('endTime')
-    expect(result[0]).toHaveProperty('value')
-    expect(result[0]).toHaveProperty('endValue')
   })
 })
 

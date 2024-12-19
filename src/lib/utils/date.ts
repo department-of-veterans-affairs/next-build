@@ -189,12 +189,12 @@ export const formatDateObject = (datetimeRange) => {
 }
 
 export const filterPastEvents = (eventTimes) => {
+  if (!eventTimes) return []
   const now = new Date()
-  const filteredEventTimes = eventTimes.filter((dateObject) => {
+  return eventTimes.filter((dateObject) => {
     const endTime = new Date(dateObject.end_value)
     return endTime > now // Keep only if end_time is in the future
   })
-  return formatDateObject(filteredEventTimes)
 }
 
 export const deriveMostRecentDate = (
@@ -230,7 +230,6 @@ export const deriveFormattedTimestamp = (datetime) => {
   if (!datetime) return
   const startTime = new Date(datetime.startTime)
   const endTime = new Date(datetime.endTime)
-
   const formattedStartTime = startTime.toLocaleTimeString('en-US', {
     weekday: 'short',
     year: 'numeric',
