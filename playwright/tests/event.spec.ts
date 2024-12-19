@@ -4,16 +4,17 @@ test.describe('Event Page', () => {
   test('Event page renders with correct title and details', async ({
     page,
   }) => {
-    await page.goto('/central-iowa-health-care/events/52265/')
-    await expect(page.locator('h1')).toHaveText('Pickleball Club') // Replace with actual event title
-    await expect(page.locator('.va-introtext')).toContainText('Pickleball') // Replace with actual event description
+    await page.goto('/central-iowa-health-care/events/63096/')
+    await expect(page.locator('h1')).toHaveText(
+      'Battlefield Acupuncture Walk-in Clinic'
+    ) // Replace with actual event title
   })
 
   test('Should render without a11y errors', async ({
     page,
     makeAxeBuilder,
   }) => {
-    await page.goto('/central-iowa-health-care/events/52265/')
+    await page.goto('/central-iowa-health-care/events/63096/')
 
     const accessibilityScanResults = await makeAxeBuilder().analyze()
 

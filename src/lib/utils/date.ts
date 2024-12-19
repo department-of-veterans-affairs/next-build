@@ -174,6 +174,7 @@ export function getDateParts(
 
 export const formatDateObject = (datetimeRange) => {
   if (!datetimeRange) return []
+
   return datetimeRange.map((dateObject) => {
     const startTime = new Date(dateObject.value)
     const endTime = new Date(dateObject.end_value)
@@ -184,6 +185,15 @@ export const formatDateObject = (datetimeRange) => {
       value: Math.floor(startTime.getTime() / 1000),
       endValue: Math.floor(endTime.getTime() / 1000),
     }
+  })
+}
+
+export const filterPastEvents = (eventTimes) => {
+  if (!eventTimes) return []
+  const now = new Date()
+  return eventTimes.filter((dateObject) => {
+    const endTime = new Date(dateObject.end_value)
+    return endTime > now // Keep only if end_time is in the future
   })
 }
 
@@ -220,7 +230,6 @@ export const deriveFormattedTimestamp = (datetime) => {
   if (!datetime) return
   const startTime = new Date(datetime.startTime)
   const endTime = new Date(datetime.endTime)
-
   const formattedStartTime = startTime.toLocaleTimeString('en-US', {
     weekday: 'short',
     year: 'numeric',
