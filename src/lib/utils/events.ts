@@ -1,6 +1,10 @@
 import { deriveFormattedTimestamp } from './date'
 
 export function formatEventCTA(input: string): string {
+  if (input.toLowerCase() === 'rsvp') {
+    return 'RSVP'
+  }
+
   const words: string[] = input.split('_')
 
   const formattedString: string = words
