@@ -75,8 +75,6 @@ export const Event = ({
     .filter(Boolean)
     .join(', ')
 
-  const eventCTAText = formatEventCTA(eventCTA)
-
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -230,26 +228,33 @@ export const Event = ({
               </p>
             ) : (
               <>
-                {link && eventCTAText && (
-                  <va-link-action
-                    class="vads-u-display--block"
-                    href={link?.uri}
-                    text={eventCTAText}
-                  />
+                {link && (
+                  <p className="vads-u-margin--0">
+                    <a className="vads-c-action-link--green" href={link?.uri}>
+                      {eventCTA && eventCTA != 'more_details'
+                        ? eventCTA.toLowerCase() === 'rsvp'
+                          ? eventCTA.toUpperCase()
+                          : eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
+                        : 'More details'}
+                    </a>
+                  </p>
                 )}
                 {howToSignUp === 'email' && (
                   <>
-                    {mostRecentDate && eventCTAText && (
-                      <va-link-action
-                        class="vads-u-display--block"
-                        href={createMailToLink(
-                          emailCTA,
-                          title,
-                          mostRecentDate,
-                          link?.uri
-                        )}
-                        text={eventCTAText}
-                      />
+                    {mostRecentDate && (
+                      <p className="vads-u-margin--0">
+                        <a
+                          className="vads-c-action-link--green"
+                          href={createMailToLink(
+                            emailCTA,
+                            title,
+                            mostRecentDate,
+                            link?.uri
+                          )}
+                        >
+                          {eventCTA && formatEventCTA(eventCTA)}
+                        </a>
+                      </p>
                     )}
                   </>
                 )}

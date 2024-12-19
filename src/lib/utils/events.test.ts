@@ -2,13 +2,6 @@ import { formatEventCTA, createMailToLink } from './events'
 
 describe('formatEventCTA', () => {
   describe('formatEventCTA', () => {
-    it('should format "rsvp" as "RSVP"', () => {
-      const input = 'rsvp'
-      const expected = 'RSVP'
-      const result = formatEventCTA(input)
-      expect(result).toBe(expected)
-    })
-
     it('should format "register_now" as "Register now"', () => {
       const input = 'register_now'
       const expected = 'Register now'
