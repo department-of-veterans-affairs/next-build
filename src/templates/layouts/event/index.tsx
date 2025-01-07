@@ -4,6 +4,7 @@ import {
   formatDateObject,
   deriveFormattedTimestamp,
   isEventInPast,
+  filterPastEvents,
 } from '@/lib/utils/date'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { MediaImage } from '@/templates/common/mediaImage'
@@ -42,9 +43,10 @@ export const Event = ({
 
   // Memoized because formateDateObject returns a map that will be recalculated on each render.
   const formattedDates = useMemo(
-    () => formatDateObject(datetimeRange),
+    () => formatDateObject(filterPastEvents(datetimeRange)),
     [datetimeRange]
   )
+
   const initialFormattedDates = formattedDates.slice(0, 5)
   const [currentFormattedDates, setCurrentFormattedDates] = useState(
     initialFormattedDates
@@ -274,7 +276,7 @@ export const Event = ({
         {body && <div dangerouslySetInnerHTML={{ __html: body?.processed }} />}
 
         {/* Recurring Events */}
-        {formattedDates.length > 1 && (
+        {currentFormattedDates.length > 1 && (
           <div>
             <va-accordion open-single id="expand-recurring-events">
               <va-accordion-item
