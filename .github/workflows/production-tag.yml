@@ -2,11 +2,15 @@ name: Create Production Tag
 
 on:
   workflow_dispatch:
+    inputs:
+      override_code_freeze:
+        type: boolean
+        description: "Override code freeze and create production tag"
+        default: false
   workflow_run:
     workflows: ['Continuous Integration']
     types: [completed]
     branches: [main]
-
 concurrency:
   group: production-tag
   cancel-in-progress: true
@@ -16,11 +20,23 @@ env:
   DSVA_SCHEDULE_ENABLED: true
 
 jobs:
+  holiday-checker:
+    runs-on: ubuntu-latest
+    outputs:
+      is_holiday: ${{ steps.holiday-check.outputs.is_holiday }}
+    steps:
+      - name: Check if today is a holiday
+        id: holiday-check
+        uses: department-of-veterans-affairs/vsp-github-actions/holiday-checker@main
   create-production-tag:
     name: Create Production Tag
     runs-on: ubuntu-latest
-    # Run the workflow unless it was triggered by CI and that failed
-    if: ${{ !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure') }}
+    needs: holiday-checker
+    # Do not run the workflow during VA holidays unless we explicitly override it.
+    # Run the workflow unless it was triggered by CI and that failed.
+    if: >
+      (needs.holiday-checker.outputs.is_holiday == 'false' || (inputs && inputs.override_code_freeze))
+      && !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure')
     outputs:
       RELEASE_NAME: ${{ steps.export-release-name.outputs.RELEASE_NAME }}
     permissions:
