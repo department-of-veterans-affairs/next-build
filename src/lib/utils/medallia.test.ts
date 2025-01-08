@@ -31,6 +31,14 @@ describe('medallis.ts', () => {
     expect(getSurveyNumber('/search', true)).toBe(21)
     expect(getSurveyNumber('/unknown-path', false)).toBe(11)
     expect(getSurveyNumber('/unknown-path', true)).toBe(17)
+    expect(getSurveyNumber('/resources', true)).toBe(17)
+    expect(getSurveyNumber('/contact-us/virtual-agent', false)).toBe(26)
+    expect(
+      getSurveyNumber(
+        '/my-health/medical-records/summaries-and-notes/visit-summary',
+        true
+      )
+    ).toBe(17)
   })
 
   test('loadForm calls KAMPYLE_ONSITE_SDK.loadForm with correct form number', () => {
