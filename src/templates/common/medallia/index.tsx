@@ -9,7 +9,7 @@ import {
 import { BUILD_TYPES } from '@/lib/constants/environment'
 
 export function MedalliaAssets() {
-  const scriptId = process.env.BUILD_TYPE === BUILD_TYPES.PROD ? 2 : 5
+  const scriptId = process.env.BUILD_TYPE === 'prod' ? 2 : 5
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.LOCAL) {
