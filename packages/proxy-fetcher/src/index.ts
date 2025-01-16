@@ -2,14 +2,18 @@ import crossFetch from 'cross-fetch'
 import { SocksProxyAgent } from 'socks-proxy-agent'
 
 /**
- * Creates a custom fetcher function with support for SOCKS proxying, certificate management,
- * and automatic retrying of failed requests. The fetcher adapts based on the environment and target host,
- * ensuring compatibility with internal VA servers and local development setups.
+ * Creates a custom fetcher function with support for SOCKS proxying,
+ * certificate management, and automatic retrying of failed requests. The
+ * fetcher adapts based on the environment and target host, ensuring
+ * compatibility with internal VA servers and local development setups.
  *
  * Behavior:
- * - Adds custom certificate authority (CA) files when the target host matches specific VA domains.
- * - Configures a SOCKS proxy for local environments or when certain conditions are met.
- * - Retries failed requests up to 5 times using the `p-retry` library for improved resilience.
+ * - Adds custom certificate authority (CA) files when the target host matches
+ *   specific VA domains.
+ * - Configures a SOCKS proxy for local environments or when certain conditions
+ *   are met.
+ * - Retries failed requests up to 5 times using the `p-retry` library for
+ *   improved resilience.
  * - Logs request failures based on the `debug` flag and the retry attempt.
  *
  * Example Usage:
@@ -18,34 +22,33 @@ import { SocksProxyAgent } from 'socks-proxy-agent'
  * const response = await fetcher('/api/resource', { method: 'GET' });
  * const data = await response.json();
  * ```
- *
- * Dependencies:
- * - `syswide-cas` for adding custom certificate authorities.
- * - `p-retry` for handling request retries.
- * - `cross-fetch` for making HTTP requests.
- * - `socks-proxy-agent` for configuring SOCKS proxy support.
  */
-export const getFetcher =
-  (
+export const getFetcher = (
+  /**
+   * The base URL for the Drupal instance. (e.g. https://va-gov-cms.ddev.site)
+   */
+  baseUrl: string,
+  /**
+   * Whether to enable debug mode, which logs detailed request failure
+   * information.
+   */
+  debug: boolean = false
+) =>
+  /**
+   * Fetches the resource at `input`, using the SOCKS proxy and managing
+   * certificates and retries as needed.
+   */
+  async function fetcher(
     /**
-     * The base URL for the Drupal instance. (e.g. https://va-gov-cms.ddev.site)
-     */
-    baseUrl: string,
-    /**
-     * Whether to enable debug mode, which logs detailed request failure information.
-     */
-    debug: boolean = false
-  ) =>
-  async (
-    /**
-     * The resource to fetch. Must include the base URL for the Drupal instance. (e.g. htts://va-gov-cms.ddev.site/flags_list)
+     * The resource to fetch. Must include the base URL for the Drupal instance.
+     * (e.g. htts://va-gov-cms.ddev.site/flags_list)
      */
     input: RequestInfo,
     /**
      * Any parameters to pass to the underlying `crossFetch` call.
      */
     init: RequestInit = {}
-  ) => {
+  ) {
     const url = new URL(baseUrl)
     const host = url.host
 
