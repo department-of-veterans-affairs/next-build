@@ -61,7 +61,7 @@ export const processEnv = async (
   const envVars = getEnvFileVars(process.env.APP_ENV)
 
   // CMS FEATURE FLAGS
-  let cmsFeatureFlags
+  let cmsFeatureFlags // EnvVars, but TypeScript gets angry when assigning a boolean to a property of process.env
   if (process.env.APP_ENV === 'test') {
     // For now, don't fetch CMS feature flags for tests. Will fail CI.
     cmsFeatureFlags = {}
