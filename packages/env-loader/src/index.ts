@@ -8,7 +8,52 @@ export type EnvVars = {
   [key: string]: string | boolean
 }
 
-export const processEnv = async (command: string): Promise<void> => {
+/**
+ * Processes and sets up the environment variables, CMS feature flags, and CLI
+ * options before executing a given shell command. This function integrates data
+ * from multiple sources (CLI, environment files, and CMS) into `process.env`
+ * and then spawns the specified command.
+ *
+ * Behavior:
+ * 1. **CLI Options and Arguments**: - Parses command-line arguments and options
+ *    using `getCliOptionsAndArgs`.
+ *
+ * 2. **Environment Variables**: - Loads environment variables from a file
+ *    specific to `process.env.APP_ENV`.
+ *
+ * 3. **CMS Feature Flags**: - Fetches feature flags from a Drupal CMS instance
+ *    if `APP_ENV` is not `test`. - For `test` environments, skips CMS flag
+ *    fetching to avoid CI failures. - Combines CLI options, environment file
+ *    variables, and CMS flags into `process.env`.
+ *
+ * 4. **Command Execution**: - Spawns the given shell command with any
+ *    additional arguments passed from the CLI. - Uses `stdio: 'inherit'` to
+ *    mirror command output in real-time. - Exits the parent process with the
+ *    same exit code as the spawned command.
+ *
+ * Dependencies:
+ * - `getCliOptionsAndArgs` for parsing CLI options and arguments.
+ * - `getEnvFileVars` for loading environment-specific variables.
+ * - `getCmsFeatureFlags` for fetching CMS feature flags.
+ * - `child_process.spawn` for executing the shell command.
+ *
+ * Example Usage:
+ * ```ts
+ * await processEnv('next build');
+ * ```
+ *
+ * Notes:
+ * - CMS feature flags are only fetched if the environment is not `test` to
+ *   avoid breaking CI pipelines.
+ * - The function combines multiple sources of environment variables to ensure a
+ *   fully configured environment.
+ */
+export const processEnv = async (
+  /**
+   * The shell command to be executed, with additional arguments passed through.
+   */
+  command: string
+): Promise<void> => {
   // CLI
   const { args: cliArgs, options: cliOptions } = getCliOptionsAndArgs()
 
