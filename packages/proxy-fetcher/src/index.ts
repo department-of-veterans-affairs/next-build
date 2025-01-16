@@ -18,8 +18,8 @@ import { SocksProxyAgent } from 'socks-proxy-agent'
  *
  * Example Usage:
  * ```ts
- * const fetcher = getFetcher('https://example.com', true);
- * const response = await fetcher('/api/resource', { method: 'GET' });
+ * const fetcher = getFetcher('https://va-gov-cms.ddev.site', true);
+ * const response = await fetcher('https://example.com/flags_list', { method: 'GET' });
  * const data = await response.json();
  * ```
  */
