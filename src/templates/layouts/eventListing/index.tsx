@@ -19,7 +19,7 @@ import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
   sideNav?: SideNavMenu
-  pastEvents?: {
+  allEventTeasers?: {
     entities: EventWidgetTeaser[]
   }
 }
@@ -38,8 +38,8 @@ export function EventListing({
   useEffect(() => {
     window.sideNav = menu
 
-    // This populates the whole events widget, even upcoming events. IDK!
-    window.pastEvents = { entities: events }
+    // This populates the whole events widget.
+    window.allEventTeasers = { entities: events }
   }, [menu, events])
 
   return (
