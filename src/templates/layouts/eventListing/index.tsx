@@ -38,7 +38,7 @@ export function EventListing({
   useEffect(() => {
     window.sideNav = menu
 
-    // This populates the whole events widget, even upcoming events. IDK!
+    // This populates the whole events widget.
     window.allEventTeasers = { entities: events }
   }, [menu, events])
 
