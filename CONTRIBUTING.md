@@ -84,7 +84,3 @@ By participating in this project, you agree to follow our [Code of Conduct](CODE
 ## Questions?
 
 If you have questions, feel free to open an issue or contact the maintainers.
-
-## License
-
-By contributing, you agree that your contributions will be licensed under the project's license.
