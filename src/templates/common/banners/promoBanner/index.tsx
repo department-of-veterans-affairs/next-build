@@ -8,7 +8,7 @@ export const PromoBanner = ({
   alertType,
 }: FormattedPromoBanner): JSX.Element => {
   return (
-    <VaPromoBanner id={id} role="region" href={href} type={alertType}>
+    <VaPromoBanner id={id} href={href} type={alertType}>
       {title}
     </VaPromoBanner>
   )
