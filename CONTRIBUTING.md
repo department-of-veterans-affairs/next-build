@@ -27,20 +27,37 @@ By participating in this project, you agree to follow our [Code of Conduct](CODE
 ### Pull Requests
 
 1. Clone the repository
-2. Create a new branch (`git checkout -b feature/amazing-feature`)
+2. Create a new branch from `main` (`git checkout -b feature/amazing-feature`)
 3. Make your changes
 4. Run tests if applicable
-5. Commit your changes (`git commit -m 'Add amazing feature'`)
+5. Commit your changes with a clear message (bonus points for [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)):
+
+   ```sh
+   git commit -m 'Add: new feature X'
+   git commit -m 'Fix: issue with Y'
+   git commit -m 'Update: improve Z functionality'
+   ```
+
 6. Push to the branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
+7. Open a Pull Request against the `main` branch
 
 #### Pull Request Guidelines
 
+- All PRs must target the `main` branch
+- Keep PRs small and focused on a single feature or fix
+  - If you find yourself changing multiple things, consider breaking it into separate PRs
+  - A good PR should be small enough to review in 10-15 minutes
 - Follow the existing code style and conventions
 - Include tests if adding new functionality
 - Update documentation as needed
-- One pull request per feature/fix
-- Keep pull requests focused in scope
+- Provide a clear description in your PR that explains:
+  - What changes you made
+  - Why you made these changes
+  - How to test the changes
+  - Any related issues (use "Fixes #123" or "Relates to #123")
+- Add screenshots or GIFs if you made UI changes
+- Make sure all tests pass before requesting review
+- Respond to review comments promptly
 
 ## Development Setup
 
