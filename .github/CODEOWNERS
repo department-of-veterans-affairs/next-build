@@ -6,5 +6,5 @@
 # Review the CODEOWNERS guide before editing:
 # https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/codeowners.md
 
-# General ownership: CMS Team & FE COP
-*       @department-of-veterans-affairs/cms-infrastructure @department-of-veterans-affairs/va-platform-cop-frontend
+# General ownership: Next Build Team (ap-team) & Platform FE COP
+*       @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
