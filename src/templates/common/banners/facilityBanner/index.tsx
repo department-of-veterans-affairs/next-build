@@ -107,7 +107,7 @@ export const FacilityBanner = ({
           type={alertType}
           visible={true}
           windowSession={dismiss === true ? 'dismiss-session' : null}
-          data-testid='facility-banner'
+          data-testid="facility-banner"
         >
           <div
             ref={analyticsRef}
