@@ -80,7 +80,7 @@ export function StoryListing({
               <VaPagination
                 page={currentPage}
                 pages={totalPages}
-                maxPageListLength={3}
+                maxPageListLength={8}
                 onPageSelect={(page) => {
                   const newPage =
                     page.detail.page > 1 ? `page-${page.detail.page}` : ''
