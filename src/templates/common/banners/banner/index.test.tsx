@@ -18,7 +18,7 @@ describe('<Banner> component renders', () => {
         /The banner component is part of the VSP Design System Storybook/
       )
     ).toBeInTheDocument()
-    expect(screen.getByRole('region')).toHaveAttribute(
+    expect(screen.getByTestId('banner')).toHaveAttribute(
       'headline',
       mockBannerData.title
     )

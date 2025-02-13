@@ -30,7 +30,7 @@ describe('<FacilityBanner> component renders', () => {
     expect(
       screen.queryByText(/IMPORTANT UPDATES FROM VA PITTSBURGH/)
     ).toBeInTheDocument()
-    expect(screen.getByRole('region')).toHaveAttribute('id', bannerData.id)
+    expect(screen.getByTestId('facility-banner')).toHaveAttribute('id', bannerData.id)
     expect(aEl[0]).toHaveAttribute('href', bannerData.path)
     expect(aEl[0]).toHaveAttribute('title', 'VA Pittsburgh Health Care')
   })
