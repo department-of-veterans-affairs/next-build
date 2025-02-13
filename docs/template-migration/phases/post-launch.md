@@ -21,8 +21,8 @@ The Post-Launch phase is the final phase of the template migration process. At t
 
 ## How do we do it?
 
-- [ ] Verify the behavior of the template in production
-- [ ] Create a PR to update the CODEOWNERS file, formalizing the handoff of accountability from the CMS Team to the Product-owning Team
+1. Verify the behavior of the template in production
+1. Create a PR to update the CODEOWNERS file, formalizing the handoff of accountability from the CMS Team to the Product-owning Team
 
 ## RACI
 
