@@ -2,9 +2,14 @@
 
 ## What is the Active Migration phase?
 
-A template is in the Active Migration phase when it is...y'know, under active development & testing but has not yet been deployed to production.
+A template is in the Active Migration phase when it's...y'know, under active development & testing but has not yet been deployed to production.
+
+_This is where the bulk of the work happens._
 
 ## What do we do here?
+
+> [!NOTE]
+> 🏗️ We'll move some of this information into the how-to guides as we get them written.
 
 - The responsible team develops the new template in `next-build` to achieve parity with its current usage in production, including display, functionality and accessibility.
   - The team is also responsible for all communication about decisions made around known/expected differences between the `next-build` and the `content-build` templates

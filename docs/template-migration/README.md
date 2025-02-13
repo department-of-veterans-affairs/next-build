@@ -14,7 +14,9 @@ This document outlines the process for migrating templates from the old `content
 
 ## Phases
 
-The migration of templates consists of four distinct phases. Follow the links below to learn more about each phase:
+The migration of templates consists of four distinct phases. When you get to the end, the template should be fully migrated, in production, and handed off to the Product-owning Team. Congratulations!
+
+Follow the links below to learn more about each phase:
 
 1. [Pre-Migration](./phases/pre-migration.md)
    - **Definition**: The template for a given content type either doesn’t exist in next-build or is stale.
@@ -27,3 +29,5 @@ The migration of templates consists of four distinct phases. Follow the links be
    - **Definition**: The template is now in production awaiting handoff to the Product-owning Team.
 
 After the Post-Launch phase, the Product-owning Team has ownership of the template and is responsible for maintaining and enhancing the template.
+
+_Mission accomplished!_ 🎉

@@ -1,8 +1,8 @@
-# Template Migration: Pre-migration
+# Template Migration: Pre-Migration
 
-## What is the Pre-migration phase?
+## What is the Pre-Migration phase?
 
-A template is in the Pre-migration phase when it either doesn’t exist in next-build or is stale.
+A template is in the Pre-Migration phase when it either doesn’t exist in `next-build` or is stale.
 
 _Nothing fancy here._
 
