@@ -29,12 +29,13 @@ A template is in the Active Migration phase when it is...y'know, under active de
 1. Create a new template in `next-build` to match the `content-build` template
 1. Test the template in `next-build`
    - Something about using the `FEATURE_NEXT_BUILD_CONTENT_ALL=true` environment variable
+1. Get QA approval
 
 ## RACI
 
 - **Responsible:** CMS Team, Sitewide Team
   - Determined by the team that commits to completing the work.
-  - Ownership is communicated to the CMS team by the team committed team.
+  - Ownership is communicated to the CMS team by the committed team.
 - **Accountable:** Chris Valarida _(CMS Team)_
 - **Consulted:** Laura Flannery _(CMS Team)_
 - **Informed:** Any team not in the Responsible role
