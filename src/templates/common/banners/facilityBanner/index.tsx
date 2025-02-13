@@ -102,7 +102,6 @@ export const FacilityBanner = ({
       {outputStatus && (
         <VaBanner
           id={id}
-          role="region"
           showClose={dismiss}
           headline={title}
           type={alertType}
