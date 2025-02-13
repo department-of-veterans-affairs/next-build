@@ -26,7 +26,7 @@ The Post-Launch phase is the final phase of the template migration process. At t
 
 ## RACI
 
-- **Responsible:** The team doing the migration
+- **Responsible:** The CMS team & the team doing the migration
 - **Accountable:** Chris Valarida _(CMS Team)_
 - **Consulted:** Product-owning Team
 - **Informed:** Product-owning Team

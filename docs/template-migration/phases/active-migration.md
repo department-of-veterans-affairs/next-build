@@ -31,7 +31,8 @@ _This is where the bulk of the work happens._
 1. Find the template in `content-build`
    - You'll use this to see the logic and structure to use in the `next-build` template
 1. Find a page that uses the template in `content-build`
-1. Create a new template in `next-build` to match the `content-build` template
+1. Create a new template in `next-build` to match the `content-build` template if one doesn't already exist
+1. Make the necessary changes to the `next-build` template to achieve parity with the `content-build` template
 1. Test the template in `next-build`
    - Something about using the `FEATURE_NEXT_BUILD_CONTENT_ALL=true` environment variable
 1. Get QA approval
