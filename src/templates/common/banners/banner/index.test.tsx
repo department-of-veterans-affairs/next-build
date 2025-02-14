@@ -18,7 +18,7 @@ describe('<Banner> component renders', () => {
         /The banner component is part of the VSP Design System Storybook/
       )
     ).toBeInTheDocument()
-    expect(screen.getByRole('region')).toHaveAttribute(
+    expect(screen.getByTestId('banner')).toHaveAttribute(
       'headline',
       mockBannerData.title
     )
@@ -53,7 +53,7 @@ describe('<Banner> component does not render', () => {
     mockBannerData.body = ''
     render(<Banner {...mockBannerData} />)
 
-    expect(screen.queryByRole('region')).toBeInTheDocument()
+    expect(screen.queryByTestId('banner')).toBeInTheDocument()
     expect(
       screen.queryByText(
         /The banner component is part of the VSP Design System Storybook/
