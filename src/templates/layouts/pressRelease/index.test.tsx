@@ -110,6 +110,18 @@ describe('<pressRelease> with valid data', () => {
     expect(screen.queryByText('null')).toBeNull()
   })
 
+  test('does not render Media contacts header when no contacts exist', () => {
+    data.contacts = []
+    render(<PressRelease {...data} />)
+    expect(screen.queryByText('Media contacts')).not.toBeInTheDocument()
+  })
+
+  test('does not render Media contacts header when contacts is null', () => {
+    data.contacts = null
+    render(<PressRelease {...data} />)
+    expect(screen.queryByText('Media contacts')).not.toBeInTheDocument()
+  })
+
   test('renders the downloads', () => {
     render(<PressRelease {...data} />)
     downloads.forEach((download) => {
