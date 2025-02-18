@@ -24,10 +24,9 @@ describe('GoogleMapsDirections Component', () => {
     expect(anchorElement).toHaveAttribute('label', expectedAriaLabel)
   })
   test('excludes label from render if none given', () => {
-    const location = null
     const address = '123 Main St, City, Country'
 
-    render(<GoogleMapsDirections location={location} address={address} />)
+    render(<GoogleMapsDirections address={address} />)
 
     const anchorElement = screen.getByTestId('maps-directions')
     expect(anchorElement).toBeInTheDocument()
