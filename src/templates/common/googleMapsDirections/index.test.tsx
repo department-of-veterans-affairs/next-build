@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { GoogleMapsDirections } from './'
 
 describe('GoogleMapsDirections Component', () => {
-  test('renders anchor element with correct href attribute', () => {
+  test('renders anchor element with correct href attribute and label', () => {
     const location = 'Target Location'
     const address = '123 Main St, City, Country'
     const expectedUrl = `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
@@ -22,5 +22,15 @@ describe('GoogleMapsDirections Component', () => {
 
     expect(anchorElement).toHaveAttribute('href', expectedUrl)
     expect(anchorElement).toHaveAttribute('label', expectedAriaLabel)
+  })
+  test('excludes label from render if none given', () => {
+    const location = null
+    const address = '123 Main St, City, Country'
+
+    render(<GoogleMapsDirections location={location} address={address} />)
+
+    const anchorElement = screen.getByTestId('maps-directions')
+    expect(anchorElement).toBeInTheDocument()
+    expect(anchorElement).not.toHaveAttribute('label')
   })
 })

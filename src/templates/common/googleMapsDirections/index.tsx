@@ -1,4 +1,4 @@
-export const GoogleMapsDirections = ({ address, location }) => {
+export const GoogleMapsDirections = ({ address, location = null }) => {
   const googleMapsUrl = `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
     address
   )}`
@@ -11,7 +11,7 @@ export const GoogleMapsDirections = ({ address, location }) => {
       id="google-map-directions"
       text={`Get directions on Google Maps`}
       data-testid="maps-directions"
-      label={`Get directions on Google Maps to ${location}`}
+      label={location && `Get directions on Google Maps to ${location}`}
     ></va-link>
   )
 }
