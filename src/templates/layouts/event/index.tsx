@@ -153,8 +153,8 @@ export const Event = ({
                   </p>
                 )}
                 <GoogleMapsDirections
-                  title={title}
                   address={directionsString}
+                  location={facilityLocation?.title}
                 />
               </div>
             ) : locationType === 'online' ? (
@@ -187,7 +187,7 @@ export const Event = ({
                   {address && address.administrative_area}
                 </p>
                 <GoogleMapsDirections
-                  title={title}
+                  location={locationHumanReadable}
                   address={directionsString}
                 />
               </div>
