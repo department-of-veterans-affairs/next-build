@@ -15,7 +15,7 @@ describe('<PromoBanner> component renders', () => {
     expect(
       screen.queryByText(/Help for Afghanistan Veterans and families/)
     ).toBeInTheDocument()
-    expect(screen.getByRole('region')).toHaveAttribute(
+    expect(screen.getByTestId('promo-banner')).toHaveAttribute(
       'href',
       'https://blogs.va.gov/VAntage/help-for-afghanistan-veterans-families/'
     )

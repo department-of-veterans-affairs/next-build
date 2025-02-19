@@ -5,7 +5,7 @@ describe('<MaintenanceBanner> component renders', () => {
   test('with valid data', () => {
     render(<MaintenanceBanner />)
 
-    const bannerElement = screen.getByRole('region', {
+    const bannerElement = screen.getByTestId('maintenance-banner', {
       name: /Maintenance banner/i,
     })
 

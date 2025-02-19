@@ -142,6 +142,7 @@ This container can be reached from your localhost (e.g. `redis://localhost:6379`
 
 ## Documentation (WIP)
 
+- [Template Migration](docs/template-migration/README.md)
 - [Code Guidelines](READMEs/code-guidelines.md)
 - [Testing](READMEs/testing.md)
 - [TypeScript](READMEs/typescript.md)

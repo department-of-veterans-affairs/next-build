@@ -62,7 +62,7 @@ export const PressRelease = ({
                   <div dangerouslySetInnerHTML={{ __html: fullText }}></div>
                 </section>
                 <section className="vads-u-margin-bottom--6">
-                  {contacts && (
+                  {contacts?.length > 0 && (
                     <div className="vads-u-font-weight--bold">
                       Media contacts
                     </div>

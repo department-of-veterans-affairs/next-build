@@ -1,7 +1,6 @@
 export const MaintenanceBanner = () => (
   <div
-    aria-label="Maintenance banner"
     data-widget-type="maintenance-banner"
-    role="region"
+    data-testid="maintenance-banner"
   ></div>
 )

@@ -102,12 +102,12 @@ export const FacilityBanner = ({
       {outputStatus && (
         <VaBanner
           id={id}
-          role="region"
           showClose={dismiss}
           headline={title}
           type={alertType}
           visible={true}
           windowSession={dismiss === true ? 'dismiss-session' : null}
+          data-testid="facility-banner"
         >
           <div
             ref={analyticsRef}

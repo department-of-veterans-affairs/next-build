@@ -187,6 +187,9 @@ jobs:
     - name: Gather vets-website assets
       run: cd main && yarn setup
 
+    - name: Wait for the CMS to be ready
+      uses: ./.github/workflows/wait-for-cms-ready
+
     - name: Build site
       id: export-yarn-output
       uses: nick-fields/retry@v3

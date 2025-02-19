@@ -11,12 +11,12 @@ export const Banner = ({
   return (
     <VaBanner
       id={id}
-      role="region"
       showClose={dismiss ? 'perm' : false}
       headline={title}
       type={alertType}
       visible={id ? true : false}
       windowSession={dismiss ? 'dismiss-session' : null}
+      data-testid="banner"
     >
       <div dangerouslySetInnerHTML={{ __html: body }} />
     </VaBanner>
