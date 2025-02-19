@@ -29,6 +29,34 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE}Teaser formatData`, () => {
     const formattedData = formatter(modifiedMock)
     expect(formattedData.link).toBe(modifiedMock.path.alias)
   })
+
+  // Unit test just for lastUpdated field to ensure it's set correctly
+  test('sets lastUpdated field correctly', () => {
+    const withReleaseDate = {
+      ...nodePressReleaseTeaserMock,
+      field_release_date: '2024-03-20T10:00:00Z',
+      created: '2024-03-15T10:00:00Z',
+    }
+    expect(formatter(withReleaseDate).lastUpdated).toBe('2024-03-20T10:00:00Z')
+
+    const withoutReleaseDate = {
+      ...nodePressReleaseTeaserMock,
+      field_release_date: null,
+      created: '2024-03-15T10:00:00Z',
+    }
+    expect(formatter(withoutReleaseDate).lastUpdated).toBe(
+      '2024-03-15T10:00:00Z'
+    )
+
+    const releaseDataUndefined = {
+      ...nodePressReleaseTeaserMock,
+      field_release_date: undefined,
+      created: '2024-03-15T10:00:00Z',
+    }
+    expect(formatter(releaseDataUndefined).lastUpdated).toBe(
+      '2024-03-15T10:00:00Z'
+    )
+  })
 })
 
 describe('DrupalJsonApiParams configuration for pressReleaseTeaser', () => {
