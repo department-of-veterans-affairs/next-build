@@ -104,6 +104,7 @@ const Document = () => {
         />
       </Head>
       <body className="merger">
+        <div id="announcement-root"></div>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
