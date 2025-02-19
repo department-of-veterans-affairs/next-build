@@ -131,7 +131,6 @@ export const Event = ({
               <div className="vads-u-display--flex vads-u-flex-direction--column">
                 <p className="vads-u-margin--0">
                   <va-link
-                    class="vads-u-padding-bottom--1 vads-u-margin-top--0 vads-u-display--block"
                     href={facilityLocation?.path?.alias}
                     text={facilityLocation?.title}
                   ></va-link>
@@ -153,10 +152,12 @@ export const Event = ({
                     {facilityLocation.field_address?.administrative_area}
                   </p>
                 )}
-                <GoogleMapsDirections
-                  title={title}
-                  address={directionsString}
-                />
+                <p className="vads-u-margin--0">
+                  <GoogleMapsDirections
+                    address={directionsString}
+                    location={facilityLocation?.title}
+                  />
+                </p>
               </div>
             ) : locationType === 'online' ? (
               <p className="vads-u-margin--0 vads-u-margin-bottom--2">
@@ -187,10 +188,12 @@ export const Event = ({
                   )}
                   {address && address.administrative_area}
                 </p>
-                <GoogleMapsDirections
-                  title={title}
-                  address={directionsString}
-                />
+                <p className="vads-u-margin--0">
+                  <GoogleMapsDirections
+                    location={locationHumanReadable}
+                    address={directionsString}
+                  />
+                </p>
               </div>
             )}
           </div>
