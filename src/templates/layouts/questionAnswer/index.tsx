@@ -47,7 +47,7 @@ export const QuestionAnswer = ({
         <div className="usa-grid usa-grid-full">
           <div className="usa-width-three-fourths">
             <div className="usa-content">
-              <article className="vads-u-padding-x--1 large-screen:vads-u-padding-x--0">
+              <article className="vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
                 <h1>{title}</h1>
                 {answers && (
                   <div dangerouslySetInnerHTML={createAnswersMarkup()} />

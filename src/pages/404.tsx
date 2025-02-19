@@ -25,7 +25,7 @@ const Error404Page = ({ headerFooterData }) => {
               <div className="usa-content vads-u-text-align--center vads-u-margin-x--auto">
                 <h3>Sorry — we can’t find that page</h3>
                 <p>Try the search box or one of the common questions below.</p>
-                <div className="feature vads-u-display--flex vads-u-align-items--center">
+                <div className="vads-u-display--flex vads-u-align-items--center vads-u-background-color--primary-alt-lightest vads-u-padding--2 vads-u-margin-y--3 vads-u-margin-x--0">
                   <form
                     acceptCharset="UTF-8"
                     action="/search/"

@@ -4,6 +4,7 @@ import {
   formatDateObject,
   deriveFormattedTimestamp,
   isEventInPast,
+  filterPastEvents,
 } from '@/lib/utils/date'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { MediaImage } from '@/templates/common/mediaImage'
@@ -42,9 +43,10 @@ export const Event = ({
 
   // Memoized because formateDateObject returns a map that will be recalculated on each render.
   const formattedDates = useMemo(
-    () => formatDateObject(datetimeRange),
+    () => formatDateObject(filterPastEvents(datetimeRange)),
     [datetimeRange]
   )
+
   const initialFormattedDates = formattedDates.slice(0, 5)
   const [currentFormattedDates, setCurrentFormattedDates] = useState(
     initialFormattedDates
@@ -75,10 +77,16 @@ export const Event = ({
     .filter(Boolean)
     .join(', ')
 
+  let eventCTAText = null
+
+  if (eventCTA) {
+    eventCTAText = formatEventCTA(eventCTA)
+  }
+
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
-        <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 large-screen:vads-u-padding-x--0 vads-u-padding-bottom--2">
+        <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 desktop-lg:vads-u-padding-x--0 vads-u-padding-bottom--2">
           {/* Title */}
           <h1>{title}</h1>
 
@@ -88,6 +96,7 @@ export const Event = ({
               className="event-detail-img vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4"
               {...image}
               imageStyle="7_2_medium_thumbnail"
+              loading="eager"
             />
           )}
 
@@ -227,33 +236,26 @@ export const Event = ({
               </p>
             ) : (
               <>
-                {link && (
-                  <p className="vads-u-margin--0">
-                    <a className="vads-c-action-link--green" href={link?.uri}>
-                      {eventCTA && eventCTA != 'more_details'
-                        ? eventCTA.toLowerCase() === 'rsvp'
-                          ? eventCTA.toUpperCase()
-                          : eventCTA.charAt(0).toUpperCase() + eventCTA.slice(1)
-                        : 'More details'}
-                    </a>
-                  </p>
+                {link && eventCTAText && (
+                  <va-link-action
+                    class="vads-u-display--block"
+                    href={link?.uri}
+                    text={eventCTAText}
+                  />
                 )}
                 {howToSignUp === 'email' && (
                   <>
-                    {mostRecentDate && (
-                      <p className="vads-u-margin--0">
-                        <a
-                          className="vads-c-action-link--green"
-                          href={createMailToLink(
-                            emailCTA,
-                            title,
-                            mostRecentDate,
-                            link?.uri
-                          )}
-                        >
-                          {eventCTA && formatEventCTA(eventCTA)}
-                        </a>
-                      </p>
+                    {mostRecentDate && eventCTAText && (
+                      <va-link-action
+                        class="vads-u-display--block"
+                        href={createMailToLink(
+                          emailCTA,
+                          title,
+                          mostRecentDate,
+                          link?.uri
+                        )}
+                        text={eventCTAText}
+                      />
                     )}
                   </>
                 )}
@@ -274,7 +276,7 @@ export const Event = ({
         {body && <div dangerouslySetInnerHTML={{ __html: body?.processed }} />}
 
         {/* Recurring Events */}
-        {formattedDates.length > 1 && (
+        {currentFormattedDates.length > 1 && (
           <div>
             <va-accordion open-single id="expand-recurring-events">
               <va-accordion-item

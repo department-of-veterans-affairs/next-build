@@ -139,7 +139,7 @@ export function VetCenter({
       <>
         <h2
           id="prepare-for-your-visit"
-          className="vads-u-margin-top--0 vads-u-font-size--lg small-screen:vads-u-font-size--xl vads-u-margin-bottom--2"
+          className="vads-u-margin-top--0 vads-u-font-size--lg mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
         >
           Prepare for your visit
         </h2>
@@ -180,7 +180,7 @@ export function VetCenter({
           </h2>
           <div
             className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column
-          small-screen:vads-u-flex-direction--row facility"
+          mobile-lg:vads-u-flex-direction--row facility"
           >
             <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
               <div>
@@ -278,7 +278,7 @@ export function VetCenter({
           <h2
             id="in-the-spot-light"
             className="vads-u-margin-top--0 vads-u-font-size--lg
-          small-screen:vads-u-font-size--xl vads-u-margin-bottom--2"
+          mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
           >
             In the spotlight at {title}
           </h2>

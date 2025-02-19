@@ -1,0 +1,1 @@
+export const DEFAULT_PAGE_LIST_LENGTH = 7

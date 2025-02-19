@@ -55,13 +55,6 @@ const Document = () => {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preload"
-          href={`${ASSETS_URL}fa-solid-900.woff2`}
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
 
         {/* Load Icons */}
         <link
