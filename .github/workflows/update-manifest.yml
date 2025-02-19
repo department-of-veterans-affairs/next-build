@@ -66,7 +66,7 @@ jobs:
           echo "IMAGE_TAG=$(cat tag.txt)" >> $GITHUB_ENV
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4.0.2
+        uses: aws-actions/configure-aws-credentials@v4.1.0
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}

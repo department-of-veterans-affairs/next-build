@@ -18,6 +18,7 @@ import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { DEFAULT_PAGE_LIST_LENGTH } from '../../../constants/pagination'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -80,7 +81,7 @@ export function StoryListing({
               <VaPagination
                 page={currentPage}
                 pages={totalPages}
-                maxPageListLength={3}
+                maxPageListLength={DEFAULT_PAGE_LIST_LENGTH}
                 onPageSelect={(page) => {
                   const newPage =
                     page.detail.page > 1 ? `page-${page.detail.page}` : ''
