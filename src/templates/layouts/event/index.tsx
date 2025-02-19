@@ -152,10 +152,12 @@ export const Event = ({
                     {facilityLocation.field_address?.administrative_area}
                   </p>
                 )}
-                <GoogleMapsDirections
-                  address={directionsString}
-                  location={facilityLocation?.title}
-                />
+                <p className="vads-u-margin--0">
+                  <GoogleMapsDirections
+                    address={directionsString}
+                    location={facilityLocation?.title}
+                  />
+                </p>
               </div>
             ) : locationType === 'online' ? (
               <p className="vads-u-margin--0 vads-u-margin-bottom--2">
@@ -186,10 +188,12 @@ export const Event = ({
                   )}
                   {address && address.administrative_area}
                 </p>
-                <GoogleMapsDirections
-                  location={locationHumanReadable}
-                  address={directionsString}
-                />
+                <p className="vads-u-margin--0">
+                  <GoogleMapsDirections
+                    location={locationHumanReadable}
+                    address={directionsString}
+                  />
+                </p>
               </div>
             )}
           </div>
