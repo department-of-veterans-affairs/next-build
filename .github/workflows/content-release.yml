@@ -188,7 +188,7 @@ jobs:
       run: cd main && yarn setup
 
     - name: Wait for the CMS to be ready
-      uses: main/.github/workflows/wait-for-cms-ready
+      uses: "./main/.github/workflows/wait-for-cms-ready"
 
     - name: Build site
       id: export-yarn-output
