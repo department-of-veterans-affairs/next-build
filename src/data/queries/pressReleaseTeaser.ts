@@ -19,6 +19,6 @@ export const formatter: QueryFormatter<NodePressRelease, PressReleaseTeaser> = (
     title: entity.title,
     link: entity.path.alias,
     introText: entity.field_intro_text,
-    lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
+    lastUpdated: entity.field_release_date || entity.created,
   }
 }
