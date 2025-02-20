@@ -10,7 +10,7 @@ export const RESOURCE_TYPES = {
   STORY: 'node--news_story',
   STORY_LISTING: 'node--story_listing',
   SUPPORT_SERVICES: 'node--support_service',
-  VAMC_FACILITY: 'node--health_care_local_facility',
+  HEALTH_CARE_LOCAL_FACILITY: 'node--health_care_local_facility',
   VAMC_SYSTEM: 'node--health_care_region_page',
   VET_CENTER: 'node--vet_center',
   QA: 'node--q_a',
