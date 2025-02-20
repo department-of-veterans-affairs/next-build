@@ -65,6 +65,7 @@ export function Wrapper({
       {preview ? <UnpublishedBanner resource={resource} /> : null}
       <Header />
       {banners}
+      <div data-widget-type="situation-updates-banner"></div>
       {children}
       <Footer />
     </>
