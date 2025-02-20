@@ -19,6 +19,11 @@ export const formatter: QueryFormatter<NodePressRelease, PressReleaseTeaser> = (
     title: entity.title,
     link: entity.path.alias,
     introText: entity.field_intro_text,
+    /*
+     * Updating this to field_release_date from field_last_saved_by_an_editor
+     * to maintain consistency with content-build
+     * see https://github.com/department-of-veterans-affairs/next-build/pull/894/files
+     */
     lastUpdated: entity.field_release_date || entity.created,
   }
 }
