@@ -1,7 +1,11 @@
+import { addResource } from './scripts/yarn/plop/addResource.js'
+
 // Run `yarn plop` to use the generators defined in this file.
 // see READMEs/generators.md for more information.
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (plop) {
+  plop.setActionType('addResource', addResource)
+
   // Create a new component with a test stub and Storybook entry.
   plop.setGenerator('Component', {
     description: 'New React component',
@@ -63,10 +67,12 @@ export default function (plop) {
         path: 'src/types/formatted/{{camelCase name}}.ts',
         templateFile: 'generator-templates/type/formatted.hbs',
       },
+      {
+        type: 'addResource',
+      },
       // Strings can be added to print a comment in the terminal.
       'You will need to do a few steps manually:',
       '- Import & add your query to src/data/queries/index.ts',
-      '- Add your resource type to src/lib/constants/resourceTypes.ts',
       '- Update the mock.json with correct data. See src/pages/_playgroud/api-explorer.tsx',
       '- Run `yarn test:u` to update test snapshots for your new query!',
     ],
@@ -105,9 +111,11 @@ export default function (plop) {
         path: 'src/types/formatted/{{camelCase name}}.ts',
         templateFile: 'generator-templates/type/formatted.hbs',
       },
+      {
+        type: 'addResource',
+      },
       'You will need to do a few steps manually:',
       '- Import & add your query to src/data/queries/index.ts',
-      '- Add your resource type to src/lib/constants/resourceTypes.ts',
       '- Update the mock.json with correct data. See src/pages/_playgroud/api-explorer.tsx',
       '- Run `yarn test:u` to update test snapshots for your new query!',
       // Create react component + test files for new Page type.
