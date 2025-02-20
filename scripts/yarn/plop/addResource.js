@@ -61,11 +61,9 @@ export const addResource = (answers, config) => {
 
           // Format the file
           sourceFile.formatText({
-            formatter: 'prettier',
-            options: {
-              printWidth: 120,
-              tabWidth: 2,
-            },
+            indentSize: 2,
+            indentStyle: 'space',
+            tabSize: 2,
           })
 
           // Save changes
