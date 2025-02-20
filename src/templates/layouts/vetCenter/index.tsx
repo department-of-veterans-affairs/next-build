@@ -209,8 +209,8 @@ export function VetCenter({
                         <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
                       </address>
                       <GoogleMapsDirections
-                        title={title}
                         address={directionsString}
+                        location={title}
                       />
                     </div>
 
