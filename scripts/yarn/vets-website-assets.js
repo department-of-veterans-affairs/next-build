@@ -83,25 +83,13 @@ async function downloadFromLiveBucket(buildtype) {
 }
 
 // Gather assets that are expected by the compiled files but not included in the bucket (because content-build would source them).
-// These are font files, icons, and other assorted images.
+// These are primarily images.
 async function moveAssetsFromVetsWebsite() {
   console.log('Moving additional assets from adjacent vets-website repo...')
 
   try {
-    fs.copySync(`${vetsWebsiteAssetPath}/fonts`, destinationPath)
-    console.log('Copied font files from vets-website.')
-
     fs.copySync(`${vetsWebsiteAssetPath}/img`, './public/img/')
     console.log('Copied image assets from vets-website.')
-
-    // Some stylesheets from vets-website expect these additional font files, but they are not included
-    // in the bucket files or in that repo's font folder. We source them directly from the node module.
-    fs.copySync(
-      './node_modules/@fortawesome/fontawesome-free/webfonts',
-      destinationPath,
-      { errorOnExist: false, force: true, dereference: true }
-    )
-    console.log('Copied fontawesome font files from node_modules package.')
   } catch (err) {
     console.error(err)
   }
@@ -114,7 +102,7 @@ async function gatherAssets() {
   // Clean any existing assets or symlinks
   if (fs.pathExistsSync(destinationPath)) {
     try {
-      fs.rmSync(destinationPath, { recursive: true, force: true })
+      //fs.rmSync(destinationPath, { recursive: true, force: true })
       console.log(
         `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
       )
@@ -142,7 +130,7 @@ async function gatherAssets() {
       if (!exists) {
         fs.ensureSymlinkSync(
           localBucket,
-          path.resolve(__dirname, `../..${destinationPath}`),
+          path.resolve(__dirname, `../../${destinationPath}`),
           'dir'
         ) // 'dir' is windows only, ignored elsewhere
         console.log('Symlink created successfully!')
