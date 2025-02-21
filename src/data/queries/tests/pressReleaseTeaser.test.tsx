@@ -37,14 +37,14 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE}Teaser formatData`, () => {
       field_release_date: '2024-03-20T10:00:00Z',
       created: '2024-03-15T10:00:00Z',
     }
-    expect(formatter(withReleaseDate).lastUpdated).toBe('2024-03-20T10:00:00Z')
+    expect(formatter(withReleaseDate).releaseDate).toBe('2024-03-20T10:00:00Z')
 
     const withoutReleaseDate = {
       ...nodePressReleaseTeaserMock,
       field_release_date: null,
       created: '2024-03-15T10:00:00Z',
     }
-    expect(formatter(withoutReleaseDate).lastUpdated).toBe(
+    expect(formatter(withoutReleaseDate).releaseDate).toBe(
       '2024-03-15T10:00:00Z'
     )
 
@@ -53,7 +53,7 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE}Teaser formatData`, () => {
       field_release_date: undefined,
       created: '2024-03-15T10:00:00Z',
     }
-    expect(formatter(releaseDataUndefined).lastUpdated).toBe(
+    expect(formatter(releaseDataUndefined).releaseDate).toBe(
       '2024-03-15T10:00:00Z'
     )
   })

@@ -20,10 +20,11 @@ export const formatter: QueryFormatter<NodePressRelease, PressReleaseTeaser> = (
     link: entity.path.alias,
     introText: entity.field_intro_text,
     /*
-     * Updating this to field_release_date from field_last_saved_by_an_editor
-     * to maintain consistency with content-build
+     * Adding releaseDate to maintain consistency with content-build
+     * lastUpdated is no longer used in the Press Release Teaser
      * see https://github.com/department-of-veterans-affairs/next-build/pull/894/files
      */
-    lastUpdated: entity.field_release_date || entity.created,
+    lastUpdated: entity.field_last_saved_by_an_editor || entity.created,
+    releaseDate: entity.field_release_date || entity.created,
   }
 }
