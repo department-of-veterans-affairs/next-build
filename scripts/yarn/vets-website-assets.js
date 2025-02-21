@@ -43,7 +43,7 @@ const fileManifestPath = 'generated/file-manifest.json'
 // Path to assets in a vets-website repo cloned adjacent to next-build.
 const vetsWebsiteAssetPath = '../vets-website/src/site/assets'
 
-const destinationPath = './public/generated/'
+const destinationPath = path.resolve(__dirname, '../../public/generated/')
 
 // Function that loops through to download all compiled js assets listed in a bucket's manifest.
 async function downloadFromLiveBucket(buildtype) {
@@ -102,7 +102,7 @@ async function gatherAssets() {
   // Clean any existing assets or symlinks
   if (fs.pathExistsSync(destinationPath)) {
     try {
-      //fs.rmSync(destinationPath, { recursive: true, force: true })
+      fs.rmSync(destinationPath, { recursive: true, force: true })
       console.log(
         `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
       )
@@ -128,11 +128,7 @@ async function gatherAssets() {
       const exists = fs.pathExistsSync(destinationPath)
 
       if (!exists) {
-        fs.ensureSymlinkSync(
-          localBucket,
-          path.resolve(__dirname, `../../${destinationPath}`),
-          'dir'
-        ) // 'dir' is windows only, ignored elsewhere
+        fs.ensureSymlinkSync(localBucket, destinationPath, 'dir') // 'dir' is windows only, ignored elsewhere
         console.log('Symlink created successfully!')
       } else {
         console.log('Symlink already exists.')
