@@ -32,8 +32,6 @@ export const formatBannerType = (bannerData) => {
   switch (bannerData?.type as string) {
     case BANNER_RESOURCE_TYPES.PROMO:
       return <PromoBanner key={bannerData.id} {...bannerData} />
-    case BANNER_RESOURCE_TYPES.FACILITY:
-      return <FacilityBanner key={bannerData.id} {...bannerData} />
     case BANNER_RESOURCE_TYPES.BASIC:
       return <Banner key={bannerData.id} {...bannerData} />
     default:
