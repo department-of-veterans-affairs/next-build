@@ -22,6 +22,7 @@ interface QueryState {
     requestUrl?: string
     requestParams?: unknown
   }
+  availableRelationships: string[]
 }
 
 const AVAILABLE_RESOURCE_TYPES = {
@@ -32,12 +33,13 @@ const AVAILABLE_RESOURCE_TYPES = {
 export default function ApiExplorer() {
   const [queryState, setQueryState] = useState<QueryState>({
     resourceType: 'node--health_care_local_facility',
-    includes: ['field_media'],
+    includes: [],
     pageLimit: 5,
     loading: false,
     error: null,
     data: null,
     debugInfo: {},
+    availableRelationships: [],
   })
 
   const handleResourceTypeChange = (
@@ -53,6 +55,15 @@ export default function ApiExplorer() {
 
   const handlePageLimitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQueryState((prev) => ({ ...prev, pageLimit: parseInt(e.target.value) }))
+  }
+
+  const addRelationshipToIncludes = (relationship: string) => {
+    if (!queryState.includes.includes(relationship)) {
+      setQueryState((prev) => ({
+        ...prev,
+        includes: [...prev.includes, relationship],
+      }))
+    }
   }
 
   const executeQuery = async () => {
@@ -92,11 +103,18 @@ export default function ApiExplorer() {
       }
 
       const data = await response.json()
+
+      // Extract relationship names from the first item if available
+      const relationships = data[0]?.relationshipNames
+        ? (Object.values(data[0].relationshipNames) as string[]) // Pretty safe assumption
+        : []
+
       setQueryState((prev) => ({
         ...prev,
         loading: false,
         data,
         debugInfo,
+        availableRelationships: relationships,
       }))
     } catch (error) {
       console.error('API Error:', error)
@@ -105,6 +123,7 @@ export default function ApiExplorer() {
         loading: false,
         error: error.message || 'An unknown error occurred',
         debugInfo: prev.debugInfo,
+        availableRelationships: [],
       }))
     }
   }
@@ -148,6 +167,30 @@ export default function ApiExplorer() {
           onChange={handleIncludesChange}
           rows={5}
         />
+        {queryState.availableRelationships.length > 0 && (
+          <div className="vads-u-margin-top--2">
+            <h3 className="vads-u-font-size--h4">Available Relationships</h3>
+            <p className="vads-u-margin-top--1 vads-u-margin-bottom--2 vads-u-color--gray">
+              Click to add to includes:
+            </p>
+            <div className="vads-u-display--flex vads-u-flex-wrap--wrap vads-u-gap--1">
+              {queryState.availableRelationships.map((relationship) => (
+                <button
+                  key={relationship}
+                  className={`usa-button usa-button-secondary ${
+                    queryState.includes.includes(relationship)
+                      ? 'vads-u-background-color--gray'
+                      : ''
+                  }`}
+                  onClick={() => addRelationshipToIncludes(relationship)}
+                  disabled={queryState.includes.includes(relationship)}
+                >
+                  {relationship}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="vads-u-margin-y--3">
