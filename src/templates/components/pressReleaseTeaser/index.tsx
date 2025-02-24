@@ -9,7 +9,7 @@ export function PressReleaseTeaser({
   title,
   link,
   introText,
-  lastUpdated,
+  releaseDate,
 }: FormattedPressReleaseTeaser) {
   const TitleTag = ({ children, className }) => {
     const Heading = headingLevel ? headingLevel : 'h2'
@@ -24,7 +24,7 @@ export function PressReleaseTeaser({
             {title}
           </va-link>
         </TitleTag>
-        <strong>{formatDate(lastUpdated)}</strong>
+        <strong>{formatDate(releaseDate)}</strong>
         <p className="vads-u-margin-top--0">
           {truncateWordsOrChar(introText, 60, true)}
         </p>
