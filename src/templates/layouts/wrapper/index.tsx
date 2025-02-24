@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Banner } from '@/templates/common/banners/banner'
 import { PromoBanner } from '@/templates/common/banners/promoBanner'
-import { FacilityBanner } from '@/templates/common/banners/facilityBanner'
 import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import { BannersData } from '@/types/formatted/banners'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'

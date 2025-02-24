@@ -2,7 +2,6 @@ import { render, screen } from 'test-utils'
 import '@testing-library/jest-dom'
 import { Wrapper, formatBannerType } from './index'
 import { PromoBanner } from '@/templates/common/banners/promoBanner'
-import { FacilityBanner } from '@/templates/common/banners/facilityBanner'
 import { Banner } from '@/templates/common/banners/banner'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
