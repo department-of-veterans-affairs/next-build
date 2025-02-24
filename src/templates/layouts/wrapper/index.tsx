@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Banner } from '@/templates/common/banners/banner'
 import { PromoBanner } from '@/templates/common/banners/promoBanner'
-import { FacilityBanner } from '@/templates/common/banners/facilityBanner'
 import { HeaderFooterData } from '@/types/formatted/headerFooter'
 import { BannersData } from '@/types/formatted/banners'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -32,8 +31,6 @@ export const formatBannerType = (bannerData) => {
   switch (bannerData?.type as string) {
     case BANNER_RESOURCE_TYPES.PROMO:
       return <PromoBanner key={bannerData.id} {...bannerData} />
-    case BANNER_RESOURCE_TYPES.FACILITY:
-      return <FacilityBanner key={bannerData.id} {...bannerData} />
     case BANNER_RESOURCE_TYPES.BASIC:
       return <Banner key={bannerData.id} {...bannerData} />
     default:
@@ -65,6 +62,7 @@ export function Wrapper({
       {preview ? <UnpublishedBanner resource={resource} /> : null}
       <Header />
       {banners}
+      <div data-widget-type="situation-updates-banner"></div>
       {children}
       <Footer />
     </>
