@@ -87,7 +87,7 @@ export const getFetcher = (
       //  In non-debug mode: only on final attempt
       const logFailedRequest = debug ? true : attempt === retryCount + 1
 
-      if (!response.ok) {
+      if (!response.ok && response.status !== 404) {
         if (logFailedRequest) {
           /*eslint-disable-next-line*/
           console.log(
