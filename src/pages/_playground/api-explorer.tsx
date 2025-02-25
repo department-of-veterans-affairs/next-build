@@ -1,15 +1,65 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import dynamic from 'next/dynamic'
 import {
   RESOURCE_TYPES,
   PARAGRAPH_RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 
+// Dynamically import ReactJson to avoid SSR issues
+const DynamicReactJson = dynamic(
+  () => import('react-json-view').then((mod) => mod.default),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="vads-u-padding--2 vads-u-color--gray">
+        Loading JSON viewer...
+      </div>
+    ),
+  }
+)
+
 /**
  * This is a simple page used to return serialized but unformatted data for use
  * in our mocks. Ideally I would like it to become an interactive query explorer.
  */
+
+/**
+ * Simple JSON syntax highlighter component
+ */
+const SyntaxHighlightedJson: React.FC<{ data: unknown }> = ({ data }) => {
+  const jsonString = JSON.stringify(data, null, 2)
+
+  // Basic syntax highlighting
+  const highlightedJson = jsonString
+    .replace(/"([^"]+)":/g, '<span class="vads-u-color--primary">"$1"</span>:') // keys
+    .replace(/"([^"]+)"/g, '<span class="vads-u-color--green">"$1"</span>') // strings
+    .replace(
+      /\b(true|false|null)\b/g,
+      '<span class="vads-u-color--secondary">$1</span>'
+    ) // booleans and null
+    .replace(/\b(\d+)\b/g, '<span class="vads-u-color--gold">$1</span>') // numbers
+
+  return (
+    <pre
+      className="usa-code-sample vads-u-margin-top--2"
+      style={{
+        backgroundColor: 'white',
+        maxHeight: 'none',
+        height: 'auto',
+        padding: '1rem',
+        fontSize: '0.9rem',
+        lineHeight: '1.5',
+        fontFamily: 'Monaco, monospace',
+        border: '1px solid #d6d7d9',
+        borderRadius: '4px',
+      }}
+    >
+      <code dangerouslySetInnerHTML={{ __html: highlightedJson }} />
+    </pre>
+  )
+}
 
 interface QueryState {
   resourceType: string
@@ -23,6 +73,7 @@ interface QueryState {
     requestParams?: unknown
   }
   availableRelationships: string[]
+  viewMode: 'tree' | 'raw'
 }
 
 const AVAILABLE_RESOURCE_TYPES = {
@@ -40,6 +91,7 @@ export default function ApiExplorer() {
     data: null,
     debugInfo: {},
     availableRelationships: [],
+    viewMode: 'tree',
   })
 
   const handleResourceTypeChange = (
@@ -128,12 +180,19 @@ export default function ApiExplorer() {
     }
   }
 
+  const toggleViewMode = () => {
+    setQueryState((prev) => ({
+      ...prev,
+      viewMode: prev.viewMode === 'tree' ? 'raw' : 'tree',
+    }))
+  }
+
   return (
     <div
       className="vads-u-display--flex"
       style={{
         height: '100vh',
-        overflow: 'hidden', // Prevent outer container from scrolling
+        overflow: 'hidden',
       }}
     >
       {/* Left Panel - Controls */}
@@ -262,18 +321,41 @@ export default function ApiExplorer() {
           overflowY: 'auto',
         }}
       >
-        <h2 className="vads-u-font-size--h3 vads-u-margin-top--0">Response</h2>
+        <div className="vads-u-display--flex vads-u-align-items--center vads-u-justify-content--space-between">
+          <h2 className="vads-u-font-size--h3 vads-u-margin-top--0">
+            Response
+          </h2>
+          {queryState.data && (
+            <button
+              className="usa-button usa-button-secondary"
+              onClick={toggleViewMode}
+            >
+              {queryState.viewMode === 'tree' ? 'View Raw' : 'View Tree'}
+            </button>
+          )}
+        </div>
+
         {queryState.data ? (
-          <pre
-            className="usa-code-sample vads-u-margin-top--2"
-            style={{
-              backgroundColor: 'white',
-              maxHeight: 'none',
-              height: 'auto',
-            }}
-          >
-            <code>{JSON.stringify(queryState.data, null, 2)}</code>
-          </pre>
+          queryState.viewMode === 'tree' ? (
+            <div className="vads-u-margin-top--2">
+              <DynamicReactJson
+                src={queryState.data as object}
+                theme="rjv-default"
+                style={{
+                  backgroundColor: 'white',
+                  padding: '1rem',
+                  borderRadius: '4px',
+                  border: '1px solid #d6d7d9',
+                }}
+                displayDataTypes={false}
+                enableClipboard
+                collapsed={2}
+                name={null}
+              />
+            </div>
+          ) : (
+            <SyntaxHighlightedJson data={queryState.data} />
+          )
         ) : (
           <p className="vads-u-color--gray">
             Execute a query to see the response
