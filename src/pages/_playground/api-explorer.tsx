@@ -31,15 +31,22 @@ const DynamicReactJson = dynamic(
 const SyntaxHighlightedJson: React.FC<{ data: unknown }> = ({ data }) => {
   const jsonString = JSON.stringify(data, null, 2)
 
-  // Basic syntax highlighting
+  // Basic syntax highlighting with improved regex
   const highlightedJson = jsonString
-    .replace(/"([^"]+)":/g, '<span class="vads-u-color--primary">"$1"</span>:') // keys
-    .replace(/"([^"]+)"/g, '<span class="vads-u-color--green">"$1"</span>') // strings
+    // Property names (keys) - only color the quotes and preserve the exact key name
     .replace(
-      /\b(true|false|null)\b/g,
-      '<span class="vads-u-color--secondary">$1</span>'
-    ) // booleans and null
-    .replace(/\b(\d+)\b/g, '<span class="vads-u-color--gold">$1</span>') // numbers
+      /(")(.*?)":/g,
+      '<span class="vads-u-color--primary">$1</span>$2<span class="vads-u-color--primary">"</span>:'
+    )
+    // String values
+    .replace(/: "([^"]+)"/g, ': <span class="vads-u-color--green">"$1"</span>')
+    // Booleans and null
+    .replace(
+      /: (true|false|null)\b/g,
+      ': <span class="vads-u-color--secondary">$1</span>'
+    )
+    // Numbers
+    .replace(/: (\d+)/g, ': <span class="vads-u-color--gold">$1</span>')
 
   return (
     <pre
