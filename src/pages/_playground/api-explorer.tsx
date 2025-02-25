@@ -129,121 +129,157 @@ export default function ApiExplorer() {
   }
 
   return (
-    <div className="vads-u-padding--3">
-      <h1 className="vads-u-font-size--h2">API Explorer</h1>
+    <div
+      className="vads-u-display--flex"
+      style={{
+        height: '100vh',
+        overflow: 'hidden', // Prevent outer container from scrolling
+      }}
+    >
+      {/* Left Panel - Controls */}
+      <div
+        className="vads-u-padding--3 vads-u-width--half vads-u-flex--1"
+        style={{
+          height: '100%',
+          overflowY: 'auto',
+          borderRight: '1px solid #d6d7d9',
+        }}
+      >
+        <h1 className="vads-u-font-size--h2 vads-u-margin-top--0">
+          API Explorer
+        </h1>
 
-      <div className="vads-u-margin-y--3">
-        <label
-          className="vads-u-display--block vads-u-margin-bottom--1"
-          htmlFor="resourceType"
-        >
-          Resource Type
-        </label>
-        <select
-          id="resourceType"
-          className="usa-select"
-          value={queryState.resourceType}
-          onChange={handleResourceTypeChange}
-        >
-          {Object.entries(AVAILABLE_RESOURCE_TYPES).map(([key, value]) => (
-            <option key={value} value={value}>
-              {value}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div className="vads-u-margin-y--3">
+          <label
+            className="vads-u-display--block vads-u-margin-bottom--1"
+            htmlFor="resourceType"
+          >
+            Resource Type
+          </label>
+          <select
+            id="resourceType"
+            className="usa-select"
+            value={queryState.resourceType}
+            onChange={handleResourceTypeChange}
+          >
+            {Object.entries(AVAILABLE_RESOURCE_TYPES).map(([key, value]) => (
+              <option key={value} value={value}>
+                {value}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <div className="vads-u-margin-y--3">
-        <label
-          className="vads-u-display--block vads-u-margin-bottom--1"
-          htmlFor="includes"
+        <div className="vads-u-margin-y--3">
+          <label
+            className="vads-u-display--block vads-u-margin-bottom--1"
+            htmlFor="includes"
+          >
+            Includes (one per line)
+          </label>
+          <textarea
+            id="includes"
+            className="usa-textarea"
+            value={queryState.includes.join('\n')}
+            onChange={handleIncludesChange}
+            rows={5}
+          />
+          {queryState.availableRelationships.length > 0 && (
+            <div className="vads-u-margin-top--2">
+              <h3 className="vads-u-font-size--h4">Available Relationships</h3>
+              <p className="vads-u-margin-top--1 vads-u-margin-bottom--2 vads-u-color--gray">
+                Click to add to includes:
+              </p>
+              <div className="vads-u-display--flex vads-u-flex-wrap--wrap vads-u-gap--1">
+                {queryState.availableRelationships.map((relationship) => (
+                  <button
+                    key={relationship}
+                    className={`usa-button usa-button-secondary ${
+                      queryState.includes.includes(relationship)
+                        ? 'vads-u-background-color--gray'
+                        : ''
+                    }`}
+                    onClick={() => addRelationshipToIncludes(relationship)}
+                    disabled={queryState.includes.includes(relationship)}
+                  >
+                    {relationship}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="vads-u-margin-y--3">
+          <label
+            className="vads-u-display--block vads-u-margin-bottom--1"
+            htmlFor="pageLimit"
+          >
+            Page Limit
+          </label>
+          <input
+            id="pageLimit"
+            type="number"
+            className="usa-input"
+            value={queryState.pageLimit}
+            onChange={handlePageLimitChange}
+            min={1}
+            max={50}
+          />
+        </div>
+
+        <button
+          className="usa-button"
+          onClick={executeQuery}
+          disabled={queryState.loading}
         >
-          Includes (one per line)
-        </label>
-        <textarea
-          id="includes"
-          className="usa-textarea"
-          value={queryState.includes.join('\n')}
-          onChange={handleIncludesChange}
-          rows={5}
-        />
-        {queryState.availableRelationships.length > 0 && (
-          <div className="vads-u-margin-top--2">
-            <h3 className="vads-u-font-size--h4">Available Relationships</h3>
-            <p className="vads-u-margin-top--1 vads-u-margin-bottom--2 vads-u-color--gray">
-              Click to add to includes:
-            </p>
-            <div className="vads-u-display--flex vads-u-flex-wrap--wrap vads-u-gap--1">
-              {queryState.availableRelationships.map((relationship) => (
-                <button
-                  key={relationship}
-                  className={`usa-button usa-button-secondary ${
-                    queryState.includes.includes(relationship)
-                      ? 'vads-u-background-color--gray'
-                      : ''
-                  }`}
-                  onClick={() => addRelationshipToIncludes(relationship)}
-                  disabled={queryState.includes.includes(relationship)}
-                >
-                  {relationship}
-                </button>
-              ))}
+          {queryState.loading ? 'Loading...' : 'Execute Query'}
+        </button>
+
+        {queryState.error && (
+          <div className="usa-alert usa-alert--error vads-u-margin-y--3">
+            <div className="usa-alert__body">
+              <h3 className="usa-alert__heading">Error</h3>
+              <p>{queryState.error}</p>
+              <div className="vads-u-margin-top--2">
+                <details>
+                  <summary>Debug Information</summary>
+                  <pre className="usa-code-sample">
+                    <code>{JSON.stringify(queryState.debugInfo, null, 2)}</code>
+                  </pre>
+                </details>
+              </div>
             </div>
           </div>
         )}
       </div>
 
-      <div className="vads-u-margin-y--3">
-        <label
-          className="vads-u-display--block vads-u-margin-bottom--1"
-          htmlFor="pageLimit"
-        >
-          Page Limit
-        </label>
-        <input
-          id="pageLimit"
-          type="number"
-          className="usa-input"
-          value={queryState.pageLimit}
-          onChange={handlePageLimitChange}
-          min={1}
-          max={50}
-        />
-      </div>
-
-      <button
-        className="usa-button"
-        onClick={executeQuery}
-        disabled={queryState.loading}
+      {/* Right Panel - JSON Output */}
+      <div
+        className="vads-u-padding--3 vads-u-width--half vads-u-background-color--gray-lightest vads-u-flex--1"
+        style={{
+          height: '100%',
+          overflowY: 'auto',
+        }}
       >
-        {queryState.loading ? 'Loading...' : 'Execute Query'}
-      </button>
-
-      {queryState.error && (
-        <div className="usa-alert usa-alert--error vads-u-margin-y--3">
-          <div className="usa-alert__body">
-            <h3 className="usa-alert__heading">Error</h3>
-            <p>{queryState.error}</p>
-            <div className="vads-u-margin-top--2">
-              <details>
-                <summary>Debug Information</summary>
-                <pre className="usa-code-sample">
-                  <code>{JSON.stringify(queryState.debugInfo, null, 2)}</code>
-                </pre>
-              </details>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {queryState.data && (
-        <div className="vads-u-margin-y--3">
-          <h2 className="vads-u-font-size--h3">Response</h2>
-          <pre className="usa-code-sample">
+        <h2 className="vads-u-font-size--h3 vads-u-margin-top--0">Response</h2>
+        {queryState.data ? (
+          <pre
+            className="usa-code-sample vads-u-margin-top--2"
+            style={{
+              backgroundColor: 'white',
+              maxHeight: 'none',
+              height: 'auto',
+            }}
+          >
             <code>{JSON.stringify(queryState.data, null, 2)}</code>
           </pre>
-        </div>
-      )}
+        ) : (
+          <p className="vads-u-color--gray">
+            Execute a query to see the response
+          </p>
+        )}
+      </div>
     </div>
   )
 }
