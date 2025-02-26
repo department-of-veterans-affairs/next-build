@@ -257,6 +257,74 @@ export const deriveFormattedTimestamp = (datetime) => {
   return reformatTime(formattedTime)
 }
 
+const TIMEZONE_MAP = {
+  'America/New_York': 'ET',
+  'America/Chicago': 'CT',
+  'America/Denver': 'MT',
+  'America/Los_Angeles': 'PT',
+  'America/Phoenix': 'MT',
+  'America/Anchorage': 'AT',
+  'Pacific/Honolulu': 'HT',
+}
+
+/**
+ * Formats a datetime object into a standardized VA string format
+ * Example output: "Fri May 3, 2024, 10:00 a.m. – 3:00 p.m. ET"
+ */
+export const deriveVaFormattedTimestamp = (datetime) => {
+  if (!datetime) return
+
+  try {
+    // Convert array format since Event component tests have this
+    if (Array.isArray(datetime)) {
+      datetime = {
+        startTime: datetime[0].value,
+        endTime: datetime[0].end_value,
+        timezone: datetime[0].timezone,
+      }
+    }
+
+    // Handle both value/end_value and startTime/endTime property names
+    const startTime = new Date(datetime.startTime || datetime.value)
+    const endTime = new Date(datetime.endTime || datetime.end_value)
+
+    // Format date as "Fri March 15, 2024"
+    const dateFormatter = new Intl.DateTimeFormat('en-US', {
+      weekday: 'short',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })
+
+    // Format time as "10:00 AM"
+    const timeFormatter = new Intl.DateTimeFormat('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      timeZone: datetime.timezone,
+    })
+
+    // Remove comma after weekday: "Fri, March" -> "Fri March" so some regex
+    const datePart = dateFormatter.format(startTime).replace(/^(...), /, '$1 ')
+    // Convert "AM/PM" to "a.m./p.m."
+    const startTimePart = timeFormatter
+      .format(startTime)
+      .replace('AM', 'a.m.')
+      .replace('PM', 'p.m.')
+    const endTimePart = timeFormatter
+      .format(endTime)
+      .replace('AM', 'a.m.')
+      .replace('PM', 'p.m.')
+    // Map timezone to abbreviation: "America/New_York" -> "ET"
+    const timeZone = TIMEZONE_MAP[datetime.timezone] || 'ET'
+
+    // Combine into final format: "Fri March 15, 2024, 10:00 a.m. – 3:00 p.m. ET"
+    return `${datePart}, ${startTimePart} – ${endTimePart} ${timeZone}`
+  } catch (error) {
+    console.error('Error formatting datetime:', error)
+    return
+  }
+}
+
 export const isEventInPast = (eventTime) => {
   const nowInSeconds = Math.floor(Date.now() / 1000)
   return eventTime < nowInSeconds
