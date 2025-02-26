@@ -116,13 +116,13 @@ export default function ApiExplorer() {
     setQueryState((prev) => ({ ...prev, pageLimit: parseInt(e.target.value) }))
   }
 
-  const addRelationshipToIncludes = (relationship: string) => {
-    if (!queryState.includes.includes(relationship)) {
-      setQueryState((prev) => ({
-        ...prev,
-        includes: [...prev.includes, relationship],
-      }))
-    }
+  const toggleRelationship = (relationship: string) => {
+    setQueryState((prev) => ({
+      ...prev,
+      includes: prev.includes.includes(relationship)
+        ? prev.includes.filter((include) => include !== relationship)
+        : [...prev.includes, relationship],
+    }))
   }
 
   const executeQuery = async () => {
@@ -262,11 +262,10 @@ export default function ApiExplorer() {
                     key={relationship}
                     className={`usa-button usa-button-secondary ${
                       queryState.includes.includes(relationship)
-                        ? 'vads-u-background-color--gray'
+                        ? 'vads-u-background-color--primary vads-u-color--white'
                         : ''
                     }`}
-                    onClick={() => addRelationshipToIncludes(relationship)}
-                    disabled={queryState.includes.includes(relationship)}
+                    onClick={() => toggleRelationship(relationship)}
                   >
                     {relationship}
                   </button>
