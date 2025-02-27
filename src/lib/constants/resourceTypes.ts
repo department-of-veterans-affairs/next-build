@@ -60,7 +60,6 @@ export const PARAGRAPH_RESOURCE_TYPES = {
 
 export const BANNER_RESOURCE_TYPES = {
   BASIC: 'banner',
-  FACILITY: 'full_width_banner_alert',
   PROMO: 'promo_banner',
 } as const
 
