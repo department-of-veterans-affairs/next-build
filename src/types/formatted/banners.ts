@@ -1,4 +1,4 @@
-export type BannersData = Array<Banner | PromoBanner | FacilityBanner>
+export type BannersData = Array<Banner | PromoBanner>
 
 export type Banner = {
   id: string
@@ -22,18 +22,4 @@ export type BannerAlertVamcs = {
   id: string
   path?: string
   office?: { path: string }
-}
-
-export type FacilityBanner = {
-  id: string
-  title: string
-  body?: string
-  fieldAlertType?: string
-  dismiss?: boolean
-  path?: string
-  type?: string
-  operatingStatus?: boolean
-  findFacilities?: string
-  inheritanceSubpages?: boolean
-  bannerAlertVamcs?: BannerAlertVamcs[]
 }
