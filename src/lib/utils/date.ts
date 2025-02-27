@@ -320,8 +320,8 @@ export const deriveVaFormattedTimestamp = (datetime) => {
   // Format times with proper AM/PM case and spacing
   const formattedTime =
     `${formattedStartTime} – ${formattedEndTime} ${genericTimeZone}`
-      .replace(/\bAM\b/, 'a.m.')
-      .replace(/\bPM\b/, 'p.m.')
+      .replaceAll(/\bAM\b/g, 'a.m.')
+      .replaceAll(/\bPM\b/g, 'p.m.')
 
   // Ensure proper punctuation (comma after year, no comma after weekday)
   return formattedTime.replace(/(\d{4})/, '$1,').replace(/^(\w{3}), /, '$1 ')
