@@ -46,6 +46,7 @@ import * as QaSection from './qaSection'
 import * as QaGroup from './qaGroup'
 import * as VetCenter from './vetCenter'
 import * as HealthServices from './healthServices'
+import * as HealthCareLocalFacility from './healthCareLocalFacility'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -73,6 +74,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.RESOURCES_SUPPORT]: ResourcesSupport,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.HEALTH_SERVICES]: HealthServices,
+  [RESOURCE_TYPES.HEALTH_CARE_LOCAL_FACILITY]: HealthCareLocalFacility,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

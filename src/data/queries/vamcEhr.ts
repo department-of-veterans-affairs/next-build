@@ -11,7 +11,7 @@ const PAGE_SIZE = PAGE_SIZES.MAX
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-    .addFields(RESOURCE_TYPES.VAMC_FACILITY, [
+    .addFields(RESOURCE_TYPES.HEALTH_CARE_LOCAL_FACILITY, [
       'title',
       'field_facility_locator_api_id',
       'field_region_page',
@@ -27,7 +27,7 @@ export const data: QueryData<null, DrupalVamcEhr[]> = async (): Promise<
 > => {
   const { data } =
     await fetchAndConcatAllResourceCollectionPages<DrupalVamcEhr>(
-      RESOURCE_TYPES.VAMC_FACILITY,
+      RESOURCE_TYPES.HEALTH_CARE_LOCAL_FACILITY,
       params(),
       PAGE_SIZE
     )
