@@ -281,9 +281,21 @@ export const deriveVaFormattedTimestamp = (datetime) => {
   const startTime = new Date(datetime.startTime)
   const endTime = new Date(datetime.endTime)
 
+  // Extract timezone abbreviation
+  const timeZone = startTime
+    .toLocaleString('en-US', { timeZoneName: 'short' })
+    .split(' ')
+    .pop()
+
+  // If timezone is not in our map, use ET for formatting
+  const options = {
+    timeZone: US_TIMEZONE_MAP[timeZone] ? undefined : 'America/New_York',
+  }
+
   // Format start time with full date
   const formattedStartTime =
     startTime.toLocaleDateString('en-US', {
+      ...options,
       weekday: 'short',
       month: 'long',
       day: 'numeric',
@@ -291,22 +303,19 @@ export const deriveVaFormattedTimestamp = (datetime) => {
     }) +
     ' ' +
     startTime.toLocaleTimeString('en-US', {
+      ...options,
       hour: 'numeric',
       minute: 'numeric',
     })
 
   // Format end time without date
   const formattedEndTime = endTime.toLocaleTimeString('en-US', {
+    ...options,
     hour: 'numeric',
     minute: 'numeric',
   })
 
-  // Extract timezone abbreviation
-  const timeZone = startTime
-    .toLocaleString('en-US', { timeZoneName: 'short' })
-    .split(' ')
-    .pop()
-  const genericTimeZone = US_TIMEZONE_MAP[timeZone] || timeZone
+  const genericTimeZone = US_TIMEZONE_MAP[timeZone] || 'ET'
 
   // Format times with proper AM/PM case and spacing
   const formattedTime =
