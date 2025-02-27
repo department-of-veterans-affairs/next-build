@@ -190,6 +190,7 @@ export async function getStaticPaths(
 export async function getStaticProps(context: GetStaticPropsContext) {
   try {
     const expandedContext = getExpandedStaticPropsContext(context)
+
     // Now that we have a path, translate for resource endpoint
     let pathInfo
     // need to use translatePathFromContext for previewing unpublished revisions
@@ -198,7 +199,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     } else {
       pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
     }
+
     if (!pathInfo) {
+      console.warn('No path info found, returning notFound')
       return {
         notFound: true,
       }
@@ -206,23 +209,33 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
     // If the requested path isn't a type we're building, 404
     const resourceType = pathInfo.jsonapi.resourceName
+
     if (!RESOURCE_TYPES_TO_BUILD.includes(resourceType)) {
+      console.warn(
+        `Resource type ${resourceType} not in RESOURCE_TYPES_TO_BUILD, returning notFound`
+      )
       return {
         notFound: true,
       }
     }
+
     const resource = await getStaticPropsResource(
       resourceType,
       pathInfo,
       expandedContext
     )
+
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
     if (!expandedContext.preview && !resource?.published) {
+      console.warn(
+        'Resource not published and not in preview mode, returning notFound'
+      )
       return {
         notFound: true,
       }
     }
+
     // If resource is good, gather additional data for global elements.
     // The headerFooter data is cached, banner content is requested per page
     const { bannerData, headerFooterData } = await getGlobalElements(
@@ -238,6 +251,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       },
     }
   } catch (err) {
+    console.error('Error in getStaticProps:', err)
     return {
       notFound: true,
     }
