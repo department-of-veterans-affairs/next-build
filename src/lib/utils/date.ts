@@ -256,6 +256,67 @@ export const deriveFormattedTimestamp = (datetime) => {
 
   return reformatTime(formattedTime)
 }
+/**
+ * Formats a datetime object into a standardized VA string format
+ * Example output: "Sat May 3, 2025, 10:00 a.m. – 3:00 p.m. ET"
+ */
+const US_TIMEZONE_MAP = {
+  EDT: 'ET',
+  EST: 'ET',
+  CDT: 'CT',
+  CST: 'CT',
+  MDT: 'MT',
+  MST: 'MT',
+  PDT: 'PT',
+  PST: 'PT',
+  AKDT: 'AKT',
+  AKST: 'AKT',
+  HDT: 'HT',
+  HST: 'HT',
+}
+
+export const deriveVaFormattedTimestamp = (datetime) => {
+  if (!datetime) return ''
+
+  const startTime = new Date(datetime.startTime)
+  const endTime = new Date(datetime.endTime)
+
+  // Format start time with full date
+  const formattedStartTime =
+    startTime.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    }) +
+    ' ' +
+    startTime.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+    })
+
+  // Format end time without date
+  const formattedEndTime = endTime.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+  })
+
+  // Extract timezone abbreviation
+  const timeZone = startTime
+    .toLocaleString('en-US', { timeZoneName: 'short' })
+    .split(' ')
+    .pop()
+  const genericTimeZone = US_TIMEZONE_MAP[timeZone] || timeZone
+
+  // Format times with proper AM/PM case and spacing
+  const formattedTime =
+    `${formattedStartTime} – ${formattedEndTime} ${genericTimeZone}`
+      .replace(/\bAM\b/, 'a.m.')
+      .replace(/\bPM\b/, 'p.m.')
+
+  // Ensure proper punctuation (comma after year, no comma after weekday)
+  return formattedTime.replace(/(\d{4})/, '$1,').replace(/^(\w{3}), /, '$1 ')
+}
 
 export const isEventInPast = (eventTime) => {
   const nowInSeconds = Math.floor(Date.now() / 1000)

@@ -9,6 +9,7 @@ import {
   deriveFormattedTimestamp,
   isEventInPast,
   filterPastEvents,
+  deriveVaFormattedTimestamp,
 } from './date'
 
 describe('isISOString', () => {
@@ -341,4 +342,64 @@ test('getDateParts should return null for falsy values', () => {
 
 test('parseDate should return null for inputs that do not match any date format', () => {
   expect(parseDate('')).toBe(null)
+})
+
+describe('deriveVaFormattedTimestamp', () => {
+  const VALID_TIMEZONES = '(ET|CT|MT|PT|AKT|HT)'
+  const VA_TIME_FORMAT =
+    /^[A-Z][a-z]{2} [A-Z][a-z]+ \d{1,2}, \d{4}, \d{1,2}:\d{2} [ap]\.m\. – \d{1,2}:\d{2} [ap]\.m\. (ET|CT|MT|PT|AKT|HT)$/
+
+  it('should format timestamp in VA standard format', () => {
+    const datetime = {
+      startTime: '2025-04-26T11:00:00-04:00',
+      endTime: '2025-04-26T18:00:00-04:00',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toMatch(VA_TIME_FORMAT)
+  })
+
+  it('should handle empty input', () => {
+    const result = deriveVaFormattedTimestamp(null)
+    expect(result).toBe('')
+  })
+  it('should handle Pacific time (PST/PDT)', () => {
+    const datetime = {
+      startTime: '2025-07-26T11:00:00-07:00', // PDT
+      endTime: '2025-07-26T18:00:00-07:00',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toMatch(VA_TIME_FORMAT)
+    expect(result).toMatch(
+      new RegExp(
+        `^Sat July 26, 2025, \\d{1,2}:\\d{2} [ap]\\.m\\. – \\d{1,2}:\\d{2} [ap]\\.m\\. ${VALID_TIMEZONES}$`
+      )
+    )
+  })
+  it('should handle winter (EST) time', () => {
+    const datetime = {
+      startTime: '2025-01-26T14:00:00-05:00',
+      endTime: '2025-01-26T21:00:00-05:00',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toMatch(VA_TIME_FORMAT)
+    expect(result).toMatch(
+      new RegExp(
+        `^Sun January 26, 2025, \\d{1,2}:\\d{2} [ap]\\.m\\. – \\d{1,2}:\\d{2} [ap]\\.m\\. ${VALID_TIMEZONES}$`
+      )
+    )
+  })
+
+  it('should handle summer (EDT) time', () => {
+    const datetime = {
+      startTime: '2025-07-26T11:00:00-04:00',
+      endTime: '2025-07-26T18:00:00-04:00',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toMatch(VA_TIME_FORMAT)
+    expect(result).toMatch(
+      new RegExp(
+        `^Sat July 26, 2025, \\d{1,2}:\\d{2} [ap]\\.m\\. – \\d{1,2}:\\d{2} [ap]\\.m\\. ${VALID_TIMEZONES}$`
+      )
+    )
+  })
 })
