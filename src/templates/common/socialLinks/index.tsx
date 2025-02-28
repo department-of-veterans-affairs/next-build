@@ -120,7 +120,7 @@ export const SocialLinks = ({
           </>
         ) : (
           <>
-            <li className="vads-u-margin-bottom--2p5 ">
+            <li className="vads-u-margin-right--5 medium-screen:vads-u-margin-right--2p5">
               <va-icon
                 class="va-c-social-icon vads-u-margin-right--0p5"
                 icon="facebook"
