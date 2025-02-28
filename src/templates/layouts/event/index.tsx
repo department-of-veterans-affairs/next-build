@@ -332,7 +332,7 @@ export const Event = ({
         {administration?.id != 7 &&
           listingOffice != 'Outreach and events' &&
           administration?.name && (
-            <p className="vads-u-margin-top--2">
+            <p>
               <va-link
                 href={listing}
                 onClick={() =>
@@ -343,7 +343,7 @@ export const Event = ({
               ></va-link>
             </p>
           )}
-        <p className="vads-u-padding-bottom--3 vads-u-margin-top--2">
+        <p>
           <va-link
             href="/outreach-and-events/events/"
             text="Browse the VA outreach events calendar"
