@@ -34,7 +34,7 @@ export const data: QueryData<
 > = async (opts): Promise<NodeHealthCareLocalFacility> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    RESOURCE_TYPES.HEALTH_CARE_LOCAL_FACILITY,
+    RESOURCE_TYPES.VAMC_FACILITY,
     params
   )) as NodeHealthCareLocalFacility
 
