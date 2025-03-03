@@ -97,7 +97,7 @@
     "@storybook/addon-interactions": "^8.0.9",
     "@storybook/addon-links": "^8.1.11",
     "@storybook/nextjs": "^8.2.8",
-    "@storybook/node-logger": "^8.1.1",
+    "@storybook/node-logger": "^8.6.3",
     "@storybook/testing-library": "^0.2.2",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.4.8",
