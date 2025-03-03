@@ -1,5 +1,4 @@
 import {
-  Contact,
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
   PhoneContact as FormattedPhoneContact,
@@ -23,7 +22,7 @@ export const EmailContact = (
   if (label && address) {
     return (
       <li className="vads-u-margin-top--1">
-        <strong>{label}&nbsp;</strong>
+        <strong>{label}:&nbsp;</strong>
         <va-link href={`mailto:${address}`} text={address} />
       </li>
     )
@@ -40,7 +39,7 @@ export const PhoneContact = (
   if (label && number) {
     return (
       <li className="vads-u-margin-top--1">
-        <strong>{label}&nbsp;</strong>
+        <strong>{label}:&nbsp;</strong>
         <va-telephone contact={number} extension={extension || null} />
       </li>
     )
@@ -79,7 +78,7 @@ const BenefitHubContacts = ({ contacts }) => {
 
     return (
       <li className="vads-u-margin-top--1" key={label}>
-        <strong>{label}&nbsp;</strong>
+        <strong>{label}:&nbsp;</strong>
         <va-link href={href} text={number} />
       </li>
     )
@@ -110,13 +109,13 @@ export function ContactInfo({
                 Need more help?
               </h2>
               {useDefaultContact ? (
-                <>
-                  <strong>{defaultContact.label}&nbsp;</strong>
+                <p>
+                  <strong>{defaultContact.label}:&nbsp;</strong>
                   <va-link
                     href={defaultContact.href}
-                    text={defaultContact.label}
+                    text={defaultContact.number}
                   />
-                </>
+                </p>
               ) : (
                 <ul className="usa-unstyled-list vads-u-display--flex vads-u-flex-direction--column">
                   {additionalContact && (
