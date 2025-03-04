@@ -1,6 +1,9 @@
 # Description
 What does this PR address?
 
+## Generated description
+(Select this text, hit the Copilot button, and select "Generate".)
+
 ## Ticket
 Relates to #[TICKET_NUMBER](https://github.com/department-of-veterans-affairs/va.gov-cms/issues/TICKET_NUMBER). (or closes?)
 
