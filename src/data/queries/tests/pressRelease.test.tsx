@@ -50,7 +50,7 @@ describe('DrupalJsonApiParams configuration for pressRelease', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     expect(queryString).toMatch(
-      /include=field_press_release_downloads,field_press_release_downloads.image,field_press_release_downloads.field_document,field_press_release_contact,field_listing,field_administration,field_pdf_version,field_pdf_version.field_document/
+      /include=field_press_release_downloads,field_press_release_downloads.image,field_press_release_downloads.field_document,field_press_release_contact,field_press_release_contact.field_telephone,field_listing,field_administration,field_pdf_version,field_pdf_version.field_document/
     )
   })
 })
