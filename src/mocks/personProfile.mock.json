@@ -28,6 +28,9 @@
   "field_last_name": "Doyle",
   "field_meta_tags": null,
   "field_name_first": "Patrick J.",
+  "field_telephone": {
+    "field_phone_number": "111-111-1111"
+  },
   "field_phone_number": null,
   "field_photo_allow_hires_download": false,
   "field_suffix": "Ph.D.",
@@ -471,6 +474,7 @@
     "revision_timestamp": "2022-07-18T13:30:31+00:00",
     "revision_log": "Set \"System Menu\" field accordingly (see va.gov-cms/#9520).",
     "status": true,
+    "field_vamc_system_official_name": "VA Pittsburgh Healthcare System",
     "title": "VA Pittsburgh health care",
     "created": "2019-05-06T03:30:18+00:00",
     "changed": "2022-08-31T15:49:34+00:00",
@@ -520,7 +524,6 @@
       "options": []
     },
     "field_vamc_ehr_system": "vista",
-    "field_vamc_system_official_name": "VA Pittsburgh Healthcare System",
     "field_va_health_connect_phone": null,
     "links": {
       "self": {

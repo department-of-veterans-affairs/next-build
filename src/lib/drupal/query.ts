@@ -125,6 +125,9 @@ export async function fetchSingleEntityOrPreview(opts, type, params) {
 
 // Helper function to return a consistent set of base fields for resources.
 export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
+  if (!entity) {
+    return null
+  }
   return {
     id: entity.id,
     entityId: entity.drupal_internal__nid,

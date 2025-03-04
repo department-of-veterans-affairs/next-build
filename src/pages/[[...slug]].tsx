@@ -17,6 +17,7 @@ import { Wrapper } from '@/templates/layouts/wrapper'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { PressRelease } from '@/templates/layouts/pressRelease'
 import { PressReleaseListing } from '@/templates/layouts/pressReleaseListing'
+import { StaffProfile } from '@/templates/layouts/staffProfile'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
@@ -44,6 +45,7 @@ import { Meta } from '@/templates/common/meta'
 import { PreviewCrumb } from '@/templates/common/preview'
 import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
 import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
+import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 
@@ -144,6 +146,9 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.RESOURCES_SUPPORT && (
             <ResourcesSupport {...(resource as FormattedResourcesSupport)} />
+          )}
+          {resource.type === RESOURCE_TYPES.STAFF_PROFILE && (
+            <StaffProfile {...(resource as FormattedStaffProfile)} />
           )}
           {resource.type === RESOURCE_TYPES.VET_CENTER && (
             <VetCenter {...(resource as FormattedVetCenter)} />
