@@ -2,13 +2,39 @@ import { render, screen } from '@testing-library/react'
 import { PressRelease } from './index'
 import { getByText } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
+import { getByTestId } from '@testing-library/dom'
 
 const contacts = [
   {
     id: '96668498-d442-4b55-8b14-7ec90410f418',
     name: 'Vance Janes',
     description: 'Public Affairs Officer',
-    phone: '828-298-7911, ext. 4446',
+    numbers: [
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc3',
+        type: 'phone',
+        number: '617-435-7809',
+        ext: null,
+      },
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc4',
+        type: 'sms',
+        number: '617-435-7810',
+        ext: null,
+      },
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc5',
+        type: 'tty',
+        number: '617-435-7811',
+        ext: null,
+      },
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc6',
+        type: 'phone',
+        number: '617-435-7812',
+        ext: '111',
+      },
+    ],
     email: 'vance.janes@va.gov',
   },
 ]
@@ -109,11 +135,46 @@ describe('<pressRelease> with valid data', () => {
       expect(
         screen.getByText(`${contact.name}, ${contact.description}`)
       ).toBeInTheDocument()
-      expect(screen.getByText(contact.phone)).toBeInTheDocument()
-      const emailLink = screen.getByTestId('press-email')
+      const emailLink = screen.getByText(contact.email)
       expect(emailLink).toBeInTheDocument()
       expect(emailLink).toHaveAttribute('href', `mailto:${contact.email}`)
+      expect(screen.getByTestId('phone-0')).toBeInTheDocument()
     })
+  })
+
+  test('renders contact phone', () => {
+    render(<PressRelease {...data} />)
+    const voice = screen.getByTestId('phone-0')
+    const sms = screen.getByTestId('phone-1')
+    const tty = screen.getByTestId('phone-2')
+    const ext = screen.getByTestId('phone-3')
+    expect(voice).toBeInTheDocument()
+    expect(voice).toHaveAttribute('contact', data.contacts[0].numbers[0].number)
+    expect(voice).not.toHaveAttribute('sms')
+    expect(voice).not.toHaveAttribute('tty')
+    expect(voice).not.toHaveAttribute('extension')
+    expect(sms).toBeInTheDocument()
+    expect(sms).toHaveAttribute('contact', data.contacts[0].numbers[1].number)
+    expect(sms).toHaveAttribute('sms')
+    expect(sms).not.toHaveAttribute('tty')
+    expect(sms).not.toHaveAttribute('extension')
+    expect(tty).toBeInTheDocument()
+    expect(tty).toHaveAttribute('contact', data.contacts[0].numbers[2].number)
+    expect(tty).not.toHaveAttribute('sms')
+    expect(tty).toHaveAttribute('tty')
+    expect(tty).not.toHaveAttribute('extension')
+    expect(ext).toBeInTheDocument()
+    expect(ext).toHaveAttribute('contact', data.contacts[0].numbers[3].number)
+    expect(ext).not.toHaveAttribute('sms')
+    expect(ext).not.toHaveAttribute('tty')
+    expect(ext).toHaveAttribute('extension', data.contacts[0].numbers[3].ext)
+  })
+
+  test('does not render numbers if null', () => {
+    const nullNumbers = { ...data }
+    nullNumbers.contacts[0].numbers = null
+    render(<PressRelease {...data} />)
+    expect(screen.queryByTestId('phone-0')).not.toBeInTheDocument()
   })
 
   test('renders contacts when null', () => {

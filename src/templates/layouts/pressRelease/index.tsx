@@ -77,9 +77,22 @@ export const PressRelease = ({
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
                           {`${contact?.name}${contact?.description ? `, ${contact?.description}` : ''}`}
                         </p>
-                        <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                          {contact?.phone}
-                        </p>
+                        {contact?.numbers?.map((phone, index) => {
+                          return (
+                            <p
+                              key={phone.id}
+                              className="vads-u-margin-top--1 vads-u-margin-bottom--0"
+                            >
+                              <va-telephone
+                                tty={phone.type === 'tty' || null}
+                                sms={phone.type === 'sms' || null}
+                                contact={phone.number}
+                                extension={phone.ext || null}
+                                data-testid={`phone-${index}`}
+                              />
+                            </p>
+                          )
+                        })}
                         {contact?.email && (
                           <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
                             <va-link
