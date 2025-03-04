@@ -81,7 +81,7 @@ export const StaffProfile = ({
             </div>
           </div>
           {completeBiographyCreate && (
-            <div className="va-introtext vads-u-margin-bottom--2">
+            <div className="vads-u-margin-bottom--2">
               <p className="va-introtext vads-u-margin-bottom--0">
                 {introText}
               </p>
