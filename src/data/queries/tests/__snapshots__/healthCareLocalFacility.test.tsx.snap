@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA St Cloud health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/st-cloud-health-care",
+    },
+    {
+      "options": [],
+      "title": "SERVICES AND LOCATIONS",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "Locations",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/st-cloud-health-care/locations",
+    },
+    {
+      "options": [],
+      "title": "St. Cloud VA Mobile Clinic",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 2069,
+  "entityPath": "/st-cloud-health-care/locations/st-cloud-va-mobile-clinic",
+  "id": "ad959dfa-6831-4c83-8a8f-bee3c460200e",
+  "lastUpdated": "2019-10-31T19:56:14+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-01/facility_photo_na.jpg",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "facility_photo_na",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-01/facility_photo_na.jpg",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "facility_photo_na",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "archived",
+  "published": false,
+  "title": "St. Cloud VA Mobile Clinic",
+  "type": "node--health_care_local_facility",
+}
+`;
