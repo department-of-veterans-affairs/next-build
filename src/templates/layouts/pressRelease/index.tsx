@@ -120,7 +120,7 @@ export const PressRelease = ({
                 )}
 
                 <section className="vads-u-margin-bottom--6 vads-u-text-align--center">
-                  {/* ### */}
+                  ###
                 </section>
 
                 <section className="vads-u-margin-bottom--3">
