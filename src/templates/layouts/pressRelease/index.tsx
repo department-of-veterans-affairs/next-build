@@ -83,9 +83,11 @@ export const PressRelease = ({
                         </p>
                         {contact?.email && (
                           <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                            <a href={`mailto:${contact?.email}`}>
-                              {contact?.email}
-                            </a>
+                            <va-link
+                              data-testid="press-email"
+                              href={`mailto:${contact?.email}`}
+                              text={contact?.email}
+                            />
                           </p>
                         )}
                       </div>
