@@ -48,31 +48,6 @@ export const formatter: QueryFormatter<any, BannersData> = (entities) => {
           alertType: banner.field_promo_type,
           type: banner.type.target_id,
         }
-      case BANNER_RESOURCE_TYPES.FACILITY:
-        return {
-          id: banner.nid,
-          title: banner.title,
-          body: banner.field_body.value,
-          alertType: banner.field_alert_type,
-          dismiss: banner.field_alert_dismissable,
-          operatingStatus: banner.field_alert_operating_status_cta,
-          inheritanceSubpages: banner.field_alert_inheritance_subpages,
-          situationUpdates: banner.field_situation_updates,
-          emailUpdatesButton: banner.field_alert_email_updates_button,
-          path: banner.path?.alias,
-          findFacilities: banner.field_alert_find_facilities_cta,
-          // Normalizes banner alert data as it can come from api as a single object or array
-          bannerAlertVamcs: banner.field_banner_alert_vamcs
-            ? [].concat(banner.field_banner_alert_vamcs).map((vamc) => ({
-                id: vamc.target_id,
-                path: vamc.url,
-                office: {
-                  path: vamc.office?.url || null,
-                },
-              }))
-            : [],
-          type: banner.type.target_id,
-        }
       default:
         return null
     }
