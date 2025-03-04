@@ -78,17 +78,26 @@ export const PressRelease = ({
                           {`${contact?.name}${contact?.description ? `, ${contact?.description}` : ''}`}
                         </p>
                         {contact?.numbers?.map((phone, index) => {
+                          const label = phone.type === 'fax' ? 'Fax' : 'Phone'
                           return (
                             <p
                               key={phone.id}
                               className="vads-u-margin-top--1 vads-u-margin-bottom--0"
                             >
+                              <span
+                                data-testId={`phone-label-${index}`}
+                                className="vads-u-font-weight--bold vads-u-margin-right--0p5"
+                              >
+                                {`${label}:`}
+                              </span>
                               <va-telephone
                                 tty={phone.type === 'tty' || null}
                                 sms={phone.type === 'sms' || null}
+                                not-clickable={phone.type === 'fax' || null}
                                 contact={phone.number}
                                 extension={phone.ext || null}
                                 data-testid={`phone-${index}`}
+                                message-aria-describedby={label}
                               />
                             </p>
                           )

@@ -34,6 +34,12 @@ const contacts = [
         number: '617-435-7812',
         ext: '111',
       },
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc6',
+        type: 'fax',
+        number: '617-435-7813',
+        ext: null,
+      },
     ],
     email: 'vance.janes@va.gov',
   },
@@ -148,26 +154,42 @@ describe('<pressRelease> with valid data', () => {
     const sms = screen.getByTestId('phone-1')
     const tty = screen.getByTestId('phone-2')
     const ext = screen.getByTestId('phone-3')
+    const fax = screen.getByTestId('phone-4')
     expect(voice).toBeInTheDocument()
     expect(voice).toHaveAttribute('contact', data.contacts[0].numbers[0].number)
     expect(voice).not.toHaveAttribute('sms')
     expect(voice).not.toHaveAttribute('tty')
     expect(voice).not.toHaveAttribute('extension')
+    expect(voice).toHaveAttribute('message-aria-describedby', 'Phone')
+    expect(screen.getByTestId('phone-label-0')).toHaveTextContent('Phone:')
     expect(sms).toBeInTheDocument()
     expect(sms).toHaveAttribute('contact', data.contacts[0].numbers[1].number)
     expect(sms).toHaveAttribute('sms')
     expect(sms).not.toHaveAttribute('tty')
     expect(sms).not.toHaveAttribute('extension')
+    expect(sms).toHaveAttribute('message-aria-describedby', 'Phone')
+    expect(screen.getByTestId('phone-label-1')).toHaveTextContent('Phone:')
     expect(tty).toBeInTheDocument()
     expect(tty).toHaveAttribute('contact', data.contacts[0].numbers[2].number)
     expect(tty).not.toHaveAttribute('sms')
     expect(tty).toHaveAttribute('tty')
     expect(tty).not.toHaveAttribute('extension')
+    expect(tty).toHaveAttribute('message-aria-describedby', 'Phone')
+    expect(screen.getByTestId('phone-label-2')).toHaveTextContent('Phone:')
     expect(ext).toBeInTheDocument()
     expect(ext).toHaveAttribute('contact', data.contacts[0].numbers[3].number)
     expect(ext).not.toHaveAttribute('sms')
     expect(ext).not.toHaveAttribute('tty')
     expect(ext).toHaveAttribute('extension', data.contacts[0].numbers[3].ext)
+    expect(ext).toHaveAttribute('message-aria-describedby', 'Phone')
+    expect(screen.getByTestId('phone-label-3')).toHaveTextContent('Phone:')
+    expect(fax).toBeInTheDocument()
+    expect(fax).toHaveAttribute('contact', data.contacts[0].numbers[4].number)
+    expect(fax).not.toHaveAttribute('sms')
+    expect(fax).not.toHaveAttribute('tty')
+    expect(fax).not.toHaveAttribute('extension')
+    expect(fax).toHaveAttribute('message-aria-describedby', 'Fax')
+    expect(screen.getByTestId('phone-label-4')).toHaveTextContent('Fax:')
   })
 
   test('does not render numbers if null', () => {
