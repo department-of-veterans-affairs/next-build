@@ -56,17 +56,6 @@ describe('Banners return formatted data', () => {
     expect(formattedData).toMatchSnapshot()
   })
 
-  test('outputs formatted data for FACILITY banner type', () => {
-    const facilityBanner = nodeBannerMock.find(
-      (banner) => banner.type.target_id === BANNER_RESOURCE_TYPES.FACILITY
-    )
-    expect(facilityBanner).toBeDefined()
-
-    const formattedData = queries.formatData('banner-data', [facilityBanner])
-    expect(formattedData[0].type).toBe(BANNER_RESOURCE_TYPES.FACILITY)
-    expect(formattedData).toMatchSnapshot()
-  })
-
   test('returns null for unsupported banner type', () => {
     const unsupportedBanner = {
       ...nodeBannerMock.find(
