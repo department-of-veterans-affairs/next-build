@@ -147,4 +147,4 @@ This container can be reached from your localhost (e.g. `redis://localhost:6379`
 - [Testing](READMEs/testing.md)
 - [TypeScript](READMEs/typescript.md)
 - [Example Tests](example_tests/README.md)
-- [Working with other repos](docs/next-build-and-other-repos.md)
+- [Working with other repos](READMEs/next-build-and-other-repos.md)
