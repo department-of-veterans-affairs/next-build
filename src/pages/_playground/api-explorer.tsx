@@ -68,6 +68,12 @@ const SyntaxHighlightedJson: React.FC<{ data: unknown }> = ({ data }) => {
   )
 }
 
+interface Filter {
+  field: string
+  operator: string
+  value: string
+}
+
 interface QueryState {
   resourceType: string
   includes: string[]
@@ -81,6 +87,7 @@ interface QueryState {
   }
   availableRelationships: string[]
   viewMode: 'tree' | 'raw'
+  filters: Filter[]
 }
 
 const AVAILABLE_RESOURCE_TYPES = {
@@ -92,13 +99,14 @@ export default function ApiExplorer() {
   const [queryState, setQueryState] = useState<QueryState>({
     resourceType: 'node--health_care_local_facility',
     includes: [],
-    pageLimit: 5,
+    pageLimit: 1,
     loading: false,
     error: null,
     data: null,
     debugInfo: {},
     availableRelationships: [],
     viewMode: 'tree',
+    filters: [],
   })
 
   const handleResourceTypeChange = (
@@ -125,12 +133,42 @@ export default function ApiExplorer() {
     }))
   }
 
+  const addFilter = () => {
+    setQueryState((prev) => ({
+      ...prev,
+      filters: [...prev.filters, { field: '', operator: '=', value: '' }],
+    }))
+  }
+
+  const removeFilter = (index: number) => {
+    setQueryState((prev) => ({
+      ...prev,
+      filters: prev.filters.filter((_, i) => i !== index),
+    }))
+  }
+
+  const updateFilter = (index: number, field: keyof Filter, value: string) => {
+    setQueryState((prev) => ({
+      ...prev,
+      filters: prev.filters.map((filter, i) =>
+        i === index ? { ...filter, [field]: value } : filter
+      ),
+    }))
+  }
+
   const executeQuery = async () => {
     setQueryState((prev) => ({ ...prev, loading: true, error: null }))
     try {
       const params = new DrupalJsonApiParams()
         .addInclude(queryState.includes)
         .addPageLimit(queryState.pageLimit)
+
+      // Add filters to the query
+      queryState.filters.forEach((filter) => {
+        if (filter.field && filter.operator && filter.value) {
+          params.addFilter(filter.field, filter.operator, filter.value)
+        }
+      })
 
       const queryParams = params.getQueryObject()
 
@@ -141,6 +179,7 @@ export default function ApiExplorer() {
           resourceType: queryState.resourceType,
           includes: queryState.includes,
           pageLimit: queryState.pageLimit,
+          filters: queryState.filters,
         },
       }
 
@@ -153,6 +192,7 @@ export default function ApiExplorer() {
           resourceType: queryState.resourceType,
           includes: queryState.includes,
           pageLimit: queryState.pageLimit,
+          filters: queryState.filters,
         }),
       })
 
@@ -291,6 +331,71 @@ export default function ApiExplorer() {
             min={1}
             max={50}
           />
+        </div>
+
+        <div className="vads-u-margin-y--3">
+          <label className="vads-u-display--block vads-u-margin-bottom--1">
+            Filters
+          </label>
+          {queryState.filters.map((filter, index) => (
+            <div
+              key={index}
+              className="vads-u-display--flex vads-u-align-items--center vads-u-gap--1 vads-u-margin-bottom--2"
+            >
+              <input
+                type="text"
+                className="usa-input"
+                placeholder="Field name"
+                value={filter.field}
+                onChange={(e) => updateFilter(index, 'field', e.target.value)}
+                style={{ flex: 2 }}
+              />
+              <select
+                className="usa-select"
+                value={filter.operator}
+                onChange={(e) =>
+                  updateFilter(index, 'operator', e.target.value)
+                }
+                style={{ flex: 1 }}
+              >
+                <option value="=">=</option>
+                <option value="<>">≠</option>
+                <option value=">">&gt;</option>
+                <option value=">=">&gt;=</option>
+                <option value="<">&lt;</option>
+                <option value="<=">&lt;=</option>
+                <option value="IS NOT NULL">IS NOT NULL</option>
+                <option value="IS NULL">IS NULL</option>
+              </select>
+              {filter.operator !== 'IS NOT NULL' &&
+                filter.operator !== 'IS NULL' && (
+                  <input
+                    type="text"
+                    className="usa-input"
+                    placeholder="Value"
+                    value={filter.value}
+                    onChange={(e) =>
+                      updateFilter(index, 'value', e.target.value)
+                    }
+                    style={{ flex: 2 }}
+                  />
+                )}
+              <button
+                className="usa-button usa-button--secondary"
+                onClick={() => removeFilter(index)}
+                type="button"
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <button
+            className="usa-button usa-button--outline"
+            onClick={addFilter}
+            type="button"
+          >
+            Add Filter
+          </button>
         </div>
 
         <button
