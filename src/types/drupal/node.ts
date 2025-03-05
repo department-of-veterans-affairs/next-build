@@ -23,6 +23,7 @@ import {
   ParagraphAlertSingle,
   ParagraphAudienceTopics,
   ParagraphButton,
+  ParagraphChecklist,
   ParagraphCollapsiblePanel,
   ParagraphContactInformation,
   ParagraphHealthCareLocalFacilityService,
@@ -49,6 +50,7 @@ import {
 export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
+  | NodeChecklist
   | NodeFaqMultipleQA
   | NodeHealthCareLocalFacility
   | NodeLandingPage
@@ -400,6 +402,12 @@ export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
     | ParagraphQaGroup
   )[]
   field_buttons_repeat: boolean
+}
+
+export interface NodeChecklist extends NodeAbstractResource {
+  field_buttons_repeat: boolean
+  field_checklist: ParagraphChecklist
+  field_related_benefit_hubs: NodeLandingPage[]
 }
 
 export interface NodeSupportService extends DrupalNode {
