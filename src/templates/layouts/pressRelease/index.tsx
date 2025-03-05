@@ -75,17 +75,18 @@ export const PressRelease = ({
                     return (
                       <div key={contact?.id}>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                          {contact?.name}{' '}
-                          {contact?.description && `, ${contact?.description}`}
+                          {`${contact?.name}${contact?.description ? `, ${contact?.description}` : ''}`}
                         </p>
                         <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
                           {contact?.phone}
                         </p>
                         {contact?.email && (
                           <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                            <a href={`mailto:${contact?.email}`}>
-                              {contact?.email}
-                            </a>
+                            <va-link
+                              data-testid="press-email"
+                              href={`mailto:${contact?.email}`}
+                              text={contact?.email}
+                            />
                           </p>
                         )}
                       </div>
@@ -93,7 +94,10 @@ export const PressRelease = ({
                   })}
                 </section>
                 {downloads.length > 0 && (
-                  <section className="vads-u-margin-bottom--6">
+                  <section
+                    className="vads-u-margin-bottom--6"
+                    data-testid="downloads"
+                  >
                     <div className="vads-u-font-weight--bold vads-u-margin-bottom--1">
                       Download media assets
                     </div>
@@ -103,15 +107,57 @@ export const PressRelease = ({
                         if (!asset?.uri) {
                           return null
                         }
+                        let link = (
+                          <va-link
+                            data-testid="generic-file"
+                            filetype={asset.uri.split('.').pop()}
+                            href={asset.uri}
+                            download
+                            text={asset.name}
+                          />
+                        )
+                        switch (asset.type) {
+                          case 'media--document':
+                            link = (
+                              <va-link
+                                data-testid="document"
+                                filetype={asset.uri.split('.').pop()}
+                                href={asset.uri}
+                                download
+                                text={asset.name}
+                              />
+                            )
+                            break
+                          case 'media--image':
+                            link = (
+                              <va-link
+                                data-testid="image"
+                                filetype={asset.uri.split('.').pop()}
+                                href={asset.uri}
+                                download
+                                text={`Download ${asset.name}`}
+                              />
+                            )
+                            break
+                          case 'media--video':
+                            link = (
+                              <va-link
+                                data-testid="video"
+                                video
+                                href={asset.uri}
+                                text={asset.name}
+                              />
+                            )
+                            break
+                          default:
+                            break
+                        }
                         return (
                           <li
                             key={asset.id}
                             className="vads-u-margin-bottom--1"
                           >
-                            <a href={asset.uri} download>
-                              <i className="fa fa-download vads-u-padding-right--1"></i>
-                              Download {asset.name}
-                            </a>
+                            {link}
                           </li>
                         )
                       })}
@@ -120,21 +166,15 @@ export const PressRelease = ({
                 )}
 
                 <section className="vads-u-margin-bottom--6 vads-u-text-align--center">
-                  {/* ### */}
+                  ###
                 </section>
 
                 <section className="vads-u-margin-bottom--3">
                   {/* should be fieldOffice.entity.fieldPressReleaseBlurb.processed */}
                 </section>
-                <a
-                  onClick={() =>
-                    recordEvent({ event: 'nav-secondary-button-click' })
-                  }
-                  href={listing}
-                >
-                  {/*fieldListing.path.alias*/}
-                  See all news releases
-                </a>
+                <p className="vads-u-margin--0">
+                  <va-link href={listing} text="See all news releases" active />
+                </p>
               </article>
               <ContentFooter />
             </div>
