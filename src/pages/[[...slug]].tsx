@@ -151,6 +151,7 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.STAFF_PROFILE && (
             <StaffProfile {...(resource as FormattedStaffProfile)} />
+          )}
           {resource.type === RESOURCE_TYPES.STORY_LISTING && (
             <StoryListing {...(resource as FormattedStoryListing)} />
           )}
