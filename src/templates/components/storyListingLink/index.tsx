@@ -10,7 +10,7 @@ export const StoryListingLink = ({ path }: FormattedStoryListingLink) => {
             event: 'nav-secondary-button-click',
           })
         }
-        className="vads-u-display--block vads-u-margin-bottom--7"
+        class="vads-u-display--block vads-u-margin-bottom--7"
         href={path}
         text="See all stories"
         active

@@ -25,7 +25,7 @@ describe('<StoryListingLink /> Component', () => {
     expect(linkElement).toHaveAttribute('text', 'See all stories')
     expect(linkElement).toHaveAttribute('active')
     expect(linkElement).toHaveAttribute(
-      'classname',
+      'class',
       'vads-u-display--block vads-u-margin-bottom--7'
     )
   })

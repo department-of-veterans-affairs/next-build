@@ -127,19 +127,19 @@ export const SocialLinks = ({
                 size="3"
               />
               <va-link
-                className="va-js-share-link"
+                class="va-js-share-link"
                 href={`https://www.facebook.com/sharer/sharer.php?href=${path}`}
                 text="Share on Facebook"
               />
             </li>
-            <li>
+            <li className="vads-u-flex--1">
               <va-icon
                 class="va-c-social-icon vads-u-margin-right--0p5"
                 icon="x"
                 size="3"
               />
               <va-link
-                className="va-js-share-link"
+                class="va-js-share-link"
                 href={`https://twitter.com/intent/tweet?text=${title}&url=${path}`}
                 text="Share on X (formerly Twitter)"
               />
