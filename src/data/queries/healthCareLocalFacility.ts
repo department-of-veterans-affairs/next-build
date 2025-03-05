@@ -1,6 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { HealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -12,13 +11,11 @@ import {
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-  // uncomment to add referenced entity data to the response
-  // .addInclude([
-  //  'field_media',
-  //  'field_media.image',
-  //  'field_administration',
-  // ])
+  return new DrupalJsonApiParams().addInclude([
+    // 'field_media',
+    // 'field_media.image',
+    // 'field_administration',
+  ])
 }
 
 // Define the option types for the data loader.
@@ -38,6 +35,8 @@ export const data: QueryData<
     params
   )) as NodeHealthCareLocalFacility
 
+  // TODO: Check the data, don't just do a type assertion
+
   return entity
 }
 
@@ -47,5 +46,6 @@ export const formatter: QueryFormatter<
 > = (entity: NodeHealthCareLocalFacility) => {
   return {
     ...entityBaseFields(entity),
+    introText: entity.field_intro_text,
   }
 }
