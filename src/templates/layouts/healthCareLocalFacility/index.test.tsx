@@ -8,12 +8,19 @@ const mockData: FormattedHealthCareLocalFacility = {
   type: 'node--health_care_local_facility',
   published: true,
   lastUpdated: '',
+  introText: 'Test intro text',
 }
 
 describe('HealthCareLocalFacility with valid data', () => {
-  test('renders HealthCareLocalFacility component', () => {
+  test('renders HealthCareLocalFacility component with basic data', () => {
     render(<HealthCareLocalFacility {...mockData} />)
 
-    expect(screen.queryByText(/Test facility/)).toBeInTheDocument()
+    const basicDataFields: Array<keyof FormattedHealthCareLocalFacility> = [
+      'title',
+      'introText',
+    ]
+    basicDataFields.forEach((key) =>
+      expect(screen.getByText(mockData[key])).toBeInTheDocument()
+    )
   })
 })
