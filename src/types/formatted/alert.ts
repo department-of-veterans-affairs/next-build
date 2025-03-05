@@ -9,10 +9,6 @@ export type AlertBlock = {
   alertType: AlertType
   id: string
   title: string
-  // content: {
-  //   header?: string
-  //   text: string
-  // }
   content: Wysiwyg | ExpandableText
 }
 

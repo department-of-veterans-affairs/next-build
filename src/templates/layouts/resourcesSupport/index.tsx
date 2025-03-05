@@ -5,9 +5,9 @@ import { Button as FormattedButton } from '@/types/formatted/button'
 import { Paragraph } from '@/templates/components/paragraph'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { Button } from '@/templates/common/button'
-import { BenefitsHubLinks } from '@/templates/common/benefitsHubLinks'
 import { ContactInfo } from '@/templates/components/contactInfo'
 import { RateYourExperience } from '@/templates/components/rateYourExperience'
+import { RelatedLinks } from '@/templates/common/relatedLinks'
 
 const Buttons = ({
   buttons,
@@ -103,7 +103,10 @@ export const ResourcesSupport = ({
               {/* {% include "src/site/includes/related-information.drupal.liquid" with fieldRelatedInformation = fieldRelatedInformation %} */}
 
               {/* VA benefits */}
-              <BenefitsHubLinks title="VA benefits" links={benefitsHubLinks} />
+              <RelatedLinks
+                sectionTitle="VA benefits"
+                links={benefitsHubLinks}
+              />
             </div>
           </div>
         </div>

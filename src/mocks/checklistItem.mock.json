@@ -1,0 +1,52 @@
+{
+  "type": "paragraph--checklist_item",
+  "id": "ab47b094-f62d-4ea7-b936-3e9bf7bf9fed",
+  "links": {
+    "self": {
+      "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/paragraph/checklist_item/ab47b094-f62d-4ea7-b936-3e9bf7bf9fed?resourceVersion=id%3A184893"
+    }
+  },
+  "drupal_internal__id": 14253,
+  "drupal_internal__revision_id": 184893,
+  "langcode": "en",
+  "status": true,
+  "created": "2020-11-04T16:57:33+00:00",
+  "parent_id": "14255",
+  "parent_type": "paragraph",
+  "parent_field_name": "field_checklist_sections",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [],
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_checklist_items": [
+    "checklist item 1: this text field should allow 300 characters including spaces",
+    "checklist item 2",
+    "checklist item 3",
+    "checklist item 4",
+    "checklist item 5"
+  ],
+  "field_section_header": "Part 1: Before your exam",
+  "field_section_intro": "why does CMS have duplicate checklist section header required? duplicate section intro field",
+  "relationships": {
+    "paragraph_type": {
+      "data": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "c5513c2b-e633-4c76-891f-2339fbbfe50b",
+        "meta": {
+          "drupal_internal__target_id": "checklist_item"
+        }
+      },
+      "links": {
+        "related": {
+          "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/paragraph/checklist_item/ab47b094-f62d-4ea7-b936-3e9bf7bf9fed/paragraph_type?resourceVersion=id%3A184893"
+        },
+        "self": {
+          "href": "https://cms-p97uyeo6apm3pwstjzyqxw0fh0wbjsc1.demo.cms.va.gov/jsonapi/paragraph/checklist_item/ab47b094-f62d-4ea7-b936-3e9bf7bf9fed/relationships/paragraph_type?resourceVersion=id%3A184893"
+        }
+      }
+    }
+  }
+}

@@ -65,18 +65,14 @@ describe('<ResourcesSupport /> Component', () => {
     },
     benefitsHubLinks: [
       {
-        id: '1',
         title: 'Benefit 1',
-        label: 'Benefit 1 Label',
-        path: '/benefit-1',
-        teaserText: 'Benefit 1 Teaser Text',
+        uri: '/benefit-1',
+        summary: 'Benefit 1 Teaser Text',
       },
       {
-        id: '2',
         title: 'Benefit 2',
-        label: 'Benefit 2 Label',
-        path: '/benefit-2',
-        teaserText: 'Benefit 2 Teaser Text',
+        uri: '/benefit-2',
+        summary: 'Benefit 2 Teaser Text',
       },
     ],
     lastUpdated: '2024-03-22',
