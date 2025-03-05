@@ -107,7 +107,7 @@ describe('<pressRelease> with valid data', () => {
     render(<PressRelease {...data} />)
     contacts.forEach((contact) => {
       expect(
-        screen.getByText(`${contact.name} , ${contact.description}`)
+        screen.getByText(`${contact.name}, ${contact.description}`)
       ).toBeInTheDocument()
       expect(screen.getByText(contact.phone)).toBeInTheDocument()
       const emailLink = screen.getByTestId('press-email')
