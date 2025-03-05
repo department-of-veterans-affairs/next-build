@@ -32,6 +32,7 @@ exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
   "entityId": 2069,
   "entityPath": "/st-cloud-health-care/locations/st-cloud-va-mobile-clinic",
   "id": "ad959dfa-6831-4c83-8a8f-bee3c460200e",
+  "introText": null,
   "lastUpdated": "2021-06-16T13:12:21+00:00",
   "metatags": [
     {
