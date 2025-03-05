@@ -43,7 +43,7 @@ const fileManifestPath = 'generated/file-manifest.json'
 // Path to assets in a vets-website repo cloned adjacent to next-build.
 const vetsWebsiteAssetPath = '../vets-website/src/site/assets'
 
-const destinationPath = './public/generated/'
+const destinationPath = path.resolve(__dirname, '../../public/generated/')
 
 // Function that loops through to download all compiled js assets listed in a bucket's manifest.
 async function downloadFromLiveBucket(buildtype) {
@@ -83,25 +83,13 @@ async function downloadFromLiveBucket(buildtype) {
 }
 
 // Gather assets that are expected by the compiled files but not included in the bucket (because content-build would source them).
-// These are font files, icons, and other assorted images.
+// These are primarily images.
 async function moveAssetsFromVetsWebsite() {
   console.log('Moving additional assets from adjacent vets-website repo...')
 
   try {
-    fs.copySync(`${vetsWebsiteAssetPath}/fonts`, destinationPath)
-    console.log('Copied font files from vets-website.')
-
     fs.copySync(`${vetsWebsiteAssetPath}/img`, './public/img/')
     console.log('Copied image assets from vets-website.')
-
-    // Some stylesheets from vets-website expect these additional font files, but they are not included
-    // in the bucket files or in that repo's font folder. We source them directly from the node module.
-    fs.copySync(
-      './node_modules/@fortawesome/fontawesome-free/webfonts',
-      destinationPath,
-      { errorOnExist: false, force: true, dereference: true }
-    )
-    console.log('Copied fontawesome font files from node_modules package.')
   } catch (err) {
     console.error(err)
   }
@@ -140,11 +128,7 @@ async function gatherAssets() {
       const exists = fs.pathExistsSync(destinationPath)
 
       if (!exists) {
-        fs.ensureSymlinkSync(
-          localBucket,
-          path.resolve(__dirname, `../..${destinationPath}`),
-          'dir'
-        ) // 'dir' is windows only, ignored elsewhere
+        fs.ensureSymlinkSync(localBucket, destinationPath, 'dir') // 'dir' is windows only, ignored elsewhere
         console.log('Symlink created successfully!')
       } else {
         console.log('Symlink already exists.')

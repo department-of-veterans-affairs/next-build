@@ -13,16 +13,8 @@ import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
-import { Wrapper } from '@/templates/layouts/wrapper'
-import { NewsStory } from '@/templates/layouts/newsStory'
-import { PressRelease } from '@/templates/layouts/pressRelease'
-import { PressReleaseListing } from '@/templates/layouts/pressReleaseListing'
-import { StaffProfile } from '@/templates/layouts/staffProfile'
-import { StoryListing } from '@/templates/layouts/storyListing'
-import HTMLComment from '@/templates/common/util/HTMLComment'
+
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
-import { Event } from '@/templates/layouts/event'
-import { EventListing } from '@/templates/layouts/eventListing'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import {
   RESOURCE_TYPES,
@@ -34,20 +26,33 @@ import {
 } from '@/lib/drupal/staticProps'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
-import { LayoutProps } from '@/templates/layouts/wrapper'
+
+// Types
+import { Event as FormattedEvent } from '@/types/formatted/event'
+import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
-import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
-import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
-import { Event as FormattedEvent } from '@/types/formatted/event'
-import { Meta } from '@/templates/common/meta'
-import { PreviewCrumb } from '@/templates/common/preview'
 import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
-import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
 import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
+import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
+
+// Templates
+import HTMLComment from '@/templates/common/util/HTMLComment'
+import { Event } from '@/templates/layouts/event'
+import { EventListing } from '@/templates/layouts/eventListing'
+import { LayoutProps } from '@/templates/layouts/wrapper'
+import { Meta } from '@/templates/common/meta'
+import { NewsStory } from '@/templates/layouts/newsStory'
+import { PressRelease } from '@/templates/layouts/pressRelease'
+import { PressReleaseListing } from '@/templates/layouts/pressReleaseListing'
+import { PreviewCrumb } from '@/templates/common/preview'
+import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
+import { StaffProfile } from '@/templates/layouts/staffProfile'
+import { StoryListing } from '@/templates/layouts/storyListing'
 import { VetCenter } from '@/templates/layouts/vetCenter'
+import { Wrapper } from '@/templates/layouts/wrapper'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -121,34 +126,33 @@ export default function ResourcePage({
 
       <main>
         <div id="content" className="interior">
-          {resource.type === RESOURCE_TYPES.STORY_LISTING && (
-            <StoryListing {...(resource as FormattedStoryListing)} />
+          {resource.type === RESOURCE_TYPES.EVENT && (
+            <Event {...(resource as FormattedEvent)} />
+          )}
+          {resource.type === RESOURCE_TYPES.EVENT_LISTING && (
+            <EventListing {...(resource as FormattedEventListing)} />
           )}
           {resource.type === RESOURCE_TYPES.STORY && (
             <NewsStory {...(resource as FormattedNewsStory)} />
+          )}
+          {resource.type === RESOURCE_TYPES.PRESS_RELEASE && (
+            <PressRelease {...(resource as FormattedPressRelease)} />
           )}
           {resource.type === RESOURCE_TYPES.PRESS_RELEASE_LISTING && (
             <PressReleaseListing
               {...(resource as FormattedPressReleaseListing)}
             />
           )}
-          {resource.type === RESOURCE_TYPES.PRESS_RELEASE && (
-            <PressRelease {...(resource as FormattedPressRelease)} />
-          )}
           {/* {resource.type === RESOURCE_TYPES.QA && (
             <QuestionAnswer {...resource} />
           )} */}
-          {resource.type === RESOURCE_TYPES.EVENT_LISTING && (
-            <EventListing {...(resource as FormattedEventListing)} />
-          )}
-          {resource.type === RESOURCE_TYPES.EVENT && (
-            <Event {...(resource as FormattedEvent)} />
-          )}
           {resource.type === RESOURCE_TYPES.RESOURCES_SUPPORT && (
             <ResourcesSupport {...(resource as FormattedResourcesSupport)} />
           )}
           {resource.type === RESOURCE_TYPES.STAFF_PROFILE && (
             <StaffProfile {...(resource as FormattedStaffProfile)} />
+          {resource.type === RESOURCE_TYPES.STORY_LISTING && (
+            <StoryListing {...(resource as FormattedStoryListing)} />
           )}
           {resource.type === RESOURCE_TYPES.VET_CENTER && (
             <VetCenter {...(resource as FormattedVetCenter)} />
