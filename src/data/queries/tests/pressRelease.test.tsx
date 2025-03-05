@@ -43,6 +43,32 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
     expect(formattedData.administration.name).toBeNull()
     expect(formattedData.pdfVersion).toBeNull()
   })
+  test('handles missing or null contact fields correctly', () => {
+    const modifiedMockContact = {
+      ...nodePressReleaseMock,
+      field_press_release_contact: [
+        {
+          id: undefined,
+          description: undefined,
+          name: undefined,
+          email: undefined,
+          numbers: [
+            {
+              id: undefined,
+              type: undefined,
+              number: undefined,
+              ext: undefined,
+            }
+          ]
+        }
+      ],
+    }
+    const formattedData = queries.formatData(
+      RESOURCE_TYPES.PRESS_RELEASE,
+      modifiedMockContact
+    )
+    expect(formattedData.contacts.id).toBeUndefined()
+  })
 })
 
 describe('DrupalJsonApiParams configuration for pressRelease', () => {

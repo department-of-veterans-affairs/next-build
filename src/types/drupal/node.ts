@@ -284,7 +284,7 @@ export interface NodePersonProfile extends DrupalNode {
   /** Last name. */
   field_last_name: string
   /** Phone number. */
-  field_phone_number: string
+  field_telephone: ParagraphPhoneNumber[]
   /** A photo of the person. */
   field_media: DrupalMediaImage
   /** The office or facility which this person is associated with. */
