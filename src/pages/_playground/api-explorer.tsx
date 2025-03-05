@@ -116,7 +116,7 @@ export default function ApiExplorer() {
   }
 
   const handleIncludesChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const includes = e.target.value.split('\n').filter((line) => line.trim())
+    const includes = e.target.value.split('\n') //.filter((line) => line.trim())
     setQueryState((prev) => ({ ...prev, includes }))
   }
 
@@ -159,28 +159,17 @@ export default function ApiExplorer() {
   const executeQuery = async () => {
     setQueryState((prev) => ({ ...prev, loading: true, error: null }))
     try {
-      const params = new DrupalJsonApiParams()
-        .addInclude(queryState.includes)
-        .addPageLimit(queryState.pageLimit)
-
-      // Add filters to the query
-      queryState.filters.forEach((filter) => {
-        if (filter.field && filter.operator && filter.value) {
-          params.addFilter(filter.field, filter.operator, filter.value)
-        }
-      })
-
-      const queryParams = params.getQueryObject()
+      const params = {
+        resourceType: queryState.resourceType,
+        includes: queryState.includes.filter((i) => i.trim()),
+        pageLimit: queryState.pageLimit,
+        filters: queryState.filters,
+      }
 
       // Store the request info for debugging
       const debugInfo = {
         requestUrl: '/api/drupal-query',
-        requestParams: {
-          resourceType: queryState.resourceType,
-          includes: queryState.includes,
-          pageLimit: queryState.pageLimit,
-          filters: queryState.filters,
-        },
+        requestParams: params,
       }
 
       const response = await fetch('/api/drupal-query', {
@@ -188,12 +177,7 @@ export default function ApiExplorer() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          resourceType: queryState.resourceType,
-          includes: queryState.includes,
-          pageLimit: queryState.pageLimit,
-          filters: queryState.filters,
-        }),
+        body: JSON.stringify(params),
       })
 
       if (!response.ok) {
