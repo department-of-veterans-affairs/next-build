@@ -19,6 +19,7 @@ export const params: QueryParams<null> = () => {
       'media--document',
     ]),
     'field_press_release_contact',
+    'field_press_release_contact.field_telephone',
     'field_listing',
     'field_administration',
     ...getNestedIncludes('field_pdf_version', 'media--document'),
@@ -75,6 +76,7 @@ export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
         }
       })
     : []
+  // Setting phone numbers to an array even though there is only one in case multiple are added in the future.
   const formattedContacts = entity.field_press_release_contact
     ? entity.field_press_release_contact.map((contact) => {
         return {
@@ -82,7 +84,14 @@ export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
           description: contact?.field_description || null,
           name: contact?.title || null,
           email: contact?.field_email_address || null,
-          phone: contact?.field_phone_number || null,
+          numbers: [contact?.field_telephone].map((number) => {
+            return {
+              id: number?.id || null,
+              type: number?.field_phone_number_type || null,
+              number: number?.field_phone_number || null,
+              ext: number?.field_phone_extension || null,
+            }
+          }),
         }
       })
     : []

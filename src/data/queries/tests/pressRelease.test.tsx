@@ -43,6 +43,32 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
     expect(formattedData.administration.name).toBeNull()
     expect(formattedData.pdfVersion).toBeNull()
   })
+  test('handles missing or null contact fields correctly', () => {
+    const modifiedMockContact = {
+      ...nodePressReleaseMock,
+      field_press_release_contact: [
+        {
+          id: undefined,
+          description: undefined,
+          name: undefined,
+          email: undefined,
+          numbers: [
+            {
+              id: undefined,
+              type: undefined,
+              number: undefined,
+              ext: undefined,
+            }
+          ]
+        }
+      ],
+    }
+    const formattedData = queries.formatData(
+      RESOURCE_TYPES.PRESS_RELEASE,
+      modifiedMockContact
+    )
+    expect(formattedData.contacts.id).toBeUndefined()
+  })
 })
 
 describe('DrupalJsonApiParams configuration for pressRelease', () => {
@@ -50,7 +76,7 @@ describe('DrupalJsonApiParams configuration for pressRelease', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     expect(queryString).toMatch(
-      /include=field_press_release_downloads,field_press_release_downloads.image,field_press_release_downloads.field_document,field_press_release_contact,field_listing,field_administration,field_pdf_version,field_pdf_version.field_document/
+      /include=field_press_release_downloads,field_press_release_downloads.image,field_press_release_downloads.field_document,field_press_release_contact,field_press_release_contact.field_telephone,field_listing,field_administration,field_pdf_version,field_pdf_version.field_document/
     )
   })
 })
