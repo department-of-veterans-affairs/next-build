@@ -87,7 +87,7 @@ export const getFetcher = (
       //  In non-debug mode: only on final attempt
       const logFailedRequest = debug ? true : attempt === retryCount + 1
 
-      if (!response.ok) {
+      if (!response.ok && response.status !== 404) {
         if (logFailedRequest) {
           console.error(
             `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${JSON.stringify(
