@@ -1,6 +1,4 @@
-type HealthCareLocalFacilityProps = {
-  title: string
-}
+import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 
 export function HealthCareLocalFacility({
   title,
