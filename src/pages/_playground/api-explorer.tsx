@@ -116,7 +116,7 @@ export default function ApiExplorer() {
   }
 
   const handleIncludesChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const includes = e.target.value.split('\n') //.filter((line) => line.trim())
+    const includes = e.target.value.split('\n')
     setQueryState((prev) => ({ ...prev, includes }))
   }
 
