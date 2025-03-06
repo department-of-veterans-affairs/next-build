@@ -373,6 +373,9 @@
       "type": "node--person_profile",
       "id": "7ecb5154-7e2c-4c16-a171-bb3710a4dab7",
       "drupal_internal__nid": 94,
+      "drupal_internal__vid": 988884,
+      "sticky": false,
+      "default_langcode": true,
       "langcode": "en",
       "status": true,
       "title": "Sheila Tunney",
@@ -486,13 +489,7 @@
       },
       "field_complete_biography": null,
       "field_media": null,
-      "field_office": {
-        "type": "node--health_care_region_page",
-        "id": "2bddb1a7-6fb1-4503-838d-9c2fcb51c46a",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 318
-        }
-      },
+      "field_office": null,
       "field_telephone": {
         "type": "paragraph--phone_number",
         "id": "a96f65e2-5a82-4b59-b249-25c634e93108",
@@ -531,18 +528,8 @@
             "drupal_internal__target_id": "phone_number"
           }
         },
-        "relationshipNames": [
-          "paragraph_type"
-        ]
-      },
-      "relationshipNames": [
-        "node_type",
-        "field_administration",
-        "field_complete_biography",
-        "field_media",
-        "field_office",
-        "field_telephone"
-      ]
+        "relationshipNames": ["paragraph_type"]
+      }
     }
   ],
   "field_press_release_downloads": [],

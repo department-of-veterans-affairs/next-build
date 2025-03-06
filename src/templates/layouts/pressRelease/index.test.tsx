@@ -141,7 +141,7 @@ describe('<pressRelease> with valid data', () => {
       expect(
         screen.getByText(`${contact.name}, ${contact.description}`)
       ).toBeInTheDocument()
-      const emailLink = screen.getByText(contact.email)
+      const emailLink = screen.getByTestId('press-email')
       expect(emailLink).toBeInTheDocument()
       expect(emailLink).toHaveAttribute('href', `mailto:${contact.email}`)
       expect(screen.getByTestId('phone-0')).toBeInTheDocument()

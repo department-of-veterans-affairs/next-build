@@ -48,26 +48,34 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
       ...nodePressReleaseMock,
       field_press_release_contact: [
         {
+          ...nodePressReleaseMock.field_press_release_contact[0],
           id: undefined,
-          description: undefined,
-          name: undefined,
-          email: undefined,
-          numbers: [
-            {
-              id: undefined,
-              type: undefined,
-              number: undefined,
-              ext: undefined,
-            }
-          ]
-        }
+          field_description: undefined,
+          title: undefined,
+          field_email_address: undefined,
+          field_telephone: {
+            ...nodePressReleaseMock.field_press_release_contact[0]
+              .field_telephone,
+            id: undefined,
+            field_phone_number_type: undefined,
+            field_phone_number: undefined,
+            field_phone_extension: undefined,
+          },
+        },
       ],
     }
     const formattedData = queries.formatData(
       RESOURCE_TYPES.PRESS_RELEASE,
       modifiedMockContact
     )
-    expect(formattedData.contacts.id).toBeUndefined()
+    expect(formattedData.contacts[0].id).toBeNull()
+    expect(formattedData.contacts[0].description).toBeNull()
+    expect(formattedData.contacts[0].name).toBeNull()
+    expect(formattedData.contacts[0].email).toBeNull()
+    expect(formattedData.contacts[0].numbers[0].id).toBeNull()
+    expect(formattedData.contacts[0].numbers[0].type).toBeNull()
+    expect(formattedData.contacts[0].numbers[0].number).toBeNull()
+    expect(formattedData.contacts[0].numbers[0].ext).toBeNull()
   })
 })
 
