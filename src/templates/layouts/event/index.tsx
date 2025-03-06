@@ -5,7 +5,6 @@ import {
   deriveFormattedTimestamp,
   isEventInPast,
   filterPastEvents,
-  deriveVaFormattedTimestamp,
 } from '@/lib/utils/date'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { MediaImage } from '@/templates/common/mediaImage'
@@ -68,7 +67,7 @@ export const Event = ({
     setShowAllEvents((prevState) => !prevState)
   }
 
-  const formattedTimestamp = deriveVaFormattedTimestamp(mostRecentDate)
+  const formattedTimestamp = deriveFormattedTimestamp(mostRecentDate)
   const addressObj = facilityLocation?.field_address || address
   const directionsString = [
     addressObj?.address_line1,
