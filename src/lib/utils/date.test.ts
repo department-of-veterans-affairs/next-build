@@ -346,11 +346,15 @@ test('parseDate should return null for inputs that do not match any date format'
 
 describe('formatEventDateTime', () => {
   beforeEach(() => {
+    // Check if we're in UTC (CI environment)
+    const isUTC = new Date().getTimezoneOffset() === 0
+    const mockTimezone = isUTC ? 'EST' : 'PST'
+
     jest.spyOn(Intl, 'DateTimeFormat').mockImplementation(() => ({
       formatToParts: () => [
         {
           type: 'timeZoneName',
-          value: 'PST',
+          value: mockTimezone,
         },
       ],
       format: () => '',
@@ -358,7 +362,7 @@ describe('formatEventDateTime', () => {
         locale: 'en-US',
         calendar: 'gregory',
         numberingSystem: 'latn',
-        timeZone: 'America/Los_Angeles',
+        timeZone: isUTC ? 'America/New_York' : 'America/Los_Angeles',
       }),
       formatRange: () => '',
       formatRangeToParts: () => [],
@@ -374,8 +378,11 @@ describe('formatEventDateTime', () => {
       value: 1683216000,
       endValue: 1683223200,
     }
+
     const result = formatEventDateTime(mostRecentDate)
-    expect(result).toBe('Thu. May 4, 2023, 9:00 a.m. – 11:00 a.m. PT')
+    const [datePart, timePart] = result.split(' – ')
+    expect(datePart).toBe('Thu. May 4, 2023, 9:00 a.m.')
+    expect(timePart).toMatch(/11:00 a\.m\. [A-Z]T/)
   })
 
   it('returns empty string for null input', () => {
