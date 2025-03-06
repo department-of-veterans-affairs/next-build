@@ -136,9 +136,11 @@ export const StaffNewsProfile = ({
   description,
 }: PersonProfileTeaserProps): JSX.Element => {
   return (
-    <p className="vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
-      By {title}
-      {description ? `, ${description}` : null}
-    </p>
+    <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
+      <div className="vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
+        By {title}
+        {description ? `, ${description}` : null}
+      </div>
+    </div>
   )
 }

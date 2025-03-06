@@ -18,20 +18,18 @@ describe('<StoryListingLink /> Component', () => {
     jest.clearAllMocks()
   })
 
-  it('renders a va-link element with correct attributes', () => {
-    const linkElement = document.querySelector('va-link')
+  it('renders an anchor element with correct attributes', () => {
+    const linkElement = screen.getByText('See all stories')
     expect(linkElement).toBeInTheDocument()
+    expect(linkElement.tagName).toBe('A')
     expect(linkElement).toHaveAttribute('href', path)
-    expect(linkElement).toHaveAttribute('text', 'See all stories')
-    expect(linkElement).toHaveAttribute('active')
-    expect(linkElement).toHaveAttribute(
-      'class',
-      'vads-u-display--block vads-u-margin-bottom--7'
-    )
+    expect(linkElement).toHaveAttribute('id', 'news-stories-listing-link')
+    expect(linkElement).toHaveClass('vads-u-display--block')
+    expect(linkElement).toHaveClass('vads-u-margin-bottom--7')
   })
 
   it('invokes recordEvent function with correct event when clicked', () => {
-    const linkElement = document.querySelector('va-link')
+    const linkElement = screen.getByText('See all stories')
     fireEvent.click(linkElement)
     expect(recordEvent).toHaveBeenCalledTimes(1)
     expect(recordEvent).toHaveBeenCalledWith({
