@@ -73,6 +73,10 @@ export function HealthCareLocalFacility({
   )
 }
 
+/**
+ * TODO: Fix up the links by passing in the sidebar data, then add the tests for
+ * it.
+ */
 const OperatingStatusFlags = ({
   operatingStatusFacility,
 }: Pick<FormattedHealthCareLocalFacility, 'operatingStatusFacility'>) => {
