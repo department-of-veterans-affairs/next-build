@@ -9,6 +9,7 @@ const mockData: FormattedHealthCareLocalFacility = {
   published: true,
   lastUpdated: '',
   introText: 'Test intro text',
+  operatingStatusFacility: 'normal',
 }
 
 describe('HealthCareLocalFacility with valid data', () => {

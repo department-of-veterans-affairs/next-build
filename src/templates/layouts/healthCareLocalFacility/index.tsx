@@ -3,6 +3,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 export function HealthCareLocalFacility({
   title,
   introText,
+  operatingStatusFacility,
 }: FormattedHealthCareLocalFacility) {
   return (
     <div className="interior" id="content">
@@ -70,4 +71,55 @@ export function HealthCareLocalFacility({
       </main>
     </div>
   )
+}
+
+const OperatingStatusFlags = ({
+  operatingStatusFacility,
+}: Pick<FormattedHealthCareLocalFacility, 'operatingStatusFacility'>) => {
+  if (operatingStatusFacility == 'notice') {
+    return (
+      <va-alert status="info" slim visible>
+        <va-link
+          class="vads-u-font-weight--bold operating-status-link"
+          onclick="recordEvent({
+            'event': 'nav-info-box-click',
+            'infoBoxText': 'Facility notice'});"
+          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
+          text="Facility notice"
+        />
+      </va-alert>
+    )
+  }
+
+  if (operatingStatusFacility == 'limited') {
+    return (
+      <va-alert status="warning" slim visible>
+        <va-link
+          class="vads-u-font-weight--bold operating-status-link"
+          onclick="recordEvent({
+            'event': 'nav-info-box-click',
+            'infoBoxText': 'Facility limited'});"
+          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
+          text="Limited services and hours"
+        />
+      </va-alert>
+    )
+  }
+
+  if (operatingStatusFacility == 'closed') {
+    return (
+      <va-alert status="error" slim visible>
+        <va-link
+          class="vads-u-font-weight--bold operating-status-link"
+          onclick="recordEvent({
+            'event': 'nav-info-box-click',
+            'infoBoxText': 'Facility closed'});"
+          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
+          text="Facility closed"
+        />
+      </va-alert>
+    )
+  }
+
+  return null
 }

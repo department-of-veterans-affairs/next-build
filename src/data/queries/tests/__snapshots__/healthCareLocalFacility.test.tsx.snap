@@ -135,6 +135,7 @@ exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "archived",
+  "operatingStatusFacility": "closed",
   "published": false,
   "title": "St. Cloud VA Mobile Clinic",
   "type": "node--health_care_local_facility",

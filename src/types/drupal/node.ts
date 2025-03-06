@@ -127,6 +127,13 @@ export interface NodeFaqMultipleQA extends NodeAbstractResource {
   field_buttons_repeat: boolean
 }
 
+export type FacilityOperatingStatusFlags =
+  | 'normal'
+  | 'notice'
+  | 'limited'
+  | 'closed'
+  | string // TODO: Remove the catch-all; needed right now for importing JSON mock data; can remove after we implement runtime data validation
+
 export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_address: FieldAddress
   field_description: string
@@ -143,12 +150,13 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   // field_mental_health_phone: string
   field_mobile: boolean
   field_office_hours: FieldOfficeHours[]
-  field_operating_status_facility: string // TODO: Probably should turn this into a string literal union
+  field_operating_status_facility: FacilityOperatingStatusFlags
   field_operating_status_more_info: string
   field_phone_number: string
   // TODO: Uncomment this
   // field_region_page: NodeHealthCareRegionPage
 }
+
 export interface NodeVetCenter extends DrupalNode {
   field_address: FieldAddress
   field_cc_non_traditional_hours: FieldCCText
@@ -160,7 +168,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_last_saved_by_an_editor?: string
   field_office_hours: FieldOfficeHours[]
   field_official_name: string
-  field_operating_status_facility: string
+  field_operating_status_facility: FacilityOperatingStatusFlags
   field_operating_status_more_info?: string
   field_phone_number: string
   field_timezone: string
