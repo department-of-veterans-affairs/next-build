@@ -257,6 +257,36 @@ export const deriveFormattedTimestamp = (datetime) => {
   return reformatTime(formattedTime)
 }
 
+import { format } from 'date-fns'
+
+interface DateTimeRange {
+  value: number
+  endValue: number
+  timezone?: string
+}
+
+export const formatEventDateTime = (mostRecentDate: DateTimeRange | null) => {
+  if (!mostRecentDate) return ''
+
+  const startsAtUnix = mostRecentDate.value
+  const endsAtUnix = mostRecentDate.endValue
+  const formattedStartsAt = startsAtUnix
+    ? format(new Date(startsAtUnix * 1000), 'EEE. MMM d, yyyy, h:mm aaaa')
+    : ''
+  const formattedEndsAt = endsAtUnix
+    ? format(new Date(endsAtUnix * 1000), 'h:mm aaaa')
+    : ''
+  const endsAtTimezone =
+    new Intl.DateTimeFormat('en-US', {
+      timeZoneName: 'short',
+    })
+      .formatToParts(new Date())
+      .find((part) => part.type === 'timeZoneName')
+      ?.value?.replace(/S|D/i, '') || ''
+
+  return `${formattedStartsAt} – ${formattedEndsAt} ${endsAtTimezone}`
+}
+
 export const isEventInPast = (eventTime) => {
   const nowInSeconds = Math.floor(Date.now() / 1000)
   return eventTime < nowInSeconds

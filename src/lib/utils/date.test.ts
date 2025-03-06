@@ -9,6 +9,7 @@ import {
   deriveFormattedTimestamp,
   isEventInPast,
   filterPastEvents,
+  formatEventDateTime,
 } from './date'
 
 describe('isISOString', () => {
@@ -341,4 +342,43 @@ test('getDateParts should return null for falsy values', () => {
 
 test('parseDate should return null for inputs that do not match any date format', () => {
   expect(parseDate('')).toBe(null)
+})
+
+describe('formatEventDateTime', () => {
+  beforeEach(() => {
+    jest.spyOn(Intl, 'DateTimeFormat').mockImplementation(() => ({
+      formatToParts: () => [
+        {
+          type: 'timeZoneName',
+          value: 'PST',
+        },
+      ],
+      format: () => '',
+      resolvedOptions: () => ({
+        locale: 'en-US',
+        calendar: 'gregory',
+        numberingSystem: 'latn',
+        timeZone: 'America/Los_Angeles',
+      }),
+      formatRange: () => '',
+      formatRangeToParts: () => [],
+    }))
+  })
+
+  afterEach(() => {
+    jest.restoreAllMocks()
+  })
+
+  it('formats date and time with timezone', () => {
+    const mostRecentDate = {
+      value: 1683216000,
+      endValue: 1683223200,
+    }
+    const result = formatEventDateTime(mostRecentDate)
+    expect(result).toBe('Thu. May 4, 2023, 9:00 a.m. – 11:00 a.m. PT')
+  })
+
+  it('returns empty string for null input', () => {
+    expect(formatEventDateTime(null)).toBe('')
+  })
 })
