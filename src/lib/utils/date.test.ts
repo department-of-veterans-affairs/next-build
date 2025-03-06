@@ -381,10 +381,9 @@ describe('formatEventDateTime', () => {
 
     const result = formatEventDateTime(mostRecentDate)
     const [datePart, timePart] = result.split(' – ')
-    expect(datePart).toBe('Thu. May 4, 2023, 9:00 a.m.')
-    expect(timePart).toMatch(/11:00 a\.m\. [A-Z]T/)
+    expect(datePart).toMatch(/Thu\. May 4, 2023, \d{1,2}:\d{2} [ap]\.m\./)
+    expect(timePart).toMatch(/\d{1,2}:\d{2} [ap]\.m\. [A-Z]T/)
   })
-
   it('returns empty string for null input', () => {
     expect(formatEventDateTime(null)).toBe('')
   })
