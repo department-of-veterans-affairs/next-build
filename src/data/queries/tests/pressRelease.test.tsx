@@ -44,7 +44,7 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
     expect(formattedData.pdfVersion).toBeNull()
   })
   test('handles missing or null contact fields correctly', () => {
-    const modifiedMockContact = {
+    const modifiedMockContact: NodePressRelease = {
       ...nodePressReleaseMock,
       field_press_release_contact: [
         {
