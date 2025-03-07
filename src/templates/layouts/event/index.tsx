@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react'
 import {
   deriveMostRecentDate,
   formatDateObject,
-  deriveFormattedTimestamp,
   formatEventDateTime,
   isEventInPast,
   filterPastEvents,
@@ -294,7 +293,7 @@ export const Event = ({
                     className="recurring-event vads-u-margin-bottom--2"
                   >
                     <p className="vads-u-margin--0">
-                      {deriveFormattedTimestamp(dateRange)}
+                      {formatEventDateTime(dateRange)}
                     </p>
                     <va-link
                       calendar
