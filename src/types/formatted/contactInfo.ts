@@ -61,7 +61,7 @@ export type AdditionalContact = PhoneContact | EmailContact
 
 export type Phone = {
   id: string
-  type: string
+  type: 'phone' | 'tty' | 'sms' | 'fax'
   number: string
   ext: string
 }
