@@ -59,10 +59,19 @@ export type EmailContact = PublishedParagraph & {
 
 export type AdditionalContact = PhoneContact | EmailContact
 
+export type Phone = {
+  id: string
+  /**
+   * Added string to the union until we get runtime data validation
+   */
+  type: 'phone' | 'tty' | 'sms' | 'fax' | string
+  number: string
+  ext: string
+}
 export type PressContact = {
   id: string
   name: string
   description: string
-  phone: string
+  numbers: Phone[]
   email: string
 }

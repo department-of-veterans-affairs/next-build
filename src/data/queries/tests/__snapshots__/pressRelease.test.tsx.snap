@@ -34,7 +34,22 @@ exports[`node--press_release formatData output formatted data 1`] = `
       "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report",
     },
   ],
-  "contacts": [],
+  "contacts": [
+    {
+      "description": "Public Affairs Specialist",
+      "email": "sheila.tunney@va.gov",
+      "id": "7ecb5154-7e2c-4c16-a171-bb3710a4dab7",
+      "name": "Sheila Tunney",
+      "numbers": [
+        {
+          "ext": null,
+          "id": "a96f65e2-5a82-4b59-b249-25c634e93108",
+          "number": "412-360-1479",
+          "type": "phone",
+        },
+      ],
+    },
+  ],
   "downloads": [],
   "entityId": 18141,
   "entityPath": "/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report",
