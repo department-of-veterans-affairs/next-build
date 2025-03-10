@@ -85,9 +85,6 @@ const OperatingStatusFlags = ({
       <va-alert status="info" slim visible>
         <va-link
           class="vads-u-font-weight--bold operating-status-link"
-          onclick="recordEvent({
-            'event': 'nav-info-box-click',
-            'infoBoxText': 'Facility notice'});"
           href="{{ facilitySidebar.links.0.url.path }}/operating-status"
           text="Facility notice"
         />
@@ -100,9 +97,6 @@ const OperatingStatusFlags = ({
       <va-alert status="warning" slim visible>
         <va-link
           class="vads-u-font-weight--bold operating-status-link"
-          onclick="recordEvent({
-            'event': 'nav-info-box-click',
-            'infoBoxText': 'Facility limited'});"
           href="{{ facilitySidebar.links.0.url.path }}/operating-status"
           text="Limited services and hours"
         />
@@ -115,9 +109,6 @@ const OperatingStatusFlags = ({
       <va-alert status="error" slim visible>
         <va-link
           class="vads-u-font-weight--bold operating-status-link"
-          onclick="recordEvent({
-            'event': 'nav-info-box-click',
-            'infoBoxText': 'Facility closed'});"
           href="{{ facilitySidebar.links.0.url.path }}/operating-status"
           text="Facility closed"
         />
