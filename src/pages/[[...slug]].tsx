@@ -3,6 +3,7 @@
  *
  * For more information on this file, see READMEs/[[...slug]].md
  */
+/* eslint-disable no-console */
 import * as React from 'react'
 import {
   GetStaticPathsContext,
@@ -67,21 +68,21 @@ let RESOURCE_TYPES_TO_BUILD = []
 // FEATURE_NEXT_BUILD_CONTENT_ALL is checked to allow local developers to bypass flag checks.
 if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
   RESOURCE_TYPES_TO_BUILD = PAGE_RESOURCE_TYPES
-  debugger
+  console.debug()
 } else {
   // Check the env variables loaded from the CMS feature flags and env files to determine what
   // content types to build.
   for (let x = 0; x < PAGE_RESOURCE_TYPES.length; x++) {
     const typeName = PAGE_RESOURCE_TYPES[x].replace(/^node--/, '').toUpperCase()
     const flagName = `FEATURE_NEXT_BUILD_CONTENT_${typeName}`
-    debugger
+    console.debug()
     // Note 'true' as a string is correct here. Env variables are always strings.
     if (process.env[flagName] === 'true') {
-      debugger
       RESOURCE_TYPES_TO_BUILD.push(PAGE_RESOURCE_TYPES[x])
     }
   }
 }
+console.debug('RESOURCES TO BUILD: ', RESOURCE_TYPES_TO_BUILD)
 
 export const DynamicBreadcrumbs = dynamic(
   () => import('@/templates/common/breadcrumbs'),
@@ -108,7 +109,7 @@ export default function ResourcePage({
       | entityId: ${resource?.entityId || 'N/A'}
       |
     `
-  debugger
+  console.debug('RESOURCE:', resource)
   return (
     <Wrapper
       bannerData={bannerData}
@@ -188,7 +189,7 @@ export async function getStaticPaths(
       fallback: 'blocking',
     }
   }
-  debugger
+  console.debug()
   return {
     paths: (
       await Promise.all(
@@ -212,7 +213,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     } else {
       pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
     }
-    debugger
+    console.debug('CONTEXT: ', expandedContext)
     if (!pathInfo) {
       console.warn('No path info found, returning notFound')
       return {
@@ -237,7 +238,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       pathInfo,
       expandedContext
     )
-    debugger
+    console.debug('RESOURCE: ', resourceType, pathInfo, expandedContext)
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
     if (!expandedContext.preview && !resource?.published) {
