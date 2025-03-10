@@ -7,6 +7,7 @@ const teaserData = {
   published: true,
   title: 'Wilmington VAMC 2019 Annual Report',
   lastUpdated: '2021-04-12T14:27:39+00:00',
+  releaseDate: '2021-04-12T14:27:39+00:00',
   link: '/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report',
   introText: 'We invite you to come and read our 2019 Annual Report. ',
 }

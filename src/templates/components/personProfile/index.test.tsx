@@ -2,6 +2,7 @@ import { render, screen } from 'test-utils'
 import { PersonProfile } from '@/templates/components/personProfile/index'
 import { PersonProfile as FormattedPersonProfile } from '@/types/formatted/personProfile'
 import { MediaImage } from '@/types/formatted/media'
+import { StaffNewsProfile } from '@/templates/components/personProfile/index'
 
 const mediaImage: MediaImage = {
   id: '3',
@@ -153,5 +154,26 @@ describe('PersonProfile with invalid data', () => {
     render(<PersonProfile {...personProfileData} />)
 
     expect(screen.queryByText(/Download full bio/)).not.toBeInTheDocument()
+  })
+})
+
+describe('StaffNewsProfile', () => {
+  test('renders byline with title and description', () => {
+    const props = {
+      title: 'John Smith',
+      description: 'Staff Writer',
+    }
+    render(<StaffNewsProfile {...props} />)
+    expect(screen.getByText('By John Smith, Staff Writer')).toBeInTheDocument()
+    expect(screen.getByText('By John Smith, Staff Writer').tagName).toBe('P')
+  })
+
+  test('renders byline with title only when description is missing', () => {
+    const props = {
+      title: 'John Smith',
+    }
+    render(<StaffNewsProfile {...props} />)
+    expect(screen.getByText('By John Smith')).toBeInTheDocument()
+    expect(screen.getByText('By John Smith').tagName).toBe('P')
   })
 })

@@ -1,12 +1,15 @@
 # Description
 What does this PR address?
 
+## Generated description
+(Select this text, hit the Copilot button, and select "Generate".)
+
 ## Ticket
 Relates to #[TICKET_NUMBER](https://github.com/department-of-veterans-affairs/va.gov-cms/issues/TICKET_NUMBER). (or closes?)
 
 ## Developer Task
 
-```[tasklist]
+```
 - [ ] PR submitted against the `main` branch of `next-build`.
 - [ ] Link to the issue that this PR addresses (if applicable).
 - [ ] Define all changes in your PR and note any changes that could potentially be breaking changes.
@@ -42,7 +45,7 @@ This section lists items that need to be checked or updated when making changes 
 
 ## Standard Checks
 
-```[tasklist]
+```
 - [ ] Code Quality: Readabilty, Naming Conventions, Consistency, Reusability
 - [ ] Test Coverage: 80% coverage
 - [ ] Functionality: Change functions as expected with no additional bugs
