@@ -3,18 +3,18 @@ import { StoryListingLink as FormattedStoryListingLink } from '@/types/formatted
 
 export const StoryListingLink = ({ path }: FormattedStoryListingLink) => {
   return (
-    // @todo can <Link /> be used here?
-    <a
-      onClick={() =>
-        recordEvent({
-          event: 'nav-secondary-button-click',
-        })
-      }
-      className="vads-u-display--block vads-u-margin-bottom--7"
-      href={path}
-      id="news-stories-listing-link"
-    >
-      See all stories
-    </a>
+    <p>
+      <va-link
+        onClick={() =>
+          recordEvent({
+            event: 'nav-secondary-button-click',
+          })
+        }
+        class="vads-u-display--block vads-u-margin-bottom--7"
+        href={path}
+        text="See all stories"
+        active
+      />
+    </p>
   )
 }
