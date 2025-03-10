@@ -321,7 +321,7 @@ export default function ApiExplorer() {
           <label className="vads-u-display--block vads-u-margin-bottom--1">
             Filters
           </label>
-          {queryState.filters.length === 0 && (
+          {queryState.filters.length > 0 && (
             <p>
               <strong>Note:</strong> Filtering by fields on a paragraph entity
               doesn&apos;t work right now.
