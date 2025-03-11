@@ -7,11 +7,15 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  getMenu,
 } from '@/lib/drupal/query'
+import { Menu } from '@/types/drupal/menu'
+import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
+    'field_region_page',
     // 'field_media',
     // 'field_media.image',
     // 'field_administration',
@@ -24,11 +28,16 @@ export type HealthCareLocalFacilityDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+type LocalFacilityData = {
+  entity: NodeHealthCareLocalFacility
+  menu: Menu | null
+}
+
 // Implement the data loader.
 export const data: QueryData<
   HealthCareLocalFacilityDataOpts,
-  NodeHealthCareLocalFacility
-> = async (opts): Promise<NodeHealthCareLocalFacility> => {
+  LocalFacilityData
+> = async (opts) => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VAMC_FACILITY,
@@ -37,16 +46,33 @@ export const data: QueryData<
 
   // TODO: Check the data, don't just do a type assertion
 
-  return entity
+  // Fetch the menu name dynamically off of the field_office reference if available.
+  const menu = entity.field_region_page
+    ? await getMenu(
+        entity.field_region_page.field_system_menu.resourceIdObjMeta
+          .drupal_internal__target_id
+      )
+    : null
+
+  // const menu: Menu = {
+  //   items: [],
+  //   tree: [],
+  // }
+  return { entity, menu }
 }
 
 export const formatter: QueryFormatter<
-  NodeHealthCareLocalFacility,
+  LocalFacilityData,
   HealthCareLocalFacility
-> = (entity: NodeHealthCareLocalFacility) => {
+> = ({ entity, menu }) => {
+  let formattedMenu = null
+  if (menu !== null)
+    formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
+    sideNav: formattedMenu,
   }
 }
