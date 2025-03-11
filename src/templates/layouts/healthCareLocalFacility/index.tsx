@@ -1,15 +1,33 @@
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
+import { SideNavMenu } from '@/types/formatted/sideNav'
+import { useEffect } from 'react'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  sideNav?: SideNavMenu
+}
+declare const window: customWindow
 
 export function HealthCareLocalFacility({
   title,
   introText,
   operatingStatusFacility,
+  sideNav,
 }: FormattedHealthCareLocalFacility) {
+  // Populate the side nav data for the side nav widget to fill in
+  // Note: The side nav widget is in a separate app in the static-pages bundle
+  useEffect(() => {
+    // TODO: Get this data from the query & formatter
+    window.sideNav = sideNav
+  })
+
   return (
     <div className="interior" id="content">
       <main className="va-l-detail-page va-facility-page">
         <div className="usa-grid usa-grid-full">
-          <div>TODO: Sidebar nav</div>
+          {/* Nav data fille in by a separate script from `window.sideNav` */}
+          <nav aria-label="secondary" data-widget-type="side-nav" />
+
           <div className="usa-width-three-fourths">
             <article className="usa-content va-l-facility-detail">
               <div>TODO: Lovell switch link</div>
