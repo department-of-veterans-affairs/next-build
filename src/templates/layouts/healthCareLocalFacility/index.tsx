@@ -42,12 +42,12 @@ export function HealthCareLocalFacility({
                           {/* TODO: Fill this in */}
                         </script>
 
-                        <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+                        <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                           Address
                         </h3>
                         <div>TODO: Address stuff</div>
 
-                        <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+                        <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                           Phone numbers
                         </h3>
                         <div>TODO: Phone numbers</div>
