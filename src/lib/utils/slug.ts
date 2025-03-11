@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export function slugToPath(slug: string | string[]): string {
   const path = typeof slug === 'string' ? slug : slug.join('/')
   const leadingSlashPath = path.substring(0, 1) === '/' ? path : `/${path}`
@@ -5,7 +6,8 @@ export function slugToPath(slug: string | string[]): string {
 }
 
 export function pathToSlug(path: string): string[] {
-  return path.split('/').filter((segment) => segment !== '')
+  console.debug('pathToSlug:', path)
+  return path?.split('/').filter((segment) => segment !== '')
 }
 
 export function slugifyString(string, truncateLength = 100) {
