@@ -19,10 +19,13 @@ describe('HealthCareLocalFacility formatData', () => {
     windowSpy.mockImplementation(() => undefined)
 
     expect(
-      queries.formatData(
-        'node--health_care_local_facility',
-        HealthCareLocalFacilityMock
-      )
+      queries.formatData('node--health_care_local_facility', {
+        entity: HealthCareLocalFacilityMock,
+        menu: {
+          items: [],
+          tree: [],
+        },
+      })
     ).toMatchSnapshot()
   })
 })
