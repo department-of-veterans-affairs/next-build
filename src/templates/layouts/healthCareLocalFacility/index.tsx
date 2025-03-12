@@ -17,7 +17,6 @@ export function HealthCareLocalFacility({
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
   useEffect(() => {
-    // TODO: Get this data from the query & formatter
     window.sideNav = sideNav
   })
 
