@@ -6,7 +6,6 @@ export function slugToPath(slug: string | string[]): string {
 }
 
 export function pathToSlug(path: string): string[] {
-  console.debug('pathToSlug:', path)
   return path?.split('/').filter((segment) => segment !== '')
 }
 
