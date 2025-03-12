@@ -34,25 +34,23 @@ export function HealthCareLocalFacility({
             <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
               <div className="usa-width-two-thirds">
                 <div>
-                  <div className="vads-c-facility-detail">
-                    <div>TODO: Operating status flags</div>
-                    <section className="vads-facility-detail">
-                      <script type="application/ld+json">
-                        {/* TODO: Fill this in */}
-                      </script>
+                  <div>TODO: Operating status flags</div>
+                  <section>
+                    <script type="application/ld+json">
+                      {/* TODO: Fill this in */}
+                    </script>
 
-                      <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                        Address
-                      </h3>
-                      <div>TODO: Address stuff</div>
+                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                      Address
+                    </h3>
+                    <div>TODO: Address stuff</div>
 
-                      <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                        Phone numbers
-                      </h3>
-                      <div>TODO: Phone numbers</div>
-                      <div>TODO: Office hours</div>
-                    </section>
-                  </div>
+                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                      Phone numbers
+                    </h3>
+                    <div>TODO: Phone numbers</div>
+                    <div>TODO: Office hours</div>
+                  </section>
                 </div>
               </div>
               <div>TODO: Image and static map</div>
