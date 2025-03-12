@@ -80,7 +80,6 @@ if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
     }
   }
 }
-console.debug('RESOURCES TO BUILD: ', RESOURCE_TYPES_TO_BUILD)
 
 export const DynamicBreadcrumbs = dynamic(
   () => import('@/templates/common/breadcrumbs'),
@@ -99,9 +98,6 @@ export default function ResourcePage({
   headerFooterData: LayoutProps['headerFooterData']
   preview: boolean
 }) {
-  console.debug('RESOURCE_PAGE:', bannerData, headerFooterData, preview)
-  console.debug('RESOURCE:', resource)
-
   if (!resource) return null
   const comment = `
       --
@@ -183,10 +179,6 @@ export async function getStaticPaths(
   // so we set SSG=false (default) for `next dev` and set SSG=true on `next build/export`.
   // `getStaticPaths` will never be called during runtime (`next start`), but SSG will default
   // to false there as well.
-  console.debug(
-    'getStaticPaths',
-    RESOURCE_TYPES_TO_BUILD.map(getStaticPathsByResourceType)
-  )
   if (process.env.SSG === 'false') {
     return {
       paths: [],
