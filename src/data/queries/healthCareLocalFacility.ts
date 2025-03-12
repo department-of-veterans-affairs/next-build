@@ -46,7 +46,7 @@ export const data: QueryData<
 
   // TODO: Check the data, don't just do a type assertion
 
-  // Fetch the menu name dynamically off of the field_office reference if available.
+  // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = entity.field_region_page
     ? await getMenu(
         entity.field_region_page.field_system_menu.resourceIdObjMeta
