@@ -138,7 +138,22 @@ exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
   "operatingStatusFacility": "closed",
   "published": false,
   "sideNav": {
-    "data": null,
+    "data": {
+      "description": "bar",
+      "links": [
+        {
+          "description": "bar",
+          "expanded": true,
+          "label": "Foo",
+          "links": [],
+          "lovellSection": null,
+          "url": {
+            "path": "/nowhere/in-particular",
+          },
+        },
+      ],
+      "name": "Foo",
+    },
     "rootPath": "/st-cloud-health-care/locations/st-cloud-va-mobile-clinic/",
   },
   "title": "St. Cloud VA Mobile Clinic",
