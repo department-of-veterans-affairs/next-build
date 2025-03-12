@@ -61,9 +61,8 @@ export const formatter: QueryFormatter<
   LocalFacilityData,
   HealthCareLocalFacility
 > = ({ entity, menu }) => {
-  let formattedMenu = null
-  if (menu !== null)
-    formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+  const formattedMenu =
+    menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
 
   return {
     ...entityBaseFields(entity),
