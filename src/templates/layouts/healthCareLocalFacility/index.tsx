@@ -21,18 +21,18 @@ export function HealthCareLocalFacility({
               </div>
             )}
 
-            <div className="usa-grid usa-grid-full vads-u-margin-y--1p5 vads-u-margin-bottom--6">
+            <div className="usa-grid usa-grid-full vads-u-margin-bottom--6">
               <div>TODO: facilities_health_services_buttons</div>
             </div>
 
             <va-on-this-page></va-on-this-page>
 
             {/* Main content */}
-            <h2 className="vads-u-line-height--1 vads-u-margin-bottom--3">
+            <h2 className="vads-u-margin-bottom--3">
               Location and contact information
             </h2>
-            <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--2p5 vads-u-margin-bottom--4">
-              <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
+            <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
+              <div className="usa-width-two-thirds">
                 <div>
                   <div className="vads-c-facility-detail">
                     <div>TODO: Operating status flags</div>
