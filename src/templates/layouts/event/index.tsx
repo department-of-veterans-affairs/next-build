@@ -333,21 +333,23 @@ export const Event = ({
         {administration?.id != 7 &&
           listingOffice != 'Outreach and events' &&
           administration?.name && (
-            <va-link
-              class="vads-u-display--block vads-u-margin-top--2"
-              href={listing}
-              onClick={() =>
-                recordEvent({ event: 'nav-secondary-button-click' })
-              }
-              id="see-more-events"
-              text={`Browse the ${administration.name} events calendar`}
-            ></va-link>
+            <p>
+              <va-link
+                href={listing}
+                onClick={() =>
+                  recordEvent({ event: 'nav-secondary-button-click' })
+                }
+                id="see-more-events"
+                text={`Browse the ${administration.name} events calendar`}
+              ></va-link>
+            </p>
           )}
-        <va-link
-          class="vads-u-padding-bottom--3 vads-u-margin-top--2 vads-u-display--block"
-          href="/outreach-and-events/events/"
-          text="Browse the VA outreach events calendar"
-        ></va-link>
+        <p>
+          <va-link
+            href="/outreach-and-events/events/"
+            text="Browse the VA outreach events calendar"
+          ></va-link>
+        </p>
         <ContentFooter lastUpdated={lastUpdated} />
       </div>
     </div>

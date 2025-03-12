@@ -127,25 +127,36 @@ export interface NodeFaqMultipleQA extends NodeAbstractResource {
   field_buttons_repeat: boolean
 }
 
+export type FacilityOperatingStatusFlags =
+  | 'normal'
+  | 'notice'
+  | 'limited'
+  | 'closed'
+  | string // TODO: Remove the catch-all; needed right now for importing JSON mock data; can remove after we implement runtime data validation
+
 export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_address: FieldAddress
-  field_facility_classification: string
-  field_operating_status_more_info: string
-  field_facility_locator_api_id: string
-  field_local_health_care_service_: NodeHealthCareLocalHealthService[]
-  field_facility_hours: FieldTable
-  field_office_hours: FieldOfficeHours[]
-  field_media: DrupalMediaImage
-  field_location_services: ParagraphHealthCareLocalFacilityService[]
-  field_main_location: boolean
-  field_mental_health_phone: string
   field_description: string
-  field_mobile: boolean
+  field_facility_classification: string // TODO: Figure out what these number strings mean and give it a better type
+  // field_facility_hours: FieldTable
+  field_facility_locator_api_id: string
   field_intro_text: string
+  // TODO: Uncomment these
+  // field_local_health_care_service_: NodeHealthCareLocalHealthService[] //
+  // field_location_services: ParagraphHealthCareLocalFacilityService[]
+  field_main_location: boolean
+  // TODO: Uncomment the media
+  // field_media: DrupalMediaImage
+  // field_mental_health_phone: string
+  field_mobile: boolean
+  field_office_hours: FieldOfficeHours[]
+  field_operating_status_facility: FacilityOperatingStatusFlags
+  field_operating_status_more_info: string
   field_phone_number: string
-  field_operating_status_facility: string
-  field_region_page: NodeHealthCareRegionPage
+  // TODO: Uncomment this
+  // field_region_page: NodeHealthCareRegionPage
 }
+
 export interface NodeVetCenter extends DrupalNode {
   field_address: FieldAddress
   field_cc_non_traditional_hours: FieldCCText
@@ -157,7 +168,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_last_saved_by_an_editor?: string
   field_office_hours: FieldOfficeHours[]
   field_official_name: string
-  field_operating_status_facility: string
+  field_operating_status_facility: FacilityOperatingStatusFlags
   field_operating_status_more_info?: string
   field_phone_number: string
   field_timezone: string
@@ -281,7 +292,7 @@ export interface NodePersonProfile extends DrupalNode {
   /** Last name. */
   field_last_name: string
   /** Phone number. */
-  field_phone_number: string
+  field_telephone: ParagraphPhoneNumber
   /** A photo of the person. */
   field_media: DrupalMediaImage
   /** The office or facility which this person is associated with. */

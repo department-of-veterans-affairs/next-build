@@ -11,8 +11,8 @@ describe('SupportServices formatter function', () => {
       activeServiceMock as unknown as NodeSupportService
     )
     expect(formatted).toEqual({
-      title: activeServiceMock.title,
-      value: activeServiceMock.field_phone_number,
+      label: activeServiceMock.title,
+      number: activeServiceMock.field_phone_number,
       href: activeServiceMock.field_link.uri,
     })
   })
