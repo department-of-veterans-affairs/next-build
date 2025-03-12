@@ -54,10 +54,6 @@ export const data: QueryData<
       )
     : null
 
-  // const menu: Menu = {
-  //   items: [],
-  //   tree: [],
-  // }
   return { entity, menu }
 }
 
