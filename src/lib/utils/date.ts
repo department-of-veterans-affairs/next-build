@@ -259,9 +259,21 @@ export const deriveFormattedTimestamp = (datetime) => {
 
 import { format } from 'date-fns'
 
+/**
+ * Bonus points for describing this object, but the name is pretty descriptive by itself. 🤷‍♂️
+ */
 interface DateTimeRange {
+  /**
+   * Unix timestamp for the beginning of the date time range.
+   */
   value: number
+  /**
+   * Unix timestamp for the end of the date time range.
+   */
   endValue: number
+  /**
+   * ISO timezone string (e.g. 'America/Los_Angeles')
+   */
   timezone?: string
 }
 
