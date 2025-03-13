@@ -80,7 +80,7 @@ export const formatter: QueryFormatter<PersonProfileData, PersonProfile> = ({
     lastName: entity.field_last_name,
     suffix: entity.field_suffix,
     emailAddress: entity.field_email_address,
-    phoneNumber: entity.field_telephone?.field_phone_number,
+    phoneNumber: entity?.field_telephone?.field_phone_number || null,
     description: entity.field_description,
     introText: entity.field_intro_text,
     body: entity.field_body?.processed || null,
