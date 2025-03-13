@@ -1,8 +1,16 @@
 # How to migrate a page template in chunks
 
+## Goal
+
+Follow these steps to migrate a page template in manageable chunks. This will
+allow you to incrementally build and test the template, making it easier to
+develop and deploy your work.
+
 > [!NOTE] This is for _page_ templates
 > While most of these steps are probably applicable to other content types, this
 > guide is specifically for migrating entire pages.
+
+## Process
 
 Each of the following steps can be done in a separate PR:
 
