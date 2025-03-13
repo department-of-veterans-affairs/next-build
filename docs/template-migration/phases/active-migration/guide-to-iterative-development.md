@@ -14,8 +14,8 @@ develop and deploy your work.
 
 Each of the following steps can be done in a separate PR:
 
-1. Run the generator to scaffold the plumbing to fetch the content type and
-   render the page: `??`
+1. [Run the generator](../../../../READMEs/generators.md) to scaffold the
+   plumbing to fetch the content type and render the page: `yarn plop`
    - The goal here is to render a (functionally) blank page
    - It'll require you to fix up some linting and type errors
    - Don't forget to add the resource (content) type to `PAGE_RESOURCE_TYPES`
