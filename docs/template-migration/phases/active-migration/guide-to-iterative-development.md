@@ -41,6 +41,14 @@ Each of the following steps can be done in a separate PR:
 
 1. Create a component in a module sibling to the template file
 1. Write tests for the component
+1. Pull in any extra data you may need for the feature
+   - If it requires a hydrated entity:
+     1. Add the hydrated entity type to the property for the entity's static
+        type in [`src/types/drupal/node.ts`](../../../../src/types/drupal/node.ts)
+     1. Add the formatted property type to the static property in its module
+        in [`src/types/types/formatted/`](../../../../src/types/formatted/)
+     1. Add the property to its `formatter` function in
+        [`src/data/queries/`](../../../../src/data/queries/)
 1. Use it in the template
 1. Write a smoke test for it in the template (mostly to make sure that we're
    passing the correct data to it)
