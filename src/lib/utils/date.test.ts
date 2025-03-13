@@ -9,6 +9,7 @@ import {
   deriveFormattedTimestamp,
   isEventInPast,
   filterPastEvents,
+  formatEventDateTime,
 } from './date'
 
 describe('isISOString', () => {
@@ -341,4 +342,49 @@ test('getDateParts should return null for falsy values', () => {
 
 test('parseDate should return null for inputs that do not match any date format', () => {
   expect(parseDate('')).toBe(null)
+})
+
+describe('formatEventDateTime', () => {
+  beforeEach(() => {
+    // Check if we're in UTC (CI environment)
+    const isUTC = new Date().getTimezoneOffset() === 0
+    const mockTimezone = isUTC ? 'EST' : 'PST'
+
+    jest.spyOn(Intl, 'DateTimeFormat').mockImplementation(() => ({
+      formatToParts: () => [
+        {
+          type: 'timeZoneName',
+          value: mockTimezone,
+        },
+      ],
+      format: () => '',
+      resolvedOptions: () => ({
+        locale: 'en-US',
+        calendar: 'gregory',
+        numberingSystem: 'latn',
+        timeZone: isUTC ? 'America/New_York' : 'America/Los_Angeles',
+      }),
+      formatRange: () => '',
+      formatRangeToParts: () => [],
+    }))
+  })
+
+  afterEach(() => {
+    jest.restoreAllMocks()
+  })
+
+  it('formats date and time with timezone', () => {
+    const mostRecentDate = {
+      value: 1683216000,
+      endValue: 1683223200,
+    }
+
+    const result = formatEventDateTime(mostRecentDate)
+    const [datePart, timePart] = result.split(' – ')
+    expect(datePart).toMatch(/Thu\. May 4, 2023, \d{1,2}:\d{2} [ap]\.m\./)
+    expect(timePart).toMatch(/\d{1,2}:\d{2} [ap]\.m\. [A-Z]T/)
+  })
+  it('returns empty string for null input', () => {
+    expect(formatEventDateTime(null)).toBe('')
+  })
 })

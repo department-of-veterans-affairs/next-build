@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import {
   deriveMostRecentDate,
   formatDateObject,
-  deriveFormattedTimestamp,
+  formatEventDateTime,
   isEventInPast,
   filterPastEvents,
 } from '@/lib/utils/date'
@@ -67,7 +67,8 @@ export const Event = ({
     setShowAllEvents((prevState) => !prevState)
   }
 
-  const formattedTimestamp = deriveFormattedTimestamp(mostRecentDate)
+  const formattedDateTime = formatEventDateTime(mostRecentDate)
+
   const addressObj = facilityLocation?.field_address || address
   const directionsString = [
     addressObj?.address_line1,
@@ -111,7 +112,7 @@ export const Event = ({
               <strong>When:</strong>
             </p>
             <div className="vads-u-display--flex vads-u-flex-direction--column">
-              <p className="vads-u-margin--0">{formattedTimestamp}</p>
+              <p className="vads-u-margin--0">{formattedDateTime}</p>
               {formattedDates.length > 1 && (
                 <p className="vads-u-margin--0">
                   <va-icon icon="autorenew" size="3" />
@@ -292,7 +293,7 @@ export const Event = ({
                     className="recurring-event vads-u-margin-bottom--2"
                   >
                     <p className="vads-u-margin--0">
-                      {deriveFormattedTimestamp(dateRange)}
+                      {formatEventDateTime(dateRange)}
                     </p>
                     <va-link
                       calendar
