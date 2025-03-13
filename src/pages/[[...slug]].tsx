@@ -240,7 +240,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       pathInfo,
       expandedContext
     )
-    console.debug('RESOURCE: ', resourceType, pathInfo, expandedContext)
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
     if (!expandedContext.preview && !resource?.published) {
