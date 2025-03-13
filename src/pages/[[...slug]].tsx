@@ -216,7 +216,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     } else {
       pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
     }
-    console.debug('CONTEXT: ', expandedContext)
     if (!pathInfo) {
       console.warn('No path info found, returning notFound')
       return {
