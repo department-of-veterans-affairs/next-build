@@ -23,7 +23,9 @@ benefits:
   - Breaking down the work gives a clearer sense of effort required
   - Stakeholders get regular updates and can course-correct if needed
 
-> [!NOTE] This is for _page_ templates
+> [!NOTE]
+> This is for _page_ templates.
+>
 > While most of these steps are probably applicable to other content types, this
 > guide is specifically for migrating entire pages.
 
@@ -76,8 +78,8 @@ Each of the following steps can be done in a separate PR:
 1. Write a smoke test for it in the template (mostly to make sure that we're
    passing the correct data to it)
 
-> [!IMPORTANT] Pro tip
-> This component should ideally adhere to the
+> [!IMPORTANT]
+> Pro tip: This component should ideally adhere to the
 > [Law of Demeter](https://ctrlshift.dev/understanding-the-law-of-demeter-the-principle-of-least-knowledge/)
 > and [Interface Segregation Principle](https://reflectoring.io/interface-segregation-principle/)
 >
