@@ -37,8 +37,8 @@ _This is where the bulk of the work happens._
    - Something about using the `FEATURE_NEXT_BUILD_CONTENT_ALL=true` environment variable
 1. Get QA approval
 
-> [!NOTE] See also
-> [How to migrate a page template in chunks](./guide-to-iterative-development.md)
+> [!NOTE]
+> See also: [How to migrate a page template in chunks](./guide-to-iterative-development.md)
 
 ## RACI
 
