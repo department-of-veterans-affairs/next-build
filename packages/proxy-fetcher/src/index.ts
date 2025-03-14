@@ -101,7 +101,9 @@ export const getFetcher = (
             )}`
           )
         }
-        throw new Error(`Failed request to ${response.url}`)
+        throw new Error(
+          `Failed request to ${response.url}: ${response.status} ${response.statusText}`
+        )
       }
 
       // Don't retry if we shouldn't
