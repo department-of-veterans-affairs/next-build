@@ -1,7 +1,9 @@
 # Description
+
 What does this PR address?
 
 ## Generated description
+
 (Select this text, hit the Copilot button, and select "Generate".)
 
 ## Ticket
@@ -9,7 +11,7 @@ Relates to #[TICKET_NUMBER](https://github.com/department-of-veterans-affairs/va
 
 ## Developer Task
 
-```
+```md
 - [ ] PR submitted against the `main` branch of `next-build`.
 - [ ] Link to the issue that this PR addresses (if applicable).
 - [ ] Define all changes in your PR and note any changes that could potentially be breaking changes.
@@ -20,32 +22,36 @@ Relates to #[TICKET_NUMBER](https://github.com/department-of-veterans-affairs/va
 ```
 
 ## Testing Steps
+
 Explain the steps needed for testing
 
 ## QA steps
+
 What needs to be checked to prove this works?  
 What needs to be checked to prove it didn't break any related things?  
 What variations of circumstances (users, actions, values) need to be checked?
 
 ## Screenshots
+
 Before:
 After:
 
-
 ## Is this PR blocked by another PR?
+
 - Add the `DO NOT MERGE` label
 - Add links to additional PRs here:
 
+---
 
-# Reviewer
+## Reviewer
 
 ### Reviewing a PR
 
-This section lists items that need to be checked or updated when making changes to this repository. 
+This section lists items that need to be checked or updated when making changes to this repository.
 
 ## Standard Checks
 
-```
+```md
 - [ ] Code Quality: Readabilty, Naming Conventions, Consistency, Reusability
 - [ ] Test Coverage: 80% coverage
 - [ ] Functionality: Change functions as expected with no additional bugs
