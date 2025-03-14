@@ -50,4 +50,4 @@ _This is where the bulk of the work happens._
 
 **Trigger**: The template achieves 1:1 parity with production or meets an agreed-upon snapshot baseline. (Determined by QA testing.)
 
-**Next step:** [Rollout](./rollout.md)
+**Next step:** [Rollout](../rollout.md)
