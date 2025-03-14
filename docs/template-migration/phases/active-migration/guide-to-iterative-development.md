@@ -1,10 +1,27 @@
 # How to migrate a page template in chunks
 
-## Goal
+## Why Migrate Incrementally?
 
 Follow these steps to migrate a page template in manageable chunks. This will
-allow you to incrementally build and test the template, making it easier to
-develop and deploy your work.
+allow you to build the template in bite-sized pieces, giving you a range of
+benefits:
+
+- **Smaller PRs are easier to review and merge faster**
+  - Large PRs are overwhelming and take longer to review
+  - Smaller changes reduce the risk of hidden bugs slipping through
+- **Incremental changes make debugging easier**
+  - If something breaks, you only have to check the latest change, not an entire
+    rewrite
+  - This helps catch regressions early
+- **Each feature (component) is standalone**
+  - Features can be tested in isolation
+  - Components can be developed in parallel, speeding up delivery
+- **Less risk of project delays or blockers**
+  - A single large PR can get stuck waiting for approval, delaying everything
+  - Smaller PRs keep progress moving and allow for adjustments along the way
+- **A clear roadmap helps with estimation and communication**
+  - Breaking down the work gives a clearer sense of effort required
+  - Stakeholders get regular updates and can course-correct if needed
 
 > [!NOTE] This is for _page_ templates
 > While most of these steps are probably applicable to other content types, this
