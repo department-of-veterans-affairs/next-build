@@ -75,7 +75,7 @@ export const formatter: QueryFormatter<PersonProfileData, PersonProfile> = ({
     return null
   }
 
-  if (entity.path.alias === undefined) {
+  if (entity?.path?.alias === undefined) {
     console.log('Path is showing undefined. EntityId:', entity.id)
   }
 
