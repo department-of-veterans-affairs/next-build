@@ -20,7 +20,7 @@ Follow the links below to learn more about each phase:
 
 1. [Pre-Migration](./phases/pre-migration.md)
    - **Definition**: The template for a given content type either doesn’t exist in next-build or is stale.
-2. [Active Migration](./phases/active-migration.md)
+2. [Active Migration](./phases/active-migration/readme.md)
    - **Definition**: The template is under active development & testing but has not yet been deployed to production.
    - ⭐ This is where the bulk of the work happens.
 3. [Rollout](./phases/rollout.md)
