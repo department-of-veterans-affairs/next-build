@@ -20,6 +20,12 @@ Each of the following steps can be done in a separate PR:
    - It'll require you to fix up some linting and type errors
    - Don't forget to add the resource (content) type to `PAGE_RESOURCE_TYPES`
      and render it in [`ResourcePage`](../../../../src/pages/[[...slug]].tsx)
+1. Define the static types and mock data
+   - Use the API Explorer to get the data you need for the mock data
+   - Use that mock data to define the static types (ignore entity references for
+     now)
+     - The input (Drupal) type goes in [`src/types/drupal/node.ts`](../../../../src/types/drupal/node.ts)
+     - The output (formatted) type goes in [`src/types/types/formatted/`](../../../../src/types/formatted/)
 1. Scaffold the structure of the template
    - Find the template in `content-build` and copy over the tags that won't
      change (e.g. the `<div>`s, `<h1>`, etc.)
