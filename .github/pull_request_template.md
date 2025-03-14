@@ -7,7 +7,12 @@ What does this PR address?
 (Select this text, hit the Copilot button, and select "Generate".)
 
 ## Ticket
-Relates to #[TICKET_NUMBER](https://github.com/department-of-veterans-affairs/va.gov-cms/issues/TICKET_NUMBER). (or closes?)
+
+<!--
+https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue
+-->
+
+Closes _link to ticket_
 
 ## Developer Task
 
