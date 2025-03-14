@@ -45,118 +45,11 @@
     "postal_code": "56303-2015"
   },
   "field_administration": {
-    "breadcrumbs": [
-      {
-        "options": [],
-        "title": "Home",
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/"
-      },
-      {
-        "options": [],
-        "title": "VHA",
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha"
-      },
-      {
-        "options": [],
-        "title": "VAMC facilities",
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities"
-      },
-      {
-        "options": [],
-        "title": "VISN 23",
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-23"
-      },
-      {
-        "options": [],
-        "title": "VA St Cloud health care",
-        "uri": "internal:#"
-      }
-    ],
-    "changed": "2024-08-13T20:05:29+00:00",
-    "content_translation_created": null,
-    "content_translation_outdated": false,
-    "content_translation_source": "und",
-    "content_translation_uid": null,
-    "default_langcode": true,
-    "description": null,
-    "drupal_internal__revision_id": 2450,
-    "drupal_internal__tid": 246,
-    "field_description": null,
-    "field_product": {
-      "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 284
-      },
-      "type": "taxonomy_term--products"
-    },
     "id": "0d497d78-bdbe-4639-bf06-66ce8bf5d5e5",
-    "langcode": "en",
-    "links": {
-      "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/0d497d78-bdbe-4639-bf06-66ce8bf5d5e5?resourceVersion=id%3A2450"
-      }
-    },
-    "metatag": [
-      {
-        "attributes": {
-          "content": "VA St Cloud health care | VA.gov CMS",
-          "name": "title"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-st-cloud-health-care",
-          "rel": "canonical"
-        },
-        "tag": "link"
-      }
-    ],
-    "moderation_state": null,
-    "name": "VA St Cloud health care",
-    "parent": [
-      {
-        "id": "90a05bcb-9f80-42a1-aad1-b955a7a80f9b",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 179
-        },
-        "type": "taxonomy_term--administration"
-      }
-    ],
-    "path": {
-      "alias": "/section/vha/vamc-facilities/va-st-cloud-health-care",
-      "langcode": "en",
-      "pid": 7971
-    },
-    "relationshipNames": [
-      "vid",
-      "revision_user",
-      "parent",
-      "content_translation_uid",
-      "field_product"
-    ],
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 246
     },
-    "revision_created": "2024-08-13T20:05:29+00:00",
-    "revision_translation_affected": true,
-    "revision_user": {
-      "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 4942
-      },
-      "type": "user--user"
-    },
-    "status": true,
-    "type": "taxonomy_term--administration",
-    "vid": {
-      "id": "645055c5-e567-4683-b6db-459ce04522ce",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": "administration"
-      },
-      "type": "taxonomy_vocabulary--taxonomy_vocabulary"
-    },
-    "weight": 7
+    "type": "taxonomy_term--administration"
   },
   "field_description": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
   "field_facility_classification": "6",
@@ -198,11 +91,494 @@
   "field_operating_status_more_info": null,
   "field_phone_number": "320-252-1670 x6370",
   "field_region_page": {
+    "breadcrumbs": [
+      {
+        "options": [],
+        "title": "Home",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/"
+      },
+      {
+        "options": [],
+        "title": "VA St Cloud health care",
+        "uri": "internal:#"
+      }
+    ],
+    "changed": "2024-07-30T18:55:17+00:00",
+    "content_translation_outdated": false,
+    "content_translation_source": "und",
+    "created": "2020-10-07T04:18:45+00:00",
+    "default_langcode": true,
+    "drupal_internal__nid": 8137,
+    "drupal_internal__vid": 907373,
+    "expiration_date": null,
+    "field_administration": {
+      "id": "0d497d78-bdbe-4639-bf06-66ce8bf5d5e5",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 246
+      },
+      "type": "taxonomy_term--administration"
+    },
+    "field_appointments_online": false,
+    "field_clinical_health_services": [
+      {
+        "id": "130ab6b0-9149-4385-8424-013692034430",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10975
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "cf7056a2-42dc-48b5-9963-2397c3f6433a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10976
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "233c79a2-564d-4223-8959-9be69638e372",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10977
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "2bddbffc-3af7-4d88-a4ec-534aebccd70a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10978
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "631f786d-23a4-42a9-9172-67f8b85e3a9e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10979
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "83d82ff4-b817-49ec-974b-b55571db8022",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10980
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "c7b05a2c-794c-483e-8b18-913042ee7721",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10981
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "9be607dd-b487-4a6b-872c-13c201e51b6c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10982
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "2c54be69-b4bd-49d1-af76-8dced0377af9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10983
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "41a4b4fa-0757-4ed5-8f5a-4677fe1198b1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10984
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "03ce2990-f930-4190-ba2d-e696f4d5ec5f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10985
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "b28f3aa0-96a5-4002-9a97-f8111f3b62a2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10986
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "024bd70c-ad32-4977-acdf-77e1a570f53a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10987
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "625cdfd4-82bc-4aee-83a1-f9fffbb5ab87",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10988
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "2690e9d8-fe70-4dd4-820d-309cb8a7e08b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10989
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "febf925d-5b47-4b94-9a7f-d4e914846677",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10990
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "9d8104dd-0569-45b4-bbd0-c47ce918934e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10991
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "20a1c12e-88fd-47d6-9638-81a32c668066",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10992
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "1a6dfd1b-0610-411d-baaa-e3b1a5900ee6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10993
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "44d4e7ca-0551-4007-bfea-ca0ac113c699",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10994
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "317a2bb3-c6c4-427e-b9d3-48d73b84d8ea",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10995
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "50302d1e-d0a0-4144-b31a-e687c7bea55d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10996
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "0cef0401-5140-41fe-97a6-8b2b3bd5f222",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10997
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "396f9830-dd06-4b29-9937-77ce49d89b89",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10998
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "dec99941-6587-4939-ac06-d25c7d8390f2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10999
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "28268d6f-687d-4a6e-bbbd-88e327e0f57e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11000
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "d9b16945-69c0-489d-bd93-24d3fe7614b8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11001
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "5e6aeaf4-8287-453f-8ef2-ecb367898ea5",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11002
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "7a477d37-9743-465d-a2a0-3b40ca7bdb6a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11003
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "058b2208-f13d-42c5-86c3-56367f108b6b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11004
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "a4923789-27f0-4714-9839-ae8cc3b379a5",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11005
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "1f2b5464-7a60-4ffa-b101-b72434057654",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11006
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "0a0b4f5f-cb5f-449a-b713-2fc91b56a85b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11007
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "8d8d9756-de9e-49a2-af39-bc2fd2b8b3e2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 11008
+        },
+        "type": "node--regional_health_care_service_des"
+      },
+      {
+        "id": "e737a15e-cb32-4cb3-b37f-9b6ed792e5c0",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 15297
+        },
+        "type": "node--regional_health_care_service_des"
+      }
+    ],
+    "field_description": "VA the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.",
+    "field_facebook": {
+      "options": {
+        "data-entity-substitution": "",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "href": "https://www.facebook.com/StCloudVAHCS"
+      },
+      "title": "VA St Cloud Health Care System Facebook page",
+      "uri": "https://www.facebook.com/StCloudVAHCS",
+      "url": "https://www.facebook.com/StCloudVAHCS"
+    },
+    "field_flickr": null,
+    "field_govdelivery_id_emerg": "USVHA_502",
+    "field_govdelivery_id_news": "USVHA_143",
+    "field_instagram": null,
+    "field_intro_text": "At the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.\r\n",
+    "field_last_saved_by_an_editor": "2024-07-30T18:55:19+00:00",
+    "field_media": {
+      "id": "85445a1c-7e51-4171-81a6-7d2776582f63",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1465
+      },
+      "type": "media--image"
+    },
+    "field_meta_tags": null,
+    "field_operating_status": {
+      "options": {
+        "data-entity-substitution": "canonical",
+        "data-entity-type": "node",
+        "data-entity-uuid": "ea4c2ea6-93cc-4c3e-bbe9-962644353c54",
+        "href": "entity:node/8138"
+      },
+      "title": "Operating status - VA St Cloud health care",
+      "uri": "entity:node/8138",
+      "url": "/st-cloud-health-care/operating-status"
+    },
+    "field_other_va_locations": ["vc_0429V", "vc_0416V", "nca_894", "vba_335"],
+    "field_related_links": {
+      "id": "ac331ca3-c996-49ac-a7da-333c4c791bc1",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 13123,
+        "target_revision_id": 1419713
+      },
+      "type": "paragraph--list_of_link_teasers"
+    },
+    "field_system_menu": {
+      "id": "8f16ba4f-6deb-48c6-9cf7-5c0c86d80cdc",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "va-st-cloud-health-care"
+      },
+      "type": "menu--menu"
+    },
+    "field_twitter": null,
+    "field_va_health_connect_phone": "833-983-0492",
+    "field_vamc_ehr_system": "vista",
+    "field_vamc_system_official_name": "St. Cloud VA Health Care System",
+    "field_youtube": null,
     "id": "492b1051-b341-436a-be3e-023ee51ea5b7",
+    "langcode": "en",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/492b1051-b341-436a-be3e-023ee51ea5b7?resourceVersion=id%3A907373"
+      }
+    },
+    "metatag": [
+      {
+        "attributes": {
+          "content": "VA St Cloud health care | Veterans Affairs",
+          "name": "title"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "VA the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.",
+          "name": "description"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+          "rel": "image_src"
+        },
+        "tag": "link"
+      },
+      {
+        "attributes": {
+          "content": "Veterans Affairs",
+          "property": "og:site_name"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "VA St Cloud health care | Veterans Affairs",
+          "property": "og:title"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "VA the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.",
+          "property": "og:description"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/StCloud_480x330.jpg",
+          "property": "og:image"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "St. Cloud Veterans Administration Medical Center",
+          "property": "og:image:alt"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "summary_large_image",
+          "name": "twitter:card"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "VA the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.",
+          "name": "twitter:description"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "@DeptVetAffairs",
+          "name": "twitter:site"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "VA St Cloud health care | Veterans Affairs",
+          "name": "twitter:title"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/StCloud_480x330.jpg",
+          "name": "twitter:image"
+        },
+        "tag": "meta"
+      },
+      {
+        "attributes": {
+          "content": "St. Cloud Veterans Administration Medical Center",
+          "name": "twitter:image:alt"
+        },
+        "tag": "meta"
+      }
+    ],
+    "moderation_state": "published",
+    "node_type": {
+      "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "health_care_region_page"
+      },
+      "type": "node_type--node_type"
+    },
+    "path": {
+      "alias": "/st-cloud-health-care",
+      "langcode": "en",
+      "pid": 9650
+    },
+    "promote": false,
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_clinical_health_services",
+      "field_media",
+      "field_related_links",
+      "field_system_menu"
+    ],
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 8137
     },
-    "type": "node--health_care_region_page"
+    "revision_timestamp": "2024-07-30T18:55:17+00:00",
+    "revision_translation_affected": true,
+    "revision_uid": {
+      "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4942
+      },
+      "type": "user--user"
+    },
+    "status": true,
+    "sticky": false,
+    "title": "VA St Cloud health care",
+    "type": "node--health_care_region_page",
+    "uid": {
+      "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1270
+      },
+      "type": "user--user"
+    },
+    "warning_date": null
   },
   "field_supplemental_status": null,
   "field_supplemental_status_more_i": null,
