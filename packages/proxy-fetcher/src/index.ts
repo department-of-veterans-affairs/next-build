@@ -87,7 +87,7 @@ export const getFetcher = (
       //  In non-debug mode: only on final attempt
       const logFailedRequest = debug ? true : attempt === retryCount + 1
 
-      if (!response.ok && response.status !== 404) {
+      if (!response.ok) {
         if (logFailedRequest) {
           console.error(
             `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${JSON.stringify(
@@ -101,8 +101,15 @@ export const getFetcher = (
             )}`
           )
         }
-        throw new Error('Failed request')
+        throw new Error(`Failed request to ${response.url}`)
       }
+
+      // Don't retry if we shouldn't
+      if ([404, 403].includes(response.status)) {
+        const { AbortError } = await import('p-retry')
+        throw new AbortError(response.statusText)
+      }
+
       return response
     }
 
