@@ -3,6 +3,7 @@
  *
  * For more information on this file, see READMEs/[[...slug]].md
  */
+/* eslint-disable no-console */
 import * as React from 'react'
 import {
   GetStaticPathsContext,
@@ -13,6 +14,7 @@ import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
+
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import {
@@ -33,6 +35,7 @@ import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
 import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
+import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
@@ -48,6 +51,7 @@ import { PressRelease } from '@/templates/layouts/pressRelease'
 import { PressReleaseListing } from '@/templates/layouts/pressReleaseListing'
 import { PreviewCrumb } from '@/templates/common/preview'
 import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
+import { StaffProfile } from '@/templates/layouts/staffProfile'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 import { Wrapper } from '@/templates/layouts/wrapper'
@@ -105,7 +109,6 @@ export default function ResourcePage({
       | entityId: ${resource?.entityId || 'N/A'}
       |
     `
-
   return (
     <Wrapper
       bannerData={bannerData}
@@ -149,6 +152,9 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.RESOURCES_SUPPORT && (
             <ResourcesSupport {...(resource as FormattedResourcesSupport)} />
           )}
+          {resource.type === RESOURCE_TYPES.STAFF_PROFILE && (
+            <StaffProfile {...(resource as FormattedStaffProfile)} />
+          )}
           {resource.type === RESOURCE_TYPES.STORY_LISTING && (
             <StoryListing {...(resource as FormattedStoryListing)} />
           )}
@@ -187,7 +193,6 @@ export async function getStaticPaths(
       fallback: 'blocking',
     }
   }
-
   return {
     paths: (
       await Promise.all(
@@ -211,7 +216,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     } else {
       pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
     }
-
     if (!pathInfo) {
       console.warn('No path info found, returning notFound')
       return {
@@ -236,7 +240,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       pathInfo,
       expandedContext
     )
-
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
     if (!expandedContext.preview && !resource?.published) {
