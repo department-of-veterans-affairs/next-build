@@ -27,6 +27,7 @@ import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
 
 // Types
+import { Checklist as FormattedChecklist } from '@/types/formatted/checklist'
 import { Event as FormattedEvent } from '@/types/formatted/event'
 import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
@@ -39,6 +40,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
+import { Checklist } from '@/templates/layouts/checklist'
 import { Event } from '@/templates/layouts/event'
 import { EventListing } from '@/templates/layouts/eventListing'
 import { LayoutProps } from '@/templates/layouts/wrapper'
@@ -126,6 +128,9 @@ export default function ResourcePage({
 
       <main>
         <div id="content" className="interior">
+          {resource.type === RESOURCE_TYPES.CHECKLIST && (
+            <Checklist {...(resource as FormattedChecklist)} />
+          )}
           {resource.type === RESOURCE_TYPES.EVENT && (
             <Event {...(resource as FormattedEvent)} />
           )}
