@@ -77,6 +77,9 @@ export const Event = ({
     .filter(Boolean)
     .join(', ')
 
+    console.log('directionsString: ', directionsString);
+    console.log('locationHumanReadable: ', locationHumanReadable);
+
   let eventCTAText = null
 
   if (eventCTA) {

@@ -3,6 +3,7 @@ export const RESOURCE_TYPES = {
   EVENT: 'node--event',
   EVENT_LISTING: 'node--event_listing',
   HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
+  LEADERSHIP_LISTING: 'node--leadership_listing',
   PERSON_PROFILE: 'node--person_profile',
   PRESS_RELEASE: 'node--press_release',
   PRESS_RELEASE_LISTING: 'node--press_releases_listing',
@@ -23,6 +24,7 @@ export const RESOURCE_TYPES = {
 export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.EVENT,
   RESOURCE_TYPES.EVENT_LISTING,
+  RESOURCE_TYPES.LEADERSHIP_LISTING,
   RESOURCE_TYPES.RESOURCES_SUPPORT,
   RESOURCE_TYPES.PRESS_RELEASE,
   RESOURCE_TYPES.PRESS_RELEASE_LISTING,

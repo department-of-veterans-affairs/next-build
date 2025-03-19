@@ -29,6 +29,7 @@ import { FormattedPageResource } from '@/data/queries'
 // Types
 import { Event as FormattedEvent } from '@/types/formatted/event'
 import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
+import { LeadershipListing as FormattedLeadershipListing } from '@/types/formatted/leadershipListing'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
@@ -42,6 +43,7 @@ import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/templates/layouts/event'
 import { EventListing } from '@/templates/layouts/eventListing'
 import { LayoutProps } from '@/templates/layouts/wrapper'
+import { LeadershipListing } from '@/templates/layouts/leadershipListing'
 import { Meta } from '@/templates/common/meta'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { PressRelease } from '@/templates/layouts/pressRelease'
@@ -131,6 +133,9 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.EVENT_LISTING && (
             <EventListing {...(resource as FormattedEventListing)} />
+          )}
+          {resource.type === RESOURCE_TYPES.LEADERSHIP_LISTING && (
+            <LeadershipListing {...(resource as FormattedLeadershipListing)} />
           )}
           {resource.type === RESOURCE_TYPES.STORY && (
             <NewsStory {...(resource as FormattedNewsStory)} />
