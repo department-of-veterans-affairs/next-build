@@ -87,7 +87,8 @@ export const Example: Story = {
         link: null,
       },
     ],
-    introText: 'Test introText',
+    introText:
+      'We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as depression, post traumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST).',
     officeHours: [
       { day: 0, starthours: null, endhours: null, comment: 'Closed' },
       { day: 1, starthours: 800, endhours: 1630, comment: '' },
@@ -97,7 +98,7 @@ export const Example: Story = {
       { day: 5, starthours: 800, endhours: 1630, comment: '' },
       { day: 6, starthours: null, endhours: null, comment: 'Closed' },
     ],
-    officialName: 'Test Name',
+    officialName: 'Clarksville Vet Center Outstation',
     phoneNumber: '123-456-7890',
     healthServices: [
       {
@@ -205,7 +206,7 @@ export const Example: Story = {
       height: 350,
     },
     prepareForVisit: null,
-    title: 'Test title',
+    title: 'Clarksville Vet Center Outstation',
     fieldFacilityLocatorApiId: 'Test API ID',
     path: 'Test title',
   },
