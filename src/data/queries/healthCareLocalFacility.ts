@@ -11,6 +11,7 @@ import {
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
@@ -31,6 +32,7 @@ export type HealthCareLocalFacilityDataOpts = {
 type LocalFacilityData = {
   entity: NodeHealthCareLocalFacility
   menu: Menu | null
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
@@ -54,15 +56,19 @@ export const data: QueryData<
       )
     : null
 
-  return { entity, menu }
+  return { entity, menu, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<
   LocalFacilityData,
   HealthCareLocalFacility
-> = ({ entity, menu }) => {
-  const formattedMenu =
+> = ({ entity, menu, lovell }) => {
+  let formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
+
+  if (lovell?.isLovellVariantPage) {
+    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell?.variant)
+  }
 
   return {
     ...entityBaseFields(entity),
