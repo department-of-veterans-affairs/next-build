@@ -23,7 +23,8 @@ describe('<LovellSwitcher> Component', () => {
     const currentVariant = 'va' as LovellChildVariant
 
     const { container } = render(
-      /* @ts-expect-error Missing switchPath for testing purposes */
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      /* @ts-ignore Missing switchPath for testing purposes */
       <LovellSwitcher currentVariant={currentVariant} />
     )
     expect(container.firstChild).toBeNull()
@@ -31,7 +32,8 @@ describe('<LovellSwitcher> Component', () => {
 
   it('does not render without a currentVariant', () => {
     const switchPath = '/switch/to/va'
-    /* @ts-expect-error Missing currentVariant for testing purposes */
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore Missing currentVariant for testing purposes
     const { container } = render(<LovellSwitcher switchPath={switchPath} />)
     expect(container.firstChild).toBeNull()
   })

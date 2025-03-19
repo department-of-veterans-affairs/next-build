@@ -111,10 +111,17 @@ export interface ParagraphFeaturedContent extends DrupalParagraph {
   field_cta?: ParagraphButton
 }
 
+export interface CCFeaturedContentCTAButton {
+  target_id: string
+  label: 'VAMC System - "VA Police" page content \u003E Content \u003E Call to Action'
+  field_button_label: Array<{ value: string }>
+  field_button_link: Array<FieldLink>
+}
 export interface ParagraphCCFeaturedContent {
+  target_id: string
   fetched: {
     // This normalizes the centralized content field_cta field to allow formatting
-    field_cta: Omit<ParagraphButton, 'drupal_internal__id' | 'id'>[]
+    field_cta: CCFeaturedContentCTAButton[]
     field_description: FieldFormattedText[]
     field_section_header: Array<{ value: string }>
   }

@@ -39,6 +39,7 @@ import {
   ParagraphCCFeaturedContent,
   ParagraphCCVetCenterFaqs,
   ParagraphFeaturedContent,
+  ParagraphQaSection,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -67,6 +68,7 @@ export type NodeTypes =
   | NodeEvent
   | NodeEventListing
   | NodeVetCenter
+  | NodeVamcSystemVaPolice
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -178,6 +180,17 @@ export interface NodeVetCenter extends DrupalNode {
   field_prepare_for_visit: ParagraphAccordion[]
   field_vet_center_feature_content: ParagraphFeaturedContent[]
   field_facility_locator_api_id: string
+}
+
+export interface NodeVamcSystemVaPolice extends DrupalNode {
+  title: string
+  field_office: NodeHealthCareRegionPage
+  field_phone_numbers_paragraph: ParagraphPhoneNumber[]
+  field_cc_faq: ParagraphQaSection
+  field_cc_police_report: ParagraphCCFeaturedContent
+  // field_cc_term_definitions: SpanishTranslation ??
+  field_cc_va_police_overview: ParagraphRichTextCharLimit1000
+  field_administration: FieldAdministration
 }
 
 export interface NodeHealthCareLocalHealthService extends DrupalNode {

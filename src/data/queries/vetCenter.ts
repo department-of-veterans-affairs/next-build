@@ -17,6 +17,7 @@ import { FeaturedContent } from '@/types/formatted/featuredContent'
 import { Button } from '@/types/formatted/button'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { buildFormattedFaqs } from './buildFormattedFaqs'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -110,32 +111,6 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     )
     return formattedFeaturedContentArray
   }
-  // Similarly, this formats centralized content FAQs to match what our QA components are expecting
-  const buildFaqs = (faqs) => {
-    const buildQuestionArray = (questions) => {
-      if (!questions) return []
-      return questions.map((question) => ({
-        id: question.target_id || null,
-        question: question.field_question[0]?.value || null,
-        answers: [
-          {
-            html: question.field_answer[0]?.field_wysiwyg[0]?.value || null,
-          },
-        ],
-        header: question.label || null,
-      }))
-    }
-
-    return {
-      type: PARAGRAPH_RESOURCE_TYPES.QA_SECTION as FormattedQaSection['type'],
-      id: faqs.target_id,
-      header: faqs.fetched.field_section_header[0]?.value || null,
-      intro: faqs.fetched.field_section_intro[0]?.value || null,
-      displayAccordion:
-        Boolean(faqs.fetched.field_accordion_display[0]?.value) || false,
-      questions: buildQuestionArray(faqs.fetched.field_questions),
-    }
-  }
 
   return {
     ...entityBaseFields(entity),
@@ -152,7 +127,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
         .processed,
       id: entity.id || null,
     },
-    ccVetCenterFaqs: buildFaqs(entity.field_cc_vet_center_faqs),
+    ccVetCenterFaqs: buildFormattedFaqs(entity.field_cc_vet_center_faqs),
     featuredContent: buildFeaturedContentArray(
       entity.field_cc_vet_center_featured_con,
       entity.field_vet_center_feature_content

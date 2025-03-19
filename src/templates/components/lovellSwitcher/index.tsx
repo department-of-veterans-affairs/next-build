@@ -3,8 +3,8 @@ import { getOppositeChildVariant } from '@/lib/drupal/lovell/utils'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 type LovellSwitcherProps = {
-  currentVariant: LovellChildVariant
-  switchPath: string
+  currentVariant?: LovellChildVariant
+  switchPath?: string
 }
 
 export function LovellSwitcher({
@@ -12,7 +12,7 @@ export function LovellSwitcher({
   switchPath,
 }: LovellSwitcherProps) {
   if (!switchPath || !currentVariant) {
-    return <></>
+    return null
   }
 
   const switchVariant = getOppositeChildVariant(currentVariant)

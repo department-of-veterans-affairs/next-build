@@ -14,6 +14,7 @@ declare module '@department-of-veterans-affairs/component-library/PromoBanner'
 declare module '@department-of-veterans-affairs/component-library/Table'
 declare module '@department-of-veterans-affairs/component-library/TextArea'
 declare module '@department-of-veterans-affairs/component-library/TextInput'
+declare module '@department-of-veterans-affairs/component-library/VaSummaryBox'
 declare module '@testing-library/react'
 declare module 'debug'
 declare module 'mq-polyfill'
@@ -33,5 +34,6 @@ declare namespace JSX {
     'va-link-action'
     'va-on-this-page'
     'va-telephone'
+    'va-summary-box'
   }
 }

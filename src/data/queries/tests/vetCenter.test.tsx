@@ -6,6 +6,9 @@ import { NodeVetCenter } from '@/types/drupal/node'
 import { formatter } from '../vetCenter' // Adjust the import path as necessary
 import { mockResponse } from '@/mocks/vetCenter.mock'
 
+// For some reason it is pulling the VA Police value as the requriement of the string in the label
+// for Featured Content CTAs
+// @ts-expect-error -- see above statement - something about the mocks pulling in static data
 const VetCenterMock: NodeVetCenter = mockResponse
 
 describe('VetCenter formatter function', () => {
