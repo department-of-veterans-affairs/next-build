@@ -257,10 +257,11 @@ export const deriveFormattedTimestamp = (datetime) => {
   return reformatTime(formattedTime)
 }
 
-import { format } from 'date-fns'
-
+import { formatInTimeZone } from 'date-fns-tz'
 /**
- * Bonus points for describing this object, but the name is pretty descriptive by itself. 🤷‍♂️
+ * Represents a time range for events or appointments using Unix timestamps.
+ * Includes optional timezone support for display.
+ * All timestamps are in seconds since Unix epoch.
  */
 interface DateTimeRange {
   /**
@@ -277,24 +278,71 @@ interface DateTimeRange {
   timezone?: string
 }
 
+/**
+ * Gets abbreviated timezone, removing seasonal indicators (S/D).
+ *
+ * @example
+ * getTimeZoneAbbreviation('America/New_York') // 'ET'
+ *
+ * @param timeZone - IANA timezone string
+ * @returns Abbreviated timezone or 'UTC' if invalid
+ */
+const getTimeZoneAbbreviation = (timeZone: string): string => {
+  try {
+    const date = new Date()
+    return (
+      new Intl.DateTimeFormat('en-US', { timeZone, timeZoneName: 'short' })
+        .formatToParts(date)
+        .find((part) => part.type === 'timeZoneName')
+        ?.value.replace(/S|D/i, '') || timeZone
+    )
+  } catch (error) {
+    console.warn(`Invalid timezone: ${timeZone}, falling back to UTC`)
+    return 'UTC'
+  }
+}
+
+/**
+ * Formats date range according to VA.gov standards
+ * and if international displays event timezone
+ * US: "Thu. May 4, 2023, 12:00 pm – 2:00 pm ET"
+ * @see https://design.va.gov/content-style-guide/dates-and-times
+ * @param mostRecentDate - Event time range with optional timezone
+ * @returns Formatted date string or error message if invalid
+ */
 export const formatEventDateTime = (mostRecentDate: DateTimeRange | null) => {
-  if (!mostRecentDate) return ''
+  if (!mostRecentDate) return 'No event data'
 
   const startsAtUnix = mostRecentDate.value
   const endsAtUnix = mostRecentDate.endValue
-  const formattedStartsAt = startsAtUnix
-    ? format(new Date(startsAtUnix * 1000), 'EEE. MMM d, yyyy, h:mm aaaa')
-    : ''
-  const formattedEndsAt = endsAtUnix
-    ? format(new Date(endsAtUnix * 1000), 'h:mm aaaa')
-    : ''
-  const endsAtTimezone =
-    new Intl.DateTimeFormat('en-US', {
-      timeZoneName: 'short',
-    })
-      .formatToParts(new Date())
-      .find((part) => part.type === 'timeZoneName')
-      ?.value?.replace(/S|D/i, '') || ''
+
+  // Determine display timezone based on user location
+  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  const isUserInUS = userTimeZone.startsWith('America/')
+  const eventTimeZone = mostRecentDate.timezone || 'UTC'
+  const targetTimeZone = isUserInUS ? userTimeZone : eventTimeZone
+
+  // Format start and end times in target timezone
+  const formattedStartsAt =
+    startsAtUnix && startsAtUnix > 0
+      ? formatInTimeZone(
+          new Date(startsAtUnix * 1000),
+          targetTimeZone,
+          'EEE. MMM d, yyyy, h:mm aaaa'
+        )
+      : 'Invalid date'
+
+  const formattedEndsAt =
+    endsAtUnix && endsAtUnix > 0
+      ? formatInTimeZone(
+          new Date(endsAtUnix * 1000),
+          targetTimeZone,
+          'h:mm aaaa'
+        )
+      : 'Invalid date'
+
+  //timezone abbreviation for the displayed time
+  const endsAtTimezone = getTimeZoneAbbreviation(targetTimeZone)
 
   return `${formattedStartsAt} – ${formattedEndsAt} ${endsAtTimezone}`
 }
