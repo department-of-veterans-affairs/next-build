@@ -14,7 +14,6 @@ function createMarkup(html): Html {
 
 export function WysiwygField({ className, html }: FormattedWysiwygField) {
   if (!isValidData(html)) return
-
   return (
     <div
       className={className}

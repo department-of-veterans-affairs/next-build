@@ -941,6 +941,11 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "published",
+  "path": {
+    "alias": "/lovell-federal-health-care-va/va-police",
+    "langcode": "en",
+    "pid": 93898,
+  },
   "published": true,
   "title": "VA police",
   "type": "node--vamc_system_va_police",

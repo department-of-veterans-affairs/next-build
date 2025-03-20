@@ -46,6 +46,7 @@ export const formatter: QueryFormatter<
   FormattedVamcSystemVaPolice
 > = (entity: NodeVamcSystemVaPolice) => {
   const {
+    path,
     title,
     field_cc_faq,
     field_cc_police_report,
@@ -55,6 +56,7 @@ export const formatter: QueryFormatter<
   } = entity
   return {
     ...entityBaseFields(entity),
+    path,
     title,
     field_cc_faq: buildFormattedFaqs(field_cc_faq),
     field_cc_police_report: processFeaturedContent(field_cc_police_report),

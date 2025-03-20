@@ -1,11 +1,9 @@
-import { Paragraph } from '@/templates/components/paragraph'
 import { WysiwygField } from '@/templates/components/wysiwyg'
-import { FeaturedContent } from '@/templates/components/featuredContent'
-import VamcSystemFacilityPage from '@/templates/components/vamcFacilityPage'
+import { CCFeaturedContent } from '@/templates/components/ccFeaturedContent'
+import { VamcSystemFacilityPage } from '@/templates/components/vamcFacilityPage'
 import { FormattedVamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
 import { VaPoliceContactInfo } from './vaPoliceContactInfo'
 import { QaSection } from '@/templates/components/qaSection'
-import { useEffect, useState } from 'react'
 
 export function VamcSystemVaPolice({
   title,
@@ -14,14 +12,18 @@ export function VamcSystemVaPolice({
   field_cc_va_police_overview,
   field_office,
   field_phone_numbers_paragraph,
-  lastUpdated,
+  path,
+  entityPath,
 }: FormattedVamcSystemVaPolice) {
   return (
-    <VamcSystemFacilityPage includeFeedbackButton lastUpdated={lastUpdated}>
+    <VamcSystemFacilityPage
+      includeFeedbackButton
+      path={entityPath || path?.alias || window.location.pathname}
+    >
       <h1>{title}</h1>
       <WysiwygField
         className="va-introtext vads-u-font-size--lg vads-u-font-family--serif"
-        html={field_cc_va_police_overview.html}
+        {...field_cc_va_police_overview}
       />
       <va-on-this-page></va-on-this-page>
       <VaPoliceContactInfo
@@ -29,19 +31,12 @@ export function VamcSystemVaPolice({
         phoneNumber={field_phone_numbers_paragraph}
         fieldOffice={field_office}
       />
-      <FeaturedContent
+      <CCFeaturedContent
         featuredContent={field_cc_police_report}
         headlineClassName="vads-u-font-size--h3"
         className="vads-u-margin-bottom--4"
       />
-      <QaSection
-        header={field_cc_faq.header}
-        intro={field_cc_faq.intro}
-        type={field_cc_faq.type}
-        questions={field_cc_faq.questions}
-        displayAccordion
-        id={field_cc_faq.id}
-      />
+      <QaSection {...field_cc_faq} />
     </VamcSystemFacilityPage>
   )
 }

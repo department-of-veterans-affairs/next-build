@@ -6,6 +6,7 @@ import type { WysiwygField as FormattedWysiwyg } from './wysiwyg'
 import type { PhoneNumber as FormattedPhoneNumber } from './phoneNumber'
 
 export type FormattedVamcSystemVaPolice = PublishedEntity & {
+  path?: { alias: string }
   title: string
   field_cc_faq: FormattedCCQASection
   field_cc_police_report: FeaturedContent

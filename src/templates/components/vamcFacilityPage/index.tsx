@@ -1,13 +1,15 @@
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '../lovellSwitcher'
 import { AboveFooterContent } from '../aboveFooterContent'
+import { ContentFooter } from '@/templates/common/contentFooter'
 
-export default function VamcSystemFacilityPage({
+export function VamcSystemFacilityPage({
   children,
   currentVariant,
   includeFeedbackButton,
   lastUpdated,
   switchPath,
+  path,
 }: {
   children: React.ReactNode
   includeFeedbackButton?: boolean
@@ -15,6 +17,7 @@ export default function VamcSystemFacilityPage({
   // Include the LovellSwitcher component if both have values
   currentVariant?: LovellChildVariant
   switchPath?: string
+  path?: string
 }) {
   return (
     <>
@@ -29,8 +32,8 @@ export default function VamcSystemFacilityPage({
             {children}
             <va-back-to-top></va-back-to-top>
             <AboveFooterContent
-              lastUpdated={lastUpdated}
               includeFeedbackButton={includeFeedbackButton}
+              path={path}
             />
           </article>
         </div>
