@@ -22,7 +22,7 @@ Closes _link to ticket_
 - [ ] Define all changes in your PR and note any changes that could potentially be breaking changes.
 - [ ] PR includes steps to test your changes and links to these changes in the Tugboat preview (if applicable).
 - [ ] Provided before and after screenshots of your changes (if applicable).
-- [ ] Alerted the #accelerated-publishing Slack channel to request a PR review.
+- [ ] Alerted the #next-build Slack channel to request a PR review.
 - [ ] You understand that once approved, you are responsible for merging your changes into `main`. (Note that changes to `main` will move automatically into production.)
 ```
 
@@ -32,8 +32,8 @@ Explain the steps needed for testing
 
 ## QA steps
 
-What needs to be checked to prove this works?  
-What needs to be checked to prove it didn't break any related things?  
+What needs to be checked to prove this works?
+What needs to be checked to prove it didn't break any related things?
 What variations of circumstances (users, actions, values) need to be checked?
 
 ## Screenshots
