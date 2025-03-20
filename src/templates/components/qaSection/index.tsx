@@ -11,9 +11,16 @@ export function QaSection({
   displayAccordion,
 }: FormattedQaSection | FormattedQaGroup) {
   const setHeaderh3 = header ? true : false
+  // Prepare id for use by va-on-this-page component to identify the QaSection
+  const headerId = header
+    ? header
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+    : ''
   return (
     <div data-template="paragraphs/q_a_section">
-      {header && <h2>{header}</h2>}
+      {header && <h2 id={headerId}>{header}</h2>}
       {intro && <p>{intro}</p>}
       {displayAccordion ? (
         <QaCollapsiblePanel questions={questions} />

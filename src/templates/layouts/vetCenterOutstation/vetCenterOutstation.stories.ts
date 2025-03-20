@@ -34,7 +34,7 @@ export const Example: Story = {
     ccVetCenterFaqs: {
       type: 'paragraph--q_a_section',
       id: '5f582f12-b72f-4a35-a9df-411485c8e446',
-      header: 'How we’re different than a clinic',
+      header: 'How Vet Centers are different than a medical clinic',
       intro: 'Click on a topic for more details.',
       displayAccordion: true,
       questions: [
@@ -78,14 +78,6 @@ export const Example: Story = {
           label: 'View the new locations here!',
         },
       },
-      {
-        id: '2',
-        type: 'paragraph--featured_content',
-        title: 'Group Session Available Virtual and In Person',
-        description:
-          '<p><strong>Vietnam Era Group -&nbsp;</strong>Tues 1-3pm</p>\n<p><strong>Vietnam Era Group - </strong>Wed 1-3pm</p>\n<p><strong>African American Vietnam Group at the Heinz VAMC </strong>1st, 2nd, 4th Thurs 4:30-6:30 pm</p>\n<p><strong>Strength at Home Couples Group&nbsp;</strong>Wed 9-11am</p>\n<p><strong>OIF/OEF Group-</strong>&nbsp;2nd &amp; 4th Mon 6-7:30pm</p>\n<p>&nbsp;</p>\n',
-        link: null,
-      },
     ],
     introText:
       'We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as depression, post traumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST).',
@@ -98,7 +90,7 @@ export const Example: Story = {
       { day: 5, starthours: 800, endhours: 1630, comment: '' },
       { day: 6, starthours: null, endhours: null, comment: 'Closed' },
     ],
-    officialName: 'Clarksville Vet Center Outstation',
+    officialName: 'Clarksville Vet Center',
     phoneNumber: '123-456-7890',
     healthServices: [
       {
