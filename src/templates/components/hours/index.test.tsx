@@ -40,11 +40,11 @@ describe('Hours Component', () => {
     expect(screen.getByText('Clinical hours')).toBeInTheDocument()
   })
 
-  it('renders "nonTraditionalHours" status correctly', () => {
+  it('renders "nonTraditional" status correctly', () => {
     render(
       <Hours
         allHours={[{ day: 2, starthours: 900, endhours: 1500, comment: '' }]}
-        headerType="nonTraditionalHours"
+        headerType="nonTraditional"
       />
     )
     expect(screen.getByText('Hours')).toBeInTheDocument()
