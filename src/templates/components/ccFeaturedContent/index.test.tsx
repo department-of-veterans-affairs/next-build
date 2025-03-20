@@ -42,44 +42,6 @@ describe('FeaturedContent with valid data', () => {
       'vads-u-margin-bottom--3'
     )
   })
-  it('should render the <CCFeaturedContent> with a className on the headline', () => {
-    render(
-      <CCFeaturedContent
-        featuredContent={featuredContentData}
-        headlineClassName="vads-u-margin-bottom--3"
-      />
-    )
-    expect(screen.getByText('description')).toBeInTheDocument()
-    expect(screen.getByTestId('123')).toBeInTheDocument()
-    expect(
-      screen.getByTestId(`featured-content-${baseId}-headline`)
-    ).toBeTruthy()
-    // should be on headline
-    expect(screen.getByTestId(`featured-content-${baseId}`)).not.toHaveClass(
-      'vads-u-margin-bottom--3'
-    )
-    expect(
-      screen.getByTestId(`featured-content-${baseId}-headline`)
-    ).toHaveClass('vads-u-margin-bottom--3')
-  })
-  it('should render the <CCFeaturedContent> with a className on the body', () => {
-    render(
-      <CCFeaturedContent
-        featuredContent={featuredContentData}
-        bodyClassName="vads-u-margin-bottom--3"
-      />
-    )
-    expect(screen.getByText('description')).toBeInTheDocument()
-    expect(screen.getByTestId('123')).toBeInTheDocument()
-    expect(screen.getByTestId(`featured-content-${baseId}-body`)).toBeTruthy()
-    // should be on body
-    expect(screen.getByTestId(`featured-content-${baseId}`)).not.toHaveClass(
-      'vads-u-margin-bottom--3'
-    )
-    expect(screen.getByTestId(`featured-content-${baseId}-body`)).toHaveClass(
-      'vads-u-margin-bottom--3'
-    )
-  })
   it('should not render the link if there is no link data', () => {
     delete featuredContentData.link
     render(<CCFeaturedContent featuredContent={featuredContentData} />)

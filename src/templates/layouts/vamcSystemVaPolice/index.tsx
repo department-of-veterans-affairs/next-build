@@ -31,11 +31,7 @@ export function VamcSystemVaPolice({
         phoneNumber={field_phone_numbers_paragraph}
         fieldOffice={field_office}
       />
-      <CCFeaturedContent
-        featuredContent={field_cc_police_report}
-        headlineClassName="vads-u-font-size--h3"
-        className="vads-u-margin-bottom--4"
-      />
+      <CCFeaturedContent featuredContent={field_cc_police_report} />
       <QaSection {...field_cc_faq} />
     </VamcSystemFacilityPage>
   )
