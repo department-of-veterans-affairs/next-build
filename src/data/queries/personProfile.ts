@@ -55,16 +55,21 @@ export const data: QueryData<PersonProfileDataOpts, PersonProfileData> = async (
     )
   }
 
+  if (entity?.field_complete_biography_create) {
+    return null
+  }
+
   return {
     entity,
     menu,
   }
 }
 
-export const formatter: QueryFormatter<PersonProfileData, PersonProfile> = ({
-  entity,
-  menu,
-}) => {
+export const formatter: QueryFormatter<PersonProfileData, PersonProfile> = (
+  options
+) => {
+  const entity = options?.entity
+  const menu = options?.menu
   let formattedMenu = null
   if (menu !== null)
     formattedMenu = entity?.path
@@ -73,10 +78,6 @@ export const formatter: QueryFormatter<PersonProfileData, PersonProfile> = ({
 
   if (!entity) {
     return null
-  }
-
-  if (entity?.path?.alias === undefined) {
-    console.log('Path is showing undefined. EntityId:', entity.id)
   }
 
   return {
