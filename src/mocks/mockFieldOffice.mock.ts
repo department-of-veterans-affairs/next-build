@@ -1,4 +1,4 @@
-export default {
+const mock = {
   type: 'node--health_care_region_page',
   id: 'f28a3879-e4b2-46ef-b260-6f5902b393ea',
   drupal_internal__nid: 49451,
@@ -741,3 +741,4 @@ export default {
     'field_system_menu',
   ],
 }
+export default mock
