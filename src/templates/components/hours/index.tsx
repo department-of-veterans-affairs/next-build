@@ -2,7 +2,12 @@ import { FieldOfficeHours } from '@/types/drupal/field_type'
 
 type HoursProps = {
   allHours: FieldOfficeHours[]
-  headerType: 'small' | 'standard' | 'clinical' | 'office'
+  headerType:
+    | 'small'
+    | 'standard'
+    | 'clinical'
+    | 'office'
+    | 'nonTraditionalHours'
 }
 
 export const Hours = ({ allHours, headerType }: HoursProps) => {
@@ -34,6 +39,7 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
           </h3>
         )
       case 'standard':
+      case 'nonTraditionalHours':
         return (
           <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
             Hours
@@ -62,6 +68,15 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
     }
   }
 
+  const renderNonTraditionalHours = () => {
+    return (
+      <p>
+        We also have non-traditional hours that change periodically given our
+        community’s needs. Please call us to find out more.
+      </p>
+    )
+  }
+
   return (
     <div className="vads-u-margin-bottom--0" data-template="hours">
       <div className="clinicalhours">
@@ -74,7 +89,9 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
               const DayTag = headerType === 'clinical' ? 'strong' : 'span'
               return (
                 <li key={index}>
-                  <DayTag className="abbrv-day">{dayNames[dayIndex]}.</DayTag>{' '}
+                  <DayTag className="abbrv-day vads-u-font-weight--bold">
+                    {dayNames[dayIndex]}:
+                  </DayTag>{' '}
                   {hoursItem.starthours === null
                     ? 'Closed'
                     : `${formatHours(hoursItem.starthours)} to ${formatHours(
@@ -85,6 +102,7 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
             })}
           </ul>
         </div>
+        {headerType === 'nonTraditionalHours' && renderNonTraditionalHours()}
       </div>
     </div>
   )
