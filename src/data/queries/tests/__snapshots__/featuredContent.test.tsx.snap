@@ -6,7 +6,13 @@ exports[`FeaturedContent formatData outputs formatted data 1`] = `
 ",
   "entityId": 68851,
   "id": "2020d016-0867-494f-b137-b3923c9c8b3a",
-  "link": null,
+  "link": {
+    "entityId": 68850,
+    "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+    "label": "View 2-minute video on YouTube",
+    "type": "paragraph--button",
+    "url": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
+  },
   "title": "2-minute Video: Vet Center Services",
   "type": "paragraph--featured_content",
 }

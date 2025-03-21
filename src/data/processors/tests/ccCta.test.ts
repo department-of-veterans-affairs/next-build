@@ -46,7 +46,7 @@ describe('ccCta', () => {
 
     expect(() => ccCta(invalidCta)).toThrow(FormattingError)
     expect(() => ccCta(invalidCta)).toThrow(
-      'cta:link or label missing: should only be used on a Cta'
+      'cta:link or label missing: should only be used on a CC CTA'
     )
   })
 
@@ -56,7 +56,7 @@ describe('ccCta', () => {
 
     expect(() => ccCta(invalidCta)).toThrow(FormattingError)
     expect(() => ccCta(invalidCta)).toThrow(
-      'cta:link or label missing: should only be used on a Cta'
+      'cta:link or label missing: should only be used on a CC CTA'
     )
   })
   it('should return the correct URL when the button link is a url.path', () => {

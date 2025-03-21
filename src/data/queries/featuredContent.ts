@@ -24,13 +24,8 @@ export const formatter: QueryFormatter<
     entityId: entity.drupal_internal__id || null,
     title: entity.field_section_header,
     description: entity.field_description.processed || null,
-    // cc CTAs are arrays of non-paragraph types, so we need to format them differently
-    link:
-      (entity.field_cta as ParagraphButton)?.type === 'paragraph_button'
-        ? queries.formatData(
-            'paragraph--button',
-            entity.field_cta as unknown as ParagraphButton
-          )
-        : ccCta(entity.field_cta as unknown as CCFieldCta[]),
+    link: entity.field_cta
+      ? queries.formatData('paragraph--button', entity.field_cta)
+      : null,
   }
 }

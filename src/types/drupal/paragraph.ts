@@ -112,7 +112,7 @@ export interface ParagraphExpandableText extends DrupalParagraph {
 export interface ParagraphFeaturedContent extends DrupalParagraph {
   field_section_header: string
   field_description: FieldFormattedText
-  field_cta?: ParagraphButton | CCFieldCta[]
+  field_cta?: ParagraphButton
 }
 
 export type CCFieldCta = {

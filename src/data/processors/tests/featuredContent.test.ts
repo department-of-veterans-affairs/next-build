@@ -157,7 +157,7 @@ describe('processFeaturedContent', () => {
       FormattingError
     )
     expect(() => processFeaturedContent(invalidFeaturedContent)).toThrow(
-      'cta:link or label missing: should only be used on a Cta'
+      'cta:link or label missing: should only be used on a CC CTA'
     )
   })
 })

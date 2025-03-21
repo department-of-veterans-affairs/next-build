@@ -12,7 +12,7 @@ export const ccCta = (cta?: CCFieldCta[]): FormattedCta => {
     !ccItem?.field_button_label?.length
   ) {
     throw new FormattingError(
-      'cta:link or label missing: should only be used on a Cta '
+      'cta:link or label missing: should only be used on a CC CTA'
     )
   }
   return {
