@@ -7,7 +7,7 @@ export function processCcTermExpander(
 ): FormatetedTextExpander {
   if (
     !field_cc_term_definitions?.fetched ||
-    !field_cc_term_definitions.fetched.field_text_expander
+    !field_cc_term_definitions.fetched.field_text_expander?.length
   ) {
     throw new FormattingError('CC Term Expander is missing fetched values')
   }

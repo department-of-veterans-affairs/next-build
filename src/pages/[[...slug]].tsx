@@ -162,11 +162,6 @@ export default function ResourcePage({
               {...(resource as FormattedHealthCareLocalFacility)}
             />
           )}
-          {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE && (
-            <VamcSystemVaPolice
-              {...(resource as FormattedVamcSystemVaPolice)}
-            />
-          )}
         </div>
       </main>
 

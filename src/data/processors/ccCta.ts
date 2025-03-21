@@ -18,6 +18,8 @@ export const ccCta = (cta?: CCFieldCta[]): FormattedCta => {
   return {
     id: ccItem.target_id, // or pid?
     label: ccItem.field_button_label[0].value,
-    url: ccItem.field_button_link[0].uri,
+    url:
+      ccItem.field_button_link[0]?.url?.path ||
+      ccItem.field_button_link[0]?.uri,
   }
 }
