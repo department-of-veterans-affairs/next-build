@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import { VamcSystemVaPolice } from './index'
-import mockFormattedQaSection from '@/mocks/mockFormattedFAQ.mock'
+import mockFormattedQaSection from '@/mocks/formattedFAQ.mock'
 
 const meta: Meta<typeof VamcSystemVaPolice> = {
   title: 'Uncategorized/VamcSystemVaPolice',

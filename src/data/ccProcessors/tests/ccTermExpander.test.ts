@@ -1,7 +1,6 @@
+import type { CCTextExpander } from '@/types/drupal/paragraph'
 import { processCcTermExpander } from '../ccTermExpander'
 import { FormattingError } from '../../errors/formatting'
-import type { CCTextExpander } from '@/types/drupal/paragraph'
-import type { FieldFormattedText } from '@/types/drupal/field_type'
 
 describe('processCcTermExpander', () => {
   const mockValidTermExpander: CCTextExpander = {

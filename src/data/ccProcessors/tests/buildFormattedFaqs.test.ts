@@ -1,8 +1,7 @@
-import { CCQASection } from '@/types/drupal/paragraph'
 import { cloneDeep } from 'lodash'
-import { buildFormattedFaqs } from '../ccBuildFormattedFaqs'
+import { CCQASection } from '@/types/drupal/paragraph'
 import mock from '@/mocks/vamcSystemVaPolice.mock.json'
-import { FormattingError } from '@/data/errors/formatting'
+import { buildFormattedFaqs } from '../ccBuildFormattedFaqs'
 
 let mockCCQA: CCQASection
 

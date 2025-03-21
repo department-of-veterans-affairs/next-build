@@ -1,12 +1,11 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VamcSystemVaPolice } from './index'
-import mockFormattedFAQ from '@/mocks/mockFormattedFAQ.mock'
-import mockPhoneNumber from '@/mocks/mockPhoneNumber.mock'
-import mockFieldOffice from '@/mocks/mockFieldOffice.mock'
-import mockFeaturedContent from '@/mocks/mockFeaturedContent.mock'
-import mockWysiwyg from '@/mocks/mockWysiwyg.mock'
-import textExpander from '@/mocks/mockTextExpander.mock'
+import mockFormattedFAQ from '@/mocks/formattedFAQ.mock'
+import mockPhoneNumber from '@/mocks/phoneNumber.mock'
+import mockFeaturedContent from '@/mocks/formattedFeaturedContent.mock'
+import mockWysiwyg from '@/mocks/wysiwyg.mock'
+import textExpander from '@/mocks/textExpander.mock'
 
 describe('VamcSystemVaPolice with valid data', () => {
   test('renders VamcSystemVaPolice component', () => {
@@ -18,7 +17,7 @@ describe('VamcSystemVaPolice with valid data', () => {
         field_cc_term_definitions={textExpander}
         field_cc_term_definitions_nation={textExpander}
         field_phone_numbers_paragraph={mockPhoneNumber}
-        field_office={mockFieldOffice}
+        field_office={'Lovell Federal health care - VA'}
         field_cc_police_report={mockFeaturedContent}
         field_cc_va_police_overview={mockWysiwyg}
         id={'abc'}

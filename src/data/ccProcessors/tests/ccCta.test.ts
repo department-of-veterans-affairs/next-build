@@ -1,7 +1,7 @@
-import { ccCta } from '../ccCta'
-import { FormattingError } from '../../errors/formatting'
-import type { CCFieldCta } from '@/types/drupal/paragraph'
 import { cloneDeep } from 'lodash'
+import type { CCFieldCta } from '@/types/drupal/paragraph'
+import { FormattingError } from '../../errors/formatting'
+import { ccCta } from '../ccCta'
 
 describe('ccCta', () => {
   let mockValidCta: CCFieldCta

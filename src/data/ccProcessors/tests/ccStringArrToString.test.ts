@@ -1,6 +1,6 @@
+import type { CCString } from '@/types/drupal/field_type'
 import { ccStringArrToString } from '../ccStringArrToString'
 import { FormattingError } from '../../errors/formatting'
-import type { CCString } from '@/types/drupal/field_type'
 
 describe('ccStringArrToString', () => {
   it('should process valid string array correctly', () => {

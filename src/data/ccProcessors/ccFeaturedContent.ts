@@ -1,7 +1,7 @@
 import type { FeaturedContent } from '@/types/formatted/featuredContent'
-import { ccCta } from './ccCta'
 import { ParagraphCCFeaturedContent } from '@/types/drupal/paragraph'
 import { ccStringArrToString } from './ccStringArrToString'
+import { ccCta } from './ccCta'
 
 export const processFeaturedContent = (
   featuredContent: ParagraphCCFeaturedContent

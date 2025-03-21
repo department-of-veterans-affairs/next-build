@@ -1,7 +1,6 @@
 import { processFeaturedContent } from '../ccFeaturedContent'
 import { FormattingError } from '../../errors/formatting'
 import type { ParagraphCCFeaturedContent } from '@/types/drupal/paragraph'
-import type { CCString, FieldFormattedText } from '@/types/drupal/field_type'
 
 describe('processFeaturedContent', () => {
   const mockValidFeaturedContent: ParagraphCCFeaturedContent = {
