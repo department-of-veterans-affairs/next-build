@@ -36,7 +36,11 @@ export const Example: Story = {
     field_phone_numbers_paragraph: {
       number: '123-456-7890',
       label: 'Phone number',
-      num_type: 'tel',
+      phoneType: 'tel',
+      id: 'prl',
+      type: 'paragraph--phone_number',
+      extension: '120',
+      entityId: 0,
     },
     field_cc_faq: mockFormattedQaSection,
     field_cc_term_definitions: {

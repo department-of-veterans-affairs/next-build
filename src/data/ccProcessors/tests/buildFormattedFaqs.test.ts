@@ -1,6 +1,6 @@
 import { CCQASection } from '@/types/drupal/paragraph'
 import { cloneDeep } from 'lodash'
-import { buildFormattedFaqs } from '../buildFormattedFaqs'
+import { buildFormattedFaqs } from '../ccBuildFormattedFaqs'
 import mock from '@/mocks/vamcSystemVaPolice.mock.json'
 import { FormattingError } from '@/data/errors/formatting'
 

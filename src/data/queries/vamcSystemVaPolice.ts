@@ -8,11 +8,11 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
-import { buildFormattedFaqs } from '../processors/buildFormattedFaqs'
-import { processFeaturedContent } from '../processors/featuredContent'
-import { processPhoneNumber } from '../processors/phoneNumber'
-import { processWysiwyg } from '../processors/wysiwyg'
-import { processCcTermExpander } from '../processors/ccTermExpander'
+import { buildFormattedFaqs } from '../ccProcessors/ccBuildFormattedFaqs'
+import { processFeaturedContent } from '../ccProcessors/ccFeaturedContent'
+import { processWysiwyg } from '../ccProcessors/ccWysiwyg'
+import { processCcTermExpander } from '../ccProcessors/ccTermExpander'
+import { queries } from '.'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -69,7 +69,8 @@ export const formatter: QueryFormatter<
     field_cc_term_definitions_nation: processCcTermExpander(
       field_cc_term_definitions_nation
     ),
-    field_phone_numbers_paragraph: processPhoneNumber(
+    field_phone_numbers_paragraph: queries.formatData(
+      'paragraph--phone_number',
       field_phone_numbers_paragraph[0]
     ),
   }

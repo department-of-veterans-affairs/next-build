@@ -7,7 +7,7 @@ import {
 } from '@/types/drupal/paragraph'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
 import { queries } from '.'
-import { ccCta } from '../processors/ccCta'
+import { ccCta } from '../ccProcessors/ccCta'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude(['field_cta'])

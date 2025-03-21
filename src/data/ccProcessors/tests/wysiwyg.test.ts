@@ -1,4 +1,4 @@
-import { processWysiwyg } from '../wysiwyg'
+import { processWysiwyg } from '../ccWysiwyg'
 import { FormattingError } from '../../errors/formatting'
 import type { FieldFormattedText } from '@/types/drupal/field_type'
 import { cloneDeep } from 'lodash'

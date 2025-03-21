@@ -7,14 +7,15 @@ export function processWysiwyg({
 }: {
   field_wysiwyg: FieldFormattedText | FieldFormattedText[]
 }): WysiwygField {
-  if (!field_wysiwyg || !field_wysiwyg) {
+  if (!field_wysiwyg) {
     throw new FormattingError('missing wysiwyg field')
   }
 
-  const { value } =
-    typeof field_wysiwyg?.[0]?.value === 'string'
-      ? (field_wysiwyg[0] as FieldFormattedText)
-      : (field_wysiwyg as FieldFormattedText)
+  const isArray = Array.isArray(field_wysiwyg) && field_wysiwyg.length > 0
+
+  const { value } = isArray
+    ? (field_wysiwyg[0] as FieldFormattedText)
+    : (field_wysiwyg as FieldFormattedText)
 
   return {
     html: value,
