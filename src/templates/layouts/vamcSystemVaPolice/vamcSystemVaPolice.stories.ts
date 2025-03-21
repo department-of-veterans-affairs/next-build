@@ -4,7 +4,7 @@ import { VamcSystemVaPolice } from './index'
 import mockFormattedQaSection from '@/mocks/formattedFAQ.mock'
 
 const meta: Meta<typeof VamcSystemVaPolice> = {
-  title: 'Uncategorized/VamcSystemVaPolice',
+  title: 'Layouts/VamcSystemVaPolice',
   component: VamcSystemVaPolice,
 }
 export default meta
