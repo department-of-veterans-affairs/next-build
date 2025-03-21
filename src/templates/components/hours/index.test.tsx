@@ -3,6 +3,9 @@ import '@testing-library/jest-dom'
 import { Hours } from './'
 
 describe('Hours Component', () => {
+  const nonTraditionalWarning =
+    'We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.'
+
   it('renders null when allHours is empty', () => {
     const { container } = render(<Hours allHours={[]} headerType="standard" />)
     expect(container).toBeEmptyDOMElement()
@@ -16,6 +19,7 @@ describe('Hours Component', () => {
       />
     )
     expect(screen.getByText('Hours')).toBeInTheDocument()
+    expect(screen.queryByText(nonTraditionalWarning)).not.toBeInTheDocument()
   })
 
   it('formats and displays office hours correctly', () => {
@@ -38,5 +42,16 @@ describe('Hours Component', () => {
       />
     )
     expect(screen.getByText('Clinical hours')).toBeInTheDocument()
+  })
+
+  it('renders "nonTraditional" status correctly', () => {
+    render(
+      <Hours
+        allHours={[{ day: 2, starthours: 900, endhours: 1500, comment: '' }]}
+        headerType="nonTraditional"
+      />
+    )
+    expect(screen.getByText('Hours')).toBeInTheDocument()
+    expect(screen.getByText(nonTraditionalWarning)).toBeInTheDocument()
   })
 })
