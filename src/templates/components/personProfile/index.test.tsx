@@ -36,7 +36,12 @@ const personProfileData: FormattedPersonProfile = {
   lastName: 'Steele',
   suffix: null,
   emailAddress: 'heather.steele@va.gov',
-  phoneNumber: '412-822-3537',
+  phoneNumber: {
+    extension: null,
+    label: null,
+    numberType: null,
+    number: '412-822-3537',
+  },
   description: 'Program coordinator for minority Veterans',
   introText: 'Intro text',
   body: 'Intro text',
@@ -122,11 +127,6 @@ describe('PersonProfile with invalid data', () => {
 
   test('does not render phoneNumber when null or empty', () => {
     personProfileData.phoneNumber = null
-    render(<PersonProfile {...personProfileData} />)
-
-    expect(screen.queryByText(/412-822-3537/)).not.toBeInTheDocument()
-
-    personProfileData.phoneNumber = ''
     render(<PersonProfile {...personProfileData} />)
 
     expect(screen.queryByText(/412-822-3537/)).not.toBeInTheDocument()
