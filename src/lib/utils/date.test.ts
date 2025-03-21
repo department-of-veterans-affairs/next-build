@@ -9,6 +9,7 @@ import {
   deriveFormattedTimestamp,
   isEventInPast,
   filterPastEvents,
+  deriveVaFormattedTimestamp,
 } from './date'
 
 describe('isISOString', () => {
@@ -341,4 +342,61 @@ test('getDateParts should return null for falsy values', () => {
 
 test('parseDate should return null for inputs that do not match any date format', () => {
   expect(parseDate('')).toBe(null)
+})
+
+describe('deriveVaFormattedTimestamp', () => {
+  it('should correctly format a datetime with AM time', () => {
+    const datetime = {
+      startTime: '2024-03-15T09:30:00-04:00',
+      endTime: '2024-03-15T11:00:00-04:00',
+      timezone: 'America/New_York',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toBe('Fri March 15, 2024, 9:30 a.m. – 11:00 a.m. ET')
+  })
+
+  it('should correctly format a datetime with PM time', () => {
+    const datetime = {
+      startTime: '2024-03-15T14:30:00-04:00',
+      endTime: '2024-03-15T16:00:00-04:00',
+      timezone: 'America/New_York',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toBe('Fri March 15, 2024, 2:30 p.m. – 4:00 p.m. ET')
+  })
+
+  it('should handle different timezones', () => {
+    const datetime = {
+      startTime: '2024-03-15T14:30:00-07:00',
+      endTime: '2024-03-15T16:00:00-07:00',
+      timezone: 'America/Los_Angeles',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toBe('Fri March 15, 2024, 2:30 p.m. – 4:00 p.m. PT')
+  })
+
+  it('should return undefined for null input', () => {
+    const result = deriveVaFormattedTimestamp(null)
+    expect(result).toBeUndefined()
+  })
+
+  it('should handle midnight/noon times', () => {
+    const datetime = {
+      startTime: '2024-03-15T12:00:00-04:00',
+      endTime: '2024-03-15T00:00:00-04:00',
+      timezone: 'America/New_York',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toBe('Fri March 15, 2024, 12:00 p.m. – 12:00 a.m. ET')
+  })
+
+  it('should format single digit days correctly', () => {
+    const datetime = {
+      startTime: '2024-05-03T10:00:00-04:00',
+      endTime: '2024-05-03T15:00:00-04:00',
+      timezone: 'America/New_York',
+    }
+    const result = deriveVaFormattedTimestamp(datetime)
+    expect(result).toBe('Fri May 3, 2024, 10:00 a.m. – 3:00 p.m. ET')
+  })
 })
