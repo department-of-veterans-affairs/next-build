@@ -36,6 +36,19 @@ import { entityBaseFields } from '@/lib/drupal/query'
 //   return entities
 // }
 
+const formatPhoneNumber = (fieldTelephone) => {
+  if (!fieldTelephone) {
+    return null
+  }
+
+  return {
+    extension: fieldTelephone.field_phone_extension || null,
+    label: fieldTelephone.field_phone_label || null,
+    number: fieldTelephone.field_phone_number || null,
+    numberType: fieldTelephone.field_phone_number_type || null,
+  }
+}
+
 export const formatter: QueryFormatter<NodePersonProfile, PersonProfile> = (
   entity: NodePersonProfile
 ) => {
@@ -47,7 +60,7 @@ export const formatter: QueryFormatter<NodePersonProfile, PersonProfile> = (
     lastName: entity.field_last_name,
     suffix: entity.field_suffix,
     emailAddress: entity.field_email_address,
-    phoneNumber: entity.field_phone_number,
+    phoneNumber: formatPhoneNumber(entity?.field_telephone),
     description: entity.field_description,
     introText: entity.field_intro_text,
     body: entity.field_body?.processed || null,
