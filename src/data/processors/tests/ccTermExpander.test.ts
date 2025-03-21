@@ -1,10 +1,10 @@
 import { processCcTermExpander } from '../ccTermExpander'
 import { FormattingError } from '../../errors/formatting'
-import type { CcTextExpander } from '@/types/drupal/paragraph'
+import type { CCTextExpander } from '@/types/drupal/paragraph'
 import type { FieldFormattedText } from '@/types/drupal/field_type'
 
 describe('processCcTermExpander', () => {
-  const mockValidTermExpander: CcTextExpander = {
+  const mockValidTermExpander: CCTextExpander = {
     target_id: '123',
     fetched_bundle: 'text_expander',
     fetched: {
@@ -28,7 +28,7 @@ describe('processCcTermExpander', () => {
   })
 
   it('should throw FormattingError when fetched is missing', () => {
-    const invalidTermExpander: CcTextExpander = {
+    const invalidTermExpander: CCTextExpander = {
       target_id: '123',
       fetched_bundle: 'text_expander',
       fetched: undefined,
@@ -43,7 +43,7 @@ describe('processCcTermExpander', () => {
   })
 
   it('should throw FormattingError when field_text_expander is missing', () => {
-    const invalidTermExpander: CcTextExpander = {
+    const invalidTermExpander: CCTextExpander = {
       target_id: '123',
       fetched_bundle: 'text_expander',
       fetched: {

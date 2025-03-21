@@ -133,7 +133,7 @@ export interface ParagraphCCFeaturedContent {
   }
 }
 
-export type CcTextExpander = {
+export type CCTextExpander = {
   target_id: string
   fetched_bundle: string // 'spanish_translation_summary' -- basically a text-expander section, why is it a spanish_translation_summary?
   fetched: {

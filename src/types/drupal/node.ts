@@ -42,7 +42,7 @@ import {
   ParagraphQaSection,
   CCQASection,
   CCRichTextCharLimit1000,
-  CcTextExpander,
+  CCTextExpander,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -186,10 +186,11 @@ export interface NodeVetCenter extends DrupalNode {
 }
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {
+  field_office: Omit<NodeHealthCareRegionPage, 'field_media'> | NodeOffice
   field_phone_numbers_paragraph: ParagraphPhoneNumber[]
   field_cc_faq: CCQASection
   field_cc_police_report: ParagraphCCFeaturedContent
-  field_cc_term_definitions: CcTextExpander
+  field_cc_term_definitions: CCTextExpander
   field_cc_va_police_overview: CCRichTextCharLimit1000
 }
 

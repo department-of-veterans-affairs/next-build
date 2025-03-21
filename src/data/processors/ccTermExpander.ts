@@ -1,9 +1,9 @@
-import { CcTextExpander } from '@/types/drupal/paragraph'
+import { CCTextExpander } from '@/types/drupal/paragraph'
 import { textExpander as FormatetedTextExpander } from '@/types/formatted/textExpander'
 import { FormattingError } from '../errors/formatting'
 
 export function processCcTermExpander(
-  field_cc_term_definitions: CcTextExpander
+  field_cc_term_definitions: CCTextExpander
 ): FormatetedTextExpander {
   if (
     !field_cc_term_definitions?.fetched ||
