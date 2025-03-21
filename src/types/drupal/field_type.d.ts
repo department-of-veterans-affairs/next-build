@@ -138,3 +138,7 @@ export interface FieldGeoLocation {
   geohash: string
   latlon: string
 }
+
+export type CCBoolean = Array<{ value: string }> // really a 1 or 0
+export type CCLink = { uri: string; title: string }
+export type CCString = { value: string }

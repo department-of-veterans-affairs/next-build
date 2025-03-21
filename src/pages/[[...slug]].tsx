@@ -36,6 +36,7 @@ import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
+import { FormattedVamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
 
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
@@ -53,6 +54,7 @@ import { VetCenter } from '@/templates/layouts/vetCenter'
 import { Wrapper } from '@/templates/layouts/wrapper'
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFacility'
+import { VamcSystemVaPolice } from '@/templates/layouts/vamcSystemVaPolice'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -158,6 +160,11 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.VAMC_FACILITY && (
             <HealthCareLocalFacility
               {...(resource as FormattedHealthCareLocalFacility)}
+            />
+          )}
+          {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE && (
+            <VamcSystemVaPolice
+              {...(resource as FormattedVamcSystemVaPolice)}
             />
           )}
         </div>

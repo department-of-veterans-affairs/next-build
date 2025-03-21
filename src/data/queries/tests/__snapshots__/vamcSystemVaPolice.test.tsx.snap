@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "Lovell Federal health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lovell-federal-health-care",
+    },
+    {
+      "options": [],
+      "title": "ABOUT LOVELL FEDERAL",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "VA police",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 63970,
+  "entityPath": "/lovell-federal-health-care-va/va-police",
+  "field_cc_faq": {
+    "displayAccordion": true,
+    "header": "Other questions you may have about VA police",
+    "id": "141575",
+    "intro": null,
+    "questions": [
+      {
+        "answers": [
+          {
+            "html": "<p>VA police are armed and uniformed federal law enforcement officers. They provide law enforcement and security services to Veterans and their families at VA medical centers and other VA health facilities. Services include crime prevention and investigation, maintaining law and order, vehicle and foot patrols, telecommunication services, and workplace violence prevention.</p>
+",
+          },
+        ],
+        "id": "141566",
+        "question": "What services do VA police provide?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>VA police and local law enforcement work together to respond to crimes that happen on VA property. VA police and local law enforcement partners train together on skills and tactics such as active threat drills, crisis intervention training, disaster response, and more.</p>
+",
+          },
+        ],
+        "id": "141568",
+        "question": "Do VA police work with local law enforcement?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>90% of VA police have a military background. VA police is looking for qualified applicants to join its team. Candidates must have either criminal justice education, experience as a police officer, experience as a military police officer, or a combination of education and experience. Visit USAJOBS to search for current VA police job announcements.</p>
+
+<p><a href="/admin/content/linky/1625">Go to USAJOBS.gov to search for current VA police job announcements</a></p>
+
+<p>Transitioning service members may be eligible for employment training, internship, and apprenticeship opportunities with VA police through the DOD SkillBridge program. For more information, email Skillbridge.vapolice@va.gov.</p>
+
+<p><a href="/admin/content/linky/17074">Learn more about the DOD SkillBridge program</a></p>
+",
+          },
+        ],
+        "id": "141570",
+        "question": "Am I eligible to join the VA police force?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>As a part of its mission to “protect those who served,” VA police across the country will begin to use in-car and body-worn cameras by the end of 2023. This policy increases the safety of VA facilities by promoting transparency and accountability.</p>
+",
+          },
+        ],
+        "id": "141572",
+        "question": "Why do VA police wear body-worn cameras?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>VA is committed to protecting the privacy of the Veterans, families, caregivers, and survivors we serve. All local VA privacy officers and VA police officers attend extensive privacy training before officers begin using body-worn cameras.</p>
+",
+          },
+        ],
+        "id": "141574",
+        "question": "How will my privacy be protected?",
+      },
+    ],
+  },
+  "field_cc_police_report": {
+    "description": "<p>To request a VA police report, you'll need to file a Freedom of Information Act (FOIA) request to your local VA privacy officer.</p>",
+    "id": "141561",
+    "link": {
+      "id": "141560",
+      "label": "Learn how to file a FOIA request",
+      "url": "https://department.va.gov/foia/",
+    },
+    "title": "How to request a VA police report",
+    "type": "paragraph--featured_content",
+  },
+  "field_cc_term_definitions": {
+    "expander": "What do these terms mean?",
+    "html": "<ul><li>A <strong>citation</strong> is a written record of violating the law.</li><li><strong>Police misconduct&nbsp;</strong>is police behavior that violates the law.</li></ul>",
+  },
+  "field_cc_term_definitions_nation": {
+    "expander": "What do these terms mean?",
+    "html": "<ul><li><strong>Use of force</strong> is when a VA police officer uses physical force to get someone to follow their orders.</li><li><strong>Weapons discharge</strong> is when someone fires a gun.</li></ul>",
+  },
+  "field_cc_va_police_overview": {
+    "html": "<p>VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.</p>",
+  },
+  "field_office": "Lovell Federal health care - VA",
+  "field_phone_numbers_paragraph": {
+    "extension": null,
+    "label": "non-emergency phone number, 24/7",
+    "number": "224-610-3703",
+    "type": "tel",
+  },
+  "id": "577213d9-34a4-4b33-8d1e-a70806b2b9e7",
+  "lastUpdated": "2023-11-20T02:56:16+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "VA police | Lovell Federal health care - VA | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA police | Lovell Federal health care - VA | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA police | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "path": {
+    "alias": "/lovell-federal-health-care-va/va-police",
+    "langcode": "en",
+    "pid": 93898,
+  },
+  "published": true,
+  "title": "VA police",
+  "type": "node--vamc_system_va_police",
+}
+`;

@@ -2,6 +2,9 @@ import { DrupalNode, DrupalParagraph } from 'next-drupal'
 
 import { BlockAlert } from './block'
 import {
+  CCBoolean,
+  CCLink,
+  CCString,
   FieldAddress,
   FieldFormattedText,
   FieldLink,
@@ -15,6 +18,7 @@ import {
   TaxonomyTermAudienceNonBeneficiaries,
   TaxonomyTermTopics,
 } from './taxonomy_term'
+import { FormattedParagraph } from '@/data/queries'
 
 /** Union of all paragraph types.  */
 export type ParagraphTypes =
@@ -108,15 +112,33 @@ export interface ParagraphExpandableText extends DrupalParagraph {
 export interface ParagraphFeaturedContent extends DrupalParagraph {
   field_section_header: string
   field_description: FieldFormattedText
-  field_cta?: ParagraphButton
+  field_cta?: ParagraphButton | CCFieldCta[]
+}
+
+export type CCFieldCta = {
+  pid: string
+  target_id: string
+  type: string
+  field_button_label: Array<CCString>
+  field_button_link: Array<CCLink>
 }
 
 export interface ParagraphCCFeaturedContent {
+  target_id: string
   fetched: {
     // This normalizes the centralized content field_cta field to allow formatting
-    field_cta: Omit<ParagraphButton, 'drupal_internal__id' | 'id'>[]
+    field_cta: CCFieldCta[]
     field_description: FieldFormattedText[]
-    field_section_header: Array<{ value: string }>
+    field_section_header: Array<CCString>
+  }
+}
+
+export type CcTextExpander = {
+  target_id: string
+  fetched_bundle: string // 'spanish_translation_summary' -- basically a text-expander section, why is it a spanish_translation_summary?
+  fetched: {
+    field_wysiwyg: FieldFormattedText[]
+    field_text_expander: Array<CCString>
   }
 }
 
@@ -191,6 +213,34 @@ export interface ParagraphQaSection extends DrupalParagraph {
   field_questions: DrupalParagraph[]
 }
 
+export type CCAnswer = {
+  bundle: string // likely wysiwyg
+  target_id: string
+  pid: string
+  field_wysiwyg?: Array<FieldFormattedText>
+}
+
+export type CCQA = {
+  bundle: string // "q_a" -- item
+  target_id: string
+  pid: string
+  langcode: string // "en" mostly
+  status: boolean // should hopefully only get true values in CC linked content
+  field_question: Array<CCString>
+  field_answer: Array<CCAnswer>
+}
+
+export type CCQASection = {
+  target_id: string // no pid - not really a true paragraph type
+  fetched_bundle: string //'q_a_section' not bundle
+  fetched: {
+    field_accordion_display: CCBoolean // really a boolean {value: "1"} or {value: "0"}
+    field_section_header: Array<CCString>
+    field_section_intro: Array<CCString>
+    field_questions: Array<CCQA>
+  }
+}
+
 export interface ParagraphReactWidget extends DrupalParagraph {
   field_cta_widget: boolean
   field_default_link: FieldLink
@@ -201,6 +251,12 @@ export interface ParagraphReactWidget extends DrupalParagraph {
   field_widget_type: string
 }
 
+export type CCRichTextCharLimit1000 = {
+  target_id: string
+  fetched: {
+    field_wysiwyg: FieldFormattedText[]
+  }
+}
 export interface ParagraphRichTextCharLimit1000 extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
 }

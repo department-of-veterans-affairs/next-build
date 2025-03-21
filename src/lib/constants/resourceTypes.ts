@@ -12,6 +12,7 @@ export const RESOURCE_TYPES = {
   SUPPORT_SERVICES: 'node--support_service',
   VAMC_FACILITY: 'node--health_care_local_facility',
   VAMC_SYSTEM: 'node--health_care_region_page',
+  VAMC_SYSTEM_VA_POLICE: 'node--vamc_system_va_police',
   VET_CENTER: 'node--vet_center',
   QA: 'node--q_a',
 } as const
@@ -30,6 +31,7 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.VET_CENTER,
   RESOURCE_TYPES.VAMC_FACILITY,
+  RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {
