@@ -52,6 +52,7 @@ export type NodeTypes =
   | NodeFaqMultipleQA
   | NodeHealthCareLocalFacility
   | NodeLandingPage
+  | NodeLeadershipListing
   | NodeNewsStory
   | NodeOffice
   | NodePersonProfile
@@ -361,6 +362,15 @@ export interface NodeEventListing extends DrupalNode {
   field_intro_text: string
   field_enforce_unique_combo: boolean
   field_office: NodeOffice
+}
+
+export interface NodeLeadershipListing extends DrupalNode {
+  field_description: string
+  field_intro_text: string
+  field_last_saved_by_an_editor: string
+  field_leadership: NodePersonProfile[]
+  field_office: NodeHealthCareRegionPage
+  field_title: string
 }
 
 export interface NodePressReleaseListing extends DrupalNode {

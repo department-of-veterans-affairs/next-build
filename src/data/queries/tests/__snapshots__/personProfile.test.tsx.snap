@@ -4,7 +4,7 @@ exports[`Person profile returns formatted data outputs formatted data 1`] = `
 {
   "body": null,
   "breadcrumbs": undefined,
-  "completeBiography": undefined,
+  "completeBiography": null,
   "completeBiographyCreate": null,
   "description": "Director, Audiology and Speech Pathology Program Associate Director for Research, GRECC",
   "emailAddress": null,
@@ -162,6 +162,23 @@ exports[`Person profile returns formatted data outputs formatted data 1`] = `
     "title": "",
     "type": "media--image",
     "width": 100,
+  },
+  "menu": {
+    "depth": 5,
+    "link": {
+      "label": "Patrick J. Doyle",
+      "links": [],
+      "url": {
+        "path": "/",
+      },
+    },
+    "parent": {
+      "label": "Leadership",
+      "links": [],
+      "url": {
+        "path": "/pittsburgh-health-care/about-us/leadership",
+      },
+    },
   },
   "metatags": null,
   "moderationState": "published",
@@ -695,6 +712,6 @@ exports[`Person profile returns formatted data outputs formatted data 1`] = `
   "suffix": "Ph.D.",
   "title": "Patrick J. Doyle",
   "type": "node--person_profile",
-  "vamcOfficalName": undefined,
+  "vamcOfficalName": "VA Pittsburgh Healthcare System",
 }
 `;

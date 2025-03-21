@@ -13,17 +13,19 @@ import {
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
-    // ...getNestedIncludes('field_leadership', RESOURCE_TYPES.PERSON_PROFILE),
+    ...getNestedIncludes(
+      'field_leadership',
+      RESOURCE_TYPES.PERSON_PROFILE
+    ),
+    'field_office',
   ])
 }
 
-// Define the option types for the data loader.
 export type LeadershipListingDataOpts = {
   id: string
   context?: ExpandedStaticPropsContext
 }
 
-// Implement the data loader.
 export const data: QueryData<LeadershipListingDataOpts, NodeLeadershipListing> = async (
   opts
 ): Promise<NodeLeadershipListing> => {
@@ -44,8 +46,8 @@ export const formatter: QueryFormatter<NodeLeadershipListing, LeadershipListing>
     description: entity.field_description,
     introText: entity.field_intro_text,
     lastSaved: entity.field_last_saved_by_an_editor,
-    leadership: entity.field_leadership,
-    // leadership: entity.field_leadership.map(leader => queries.formatData(RESOURCE_TYPES.PERSON_PROFILE, leader)),
+    leadership: entity.field_leadership.map(leader => queries.formatData(RESOURCE_TYPES.PERSON_PROFILE, { entity: leader })),
+    office: entity.field_office,
     title: entity.title,
   }
 }
