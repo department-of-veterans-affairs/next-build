@@ -47,6 +47,8 @@ export type PhoneContact = PublishedParagraph & {
   number: string
   /** Optional phone number extension ("4985") */
   extension: string
+  /** The type of phone number ("tel", "tty", "sms", "fax") */
+  phoneType?: string
 }
 
 export type EmailContact = PublishedParagraph & {
