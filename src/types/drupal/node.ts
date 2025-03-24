@@ -153,7 +153,7 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_operating_status_facility: FacilityOperatingStatusFlags
   field_operating_status_more_info: string
   field_phone_number: string
-  // We don't need the field_media in here for now ¯\_(ツ)_/¯
+  // We don't need the field_media in here for now
   field_region_page: Omit<NodeHealthCareRegionPage, 'field_media'>
 }
 
