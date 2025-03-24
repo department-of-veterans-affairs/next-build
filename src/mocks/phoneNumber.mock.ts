@@ -1,15 +1,10 @@
-import { PhoneContact } from '@/types/formatted/contactInfo'
+import { PhoneNumber } from '@/types/formatted/phoneNumber'
 
 const phoneNumber = {
-  id: '123',
-  type: 'paragraph--phone_number',
-  entityId: 123,
-  published: true,
-  lastUpdated: '2021-01-01',
-  phoneType: 'tel',
+  extension: '120',
   label: 'non-emergency phone number, 24/7',
   number: '224-610-3703',
-  extension: '120',
-} as PhoneContact
+  phoneType: 'tel',
+} as PhoneNumber
 
 export default phoneNumber
