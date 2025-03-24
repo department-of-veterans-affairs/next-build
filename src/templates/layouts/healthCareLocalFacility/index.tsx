@@ -29,7 +29,10 @@ export function HealthCareLocalFacility({
               <va-on-this-page></va-on-this-page>
 
               {/* Main content */}
-              <h2 className="vads-u-line-height--1 vads-u-margin-bottom--3">
+              <h2
+                id="location-and-contact-information"
+                className="vads-u-line-height--1 vads-u-margin-bottom--3"
+              >
                 Location and contact information
               </h2>
               <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--2p5 vads-u-margin-bottom--4">
