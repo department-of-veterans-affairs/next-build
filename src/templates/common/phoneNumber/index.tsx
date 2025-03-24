@@ -29,15 +29,15 @@ export const PhoneNumber = (
     className?: string
   }
 ) => {
-  const { className, extension, label, number, numberType } = props
+  const { className, extension, label, number, phoneType } = props
 
   if (!number) {
     return null
   }
 
-  const sms = numberType === 'sms'
-  const tty = numberType === 'tty'
-  const fax = numberType === 'fax'
+  const sms = phoneType === 'sms'
+  const tty = phoneType === 'tty'
+  const fax = phoneType === 'fax'
 
   const isRegularPhone = !sms && !tty && !fax
   const labelToDisplay = !tty && label ? label : 'Phone'

@@ -7,12 +7,16 @@ describe('PhoneNumber Component', () => {
     extension,
     label,
     number,
-    numberType
+    phoneType,
+    type = 'paragraph--phone_number',
+    id = '1234'
   ): FormattedPhoneNumber => ({
+    type,
+    id,
     extension,
     label,
     number,
-    numberType,
+    phoneType,
   })
 
   describe('standard phone numbers', () => {

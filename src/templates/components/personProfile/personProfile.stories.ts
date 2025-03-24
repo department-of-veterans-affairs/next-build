@@ -34,9 +34,11 @@ const personProfileData: FormattedPersonProfile = {
   suffix: null,
   emailAddress: 'zachary.sage@va.gov',
   phoneNumber: {
+    type: 'paragraph--phone_number',
+    id: '1234',
     extension: null,
     label: null,
-    numberType: null,
+    phoneType: null,
     number: '217-554-5074',
   },
   description: 'Associate Medical Center Director',

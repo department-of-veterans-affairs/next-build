@@ -37,9 +37,11 @@ const personProfileData: FormattedPersonProfile = {
   suffix: null,
   emailAddress: 'heather.steele@va.gov',
   phoneNumber: {
+    type: 'paragraph--phone_number',
+    id: '1234',
     extension: null,
     label: null,
-    numberType: null,
+    phoneType: null,
     number: '412-822-3537',
   },
   description: 'Program coordinator for minority Veterans',

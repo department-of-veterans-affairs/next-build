@@ -1,6 +1,8 @@
-export type PhoneNumber = {
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
+
+export type PhoneNumber = PublishedParagraph & {
   extension: string
   label: string
   number: string
-  numberType: string
+  phoneType: string
 }
