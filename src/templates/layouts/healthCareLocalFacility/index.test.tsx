@@ -10,7 +10,7 @@ const mockData: FormattedHealthCareLocalFacility = {
   lastUpdated: '',
   introText: 'Test intro text',
   operatingStatusFacility: 'normal',
-  sideNav: {
+  menu: {
     rootPath: 'test-nav-path',
     data: {
       name: 'test-nav',
@@ -42,6 +42,6 @@ describe('HealthCareLocalFacility with valid data', () => {
 
     // @ts-expect-error window.sideNav is not a default window property, but
     // we're adding it
-    expect(window.sideNav).toEqual(mockData.sideNav)
+    expect(window.sideNav).toEqual(mockData.menu)
   })
 })

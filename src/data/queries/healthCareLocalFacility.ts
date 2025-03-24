@@ -79,6 +79,6 @@ export const formatter: QueryFormatter<
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
-    sideNav: formattedMenu,
+    menu: formattedMenu,
   }
 }

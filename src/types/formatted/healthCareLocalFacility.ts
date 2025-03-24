@@ -6,5 +6,5 @@ export type HealthCareLocalFacility = PublishedEntity & {
   // Other attributes here
   introText: string | null
   operatingStatusFacility: FacilityOperatingStatusFlags
-  sideNav: SideNavMenu | null
+  menu: SideNavMenu | null
 }

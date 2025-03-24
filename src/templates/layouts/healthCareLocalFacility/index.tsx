@@ -12,12 +12,12 @@ export function HealthCareLocalFacility({
   title,
   introText,
   operatingStatusFacility,
-  sideNav,
+  menu,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
   useEffect(() => {
-    window.sideNav = sideNav
+    window.sideNav = menu
   })
 
   return (
