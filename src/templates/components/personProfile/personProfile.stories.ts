@@ -33,7 +33,14 @@ const personProfileData: FormattedPersonProfile = {
   lastName: 'Sage',
   suffix: null,
   emailAddress: 'zachary.sage@va.gov',
-  phoneNumber: '217-554-5074',
+  phoneNumber: {
+    type: 'paragraph--phone_number',
+    id: '1234',
+    extension: null,
+    label: null,
+    phoneType: null,
+    number: '217-554-5074',
+  },
   description: 'Associate Medical Center Director',
   introText:
     'VA Illiana Health Care System would like to welcome Mr. Zachary Sage, MHA, to the role of Associate Medical Center Director for VA Illiana Health Care System effective January 3, 2021.',
