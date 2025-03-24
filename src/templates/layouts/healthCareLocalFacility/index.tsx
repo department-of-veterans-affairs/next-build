@@ -1,4 +1,6 @@
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
+import { LocationServices } from './LocationServices'
+import { HealthServices } from './HealthServices'
 
 export function HealthCareLocalFacility({
   title,
@@ -61,9 +63,9 @@ export function HealthCareLocalFacility({
                 </div>
                 <div>TODO: Image and static map</div>
               </div>
-              <div>TODO: Location services section</div>
+              <LocationServices />
               <div>TODO: List of links section</div>
-              <div>TODO: Local health services section</div>
+              <HealthServices />
               <div>TODO: Patient satisfaction scores section</div>
               <div>TODO: Social links section</div>
               <va-back-to-top></va-back-to-top>
