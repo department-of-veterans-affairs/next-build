@@ -29,6 +29,11 @@ export type HealthCareLocalFacilityDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+/**
+ * The shape of the data from Drupal + `lovell` from the path context.
+ * We're adding `lovell` from the context here to conditionally re-shape
+ * the menu for Lovell facilities.
+ */
 type LocalFacilityData = {
   entity: NodeHealthCareLocalFacility
   menu: Menu | null
