@@ -18,7 +18,9 @@ import { PhoneNumber } from '@/templates/common/phoneNumber'
 // //     menu: formattedMenu,
 
 const PersonProfileTeaser = ({
+  completeBiographyCreate,
   description,
+  emailAddress,
   entityPath,
   firstName,
   lastName,
@@ -27,28 +29,27 @@ const PersonProfileTeaser = ({
   phoneNumber,
   suffix,
 }: FormattedPersonProfileTeaser) => {
-  // console.log('leadership: ', leadership);
   const staffName = `${firstName} ${lastName}${suffix ? ` ${suffix}` : ''}` || '';
-  // console.log('entityPath: ', entityPath)
+
   return (
    <div className="vads-u-display--flex vads-u-margin-bottom--4">
     {media &&
       <MediaImage
         {...media}
-        className="vads-u-flex--auto vads-u-margin-right--2"
+        className="vads-u-margin-right--2"
         imageStyle="2_3_medium_thumbnail"
         style={{ height: '178px', width: '119px', objectFit: 'cover' }}
         />
     }
     <div>
-      {entityPath ? (
+      {completeBiographyCreate && entityPath ? (
         <va-link
-          class="vads-u-display--block vads-u-font-family--serif vads-u-font-weight--bold vads-u-font-size--lg"
+          class="vads-u-font-family--serif vads-u-font-weight--bold vads-u-font-size--lg"
           href={entityPath}
           text={staffName}
         />
       ) :
-        <p className="vads-u-font-family--serif vads-u-font-weight--bold vads-u-display--block vads-u-font-size--lg">
+        <p className="vads-u-margin--0 vads-u-font-family--serif vads-u-font-weight--bold vads-u-font-size--lg">
           {staffName}
         </p>
       }
@@ -65,29 +66,14 @@ const PersonProfileTeaser = ({
       {phoneNumber && (
         <PhoneNumber className="vads-u-margin-top--1" {...phoneNumber} />
       )}
-      {/* {phoneNumber && (
-        <p className="vads-u-margin--0 vads-u-margin-bottom--1 vads-u-font-size--base">
-          <strong>Phone:
-                 {% include "src/site/components/phone-number-no-header.drupal.liquid" with
-                     phoneNumber = node.fieldTelephone.entity.fieldPhoneNumber
-                     phoneExtension = node.fieldTelephone.entity.fieldPhoneExtension
-                     phoneNumberType = node.fieldTelephone.entity.fieldPhoneNumberType
-                     phoneLabel = node.fieldTelephone.entity.fieldPhoneLabel
-                 %}
-           </p>
-         {% endif %}
-         {% if node.fieldEmailAddress %}
-             <p className="
-         vads-u-margin--0
-         vads-u-margin-bottom--0
-         vads-u-font-size--base
-         medium-screen:vads-u-font-size--lg">
-                <b>Email:</b>
-                <va-link type="email" href="mailto:{{ node.fieldEmailAddress } text={node.fieldEmailAddress }></va-link>
-             </p>
-         {% endif %}*/}
+      {emailAddress && (
+        <p className="vads-u-margin--0 medium-screen:vads-u-font-size--lg">
+          <b>Email:</b>
+          <va-link type="email" href={`mailto:${emailAddress}`} text={emailAddress}></va-link>
+        </p>
+      )}
      </div>
-     </div>
+    </div>
   )
 }
 

@@ -6,6 +6,7 @@ const meta: Meta<typeof LeadershipListing> = {
   title: 'Uncategorized/LeadershipListing',
   component: LeadershipListing,
 }
+
 export default meta
 
 type Story = StoryObj<typeof LeadershipListing>

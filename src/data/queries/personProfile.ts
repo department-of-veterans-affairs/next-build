@@ -61,19 +61,6 @@ export const data: QueryData<PersonProfileDataOpts, PersonProfileData> = async (
   }
 }
 
-const formatPhoneNumber = fieldTelephone => {
-  if (!fieldTelephone) {
-    return null
-  }
-
-  return {
-    extension: fieldTelephone.field_phone_extension || null,
-    label: fieldTelephone.field_phone_label || null,
-    number: fieldTelephone.field_phone_number || null,
-    numberType: fieldTelephone.field_phone_number_type || null,
-  }
-}
-
 export const formatter: QueryFormatter<PersonProfileData, PersonProfile> = ({
   entity,
   menu,
@@ -98,10 +85,10 @@ export const formatter: QueryFormatter<PersonProfileData, PersonProfile> = ({
     lastName: entity.field_last_name,
     suffix: entity.field_suffix,
     emailAddress: entity.field_email_address,
-    phoneNumber: queries.formatData(
+    phoneNumber: entity?.field_telephone ? queries.formatData(
       'paragraph--phone_number',
       entity.field_telephone
-    ),
+    ) : null,
     description: entity.field_description,
     introText: entity.field_intro_text,
     body: entity.field_body?.processed || null,

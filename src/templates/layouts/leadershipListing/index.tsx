@@ -1,20 +1,28 @@
+import { useEffect } from 'react'
 import { LeadershipListing as FormattedLeadershipListing } from '@/types/formatted/leadershipListing'
 import PersonProfileTeaser from '@/templates/components/personProfileTeaser'
+import { SideNavMenu } from '@/types/formatted/sideNav'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  sideNav?: SideNavMenu
+}
+
+declare const window: customWindow
 
 export function LeadershipListing({
-  description,
   introText,
-  lastSaved,
   leadership,
+  menu,
   title,
 }: FormattedLeadershipListing) {
-  console.log('description: ', description);
-  console.log('introText: ', introText);
-  console.log('lastSaved: ', lastSaved);
-  console.log('leadership: ', leadership);
+  useEffect(() => {
+    window.sideNav = menu
+  })
+  // console.log('leadership: ', leadership)
   return (
     <div className="usa-grid usa-grid-full">
-      {/* <nav aria-label="secondary" data-widget-type="side-nav" /> */}
+      <nav aria-label="secondary" data-widget-type="side-nav" />
       <div className="usa-width-three-fourths">
         <article className="usa-content">
           <h1 className="vads-u-margin-bottom--3">{title}</h1>
