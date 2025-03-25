@@ -231,11 +231,12 @@
     },
     "field_leadership": [
       {
-        "type": "node--person_profile",
-        "id": "1d904e9d-8fa5-457d-88db-1f0e61b44c42",
-        "meta": {
-          "drupal_internal__target_id": 19496
-        }
+        "field_body": null,
+        "field_complete_biography_create": true,
+        "field_description": "Minority Veteran care coordinator",
+        "field_email_address": "test2@va.gov",
+        "field_intro_text": null,
+        
       },
       {
         "type": "node--person_profile",

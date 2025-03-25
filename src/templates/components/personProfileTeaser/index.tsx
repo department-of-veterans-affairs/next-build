@@ -3,6 +3,10 @@ import { PersonProfileTeaser as FormattedPersonProfileTeaser } from '@/types/for
 import { MediaImage } from '@/templates/common/mediaImage'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 
+/**
+ * Staff image side-by-side with details. The only required information is first and last
+ * name and office (or health care region).
+ */
 const PersonProfileTeaser = ({
   completeBiographyCreate,
   description,
@@ -15,7 +19,7 @@ const PersonProfileTeaser = ({
   phoneNumber,
   suffix,
 }: FormattedPersonProfileTeaser) => {
-  const staffName = `${firstName} ${lastName}${suffix ? ` ${suffix}` : ''}` || '';
+  const staffName = `${firstName} ${lastName}${suffix || ''}` || '';
 
   return (
    <div className="vads-u-display--flex vads-u-margin-bottom--4">
@@ -45,7 +49,7 @@ const PersonProfileTeaser = ({
         </p>
       )}
       {office && (
-        <p data-testid="pp-teaser-office" className="vads-u-margin--0 vads-u-font-family--serif vads-u-font-size--base medium-screen:vads-u-font-size--lg">
+        <p data-testid="pp-teaser-office" className="vads-u-margin--0 vads-u-font-family--serif">
           {office}
         </p>
       )}
@@ -53,7 +57,7 @@ const PersonProfileTeaser = ({
         <PhoneNumber className="vads-u-margin-top--1" {...phoneNumber} />
       )}
       {emailAddress && (
-        <p data-testid="pp-teaser-email" className="vads-u-margin--0 medium-screen:vads-u-font-size--lg">
+        <p data-testid="pp-teaser-email" className="vads-u-margin--0">
           <b>Email:</b>{' '}
           <va-link type="email" href={`mailto:${emailAddress}`} text={emailAddress}></va-link>
         </p>

@@ -1,4 +1,5 @@
 import { MediaImage } from './media'
+import { PhoneNumber as FormattedPhoneNumber } from './phoneNumber'
 
 export type PersonProfileTeaser = {
   completeBiographyCreate: boolean
@@ -9,6 +10,6 @@ export type PersonProfileTeaser = {
   lastName: string
   media: MediaImage
   office: string
-  phoneNumber?: string
+  phoneNumber?: FormattedPhoneNumber
   suffix?: string
 }
