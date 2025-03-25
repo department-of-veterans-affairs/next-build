@@ -139,3 +139,17 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
       entity.field_last_saved_by_an_editor || entity.changed || entity.created,
   }
 }
+
+/**
+ * Custom error class representing a "Do Not Publish" error.
+ * Throw this error when an query encounters a condition
+ * where publishing is not allowed or should be prevented.
+ *
+ * @extends {Error}
+ */
+export class DoNotPublishError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'DoNotPublishError'
+  }
+}

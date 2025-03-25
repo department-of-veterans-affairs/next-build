@@ -53,6 +53,7 @@ import { VetCenter } from '@/templates/layouts/vetCenter'
 import { Wrapper } from '@/templates/layouts/wrapper'
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFacility'
+import { DoNotPublishError } from '@/lib/drupal/query'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -230,12 +231,20 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         notFound: true,
       }
     }
-
-    const resource = await getStaticPropsResource(
-      resourceType,
-      pathInfo,
-      expandedContext
-    )
+    let resource: StaticPropsResource<FormattedPageResource> | undefined
+    try {
+      resource = await getStaticPropsResource(
+        resourceType,
+        pathInfo,
+        expandedContext
+      )
+    } catch (error) {
+      if (error instanceof DoNotPublishError) {
+        return { notFound: true }
+      } else {
+        throw error
+      }
+    }
 
     // If we're not in preview mode and the resource is not published,
     // Return page not found.
