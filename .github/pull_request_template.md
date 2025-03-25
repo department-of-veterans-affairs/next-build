@@ -1,51 +1,62 @@
 # Description
+
 What does this PR address?
 
 ## Generated description
+
 (Select this text, hit the Copilot button, and select "Generate".)
 
 ## Ticket
-Relates to #[TICKET_NUMBER](https://github.com/department-of-veterans-affairs/va.gov-cms/issues/TICKET_NUMBER). (or closes?)
+
+<!--
+https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue
+-->
+
+Closes _link to ticket_
 
 ## Developer Task
 
-```
+```md
 - [ ] PR submitted against the `main` branch of `next-build`.
 - [ ] Link to the issue that this PR addresses (if applicable).
 - [ ] Define all changes in your PR and note any changes that could potentially be breaking changes.
 - [ ] PR includes steps to test your changes and links to these changes in the Tugboat preview (if applicable).
 - [ ] Provided before and after screenshots of your changes (if applicable).
-- [ ] Alerted the #accelerated-publishing Slack channel to request a PR review.
+- [ ] Alerted the #next-build Slack channel to request a PR review.
 - [ ] You understand that once approved, you are responsible for merging your changes into `main`. (Note that changes to `main` will move automatically into production.)
 ```
 
 ## Testing Steps
+
 Explain the steps needed for testing
 
 ## QA steps
-What needs to be checked to prove this works?  
-What needs to be checked to prove it didn't break any related things?  
+
+What needs to be checked to prove this works?
+What needs to be checked to prove it didn't break any related things?
 What variations of circumstances (users, actions, values) need to be checked?
 
 ## Screenshots
+
 Before:
 After:
 
-
 ## Is this PR blocked by another PR?
+
 - Add the `DO NOT MERGE` label
 - Add links to additional PRs here:
 
+---
 
-# Reviewer
+## Reviewer
 
 ### Reviewing a PR
 
-This section lists items that need to be checked or updated when making changes to this repository. 
+This section lists items that need to be checked or updated when making changes to this repository.
 
 ## Standard Checks
 
-```
+```md
 - [ ] Code Quality: Readabilty, Naming Conventions, Consistency, Reusability
 - [ ] Test Coverage: 80% coverage
 - [ ] Functionality: Change functions as expected with no additional bugs

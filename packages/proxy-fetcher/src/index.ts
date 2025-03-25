@@ -101,8 +101,17 @@ export const getFetcher = (
             )}`
           )
         }
-        throw new Error('Failed request')
+        throw new Error(
+          `Failed request to ${response.url}: ${response.status} ${response.statusText}`
+        )
       }
+
+      // Don't retry if we shouldn't
+      if ([404, 403].includes(response.status)) {
+        const { AbortError } = await import('p-retry')
+        throw new AbortError(response.statusText)
+      }
+
       return response
     }
 
