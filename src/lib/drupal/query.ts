@@ -142,7 +142,7 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
 
 /**
  * Custom error class representing a "Do Not Publish" error.
- * Throw this error when an query encounters a condition
+ * Throw this error when a query encounters a condition
  * where publishing is not allowed or should be prevented.
  *
  * @extends {Error}
