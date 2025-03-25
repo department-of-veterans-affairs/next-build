@@ -69,12 +69,12 @@ This section lists items that need to be checked or updated when making changes 
 
 When merging a layout, you must ensure that the content type has been turned on for `next-build` inside the `CMS`. This CMS flag must be turned on for editors to preview their work using the next build preview server.
 
-Resource types (layouts) that have not been approved by design should NOT be pushed to production. Ensure that [slug.tsx](../src/pages/[[...slug]].tsx) does not include your resource type if it is not approved.
+Resource types (layouts) that have not been approved by design should NOT be pushed to production. Ensure that [slug.tsx](../src/pages/[[...slug]].tsx) does not include your resource type if it is not approved. However, If the resource type is to be QA'ed it should be included in the slug.tsx, so that QA can review on a tugboat when the .env.tugboat environment variable is set to true.
 
-The status of layouts should be kept up to date inside [templates.md](./templates.md). This includes QA progress, development progress, etc. A link should be provided for where testing can occur.
+The status of layouts should be kept up to date inside [templates.md](./READMEs/templates.md). This includes QA progress, development progress, etc. A link should be provided for where testing can occur.
 
 ## Merging a Non-Approved Layout
 
-Your new resource type should not be included inside [slug.tsx](../src/pages/[[...slug]].tsx). Items added here will go into production once merged into the `main` branch. It is imperative that we do not push anything live that has not been approved.
+Your new resource type should not be included inside [slug.tsx](../src/pages/[[...slug]].tsx). Items added here will go into production once merged into the `main` branch. It is imperative that we do not push anything live that has not been approved. If the layout is requested by QA to be testable on a tugboat see the [section above](#merging-an-approved-layout).
 
 Ensure that this layout has been added to the [templates.md](./templates.md) file with the current status of the work.
