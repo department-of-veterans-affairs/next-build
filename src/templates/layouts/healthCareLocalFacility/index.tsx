@@ -38,7 +38,7 @@ export function HealthCareLocalFacility({
             </h2>
             <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
               <div className="usa-width-two-thirds">
-                <div className="vads-c-facility-detail">
+                <div>
                   <div>TODO: Operating status flags</div>
                   <section>
                     <script type="application/ld+json">
