@@ -21,7 +21,7 @@ export function VamcSystemVaPolice({
     >
       <h1>{title}</h1>
       <WysiwygField
-        className="va-introtext vads-u-font-size--lg vads-u-font-family--serif"
+        className="va-introtext"
         html={field_cc_va_police_overview.html}
       />
       <va-on-this-page />
