@@ -1,4 +1,300 @@
 {
-  "note": "Replace this data! The file should contain an example response for the desired query before formatting",
-  "example": "See src/mocks/newsStory.mock.json for an example response from va.gov-cms's JSON:API"
+  "entity": {
+    "type": "node--leadership_listing",
+    "id": "dd02e587-f784-41cf-8489-ffad717e6a29",
+    "links": {
+      "self": {
+        "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29?resourceVersion=id%3A614463"
+      }
+    },
+    "drupal_internal__nid": 27519,
+    "drupal_internal__vid": 614463,
+    "langcode": "en",
+    "revision_timestamp": "2022-02-07T21:25:26+00:00",
+    "status": true,
+    "title": "Leadership",
+    "created": "2021-07-16T18:07:26+00:00",
+    "changed": "2022-02-07T21:25:26+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/white-river-junction-health-care",
+        "title": "VA White River Junction health care",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "ABOUT VA WHITE RIVER JUNCTION",
+        "options": []
+      },
+      {
+        "uri": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/white-river-junction-health-care/about-us",
+        "title": "About us",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "Leadership",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Leadership | VA White River Junction health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team."
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "image_src",
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:site_name",
+          "content": "Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:title",
+          "content": "Leadership | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:description",
+          "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:alt",
+          "content": "U.S. Department of Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:card",
+          "content": "summary_large_image"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:description",
+          "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:site",
+          "content": "@DeptVetAffairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:title",
+          "content": "Leadership | VA White River Junction health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image",
+          "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image:alt",
+          "content": "U.S. Department of Veterans Affairs"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/white-river-junction-health-care/about-us/leadership",
+      "pid": 33171,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_description": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+    "field_intro_text": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+    "field_last_saved_by_an_editor": "2022-02-07T21:25:25+00:00",
+    "field_meta_tags": null,
+    "field_title": "Leadership",
+    "node_type": {
+      "data": {
+        "type": "node_type--node_type",
+        "id": "31c40548-0bcd-40b4-ab8e-30d1ac284719",
+        "meta": {
+          "drupal_internal__target_id": "leadership_listing"
+        }
+      },
+      "links": {
+        "related": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/node_type?resourceVersion=id%3A614463"
+        },
+        "self": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/relationships/node_type?resourceVersion=id%3A614463"
+        }
+      }
+    },
+    "revision_uid": {
+      "data": {
+        "type": "user--user",
+        "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+        "meta": {
+          "drupal_internal__target_id": 2932
+        }
+      },
+      "links": {
+        "related": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/revision_uid?resourceVersion=id%3A614463"
+        },
+        "self": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/relationships/revision_uid?resourceVersion=id%3A614463"
+        }
+      }
+    },
+    "uid": {
+      "data": {
+        "type": "user--user",
+        "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+        "meta": {
+          "drupal_internal__target_id": 197
+        }
+      },
+      "links": {
+        "related": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/uid?resourceVersion=id%3A614463"
+        },
+        "self": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/relationships/uid?resourceVersion=id%3A614463"
+        }
+      }
+    },
+    "field_administration": {
+      "data": {
+        "type": "taxonomy_term--administration",
+        "id": "e8d33c63-f62f-445a-873d-c0b90c11b11c",
+        "meta": {
+          "drupal_internal__target_id": 211
+        }
+      },
+      "links": {
+        "related": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/field_administration?resourceVersion=id%3A614463"
+        },
+        "self": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/relationships/field_administration?resourceVersion=id%3A614463"
+        }
+      }
+    },
+    "field_leadership": [
+      {
+        "type": "node--person_profile",
+        "id": "1d904e9d-8fa5-457d-88db-1f0e61b44c42",
+        "meta": {
+          "drupal_internal__target_id": 19496
+        }
+      },
+      {
+        "type": "node--person_profile",
+        "id": "938a1d67-9a57-4eb9-b113-c75cd6954b4e",
+        "meta": {
+          "drupal_internal__target_id": 19500
+        }
+      },
+      {
+        "type": "node--person_profile",
+        "id": "62bdd347-52a8-4f26-95e6-d5e5a55d141e",
+        "meta": {
+          "drupal_internal__target_id": 19503
+        }
+      },
+      {
+        "type": "node--person_profile",
+        "id": "6c81991e-3bd0-469d-9ee0-816afb0ed7d1",
+        "meta": {
+          "drupal_internal__target_id": 43537
+        }
+      }
+    ],
+    "field_office": {
+      "data": {
+        "type": "node--health_care_region_page",
+        "id": "86cd839d-c3b9-4c4c-8797-e3529b6eab21",
+        "meta": {
+          "drupal_internal__target_id": 15080
+        }
+      },
+      "links": {
+        "related": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/field_office?resourceVersion=id%3A614463"
+        },
+        "self": {
+          "href": "https://main-pp6cenhyzhufte23bgta0s7cwjsxy7hm.demo.cms.va.gov/jsonapi/node/leadership_listing/dd02e587-f784-41cf-8489-ffad717e6a29/relationships/field_office?resourceVersion=id%3A614463"
+        }
+      }
+    }
+  },
+  "menu": {
+    "type": "menu_link_content--va-houston-health-care",
+    "id": "menu_link_content:615bb0ac-72de-4506-a0b4-9c37c3f3db2c",
+    "description": null,
+    "enabled": true,
+    "expanded": false,
+    "menu_name": "va-houston-health-care",
+    "meta": {},
+    "options": [],
+    "parent": "menu_link_content:4663ff02-b987-4ca5-924e-fd7282cde478",
+    "provider": "menu_link_content",
+    "route": {},
+    "title": "Policies",
+    "url": "/houston-health-care/policies",
+    "weight": 8,
+    "changed": "2024-02-13T16:33:01+00:00",
+    "breadcrumbs": [],
+    "view_mode": null,
+    "metatag": []
+  }
 }

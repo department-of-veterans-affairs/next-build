@@ -4,8 +4,7 @@ import { SideNavMenu } from './sideNav'
 
 export type LeadershipListing = PublishedEntity & {
   description: string
-  introText: string
-  lastSaved: string
+  introText?: string
   leadership: PersonProfile[]
   menu?: SideNavMenu
   title: string

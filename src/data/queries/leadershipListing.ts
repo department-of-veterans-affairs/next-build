@@ -14,7 +14,7 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 
-type LeadershipListingData = {
+export type LeadershipListingData = {
   entity: NodeLeadershipListing
   menu?: Menu
 }
@@ -70,7 +70,6 @@ export const formatter: QueryFormatter<LeadershipListingData, LeadershipListing>
     ...entityBaseFields(entity),
     description: entity.field_description,
     introText: entity.field_intro_text,
-    lastSaved: entity.field_last_saved_by_an_editor,
     leadership: entity.field_leadership.map(leader => queries.formatData(RESOURCE_TYPES.PERSON_PROFILE, { entity: leader })),
     menu: formattedMenu,
     office: entity.field_office,
