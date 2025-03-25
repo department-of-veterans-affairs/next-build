@@ -63,3 +63,4 @@ certs/VA-mozilla-combined.pem
 
 # vscode
 .vscode
+.aider*
