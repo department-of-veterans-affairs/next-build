@@ -71,7 +71,7 @@ export const PersonProfile = ({
                         </a>
                       </p>
                     )}
-                    {phoneNumber && (
+                    {phoneNumber?.number && (
                       <p
                         className="
                 vads-u-font-weight--regular
@@ -81,7 +81,9 @@ export const PersonProfile = ({
                         <span className="vads-u-font-weight--bold">
                           Phone:{' '}
                         </span>
-                        <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
+                        <a href={`tel:${phoneNumber?.number}`}>
+                          {phoneNumber?.number}
+                        </a>
                       </p>
                     )}
                   </div>
@@ -136,11 +138,9 @@ export const StaffNewsProfile = ({
   description,
 }: PersonProfileTeaserProps): JSX.Element => {
   return (
-    <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
-      <div className="vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
-        By {title}
-        {description ? `, ${description}` : null}
-      </div>
-    </div>
+    <p className="vads-u-margin-bottom--0p5 vads-u-font-weight--bold">
+      By {title}
+      {description ? `, ${description}` : null}
+    </p>
   )
 }

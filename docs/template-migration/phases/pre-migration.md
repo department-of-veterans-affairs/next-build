@@ -10,4 +10,4 @@ _Nothing fancy here._
 
 **Trigger**: The template gets prioritized and assigned to a team.
 
-**Next step:** [Active Migration](./active-migration.md)
+**Next step:** [Active Migration](./active-migration/readme.md)

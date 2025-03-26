@@ -2,7 +2,7 @@
 
 exports[`paragraph--email_contact formatData outputs formatted data 1`] = `
 {
-  "address": "heather.steele@va.gov",
+  "address": "test@va.gov",
   "entityId": 22114,
   "id": "98ed3deb-c8a4-4b19-b5d7-c6215877a567",
   "label": "Minority Veterans Program",
