@@ -183,7 +183,8 @@ Some content types have conditional values that determine if they should be publ
 
 Example:
 
-```
+import { DoNotPublishError } from '@/lib/drupal/query'
+
 export const formatter: QueryFormatter<
   NodePersonProfile,
   PersonProfile
