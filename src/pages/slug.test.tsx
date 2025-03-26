@@ -3,8 +3,8 @@
  */
 
 import { getStaticProps } from './[[...slug]]'
-import { getStaticPropsResource } from '@/lib/drupal/staticProps'
-import { DoNotPublishError } from '@/lib/drupal/query'
+import { getStaticPropsResource } from '../lib/drupal/staticProps'
+import { DoNotPublishError } from '../lib/drupal/query'
 
 jest.mock('@/lib/drupal/staticProps')
 jest.mock('@/lib/drupal/getGlobalElements')
