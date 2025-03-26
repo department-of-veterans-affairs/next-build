@@ -74,9 +74,9 @@ export const PersonProfile = ({
                     {phoneNumber?.number && (
                       <p
                         className="
-                vads-u-font-weight--regular
-                vads-u-margin--0
-                vads-u-margin-bottom--0p5"
+                          vads-u-font-weight--regular
+                          vads-u-margin--0
+                          vads-u-margin-bottom--0p5"
                       >
                         <span className="vads-u-font-weight--bold">
                           Phone:{' '}

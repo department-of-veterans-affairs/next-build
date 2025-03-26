@@ -6,7 +6,7 @@ export const formatter: QueryFormatter<ParagraphPhoneNumber, PhoneNumber> = (
   entity: ParagraphPhoneNumber
 ) => {
   return {
-    type: entity.type as PhoneNumber['type'],
+    type: entity.type,
     id: entity.id,
     entityId: entity.drupal_internal__id,
     label: entity.field_phone_label,

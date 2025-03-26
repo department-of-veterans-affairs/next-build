@@ -14,7 +14,9 @@ describe('Person profile returns formatted data', () => {
   test('outputs formatted data', () => {
     const formattedData = personProfileMock
     expect(
-      queries.formatData(RESOURCE_TYPES.PERSON_PROFILE, formattedData)
+      queries.formatData(RESOURCE_TYPES.PERSON_PROFILE, {
+        entity: formattedData,
+      })
     ).toMatchSnapshot()
   })
   test('returns null when entity is null', () => {
