@@ -8,6 +8,7 @@ import {
   toString,
   escape,
   numToWord,
+  formatDate,
 } from './helpers'
 
 describe('truncateWordsOrChar', () => {
@@ -276,5 +277,36 @@ describe('numToWord function', () => {
 
   test('handles zero', () => {
     expect(numToWord(0)).toBe('zero')
+  })
+})
+
+describe('formatDate', () => {
+  test('formats standard date strings correctly', () => {
+    expect(formatDate('2024-03-20')).toBe('March 20, 2024')
+    expect(formatDate('2024-12-25')).toBe('December 25, 2024')
+    expect(formatDate('2024-01-05')).toBe('January 5, 2024')
+  })
+
+  test('handles ISO date strings with timezone offsets', () => {
+    expect(formatDate('2024-03-20T10:25:28-04:00')).toBe('March 20, 2024')
+    expect(formatDate('2024-03-20T14:27:39+00:00')).toBe('March 20, 2024')
+  })
+
+  test('handles UTC timestamps', () => {
+    expect(formatDate('2024-03-20T14:30:00Z')).toBe('March 20, 2024')
+  })
+
+  test('maintains consistent output regardless of input timezone', () => {
+    const date = '2024-03-20'
+    const dateUTC = '2024-03-20T00:00:00Z'
+    const dateEST = '2024-03-20T00:00:00-05:00'
+    expect(formatDate(date)).toBe('March 20, 2024')
+    expect(formatDate(dateUTC)).toBe('March 20, 2024')
+    expect(formatDate(dateEST)).toBe('March 20, 2024')
+  })
+
+  test('handles invalid inputs', () => {
+    expect(() => formatDate('invalid-date')).not.toThrow()
+    expect(formatDate('invalid-date')).toBe('Invalid Date')
   })
 })

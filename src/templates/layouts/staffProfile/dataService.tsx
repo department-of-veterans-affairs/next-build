@@ -31,7 +31,6 @@ export const transformStaffProfileData = function (
         linkToBio: entity.field_staff_profile.field_complete_biography_create,
         path: entity.field_staff_profile.field_entity?.entityUrl.path || null,
         description: entity.field_staff_profile.field_description,
-        phone: entity.field_staff_profile.field_phone_number,
         email: entity.field_staff_profile.field_email_address,
       }
   }

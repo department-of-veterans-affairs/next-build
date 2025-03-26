@@ -17,7 +17,6 @@ describe('transformStaffProfileData', () => {
       linkToBio: true,
       path: 'http:va.gov',
       description: 'OEF Transition Patient Advocate',
-      phone: '412-551-9651',
       email: 'william.smathers@aol.com',
     }
 
@@ -36,7 +35,6 @@ describe('transformStaffProfileData', () => {
       linkToBio: true,
       path: null,
       description: 'OEF Transition Patient Advocate',
-      phone: '412-551-9651',
       email: 'william.smathers@aol.com',
     }
 

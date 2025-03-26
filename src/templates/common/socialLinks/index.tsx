@@ -120,26 +120,26 @@ export const SocialLinks = ({
           </>
         ) : (
           <>
-            <li className="vads-u-margin-bottom--2p5 ">
+            <li className="vads-u-margin-right--5 medium-screen:vads-u-margin-right--2p5">
               <va-icon
                 class="va-c-social-icon vads-u-margin-right--0p5"
                 icon="facebook"
                 size="3"
               />
               <va-link
-                className="va-js-share-link"
+                class="va-js-share-link"
                 href={`https://www.facebook.com/sharer/sharer.php?href=${path}`}
                 text="Share on Facebook"
               />
             </li>
-            <li>
+            <li className="vads-u-flex--1">
               <va-icon
                 class="va-c-social-icon vads-u-margin-right--0p5"
                 icon="x"
                 size="3"
               />
               <va-link
-                className="va-js-share-link"
+                class="va-js-share-link"
                 href={`https://twitter.com/intent/tweet?text=${title}&url=${path}`}
                 text="Share on X (formerly Twitter)"
               />

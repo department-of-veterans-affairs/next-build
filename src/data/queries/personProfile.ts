@@ -47,7 +47,10 @@ export const formatter: QueryFormatter<NodePersonProfile, PersonProfile> = (
     lastName: entity.field_last_name,
     suffix: entity.field_suffix,
     emailAddress: entity.field_email_address,
-    phoneNumber: entity.field_phone_number,
+    phoneNumber: queries.formatData(
+      'paragraph--phone_number',
+      entity.field_telephone
+    ),
     description: entity.field_description,
     introText: entity.field_intro_text,
     body: entity.field_body?.processed || null,

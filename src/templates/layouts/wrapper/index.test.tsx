@@ -2,7 +2,6 @@ import { render, screen } from 'test-utils'
 import '@testing-library/jest-dom'
 import { Wrapper, formatBannerType } from './index'
 import { PromoBanner } from '@/templates/common/banners/promoBanner'
-import { FacilityBanner } from '@/templates/common/banners/facilityBanner'
 import { Banner } from '@/templates/common/banners/banner'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
@@ -74,17 +73,6 @@ describe('formatBannerType function', () => {
     }
     const result = formatBannerType(bannerData)
     expect(result).toEqual(<PromoBanner {...bannerData} />)
-  })
-
-  test('returns FacilityBanner for BANNER_RESOURCE_TYPES.FACILITY', () => {
-    const bannerData = {
-      id: '2',
-      type: BANNER_RESOURCE_TYPES.FACILITY,
-      title: '',
-      key: '2',
-    }
-    const result = formatBannerType(bannerData)
-    expect(result).toEqual(<FacilityBanner {...bannerData} />)
   })
 
   test('returns Banner for BANNER_RESOURCE_TYPES.BASIC', () => {

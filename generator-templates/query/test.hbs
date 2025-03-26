@@ -1,25 +1,28 @@
+/**
+ * @jest-environment node
+ */
+
 import { {{pascalCase name}} } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/{{camelCase name}}.mock.json'
 
 const {{pascalCase name}}Mock: {{pascalCase name}} = mockData
 
+// remove if this component does not have a data fetch
+describe('DrupalJsonApiParams configuration', () => {
+  test('params function sets the correct include fields', () => {
+    // TODO
+  })
+})
+
 describe('{{pascalCase name}} formatData', () => {
-  let windowSpy
-
-  beforeEach(() => {
-    windowSpy = jest.spyOn(window, 'window', 'get')
-  })
-
-  afterEach(() => {
-    windowSpy.mockRestore()
-  })
-
   test('outputs formatted data', () => {
-    windowSpy.mockImplementation(() => undefined)
-
     expect(
       queries.formatData('node--{{snakeCase name}}', {{pascalCase name}}Mock)
     ).toMatchSnapshot()
+  })
+
+  test('handles no answers correctly', () => {
+    // TODO
   })
 })

@@ -212,4 +212,34 @@ describe('<Event /> Component', () => {
     render(<Event {...data} />)
     expect(screen.getByText('3307 10th Avenue Southeast')).toBeInTheDocument()
   })
+
+  describe('va-links in paragraph tags', () => {
+    it('always wraps outreach link in paragraph tag', () => {
+      render(<Event {...data} />)
+      const outreachLink = document.querySelector(
+        'va-link[href="/outreach-and-events/events/"]'
+      )
+      expect(outreachLink).not.toBeNull()
+      expect(outreachLink?.parentElement?.tagName.toLowerCase()).toBe('p')
+    })
+
+    it('wraps administration link in paragraph tag when present', () => {
+      render(
+        <Event
+          {...data}
+          administration={{
+            id: 1,
+            name: 'Test Administration',
+          }}
+          listing="/test-listing"
+          listingOffice="Test Office"
+        />
+      )
+      const seeMoreLink = document.querySelector(
+        'va-link[id="see-more-events"]'
+      )
+      expect(seeMoreLink).not.toBeNull()
+      expect(seeMoreLink?.parentElement?.tagName.toLowerCase()).toBe('p')
+    })
+  })
 })

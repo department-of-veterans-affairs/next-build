@@ -3,7 +3,6 @@ import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { AlertBlock } from '@/templates/components/alertBlock'
-import { WysiwygField } from '@/templates/components/wysiwyg'
 import HealthServices from '@/templates/components/healthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
@@ -223,7 +222,11 @@ export function VetCenter({
                       </div>
                     </div>
 
-                    <Hours headerType="standard" allHours={officeHours} />
+                    <Hours
+                      headerType="standard"
+                      allHours={officeHours}
+                      nonTraditionalMessage={ccNonTraditionalHours}
+                    />
                   </section>
                 </div>
               </div>
@@ -247,15 +250,6 @@ export function VetCenter({
               <a href={`${path}/locations`}>View more {title} locations</a>
             </div>
           </div>
-
-          {ccNonTraditionalHours && (
-            <div
-              className="vads-u-font-weight--bold"
-              id="field-cc-non-traditional-hours"
-            >
-              <WysiwygField html={ccNonTraditionalHours.html} />
-            </div>
-          )}
 
           {/* Call Center Information */}
           {ccVetCenterCallCenter && (

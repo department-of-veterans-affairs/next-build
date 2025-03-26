@@ -8,6 +8,7 @@ export type PressReleaseTeaser = PublishedEntity & {
   headingLevel?: ComponentType | keyof JSX.IntrinsicElements
   link: string
   introText: string
+  releaseDate: string
 }
 
 export type PressReleaseDownload = {

@@ -5,6 +5,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'Wilmington VAMC 2019 Annual Report',
     lastUpdated: '2021-04-12T14:25:27+00:00',
+    releaseDate: '2021-04-12T14:25:27+00:00',
     link: '/wilmington-health-care/news-releases/wilmington-vamc-2019-annual-report',
     introText: 'We invite you to come and read our 2019 Annual Report. ',
   },
@@ -14,6 +15,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'Houston health care Placeholder - News release',
     lastUpdated: '2021-04-05T14:42:45+00:00',
+    releaseDate: '2021-04-05T14:42:45+00:00',
     link: '/houston-health-care/news-releases/houston-health-care-placeholder-news-release',
     introText: 'Houston health care Placeholder - News release',
   },
@@ -23,6 +25,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'Virtual town hall discusses vaccine hesitancy for BIPOC Veterans',
     lastUpdated: '2021-04-26T15:12:03+00:00',
+    releaseDate: '2021-04-26T15:12:03+00:00',
     link: '/central-arkansas-health-care/news-releases/virtual-town-hall-discusses-vaccine-hesitancy-for-bipoc-veterans',
     introText:
       'Virtual Town Hall Discusses COVID-19 Vaccine Hesitancy for BIPOC Veterans WEBEX Event Wednesday, April 28',
@@ -33,6 +36,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'Minneapolis health care Placeholder - News release',
     lastUpdated: '2021-04-16T16:14:29+00:00',
+    releaseDate: '2021-04-16T16:14:29+00:00',
     link: '/minneapolis-health-care/news-releases/minneapolis-health-care-placeholder-news-release',
     introText: 'Minneapolis health care Placeholder - News release',
   },
@@ -42,6 +46,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'Town Hall Meeting for Veterans at Southeastern Veterans Center',
     lastUpdated: '2020-04-22T19:05:51+00:00',
+    releaseDate: '2020-04-22T19:05:51+00:00',
     link: '/coatesville-health-care/news-releases/town-hall-meeting-for-veterans-at-southeastern-veterans',
     introText:
       'Coatesville VA Medical Center and Spring City VA Outpatient Clinic Leaders to Host Town Hall Meeting for Veterans at Southeastern Veterans Center',
@@ -52,6 +57,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'Palo Alto health care Placeholder - News release',
     lastUpdated: '2021-04-08T19:12:52+00:00',
+    releaseDate: '2021-04-08T19:12:52+00:00',
     link: '/palo-alto-health-care/news-releases/palo-alto-health-care-placeholder-news-release',
     introText: 'Palo Alto health care Placeholder - News release',
   },
@@ -61,6 +67,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'Fayetteville Coastal Placeholder - News release',
     lastUpdated: '2021-03-18T20:10:27+00:00',
+    releaseDate: '2021-03-18T20:10:27+00:00',
     link: '/fayetteville-coastal-health-care/news-releases/fayetteville-coastal-placeholder-news-release',
     introText: 'Fayetteville Coastal Placeholder News release',
   },
@@ -71,6 +78,7 @@ export const formattedPressReleases = [
     title:
       'Fayetteville NC VA Health Care System Encourages Veterans ‘Reach Out’ For Mental Health Assistance',
     lastUpdated: '2021-09-21T13:11:45+00:00',
+    releaseDate: '2021-09-21T13:11:45+00:00',
     link: '/fayetteville-coastal-health-care/news-releases/fayetteville-nc-va-health-care-system-encourages-veterans-reach-out-for-mental-health-assistance-0',
     introText:
       'FAYETTEVILLE, NC — In conjunction with September’s Suicide Prevention Month, Fayetteville NC VA Coastal Health Care System is raising awareness of its mental health resources available for Veterans throughout Southeastern North Carolina.',
@@ -81,6 +89,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'VA Innovation: Here’s an idea that won’t keep you awake at night',
     lastUpdated: '2021-08-24T16:39:57+00:00',
+    releaseDate: '2021-08-24T16:39:57+00:00',
     link: '/asheville-health-care/news-releases/va-innovation-heres-an-idea-that-wont-keep-you-awake-at-night',
     introText:
       'Let’s face it – for most people, it’s hard to sleep in a hospital. That’s because it’s an unfamiliar setting with unfamiliar people and unfamiliar sounds all around you. Couple that with the stress of being treated, and it makes the perfect recipe for a lack of restful sleep.  \r\n',
@@ -91,6 +100,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'Columbus VA Transitions to New Electronic Health Record',
     lastUpdated: '2022-05-02T11:15:12+00:00',
+    releaseDate: '2022-05-02T11:15:12+00:00',
     link: '/central-ohio-health-care/news-releases/columbus-va-transitions-to-new-electronic-health-record',
     introText:
       'The VA Central Ohio Healthcare System transitioned to VA’s new electronic health record (EHR), April 30. ',
@@ -101,6 +111,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'VA SURVEY OF VETERAN ENROLLEES’ HEALTH AND USE OF HEALTH CARE',
     lastUpdated: '2022-04-22T13:23:04+00:00',
+    releaseDate: '2022-04-22T13:23:04+00:00',
     link: '/mountain-home-health-care/news-releases/va-survey-of-veteran-enrollees-health-and-use-of-health-care',
     introText:
       'The Survey of Enrollees is a nationwide survey of Veterans enrolled in the VA Health Care system. The survey is conducted every year. The survey asks questions about your use of health care, insurance benefits, and your health status. ',
@@ -111,6 +122,7 @@ export const formattedPressReleases = [
     published: true,
     title: 'State Senate Honors JHQVAMC with Resolution',
     lastUpdated: '2022-06-08T12:14:47+00:00',
+    releaseDate: '2022-06-08T12:14:47+00:00',
     link: '/mountain-home-health-care/news-releases/state-senate-honors-jhqvamc-with-resolution',
     introText:
       'State Senator Rusty Crowe of Tennessee’s District 3 presented James H. Quillen VA Medical Center (JHQVAMC) with Senate Joint Resolution 1114 during a ceremony June 6, 2022, honoring the medical center for its recognition as a top hospital for nurse-to-patient communication by a national publication. ',

@@ -22,8 +22,8 @@ declare module 'test-utils'
 
 declare namespace JSX {
   interface IntrinsicElements {
-    'va-accordion-item'
     'va-accordion'
+    'va-accordion-item'
     'va-alert'
     'va-back-to-top'
     'va-breadcrumbs'
@@ -32,5 +32,6 @@ declare namespace JSX {
     'va-link'
     'va-link-action'
     'va-on-this-page'
+    'va-telephone'
   }
 }
