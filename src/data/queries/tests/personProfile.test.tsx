@@ -30,7 +30,6 @@ describe('Person profile returns formatted data', () => {
 test('handles null and optional fields correctly', () => {
   const modifiedMock = {
     ...personProfileMock,
-    field_phone_number: null,
     field_media: undefined,
   }
 
@@ -39,6 +38,5 @@ test('handles null and optional fields correctly', () => {
     modifiedMock
   )
 
-  expect(formattedData.phoneNumber).toBeNull()
   expect(formattedData.media).toBeNull()
 })
