@@ -20,19 +20,13 @@ export function FeaturedContent({
         />
       )}
       {link && link.url && (
-        <a
-          className="vads-c-action-link--blue vads-u-display--block vads-u-padding-top--1"
+        <va-link
+          className="vads-u-display--block vads-u-padding-top--1"
           href={link.url}
-        >
-          <span>
-            {' '}
-            {link.label}{' '}
-            <i
-              className="fa fa-chevron-right vads-facility-hub-cta-arrow"
-              aria-hidden="true"
-            ></i>
-          </span>
-        </a>
+          text={link.label}
+          active={true}
+          data-testid="featured-content-link"
+        />
       )}
     </div>
   )
