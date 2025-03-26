@@ -368,7 +368,170 @@
       }
     }
   },
-  "field_press_release_contact": [],
+  "field_press_release_contact": [
+    {
+      "type": "node--person_profile",
+      "id": "7ecb5154-7e2c-4c16-a171-bb3710a4dab7",
+      "drupal_internal__nid": 94,
+      "drupal_internal__vid": 988884,
+      "sticky": false,
+      "default_langcode": true,
+      "langcode": "en",
+      "status": true,
+      "title": "Sheila Tunney",
+      "created": "2019-02-26T05:47:15+00:00",
+      "changed": "2024-11-25T18:00:07+00:00",
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/pittsburgh-health-care",
+          "title": "VA Pittsburgh Health Care",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/pittsburgh-health-care/staff-profiles/sheila-tunney",
+          "title": "Sheila Tunney",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Sheila Tunney | VA Pittsburgh health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "Sheila Tunney | VA Pittsburgh health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "Sheila Tunney | VA Pittsburgh health care | Veterans Affairs"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/pittsburgh-health-care/staff-profiles/sheila-tunney",
+        "pid": 214,
+        "langcode": "en"
+      },
+      "field_body": null,
+      "field_complete_biography_create": false,
+      "field_description": "Public Affairs Specialist",
+      "field_email_address": "test@va.gov",
+      "field_intro_text": null,
+      "field_last_name": "Tunney",
+      "field_last_saved_by_an_editor": "2024-05-02T13:03:19+00:00",
+      "field_meta_tags": null,
+      "field_name_first": "Sheila",
+      "field_photo_allow_hires_download": false,
+      "field_suffix": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/person_profile/7ecb5154-7e2c-4c16-a171-bb3710a4dab7?resourceVersion=id%3A934975"
+        }
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "89b07673-7fd5-4292-8fba-58cc10c4e3ec",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "person_profile"
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "87832236-1e54-4ce3-8141-8dec27c8a9a7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 12
+        }
+      },
+      "field_complete_biography": null,
+      "field_media": null,
+      "field_office": null,
+      "field_telephone": {
+        "type": "paragraph--phone_number",
+        "id": "a96f65e2-5a82-4b59-b249-25c634e93108",
+        "drupal_internal__id": 163647,
+        "drupal_internal__revision_id": 1561519,
+        "langcode": "en",
+        "status": true,
+        "created": "2024-11-25T18:00:06+00:00",
+        "parent_id": "94",
+        "parent_type": "node",
+        "parent_field_name": "field_telephone",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": "2024-11-25T18:00:06+00:00",
+        "field_phone_extension": null,
+        "field_phone_label": null,
+        "field_phone_number": "412-360-1479",
+        "field_phone_number_type": "phone",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/a96f65e2-5a82-4b59-b249-25c634e93108?resourceVersion=id%3A1561519"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 1561519,
+          "drupal_internal__target_id": 163647
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "phone_number"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      }
+    }
+  ],
   "field_press_release_downloads": [],
   "field_administration": {
     "drupal_internal__tid": 188,

@@ -89,15 +89,29 @@ export const getFetcher = (
 
       if (!response.ok) {
         if (logFailedRequest) {
-          /*eslint-disable-next-line*/
-          console.log(
-            `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${
-              response.url
-            }`
+          console.error(
+            `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${JSON.stringify(
+              {
+                url: response.url,
+                status: response.status,
+                statusText: response.statusText,
+              },
+              null,
+              2
+            )}`
           )
         }
-        throw new Error('Failed request')
+        throw new Error(
+          `Failed request to ${response.url}: ${response.status} ${response.statusText}`
+        )
       }
+
+      // Don't retry if we shouldn't
+      if ([404, 403].includes(response.status)) {
+        const { AbortError } = await import('p-retry')
+        throw new AbortError(response.statusText)
+      }
+
       return response
     }
 

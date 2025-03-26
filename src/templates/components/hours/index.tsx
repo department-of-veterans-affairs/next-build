@@ -1,11 +1,18 @@
 import { FieldOfficeHours } from '@/types/drupal/field_type'
+import { WysiwygField } from '@/templates/components/wysiwyg'
+import { Wysiwyg } from '@/types/formatted/wysiwyg'
 
 type HoursProps = {
   allHours: FieldOfficeHours[]
   headerType: 'small' | 'standard' | 'clinical' | 'office'
+  nonTraditionalMessage?: Wysiwyg
 }
 
-export const Hours = ({ allHours, headerType }: HoursProps) => {
+export const Hours = ({
+  allHours,
+  headerType,
+  nonTraditionalMessage,
+}: HoursProps) => {
   if (!allHours || allHours.length === 0) {
     return null
   }
@@ -35,9 +42,16 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
         )
       case 'standard':
         return (
-          <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
-            Hours
-          </h3>
+          <>
+            <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+              Hours
+            </h3>
+            {nonTraditionalMessage && (
+              <div id="field-cc-non-traditional-hours">
+                <WysiwygField html={nonTraditionalMessage.html} />
+              </div>
+            )}
+          </>
         )
       case 'clinical':
         return (
@@ -74,7 +88,9 @@ export const Hours = ({ allHours, headerType }: HoursProps) => {
               const DayTag = headerType === 'clinical' ? 'strong' : 'span'
               return (
                 <li key={index}>
-                  <DayTag className="abbrv-day">{dayNames[dayIndex]}.</DayTag>{' '}
+                  <DayTag className="abbrv-day vads-u-font-weight--bold">
+                    {dayNames[dayIndex]}:
+                  </DayTag>{' '}
                   {hoursItem.starthours === null
                     ? 'Closed'
                     : `${formatHours(hoursItem.starthours)} to ${formatHours(

@@ -31,9 +31,50 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "field_meta_tags": null,
     "field_name_first": "Keith",
     "field_office": null,
-    "field_phone_number": null,
     "field_photo_allow_hires_download": false,
     "field_suffix": null,
+    "field_telephone": {
+      "behavior_settings": [],
+      "breadcrumbs": [],
+      "content_translation_changed": "2024-11-25T18:00:06+00:00",
+      "content_translation_outdated": false,
+      "content_translation_source": "und",
+      "created": "2024-11-25T18:00:06+00:00",
+      "default_langcode": true,
+      "drupal_internal__id": 163647,
+      "drupal_internal__revision_id": 1561519,
+      "field_phone_extension": null,
+      "field_phone_label": null,
+      "field_phone_number": "412-360-1479",
+      "field_phone_number_type": "phone",
+      "id": "a96f65e2-5a82-4b59-b249-25c634e93108",
+      "langcode": "en",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/a96f65e2-5a82-4b59-b249-25c634e93108?resourceVersion=id%3A1561519",
+        },
+      },
+      "paragraph_type": {
+        "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "phone_number",
+        },
+        "type": "paragraphs_type--paragraphs_type",
+      },
+      "parent_field_name": "field_telephone",
+      "parent_id": "94",
+      "parent_type": "node",
+      "relationshipNames": [
+        "paragraph_type",
+      ],
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 163647,
+        "target_revision_id": 1561519,
+      },
+      "revision_translation_affected": null,
+      "status": true,
+      "type": "paragraph--phone_number",
+    },
     "id": "c76037be-ebb0-4338-9b31-973a76958929",
     "langcode": "en",
     "links": {
@@ -362,7 +403,7 @@ exports[`node--news_story formatData outputs formatted data 1`] = `
     "width": 456,
   },
   "introText": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
-  "lastUpdated": "2019-05-14T15:35:12+00:00",
+  "lastUpdated": "2020-03-24T20:10:28+00:00",
   "listing": "/pittsburgh-health-care/stories",
   "metatags": [
     {

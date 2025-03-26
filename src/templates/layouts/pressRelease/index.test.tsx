@@ -2,14 +2,46 @@ import { render, screen } from '@testing-library/react'
 import { PressRelease } from './index'
 import { getByText } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
+import { getByTestId } from '@testing-library/dom'
 
 const contacts = [
   {
     id: '96668498-d442-4b55-8b14-7ec90410f418',
     name: 'Vance Janes',
     description: 'Public Affairs Officer',
-    phone: '828-298-7911, ext. 4446',
-    email: 'vance.janes@va.gov',
+    numbers: [
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc3',
+        type: 'phone',
+        number: '617-435-7809',
+        ext: null,
+      },
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc4',
+        type: 'sms',
+        number: '617-435-7810',
+        ext: null,
+      },
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc5',
+        type: 'tty',
+        number: '617-435-7811',
+        ext: null,
+      },
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc6',
+        type: 'phone',
+        number: '617-435-7812',
+        ext: '111',
+      },
+      {
+        id: 'a93d21bb-3ee0-4ffe-9996-91f7c6e6bdc6',
+        type: 'fax',
+        number: '617-435-7813',
+        ext: null,
+      },
+    ],
+    email: 'test@va.gov',
   },
 ]
 
@@ -19,6 +51,18 @@ const downloads = [
     type: 'media--document',
     name: 'Vets Day 2021.pdf',
     uri: '/sites/default/files/2021-10/Vets%20Day%202021.pdf',
+  },
+  {
+    id: '4dc62f71-cc99-49ae-8337-1acaa8e9ad2b',
+    type: 'media--image',
+    name: '2B4A3981.JPG',
+    uri: '/sites/default/files/2021-10/2B4A3981.JPG',
+  },
+  {
+    id: '4dc62f71-cc99-49ae-8337-1acaa8e9ad2c',
+    type: 'media--video',
+    name: 'Video to watch',
+    uri: 'https://www.youtube.com/watch?v=RMtx4jvpI_c',
   },
 ]
 
@@ -95,13 +139,64 @@ describe('<pressRelease> with valid data', () => {
     render(<PressRelease {...data} />)
     contacts.forEach((contact) => {
       expect(
-        screen.getByText(`${contact.name} , ${contact.description}`)
+        screen.getByText(`${contact.name}, ${contact.description}`)
       ).toBeInTheDocument()
-      expect(screen.getByText(contact.phone)).toBeInTheDocument()
-      const emailLink = screen.getByText(contact.email)
+      const emailLink = screen.getByTestId('press-email')
       expect(emailLink).toBeInTheDocument()
       expect(emailLink).toHaveAttribute('href', `mailto:${contact.email}`)
+      expect(screen.getByTestId('phone-0')).toBeInTheDocument()
     })
+  })
+
+  test('renders contact phone', () => {
+    render(<PressRelease {...data} />)
+    const voice = screen.getByTestId('phone-0')
+    const sms = screen.getByTestId('phone-1')
+    const tty = screen.getByTestId('phone-2')
+    const ext = screen.getByTestId('phone-3')
+    const fax = screen.getByTestId('phone-4')
+    expect(voice).toBeInTheDocument()
+    expect(voice).toHaveAttribute('contact', data.contacts[0].numbers[0].number)
+    expect(voice).not.toHaveAttribute('sms')
+    expect(voice).not.toHaveAttribute('tty')
+    expect(voice).not.toHaveAttribute('extension')
+    expect(voice).toHaveAttribute('message-aria-describedby', 'Phone')
+    expect(screen.getByTestId('phone-label-0')).toHaveTextContent('Phone:')
+    expect(sms).toBeInTheDocument()
+    expect(sms).toHaveAttribute('contact', data.contacts[0].numbers[1].number)
+    expect(sms).toHaveAttribute('sms')
+    expect(sms).not.toHaveAttribute('tty')
+    expect(sms).not.toHaveAttribute('extension')
+    expect(sms).toHaveAttribute('message-aria-describedby', 'Phone')
+    expect(screen.getByTestId('phone-label-1')).toHaveTextContent('Phone:')
+    expect(tty).toBeInTheDocument()
+    expect(tty).toHaveAttribute('contact', data.contacts[0].numbers[2].number)
+    expect(tty).not.toHaveAttribute('sms')
+    expect(tty).toHaveAttribute('tty')
+    expect(tty).not.toHaveAttribute('extension')
+    expect(tty).toHaveAttribute('message-aria-describedby', 'Phone')
+    expect(screen.getByTestId('phone-label-2')).toHaveTextContent('Phone:')
+    expect(ext).toBeInTheDocument()
+    expect(ext).toHaveAttribute('contact', data.contacts[0].numbers[3].number)
+    expect(ext).not.toHaveAttribute('sms')
+    expect(ext).not.toHaveAttribute('tty')
+    expect(ext).toHaveAttribute('extension', data.contacts[0].numbers[3].ext)
+    expect(ext).toHaveAttribute('message-aria-describedby', 'Phone')
+    expect(screen.getByTestId('phone-label-3')).toHaveTextContent('Phone:')
+    expect(fax).toBeInTheDocument()
+    expect(fax).toHaveAttribute('contact', data.contacts[0].numbers[4].number)
+    expect(fax).not.toHaveAttribute('sms')
+    expect(fax).not.toHaveAttribute('tty')
+    expect(fax).not.toHaveAttribute('extension')
+    expect(fax).toHaveAttribute('message-aria-describedby', 'Fax')
+    expect(screen.getByTestId('phone-label-4')).toHaveTextContent('Fax:')
+  })
+
+  test('does not render numbers if null', () => {
+    const nullNumbers = { ...data }
+    nullNumbers.contacts[0].numbers = null
+    render(<PressRelease {...data} />)
+    expect(screen.queryByTestId('phone-0')).not.toBeInTheDocument()
   })
 
   test('renders contacts when null', () => {
@@ -124,17 +219,29 @@ describe('<pressRelease> with valid data', () => {
 
   test('renders the downloads', () => {
     render(<PressRelease {...data} />)
-    downloads.forEach((download) => {
-      const link = screen.getByText(`Download ${download.name}`)
-      expect(link).toBeInTheDocument()
-      expect(link).toHaveAttribute('href', download.uri)
-    })
+    const document = screen.getByTestId('document')
+    const image = screen.getByTestId('image')
+    const video = screen.getByTestId('video')
+    expect(document).toHaveAttribute('filetype', 'pdf')
+    expect(document).toHaveAttribute('download')
+    expect(document).toHaveAttribute('text', downloads[0].name)
+    expect(document).toHaveAttribute('href', downloads[0].uri)
+    expect(image).toHaveAttribute('filetype', 'JPG')
+    expect(image).toHaveAttribute('download')
+    expect(image).toHaveAttribute('text', `Download ${downloads[1].name}`)
+    expect(image).toHaveAttribute('href', downloads[1].uri)
+    expect(video).not.toHaveAttribute('filetype')
+    expect(video).not.toHaveAttribute('download')
+    expect(video).toHaveAttribute('text', downloads[2].name)
+    expect(video).toHaveAttribute('href', downloads[2].uri)
+    expect(video).toHaveAttribute('video')
   })
 
-  test('renders downloads when null', () => {
-    data.downloads = [null]
-    render(<PressRelease {...data} />)
-    expect(screen.queryByText('null')).toBeNull()
+  test('does not render downloads when null', () => {
+    const dataWithNoDownloads = { ...data }
+    dataWithNoDownloads.downloads = []
+    render(<PressRelease {...dataWithNoDownloads} />)
+    expect(screen.queryByTestId('downloads')).not.toBeInTheDocument()
   })
 
   // Mock the window.print function
