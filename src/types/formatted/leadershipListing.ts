@@ -5,6 +5,6 @@ import { SideNavMenu } from './sideNav'
 export type LeadershipListing = PublishedEntity & {
   introText?: string
   leadership: PersonProfile[]
-  menu?: SideNavMenu
+  menu: SideNavMenu
   title: string
 }

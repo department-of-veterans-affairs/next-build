@@ -35,7 +35,6 @@ describe('PersonProfileTeaser with valid data', () => {
     }
 
     const screen = render(<PersonProfileTeaser {...validData} />)
-    // console.log('container: ', container.innerHTML)
 
     expect(screen.container.innerHTML).toContain('contact=\"0008595743\" extension=\"12345\"')
     expect(screen.container.innerHTML).toContain('https%3A%2F%2Fdsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com%2Fstyles%2F2_3_medium_thumbnail%2Fpublic%2F2022-04%2FBrent%2520Kratky%2520VA%2520Headshot%2520Jan%25202021.jpg')

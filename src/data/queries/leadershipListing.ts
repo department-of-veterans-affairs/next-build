@@ -16,7 +16,7 @@ import {
 
 export type LeadershipListingData = {
   entity: NodeLeadershipListing
-  menu?: Menu
+  menu: Menu
 }
 
 export const params: QueryParams<null> = () => {

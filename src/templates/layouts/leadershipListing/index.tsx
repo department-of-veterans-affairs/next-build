@@ -11,6 +11,9 @@ interface customWindow extends Window {
 
 declare const window: customWindow
 
+/**
+ * Staff images and details with a left sidebar.
+ */
 export function LeadershipListing({
   introText,
   leadership,
