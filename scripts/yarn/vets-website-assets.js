@@ -32,6 +32,7 @@ const localBucket = path.resolve(
 // Available bucket options, default is the vagovprod bucket.
 const BUILD_TYPE_BUCKET = {
   localhost: localBucket,
+  tugboat: localBucket,
   vagovdev: devBucket,
   vagovstaging: stagingBucket,
   vagovprod: prodBucket,
@@ -111,7 +112,7 @@ async function gatherAssets() {
     }
   }
   // Download compiled js assets from the appropriate bucket.
-  if (buildtype !== 'localhost') {
+  if (buildtype !== 'localhost' || buildtype !== 'tugboat') {
     await downloadFromLiveBucket(buildtype)
     console.log(
       `Successfully downloaded all assets listed in ${BUILD_TYPE_BUCKET[buildtype]}/${fileManifestPath}`
