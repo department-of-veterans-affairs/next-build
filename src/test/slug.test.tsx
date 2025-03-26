@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { getStaticProps } from '../[[...slug]]'
+import { getStaticProps } from '../pages/[[...slug]]'
 import { getStaticPropsResource } from '@/lib/drupal/staticProps'
 import { DoNotPublishError } from '@/lib/drupal/query'
 
