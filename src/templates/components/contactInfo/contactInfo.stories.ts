@@ -51,7 +51,7 @@ export const AdditionalContactEmail: Story = {
       type: 'paragraph--email_contact',
       id: '2',
       label: 'John Smith, Department Chair',
-      address: 'johnsmith@va.gov',
+      address: 'test@va.gov',
     },
   },
 }

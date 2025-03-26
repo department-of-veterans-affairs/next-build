@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { DrupalClientAuth } from 'next-drupal'
 
 interface Filter {
   field: string
@@ -42,12 +43,21 @@ export default async function handler(
       }
     })
 
+    // The username & password will let us apply filters, so prefer that
+    // Fall back to the client ID and secret otherwise
+    const withAuth: DrupalClientAuth = process.env.DRUPAL_USERNAME
+      ? {
+          username: process.env.DRUPAL_USERNAME,
+          password: process.env.DRUPAL_PASSWORD,
+        }
+      : {
+          clientId: process.env.DRUPAL_CLIENT_ID,
+          clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+        }
+
     const data = await drupalClient.getResourceCollection(resourceType, {
       params: params.getQueryObject(),
-      withAuth: {
-        clientId: process.env.DRUPAL_CLIENT_ID,
-        clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-      },
+      withAuth,
     })
 
     return res.status(200).json(data)

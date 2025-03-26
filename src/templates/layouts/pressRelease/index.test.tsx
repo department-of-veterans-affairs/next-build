@@ -41,7 +41,7 @@ const contacts = [
         ext: null,
       },
     ],
-    email: 'vance.janes@va.gov',
+    email: 'test@va.gov',
   },
 ]
 

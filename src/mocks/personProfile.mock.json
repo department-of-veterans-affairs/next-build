@@ -28,7 +28,12 @@
   "field_last_name": "Doyle",
   "field_meta_tags": null,
   "field_name_first": "Patrick J.",
-  "field_phone_number": null,
+  "field_telephone": {
+    "field_phone_extension": null,
+    "field_phone_label": "Appointments",
+    "field_phone_number": "800-274-8387",
+    "field_phone_number_type": "tel"
+  },
   "field_photo_allow_hires_download": false,
   "field_suffix": "Ph.D.",
   "field_body": null,

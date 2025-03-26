@@ -44,14 +44,19 @@ describe('Hours Component', () => {
     expect(screen.getByText('Clinical hours')).toBeInTheDocument()
   })
 
-  it('renders "nonTraditional" status correctly', () => {
+  it('renders "nonTraditionalMessage" correctly', () => {
     render(
       <Hours
         allHours={[{ day: 2, starthours: 900, endhours: 1500, comment: '' }]}
-        headerType="nonTraditional"
+        headerType="standard"
+        nonTraditionalMessage={{
+          id: '1',
+          type: 'paragraph--wysiwyg',
+          html: '<p>nonTraditionalMessage</p>',
+        }}
       />
     )
     expect(screen.getByText('Hours')).toBeInTheDocument()
-    expect(screen.getByText(nonTraditionalWarning)).toBeInTheDocument()
+    expect(screen.getByText('nonTraditionalMessage')).toBeInTheDocument()
   })
 })

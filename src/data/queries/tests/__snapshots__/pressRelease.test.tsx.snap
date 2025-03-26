@@ -37,7 +37,7 @@ exports[`node--press_release formatData output formatted data 1`] = `
   "contacts": [
     {
       "description": "Public Affairs Specialist",
-      "email": "sheila.tunney@va.gov",
+      "email": "test@va.gov",
       "id": "7ecb5154-7e2c-4c16-a171-bb3710a4dab7",
       "name": "Sheila Tunney",
       "numbers": [

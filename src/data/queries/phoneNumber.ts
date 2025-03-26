@@ -1,13 +1,12 @@
-// Define the query params for fetching paragraph--email_contact.
 import { ParagraphPhoneNumber } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
-import { PhoneContact } from '@/types/formatted/contactInfo'
+import { PhoneNumber } from '@/types/formatted/phoneNumber'
 
-export const formatter: QueryFormatter<ParagraphPhoneNumber, PhoneContact> = (
+export const formatter: QueryFormatter<ParagraphPhoneNumber, PhoneNumber> = (
   entity: ParagraphPhoneNumber
 ) => {
   return {
-    type: entity.type as PhoneContact['type'],
+    type: entity.type as PhoneNumber['type'],
     id: entity.id,
     entityId: entity.drupal_internal__id,
     label: entity.field_phone_label,
