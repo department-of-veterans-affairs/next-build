@@ -27,7 +27,7 @@ describe('ContactInfo with valid data', () => {
       additionalContact: {
         id: '11',
         type: 'paragraph--email_contact',
-        address: 'test.veteran@va.gov',
+        address: 'test@va.gov',
         label: 'Minority Veterans Program',
       },
     }

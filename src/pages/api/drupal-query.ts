@@ -1,6 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { DrupalClientAuth } from 'next-drupal'
+
+interface Filter {
+  field: string
+  operator: string
+  value?: string
+}
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,7 +18,7 @@ export default async function handler(
   }
 
   try {
-    const { resourceType, includes, pageLimit } = req.body
+    const { resourceType, includes, pageLimit, filters } = req.body
 
     if (!resourceType) {
       return res.status(400).json({ error: 'Resource type is required' })
@@ -27,12 +34,30 @@ export default async function handler(
       params.addPageLimit(pageLimit)
     }
 
+    // Add filters to the query parameters
+    filters.forEach((filter: Filter) => {
+      if (filter.field && filter.operator) {
+        // The IS NULL and IS NOT NULL operators need null as the value.
+        // Everything else should have a proper value supplied
+        params.addFilter(filter.field, filter.value ?? null, filter.operator)
+      }
+    })
+
+    // The username & password will let us apply filters, so prefer that
+    // Fall back to the client ID and secret otherwise
+    const withAuth: DrupalClientAuth = process.env.DRUPAL_USERNAME
+      ? {
+          username: process.env.DRUPAL_USERNAME,
+          password: process.env.DRUPAL_PASSWORD,
+        }
+      : {
+          clientId: process.env.DRUPAL_CLIENT_ID,
+          clientSecret: process.env.DRUPAL_CLIENT_SECRET,
+        }
+
     const data = await drupalClient.getResourceCollection(resourceType, {
       params: params.getQueryObject(),
-      withAuth: {
-        clientId: process.env.DRUPAL_CLIENT_ID,
-        clientSecret: process.env.DRUPAL_CLIENT_SECRET,
-      },
+      withAuth,
     })
 
     return res.status(200).json(data)
