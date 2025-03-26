@@ -177,6 +177,26 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
 
 Ultimately, the normalized `NewsStory` object returned by the formatter is the `resource` used by [\[\[...slug\]\]](/src/pages/[[...slug]].tsx). That resource then gets passed to the [\<NewsStory\> template](/src/templates/layouts/newsStory/index.tsx), **so the formatter's object keys and the prop names should almost always match**! There may be slight differences, say if a component also depends on a parent template's state, but this is largely one-way differences. If a template doesn't need the formatted data... why include it?
 
+### Skipping publishing
+
+Some content types have conditional values that determine if they should be published. The `person_profile` node type for example has a field (`field_complete_biography_create`) that determines if that particular staff member should have a biography page. To skip publishing for these, in the formatter, evaluate the value of the field. If the node shouldn't be published, throw a `DoNotPublishError` Error. This is then caught in `getStaticProps` and a page is not created.
+
+Example:
+
+```
+export const formatter: QueryFormatter<
+  NodePersonProfile,
+  PersonProfile
+> = (entity: NodePersonProfile) => {
+  if (!field_complete_biography_create) {
+    throw new DoNotPublishError('No publish please');
+  }
+  return {
+    ...entityBaseFields(entity),
+  }
+}
+```
+
 ## Additional reading
 
 - [Drupal JSON:API docs](https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module/api-overview).
