@@ -231,45 +231,43 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         notFound: true,
       }
     }
-    let resource: StaticPropsResource<FormattedPageResource> | undefined
     try {
-      resource = await getStaticPropsResource(
+      const resource = await getStaticPropsResource(
         resourceType,
         pathInfo,
         expandedContext
       )
+      // If we're not in preview mode and the resource is not published,
+      // Return page not found.
+      if (!expandedContext.preview && !resource?.published) {
+        console.warn(
+          'Resource not published and not in preview mode, returning notFound'
+        )
+        return {
+          notFound: true,
+        }
+      }
+
+      // If resource is good, gather additional data for global elements.
+      // The headerFooter data is cached, banner content is requested per page
+      const { bannerData, headerFooterData } = await getGlobalElements(
+        expandedContext.drupalPath
+      )
+
+      return {
+        props: {
+          preview: expandedContext.preview || false,
+          resource,
+          bannerData,
+          headerFooterData,
+        },
+      }
     } catch (error) {
       if (error instanceof DoNotPublishError) {
         return { notFound: true }
       } else {
         throw error
       }
-    }
-
-    // If we're not in preview mode and the resource is not published,
-    // Return page not found.
-    if (!expandedContext.preview && !resource?.published) {
-      console.warn(
-        'Resource not published and not in preview mode, returning notFound'
-      )
-      return {
-        notFound: true,
-      }
-    }
-
-    // If resource is good, gather additional data for global elements.
-    // The headerFooter data is cached, banner content is requested per page
-    const { bannerData, headerFooterData } = await getGlobalElements(
-      expandedContext.drupalPath
-    )
-
-    return {
-      props: {
-        preview: expandedContext.preview || false,
-        resource,
-        bannerData,
-        headerFooterData,
-      },
     }
   } catch (err) {
     console.error('Error in getStaticProps:', err)
