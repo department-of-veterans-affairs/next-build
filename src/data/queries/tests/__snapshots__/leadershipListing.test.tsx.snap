@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeadershipListing formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA White River Junction health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/white-river-junction-health-care",
+    },
+    {
+      "options": [],
+      "title": "ABOUT VA WHITE RIVER JUNCTION",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "About us",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/white-river-junction-health-care/about-us",
+    },
+    {
+      "options": [],
+      "title": "Leadership",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 27519,
+  "entityPath": "/white-river-junction-health-care/about-us/leadership",
+  "id": "dd02e587-f784-41cf-8489-ffad717e6a29",
+  "introText": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+  "lastUpdated": "2022-02-07T21:25:25+00:00",
+  "leadership": [
+    {
+      "body": "<p>He is a practicing psychiatrist and mental health expert, and has been providing care to Veterans throughout his medical career. Additionally, Dr. Rusch is active as an Assistant Professor of Psychiatry at Dartmouth's Geisel School of Medicine, and as White River Junction’s Executive Director he represents VA as an ex-officio member of Geisel’s Board of Advisors.</p>
+
+<p>Dr. Rusch received a Bachelor's Degree in Psychology from the University of Wisconsin and completed his medical degree and a psychiatry residency at the University of Wisconsin School of Medicine and Public Health (UWSMPH).</p>
+
+<p>Dr. Rusch originally joined the White River Junction VA in 2015 as the Chief of Mental Health and Behavioral Science Services. He then served as Chief of Staff from December 2016 through April 2019. Prior to joining the White River Junction team, Dr. Rusch served as Director of Inpatient and Intensive Outpatient Mental Health Services at the William S. Middleton Memorial Veterans Hospital in Madison, WI. During his tenure at the Madison VA Hospital, he was on the faculty at the UWSMPH, where he received the Department of Psychiatry's Award for Excellence in Resident Education for the three consecutive academic years bridging 2012-2015.</p>",
+      "breadcrumbs": [
+        {
+          "options": [],
+          "title": "Home",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        },
+        {
+          "options": [],
+          "title": "VA White River Junction Health Care",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/white-river-junction-health-care",
+        },
+        {
+          "options": [],
+          "title": "Brett Rusch",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/white-river-junction-health-care/staff-profiles/brett-rusch",
+        },
+      ],
+      "completeBiography": null,
+      "completeBiographyCreate": true,
+      "description": "Executive Director",
+      "emailAddress": null,
+      "entityId": 19496,
+      "entityPath": "/white-river-junction-health-care/staff-profiles/brett-rusch",
+      "firstName": "Brett Rusch",
+      "id": "1d904e9d-8fa5-457d-88db-1f0e61b44c42",
+      "introText": "Brett Rusch, MD, was appointed Executive Director for the White River Junction VA Medical Center and its seven Community-Based Outpatient Clinics on April 28, 2019.",
+      "lastName": "Rusch",
+      "lastUpdated": "2021-11-16T19:34:15+00:00",
+      "media": {
+        "alt": "Manhattan Veterans Administration Medical Center",
+        "height": 180,
+        "id": "23564949-4f47-42fc-8e0f-92b4cd84578e",
+        "links": undefined,
+        "title": "",
+        "type": "media--image",
+        "width": 259,
+      },
+      "menu": {
+        "depth": 5,
+        "link": {
+          "label": "Brett Rusch",
+          "links": [],
+          "url": {
+            "path": "/",
+          },
+        },
+        "parent": {
+          "label": "Leadership",
+          "links": [],
+          "url": {
+            "path": "/white-river-junction-health-care/about-us/leadership",
+          },
+        },
+      },
+      "metatags": [],
+      "moderationState": "published",
+      "office": {
+        "breadcrumbs": [
+          {
+            "options": [],
+            "title": "Home",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          },
+          {
+            "options": [],
+            "title": "VA White River Junction health care",
+            "uri": "internal:#",
+          },
+        ],
+        "changed": "2024-09-16T20:47:24+00:00",
+        "content_translation_outdated": false,
+        "content_translation_source": "und",
+        "created": "2020-12-22T21:24:47+00:00",
+        "default_langcode": true,
+        "drupal_internal__nid": 15080,
+        "drupal_internal__vid": 918532,
+        "expiration_date": null,
+        "field_administration": {
+          "id": "e8d33c63-f62f-445a-873d-c0b90c11b11c",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 211,
+          },
+          "type": "taxonomy_term--administration",
+        },
+        "field_appointments_online": false,
+        "field_clinical_health_services": [],
+        "field_description": "Find a health facility near you at VA White River Junction Healthcare System, and manage your health online. Our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers.",
+        "field_facebook": null,
+        "field_flickr": null,
+        "field_govdelivery_id_emerg": "USVHA_377",
+        "field_govdelivery_id_news": "USVHA_117",
+        "field_instagram": null,
+        "field_intro_text": "At VA White River Junction Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+        "field_last_saved_by_an_editor": "2024-09-16T20:47:25+00:00",
+        "field_media": {
+          "breadcrumbs": [
+            {
+              "options": [],
+              "title": "Home",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            },
+            {
+              "options": [],
+              "title": "ManhattanCampus1024x960.jpg",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/media/1545",
+            },
+          ],
+          "bundle": {
+            "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "image",
+            },
+            "type": "media_type--media_type",
+          },
+          "changed": "2020-10-19T20:34:32+00:00",
+          "created": "2020-10-19T20:34:32+00:00",
+          "drupal_internal__mid": "1545",
+          "drupal_internal__vid": "1719",
+          "field_description": "Manhattan Veterans Administration Medical Center",
+          "id": "6c6e365c-e9ca-4ec1-9f87-1b686d7defe7",
+          "image": {
+            "changed": "2020-10-19T20:34:32+00:00",
+            "created": "2020-10-19T20:34:32+00:00",
+            "drupal_internal__fid": "1234",
+            "filemime": "",
+            "filename": "test.pdf",
+            "filesize": 3234,
+            "id": "23564949-4f47-42fc-8e0f-92b4cd84578e",
+            "langcode": "en",
+            "resourceIdObjMeta": {
+              "alt": "Manhattan Veterans Administration Medical Center",
+              "drupal_internal__target_id": 1753,
+              "height": 180,
+              "title": "",
+              "width": 259,
+            },
+            "status": true,
+            "type": "file--file",
+            "uri": {
+              "url": "",
+              "value": "test",
+            },
+          },
+          "langcode": "en",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/6c6e365c-e9ca-4ec1-9f87-1b686d7defe7?resourceVersion=id%3A1719",
+            },
+          },
+          "name": "manhattanCampus1024x960.jpg",
+          "path": {
+            "alias": null,
+            "langcode": "en",
+            "pid": null,
+          },
+          "relationshipNames": [
+            "bundle",
+            "uid",
+            "thumbnail",
+            "image",
+          ],
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1545,
+          },
+          "status": true,
+          "thumbnail": {
+            "changed": "2020-10-19T20:34:32+00:00",
+            "created": "2020-10-19T20:34:32+00:00",
+            "drupal_internal__fid": "1234",
+            "filemime": "",
+            "filename": "test.pdf",
+            "filesize": 3234,
+            "id": "23564949-4f47-42fc-8e0f-92b4cd84578e",
+            "langcode": "en",
+            "resourceIdObjMeta": {
+              "alt": "Manhattan Veterans Administration Medical Center",
+              "drupal_internal__target_id": 1753,
+              "height": 180,
+              "title": null,
+              "width": 259,
+            },
+            "status": true,
+            "type": "file--file",
+            "uri": {
+              "url": "",
+              "value": "test",
+            },
+          },
+          "type": "media--image",
+          "uid": {
+            "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1270,
+            },
+            "type": "user--user",
+          },
+        },
+        "field_meta_tags": null,
+        "field_operating_status": null,
+        "field_other_va_locations": [
+          "vc_0122V",
+          "vc_0118V",
+          "vc_0134V",
+        ],
+        "field_related_links": null,
+        "field_system_menu": {
+          "id": "8367b73d-bc5a-4ef1-b45d-e6f620537958",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "va-white-river-junction-health-c",
+          },
+          "type": "menu--menu",
+        },
+        "field_twitter": null,
+        "field_va_health_connect_phone": "833-933-1106",
+        "field_vamc_ehr_system": "vista",
+        "field_vamc_system_official_name": "VA White River Junction Healthcare System",
+        "field_youtube": null,
+        "id": "86cd839d-c3b9-4c4c-8797-e3529b6eab21",
+        "langcode": "en",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/86cd839d-c3b9-4c4c-8797-e3529b6eab21?resourceVersion=id%3A918532",
+          },
+        },
+        "metatag": [],
+        "moderation_state": "published",
+        "node_type": {
+          "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "health_care_region_page",
+          },
+          "type": "node_type--node_type",
+        },
+        "path": {
+          "alias": "/white-river-junction-health-care",
+          "langcode": "en",
+          "pid": 17375,
+        },
+        "promote": false,
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_media",
+          "field_related_links",
+          "field_system_menu",
+          "field_administration",
+          "field_clinical_health_services",
+        ],
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 15080,
+        },
+        "revision_timestamp": "2024-09-16T20:47:24+00:00",
+        "revision_translation_affected": true,
+        "revision_uid": {
+          "id": "75a67a30-cd28-45b6-8c99-ca1071f9f940",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5043,
+          },
+          "type": "user--user",
+        },
+        "status": true,
+        "sticky": false,
+        "title": "VA White River Junction health care",
+        "type": "node--health_care_region_page",
+        "uid": {
+          "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1317,
+          },
+          "type": "user--user",
+        },
+        "warning_date": null,
+      },
+      "phoneNumber": {
+        "entityId": 12345,
+        "extension": "1234",
+        "id": "1234",
+        "label": "Phone",
+        "number": "123-456-7890",
+        "phoneType": "phone",
+        "type": "paragraph--phone_number",
+      },
+      "photoAllowHiresDownload": false,
+      "published": true,
+      "suffix": "MD",
+      "title": "Brett Rusch",
+      "type": "node--person_profile",
+      "vamcOfficalName": "VA White River Junction Healthcare System",
+    },
+  ],
+  "menu": {
+    "data": {
+      "description": null,
+      "links": [
+        {
+          "description": null,
+          "expanded": false,
+          "label": "VA Houston health care",
+          "links": [],
+          "lovellSection": null,
+          "url": {
+            "path": "/houston-health-care",
+          },
+        },
+      ],
+      "name": "VA Houston health care",
+    },
+    "rootPath": "/white-river-junction-health-care/about-us/leadership/",
+  },
+  "metatags": [],
+  "moderationState": "published",
+  "published": true,
+  "title": "Leadership",
+  "type": "node--leadership_listing",
+}
+`;

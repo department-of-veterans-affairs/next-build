@@ -19,7 +19,17 @@ const PersonProfileTeaser = ({
   phoneNumber,
   suffix,
 }: FormattedPersonProfileTeaser) => {
-  const staffName = `${firstName} ${lastName}${suffix || ''}` || '';
+  let modifiedSuffix
+
+  if (suffix?.startsWith(',')) {
+    modifiedSuffix = suffix
+  } else if (suffix) {
+    modifiedSuffix = ` ${suffix}`
+  } else {
+    modifiedSuffix = ''
+  }
+
+  const staffName = `${firstName} ${lastName}${modifiedSuffix}` || ''
 
   return (
    <div className="vads-u-display--flex vads-u-margin-bottom--4">
@@ -49,7 +59,7 @@ const PersonProfileTeaser = ({
         </p>
       )}
       {office && (
-        <p data-testid="pp-teaser-office" className="vads-u-margin--0 vads-u-font-family--serif">
+        <p data-testid="pp-teaser-office" className="vads-u-margin--0 vads-u-font-family--serif vads-u-font-size--base medium-screen:vads-u-font-size--lg">
           {office}
         </p>
       )}

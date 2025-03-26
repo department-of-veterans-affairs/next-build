@@ -18,7 +18,10 @@ describe('LeadershipListing formatData', () => {
   test('handles absence of optional fields gracefully', () => {
     const modifiedMock = {
       ...LeadershipListingMock,
-      field_intro_text: null,
+      entity: {
+        ...LeadershipListingMock.entity,
+        field_intro_text: null
+      }
     }
 
     const formattedData = queries.formatData('node--leadership_listing', modifiedMock)

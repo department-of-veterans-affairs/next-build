@@ -3,12 +3,12 @@ import { PhoneNumber as FormattedPhoneNumber } from './phoneNumber'
 
 export type PersonProfileTeaser = {
   completeBiographyCreate: boolean
-  description: string
+  description?: string
   emailAddress?: string
-  entityPath: string
+  entityPath?: string
   firstName: string
   lastName: string
-  media: MediaImage
+  media?: MediaImage
   office: string
   phoneNumber?: FormattedPhoneNumber
   suffix?: string

@@ -205,7 +205,7 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_instagram: FieldLink
   field_description: string
   field_operating_status: FieldLink
-  field_other_va_locations: string
+  field_other_va_locations: string[]
   field_intro_text: string
   field_clinical_health_services: NodeHealthCareLocalHealthService[]
   field_twitter: FieldLink
@@ -365,11 +365,9 @@ export interface NodeEventListing extends DrupalNode {
 }
 
 export interface NodeLeadershipListing extends DrupalNode {
-  field_description: string
   field_intro_text: string
-  field_last_saved_by_an_editor: string
   field_leadership: NodePersonProfile[]
-  field_office: NodeHealthCareRegionPage
+  field_office: NodeOffice | NodeHealthCareRegionPage
   field_title: string
 }
 

@@ -14,7 +14,7 @@ export type PersonProfile = PublishedEntity & {
   body: string
   media?: MediaImage
   completeBiography?: { url: string }
-  completeBiographyCreate?: boolean
+  completeBiographyCreate: boolean
   photoAllowHiresDownload?: boolean
   vamcOfficalName: string
   office: NodeOffice | NodeHealthCareRegionPage //TODO: This should be a formatted office type, not Drupal specific.

@@ -68,11 +68,9 @@ export const formatter: QueryFormatter<LeadershipListingData, LeadershipListing>
 
   return {
     ...entityBaseFields(entity),
-    description: entity.field_description,
     introText: entity.field_intro_text,
     leadership: entity.field_leadership.map(leader => queries.formatData(RESOURCE_TYPES.PERSON_PROFILE, { entity: leader })),
     menu: formattedMenu,
-    office: entity.field_office,
     title: entity.title,
   }
 }
