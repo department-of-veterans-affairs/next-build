@@ -90,7 +90,7 @@ export const SocialLinks = ({
     <div className={divClass} id="va-c-social-share">
       <ul className={ulClass} role="list">
         {isEvent && (
-          <li className="vads-u-margin-bottom--2p5 ">
+          <li className="vads-u-margin-y--2p5 ">
             <va-icon
               class="va-c-social-icon vads-u-margin-right--0p5"
               icon="calendar_today"
@@ -120,7 +120,9 @@ export const SocialLinks = ({
           </>
         ) : (
           <>
-            <li className="vads-u-margin-right--5 medium-screen:vads-u-margin-right--2p5">
+            <li
+              className={`vads-u-margin-right--5 medium-screen:vads-u-margin-right--2p5 ${isEvent ? 'vads-u-margin-bottom--2p5' : ''}`}
+            >
               <va-icon
                 class="va-c-social-icon vads-u-margin-right--0p5"
                 icon="facebook"
