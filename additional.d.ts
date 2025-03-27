@@ -28,6 +28,7 @@ declare namespace JSX {
     'va-back-to-top'
     'va-breadcrumbs'
     'va-button'
+    'va-card'
     'va-icon'
     'va-link'
     'va-link-action'

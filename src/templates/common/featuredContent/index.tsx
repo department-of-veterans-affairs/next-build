@@ -7,13 +7,10 @@ export function FeaturedContent({
   link,
 }: ParagraphComponent<FormattedFeaturedContent>) {
   return (
-    <div className="feature featured-content-list-item vads-u-flex--fill vads-u-padding-y--1p5 vads-u-padding-x--1p5 vads-u-margin-bottom--0 medium-screen:vads-u-margin-bottom--2">
+    <va-card class="vads-u-flex--fill vads-u-margin-bottom--2 vads-u-margin-right--0 medium-screen:vads-u-margin-x--0p5 spotlight-card">
       {title && (
         <>
-          <h3 className="force-small-header vads-u-margin-bottom--2">
-            {title}
-          </h3>
-          <hr className="featured-content-hr vads-u-margin-y--1p5 vads-u-border-color--primary"></hr>
+          <h3 className="vads-u-margin-top--0">{title}</h3>
         </>
       )}
       {description && (
@@ -23,20 +20,13 @@ export function FeaturedContent({
         />
       )}
       {link && link.url && (
-        <a
-          className="vads-u-display--block vads-u-padding-top--1"
+        <va-link
           href={link.url}
-        >
-          <span>
-            {' '}
-            {link.label}{' '}
-            <i
-              className="fa fa-chevron-right vads-facility-hub-cta-arrow"
-              aria-hidden="true"
-            ></i>
-          </span>
-        </a>
+          text={link.label}
+          active={true}
+          data-testid="featured-content-link"
+        />
       )}
-    </div>
+    </va-card>
   )
 }

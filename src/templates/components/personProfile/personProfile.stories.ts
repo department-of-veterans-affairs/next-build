@@ -32,7 +32,7 @@ const personProfileData: FormattedPersonProfile = {
   firstName: 'Zachary',
   lastName: 'Sage',
   suffix: null,
-  emailAddress: 'zachary.sage@va.gov',
+  emailAddress: 'test@va.gov',
   phoneNumber: {
     type: 'paragraph--phone_number',
     id: '1234',
