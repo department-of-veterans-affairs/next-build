@@ -33,10 +33,14 @@ const localBucket = path.resolve(
 const BUILD_TYPE_BUCKET = {
   localhost: localBucket,
 <<<<<<< HEAD
+<<<<<<< HEAD
   tugboat: devBucket,
 =======
   tugboat: localBucket,
 >>>>>>> b80bd582 (Use 'tugboat' as build type for vets-website-assets on tugboat.)
+=======
+  tugboat: devBucket,
+>>>>>>> 859c907c (Add back font copy.)
   vagovdev: devBucket,
   vagovstaging: stagingBucket,
   vagovprod: prodBucket,
@@ -97,7 +101,6 @@ async function moveAssetsFromVetsWebsite() {
     console.log('Copied image assets from vets-website.')
 
     let fontsDir = fs.readdirSync(`${vetsWebsiteAssetPath}/fonts`)
-    console.log(fontsDir)
     for (let i = 0; i < fontsDir.length; i += 1) {
       const font = fontsDir[i]
       fs.copySync(
@@ -127,7 +130,7 @@ async function gatherAssets() {
     }
   }
   // Download compiled js assets from the appropriate bucket.
-  if (buildtype !== 'localhost' && buildtype !== 'tugboat') {
+  if (buildtype !== 'localhost') {
     await downloadFromLiveBucket(buildtype)
     console.log(
       `Successfully downloaded all assets listed in ${BUILD_TYPE_BUCKET[buildtype]}/${fileManifestPath}`
