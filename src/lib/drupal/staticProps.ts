@@ -89,7 +89,7 @@ export function getStaticPropsQueryOpts(
   // most types will simply need an ID, preview mode needs context
   const defaultQueryOpts = {
     id,
-    context: context.preview ? context : null,
+    context,
   }
 
   // Listing Page types need to know what page # to query for
