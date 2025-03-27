@@ -65,16 +65,12 @@ This section lists items that need to be checked or updated when making changes 
 - [ ] Security: Packages have been approved in the TRM
 ```
 
-## Merging an Approved Layout
+## Merging a Layout
 
-When merging a layout, you must ensure that the content type has been turned on for `next-build` inside the `CMS`. This CMS flag must be turned on for editors to preview their work using the next build preview server.
+When merging a layout, you must ensure that the content type has been turned on for `next-build` in the [.tugboat.env](../envs/.tugboat.env). This method mocks the CMS flag that must be turned on for a layout to be included in the build.
 
-Resource types (layouts) that have not been approved by design should NOT be pushed to production. Ensure that [slug.tsx](../src/pages/[[...slug]].tsx) does not include your resource type if it is not approved. If the layout is to be evaluated by QA the resource type and component should be included in the slug.tsx, so that it can reviewed on a tugboat when the .env.tugboat environment variable is set to true.
+The layout component and matching resource type should be included in the [slug.tsx](../src/pages/[[...slug]].tsx), so that it can reviewed. Including a component in the slug.tsx does not mean a page will be viewable in production only on the tugboat for the branch.
+
+When a layout is merged to main and approved for deployment, the prod CMS will turn the toggle on for the resource type. 
 
 The status of layouts should be kept up to date inside [templates.md](../READMEs/templates.md). This includes QA progress, development progress, etc. A link should be provided for where testing can occur.
-
-## Merging a Non-Approved Layout
-
-Your new resource type should not be included inside [slug.tsx](../src/pages/[[...slug]].tsx). Items added here will go into production once merged into the `main` branch. It is imperative that we do not push anything live that has not been approved.
-
-Ensure that this layout has been added to the [templates.md](../READMEs/templates.md) file with the current status of the work.
