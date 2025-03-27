@@ -24,12 +24,12 @@ export const mockResponse = {
       ],
       [
         'Troy University',
-        'Rickey Jones <a href="mailto:Rickey.Jones@va.gov">Rickey.Jones@va.gov</a>',
+        'Rickey Jones <a href="mailto:test@va.gov">test@va.gov</a>',
         'Montgomery (322)',
       ],
       [
         'University of Alabama',
-        'Lisa Fells <a href="mailto:Lisa.Fells@va.gov">Lisa.Fells@va.gov</a>',
+        'Lisa Fells <a href="mailto:test@va.gov">test@va.gov</a>',
         'Montgomery (322)',
       ],
     ],
