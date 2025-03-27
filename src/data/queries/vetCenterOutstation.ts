@@ -53,9 +53,10 @@ export const data: QueryData<VetCenterDataOpts, NodeVetCenter> = async (
   return entity
 }
 
-export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenterOutstation> = (
-  entity: NodeVetCenter
-) => {
+export const formatter: QueryFormatter<
+  NodeVetCenter,
+  FormattedVetCenterOutstation
+> = (entity: NodeVetCenter) => {
   // format health services / filter per category
   const healthServicesArray = queries.formatData(
     RESOURCE_TYPES.HEALTH_SERVICES,
