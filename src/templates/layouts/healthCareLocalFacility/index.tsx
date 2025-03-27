@@ -5,13 +5,13 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 
 import { LocationServices } from './LocationServices'
 import { HealthServices } from './HealthServices'
+import { OperatingStatusFlags } from './OperatingStatus'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
 declare const window: customWindow
-
 
 export function HealthCareLocalFacility({
   title,
@@ -58,7 +58,10 @@ export function HealthCareLocalFacility({
             <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
               <div className="usa-width-two-thirds">
                 <div>
-                  <div>TODO: Operating status flags</div>
+                  <OperatingStatusFlags
+                    operatingStatusFacility={operatingStatusFacility}
+                    menu={menu}
+                  />
                   <section>
                     <script type="application/ld+json">
                       {/* TODO: Fill this in */}
@@ -91,50 +94,4 @@ export function HealthCareLocalFacility({
       </div>
     </div>
   )
-}
-
-/**
- * TODO: Fix up the links by passing in the sidebar data, then add the tests for
- * it.
- */
-const OperatingStatusFlags = ({
-  operatingStatusFacility,
-}: Pick<FormattedHealthCareLocalFacility, 'operatingStatusFacility'>) => {
-  if (operatingStatusFacility == 'notice') {
-    return (
-      <va-alert status="info" slim visible>
-        <va-link
-          class="vads-u-font-weight--bold operating-status-link"
-          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
-          text="Facility notice"
-        />
-      </va-alert>
-    )
-  }
-
-  if (operatingStatusFacility == 'limited') {
-    return (
-      <va-alert status="warning" slim visible>
-        <va-link
-          class="vads-u-font-weight--bold operating-status-link"
-          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
-          text="Limited services and hours"
-        />
-      </va-alert>
-    )
-  }
-
-  if (operatingStatusFacility == 'closed') {
-    return (
-      <va-alert status="error" slim visible>
-        <va-link
-          class="vads-u-font-weight--bold operating-status-link"
-          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
-          text="Facility closed"
-        />
-      </va-alert>
-    )
-  }
-
-  return null
 }
