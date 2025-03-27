@@ -1,12 +1,17 @@
+import { useEffect } from 'react'
+
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { useEffect } from 'react'
+
+import { LocationServices } from './LocationServices'
+import { HealthServices } from './HealthServices'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
 declare const window: customWindow
+
 
 export function HealthCareLocalFacility({
   title,
@@ -44,7 +49,10 @@ export function HealthCareLocalFacility({
             <va-on-this-page></va-on-this-page>
 
             {/* Main content */}
-            <h2 className="vads-u-margin-bottom--3">
+            <h2
+              id="location-and-contact-information"
+              className="vads-u-margin-bottom--3"
+            >
               Location and contact information
             </h2>
             <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
@@ -71,9 +79,9 @@ export function HealthCareLocalFacility({
               </div>
               <div>TODO: Image and static map</div>
             </div>
-            <div>TODO: Location services section</div>
+            <LocationServices />
             <div>TODO: List of links section</div>
-            <div>TODO: Local health services section</div>
+            <HealthServices />
             <div>TODO: Patient satisfaction scores section</div>
             <div>TODO: Social links section</div>
             <va-back-to-top></va-back-to-top>
