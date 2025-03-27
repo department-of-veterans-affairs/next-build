@@ -112,7 +112,7 @@ async function gatherAssets() {
     }
   }
   // Download compiled js assets from the appropriate bucket.
-  if (buildtype !== 'localhost' || buildtype !== 'tugboat') {
+  if (buildtype !== 'localhost' && buildtype !== 'tugboat') {
     await downloadFromLiveBucket(buildtype)
     console.log(
       `Successfully downloaded all assets listed in ${BUILD_TYPE_BUCKET[buildtype]}/${fileManifestPath}`
