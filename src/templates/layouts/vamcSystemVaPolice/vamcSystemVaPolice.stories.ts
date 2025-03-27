@@ -19,6 +19,7 @@ export const Example: Story = {
     published: true,
     type: 'node--vamc_system_va_police',
     title: 'Hello World!',
+    field_office: 'Not a health care site',
     field_cc_va_police_overview: {
       html: '<p>VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.</p>',
     },

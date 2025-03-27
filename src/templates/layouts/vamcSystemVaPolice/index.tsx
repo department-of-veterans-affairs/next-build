@@ -25,7 +25,7 @@ export function VamcSystemVaPolice({
         className="va-introtext"
         html={field_cc_va_police_overview.html}
       />
-      <va-on-this-page />
+      <va-on-this-page data-testid="va-on-this-page" />
       <VaPoliceContactInfo
         phoneNumber={field_phone_numbers_paragraph}
         fieldOfficeName={field_office}
