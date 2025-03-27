@@ -165,13 +165,17 @@ export function VetCenterOutstation({
             </>
           )}
           {introText && (
-            <div className="">
+            <div>
               <p>{introText}</p>
             </div>
           )}
           <va-on-this-page />
 
-          <h2 id="location-and-contact-information">
+          <h2
+            id="location-and-contact-information"
+            className="vads-u-line-height--1 vads-u-margin-bottom--3 vads-u-font-size--lg
+          mobile-lg:vads-u-font-size--xl"
+          >
             Location and contact information
           </h2>
           <div
