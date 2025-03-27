@@ -32,6 +32,7 @@ const localBucket = path.resolve(
 // Available bucket options, default is the vagovprod bucket.
 const BUILD_TYPE_BUCKET = {
   localhost: localBucket,
+  tugboat: devBucket,
   vagovdev: devBucket,
   vagovstaging: stagingBucket,
   vagovprod: prodBucket,
@@ -90,6 +91,16 @@ async function moveAssetsFromVetsWebsite() {
   try {
     fs.copySync(`${vetsWebsiteAssetPath}/img`, './public/img/')
     console.log('Copied image assets from vets-website.')
+
+    let fontsDir = fs.readdirSync(`${vetsWebsiteAssetPath}/fonts`)
+    for (let i = 0; i < fontsDir.length; i += 1) {
+      const font = fontsDir[i]
+      fs.copySync(
+        `${vetsWebsiteAssetPath}/fonts/${font}`,
+        `${destinationPath}/${font}`
+      )
+    }
+    console.log('Copied font files from vets-website.')
   } catch (err) {
     console.error(err)
   }
