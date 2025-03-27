@@ -32,15 +32,7 @@ const localBucket = path.resolve(
 // Available bucket options, default is the vagovprod bucket.
 const BUILD_TYPE_BUCKET = {
   localhost: localBucket,
-<<<<<<< HEAD
-<<<<<<< HEAD
   tugboat: devBucket,
-=======
-  tugboat: localBucket,
->>>>>>> b80bd582 (Use 'tugboat' as build type for vets-website-assets on tugboat.)
-=======
-  tugboat: devBucket,
->>>>>>> 859c907c (Add back font copy.)
   vagovdev: devBucket,
   vagovstaging: stagingBucket,
   vagovprod: prodBucket,
