@@ -93,8 +93,12 @@ async function moveAssetsFromVetsWebsite() {
     console.log('Copied image assets from vets-website.')
 
     let fontsDir = fs.readdirSync(`${vetsWebsiteAssetPath}/fonts`)
-    for (let i; i < fontsDir.length; i += 1) {
+    console.log(fontsDir)
+    for (let i = 0; i < fontsDir.length; i += 1) {
       const font = fontsDir[i]
+      console.log(
+        `Copying ${vetsWebsiteAssetPath}/fonts/${font} to ${destinationPath}/${font}`
+      )
       fs.copySync(
         `${vetsWebsiteAssetPath}/fonts/${font}`,
         `${destinationPath}/${font}`
