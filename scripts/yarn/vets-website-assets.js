@@ -92,7 +92,7 @@ async function moveAssetsFromVetsWebsite() {
     fs.copySync(`${vetsWebsiteAssetPath}/img`, './public/img/')
     console.log('Copied image assets from vets-website.')
 
-    let fontsDir = fs.readdirSync(`${vetsWebsiteAssetPath}/fonts`)
+    const fontsDir = fs.readdirSync(`${vetsWebsiteAssetPath}/fonts`)
     for (let i = 0; i < fontsDir.length; i += 1) {
       const font = fontsDir[i]
       fs.copySync(
