@@ -12,7 +12,6 @@ interface customWindow extends Window {
 }
 declare const window: customWindow
 
-
 export function HealthCareLocalFacility({
   title,
   introText,
