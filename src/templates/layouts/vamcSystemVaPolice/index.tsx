@@ -10,6 +10,7 @@ export function VamcSystemVaPolice({
   field_cc_faq,
   field_cc_police_report,
   field_cc_va_police_overview,
+  field_office,
   field_phone_numbers_paragraph,
   path,
   entityPath,
@@ -24,9 +25,12 @@ export function VamcSystemVaPolice({
         className="va-introtext"
         html={field_cc_va_police_overview.html}
       />
-      <va-on-this-page />
+      <va-on-this-page data-testid="va-on-this-page" />
+      <VaPoliceContactInfo
+        phoneNumber={field_phone_numbers_paragraph}
+        fieldOfficeName={field_office}
+      />
       <SummaryBox {...field_cc_police_report} />
-      <VaPoliceContactInfo />
       <CCQaSection {...field_cc_faq} />
     </VamcSystemFacilityPage>
   )

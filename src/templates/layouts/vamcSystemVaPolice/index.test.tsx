@@ -6,6 +6,7 @@ import mockPhoneNumber from '@/mocks/phoneNumber.mock'
 import mockFeaturedContent from '@/mocks/formattedFeaturedContent.mock'
 import mockWysiwyg from '@/mocks/wysiwyg.mock'
 import textExpander from '@/mocks/textExpander.mock'
+import { within } from '@testing-library/dom'
 
 describe('VamcSystemVaPolice with valid data', () => {
   test('renders VamcSystemVaPolice component', () => {
@@ -31,15 +32,23 @@ describe('VamcSystemVaPolice with valid data', () => {
     expect(
       screen.queryByText(/VA police officers help make VA/)
     ).toBeInTheDocument()
-    // expect(screen.queryByText(mockFormattedFAQ.header)).toBeInTheDocument()
-    // expect(screen.queryByText(mockFeaturedContent.title)).toBeInTheDocument()
-    // expect(
-    //   screen.queryByText(
-    //     /Use our non-emergency phone number to request more information about VA police at /
-    //   )
-    // ).toBeInTheDocument()
-    // expect(
-    //   screen.getByTestId(mockFeaturedContent.link.id || 'featured-content-link')
-    // ).toBeInTheDocument()
+
+    // VaPoliceContactInfo h2 is linked in <va-on-this-page />
+    const onThisPage = screen.queryByTestId('va-on-this-page')
+    expect(onThisPage).toBeInTheDocument()
+    // TODO: Fix this test when we allow shadow DOM in tests
+    // const linkToContactInfo = await within(onThisPage.shadowRoot).findByText(
+    //   'How to contact us'
+    // )
+    // expect(linkToContactInfo).toBeInTheDocument()
+
+    // VaPoliceContactInfo section
+    expect(screen.queryByTestId('va-police-contact-info')).toBeInTheDocument()
+    expect(
+      screen.queryByTestId('va-police-contact-info-name')
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByTestId('va-police-contact-info-phone-number')
+    ).toBeInTheDocument()
   })
 })
