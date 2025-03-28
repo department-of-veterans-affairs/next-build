@@ -78,8 +78,8 @@ const topTaskLovellComp = ({
   text: string
   url: string
 } => {
-  // TODO: Can I do this? Is this right?
-  const isNotProd = process.env.NODE_ENV !== 'production'
+  // TODO: Is this right?
+  const isNotProd = process.env.APP_ENV !== 'prod'
 
   const flag =
     vamcEhrSystem || office?.vamcEhrSystem || regionPage?.vamcEhrSystem || ''
