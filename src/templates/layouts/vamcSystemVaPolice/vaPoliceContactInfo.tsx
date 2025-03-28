@@ -27,6 +27,7 @@ export function VaPoliceContactInfo({
           data-testid="va-police-contact-info-phone-number"
           contact={phoneNumber.number}
           extension={phoneNumber.extension}
+          label={phoneNumber.label}
         />
         . We&apos;re here 24/7.
       </p>
