@@ -23,7 +23,11 @@ export function SummaryBox({
       </ConditionalHeaderLevel>
       <WysiwygField html={description} />
       {!!link?.url && !!link.label && (
-        <va-link href={link.url} text={link.label} />
+        <va-link
+          data-testid={`${dataTestId}-link`}
+          href={link.url}
+          text={link.label}
+        />
       )}
     </va-summary-box>
   )
