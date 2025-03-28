@@ -19,7 +19,7 @@ export const params: QueryParams<null> = () => {
     'field_region_page',
     // 'field_media',
     // 'field_media.image',
-    // 'field_administration',
+    'field_administration',
   ])
 }
 
@@ -80,5 +80,10 @@ export const formatter: QueryFormatter<
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,
+    path: entity.path.alias,
+    adminstration: {
+      entityId: entity.field_administration.drupal_internal__tid,
+    },
+    vamcEhrSystem: entity.field_region_page.field_vamc_ehr_system,
   }
 }

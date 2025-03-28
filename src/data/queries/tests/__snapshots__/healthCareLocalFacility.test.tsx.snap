@@ -2,6 +2,9 @@
 
 exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
 {
+  "adminstration": {
+    "entityId": undefined,
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -155,8 +158,10 @@ exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
   ],
   "moderationState": "archived",
   "operatingStatusFacility": "closed",
+  "path": "/st-cloud-health-care/locations/st-cloud-va-mobile-clinic",
   "published": false,
   "title": "St. Cloud VA Mobile Clinic",
   "type": "node--health_care_local_facility",
+  "vamcEhrSystem": "vista",
 }
 `;
