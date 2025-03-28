@@ -170,6 +170,11 @@ export default function ResourcePage({
         strategy="afterInteractive"
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
       />
+      <Script
+        id="medallia"
+        strategy="afterInteractive"
+        src="/js/medallia-events.js"
+      />
     </Wrapper>
   )
 }
