@@ -18,6 +18,9 @@ const mockData: FormattedHealthCareLocalFacility = {
       links: [],
     },
   },
+  path: '/test-nav-path',
+  vamcEhrSystem: 'vista',
+  administration: { entityId: 1234 },
 }
 
 describe('HealthCareLocalFacility with valid data', () => {
