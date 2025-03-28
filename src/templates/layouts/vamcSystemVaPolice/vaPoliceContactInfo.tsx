@@ -27,7 +27,8 @@ export function VaPoliceContactInfo({
           data-testid="va-police-contact-info-phone-number"
           contact={phoneNumber.number}
           extension={phoneNumber.extension}
-          label={phoneNumber.label}
+          // Commenting out for now as unsure what the expectation is for the label property that editors are using
+          // message-aria-describedby={phoneNumber.label}
         />
         . We&apos;re here 24/7.
       </p>
