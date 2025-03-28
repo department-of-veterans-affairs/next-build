@@ -1,8 +1,13 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { ParagraphFeaturedContent } from '@/types/drupal/paragraph'
+import {
+  CCFieldCta,
+  ParagraphButton,
+  ParagraphFeaturedContent,
+} from '@/types/drupal/paragraph'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
 import { queries } from '.'
+import { ccCta } from '../ccProcessors/ccCta'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude(['field_cta'])

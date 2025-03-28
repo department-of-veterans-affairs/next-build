@@ -46,6 +46,7 @@ import * as SupportServices from './supportServices'
 import * as Table from './table'
 import * as VamcEhr from './vamcEhr'
 import * as VetCenter from './vetCenter'
+import * as VamcSystemVaPolice from './vamcSystemVaPolice'
 import * as Wysiwyg from './wysiwyg'
 import {
   ResourceType,
@@ -75,6 +76,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
   [RESOURCE_TYPES.VAMC_FACILITY]: HealthCareLocalFacility,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
+  [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
