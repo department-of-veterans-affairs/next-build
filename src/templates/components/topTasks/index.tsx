@@ -22,9 +22,13 @@ export const TopTasks = ({
   regionPage,
   office,
 }: TopTasksProps) => {
+  // Make sure we have exactly one / at the start of the path to avoid malformed
+  // URLs.
+  const slashPath = path.startsWith('/') ? path : `/${path}`
+
   const topTask = topTaskLovellComp({
     linkType: 'make-an-appointment',
-    path,
+    path: slashPath,
     administration,
     vamcEhrSystem,
     regionPage,
@@ -42,13 +46,13 @@ export const TopTasks = ({
         ></va-link-action>
         <va-link-action
           class="vads-u-display--block"
-          href={`/${path}/register-for-care`}
+          href={`${slashPath}/register-for-care`}
           text="Register for care"
           type="secondary"
         ></va-link-action>
         <va-link-action
           class="vads-u-display--block"
-          href={`/${path}/pharmacy`}
+          href={`${slashPath}/pharmacy`}
           text="Learn about pharmacy services"
           type="secondary"
         ></va-link-action>
@@ -74,7 +78,7 @@ const topTaskLovellComp = ({
   text: string
   url: string
 } => {
-  // Can I do this? Is this right?
+  // TODO: Can I do this? Is this right?
   const isNotProd = process.env.NODE_ENV !== 'production'
 
   const flag =
@@ -94,12 +98,12 @@ const topTaskLovellComp = ({
     // keeping this as a placeholder for future other linktypes for the MHS Genesis site (e.g. Pharmacy)
     return {
       text: 'Make an appointment',
-      url: `/${path}/make-an-appointment`,
+      url: `${path}/make-an-appointment`,
     }
   }
   // fallback as default
   return {
     text: 'Make an appointment',
-    url: `/${path}/make-an-appointment`,
+    url: `${path}/make-an-appointment`,
   }
 }
