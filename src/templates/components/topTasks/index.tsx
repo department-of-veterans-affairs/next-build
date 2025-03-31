@@ -79,26 +79,48 @@ const topTaskLovellComp = ({
   url: string
 } => {
   // TODO: Is this right?
-  const isNotProd = process.env.APP_ENV !== 'prod'
+  const isProd = process.env.APP_ENV === 'prod'
 
+  return _topTaskLovellComp({
+    isProd,
+    linkType,
+    path,
+    administration,
+    vamcEhrSystem,
+    regionPage,
+    office,
+  })
+}
+
+/**
+ * Same as `topTaskLovellComp` but with an additional `isProd` flag to aid
+ * testing.
+ */
+export const _topTaskLovellComp = ({
+  isProd,
+  linkType,
+  path,
+  administration,
+  vamcEhrSystem,
+  regionPage,
+  office,
+}: TopTasksProps & { isProd: boolean; linkType?: 'make-an-appointment' }): {
+  text: string
+  url: string
+} => {
   const flag =
     vamcEhrSystem || office?.vamcEhrSystem || regionPage?.vamcEhrSystem || ''
 
   const isPageLovell = administration?.entityId === 1039
 
-  if (flag === 'cerner' || (flag === 'cerner_staged' && isNotProd)) {
-    if (linkType === 'make-an-appointment' && isPageLovell) {
-      return {
-        text: 'MHS Genesis Patient Portal',
-        url: 'https://my.mhsgenesis.health.mil/',
-      }
-    }
-  } else if (linkType === 'make-an-appointment') {
-    // If we remove this eslint complains of the nested if, so
-    // keeping this as a placeholder for future other linktypes for the MHS Genesis site (e.g. Pharmacy)
+  if (
+    (flag === 'cerner' || (flag === 'cerner_staged' && !isProd)) &&
+    linkType === 'make-an-appointment' &&
+    isPageLovell
+  ) {
     return {
-      text: 'Make an appointment',
-      url: `${path}/make-an-appointment`,
+      text: 'MHS Genesis Patient Portal',
+      url: 'https://my.mhsgenesis.health.mil/',
     }
   }
   // fallback as default
