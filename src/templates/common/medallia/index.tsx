@@ -56,7 +56,6 @@ export function MedalliaAssets() {
         if (formContent) {
           eData.myParams.content = mData.Content
         }
-        const end = +new Date()
         recordEvent({
           event: eData.action,
           'survey-tool': eData.category,
