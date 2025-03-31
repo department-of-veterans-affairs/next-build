@@ -34,19 +34,13 @@ export function MedalliaAssets() {
   useEffect(() => {
     const controller = new AbortController()
     const { signal } = controller
-    const withFormContent = (acc, data) => {
-      //console.log("acc.content data",data.Content);
-      acc.content = data.Content
-    }
-
-    const withFeedbackUUID = (acc, data) => {
-      acc.feedbackUUID = data.Feedback_UUID
-    }
-
-    const mEvent = (name, action, opts) => {
-      const custom = opts.custom
-      const label = opts.label
-
+    const mEvent = ({
+      name,
+      action,
+      feedbackUUID = false,
+      formContent = false,
+      label = '',
+    }) => {
       const handle = (event) => {
         const mData = event.detail
         const eData = {
@@ -54,11 +48,13 @@ export function MedalliaAssets() {
           action: action,
           label: label || mData.Form_Type,
           value: mData.Form_ID,
-          myParams: {},
+          myParams: {} as { feedbackUUID?: string; content?: string },
         }
-        if (custom) {
-          let i
-          for (i = 0; i < custom.length; i++) custom[i](eData.myParams, mData)
+        if (feedbackUUID) {
+          eData.myParams.feedbackUUID = mData.Feedback_UUID
+        }
+        if (formContent) {
+          eData.myParams.content = mData.Content
         }
         const end = +new Date()
         recordEvent({
@@ -71,34 +67,53 @@ export function MedalliaAssets() {
       }
       window.addEventListener('MDigital_' + name, handle, { signal })
     }
-    mEvent('ShowForm_Called', 'survey-show-form-call', {})
-    mEvent('Form_Displayed', 'survey-start-form', {})
-    mEvent('Form_Next_Page', 'survey-next-click', {})
-    mEvent('Form_Back_Page', 'survey-back-click', {})
-    mEvent('Form_Close_Submitted', 'survey-submit-close', {})
-    mEvent('Form_Close_No_Submit', 'survey-no-submit-close', {})
-    mEvent('Feedback_Submit', 'survey-submit', {
-      custom: [withFeedbackUUID, withFormContent],
+    mEvent({ name: 'ShowForm_Called', action: 'survey-show-form-call' })
+    mEvent({ name: 'Form_Displayed', action: 'survey-start-form' })
+    mEvent({ name: 'Form_Next_Page', action: 'survey-next-click' })
+    mEvent({ name: 'Form_Back_Page', action: 'survey-back-click' })
+    mEvent({ name: 'Form_Close_Submitted', action: 'survey-submit-close' })
+    mEvent({ name: 'Form_Close_No_Submit', action: 'survey-no-submit-close' })
+    mEvent({
+      name: 'Feedback_Submit',
+      action: 'survey-submit',
+      feedbackUUID: true,
+      formContent: true,
     })
-    mEvent('Submit_Feedback', 'survey--submission', {
-      custom: [withFeedbackUUID, withFormContent],
+    mEvent({
+      name: 'Submit_Feedback',
+      action: 'survey--submission',
+      feedbackUUID: true,
+      formContent: true,
     })
-    mEvent('Feedback_Button_Clicked', 'survey-button-click', {
-      custom: [withFeedbackUUID],
+    mEvent({
+      name: 'Feedback_Button_Clicked',
+      action: 'survey-button-click',
+      feedbackUUID: true,
     })
-    mEvent('ThankYou_Displayed', 'survey--submission-successful', {
-      custom: [withFeedbackUUID, withFormContent],
+    mEvent({
+      name: 'ThankYou_Displayed',
+      action: 'survey--submission-successful',
+      feedbackUUID: true,
+      formContent: true,
     })
-    mEvent('Invite_Displayed', 'survey-invitation-display', {
+    mEvent({
+      name: 'Invite_Displayed',
+      action: 'survey-invitation-display',
       label: 'Invite',
     })
-    mEvent('Invite_Accepted', 'survey-invitation-accept', {
+    mEvent({
+      name: 'Invite_Accepted',
+      action: 'survey-invitation-accept',
       label: 'Invite',
     })
-    mEvent('Invite_Declined', 'survey-invitation-decline', {
+    mEvent({
+      name: 'Invite_Declined',
+      action: 'survey-invitation-decline',
       label: 'Invite',
     })
-    mEvent('Invite_Skipped', 'survey-invitation-skip', {
+    mEvent({
+      name: 'Invite_Skipped',
+      action: 'survey-invitation-skip',
       label: 'Invite',
     })
     return () => {
