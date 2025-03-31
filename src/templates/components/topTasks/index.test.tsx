@@ -1,16 +1,87 @@
-import { ComponentProps } from 'react'
 import { TopTasks, _topTaskLovellComp } from './index'
-import { off } from 'process'
-
-const mockData: ComponentProps<typeof TopTasks> = {
-  path: '/test-nav-path',
-  vamcEhrSystem: 'vista',
-}
+import { render } from '@testing-library/react'
 
 const lovellAdministration = { entityId: 1039 }
 
 describe('TopTasks', () => {
-  it('should render', () => {})
+  it('should render the normal links', () => {
+    const { container } = render(
+      <TopTasks path="/test-nav-path" vamcEhrSystem="vista" />
+    )
+    expect(
+      container.querySelector('va-link-action[text="Make an appointment"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link-action[text="Register for care"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector(
+        'va-link-action[text="Learn about pharmacy services"]'
+      )
+    ).toBeInTheDocument()
+  })
+
+  it('should render the MHS link', () => {
+    const { container } = render(
+      <TopTasks
+        path="/test-nav-path"
+        vamcEhrSystem="cerner"
+        administration={{ entityId: 1039 }}
+      />
+    )
+    expect(
+      container.querySelector(
+        'va-link-action[text="MHS Genesis Patient Portal"]'
+      )
+    ).toBeInTheDocument()
+  })
+
+  it('should render the MHS link from the office', () => {
+    const { container } = render(
+      <TopTasks
+        path="/test-nav-path"
+        /* @ts-expect-error Shouldn't happen, but just in case... */
+        vamcEhrSystem=""
+        office={{ vamcEhrSystem: 'cerner' }}
+        administration={{ entityId: 1039 }}
+      />
+    )
+    expect(
+      container.querySelector(
+        'va-link-action[text="MHS Genesis Patient Portal"]'
+      )
+    ).toBeInTheDocument()
+  })
+
+  it('should render the MHS link from the regonPage', () => {
+    const { container } = render(
+      <TopTasks
+        path="/test-nav-path"
+        /* @ts-expect-error Shouldn't happen, but just in case... */
+        vamcEhrSystem=""
+        /* @ts-expect-error Shouldn't happen, but just in case... */
+        office={{ vamcEhrSystem: '' }}
+        regionPage={{ vamcEhrSystem: 'cerner' }}
+        administration={{ entityId: 1039 }}
+      />
+    )
+    expect(
+      container.querySelector(
+        'va-link-action[text="MHS Genesis Patient Portal"]'
+      )
+    ).toBeInTheDocument()
+  })
+
+  it('should handle no slash in the path', () => {
+    const { container } = render(
+      <TopTasks path="test-nav-path" vamcEhrSystem="vista" />
+    )
+    expect(
+      container.querySelector(
+        'va-link-action[href="/test-nav-path/register-for-care"]'
+      )
+    ).toBeInTheDocument()
+  })
 })
 
 describe('topTaskLovellComp', () => {
