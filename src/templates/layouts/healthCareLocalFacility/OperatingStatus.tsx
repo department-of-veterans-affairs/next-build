@@ -40,13 +40,15 @@ export const OperatingStatusFlags = ({
   if (Object.keys(presentations).includes(operatingStatusFacility)) {
     const { status, text } = presentations[operatingStatusFacility]
     return (
-      <va-alert status={status} slim visible>
-        <va-link
-          class="vads-u-font-weight--bold operating-status-link"
-          href={`${linkBasePath}/operating-status`}
-          text={text}
-        />
-      </va-alert>
+      <div className="vads-u-display--inline-block vads-u-margin-bottom--1">
+        <va-alert status={status} slim visible>
+          <va-link
+            class="vads-u-font-weight--bold operating-status-link"
+            href={`${linkBasePath}/operating-status`}
+            text={text}
+          />
+        </va-alert>
+      </div>
     )
   }
 
