@@ -26,7 +26,7 @@ export const OperatingStatusFlags = ({
     { status: 'info' | 'warning' | 'error'; text: string }
   > = {
     notice: { status: 'info', text: 'Facility notice' },
-    limited: { status: 'warning', text: 'Limited services and hours' },
+    limited: { status: 'info', text: 'Limited services and hours' },
     temporary_closure: {
       status: 'warning',
       text: 'Temporary facility closure',

@@ -32,7 +32,7 @@ describe('HealthCareLocalFacility OperatingStatusFlags', () => {
 
   test.each([
     ['notice', 'info', 'Facility notice'],
-    ['limited', 'warning', 'Limited services and hours'],
+    ['limited', 'info', 'Limited services and hours'],
     ['temporary_closure', 'warning', 'Temporary facility closure'],
     ['temporary_location', 'warning', 'Temporary location'],
     ['virtual_care', 'warning', 'Virtual care only'],
