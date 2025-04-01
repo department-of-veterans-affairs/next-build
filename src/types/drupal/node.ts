@@ -131,6 +131,10 @@ export type FacilityOperatingStatusFlags =
   | 'normal'
   | 'notice'
   | 'limited'
+  | 'temporary_closure'
+  | 'temporary_location'
+  | 'virtual_care'
+  | 'coming_soon'
   | 'closed'
   | string // TODO: Remove the catch-all; needed right now for importing JSON mock data; can remove after we implement runtime data validation
 

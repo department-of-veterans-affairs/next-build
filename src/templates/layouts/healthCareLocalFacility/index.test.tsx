@@ -11,11 +11,21 @@ const mockData: FormattedHealthCareLocalFacility = {
   introText: 'Test intro text',
   operatingStatusFacility: 'normal',
   menu: {
-    rootPath: 'test-nav-path',
+    rootPath: '/test-nav-path',
     data: {
       name: 'test-nav',
       description: 'test-nav-description',
-      links: [],
+      links: [
+        {
+          url: {
+            path: '/test-nav-path',
+          },
+          description: 'test-nav-description',
+          expanded: true,
+          label: 'test-nav-label',
+          links: [],
+        },
+      ],
     },
   },
   path: '/test-nav-path',
