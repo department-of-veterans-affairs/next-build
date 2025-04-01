@@ -26,4 +26,15 @@ describe('VetCenterOutstation formatData', () => {
       queries.formatData(RESOURCE_TYPES.VET_CENTER_OUTSTATION, VetCenterMock)
     ).toMatchSnapshot()
   })
+
+  it('handles ccFeaturedContent not getting fetched', () => {
+    expect(
+      queries.formatData(RESOURCE_TYPES.VET_CENTER_OUTSTATION, {
+        ...VetCenterMock,
+        // @ts-expect-error Something somewhere along the way apparently adds
+        // this field, but it's not in the type definition.
+        field_cc_vet_center_featured_con: { fetched: false },
+      })
+    ).toMatchSnapshot()
+  })
 })
