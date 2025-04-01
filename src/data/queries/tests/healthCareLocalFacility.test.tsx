@@ -2,7 +2,6 @@
  * @jest-environment node
  */
 
-import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/healthCareLocalFacility.mock.json'
 import { DrupalMenuLinkContent } from 'next-drupal'
@@ -36,17 +35,34 @@ jest.mock('@/lib/drupal/query', () => ({
 }))
 
 describe('DrupalJsonApiParams configuration', () => {
-  test('params function sets the correct include fields', () => {
+  it('should use the correct include fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     expect(queryString).toMatch(/include=field_region_page/)
   })
 })
 
-describe('HealthCareLocalFacility formatData', () => {
-  test('outputs formatted data', async () => {
+describe('HealthCareLocalFacility query', () => {
+  it('should output formatted data', async () => {
     expect(
       await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, { id: mockData.id })
+    ).toMatchSnapshot()
+  })
+
+  it('should handle the Lovell variant page menu', async () => {
+    expect(
+      await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
+        id: mockData.id,
+        context: {
+          path: '',
+          drupalPath: '',
+          listing: { isListingPage: false, firstPagePath: '', page: 0 },
+          lovell: {
+            isLovellVariantPage: true,
+            variant: 'tricare',
+          },
+        },
+      })
     ).toMatchSnapshot()
   })
 })
