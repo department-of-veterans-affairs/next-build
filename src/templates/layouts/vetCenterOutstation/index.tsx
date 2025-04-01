@@ -6,6 +6,7 @@ import { WysiwygField } from '@/templates/components/wysiwyg'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
+import { PhoneNumber } from '@/templates/common/phoneNumber'
 
 export function VetCenterOutstation({
   address,
@@ -158,14 +159,17 @@ export function VetCenterOutstation({
             <>
               <h1 aria-describedby="vet-center-title">{title}</h1>
               {officialName && title !== officialName && (
-                <h4 className="vads-u-font-weight--bold">
+                <p
+                  id="vet-center-title"
+                  className="vads-u-line-height--4 vads-u-font-family--serif vads-u-font-size--lg vads-u-font-weight--bold vads-u-padding-bottom--0p5"
+                >
                   Also called the {officialName}
-                </h4>
+                </p>
               )}
             </>
           )}
           {introText && (
-            <div>
+            <div className="va-introtext">
               <p>{introText}</p>
             </div>
           )}
@@ -173,8 +177,7 @@ export function VetCenterOutstation({
 
           <h2
             id="location-and-contact-information"
-            className="vads-u-line-height--1 vads-u-margin-bottom--3 vads-u-font-size--lg
-          mobile-lg:vads-u-font-size--xl"
+            className="vads-u-margin-bottom--3"
           >
             Location and contact information
           </h2>
@@ -187,7 +190,7 @@ export function VetCenterOutstation({
                 <div className="vads-c-facility-detail">
                   <section className="vads-facility-detail vads-u-padding-bottom--5">
                     {/* TODO: put operating status here */}
-                    <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                       Address
                     </h3>
                     <div className="vads-u-margin-bottom--3">
@@ -205,30 +208,26 @@ export function VetCenterOutstation({
                     </div>
 
                     <div className="vads-u-margin-bottom--3">
-                      <div className="main-phone vads-u-margin-bottom--1">
-                        <p className="vads-u-font-size--lg vads-u-font-weight--bold vads-u-display--inline">
-                          Main phone:
-                        </p>
-                        <a
-                          href={`tel:${phoneNumber}`}
-                          className="vads-u-display--inline vads-u-margin-left--1"
-                        >
-                          {phoneNumber}
-                        </a>
-                      </div>
+                      <PhoneNumber
+                        number={phoneNumber}
+                        label="Main phone"
+                        className="main-phone vads-u-margin-bottom--1"
+                        phoneType=""
+                        extension=""
+                        id=""
+                        type=""
+                      />
                       {ccVetCenterCallCenter && (
                         <>
-                          <div className="main-phone vads-u-margin-bottom--1">
-                            <p className="vads-u-font-size--lg vads-u-font-weight--bold vads-u-display--inline">
-                              After hours:
-                            </p>
-                            <a
-                              href={`tel:${phoneNumber}`}
-                              className="vads-u-display--inline vads-u-margin-left--1"
-                            >
-                              {phoneNumber}
-                            </a>
-                          </div>
+                          <PhoneNumber
+                            number={phoneNumber}
+                            label="After hours"
+                            className="main-phone vads-u-margin-bottom--1"
+                            phoneType=""
+                            extension=""
+                            id=""
+                            type=""
+                          />
                           <div className="vads-u-margin-bottom--2">
                             Need help after hours? We are available 24/7. Call
                             us anytime.
@@ -252,11 +251,7 @@ export function VetCenterOutstation({
             />
           </div>
 
-          <h2
-            id="in-the-spotlight"
-            className="vads-u-margin-y--2 vads-u-font-size--lg
-          mobile-lg:vads-u-font-size--xl"
-          >
+          <h2 id="in-the-spotlight" className="vads-u-margin-y--2">
             In the spotlight
           </h2>
           <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4 ">
@@ -272,15 +267,6 @@ export function VetCenterOutstation({
               ))}
           </div>
 
-          {ccNonTraditionalHours && (
-            <div
-              className="vads-u-font-weight--bold"
-              id="field-cc-non-traditional-hours"
-            >
-              <WysiwygField html={ccNonTraditionalHours.html} />
-            </div>
-          )}
-
           {/* Prepare for Your Visit */}
           {prepareForVisit && prepareForVisit.length > 0 && (
             <PrepareForVisitComponent visitItems={prepareForVisit} />
@@ -291,20 +277,20 @@ export function VetCenterOutstation({
 
           {/* Other locations */}
           <div className="vads-u-margin-bottom--3">
-            <h3
+            <h2
               id="other-nearby-vet-centers"
               className="vads-u-font-size--lg vads-u-line-height--1 vads-u-margin-bottom--1"
             >
-              Other Nearby Vet Centers
-            </h3>
+              Other nearby Vet Centers
+            </h2>
             <div>
               <p className="vads-u-margin-bottom--0 vads-u-line-height--4">
                 Vet Centers are community based to be more accessible in areas
-                where you live. Find a nearby Vet Center location
+                where you live. Find a nearby Vet Center location.
               </p>
-              <a href={`${path}/locations`}>
+              <va-link href={`${path}/locations`}>
                 Find a nearby Vet Center location
-              </a>
+              </va-link>
             </div>
           </div>
 
