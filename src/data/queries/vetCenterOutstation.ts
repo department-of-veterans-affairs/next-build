@@ -63,10 +63,10 @@ export const formatter: QueryFormatter<
     entity.field_health_services
   )
   const counselingServicesArray = healthServicesArray.filter(
-    (h) => h && h.vetCenterTypeOfCare === 'counseling'
+    (h) => h?.vetCenterTypeOfCare === 'counseling'
   )
   const referralServicesArray = healthServicesArray.filter(
-    (h) => h && h.vetCenterTypeOfCare === 'referral'
+    (h) =>  h?.vetCenterTypeOfCare === 'referral'
   )
   const otherServicesArray = healthServicesArray.filter(
     (h) =>
@@ -80,7 +80,7 @@ export const formatter: QueryFormatter<
     ccFeaturedContent,
     vetCenterFeatureContentArray
   ) => {
-    if (!ccFeaturedContent || !ccFeaturedContent.fetched) {
+    if (!ccFeaturedContent?.fetched) {
       return vetCenterFeatureContentArray
     }
 
