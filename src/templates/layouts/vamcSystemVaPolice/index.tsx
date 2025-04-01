@@ -30,7 +30,7 @@ export function VamcSystemVaPolice({
         phoneNumber={field_phone_numbers_paragraph}
         fieldOfficeName={field_office}
       />
-      <SummaryBox {...field_cc_police_report} />
+      <SummaryBox {...field_cc_police_report} headerLevel={3} />
       <CCQaSection {...field_cc_faq} />
     </VamcSystemFacilityPage>
   )
