@@ -2,7 +2,7 @@
 
 exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
 {
-  "adminstration": {
+  "administration": {
     "entityId": undefined,
   },
   "breadcrumbs": [

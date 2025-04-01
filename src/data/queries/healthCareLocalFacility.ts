@@ -81,7 +81,7 @@ export const formatter: QueryFormatter<
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,
     path: entity.path.alias,
-    adminstration: {
+    administration: {
       entityId: entity.field_administration.drupal_internal__tid,
     },
     vamcEhrSystem: entity.field_region_page.field_vamc_ehr_system,
