@@ -66,7 +66,7 @@ export const formatter: QueryFormatter<
     (h) => h?.vetCenterTypeOfCare === 'counseling'
   )
   const referralServicesArray = healthServicesArray.filter(
-    (h) =>  h?.vetCenterTypeOfCare === 'referral'
+    (h) => h?.vetCenterTypeOfCare === 'referral'
   )
   const otherServicesArray = healthServicesArray.filter(
     (h) =>
