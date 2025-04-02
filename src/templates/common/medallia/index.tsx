@@ -116,6 +116,10 @@ export function MedalliaAssets() {
       label: 'Invite',
     })
     return () => {
+      /**
+       * Cleanup function to remove the event listeners. controller.abort() is called to abort any ongoing requests and prevent memory leaks.
+       * https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal#events
+       */
       controller.abort()
     }
   }, [])
