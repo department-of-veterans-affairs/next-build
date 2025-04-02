@@ -29,7 +29,7 @@ interface MedalliaEvent extends CustomEvent {
   }
 }
 
-const mockEventDetail: MedalliaEvent = {
+const mockEvent: MedalliaEvent = {
   detail: {},
   initCustomEvent: function (
     type: string,
@@ -99,8 +99,8 @@ describe('MedalliaAssets Component', () => {
     expect(scriptElement.getAttribute('data-src')).toEqual(expectedSrc)
   })
   test('adds listener and calls recordEvent when triggered for Medallia event with UUID and Content', () => {
-    const eventDetail = {
-      ...mockEventDetail,
+    const mockEventDetail = {
+      ...mockEvent,
       detail: {
         Form_Type: 'Test Form',
         Form_ID: '12345',
@@ -124,7 +124,7 @@ describe('MedalliaAssets Component', () => {
         call[0] === 'MDigital_Feedback_Submit'
     )?.[1]
     if (eventHandler) {
-      eventHandler(eventDetail)
+      eventHandler(mockEventDetail)
     }
 
     // Assert that recordEvent is called with the correct data
@@ -139,8 +139,8 @@ describe('MedalliaAssets Component', () => {
     addEventListenerSpy.mockRestore()
   })
   test('adds listener and calls recordEvent when triggered for Medallia event with label', () => {
-    const eventDetail = {
-      ...mockEventDetail,
+    const mockEventDetail = {
+      ...mockEvent,
       detail: {
         Form_Type: 'Test Form',
         Form_ID: '12345',
@@ -161,7 +161,7 @@ describe('MedalliaAssets Component', () => {
         call[0] === 'MDigital_Invite_Displayed'
     )?.[1]
     if (eventHandler) {
-      eventHandler(eventDetail)
+      eventHandler(mockEventDetail)
     }
 
     // Assert that recordEvent is called with the correct data
