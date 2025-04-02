@@ -41,8 +41,6 @@ export function MedalliaAssets() {
       formContent = false,
       label = '',
     }) => {
-      // Ignore because these events are unreachable
-      /* istanbul ignore next */
       const handle = (event) => {
         const mData = event.detail
         const eData = {
