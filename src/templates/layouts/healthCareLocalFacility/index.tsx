@@ -5,6 +5,7 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 
 import { LocationServices } from './LocationServices'
 import { HealthServices } from './HealthServices'
+import { TopTasks } from '@/templates/components/topTasks'
 import { OperatingStatusFlags } from './OperatingStatus'
 
 // Allows additions to window object without overwriting global type
@@ -18,6 +19,9 @@ export function HealthCareLocalFacility({
   introText,
   operatingStatusFacility,
   menu,
+  path,
+  administration,
+  vamcEhrSystem,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -42,9 +46,11 @@ export function HealthCareLocalFacility({
               </div>
             )}
 
-            <div className="usa-grid usa-grid-full vads-u-margin-bottom--6">
-              <div>TODO: facilities_health_services_buttons</div>
-            </div>
+            <TopTasks
+              path={path}
+              administration={administration}
+              vamcEhrSystem={vamcEhrSystem}
+            />
 
             <va-on-this-page></va-on-this-page>
 
