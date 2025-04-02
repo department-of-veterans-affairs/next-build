@@ -78,7 +78,7 @@ const mockEvent: MedalliaEvent = {
 }
 
 describe('MedalliaAssets Component', () => {
-  beforeEach(() => {
+  afterEach(() => {
     jest.clearAllMocks()
   })
   test('renders Script component with correct props', () => {
@@ -130,8 +130,6 @@ describe('MedalliaAssets Component', () => {
       'survey-status': 'Test Form',
       'survey-details': { feedbackUUID: 'abc-123', content: 'Test Content' },
     })
-
-    addEventListenerSpy.mockRestore()
   })
   test('adds listener and calls recordEvent when triggered for Medallia event with label', () => {
     const mockEventDetail = {
@@ -167,7 +165,5 @@ describe('MedalliaAssets Component', () => {
       'survey-status': 'Invite',
       'survey-details': {},
     })
-
-    addEventListenerSpy.mockRestore()
   })
 })
