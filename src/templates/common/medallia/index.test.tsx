@@ -82,11 +82,6 @@ describe('MedalliaAssets Component', () => {
     jest.clearAllMocks()
   })
   test('renders Script component with correct props', () => {
-    // Mocking useEffect
-    jest.mock('react', () => ({
-      ...jest.requireActual('react'),
-      useEffect: jest.fn(),
-    }))
     process.env.NEXT_PUBLIC_BUILD_TYPE = 'local'
 
     render(<MedalliaAssets />)
