@@ -131,6 +131,10 @@ export type FacilityOperatingStatusFlags =
   | 'normal'
   | 'notice'
   | 'limited'
+  | 'temporary_closure'
+  | 'temporary_location'
+  | 'virtual_care'
+  | 'coming_soon'
   | 'closed'
   | string // TODO: Remove the catch-all; needed right now for importing JSON mock data; can remove after we implement runtime data validation
 
@@ -153,8 +157,8 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_operating_status_facility: FacilityOperatingStatusFlags
   field_operating_status_more_info: string
   field_phone_number: string
-  // TODO: Uncomment this
-  // field_region_page: NodeHealthCareRegionPage
+  // We don't need the field_media in here for now
+  field_region_page: Omit<NodeHealthCareRegionPage, 'field_media'>
 }
 
 export interface NodeVetCenter extends DrupalNode {

@@ -5,7 +5,7 @@ test.describe('News Story', () => {
     page,
   }) => {
     await page.goto('/butler-health-care/stories/its-flu-shot-time/')
-    await page.click('#news-stories-listing-link')
+    await page.getByText('See all stories').click()
     await expect(page).toHaveURL('/butler-health-care/stories/')
   })
 
