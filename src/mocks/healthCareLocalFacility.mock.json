@@ -49,7 +49,8 @@
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 246
     },
-    "type": "taxonomy_term--administration"
+    "type": "taxonomy_term--administration",
+    "drupal_internal__tid": 246
   },
   "field_description": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
   "field_facility_classification": "6",
