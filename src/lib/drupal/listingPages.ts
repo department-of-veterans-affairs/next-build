@@ -15,6 +15,13 @@ const LISTING_RESOURCE_TYPES = [
   RESOURCE_TYPES.EVENT_LISTING,
   RESOURCE_TYPES.PRESS_RELEASE_LISTING,
 ] as const
+export const LISTING_RESOURCE_TYPE_DATA_FIELDS: Readonly<{
+  [key: string]: string
+}> = {
+  [RESOURCE_TYPES.STORY_LISTING]: 'stories',
+  [RESOURCE_TYPES.EVENT_LISTING]: 'events',
+  [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: 'releases',
+}
 
 // Some listing pages do not need all "paged" pages generated
 // statically because the paging mechanism is done client side.
