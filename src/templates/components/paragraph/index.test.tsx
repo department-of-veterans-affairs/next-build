@@ -41,7 +41,11 @@ describe('FeaturedContent Component', () => {
     expect(
       screen.getByText('Featured content description.')
     ).toBeInTheDocument()
-    expect(screen.getByText('Read More')).toBeInTheDocument()
+    // Check for link inside va-link
+    const vaLinkElement = screen.getByTestId('featured-content-link')
+    expect(vaLinkElement).toBeInTheDocument()
+    expect(vaLinkElement).toHaveAttribute('href', '/featured-content-url')
+    expect(vaLinkElement).toHaveAttribute('text', 'Read More')
   })
 })
 

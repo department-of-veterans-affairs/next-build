@@ -28,6 +28,10 @@ describe('FeaturedContent with valid data', () => {
 
     expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
     expect(screen.queryByText(/foo bar/)).toBeInTheDocument()
-    expect(screen.queryByText(/a link/)).toBeInTheDocument()
+    // Check for link inside va-link
+    const vaLinkElement = screen.getByTestId('featured-content-link')
+    expect(vaLinkElement).toBeInTheDocument()
+    expect(vaLinkElement).toHaveAttribute('href', '#')
+    expect(vaLinkElement).toHaveAttribute('text', 'a link')
   })
 })
