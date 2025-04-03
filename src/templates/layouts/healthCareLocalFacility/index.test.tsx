@@ -10,6 +10,27 @@ const mockData: FormattedHealthCareLocalFacility = {
   lastUpdated: '',
   introText: 'Test intro text',
   operatingStatusFacility: 'normal',
+  menu: {
+    rootPath: '/test-nav-path',
+    data: {
+      name: 'test-nav',
+      description: 'test-nav-description',
+      links: [
+        {
+          url: {
+            path: '/test-nav-path',
+          },
+          description: 'test-nav-description',
+          expanded: true,
+          label: 'test-nav-label',
+          links: [],
+        },
+      ],
+    },
+  },
+  path: '/test-nav-path',
+  vamcEhrSystem: 'vista',
+  administration: { entityId: 1234 },
 }
 
 describe('HealthCareLocalFacility with valid data', () => {
@@ -23,5 +44,17 @@ describe('HealthCareLocalFacility with valid data', () => {
     basicDataFields.forEach((key) =>
       expect(screen.getByText(mockData[key])).toBeInTheDocument()
     )
+  })
+
+  // Once window.sideNav is populated, the static-pages app will render the menu
+  // in the nav[data-widget-type="side-nav"] element, but testing for that
+  // render would require side-loading that app bundle, which is outside the
+  // scope of this unit test
+  test('adds the sideNav to window.sideNav', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+
+    // @ts-expect-error window.sideNav is not a default window property, but
+    // we're adding it
+    expect(window.sideNav).toEqual(mockData.menu)
   })
 })
