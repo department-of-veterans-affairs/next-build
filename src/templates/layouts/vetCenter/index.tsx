@@ -3,7 +3,6 @@ import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { AlertBlock } from '@/templates/components/alertBlock'
-import { WysiwygField } from '@/templates/components/wysiwyg'
 import HealthServices from '@/templates/components/healthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
@@ -223,7 +222,11 @@ export function VetCenter({
                       </div>
                     </div>
 
-                    <Hours headerType="standard" allHours={officeHours} />
+                    <Hours
+                      headerType="standard"
+                      allHours={officeHours}
+                      nonTraditionalMessage={ccNonTraditionalHours}
+                    />
                   </section>
                 </div>
               </div>
@@ -248,15 +251,6 @@ export function VetCenter({
             </div>
           </div>
 
-          {ccNonTraditionalHours && (
-            <div
-              className="vads-u-font-weight--bold"
-              id="field-cc-non-traditional-hours"
-            >
-              <WysiwygField html={ccNonTraditionalHours.html} />
-            </div>
-          )}
-
           {/* Call Center Information */}
           {ccVetCenterCallCenter && (
             <div className="vads-u-margin-bottom--2">
@@ -280,7 +274,7 @@ export function VetCenter({
             className="vads-u-margin-top--0 vads-u-font-size--lg
           mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
           >
-            In the spotlight at {title}
+            In the spotlight
           </h2>
           <div
             id="field-vet-center-feature-content"

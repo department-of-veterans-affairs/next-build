@@ -29,9 +29,11 @@
   "field_meta_tags": null,
   "field_name_first": "Patrick J.",
   "field_telephone": {
-    "field_phone_number": "111-111-1111"
+    "field_phone_extension": null,
+    "field_phone_label": "Appointments",
+    "field_phone_number": "800-274-8387",
+    "field_phone_number_type": "tel"
   },
-  "field_phone_number": null,
   "field_photo_allow_hires_download": false,
   "field_suffix": "Ph.D.",
   "field_body": null,

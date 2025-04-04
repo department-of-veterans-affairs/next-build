@@ -71,7 +71,7 @@ export const PersonProfile = ({
                         </a>
                       </p>
                     )}
-                    {phoneNumber && (
+                    {phoneNumber?.number && (
                       <p
                         className="
                 vads-u-font-weight--regular
@@ -81,7 +81,9 @@ export const PersonProfile = ({
                         <span className="vads-u-font-weight--bold">
                           Phone:{' '}
                         </span>
-                        <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
+                        <a href={`tel:${phoneNumber?.number}`}>
+                          {phoneNumber?.number}
+                        </a>
                       </p>
                     )}
                   </div>
