@@ -2,6 +2,9 @@
 
 exports[`HealthCareLocalFacility query should handle the Lovell variant page menu 1`] = `
 {
+  "administration": {
+    "entityId": 246,
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -144,16 +147,18 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
   ],
   "moderationState": "archived",
   "operatingStatusFacility": "closed",
+  "path": "/st-cloud-health-care/locations/st-cloud-va-mobile-clinic",
   "published": false,
   "title": "St. Cloud VA Mobile Clinic",
   "type": "node--health_care_local_facility",
+  "vamcEhrSystem": "vista",
 }
 `;
 
 exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 {
   "administration": {
-    "entityId": undefined,
+    "entityId": 246,
   },
   "breadcrumbs": [
     {
