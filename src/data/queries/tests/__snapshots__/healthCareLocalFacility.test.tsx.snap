@@ -3,7 +3,7 @@
 exports[`HealthCareLocalFacility query should handle the Lovell variant page menu 1`] = `
 {
   "administration": {
-    "entityId": undefined,
+    "entityId": 246,
   },
   "breadcrumbs": [
     {
@@ -158,7 +158,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 {
   "administration": {
-    "entityId": undefined,
+    "entityId": 246,
   },
   "breadcrumbs": [
     {
