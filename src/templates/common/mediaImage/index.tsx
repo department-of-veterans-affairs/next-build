@@ -57,11 +57,17 @@ export const MediaImage = (
     props.imageStyle
   )
 
+  // Return null if there's no valid image source to prevent rendering broken image markup
+  // happens when links are undefined/null, imageStyle is missing, or href is not available
+  if (!props.links?.[props.imageStyle]?.href) {
+    return null
+  }
+
   return (
     <Image
       id={props.id}
       alt={props.alt}
-      src={props.links?.[props.imageStyle]?.href}
+      src={props.links[props.imageStyle].href}
       width={width}
       height={height}
       title={props.title}

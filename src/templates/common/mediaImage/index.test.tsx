@@ -50,47 +50,50 @@ describe('Media Image component renders', () => {
   })
 })
 
-describe('MediaImage component does not render', () => {
-  let spyConsoleError
-
-  beforeEach(() => {
-    spyConsoleError = jest.spyOn(console, 'error')
-    spyConsoleError.mockImplementation(() => null)
+describe('MediaImage component returns null', () => {
+  test('returns null when imageStyle is not provided', () => {
+    const { container } = render(<MediaImage {...mediaImage} />)
+    expect(container.firstChild).toBeNull()
   })
 
-  afterEach(() => {
-    spyConsoleError.mockRestore()
-  })
-
-  const expectMissingImageSrc = () => {
-    expect(spyConsoleError).toHaveBeenCalledWith(
-      expect.stringMatching(/Image is missing required "src" property/),
-      expect.any(Object)
+  test('returns null when imageStyle does not exist', () => {
+    const { container } = render(
+      <MediaImage {...mediaImage} imageStyle="non_existent_style" />
     )
-  }
-
-  /*eslint-disable jest/expect-expect*/
-  test('MediaImage throws error when imageStyle is not provided', () => {
-    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
-    expectMissingImageSrc()
+    expect(container.firstChild).toBeNull()
   })
 
-  /*eslint-disable jest/expect-expect*/
-  test('MediaImage throws error when imageStyle does not exist', () => {
-    render(
-      <MediaImage
-        key={mediaImage.id}
-        {...mediaImage}
-        imageStyle="non_existent_style"
-      />
+  test('returns null when links is null', () => {
+    const imageWithNullLinks = { ...mediaImage, links: null }
+    const { container } = render(
+      <MediaImage {...imageWithNullLinks} imageStyle="2_1_large" />
     )
-    expectMissingImageSrc()
+    expect(container.firstChild).toBeNull()
   })
 
-  /*eslint-disable jest/expect-expect*/
-  test('MediaImage throws error with null data', async () => {
-    mediaImage.links = null
-    render(<MediaImage key={mediaImage.id} {...mediaImage} />)
-    expectMissingImageSrc()
+  test('returns null when links is undefined', () => {
+    const imageWithUndefinedLinks = { ...mediaImage, links: undefined }
+    const { container } = render(
+      <MediaImage {...imageWithUndefinedLinks} imageStyle="2_1_large" />
+    )
+    expect(container.firstChild).toBeNull()
+  })
+
+  test('returns null when href is missing for imageStyle', () => {
+    const imageWithoutHref = {
+      ...mediaImage,
+      links: {
+        '2_1_large': {
+          href: '',
+          meta: {
+            linkParams: {},
+          },
+        },
+      },
+    }
+    const { container } = render(
+      <MediaImage {...imageWithoutHref} imageStyle="2_1_large" />
+    )
+    expect(container.firstChild).toBeNull()
   })
 })

@@ -36,17 +36,10 @@ const teaserData = {
 }
 
 describe('<NewsStoryTeaser> with valid data', () => {
-  let spy: jest.SpyInstance
-  beforeEach(() => {
-    spy = jest.spyOn(console, 'error').mockImplementation(() => null)
-  })
-  afterEach(() => {
-    spy.mockRestore()
-  })
-  test('renders component', () => {
+  test('renders component with image when image data is valid', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
-    const imgEl = container.querySelectorAll('img')
-    expect(imgEl.length).toBe(1)
+    const imgEl = container.querySelector('img')
+    expect(imgEl).toBeTruthy()
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
@@ -57,12 +50,11 @@ describe('<NewsStoryTeaser> with valid data', () => {
     ).toBeInTheDocument()
   })
 
-  test('renders component without image', () => {
-    teaserData.image = null
-    const { container } = render(<NewsStoryTeaser {...teaserData} />)
-    const imgEl = container.querySelectorAll('img')
-
-    expect(imgEl.length).toBe(1)
+  test('renders component without image when image is null', () => {
+    const dataWithoutImage = { ...teaserData, image: null }
+    const { container } = render(<NewsStoryTeaser {...dataWithoutImage} />)
+    const imgEl = container.querySelector('img')
+    expect(imgEl).toBeNull()
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
@@ -70,6 +62,19 @@ describe('<NewsStoryTeaser> with valid data', () => {
       screen.queryByText(
         /When a hospital has a host of great doctors, honoring just two every year is challenging./
       )
+    ).toBeInTheDocument()
+  })
+
+  test('renders component without image when image links are missing', () => {
+    const dataWithInvalidImage = {
+      ...teaserData,
+      image: { ...mediaImage, links: undefined },
+    }
+    const { container } = render(<NewsStoryTeaser {...dataWithInvalidImage} />)
+    const imgEl = container.querySelector('img')
+    expect(imgEl).toBeNull()
+    expect(
+      screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
   })
 
