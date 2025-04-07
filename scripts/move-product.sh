@@ -130,7 +130,7 @@ update_all_imports() {
     # Find and replace with word boundaries
     grep -rl --exclude-dir=node_modules --include="*.ts*" --include="*.js*" "$search" ./src | while read -r file; do
       log "↪ Updating file: $(color "$file" cyan)"
-      run_or_echo "sed -i '' -E \"s|$search_escaped|$replace_escaped|g\" \"$file\""
+      run_or_echo "sed -i '' -E \"s|$search_escaped([^a-zA-Z])|$replace_escaped\1|g\" \"$file\""
     done
   done
 }
