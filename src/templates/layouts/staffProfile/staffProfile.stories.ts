@@ -18,7 +18,14 @@ export const Full: Story = {
     lastName: 'Asher',
     suffix: ', FACHE',
     emailAddress: null,
-    phoneNumber: '412-360-6101',
+    phoneNumber: {
+      type: 'paragraph--phone_number',
+      id: '1234',
+      extension: null,
+      label: null,
+      phoneType: null,
+      number: '412-822-3537',
+    },
     description: 'Deputy Director',
     introText:
       'Prachi V. Asher, FACHE, is the deputy director of VA Pittsburgh Healthcare System (VAPHS), effective May 9, 2022. ',

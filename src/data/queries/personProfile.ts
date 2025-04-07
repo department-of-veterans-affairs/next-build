@@ -4,7 +4,7 @@ import { queries } from '.'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePersonProfile } from '@/types/drupal/node'
 import { Menu } from '@/types/drupal/menu'
-import { PersonProfile } from '@/types/formatted/personProfile'
+import { StaffProfile } from '@/types/formatted/staffProfile'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -65,7 +65,7 @@ export const data: QueryData<PersonProfileDataOpts, PersonProfileData> = async (
   }
 }
 
-export const formatter: QueryFormatter<PersonProfileData, PersonProfile> = (
+export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = (
   options
 ) => {
   const entity = options?.entity

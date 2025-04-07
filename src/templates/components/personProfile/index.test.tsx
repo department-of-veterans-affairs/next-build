@@ -27,11 +27,6 @@ const mediaImage: MediaImage = {
 }
 
 const personProfileData: FormattedPersonProfile = {
-  id: '4406ee13-e60f-43f7-b969-13e2cd693c1b',
-  entityId: 1234,
-  entityPath: '/pittsburgh-health-care/staff-profiles/raab-john',
-  type: 'node--person-profile',
-  title: 'Heather Steele',
   firstName: 'Heather',
   lastName: 'Steele',
   suffix: null,
@@ -54,18 +49,16 @@ const personProfileData: FormattedPersonProfile = {
   completeBiographyCreate: true,
   photoAllowHiresDownload: false,
   vamcOfficalName: 'Pittsburgh VA Medical Center',
-  office: null,
-  published: true,
-  lastUpdated: '2023-08-01T14:00:00.000Z',
+  displayType: 'component',
 }
 
 describe('PersonProfile with valid data', () => {
   test('renders PersonProfile component', () => {
     const { container } = render(<PersonProfile {...personProfileData} />)
     const imageMeta = screen.getByRole('img')
-    const aEl = container.querySelectorAll('a')
+    const aEl = container.querySelectorAll('va-link')
 
-    expect(aEl).toHaveLength(3)
+    expect(aEl).toHaveLength(2)
 
     //Thumbnail
     expect(imageMeta).toBeVisible()
@@ -81,11 +74,8 @@ describe('PersonProfile with valid data', () => {
     expect(
       screen.queryByText(/Program coordinator for minority Veterans/)
     ).toBeInTheDocument()
-    expect(screen.queryByText(/test@va.gov/)).toBeInTheDocument()
     expect(aEl[0]).toHaveAttribute('href', 'mailto:test@va.gov')
-    expect(screen.queryByText(/412-822-3537/)).toBeInTheDocument()
     expect(aEl[1]).toHaveAttribute('href', 'tel:412-822-3537')
-    expect(screen.queryByText(/412-822-3537/)).toBeInTheDocument()
     expect(screen.queryByText(/Download full bio/)).toBeInTheDocument()
   })
 })

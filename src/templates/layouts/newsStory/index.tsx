@@ -45,7 +45,19 @@ export const NewsStory = ({
               <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
                 {caption}
               </div>
-              {author && <StaffNewsProfile {...author} />}
+              {author && (
+                <div id="content" className="interior">
+                  <main className="va-l-detail-page va-facility-page">
+                    <div className="usa-grid usa-grid-full">
+                      <div className="usa-width-three-fourths">
+                        <div className="vads-l-grid-container--full">
+                          <StaffNewsProfile {...author} />
+                        </div>
+                      </div>
+                    </div>
+                  </main>
+                </div>
+              )}
               <div className="vads-u-margin-bottom--2p5">
                 <time dateTime={formatDate(date)}>{formatDate(date)}</time>
               </div>

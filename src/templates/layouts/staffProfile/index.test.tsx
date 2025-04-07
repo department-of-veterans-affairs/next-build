@@ -1,30 +1,50 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { MediaImage } from '@/types/formatted/media'
 import { StaffProfile } from './index'
 
 describe('StaffProfile Component', () => {
+  const mediaImage: MediaImage = {
+    id: '3',
+    alt: 'Heather Steele outreach and community engagement specialist',
+    title: 'Heather Steele',
+    width: 151,
+    height: 227,
+    links: {
+      '1_1_square_medium_thumbnail': {
+        href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/1_1_square_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
+        meta: {
+          linkParams: {},
+        },
+      },
+      '2_3_medium_thumbnail': {
+        href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg',
+        meta: {
+          linkParams: {},
+        },
+      },
+    },
+  }
   const mockProfile = {
     firstName: 'Prachi',
     lastName: 'Asher',
     suffix: ', FACHE',
     emailAddress: null,
-    phoneNumber: '412-360-6101',
+    phoneNumber: {
+      type: 'paragraph--phone_number',
+      id: '1234',
+      extension: null,
+      label: null,
+      phoneType: null,
+      number: '412-822-3537',
+    },
     introText:
       'Prachi V. Asher, FACHE, is the deputy director of VA Pittsburgh Healthcare System (VAPHS), effective May 9, 2022.',
     description: 'Deputy Director',
     body: '<p>Some biography text here.</p>',
     completeBiographyCreate: true,
     vamcOfficalName: 'VA Pittsburgh Healthcare System',
-    media: {
-      id: '673d386d-ec48-4094-9f6a-588c5e02cb9c',
-      alt: 'Profile image',
-      links: {
-        self: {
-          href: 'https://example.com/profile.jpg',
-        },
-      },
-      title: 'Profile Picture',
-    },
+    media: mediaImage,
     menu: {
       depth: 5,
       link: { label: 'Prachi Asher', url: { path: '/' }, links: [] },
@@ -50,7 +70,7 @@ describe('StaffProfile Component', () => {
       screen.getByText('VA Pittsburgh Healthcare System')
     ).toBeInTheDocument()
     expect(screen.getByText('Phone:')).toBeInTheDocument()
-    expect(screen.getByText('412-360-6101')).toBeInTheDocument()
+    expect(screen.getByTestId('profile-phone')).toBeInTheDocument()
     expect(screen.getByText(mockProfile.introText)).toBeInTheDocument()
   })
 
