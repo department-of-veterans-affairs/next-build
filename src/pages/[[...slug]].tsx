@@ -3,7 +3,6 @@
  *
  * For more information on this file, see READMEs/[[...slug]].md
  */
-/* eslint-disable no-console */
 import * as React from 'react'
 import {
   GetStaticPathsContext,
@@ -14,7 +13,6 @@ import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
-
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import {
@@ -110,6 +108,7 @@ export default function ResourcePage({
       | entityId: ${resource?.entityId || 'N/A'}
       |
     `
+
   return (
     <Wrapper
       bannerData={bannerData}
@@ -194,6 +193,7 @@ export async function getStaticPaths(
       fallback: 'blocking',
     }
   }
+
   return {
     paths: (
       await Promise.all(
@@ -217,6 +217,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     } else {
       pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
     }
+
     if (!pathInfo) {
       console.warn('No path info found, returning notFound')
       return {

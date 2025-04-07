@@ -56,6 +56,7 @@ export const MediaImage = (
     props.height,
     props.imageStyle
   )
+
   return (
     <Image
       id={props.id}
