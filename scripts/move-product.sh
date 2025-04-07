@@ -94,6 +94,47 @@ error() {
   echo -e "${RED}❌ $1${RESET}"
 }
 
+update_all_imports() {
+  log "🔎 Scanning project for import references to '$(color "$PRODUCT_NAME" cyan)'"
+
+  # Parallel arrays: old paths and their replacements
+  searches=(
+    "@/templates/layouts/${PRODUCT_NAME}"
+    "@/data/queries/${PRODUCT_NAME}"
+    "@/data/queries/tests/${PRODUCT_NAME}"
+    "@/types/formatted/${PRODUCT_NAME}"
+    "@/mocks/${PRODUCT_NAME}.mock"
+  )
+
+  replacements=(
+    "@/products/${PRODUCT_NAME}"
+    "@/products/${PRODUCT_NAME}/query"
+    "@/products/${PRODUCT_NAME}/query.test"
+    "@/products/${PRODUCT_NAME}/formatted-type"
+    "@/products/${PRODUCT_NAME}/mock"
+  )
+
+  # Loop through both arrays by index
+  i=0
+  while [ $i -lt ${#searches[@]} ]; do
+    search="${searches[$i]}"
+    replace="${replacements[$i]}"
+    i=$((i + 1))
+
+    log "Replacing imports from $(color "$search" yellow) → $(color "$replace" green)"
+
+    # Escape slashes in search and replace patterns
+    search_escaped=$(printf '%s\n' "$search" | sed 's/[\/&]/\\&/g')
+    replace_escaped=$(printf '%s\n' "$replace" | sed 's/[\/&]/\\&/g')
+
+    # Find and replace with word boundaries
+    grep -rl --exclude-dir=node_modules --include="*.ts*" --include="*.js*" "$search" ./src | while read -r file; do
+      log "↪ Updating file: $(color "$file" cyan)"
+      run_or_echo "sed -i '' -E \"s|$search_escaped|$replace_escaped|g\" \"$file\""
+    done
+  done
+}
+
 # === Main ===
 
 echo "🛠  Moving product: '$(color "$PRODUCT_NAME" cyan)'"
@@ -148,6 +189,8 @@ if [ -n "$mock_file" ]; then
 else
   warn "Mock file for '$(color "$PRODUCT_NAME" cyan)' not found."
 fi
+
+update_all_imports
 
 log "Running $(color 'yarn run lint' blue)"
 run_or_echo "yarn run lint"
