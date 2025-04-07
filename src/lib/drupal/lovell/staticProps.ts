@@ -9,6 +9,7 @@ import {
 import {
   ListingResourceType,
   LISTING_RESOURCE_TYPE_URL_SEGMENTS,
+  LISTING_RESOURCE_TYPE_DATA_FIELDS,
 } from '@/lib/drupal/listingPages'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -127,7 +128,7 @@ async function getLovellListingPageStaticPropsResource(
     }
   )) as LovellListingPageFormattedResource
 
-  const itemProp = LISTING_RESOURCE_TYPE_URL_SEGMENTS[resourceType]
+  const itemProp = LISTING_RESOURCE_TYPE_DATA_FIELDS[resourceType]
   const allMergedItems = [
     ...childVariantPage[itemProp],
     ...federalPage[itemProp].map((item) => {
