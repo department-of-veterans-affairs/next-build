@@ -192,8 +192,8 @@ fi
 
 update_all_imports
 
-log "Running $(color 'yarn run lint' blue)"
-run_or_echo "yarn run lint"
+log "Running $(color 'npx tsc --noEmit' blue)"
+run_or_echo "npx tsc --noEmit"
 
 if [ -f "$CODEOWNERS_FILE" ]; then
   CODEOWNERS_LINE="src/products/${PRODUCT_NAME}/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend"
