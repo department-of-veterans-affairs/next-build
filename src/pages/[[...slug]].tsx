@@ -27,7 +27,7 @@ import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
 
 // Types
-import { Event as FormattedEvent } from '@/types/formatted/event'
+import { Event as FormattedEvent } from '@/products/event/formatted-type'
 import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
@@ -39,7 +39,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
-import { Event } from '@/templates/layouts/event'
+import { Event } from '@/products/event/template'
 import { EventListing } from '@/templates/layouts/eventListing'
 import { LayoutProps } from '@/templates/layouts/wrapper'
 import { Meta } from '@/templates/common/meta'

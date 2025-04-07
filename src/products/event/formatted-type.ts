@@ -1,13 +1,16 @@
-import { NodeEventListing, NodeHealthCareLocalFacility } from '../drupal/node'
-import { MediaImage } from './media'
-import { PublishedEntity } from './publishedEntity'
+import {
+  NodeEventListing,
+  NodeHealthCareLocalFacility,
+} from '@/types/drupal/node'
+import { MediaImage } from '@/types/formatted/media'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import {
   FieldAddress,
   FieldFormattedText,
   SocialLinksProps,
   FieldLink,
-} from '../drupal/field_type'
-import { Administration } from './administration'
+} from '@/types/drupal/field_type'
+import { Administration } from '@/types/formatted/administration'
 
 interface DateTimeRangeItem {
   value: string

@@ -4,7 +4,7 @@
 
 import { NodeEvent } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/event.mock.json'
+import mockData from '@/products/event/mock.json'
 import { params } from '../eventTeaser'
 
 const nodeEventMock: NodeEvent = mockData

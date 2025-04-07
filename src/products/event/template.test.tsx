@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent, screen } from '@testing-library/react'
-import { Event } from './'
+import { Event } from './template'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 
 jest.mock('@/lib/analytics/recordEvent', () => ({
