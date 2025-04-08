@@ -12,3 +12,6 @@
 # Front-end template work should be verified by product owners.
 
 src/templates @department-of-veterans-affairs/next-build-product
+
+# Product code ownership
+src/products/eventListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend

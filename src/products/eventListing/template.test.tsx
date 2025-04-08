@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import { EventListing } from './index'
-import { mockResponse } from '@/mocks/eventListing.mock.js'
-import { formatter } from '@/data/queries/eventListing'
+import { EventListing } from './template'
+import { mockResponse } from '@/products/eventListing/mock.js'
+import { formatter } from '@/products/eventListing/query'
 
 describe('EventListing with valid data', () => {
   const resource = formatter({

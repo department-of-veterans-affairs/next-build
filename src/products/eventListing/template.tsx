@@ -9,7 +9,7 @@
  *
  */
 import { useEffect } from 'react'
-import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
+import { EventListing as FormattedEventListing } from '@/products/eventListing/formatted-type'
 import { EventWidgetTeaser } from '@/types/formatted/event'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/templates/common/contentFooter'

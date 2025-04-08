@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { EventListing } from './index'
+import { EventListing } from './template'
 
 const meta: Meta<typeof EventListing> = {
   title: 'Layouts/Event Listing',
