@@ -21,7 +21,7 @@
     "pid": 1452,
     "langcode": "en"
   },
-  "field_complete_biography_create": null,
+  "field_complete_biography_create": 1,
   "field_description": "Director, Audiology and Speech Pathology Program Associate Director for Research, GRECC",
   "field_email_address": null,
   "field_intro_text": null,

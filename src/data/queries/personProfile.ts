@@ -8,6 +8,7 @@ import { StaffProfile } from '@/types/formatted/staffProfile'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
+  DoNotPublishError,
   entityBaseFields,
   fetchSingleEntityOrPreview,
   getMenu,
@@ -79,7 +80,9 @@ export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = (
   if (!entity) {
     return null
   }
-
+  if (!entity.field_complete_biography_create) {
+    throw new DoNotPublishError('this profile should not be generated')
+  }
   return {
     ...entityBaseFields(entity),
     firstName: entity.field_name_first,
