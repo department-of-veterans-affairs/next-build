@@ -55,8 +55,8 @@ export const PhoneNumber = (
   }
 
   return (
-    <div className={className || undefined}>
-      <strong>{labelToDisplay}: </strong>
+    <p className={className || undefined}>
+      <span className='vads-u-font-weight--bold'>{labelToDisplay}: </span>
       <va-telephone
         contact={numberToDisplay.replace?.(/-/g, '')}
         extension={extensionToDisplay || null}
@@ -65,6 +65,6 @@ export const PhoneNumber = (
         sms={sms ? true : undefined}
         tty={tty ? true : undefined}
       />
-    </div>
+    </p>
   )
 }
