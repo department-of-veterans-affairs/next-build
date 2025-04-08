@@ -1,6 +1,6 @@
 import SidebarNav from '@/templates/components/facilityNoDrupalPageSideBarNav'
-
 import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
+import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { MediaImage } from '@/templates/common/mediaImage'
 
 export type PersonProfileTeaserProps = {
@@ -72,14 +72,10 @@ export const StaffProfile = ({
                 </p>
               )}
               {phoneNumber?.number && (
-                <p className="vads-u-font-weight--regular vads-u-margin--0 vads-u-margin-bottom--0p5">
-                  <span className="vads-u-font-weight--bold">Phone: </span>
-                  <va-link
-                    data-testid="profile-phone"
-                    href={`tel:${phoneNumber?.number}`}
-                    text={phoneNumber?.number}
-                  />
-                </p>
+                <PhoneNumber
+                  {...phoneNumber}
+                  className="vads-u-font-weight--regular vads-u-margin--0 vads-u-margin-bottom--0p5"
+                />
               )}
             </div>
           </div>

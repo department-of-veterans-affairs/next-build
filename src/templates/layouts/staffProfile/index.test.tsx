@@ -76,7 +76,7 @@ describe('StaffProfile Component', () => {
       screen.getByText('VA Pittsburgh Healthcare System')
     ).toBeInTheDocument()
     expect(screen.getByText('Phone:')).toBeInTheDocument()
-    expect(screen.getByTestId('profile-phone')).toBeInTheDocument()
+    expect(screen.getByTestId('phone')).toBeInTheDocument()
     expect(screen.getByText(mockProfile.introText)).toBeInTheDocument()
     expect(screen.queryByText(/Download full size photo/)).toBeInTheDocument()
     expect(screen.queryByText(/Download full bio/)).toBeInTheDocument()
