@@ -17,7 +17,9 @@ export const StaffProfile = ({
   introText,
   description,
   body,
+  completeBiography,
   completeBiographyCreate,
+  photoAllowHiresDownload,
   vamcOfficalName,
   media,
   menu,
@@ -90,6 +92,31 @@ export const StaffProfile = ({
                 className="vads-u-margin-bottom--2"
                 dangerouslySetInnerHTML={{ __html: body }}
               />
+            </div>
+          )}
+          {media && photoAllowHiresDownload && (
+            <div
+              className="vads-u-align-content--flex-end va-c-margin-top--auto vads-u-margin-bottom--2"
+              id="download-full-size-photo-link"
+            >
+              <i
+                className="va-c-social-icon fas fa-download"
+                aria-hidden="true"
+              ></i>
+              {/* TODO this is not the full size photo path. We need to send the original path down from Drupal */}
+              <a href={media.links['2_3_medium_thumbnail'].href} download>
+                {' '}
+                Download full size photo
+              </a>
+            </div>
+          )}
+          {completeBiography && (
+            <div className="vads-u-align-content--flex-end va-c-margin-top--auto vads-u-margin-bottom--2">
+              <i className="va-c-social-icon fas fa-download"></i>
+              <a href={completeBiography?.url} download>
+                {' '}
+                Download full bio (PDF)
+              </a>
             </div>
           )}
         </article>

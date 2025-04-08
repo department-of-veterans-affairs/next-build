@@ -25,6 +25,10 @@ describe('StaffProfile Component', () => {
       },
     },
   }
+  const completeBiography = {
+    value: 'public://2023-07/RCS Bio  Headshot.pdf',
+    url: 'https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-07/RCS%20Bio%20%20Headshot.pdf',
+  }
   const mockProfile = {
     firstName: 'Prachi',
     lastName: 'Asher',
@@ -43,6 +47,8 @@ describe('StaffProfile Component', () => {
     description: 'Deputy Director',
     body: '<p>Some biography text here.</p>',
     completeBiographyCreate: true,
+    completeBiography: completeBiography,
+    photoAllowHiresDownload: true,
     vamcOfficalName: 'VA Pittsburgh Healthcare System',
     media: mediaImage,
     menu: {
@@ -72,6 +78,8 @@ describe('StaffProfile Component', () => {
     expect(screen.getByText('Phone:')).toBeInTheDocument()
     expect(screen.getByTestId('profile-phone')).toBeInTheDocument()
     expect(screen.getByText(mockProfile.introText)).toBeInTheDocument()
+    expect(screen.queryByText(/Download full size photo/)).toBeInTheDocument()
+    expect(screen.queryByText(/Download full bio/)).toBeInTheDocument()
   })
 
   test('does not render email when it is null', () => {
@@ -93,5 +101,26 @@ describe('StaffProfile Component', () => {
     expect(screen.queryByText('Deputy Director')).not.toBeInTheDocument()
     expect(screen.queryByText('Email:')).not.toBeInTheDocument()
     expect(screen.queryByText('Phone:')).not.toBeInTheDocument()
+  })
+  test('does not render photo download option when photoAllowHiresDownload is false', () => {
+    const modifiedProfile = {
+      ...mockProfile,
+      photoAllowHiresDownload: false,
+    }
+    render(<StaffProfile {...modifiedProfile} />)
+
+    expect(
+      screen.queryByText(/Download full size photo/)
+    ).not.toBeInTheDocument()
+  })
+
+  test('does not render bio download option when completeBiography is null', () => {
+    const modifiedProfile = {
+      ...mockProfile,
+      completeBiography: null,
+    }
+    render(<StaffProfile {...modifiedProfile} />)
+
+    expect(screen.queryByText(/Download full bio/)).not.toBeInTheDocument()
   })
 })
