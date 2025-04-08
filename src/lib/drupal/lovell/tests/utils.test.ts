@@ -327,6 +327,24 @@ describe('getLovellVariantOfTitle', () => {
     expect(result).toBe(LOVELL.federal.title)
   })
 
+  test('should handle case-insensitive Federal title matching', () => {
+    const title = 'LOVELL FEDERAL HEALTH CARE'
+    const result = getLovellVariantOfTitle(title, LOVELL.va.variant)
+    expect(result).toBe('Lovell Federal health care - VA')
+  })
+
+  test('should handle case-insensitive VA title matching', () => {
+    const title = 'Lovell Federal Health Care - VA'
+    const result = getLovellVariantOfTitle(title, LOVELL.tricare.variant)
+    expect(result).toBe('Lovell Federal health care - TRICARE')
+  })
+
+  test('should handle case-insensitive TRICARE title matching', () => {
+    const title = 'Lovell Federal Health Care - TRICARE'
+    const result = getLovellVariantOfTitle(title, LOVELL.va.variant)
+    expect(result).toBe('Lovell Federal health care - VA')
+  })
+
   test('should leave non-Lovell title unchanged', () => {
     const title = 'Some non-Lovell title'
     const result = getLovellVariantOfTitle(title, LOVELL.va.variant)
