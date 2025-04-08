@@ -43,7 +43,7 @@ export const data: QueryData<PersonProfileDataOpts, PersonProfileData> = async (
 ) => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    RESOURCE_TYPES.PERSON_PROFILE,
+    RESOURCE_TYPES.STAFF_PROFILE,
     params
   )) as NodePersonProfile
 

@@ -3,7 +3,6 @@ export const RESOURCE_TYPES = {
   EVENT: 'node--event',
   EVENT_LISTING: 'node--event_listing',
   HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
-  PERSON_PROFILE: 'node--person_profile',
   PRESS_RELEASE: 'node--press_release',
   PRESS_RELEASE_LISTING: 'node--press_releases_listing',
   RESOURCES_SUPPORT: 'node--support_resources_detail_page',
