@@ -107,7 +107,7 @@ update_all_imports() {
   )
 
   replacements=(
-    "@/products/${PRODUCT_NAME}"
+    "@/products/${PRODUCT_NAME}/template"
     "@/products/${PRODUCT_NAME}/query"
     "@/products/${PRODUCT_NAME}/query.test"
     "@/products/${PRODUCT_NAME}/formatted-type"
