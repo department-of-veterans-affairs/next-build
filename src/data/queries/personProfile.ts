@@ -56,10 +56,6 @@ export const data: QueryData<PersonProfileDataOpts, PersonProfileData> = async (
     )
   }
 
-  if (!entity?.field_complete_biography_create) {
-    return null
-  }
-
   return {
     entity,
     menu,
