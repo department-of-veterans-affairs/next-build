@@ -28,7 +28,7 @@ import { FormattedPageResource } from '@/data/queries'
 
 // Types
 import { Event as FormattedEvent } from '@/types/formatted/event'
-import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
+import { EventListing as FormattedEventListing } from '@/products/eventListing/formatted-type'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
@@ -41,7 +41,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/templates/layouts/event'
-import { EventListing } from '@/templates/layouts/eventListing'
+import { EventListing } from '@/products/eventListing/template'
 import { LayoutProps } from '@/templates/layouts/wrapper'
 import { Meta } from '@/templates/common/meta'
 import { NewsStory } from '@/templates/layouts/newsStory'
