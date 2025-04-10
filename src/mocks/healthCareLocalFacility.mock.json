@@ -1,551 +1,1697 @@
 {
+  "type": "node--health_care_local_facility",
+  "id": "cb577a82-953f-4306-84c6-a65abf1b45ea",
+  "drupal_internal__nid": 1272,
+  "drupal_internal__vid": 941307,
+  "langcode": "en",
+  "revision_timestamp": "2024-11-25T18:41:36+00:00",
+  "status": true,
+  "title": "Causeway VA Clinic",
+  "created": "2019-10-31T19:52:50+00:00",
+  "changed": "2024-11-25T18:41:35+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
   "breadcrumbs": [
     {
-      "options": [],
+      "uri": "https://va-gov-cms.ddev.site/",
       "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/"
+      "options": []
     },
     {
-      "options": [],
-      "title": "VA St Cloud health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/st-cloud-health-care"
+      "uri": "https://va-gov-cms.ddev.site/boston-health-care",
+      "title": "VA Boston health care",
+      "options": []
     },
     {
-      "options": [],
+      "uri": "internal:#",
       "title": "SERVICES AND LOCATIONS",
-      "uri": "internal:#"
+      "options": []
     },
     {
-      "options": [],
+      "uri": "https://va-gov-cms.ddev.site/boston-health-care/locations",
       "title": "Locations",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/st-cloud-health-care/locations"
+      "options": []
     },
     {
-      "options": [],
-      "title": "St. Cloud VA Mobile Clinic",
-      "uri": "internal:#"
+      "uri": "internal:#",
+      "title": "Causeway VA Clinic",
+      "options": []
     }
   ],
-  "changed": "2021-06-16T13:12:21+00:00",
-  "content_translation_outdated": false,
-  "content_translation_source": "und",
-  "created": "2019-10-31T19:56:14+00:00",
-  "default_langcode": true,
-  "drupal_internal__nid": 2069,
-  "drupal_internal__vid": 445242,
+  "moderation_state": "published",
   "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "description",
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic"
+      }
+    },
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "image_src",
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:description",
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image",
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "Causeway VA Clinic"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:description",
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image",
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "Causeway VA Clinic"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/boston-health-care/locations/causeway-va-clinic",
+    "pid": 1999,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
   "field_address": {
-    "additional_name": null,
-    "address_line1": "4801 Veterans Drive, Audiology Department",
-    "administrative_area": "MN",
-    "country_code": "US",
-    "dependent_locality": null,
     "langcode": null,
-    "locality": "St. Cloud",
-    "postal_code": "56303-2015"
+    "country_code": "US",
+    "administrative_area": "MA",
+    "locality": "Boston",
+    "dependent_locality": null,
+    "postal_code": "02114-2104",
+    "address_line1": "251 Causeway Street",
+    "additional_name": null
+  },
+  "field_description": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic",
+  "field_facility_classification": "4",
+  "field_facility_locator_api_id": "vha_523BZ",
+  "field_geolocation": {
+    "value": "POINT (-71.05901821 42.36659056)",
+    "geo_type": "Point",
+    "lat": 42.36659056,
+    "lon": -71.05901821,
+    "left": -71.05901821,
+    "top": 42.36659056,
+    "right": -71.05901821,
+    "bottom": 42.36659056,
+    "geohash": "drt3p087kbgsv9",
+    "latlon": "42.36659056,-71.05901821"
+  },
+  "field_intro_text": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
+  "field_last_saved_by_an_editor": "2024-11-07T14:41:05+00:00",
+  "field_main_location": false,
+  "field_meta_tags": null,
+  "field_mobile": false,
+  "field_office_hours": [
+    {
+      "day": 1,
+      "all_day": false,
+      "starthours": 730,
+      "endhours": 1600,
+      "comment": ""
+    },
+    {
+      "day": 2,
+      "all_day": false,
+      "starthours": 730,
+      "endhours": 1600,
+      "comment": ""
+    },
+    {
+      "day": 3,
+      "all_day": false,
+      "starthours": 730,
+      "endhours": 1600,
+      "comment": ""
+    },
+    {
+      "day": 4,
+      "all_day": false,
+      "starthours": 730,
+      "endhours": 1600,
+      "comment": ""
+    },
+    {
+      "day": 5,
+      "all_day": false,
+      "starthours": 730,
+      "endhours": 1600,
+      "comment": ""
+    },
+    {
+      "day": 6,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 0,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    }
+  ],
+  "field_operating_status_facility": "closed",
+  "field_operating_status_more_info": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024.",
+  "field_phone_number": "800-865-3384",
+  "field_supplemental_status_more_i": null,
+  "field_timezone": "America/New_York",
+  "links": {
+    "self": {
+      "href": "https://va-gov-cms.ddev.site/jsonapi/node/health_care_local_facility/cb577a82-953f-4306-84c6-a65abf1b45ea?resourceVersion=id%3A941307"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "5ecbcf0c-b701-49d5-a47e-08803d42dd80",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "health_care_local_facility"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
   },
   "field_administration": {
-    "id": "0d497d78-bdbe-4639-bf06-66ce8bf5d5e5",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 246
-    },
     "type": "taxonomy_term--administration",
-    "drupal_internal__tid": 246
-  },
-  "field_description": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
-  "field_facility_classification": "6",
-  "field_facility_locator_api_id": "vha_656QA",
-  "field_geolocation": null,
-  "field_intro_text": null,
-  "field_last_saved_by_an_editor": null,
-  "field_local_health_care_service_": [],
-  "field_location_services": [
-    {
-      "id": "935e1f71-e1e1-449f-8405-7ff9dd4120db",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 29333,
-        "target_revision_id": 328800
-      },
-      "type": "paragraph--health_care_local_facility_servi"
-    },
-    {
-      "id": "43efa539-ad7a-475f-953a-6ef621cc8e6d",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 29334,
-        "target_revision_id": 328801
-      },
-      "type": "paragraph--health_care_local_facility_servi"
-    }
-  ],
-  "field_main_location": false,
-  "field_media": {
-    "id": "9ecc2c19-9741-41eb-ab21-0509d37f2b1b",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 2159
-    },
-    "type": "media--image"
-  },
-  "field_meta_tags": null,
-  "field_mobile": true,
-  "field_office_hours": [],
-  "field_operating_status_facility": "closed",
-  "field_operating_status_more_info": null,
-  "field_phone_number": "320-252-1670 x6370",
-  "field_region_page": {
+    "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+    "drupal_internal__tid": 205,
+    "drupal_internal__revision_id": 2322,
+    "langcode": "en",
+    "revision_created": "2024-08-13T20:05:29+00:00",
+    "status": true,
+    "name": "VA Boston health care",
+    "description": null,
+    "weight": 1,
+    "changed": "2024-08-13T20:05:29+00:00",
+    "default_langcode": true,
+    "revision_translation_affected": true,
     "breadcrumbs": [
       {
-        "options": [],
+        "uri": "https://va-gov-cms.ddev.site/",
         "title": "Home",
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/"
+        "options": []
       },
       {
-        "options": [],
-        "title": "VA St Cloud health care",
-        "uri": "internal:#"
+        "uri": "https://va-gov-cms.ddev.site/section/vha",
+        "title": "VHA",
+        "options": []
+      },
+      {
+        "uri": "https://va-gov-cms.ddev.site/section/vamc-facilities",
+        "title": "VAMC facilities",
+        "options": []
+      },
+      {
+        "uri": "https://va-gov-cms.ddev.site/section/vha/visn-1",
+        "title": "VISN 1",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "VA Boston health care",
+        "options": []
       }
     ],
-    "changed": "2024-07-30T18:55:17+00:00",
-    "content_translation_outdated": false,
-    "content_translation_source": "und",
-    "created": "2020-10-07T04:18:45+00:00",
-    "default_langcode": true,
-    "drupal_internal__nid": 8137,
-    "drupal_internal__vid": 907373,
-    "expiration_date": null,
-    "field_administration": {
-      "id": "0d497d78-bdbe-4639-bf06-66ce8bf5d5e5",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 246
-      },
-      "type": "taxonomy_term--administration"
-    },
-    "field_appointments_online": false,
-    "field_clinical_health_services": [
-      {
-        "id": "130ab6b0-9149-4385-8424-013692034430",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10975
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "cf7056a2-42dc-48b5-9963-2397c3f6433a",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10976
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "233c79a2-564d-4223-8959-9be69638e372",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10977
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "2bddbffc-3af7-4d88-a4ec-534aebccd70a",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10978
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "631f786d-23a4-42a9-9172-67f8b85e3a9e",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10979
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "83d82ff4-b817-49ec-974b-b55571db8022",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10980
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "c7b05a2c-794c-483e-8b18-913042ee7721",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10981
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "9be607dd-b487-4a6b-872c-13c201e51b6c",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10982
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "2c54be69-b4bd-49d1-af76-8dced0377af9",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10983
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "41a4b4fa-0757-4ed5-8f5a-4677fe1198b1",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10984
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "03ce2990-f930-4190-ba2d-e696f4d5ec5f",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10985
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "b28f3aa0-96a5-4002-9a97-f8111f3b62a2",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10986
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "024bd70c-ad32-4977-acdf-77e1a570f53a",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10987
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "625cdfd4-82bc-4aee-83a1-f9fffbb5ab87",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10988
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "2690e9d8-fe70-4dd4-820d-309cb8a7e08b",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10989
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "febf925d-5b47-4b94-9a7f-d4e914846677",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10990
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "9d8104dd-0569-45b4-bbd0-c47ce918934e",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10991
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "20a1c12e-88fd-47d6-9638-81a32c668066",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10992
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "1a6dfd1b-0610-411d-baaa-e3b1a5900ee6",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10993
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "44d4e7ca-0551-4007-bfea-ca0ac113c699",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10994
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "317a2bb3-c6c4-427e-b9d3-48d73b84d8ea",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10995
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "50302d1e-d0a0-4144-b31a-e687c7bea55d",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10996
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "0cef0401-5140-41fe-97a6-8b2b3bd5f222",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10997
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "396f9830-dd06-4b29-9937-77ce49d89b89",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10998
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "dec99941-6587-4939-ac06-d25c7d8390f2",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 10999
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "28268d6f-687d-4a6e-bbbd-88e327e0f57e",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11000
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "d9b16945-69c0-489d-bd93-24d3fe7614b8",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11001
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "5e6aeaf4-8287-453f-8ef2-ecb367898ea5",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11002
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "7a477d37-9743-465d-a2a0-3b40ca7bdb6a",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11003
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "058b2208-f13d-42c5-86c3-56367f108b6b",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11004
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "a4923789-27f0-4714-9839-ae8cc3b379a5",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11005
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "1f2b5464-7a60-4ffa-b101-b72434057654",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11006
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "0a0b4f5f-cb5f-449a-b713-2fc91b56a85b",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11007
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "8d8d9756-de9e-49a2-af39-bc2fd2b8b3e2",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 11008
-        },
-        "type": "node--regional_health_care_service_des"
-      },
-      {
-        "id": "e737a15e-cb32-4cb3-b37f-9b6ed792e5c0",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 15297
-        },
-        "type": "node--regional_health_care_service_des"
-      }
-    ],
-    "field_description": "VA the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.",
-    "field_facebook": {
-      "options": {
-        "data-entity-substitution": "",
-        "data-entity-type": "",
-        "data-entity-uuid": "",
-        "href": "https://www.facebook.com/StCloudVAHCS"
-      },
-      "title": "VA St Cloud Health Care System Facebook page",
-      "uri": "https://www.facebook.com/StCloudVAHCS",
-      "url": "https://www.facebook.com/StCloudVAHCS"
-    },
-    "field_flickr": null,
-    "field_govdelivery_id_emerg": "USVHA_502",
-    "field_govdelivery_id_news": "USVHA_143",
-    "field_instagram": null,
-    "field_intro_text": "At the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.\r\n",
-    "field_last_saved_by_an_editor": "2024-07-30T18:55:19+00:00",
-    "field_media": {
-      "id": "85445a1c-7e51-4171-81a6-7d2776582f63",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1465
-      },
-      "type": "media--image"
-    },
-    "field_meta_tags": null,
-    "field_operating_status": {
-      "options": {
-        "data-entity-substitution": "canonical",
-        "data-entity-type": "node",
-        "data-entity-uuid": "ea4c2ea6-93cc-4c3e-bbe9-962644353c54",
-        "href": "entity:node/8138"
-      },
-      "title": "Operating status - VA St Cloud health care",
-      "uri": "entity:node/8138",
-      "url": "/st-cloud-health-care/operating-status"
-    },
-    "field_other_va_locations": ["vc_0429V", "vc_0416V", "nca_894", "vba_335"],
-    "field_related_links": {
-      "id": "ac331ca3-c996-49ac-a7da-333c4c791bc1",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 13123,
-        "target_revision_id": 1419713
-      },
-      "type": "paragraph--list_of_link_teasers"
-    },
-    "field_system_menu": {
-      "id": "8f16ba4f-6deb-48c6-9cf7-5c0c86d80cdc",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": "va-st-cloud-health-care"
-      },
-      "type": "menu--menu"
-    },
-    "field_twitter": null,
-    "field_va_health_connect_phone": "833-983-0492",
-    "field_vamc_ehr_system": "vista",
-    "field_vamc_system_official_name": "St. Cloud VA Health Care System",
-    "field_youtube": null,
-    "id": "492b1051-b341-436a-be3e-023ee51ea5b7",
-    "langcode": "en",
-    "links": {
-      "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/492b1051-b341-436a-be3e-023ee51ea5b7?resourceVersion=id%3A907373"
-      }
-    },
+    "moderation_state": null,
     "metatag": [
       {
+        "tag": "meta",
         "attributes": {
-          "content": "VA St Cloud health care | Veterans Affairs",
-          "name": "title"
-        },
-        "tag": "meta"
+          "name": "title",
+          "content": "VA Boston health care | VA.gov CMS"
+        }
       },
       {
+        "tag": "link",
         "attributes": {
-          "content": "VA the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.",
-          "name": "description"
-        },
-        "tag": "meta"
+          "rel": "canonical",
+          "href": "https://va-gov-cms.ddev.site/section/vha/vamc-facilities/va-boston-health-care"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+      "pid": 7549,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_created": null,
+    "field_description": null,
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 205
+    },
+    "vid": {
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+      "id": "645055c5-e567-4683-b6db-459ce04522ce",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "administration"
+      }
+    },
+    "revision_user": {
+      "type": "user--user",
+      "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4942
+      }
+    },
+    "parent": [
+      {
+        "type": "taxonomy_term--administration",
+        "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 162
+        }
+      }
+    ],
+    "content_translation_uid": null,
+    "field_product": {
+      "type": "taxonomy_term--products",
+      "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 284
+      }
+    },
+    "relationshipNames": [
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_product"
+    ]
+  },
+  "field_local_health_care_service_": [
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "26c312e4-3f57-4a4d-8fec-3b15d0168fe6",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 30389
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "4e322333-c057-4869-a3b8-220a4865a06b",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 30390
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "ecc270db-8c3a-40d9-849f-189bd2d4b82c",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 30391
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "408bbde7-71bb-4db8-b3ef-5cc8f54e2f8e",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 30392
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "1b8406cc-9da7-4de5-ab04-15af9098b448",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 30393
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "3c5599d3-7b6e-44d4-a101-55da47a73943",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 30394
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "73a7fb91-37fc-4839-a2fe-0e3765a10829",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 39453
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "94bc53bc-ce3a-4b2e-9b32-10efec814926",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 39559
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "ae79dc4a-d7b0-44b9-9f8a-d9f81f180d22",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 39631
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "444e98a4-562d-4ff6-a449-0173cb04ad8a",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 39659
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "a7cf06c6-a099-4550-b35d-f7f8c625545a",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 45346
+      }
+    },
+    {
+      "type": "node--health_care_local_health_service",
+      "id": "78cb918b-1bde-4ec7-96ba-9b8447de1879",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 63707
+      }
+    }
+  ],
+  "field_location_services": [
+    {
+      "type": "paragraph--health_care_local_facility_servi",
+      "id": "983d27c2-0817-4182-aebe-68daa840675a",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1574848,
+        "drupal_internal__target_id": 66938
+      }
+    }
+  ],
+  "field_media": {
+    "type": "media--image",
+    "id": "fd2b6c2b-59b6-4d2b-a1dd-502757445a6c",
+    "drupal_internal__mid": 4799,
+    "drupal_internal__vid": 5072,
+    "status": true,
+    "name": "causewaycboc.jpg",
+    "created": "2021-07-16T13:59:55+00:00",
+    "changed": "2021-07-16T13:59:55+00:00",
+    "breadcrumbs": [
+      {
+        "uri": "https://va-gov-cms.ddev.site/",
+        "title": "Home",
+        "options": []
       },
       {
-        "attributes": {
-          "href": "https://www.va.gov/img/design/logo/va-og-image.png",
-          "rel": "image_src"
+        "uri": "https://va-gov-cms.ddev.site/media/4799",
+        "title": "Causewaycboc.jpg",
+        "options": []
+      }
+    ],
+    "path": {
+      "alias": null,
+      "pid": null,
+      "langcode": "en"
+    },
+    "field_description": null,
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/fd2b6c2b-59b6-4d2b-a1dd-502757445a6c?resourceVersion=id%3A5072"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 4799
+    },
+    "bundle": {
+      "type": "media_type--media_type",
+      "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "image"
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "c658950d-5936-498e-9a63-62e12c4bba0e",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1300
+      }
+    },
+    "thumbnail": {
+      "type": "file--file",
+      "id": "984fd14e-fc15-4bdf-9ffa-628105744a94",
+      "drupal_internal__fid": 5291,
+      "langcode": "en",
+      "filename": "causewaycboc.jpg",
+      "uri": {
+        "value": "public://2021-07/causewaycboc.jpg",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-07/causewaycboc.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 69967,
+      "status": true,
+      "created": "2021-07-16T13:59:55+00:00",
+      "changed": "2021-07-16T14:00:38+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
         },
-        "tag": "link"
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Causeway VA Clinic",
+        "title": null,
+        "width": 480,
+        "height": 330,
+        "drupal_internal__target_id": 5291
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c658950d-5936-498e-9a63-62e12c4bba0e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1300
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "image": {
+      "type": "file--file",
+      "id": "984fd14e-fc15-4bdf-9ffa-628105744a94",
+      "drupal_internal__fid": 5291,
+      "langcode": "en",
+      "filename": "causewaycboc.jpg",
+      "uri": {
+        "value": "public://2021-07/causewaycboc.jpg",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-07/causewaycboc.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 69967,
+      "status": true,
+      "created": "2021-07-16T13:59:55+00:00",
+      "changed": "2021-07-16T14:00:38+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Causeway VA Clinic",
+        "title": "",
+        "width": 480,
+        "height": 330,
+        "drupal_internal__target_id": 5291
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c658950d-5936-498e-9a63-62e12c4bba0e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1300
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
+  },
+  "field_region_page": {
+    "type": "node--health_care_region_page",
+    "id": "def03529-b07f-4e36-b3aa-e88ffeaa222a",
+    "drupal_internal__nid": 11023,
+    "drupal_internal__vid": 944729,
+    "langcode": "en",
+    "revision_timestamp": "2024-09-16T22:23:07+00:00",
+    "status": true,
+    "title": "VA Boston health care",
+    "created": "2020-11-25T05:54:43+00:00",
+    "changed": "2024-12-06T21:04:51+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://va-gov-cms.ddev.site/",
+        "title": "Home",
+        "options": []
       },
       {
-        "attributes": {
-          "content": "Veterans Affairs",
-          "property": "og:site_name"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "VA St Cloud health care | Veterans Affairs",
-          "property": "og:title"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "VA the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.",
-          "property": "og:description"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/StCloud_480x330.jpg",
-          "property": "og:image"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "St. Cloud Veterans Administration Medical Center",
-          "property": "og:image:alt"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "summary_large_image",
-          "name": "twitter:card"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "VA the St. Cloud VA Health Care System, our health care teams are experienced and guided by the needs of Veterans and their caregivers. Find a health facility near you, and manage your health online. Sign up for events and updates.",
-          "name": "twitter:description"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "@DeptVetAffairs",
-          "name": "twitter:site"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "VA St Cloud health care | Veterans Affairs",
-          "name": "twitter:title"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/StCloud_480x330.jpg",
-          "name": "twitter:image"
-        },
-        "tag": "meta"
-      },
-      {
-        "attributes": {
-          "content": "St. Cloud Veterans Administration Medical Center",
-          "name": "twitter:image:alt"
-        },
-        "tag": "meta"
+        "uri": "internal:#",
+        "title": "VA Boston health care",
+        "options": []
       }
     ],
     "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "VA Boston health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "At VA Boston Healthcare System, our health care teams are both experienced and guided by the needs of Veterans, their families and caregivers. Find a health facility near you and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "image_src",
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:site_name",
+          "content": "Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:title",
+          "content": "VA Boston health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:description",
+          "content": "At VA Boston Healthcare System, our health care teams are both experienced and guided by the needs of Veterans, their families and caregivers. Find a health facility near you and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-05/3Campus-smaller.jpg"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:alt",
+          "content": "Collage of VA Boston Healthcare System's three main campuses, from left to right, Jamaica Plain, West Roxbury and Brockton."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:card",
+          "content": "summary_large_image"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:site",
+          "content": "@DeptVetAffairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:title",
+          "content": "VA Boston health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:description",
+          "content": "At VA Boston Healthcare System, our health care teams are both experienced and guided by the needs of Veterans, their families and caregivers. Find a health facility near you and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-05/3Campus-smaller.jpg"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image:alt",
+          "content": "Collage of VA Boston Healthcare System's three main campuses, from left to right, Jamaica Plain, West Roxbury and Brockton."
+        }
+      }
+    ],
+    "path": {
+      "alias": "/boston-health-care",
+      "pid": 12937,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_appointments_online": false,
+    "field_description": "At VA Boston Healthcare System, our health care teams are both experienced and guided by the needs of Veterans, their families and caregivers. Find a health facility near you and manage your health online. Sign up for community events and updates.",
+    "field_facebook": {
+      "uri": "https://www.facebook.com/VABoston",
+      "title": "VA Boston Healthcare System Facebook",
+      "options": {
+        "href": "https://www.facebook.com/VABoston",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://www.facebook.com/VABoston"
+    },
+    "field_flickr": null,
+    "field_govdelivery_id_emerg": "USVHA_374",
+    "field_govdelivery_id_news": "USVHA_111",
+    "field_instagram": null,
+    "field_intro_text": "At the VA Boston Healthcare System, our experienced health care teams are guided by the needs of Veterans, their families and caregivers.\r\n",
+    "field_last_saved_by_an_editor": "2024-09-16T22:23:08+00:00",
+    "field_meta_tags": null,
+    "field_operating_status": {
+      "uri": "entity:node/27318",
+      "title": "Operating status | VA Boston health care",
+      "options": {
+        "href": "entity:node/27318",
+        "data-entity-type": "node",
+        "data-entity-uuid": "c88aa8c1-a5e9-48da-ba6b-4d585a713a8a",
+        "data-entity-substitution": "canonical"
+      },
+      "url": "/boston-health-care/operating-status"
+    },
+    "field_other_va_locations": [
+      "vc_0101V",
+      "vc_0104V",
+      "vc_0136V",
+      "vc_0125V",
+      "vc_0128V",
+      "vc_0103V",
+      "vc_0126V"
+    ],
+    "field_twitter": {
+      "uri": "https://twitter.com/VABostonHC",
+      "title": "VA Boston Healthcare System",
+      "options": {
+        "href": "https://twitter.com/VABostonHC",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://twitter.com/VABostonHC"
+    },
+    "field_vamc_ehr_system": "vista",
+    "field_vamc_system_official_name": "VA Boston Healthcare System",
+    "field_va_health_connect_phone": "833-933-1106",
+    "field_youtube": null,
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/node/health_care_region_page/def03529-b07f-4e36-b3aa-e88ffeaa222a?resourceVersion=id%3A944729"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 11023
+    },
     "node_type": {
+      "type": "node_type--node_type",
       "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
       "resourceIdObjMeta": {
         "drupal_internal__target_id": "health_care_region_page"
-      },
-      "type": "node_type--node_type"
+      }
     },
-    "path": {
-      "alias": "/st-cloud-health-care",
+    "revision_uid": {
+      "type": "user--user",
+      "id": "75a67a30-cd28-45b6-8c99-ca1071f9f940",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5043
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1270
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+      "drupal_internal__tid": 205,
+      "drupal_internal__revision_id": 2322,
       "langcode": "en",
-      "pid": 9650
+      "revision_created": "2024-08-13T20:05:29+00:00",
+      "status": true,
+      "name": "VA Boston health care",
+      "description": null,
+      "weight": 1,
+      "changed": "2024-08-13T20:05:29+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/section/vha",
+          "title": "VHA",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/section/vamc-facilities",
+          "title": "VAMC facilities",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/section/vha/visn-1",
+          "title": "VISN 1",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "VA Boston health care",
+          "options": []
+        }
+      ],
+      "moderation_state": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "VA Boston health care | VA.gov CMS"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://va-gov-cms.ddev.site/section/vha/vamc-facilities/va-boston-health-care"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+        "pid": 7549,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "field_description": null,
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 205
+      },
+      "vid": {
+        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        "id": "645055c5-e567-4683-b6db-459ce04522ce",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "administration"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4942
+        }
+      },
+      "parent": [
+        {
+          "type": "taxonomy_term--administration",
+          "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 162
+          }
+        }
+      ],
+      "content_translation_uid": null,
+      "field_product": {
+        "type": "taxonomy_term--products",
+        "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 284
+        }
+      },
+      "relationshipNames": [
+        "vid",
+        "revision_user",
+        "parent",
+        "content_translation_uid",
+        "field_product"
+      ]
     },
-    "promote": false,
+    "field_clinical_health_services": [
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "0701c453-776f-4f87-9534-4753e28f3d22",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 15194
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c9559f91-36b8-4f1e-ba98-28bd33dfb2ef",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28457
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c112f4dc-53d4-46f6-9309-3b6c3a9bb421",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28458
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "16ee321a-3305-4d4a-8565-c05211fbcf6f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28459
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ad90ed2a-9bc1-4583-96ae-29b56a4087ea",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28460
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "409cfed0-8f98-4740-aa86-0033b6e1231b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28461
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "1eecc0d5-27a0-40e8-9f44-77d9a3900432",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28462
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "2e6bfca7-cae0-4bc6-a6c6-50ae8f77f497",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28463
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c7d4a958-4a1e-4446-a462-76230b95a6b8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28464
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "de1c16c3-957b-4c12-9068-4d52ad9b223a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28465
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "7665c04f-1908-4a50-8149-bab5ba538500",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28466
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f32e7025-732d-4057-955b-ac22c89fd83c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28467
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "19eee795-3498-461b-9776-337bc3acea11",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28468
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "db184c66-3da6-4bf3-bce8-665f8971fdda",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28469
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f531a838-274a-43a9-be97-cf8abb528476",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28470
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "389b57ce-5ece-409c-ac0c-52004a0a03cb",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28471
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d873adfe-5a9f-4989-9e67-5585b1db9714",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28472
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5fca3ae8-f095-44c2-b803-b1ed5f85e7f7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28473
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c0190213-6f24-436f-aa3c-726abfd6450e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28474
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a99d389c-6de8-4a77-ae01-cb59227c1067",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28475
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "1d8bb2ba-1908-4f5c-ab8c-9a6a3da4b9bf",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28476
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "fded7f00-90c1-4750-b89f-c28bb62ebc04",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28477
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "7d3484c8-b018-4098-afdd-09c3b8d50267",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28478
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f2875d74-f998-4be6-8396-9027a82e5db2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28479
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "25c11848-ea2a-4a7c-ab3e-4c19f9c85aec",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28480
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c405f0b0-f996-468d-a26d-7d2c42313022",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28481
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5767dd9c-c012-4d39-9d63-82957d7d5d59",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28482
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c082bc12-e759-453a-8e15-a5b4b92fa7b0",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28483
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c9c3746f-47b9-4f0c-8276-01c3ffa90c1d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28484
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "48c7d303-2aac-4f7c-8f38-fd904827c28f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28485
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "99fc3e34-318a-45b4-aa6c-b14ecc4a0494",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28486
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "1e723c9d-b25a-423b-81da-9cb907017850",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28487
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b278489c-100c-4ce8-a908-1cb765164ad1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28488
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "e530b2d6-0ae7-418b-a7d9-dbc07377c0a6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28489
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5f48ce8a-44b3-4587-b3fe-ed23b763c5c8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28490
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "78e261cd-ae22-42fd-aadd-97b3dea150ab",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28491
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d7c0a1be-315e-421d-8a86-3007234b6c3f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28492
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d87302cd-ede2-4cfd-8ff7-4f42c386a36c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28493
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "df18e566-e64f-42b6-b01d-489b678f9b4a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28494
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "4867f0a5-1e6e-45aa-a11f-6f545bc34b1e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28495
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ee10311d-207d-4cde-9283-5bc6386e1f53",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28496
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "65408e47-f6ea-40ab-a26d-6c5bb99a9e04",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28497
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "6c7d62c8-41f7-4759-99d7-2ee112178145",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28498
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a68bf457-d548-4e46-88c7-792190ff1548",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28499
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d93e28f5-6aa8-45f2-beda-b59ba132318c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28500
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5fba8376-ab3c-4661-ac30-78726a5b1bf5",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28501
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ffacffbe-7ab8-4814-9ee5-5c3a7660a383",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28502
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b2245f18-acc0-4adc-af3d-e43e3007419b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28503
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d15542f5-168c-4119-9a6e-36e89269a8ec",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28504
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "7bbc8156-856c-408c-b65f-31b3fc87f901",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28505
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "2c872a72-44e2-4fe7-be8f-b0c5716aeef9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28506
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "cc56efe9-57b6-4ab2-86e1-045e471d9778",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28507
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "3e821ced-78e5-4312-a156-ec83bd207ba5",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28508
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b7948138-f50f-489c-8dae-e2ad1018c1b9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28509
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "92ef13d5-c96e-4c82-a960-72699203b1ce",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28510
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "9bc7c5fa-dcb8-426d-8df9-d88b240ff41e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28511
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b552c731-e127-40a2-91fa-8a3409bcd446",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28512
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f5388369-8f72-4d99-8205-17040b8c5773",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28513
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "7301fd51-83bb-4e42-9c09-19b38efa2dc8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28514
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a268f93f-c80d-4dc8-ac5c-eabc43232fc3",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 39768
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8afbaec2-6863-4d48-b103-e70a6e12155d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 42204
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "0d7796e4-db4a-4a4f-adc3-5a43b53ac537",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 42408
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "868c6228-d57f-4bad-8882-ab08fa3085f2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 45228
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "17c1384b-b9f9-47d4-840c-8186d29f1361",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 47162
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "75096823-9595-49ad-bebe-f55b6865997b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 47185
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "36658832-caae-495a-91f7-a156bf327358",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 47187
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f21ede56-f7fa-4d96-8c99-38ce18ea2c2d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 49780
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b52ca7e2-fcbd-47ff-99b5-884bbe417328",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 50156
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "bc216cec-30b3-41f3-a543-e890d7a235d9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 56878
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "1aa56b4e-16f7-47b5-9b87-ccaaa70c0574",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 75435
+        }
+      }
+    ],
+    "field_media": {
+      "type": "media--image",
+      "id": "3fe25e1f-2e9b-4171-917f-a652adc883a1",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 32695
+      }
+    },
+    "field_related_links": {
+      "type": "paragraph--list_of_link_teasers",
+      "id": "c5836275-d0fe-46b1-8c42-027967bb5157",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1479701,
+        "drupal_internal__target_id": 22134
+      }
+    },
+    "field_system_menu": {
+      "type": "menu--menu",
+      "id": "eae4f2c9-0002-49e7-b26d-bf5973696a4f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "va-boston-health-care"
+      }
+    },
     "relationshipNames": [
       "node_type",
       "revision_uid",
@@ -555,157 +1701,17 @@
       "field_media",
       "field_related_links",
       "field_system_menu"
-    ],
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 8137
-    },
-    "revision_timestamp": "2024-07-30T18:55:17+00:00",
-    "revision_translation_affected": true,
-    "revision_uid": {
-      "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 4942
-      },
-      "type": "user--user"
-    },
-    "status": true,
-    "sticky": false,
-    "title": "VA St Cloud health care",
-    "type": "node--health_care_region_page",
-    "uid": {
-      "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1270
-      },
-      "type": "user--user"
-    },
-    "warning_date": null
+    ]
   },
   "field_supplemental_status": null,
-  "field_supplemental_status_more_i": null,
-  "field_telephone": null,
-  "field_timezone": null,
-  "id": "ad959dfa-6831-4c83-8a8f-bee3c460200e",
-  "langcode": "en",
-  "links": {
-    "self": {
-      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_facility/ad959dfa-6831-4c83-8a8f-bee3c460200e?resourceVersion=id%3A445242"
-    }
-  },
-  "metatag": [
-    {
-      "attributes": {
-        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
-        "name": "title"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
-        "name": "description"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
-        "rel": "image_src"
-      },
-      "tag": "link"
-    },
-    {
-      "attributes": {
-        "content": "Veterans Affairs",
-        "property": "og:site_name"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
-        "property": "og:title"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
-        "property": "og:description"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-01/facility_photo_na.jpg",
-        "property": "og:image"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "facility_photo_na",
-        "property": "og:image:alt"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "summary_large_image",
-        "name": "twitter:card"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
-        "name": "twitter:description"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "@DeptVetAffairs",
-        "name": "twitter:site"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
-        "name": "twitter:title"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-01/facility_photo_na.jpg",
-        "name": "twitter:image"
-      },
-      "tag": "meta"
-    },
-    {
-      "attributes": {
-        "content": "facility_photo_na",
-        "name": "twitter:image:alt"
-      },
-      "tag": "meta"
-    }
-  ],
-  "moderation_state": "archived",
-  "node_type": {
-    "id": "5ecbcf0c-b701-49d5-a47e-08803d42dd80",
+  "field_telephone": {
+    "type": "paragraph--phone_number",
+    "id": "1174972e-ab4f-45f9-b814-04919526a828",
     "resourceIdObjMeta": {
-      "drupal_internal__target_id": "health_care_local_facility"
-    },
-    "type": "node_type--node_type"
+      "target_revision_id": 1574849,
+      "drupal_internal__target_id": 169966
+    }
   },
-  "path": {
-    "alias": "/st-cloud-health-care/locations/st-cloud-va-mobile-clinic",
-    "langcode": "en",
-    "pid": 2796
-  },
-  "promote": false,
   "relationshipNames": [
     "node_type",
     "revision_uid",
@@ -717,26 +1723,5 @@
     "field_region_page",
     "field_supplemental_status",
     "field_telephone"
-  ],
-  "revision_timestamp": "2021-06-16T13:12:22+00:00",
-  "revision_translation_affected": true,
-  "revision_uid": {
-    "id": "153d1d9f-4f9e-4107-9f63-bc7c25fb71ac",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 1203
-    },
-    "type": "user--user"
-  },
-  "status": false,
-  "sticky": false,
-  "title": "St. Cloud VA Mobile Clinic",
-  "type": "node--health_care_local_facility",
-  "uid": {
-    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 1317
-    },
-    "type": "user--user"
-  },
-  "warning_date": null
+  ]
 }
