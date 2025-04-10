@@ -5,6 +5,9 @@ import { PhoneNumber } from '@/types/formatted/phoneNumber'
 export const formatter: QueryFormatter<ParagraphPhoneNumber, PhoneNumber> = (
   entity: ParagraphPhoneNumber
 ) => {
+  if (!entity) {
+    return null
+  }
   return {
     type: entity.type as PhoneNumber['type'],
     id: entity.id,

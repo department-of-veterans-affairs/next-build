@@ -68,7 +68,7 @@ export const QUERIES_MAP = {
   [`${RESOURCE_TYPES.STORY}--teaser` as const]: NewsStoryTeaser,
   [RESOURCE_TYPES.STORY_LISTING]: StoryListing,
   [RESOURCE_TYPES.QA]: QuestionAnswer,
-  [RESOURCE_TYPES.PERSON_PROFILE]: PersonProfile,
+  [RESOURCE_TYPES.STAFF_PROFILE]: PersonProfile,
   [RESOURCE_TYPES.PRESS_RELEASE]: PressRelease,
   [`${RESOURCE_TYPES.PRESS_RELEASE}--teaser` as const]: PressReleaseTeaser,
   [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: PressReleaseListing,

@@ -1,5 +1,5 @@
 import { ComponentType } from 'react'
-import { PersonProfileTeaserProps } from '@/templates/components/personProfile'
+import { PersonProfileTeaserProps } from '@/templates/components/staffNewsProfile'
 import { SocialLinksProps } from '@/types/drupal/field_type'
 import { Administration } from '@/types/formatted/administration'
 import { PublishedEntity } from './publishedEntity'

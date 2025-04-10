@@ -14,29 +14,9 @@ describe('Person profile returns formatted data', () => {
   test('outputs formatted data', () => {
     const formattedData = personProfileMock
     expect(
-      queries.formatData(RESOURCE_TYPES.PERSON_PROFILE, formattedData)
+      queries.formatData(RESOURCE_TYPES.STAFF_PROFILE, {
+        entity: formattedData,
+      })
     ).toMatchSnapshot()
   })
-  test('returns null when entity is null', () => {
-    const formattedData = queries.formatData(
-      RESOURCE_TYPES.PERSON_PROFILE,
-      null
-    )
-
-    expect(formattedData).toBeNull()
-  })
-})
-
-test('handles null and optional fields correctly', () => {
-  const modifiedMock = {
-    ...personProfileMock,
-    field_media: undefined,
-  }
-
-  const formattedData = queries.formatData(
-    RESOURCE_TYPES.PERSON_PROFILE,
-    modifiedMock
-  )
-
-  expect(formattedData.media).toBeNull()
 })

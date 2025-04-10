@@ -21,7 +21,7 @@
     "pid": 1452,
     "langcode": "en"
   },
-  "field_complete_biography_create": null,
+  "field_complete_biography_create": 1,
   "field_description": "Director, Audiology and Speech Pathology Program Associate Director for Research, GRECC",
   "field_email_address": null,
   "field_intro_text": null,
@@ -476,6 +476,7 @@
     "revision_timestamp": "2022-07-18T13:30:31+00:00",
     "revision_log": "Set \"System Menu\" field accordingly (see va.gov-cms/#9520).",
     "status": true,
+    "field_vamc_system_official_name": "VA Pittsburgh Healthcare System",
     "title": "VA Pittsburgh health care",
     "created": "2019-05-06T03:30:18+00:00",
     "changed": "2022-08-31T15:49:34+00:00",
@@ -525,7 +526,6 @@
       "options": []
     },
     "field_vamc_ehr_system": "vista",
-    "field_vamc_system_official_name": "VA Pittsburgh Healthcare System",
     "field_va_health_connect_phone": null,
     "links": {
       "self": {
