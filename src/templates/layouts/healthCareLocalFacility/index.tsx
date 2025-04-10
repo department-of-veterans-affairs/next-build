@@ -7,6 +7,8 @@ import { LocationServices } from './LocationServices'
 import { HealthServices } from './HealthServices'
 import { TopTasks } from '@/templates/components/topTasks'
 import { OperatingStatusFlags } from './OperatingStatus'
+import { numberToTimeString } from '@/lib/utils/numberToTimeString'
+import { dayOfWeek } from '@/lib/utils/dayOfWeek'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -22,12 +24,52 @@ export function HealthCareLocalFacility({
   path,
   administration,
   vamcEhrSystem,
+  officeHours,
+  address,
+  phoneNumber,
+  image,
+  facilityLocatorApiId,
+  geoLocation,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
   useEffect(() => {
     window.sideNav = menu
   })
+
+  const structuredSchemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: `${address.address_line1}${
+        address.address_line2 ? `, ${address.address_line2}` : ''
+      }`,
+      addressLocality: address.locality,
+      addressRegion: address.administrative_area,
+      postalCode: address.postal_code,
+    },
+    name: title,
+    telephone: phoneNumber,
+    openingHoursSpecification: officeHours.map((hours) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: `https://schema.org/${dayOfWeek(hours.day)}`,
+      opens: numberToTimeString(hours.starthours),
+      closes: numberToTimeString(hours.endhours),
+    })),
+    hasMap: `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
+      `${address.address_line1}, ${address.locality}, ${address.postal_code}`
+    )}`,
+    // Shouldn't need all these optional chains, but because we're not
+    // validating data during runtime, just in case...
+    image: image?.links?.['2_1_large']?.href,
+    branchCode: facilityLocatorApiId,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: geoLocation.lat,
+      longitude: geoLocation.lon,
+    },
+  }
 
   return (
     <div className="interior" id="content">
@@ -69,9 +111,13 @@ export function HealthCareLocalFacility({
                     menu={menu}
                   />
                   <section>
-                    <script type="application/ld+json">
-                      {/* TODO: Fill this in */}
-                    </script>
+                    {/* Embedding structured data scripts for schema.org */}
+                    <script
+                      type="application/ld+json"
+                      dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(structuredSchemaData),
+                      }}
+                    />
 
                     <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                       Address
