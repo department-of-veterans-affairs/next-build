@@ -61,11 +61,10 @@ export const data: QueryData<PersonProfileDataOpts, PersonProfileData> = async (
   }
 }
 
-export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = (
-  options
-) => {
-  const entity = options?.entity
-  const menu = options?.menu
+export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
+  entity,
+  menu,
+}) => {
   let formattedMenu = null
   if (menu !== null)
     formattedMenu = entity?.path
