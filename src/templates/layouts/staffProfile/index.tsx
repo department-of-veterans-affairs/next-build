@@ -30,7 +30,10 @@ export const StaffProfile = ({
       <div className="usa-width-three-fourths">
         <article className="usa-content">
           <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
-            <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3 staff-profile-image">
+            <div
+              className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3"
+              style={{ maxWidth: '160px' }}
+            >
               {media && (
                 <MediaImage
                   {...media}
