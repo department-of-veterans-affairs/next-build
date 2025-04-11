@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
