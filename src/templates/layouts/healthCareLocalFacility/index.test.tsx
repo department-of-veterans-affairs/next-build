@@ -28,6 +28,9 @@ const mockMenu = {
 }
 
 const mockData = formatter({
+  // @ts-expect-error drupalMockData technically has numbers instead of strings
+  // for some of the IDs, but this is a known problem. See
+  // https://github.com/chapter-three/next-drupal/issues/686#issuecomment-2083175598
   entity: drupalMockData,
   menu: mockMenu,
   lovell: { isLovellVariantPage: false, variant: 'va' },
