@@ -9,12 +9,13 @@ export const enum MediaResourceType {
 
 export interface DrupalMediaImage extends DrupalMedia {
   field_description: string
-  image: DrupalFile
+  image: UpdatedDrupalFile
 }
+
 /** There is an underlying bug in next-drupal types. Some are being sent as strings and others as numbers
 /* causing type conflicts */
 interface UpdatedDrupalFile extends Omit<DrupalFile, 'drupal_internal__fid'> {
-  drupal_internal__fid: number
+  drupal_internal__fid: number | string
 }
 
 export interface DrupalMediaDocument extends DrupalMedia {
