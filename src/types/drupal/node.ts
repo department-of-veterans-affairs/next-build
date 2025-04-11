@@ -150,7 +150,6 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   // field_local_health_care_service_: NodeHealthCareLocalHealthService[] //
   // field_location_services: ParagraphHealthCareLocalFacilityService[]
   field_main_location: boolean
-  // Doesn't actually have the langcode...
   field_media: DrupalMediaImage
   // field_mental_health_phone: string
   field_mobile: boolean
