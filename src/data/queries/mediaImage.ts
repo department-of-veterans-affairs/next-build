@@ -34,11 +34,9 @@ export const data: QueryData<DataOpts, DrupalMediaImage> = async (
   return entity
 }
 
-export const formatter: QueryFormatter<
-  Omit<DrupalMediaImage, 'langcode'>,
-  // DrupalMediaImage,
-  MediaImage
-> = (entity) => {
+export const formatter: QueryFormatter<DrupalMediaImage, MediaImage> = (
+  entity: DrupalMediaImage
+) => {
   if (!entity) return null
   return {
     id: entity.image.id,

@@ -499,6 +499,7 @@
       "langcode": "en"
     },
     "field_description": null,
+    "langcode": "en",
     "links": {
       "self": {
         "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/fd2b6c2b-59b6-4d2b-a1dd-502757445a6c?resourceVersion=id%3A5072"
