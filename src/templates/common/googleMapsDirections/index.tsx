@@ -1,5 +1,5 @@
 export const GoogleMapsDirections = ({ address, location = null }) => {
-  const googleMapsUrl = `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
+  const googleMapsUrl = `https://maps.google.com/?saddr=Current+Location&daddr=${encodeURIComponent(
     address
   )}`
 
