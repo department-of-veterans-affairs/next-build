@@ -15,19 +15,21 @@ export const Address = ({
   ]
 
   return (
-    <p className="vads-u-margin-bottom--3">
+    <div className="vads-u-margin-bottom--3">
       <address>
-        {address.address_line1}
-        {address.address_line2 && (
-          <>
-            <br />
-            {address.address_line2}
-          </>
-        )}
-        <br />
-        {`${address.locality}, ${address.administrative_area} ${address.postal_code}`}
+        <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
+          {address.address_line1}
+          {address.address_line2 && (
+            <>
+              <br />
+              {address.address_line2}
+            </>
+          )}
+          <br />
+          {`${address.locality}, ${address.administrative_area} ${address.postal_code}`}
+        </p>
       </address>
       <GoogleMapsDirections address={directionsString} location={title} />
-    </p>
+    </div>
   )
 }
