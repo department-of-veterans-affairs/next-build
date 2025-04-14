@@ -78,8 +78,8 @@ describe('StaffProfile Component', () => {
     expect(screen.getByText('Phone:')).toBeInTheDocument()
     expect(screen.getByTestId('phone')).toBeInTheDocument()
     expect(screen.getByText(mockProfile.introText)).toBeInTheDocument()
-    expect(screen.queryByText(/Download full size photo/)).toBeInTheDocument()
-    expect(screen.queryByText(/Download full bio/)).toBeInTheDocument()
+    expect(screen.getByText(/Download full size photo/)).toBeInTheDocument()
+    expect(screen.getByText(/Download full bio/)).toBeInTheDocument()
   })
 
   test('does not render email when it is null', () => {
