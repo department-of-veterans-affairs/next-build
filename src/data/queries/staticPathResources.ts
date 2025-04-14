@@ -60,18 +60,10 @@ export const formatter: QueryFormatter<
   JsonApiResourceWithPathAndFieldAdmin[],
   StaticPathResource[]
 > = (resources: JsonApiResourceWithPathAndFieldAdmin[]) => {
-  const filteredResources = resources.filter((resource) => {
-    // Filter out resources that don't have a path
-    if (!resource.path) {
-      return false
-    }
-
-    // Filter out resources that don't have an alias
-    if (!resource.path.alias) {
-      return false
-    }
-    return true
-  })
+  // Filter out resources that don't have a path or path alias
+  const filteredResources = resources.filter((resource) =>
+    Boolean(resource.path?.alias)
+  )
   return filteredResources.map((filteredResource) => ({
     path: filteredResource.path.alias,
     administration: {
