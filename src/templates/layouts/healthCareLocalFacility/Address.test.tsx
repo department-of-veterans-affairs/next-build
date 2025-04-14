@@ -1,22 +1,7 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Address } from './Address'
 import { FieldAddress } from '@/types/drupal/field_type'
-
-// Mock the child component
-jest.mock('@/templates/common/googleMapsDirections', () => ({
-  GoogleMapsDirections: ({
-    address,
-    location,
-  }: {
-    address: string[]
-    location: string
-  }) => (
-    <div data-testid="google-maps-directions">
-      Directions to {location} at {address.join(', ')}
-    </div>
-  ),
-}))
 
 const baseAddress: FieldAddress = {
   langcode: 'en',
@@ -56,11 +41,19 @@ describe('<Address />', () => {
   it('passes correct props to <GoogleMapsDirections />', () => {
     const fullAddress = { ...baseAddress, address_line2: 'Suite 100' }
 
-    render(<Address address={fullAddress} title="VA Clinic" />)
+    const { container } = render(
+      <Address address={fullAddress} title="VA Clinic" />
+    )
+    const link = container.querySelector('va-link')
 
-    // Assert our mocked component received the right info
-    expect(screen.getByTestId('google-maps-directions')).toHaveTextContent(
-      'Directions to VA Clinic at 123 Main St, Springfield, IL'
+    expect(link).toHaveAttribute(
+      'href',
+      'https://maps.google.com/?saddr=Current+Location&daddr=123%20Main%20St%2CSpringfield%2CIL'
+    )
+    expect(link).toHaveAttribute('text', 'Get directions on Google Maps')
+    expect(link).toHaveAttribute(
+      'label',
+      'Get directions on Google Maps to VA Clinic'
     )
   })
 })
