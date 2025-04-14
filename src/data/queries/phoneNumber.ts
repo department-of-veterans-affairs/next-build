@@ -2,9 +2,10 @@ import { ParagraphPhoneNumber } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
 import { PhoneNumber } from '@/types/formatted/phoneNumber'
 
-export const formatter: QueryFormatter<ParagraphPhoneNumber, PhoneNumber> = (
-  entity: ParagraphPhoneNumber
-) => {
+export const formatter: QueryFormatter<
+  ParagraphPhoneNumber,
+  PhoneNumber | null
+> = (entity: ParagraphPhoneNumber) => {
   if (!entity) {
     return null
   }
