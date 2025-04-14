@@ -33,7 +33,6 @@ export type PersonProfileDataOpts = {
 // Define the data shape returned by the query.
 type PersonProfileData = {
   entity: NodePersonProfile
-  menu?: Menu
 }
 
 // Implement the data loader.
@@ -63,17 +62,13 @@ export const data: QueryData<PersonProfileDataOpts, PersonProfileData> = async (
 
 export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
   entity,
-  menu,
 }) => {
-  let formattedMenu = null
-  if (menu !== null)
-    formattedMenu = entity?.path
-      ? buildSidebarData(entity.title, entity.field_office.path.alias)
-      : null
-
   if (!entity) {
     return null
   }
+  const formattedMenu = entity?.field_office?.path
+    ? buildSidebarData(entity.title, entity.field_office.path.alias)
+    : null
   if (!entity.field_complete_biography_create) {
     throw new DoNotPublishError('this profile should not be generated')
   }

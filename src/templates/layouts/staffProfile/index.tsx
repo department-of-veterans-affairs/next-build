@@ -26,7 +26,7 @@ export const StaffProfile = ({
 }: FormattedStaffProfile) => {
   return (
     <div className="usa-grid usa-grid-full">
-      <SidebarNav sidebarData={menu} />
+      {menu && <SidebarNav sidebarData={menu} />}
       <div className="usa-width-three-fourths">
         <article className="usa-content">
           <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
