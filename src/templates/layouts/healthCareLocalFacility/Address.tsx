@@ -29,7 +29,9 @@ export const Address = ({
           {`${address.locality}, ${address.administrative_area} ${address.postal_code}`}
         </p>
       </address>
-      <GoogleMapsDirections address={directionsString} location={title} />
+      <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
+        <GoogleMapsDirections address={directionsString} location={title} />
+      </p>
     </div>
   )
 }
