@@ -1,6 +1,6 @@
 import { SidebarData } from '@/types/formatted/staffProfile'
 
-export const buildSidebarData = (
+export const buildStaffProfileSidebarData = (
   title: string,
   fieldOfficePath: string
 ): SidebarData => {

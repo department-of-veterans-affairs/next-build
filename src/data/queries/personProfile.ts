@@ -12,7 +12,7 @@ import {
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
-import { buildSidebarData } from '@/lib/drupal/facilityNoDrupalPageSideNav'
+import { buildStaffProfileSidebarData } from '@/lib/drupal/staffProfileSideNav'
 
 // Define the query params for fetching node--person_profile.
 export const params: QueryParams<null> = () => {
@@ -67,7 +67,7 @@ export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
     return null
   }
   const formattedMenu = entity?.field_office?.path
-    ? buildSidebarData(entity.title, entity.field_office.path.alias)
+    ? buildStaffProfileSidebarData(entity.title, entity.field_office.path.alias)
     : null
   if (!entity.field_complete_biography_create) {
     throw new DoNotPublishError('this profile should not be generated')

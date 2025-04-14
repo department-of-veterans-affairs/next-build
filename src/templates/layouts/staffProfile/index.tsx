@@ -1,4 +1,4 @@
-import SidebarNav from '@/templates/components/facilityNoDrupalPageSideBarNav'
+import StaffProfileSideBarNav from '@/templates/components/staffProfileSideBarNav'
 import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { MediaImage } from '@/templates/common/mediaImage'
@@ -26,7 +26,7 @@ export const StaffProfile = ({
 }: FormattedStaffProfile) => {
   return (
     <div className="usa-grid usa-grid-full">
-      {menu && <SidebarNav sidebarData={menu} />}
+      {menu && <StaffProfileSideBarNav sidebarData={menu} />}
       <div className="usa-width-three-fourths">
         <article className="usa-content">
           <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">

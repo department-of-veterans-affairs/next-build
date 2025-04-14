@@ -18,7 +18,7 @@ type SidebarNavProps = {
   entityUrlPath?: string
 }
 
-const SidebarNav: React.FC<SidebarNavProps> = ({
+const StaffProfileSideBarNav: React.FC<SidebarNavProps> = ({
   sidebarData,
   entityUrlPath,
 }) => {
@@ -91,4 +91,4 @@ const SidebarNav: React.FC<SidebarNavProps> = ({
   )
 }
 
-export default SidebarNav
+export default StaffProfileSideBarNav
