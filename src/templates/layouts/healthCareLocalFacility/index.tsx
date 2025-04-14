@@ -66,8 +66,8 @@ export function HealthCareLocalFacility({
     branchCode: facilityLocatorApiId,
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: geoLocation.lat,
-      longitude: geoLocation.lon,
+      latitude: geoLocation?.lat ?? '',
+      longitude: geoLocation?.lon ?? '',
     },
   }
 
