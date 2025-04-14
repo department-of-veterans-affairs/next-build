@@ -1,37 +1,40 @@
 import { render, screen } from '@testing-library/react'
+import drupalMockData from '@/mocks/healthCareLocalFacility.mock.json'
 import { HealthCareLocalFacility } from './index'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
+import { formatter } from '@/data/queries/healthCareLocalFacility'
+import { DrupalMenuLinkContent } from 'next-drupal'
 
-const mockData: FormattedHealthCareLocalFacility = {
-  id: '123',
-  title: 'Test facility',
-  type: 'node--health_care_local_facility',
-  published: true,
-  lastUpdated: '',
-  introText: 'Test intro text',
-  operatingStatusFacility: 'normal',
-  menu: {
-    rootPath: '/test-nav-path',
-    data: {
-      name: 'test-nav',
-      description: 'test-nav-description',
-      links: [
-        {
-          url: {
-            path: '/test-nav-path',
-          },
-          description: 'test-nav-description',
-          expanded: true,
-          label: 'test-nav-label',
-          links: [],
-        },
-      ],
-    },
-  },
-  path: '/test-nav-path',
-  vamcEhrSystem: 'vista',
-  administration: { entityId: 1234 },
+const menuItem: DrupalMenuLinkContent = {
+  title: 'Foo',
+  type: 'meh',
+  url: '/nowhere/in-particular',
+  id: 'foo',
+  description: 'bar',
+  enabled: true,
+  expanded: true,
+  menu_name: 'baz',
+  meta: {},
+  options: {},
+  parent: null,
+  provider: null,
+  route: null,
+  weight: '0',
 }
+
+const mockMenu = {
+  items: [menuItem],
+  tree: [menuItem],
+}
+
+const mockData = formatter({
+  // @ts-expect-error drupalMockData technically has numbers instead of strings
+  // for some of the IDs, but this is a known problem. See
+  // https://github.com/chapter-three/next-drupal/issues/686#issuecomment-2083175598
+  entity: drupalMockData,
+  menu: mockMenu,
+  lovell: { isLovellVariantPage: false, variant: 'va' },
+})
 
 describe('HealthCareLocalFacility with valid data', () => {
   test('renders HealthCareLocalFacility component with basic data', () => {
