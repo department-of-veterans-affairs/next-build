@@ -85,7 +85,7 @@ describe('<newsStory> with valid data', () => {
   })
   test('renders component', () => {
     const { container } = render(<NewsStory {...data} />)
-    const imgEl = container.querySelectorAll('img')
+    const imgEl = container.querySelector('img')
     expect(imgEl).toBeTruthy()
     expect(
       screen.queryByText(/We honor outstanding doctors/)
@@ -94,10 +94,10 @@ describe('<newsStory> with valid data', () => {
   })
 
   test('renders component without image', () => {
-    data.image = null
-    const { container } = render(<NewsStory {...data} />)
-    const imgEl = container.querySelectorAll('img')
-    expect(imgEl.length).toBe(1)
+    const dataWithoutImage = { ...data, image: null }
+    const { container } = render(<NewsStory {...dataWithoutImage} />)
+    const imgEl = container.querySelector('img')
+    expect(imgEl).toBeNull()
     expect(
       screen.queryByText(/We honor outstanding doctors/)
     ).toBeInTheDocument()
@@ -106,15 +106,27 @@ describe('<newsStory> with valid data', () => {
 
   test('sets correct imageClassName when caption is provided', () => {
     const dataWithCaption = { ...data, caption: 'Sample caption' }
-    render(<NewsStory {...dataWithCaption} />)
-    const imageElement = screen.getByRole('img')
+    const { container } = render(<NewsStory {...dataWithCaption} />)
+    const imageElement = container.querySelector('img')
     expect(imageElement).toHaveClass('vads-u-margin-bottom--1')
   })
 
   test('sets correct imageClassName when caption is not provided', () => {
     const dataWithoutCaption = { ...data, caption: null }
-    render(<NewsStory {...dataWithoutCaption} />)
-    const imageElement = screen.getByRole('img')
+    const { container } = render(<NewsStory {...dataWithoutCaption} />)
+    const imageElement = container.querySelector('img')
     expect(imageElement).toHaveClass('vads-u-margin-bottom--2p5')
+  })
+
+  test('does not render image markup or caption div when image source is invalid', () => {
+    const invalidImageData = {
+      ...data,
+      image: { ...mediaImage, links: { '2_1_large': { href: '' } } },
+      caption: 'This caption should not appear',
+    }
+    const { container } = render(<NewsStory {...invalidImageData} />)
+    expect(container.querySelector('img')).toBeNull()
+    expect(container.querySelector('.vads-u-font-size--sm')).toBeNull()
+    expect(screen.queryByText('This caption should not appear')).toBeNull()
   })
 })
