@@ -157,7 +157,8 @@ export function getLovellVariantOfTitle(
     // last since it's a substring of the others and
     // we don't want to prematurely match
     new RegExp(
-      [LOVELL.tricare.title, LOVELL.va.title, LOVELL.federal.title].join('|')
+      [LOVELL.tricare.title, LOVELL.va.title, LOVELL.federal.title].join('|'),
+      'i'
     ),
     LOVELL[variant].title
   )
