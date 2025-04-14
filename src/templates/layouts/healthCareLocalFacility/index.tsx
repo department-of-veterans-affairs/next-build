@@ -3,12 +3,14 @@ import { useEffect } from 'react'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
-import { LocationServices } from './LocationServices'
-import { HealthServices } from './HealthServices'
 import { TopTasks } from '@/templates/components/topTasks'
-import { OperatingStatusFlags } from './OperatingStatus'
 import { numberToTimeString } from '@/lib/utils/numberToTimeString'
 import { dayOfWeek } from '@/lib/utils/dayOfWeek'
+
+import { LocationServices } from './LocationServices'
+import { HealthServices } from './HealthServices'
+import { OperatingStatusFlags } from './OperatingStatus'
+import { Address } from './Address'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -122,7 +124,7 @@ export function HealthCareLocalFacility({
                     <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                       Address
                     </h3>
-                    <div>TODO: Address stuff</div>
+                    <Address address={address} title={title} />
 
                     <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                       Phone numbers
