@@ -1,6 +1,6 @@
 import { EventWidgetTeaser } from '@/products/event/formatted-type'
-import { PublishedEntity } from '@/types/formatted/publishedEntity'
-import { SideNavMenu } from '@/types/formatted/sideNav'
+import { PublishedEntity } from './publishedEntity'
+import { SideNavMenu } from './sideNav'
 
 export type EventListing = PublishedEntity & {
   title: string
