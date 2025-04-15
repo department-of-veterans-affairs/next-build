@@ -1,41 +1,6 @@
+import { PhoneNumber, separateExtension } from '@/templates/common/phoneNumber'
 import { ParagraphPhoneNumber } from '@/types/drupal/paragraph'
-
-export interface SeparatedPhoneNumber {
-  phoneNumber: string
-  extension: string
-  processed: boolean
-}
-
-export const separatePhoneNumberExtension = (
-  phoneNumber: string
-): SeparatedPhoneNumber | null => {
-  if (!phoneNumber) {
-    return null
-  }
-
-  const phoneRegex =
-    /\(?(\d{3})\)?[- ]*(\d{3})[- ]*(\d{4}),?(?: ?x\.? ?(\d*)| ?ext\.? ?(\d*))?(?!([^<]*>)|(((?!<v?a).)*<\/v?a.*>))/i
-
-  const match = phoneRegex.exec(phoneNumber)
-
-  if (!match || !match[1] || !match[2] || !match[3]) {
-    // Short number, invalid format, or not a full US number
-    return {
-      phoneNumber,
-      extension: '',
-      processed: false,
-    }
-  }
-
-  const phone = `${match[1]}-${match[2]}-${match[3]}`
-  const extension = match[4] || match[5] || ''
-
-  return {
-    phoneNumber: phone,
-    extension,
-    processed: true,
-  }
-}
+import { formatter as formatParagraphPhoneNumber } from '@/data/queries/phoneNumber'
 
 export const processPhoneToVaTelephoneOrFallback = (
   phoneNumber: string = ''
@@ -46,7 +11,7 @@ export const processPhoneToVaTelephoneOrFallback = (
     return null
   }
 
-  const separated = separatePhoneNumberExtension(phoneNumber)
+  const separated = separateExtension(phoneNumber)
 
   if (separated.processed) {
     return (
@@ -58,52 +23,7 @@ export const processPhoneToVaTelephoneOrFallback = (
     )
   }
 
-  return <a href={`tel:+1${phoneNumber}`}>{phoneNumber}</a>
-}
-
-export const PhoneNumberFromField = ({
-  phoneNumber,
-  phoneExtension,
-  phoneNumberType,
-  phoneLabel,
-}: {
-  phoneNumber: string
-  phoneExtension?: string
-  phoneNumberType?: string
-  phoneLabel?: string
-}) => {
-  if (!phoneNumber) return null
-
-  const isSms = phoneNumberType === 'sms'
-  const isTty = phoneNumberType === 'tty'
-  const isFax = phoneNumberType === 'fax'
-
-  let partialPhoneNumber = phoneNumber
-  let partialPhoneExtension = phoneExtension
-
-  if (!phoneExtension) {
-    const separated = separatePhoneNumberExtension(phoneNumber)
-    partialPhoneNumber = separated.phoneNumber
-    partialPhoneExtension = separated.extension
-  }
-
-  return (
-    <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
-      <strong>{phoneLabel || 'Mental health care'}: </strong>
-      <va-telephone
-        contact={partialPhoneNumber.replace(/-/g, '')}
-        extension={partialPhoneExtension || ''}
-        {...(!isFax &&
-          !isTty &&
-          !isSms && {
-            'message-aria-describedby': phoneLabel,
-          })}
-        {...(isFax && { 'not-clickable': true })}
-        {...(isSms && { sms: true })}
-        {...(isTty && { tty: true })}
-      />
-    </p>
-  )
+  return <va-telephone contact={phoneNumber}>{phoneNumber}</va-telephone>
 }
 
 export const Phone = ({
@@ -113,13 +33,7 @@ export const Phone = ({
 }: {
   phoneNumber?: string
   vaHealthConnectPhoneNumber?: string
-  fieldTelephone?: Pick<
-    ParagraphPhoneNumber,
-    | 'field_phone_number'
-    | 'field_phone_extension'
-    | 'field_phone_number_type'
-    | 'field_phone_label'
-  > | null
+  fieldTelephone?: ParagraphPhoneNumber | null
 }) => {
   if (!phoneNumber && !vaHealthConnectPhoneNumber && !fieldTelephone) {
     return null
@@ -142,12 +56,7 @@ export const Phone = ({
       )}
 
       {fieldTelephone?.field_phone_number && (
-        <PhoneNumberFromField
-          phoneNumber={fieldTelephone.field_phone_number}
-          phoneExtension={fieldTelephone.field_phone_extension}
-          phoneNumberType={fieldTelephone.field_phone_number_type}
-          phoneLabel={fieldTelephone.field_phone_label}
-        />
+        <PhoneNumber {...formatParagraphPhoneNumber(fieldTelephone)} />
       )}
     </div>
   )

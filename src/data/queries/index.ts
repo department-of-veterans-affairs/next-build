@@ -12,7 +12,7 @@ import * as CollapsiblePanel from '@/data/queries/collapsiblePanel'
 import * as CollapsiblePanelItem from '@/data/queries/collapsiblePanelItem'
 import * as ContactInfo from '@/data/queries/contactInfo'
 import * as EmailContact from '@/data/queries/emailContact'
-import * as Event from '@/data/queries/event'
+import * as Event from '@/products/event/query'
 import * as EventListing from '@/products/eventListing/query'
 import * as EventTeaser from '@/data/queries/eventTeaser'
 import * as ExpandableText from '@/data/queries/expandableText'
@@ -68,7 +68,7 @@ export const QUERIES_MAP = {
   [`${RESOURCE_TYPES.STORY}--teaser` as const]: NewsStoryTeaser,
   [RESOURCE_TYPES.STORY_LISTING]: StoryListing,
   [RESOURCE_TYPES.QA]: QuestionAnswer,
-  [RESOURCE_TYPES.PERSON_PROFILE]: PersonProfile,
+  [RESOURCE_TYPES.STAFF_PROFILE]: PersonProfile,
   [RESOURCE_TYPES.PRESS_RELEASE]: PressRelease,
   [`${RESOURCE_TYPES.PRESS_RELEASE}--teaser` as const]: PressReleaseTeaser,
   [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: PressReleaseListing,
