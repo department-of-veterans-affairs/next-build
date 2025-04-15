@@ -21,6 +21,7 @@ export const params: QueryParams<null> = () => {
     'field_media',
     'field_media.image',
     'field_administration',
+    'field_telephone',
   ])
 }
 
@@ -80,6 +81,16 @@ export const formatter: QueryFormatter<
     ...entityBaseFields(entity),
     address: entity.field_address,
     phoneNumber: entity.field_phone_number,
+    vaHealthConnectPhoneNumber:
+      entity.field_region_page.field_va_health_connect_phone,
+    fieldTelephone: entity.field_telephone,
+    // fieldTelephone: {
+    //   field_phone_number: '123-321-1234',
+    //   field_phone_extension: '877',
+    //   field_phone_number_type: 'tty',
+    //   field_phone_label: 'Some Random Guy',
+    // },
+    // vaHealthConnectPhoneNumber: '833-983-0492',
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,
