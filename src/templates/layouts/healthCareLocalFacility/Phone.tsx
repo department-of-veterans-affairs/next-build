@@ -61,7 +61,7 @@ export const processPhoneToVaTelephoneOrFallback = (
   return <a href={`tel:+1${phoneNumber}`}>{phoneNumber}</a>
 }
 
-export const PhoneNumberNoHeader = ({
+export const PhoneNumberFromField = ({
   phoneNumber,
   phoneExtension,
   phoneNumberType,
@@ -132,7 +132,7 @@ export const Phone = ({
       )}
 
       {fieldTelephone?.field_phone_number && (
-        <PhoneNumberNoHeader
+        <PhoneNumberFromField
           phoneNumber={fieldTelephone.field_phone_number}
           phoneExtension={fieldTelephone.field_phone_extension}
           phoneNumberType={fieldTelephone.field_phone_number_type}
