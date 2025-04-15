@@ -61,7 +61,7 @@ export const processPhoneToVaTelephoneOrFallback = (
   return <a href={`tel:+1${phoneNumber}`}>{phoneNumber}</a>
 }
 
-const PhoneNumberNoHeader = ({
+export const PhoneNumberNoHeader = ({
   phoneNumber,
   phoneExtension,
   phoneNumberType,
