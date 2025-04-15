@@ -10,7 +10,7 @@ import { ContentFooter } from '@/templates/common/contentFooter'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { Event as FormattedEvent } from '@/types/formatted/event'
+import { Event as FormattedEvent } from '@/products/event/formatted-type'
 import { SocialLinks } from '@/templates/common/socialLinks'
 import { formatEventCTA, createMailToLink } from '@/lib/utils/events'
 

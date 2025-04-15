@@ -5,7 +5,7 @@
 import { NodeEvent, NodeEventListing } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import { mockResponse } from '@/products/eventListing/mock.js'
-import mockEventData from '@/mocks/event.mock.json'
+import mockEventData from '@/products/event/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from './query'
 

@@ -1,7 +1,7 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeEvent } from '@/types/drupal/node'
-import { EventWidgetTeaser } from '@/types/formatted/event'
+import { EventWidgetTeaser } from '@/products/event/formatted-type'
 import { formatDateObject } from '@/lib/utils/date'
 
 // Define the query params for fetching node--event--teaser.
