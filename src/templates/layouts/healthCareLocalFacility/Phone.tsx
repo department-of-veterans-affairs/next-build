@@ -65,7 +65,7 @@ export const PhoneNumberFromField = ({
   phoneNumber,
   phoneExtension,
   phoneNumberType,
-  phoneLabel = 'Mental health care',
+  phoneLabel,
 }: {
   phoneNumber: string
   phoneExtension?: string
@@ -89,7 +89,7 @@ export const PhoneNumberFromField = ({
 
   return (
     <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
-      <strong>{phoneLabel}: </strong>
+      <strong>{phoneLabel || 'Mental health care'}: </strong>
       <va-telephone
         contact={partialPhoneNumber.replace(/-/g, '')}
         extension={partialPhoneExtension || ''}
