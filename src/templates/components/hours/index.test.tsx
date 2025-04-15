@@ -41,7 +41,7 @@ describe('Hours Component', () => {
         headerType="clinical"
       />
     )
-    expect(screen.getByText('Clinical hours')).toBeInTheDocument()
+    expect(screen.getByText('Facility hours')).toBeInTheDocument()
   })
 
   it('renders "nonTraditionalMessage" correctly', () => {

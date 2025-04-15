@@ -55,9 +55,15 @@ export const Hours = ({
         )
       case 'clinical':
         return (
-          <h2 className="vads-u-margin-top--2p5 vads-u-margin-bottom--1">
-            Clinical hours
-          </h2>
+          <>
+            <h3 className="vads-u-margin-top--2p5 vads-u-margin-bottom--1">
+              Facility hours
+            </h3>
+            <p>
+              Hours may vary for different services. Select a service on this
+              page to check the hours.
+            </p>
+          </>
         )
       case 'office':
         return (
