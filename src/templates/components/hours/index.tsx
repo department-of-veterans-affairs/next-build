@@ -94,7 +94,7 @@ export const Hours = ({
               const DayTag = headerType === 'clinical' ? 'strong' : 'span'
               return (
                 <li key={index}>
-                  <DayTag className="abbrv-day vads-u-font-weight--bold">
+                  <DayTag className="abbreviated-day vads-u-font-weight--bold">
                     {dayNames[dayIndex]}:
                   </DayTag>{' '}
                   {hoursItem.starthours === null
