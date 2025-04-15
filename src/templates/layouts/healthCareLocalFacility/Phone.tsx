@@ -113,8 +113,18 @@ export const Phone = ({
 }: {
   phoneNumber?: string
   vaHealthConnectPhoneNumber?: string
-  fieldTelephone?: ParagraphPhoneNumber | null
+  fieldTelephone?: Pick<
+    ParagraphPhoneNumber,
+    | 'field_phone_number'
+    | 'field_phone_extension'
+    | 'field_phone_number_type'
+    | 'field_phone_label'
+  > | null
 }) => {
+  if (!phoneNumber && !vaHealthConnectPhoneNumber && !fieldTelephone) {
+    return null
+  }
+
   return (
     <div className="vads-u-margin-bottom--0">
       {phoneNumber && (
