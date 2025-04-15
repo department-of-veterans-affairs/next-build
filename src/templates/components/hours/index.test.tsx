@@ -18,7 +18,7 @@ describe('Hours Component', () => {
         headerType="standard"
       />
     )
-    expect(screen.getByText('Hours')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { label: 'Hours' })).toBeInTheDocument()
     expect(screen.queryByText(nonTraditionalWarning)).not.toBeInTheDocument()
   })
 
@@ -41,7 +41,9 @@ describe('Hours Component', () => {
         headerType="clinical"
       />
     )
-    expect(screen.getByText('Facility hours')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { label: 'Facility hours' })
+    ).toBeInTheDocument()
   })
 
   it('renders "nonTraditionalMessage" correctly', () => {
@@ -56,7 +58,7 @@ describe('Hours Component', () => {
         }}
       />
     )
-    expect(screen.getByText('Hours')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { label: 'Hours' })).toBeInTheDocument()
     expect(screen.getByText('nonTraditionalMessage')).toBeInTheDocument()
   })
 })
