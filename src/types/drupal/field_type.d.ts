@@ -126,7 +126,7 @@ export interface FieldCCText {
   }
 }
 
-export interface FieldGeoLocation {
+export type FieldGeoLocation = {
   value: string
   geo_type: string
   lat: number
@@ -137,4 +137,4 @@ export interface FieldGeoLocation {
   bottom: number
   geohash: string
   latlon: string
-}
+} | null
