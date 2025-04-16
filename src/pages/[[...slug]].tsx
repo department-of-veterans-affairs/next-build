@@ -27,7 +27,7 @@ import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
 
 // Types
-import { Event as FormattedEvent } from '@/types/formatted/event'
+import { Event as FormattedEvent } from '@/products/event/formatted-type'
 import { EventListing as FormattedEventListing } from '@/products/eventListing/formatted-type'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
@@ -40,7 +40,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
-import { Event } from '@/templates/layouts/event'
+import { Event } from '@/products/event/template'
 import { EventListing } from '@/products/eventListing/template'
 import { LayoutProps } from '@/templates/layouts/wrapper'
 import { Meta } from '@/templates/common/meta'
@@ -53,7 +53,6 @@ import { StaffProfile } from '@/templates/layouts/staffProfile'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 import { Wrapper } from '@/templates/layouts/wrapper'
-import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFacility'
 import { DoNotPublishError } from '@/lib/drupal/query'
 

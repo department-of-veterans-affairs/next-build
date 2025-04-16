@@ -1,7 +1,6 @@
 import React from 'react'
-import { render, fireEvent, screen } from '@testing-library/react'
-import { Event } from './'
-import { recordEvent } from '@/lib/analytics/recordEvent'
+import { render, screen } from '@testing-library/react'
+import { Event } from './template'
 
 jest.mock('@/lib/analytics/recordEvent', () => ({
   recordEvent: jest.fn(),
@@ -73,6 +72,18 @@ const data = {
     field_phone_number: '605-229-3500',
     field_operating_status_facility: 'normal',
     field_region_page: null,
+    field_geolocation: {
+      value: 'POINT (-71.05901821 42.36659056)',
+      geo_type: 'Point',
+      lat: 42.36659056,
+      lon: -71.05901821,
+      left: -71.05901821,
+      top: 42.36659056,
+      right: -71.05901821,
+      bottom: 42.36659056,
+      geohash: 'drt3p087kbgsv9',
+      latlon: '42.36659056,-71.05901821',
+    },
   },
   administration: {
     id: 0,
