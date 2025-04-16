@@ -72,7 +72,7 @@ export const PhoneNumber = (
   }
 
   return (
-    <p className={className || undefined}>
+    <p className={className || undefined} data-testid="phone">
       <strong>{labelToDisplay}: </strong>
       <va-telephone
         contact={numberToDisplay.replace?.(/-/g, '')}
