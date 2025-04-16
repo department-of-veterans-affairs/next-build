@@ -33,6 +33,7 @@ import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
 import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
+import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
@@ -48,6 +49,7 @@ import { PressRelease } from '@/templates/layouts/pressRelease'
 import { PressReleaseListing } from '@/templates/layouts/pressReleaseListing'
 import { PreviewCrumb } from '@/templates/common/preview'
 import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
+import { StaffProfile } from '@/templates/layouts/staffProfile'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 import { Wrapper } from '@/templates/layouts/wrapper'
@@ -148,6 +150,9 @@ export default function ResourcePage({
           )} */}
           {resource.type === RESOURCE_TYPES.RESOURCES_SUPPORT && (
             <ResourcesSupport {...(resource as FormattedResourcesSupport)} />
+          )}
+          {resource.type === RESOURCE_TYPES.STAFF_PROFILE && (
+            <StaffProfile {...(resource as FormattedStaffProfile)} />
           )}
           {resource.type === RESOURCE_TYPES.STORY_LISTING && (
             <StoryListing {...(resource as FormattedStoryListing)} />
