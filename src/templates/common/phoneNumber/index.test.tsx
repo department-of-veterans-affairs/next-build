@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { PhoneNumber } from '.'
+import { PhoneNumber, separateExtension } from '.'
 import { PhoneNumber as FormattedPhoneNumber } from '@/types/formatted/phoneNumber'
 
 describe('PhoneNumber Component', () => {
@@ -113,6 +113,31 @@ describe('PhoneNumber Component', () => {
       expect(container.innerHTML).not.toContain('message-aria-describedby')
       expect(container.innerHTML).not.toContain('not-clickable')
       expect(container.innerHTML).not.toContain('sms')
+    })
+  })
+})
+
+describe('separatePhoneNumberExtension', () => {
+  it('returns null for empty input', () => {
+    expect(separateExtension('')).toBeNull()
+  })
+
+  it('returns unprocessed if format is invalid', () => {
+    const result = separateExtension('555')
+    expect(result).toEqual({
+      phoneNumber: '555',
+      extension: '',
+      processed: false,
+    })
+  })
+
+  describe.each(['x', 'x.', 'ext', 'ext.'])('handles extension', (ext) => {
+    it.each(['', ' '])(`'${ext}%s'`, (space) => {
+      expect(separateExtension(`123-456-7890${ext}${space}123`)).toEqual({
+        phoneNumber: '123-456-7890',
+        extension: '123',
+        processed: true,
+      })
     })
   })
 })

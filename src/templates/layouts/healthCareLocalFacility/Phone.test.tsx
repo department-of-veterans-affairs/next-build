@@ -1,37 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import {
-  Phone,
-  PhoneNumberFromField,
-  processPhoneToVaTelephoneOrFallback,
-  separatePhoneNumberExtension,
-} from './Phone'
-
-describe('separatePhoneNumberExtension', () => {
-  it('returns null for empty input', () => {
-    expect(separatePhoneNumberExtension('')).toBeNull()
-  })
-
-  it('returns unprocessed if format is invalid', () => {
-    const result = separatePhoneNumberExtension('555')
-    expect(result).toEqual({
-      phoneNumber: '555',
-      extension: '',
-      processed: false,
-    })
-  })
-
-  describe.each(['x', 'x.', 'ext', 'ext.'])('handles extension', (ext) => {
-    it.each(['', ' '])(`'${ext}%s'`, (space) => {
-      expect(
-        separatePhoneNumberExtension(`123-456-7890${ext}${space}123`)
-      ).toEqual({
-        phoneNumber: '123-456-7890',
-        extension: '123',
-        processed: true,
-      })
-    })
-  })
-})
+import { Phone, processPhoneToVaTelephoneOrFallback } from './Phone'
 
 describe('processPhoneToVaTelephoneOrFallback', () => {
   it('returns null for empty input', () => {
@@ -58,33 +26,6 @@ describe('processPhoneToVaTelephoneOrFallback', () => {
   })
 })
 
-describe('PhoneNumberFromField', () => {
-  it('does not render if phoneNumber is missing', () => {
-    const { container } = render(<PhoneNumberFromField phoneNumber="" />)
-    expect(container).toBeEmptyDOMElement()
-  })
-
-  it('renders with basic phone number and label', () => {
-    const { container } = render(
-      <PhoneNumberFromField
-        phoneNumber="123-456-7890"
-        phoneLabel="Test Label"
-      />
-    )
-    expect(screen.getByText('Test Label:')).toBeInTheDocument()
-    const tel = container.querySelector('va-telephone')
-    expect(tel).toHaveAttribute('contact', '1234567890')
-  })
-
-  it('sets correct attributes for sms, tty, fax', () => {
-    const { container } = render(
-      <PhoneNumberFromField phoneNumber="123-456-7890" phoneNumberType="sms" />
-    )
-    const tel = container.querySelector('va-telephone')
-    expect(tel.hasAttribute('sms')).toBe(true)
-  })
-})
-
 describe('Phone', () => {
   it('renders nothing when no props are provided', () => {
     const { container } = render(<Phone />)
@@ -107,6 +48,12 @@ describe('Phone', () => {
     const { container } = render(
       <Phone
         fieldTelephone={{
+          id: 'blech',
+          type: 'paragraph--phone_number',
+          drupal_internal__id: 1234,
+          drupal_internal__revision_id: 1234,
+          status: true,
+          langcode: 'en',
           field_phone_label: 'Test Label',
           field_phone_number: '123-456-7890',
           field_phone_number_type: 'fax',
@@ -128,6 +75,12 @@ describe('Phone', () => {
         phoneNumber="123-456-7890 x123"
         vaHealthConnectPhoneNumber="987-654-3210"
         fieldTelephone={{
+          id: 'blech',
+          type: 'paragraph--phone_number',
+          drupal_internal__id: 1234,
+          drupal_internal__revision_id: 1234,
+          status: true,
+          langcode: 'en',
           field_phone_label: 'Test Label',
           field_phone_number: '555-555-5555',
           field_phone_number_type: 'fax',
