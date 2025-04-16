@@ -26,6 +26,23 @@ test.describe('Story Listing', () => {
     await expect(nextPageLink).toBeEnabled()
   })
 
+  test('Story Listing should handle double-digit page numbers correctly', async ({
+    page,
+  }) => {
+    await page.goto('/eastern-oklahoma-health-care/stories')
+    const page10Link = page.getByLabel('Page 10')
+    await page10Link.click()
+    await page.waitForURL(/\/page-10\//)
+    await expect(page).toHaveURL(/\/page-10\//)
+    const storyItems = page.locator('.usa-unstyled-list li')
+    await expect(storyItems).toHaveCount(10)
+    const nextPageLink = page.getByLabel('Next page')
+    await nextPageLink.click()
+    await page.waitForURL(/\/page-11\//)
+    await expect(page).toHaveURL(/\/page-11\//)
+    await expect(storyItems).toHaveCount(10)
+  })
+
   test('Should render without a11y errors', async ({
     page,
     makeAxeBuilder,
