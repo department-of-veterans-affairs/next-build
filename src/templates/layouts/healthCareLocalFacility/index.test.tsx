@@ -60,4 +60,56 @@ describe('HealthCareLocalFacility with valid data', () => {
     // we're adding it
     expect(window.sideNav).toEqual(mockData.menu)
   })
+
+  test('renders the address', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+
+    const addressFields: Array<
+      keyof FormattedHealthCareLocalFacility['address']
+    > = [
+      'address_line1',
+      'address_line2',
+      'locality',
+      'administrative_area',
+      'postal_code',
+    ]
+    // Search for the bits of data that exist in the mock data, but only
+    // search for them under the <address>
+    addressFields
+      .map((key) => mockData.address[key])
+      .filter((data) => data)
+      .forEach((data) =>
+        expect(
+          screen.getByText(new RegExp(data), { selector: 'address > *' })
+        ).toBeInTheDocument()
+      )
+  })
+
+  test('renders the phone numbers', () => {
+    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+
+    expect(
+      container.querySelector(`va-telephone[contact="${mockData.phoneNumber}"]`)
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector(
+        `va-telephone[contact="${mockData.vaHealthConnectPhoneNumber}"]`
+      )
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector(
+        `va-telephone[contact="${mockData.fieldTelephone?.field_phone_number}"]`
+      )
+    ).toBeInTheDocument()
+  })
+
+  test('renders the hours', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+
+    expect(
+      screen.getByRole('heading', { name: 'Facility hours' })
+    ).toBeInTheDocument()
+    expect(screen.getAllByText(/7:30 a.m. to 4:00 p.m./)).toHaveLength(5)
+    expect(screen.getAllByText(/Closed/)).toHaveLength(2)
+  })
 })
