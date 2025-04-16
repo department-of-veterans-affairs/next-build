@@ -8,6 +8,8 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { isLovellTricarePath, isLovellVaPath } from '@/lib/drupal/lovell/utils'
 import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleResourceCollectionPage,
@@ -97,7 +99,16 @@ export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
     return queries.formatData(`${RESOURCE_TYPES.STORY}--teaser`, story)
   })
 
-  const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+  // Check if this is a Lovell facility page (TRICARE or VA variant)
+  let variant = undefined
+  if (isLovellTricarePath(entity.path.alias)) {
+    variant = LOVELL.tricare.variant
+  } else if (isLovellVaPath(entity.path.alias)) {
+    variant = LOVELL.va.variant
+  }
+  // For Lovell pages use story path, otherwise use facility path
+  const rootPath = variant ? entity.path.alias : entity.field_office.path.alias
+  const formattedMenu = buildSideNavDataFromMenu(rootPath, menu, variant)
 
   return {
     ...entityBaseFields(entity),
