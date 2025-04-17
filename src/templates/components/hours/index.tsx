@@ -36,14 +36,20 @@ export const Hours = ({
     switch (headerType) {
       case 'small':
         return (
-          <h3 className="force-small-header vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+          <h3
+            className="force-small-header vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
+            id="hours-heading"
+          >
             Hours
           </h3>
         )
       case 'standard':
         return (
           <>
-            <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+            <h3
+              className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
+              id="hours-heading"
+            >
               Hours
             </h3>
             {nonTraditionalMessage && (
@@ -55,14 +61,26 @@ export const Hours = ({
         )
       case 'clinical':
         return (
-          <h2 className="vads-u-margin-top--2p5 vads-u-margin-bottom--1">
-            Clinical hours
-          </h2>
+          <>
+            <h3
+              className="vads-u-margin-top--2p5 vads-u-margin-bottom--1"
+              id="hours-heading"
+            >
+              Facility hours
+            </h3>
+            <p>
+              Hours may vary for different services. Select a service on this
+              page to check the hours.
+            </p>
+          </>
         )
       case 'office':
         return (
           <>
-            <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+            <h3
+              className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
+              id="hours-heading"
+            >
               Office hours
             </h3>
             <p>
@@ -88,7 +106,7 @@ export const Hours = ({
               const DayTag = headerType === 'clinical' ? 'strong' : 'span'
               return (
                 <li key={index}>
-                  <DayTag className="abbrv-day vads-u-font-weight--bold">
+                  <DayTag className="abbreviated-day vads-u-font-weight--bold">
                     {dayNames[dayIndex]}:
                   </DayTag>{' '}
                   {hoursItem.starthours === null

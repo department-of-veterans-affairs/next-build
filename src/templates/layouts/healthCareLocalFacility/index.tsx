@@ -12,6 +12,7 @@ import { HealthServices } from './HealthServices'
 import { OperatingStatusFlags } from './OperatingStatus'
 import { Address } from './Address'
 import { Phone } from './Phone'
+import { Hours } from '@/templates/components/hours'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -143,7 +144,7 @@ export function HealthCareLocalFacility({
                       vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
                       fieldTelephone={fieldTelephone}
                     />
-                    <div>TODO: Office hours</div>
+                    <Hours allHours={officeHours} headerType="clinical" />
                   </section>
                 </div>
               </div>
