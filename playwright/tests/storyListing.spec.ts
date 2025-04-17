@@ -30,12 +30,21 @@ test.describe('Story Listing', () => {
     page,
   }) => {
     await page.goto('/washington-dc-health-care/stories')
-    const page10Link = page.getByLabel('Page 10')
-    await page10Link.click()
-    await page.waitForURL(/\/page-10\//)
+
+    // Navigate to page 10 using the next page button
+    for (let i = 1; i < 10; i++) {
+      const nextPageLink = page.getByLabel('Next page')
+      await nextPageLink.click()
+      await page.waitForURL(new RegExp(`/page-${i + 1}/`))
+      await expect(page).toHaveURL(new RegExp(`/page-${i + 1}/`))
+    }
+
+    // Now we should be on page 10
     await expect(page).toHaveURL(/\/page-10\//)
     const storyItems = page.locator('.usa-unstyled-list li')
     await expect(storyItems).toHaveCount(10)
+
+    // Test navigation to page 11
     const nextPageLink = page.getByLabel('Next page')
     await nextPageLink.click()
     await page.waitForURL(/\/page-11\//)

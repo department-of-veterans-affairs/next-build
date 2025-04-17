@@ -31,13 +31,22 @@ test.describe('pressReleaseListing', () => {
   test('Press Release Listing should handle double-digit page numbers correctly', async ({
     page,
   }) => {
-    await page.goto('/saginaw-health-care/news-releases')
-    const page10Link = page.getByLabel('Page 10')
-    await page10Link.click()
-    await page.waitForURL(/\/page-10\//)
+    await page.goto('/southern-nevada-health-care/news-releases')
+
+    // Navigate to page 10 using the next page button
+    for (let i = 1; i < 10; i++) {
+      const nextPageLink = page.getByLabel('Next page')
+      await nextPageLink.click()
+      await page.waitForURL(new RegExp(`/page-${i + 1}/`))
+      await expect(page).toHaveURL(new RegExp(`/page-${i + 1}/`))
+    }
+
+    // Now we should be on page 10
     await expect(page).toHaveURL(/\/page-10\//)
     const pressReleaseItems = page.locator('.usa-unstyled-list li')
     await expect(pressReleaseItems).toHaveCount(10)
+
+    // Test navigation to page 11
     const nextPageLink = page.getByLabel('Next page')
     await nextPageLink.click()
     await page.waitForURL(/\/page-11\//)
