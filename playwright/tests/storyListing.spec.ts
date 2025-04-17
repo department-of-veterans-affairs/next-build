@@ -29,7 +29,7 @@ test.describe('Story Listing', () => {
   test('Story Listing should handle double-digit page numbers correctly', async ({
     page,
   }) => {
-    await page.goto('/eastern-oklahoma-health-care/stories')
+    await page.goto('/washington-dc-health-care/stories')
     const page10Link = page.getByLabel('Page 10')
     await page10Link.click()
     await page.waitForURL(/\/page-10\//)

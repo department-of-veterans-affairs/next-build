@@ -31,7 +31,7 @@ test.describe('pressReleaseListing', () => {
   test('Press Release Listing should handle double-digit page numbers correctly', async ({
     page,
   }) => {
-    await page.goto('/southern-nevada-health-care/news-releases')
+    await page.goto('/saginaw-health-care/news-releases')
     const page10Link = page.getByLabel('Page 10')
     await page10Link.click()
     await page.waitForURL(/\/page-10\//)
