@@ -19,9 +19,9 @@ describe('processPhoneToVaTelephoneOrFallback', () => {
 
   it('renders fallback <a> for invalid number', () => {
     const { container } = render(processPhoneToVaTelephoneOrFallback('555'))
-    const telLink = container.querySelector('a')
+    const telLink = container.querySelector('va-telephone')
     expect(telLink).toBeInTheDocument()
-    expect(telLink).toHaveAttribute('href', 'tel:+1555')
+    expect(telLink).toHaveAttribute('contact', '555')
     expect(telLink).toHaveTextContent('555')
   })
 })

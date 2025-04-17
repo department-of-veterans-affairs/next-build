@@ -23,7 +23,7 @@ export const processPhoneToVaTelephoneOrFallback = (
     )
   }
 
-  return <a href={`tel:+1${phoneNumber}`}>{phoneNumber}</a>
+  return <va-telephone contact={phoneNumber}>{phoneNumber}</va-telephone>
 }
 
 export const Phone = ({
