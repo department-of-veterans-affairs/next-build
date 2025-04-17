@@ -1,7 +1,9 @@
 import StaffProfileSideBarNav from '@/templates/components/staffProfileSideBarNav'
 import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { MediaImage } from '@/templates/common/mediaImage'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
 export type PersonProfileTeaserProps = {
   title: string
@@ -23,12 +25,18 @@ export const StaffProfile = ({
   vamcOfficalName,
   media,
   menu,
-}: FormattedStaffProfile) => {
+  lovellVariant,
+  lovellSwitchPath,
+}: LovellStaticPropsResource<FormattedStaffProfile>) => {
   return (
     <div className="usa-grid usa-grid-full">
       {menu && <StaffProfileSideBarNav sidebarData={menu} />}
       <div className="usa-width-three-fourths">
         <article className="usa-content">
+          <LovellSwitcher
+            currentVariant={lovellVariant}
+            switchPath={lovellSwitchPath}
+          />
           <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
             <div
               className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3"

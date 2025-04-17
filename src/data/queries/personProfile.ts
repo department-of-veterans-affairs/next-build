@@ -21,6 +21,7 @@ export const params: QueryParams<null> = () => {
     'field_office',
     'field_complete_biography',
     'field_telephone',
+    'field_administration',
   ])
 }
 
@@ -93,5 +94,9 @@ export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
       entity?.field_office?.field_vamc_system_official_name || null,
     office: entity.field_office,
     menu: formattedMenu,
+    administration: {
+      id: entity.field_administration?.drupal_internal__tid || null,
+      name: entity.field_administration?.name || null,
+    },
   }
 }

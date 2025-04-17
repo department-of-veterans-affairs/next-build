@@ -82,12 +82,12 @@ export function getLovellChildVariantOfResource(
             ...resource.socialLinks,
             path: variantPaths[variant],
           }
-        : undefined,
+        : { path: '', title: '' },
     administration: LOVELL[variant].administration,
     listing:
       'listing' in resource && resource.listing
         ? getLovellVariantOfUrl(resource.listing, variant)
-        : undefined,
+        : '',
     canonicalLink: variantPaths.va,
     lovellVariant: variant,
     lovellSwitchPath: variantPaths[getOppositeChildVariant(variant)],
