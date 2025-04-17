@@ -36,14 +36,20 @@ export const Hours = ({
     switch (headerType) {
       case 'small':
         return (
-          <h3 className="force-small-header vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+          <h3
+            className="force-small-header vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
+            id="hours-heading"
+          >
             Hours
           </h3>
         )
       case 'standard':
         return (
           <>
-            <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+            <h3
+              className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
+              id="hours-heading"
+            >
               Hours
             </h3>
             {nonTraditionalMessage && (
@@ -56,7 +62,10 @@ export const Hours = ({
       case 'clinical':
         return (
           <>
-            <h3 className="vads-u-margin-top--2p5 vads-u-margin-bottom--1">
+            <h3
+              className="vads-u-margin-top--2p5 vads-u-margin-bottom--1"
+              id="hours-heading"
+            >
               Facility hours
             </h3>
             <p>
@@ -68,7 +77,10 @@ export const Hours = ({
       case 'office':
         return (
           <>
-            <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+            <h3
+              className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
+              id="hours-heading"
+            >
               Office hours
             </h3>
             <p>
