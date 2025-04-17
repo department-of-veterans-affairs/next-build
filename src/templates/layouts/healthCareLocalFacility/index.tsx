@@ -124,12 +124,18 @@ export function HealthCareLocalFacility({
                       }}
                     />
 
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    <h3
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                      id="address-heading"
+                    >
                       Address
                     </h3>
                     <Address address={address} title={title} />
 
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    <h3
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                      id="phone-numbers"
+                    >
                       Phone numbers
                     </h3>
                     <Phone
