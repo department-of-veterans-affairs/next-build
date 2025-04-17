@@ -7,8 +7,26 @@ import {
 import { slugToPath } from '@/lib/utils/slug'
 
 const listingPageFirstPageSlug = ['some-health-care', 'stories']
-
 const listingPageSecondPageSlug = ['some-health-care', 'stories', 'page-2']
+const listingPageTenthPageSlug = ['some-health-care', 'stories', 'page-10']
+const listingPageTwentiethPageSlug = ['some-health-care', 'stories', 'page-20']
+
+const pressReleaseFirstPageSlug = ['some-health-care', 'news-releases']
+const pressReleaseSecondPageSlug = [
+  'some-health-care',
+  'news-releases',
+  'page-2',
+]
+const pressReleaseTenthPageSlug = [
+  'some-health-care',
+  'news-releases',
+  'page-10',
+]
+const pressReleaseThirteenthPageSlug = [
+  'some-health-care',
+  'news-releases',
+  'page-13',
+]
 
 const nonListingPageSlug = ['some-health-care', 'stories', 'story-title']
 
@@ -68,6 +86,92 @@ describe('getListingPageStaticPropsContext', () => {
       isListingPage: true,
       firstPagePath: slugToPath(listingPageFirstPageSlug),
       page: 2,
+    })
+  })
+
+  test('should properly handle double-digit page number (page 10)', () => {
+    const context = {
+      params: {
+        slug: listingPageTenthPageSlug,
+      },
+    }
+    const result = getListingPageStaticPropsContext(context)
+    expect(result).toStrictEqual({
+      isListingPage: true,
+      firstPagePath: slugToPath(listingPageFirstPageSlug),
+      page: 10,
+    })
+  })
+
+  test('should properly handle double-digit page number (page 20)', () => {
+    const context = {
+      params: {
+        slug: listingPageTwentiethPageSlug,
+      },
+    }
+    const result = getListingPageStaticPropsContext(context)
+    expect(result).toStrictEqual({
+      isListingPage: true,
+      firstPagePath: slugToPath(listingPageFirstPageSlug),
+      page: 20,
+    })
+  })
+})
+
+describe('getListingPageStaticPropsContext for Press Releases', () => {
+  test('should properly handle first page', () => {
+    const context = {
+      params: {
+        slug: pressReleaseFirstPageSlug,
+      },
+    }
+    const result = getListingPageStaticPropsContext(context)
+    expect(result).toStrictEqual({
+      isListingPage: true,
+      firstPagePath: slugToPath(pressReleaseFirstPageSlug),
+      page: 1,
+    })
+  })
+
+  test('should properly handle single-digit page number', () => {
+    const context = {
+      params: {
+        slug: pressReleaseSecondPageSlug,
+      },
+    }
+    const result = getListingPageStaticPropsContext(context)
+    expect(result).toStrictEqual({
+      isListingPage: true,
+      firstPagePath: slugToPath(pressReleaseFirstPageSlug),
+      page: 2,
+    })
+  })
+
+  test('should properly handle double-digit page number (page 10)', () => {
+    const context = {
+      params: {
+        slug: pressReleaseTenthPageSlug,
+      },
+    }
+    const result = getListingPageStaticPropsContext(context)
+    expect(result).toStrictEqual({
+      isListingPage: true,
+      firstPagePath: slugToPath(pressReleaseFirstPageSlug),
+      page: 10,
+    })
+  })
+
+  test('should properly handle double-digit page number (page 13)', () => {
+    const context = {
+      params: {
+        slug: pressReleaseThirteenthPageSlug,
+      },
+    }
+    const result = getListingPageStaticPropsContext(context)
+    expect(result).toStrictEqual({
+      isListingPage: true,
+      firstPagePath: slugToPath(pressReleaseFirstPageSlug),
+      page: 13,
     })
   })
 
