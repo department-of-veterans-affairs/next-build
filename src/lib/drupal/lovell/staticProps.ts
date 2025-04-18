@@ -76,12 +76,18 @@ export function getLovellChildVariantOfResource(
     ...resource,
     breadcrumbs: getLovellVariantOfBreadcrumbs(resource.breadcrumbs, variant),
     entityPath: variantPaths[variant],
-    socialLinks: {
-      ...resource.socialLinks,
-      path: variantPaths[variant],
-    },
+    socialLinks:
+      'socialLinks' in resource && resource.socialLinks
+        ? {
+            ...resource.socialLinks,
+            path: variantPaths[variant],
+          }
+        : { path: '', title: '' },
     administration: LOVELL[variant].administration,
-    listing: getLovellVariantOfUrl(resource.listing, variant),
+    listing:
+      'listing' in resource && resource.listing
+        ? getLovellVariantOfUrl(resource.listing, variant)
+        : '',
     canonicalLink: variantPaths.va,
     lovellVariant: variant,
     lovellSwitchPath: variantPaths[getOppositeChildVariant(variant)],

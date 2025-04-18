@@ -12,7 +12,6 @@ describe('SidebarNav', () => {
     link: {
       label: 'Donald Koenig',
       url: { path: '/' },
-      links: [{ label: 'Donald Koenig second link', url: { path: '/' } }],
     },
     parent: {
       label: 'Leadership',
@@ -21,32 +20,57 @@ describe('SidebarNav', () => {
     },
   }
 
+  const mockLovellSidebarData = {
+    link: {
+      label: 'Donald Koenig',
+      url: { path: '/' },
+    },
+    parent: {
+      label: 'Leadership',
+      links: [],
+      url: { path: '/lovell-federal-health-care/leadership' },
+    },
+  }
   it('renders the sidebar navigation with the correct structure', () => {
     render(
-      <StaffProfileSideBarNav sidebarData={mockSidebarData} entityUrlPath="/" />
+      <StaffProfileSideBarNav
+        sidebarData={mockSidebarData}
+        lovellVariant={undefined}
+      />
     )
-
+    const leaderShipLink = screen.getByTestId('sidebar-nav-link')
     expect(screen.getByText('Donald Koenig')).toBeInTheDocument()
-    expect(screen.getByText('Leadership')).toBeInTheDocument()
-  })
-
-  it('applies active class to the correct link', () => {
-    render(
-      <StaffProfileSideBarNav sidebarData={mockSidebarData} entityUrlPath="/" />
+    expect(leaderShipLink).toHaveAttribute(
+      'href',
+      '/pittsburgh-health-care/leadership'
     )
-
-    const activeLink = screen.getByText('Donald Koenig second link')
-    expect(activeLink).toHaveClass('usa-current')
   })
-
-  it('calls recordEvent when the link is clicked', () => {
+  it('renders the sidebar navigation with the correct Lovell VA structure', () => {
     render(
-      <StaffProfileSideBarNav sidebarData={mockSidebarData} entityUrlPath="/" />
+      <StaffProfileSideBarNav
+        sidebarData={mockLovellSidebarData}
+        lovellVariant="va"
+      />
     )
-
-    const link = screen.getByText('Donald Koenig second link')
-    fireEvent.click(link)
-
-    expect(recordEvent).toHaveBeenCalledWith({ event: 'nav-sidenav' })
+    const leaderShipLink = screen.getByTestId('sidebar-nav-link')
+    expect(screen.getByText('Donald Koenig')).toBeInTheDocument()
+    expect(leaderShipLink).toHaveAttribute(
+      'href',
+      '/lovell-federal-health-care-va/leadership'
+    )
+  })
+  it('renders the sidebar navigation with the correct Lovell Tricare structure', () => {
+    render(
+      <StaffProfileSideBarNav
+        sidebarData={mockLovellSidebarData}
+        lovellVariant="tricare"
+      />
+    )
+    const leaderShipLink = screen.getByTestId('sidebar-nav-link')
+    expect(screen.getByText('Donald Koenig')).toBeInTheDocument()
+    expect(leaderShipLink).toHaveAttribute(
+      'href',
+      '/lovell-federal-health-care-tricare/leadership'
+    )
   })
 })

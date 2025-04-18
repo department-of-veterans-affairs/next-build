@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { MediaImage } from '@/types/formatted/media'
 import { StaffProfile } from './index'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 describe('StaffProfile Component', () => {
   const mediaImage: MediaImage = {
@@ -122,5 +123,68 @@ describe('StaffProfile Component', () => {
     render(<StaffProfile {...modifiedProfile} />)
 
     expect(screen.queryByText(/Download full bio/)).not.toBeInTheDocument()
+  })
+
+  describe('Lovell variants - tricare', () => {
+    const modifiedProfile = {
+      ...mockProfile,
+      menu: {
+        depth: 5,
+        link: { label: 'Prachi Asher', url: { path: '/' }, links: [] },
+        parent: {
+          label: 'Leadership',
+          links: [],
+          url: { path: '/leadership' },
+        },
+      },
+      vamcOfficalName: 'Lovell Federal health care',
+      lovellVariant: 'tricare' as LovellChildVariant,
+      lovellSwitchPath: '/lovell-federal-health-care-va/leadership',
+    }
+    test('LovellSwitcher is rendered', () => {
+      render(<StaffProfile {...modifiedProfile} />)
+
+      expect(
+        screen.getByText('You are viewing this page as a TRICARE beneficiary.')
+      ).toBeInTheDocument()
+    })
+    test('shows the correct VAMC official name', () => {
+      render(<StaffProfile {...modifiedProfile} />)
+
+      expect(
+        screen.getByText('Lovell Federal health care - TRICARE')
+      ).toBeInTheDocument()
+    })
+  })
+  describe('Lovell variants - va', () => {
+    const modifiedProfile = {
+      ...mockProfile,
+      menu: {
+        depth: 5,
+        link: { label: 'Prachi Asher', url: { path: '/' }, links: [] },
+        parent: {
+          label: 'Leadership',
+          links: [],
+          url: { path: '/leadership' },
+        },
+      },
+      vamcOfficalName: 'Lovell Federal health care',
+      lovellVariant: 'va' as LovellChildVariant,
+      lovellSwitchPath: '/lovell-federal-health-care-tricare/leadership',
+    }
+    test('LovellSwitcher is rendered', () => {
+      render(<StaffProfile {...modifiedProfile} />)
+
+      expect(
+        screen.getByText('You are viewing this page as a VA beneficiary.')
+      ).toBeInTheDocument()
+    })
+    test('shows the correct VAMC official name', () => {
+      render(<StaffProfile {...modifiedProfile} />)
+
+      expect(
+        screen.getByText('Lovell Federal health care - VA')
+      ).toBeInTheDocument()
+    })
   })
 })
