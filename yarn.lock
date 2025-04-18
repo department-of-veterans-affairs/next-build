@@ -5997,6 +5997,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axe-core@npm:^4.10.3":
+  version: 4.10.3
+  resolution: "axe-core@npm:4.10.3"
+  checksum: e89fa5bcad9216f2de29bbdf95d6211d8c5b1025cbdcf56b6695c18b2e9a1eebd0b997a0141334169f6f062fc68fd39a5b97f86348d9f5be05958eade5c1ec78
+  languageName: node
+  linkType: hard
+
 "axios@npm:^1.6.3, axios@npm:^1.6.5":
   version: 1.7.7
   resolution: "axios@npm:1.7.7"
@@ -13433,7 +13440,7 @@ __metadata:
     "@types/uuid": ^9.0.7
     "@typescript-eslint/eslint-plugin": ^7.16.1
     "@typescript-eslint/parser": ^8.7.0
-    axe-core: ^4.10.0
+    axe-core: ^4.10.3
     axios: ^1.6.3
     chalk: ^5.3.0
     chrome-launcher: ^1.1.2
