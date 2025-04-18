@@ -30,7 +30,12 @@ export const StaffProfile = ({
 }: LovellStaticPropsResource<FormattedStaffProfile>) => {
   return (
     <div className="usa-grid usa-grid-full">
-      {menu && <StaffProfileSideBarNav sidebarData={menu} />}
+      {menu && (
+        <StaffProfileSideBarNav
+          sidebarData={menu}
+          lovellVariant={lovellVariant}
+        />
+      )}
       <div className="usa-width-three-fourths">
         <article className="usa-content">
           <LovellSwitcher
