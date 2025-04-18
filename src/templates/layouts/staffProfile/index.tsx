@@ -74,6 +74,7 @@ export const StaffProfile = ({
                       vads-u-font-size--lg"
                 >
                   {vamcOfficalName}
+                  {lovellVariant ? ` - ${lovellVariant.toUpperCase()}` : ''}
                 </p>
               ) : null}
 
