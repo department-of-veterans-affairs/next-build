@@ -159,6 +159,7 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_phone_number: string
   // We don't need the field_media in here for now
   field_region_page: Omit<NodeHealthCareRegionPage, 'field_media'>
+  field_telephone: ParagraphPhoneNumber
 }
 
 export interface NodeVetCenter extends DrupalNode {

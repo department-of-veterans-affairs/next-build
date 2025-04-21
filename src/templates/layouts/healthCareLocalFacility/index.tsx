@@ -11,6 +11,7 @@ import { LocationServices } from './LocationServices'
 import { HealthServices } from './HealthServices'
 import { OperatingStatusFlags } from './OperatingStatus'
 import { Address } from './Address'
+import { Phone } from './Phone'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -29,9 +30,11 @@ export function HealthCareLocalFacility({
   officeHours,
   address,
   phoneNumber,
+  vaHealthConnectPhoneNumber,
   image,
   facilityLocatorApiId,
   geoLocation,
+  fieldTelephone,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -121,15 +124,25 @@ export function HealthCareLocalFacility({
                       }}
                     />
 
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    <h3
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                      id="address-heading"
+                    >
                       Address
                     </h3>
                     <Address address={address} title={title} />
 
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    <h3
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                      id="phone-numbers"
+                    >
                       Phone numbers
                     </h3>
-                    <div>TODO: Phone numbers</div>
+                    <Phone
+                      phoneNumber={phoneNumber}
+                      vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
+                      fieldTelephone={fieldTelephone}
+                    />
                     <div>TODO: Office hours</div>
                   </section>
                 </div>
