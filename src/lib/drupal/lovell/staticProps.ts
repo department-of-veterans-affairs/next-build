@@ -71,7 +71,10 @@ export function getLovellChildVariantOfResource(
     tricare: getLovellVariantOfUrl(resource.entityPath, LOVELL.tricare.variant),
     va: getLovellVariantOfUrl(resource.entityPath, LOVELL.va.variant),
   }
-
+  /*
+   * The resource (i.e. staff profile) may not have a socialLinks or listing property.
+   * If it does, we need to set the path to the child variant.
+   */
   return {
     ...resource,
     breadcrumbs: getLovellVariantOfBreadcrumbs(resource.breadcrumbs, variant),

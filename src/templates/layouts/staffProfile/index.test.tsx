@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { MediaImage } from '@/types/formatted/media'
 import { StaffProfile } from './index'
-import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
 
 describe('StaffProfile Component', () => {
   const mediaImage: MediaImage = {
@@ -126,7 +126,7 @@ describe('StaffProfile Component', () => {
   })
 
   describe('Lovell variants - tricare', () => {
-    const modifiedProfile = {
+    const modifiedProfile: FormattedStaffProfile = {
       ...mockProfile,
       menu: {
         depth: 5,
@@ -138,7 +138,7 @@ describe('StaffProfile Component', () => {
         },
       },
       vamcOfficalName: 'Lovell Federal health care',
-      lovellVariant: 'tricare' as LovellChildVariant,
+      lovellVariant: 'tricare',
       lovellSwitchPath: '/lovell-federal-health-care-va/leadership',
     }
     test('LovellSwitcher is rendered', () => {
@@ -157,7 +157,7 @@ describe('StaffProfile Component', () => {
     })
   })
   describe('Lovell variants - va', () => {
-    const modifiedProfile = {
+    const modifiedProfile: FormattedStaffProfile = {
       ...mockProfile,
       menu: {
         depth: 5,
@@ -169,7 +169,7 @@ describe('StaffProfile Component', () => {
         },
       },
       vamcOfficalName: 'Lovell Federal health care',
-      lovellVariant: 'va' as LovellChildVariant,
+      lovellVariant: 'va',
       lovellSwitchPath: '/lovell-federal-health-care-tricare/leadership',
     }
     test('LovellSwitcher is rendered', () => {

@@ -1,6 +1,7 @@
 import { MediaImage } from './media'
 import { PhoneNumber as FormattedPhoneNumber } from '@/types/formatted/phoneNumber'
 import { PublishedEntity } from './publishedEntity'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 export type Link = {
   url: { path: string }
@@ -29,4 +30,6 @@ export type StaffProfile = PublishedEntity & {
   completeBiographyCreate?: boolean
   photoAllowHiresDownload?: boolean
   vamcOfficalName: string
+  lovellVariant?: LovellChildVariant
+  lovellSwitchPath?: string
 }
