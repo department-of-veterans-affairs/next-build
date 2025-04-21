@@ -1,17 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
+exports[`HealthCareLocalFacility query should handle the Lovell variant page menu 1`] = `
 {
+  "address": {
+    "additional_name": null,
+    "address_line1": "251 Causeway Street",
+    "administrative_area": "MA",
+    "country_code": "US",
+    "dependent_locality": null,
+    "langcode": null,
+    "locality": "Boston",
+    "postal_code": "02114-2104",
+  },
+  "administration": {
+    "entityId": 205,
+  },
   "breadcrumbs": [
     {
       "options": [],
       "title": "Home",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "uri": "https://va-gov-cms.ddev.site/",
     },
     {
       "options": [],
-      "title": "VA St Cloud health care",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/st-cloud-health-care",
+      "title": "VA Boston health care",
+      "uri": "https://va-gov-cms.ddev.site/boston-health-care",
     },
     {
       "options": [],
@@ -21,49 +34,215 @@ exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
     {
       "options": [],
       "title": "Locations",
-      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/st-cloud-health-care/locations",
+      "uri": "https://va-gov-cms.ddev.site/boston-health-care/locations",
     },
     {
       "options": [],
-      "title": "St. Cloud VA Mobile Clinic",
+      "title": "Causeway VA Clinic",
       "uri": "internal:#",
     },
   ],
-  "entityId": 2069,
-  "entityPath": "/st-cloud-health-care/locations/st-cloud-va-mobile-clinic",
-  "id": "ad959dfa-6831-4c83-8a8f-bee3c460200e",
-  "introText": null,
-  "lastUpdated": "2021-06-16T13:12:21+00:00",
+  "entityId": 1272,
+  "entityPath": "/boston-health-care/locations/causeway-va-clinic",
+  "facilityLocatorApiId": "vha_523BZ",
+  "fieldTelephone": {
+    "behavior_settings": [],
+    "breadcrumbs": [],
+    "content_translation_changed": "2024-11-25T18:40:13+00:00",
+    "content_translation_outdated": false,
+    "content_translation_source": "und",
+    "created": "2024-11-25T18:40:13+00:00",
+    "default_langcode": true,
+    "drupal_internal__id": 169966,
+    "drupal_internal__revision_id": 1574849,
+    "field_phone_extension": null,
+    "field_phone_label": null,
+    "field_phone_number": "800-865-3384",
+    "field_phone_number_type": "phone",
+    "id": "1174972e-ab4f-45f9-b814-04919526a828",
+    "langcode": "en",
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1574849",
+      },
+    },
+    "parent_field_name": "field_telephone",
+    "parent_id": "1272",
+    "parent_type": "node",
+    "revision_translation_affected": null,
+    "status": true,
+    "type": "paragraph--phone_number",
+  },
+  "geoLocation": {
+    "bottom": 42.36659056,
+    "geo_type": "Point",
+    "geohash": "drt3p087kbgsv9",
+    "lat": 42.36659056,
+    "latlon": "42.36659056,-71.05901821",
+    "left": -71.05901821,
+    "lon": -71.05901821,
+    "right": -71.05901821,
+    "top": 42.36659056,
+    "value": "POINT (-71.05901821 42.36659056)",
+  },
+  "id": "cb577a82-953f-4306-84c6-a65abf1b45ea",
+  "image": {
+    "alt": "Causeway VA Clinic",
+    "height": 330,
+    "id": "984fd14e-fc15-4bdf-9ffa-628105744a94",
+    "links": {
+      "1_1_square_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "512",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_3_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "480",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "3_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "320",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "7_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "300",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "full_content_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94",
+      },
+      "viewport_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+    },
+    "title": "",
+    "type": "media--image",
+    "width": 480,
+  },
+  "introText": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
+  "lastUpdated": "2024-11-07T14:41:05+00:00",
   "menu": {
     "data": {
       "description": "bar",
-      "links": [
-        {
-          "description": "bar",
-          "expanded": true,
-          "label": "Foo",
-          "links": [],
-          "lovellSection": null,
-          "url": {
-            "path": "/nowhere/in-particular",
-          },
-        },
-      ],
+      "links": [],
       "name": "Foo",
     },
-    "rootPath": "/st-cloud-health-care/locations/st-cloud-va-mobile-clinic/",
+    "rootPath": "/boston-health-care/locations/causeway-va-clinic/",
   },
   "metatags": [
     {
       "attributes": {
-        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs",
         "name": "title",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic",
         "name": "description",
       },
       "tag": "meta",
@@ -84,28 +263,28 @@ exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs",
         "property": "og:title",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic",
         "property": "og:description",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-01/facility_photo_na.jpg",
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
         "property": "og:image",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "facility_photo_na",
+        "content": "Causeway VA Clinic",
         "property": "og:image:alt",
       },
       "tag": "meta",
@@ -119,8 +298,407 @@ exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "Get address and hours, parking and transportation information, and health services offered at St. Cloud VA Mobile Clinic.",
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic",
         "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Causeway VA Clinic",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "officeHours": [
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 1,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 2,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 3,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 4,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 5,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 6,
+      "endhours": null,
+      "starthours": null,
+    },
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 0,
+      "endhours": null,
+      "starthours": null,
+    },
+  ],
+  "operatingStatusFacility": "closed",
+  "path": "/boston-health-care/locations/causeway-va-clinic",
+  "phoneNumber": "800-865-3384",
+  "published": true,
+  "title": "Causeway VA Clinic",
+  "type": "node--health_care_local_facility",
+  "vaHealthConnectPhoneNumber": "833-933-1106",
+  "vamcEhrSystem": "vista",
+}
+`;
+
+exports[`HealthCareLocalFacility query should output formatted data 1`] = `
+{
+  "address": {
+    "additional_name": null,
+    "address_line1": "251 Causeway Street",
+    "administrative_area": "MA",
+    "country_code": "US",
+    "dependent_locality": null,
+    "langcode": null,
+    "locality": "Boston",
+    "postal_code": "02114-2104",
+  },
+  "administration": {
+    "entityId": 205,
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://va-gov-cms.ddev.site/",
+    },
+    {
+      "options": [],
+      "title": "VA Boston health care",
+      "uri": "https://va-gov-cms.ddev.site/boston-health-care",
+    },
+    {
+      "options": [],
+      "title": "SERVICES AND LOCATIONS",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "Locations",
+      "uri": "https://va-gov-cms.ddev.site/boston-health-care/locations",
+    },
+    {
+      "options": [],
+      "title": "Causeway VA Clinic",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 1272,
+  "entityPath": "/boston-health-care/locations/causeway-va-clinic",
+  "facilityLocatorApiId": "vha_523BZ",
+  "fieldTelephone": {
+    "behavior_settings": [],
+    "breadcrumbs": [],
+    "content_translation_changed": "2024-11-25T18:40:13+00:00",
+    "content_translation_outdated": false,
+    "content_translation_source": "und",
+    "created": "2024-11-25T18:40:13+00:00",
+    "default_langcode": true,
+    "drupal_internal__id": 169966,
+    "drupal_internal__revision_id": 1574849,
+    "field_phone_extension": null,
+    "field_phone_label": null,
+    "field_phone_number": "800-865-3384",
+    "field_phone_number_type": "phone",
+    "id": "1174972e-ab4f-45f9-b814-04919526a828",
+    "langcode": "en",
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1574849",
+      },
+    },
+    "parent_field_name": "field_telephone",
+    "parent_id": "1272",
+    "parent_type": "node",
+    "revision_translation_affected": null,
+    "status": true,
+    "type": "paragraph--phone_number",
+  },
+  "geoLocation": {
+    "bottom": 42.36659056,
+    "geo_type": "Point",
+    "geohash": "drt3p087kbgsv9",
+    "lat": 42.36659056,
+    "latlon": "42.36659056,-71.05901821",
+    "left": -71.05901821,
+    "lon": -71.05901821,
+    "right": -71.05901821,
+    "top": 42.36659056,
+    "value": "POINT (-71.05901821 42.36659056)",
+  },
+  "id": "cb577a82-953f-4306-84c6-a65abf1b45ea",
+  "image": {
+    "alt": "Causeway VA Clinic",
+    "height": 330,
+    "id": "984fd14e-fc15-4bdf-9ffa-628105744a94",
+    "links": {
+      "1_1_square_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "512",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_3_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "480",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "3_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "320",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "7_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "300",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "full_content_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94",
+      },
+      "viewport_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+    },
+    "title": "",
+    "type": "media--image",
+    "width": 480,
+  },
+  "introText": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
+  "lastUpdated": "2024-11-07T14:41:05+00:00",
+  "menu": {
+    "data": {
+      "description": "bar",
+      "links": [
+        {
+          "description": "bar",
+          "expanded": true,
+          "label": "Foo",
+          "links": [],
+          "lovellSection": null,
+          "url": {
+            "path": "/nowhere/in-particular",
+          },
+        },
+      ],
+      "name": "Foo",
+    },
+    "rootPath": "/boston-health-care/locations/causeway-va-clinic/",
+  },
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Causeway VA Clinic",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
       },
       "tag": "meta",
     },
@@ -133,30 +711,92 @@ exports[`HealthCareLocalFacility formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "St. Cloud VA Mobile Clinic | VA St Cloud health care | Veterans Affairs",
+        "content": "Causeway VA Clinic | VA Boston health care | Veterans Affairs",
         "name": "twitter:title",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-01/facility_photo_na.jpg",
+        "content": "Get address and hours, parking and transportation information, and health services offered at Causeway VA Clinic",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
         "name": "twitter:image",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "facility_photo_na",
+        "content": "Causeway VA Clinic",
         "name": "twitter:image:alt",
       },
       "tag": "meta",
     },
   ],
-  "moderationState": "archived",
+  "moderationState": "published",
+  "officeHours": [
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 1,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 2,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 3,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 4,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 5,
+      "endhours": 1600,
+      "starthours": 730,
+    },
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 6,
+      "endhours": null,
+      "starthours": null,
+    },
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 0,
+      "endhours": null,
+      "starthours": null,
+    },
+  ],
   "operatingStatusFacility": "closed",
-  "published": false,
-  "title": "St. Cloud VA Mobile Clinic",
+  "path": "/boston-health-care/locations/causeway-va-clinic",
+  "phoneNumber": "800-865-3384",
+  "published": true,
+  "title": "Causeway VA Clinic",
   "type": "node--health_care_local_facility",
+  "vaHealthConnectPhoneNumber": "833-933-1106",
+  "vamcEhrSystem": "vista",
 }
 `;

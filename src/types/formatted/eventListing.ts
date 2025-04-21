@@ -1,4 +1,4 @@
-import { EventWidgetTeaser } from './event'
+import { EventWidgetTeaser } from '@/products/event/formatted-type'
 import { PublishedEntity } from './publishedEntity'
 import { SideNavMenu } from './sideNav'
 

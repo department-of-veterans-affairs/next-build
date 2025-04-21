@@ -3,16 +3,17 @@ export const RESOURCE_TYPES = {
   EVENT: 'node--event',
   EVENT_LISTING: 'node--event_listing',
   HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
-  PERSON_PROFILE: 'node--person_profile',
   PRESS_RELEASE: 'node--press_release',
   PRESS_RELEASE_LISTING: 'node--press_releases_listing',
   RESOURCES_SUPPORT: 'node--support_resources_detail_page',
+  STAFF_PROFILE: 'node--person_profile',
   STORY: 'node--news_story',
   STORY_LISTING: 'node--story_listing',
   SUPPORT_SERVICES: 'node--support_service',
   VAMC_FACILITY: 'node--health_care_local_facility',
   VAMC_SYSTEM: 'node--health_care_region_page',
   VET_CENTER: 'node--vet_center',
+  VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
   QA: 'node--q_a',
 } as const
 
@@ -26,9 +27,11 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.RESOURCES_SUPPORT,
   RESOURCE_TYPES.PRESS_RELEASE,
   RESOURCE_TYPES.PRESS_RELEASE_LISTING,
+  RESOURCE_TYPES.STAFF_PROFILE,
   RESOURCE_TYPES.STORY,
   RESOURCE_TYPES.STORY_LISTING,
   RESOURCE_TYPES.VET_CENTER,
+  RESOURCE_TYPES.VET_CENTER_OUTSTATION,
   RESOURCE_TYPES.VAMC_FACILITY,
 ]
 
@@ -51,7 +54,6 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   PROCESS_LIST: 'paragraph--process',
   REACT_WIDGET: 'paragraph--react_widget',
   RICH_TEXT_CHAR_LIMIT_1000: 'paragraph--rich_text_char_limit_1000',
-  STAFF_PROFILE: 'paragraph--staff_profile',
   TABLE: 'paragraph--table',
   WYSIWYG: 'paragraph--wysiwyg',
   QA: 'paragraph--q_a',

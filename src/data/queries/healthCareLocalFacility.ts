@@ -12,14 +12,16 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
+import { formatter as formatImage } from '@/data/queries/mediaImage'
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_region_page',
-    // 'field_media',
-    // 'field_media.image',
-    // 'field_administration',
+    'field_media',
+    'field_media.image',
+    'field_administration',
+    'field_telephone',
   ])
 }
 
@@ -77,8 +79,22 @@ export const formatter: QueryFormatter<
 
   return {
     ...entityBaseFields(entity),
+    address: entity.field_address,
+    phoneNumber: entity.field_phone_number,
+    vaHealthConnectPhoneNumber:
+      entity.field_region_page.field_va_health_connect_phone,
+    fieldTelephone: entity.field_telephone,
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,
+    path: entity.path.alias,
+    administration: {
+      entityId: entity.field_administration.drupal_internal__tid,
+    },
+    vamcEhrSystem: entity.field_region_page.field_vamc_ehr_system,
+    officeHours: entity.field_office_hours,
+    image: formatImage(entity.field_media),
+    facilityLocatorApiId: entity.field_facility_locator_api_id,
+    geoLocation: entity.field_geolocation,
   }
 }
