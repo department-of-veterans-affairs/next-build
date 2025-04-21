@@ -83,5 +83,7 @@ export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
       id: entity.field_administration?.drupal_internal__tid || null,
       name: entity.field_administration?.name || null,
     },
+    lastUpdated:
+      entity.changed || entity.field_last_saved_by_an_editor || entity.created,
   }
 }

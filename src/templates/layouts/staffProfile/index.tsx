@@ -4,6 +4,7 @@ import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { ContentFooter } from '@/templates/common/contentFooter'
 
 export type PersonProfileTeaserProps = {
   title: string
@@ -27,6 +28,7 @@ export const StaffProfile = ({
   menu,
   lovellVariant,
   lovellSwitchPath,
+  lastUpdated,
 }: LovellStaticPropsResource<FormattedStaffProfile>) => {
   return (
     <div className="usa-grid usa-grid-full">
@@ -133,6 +135,7 @@ export const StaffProfile = ({
             </p>
           )}
         </article>
+        <ContentFooter lastUpdated={lastUpdated} />
       </div>
     </div>
   )
