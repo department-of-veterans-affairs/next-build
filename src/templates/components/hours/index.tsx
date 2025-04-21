@@ -1,6 +1,7 @@
 import { FieldOfficeHours } from '@/types/drupal/field_type'
 import { WysiwygField } from '@/templates/components/wysiwyg'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { HoursItem } from './HoursItem'
 
 type HoursProps = {
   allHours: FieldOfficeHours[]
@@ -15,16 +16,6 @@ export const Hours = ({
 }: HoursProps) => {
   if (!allHours || allHours.length === 0) {
     return null
-  }
-
-  const formatHours = (hours: number | null) => {
-    if (hours === null) return 'Closed'
-    const hoursString = hours.toString().padStart(4, '0')
-    const H = parseInt(hoursString.substring(0, 2), 10)
-    const h = H % 12 || 12
-    const m = hoursString.substring(2)
-    const ampm = H < 12 ? 'a.m.' : 'p.m.'
-    return `${h}:${m} ${ampm}`
   }
 
   // sort hours so diplay order is monday-sunday
@@ -100,25 +91,9 @@ export const Hours = ({
         {renderHeader()}
         <div className="vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row vads-u-margin-bottom--0">
           <ul className="vads-u-flex--1 va-c-facility-hours-list vads-u-margin-top--0 vads-u-margin-bottom--1 mobile-lg:vads-u-margin-bottom--0 vads-u-margin-right--3">
-            {sortedHours.map((hoursItem, index) => {
-              const dayIndex = hoursItem.day === 0 ? 6 : hoursItem.day - 1
-              const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-              return (
-                <li key={index}>
-                  <strong
-                    className="vads-u-display--inline-block"
-                    style={{ width: '2.5em' }}
-                  >
-                    {dayNames[dayIndex]}:
-                  </strong>{' '}
-                  {hoursItem.starthours === null
-                    ? 'Closed'
-                    : `${formatHours(hoursItem.starthours)} to ${formatHours(
-                        hoursItem.endhours
-                      )}`}
-                </li>
-              )
-            })}
+            {sortedHours.map((hoursItem, index) => (
+              <HoursItem item={hoursItem} key={index} />
+            ))}
           </ul>
         </div>
       </div>
