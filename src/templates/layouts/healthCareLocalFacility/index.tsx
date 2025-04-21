@@ -1,6 +1,17 @@
+import { useEffect } from 'react'
+
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { useEffect } from 'react'
+
+import { TopTasks } from '@/templates/components/topTasks'
+import { numberToTimeString } from '@/lib/utils/numberToTimeString'
+import { dayOfWeek } from '@/lib/utils/dayOfWeek'
+
+import { LocationServices } from './LocationServices'
+import { HealthServices } from './HealthServices'
+import { OperatingStatusFlags } from './OperatingStatus'
+import { Address } from './Address'
+import { Phone } from './Phone'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -13,12 +24,57 @@ export function HealthCareLocalFacility({
   introText,
   operatingStatusFacility,
   menu,
+  path,
+  administration,
+  vamcEhrSystem,
+  officeHours,
+  address,
+  phoneNumber,
+  vaHealthConnectPhoneNumber,
+  image,
+  facilityLocatorApiId,
+  geoLocation,
+  fieldTelephone,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
   useEffect(() => {
     window.sideNav = menu
   })
+
+  const structuredSchemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: `${address.address_line1}${
+        address.address_line2 ? `, ${address.address_line2}` : ''
+      }`,
+      addressLocality: address.locality,
+      addressRegion: address.administrative_area,
+      postalCode: address.postal_code,
+    },
+    name: title,
+    telephone: phoneNumber,
+    openingHoursSpecification: officeHours.map((hours) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: `https://schema.org/${dayOfWeek(hours.day)}`,
+      opens: numberToTimeString(hours.starthours),
+      closes: numberToTimeString(hours.endhours),
+    })),
+    hasMap: `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
+      `${address.address_line1}, ${address.locality}, ${address.postal_code}`
+    )}`,
+    // Shouldn't need all these optional chains, but because we're not
+    // validating data during runtime, just in case...
+    image: image?.links?.['2_1_large']?.href,
+    branchCode: facilityLocatorApiId,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: geoLocation?.lat ?? '',
+      longitude: geoLocation?.lon ?? '',
+    },
+  }
 
   return (
     <div className="interior" id="content">
@@ -37,43 +93,65 @@ export function HealthCareLocalFacility({
               </div>
             )}
 
-            <div className="usa-grid usa-grid-full vads-u-margin-bottom--6">
-              <div>TODO: facilities_health_services_buttons</div>
-            </div>
+            <TopTasks
+              path={path}
+              administration={administration}
+              vamcEhrSystem={vamcEhrSystem}
+            />
 
             <va-on-this-page></va-on-this-page>
 
             {/* Main content */}
-            <h2 className="vads-u-margin-bottom--3">
+            <h2
+              id="location-and-contact-information"
+              className="vads-u-margin-bottom--3"
+            >
               Location and contact information
             </h2>
             <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
               <div className="usa-width-two-thirds">
                 <div>
-                  <div>TODO: Operating status flags</div>
+                  <OperatingStatusFlags
+                    operatingStatusFacility={operatingStatusFacility}
+                    menu={menu}
+                  />
                   <section>
-                    <script type="application/ld+json">
-                      {/* TODO: Fill this in */}
-                    </script>
+                    {/* Embedding structured data scripts for schema.org */}
+                    <script
+                      type="application/ld+json"
+                      dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(structuredSchemaData),
+                      }}
+                    />
 
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    <h3
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                      id="address-heading"
+                    >
                       Address
                     </h3>
-                    <div>TODO: Address stuff</div>
+                    <Address address={address} title={title} />
 
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    <h3
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                      id="phone-numbers"
+                    >
                       Phone numbers
                     </h3>
-                    <div>TODO: Phone numbers</div>
+                    <Phone
+                      phoneNumber={phoneNumber}
+                      vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
+                      fieldTelephone={fieldTelephone}
+                    />
                     <div>TODO: Office hours</div>
                   </section>
                 </div>
               </div>
               <div>TODO: Image and static map</div>
             </div>
-            <div>TODO: Location services section</div>
+            <LocationServices />
             <div>TODO: List of links section</div>
-            <div>TODO: Local health services section</div>
+            <HealthServices />
             <div>TODO: Patient satisfaction scores section</div>
             <div>TODO: Social links section</div>
             <va-back-to-top></va-back-to-top>
@@ -83,50 +161,4 @@ export function HealthCareLocalFacility({
       </div>
     </div>
   )
-}
-
-/**
- * TODO: Fix up the links by passing in the sidebar data, then add the tests for
- * it.
- */
-const OperatingStatusFlags = ({
-  operatingStatusFacility,
-}: Pick<FormattedHealthCareLocalFacility, 'operatingStatusFacility'>) => {
-  if (operatingStatusFacility == 'notice') {
-    return (
-      <va-alert status="info" slim visible>
-        <va-link
-          class="vads-u-font-weight--bold operating-status-link"
-          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
-          text="Facility notice"
-        />
-      </va-alert>
-    )
-  }
-
-  if (operatingStatusFacility == 'limited') {
-    return (
-      <va-alert status="warning" slim visible>
-        <va-link
-          class="vads-u-font-weight--bold operating-status-link"
-          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
-          text="Limited services and hours"
-        />
-      </va-alert>
-    )
-  }
-
-  if (operatingStatusFacility == 'closed') {
-    return (
-      <va-alert status="error" slim visible>
-        <va-link
-          class="vads-u-font-weight--bold operating-status-link"
-          href="{{ facilitySidebar.links.0.url.path }}/operating-status"
-          text="Facility closed"
-        />
-      </va-alert>
-    )
-  }
-
-  return null
 }

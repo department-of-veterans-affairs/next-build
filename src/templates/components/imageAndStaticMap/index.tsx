@@ -26,7 +26,9 @@ export const ImageAndStaticMap: React.FC<ImageAndStaticMapProps> = ({
           className="facility-img"
         />
       </div>
-      <div data-widget-type="facility-map" data-facility={facilityId}></div>
+      <div data-widget-type="facility-map" data-facility={facilityId}>
+        {/* TODO: Create Facility Map component for display here */}
+      </div>
     </div>
   )
 }

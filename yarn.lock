@@ -5997,6 +5997,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axe-core@npm:^4.10.3":
+  version: 4.10.3
+  resolution: "axe-core@npm:4.10.3"
+  checksum: e89fa5bcad9216f2de29bbdf95d6211d8c5b1025cbdcf56b6695c18b2e9a1eebd0b997a0141334169f6f062fc68fd39a5b97f86348d9f5be05958eade5c1ec78
+  languageName: node
+  linkType: hard
+
 "axios@npm:^1.6.3, axios@npm:^1.6.5":
   version: 1.7.7
   resolution: "axios@npm:1.7.7"
@@ -7653,6 +7660,22 @@ __metadata:
     es-errors: ^1.3.0
     is-data-view: ^1.0.1
   checksum: 7f0bf8720b7414ca719eedf1846aeec392f2054d7af707c5dc9a753cc77eb8625f067fa901e0b5127e831f9da9056138d894b9c2be79c27a21f6db5824f009c2
+  languageName: node
+  linkType: hard
+
+"date-fns-tz@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "date-fns-tz@npm:3.2.0"
+  peerDependencies:
+    date-fns: ^3.0.0 || ^4.0.0
+  checksum: c49289a3944fc1eacaa08649c2c1adc1652456d405841f2093fdd365596dac46553a303629b5d528c3f5e4c49919fc3d3ff98da93ad32a1a193243aa04cc0987
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "date-fns@npm:4.1.0"
+  checksum: fb681b242cccabed45494468f64282a7d375ea970e0adbcc5dcc92dcb7aba49b2081c2c9739d41bf71ce89ed68dd73bebfe06ca35129490704775d091895710b
   languageName: node
   linkType: hard
 
@@ -13417,12 +13440,14 @@ __metadata:
     "@types/uuid": ^9.0.7
     "@typescript-eslint/eslint-plugin": ^7.16.1
     "@typescript-eslint/parser": ^8.7.0
-    axe-core: ^4.10.0
+    axe-core: ^4.10.3
     axios: ^1.6.3
     chalk: ^5.3.0
     chrome-launcher: ^1.1.2
     clsx: ^2.1.0
     commander: ^12.0.0
+    date-fns: ^4.1.0
+    date-fns-tz: ^3.2.0
     debug: ^4.3.4
     drupal-jsonapi-params: ^2.3.1
     env-loader: 0.1.0

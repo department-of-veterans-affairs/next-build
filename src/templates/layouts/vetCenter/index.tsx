@@ -274,7 +274,7 @@ export function VetCenter({
             className="vads-u-margin-top--0 vads-u-font-size--lg
           mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
           >
-            In the spotlight at {title}
+            In the spotlight
           </h2>
           <div
             id="field-vet-center-feature-content"

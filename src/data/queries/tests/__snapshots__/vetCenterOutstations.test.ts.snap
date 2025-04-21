@@ -1,0 +1,1223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VetCenterOutstation formatData handles ccFeaturedContent not getting fetched 1`] = `
+{
+  "address": {
+    "address_line1": "95A Ashley Avenue",
+    "address_line2": "Suite A",
+    "administrative_area": "MA",
+    "country_code": "US",
+    "dependent_locality": null,
+    "langcode": null,
+    "locality": "West Springfield",
+    "postal_code": "01089-1352",
+    "sorting_code": null,
+  },
+  "administration": {
+    "changed": "2023-04-03T19:41:40+00:00",
+    "content_translation_created": null,
+    "content_translation_outdated": false,
+    "content_translation_source": "und",
+    "content_translation_uid": null,
+    "default_langcode": true,
+    "description": null,
+    "drupal_internal__revision_id": 1772,
+    "drupal_internal__tid": 391,
+    "field_description": null,
+    "field_product": {
+      "id": "df97467b-47dc-4a33-8e75-a0639e49566f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 289,
+      },
+      "type": "taxonomy_term--products",
+    },
+    "id": "3730b44e-1850-4598-b7fb-797f217f25ae",
+    "langcode": "en",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/3730b44e-1850-4598-b7fb-797f217f25ae?resourceVersion=id%3A1772",
+      },
+    },
+    "metatag": [
+      {
+        "attributes": {
+          "content": "Springfield, MA Vet Center | VA.gov CMS",
+          "name": "title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vet-centers/springfield-ma-vet-center",
+          "rel": "canonical",
+        },
+        "tag": "link",
+      },
+    ],
+    "moderation_state": null,
+    "name": "Springfield, MA Vet Center",
+    "parent": [
+      {
+        "id": "0f3b388d-79ef-4897-b7f1-d6f9f6347656",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1013,
+        },
+        "type": "taxonomy_term--administration",
+      },
+    ],
+    "path": {
+      "alias": "/section/vha/vet-centers/springfield-ma-vet-center",
+      "langcode": "en",
+      "pid": 18770,
+    },
+    "relationshipNames": [
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_product",
+    ],
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 391,
+    },
+    "revision_created": "2023-04-03T19:41:40+00:00",
+    "revision_translation_affected": true,
+    "revision_user": {
+      "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 0,
+      },
+      "type": "user--user",
+    },
+    "status": true,
+    "type": "taxonomy_term--administration",
+    "vid": {
+      "id": "645055c5-e567-4683-b6db-459ce04522ce",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "administration",
+      },
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+    },
+    "weight": 0,
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "Springfield, MA Vet Center",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/springfield-ma-vet-center",
+    },
+  ],
+  "ccNonTraditionalHours": {
+    "html": "<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>",
+    "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
+    "type": "paragraph--wysiwyg",
+  },
+  "ccVetCenterCallCenter": {
+    "html": "<p>Our call center is available 24/7. Call us anytime at <a href="tel:+18779278387" aria-label="8 7 7. 9 2 7. 8 3 8 7.">877-927-8387</a>.</p>",
+    "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
+    "type": "paragraph--wysiwyg",
+  },
+  "ccVetCenterFaqs": {
+    "displayAccordion": true,
+    "header": "How we’re different than a clinic",
+    "id": "5f582f12-b72f-4a35-a9df-411485c8e446",
+    "intro": "Click on a topic for more details.",
+    "questions": [
+      {
+        "answers": [
+          {
+            "html": "<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They’re staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>
+
+<p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>
+",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29903",
+        "question": "What are Vet Centers?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>You may be eligible for Vet Center services no matter your discharge status or eligibility for VA health care. And we encourage you to contact us, even if you’re not sure if you’re eligible. If we can’t help you, we’ll find someone who can.&nbsp;</p><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re eligible if you meet any of these service requirements:&nbsp;</strong></p><ul><li>You served on active duty in any combat theater or area of hostility, <strong>or</strong>&nbsp;</li><li>You provided mortuary services or direct emergency medical care to treat the casualties of war while on active duty, <strong>or&nbsp;</strong></li><li>You were a member of an unmanned aerial vehicle crew that provided direct support to operations in a combat theater or area of hostility, <strong>or&nbsp;</strong></li><li>You served on active duty in response to a national emergency or major disaster declared by the president, or under orders of the governor or chief executive of a state in response to a disaster or civil disorder, <strong>or</strong> &nbsp;</li><li>You’re a current or former member of the Coast Guard who participated in a drug interdiction operation, <strong>or</strong>&nbsp;</li><li>You’re a current member of the Reserve Component assigned to a military command in a drill status, including active Reserves, and you need to address a behavioral health condition or psychological trauma that is related to your military service</li></ul><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re also eligible for Vet Center services if any of these descriptions is true for you:&nbsp;</strong></p><ul><li>You’re a Vietnam Era Veteran who used Vet Center services before January 2, 2013, <strong>or</strong>&nbsp;</li><li>You experienced military sexual trauma (no matter your gender or service era), <strong>or</strong>&nbsp;</li><li>You&nbsp;currently use any covered VA educational assistance benefits</li></ul>",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29905",
+        "question": "Am I eligible for Vet Center services as a Veteran or service member?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>You can use our counseling and other support services when your participation would support the growth and goals of the Veteran or service member in your family. If the Veteran or service member considers you family, so do we.&nbsp;&nbsp;</p>
+
+<p>You can also use our bereavement services if any of these descriptions is true for your family:&nbsp;</p>
+
+<ul>
+	<li>
+	<p>The Veteran or service member died while serving on active duty, <strong>or</strong></p>
+	</li>
+	<li>
+	<p>The Veteran was using Vet Center services at the time of their death, <strong>or</strong></p>
+	</li>
+</ul>
+
+<ul>
+	<li>
+	<p>The Veteran or service member died by suicide&nbsp;</p>
+	</li>
+</ul>
+",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "132828",
+        "question": "Am I eligible for Vet Center services as a military family member?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>No. You don’t have to be enrolled in VA health care or have a service-connected disability.</p>
+",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29907",
+        "question": "Do I have to be enrolled in VA health care to access Vet Center services?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p><strong>Safe and confidential.</strong> Our records can’t be accessed by other VA offices, the DoD, military units, or other community networks and providers without your permission or unless required to avert a life-threatening situation. Here, you can be as open as you want—there’s absolutely no judgment.</p>
+",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29909",
+        "question": "What about my privacy?",
+      },
+    ],
+    "type": "paragraph--q_a_section",
+  },
+  "ccVetCenterFeaturedCon": {
+    "fetched": false,
+  },
+  "counselingHealthServices": [
+    {
+      "alsoKnownAs": null,
+      "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
+",
+      "commonlyTreatedCondition": null,
+      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
+      "name": "Military sexual trauma care",
+      "vetCenterComConditions": null,
+      "vetCenterFriendlyName": null,
+      "vetCenterServiceDescription": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+      "vetCenterTypeOfCare": "counseling",
+    },
+  ],
+  "entityId": 3599,
+  "entityPath": "/springfield-ma-vet-center",
+  "featuredContent": [
+    {
+      "behavior_settings": [],
+      "content_translation_changed": null,
+      "content_translation_outdated": false,
+      "content_translation_source": "und",
+      "created": "2022-01-24T17:10:21+00:00",
+      "default_langcode": true,
+      "drupal_internal__id": 102531,
+      "drupal_internal__revision_id": 1130733,
+      "field_cta": {
+        "behavior_settings": [],
+        "content_translation_changed": null,
+        "content_translation_outdated": false,
+        "content_translation_source": "und",
+        "created": "2021-07-29T16:54:49+00:00",
+        "default_langcode": true,
+        "drupal_internal__id": 68850,
+        "drupal_internal__revision_id": 400047,
+        "field_button_label": "View 2-minute video on YouTube",
+        "field_button_link": {
+          "options": [],
+          "title": "",
+          "uri": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
+        },
+        "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+        "langcode": "en",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/button/4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12?resourceVersion=id%3A400047",
+          },
+        },
+        "paragraph_type": {
+          "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "button",
+          },
+          "type": "paragraphs_type--paragraphs_type",
+        },
+        "parent_field_name": "field_cta",
+        "parent_id": "68851",
+        "parent_type": "paragraph",
+        "relationshipNames": [
+          "paragraph_type",
+        ],
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 68850,
+          "target_revision_id": 400047,
+        },
+        "revision_translation_affected": null,
+        "status": true,
+        "type": "paragraph--button",
+      },
+      "field_description": {
+        "format": "rich_text_limited",
+        "processed": "<p>We partner with the Massachusetts Bonus Division to make sure Veterans get their Welcome Home bonuses.&nbsp; You may be eligible for $250-$1000&nbsp; per deployment.&nbsp;</p>
+",
+        "value": "<p>We partner with the Massachusetts Bonus Division to make sure Veterans get their Welcome Home bonuses.&nbsp; You may be eligible for $250-$1000&nbsp; per deployment.&nbsp;</p>
+",
+      },
+      "field_section_header": "Make Sure to Receive Your Welcome Home Bonuses",
+      "id": "373e794c-923d-4bd9-8a7b-436ed6d47cb9",
+      "langcode": "en",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/featured_content/373e794c-923d-4bd9-8a7b-436ed6d47cb9?resourceVersion=id%3A1130733",
+        },
+      },
+      "paragraph_type": {
+        "id": "b155f453-d9f4-463a-b875-88d9683088e2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "featured_content",
+        },
+        "type": "paragraphs_type--paragraphs_type",
+      },
+      "parent_field_name": "field_vet_center_feature_content",
+      "parent_id": "3599",
+      "parent_type": "node",
+      "relationshipNames": [
+        "paragraph_type",
+        "field_cta",
+      ],
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 102531,
+        "target_revision_id": 1130733,
+      },
+      "revision_translation_affected": true,
+      "status": true,
+      "type": "paragraph--featured_content",
+    },
+    {
+      "behavior_settings": [],
+      "content_translation_changed": "2023-11-01T14:25:53+00:00",
+      "content_translation_outdated": false,
+      "content_translation_source": "und",
+      "created": "2023-11-01T14:25:53+00:00",
+      "default_langcode": true,
+      "drupal_internal__id": 141076,
+      "drupal_internal__revision_id": 1130734,
+      "field_cta": null,
+      "field_description": {
+        "format": "rich_text_limited",
+        "processed": "<p>Qigong is a mind-body-spirit practice that involves breathing, movement, sound, self-massage, and focused intent. This weekly Vet Center class is designed to help with stress, chronic pain, anger issues, fitness and overall health.</p>
+",
+        "value": "<p>Qigong is a mind-body-spirit practice that involves breathing, movement, sound, self-massage, and focused intent. This weekly Vet Center class is designed to help with stress, chronic pain, anger issues, fitness and overall health.</p>
+",
+      },
+      "field_section_header": "Qi Gong is back by popular demand",
+      "id": "1a1c758b-e45f-4b99-9594-9793b1674f76",
+      "langcode": "en",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/featured_content/1a1c758b-e45f-4b99-9594-9793b1674f76?resourceVersion=id%3A1130734",
+        },
+      },
+      "paragraph_type": {
+        "id": "b155f453-d9f4-463a-b875-88d9683088e2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "featured_content",
+        },
+        "type": "paragraphs_type--paragraphs_type",
+      },
+      "parent_field_name": "field_vet_center_feature_content",
+      "parent_id": "3599",
+      "parent_type": "node",
+      "relationshipNames": [
+        "paragraph_type",
+        "field_cta",
+      ],
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 141076,
+        "target_revision_id": 1130734,
+      },
+      "revision_translation_affected": true,
+      "status": true,
+      "type": "paragraph--featured_content",
+    },
+  ],
+  "fieldFacilityLocatorApiId": "vc_0103V",
+  "geolocation": {
+    "bottom": 42.13908173,
+    "geo_type": "Point",
+    "geohash": "drkrerhmyw0ty8",
+    "lat": 42.13908173,
+    "latlon": "42.13908173,-72.62449885",
+    "left": -72.62449885,
+    "lon": -72.62449885,
+    "right": -72.62449885,
+    "top": 42.13908173,
+    "value": "POINT (-72.62449885 42.13908173)",
+  },
+  "healthServices": [
+    {
+      "alsoKnownAs": null,
+      "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
+",
+      "commonlyTreatedCondition": null,
+      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
+      "name": "Military sexual trauma care",
+      "vetCenterComConditions": null,
+      "vetCenterFriendlyName": null,
+      "vetCenterServiceDescription": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+      "vetCenterTypeOfCare": "counseling",
+    },
+  ],
+  "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
+  "image": {
+    "alt": "Springfield MA Vet Center",
+    "height": 3024,
+    "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+      },
+    },
+    "title": "",
+    "type": "media--image",
+    "width": 4032,
+  },
+  "introText": "We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as transitioning after a deployment or discharge from military service, depression, posttraumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST). We can also connect you with more support in VA and your community.",
+  "lastSavedByAnEditor": "2023-11-22T18:04:07+00:00",
+  "lastUpdated": "2023-11-22T18:04:07+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Springfield, MA Vet Center | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as transitioning after a deployment or discharge from military service, depression, posttraumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST). We can also connect you with more support in VA and your community.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Springfield, MA Vet Center | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as transitioning after a deployment or discharge from military service, depression, posttraumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST). We can also connect you with more support in VA and your community.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2021-06/spfld%20vet%20center%20photo_4.jpg?h=c6356238",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Springfield MA Vet Center",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Springfield, MA Vet Center | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2021-06/spfld%20vet%20center%20photo_4.jpg?h=c6356238",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Springfield MA Vet Center",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "officeHours": [
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 0,
+      "endhours": null,
+      "starthours": null,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 1,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 2,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 3,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 4,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 5,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 6,
+      "endhours": null,
+      "starthours": null,
+    },
+  ],
+  "officialName": "Springfield, MA Vet Center",
+  "operatingStatusFacility": "normal",
+  "operatingStatusMoreInfo": null,
+  "otherHealthServices": [],
+  "path": "/springfield-ma-vet-center",
+  "phoneNumber": "413-737-5167",
+  "prepareForVisit": [
+    {
+      "entityId": 44704,
+      "header": "Appointments",
+      "html": "<p><strong>Contacting the Springfield Vet Center</strong></p>
+<ul>
+<li>Please call <strong>413-737-5167</strong> to speak with a staff member that will assist you with scheduling an appointment, questions you may have or provide an appropriate referral.</li>
+<li>Same day services available, call for details.</li>
+<li>Non-traditional hours (including every other Saturday) available by appointment.</li>
+<li>If you call us and reach the 24/7 Vet Center Call Center which is located in Colorado, you may leave a message with their team.&nbsp; They can provide a warm hand-off to us and we will contact you right away.&nbsp; If you call outside of our normal operating hours the Vet Center Call Center will answer your call.</li>
+<li>
+<p><strong>Cancelling or rescheduling an appointment:</strong></p>
+</li>
+<li>If&nbsp; you know you will miss an appointment please call to cancel 24 hours in advance.</li>
+<li>If you have an appointment conflict and need to reschedule please notify us as soon as possible so we can reschedule your appointment an make that time available for another Veteran.</li>
+</ul>
+",
+      "id": "a8fd29f6-abfa-4e0a-9e50-2a97ffa0ac2d",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 44705,
+      "header": "Parking",
+      "html": "<p>Cost: Free</p>
+<p>We have a large well-lit parking area. In addition, we have a motorcycle parking pad located at the front of the facility. Please feel free to park in any available space.</p>
+",
+      "id": "3302175a-0070-4a4b-838b-7115c5d61d64",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 44706,
+      "header": "Transportation services and schedule",
+      "html": "<p><strong>Bus:</strong> Pioneer Valley Transit Authority has a stop within 500 ft of the Springfield Vet Center. Visit <a href="http://www.pvta.com/schedules.php">http://www.pvta.com/schedules.php</a>.</p>
+<p>&nbsp;</p>
+<p><strong>DAV: </strong>Local DAV Transportation may be contacted&nbsp;directly at <strong>413-582-3078</strong>. Veteran must provide the following information to schedule transportation services; first and last name, Last 4 SSN, pick up street address, contact number, location of appointment, and time of appointment.</p>
+<p>Check with your local senior center for low cost transportation options.</p>
+",
+      "id": "90289c88-e193-4237-a74e-8cef0152413f",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 44707,
+      "header": "What to bring",
+      "html": "<p>You do not need to be registered for care at VA, rated for a service connected disability, or receiving any other form of VA benefits. On your first visit, we will look for one or more of the following:</p>
+<ul>
+<li>Discharge documents (such as a DD214)</li>
+<li>Receipt of certain awards</li>
+<li>Deployment orders</li>
+<li>Other documents that show qualifying military service</li>
+</ul>
+<p><a href="https://www.va.gov/records/get-military-service-records/">Request your military service records online</a>.</p>
+<p>If you don’t have these documents on-hand, come in and we can work with you to establish your eligibility and also answer any questions you might have.</p>
+",
+      "id": "51f4fa5e-d955-4262-8143-219654843227",
+      "type": "paragraph--basic_accordion",
+    },
+  ],
+  "published": true,
+  "referralHealthServices": [],
+  "timezone": "America/New_York",
+  "title": "Springfield, MA Vet Center",
+  "type": "node--vet_center",
+  "vetCenterFeatureContent": {
+    "description": "<p>We partner with the Massachusetts Bonus Division to make sure Veterans get their Welcome Home bonuses.&nbsp; You may be eligible for $250-$1000&nbsp; per deployment.&nbsp;</p>
+",
+    "entityId": 102531,
+    "id": "373e794c-923d-4bd9-8a7b-436ed6d47cb9",
+    "link": {
+      "entityId": 68850,
+      "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+      "label": "View 2-minute video on YouTube",
+      "type": "paragraph--button",
+      "url": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
+    },
+    "title": "Make Sure to Receive Your Welcome Home Bonuses",
+    "type": "paragraph--featured_content",
+  },
+}
+`;
+
+exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
+{
+  "address": {
+    "address_line1": "95A Ashley Avenue",
+    "address_line2": "Suite A",
+    "administrative_area": "MA",
+    "country_code": "US",
+    "dependent_locality": null,
+    "langcode": null,
+    "locality": "West Springfield",
+    "postal_code": "01089-1352",
+    "sorting_code": null,
+  },
+  "administration": {
+    "changed": "2023-04-03T19:41:40+00:00",
+    "content_translation_created": null,
+    "content_translation_outdated": false,
+    "content_translation_source": "und",
+    "content_translation_uid": null,
+    "default_langcode": true,
+    "description": null,
+    "drupal_internal__revision_id": 1772,
+    "drupal_internal__tid": 391,
+    "field_description": null,
+    "field_product": {
+      "id": "df97467b-47dc-4a33-8e75-a0639e49566f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 289,
+      },
+      "type": "taxonomy_term--products",
+    },
+    "id": "3730b44e-1850-4598-b7fb-797f217f25ae",
+    "langcode": "en",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/3730b44e-1850-4598-b7fb-797f217f25ae?resourceVersion=id%3A1772",
+      },
+    },
+    "metatag": [
+      {
+        "attributes": {
+          "content": "Springfield, MA Vet Center | VA.gov CMS",
+          "name": "title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vet-centers/springfield-ma-vet-center",
+          "rel": "canonical",
+        },
+        "tag": "link",
+      },
+    ],
+    "moderation_state": null,
+    "name": "Springfield, MA Vet Center",
+    "parent": [
+      {
+        "id": "0f3b388d-79ef-4897-b7f1-d6f9f6347656",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1013,
+        },
+        "type": "taxonomy_term--administration",
+      },
+    ],
+    "path": {
+      "alias": "/section/vha/vet-centers/springfield-ma-vet-center",
+      "langcode": "en",
+      "pid": 18770,
+    },
+    "relationshipNames": [
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_product",
+    ],
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 391,
+    },
+    "revision_created": "2023-04-03T19:41:40+00:00",
+    "revision_translation_affected": true,
+    "revision_user": {
+      "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 0,
+      },
+      "type": "user--user",
+    },
+    "status": true,
+    "type": "taxonomy_term--administration",
+    "vid": {
+      "id": "645055c5-e567-4683-b6db-459ce04522ce",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "administration",
+      },
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+    },
+    "weight": 0,
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "Springfield, MA Vet Center",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/springfield-ma-vet-center",
+    },
+  ],
+  "ccNonTraditionalHours": {
+    "html": "<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>",
+    "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
+    "type": "paragraph--wysiwyg",
+  },
+  "ccVetCenterCallCenter": {
+    "html": "<p>Our call center is available 24/7. Call us anytime at <a href="tel:+18779278387" aria-label="8 7 7. 9 2 7. 8 3 8 7.">877-927-8387</a>.</p>",
+    "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
+    "type": "paragraph--wysiwyg",
+  },
+  "ccVetCenterFaqs": {
+    "displayAccordion": true,
+    "header": "How we’re different than a clinic",
+    "id": "5f582f12-b72f-4a35-a9df-411485c8e446",
+    "intro": "Click on a topic for more details.",
+    "questions": [
+      {
+        "answers": [
+          {
+            "html": "<p>Vet Centers are small, non-medical, counseling centers conveniently located in your community. They’re staffed by highly trained counselors and team members dedicated to seeing you through the challenges that come with managing life during and after the military.</p>
+
+<p>Whether you come in for one-on-one counseling or to participate in a group session, at Vet Centers you can form social connections, try new things, and build a support system with people who understand you and want to help you succeed.</p>
+",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29903",
+        "question": "What are Vet Centers?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>You may be eligible for Vet Center services no matter your discharge status or eligibility for VA health care. And we encourage you to contact us, even if you’re not sure if you’re eligible. If we can’t help you, we’ll find someone who can.&nbsp;</p><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re eligible if you meet any of these service requirements:&nbsp;</strong></p><ul><li>You served on active duty in any combat theater or area of hostility, <strong>or</strong>&nbsp;</li><li>You provided mortuary services or direct emergency medical care to treat the casualties of war while on active duty, <strong>or&nbsp;</strong></li><li>You were a member of an unmanned aerial vehicle crew that provided direct support to operations in a combat theater or area of hostility, <strong>or&nbsp;</strong></li><li>You served on active duty in response to a national emergency or major disaster declared by the president, or under orders of the governor or chief executive of a state in response to a disaster or civil disorder, <strong>or</strong> &nbsp;</li><li>You’re a current or former member of the Coast Guard who participated in a drug interdiction operation, <strong>or</strong>&nbsp;</li><li>You’re a current member of the Reserve Component assigned to a military command in a drill status, including active Reserves, and you need to address a behavioral health condition or psychological trauma that is related to your military service</li></ul><p><strong>If you’re a Veteran or service member (including National Guard and Reserves), you’re also eligible for Vet Center services if any of these descriptions is true for you:&nbsp;</strong></p><ul><li>You’re a Vietnam Era Veteran who used Vet Center services before January 2, 2013, <strong>or</strong>&nbsp;</li><li>You experienced military sexual trauma (no matter your gender or service era), <strong>or</strong>&nbsp;</li><li>You&nbsp;currently use any covered VA educational assistance benefits</li></ul>",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29905",
+        "question": "Am I eligible for Vet Center services as a Veteran or service member?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>You can use our counseling and other support services when your participation would support the growth and goals of the Veteran or service member in your family. If the Veteran or service member considers you family, so do we.&nbsp;&nbsp;</p>
+
+<p>You can also use our bereavement services if any of these descriptions is true for your family:&nbsp;</p>
+
+<ul>
+	<li>
+	<p>The Veteran or service member died while serving on active duty, <strong>or</strong></p>
+	</li>
+	<li>
+	<p>The Veteran was using Vet Center services at the time of their death, <strong>or</strong></p>
+	</li>
+</ul>
+
+<ul>
+	<li>
+	<p>The Veteran or service member died by suicide&nbsp;</p>
+	</li>
+</ul>
+",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "132828",
+        "question": "Am I eligible for Vet Center services as a military family member?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>No. You don’t have to be enrolled in VA health care or have a service-connected disability.</p>
+",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29907",
+        "question": "Do I have to be enrolled in VA health care to access Vet Center services?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p><strong>Safe and confidential.</strong> Our records can’t be accessed by other VA offices, the DoD, military units, or other community networks and providers without your permission or unless required to avert a life-threatening situation. Here, you can be as open as you want—there’s absolutely no judgment.</p>
+",
+          },
+        ],
+        "header": "Vet Center -- Facility pages > Content > Questions",
+        "id": "29909",
+        "question": "What about my privacy?",
+      },
+    ],
+    "type": "paragraph--q_a_section",
+  },
+  "ccVetCenterFeaturedCon": {
+    "fetched": {
+      "field_cta": [
+        {
+          "bundle": "button",
+          "field_button_label": [
+            {
+              "value": "View the new locations here!",
+            },
+          ],
+          "field_button_link": [
+            {
+              "options": {
+                "data-entity-substitution": "",
+                "data-entity-type": "",
+                "data-entity-uuid": "",
+                "href": "https://www.vetcenter.va.gov/New_Vet_Centers.asp",
+              },
+              "title": "",
+              "uri": "https://www.vetcenter.va.gov/New_Vet_Centers.asp",
+            },
+          ],
+          "label": "Vet Center -- Facility pages > Content > Call to Action",
+          "langcode": "en",
+          "pid": "32956",
+          "status": true,
+          "target_id": "32956",
+          "target_revision_id": "1156765",
+          "type": "paragraph",
+        },
+      ],
+      "field_description": [
+        {
+          "format": "rich_text_limited",
+          "processed": "<p>To improve access to counseling, we are adding three Vet Centers and six satellite locations across the US and its territories. We will continue to expand our program to meet Veteran demand and provide local support to those who served.&nbsp;</p>
+",
+          "value": "<p>To improve access to counseling, we are adding three Vet Centers and six satellite locations across the US and its territories. We will continue to expand our program to meet Veteran demand and provide local support to those who served.&nbsp;</p>",
+        },
+      ],
+      "field_section_header": [
+        {
+          "value": "New Vet Centers and Satellite Locations Announced",
+        },
+      ],
+    },
+    "fetched_bundle": "featured_content",
+    "target_field": null,
+    "target_id": "32957",
+    "target_type": "paragraph",
+  },
+  "counselingHealthServices": [
+    {
+      "alsoKnownAs": null,
+      "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
+",
+      "commonlyTreatedCondition": null,
+      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
+      "name": "Military sexual trauma care",
+      "vetCenterComConditions": null,
+      "vetCenterFriendlyName": null,
+      "vetCenterServiceDescription": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+      "vetCenterTypeOfCare": "counseling",
+    },
+  ],
+  "entityId": 3599,
+  "entityPath": "/springfield-ma-vet-center",
+  "featuredContent": [
+    {
+      "description": "<p>To improve access to counseling, we are adding three Vet Centers and six satellite locations across the US and its territories. We will continue to expand our program to meet Veteran demand and provide local support to those who served.&nbsp;</p>
+",
+      "entityId": null,
+      "id": "32957",
+      "link": {
+        "entityId": "32956",
+        "id": "32956",
+        "label": "View the new locations here!",
+        "type": "paragraph--button",
+        "url": "https://www.vetcenter.va.gov/New_Vet_Centers.asp",
+      },
+      "title": "New Vet Centers and Satellite Locations Announced",
+      "type": "paragraph--featured_content",
+    },
+    {
+      "description": "<p>We partner with the Massachusetts Bonus Division to make sure Veterans get their Welcome Home bonuses.&nbsp; You may be eligible for $250-$1000&nbsp; per deployment.&nbsp;</p>
+",
+      "entityId": 102531,
+      "id": "373e794c-923d-4bd9-8a7b-436ed6d47cb9",
+      "link": {
+        "entityId": 68850,
+        "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+        "label": "View 2-minute video on YouTube",
+        "type": "paragraph--button",
+        "url": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
+      },
+      "title": "Make Sure to Receive Your Welcome Home Bonuses",
+      "type": "paragraph--featured_content",
+    },
+    {
+      "description": "<p>Qigong is a mind-body-spirit practice that involves breathing, movement, sound, self-massage, and focused intent. This weekly Vet Center class is designed to help with stress, chronic pain, anger issues, fitness and overall health.</p>
+",
+      "entityId": 141076,
+      "id": "1a1c758b-e45f-4b99-9594-9793b1674f76",
+      "link": null,
+      "title": "Qi Gong is back by popular demand",
+      "type": "paragraph--featured_content",
+    },
+  ],
+  "fieldFacilityLocatorApiId": "vc_0103V",
+  "geolocation": {
+    "bottom": 42.13908173,
+    "geo_type": "Point",
+    "geohash": "drkrerhmyw0ty8",
+    "lat": 42.13908173,
+    "latlon": "42.13908173,-72.62449885",
+    "left": -72.62449885,
+    "lon": -72.62449885,
+    "right": -72.62449885,
+    "top": 42.13908173,
+    "value": "POINT (-72.62449885 42.13908173)",
+  },
+  "healthServices": [
+    {
+      "alsoKnownAs": null,
+      "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
+",
+      "commonlyTreatedCondition": null,
+      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
+      "name": "Military sexual trauma care",
+      "vetCenterComConditions": null,
+      "vetCenterFriendlyName": null,
+      "vetCenterServiceDescription": "If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.",
+      "vetCenterTypeOfCare": "counseling",
+    },
+  ],
+  "id": "2ba3ca09-2443-43ed-bbaf-8f366995ab08",
+  "image": {
+    "alt": "Springfield MA Vet Center",
+    "height": 3024,
+    "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+      },
+    },
+    "title": "",
+    "type": "media--image",
+    "width": 4032,
+  },
+  "introText": "We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as transitioning after a deployment or discharge from military service, depression, posttraumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST). We can also connect you with more support in VA and your community.",
+  "lastSavedByAnEditor": "2023-11-22T18:04:07+00:00",
+  "lastUpdated": "2023-11-22T18:04:07+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Springfield, MA Vet Center | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as transitioning after a deployment or discharge from military service, depression, posttraumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST). We can also connect you with more support in VA and your community.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Springfield, MA Vet Center | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as transitioning after a deployment or discharge from military service, depression, posttraumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST). We can also connect you with more support in VA and your community.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2021-06/spfld%20vet%20center%20photo_4.jpg?h=c6356238",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Springfield MA Vet Center",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Springfield, MA Vet Center | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/2021-06/spfld%20vet%20center%20photo_4.jpg?h=c6356238",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Springfield MA Vet Center",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "officeHours": [
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 0,
+      "endhours": null,
+      "starthours": null,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 1,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 2,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 3,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 4,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 5,
+      "endhours": 1700,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 6,
+      "endhours": null,
+      "starthours": null,
+    },
+  ],
+  "officialName": "Springfield, MA Vet Center",
+  "operatingStatusFacility": "normal",
+  "operatingStatusMoreInfo": null,
+  "otherHealthServices": [],
+  "path": "/springfield-ma-vet-center",
+  "phoneNumber": "413-737-5167",
+  "prepareForVisit": [
+    {
+      "entityId": 44704,
+      "header": "Appointments",
+      "html": "<p><strong>Contacting the Springfield Vet Center</strong></p>
+<ul>
+<li>Please call <strong>413-737-5167</strong> to speak with a staff member that will assist you with scheduling an appointment, questions you may have or provide an appropriate referral.</li>
+<li>Same day services available, call for details.</li>
+<li>Non-traditional hours (including every other Saturday) available by appointment.</li>
+<li>If you call us and reach the 24/7 Vet Center Call Center which is located in Colorado, you may leave a message with their team.&nbsp; They can provide a warm hand-off to us and we will contact you right away.&nbsp; If you call outside of our normal operating hours the Vet Center Call Center will answer your call.</li>
+<li>
+<p><strong>Cancelling or rescheduling an appointment:</strong></p>
+</li>
+<li>If&nbsp; you know you will miss an appointment please call to cancel 24 hours in advance.</li>
+<li>If you have an appointment conflict and need to reschedule please notify us as soon as possible so we can reschedule your appointment an make that time available for another Veteran.</li>
+</ul>
+",
+      "id": "a8fd29f6-abfa-4e0a-9e50-2a97ffa0ac2d",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 44705,
+      "header": "Parking",
+      "html": "<p>Cost: Free</p>
+<p>We have a large well-lit parking area. In addition, we have a motorcycle parking pad located at the front of the facility. Please feel free to park in any available space.</p>
+",
+      "id": "3302175a-0070-4a4b-838b-7115c5d61d64",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 44706,
+      "header": "Transportation services and schedule",
+      "html": "<p><strong>Bus:</strong> Pioneer Valley Transit Authority has a stop within 500 ft of the Springfield Vet Center. Visit <a href="http://www.pvta.com/schedules.php">http://www.pvta.com/schedules.php</a>.</p>
+<p>&nbsp;</p>
+<p><strong>DAV: </strong>Local DAV Transportation may be contacted&nbsp;directly at <strong>413-582-3078</strong>. Veteran must provide the following information to schedule transportation services; first and last name, Last 4 SSN, pick up street address, contact number, location of appointment, and time of appointment.</p>
+<p>Check with your local senior center for low cost transportation options.</p>
+",
+      "id": "90289c88-e193-4237-a74e-8cef0152413f",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 44707,
+      "header": "What to bring",
+      "html": "<p>You do not need to be registered for care at VA, rated for a service connected disability, or receiving any other form of VA benefits. On your first visit, we will look for one or more of the following:</p>
+<ul>
+<li>Discharge documents (such as a DD214)</li>
+<li>Receipt of certain awards</li>
+<li>Deployment orders</li>
+<li>Other documents that show qualifying military service</li>
+</ul>
+<p><a href="https://www.va.gov/records/get-military-service-records/">Request your military service records online</a>.</p>
+<p>If you don’t have these documents on-hand, come in and we can work with you to establish your eligibility and also answer any questions you might have.</p>
+",
+      "id": "51f4fa5e-d955-4262-8143-219654843227",
+      "type": "paragraph--basic_accordion",
+    },
+  ],
+  "published": true,
+  "referralHealthServices": [],
+  "timezone": "America/New_York",
+  "title": "Springfield, MA Vet Center",
+  "type": "node--vet_center",
+  "vetCenterFeatureContent": {
+    "description": "<p>We partner with the Massachusetts Bonus Division to make sure Veterans get their Welcome Home bonuses.&nbsp; You may be eligible for $250-$1000&nbsp; per deployment.&nbsp;</p>
+",
+    "entityId": 102531,
+    "id": "373e794c-923d-4bd9-8a7b-436ed6d47cb9",
+    "link": {
+      "entityId": 68850,
+      "id": "4479d0b3-0cb9-4bd9-bd27-2fa9a042fa12",
+      "label": "View 2-minute video on YouTube",
+      "type": "paragraph--button",
+      "url": "https://www.youtube.com/watch?v=VMzkZNbKk1I ",
+    },
+    "title": "Make Sure to Receive Your Welcome Home Bonuses",
+    "type": "paragraph--featured_content",
+  },
+}
+`;

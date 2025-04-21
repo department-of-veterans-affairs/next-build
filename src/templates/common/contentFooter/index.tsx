@@ -77,6 +77,7 @@ export function ContentFooter({
           <va-button
             label="Give feedback"
             id="mdFormButton"
+            disable-analytics
             onClick={() => {
               const isProduction =
                 process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD

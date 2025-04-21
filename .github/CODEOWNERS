@@ -8,3 +8,11 @@
 
 # General ownership: Next Build Team (ap-team) & Platform FE COP
 *       @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+
+# Front-end template work should be verified by product owners.
+src/templates @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+src/products/*/template.tsx @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+
+# Product code ownership
+src/products/event/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+src/products/eventListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend

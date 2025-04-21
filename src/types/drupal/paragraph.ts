@@ -160,7 +160,7 @@ export interface ParagraphPhoneNumber extends DrupalParagraph {
   field_phone_extension: string
   field_phone_label: string
   field_phone_number: string
-  field_phone_number_type: string
+  field_phone_number_type: 'sms' | 'tty' | 'fax' | string
 }
 
 export interface ParagraphProcessList extends DrupalParagraph {

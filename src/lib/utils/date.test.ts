@@ -1,3 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { jest } from '@jest/globals'
+
+jest.mock('date-fns-tz', () => ({
+  formatInTimeZone: jest.fn(),
+}))
+
 import {
   isISOString,
   parseMilliseconds,
@@ -9,6 +16,7 @@ import {
   deriveFormattedTimestamp,
   isEventInPast,
   filterPastEvents,
+  formatEventDateTime,
 } from './date'
 
 describe('isISOString', () => {
@@ -341,4 +349,91 @@ test('getDateParts should return null for falsy values', () => {
 
 test('parseDate should return null for inputs that do not match any date format', () => {
   expect(parseDate('')).toBe(null)
+})
+
+describe('formatEventDateTime', () => {
+  beforeEach(() => {
+    jest.restoreAllMocks()
+  })
+
+  afterEach(() => {
+    jest.restoreAllMocks()
+  })
+
+  /**
+   * Helper function to mock the system time zone
+   */
+  const mockUserTimeZone = (mockTimeZone: string) => {
+    jest
+      .spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions')
+      .mockReturnValue({
+        locale: 'en-US',
+        calendar: 'gregory',
+        numberingSystem: 'latn',
+        timeZone: mockTimeZone,
+      })
+  }
+
+  it('should format time based on mocked Eastern Time (ET)', () => {
+    mockUserTimeZone('America/New_York')
+    const mostRecentDate = {
+      value: 1683201600,
+      endValue: 1683208800,
+    }
+    const result = formatEventDateTime(mostRecentDate)
+    expect(result).toMatch(/Thu\. May 4, 2023, 8:00 a\.m\. – 10:00 a\.m\. ET/)
+  })
+
+  it('should format time based on mocked Pacific Time (PT)', () => {
+    mockUserTimeZone('America/Los_Angeles')
+    const mostRecentDate = {
+      value: 1683201600,
+      endValue: 1683208800,
+    }
+    const result = formatEventDateTime(mostRecentDate)
+    expect(result).toMatch(/Thu\. May 4, 2023, 5:00 a\.m\. – 7:00 a\.m\. PT/)
+  })
+
+  it('should format time to User time even when mostRecentDate has undefined timezone', () => {
+    mockUserTimeZone('America/Chicago')
+    const mostRecentDate = {
+      value: 1683201600,
+      endValue: 1683208800,
+      timezone: undefined,
+    }
+    const result = formatEventDateTime(mostRecentDate)
+    expect(result).toMatch(/Thu\. May 4, 2023, 7:00 a\.m\. – 9:00 a\.m\. CT/)
+  })
+
+  it('should return "Invalid date" for incorrect timestamps', () => {
+    mockUserTimeZone('America/New_York')
+    const mostRecentDate = {
+      value: -1,
+      endValue: -1,
+    }
+    const result = formatEventDateTime(mostRecentDate)
+    expect(result).toBe('Invalid date – Invalid date ET')
+  })
+
+  it('should format event in US timezone if user is international (Asia)', () => {
+    mockUserTimeZone('Asia/Tokyo')
+    const mostRecentDate = {
+      value: 1683201600,
+      endValue: 1683208800,
+      timezone: 'America/New_York',
+    }
+    const result = formatEventDateTime(mostRecentDate)
+    expect(result).toMatch(/Thu\. May 4, 2023, 8:00 a\.m\. – 10:00 a\.m\. ET/)
+  })
+
+  it('should correctly format an event from 12:00 a.m. to 12:00 p.m.', () => {
+    mockUserTimeZone('America/New_York')
+    const mostRecentDate = {
+      value: 1683172800,
+      endValue: 1683216000,
+      timezone: 'America/New_York',
+    }
+    const result = formatEventDateTime(mostRecentDate)
+    expect(result).toBe('Thu. May 4, 2023, 12:00 a.m. – 12:00 p.m. ET')
+  })
 })
