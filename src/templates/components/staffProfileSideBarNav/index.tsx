@@ -36,7 +36,7 @@ const StaffProfileSideBarNav: React.FC<SidebarNavProps> = ({
         <div className="left-side-nav-title">
           <h4>{link.label}</h4>
         </div>
-        <div className="sidenav-previous-page">
+        <p className="vads-u-margin-y--0">
           <va-link
             data-testid="sidebar-nav-link"
             href={
@@ -47,7 +47,7 @@ const StaffProfileSideBarNav: React.FC<SidebarNavProps> = ({
             text={parent.label}
             back
           />
-        </div>
+        </p>
       </div>
     </nav>
   )
