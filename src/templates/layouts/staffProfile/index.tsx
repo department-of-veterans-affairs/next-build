@@ -99,9 +99,9 @@ export const StaffProfile = ({
           </div>
           {completeBiographyCreate && (
             <div className="vads-u-margin-bottom--2">
-              <p className="vads-u-margin-bottom--0 va-introtext">
-                {introText}
-              </p>
+              <div className="va-introtext">
+                <p className="vads-u-margin-bottom--0">{introText}</p>
+              </div>
               <div
                 className="vads-u-margin-bottom--2"
                 dangerouslySetInnerHTML={{ __html: body }}
