@@ -50,7 +50,7 @@ export const StaffProfile = ({
               {media && (
                 <MediaImage
                   {...media}
-                  className="person-profile-detail-page-image"
+                  className="person-profile-detail-page-image vads-u-width--full"
                   imageStyle="2_3_medium_thumbnail"
                 />
               )}
