@@ -59,7 +59,7 @@ export const StaffProfile = ({
             </div>
             <div className="vads-u-display--flex vads-u-flex-direction--column">
               <h1 className="vads-u-font-size--xl vads-u-margin-bottom--0p5">
-                {firstName} {lastName} {suffix}
+                {`${firstName} ${lastName} ${suffix ? suffix : ''}`}
               </h1>
               {description ? (
                 <p className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-font-family--serif vads-u-margin-bottom--0p5">
