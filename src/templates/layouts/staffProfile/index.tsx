@@ -22,7 +22,7 @@ export const StaffProfile = ({
   completeBiography,
   completeBiographyCreate,
   photoAllowHiresDownload,
-  vamcOfficalName,
+  vamcTitle,
   media,
   menu,
   lovellVariant,
@@ -64,16 +64,15 @@ export const StaffProfile = ({
                   {description}
                 </p>
               ) : null}
-              {vamcOfficalName ? (
+              {vamcTitle ? (
                 <p
                   className="
-                      vads-u-font-weight--normal
                       vads-u-margin--0
                       vads-u-margin-bottom--0p5
                       vads-u-font-family--serif
                       vads-u-font-size--lg"
                 >
-                  {vamcOfficalName}
+                  {vamcTitle}
                   {lovellVariant ? ` - ${lovellVariant.toUpperCase()}` : ''}
                 </p>
               ) : null}

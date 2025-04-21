@@ -76,8 +76,7 @@ export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
     completeBiography: entity?.field_complete_biography?.uri || null,
     completeBiographyCreate: entity.field_complete_biography_create,
     photoAllowHiresDownload: entity.field_photo_allow_hires_download,
-    vamcOfficalName:
-      entity?.field_office?.field_vamc_system_official_name || null,
+    vamcTitle: entity?.field_office?.title || null,
     office: entity.field_office,
     menu: formattedMenu,
     administration: {

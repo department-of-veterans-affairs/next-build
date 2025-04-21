@@ -50,7 +50,7 @@ describe('StaffProfile Component', () => {
     completeBiographyCreate: true,
     completeBiography: completeBiography,
     photoAllowHiresDownload: true,
-    vamcOfficalName: 'VA Pittsburgh Healthcare System',
+    vamcTitle: 'VA Pittsburgh Healthcare System',
     media: mediaImage,
     menu: {
       depth: 5,
@@ -137,7 +137,7 @@ describe('StaffProfile Component', () => {
           url: { path: '/leadership' },
         },
       },
-      vamcOfficalName: 'Lovell Federal health care',
+      vamcTitle: 'Lovell Federal health care',
       lovellVariant: 'tricare',
       lovellSwitchPath: '/lovell-federal-health-care-va/leadership',
     }
@@ -168,7 +168,7 @@ describe('StaffProfile Component', () => {
           url: { path: '/leadership' },
         },
       },
-      vamcOfficalName: 'Lovell Federal health care',
+      vamcTitle: 'Lovell Federal health care',
       lovellVariant: 'va',
       lovellSwitchPath: '/lovell-federal-health-care-tricare/leadership',
     }
