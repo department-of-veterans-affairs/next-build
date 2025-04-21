@@ -107,29 +107,30 @@ export const StaffProfile = ({
             </div>
           )}
           {media && photoAllowHiresDownload && (
-            <div
-              className="vads-u-align-content--flex-end va-c-margin-top--auto vads-u-margin-bottom--2"
-              id="download-full-size-photo-link"
-            >
-              <i
-                className="va-c-social-icon fas fa-download"
-                aria-hidden="true"
-              ></i>
+            <p>
               {/* TODO this is not the full size photo path. We need to send the original path down from Drupal */}
-              <a href={media.links['2_3_medium_thumbnail'].href} download>
-                {' '}
-                Download full size photo
-              </a>
-            </div>
+              <va-link
+                data-testid="head-shot-download"
+                href={media.links['2_3_medium_thumbnail'].href}
+                download
+                text="Download full size photo"
+                filetype={media.links['2_3_medium_thumbnail'].href
+                  .split('.')
+                  .pop()
+                  .toUpperCase()}
+              />
+            </p>
           )}
           {completeBiography && (
-            <div className="vads-u-align-content--flex-end va-c-margin-top--auto vads-u-margin-bottom--2">
-              <i className="va-c-social-icon fas fa-download"></i>
-              <a href={completeBiography?.url} download>
-                {' '}
-                Download full bio (PDF)
-              </a>
-            </div>
+            <p>
+              <va-link
+                data-testid="complete-biography-download"
+                href={completeBiography?.url}
+                download
+                text="Download full bio"
+                filetype={completeBiography?.url.split('.').pop().toUpperCase()}
+              />
+            </p>
           )}
         </article>
       </div>

@@ -79,8 +79,27 @@ describe('StaffProfile Component', () => {
     expect(screen.getByText('Phone:')).toBeInTheDocument()
     expect(screen.getByTestId('phone')).toBeInTheDocument()
     expect(screen.getByText(mockProfile.introText)).toBeInTheDocument()
-    expect(screen.getByText(/Download full size photo/)).toBeInTheDocument()
-    expect(screen.getByText(/Download full bio/)).toBeInTheDocument()
+
+    expect(screen.getByTestId('head-shot-download')).toBeInTheDocument()
+    expect(screen.getByTestId('head-shot-download')).toHaveAttribute(
+      'href',
+      'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg'
+    )
+    expect(screen.getByTestId('head-shot-download')).toHaveAttribute(
+      'filetype',
+      'JPG'
+    )
+    expect(
+      screen.getByTestId('complete-biography-download')
+    ).toBeInTheDocument()
+    expect(screen.getByTestId('complete-biography-download')).toHaveAttribute(
+      'href',
+      'https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2023-07/RCS%20Bio%20%20Headshot.pdf'
+    )
+    expect(screen.getByTestId('complete-biography-download')).toHaveAttribute(
+      'filetype',
+      'PDF'
+    )
   })
 
   test('does not render email when it is null', () => {
@@ -110,9 +129,7 @@ describe('StaffProfile Component', () => {
     }
     render(<StaffProfile {...modifiedProfile} />)
 
-    expect(
-      screen.queryByText(/Download full size photo/)
-    ).not.toBeInTheDocument()
+    expect(screen.queryByTestId('head-shot-download')).not.toBeInTheDocument()
   })
 
   test('does not render bio download option when completeBiography is null', () => {
@@ -122,7 +139,9 @@ describe('StaffProfile Component', () => {
     }
     render(<StaffProfile {...modifiedProfile} />)
 
-    expect(screen.queryByText(/Download full bio/)).not.toBeInTheDocument()
+    expect(
+      screen.queryByTestId('complete-biography-download')
+    ).not.toBeInTheDocument()
   })
 
   describe('Lovell variants - tricare', () => {
