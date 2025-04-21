@@ -14,8 +14,8 @@ export type MediaImage = {
   id: string
   alt: string
   title: string
-  width: number
-  height: number
+  width?: number
+  height?: number
   links: MediaImageLinks
   loading?: 'eager' | 'lazy'
 }

@@ -4,10 +4,10 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import { queries } from '.'
+import { queries } from '@/data/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeEvent } from '@/types/drupal/node'
-import { Event } from '@/types/formatted/event'
+import { Event } from '@/products/event/formatted-type'
 import { GetServerSidePropsContext } from 'next'
 import {
   entityBaseFields,

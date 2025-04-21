@@ -1,12 +1,35 @@
-import { MediaImage } from '@/types/formatted/media'
+import { MediaImage } from './media'
+import { PhoneNumber as FormattedPhoneNumber } from '@/types/formatted/phoneNumber'
+import { PublishedEntity } from './publishedEntity'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
-export type StaffProfile = {
-  id: string
-  name: string
-  thumbnail?: MediaImage
-  linkToBio?: boolean
-  path?: string | null
+export type Link = {
+  url: { path: string }
+  label: string
+  links?: Link[]
+}
+
+export type SidebarData = {
+  depth: number
+  link: { label: string; url: { path: string }; links: Link[] }
+  parent: { label: string; url: { path: string }; links: Link[] }
+}
+
+export type StaffProfile = PublishedEntity & {
+  firstName: string
+  lastName: string
+  suffix?: string
+  emailAddress?: string
+  phoneNumber?: FormattedPhoneNumber
   description?: string
-  phone?: string
-  email?: string
+  introText: string
+  body: string
+  media?: MediaImage
+  menu?: SidebarData
+  completeBiography?: { url: string }
+  completeBiographyCreate?: boolean
+  photoAllowHiresDownload?: boolean
+  vamcOfficalName: string
+  lovellVariant?: LovellChildVariant
+  lovellSwitchPath?: string
 }
