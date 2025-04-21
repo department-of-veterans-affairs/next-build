@@ -78,7 +78,7 @@ export const StaffProfile = ({
               ) : null}
 
               {emailAddress && (
-                <p className="vads-u-font-size--lg vads-u-margin-bottom--0p5">
+                <p className="vads-u-margin-bottom--0p5 vads-u-margin-top--0">
                   <span className="vads-u-font-weight--bold">Email: </span>
                   <va-link
                     data-testid="profile-email"
@@ -90,7 +90,7 @@ export const StaffProfile = ({
               {phoneNumber?.number && (
                 <PhoneNumber
                   {...phoneNumber}
-                  className="vads-u-font-weight--regular vads-u-margin--0 vads-u-margin-bottom--0p5"
+                  className="vads-u-margin-bottom--0p5 vads-u-margin-top--0"
                 />
               )}
             </div>
