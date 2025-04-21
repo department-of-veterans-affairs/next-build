@@ -103,12 +103,14 @@ export const Hours = ({
             {sortedHours.map((hoursItem, index) => {
               const dayIndex = hoursItem.day === 0 ? 6 : hoursItem.day - 1
               const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-              const DayTag = headerType === 'clinical' ? 'strong' : 'span'
               return (
                 <li key={index}>
-                  <DayTag className="abbreviated-day vads-u-font-weight--bold">
+                  <strong
+                    className="vads-u-display--inline-block"
+                    style={{ width: '2.5em' }}
+                  >
                     {dayNames[dayIndex]}:
-                  </DayTag>{' '}
+                  </strong>{' '}
                   {hoursItem.starthours === null
                     ? 'Closed'
                     : `${formatHours(hoursItem.starthours)} to ${formatHours(
