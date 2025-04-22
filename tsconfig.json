@@ -28,6 +28,7 @@
       "@/stories/*": ["./src/stories/*"],
       "@/templates/*": ["./src/templates/*"],
       "@/types/*": ["./src/types/*"],
+      "@/products/*": ["./src/products/*"],
       "@/playwright/*": ["./playwright/*"],
       "react": ["./node_modules/@types/react"]
     }

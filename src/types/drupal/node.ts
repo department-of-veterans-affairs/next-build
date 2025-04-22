@@ -144,13 +144,13 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_facility_classification: string // TODO: Figure out what these number strings mean and give it a better type
   // field_facility_hours: FieldTable
   field_facility_locator_api_id: string
+  field_geolocation: FieldGeoLocation
   field_intro_text: string
   // TODO: Uncomment these
   // field_local_health_care_service_: NodeHealthCareLocalHealthService[] //
   // field_location_services: ParagraphHealthCareLocalFacilityService[]
   field_main_location: boolean
-  // TODO: Uncomment the media
-  // field_media: DrupalMediaImage
+  field_media: DrupalMediaImage
   // field_mental_health_phone: string
   field_mobile: boolean
   field_office_hours: FieldOfficeHours[]
@@ -159,6 +159,7 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_phone_number: string
   // We don't need the field_media in here for now
   field_region_page: Omit<NodeHealthCareRegionPage, 'field_media'>
+  field_telephone: ParagraphPhoneNumber
 }
 
 export interface NodeVetCenter extends DrupalNode {

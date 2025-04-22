@@ -1,5 +1,5 @@
 import { MediaImage } from '@/templates/common/mediaImage'
-import { StaffNewsProfile } from '@/templates/components/personProfile'
+import { StaffNewsProfile } from '@/templates/components/staffNewsProfile'
 import { formatDate } from '@/lib/utils/helpers'
 import { SocialLinks } from '@/templates/common/socialLinks'
 import { StoryListingLink } from '@/templates/components/storyListingLink'
@@ -21,9 +21,11 @@ export const NewsStory = ({
   lovellVariant,
   lovellSwitchPath,
 }: LovellStaticPropsResource<FormattedNewsStory>) => {
-  const imageClassName = caption
-    ? 'vads-u-margin-bottom--1'
-    : 'vads-u-margin-bottom--2p5'
+  const hasValidImage = image?.links?.['2_1_large']?.href
+  const imageClassName =
+    caption && hasValidImage
+      ? 'vads-u-margin-bottom--1'
+      : 'vads-u-margin-bottom--2p5'
 
   return (
     <>
@@ -37,14 +39,18 @@ export const NewsStory = ({
                 switchPath={lovellSwitchPath}
               />
               <h1>{title}</h1>
-              <MediaImage
-                {...image}
-                className={imageClassName}
-                imageStyle="2_1_large"
-              />
-              <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
-                {caption}
-              </div>
+              {hasValidImage && (
+                <MediaImage
+                  {...image}
+                  className={imageClassName}
+                  imageStyle="2_1_large"
+                />
+              )}
+              {caption && hasValidImage && (
+                <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
+                  {caption}
+                </div>
+              )}
               {author && <StaffNewsProfile {...author} />}
               <div className="vads-u-margin-bottom--2p5">
                 <time dateTime={formatDate(date)}>{formatDate(date)}</time>

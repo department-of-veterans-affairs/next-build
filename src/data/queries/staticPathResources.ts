@@ -18,15 +18,19 @@ const PAGE_SIZE = PAGE_SIZES.MAX
 export const params: QueryParams<ResourceType> = (
   resourceType: ResourceType
 ) => {
-  return (
-    new DrupalJsonApiParams()
-      // Note: We can't put `path` first:
-      // See:
-      //  https://next-drupal.org/guides/page-limit
-      //  https://dsva.slack.com/archives/C01SR56755H/p1695244241079879?thread_ts=1695070010.697129&cid=C01SR56755H
-      .addFields(resourceType, ['field_administration', 'title', 'path'])
-      .addInclude(['field_administration'])
-  )
+  const params = new DrupalJsonApiParams()
+    // Note: We can't put `path` first:
+    // See:
+    //  https://next-drupal.org/guides/page-limit
+    //  https://dsva.slack.com/archives/C01SR56755H/p1695244241079879?thread_ts=1695070010.697129&cid=C01SR56755H
+    .addFields(resourceType, ['field_administration', 'title', 'path'])
+    .addInclude(['field_administration'])
+  // Filter out profiles that shouldn't have a page.
+  if (resourceType === 'node--person_profile') {
+    params.addFilter('field_complete_biography_create', '1')
+  }
+
+  return params
 }
 
 // Define the option types for the data loader.
@@ -56,11 +60,15 @@ export const formatter: QueryFormatter<
   JsonApiResourceWithPathAndFieldAdmin[],
   StaticPathResource[]
 > = (resources: JsonApiResourceWithPathAndFieldAdmin[]) => {
-  return resources.map((resource) => ({
-    path: resource.path.alias,
+  // Filter out resources that don't have a path or path alias
+  const filteredResources = resources.filter((resource) =>
+    Boolean(resource.path?.alias)
+  )
+  return filteredResources.map((filteredResource) => ({
+    path: filteredResource.path.alias,
     administration: {
-      id: resource.field_administration?.drupal_internal__tid || null,
-      name: resource.field_administration?.name || null,
+      id: filteredResource.field_administration?.drupal_internal__tid || null,
+      name: filteredResource.field_administration?.name || null,
     },
   }))
 }

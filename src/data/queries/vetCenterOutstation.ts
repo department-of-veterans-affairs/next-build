@@ -70,9 +70,8 @@ export const formatter: QueryFormatter<
   )
   const otherServicesArray = healthServicesArray.filter(
     (h) =>
-      h &&
-      h.vetCenterTypeOfCare !== 'counseling' &&
-      h.vetCenterTypeOfCare !== 'referral'
+      h?.vetCenterTypeOfCare !== 'counseling' &&
+      h?.vetCenterTypeOfCare !== 'referral'
   )
 
   // format and combine featured content
@@ -111,6 +110,7 @@ export const formatter: QueryFormatter<
     )
     return formattedFeaturedContentArray
   }
+
   // Similarly, this formats centralized content FAQs to match what our QA components are expecting
   const buildFaqs = (faqs) => {
     const buildQuestionArray = (questions) => {
