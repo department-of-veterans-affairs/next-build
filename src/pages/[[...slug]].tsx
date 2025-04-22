@@ -278,16 +278,23 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     if (process.env.SSG === 'true') {
       const fs = await import('fs')
       const path = await import('path')
-
-      console.error('Exiting static site generation to avoid partial build')
+      const exitCodePath = path.join(process.cwd(), 'exit_code')
 
       // Kill the `next build` process to stop the build
-      const nextBuildPID = parseInt(
-        fs.readFileSync(path.join(process.cwd(), 'buildID')).toString(),
-        10
-      )
       try {
-        process.kill(nextBuildPID, 'SIGTERM')
+        // If another child process has done this, we don't need to do it again
+        if (!fs.existsSync(exitCodePath)) {
+          console.error('Exiting static site generation to avoid partial build')
+
+          // Pass along the exit code to processEnv(); without this, it'll still
+          // exit with a 0, causing CI to continue.
+          fs.writeFileSync(exitCodePath, '1')
+          const nextBuildPID = parseInt(
+            fs.readFileSync(path.join(process.cwd(), 'build_id')).toString(),
+            10
+          )
+          process.kill(nextBuildPID, 'SIGINT')
+        }
       } catch (deathThrow) {
         // Couldn't kill the process; probably because it's already been killed
       } finally {
