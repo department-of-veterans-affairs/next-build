@@ -6,7 +6,8 @@ import { spawn } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 
-const buildIDFile = path.join(process.cwd(), 'buildID')
+const buildIDFile = path.join(process.cwd(), 'build_id')
+const exitCodeFile = path.join(process.cwd(), 'exit_code')
 
 export type EnvVars = {
   [key: string]: string | boolean
@@ -88,6 +89,8 @@ export const processEnv = async (
     },
   }
 
+  cleanup()
+
   // Pass additional arguments through to the underlying command
   const cmd = spawn(`${command} ${cliArgs.join(' ')}`, {
     shell: true,
@@ -99,10 +102,24 @@ export const processEnv = async (
   }
 
   cmd.on('exit', (code) => {
+    let exitCode = code
     try {
-      fs.unlinkSync(buildIDFile)
-    } catch (e) {}
+      exitCode = parseInt(fs.readFileSync(exitCodeFile, 'utf8'), 10)
+    } catch (e) {
+      console.error(e)
+    }
 
-    process.exit(code)
+    cleanup()
+
+    process.exit(exitCode)
   })
+}
+
+function cleanup() {
+  try {
+    fs.unlinkSync(exitCodeFile)
+  } catch (e) {}
+  try {
+    fs.unlinkSync(exitCodeFile)
+  } catch (e) {}
 }
