@@ -82,6 +82,8 @@ if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
   }
 }
 
+let pagesBuilt = 0
+
 export const DynamicBreadcrumbs = dynamic(
   () => import('@/templates/common/breadcrumbs'),
   { ssr: false }
@@ -236,6 +238,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       }
     }
     try {
+      if (pagesBuilt > 2) throw new Error('Simulated fetch error')
+      pagesBuilt++
+
       const resource = await getStaticPropsResource(
         resourceType,
         pathInfo,
