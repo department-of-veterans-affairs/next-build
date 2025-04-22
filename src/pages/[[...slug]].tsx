@@ -280,6 +280,25 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
   } catch (err) {
     console.error('Error in getStaticProps:', err)
+    if (process.env.SSG === 'true') {
+      const fs = await import('fs')
+      const path = await import('path')
+
+      console.error('Exiting static site generation to avoid partial build')
+
+      // Kill the `next build` process to stop the build
+      const nextBuildPID = parseInt(
+        fs.readFileSync(path.join(process.cwd(), 'buildID')).toString(),
+        10
+      )
+      try {
+        process.kill(nextBuildPID, 'SIGTERM')
+      } catch (deathThrow) {
+        // Couldn't kill the process; probably because it's already been killed
+      } finally {
+        process.exit(1)
+      }
+    }
     return {
       notFound: true,
     }
