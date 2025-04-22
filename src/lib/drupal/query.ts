@@ -124,7 +124,10 @@ export async function fetchSingleEntityOrPreview(opts, type, params) {
 }
 
 // Helper function to return a consistent set of base fields for resources.
-export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
+export const entityBaseFields = (entity: NodeTypes): PublishedEntity | null => {
+  if (!entity) {
+    return null
+  }
   return {
     id: entity.id,
     entityId: entity.drupal_internal__nid,
@@ -137,5 +140,19 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
     breadcrumbs: entity.breadcrumbs,
     lastUpdated:
       entity.field_last_saved_by_an_editor || entity.changed || entity.created,
+  }
+}
+
+/**
+ * Custom error class representing a "Do Not Publish" error.
+ * Throw this error when a query encounters a condition
+ * where publishing is not allowed or should be prevented.
+ *
+ * @extends {Error}
+ */
+export class DoNotPublishError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'DoNotPublishError'
   }
 }

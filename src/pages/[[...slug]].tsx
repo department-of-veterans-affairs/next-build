@@ -27,20 +27,21 @@ import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
 
 // Types
-import { Event as FormattedEvent } from '@/types/formatted/event'
-import { EventListing as FormattedEventListing } from '@/types/formatted/eventListing'
+import { Event as FormattedEvent } from '@/products/event/formatted-type'
+import { EventListing as FormattedEventListing } from '@/products/eventListing/formatted-type'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
 import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
+import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
-import { Event } from '@/templates/layouts/event'
-import { EventListing } from '@/templates/layouts/eventListing'
+import { Event } from '@/products/event/template'
+import { EventListing } from '@/products/eventListing/template'
 import { LayoutProps } from '@/templates/layouts/wrapper'
 import { Meta } from '@/templates/common/meta'
 import { NewsStory } from '@/templates/layouts/newsStory'
@@ -48,11 +49,12 @@ import { PressRelease } from '@/templates/layouts/pressRelease'
 import { PressReleaseListing } from '@/templates/layouts/pressReleaseListing'
 import { PreviewCrumb } from '@/templates/common/preview'
 import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
+import { StaffProfile } from '@/templates/layouts/staffProfile'
 import { StoryListing } from '@/templates/layouts/storyListing'
 import { VetCenter } from '@/templates/layouts/vetCenter'
 import { Wrapper } from '@/templates/layouts/wrapper'
-import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
 import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFacility'
+import { DoNotPublishError } from '@/lib/drupal/query'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -149,6 +151,9 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.RESOURCES_SUPPORT && (
             <ResourcesSupport {...(resource as FormattedResourcesSupport)} />
           )}
+          {resource.type === RESOURCE_TYPES.STAFF_PROFILE && (
+            <StaffProfile {...(resource as FormattedStaffProfile)} />
+          )}
           {resource.type === RESOURCE_TYPES.STORY_LISTING && (
             <StoryListing {...(resource as FormattedStoryListing)} />
           )}
@@ -230,37 +235,43 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         notFound: true,
       }
     }
-
-    const resource = await getStaticPropsResource(
-      resourceType,
-      pathInfo,
-      expandedContext
-    )
-
-    // If we're not in preview mode and the resource is not published,
-    // Return page not found.
-    if (!expandedContext.preview && !resource?.published) {
-      console.warn(
-        'Resource not published and not in preview mode, returning notFound'
+    try {
+      const resource = await getStaticPropsResource(
+        resourceType,
+        pathInfo,
+        expandedContext
       )
-      return {
-        notFound: true,
+      // If we're not in preview mode and the resource is not published,
+      // Return page not found.
+      if (!expandedContext.preview && !resource?.published) {
+        console.warn(
+          'Resource not published and not in preview mode, returning notFound'
+        )
+        return {
+          notFound: true,
+        }
       }
-    }
 
-    // If resource is good, gather additional data for global elements.
-    // The headerFooter data is cached, banner content is requested per page
-    const { bannerData, headerFooterData } = await getGlobalElements(
-      expandedContext.drupalPath
-    )
+      // If resource is good, gather additional data for global elements.
+      // The headerFooter data is cached, banner content is requested per page
+      const { bannerData, headerFooterData } = await getGlobalElements(
+        expandedContext.drupalPath
+      )
 
-    return {
-      props: {
-        preview: expandedContext.preview || false,
-        resource,
-        bannerData,
-        headerFooterData,
-      },
+      return {
+        props: {
+          preview: expandedContext.preview || false,
+          resource,
+          bannerData,
+          headerFooterData,
+        },
+      }
+    } catch (error) {
+      if (error instanceof DoNotPublishError) {
+        return { notFound: true }
+      } else {
+        throw error
+      }
     }
   } catch (err) {
     console.error('Error in getStaticProps:', err)

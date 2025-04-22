@@ -1,82 +1,142 @@
-import { MediaImage } from '@/templates/common/mediaImage'
+import StaffProfileSideBarNav from '@/templates/components/staffProfileSideBarNav'
 import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
+import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { MediaImage } from '@/templates/common/mediaImage'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { ContentFooter } from '@/templates/common/contentFooter'
 
-export function StaffProfile({
-  id,
-  name,
-  thumbnail,
-  linkToBio,
-  path,
+export type PersonProfileTeaserProps = {
+  title: string
+  description?: string
+}
+
+export const StaffProfile = ({
+  firstName,
+  lastName,
+  suffix,
+  emailAddress,
+  phoneNumber,
+  introText,
   description,
-  phone,
-  email,
-}: FormattedStaffProfile) {
+  body,
+  completeBiography,
+  completeBiographyCreate,
+  photoAllowHiresDownload,
+  vamcTitle,
+  media,
+  menu,
+  lovellVariant,
+  lovellSwitchPath,
+  lastUpdated,
+}: LovellStaticPropsResource<FormattedStaffProfile>) => {
   return (
-    <article key={id} className="usa-content">
-      <div className="vads-u-display--flex vads-u-margin-bottom--4 vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
-        {!thumbnail ? (
-          <div className="vads-u-flex--auto medium-screen:vads-u-margin-right--3 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
-            <span className="circular-profile-image bio-paragraph-image vads-u-position--relative vads-u-background-color--gray-lightest vads-u-display--block">
-              <span className="fas fa-user circular-profile-missing-icon"></span>
-            </span>
-          </div>
-        ) : (
-          <div className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3">
-            <MediaImage
-              className="circular-profile-image bio-paragraph-image max-width-100"
-              {...thumbnail}
-              imageStyle="1_1_square_medium_thumbnail"
-            />
-          </div>
-        )}
-        <div className="vads-u-display--flex vads-u-flex-direction--column">
-          <p
-            className="
-            vads-u-margin-top--0
-            vads-u-font-family--serif
-            vads-u-font-weight--bold
-            vads-u-display--block
-            vads-u-margin-bottom--0
-            vads-u-font-size--md"
-          >
-            {linkToBio ? (
-              <a className="bioLink" href={path}>
-                {name}
-              </a>
-            ) : (
-              <span>{name}</span>
-            )}
-          </p>
-          {description && (
-            <p className="vads-u-font-size--lg vads-u-margin-bottom--0p5">
-              {description}
-            </p>
-          )}
-          {phone && (
-            <p
-              className="
-                vads-u-font-weight--normal
-                vads-u-margin--0
-                vads-u-margin-bottom--1"
+    <div className="usa-grid usa-grid-full">
+      {menu && (
+        <StaffProfileSideBarNav
+          sidebarData={menu}
+          lovellVariant={lovellVariant}
+        />
+      )}
+      <div className="usa-width-three-fourths">
+        <article className="usa-content">
+          <LovellSwitcher
+            currentVariant={lovellVariant}
+            switchPath={lovellSwitchPath}
+          />
+          <div className="usa-grid usa-grid-full vads-u-margin-bottom--2 vads-u-display--flex vads-u-flex-direction--column medium-screen:vads-u-flex-direction--row">
+            <div
+              className="vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0 vads-u-margin-right--3"
+              style={{ maxWidth: '160px' }}
             >
-              <span className="vads-u-font-weight--bold">Phone: </span>
-              <a href={`tel:${phone}`}>{phone}</a>
+              {media && (
+                <MediaImage
+                  {...media}
+                  className="person-profile-detail-page-image vads-u-width--auto"
+                  imageStyle="2_3_medium_thumbnail"
+                />
+              )}
+            </div>
+            <div className="vads-u-display--flex vads-u-flex-direction--column">
+              <h1 className="vads-u-font-size--xl vads-u-margin-bottom--0p5">
+                {`${firstName} ${lastName} ${suffix ? suffix : ''}`}
+              </h1>
+              {description ? (
+                <p className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-font-family--serif vads-u-margin-bottom--0p5">
+                  {description}
+                </p>
+              ) : null}
+              {vamcTitle ? (
+                <p
+                  className="
+                      vads-u-margin--0
+                      vads-u-margin-bottom--0p5
+                      vads-u-font-family--serif
+                      vads-u-font-size--lg"
+                >
+                  {vamcTitle}
+                  {lovellVariant ? ` - ${lovellVariant.toUpperCase()}` : ''}
+                </p>
+              ) : null}
+
+              {emailAddress && (
+                <p className="vads-u-margin-bottom--0p5 vads-u-margin-top--0">
+                  <span className="vads-u-font-weight--bold">Email: </span>
+                  <va-link
+                    data-testid="profile-email"
+                    href={`mailto:${emailAddress}`}
+                    text={emailAddress}
+                  />
+                </p>
+              )}
+              {phoneNumber?.number && (
+                <PhoneNumber
+                  {...phoneNumber}
+                  className="vads-u-margin-bottom--0p5 vads-u-margin-top--0"
+                />
+              )}
+            </div>
+          </div>
+          {completeBiographyCreate && (
+            <div className="vads-u-margin-bottom--2">
+              <div className="va-introtext">
+                <p className="vads-u-margin-bottom--0">{introText}</p>
+              </div>
+              <div
+                className="vads-u-margin-bottom--2"
+                dangerouslySetInnerHTML={{ __html: body }}
+              />
+            </div>
+          )}
+          {media && photoAllowHiresDownload && (
+            <p>
+              {/* TODO this is not the full size photo path. We need to send the original path down from Drupal */}
+              <va-link
+                data-testid="head-shot-download"
+                href={media.links['2_3_medium_thumbnail'].href}
+                download
+                text="Download full size photo"
+                filetype={media.links['2_3_medium_thumbnail'].href
+                  .split('.')
+                  .pop()
+                  .toUpperCase()}
+              />
             </p>
           )}
-          {email && (
-            <p
-              className="vads-u-font-weight--normal
-              vads-u-margin--0
-              vads-u-margin-bottom--1"
-            >
-              <span className="vads-u-font-weight--bold">Email: </span>
-              <a href={`mailto:${email}`} target="_blank" rel="noreferrer">
-                {email}
-              </a>
+          {completeBiography && (
+            <p>
+              <va-link
+                data-testid="complete-biography-download"
+                href={completeBiography?.url}
+                download
+                text="Download full bio"
+                filetype={completeBiography?.url.split('.').pop().toUpperCase()}
+              />
             </p>
           )}
-        </div>
+        </article>
+        <ContentFooter lastUpdated={lastUpdated} />
       </div>
-    </article>
+    </div>
   )
 }
