@@ -52,7 +52,7 @@ export const StaffProfile = ({
               {media && (
                 <MediaImage
                   {...media}
-                  className="person-profile-detail-page-image vads-u-width--full"
+                  className="person-profile-detail-page-image vads-u-width--auto"
                   imageStyle="2_3_medium_thumbnail"
                 />
               )}
