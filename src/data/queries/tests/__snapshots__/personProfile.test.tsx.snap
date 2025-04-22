@@ -716,6 +716,6 @@ exports[`Person profile returns formatted data outputs formatted data 1`] = `
   "suffix": "Ph.D.",
   "title": "Patrick J. Doyle",
   "type": "node--person_profile",
-  "vamcOfficalName": "VA Pittsburgh Healthcare System",
+  "vamcTitle": "VA Pittsburgh health care",
 }
 `;

@@ -29,7 +29,7 @@ export type StaffProfile = PublishedEntity & {
   completeBiography?: { url: string }
   completeBiographyCreate?: boolean
   photoAllowHiresDownload?: boolean
-  vamcOfficalName: string
+  vamcTitle: string
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
 }
