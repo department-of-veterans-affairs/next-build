@@ -52,9 +52,9 @@ export const NewsStory = ({
                 </div>
               )}
               {author && <StaffNewsProfile {...author} />}
-              <div className="vads-u-margin-bottom--2p5">
+              <p className="vads-u-margin-bottom--2p5">
                 <time dateTime={formatDate(date)}>{formatDate(date)}</time>
-              </div>
+              </p>
 
               <SocialLinks {...socialLinks} />
 
