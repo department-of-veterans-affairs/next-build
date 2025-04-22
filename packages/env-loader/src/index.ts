@@ -3,6 +3,10 @@ import { getCliOptionsAndArgs } from './cli-options'
 import { getEnvFileVars } from './env-file'
 import { getCmsFeatureFlags } from './cms-feature-flags'
 import { spawn } from 'child_process'
+import fs from 'fs'
+import path from 'path'
+
+const buildIDFile = path.join(process.cwd(), 'buildID')
 
 export type EnvVars = {
   [key: string]: string | boolean
@@ -89,7 +93,16 @@ export const processEnv = async (
     shell: true,
     stdio: 'inherit',
   })
+
+  if (command === 'next build') {
+    fs.writeFileSync(buildIDFile, cmd.pid.toString(), 'utf8')
+  }
+
   cmd.on('exit', (code) => {
+    try {
+      fs.unlinkSync(buildIDFile)
+    } catch (e) {}
+
     process.exit(code)
   })
 }
