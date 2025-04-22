@@ -133,8 +133,7 @@ export function getLovellVariantOfUrl(
         LOVELL.tricare.pathSegment,
         LOVELL.va.pathSegment,
         LOVELL.federal.pathSegment,
-      ].join('|'),
-      'i'
+      ].join('|')
     ),
     LOVELL[variant].pathSegment
   )

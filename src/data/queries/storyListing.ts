@@ -106,9 +106,11 @@ export const formatter: QueryFormatter<StoryListingData, StoryListing> = ({
   } else if (isLovellVaPath(entity.path.alias)) {
     variant = LOVELL.va.variant
   }
-  // For Lovell pages use story path, otherwise use facility path
-  const rootPath = variant ? entity.path.alias : entity.field_office.path.alias
-  const formattedMenu = buildSideNavDataFromMenu(rootPath, menu, variant)
+  const formattedMenu = buildSideNavDataFromMenu(
+    entity.path.alias,
+    menu,
+    variant
+  )
 
   return {
     ...entityBaseFields(entity),

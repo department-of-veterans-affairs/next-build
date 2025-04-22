@@ -26,7 +26,6 @@ const normalizeMenuItem = (
     label: item.title,
     links: nestedItems,
     url: { path },
-    // Add Lovell-specific section info if available
     lovellSection: item.field_menu_section || null,
   }
 }

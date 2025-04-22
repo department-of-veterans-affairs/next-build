@@ -290,7 +290,7 @@ describe('data function for StoryListing', () => {
 
     test('handles non-Lovell paths without transformation', () => {
       const result = formatter(mockData)
-      expect(result.menu.rootPath).toBe('/test-path/')
+      expect(result.menu.rootPath).toBe('/test-story/')
     })
   })
 })
