@@ -5,7 +5,7 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 import { LOVELL } from './lovell/constants'
 import { LovellVariant } from './lovell/types'
 
-// Extend DrupalMenuLinkContent to include our custom field
+// Extend DrupalMenuLinkContent to include our custom field to test Lovell variant transformation
 interface CustomMenuLinkContent extends Omit<DrupalMenuLinkContent, 'items'> {
   field_menu_section: string | null
   items?: CustomMenuLinkContent[]

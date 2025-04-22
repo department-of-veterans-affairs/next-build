@@ -42,13 +42,11 @@ jest.mock('@/lib/drupal/query', () => {
   }
 })
 
-// Mock the queries object
+// mocking the queries object to return a mock params object
 jest.mock('..', () => {
-  // Mock params object that simulates the DrupalJsonApiParams behavior
   const mockParams = {
     addFilter: jest.fn().mockReturnThis(),
     addSort: jest.fn().mockReturnThis(),
-    // Return a query string that matches test expectations
     getQueryString: jest
       .fn()
       .mockReturnValue('filter[field_listing.id]=123&sort=-created'),

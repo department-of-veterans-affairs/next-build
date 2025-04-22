@@ -17,7 +17,6 @@ const normalizeMenuItem = (
   if (item.items && item.items.length > 0) {
     item.items.forEach((i) => nestedItems.push(normalizeMenuItem(i, variant)))
   }
-
   // Transform URL if Lovell variant is specified
   const path = variant ? getLovellVariantOfUrl(item.url, variant) : item.url
   return {
