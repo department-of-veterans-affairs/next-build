@@ -98,12 +98,18 @@ export const processEnv = async (
   })
 
   if (command === 'next build') {
+    // Write the PID of the build process to a file so we can kill it quickly
+    // and accurately later if we need to. This is only necessary for the
+    // `next build` command.
     fs.writeFileSync(buildIDFile, cmd.pid.toString(), 'utf8')
   }
 
   cmd.on('exit', (code) => {
     let exitCode = code
     try {
+      // Override the exit code with the one from the file if it exists.
+      // This is to make sure that we don't accidentally exit with a code 0 if
+      // we need to ensure the process fails loudly.
       exitCode = parseInt(fs.readFileSync(exitCodeFile, 'utf8'), 10)
     } catch (e) {
       console.error(e)
