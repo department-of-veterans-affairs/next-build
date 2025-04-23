@@ -1,15 +1,8 @@
 import { buildSideNavDataFromMenu } from './facilitySideNav'
 import { Menu } from '@/types/drupal/menu'
-import { DrupalMenuLinkContent } from 'next-drupal'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { LOVELL } from './lovell/constants'
 import { LovellVariant } from './lovell/types'
-
-// Extend DrupalMenuLinkContent to include our custom field to test Lovell variant transformation
-interface CustomMenuLinkContent extends Omit<DrupalMenuLinkContent, 'items'> {
-  field_menu_section: string | null
-  items?: CustomMenuLinkContent[]
-}
 
 const mockMenu: Partial<Menu> = {
   items: [],
@@ -35,7 +28,8 @@ const mockMenu: Partial<Menu> = {
       meta: {},
       parent: '',
     },
-  ] as CustomMenuLinkContent[],
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ] as any[],
 }
 
 describe('SideNav Data Building Function', () => {
@@ -111,7 +105,8 @@ describe('SideNav Data Building Function', () => {
           meta: {},
           parent: '',
         },
-      ] as CustomMenuLinkContent[],
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ] as any[], // Use 'any[]' to bypass detailed type requirements
     }
 
     it('transforms URLs for TRICARE variant', () => {
