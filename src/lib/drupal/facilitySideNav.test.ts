@@ -29,7 +29,7 @@ const mockMenu: Partial<Menu> = {
       parent: '',
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ] as any[],
+  ] as any[], // Use 'any[]' to bypass detailed type requirements
 }
 
 describe('SideNav Data Building Function', () => {
