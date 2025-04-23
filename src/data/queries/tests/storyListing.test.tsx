@@ -9,7 +9,6 @@ import {
   formatter,
 } from '../storyListing'
 import * as queryModule from '@/lib/drupal/query'
-import { LOVELL } from '@/lib/drupal/lovell/constants'
 
 jest.mock('@/lib/drupal/query', () => {
   const mockEntity = {
