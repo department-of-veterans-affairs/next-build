@@ -325,7 +325,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           console.warn(
             chalk.yellow(`file exists at ${exitCodePath}. Contents:`)
           )
-          console.warn(fs.readFileSync(exitCodePath))
+          console.warn(fs.readFileSync(exitCodePath).toString())
         }
       } catch (deathThrow) {
         // Couldn't kill the process; probably because it's already been killed
