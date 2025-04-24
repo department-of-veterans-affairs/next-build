@@ -230,7 +230,7 @@ export function getListingPageStaticPropsContext(
     // EVENT_LISTING pages should only generate one page.
     slug[1] !==
       LISTING_RESOURCE_TYPE_URL_SEGMENTS[RESOURCE_TYPES.EVENT_LISTING] &&
-    slug[2].match(/^page-(\d)+$/)
+    slug[2].match(/^page-(\d+)$/)
   const page = isSlugSubsequentListingPage
     ? parseInt(isSlugSubsequentListingPage[1])
     : null
