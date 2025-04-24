@@ -63,6 +63,10 @@ export const MediaImage = (
     return null
   }
 
+  if (!props.alt) {
+    return null
+  }
+
   return (
     <Image
       id={props.id}

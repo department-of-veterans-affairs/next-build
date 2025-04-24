@@ -129,4 +129,12 @@ describe('<newsStory> with valid data', () => {
     expect(container.querySelector('.vads-u-font-size--sm')).toBeNull()
     expect(screen.queryByText('This caption should not appear')).toBeNull()
   })
+
+  test('renders date within a p tag', () => {
+    const { container } = render(<NewsStory {...data} />)
+    const dateElement = container.querySelector('time')
+    expect(dateElement).toBeInTheDocument()
+    expect(dateElement.parentElement.tagName).toBe('P')
+    expect(dateElement.textContent).toBe('May 14, 2019')
+  })
 })

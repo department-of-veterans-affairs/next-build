@@ -193,12 +193,35 @@ export async function getStaticPaths(
     }
   }
 
+  /* eslint-disable no-console */
+  console.log(
+    `\n\nBuilding ${RESOURCE_TYPES_TO_BUILD.length} resource types:`,
+    RESOURCE_TYPES_TO_BUILD,
+    '\n\n'
+  )
+
+  console.time('Fetching page paths')
+
+  const resources = await Promise.all(
+    RESOURCE_TYPES_TO_BUILD.map(getStaticPathsByResourceType)
+  )
+
+  console.timeEnd('Fetching page paths')
+
+  console.log('\n')
+  console.table(
+    RESOURCE_TYPES_TO_BUILD.reduce((resourceTable, resourceName, index) => {
+      return {
+        ...resourceTable,
+        [resourceName]: { 'Page Count': resources[index].length },
+      }
+    }, {})
+  )
+  console.log('\n')
+  /* eslint-enable no-console */
+
   return {
-    paths: (
-      await Promise.all(
-        RESOURCE_TYPES_TO_BUILD.map(getStaticPathsByResourceType)
-      )
-    ).flat(),
+    paths: resources.flat(),
     fallback: 'blocking',
   }
 }

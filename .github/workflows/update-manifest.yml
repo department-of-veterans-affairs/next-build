@@ -30,7 +30,7 @@ on:
 jobs:
   update-manifest:
     if: ${{ !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure') }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       IMAGE_TAG: ${{ inputs.image_tag }}
     steps:

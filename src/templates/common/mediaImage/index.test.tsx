@@ -96,4 +96,11 @@ describe('MediaImage component returns null', () => {
     )
     expect(container.firstChild).toBeNull()
   })
+
+  test('returns null when alt text is missing or empty', () => {
+    const { container } = render(
+      <MediaImage {...mediaImage} alt="" imageStyle="2_1_large" />
+    )
+    expect(container.firstChild).toBeNull()
+  })
 })
