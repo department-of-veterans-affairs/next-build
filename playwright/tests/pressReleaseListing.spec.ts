@@ -11,10 +11,10 @@ test.describe('pressReleaseListing', () => {
     )
   })
 
-  test('Press Release Listing page should be paginated if there are ore than 10 stories', async ({
+  test('Press Release Listing page should be paginated if there are more than 10 stories', async ({
     page,
   }) => {
-    await page.goto('/saginaw-health-care/news-releases')
+    await page.goto('/southern-nevada-health-care/news-releases')
 
     //Click on "Page 2" link and wait for URL to change
     const page2Link = page.getByLabel('Page 2')
@@ -31,7 +31,7 @@ test.describe('pressReleaseListing', () => {
   test('Press Release Listing should handle double-digit page numbers correctly', async ({
     page,
   }) => {
-    await page.goto('/southern-nevada-health-care/news-releases')
+    await page.goto('/saginaw-health-care/news-releases')
 
     // Navigate to page 10 using the next page button
     for (let i = 1; i < 10; i++) {
