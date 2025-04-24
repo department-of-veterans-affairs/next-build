@@ -123,9 +123,13 @@ export const processEnv = async (
 
 function cleanup() {
   try {
-    fs.unlinkSync(exitCodeFile)
+    if (fs.existsSync(buildIDFile)) {
+      fs.unlinkSync(exitCodeFile)
+    }
   } catch (e) {}
   try {
-    fs.unlinkSync(exitCodeFile)
+    if (fs.existsSync(exitCodeFile)) {
+      fs.unlinkSync(exitCodeFile)
+    }
   } catch (e) {}
 }
