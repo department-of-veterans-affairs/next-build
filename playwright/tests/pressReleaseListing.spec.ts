@@ -14,7 +14,7 @@ test.describe('pressReleaseListing', () => {
   test('Press Release Listing page should be paginated if there are ore than 10 stories', async ({
     page,
   }) => {
-    await page.goto('/southern-nevada-health-care/news-releases')
+    await page.goto('/saginaw-health-care/news-releases')
 
     //Click on "Page 2" link and wait for URL to change
     const page2Link = page.getByLabel('Page 2')
