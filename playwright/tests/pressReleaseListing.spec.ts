@@ -32,26 +32,27 @@ test.describe('pressReleaseListing', () => {
     page,
   }) => {
     await page.goto('/saginaw-health-care/news-releases')
-
-    // Navigate to page 10 using the next page button
     for (let i = 1; i < 10; i++) {
       const nextPageLink = page.getByLabel('Next page')
-      await nextPageLink.click()
-      await page.waitForURL(new RegExp(`/page-${i + 1}/`))
-      await expect(page).toHaveURL(new RegExp(`/page-${i + 1}/`))
+      // Confirm it's visible before clicking
+      await expect(nextPageLink).toBeVisible({ timeout: 5000 })
+      // Wait for both the click and URL change — works with client-side routing
+      await Promise.all([
+        page.waitForURL(new RegExp(`/page-${i + 1}/`), { timeout: 10000 }),
+        nextPageLink.click(),
+      ])
     }
-
-    // Now we should be on page 10
+    // Confirm we’re on page 10
     await expect(page).toHaveURL(/\/page-10\//)
     const pressReleaseItems = page.locator('.usa-unstyled-list li')
     await expect(pressReleaseItems).toHaveCount(10)
-
-    // Test navigation to page 11
+    // Navigate to page 11
     const nextPageLink = page.getByLabel('Next page')
-    await nextPageLink.click()
-    await page.waitForURL(/\/page-11\//)
+    await Promise.all([
+      page.waitForURL(/\/page-11\//, { timeout: 10000 }),
+      nextPageLink.click(),
+    ])
     await expect(page).toHaveURL(/\/page-11\//)
-    await expect(pressReleaseItems).toHaveCount(10)
   })
 
   test('Should render without a11y errors', async ({

@@ -30,24 +30,26 @@ test.describe('Story Listing', () => {
     page,
   }) => {
     await page.goto('/washington-dc-health-care/stories')
-
-    // Navigate to page 10 using the next page button
     for (let i = 1; i < 10; i++) {
       const nextPageLink = page.getByLabel('Next page')
-      await nextPageLink.click()
-      await page.waitForURL(new RegExp(`/page-${i + 1}/`))
-      await expect(page).toHaveURL(new RegExp(`/page-${i + 1}/`))
+      // Ensure it's visible and interactable before click
+      await expect(nextPageLink).toBeVisible({ timeout: 5000 })
+      // Wait for click + navigation concurrently
+      await Promise.all([
+        page.waitForURL(new RegExp(`/page-${i + 1}/`), { timeout: 10000 }),
+        nextPageLink.click(),
+      ])
     }
-
-    // Now we should be on page 10
+    // Now on page 10
     await expect(page).toHaveURL(/\/page-10\//)
     const storyItems = page.locator('.usa-unstyled-list li')
     await expect(storyItems).toHaveCount(10)
-
-    // Test navigation to page 11
+    // Go to page 11
     const nextPageLink = page.getByLabel('Next page')
-    await nextPageLink.click()
-    await page.waitForURL(/\/page-11\//)
+    await Promise.all([
+      page.waitForURL(/\/page-11\//, { timeout: 10000 }),
+      nextPageLink.click(),
+    ])
     await expect(page).toHaveURL(/\/page-11\//)
     await expect(storyItems).toHaveCount(10)
   })
