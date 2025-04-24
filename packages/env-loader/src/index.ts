@@ -123,7 +123,7 @@ export const processEnv = async (
   })
 }
 
-function cleanup() {
+export function cleanup() {
   try {
     fs.unlinkSync(buildIDFile)
   } catch (e) {}

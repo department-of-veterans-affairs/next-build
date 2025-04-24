@@ -1,4 +1,4 @@
-import { processEnv } from 'env-loader'
+import { processEnv, cleanup } from 'env-loader'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -13,5 +13,9 @@ if (process.env.BUILD_OPTION === 'static') {
     fs.rmdirSync(exportBuildPath, { recursive: true, force: true })
   }
 }
+
+process.on('exit', () => {
+  cleanup()
+})
 
 processEnv('next build')
