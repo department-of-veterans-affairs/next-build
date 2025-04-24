@@ -298,6 +298,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
   } catch (err) {
     console.error('Error in getStaticProps:', err)
+    console.error(`SSG env var: ${process.env.SSG} (${typeof process.env.SSG})`)
     if (process.env.SSG === 'true') {
       const fs = await import('fs')
       const path = await import('path')
@@ -319,6 +320,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           process.kill(nextBuildPID, 'SIGINT')
         }
       } catch (deathThrow) {
+        console.error('Failed to exit without killing the process:', deathThrow)
         // Couldn't kill the process; probably because it's already been killed
       } finally {
         process.exit(1)
