@@ -318,6 +318,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
             10
           )
           process.kill(nextBuildPID, 'SIGINT')
+        } else {
+          // eslint-disable-next-line no-console
+          console.log(`file exists at ${exitCodePath}. Contents:`)
+          process.stdout.write(fs.readFileSync(exitCodePath))
+          process.stdout.write('\n')
         }
       } catch (deathThrow) {
         console.error('Failed to exit without killing the process:', deathThrow)
