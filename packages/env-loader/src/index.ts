@@ -58,7 +58,8 @@ export const processEnv = async (
   /**
    * The shell command to be executed, with additional arguments passed through.
    */
-  command: string
+  command: string,
+  verbose = false
 ): Promise<void> => {
   // CLI
   const { args: cliArgs, options: cliOptions } = getCliOptionsAndArgs()
@@ -90,7 +91,7 @@ export const processEnv = async (
     },
   }
 
-  await cleanup()
+  await cleanup(verbose)
 
   // Pass additional arguments through to the underlying command
   const cmd = spawn(`${command} ${cliArgs.join(' ')}`, {
@@ -118,46 +119,38 @@ export const processEnv = async (
       console.error(e)
     }
 
-    cleanup().finally(() => process.exit(exitCode))
+    cleanup(verbose).finally(() => process.exit(exitCode))
   })
 }
 
-export async function cleanup() {
+async function cleanup(verbose = false) {
   const chalk = await import('chalk').then((mod) => mod.default)
 
-  process.stdout.write(chalk.blue('\nCleaning up...\n'))
+  const log = verbose ? console.log : () => {}
+
+  console.log('verbose:', verbose)
+
+  log(chalk.blue('\nCleaning up...'))
   try {
     if (fs.existsSync(buildIDFile)) {
       fs.unlinkSync(buildIDFile)
-      process.stdout.write(
-        chalk.green(`  Deleted build ID file at ${buildIDFile}\n`)
-      )
+      log(chalk.green(`  Deleted build ID file at ${buildIDFile}`))
     } else {
-      process.stdout.write(
-        chalk.yellow(`  No build ID file to delete at ${buildIDFile}\n`)
-      )
+      log(chalk.yellow(`  No build ID file to delete at ${buildIDFile}`))
     }
   } catch (e) {
-    process.stdout.write(
-      chalk.red(`  Failed to delete build ID file at ${buildIDFile}\n`)
-    )
-    process.stdout.write(e.toString())
+    log(chalk.red(`  Failed to delete build ID file at ${buildIDFile}`))
+    log(e.toString())
   }
   try {
     if (fs.existsSync(exitCodeFile)) {
       fs.unlinkSync(exitCodeFile)
-      process.stdout.write(
-        chalk.green(`  Deleted exit code file at ${exitCodeFile}\n`)
-      )
+      log(chalk.green(`  Deleted exit code file at ${exitCodeFile}`))
     } else {
-      process.stdout.write(
-        chalk.yellow(`  No exit code file to delete at ${exitCodeFile}\n`)
-      )
+      log(chalk.yellow(`  No exit code file to delete at ${exitCodeFile}`))
     }
   } catch (e) {
-    process.stdout.write(
-      chalk.red(`  Failed to delete exit code file\ at ${exitCodeFile}n`)
-    )
-    process.stdout.write(e.toString())
+    log(chalk.red(`  Failed to delete exit code file\ at ${exitCodeFile}`))
+    log(e.toString())
   }
 }

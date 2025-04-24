@@ -1,4 +1,4 @@
-import { processEnv, cleanup } from 'env-loader'
+import { processEnv } from 'env-loader'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -14,8 +14,4 @@ if (process.env.BUILD_OPTION === 'static') {
   }
 }
 
-process.on('exit', () => {
-  cleanup()
-})
-
-processEnv('next build')
+await processEnv('next build', true)
