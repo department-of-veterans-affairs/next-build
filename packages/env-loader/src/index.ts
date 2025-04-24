@@ -110,7 +110,9 @@ export const processEnv = async (
       // Override the exit code with the one from the file if it exists.
       // This is to make sure that we don't accidentally exit with a code 0 if
       // we need to ensure the process fails loudly.
-      exitCode = parseInt(fs.readFileSync(exitCodeFile, 'utf8'), 10)
+      if (fs.existsSync(exitCodeFile)) {
+        exitCode = parseInt(fs.readFileSync(exitCodeFile, 'utf8'), 10)
+      }
     } catch (e) {
       console.error(e)
     }
@@ -123,13 +125,9 @@ export const processEnv = async (
 
 function cleanup() {
   try {
-    if (fs.existsSync(buildIDFile)) {
-      fs.unlinkSync(exitCodeFile)
-    }
+    fs.unlinkSync(exitCodeFile)
   } catch (e) {}
   try {
-    if (fs.existsSync(exitCodeFile)) {
-      fs.unlinkSync(exitCodeFile)
-    }
+    fs.unlinkSync(exitCodeFile)
   } catch (e) {}
 }
