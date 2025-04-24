@@ -124,10 +124,29 @@ export const processEnv = async (
 }
 
 export function cleanup() {
+  process.stdout.write('\nCleaning up...\n')
   try {
-    fs.unlinkSync(buildIDFile)
-  } catch (e) {}
+    if (fs.existsSync(buildIDFile)) {
+      fs.unlinkSync(buildIDFile)
+      process.stdout.write(`  Deleted build ID file at ${buildIDFile}\n`)
+    } else {
+      process.stdout.write(`  No build ID file to delete at ${buildIDFile}\n`)
+    }
+  } catch (e) {
+    process.stdout.write(`  Failed to delete build ID file at ${buildIDFile}\n`)
+    process.stdout.write(e.toString())
+  }
   try {
-    fs.unlinkSync(exitCodeFile)
-  } catch (e) {}
+    if (fs.existsSync(exitCodeFile)) {
+      fs.unlinkSync(exitCodeFile)
+      process.stdout.write(`  Deleted exit code file at ${exitCodeFile}\n`)
+    } else {
+      process.stdout.write(`  No exit code file to delete at ${exitCodeFile}\n`)
+    }
+  } catch (e) {
+    process.stdout.write(
+      `  Failed to delete exit code file\ at ${exitCodeFile}n`
+    )
+    process.stdout.write(e.toString())
+  }
 }
