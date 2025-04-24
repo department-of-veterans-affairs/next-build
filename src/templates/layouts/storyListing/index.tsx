@@ -54,7 +54,7 @@ export function StoryListing({
     )
 
   return (
-    <div key={id} className="usa-grid usa-grid-full">
+    <div key={id} className="vads-grid-container">
       {/* Widget coming from vets-website */}
       <nav
         data-template="navigation/facility_sidebar_nav"
@@ -62,18 +62,18 @@ export function StoryListing({
         data-widget-type="side-nav"
       ></nav>
 
-      <div className="usa-width-three-fourths">
+      <div className="vads-grid-col-9">
         <article className="usa-content">
           <LovellSwitcher
             currentVariant={lovellVariant}
             switchPath={lovellSwitchPath}
           />
           <h1>{title}</h1>
-          <div className="vads-l-grid-container--full">
+          <div className="vads-grid-container">
             <div className="va-introtext">
               {introText && <p>{introText}</p>}
             </div>
-            <div className="vads-l-grid-container--full">
+            <div className="vads-grid-container">
               <ul className="usa-unstyled-list">{storyTeasers}</ul>
             </div>
 
