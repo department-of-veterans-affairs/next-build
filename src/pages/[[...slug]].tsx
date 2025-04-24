@@ -302,13 +302,16 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     if (process.env.SSG === 'true') {
       const fs = await import('fs')
       const path = await import('path')
+      const chalk = await import('chalk').then((mod) => mod.default)
       const exitCodePath = path.join(process.cwd(), 'exit_code')
 
       // Kill the `next build` process to stop the build
       try {
         // If another child process has done this, we don't need to do it again
         if (!fs.existsSync(exitCodePath)) {
-          console.error('Exiting static site generation to avoid partial build')
+          console.error(
+            chalk.red('Exiting static site generation to avoid partial build')
+          )
 
           // Pass along the exit code to processEnv(); without this, it'll still
           // exit with a 0, causing CI to continue.
@@ -319,14 +322,17 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           )
           process.kill(nextBuildPID, 'SIGINT')
         } else {
-          // eslint-disable-next-line no-console
-          console.log(`file exists at ${exitCodePath}. Contents:`)
-          process.stdout.write(fs.readFileSync(exitCodePath))
-          process.stdout.write('\n')
+          console.warn(
+            chalk.yellow(`file exists at ${exitCodePath}. Contents:`)
+          )
+          console.warn(fs.readFileSync(exitCodePath))
         }
       } catch (deathThrow) {
-        console.error('Failed to exit without killing the process:', deathThrow)
         // Couldn't kill the process; probably because it's already been killed
+        console.error(
+          chalk.red('Failed to exit without killing the process:'),
+          deathThrow
+        )
       } finally {
         process.exit(1)
       }
