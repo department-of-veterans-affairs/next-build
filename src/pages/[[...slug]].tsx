@@ -299,6 +299,45 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
   } catch (err) {
     console.error('Error in getStaticProps:', err)
+    console.error(`SSG env var: ${process.env.SSG} (${typeof process.env.SSG})`)
+    if (process.env.SSG === 'true') {
+      const fs = await import('fs')
+      const path = await import('path')
+      const chalk = await import('chalk').then((mod) => mod.default)
+      const exitCodePath = path.join(process.cwd(), 'exit_code')
+
+      // Kill the `next build` process to stop the build
+      try {
+        // If another child process has done this, we don't need to do it again
+        if (!fs.existsSync(exitCodePath)) {
+          console.error(
+            chalk.red('Exiting static site generation to avoid partial build')
+          )
+
+          // Pass along the exit code to processEnv(); without this, it'll still
+          // exit with a 0, causing CI to continue.
+          fs.writeFileSync(exitCodePath, '1')
+          const nextBuildPID = parseInt(
+            fs.readFileSync(path.join(process.cwd(), 'build_id')).toString(),
+            10
+          )
+          process.kill(nextBuildPID, 'SIGINT')
+        } else {
+          console.warn(
+            chalk.yellow(`file exists at ${exitCodePath}. Contents:`)
+          )
+          console.warn(fs.readFileSync(exitCodePath).toString())
+        }
+      } catch (deathThrow) {
+        // Couldn't kill the process; probably because it's already been killed
+        console.error(
+          chalk.red('Failed to exit without killing the process:'),
+          deathThrow
+        )
+      } finally {
+        process.exit(1)
+      }
+    }
     return {
       notFound: true,
     }
