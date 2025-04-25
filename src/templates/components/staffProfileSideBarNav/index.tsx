@@ -33,9 +33,9 @@ const StaffProfileSideBarNav: React.FC<SidebarNavProps> = ({
       className="va-c-facility-sidebar"
     >
       <div>
-        <div className="left-side-nav-title">
-          <h4 className="vads-u-margin--0">{link.label}</h4>
-        </div>
+        <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--3">
+          {link.label}
+        </h4>
         <p className="vads-u-margin-y--0">
           <va-link
             data-testid="sidebar-nav-link"
