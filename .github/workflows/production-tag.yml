@@ -84,7 +84,7 @@ jobs:
           echo "NEW_TAG=$(echo ${{ steps.get-latest-tag.outputs.LATEST_TAG_VERSION }} | sed -E "s/\.[0-9]+/.$next_increment/2")" >> $GITHUB_ENV
 
       - name: Create next tag
-        uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e # v3.0.0
+        uses: nick-invision/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3.0.2
         with:
           timeout_seconds: 30
           max_attempts: 3
@@ -93,7 +93,7 @@ jobs:
 
 
       - name: Create release
-        uses: ncipollo/release-action@2c591bcc8ecdcd2db72b97d6147f871fcd833ba5 # v1.14.0
+        uses: ncipollo/release-action@440c8c1cb0ed28b9f43e4d1d670870f059653174 # v1.16.0
         with:
           tag: ${{ env.NEW_TAG }}
           name: next-build/${{ env.NEW_TAG }}

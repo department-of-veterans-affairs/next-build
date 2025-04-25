@@ -12,6 +12,8 @@ import { HealthServices } from './HealthServices'
 import { OperatingStatusFlags } from './OperatingStatus'
 import { Address } from './Address'
 import { Phone } from './Phone'
+import { Hours } from '@/templates/components/hours'
+import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -108,8 +110,8 @@ export function HealthCareLocalFacility({
             >
               Location and contact information
             </h2>
-            <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column small-screen:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
-              <div className="usa-width-two-thirds">
+            <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
+              <div className="usa-width-two-thirds vads-u-padding-right--0p5">
                 <div>
                   <OperatingStatusFlags
                     operatingStatusFacility={operatingStatusFacility}
@@ -143,11 +145,14 @@ export function HealthCareLocalFacility({
                       vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
                       fieldTelephone={fieldTelephone}
                     />
-                    <div>TODO: Office hours</div>
+                    <Hours allHours={officeHours} headerType="clinical" />
                   </section>
                 </div>
               </div>
-              <div>TODO: Image and static map</div>
+              <ImageAndStaticMap
+                image={image}
+                facilityId={facilityLocatorApiId}
+              />
             </div>
             <LocationServices />
             <div>TODO: List of links section</div>

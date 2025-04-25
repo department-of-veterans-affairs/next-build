@@ -53,6 +53,6 @@ export const Full: Story = {
         url: { path: `pittsburgh-health-care/about-us/leadership` },
       },
     },
-    vamcOfficalName: 'VA Pittsburgh health care',
+    vamcTitle: 'VA Pittsburgh health care',
   },
 }

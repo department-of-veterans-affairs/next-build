@@ -2,7 +2,6 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { queries } from '.'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePersonProfile } from '@/types/drupal/node'
-import { Menu } from '@/types/drupal/menu'
 import { StaffProfile } from '@/types/formatted/staffProfile'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
@@ -10,7 +9,6 @@ import {
   DoNotPublishError,
   entityBaseFields,
   fetchSingleEntityOrPreview,
-  getMenu,
 } from '@/lib/drupal/query'
 import { buildStaffProfileSidebarData } from '@/lib/drupal/staffProfileSideNav'
 
@@ -21,6 +19,7 @@ export const params: QueryParams<null> = () => {
     'field_office',
     'field_complete_biography',
     'field_telephone',
+    'field_administration',
   ])
 }
 
@@ -45,19 +44,7 @@ export const data: QueryData<PersonProfileDataOpts, PersonProfileData> = async (
     params
   )) as NodePersonProfile
 
-  // Fetch the menu name dynamically off of the field_office reference if available.
-  let menu = null
-  if (entity.field_office?.field_system_menu) {
-    menu = await getMenu(
-      entity.field_office.field_system_menu.resourceIdObjMeta
-        .drupal_internal__target_id
-    )
-  }
-
-  return {
-    entity,
-    menu,
-  }
+  return { entity }
 }
 
 export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
@@ -89,9 +76,14 @@ export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
     completeBiography: entity?.field_complete_biography?.uri || null,
     completeBiographyCreate: entity.field_complete_biography_create,
     photoAllowHiresDownload: entity.field_photo_allow_hires_download,
-    vamcOfficalName:
-      entity?.field_office?.field_vamc_system_official_name || null,
+    vamcTitle: entity?.field_office?.title || null,
     office: entity.field_office,
     menu: formattedMenu,
+    administration: {
+      id: entity.field_administration?.drupal_internal__tid || null,
+      name: entity.field_administration?.name || null,
+    },
+    lastUpdated:
+      entity.changed || entity.field_last_saved_by_an_editor || entity.created,
   }
 }

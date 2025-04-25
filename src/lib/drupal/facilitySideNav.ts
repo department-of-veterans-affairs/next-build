@@ -4,31 +4,41 @@ import {
   SideNavItem,
   SideNavMenu,
 } from '@/types/formatted/sideNav'
+import { LovellVariant } from '@/lib/drupal/lovell/types'
+import { getLovellVariantOfUrl } from './lovell/utils'
 
 // Recursively fit menu items into sidenav-requested shape
-const normalizeMenuItem = (item: MenuItem): SideNavItem => {
+const normalizeMenuItem = (
+  item: MenuItem,
+  variant?: LovellVariant
+): SideNavItem => {
   const nestedItems = []
 
   if (item.items && item.items.length > 0) {
-    item.items.forEach((i) => nestedItems.push(normalizeMenuItem(i)))
+    item.items.forEach((i) => nestedItems.push(normalizeMenuItem(i, variant)))
   }
+  // Transform URL if Lovell variant is specified
+  const path = variant ? getLovellVariantOfUrl(item.url, variant) : item.url
   return {
     description: item.description,
     expanded: item.expanded,
     label: item.title,
     links: nestedItems,
-    url: { path: item.url },
+    url: { path },
     lovellSection: item.field_menu_section || null,
   }
 }
 
-const normalizeMenuData = (menu: Menu): SideNavData => {
+const normalizeMenuData = (
+  menu: Menu,
+  variant?: LovellVariant
+): SideNavData => {
   // Bail early if no tree is provided
   if (!menu || !menu.tree || menu.tree.length === 0) return null
 
   const links = []
   menu.tree.forEach((item) => {
-    return links.push(normalizeMenuItem(item))
+    return links.push(normalizeMenuItem(item, variant))
   })
   return {
     name: menu.tree[0].title,
@@ -43,9 +53,10 @@ const normalizeMenuData = (menu: Menu): SideNavData => {
 */
 export const buildSideNavDataFromMenu = (
   entityPath: string,
-  menu: Menu
+  menu: Menu,
+  variant?: LovellVariant
 ): SideNavMenu => {
-  const data = normalizeMenuData(menu)
+  const data = normalizeMenuData(menu, variant)
   return {
     rootPath: `${entityPath}/`,
     data,

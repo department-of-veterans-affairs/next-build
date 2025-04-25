@@ -5,6 +5,7 @@ const isExport = process.env.BUILD_OPTION === 'static'
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  compress: false,
   images: {
     loaderFile: './src/templates/common/mediaImage/customLoader.js',
     loader: 'custom',

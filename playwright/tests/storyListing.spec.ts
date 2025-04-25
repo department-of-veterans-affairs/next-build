@@ -26,6 +26,34 @@ test.describe('Story Listing', () => {
     await expect(nextPageLink).toBeEnabled()
   })
 
+  test('Story Listing should handle double-digit page numbers correctly', async ({
+    page,
+  }) => {
+    await page.goto('/washington-dc-health-care/stories')
+    for (let i = 1; i < 10; i++) {
+      const nextPageLink = page.getByLabel('Next page')
+      // Ensure it's visible and interactable before click
+      await expect(nextPageLink).toBeVisible({ timeout: 5000 })
+      // Wait for click + navigation concurrently
+      await Promise.all([
+        page.waitForURL(new RegExp(`/page-${i + 1}/`), { timeout: 10000 }),
+        nextPageLink.click(),
+      ])
+    }
+    // Now on page 10
+    await expect(page).toHaveURL(/\/page-10\//)
+    const storyItems = page.locator('.usa-unstyled-list li')
+    await expect(storyItems).toHaveCount(10)
+    // Go to page 11
+    const nextPageLink = page.getByLabel('Next page')
+    await Promise.all([
+      page.waitForURL(/\/page-11\//, { timeout: 10000 }),
+      nextPageLink.click(),
+    ])
+    await expect(page).toHaveURL(/\/page-11\//)
+    await expect(storyItems).toHaveCount(10)
+  })
+
   test('Should render without a11y errors', async ({
     page,
     makeAxeBuilder,
