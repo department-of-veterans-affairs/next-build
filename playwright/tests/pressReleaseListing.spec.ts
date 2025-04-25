@@ -11,7 +11,7 @@ test.describe('pressReleaseListing', () => {
     )
   })
 
-  test('Press Release Listing page should be paginated if there are ore than 10 stories', async ({
+  test('Press Release Listing page should be paginated if there are more than 10 stories', async ({
     page,
   }) => {
     await page.goto('/southern-nevada-health-care/news-releases')
@@ -26,6 +26,33 @@ test.describe('pressReleaseListing', () => {
     const nextPageLink = page.getByLabel('Next page')
     await expect(nextPageLink).toBeVisible()
     await expect(nextPageLink).toBeEnabled()
+  })
+
+  test('Press Release Listing should handle double-digit page numbers correctly', async ({
+    page,
+  }) => {
+    await page.goto('/saginaw-health-care/news-releases')
+    for (let i = 1; i < 10; i++) {
+      const nextPageLink = page.getByLabel('Next page')
+      // Confirm it's visible before clicking
+      await expect(nextPageLink).toBeVisible({ timeout: 5000 })
+      // Wait for both the click and URL change — works with client-side routing
+      await Promise.all([
+        page.waitForURL(new RegExp(`/page-${i + 1}/`), { timeout: 10000 }),
+        nextPageLink.click(),
+      ])
+    }
+    // Confirm we’re on page 10
+    await expect(page).toHaveURL(/\/page-10\//)
+    const pressReleaseItems = page.locator('.usa-unstyled-list li')
+    await expect(pressReleaseItems).toHaveCount(10)
+    // Navigate to page 11
+    const nextPageLink = page.getByLabel('Next page')
+    await Promise.all([
+      page.waitForURL(/\/page-11\//, { timeout: 10000 }),
+      nextPageLink.click(),
+    ])
+    await expect(page).toHaveURL(/\/page-11\//)
   })
 
   test('Should render without a11y errors', async ({
