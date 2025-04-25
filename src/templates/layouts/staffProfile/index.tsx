@@ -31,7 +31,7 @@ export const StaffProfile = ({
   lastUpdated,
 }: LovellStaticPropsResource<FormattedStaffProfile>) => {
   return (
-    <div className="vads-grid-container">
+    <div className="vads-grid-container mobile:vads-u-padding-x--0">
       <div className="vads-grid-row">
         {menu && (
           <div className="vads-u-display--none tablet:vads-u-display--block tablet:vads-grid-col-3">
