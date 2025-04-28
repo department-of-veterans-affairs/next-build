@@ -24,6 +24,12 @@ describe('StaffProfile Component', () => {
           linkParams: {},
         },
       },
+      original: {
+        href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/original/public/2021-04/Zachary_Sage.jpg',
+        meta: {
+          linkParams: {},
+        },
+      },
     },
   }
   const completeBiography = {
@@ -83,7 +89,7 @@ describe('StaffProfile Component', () => {
     expect(screen.getByTestId('head-shot-download')).toBeInTheDocument()
     expect(screen.getByTestId('head-shot-download')).toHaveAttribute(
       'href',
-      'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_3_medium_thumbnail/public/2021-04/Zachary_Sage.jpg'
+      'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/original/public/2021-04/Zachary_Sage.jpg'
     )
     expect(screen.getByTestId('head-shot-download')).toHaveAttribute(
       'filetype',
