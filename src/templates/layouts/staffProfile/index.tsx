@@ -31,7 +31,7 @@ export const StaffProfile = ({
   lastUpdated,
 }: LovellStaticPropsResource<FormattedStaffProfile>) => {
   return (
-    <div className="vads-grid-container mobile:vads-u-padding-x--0">
+    <div className="vads-grid-container">
       <div className="vads-grid-row">
         {menu && (
           <div className="vads-u-display--none tablet:vads-u-display--block tablet:vads-grid-col-3">
@@ -113,13 +113,12 @@ export const StaffProfile = ({
             )}
             {media && photoAllowHiresDownload && (
               <p>
-                {/* TODO this is not the full size photo path. We need to send the original path down from Drupal */}
                 <va-link
                   data-testid="head-shot-download"
-                  href={media.links['2_3_medium_thumbnail'].href}
+                  href={media.links['original'].href}
                   download
                   text="Download full size photo"
-                  filetype={media.links['2_3_medium_thumbnail'].href
+                  filetype={media.links['original'].href
                     .split('.')
                     .pop()
                     .toUpperCase()}
