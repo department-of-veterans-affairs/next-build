@@ -63,3 +63,7 @@ certs/VA-mozilla-combined.pem
 
 # vscode
 .vscode
+
+# processEnv() stuff
+build_id
+exit_code

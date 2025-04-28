@@ -1,8 +1,14 @@
 /*eslint-disable no-console*/
+import fs from 'fs'
+import path from 'path'
+
 import { getCliOptionsAndArgs } from './cli-options'
 import { getEnvFileVars } from './env-file'
 import { getCmsFeatureFlags } from './cms-feature-flags'
 import { spawn } from 'child_process'
+
+const buildIDFile = path.join(process.cwd(), 'build_id')
+const exitCodeFile = path.join(process.cwd(), 'exit_code')
 
 export type EnvVars = {
   [key: string]: string | boolean
@@ -52,7 +58,8 @@ export const processEnv = async (
   /**
    * The shell command to be executed, with additional arguments passed through.
    */
-  command: string
+  command: string,
+  verbose = false
 ): Promise<void> => {
   // CLI
   const { args: cliArgs, options: cliOptions } = getCliOptionsAndArgs()
@@ -84,12 +91,66 @@ export const processEnv = async (
     },
   }
 
+  await cleanup(verbose)
+
   // Pass additional arguments through to the underlying command
   const cmd = spawn(`${command} ${cliArgs.join(' ')}`, {
     shell: true,
     stdio: 'inherit',
   })
+
+  if (command === 'next build') {
+    // Write the PID of the build process to a file so we can kill it quickly
+    // and accurately later if we need to. This is only necessary for the
+    // `next build` command.
+    fs.writeFileSync(buildIDFile, cmd.pid.toString(), 'utf8')
+  }
+
   cmd.on('exit', (code) => {
-    process.exit(code)
+    let exitCode = code
+    try {
+      // Override the exit code with the one from the file if it exists.
+      // This is to make sure that we don't accidentally exit with a code 0 if
+      // we need to ensure the process fails loudly.
+      if (fs.existsSync(exitCodeFile)) {
+        exitCode = parseInt(fs.readFileSync(exitCodeFile, 'utf8'), 10)
+      }
+    } catch (e) {
+      console.error(e)
+    }
+
+    cleanup(verbose).finally(() => process.exit(exitCode))
   })
+}
+
+async function cleanup(verbose = false) {
+  const chalk = await import('chalk').then((mod) => mod.default)
+
+  const log = verbose ? console.log : () => {}
+
+  console.log('verbose:', verbose)
+
+  log(chalk.blue('\nCleaning up...'))
+  try {
+    if (fs.existsSync(buildIDFile)) {
+      fs.unlinkSync(buildIDFile)
+      log(chalk.green(`  Deleted build ID file at ${buildIDFile}`))
+    } else {
+      log(chalk.yellow(`  No build ID file to delete at ${buildIDFile}`))
+    }
+  } catch (e) {
+    log(chalk.red(`  Failed to delete build ID file at ${buildIDFile}`))
+    log(e.toString())
+  }
+  try {
+    if (fs.existsSync(exitCodeFile)) {
+      fs.unlinkSync(exitCodeFile)
+      log(chalk.green(`  Deleted exit code file at ${exitCodeFile}`))
+    } else {
+      log(chalk.yellow(`  No exit code file to delete at ${exitCodeFile}`))
+    }
+  } catch (e) {
+    log(chalk.red(`  Failed to delete exit code file\ at ${exitCodeFile}`))
+    log(e.toString())
+  }
 }
