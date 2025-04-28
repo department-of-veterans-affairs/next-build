@@ -40,11 +40,12 @@ describe('<NewsStoryTeaser> with valid data', () => {
     const { container } = render(<NewsStoryTeaser {...teaserData} />)
     const imgEl = container.querySelector('img')
     expect(imgEl).toBeTruthy()
+    const link = container.querySelector('va-link')
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', teaserData.link)
+    expect(link).toHaveAttribute('text', teaserData.title)
     expect(
-      screen.queryByText(/We honor outstanding doctors/)
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(
+      screen.getByText(
         /When a hospital has a host of great doctors, honoring just two every year is challenging./
       )
     ).toBeInTheDocument()
@@ -55,11 +56,12 @@ describe('<NewsStoryTeaser> with valid data', () => {
     const { container } = render(<NewsStoryTeaser {...dataWithoutImage} />)
     const imgEl = container.querySelector('img')
     expect(imgEl).toBeNull()
+    const link = container.querySelector('va-link')
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', teaserData.link)
+    expect(link).toHaveAttribute('text', teaserData.title)
     expect(
-      screen.queryByText(/We honor outstanding doctors/)
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(
+      screen.getByText(
         /When a hospital has a host of great doctors, honoring just two every year is challenging./
       )
     ).toBeInTheDocument()
@@ -73,20 +75,31 @@ describe('<NewsStoryTeaser> with valid data', () => {
     const { container } = render(<NewsStoryTeaser {...dataWithInvalidImage} />)
     const imgEl = container.querySelector('img')
     expect(imgEl).toBeNull()
-    expect(
-      screen.queryByText(/We honor outstanding doctors/)
-    ).toBeInTheDocument()
+    const link = container.querySelector('va-link')
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', teaserData.link)
+    expect(link).toHaveAttribute('text', teaserData.title)
   })
 
   it('renders correctly with default heading level', () => {
-    render(<NewsStoryTeaser {...teaserData} headingLevel={undefined} />)
+    const { container } = render(
+      <NewsStoryTeaser {...teaserData} headingLevel={undefined} />
+    )
     expect(document.querySelector('h2')).toBeInTheDocument()
-    expect(screen.getByText(teaserData.title)).toBeInTheDocument()
+    const link = container.querySelector('va-link')
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', teaserData.link)
+    expect(link).toHaveAttribute('text', teaserData.title)
   })
 
   it('renders correctly with specified heading level', () => {
-    render(<NewsStoryTeaser {...teaserData} headingLevel="h3" />)
+    const { container } = render(
+      <NewsStoryTeaser {...teaserData} headingLevel="h3" />
+    )
     expect(document.querySelector('h3')).toBeInTheDocument()
-    expect(screen.getByText(teaserData.title)).toBeInTheDocument()
+    const link = container.querySelector('va-link')
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', teaserData.link)
+    expect(link).toHaveAttribute('text', teaserData.title)
   })
 })
