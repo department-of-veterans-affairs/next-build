@@ -112,7 +112,7 @@ export const formatter: QueryFormatter<
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
-    releases: formattedReleases,
+    'news-releases': formattedReleases,
     menu: formattedMenu,
     currentPage: current,
     totalItems,
