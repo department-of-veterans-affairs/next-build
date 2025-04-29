@@ -3,6 +3,7 @@
 ## 2024-03-21 - Initial Setup
 
 ### VAMC System Content Type Template Setup
+
 - Generated new content type template using `yarn plop` with `vamc_system` as the content type name
 - This command created the following files:
   - `playwright/tests/vamcSystem.spec.js` - Initial page tests
@@ -16,6 +17,7 @@
   - `src/types/formatted/vamcSystem.ts` - Type definitions
 
 ### Template Integration
+
 - Integrated the VAMC system template into the application:
   - Added VAMC system to `PAGE_RESOURCE_TYPES` in `src/lib/constants/resourceTypes.ts`
   - Imported and added VAMC system query to `QUERIES_MAP` in `src/data/queries/index.ts`
@@ -25,6 +27,7 @@
   - Kept original `VAMC_SYSTEM: 'node--health_care_region_page'` value
 
 ### Node Type Definition Process
+
 - Node types are defined based on actual API responses from the Drupal CMS
 - Process for defining node types:
   1. Query the Drupal API for a sample of the content type
@@ -50,8 +53,30 @@
     ```
   - Additional fields can be added as needed when implementing specific features
 
+### Original Template Preservation
+
+- Copied the original Drupal liquid template to `src/templates/layouts/vamcSystem/_old_template.drupal.liquid`
+- This template serves as a reference for:
+  - Understanding the current functionality
+  - Identifying required data fields
+  - Maintaining feature parity during migration
+  - Verifying the migrated implementation
+- The template includes several key sections:
+  - Header and navigation
+  - Main content area with:
+    - Facility image
+    - Main action buttons
+    - Locations section
+    - "Manage your health online" section
+    - Related links
+    - Stories and events sections
+    - Social media links
+  - Footer elements
+
 ### Next Steps
+
 - Begin migrating liquid template components to Next.js components
 - Set up necessary data fetching and routing
 - Implement responsive design and accessibility features
 - Add more fields to the node type definition as needed for specific features
+- Break down the template into smaller, reusable components
