@@ -1,0 +1,529 @@
+[
+  {
+    "type": "node--health_care_region_page",
+    "id": "17bfe247-9df5-4217-a48a-973f8676d6e4",
+    "drupal_internal__nid": 8525,
+    "drupal_internal__vid": 763943,
+    "langcode": "en",
+    "revision_timestamp": "2023-04-13T18:17:36+00:00",
+    "revision_log": "revised Medical Records Office link - CMS Helpdesk",
+    "status": true,
+    "title": "VA New York Harbor health care",
+    "created": "2020-10-19T20:31:40+00:00",
+    "changed": "2023-04-13T18:17:36+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "VA New York Harbor health care",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "VA New York Harbor health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "image_src",
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:site_name",
+          "content": "Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:title",
+          "content": "VA New York Harbor health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:description",
+          "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:alt",
+          "content": "Manhattan Veterans Administration Medical Center"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:card",
+          "content": "summary_large_image"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:site",
+          "content": "@DeptVetAffairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:title",
+          "content": "VA New York Harbor health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:description",
+          "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image:alt",
+          "content": "Manhattan Veterans Administration Medical Center"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/new-york-harbor-health-care",
+      "pid": 10082,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_description": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+    "field_facebook": {
+      "uri": "https://www.facebook.com/VANYHarbor",
+      "title": "The New York Harbor Healthcare System Facebook page",
+      "options": [],
+      "url": "https://www.facebook.com/VANYHarbor"
+    },
+    "field_flickr": {
+      "uri": "https://www.flickr.com/photos/144760790@N02/albums",
+      "title": "The New York Harbor Healthcare System",
+      "options": [],
+      "url": "https://www.flickr.com/photos/144760790@N02/albums"
+    },
+    "field_govdelivery_id_emerg": "USVHA_387",
+    "field_govdelivery_id_news": "USVHA_145",
+    "field_instagram": null,
+    "field_intro_text": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.\r\n",
+    "field_last_saved_by_an_editor": "2023-04-13T18:17:37+00:00",
+    "field_meta_tags": null,
+    "field_operating_status": {
+      "uri": "entity:node/8526",
+      "title": "Operating status - VA New York Harbor health care",
+      "options": [],
+      "url": "/new-york-harbor-health-care/operating-status"
+    },
+    "field_other_va_locations": [
+      "vc_0133V",
+      "vc_0105V",
+      "vc_0106V"
+    ],
+    "field_twitter": {
+      "uri": "https://twitter.com/VANYHarbor",
+      "title": "The New York Harbor Healthcare System",
+      "options": [],
+      "url": "https://twitter.com/VANYHarbor"
+    },
+    "field_vamc_ehr_system": "vista",
+    "field_vamc_system_official_name": "VA New York Harbor Healthcare System",
+    "field_va_health_connect_phone": "800-877-6976",
+    "field_youtube": null,
+    "field_appointments_online": false,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/17bfe247-9df5-4217-a48a-973f8676d6e4?resourceVersion=id%3A763943"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "health_care_region_page"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "f687120a-7fbd-429e-a9c0-4b287ce0df37",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4201
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1270
+      }
+    },
+    "field_clinical_health_services": [
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c08baec1-4c5d-4fde-ba85-d7028cdbe06e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9846
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a819440b-5db1-476a-98f9-f1884ba2c787",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9847
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "2cd6d887-8812-478c-a13a-46b12c25571d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9848
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "287a4ce8-a706-4a60-938a-d2a601b58870",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9849
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "adcbb899-0dcf-40c5-8199-c6952a29d634",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9850
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "75f3001e-867f-4b7e-8b2a-038252670a5c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9851
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "6d217a9a-bae7-4b1e-aff2-d74ce40cc698",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9852
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "fd83df6f-e633-4b9e-9936-ab1e80583802",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9853
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a8135074-dc5d-4e94-9404-54a9b12154a8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9854
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "9f3c6610-b9ca-4fe7-8236-7cbdae8c8abd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9855
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "88eb30c5-76cc-407e-97ae-5c454c9a5651",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9856
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c95f6726-6d2f-45a5-9e3e-081ac7d9b22e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9857
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "567cfa26-b84c-4def-8814-cad71d0ae7ec",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9858
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "060b2821-1186-4890-be60-b44f22da7ced",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9859
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "7dece264-7b1f-4413-b644-aa9a5837867b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9860
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c5a65bcb-6068-4712-8db8-fb98b3c03d66",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9861
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "89b4ffb7-3b9e-4c5f-a0eb-1219a40c3d7b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9862
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "491dbb4e-d399-449c-a942-a6b6f870e38c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9863
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "9a7175a1-992f-4352-8c1b-51143544397d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9864
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "37d23303-3ae2-4a51-b4a8-394c8903d5cf",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9865
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "50bad5de-7bd3-46bd-926a-29e68bcc22f7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9866
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "9c6d7a22-d0cc-480b-b6f4-79b707d253f1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9867
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "77fb74b1-329d-4809-90a7-469b87b92f09",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9868
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b15db1b3-db61-4100-a306-87c71d9c8de4",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9869
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "97c8dfb2-28d1-475b-a02d-20acded4e1af",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9870
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8e9eefbb-96d3-4fee-b941-b02e40b30098",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9871
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "3eb62adc-613b-49bf-84ea-169a1f4749ed",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9872
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5c858e29-d717-40c7-ba85-22bed62509f3",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9873
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c87bb62a-565f-4d0e-b145-300a50619666",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9874
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b3c2ddaf-73ac-444d-8f3b-bee9c077de4b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9875
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "46b55ece-1343-467a-92ac-9d3bb5ff3dd9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9876
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "9b24e481-6c49-48b3-96b8-bde9b8f88407",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9877
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f51e9e53-74c7-4189-81ff-1e4e983099c2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9878
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "21ea58ec-2dfc-44e8-9e84-8fe445cd4dba",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9879
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5ea40687-85f3-4d5d-8682-82282dba7738",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9880
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "94f41d13-bcb0-4907-b12a-b77bfa275aef",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9881
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "7b1cfc7a-b077-4850-8ff4-5ae4cf19c095",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9882
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "af5c1874-d35f-42f9-9f6e-9502fda18bae",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9883
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c5cb7f4a-b8cd-486d-b3c5-f127b781a5e1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 9884
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "11a0ad62-c3d4-48f1-8734-c4b5e1757512",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 15261
+        }
+      }
+    ],
+    "field_media": {
+      "type": "media--image",
+      "id": "6c6e365c-e9ca-4ec1-9f87-1b686d7defe7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1545
+      }
+    },
+    "field_related_links": {
+      "type": "paragraph--list_of_link_teasers",
+      "id": "8fee84a4-d821-4a90-ab51-25971100c481",
+      "resourceIdObjMeta": {
+        "target_revision_id": 923261,
+        "drupal_internal__target_id": 13881
+      }
+    },
+    "field_system_menu": {
+      "type": "menu--menu",
+      "id": "8c08ba3b-a738-42b0-b3b6-866d780697ce",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "va-new-york-harbor-health-care"
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "5c2e2742-4432-47b7-a540-b486e1d2a058",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 254
+      }
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_clinical_health_services",
+      "field_media",
+      "field_related_links",
+      "field_system_menu",
+      "field_administration"
+    ]
+  }
+]

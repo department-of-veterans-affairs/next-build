@@ -73,6 +73,59 @@
     - Social media links
   - Footer elements
 
+### Component Props and Type Definition Methodology
+
+- Component Props Analysis:
+  1. Referenced the main page router (`src/pages/[[...slug]].tsx`) to see how the component is being used:
+     ```typescript
+     {resource.type === RESOURCE_TYPES.VAMC_SYSTEM && (
+       <VamcSystem {...(resource as FormattedVamcSystem)} />
+     )}
+     ```
+  2. This showed that the component receives a `FormattedVamcSystem` type as its props
+  3. The spread operator (`...`) indicates all fields from the type are passed as props
+
+- Type Definition and Data Transformation:
+  1. Analyzed the liquid template (`_old_template.drupal.liquid`) to identify all fields being used
+  2. Cross-referenced with the API response to understand the data structure
+  3. Determined necessary fields by:
+     - Looking for direct field usage in the template (e.g., `{{ title }}`, `{{ fieldIntroText }}`)
+     - Identifying fields used in conditional logic (e.g., `{% if fieldAdministration.entity.entityId != '1039' %}`)
+     - Noting fields used in includes and partials
+     - Checking for fields used in URL construction (e.g., `{{ entityUrl.path }}/locations`)
+  4. Updated the `FormattedVamcSystem` type in `src/types/formatted/vamcSystem.ts` to match:
+     - The output of the formatter function
+     - The needs of the React component
+     - The fields identified in the liquid template
+  5. Implemented the formatter function in `src/data/queries/vamcSystem.ts` to:
+     - Convert Drupal's snake_case field names to camelCase
+     - Transform the raw Drupal data into the `FormattedVamcSystem` type
+     - Handle any necessary data structure transformations
+  6. Added nullability where appropriate (e.g., `fieldInstagram: FieldLink | null`)
+  7. Used existing type definitions from the codebase (e.g., `DrupalMediaImage`, `FieldLink`)
+
+### Initial React Component Implementation
+
+- Created initial component structure in `src/templates/layouts/vamcSystem/index.tsx`
+- Implemented basic component structure with:
+  - Title and image display
+  - Main action buttons placeholder
+  - Locations section with "See all locations" link
+  - "Manage your health online" section (conditionally rendered)
+- Added placeholders for future components:
+  - Related links
+  - Stories section
+  - Events section
+  - Social links
+- Added TODO comments for components that need to be implemented:
+  - Main buttons component
+  - Facility listing component
+  - Health online links component
+  - List of link teasers component
+  - Stories section
+  - Events section
+  - Social links component
+
 ### Next Steps
 
 - Begin migrating liquid template components to Next.js components
@@ -80,3 +133,11 @@
 - Implement responsive design and accessibility features
 - Add more fields to the node type definition as needed for specific features
 - Break down the template into smaller, reusable components
+- Implement the TODO components:
+  - Main buttons component
+  - Facility listing component
+  - Health online links component
+  - List of link teasers component
+  - Stories section
+  - Events section
+  - Social links component

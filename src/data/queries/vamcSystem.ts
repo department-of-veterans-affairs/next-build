@@ -13,12 +13,13 @@ import {
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-    // uncomment to add referenced entity data to the response
-    // .addInclude([
-    //  'field_media',
-    //  'field_media.image',
-    //  'field_administration',
-    // ])
+    .addInclude([
+      'field_media',
+      'field_media.image',
+      'field_administration',
+      'field_clinical_health_services',
+      'field_related_links',
+    ])
 }
 
 // Define the option types for the data loader.
@@ -31,7 +32,7 @@ export type VamcSystemDataOpts = {
 export const data: QueryData<VamcSystemDataOpts, NodeVamcSystem> = async (
   opts
 ): Promise<NodeVamcSystem> => {
-const entity = (await fetchSingleEntityOrPreview(
+  const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VAMC_SYSTEM,
     params
@@ -44,6 +45,25 @@ export const formatter: QueryFormatter<NodeVamcSystem, VamcSystem> = (
   entity: NodeVamcSystem
 ) => {
   return {
-    ...entityBaseFields(entity)
+    ...entityBaseFields(entity),
+    title: entity.title,
+    fieldDescription: entity.field_description,
+    fieldIntroText: entity.field_intro_text,
+    fieldMedia: entity.field_media,
+    fieldAdministration: {
+      entityId: entity.field_administration?.entity?.entityId || '',
+    },
+    fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
+    fieldVamcEhrSystem: entity.field_vamc_ehr_system,
+    fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,
+    fieldFacebook: entity.field_facebook,
+    fieldTwitter: entity.field_twitter,
+    fieldInstagram: entity.field_instagram,
+    fieldFlickr: entity.field_flickr,
+    fieldYoutube: entity.field_youtube,
+    fieldAppointmentsOnline: entity.field_appointments_online,
+    fieldClinicalHealthServices: entity.field_clinical_health_services,
+    fieldRelatedLinks: entity.field_related_links,
+    path: entity.entityPath || '',
   }
 }
