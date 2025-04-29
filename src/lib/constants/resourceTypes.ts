@@ -14,8 +14,7 @@ export const RESOURCE_TYPES = {
   VAMC_SYSTEM: 'node--health_care_region_page',
   VET_CENTER: 'node--vet_center',
   VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
-  QA: 'node--q_a',
-  VAMC_SYSTEM: 'node--vamc_system'
+  QA: 'node--q_a'
 } as const
 
 // (Node) resources that generate full pages.
