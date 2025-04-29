@@ -21,14 +21,14 @@ describe('<PressReleaseTeaser> with valid data', () => {
   })
   test('renders component', () => {
     const { container } = render(<PressReleaseTeaser {...teaserData} />)
+    const link = container.querySelector('va-link')
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('href', teaserData.link)
+    expect(link).toHaveAttribute('text', teaserData.title)
     expect(
-      screen.queryByText(/Wilmington VAMC 2019 Annual Report/)
+      screen.getByText(/We invite you to come and read our 2019 Annual Report./)
     ).toBeInTheDocument()
-    expect(
-      screen.queryByText(
-        /We invite you to come and read our 2019 Annual Report./
-      )
-    ).toBeInTheDocument()
+    expect(screen.getByText('April 12, 2021')).toBeInTheDocument()
   })
 
   test('renders with default heading level', () => {
