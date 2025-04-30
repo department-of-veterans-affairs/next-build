@@ -39,6 +39,7 @@ import {
   ParagraphCCFeaturedContent,
   ParagraphCCVetCenterFaqs,
   ParagraphFeaturedContent,
+  ParagraphListOfLinkTeasers,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -200,7 +201,7 @@ export interface NodeHealthCareLocalHealthService extends DrupalNode {
 export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
   field_media: DrupalMediaImage
-  field_related_links: ParagraphListOfLinks
+  field_related_links: ParagraphListOfLinkTeasers
   field_vamc_ehr_system: string
   field_facebook: FieldLink
   field_flickr: FieldLink
