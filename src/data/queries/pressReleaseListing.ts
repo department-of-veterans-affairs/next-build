@@ -15,6 +15,8 @@ import {
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
+import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.PRESS_RELEASE_LISTING]
 
@@ -38,6 +40,7 @@ type PressReleaseListingData = {
   totalItems: number
   totalPages: number
   current: number
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
@@ -70,13 +73,12 @@ export const data: QueryData<
       )
 
   // Fetch the menu name dynamically off of the field_office reference
-  let menu = null
-  if (entity.field_office.field_system_menu) {
-    menu = await getMenu(
-      entity.field_office.field_system_menu.resourceIdObjMeta
-        ?.drupal_internal__target_id
-    )
-  }
+  const menu = entity.field_office.field_system_menu
+    ? await getMenu(
+        entity.field_office.field_system_menu.resourceIdObjMeta
+          ?.drupal_internal__target_id
+      )
+    : null
 
   return {
     entity,
@@ -85,13 +87,14 @@ export const data: QueryData<
     totalItems,
     totalPages: totalPages,
     current: opts?.page,
+    lovell: opts.context?.lovell,
   }
 }
 
 export const formatter: QueryFormatter<
   PressReleaseListingData,
   PressReleaseListing
-> = ({ entity, releases, menu, totalItems, totalPages, current }) => {
+> = ({ entity, releases, menu, totalItems, totalPages, current, lovell }) => {
   const formattedReleases = releases.map((release) => {
     return queries.formatData(
       `${RESOURCE_TYPES.PRESS_RELEASE}--teaser`,
@@ -99,11 +102,17 @@ export const formatter: QueryFormatter<
     )
   })
 
-  const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+  let formattedMenu =
+    menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
+
+  if (lovell?.isLovellVariantPage) {
+    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell?.variant)
+  }
+
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
-    releases: formattedReleases,
+    'news-releases': formattedReleases,
     menu: formattedMenu,
     currentPage: current,
     totalItems,
