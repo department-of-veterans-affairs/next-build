@@ -33,7 +33,8 @@ const nextConfig = {
     return {
       ...webpackConfig,
       optimization: {
-        minimize: false,
+        ...webpackConfig.optimization,
+        minimize: isProd,
       },
     }
   },
