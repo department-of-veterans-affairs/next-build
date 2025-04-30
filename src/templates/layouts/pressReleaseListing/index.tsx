@@ -27,20 +27,17 @@ interface customWindow extends Window {
 }
 declare const window: customWindow
 
-export function PressReleaseListing(
-  props: LovellStaticPropsResource<FormattedPressReleaseListing>
-) {
-  const {
-    id,
-    title,
-    introText,
-    menu,
-    currentPage,
-    totalPages,
-    lovellVariant,
-    lovellSwitchPath,
-  } = props
-  const releases = props['news-releases']
+export function PressReleaseListing({
+  id,
+  title,
+  introText,
+  releases,
+  menu,
+  currentPage,
+  totalPages,
+  lovellVariant,
+  lovellSwitchPath,
+}: LovellStaticPropsResource<FormattedPressReleaseListing>) {
   // Add data to the window object for the sidebar widget
   useEffect(() => {
     window.sideNav = menu
