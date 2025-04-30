@@ -112,4 +112,15 @@ describe('HealthCareLocalFacility with valid data', () => {
     expect(screen.getAllByText(/7:30 a.m. to 4:00 p.m./)).toHaveLength(5)
     expect(screen.getAllByText(/Closed/)).toHaveLength(2)
   })
+
+  test('renders the related links', () => {
+    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+
+    expect(
+      screen.getByRole('heading', {
+        name: 'Other services at VA Boston health care',
+      })
+    ).toBeInTheDocument()
+    expect(container.querySelectorAll('ul > li > p > va-link')).toHaveLength(8)
+  })
 })
