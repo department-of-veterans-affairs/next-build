@@ -35,25 +35,28 @@ export const PressRelease = ({
                   <p className="vads-u-font-weight--bold vads-u-margin-bottom--3 vads-u-margin-top--0">
                     {formatDate(releaseDate)}
                   </p>
-                  <div>
-                    <button
-                      type="button"
-                      className="vads-u-margin-right--4 va-button-link"
+                  <p className="va-flex vads-u-flex-direction--column  mobile:vads-u-flex-direction--row mobile:vads-u-align-items--center mobile:vads-u-padding-bottom--4 ">
+                    <va-button
+                      data-testid="print-button"
                       onClick={() => {
                         window.print()
                         return false
                       }}
-                    >
-                      <i className="fa fa-print vads-u-padding-right--1"></i>
-                      Print
-                    </button>
+                      secondary
+                      text="Print"
+                      class="vads-u-margin-right--2 vads-u-padding-bottom--2 mobile:vads-u-padding-bottom--0"
+                    />
+
                     {pdfVersion && (
-                      <a href={pdfVersion} download>
-                        <i className="fa fa-download vads-u-padding-right--1"></i>
-                        Download press release (PDF)
-                      </a>
+                      <va-link
+                        download
+                        href={pdfVersion}
+                        text="Download press release"
+                        filetype={pdfVersion.split('.').pop().toUpperCase()}
+                        data-testid="pdf-version"
+                      />
                     )}
-                  </div>
+                  </p>
                   <p className="va-introtext vads-u-font-size--lg vads-u-margin-top--3">
                     {`${address.locality}, ${address.administrative_area} - ${introText}`}
                   </p>

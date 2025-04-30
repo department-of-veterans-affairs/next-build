@@ -105,8 +105,8 @@ describe('<pressRelease> with valid data', () => {
     spy.mockRestore()
   })
   test('renders component', () => {
-    const { container, getByText } = render(<PressRelease {...data} />)
-    const linkElement = getByText(/Download press release \(PDF\)/i)
+    const { container, getByTestId } = render(<PressRelease {...data} />)
+    const linkElement = getByTestId('pdf-version')
 
     expect(
       screen.queryByText(/Wilmington VAMC 2019 Annual Report/)
@@ -131,8 +131,8 @@ describe('<pressRelease> with valid data', () => {
   })
   test('renders component without pdfVersion', () => {
     data.pdfVersion = null
-    const { container } = render(<PressRelease {...data} />)
-    const linkElement = screen.queryByText(/Download press release \(PDF\)/i)
+    render(<PressRelease {...data} />)
+    const linkElement = screen.queryByTestId('pdf-version')
     expect(linkElement).toBeNull()
   })
   test('renders contacts', () => {
@@ -248,7 +248,7 @@ describe('<pressRelease> with valid data', () => {
   window.print = jest.fn()
   test('renders the print button and handles click', () => {
     render(<PressRelease {...data} />)
-    const printButton = screen.getByText('Print')
+    const printButton = screen.getByTestId('print-button')
     fireEvent.click(printButton)
     expect(window.print).toHaveBeenCalled()
   })
