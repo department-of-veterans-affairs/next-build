@@ -8,7 +8,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "administrative_area": "MA",
     "country_code": "US",
     "dependent_locality": null,
-    "langcode": null,
+    "langcode": "en",
     "locality": "Boston",
     "postal_code": "02114-2104",
   },
@@ -19,12 +19,12 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     {
       "options": [],
       "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
       "options": [],
       "title": "VA Boston health care",
-      "uri": "https://va-gov-cms.ddev.site/boston-health-care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
     },
     {
       "options": [],
@@ -34,7 +34,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     {
       "options": [],
       "title": "Locations",
-      "uri": "https://va-gov-cms.ddev.site/boston-health-care/locations",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
     },
     {
       "options": [],
@@ -48,28 +48,42 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
   "fieldTelephone": {
     "behavior_settings": [],
     "breadcrumbs": [],
-    "content_translation_changed": "2024-11-25T18:40:13+00:00",
+    "content_translation_changed": "2025-02-27T17:26:37+00:00",
     "content_translation_outdated": false,
     "content_translation_source": "und",
     "created": "2024-11-25T18:40:13+00:00",
     "default_langcode": true,
     "drupal_internal__id": 169966,
-    "drupal_internal__revision_id": 1574849,
+    "drupal_internal__revision_id": 1666098,
     "field_phone_extension": null,
-    "field_phone_label": null,
+    "field_phone_label": "Mental health phone",
     "field_phone_number": "800-865-3384",
-    "field_phone_number_type": "phone",
+    "field_phone_number_type": "tel",
     "id": "1174972e-ab4f-45f9-b814-04919526a828",
     "langcode": "en",
     "links": {
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1574849",
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1666098",
       },
+    },
+    "paragraph_type": {
+      "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "phone_number",
+      },
+      "type": "paragraphs_type--paragraphs_type",
     },
     "parent_field_name": "field_telephone",
     "parent_id": "1272",
     "parent_type": "node",
-    "revision_translation_affected": null,
+    "relationshipNames": [
+      "paragraph_type",
+    ],
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 169966,
+      "target_revision_id": 1666098,
+    },
+    "revision_translation_affected": true,
     "status": true,
     "type": "paragraph--phone_number",
   },
@@ -182,6 +196,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
+            "width": "330",
           },
           "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
@@ -195,6 +210,21 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
+            "width": "330",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "original": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "330",
           },
           "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
@@ -202,7 +232,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         },
       },
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94",
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94",
       },
       "viewport_width": {
         "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
@@ -211,6 +241,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
+            "width": "330",
           },
           "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
@@ -223,7 +254,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "width": 480,
   },
   "introText": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
-  "lastUpdated": "2024-11-07T14:41:05+00:00",
+  "lastUpdated": "2025-02-27T17:26:40+00:00",
   "menu": {
     "data": {
       "description": "bar",
@@ -319,15 +350,15 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     },
     {
       "attributes": {
-        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
-        "name": "twitter:image",
+        "content": "Causeway VA Clinic",
+        "name": "twitter:image:alt",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "Causeway VA Clinic",
-        "name": "twitter:image:alt",
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "name": "twitter:image",
       },
       "tag": "meta",
     },
@@ -384,10 +415,47 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
       "starthours": null,
     },
   ],
-  "operatingStatusFacility": "closed",
+  "operatingStatusFacility": "temporary_closure",
   "path": "/boston-health-care/locations/causeway-va-clinic",
   "phoneNumber": "800-865-3384",
   "published": true,
+  "relatedLinks": {
+    "links": [
+      {
+        "title": "Get help from a patient advocate",
+        "uri": "/boston-health-care/health-services/patient-advocates",
+      },
+      {
+        "title": "Find a phone number",
+        "uri": "/boston-health-care/contact-us",
+      },
+      {
+        "title": "Interactive facility maps",
+        "uri": "https://www.va.gov/boston-health-care/programs/interactive-facility-maps",
+      },
+      {
+        "title": "Check your billing, insurance and payment options",
+        "uri": "/boston-health-care/billing-and-insurance",
+      },
+      {
+        "title": "Access your health records",
+        "uri": "/boston-health-care/medical-records-office",
+      },
+      {
+        "title": "Compare our performance with non-VA facilities",
+        "uri": "/boston-health-care/about-us/performance",
+      },
+      {
+        "title": "Learn about virtual care and service options",
+        "uri": "https://www.va.gov/boston-health-care/programs/connected-care/",
+      },
+      {
+        "title": "Volunteer or donate",
+        "uri": "/boston-health-care/work-with-us/volunteer-or-donate",
+      },
+    ],
+    "sectionTitle": "Other services at VA Boston health care",
+  },
   "title": "Causeway VA Clinic",
   "type": "node--health_care_local_facility",
   "vaHealthConnectPhoneNumber": "833-933-1106",
@@ -403,7 +471,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "administrative_area": "MA",
     "country_code": "US",
     "dependent_locality": null,
-    "langcode": null,
+    "langcode": "en",
     "locality": "Boston",
     "postal_code": "02114-2104",
   },
@@ -414,12 +482,12 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     {
       "options": [],
       "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
     },
     {
       "options": [],
       "title": "VA Boston health care",
-      "uri": "https://va-gov-cms.ddev.site/boston-health-care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
     },
     {
       "options": [],
@@ -429,7 +497,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     {
       "options": [],
       "title": "Locations",
-      "uri": "https://va-gov-cms.ddev.site/boston-health-care/locations",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
     },
     {
       "options": [],
@@ -443,28 +511,42 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
   "fieldTelephone": {
     "behavior_settings": [],
     "breadcrumbs": [],
-    "content_translation_changed": "2024-11-25T18:40:13+00:00",
+    "content_translation_changed": "2025-02-27T17:26:37+00:00",
     "content_translation_outdated": false,
     "content_translation_source": "und",
     "created": "2024-11-25T18:40:13+00:00",
     "default_langcode": true,
     "drupal_internal__id": 169966,
-    "drupal_internal__revision_id": 1574849,
+    "drupal_internal__revision_id": 1666098,
     "field_phone_extension": null,
-    "field_phone_label": null,
+    "field_phone_label": "Mental health phone",
     "field_phone_number": "800-865-3384",
-    "field_phone_number_type": "phone",
+    "field_phone_number_type": "tel",
     "id": "1174972e-ab4f-45f9-b814-04919526a828",
     "langcode": "en",
     "links": {
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1574849",
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1666098",
       },
+    },
+    "paragraph_type": {
+      "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "phone_number",
+      },
+      "type": "paragraphs_type--paragraphs_type",
     },
     "parent_field_name": "field_telephone",
     "parent_id": "1272",
     "parent_type": "node",
-    "revision_translation_affected": null,
+    "relationshipNames": [
+      "paragraph_type",
+    ],
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 169966,
+      "target_revision_id": 1666098,
+    },
+    "revision_translation_affected": true,
     "status": true,
     "type": "paragraph--phone_number",
   },
@@ -577,6 +659,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
+            "width": "330",
           },
           "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
@@ -590,6 +673,21 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
+            "width": "330",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "original": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/causewaycboc.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "330",
           },
           "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
@@ -597,7 +695,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         },
       },
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94",
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94",
       },
       "viewport_width": {
         "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
@@ -606,6 +704,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "rel": [
               "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
             ],
+            "width": "330",
           },
           "rel": [
             "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
@@ -618,7 +717,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "width": 480,
   },
   "introText": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
-  "lastUpdated": "2024-11-07T14:41:05+00:00",
+  "lastUpdated": "2025-02-27T17:26:40+00:00",
   "menu": {
     "data": {
       "description": "bar",
@@ -725,15 +824,15 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
-        "name": "twitter:image",
+        "content": "Causeway VA Clinic",
+        "name": "twitter:image:alt",
       },
       "tag": "meta",
     },
     {
       "attributes": {
-        "content": "Causeway VA Clinic",
-        "name": "twitter:image:alt",
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+        "name": "twitter:image",
       },
       "tag": "meta",
     },
@@ -790,10 +889,47 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
       "starthours": null,
     },
   ],
-  "operatingStatusFacility": "closed",
+  "operatingStatusFacility": "temporary_closure",
   "path": "/boston-health-care/locations/causeway-va-clinic",
   "phoneNumber": "800-865-3384",
   "published": true,
+  "relatedLinks": {
+    "links": [
+      {
+        "title": "Get help from a patient advocate",
+        "uri": "/boston-health-care/health-services/patient-advocates",
+      },
+      {
+        "title": "Find a phone number",
+        "uri": "/boston-health-care/contact-us",
+      },
+      {
+        "title": "Interactive facility maps",
+        "uri": "https://www.va.gov/boston-health-care/programs/interactive-facility-maps",
+      },
+      {
+        "title": "Check your billing, insurance and payment options",
+        "uri": "/boston-health-care/billing-and-insurance",
+      },
+      {
+        "title": "Access your health records",
+        "uri": "/boston-health-care/medical-records-office",
+      },
+      {
+        "title": "Compare our performance with non-VA facilities",
+        "uri": "/boston-health-care/about-us/performance",
+      },
+      {
+        "title": "Learn about virtual care and service options",
+        "uri": "https://www.va.gov/boston-health-care/programs/connected-care/",
+      },
+      {
+        "title": "Volunteer or donate",
+        "uri": "/boston-health-care/work-with-us/volunteer-or-donate",
+      },
+    ],
+    "sectionTitle": "Other services at VA Boston health care",
+  },
   "title": "Causeway VA Clinic",
   "type": "node--health_care_local_facility",
   "vaHealthConnectPhoneNumber": "833-933-1106",
