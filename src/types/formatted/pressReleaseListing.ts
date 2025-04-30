@@ -8,7 +8,7 @@ export type PressReleaseListingLink = {
 
 export type PressReleaseListing = PublishedEntity & {
   introText: string
-  releases: PressReleaseTeaser[]
+  'news-releases': PressReleaseTeaser[]
   menu: SideNavMenu
   currentPage: number
   totalItems: number

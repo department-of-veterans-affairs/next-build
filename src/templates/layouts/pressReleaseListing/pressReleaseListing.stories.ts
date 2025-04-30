@@ -21,6 +21,6 @@ export const NoPressReleases: Story = {
 export const List: Story = {
   args: {
     ...data,
-    releases: formattedPressReleases,
+    'news-releases': formattedPressReleases,
   },
 }
