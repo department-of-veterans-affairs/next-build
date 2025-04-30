@@ -72,6 +72,8 @@ services:
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn build:sitemap --SITE_URL ${TUGBOAT_DEFAULT_SERVICE_URL}
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
+        # Update site URL
+        - sed -i "s|replace-with-tugboat-url|${TUGBOAT_DEFAULT_SERVICE_URL}|g" "${TUGBOAT_ROOT}/envs/.env.tugboat"
 
       # Run any commands after the site is built.
       online:
