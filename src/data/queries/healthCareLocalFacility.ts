@@ -17,7 +17,7 @@ import { formatter as formatImage } from '@/data/queries/mediaImage'
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
-    'field_region_page',
+    'field_region_page.field_related_links.field_va_paragraphs',
     'field_media',
     'field_media.image',
     'field_administration',
@@ -96,5 +96,19 @@ export const formatter: QueryFormatter<
     image: formatImage(entity.field_media),
     facilityLocatorApiId: entity.field_facility_locator_api_id,
     geoLocation: entity.field_geolocation,
+    relatedLinks: {
+      sectionTitle: entity.field_region_page.title
+        ? `Other services at ${entity.field_region_page.field_related_links.field_title}`
+        : entity.field_region_page.field_related_links.field_va_paragraphs
+            .field_title,
+      links:
+        entity.field_region_page.field_related_links.field_va_paragraphs.map(
+          (linkTeaser) => ({
+            title: linkTeaser.field_link.title,
+            uri: linkTeaser.field_link.url,
+            // summary: ''
+          })
+        ),
+    },
   }
 }
