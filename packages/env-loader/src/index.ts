@@ -128,6 +128,8 @@ async function cleanup(verbose = false) {
 
   const log = verbose ? console.log : () => {}
 
+  console.log('verbose:', verbose)
+
   log(chalk.blue('\nCleaning up...'))
   try {
     if (fs.existsSync(buildIDFile)) {
