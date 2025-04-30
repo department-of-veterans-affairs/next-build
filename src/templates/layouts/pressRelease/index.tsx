@@ -2,7 +2,6 @@ import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRe
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { formatDate } from '@/lib/utils/helpers'
-import { recordEvent } from '@/lib/analytics/recordEvent'
 import { ContentFooter } from '@/templates/common/contentFooter'
 
 export const PressRelease = ({
