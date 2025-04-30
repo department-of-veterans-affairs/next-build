@@ -1,8 +1,6 @@
 import { isEmpty } from 'lodash'
 import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
 
-// General component used for one or more links with a line of descriptive text underneath
-// Does not map directly to any one Drupal type; it is simply a shared UI component
 export const RelatedLinks = ({
   links,
   sectionTitle,
@@ -11,8 +9,7 @@ export const RelatedLinks = ({
     return null
   }
 
-  let link
-  const renderLink = (uri, title, summary) => (
+  const renderLink = (uri: string, title: string, summary?: string) => (
     <>
       <p className="vads-u-margin--0">
         <strong>
@@ -22,10 +19,6 @@ export const RelatedLinks = ({
       {summary && <p className="vads-u-margin--0">{summary}</p>}
     </>
   )
-
-  if (links.length === 1) {
-    link = links[0]
-  }
 
   return (
     <section className="vads-u-margin-bottom--3 vads-u-display--flex vads-u-flex-direction--column">
@@ -45,7 +38,8 @@ export const RelatedLinks = ({
         </ul>
       )}
 
-      {links.length === 1 && renderLink(link.uri, link.title, link?.summary)}
+      {links.length === 1 &&
+        renderLink(links[0].uri, links[0].title, links[0].summary)}
     </section>
   )
 }
