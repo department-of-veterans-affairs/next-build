@@ -13,6 +13,7 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
@@ -103,7 +104,9 @@ export const formatter: QueryFormatter<
             .field_title,
       links: entity.field_region_page.field_related_links.field_va_paragraphs
         .slice(0, 8)
-        .map((linkTeaser) => ({
+        // Adding the type annotation because TS doesn't apparently pick up on
+        // this since we've done an Omit<> on the parent type.
+        .map((linkTeaser: ParagraphLinkTeaser) => ({
           title: linkTeaser.field_link.title,
           uri: linkTeaser.field_link.url,
           // summary: ''
