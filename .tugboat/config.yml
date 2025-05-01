@@ -53,14 +53,15 @@ services:
         # Clone vets-website
         - ./scripts/install-repos.sh
 
-        # Update site URL
-        - sed -i "s|replace-with-tugboat-url|${TUGBOAT_DEFAULT_SERVICE_URL}|g" "${TUGBOAT_ROOT}/envs/.env.tugboat"
       # Commands that build the site. This is where you would add
       # steps required to set up or configure the site. When a
       # preview is built from a base preview, the build workflow
       # starts here, skipping the init and update steps, because the
       # results of those are inherited from the base preview.
       build:
+        # Update site URL
+        - sed -i "s|replace-with-tugboat-url|${TUGBOAT_DEFAULT_SERVICE_URL}|g" "${TUGBOAT_ROOT}/envs/.env.tugboat"
+
         - yarn --version
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
         - yarn install
