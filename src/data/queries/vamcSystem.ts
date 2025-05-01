@@ -48,8 +48,8 @@ export const formatter: QueryFormatter<NodeVamcSystem, VamcSystem> = (
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    fieldIntroText: entity.field_intro_text,
-    fieldMedia: formatImage(entity.field_media),
+    introText: entity.field_intro_text,
+    image: formatImage(entity.field_media),
     fieldAdministration: {
       entityId: entity.field_administration?.entity?.entityId || '',
     },

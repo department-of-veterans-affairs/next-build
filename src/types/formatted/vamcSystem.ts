@@ -5,8 +5,8 @@ import { MediaImage } from '@/types/formatted/media'
 
 export type VamcSystem = {
   title: string
-  fieldIntroText: string
-  fieldMedia: MediaImage
+  introText: string
+  image: MediaImage
   fieldAdministration: {
     entityId: string
   }

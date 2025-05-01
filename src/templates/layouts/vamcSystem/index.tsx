@@ -12,8 +12,8 @@ import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 
 export function VamcSystem({
   title,
-  fieldIntroText,
-  fieldMedia,
+  introText,
+  image,
   fieldAdministration,
   // fieldVaHealthConnectPhone,
   // fieldVamcEhrSystem,
@@ -33,8 +33,8 @@ export function VamcSystem({
   // https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/7_2_medium_thumbnail/public/2021-08/Washington%20VA%20Medical%20Center.jpg
   // New:
   // https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-08/Washington%20VA%20Medical%20Center.jpg
-  const hasValidImage = fieldMedia?.links?.['2_1_large']?.href
-  console.log('fieldMedia', fieldMedia)
+  const hasValidImage = image?.links?.['2_1_large']?.href
+  console.log('image', image)
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -50,12 +50,7 @@ export function VamcSystem({
             {hasValidImage && (
               <div className="duotone darken lighten medium-screen:vads-u-margin-bottom--0p5">
                 <MediaImage
-                  id={fieldMedia.id}
-                  title={fieldMedia.title}
-                  alt={fieldMedia.alt}
-                  width={fieldMedia.width}
-                  height={fieldMedia.height}
-                  links={fieldMedia.links}
+                  {...image}
                   imageStyle="2_1_large"
                 />
               </div>
@@ -65,9 +60,9 @@ export function VamcSystem({
               {/* <MainButtons path={path} /> */}
             </div>
 
-            {fieldIntroText && (
+            {introText && (
               <div className="va-introtext">
-                <p className="vads-u-margin-bottom--0">{fieldIntroText}</p>
+                <p className="vads-u-margin-bottom--0">{introText}</p>
               </div>
             )}
 
