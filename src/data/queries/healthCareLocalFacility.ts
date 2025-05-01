@@ -100,9 +100,9 @@ export const formatter: QueryFormatter<
     relatedLinks: {
       sectionTitle: entity.field_region_page.title
         ? `Other services at ${entity.field_region_page.title}`
-        : entity.field_region_page.field_related_links.field_va_paragraphs
+        : entity.field_region_page.field_related_links?.field_va_paragraphs
             .field_title,
-      links: entity.field_region_page.field_related_links.field_va_paragraphs
+      links: entity.field_region_page.field_related_links?.field_va_paragraphs
         .slice(0, 8)
         // Adding the type annotation because TS doesn't apparently pick up on
         // this since we've done an Omit<> on the parent type.
