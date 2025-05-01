@@ -12,7 +12,7 @@ export const RelatedLinks = ({
   const renderLink = (uri: string, title: string, summary?: string) => (
     <>
       <p className="vads-u-margin--0">
-        <va-link href={uri} text={title} />
+        <va-link disable-analytics href={uri} text={title} />
       </p>
       {summary && <p className="vads-u-margin--0">{summary}</p>}
     </>
