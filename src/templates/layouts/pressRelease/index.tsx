@@ -66,7 +66,10 @@ export const PressRelease = ({
                 </section>
                 {/* contacts can have a single object in the array that contains all null values */}
                 {contacts?.length > 0 && contacts[0]?.name && (
-                  <section className="vads-u-margin-bottom--6">
+                  <section
+                    className="vads-u-margin-bottom--6"
+                    data-testid="media-contacts"
+                  >
                     <h2 className="vads-u-font-family--sans vads-u-font-size--source-sans-normalized">
                       Media contacts
                     </h2>

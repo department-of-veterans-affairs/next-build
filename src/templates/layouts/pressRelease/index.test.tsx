@@ -239,4 +239,26 @@ describe('<pressRelease> with valid data', () => {
     fireEvent.click(printButton)
     expect(window.print).toHaveBeenCalled()
   })
+  test('does not render Media contacts section when the contact is archived', () => {
+    // This is the state of data at the component when the author is archived
+    const archivedAuthorContacts = [
+      {
+        id: '96668498-d442-4b55-8b14-7ec90410f418',
+        name: null,
+        description: null,
+        numbers: [
+          {
+            id: null,
+            type: null,
+            number: null,
+            ext: null,
+          },
+        ],
+        email: null,
+      },
+    ]
+    const archivedData = { ...data, contacts: archivedAuthorContacts }
+    render(<PressRelease {...archivedData} />)
+    expect(screen.queryByTestId('media-contacts')).not.toBeInTheDocument()
+  })
 })
