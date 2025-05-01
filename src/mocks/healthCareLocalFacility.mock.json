@@ -2,25 +2,25 @@
   "type": "node--health_care_local_facility",
   "id": "cb577a82-953f-4306-84c6-a65abf1b45ea",
   "drupal_internal__nid": 1272,
-  "drupal_internal__vid": 941307,
+  "drupal_internal__vid": 962123,
   "langcode": "en",
-  "revision_timestamp": "2024-11-25T18:41:36+00:00",
+  "revision_timestamp": "2025-02-27T17:26:37+00:00",
   "status": true,
   "title": "Causeway VA Clinic",
   "created": "2019-10-31T19:52:50+00:00",
-  "changed": "2024-11-25T18:41:35+00:00",
+  "changed": "2025-02-27T17:26:37+00:00",
   "promote": false,
   "sticky": false,
   "default_langcode": true,
   "revision_translation_affected": true,
   "breadcrumbs": [
     {
-      "uri": "https://va-gov-cms.ddev.site/",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
       "title": "Home",
       "options": []
     },
     {
-      "uri": "https://va-gov-cms.ddev.site/boston-health-care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
       "title": "VA Boston health care",
       "options": []
     },
@@ -30,7 +30,7 @@
       "options": []
     },
     {
-      "uri": "https://va-gov-cms.ddev.site/boston-health-care/locations",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
       "title": "Locations",
       "options": []
     },
@@ -131,15 +131,15 @@
     {
       "tag": "meta",
       "attributes": {
-        "name": "twitter:image",
-        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg"
+        "name": "twitter:image:alt",
+        "content": "Causeway VA Clinic"
       }
     },
     {
       "tag": "meta",
       "attributes": {
-        "name": "twitter:image:alt",
-        "content": "Causeway VA Clinic"
+        "name": "twitter:image",
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg"
       }
     }
   ],
@@ -151,7 +151,7 @@
   "content_translation_source": "und",
   "content_translation_outdated": false,
   "field_address": {
-    "langcode": null,
+    "langcode": "en",
     "country_code": "US",
     "administrative_area": "MA",
     "locality": "Boston",
@@ -176,7 +176,7 @@
     "latlon": "42.36659056,-71.05901821"
   },
   "field_intro_text": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
-  "field_last_saved_by_an_editor": "2024-11-07T14:41:05+00:00",
+  "field_last_saved_by_an_editor": "2025-02-27T17:26:40+00:00",
   "field_main_location": false,
   "field_meta_tags": null,
   "field_mobile": false,
@@ -231,14 +231,14 @@
       "comment": "Closed"
     }
   ],
-  "field_operating_status_facility": "closed",
+  "field_operating_status_facility": "temporary_closure",
   "field_operating_status_more_info": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024.",
   "field_phone_number": "800-865-3384",
   "field_supplemental_status_more_i": null,
   "field_timezone": "America/New_York",
   "links": {
     "self": {
-      "href": "https://va-gov-cms.ddev.site/jsonapi/node/health_care_local_facility/cb577a82-953f-4306-84c6-a65abf1b45ea?resourceVersion=id%3A941307"
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_facility/cb577a82-953f-4306-84c6-a65abf1b45ea?resourceVersion=id%3A962123"
     }
   },
   "node_type": {
@@ -250,9 +250,9 @@
   },
   "revision_uid": {
     "type": "user--user",
-    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "id": "046efefc-96f6-4569-b30c-806ef618be5a",
     "resourceIdObjMeta": {
-      "drupal_internal__target_id": 1317
+      "drupal_internal__target_id": 1342
     }
   },
   "uid": {
@@ -278,22 +278,22 @@
     "revision_translation_affected": true,
     "breadcrumbs": [
       {
-        "uri": "https://va-gov-cms.ddev.site/",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
         "title": "Home",
         "options": []
       },
       {
-        "uri": "https://va-gov-cms.ddev.site/section/vha",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
         "title": "VHA",
         "options": []
       },
       {
-        "uri": "https://va-gov-cms.ddev.site/section/vamc-facilities",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
         "title": "VAMC facilities",
         "options": []
       },
       {
-        "uri": "https://va-gov-cms.ddev.site/section/vha/visn-1",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
         "title": "VISN 1",
         "options": []
       },
@@ -316,7 +316,7 @@
         "tag": "link",
         "attributes": {
           "rel": "canonical",
-          "href": "https://va-gov-cms.ddev.site/section/vha/vamc-facilities/va-boston-health-care"
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care"
         }
       }
     ],
@@ -331,7 +331,7 @@
     "field_description": null,
     "links": {
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322"
       }
     },
     "resourceIdObjMeta": {
@@ -467,7 +467,7 @@
       "type": "paragraph--health_care_local_facility_servi",
       "id": "983d27c2-0817-4182-aebe-68daa840675a",
       "resourceIdObjMeta": {
-        "target_revision_id": 1574848,
+        "target_revision_id": 1666097,
         "drupal_internal__target_id": 66938
       }
     }
@@ -483,12 +483,12 @@
     "changed": "2021-07-16T13:59:55+00:00",
     "breadcrumbs": [
       {
-        "uri": "https://va-gov-cms.ddev.site/",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
         "title": "Home",
         "options": []
       },
       {
-        "uri": "https://va-gov-cms.ddev.site/media/4799",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/media/4799",
         "title": "Causewaycboc.jpg",
         "options": []
       }
@@ -499,10 +499,9 @@
       "langcode": "en"
     },
     "field_description": null,
-    "langcode": "en",
     "links": {
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/fd2b6c2b-59b6-4d2b-a1dd-502757445a6c?resourceVersion=id%3A5072"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/fd2b6c2b-59b6-4d2b-a1dd-502757445a6c?resourceVersion=id%3A5072"
       }
     },
     "resourceIdObjMeta": {
@@ -627,6 +626,7 @@
           "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/causewaycboc.jpg",
           "meta": {
             "linkParams": {
+              "width": "330",
               "rel": [
                 "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
               ]
@@ -640,6 +640,21 @@
           "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/causewaycboc.jpg",
           "meta": {
             "linkParams": {
+              "width": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "330",
               "rel": [
                 "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
               ]
@@ -650,12 +665,13 @@
           }
         },
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94"
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94"
         },
         "viewport_width": {
           "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
           "meta": {
             "linkParams": {
+              "width": "330",
               "rel": [
                 "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
               ]
@@ -787,6 +803,7 @@
           "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/causewaycboc.jpg",
           "meta": {
             "linkParams": {
+              "width": "330",
               "rel": [
                 "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
               ]
@@ -800,6 +817,21 @@
           "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/causewaycboc.jpg",
           "meta": {
             "linkParams": {
+              "width": "330",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/causewaycboc.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "330",
               "rel": [
                 "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
               ]
@@ -810,12 +842,13 @@
           }
         },
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94"
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94"
         },
         "viewport_width": {
           "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
           "meta": {
             "linkParams": {
+              "width": "330",
               "rel": [
                 "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
               ]
@@ -861,7 +894,7 @@
     "revision_translation_affected": true,
     "breadcrumbs": [
       {
-        "uri": "https://va-gov-cms.ddev.site/",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
         "title": "Home",
         "options": []
       },
@@ -962,15 +995,15 @@
       {
         "tag": "meta",
         "attributes": {
-          "name": "twitter:image",
-          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-05/3Campus-smaller.jpg"
+          "name": "twitter:image:alt",
+          "content": "Collage of VA Boston Healthcare System's three main campuses, from left to right, Jamaica Plain, West Roxbury and Brockton."
         }
       },
       {
         "tag": "meta",
         "attributes": {
-          "name": "twitter:image:alt",
-          "content": "Collage of VA Boston Healthcare System's three main campuses, from left to right, Jamaica Plain, West Roxbury and Brockton."
+          "name": "twitter:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-05/3Campus-smaller.jpg"
         }
       }
     ],
@@ -1038,7 +1071,7 @@
     "field_youtube": null,
     "links": {
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/node/health_care_region_page/def03529-b07f-4e36-b3aa-e88ffeaa222a?resourceVersion=id%3A944729"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/def03529-b07f-4e36-b3aa-e88ffeaa222a?resourceVersion=id%3A944729"
       }
     },
     "resourceIdObjMeta": {
@@ -1081,22 +1114,22 @@
       "revision_translation_affected": true,
       "breadcrumbs": [
         {
-          "uri": "https://va-gov-cms.ddev.site/",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
           "title": "Home",
           "options": []
         },
         {
-          "uri": "https://va-gov-cms.ddev.site/section/vha",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
           "title": "VHA",
           "options": []
         },
         {
-          "uri": "https://va-gov-cms.ddev.site/section/vamc-facilities",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
           "title": "VAMC facilities",
           "options": []
         },
         {
-          "uri": "https://va-gov-cms.ddev.site/section/vha/visn-1",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
           "title": "VISN 1",
           "options": []
         },
@@ -1119,7 +1152,7 @@
           "tag": "link",
           "attributes": {
             "rel": "canonical",
-            "href": "https://va-gov-cms.ddev.site/section/vha/vamc-facilities/va-boston-health-care"
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care"
           }
         }
       ],
@@ -1134,7 +1167,7 @@
       "field_description": null,
       "links": {
         "self": {
-          "href": "https://va-gov-cms.ddev.site/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322"
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322"
         }
       },
       "resourceIdObjMeta": {
@@ -1681,10 +1714,471 @@
     "field_related_links": {
       "type": "paragraph--list_of_link_teasers",
       "id": "c5836275-d0fe-46b1-8c42-027967bb5157",
+      "drupal_internal__id": 22134,
+      "drupal_internal__revision_id": 1479701,
+      "langcode": "en",
+      "status": true,
+      "created": "2020-11-25T05:54:43+00:00",
+      "parent_id": "11023",
+      "parent_type": "node",
+      "parent_field_name": "field_related_links",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_title": "In the spotlight at VA Boston health care",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/list_of_link_teasers/c5836275-d0fe-46b1-8c42-027967bb5157?resourceVersion=id%3A1479701"
+        }
+      },
       "resourceIdObjMeta": {
         "target_revision_id": 1479701,
         "drupal_internal__target_id": 22134
-      }
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "17be725c-343b-4050-a3c0-4e953226233e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "list_of_link_teasers"
+        }
+      },
+      "field_va_paragraphs": [
+        {
+          "type": "paragraph--link_teaser",
+          "id": "155593bc-cfb5-431d-a81c-2d3f31fb46f9",
+          "drupal_internal__id": 22133,
+          "drupal_internal__revision_id": 1479691,
+          "langcode": "en",
+          "status": true,
+          "created": "2020-11-25T05:54:43+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "entity:node/27461",
+            "title": "Get help from a patient advocate",
+            "options": [],
+            "url": "/boston-health-care/health-services/patient-advocates"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/155593bc-cfb5-431d-a81c-2d3f31fb46f9?resourceVersion=id%3A1479691"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479691,
+            "drupal_internal__target_id": 22133
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "5d72c143-3d85-41f8-9505-9b38d1f5b12e",
+          "drupal_internal__id": 66785,
+          "drupal_internal__revision_id": 1479692,
+          "langcode": "en",
+          "status": true,
+          "created": "2021-07-16T12:55:11+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "entity:node/27476",
+            "title": "Find a phone number",
+            "options": [],
+            "url": "/boston-health-care/contact-us"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/5d72c143-3d85-41f8-9505-9b38d1f5b12e?resourceVersion=id%3A1479692"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479692,
+            "drupal_internal__target_id": 66785
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "41703f88-f709-4dd8-957e-3e0996a99ab5",
+          "drupal_internal__id": 106575,
+          "drupal_internal__revision_id": 1479693,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-03-29T18:29:00+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "https://www.va.gov/boston-health-care/programs/interactive-facility-maps",
+            "title": "Interactive facility maps",
+            "options": [],
+            "url": "https://www.va.gov/boston-health-care/programs/interactive-facility-maps"
+          },
+          "field_link_summary": "Interactive facility maps",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/41703f88-f709-4dd8-957e-3e0996a99ab5?resourceVersion=id%3A1479693"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479693,
+            "drupal_internal__target_id": 106575
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "0698f49f-7c08-4994-9984-fd3d740e3170",
+          "drupal_internal__id": 66786,
+          "drupal_internal__revision_id": 1479694,
+          "langcode": "en",
+          "status": true,
+          "created": "2021-07-16T12:55:13+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "entity:node/45600",
+            "title": "Check your billing, insurance and payment options",
+            "options": [],
+            "url": "/boston-health-care/billing-and-insurance"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/0698f49f-7c08-4994-9984-fd3d740e3170?resourceVersion=id%3A1479694"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479694,
+            "drupal_internal__target_id": 66786
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "5c072309-72d3-46ea-bcce-0d91ca60555e",
+          "drupal_internal__id": 66784,
+          "drupal_internal__revision_id": 1479695,
+          "langcode": "en",
+          "status": true,
+          "created": "2021-07-16T12:55:05+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "entity:node/45726",
+            "title": "Access your health records",
+            "options": [],
+            "url": "/boston-health-care/medical-records-office"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/5c072309-72d3-46ea-bcce-0d91ca60555e?resourceVersion=id%3A1479695"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479695,
+            "drupal_internal__target_id": 66784
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "e9108e23-a405-4d1c-b480-af808897b53f",
+          "drupal_internal__id": 66789,
+          "drupal_internal__revision_id": 1479696,
+          "langcode": "en",
+          "status": true,
+          "created": "2021-07-16T12:55:21+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "entity:node/27483",
+            "title": "Compare our performance with non-VA facilities",
+            "options": [],
+            "url": "/boston-health-care/about-us/performance"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/e9108e23-a405-4d1c-b480-af808897b53f?resourceVersion=id%3A1479696"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479696,
+            "drupal_internal__target_id": 66789
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "e36f1be9-f67f-43bc-93e5-264cb73adc03",
+          "drupal_internal__id": 110591,
+          "drupal_internal__revision_id": 1479697,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-06-10T19:00:49+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "https://www.va.gov/boston-health-care/programs/connected-care/",
+            "title": "Learn about virtual care and service options",
+            "options": [],
+            "url": "https://www.va.gov/boston-health-care/programs/connected-care/"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/e36f1be9-f67f-43bc-93e5-264cb73adc03?resourceVersion=id%3A1479697"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479697,
+            "drupal_internal__target_id": 110591
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "92d18a35-2d3b-456e-9e2c-f0066a245f40",
+          "drupal_internal__id": 66787,
+          "drupal_internal__revision_id": 1479698,
+          "langcode": "en",
+          "status": true,
+          "created": "2021-07-16T12:55:16+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "entity:node/27488",
+            "title": "Volunteer or donate",
+            "options": [],
+            "url": "/boston-health-care/work-with-us/volunteer-or-donate"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/92d18a35-2d3b-456e-9e2c-f0066a245f40?resourceVersion=id%3A1479698"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479698,
+            "drupal_internal__target_id": 66787
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "62134c8e-3349-4b2b-850a-555f39ab2ca0",
+          "drupal_internal__id": 66788,
+          "drupal_internal__revision_id": 1479699,
+          "langcode": "en",
+          "status": true,
+          "created": "2021-07-16T12:55:18+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "https://www.newengland.va.gov/",
+            "title": "Learn more about VA New England",
+            "options": [],
+            "url": "https://www.newengland.va.gov/"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/62134c8e-3349-4b2b-850a-555f39ab2ca0?resourceVersion=id%3A1479699"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479699,
+            "drupal_internal__target_id": 66788
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        {
+          "type": "paragraph--link_teaser",
+          "id": "e38abc4d-f4da-4b0f-bef4-763514a6461e",
+          "drupal_internal__id": 103024,
+          "drupal_internal__revision_id": 1479700,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-01-28T16:15:30+00:00",
+          "parent_id": "22134",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_va_paragraphs",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_link": {
+            "uri": "https://www.va.gov/boston-health-care/programs/covid-19-vaccines/",
+            "title": "Learn more about our COVID-19 vaccination and testing program",
+            "options": [],
+            "url": "https://www.va.gov/boston-health-care/programs/covid-19-vaccines/"
+          },
+          "field_link_summary": null,
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/e38abc4d-f4da-4b0f-bef4-763514a6461e?resourceVersion=id%3A1479700"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 1479700,
+            "drupal_internal__target_id": 103024
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "072db7a4-476e-41a6-ab49-c44184281451",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "link_teaser"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        }
+      ],
+      "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
     },
     "field_system_menu": {
       "type": "menu--menu",
@@ -1709,7 +2203,7 @@
     "type": "paragraph--phone_number",
     "id": "1174972e-ab4f-45f9-b814-04919526a828",
     "drupal_internal__id": 169966,
-    "drupal_internal__revision_id": 1574849,
+    "drupal_internal__revision_id": 1666098,
     "langcode": "en",
     "status": true,
     "created": "2024-11-25T18:40:13+00:00",
@@ -1718,20 +2212,32 @@
     "parent_field_name": "field_telephone",
     "behavior_settings": [],
     "default_langcode": true,
-    "revision_translation_affected": null,
+    "revision_translation_affected": true,
     "breadcrumbs": [],
     "content_translation_source": "und",
     "content_translation_outdated": false,
-    "content_translation_changed": "2024-11-25T18:40:13+00:00",
+    "content_translation_changed": "2025-02-27T17:26:37+00:00",
     "field_phone_extension": null,
-    "field_phone_label": null,
+    "field_phone_label": "Mental health phone",
     "field_phone_number": "800-865-3384",
-    "field_phone_number_type": "phone",
+    "field_phone_number_type": "tel",
     "links": {
       "self": {
-        "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1574849"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1666098"
       }
-    }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 1666098,
+      "drupal_internal__target_id": 169966
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "phone_number"
+      }
+    },
+    "relationshipNames": ["paragraph_type"]
   },
   "relationshipNames": [
     "node_type",

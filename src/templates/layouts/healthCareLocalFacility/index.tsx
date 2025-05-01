@@ -14,6 +14,7 @@ import { Address } from './Address'
 import { Phone } from './Phone'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
+import { RelatedLinks } from '@/templates/common/relatedLinks'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -37,6 +38,7 @@ export function HealthCareLocalFacility({
   facilityLocatorApiId,
   geoLocation,
   fieldTelephone,
+  relatedLinks,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -155,7 +157,10 @@ export function HealthCareLocalFacility({
               />
             </div>
             <LocationServices />
-            <div>TODO: List of links section</div>
+            <RelatedLinks
+              sectionTitle={relatedLinks.sectionTitle}
+              links={relatedLinks.links}
+            />
             <HealthServices />
             <div>TODO: Patient satisfaction scores section</div>
             <div>TODO: Social links section</div>

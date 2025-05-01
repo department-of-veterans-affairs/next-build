@@ -7,6 +7,7 @@ import { FacilityOperatingStatusFlags } from '../drupal/node'
 import { ParagraphPhoneNumber } from '../drupal/paragraph'
 import { VamcEhr } from '../drupal/vamcEhr'
 import { PublishedEntity } from './publishedEntity'
+import { FormattedRelatedLinks } from './relatedLinks'
 import { SideNavMenu } from './sideNav'
 import { MediaImage } from '@/types/formatted/media'
 
@@ -25,4 +26,5 @@ export type HealthCareLocalFacility = PublishedEntity & {
   geoLocation: FieldGeoLocation
   fieldTelephone: ParagraphPhoneNumber | null
   vaHealthConnectPhoneNumber: string | null
+  relatedLinks: FormattedRelatedLinks
 }
