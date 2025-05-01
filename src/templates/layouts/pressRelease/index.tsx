@@ -70,9 +70,7 @@ export const PressRelease = ({
                     className="vads-u-margin-bottom--6"
                     data-testid="media-contacts"
                   >
-                    <h2 className="vads-u-font-family--sans vads-u-font-size--source-sans-normalized">
-                      Media contacts
-                    </h2>
+                    <h2 className="vads-u-font-size--h3">Media contacts</h2>
                     {/* Print each media contact */}
                     {contacts.map((contact) => {
                       return (
@@ -117,7 +115,7 @@ export const PressRelease = ({
                     className="vads-u-margin-bottom--6"
                     data-testid="downloads"
                   >
-                    <h2 className="vads-u-margin-bottom--1 vads-u-font-family--sans vads-u-font-size--source-sans-normalized">
+                    <h2 className="vads-u-margin-bottom--1 vads-u-font-size--h3">
                       Download media assets
                     </h2>
                     {/*Print out unorder list links per type*/}
