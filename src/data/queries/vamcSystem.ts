@@ -8,8 +8,12 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  getMenu,
 } from '@/lib/drupal/query'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { Menu } from '@/types/drupal/menu'
+import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -29,22 +33,46 @@ export type VamcSystemDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+/**
+ * The shape of the data from Drupal + `lovell` from the path context.
+ * We're adding `lovell` from the context here to conditionally re-shape
+ * the menu for Lovell facilities.
+ */
+type VamcSystemData = {
+  entity: NodeVamcSystem
+  menu: Menu | null
+  lovell?: ExpandedStaticPropsContext['lovell']
+}
+
 // Implement the data loader.
-export const data: QueryData<VamcSystemDataOpts, NodeVamcSystem> = async (
+export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
   opts
-): Promise<NodeVamcSystem> => {
+): Promise<VamcSystemData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VAMC_SYSTEM,
     params
   )) as NodeVamcSystem
 
-  return entity
+  // Fetch the menu name dynamically off of the field_region_page reference if available.
+  const menu = entity
+    ? await getMenu(
+        entity.field_system_menu.resourceIdObjMeta
+          .drupal_internal__target_id
+      )
+    : null
+
+  return { entity, menu, lovell: opts.context?.lovell }
 }
 
-export const formatter: QueryFormatter<NodeVamcSystem, VamcSystem> = (
-  entity: NodeVamcSystem
-) => {
+export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({ entity, menu, lovell }) => {
+  let formattedMenu =
+    menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
+
+  if (lovell?.isLovellVariantPage) {
+    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell?.variant)
+  }
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -54,6 +82,7 @@ export const formatter: QueryFormatter<NodeVamcSystem, VamcSystem> = (
       id: entity.field_administration?.drupal_internal__tid || null,
       name: entity.field_administration?.name || null,
     },
+    menu: formattedMenu,
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,

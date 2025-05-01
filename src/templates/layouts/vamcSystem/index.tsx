@@ -9,6 +9,14 @@ import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { SocialLinks } from '@/templates/common/socialLinks'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
+import { useEffect } from 'react'
+import { SideNavMenu } from '@/types/formatted/sideNav'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  sideNav?: SideNavMenu
+}
+declare const window: customWindow
 
 export function VamcSystem({
   title,
@@ -19,6 +27,7 @@ export function VamcSystem({
   // fieldVamcEhrSystem,
   fieldRelatedLinks,
   path,
+  menu,
   // mainFacilities,
   // newsStoryTeasersFeatured,
   // eventTeasersFeatured,
@@ -26,6 +35,12 @@ export function VamcSystem({
   // lovellVariant,
   // lovellSwitchPath,
 }: LovellStaticPropsResource<FormattedVamcSystem>) {
+  // Populate the side nav data for the side nav widget to fill in
+  // Note: The side nav widget is in a separate app in the static-pages bundle
+  useEffect(() => {
+    window.sideNav = menu
+  })
+  
   // TODO: It looks like the reason the image is taller than in the original page is
   // because the image file is actually different. It has a taller intrinsic height.
   // Here is an example from `/washington-dc-health-care/`:
@@ -34,10 +49,13 @@ export function VamcSystem({
   // New:
   // https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-08/Washington%20VA%20Medical%20Center.jpg
   const hasValidImage = image?.links?.['2_1_large']?.href
-  console.log('image', image)
+  
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
+        {/* Nav data fille in by a separate script from `window.sideNav` */}
+        <nav aria-label="secondary" data-widget-type="side-nav" />
+        {/* Main page content */}
         <div className="usa-width-three-fourths">
           <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
             {/* <LovellSwitcher
