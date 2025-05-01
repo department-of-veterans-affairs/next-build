@@ -1,8 +1,6 @@
 import { isEmpty } from 'lodash'
 import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
 
-// General component used for one or more links with a line of descriptive text underneath
-// Does not map directly to any one Drupal type; it is simply a shared UI component
 export const RelatedLinks = ({
   links,
   sectionTitle,
@@ -11,26 +9,19 @@ export const RelatedLinks = ({
     return null
   }
 
-  let link
-  const renderLink = (uri, title, summary) => (
+  const renderLink = (uri: string, title: string, summary?: string) => (
     <>
       <p className="vads-u-margin--0">
-        <strong>
-          <va-link href={uri} text={title} />
-        </strong>
+        <va-link disable-analytics href={uri} text={title} />
       </p>
       {summary && <p className="vads-u-margin--0">{summary}</p>}
     </>
   )
 
-  if (links.length === 1) {
-    link = links[0]
-  }
-
   return (
-    <section className="vads-u-margin-bottom--3 vads-u-display--flex vads-u-flex-direction--column">
+    <section className="vads-u-background-color--gray-lightest vads-u-padding--2p5">
       {sectionTitle && (
-        <h2 className="vads-u-margin-top--0 vads-u-margin-bottom--2 vads-u-font-size--h3">
+        <h2 className="vads-u-margin-top--0 vads-u-margin-bottom--2 vads-u-font-size--h3 vads-u-padding-bottom--0p5 vads-u-border-bottom--1px vads-u-border-color--gray-light">
           {sectionTitle}
         </h2>
       )}
@@ -38,14 +29,20 @@ export const RelatedLinks = ({
       {links.length > 1 && (
         <ul className="usa-unstyled-list">
           {links.map((link, index) => (
-            <li className="vads-u-margin-bottom--2" key={index}>
+            <li
+              className={
+                index < links.length - 1 ? 'vads-u-margin-bottom--2' : ''
+              }
+              key={index}
+            >
               {renderLink(link.uri, link.title, link?.summary)}
             </li>
           ))}
         </ul>
       )}
 
-      {links.length === 1 && renderLink(link.uri, link.title, link?.summary)}
+      {links.length === 1 &&
+        renderLink(links[0].uri, links[0].title, links[0].summary)}
     </section>
   )
 }
