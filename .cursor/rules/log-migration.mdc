@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+We are working on migrating old liquid templates to next JS pages. I would like to start documenting the process in [migration-log.md](mdc:docs/template-migration/ai-acceleration/migration-log.md) as you and I work through the migration. For everything I have you help me with, I would like you to write a log entry in that file detailing what we did. It should be detailed enough that we could replicate the process for other templates. It should list specific file names, but not necessarily specific code changes as long as we describe the methodology of our code changes.
