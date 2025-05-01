@@ -11,6 +11,8 @@ export type VamcSystem = {
   image: MediaImage
   administration: Administration
   menu: SideNavMenu
+  path: string
+  vamcEhrSystem: string
   // fieldVaHealthConnectPhone: string
   // fieldVamcEhrSystem: string
   // fieldVamcSystemOfficialName: string
@@ -22,5 +24,4 @@ export type VamcSystem = {
   // fieldAppointmentsOnline: boolean
   // fieldClinicalHealthServices: NodeRegionalHealthCareServiceDes[]
   fieldRelatedLinks: ParagraphListOfLinks
-  path: string
 }
