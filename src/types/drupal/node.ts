@@ -424,7 +424,6 @@ export interface NodeSupportService extends DrupalNode {
 }
 
 export interface NodeVamcSystem extends DrupalNode {
-  field_description: string
   field_intro_text: string
   field_media: DrupalMediaImage
   field_administration: FieldAdministration

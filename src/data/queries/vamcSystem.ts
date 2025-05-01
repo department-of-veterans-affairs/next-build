@@ -9,6 +9,7 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { formatter as formatImage } from '@/data/queries/mediaImage'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -47,22 +48,21 @@ export const formatter: QueryFormatter<NodeVamcSystem, VamcSystem> = (
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    fieldDescription: entity.field_description,
     fieldIntroText: entity.field_intro_text,
-    fieldMedia: entity.field_media,
+    fieldMedia: formatImage(entity.field_media),
     fieldAdministration: {
       entityId: entity.field_administration?.entity?.entityId || '',
     },
-    fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
-    fieldVamcEhrSystem: entity.field_vamc_ehr_system,
-    fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,
-    fieldFacebook: entity.field_facebook,
-    fieldTwitter: entity.field_twitter,
-    fieldInstagram: entity.field_instagram,
-    fieldFlickr: entity.field_flickr,
-    fieldYoutube: entity.field_youtube,
-    fieldAppointmentsOnline: entity.field_appointments_online,
-    fieldClinicalHealthServices: entity.field_clinical_health_services,
+    // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
+    // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
+    // fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,
+    // fieldFacebook: entity.field_facebook,
+    // fieldTwitter: entity.field_twitter,
+    // fieldInstagram: entity.field_instagram,
+    // fieldFlickr: entity.field_flickr,
+    // fieldYoutube: entity.field_youtube,
+    // fieldAppointmentsOnline: entity.field_appointments_online,
+    // fieldClinicalHealthServices: entity.field_clinical_health_services,
     fieldRelatedLinks: entity.field_related_links,
     path: entity.entityPath || '',
   }
