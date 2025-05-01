@@ -14,7 +14,7 @@ export function VamcSystem({
   title,
   introText,
   image,
-  fieldAdministration,
+  administration,
   // fieldVaHealthConnectPhone,
   // fieldVamcEhrSystem,
   fieldRelatedLinks,
@@ -87,10 +87,10 @@ export function VamcSystem({
             </section>
 
             {/* Manage your health online section */}
-            {fieldAdministration?.entityId !== '1039' && (
+            {administration?.id !== 1039 && (
               <section>
                 <h2>
-                  {fieldAdministration?.entityId === '1040'
+                  {administration?.id === 1040
                     ? 'Manage your VA health online'
                     : 'Manage your health online'}
                 </h2>

@@ -2,14 +2,13 @@ import { FieldLink } from '@/types/drupal/field_type'
 import { NodeRegionalHealthCareServiceDes } from '@/types/drupal/node'
 import { ParagraphListOfLinks } from '@/types/drupal/paragraph'
 import { MediaImage } from '@/types/formatted/media'
+import { Administration } from '@/types/formatted/administration'
 
 export type VamcSystem = {
   title: string
   introText: string
   image: MediaImage
-  fieldAdministration: {
-    entityId: string
-  }
+  administration: Administration
   // fieldVaHealthConnectPhone: string
   // fieldVamcEhrSystem: string
   // fieldVamcSystemOfficialName: string

@@ -50,8 +50,9 @@ export const formatter: QueryFormatter<NodeVamcSystem, VamcSystem> = (
     title: entity.title,
     introText: entity.field_intro_text,
     image: formatImage(entity.field_media),
-    fieldAdministration: {
-      entityId: entity.field_administration?.entity?.entityId || '',
+    administration: {
+      id: entity.field_administration?.drupal_internal__tid || null,
+      name: entity.field_administration?.name || null,
     },
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
