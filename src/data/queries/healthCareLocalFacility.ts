@@ -37,7 +37,7 @@ export type HealthCareLocalFacilityDataOpts = {
  * We're adding `lovell` from the context here to conditionally re-shape
  * the menu for Lovell facilities.
  */
-type LocalFacilityData = {
+export type LocalFacilityData = {
   entity: NodeHealthCareLocalFacility
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
