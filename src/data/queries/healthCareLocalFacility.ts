@@ -23,6 +23,7 @@ export const params: QueryParams<null> = () => {
     'field_media.image',
     'field_administration',
     'field_telephone',
+    'field_location_services',
   ])
 }
 

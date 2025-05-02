@@ -466,10 +466,44 @@
     {
       "type": "paragraph--health_care_local_facility_servi",
       "id": "983d27c2-0817-4182-aebe-68daa840675a",
+      "drupal_internal__id": 66938,
+      "drupal_internal__revision_id": 1666097,
+      "langcode": "en",
+      "status": true,
+      "created": "2021-07-18T18:09:17+00:00",
+      "parent_id": "1272",
+      "parent_type": "node",
+      "parent_field_name": "field_location_services",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": null,
+      "field_title": "Transportation services and schedules",
+      "field_wysiwyg": {
+        "value": "<h5 dir=\"ltr\">Public transit</h5>\r\n\r\n<p dir=\"ltr\">The clinic is easily accessible by the Green and Orange lines, and the commuter rail -- just two blocks from North Station.</p>\r\n\r\n<h5 dir=\"ltr\">DAV vans</h5>\r\n\r\n<p dir=\"ltr\">We work with Disabled American Veterans and county Veterans Affairs directors to provide transportation for Veterans and authorized caregivers to get to scheduled medical appointments. See link below for more information...</p>\r\n\r\n<h5 dir=\"ltr\">Non-DAV van services</h5>\r\n\r\n<p dir=\"ltr\">Many localities in the region provide other van services to Veterans. See link below for more information...</p>\r\n\r\n<h5 dir=\"ltr\">Shuttle service</h5>\r\n\r\n<p dir=\"ltr\">There is a shuttle between Jamaica Plain and&nbsp; Causeway. See link below for schedule...</p>\r\n\r\n<p dir=\"ltr\"><a href=\"/admin/content/linky/7631\">Learn more about DAV,&nbsp;the Jamaica Plain / Causeway shuttle, and other transportation options.</a></p>\r\n\r\n<h5 dir=\"ltr\">Beneficiary travel</h5>\r\n\r\n<p dir=\"ltr\">Beneficiary travel benefits include round-trip transportation from your home to the medical center, mileage reimbursement, or special mode transport.&nbsp;</p>\r\n\r\n<p dir=\"ltr\"><a href=\"/admin/content/linky/63\">Find out if you qualify for beneficiary travel benefits</a>.</p>\r\n",
+        "format": "rich_text",
+        "processed": "<h5 dir=\"ltr\">Public transit</h5>\n\n<p dir=\"ltr\">The clinic is easily accessible by the Green and Orange lines, and the commuter rail -- just two blocks from North Station.</p>\n\n<h5 dir=\"ltr\">DAV vans</h5>\n\n<p dir=\"ltr\">We work with Disabled American Veterans and county Veterans Affairs directors to provide transportation for Veterans and authorized caregivers to get to scheduled medical appointments. See link below for more information...</p>\n\n<h5 dir=\"ltr\">Non-DAV van services</h5>\n\n<p dir=\"ltr\">Many localities in the region provide other van services to Veterans. See link below for more information...</p>\n\n<h5 dir=\"ltr\">Shuttle service</h5>\n\n<p dir=\"ltr\">There is a shuttle between Jamaica Plain and&nbsp; Causeway. See link below for schedule...</p>\n\n<p dir=\"ltr\"><a href=\"https://www.va.gov/boston-health-care/dav-vans-transportation-for-veterans/\">Learn more about DAV,&nbsp;the Jamaica Plain / Causeway shuttle, and other transportation options.</a></p>\n\n<h5 dir=\"ltr\">Beneficiary travel</h5>\n\n<p dir=\"ltr\">Beneficiary travel benefits include round-trip transportation from your home to the medical center, mileage reimbursement, or special mode transport.&nbsp;</p>\n\n<p dir=\"ltr\"><a href=\"http://www.va.gov/health-care/file-travel-pay-reimbursement/\">Find out if you qualify for beneficiary travel benefits</a>.</p>"
+      },
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/health_care_local_facility_servi/983d27c2-0817-4182-aebe-68daa840675a?resourceVersion=id%3A1666097"
+        }
+      },
       "resourceIdObjMeta": {
         "target_revision_id": 1666097,
         "drupal_internal__target_id": 66938
-      }
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "77498b34-84b7-4d01-8650-a3a808ba57f6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_local_facility_servi"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
     }
   ],
   "field_media": {
@@ -1097,120 +1131,6 @@
       "resourceIdObjMeta": {
         "drupal_internal__target_id": 1270
       }
-    },
-    "field_administration": {
-      "type": "taxonomy_term--administration",
-      "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
-      "drupal_internal__tid": 205,
-      "drupal_internal__revision_id": 2322,
-      "langcode": "en",
-      "revision_created": "2024-08-13T20:05:29+00:00",
-      "status": true,
-      "name": "VA Boston health care",
-      "description": null,
-      "weight": 1,
-      "changed": "2024-08-13T20:05:29+00:00",
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-          "title": "Home",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
-          "title": "VHA",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
-          "title": "VAMC facilities",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
-          "title": "VISN 1",
-          "options": []
-        },
-        {
-          "uri": "internal:#",
-          "title": "VA Boston health care",
-          "options": []
-        }
-      ],
-      "moderation_state": null,
-      "metatag": [
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "title",
-            "content": "VA Boston health care | VA.gov CMS"
-          }
-        },
-        {
-          "tag": "link",
-          "attributes": {
-            "rel": "canonical",
-            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care"
-          }
-        }
-      ],
-      "path": {
-        "alias": "/section/vha/vamc-facilities/va-boston-health-care",
-        "pid": 7549,
-        "langcode": "en"
-      },
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_created": null,
-      "field_description": null,
-      "links": {
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322"
-        }
-      },
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 205
-      },
-      "vid": {
-        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
-        "id": "645055c5-e567-4683-b6db-459ce04522ce",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "administration"
-        }
-      },
-      "revision_user": {
-        "type": "user--user",
-        "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 4942
-        }
-      },
-      "parent": [
-        {
-          "type": "taxonomy_term--administration",
-          "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": 162
-          }
-        }
-      ],
-      "content_translation_uid": null,
-      "field_product": {
-        "type": "taxonomy_term--products",
-        "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 284
-        }
-      },
-      "relationshipNames": [
-        "vid",
-        "revision_user",
-        "parent",
-        "content_translation_uid",
-        "field_product"
-      ]
     },
     "field_clinical_health_services": [
       {
@@ -2187,15 +2107,129 @@
         "drupal_internal__target_id": "va-boston-health-care"
       }
     },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+      "drupal_internal__tid": 205,
+      "drupal_internal__revision_id": 2322,
+      "langcode": "en",
+      "revision_created": "2024-08-13T20:05:29+00:00",
+      "status": true,
+      "name": "VA Boston health care",
+      "description": null,
+      "weight": 1,
+      "changed": "2024-08-13T20:05:29+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+          "title": "VHA",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+          "title": "VAMC facilities",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
+          "title": "VISN 1",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "VA Boston health care",
+          "options": []
+        }
+      ],
+      "moderation_state": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "VA Boston health care | VA.gov CMS"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+        "pid": 7549,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "field_description": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 205
+      },
+      "vid": {
+        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        "id": "645055c5-e567-4683-b6db-459ce04522ce",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "administration"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4942
+        }
+      },
+      "parent": [
+        {
+          "type": "taxonomy_term--administration",
+          "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 162
+          }
+        }
+      ],
+      "content_translation_uid": null,
+      "field_product": {
+        "type": "taxonomy_term--products",
+        "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 284
+        }
+      },
+      "relationshipNames": [
+        "vid",
+        "revision_user",
+        "parent",
+        "content_translation_uid",
+        "field_product"
+      ]
+    },
     "relationshipNames": [
       "node_type",
       "revision_uid",
       "uid",
-      "field_administration",
       "field_clinical_health_services",
       "field_media",
       "field_related_links",
-      "field_system_menu"
+      "field_system_menu",
+      "field_administration"
     ]
   },
   "field_supplemental_status": null,
