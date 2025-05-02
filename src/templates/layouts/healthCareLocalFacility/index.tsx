@@ -39,6 +39,7 @@ export function HealthCareLocalFacility({
   geoLocation,
   fieldTelephone,
   relatedLinks,
+  locationServices,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -156,7 +157,7 @@ export function HealthCareLocalFacility({
                 facilityId={facilityLocatorApiId}
               />
             </div>
-            <LocationServices />
+            <LocationServices items={locationServices} />
             <RelatedLinks
               sectionTitle={relatedLinks.sectionTitle}
               links={relatedLinks.links}
