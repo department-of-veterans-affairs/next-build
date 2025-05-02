@@ -163,7 +163,12 @@ export function HealthCareLocalFacility({
               links={relatedLinks.links}
             />
             <HealthServices />
-            <div>TODO: Patient satisfaction scores section</div>
+            {facilityLocatorApiId.includes('vha_') && (
+              <div
+                data-widget-type="facility-patient-satisfaction-scores"
+                data-facility={`"vha_${facilityLocatorApiId.split('_')[1].toUpperCase()}"`}
+              />
+            )}
             <div>TODO: Social links section</div>
             <va-back-to-top></va-back-to-top>
             <div>TODO: Last updated & feedback button</div>
