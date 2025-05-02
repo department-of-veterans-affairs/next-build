@@ -1,3 +1,5 @@
+import { hashReference } from '@/lib/utils/hashReference'
+
 export const LocationServices = ({
   items,
 }: {
@@ -21,6 +23,7 @@ export const LocationServices = ({
         {items.map((item) => {
           return (
             <va-accordion-item
+              id={hashReference(item.title, 60)}
               key={item.title}
               header={item.title}
               level="3"
