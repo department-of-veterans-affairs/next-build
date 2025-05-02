@@ -161,6 +161,7 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   // We don't need the field_media in here for now
   field_region_page: Omit<NodeHealthCareRegionPage, 'field_media'>
   field_telephone: ParagraphPhoneNumber
+  field_location_services: ParagraphHealthCareLocalFacilityService[]
 }
 
 export interface NodeVetCenter extends DrupalNode {

@@ -123,4 +123,29 @@ describe('HealthCareLocalFacility with valid data', () => {
     ).toBeInTheDocument()
     expect(container.querySelectorAll('ul > li > p > va-link')).toHaveLength(8)
   })
+
+  test('renders the location services', () => {
+    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+    expect(screen.getByText(/Prepare for your visit/i)).toBeInTheDocument()
+    expect(
+      container.querySelector(
+        'va-accordion[section-heading="Prepare for your visit"]'
+      )
+    ).toBeInTheDocument()
+    // The contents of this section are tested in LocationServices's tests
+  })
+
+  test('does not render location services if empty', () => {
+    const { container } = render(
+      <HealthCareLocalFacility {...mockData} locationServices={[]} />
+    )
+    expect(
+      screen.queryByText(/Prepare for your visit/i)
+    ).not.toBeInTheDocument()
+    expect(
+      container.querySelector(
+        'va-accordion[section-heading="Prepare for your visit"]'
+      )
+    ).not.toBeInTheDocument()
+  })
 })
