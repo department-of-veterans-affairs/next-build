@@ -1,5 +1,5 @@
 /**
- * Retern a string that's usable in a URL.
+ * Return a string that's usable in a URL.
  */
 export const hashReference = (str: string, length = 100) => {
   if (!str) return null
