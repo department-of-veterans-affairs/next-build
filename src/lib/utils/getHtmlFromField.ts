@@ -7,7 +7,7 @@ import { drupalToVaPath, phoneLinks } from './helpers'
  * Return the HTML string after processing.
  */
 export const getHtmlFromField = (formattedTextField?: FieldFormattedText) => {
-  const data = [formattedTextField?.processed]
+  const data = [formattedTextField?.processed ?? '']
   const filters = [phoneLinks, drupalToVaPath]
   const filteredData = filters.reduce((d, f) => d.filter(f), data)
 
