@@ -3,6 +3,8 @@ export const LocationServices = ({
 }: {
   items: Array<{ title: string; wysiwigContents: string }>
 }) => {
+  if (!items?.length) return null
+
   return (
     <section
       className="vads-u-margin-bottom--4"

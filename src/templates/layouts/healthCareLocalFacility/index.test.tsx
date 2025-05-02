@@ -134,4 +134,18 @@ describe('HealthCareLocalFacility with valid data', () => {
     ).toBeInTheDocument()
     // The contents of this section are tested in LocationServices's tests
   })
+
+  test('does not render location services if empty', () => {
+    const { container } = render(
+      <HealthCareLocalFacility {...mockData} locationServices={[]} />
+    )
+    expect(
+      screen.queryByText(/Prepare for your visit/i)
+    ).not.toBeInTheDocument()
+    expect(
+      container.querySelector(
+        'va-accordion[section-heading="Prepare for your visit"]'
+      )
+    ).not.toBeInTheDocument()
+  })
 })
