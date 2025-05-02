@@ -10,6 +10,7 @@ import { PublishedEntity } from './publishedEntity'
 import { FormattedRelatedLinks } from './relatedLinks'
 import { SideNavMenu } from './sideNav'
 import { MediaImage } from '@/types/formatted/media'
+import { Wysiwyg } from './wysiwyg'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null
@@ -27,4 +28,11 @@ export type HealthCareLocalFacility = PublishedEntity & {
   fieldTelephone: ParagraphPhoneNumber | null
   vaHealthConnectPhoneNumber: string | null
   relatedLinks: FormattedRelatedLinks
+  locationServices: Array<{
+    title: string
+    /**
+     * The HTML output of the WYSIWYG editor, processed through `getHtmlFromField()`
+     */
+    wysiwigContents: string
+  }>
 }
