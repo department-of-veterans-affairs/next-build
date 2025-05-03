@@ -118,5 +118,21 @@ export const formatter: QueryFormatter<
       title: service.field_title,
       wysiwigContents: getHtmlFromField(service.field_wysiwyg),
     })),
+    socialLinks: {
+      path: entity.path.alias,
+      title: entity.field_region_page.title,
+      regionNickname: entity.field_region_page.title,
+      fieldGovdeliveryIdEmerg:
+        entity.field_region_page.field_govdelivery_id_emerg ?? null,
+      fieldGovdeliveryIdNews:
+        entity.field_region_page.field_govdelivery_id_news ?? null,
+      fieldOperatingStatus:
+        entity.field_region_page.field_operating_status ?? null,
+      fieldFacebook: entity.field_region_page.field_facebook ?? null,
+      fieldTwitter: entity.field_region_page.field_twitter ?? null,
+      fieldFlickr: entity.field_region_page.field_flickr ?? null,
+      fieldInstagram: entity.field_region_page.field_instagram ?? null,
+      fieldYoutube: entity.field_region_page.field_youtube ?? null,
+    },
   }
 }
