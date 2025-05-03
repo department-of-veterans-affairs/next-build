@@ -6,7 +6,7 @@ interface SocialLink {
 }
 
 interface OperatingStatus {
-  url: { path: string }
+  url: string
 }
 
 export interface FacilitySocialLinksProps {
@@ -32,14 +32,21 @@ const FacilitySocialLinks = ({
   fieldInstagram,
   fieldYoutube,
 }: FacilitySocialLinksProps) => {
-  const hasGovDelivery = !!fieldGovdeliveryIdEmerg || !!fieldGovdeliveryIdNews
+  const showGovDelivery =
+    !!fieldGovdeliveryIdEmerg ||
+    !!fieldGovdeliveryIdNews ||
+    !!fieldOperatingStatus
 
-  const hasSocialLinks =
+  const showSocialLinks =
     !!fieldFacebook ||
     !!fieldTwitter ||
     !!fieldFlickr ||
     !!fieldInstagram ||
     !!fieldYoutube
+
+  if (!showGovDelivery && !showSocialLinks) {
+    return null
+  }
 
   return (
     <section
@@ -50,7 +57,7 @@ const FacilitySocialLinks = ({
         Get updates from {regionNickname}
       </h2>
       <div className="usa-grid usa-grid-full">
-        {hasGovDelivery && (
+        {showGovDelivery && (
           <div className="usa-width-one-half">
             {fieldGovdeliveryIdNews && (
               <div className="vads-u-margin-bottom--2">
@@ -96,7 +103,7 @@ const FacilitySocialLinks = ({
           </div>
         )}
 
-        {hasSocialLinks && (
+        {showSocialLinks && (
           <div className="usa-width-one-half">
             <div>
               {fieldFacebook && (
