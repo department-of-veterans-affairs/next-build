@@ -6,14 +6,32 @@ interface SocialLinkProps {
 }
 
 interface SocialLinksProps {
+  /**
+   * The path to the current entity.
+   */
   path: string
+  /**
+   * The...title of the current entity?? 🤷‍♂️
+   */
   title: string
+  /**
+   * Used only for Events
+   */
   description?: string
+  /**
+   * Used only for Events
+   */
   address?: string
+  /**
+   * Used only for Events
+   */
   dateObject?: {
     endValue: number
     value: number
   }
+  /**
+   * `entity.field_region_page.title`
+   */
   regionNickname?: string
   fieldNews?: SocialLinkProps
   fieldFacebook?: SocialLinkProps
