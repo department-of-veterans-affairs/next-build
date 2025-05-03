@@ -31,11 +31,12 @@ describe('FacilitySocialLinks', () => {
       <FacilitySocialLinks {...baseProps} fieldGovdeliveryIdNews="NEWS123" />
     )
 
-    const link = container.querySelector(
-      `va-link[text="Subscribe to Midwest Region news and announcements"]`
+    const links = container.querySelectorAll('va-link')
+    expect(links).toHaveLength(1)
+    expect(links[0].getAttribute('text')).toBe(
+      'Subscribe to Midwest Region news and announcements'
     )
-    expect(link).toBeInTheDocument()
-    expect(link?.getAttribute('href')).toBe(
+    expect(links[0].getAttribute('href')).toBe(
       'https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=NEWS123'
     )
   })
@@ -45,11 +46,12 @@ describe('FacilitySocialLinks', () => {
       <FacilitySocialLinks {...baseProps} fieldGovdeliveryIdEmerg="EMERG456" />
     )
 
-    const link = container.querySelector(
-      `va-link[text="Subscribe to Midwest Region emergency notifications"]`
+    const links = container.querySelectorAll('va-link')
+    expect(links).toHaveLength(1)
+    expect(links[0].getAttribute('text')).toBe(
+      'Subscribe to Midwest Region emergency notifications'
     )
-    expect(link).toBeInTheDocument()
-    expect(link?.getAttribute('href')).toBe(
+    expect(links[0].getAttribute('href')).toBe(
       'https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=EMERG456'
     )
   })
@@ -62,13 +64,12 @@ describe('FacilitySocialLinks', () => {
       />
     )
 
-    screen.debug()
-
-    const link = container.querySelector(
-      `va-link[text="Midwest Region operating status"]`
+    const links = container.querySelectorAll('va-link')
+    expect(links).toHaveLength(1)
+    expect(links[0].getAttribute('text')).toBe(
+      'Midwest Region operating status'
     )
-    expect(link).toBeInTheDocument()
-    expect(link?.getAttribute('href')).toBe('/status')
+    expect(links[0].getAttribute('href')).toBe('/status')
   })
 
   test('renders all social media links with correct text and href attributes', () => {
