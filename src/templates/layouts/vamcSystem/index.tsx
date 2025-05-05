@@ -1,17 +1,17 @@
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
-// import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { MediaImage } from '@/templates/common/mediaImage'
-// import { FacilityListing } from '@/templates/components/facilityListing'
-// import { MainButtons } from '@/templates/components/mainButtons'
-// import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
-import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
-// import { EventTeaser } from '@/templates/components/eventTeaser'
-import { SocialLinks } from '@/templates/common/socialLinks'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { TopTasks } from '@/templates/components/topTasks'
+// import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+// import { TopTasks } from '@/templates/components/topTasks'
+// import { FacilityListing } from '@/templates/components/facilityListing'
+// import { MainButtons } from '@/templates/components/mainButtons'
+// import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
+// import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
+// import { EventTeaser } from '@/templates/components/eventTeaser'
+// import { SocialLinks } from '@/templates/common/socialLinks'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -27,7 +27,7 @@ export function VamcSystem({
   fieldRelatedLinks,
   path,
   menu,
-  vamcEhrSystem,
+  // vamcEhrSystem,
   // mainFacilities,
   // newsStoryTeasersFeatured,
   // eventTeasersFeatured,
@@ -74,7 +74,7 @@ export function VamcSystem({
               </div>
             )}
 
-            {/* Was going to use TopTasks, but the links are different, and the wrapper uses different classes */}
+            Was going to use TopTasks, but the links are different, and the wrapper uses different classes
             <div className="usa-grid usa-grid-full vads-u-margin-top--0 vads-u-margin-bottom--3">
               
             </div>
