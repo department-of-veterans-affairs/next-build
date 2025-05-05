@@ -81,6 +81,11 @@ export function HealthCareLocalFacility({
     },
   }
 
+  // Used to get a base url path of a health care region from `path`
+  // NOTE: Maybe could use entity.field_region_page.path.alias instead?
+  // `content-build` does it this way, though.
+  const regionBasePath = path.split('/')[1]
+
   return (
     <div className="interior" id="content">
       <div className="usa-grid usa-grid-full">
@@ -99,7 +104,7 @@ export function HealthCareLocalFacility({
             )}
 
             <TopTasks
-              path={path}
+              path={regionBasePath}
               administration={administration}
               vamcEhrSystem={vamcEhrSystem}
             />
