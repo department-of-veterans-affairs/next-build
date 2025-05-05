@@ -53,7 +53,7 @@ const FacilitySocialLinks = ({
       data-template="facilities/facility_social_links"
       className="feature vads-u-background-color--gray-lightest vads-u-margin-top--4 mobile-lg:vads-u-margin-top--6 vads-u-padding-x--3 vads-u-padding-y--2p5"
     >
-      <h2 className="vads-u-margin-bottom--2">
+      <h2 id="get-updates" className="vads-u-margin-bottom--2">
         Get updates from {regionNickname}
       </h2>
       <div className="usa-grid usa-grid-full">
