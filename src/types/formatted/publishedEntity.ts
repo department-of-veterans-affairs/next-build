@@ -11,6 +11,10 @@ export interface PublishedEntity {
   moderationState?: string
   breadcrumbs?: BreadcrumbItem[]
   metatags?: MetaTag[]
+  /**
+   * Datetime string with timezone.
+   * @example '2025-02-27T17:26:37+00:00'
+   */
   lastUpdated: string
 }
 
