@@ -52,15 +52,13 @@ export function ContentFooter({
   }
 
   if (responsiveLayout === 'desktop') {
-    wrapperClasses = ' vads-u-display--none medium-screen:vads-u-display--block'
+    wrapperClasses = ' vads-u-display--none tablet:vads-u-display--block'
   } else if (responsiveLayout === 'mobile') {
-    wrapperClasses = ' medium-screen:vads-u-display--none'
+    wrapperClasses = 'tablet:vads-u-display--none'
   }
 
   return (
-    <div
-      className={`last-updated usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0${wrapperClasses}`}
-    >
+    <div className={`last-updated ${wrapperClasses}`}>
       <div className="mobile-lg:vads-u-display--flex above-footer-elements-container">
         {displayDate && machineDate && (
           <div className="vads-u-flex--auto">
