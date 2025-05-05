@@ -87,7 +87,7 @@ export const Event = ({
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="vads-grid-container">
-        <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 desktop-lg:vads-u-padding-x--0 vads-u-padding-bottom--2">
+        <div>
           {/* Title */}
           <h1>{title}</h1>
 
@@ -161,7 +161,7 @@ export const Event = ({
                 </p>
               </div>
             ) : locationType === 'online' ? (
-              <p className="vads-u-margin--0 vads-u-margin-bottom--2">
+              <p className="vads-u-margin--0">
                 {urlOfOnlineEvent ? (
                   <va-link
                     href={urlOfOnlineEvent.uri}
@@ -233,7 +233,7 @@ export const Event = ({
         </div>
         {/* CTA */}
         {(link || additionalInfo || eventCTA) && (
-          <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1 vads-u-padding-x--1p5 tablet:vads-u-padding--0">
+          <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1">
             {isEventInPast(mostRecentDate?.value) ? (
               <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
                 This event already happened.

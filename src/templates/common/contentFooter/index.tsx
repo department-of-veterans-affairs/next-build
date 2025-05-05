@@ -58,9 +58,7 @@ export function ContentFooter({
   }
 
   return (
-    <div
-      className={`last-updated usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0${wrapperClasses}`}
-    >
+    <div className={`last-updated ${wrapperClasses}`}>
       <div className="mobile-lg:vads-u-display--flex above-footer-elements-container">
         {displayDate && machineDate && (
           <div className="vads-u-flex--auto">
