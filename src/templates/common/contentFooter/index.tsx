@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import { parseDate, getDateParts } from '@/lib/utils/date'
+import React from 'react'
 import { MedalliaAssets } from '@/templates/common/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
 import { BUILD_TYPES } from '@/lib/constants/environment'
+import { format } from 'date-fns'
 
 // "Back to top", "Last updated" date and Medallia feedback button
 
@@ -12,44 +12,11 @@ type ContentFooterProps = {
   responsiveLayout?: string
 }
 
-function formatDate(date: Date, format: 'display' | 'machine'): string {
-  const dateParts = getDateParts(date)
-
-  if (format === 'display') {
-    const month = dateParts.month?.name
-    const day = dateParts.day?.numeric
-    const year = dateParts.year?.numeric
-
-    if (month && day && year) {
-      return `${month} ${day}, ${year}`
-    }
-
-    return null
-  } else {
-    const month = dateParts.month?.twoDigit
-    const day = dateParts.day?.twoDigit
-    const year = dateParts.year?.numeric
-
-    if (month && day && year) {
-      return `${year}-${month}-${day}`
-    }
-
-    return null
-  }
-}
-
 export function ContentFooter({
   lastUpdated,
   responsiveLayout,
 }: ContentFooterProps) {
-  let displayDate, machineDate
   let wrapperClasses = ''
-  const date = parseDate(lastUpdated)
-
-  if (date) {
-    displayDate = formatDate(date, 'display')
-    machineDate = formatDate(date, 'machine')
-  }
 
   if (responsiveLayout === 'desktop') {
     wrapperClasses = ' vads-u-display--none tablet:vads-u-display--block'
@@ -60,12 +27,14 @@ export function ContentFooter({
   return (
     <div className={`last-updated ${wrapperClasses}`}>
       <div className="mobile-lg:vads-u-display--flex above-footer-elements-container">
-        {displayDate && machineDate && (
+        {lastUpdated && (
           <div className="vads-u-flex--auto">
             <span className="vads-u-text-align--justify">
               <p>
                 Last updated:&nbsp;
-                <time dateTime={machineDate}>{displayDate}</time>
+                <time dateTime={format(lastUpdated, 'yyyy-MM-dd')}>
+                  {format(lastUpdated, 'MMMM d, yyyy')}
+                </time>
               </p>
             </span>
           </div>
