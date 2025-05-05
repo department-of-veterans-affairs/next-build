@@ -56,7 +56,7 @@ const FacilitySocialLinks = ({
       <h2 id="get-updates" className="vads-u-margin-bottom--2">
         Get updates from {regionNickname}
       </h2>
-      <div className="vads-grid-container vads-grid-row">
+      <div className="vads-grid-row">
         {showGovDelivery && (
           <div className="vads-grid-col-6">
             {fieldGovdeliveryIdNews && (
