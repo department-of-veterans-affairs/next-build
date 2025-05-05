@@ -115,7 +115,7 @@ export function HealthCareLocalFacility({
                 <div>
                   <OperatingStatusFlags
                     operatingStatusFacility={operatingStatusFacility}
-                    menu={menu}
+                    basePath={menu.data.links[0].url.path}
                   />
                   <section>
                     {/* Embedding structured data scripts for schema.org */}
