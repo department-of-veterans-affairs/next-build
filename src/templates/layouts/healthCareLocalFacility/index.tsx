@@ -15,6 +15,7 @@ import { Phone } from './Phone'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
+import { format } from 'date-fns'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -25,6 +26,7 @@ declare const window: customWindow
 export function HealthCareLocalFacility({
   title,
   introText,
+  lastUpdated,
   operatingStatusFacility,
   menu,
   path,
@@ -166,7 +168,32 @@ export function HealthCareLocalFacility({
             <div>TODO: Patient satisfaction scores section</div>
             <div>TODO: Social links section</div>
             <va-back-to-top></va-back-to-top>
-            <div>TODO: Last updated & feedback button</div>
+            <div className="last-updated usa-content vads-u-padding-x--1 desktop-lg:vads-u-padding-x--0">
+              <div className="mobile-lg:vads-u-display--flex above-footer-elements-container">
+                <div className="vads-u-flex--auto">
+                  <span className="vads-u-text-align--justify">
+                    <p>
+                      Last updated:{' '}
+                      <time dateTime={format(lastUpdated, 'yyyy-MM-dd')}>
+                        {format(lastUpdated, 'MMMM d, yyyy')}
+                      </time>
+                    </p>
+                  </span>
+                </div>
+                <div className="vads-u-flex--1 vads-u-text-align--right">
+                  <span className="vads-u-text-align--right">
+                    <button
+                      type="button"
+                      className="feedback-button usa-button"
+                      id="mdFormButton"
+                      aria-label="give feedback"
+                    >
+                      Feedback
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
           </article>
         </div>
       </div>
