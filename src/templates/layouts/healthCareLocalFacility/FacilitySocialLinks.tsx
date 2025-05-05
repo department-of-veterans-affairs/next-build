@@ -56,9 +56,9 @@ const FacilitySocialLinks = ({
       <h2 id="get-updates" className="vads-u-margin-bottom--2">
         Get updates from {regionNickname}
       </h2>
-      <div className="usa-grid usa-grid-full">
+      <div className="vads-grid-container vads-grid-row">
         {showGovDelivery && (
-          <div className="usa-width-one-half">
+          <div className="vads-grid-col-6">
             {fieldGovdeliveryIdNews && (
               <div className="vads-u-margin-bottom--2">
                 <va-icon
@@ -104,7 +104,7 @@ const FacilitySocialLinks = ({
         )}
 
         {showSocialLinks && (
-          <div className="usa-width-one-half">
+          <div className="vads-grid-col-6">
             <div>
               {fieldFacebook && (
                 <div className="social-links vads-u-margin-bottom--2">
