@@ -49,7 +49,7 @@ export const SocialLinks = ({
 
   const divClass = isEvent
     ? ''
-    : 'vads-u-margin-bottom--0p5tablet:vads-u-margin-bottom--2'
+    : 'vads-u-margin-bottom--0p5 tablet:vads-u-margin-bottom--2'
 
   const ulClass = 'usa-unstyled-list' + (isEvent ? '' : ' vads-u-display--flex')
 
