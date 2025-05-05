@@ -255,6 +255,34 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
   },
   "introText": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
   "lastUpdated": "2025-02-27T17:26:40+00:00",
+  "locationServices": [
+    {
+      "title": "Transportation services and schedules",
+      "wysiwigContents": "<h5 dir="ltr">Public transit</h5>
+
+<p dir="ltr">The clinic is easily accessible by the Green and Orange lines, and the commuter rail -- just two blocks from North Station.</p>
+
+<h5 dir="ltr">DAV vans</h5>
+
+<p dir="ltr">We work with Disabled American Veterans and county Veterans Affairs directors to provide transportation for Veterans and authorized caregivers to get to scheduled medical appointments. See link below for more information...</p>
+
+<h5 dir="ltr">Non-DAV van services</h5>
+
+<p dir="ltr">Many localities in the region provide other van services to Veterans. See link below for more information...</p>
+
+<h5 dir="ltr">Shuttle service</h5>
+
+<p dir="ltr">There is a shuttle between Jamaica Plain and&nbsp; Causeway. See link below for schedule...</p>
+
+<p dir="ltr"><a href="https://www.va.gov/boston-health-care/dav-vans-transportation-for-veterans/">Learn more about DAV,&nbsp;the Jamaica Plain / Causeway shuttle, and other transportation options.</a></p>
+
+<h5 dir="ltr">Beneficiary travel</h5>
+
+<p dir="ltr">Beneficiary travel benefits include round-trip transportation from your home to the medical center, mileage reimbursement, or special mode transport.&nbsp;</p>
+
+<p dir="ltr"><a href="http://www.va.gov/health-care/file-travel-pay-reimbursement/">Find out if you qualify for beneficiary travel benefits</a>.</p>",
+    },
+  ],
   "menu": {
     "data": {
       "description": "bar",
@@ -718,6 +746,34 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
   },
   "introText": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
   "lastUpdated": "2025-02-27T17:26:40+00:00",
+  "locationServices": [
+    {
+      "title": "Transportation services and schedules",
+      "wysiwigContents": "<h5 dir="ltr">Public transit</h5>
+
+<p dir="ltr">The clinic is easily accessible by the Green and Orange lines, and the commuter rail -- just two blocks from North Station.</p>
+
+<h5 dir="ltr">DAV vans</h5>
+
+<p dir="ltr">We work with Disabled American Veterans and county Veterans Affairs directors to provide transportation for Veterans and authorized caregivers to get to scheduled medical appointments. See link below for more information...</p>
+
+<h5 dir="ltr">Non-DAV van services</h5>
+
+<p dir="ltr">Many localities in the region provide other van services to Veterans. See link below for more information...</p>
+
+<h5 dir="ltr">Shuttle service</h5>
+
+<p dir="ltr">There is a shuttle between Jamaica Plain and&nbsp; Causeway. See link below for schedule...</p>
+
+<p dir="ltr"><a href="https://www.va.gov/boston-health-care/dav-vans-transportation-for-veterans/">Learn more about DAV,&nbsp;the Jamaica Plain / Causeway shuttle, and other transportation options.</a></p>
+
+<h5 dir="ltr">Beneficiary travel</h5>
+
+<p dir="ltr">Beneficiary travel benefits include round-trip transportation from your home to the medical center, mileage reimbursement, or special mode transport.&nbsp;</p>
+
+<p dir="ltr"><a href="http://www.va.gov/health-care/file-travel-pay-reimbursement/">Find out if you qualify for beneficiary travel benefits</a>.</p>",
+    },
+  ],
   "menu": {
     "data": {
       "description": "bar",

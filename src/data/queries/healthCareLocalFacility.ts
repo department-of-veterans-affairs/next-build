@@ -14,6 +14,7 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
@@ -23,6 +24,7 @@ export const params: QueryParams<null> = () => {
     'field_media.image',
     'field_administration',
     'field_telephone',
+    'field_location_services',
   ])
 }
 
@@ -112,5 +114,9 @@ export const formatter: QueryFormatter<
             // summary: ''
           })) ?? null,
     },
+    locationServices: entity.field_location_services.map((service) => ({
+      title: service.field_title,
+      wysiwigContents: getHtmlFromField(service.field_wysiwyg),
+    })),
   }
 }
