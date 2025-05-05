@@ -36,7 +36,8 @@ export const Full: Story = {
     caption:
       '"Caring for a single patient and solving that one patient\'s illness is our honor and privilege as health care providers." - Dr. Brooke Decker',
     author: {
-      title: 'Keith Gottschalk',
+      field_name_first: 'Keith',
+      field_last_name: 'Gottschalk',
     },
     introText:
       'When a hospital has a host of great doctors, honoring just two every year is challenging.',
