@@ -52,9 +52,9 @@ export function ContentFooter({
   }
 
   if (responsiveLayout === 'desktop') {
-    wrapperClasses = ' vads-u-display--none medium-screen:vads-u-display--block'
+    wrapperClasses = ' vads-u-display--none tablet:vads-u-display--block'
   } else if (responsiveLayout === 'mobile') {
-    wrapperClasses = ' medium-screen:vads-u-display--none'
+    wrapperClasses = 'tablet:vads-u-display--none'
   }
 
   return (

@@ -86,7 +86,7 @@ export const Event = ({
 
   return (
     <div className="va-l-detail-page va-facility-page">
-      <div className="usa-grid usa-grid-full">
+      <div className="vads-grid-container">
         <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 desktop-lg:vads-u-padding-x--0 vads-u-padding-bottom--2">
           {/* Title */}
           <h1>{title}</h1>
@@ -94,7 +94,7 @@ export const Event = ({
           {/* Image */}
           {image && (
             <MediaImage
-              className="event-detail-img vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4"
+              className="event-detail-img vads-u-margin-bottom--3 tablet:vads-u-margin-bottom--4"
               {...image}
               imageStyle="7_2_medium_thumbnail"
               loading="eager"
@@ -233,7 +233,7 @@ export const Event = ({
         </div>
         {/* CTA */}
         {(link || additionalInfo || eventCTA) && (
-          <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1 vads-u-padding-x--1p5 medium-screen:vads-u-padding--0">
+          <div className="registration vads-u-margin-top--4 vads-u-margin-bottom--1 vads-u-padding-x--1p5 tablet:vads-u-padding--0">
             {isEventInPast(mostRecentDate?.value) ? (
               <p className="vads-u-margin--0 vads-u-color--secondary vads-u-font-weight--bold">
                 This event already happened.
@@ -310,7 +310,7 @@ export const Event = ({
                 ))}
 
                 {formattedDates.length > 5 && (
-                  <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-justify-content--flex-end vads-u-width--full medium-screen:vads-u-width--auto">
+                  <div className="vads-u-display--flex vads-u-flex-direction--row vads-u-justify-content--flex-end vads-u-width--full tablet:vads-u-width--auto">
                     {!showAllEvents && (
                       <va-button
                         id="show-all-recurring-events"
