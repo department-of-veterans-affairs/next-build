@@ -6,14 +6,32 @@ interface SocialLinkProps {
 }
 
 interface SocialLinksProps {
+  /**
+   * The path to the current entity.
+   */
   path: string
+  /**
+   * The...title of the current entity?? 🤷‍♂️
+   */
   title: string
+  /**
+   * Used only for Events
+   */
   description?: string
+  /**
+   * Used only for Events
+   */
   address?: string
+  /**
+   * Used only for Events
+   */
   dateObject?: {
     endValue: number
     value: number
   }
+  /**
+   * `entity.field_region_page.title`
+   */
   regionNickname?: string
   fieldNews?: SocialLinkProps
   fieldFacebook?: SocialLinkProps
@@ -49,7 +67,7 @@ export const SocialLinks = ({
 
   const divClass = isEvent
     ? ''
-    : 'vads-u-margin-bottom--0p5 medium-screen:vads-u-margin-bottom--2'
+    : 'vads-u-margin-bottom--0p5 tablet:vads-u-margin-bottom--2'
 
   const ulClass = 'usa-unstyled-list' + (isEvent ? '' : ' vads-u-display--flex')
 
@@ -121,7 +139,7 @@ export const SocialLinks = ({
         ) : (
           <>
             <li
-              className={`vads-u-margin-right--5 medium-screen:vads-u-margin-right--2p5 ${isEvent ? 'vads-u-margin-bottom--2p5' : ''}`}
+              className={`vads-u-margin-right--5 tablet:vads-u-margin-right--2p5 ${isEvent ? 'vads-u-margin-bottom--2p5' : ''}`}
             >
               <va-icon
                 class="va-c-social-icon vads-u-margin-right--0p5"

@@ -14,6 +14,9 @@ import { Address } from './Address'
 import { Phone } from './Phone'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
+import { RelatedLinks } from '@/templates/common/relatedLinks'
+import { ContentFooter } from '@/templates/common/contentFooter'
+import FacilitySocialLinks from './FacilitySocialLinks'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -24,6 +27,7 @@ declare const window: customWindow
 export function HealthCareLocalFacility({
   title,
   introText,
+  lastUpdated,
   operatingStatusFacility,
   menu,
   path,
@@ -37,6 +41,9 @@ export function HealthCareLocalFacility({
   facilityLocatorApiId,
   geoLocation,
   fieldTelephone,
+  relatedLinks,
+  locationServices,
+  socialLinks,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -78,6 +85,11 @@ export function HealthCareLocalFacility({
     },
   }
 
+  // Used to get a base url path of a health care region from `path`
+  // NOTE: Maybe could use entity.field_region_page.path.alias instead?
+  // `content-build` does it this way, though.
+  const regionBasePath = path.split('/')[1]
+
   return (
     <div className="interior" id="content">
       <div className="usa-grid usa-grid-full">
@@ -96,7 +108,7 @@ export function HealthCareLocalFacility({
             )}
 
             <TopTasks
-              path={path}
+              path={regionBasePath}
               administration={administration}
               vamcEhrSystem={vamcEhrSystem}
             />
@@ -154,13 +166,21 @@ export function HealthCareLocalFacility({
                 facilityId={facilityLocatorApiId}
               />
             </div>
-            <LocationServices />
-            <div>TODO: List of links section</div>
+            <LocationServices items={locationServices} />
+            <RelatedLinks
+              sectionTitle={relatedLinks.sectionTitle}
+              links={relatedLinks.links}
+            />
             <HealthServices />
-            <div>TODO: Patient satisfaction scores section</div>
-            <div>TODO: Social links section</div>
+            {facilityLocatorApiId.includes('vha_') && (
+              <div
+                data-widget-type="facility-patient-satisfaction-scores"
+                data-facility={`"vha_${facilityLocatorApiId.split('_')[1].toUpperCase()}"`}
+              />
+            )}
+            <FacilitySocialLinks {...socialLinks} />
             <va-back-to-top></va-back-to-top>
-            <div>TODO: Last updated & feedback button</div>
+            <ContentFooter lastUpdated={lastUpdated} />
           </article>
         </div>
       </div>

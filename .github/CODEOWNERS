@@ -1,18 +1,16 @@
 # These owners will be the default owners for everything in
-# the repo. Unless a later match takes precedence,
-#  CMS Team or FE COP will be requested for
-# review when someone opens a pull request.
+# the repo.
 #
 # Review the CODEOWNERS guide before editing:
 # https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/codeowners.md
 
-# General ownership: Next Build Team (ap-team) & Platform FE COP
-*       @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+# General ownership: Next Build Team (ap-team)
+*       @department-of-veterans-affairs/ap-team
 
 # Front-end template work should be verified by product owners.
-src/templates @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/products/*/template.tsx @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+src/templates @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team
+src/products/*/template.tsx @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team
 
-# Product code ownership
-src/products/event/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/products/eventListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+# Code ownership of individual products
+src/products/event/ @department-of-veterans-affairs/ap-team
+src/products/eventListing/ @department-of-veterans-affairs/ap-team
