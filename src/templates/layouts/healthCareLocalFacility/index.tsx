@@ -15,6 +15,7 @@ import { Phone } from './Phone'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
+import { ContentFooter } from '@/templates/common/contentFooter'
 import FacilitySocialLinks from './FacilitySocialLinks'
 
 // Allows additions to window object without overwriting global type
@@ -26,6 +27,7 @@ declare const window: customWindow
 export function HealthCareLocalFacility({
   title,
   introText,
+  lastUpdated,
   operatingStatusFacility,
   menu,
   path,
@@ -173,7 +175,7 @@ export function HealthCareLocalFacility({
             <div>TODO: Patient satisfaction scores section</div>
             <FacilitySocialLinks {...socialLinks} />
             <va-back-to-top></va-back-to-top>
-            <div>TODO: Last updated & feedback button</div>
+            <ContentFooter lastUpdated={lastUpdated} />
           </article>
         </div>
       </div>

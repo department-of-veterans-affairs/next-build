@@ -254,7 +254,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "width": 480,
   },
   "introText": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
-  "lastUpdated": "2025-02-27T17:26:40+00:00",
+  "lastUpdated": "2025-02-27T17:26:37+00:00",
   "locationServices": [
     {
       "title": "Transportation services and schedules",
@@ -788,7 +788,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "width": 480,
   },
   "introText": "The Causeway VA Clinic consolidated with our Jamaica Plain campus, commonly called JP. The last day for appointments at Causeway was Oct. 25, 2024. Services provided at Causeway have moved to JP or transitioned to virtual care. JP offers more services, valet parking and convenient access to public transit. If you have questions, please email us at VABostonHCSlnfo@va.gov or call 1-800-865-3384.",
-  "lastUpdated": "2025-02-27T17:26:40+00:00",
+  "lastUpdated": "2025-02-27T17:26:37+00:00",
   "locationServices": [
     {
       "title": "Transportation services and schedules",
