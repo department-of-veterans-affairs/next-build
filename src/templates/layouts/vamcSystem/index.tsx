@@ -40,7 +40,7 @@ export function VamcSystem({
   useEffect(() => {
     window.sideNav = menu
   })
-  
+
   // TODO: It looks like the reason the image is taller than in the original page is
   // because the image file is actually different. It has a taller intrinsic height.
   // Here is an example from `/washington-dc-health-care/`:
@@ -49,7 +49,7 @@ export function VamcSystem({
   // New:
   // https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-08/Washington%20VA%20Medical%20Center.jpg
   const hasValidImage = image?.links?.['2_1_large']?.href
-  
+
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -62,29 +62,19 @@ export function VamcSystem({
               currentVariant={lovellVariant}
               switchPath={lovellSwitchPath}
             /> */}
-
             {title && <h1>{title}</h1>}
-
             {hasValidImage && (
               <div className="duotone darken lighten medium-screen:vads-u-margin-bottom--0p5">
-                <MediaImage
-                  {...image}
-                  imageStyle="2_1_large"
-                />
+                <MediaImage {...image} imageStyle="2_1_large" />
               </div>
             )}
-
-            Was going to use TopTasks, but the links are different, and the wrapper uses different classes
-            <div className="usa-grid usa-grid-full vads-u-margin-top--0 vads-u-margin-bottom--3">
-              
-            </div>
-
+            {/* Was going to use TopTasks, but the links are different, and the wrapper uses different classes */}
+            <div className="usa-grid usa-grid-full vads-u-margin-top--0 vads-u-margin-bottom--3"></div>
             {introText && (
               <div className="va-introtext">
                 <p className="vads-u-margin-bottom--0">{introText}</p>
               </div>
             )}
-
             {/* Locations Section */}
             <section>
               <h2 className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 medium-screen:vads-u-margin-bottom--2p5">
@@ -104,7 +94,6 @@ export function VamcSystem({
                 text="See all locations"
               />
             </section>
-
             {/* Manage your health online section */}
             {administration?.id !== 1039 && (
               <section>
@@ -120,7 +109,6 @@ export function VamcSystem({
                 </div>
               </section>
             )}
-
             {/* Related Links Section */}
             {fieldRelatedLinks && (
               <div className="vads-u-margin-top--5">
@@ -130,7 +118,6 @@ export function VamcSystem({
                 /> */}
               </div>
             )}
-
             {/* Stories Section */}
             {/* {newsStoryTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 && (
               <section>
@@ -150,7 +137,6 @@ export function VamcSystem({
                 />
               </section>
             )} */}
-
             {/* Events Section */}
             {/* {(eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 ||
               eventTeasersAll?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0) && (
@@ -177,10 +163,8 @@ export function VamcSystem({
                 />
               </section>
             )} */}
-
             {/* Social Links */}
             {/* <SocialLinks regionNickname={title} /> */}
-
             <va-back-to-top />
           </article>
           <ContentFooter />

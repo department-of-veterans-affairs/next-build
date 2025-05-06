@@ -60,22 +60,26 @@ export default async function handler(
       withAuth,
     })
 
-    // Avoid circular references in the health_care_region_page node. Every item in its 
+    // Avoid circular references in the health_care_region_page node. Every item in its
     // `field_clinical_health_services` has a 'field_region_page', and we need to set it
     // to "["Circular Reference]". Circular references will cause the json output to fail
     const safeData = data.map((item) => {
-      if (item.type === "node--health_care_region_page" && 'field_clinical_health_services' in item) {
+      if (
+        item.type === 'node--health_care_region_page' &&
+        'field_clinical_health_services' in item
+      ) {
         return {
           ...item,
-          field_clinical_health_services: item.field_clinical_health_services.map((service) => ({
-            ...service,
-            field_region_page: '[Circular Reference]'
-          }))
+          field_clinical_health_services:
+            item.field_clinical_health_services.map((service) => ({
+              ...service,
+              field_region_page: '[Circular Reference]',
+            })),
         }
       }
-      return item;
-    });
-    
+      return item
+    })
+
     return res.status(200).json(safeData)
   } catch (error) {
     console.error('API Error:', error)
