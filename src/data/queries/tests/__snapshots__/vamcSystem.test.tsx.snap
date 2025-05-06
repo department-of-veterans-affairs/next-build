@@ -1,0 +1,390 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_media,field_media.image,field_administration,field_clinical_health_services,field_related_links"`;
+
+exports[`VamcSystem formatData outputs formatted data 1`] = `
+{
+  "administration": {
+    "id": 254,
+    "name": "VA New York Harbor health care",
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA New York Harbor health care",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 8525,
+  "entityPath": "/new-york-harbor-health-care",
+  "fieldRelatedLinks": {
+    "behavior_settings": [],
+    "breadcrumbs": [],
+    "content_translation_changed": null,
+    "content_translation_outdated": false,
+    "content_translation_source": "und",
+    "created": "2020-10-19T20:31:40+00:00",
+    "default_langcode": true,
+    "drupal_internal__id": 13881,
+    "drupal_internal__revision_id": 923261,
+    "field_title": "In the spotlight at VA New York Harbor health care",
+    "field_va_paragraphs": [
+      {
+        "id": "67ec0aee-d964-4e83-805f-2a133824c15c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 13880,
+          "target_revision_id": 923254,
+        },
+        "type": "paragraph--link_teaser",
+      },
+      {
+        "id": "ce9da3d6-c49d-4370-9493-9628bfa462d6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 30078,
+          "target_revision_id": 923255,
+        },
+        "type": "paragraph--link_teaser",
+      },
+      {
+        "id": "e21ee8f3-d4c3-4c08-ba6f-b2a9ec1df35f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 30079,
+          "target_revision_id": 923256,
+        },
+        "type": "paragraph--link_teaser",
+      },
+      {
+        "id": "752edbd1-0f5a-45a1-9b12-cfef9be7e62b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 30080,
+          "target_revision_id": 923257,
+        },
+        "type": "paragraph--link_teaser",
+      },
+      {
+        "id": "f680869b-16f1-4507-a7a5-c30c41c9eaed",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 30081,
+          "target_revision_id": 923258,
+        },
+        "type": "paragraph--link_teaser",
+      },
+      {
+        "id": "da804006-05fe-4aba-8146-8fdfeb229ca1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 30082,
+          "target_revision_id": 923259,
+        },
+        "type": "paragraph--link_teaser",
+      },
+      {
+        "id": "83a66277-e72b-4224-b261-5a36659b0c68",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 30083,
+          "target_revision_id": 923260,
+        },
+        "type": "paragraph--link_teaser",
+      },
+    ],
+    "id": "8fee84a4-d821-4a90-ab51-25971100c481",
+    "langcode": "en",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/list_of_link_teasers/8fee84a4-d821-4a90-ab51-25971100c481?resourceVersion=id%3A923261",
+      },
+    },
+    "paragraph_type": {
+      "id": "17be725c-343b-4050-a3c0-4e953226233e",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "list_of_link_teasers",
+      },
+      "type": "paragraphs_type--paragraphs_type",
+    },
+    "parent_field_name": "field_related_links",
+    "parent_id": "8525",
+    "parent_type": "node",
+    "relationshipNames": [
+      "paragraph_type",
+      "field_va_paragraphs",
+    ],
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 13881,
+      "target_revision_id": 923261,
+    },
+    "revision_translation_affected": true,
+    "status": true,
+    "type": "paragraph--list_of_link_teasers",
+  },
+  "id": "17bfe247-9df5-4217-a48a-973f8676d6e4",
+  "image": {
+    "alt": "Manhattan Veterans Administration Medical Center",
+    "height": 180,
+    "id": "23564949-4f47-42fc-8e0f-92b4cd84578e",
+    "links": {
+      "1_1_square_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "512",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_3_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "480",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "3_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "320",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "7_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "300",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "full_content_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "180",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "180",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "original": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "180",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/23564949-4f47-42fc-8e0f-92b4cd84578e",
+      },
+      "viewport_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "180",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+    },
+    "title": "",
+    "type": "media--image",
+    "width": 259,
+  },
+  "introText": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.
+",
+  "lastUpdated": "2023-04-13T18:17:37+00:00",
+  "menu": {
+    "data": null,
+    "rootPath": "/new-york-harbor-health-care/",
+  },
+  "metatags": [
+    {
+      "attributes": {
+        "content": "VA New York Harbor health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA New York Harbor health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Manhattan Veterans Administration Medical Center",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA New York Harbor health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Manhattan Veterans Administration Medical Center",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "path": "/new-york-harbor-health-care",
+  "published": true,
+  "title": "VA New York Harbor health care",
+  "type": "node--health_care_region_page",
+}
+`;

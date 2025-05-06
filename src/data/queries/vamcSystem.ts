@@ -17,14 +17,13 @@ import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-    .addInclude([
-      'field_media',
-      'field_media.image',
-      'field_administration',
-      'field_clinical_health_services',
-      'field_related_links',
-    ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_media',
+    'field_media.image',
+    'field_administration',
+    'field_clinical_health_services',
+    'field_related_links',
+  ])
 }
 
 // Define the option types for the data loader.
@@ -54,20 +53,24 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     params
   )) as NodeVamcSystem
 
+  if (!entity) {
+    throw new Error(`NodeVamcSystem entity not found for id: ${opts.id}`)
+  }
+
   // Fetch the menu name dynamically off of the field_region_page reference if available.
-  const menu = entity
-    ? await getMenu(
-        entity.field_system_menu.resourceIdObjMeta
-          .drupal_internal__target_id
-      )
-    : null
+  const menu = await getMenu(
+    entity.field_system_menu.resourceIdObjMeta.drupal_internal__target_id
+  )
 
   return { entity, menu, lovell: opts.context?.lovell }
 }
 
-export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({ entity, menu, lovell }) => {
-  let formattedMenu =
-    menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
+export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
+  entity,
+  menu,
+  lovell,
+}) => {
+  let formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   if (lovell?.isLovellVariantPage) {
     formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell?.variant)
