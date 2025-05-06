@@ -10,7 +10,7 @@ import { PublishedEntity } from './publishedEntity'
 import { FormattedRelatedLinks } from './relatedLinks'
 import { SideNavMenu } from './sideNav'
 import { MediaImage } from '@/types/formatted/media'
-import { Wysiwyg } from './wysiwyg'
+import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null
@@ -35,4 +35,5 @@ export type HealthCareLocalFacility = PublishedEntity & {
      */
     wysiwigContents: string
   }>
+  socialLinks: FacilitySocialLinksProps
 }
