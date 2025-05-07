@@ -41,14 +41,8 @@ export function VamcSystem({
     window.sideNav = menu
   })
 
-  // TODO: It looks like the reason the image is taller than in the original page is
-  // because the image file is actually different. It has a taller intrinsic height.
-  // Here is an example from `/washington-dc-health-care/`:
-  // Old:
-  // https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/7_2_medium_thumbnail/public/2021-08/Washington%20VA%20Medical%20Center.jpg
-  // New:
-  // https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-08/Washington%20VA%20Medical%20Center.jpg
-  const hasValidImage = image?.links?.['2_1_large']?.href
+  const imageStyle = '7_2_medium_thumbnail'
+  const hasValidImage = image?.links?.[imageStyle]?.href
 
   return (
     <div className="va-l-detail-page va-facility-page">
@@ -65,7 +59,7 @@ export function VamcSystem({
             {title && <h1>{title}</h1>}
             {hasValidImage && (
               <div className="duotone darken lighten medium-screen:vads-u-margin-bottom--0p5">
-                <MediaImage {...image} imageStyle="2_1_large" />
+                <MediaImage {...image} imageStyle={imageStyle} />
               </div>
             )}
             {/* Was going to use TopTasks, but the links are different, and the wrapper uses different classes */}
