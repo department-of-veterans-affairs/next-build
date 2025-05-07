@@ -29,6 +29,15 @@ const nextConfig = {
     // this could be anything, use latest git hash if it exists
     return process.env.GIT_HASH ?? 'vagovprod'
   },
+  webpack(webpackConfig) {
+    return {
+      ...webpackConfig,
+      optimization: {
+        ...webpackConfig.optimization,
+        minimize: isProd,
+      },
+    }
+  },
 }
 
 export default nextConfig
