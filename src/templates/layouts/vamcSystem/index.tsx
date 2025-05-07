@@ -62,7 +62,7 @@ export function VamcSystem({
             {title && <h1>{title}</h1>}
             {hasValidImage && (
               <div className="duotone darken lighten medium-screen:vads-u-margin-bottom--0p5">
-                <MediaImage {...image} imageStyle={imageStyle} />
+                <MediaImage {...image} imageStyle={imageStyle} alt="" />
               </div>
             )}
             {/* Was going to use TopTasks, but the links are different, and the wrapper uses different classes */}
