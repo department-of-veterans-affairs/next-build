@@ -44,9 +44,10 @@ export const separateExtension = (
 export const PhoneNumber = (
   props: FormattedPhoneNumber & {
     className?: string
+    testId?: string
   }
 ) => {
-  const { className, extension, label, number, phoneType } = props
+  const { className, extension, label, number, phoneType, testId } = props
 
   if (!number) {
     return null
@@ -73,7 +74,7 @@ export const PhoneNumber = (
 
   return (
     <p className={className || undefined} data-testid="phone">
-      <strong>{labelToDisplay}: </strong>
+      <strong>{`${labelToDisplay}: `}</strong>
       <va-telephone
         contact={numberToDisplay.replace?.(/-/g, '')}
         extension={extensionToDisplay || null}
@@ -81,6 +82,7 @@ export const PhoneNumber = (
         not-clickable={fax ? true : undefined}
         sms={sms ? true : undefined}
         tty={tty ? true : undefined}
+        data-testid={testId || undefined}
       />
     </p>
   )

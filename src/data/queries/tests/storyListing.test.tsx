@@ -141,9 +141,8 @@ describe('data function for StoryListing', () => {
           field_media: null,
           field_related_links: {
             id: '1',
-            field_link: null,
-            field_links: [],
-            field_section_header: null,
+            field_va_paragraphs: [],
+            field_title: null,
             drupal_internal__id: 1,
             drupal_internal__revision_id: 1,
             langcode: 'en',

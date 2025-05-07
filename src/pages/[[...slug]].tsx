@@ -259,11 +259,24 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       }
     }
     try {
-      const resource = await getStaticPropsResource(
-        resourceType,
-        pathInfo,
-        expandedContext
-      )
+      let resource
+      try {
+        resource = await getStaticPropsResource(
+          resourceType,
+          pathInfo,
+          expandedContext
+        )
+      } catch (e) {
+        const util = await import('util')
+        console.error('\n\nFailed to fetch resource:')
+        console.error(
+          util.inspect(
+            { resourceType, pathInfo, expandedContext },
+            { colors: true, depth: null }
+          )
+        )
+        throw e
+      }
       // If we're not in preview mode and the resource is not published,
       // Return page not found.
       if (!expandedContext.preview && !resource?.published) {

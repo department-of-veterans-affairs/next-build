@@ -288,9 +288,10 @@ export function VetCenterOutstation({
                 Vet Centers are community based to be more accessible in areas
                 where you live. Find a nearby Vet Center location.
               </p>
-              <va-link href={`${path}/locations`}>
-                Find a nearby Vet Center location
-              </va-link>
+              <va-link
+                href={`${path}/locations`}
+                text="Find a nearby Vet Center location"
+              />
             </div>
           </div>
 

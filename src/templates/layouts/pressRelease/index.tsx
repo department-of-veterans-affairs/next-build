@@ -2,8 +2,8 @@ import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRe
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { formatDate } from '@/lib/utils/helpers'
-import { recordEvent } from '@/lib/analytics/recordEvent'
 import { ContentFooter } from '@/templates/common/contentFooter'
+import { PhoneNumber } from '@/templates/common/phoneNumber'
 
 export const PressRelease = ({
   title,
@@ -36,93 +36,88 @@ export const PressRelease = ({
                   <p className="vads-u-font-weight--bold vads-u-margin-bottom--3 vads-u-margin-top--0">
                     {formatDate(releaseDate)}
                   </p>
-                  <div>
-                    <button
-                      type="button"
-                      className="vads-u-margin-right--4 va-button-link"
+                  <p className="va-flex vads-u-flex-direction--column  mobile:vads-u-flex-direction--row mobile:vads-u-align-items--center mobile:vads-u-padding-bottom--4 ">
+                    <va-button
+                      data-testid="print-button"
                       onClick={() => {
                         window.print()
                         return false
                       }}
-                    >
-                      <i className="fa fa-print vads-u-padding-right--1"></i>
-                      Print
-                    </button>
+                      secondary
+                      text="Print"
+                      class="vads-u-margin-right--2 vads-u-padding-bottom--2 mobile:vads-u-padding-bottom--0"
+                    />
+
                     {pdfVersion && (
-                      <a href={pdfVersion} download>
-                        <i className="fa fa-download vads-u-padding-right--1"></i>
-                        Download press release (PDF)
-                      </a>
+                      <va-link
+                        download
+                        href={pdfVersion}
+                        text="Download press release"
+                        filetype={pdfVersion.split('.').pop().toUpperCase()}
+                        data-testid="pdf-version"
+                      />
                     )}
-                  </div>
+                  </p>
                   <p className="va-introtext vads-u-font-size--lg vads-u-margin-top--3">
                     {`${address.locality}, ${address.administrative_area} - ${introText}`}
                   </p>
                   {/* Body */}
                   <div dangerouslySetInnerHTML={{ __html: fullText }}></div>
                 </section>
-                <section className="vads-u-margin-bottom--6">
-                  {contacts?.length > 0 && (
-                    <div className="vads-u-font-weight--bold">
-                      Media contacts
-                    </div>
-                  )}
-                  {/* Print each media contact */}
-                  {contacts?.map((contact) => {
-                    if (!contact) {
-                      return null
-                    }
-                    return (
-                      <div key={contact?.id}>
-                        <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                          {`${contact?.name}${contact?.description ? `, ${contact?.description}` : ''}`}
-                        </p>
-                        {contact?.numbers?.map((phone, index) => {
-                          const label = phone.type === 'fax' ? 'Fax' : 'Phone'
-                          return (
-                            <p
-                              key={phone.id}
-                              className="vads-u-margin-top--1 vads-u-margin-bottom--0"
-                            >
-                              <span
-                                data-testId={`phone-label-${index}`}
-                                className="vads-u-font-weight--bold vads-u-margin-right--0p5"
-                              >
-                                {`${label}:`}
-                              </span>
-                              <va-telephone
-                                tty={phone.type === 'tty' || null}
-                                sms={phone.type === 'sms' || null}
-                                not-clickable={phone.type === 'fax' || null}
-                                contact={phone.number}
+                {/* contacts can have a single object in the array that contains all null values */}
+                {contacts?.length > 0 && contacts[0]?.name && (
+                  <section
+                    className="vads-u-margin-bottom--6"
+                    data-testid="media-contacts"
+                  >
+                    <h2 className="vads-u-font-size--h3">Media contacts</h2>
+                    {/* Print each media contact */}
+                    {contacts.map((contact) => {
+                      return (
+                        <div key={contact.id}>
+                          <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
+                            {`${contact.name}${contact.description ? `, ${contact.description}` : ''}`}
+                          </p>
+                          {contact.numbers?.map((phone, index) => {
+                            // Skip if phone number is empty
+                            if (!phone.number) {
+                              return ''
+                            }
+                            return (
+                              <PhoneNumber
+                                key={phone.id}
+                                id={phone.id}
+                                type="phone"
+                                className="vads-u-margin-top--1 vads-u-margin-bottom--0"
                                 extension={phone.ext || null}
-                                data-testid={`phone-${index}`}
-                                message-aria-describedby={label}
+                                number={phone.number}
+                                phoneType={phone.type}
+                                testId={`phone-${index}`}
+                              />
+                            )
+                          })}
+                          {contact.email && (
+                            <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
+                              <va-link
+                                data-testid="press-email"
+                                href={`mailto:${contact?.email}`}
+                                text={contact?.email}
                               />
                             </p>
-                          )
-                        })}
-                        {contact?.email && (
-                          <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                            <va-link
-                              data-testid="press-email"
-                              href={`mailto:${contact?.email}`}
-                              text={contact?.email}
-                            />
-                          </p>
-                        )}
-                      </div>
-                    )
-                  })}
-                </section>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </section>
+                )}
                 {downloads.length > 0 && (
                   <section
                     className="vads-u-margin-bottom--6"
                     data-testid="downloads"
                   >
-                    <div className="vads-u-font-weight--bold vads-u-margin-bottom--1">
+                    <h2 className="vads-u-margin-bottom--1 vads-u-font-size--h3">
                       Download media assets
-                    </div>
+                    </h2>
                     {/*Print out unorder list links per type*/}
                     <ul className="vads-u-margin-bottom--1 usa-unstyled-list">
                       {downloads?.map((asset) => {
@@ -132,7 +127,7 @@ export const PressRelease = ({
                         let link = (
                           <va-link
                             data-testid="generic-file"
-                            filetype={asset.uri.split('.').pop()}
+                            filetype={asset.uri.split('.').pop().toUpperCase()}
                             href={asset.uri}
                             download
                             text={asset.name}
@@ -143,7 +138,10 @@ export const PressRelease = ({
                             link = (
                               <va-link
                                 data-testid="document"
-                                filetype={asset.uri.split('.').pop()}
+                                filetype={asset.uri
+                                  .split('.')
+                                  .pop()
+                                  .toUpperCase()}
                                 href={asset.uri}
                                 download
                                 text={asset.name}
@@ -154,7 +152,10 @@ export const PressRelease = ({
                             link = (
                               <va-link
                                 data-testid="image"
-                                filetype={asset.uri.split('.').pop()}
+                                filetype={asset.uri
+                                  .split('.')
+                                  .pop()
+                                  .toUpperCase()}
                                 href={asset.uri}
                                 download
                                 text={`Download ${asset.name}`}
