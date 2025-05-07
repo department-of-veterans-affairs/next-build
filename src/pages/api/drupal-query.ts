@@ -62,7 +62,8 @@ export default async function handler(
 
     // Avoid circular references in the health_care_region_page node. Every item in its
     // `field_clinical_health_services` has a 'field_region_page', and we need to set it
-    // to "["Circular Reference]". Circular references will cause the json output to fail
+    // to "["Circular Reference]". Circular references will cause the json output to
+    // fail. While this is a hack, this endpoint isn't used for production, so it's fine.
     const safeData = data.map((item) => {
       if (
         item.type === 'node--health_care_region_page' &&
