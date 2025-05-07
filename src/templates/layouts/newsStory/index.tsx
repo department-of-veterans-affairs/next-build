@@ -51,7 +51,13 @@ export const NewsStory = ({
                   {caption}
                 </div>
               )}
-              {author && <StaffNewsProfile {...author} />}
+              {author && (
+                <StaffNewsProfile
+                  field_name_first={author.field_name_first}
+                  field_last_name={author.field_last_name}
+                  field_description={author.field_description}
+                />
+              )}
               <p className="vads-u-margin-bottom--2p5">
                 <time dateTime={formatDate(date)}>{formatDate(date)}</time>
               </p>

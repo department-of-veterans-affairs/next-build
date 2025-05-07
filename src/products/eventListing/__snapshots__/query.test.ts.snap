@@ -111,7 +111,7 @@ exports[`node--event_listing formatData outputs formatted data 1`] = `
   ],
   "id": "4c24a406-37dc-4709-9ba7-24f430973cfb",
   "introText": "Learn more about events in our VA Wilkes-Barre health care community, including classes on health and wellness.",
-  "lastUpdated": "2021-02-11T16:15:00+00:00",
+  "lastUpdated": "2021-02-11T16:15:01+00:00",
   "menu": {
     "data": null,
     "rootPath": "/wilkes-barre-health-care/events/",

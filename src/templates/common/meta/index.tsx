@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { MetaTag } from '@/types/formatted/metatags'
 import { parseDate, getDateParts } from '@/lib/utils/date'
+import { capitalizeWords } from '@/lib/utils/capitalizeWords'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
 import { generateAbsoluteUrlFromEnv } from '@/lib/utils/environment'
@@ -62,7 +63,7 @@ const CustomTags = ({ tags }: { tags: MetaTag[] }) => (
   <Head>
     {tags.map?.(({ tag: Tag, attributes }, i) =>
       attributes.name === 'title' ? (
-        <title key={i}>{attributes.content}</title>
+        <title key={i}>{capitalizeWords(attributes.content)}</title>
       ) : (
         <Tag key={i} {...attributes} />
       )

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { ContentFooter } from './'
 
 // Mocked dependencies
@@ -6,23 +6,15 @@ jest.mock('@/templates/common/medallia', () => ({
   MedalliaAssets: jest.fn().mockReturnValue(null),
 }))
 jest.mock('@/lib/utils/medallia', () => ({
-  getSurveyNumber: jest.fn((pathname, isProduction) => {
+  getSurveyNumber: jest.fn((_pathname, isProduction) => {
     return isProduction ? 'mockedSurveyNumber' : null
   }),
   showForm: jest.fn(),
 }))
-jest.mock('@/lib/utils/date', () => ({
-  parseDate: jest.fn().mockReturnValue(new Date('2022-03-28')),
-  getDateParts: jest.fn().mockReturnValue({
-    month: { name: 'March', numeric: 3, twoDigit: '03' },
-    day: { numeric: 28, twoDigit: '28' },
-    year: { numeric: 2022 },
-  }),
-}))
 
 describe('ContentFooter Component', () => {
   test('renders last updated date correctly', () => {
-    const lastUpdated = '2022-03-28'
+    const lastUpdated = '2022-03-28T17:26:37+00:00'
     render(<ContentFooter lastUpdated={lastUpdated} />)
 
     expect(screen.getByText('Last updated:')).toBeInTheDocument()

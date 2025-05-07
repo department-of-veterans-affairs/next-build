@@ -70,7 +70,8 @@ export const newsStoryPartialResource = {
   },
   caption: 'caption',
   author: {
-    title: 'Author Name',
+    field_name_first: 'Author',
+    field_last_name: 'Name',
   },
   introText: 'intro-text',
   bodyContent: 'story-body',

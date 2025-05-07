@@ -67,7 +67,7 @@ const Breadcrumbs = ({
   const fcString = JSON.stringify(filteredCrumbs)
 
   return (
-    <div className="vads-u-padding-x--1p5">
+    <div className="vads-grid-container">
       <va-breadcrumbs class="row" wrapping breadcrumb-list={fcString} />
     </div>
   )

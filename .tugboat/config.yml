@@ -59,6 +59,9 @@ services:
       # starts here, skipping the init and update steps, because the
       # results of those are inherited from the base preview.
       build:
+        # Update site URL
+        - echo "SITE_URL=${TUGBOAT_DEFAULT_SERVICE_URL}" >> "${TUGBOAT_ROOT}/envs/.env.tugboat"
+
         - yarn --version
         # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
         - yarn install
