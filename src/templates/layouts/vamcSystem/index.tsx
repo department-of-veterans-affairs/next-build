@@ -13,6 +13,9 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
 
+const LOVELL_TRICARE_ADMINISTRATION_ID = 1039
+const LOVELL_VA_ADMINISTRATION_ID = 1040
+
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
   sideNav?: SideNavMenu
@@ -89,10 +92,10 @@ export function VamcSystem({
               />
             </section>
             {/* Manage your health online section */}
-            {administration?.id !== 1039 && (
+            {administration?.id !== LOVELL_TRICARE_ADMINISTRATION_ID && (
               <section>
                 <h2>
-                  {administration?.id === 1040
+                  {administration?.id === LOVELL_VA_ADMINISTRATION_ID
                     ? 'Manage your VA health online'
                     : 'Manage your health online'}
                 </h2>
