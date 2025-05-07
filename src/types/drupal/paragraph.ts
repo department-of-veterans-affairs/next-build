@@ -32,6 +32,7 @@ export type ParagraphTypes =
   | ParagraphHealthCareLocalFacilityService
   | ParagraphLinkTeaser
   | ParagraphListOfLinks
+  | ParagraphListOfLinkTeasers
   | ParagraphNonReusableAlert
   | ParagraphPhoneNumber
   | ParagraphQaGroup
@@ -137,6 +138,11 @@ export interface ParagraphHealthCareLocalFacilityService
 export interface ParagraphLinkTeaser extends DrupalParagraph {
   field_link: FieldLink
   field_link_summary: string
+}
+
+export interface ParagraphListOfLinkTeasers extends DrupalParagraph {
+  field_title: string
+  field_va_paragraphs: ParagraphLinkTeaser[]
 }
 
 export interface ParagraphListOfLinks extends DrupalParagraph {

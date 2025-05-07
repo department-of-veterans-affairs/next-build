@@ -4,22 +4,20 @@ import {
 } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
-import { drupalToVaPath, phoneLinks } from '@/lib/utils/helpers'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the formatter for returning paragraph--wysiwyg & paragraph--rich_text_char_limit_1000 data.
 export const formatter: QueryFormatter<
   ParagraphWysiwyg | ParagraphRichTextCharLimit1000,
   Wysiwyg
 > = (entity: ParagraphWysiwyg | ParagraphRichTextCharLimit1000) => {
-  const data = [entity.field_wysiwyg?.processed]
-  const filters = [phoneLinks, drupalToVaPath]
-  const filteredData = filters.reduce((d, f) => d.filter(f), data)
+  const html = getHtmlFromField(entity.field_wysiwyg)
 
   return {
     type: entity.type as
       | 'paragraph--wysiwyg'
       | 'paragraph--rich_text_char_limit_1000',
     id: entity.id,
-    html: filteredData[0],
+    html,
   }
 }

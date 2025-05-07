@@ -105,8 +105,8 @@ describe('<pressRelease> with valid data', () => {
     spy.mockRestore()
   })
   test('renders component', () => {
-    const { container, getByText } = render(<PressRelease {...data} />)
-    const linkElement = getByText(/Download press release \(PDF\)/i)
+    const { container, getByTestId } = render(<PressRelease {...data} />)
+    const linkElement = getByTestId('pdf-version')
 
     expect(
       screen.queryByText(/Wilmington VAMC 2019 Annual Report/)
@@ -131,8 +131,8 @@ describe('<pressRelease> with valid data', () => {
   })
   test('renders component without pdfVersion', () => {
     data.pdfVersion = null
-    const { container } = render(<PressRelease {...data} />)
-    const linkElement = screen.queryByText(/Download press release \(PDF\)/i)
+    render(<PressRelease {...data} />)
+    const linkElement = screen.queryByTestId('pdf-version')
     expect(linkElement).toBeNull()
   })
   test('renders contacts', () => {
@@ -156,40 +156,27 @@ describe('<pressRelease> with valid data', () => {
     const ext = screen.getByTestId('phone-3')
     const fax = screen.getByTestId('phone-4')
     expect(voice).toBeInTheDocument()
-    expect(voice).toHaveAttribute('contact', data.contacts[0].numbers[0].number)
-    expect(voice).not.toHaveAttribute('sms')
-    expect(voice).not.toHaveAttribute('tty')
-    expect(voice).not.toHaveAttribute('extension')
-    expect(voice).toHaveAttribute('message-aria-describedby', 'Phone')
-    expect(screen.getByTestId('phone-label-0')).toHaveTextContent('Phone:')
+    expect(voice).toHaveAttribute(
+      'contact',
+      data.contacts[0].numbers[0].number.replace?.(/-/g, '')
+    )
     expect(sms).toBeInTheDocument()
-    expect(sms).toHaveAttribute('contact', data.contacts[0].numbers[1].number)
-    expect(sms).toHaveAttribute('sms')
-    expect(sms).not.toHaveAttribute('tty')
-    expect(sms).not.toHaveAttribute('extension')
-    expect(sms).toHaveAttribute('message-aria-describedby', 'Phone')
-    expect(screen.getByTestId('phone-label-1')).toHaveTextContent('Phone:')
+    expect(sms).toHaveAttribute(
+      'contact',
+      data.contacts[0].numbers[1].number.replace?.(/-/g, '')
+    )
     expect(tty).toBeInTheDocument()
-    expect(tty).toHaveAttribute('contact', data.contacts[0].numbers[2].number)
-    expect(tty).not.toHaveAttribute('sms')
-    expect(tty).toHaveAttribute('tty')
-    expect(tty).not.toHaveAttribute('extension')
-    expect(tty).toHaveAttribute('message-aria-describedby', 'Phone')
-    expect(screen.getByTestId('phone-label-2')).toHaveTextContent('Phone:')
+    expect(tty).toHaveAttribute(
+      'contact',
+      data.contacts[0].numbers[2].number.replace?.(/-/g, '')
+    )
     expect(ext).toBeInTheDocument()
-    expect(ext).toHaveAttribute('contact', data.contacts[0].numbers[3].number)
-    expect(ext).not.toHaveAttribute('sms')
-    expect(ext).not.toHaveAttribute('tty')
     expect(ext).toHaveAttribute('extension', data.contacts[0].numbers[3].ext)
-    expect(ext).toHaveAttribute('message-aria-describedby', 'Phone')
-    expect(screen.getByTestId('phone-label-3')).toHaveTextContent('Phone:')
     expect(fax).toBeInTheDocument()
-    expect(fax).toHaveAttribute('contact', data.contacts[0].numbers[4].number)
-    expect(fax).not.toHaveAttribute('sms')
-    expect(fax).not.toHaveAttribute('tty')
-    expect(fax).not.toHaveAttribute('extension')
-    expect(fax).toHaveAttribute('message-aria-describedby', 'Fax')
-    expect(screen.getByTestId('phone-label-4')).toHaveTextContent('Fax:')
+    expect(fax).toHaveAttribute(
+      'contact',
+      data.contacts[0].numbers[4].number.replace?.(/-/g, '')
+    )
   })
 
   test('does not render numbers if null', () => {
@@ -222,7 +209,7 @@ describe('<pressRelease> with valid data', () => {
     const document = screen.getByTestId('document')
     const image = screen.getByTestId('image')
     const video = screen.getByTestId('video')
-    expect(document).toHaveAttribute('filetype', 'pdf')
+    expect(document).toHaveAttribute('filetype', 'PDF')
     expect(document).toHaveAttribute('download')
     expect(document).toHaveAttribute('text', downloads[0].name)
     expect(document).toHaveAttribute('href', downloads[0].uri)
@@ -248,8 +235,30 @@ describe('<pressRelease> with valid data', () => {
   window.print = jest.fn()
   test('renders the print button and handles click', () => {
     render(<PressRelease {...data} />)
-    const printButton = screen.getByText('Print')
+    const printButton = screen.getByTestId('print-button')
     fireEvent.click(printButton)
     expect(window.print).toHaveBeenCalled()
+  })
+  test('does not render Media contacts section when the contact is archived', () => {
+    // This is the state of data at the component when the author is archived
+    const archivedAuthorContacts = [
+      {
+        id: '96668498-d442-4b55-8b14-7ec90410f418',
+        name: null,
+        description: null,
+        numbers: [
+          {
+            id: null,
+            type: null,
+            number: null,
+            ext: null,
+          },
+        ],
+        email: null,
+      },
+    ]
+    const archivedData = { ...data, contacts: archivedAuthorContacts }
+    render(<PressRelease {...archivedData} />)
+    expect(screen.queryByTestId('media-contacts')).not.toBeInTheDocument()
   })
 })

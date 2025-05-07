@@ -30,12 +30,12 @@ const StaffProfileSideBarNav: React.FC<SidebarNavProps> = ({
       data-template="navigation/facility_no_drupal_page_sidebar_nav"
       id="va-detailpage-sidebar"
       data-drupal-sidebar
-      className="va-c-facility-sidebar usa-width-one-fourth va-sidebarnav"
+      className="va-c-facility-sidebar"
     >
       <div>
-        <div className="left-side-nav-title">
-          <h4>{link.label}</h4>
-        </div>
+        <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--3">
+          {link.label}
+        </h4>
         <p className="vads-u-margin-y--0">
           <va-link
             data-testid="sidebar-nav-link"

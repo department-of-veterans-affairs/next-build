@@ -51,6 +51,10 @@ Additionally, the `PreviewEventSubscriber` in the `va_gov_preview` module will n
 
 Without this configuration, preview functionality will fall back to using the current content-build provided preview server.
 
+### Drupal scope
+
+When a new role is added to Drupal, we should also create a corresponding [scope](https://va.gov/admin/config/people/simple_oauth/oauth2_scope/dynamic) if the holders of this role need to be able to see Next Build previews. After the scope is created, exported in config, and deployed onto prod, it will need to be added to the [consumer](https://va.gov/admin/config/services/consumer/2/edit) directly on prod since consumers are entities in the DB and not part of config.
+
 ## CMS Tugboat Preview
 
 Each CMS Tugboat environment installs next-build, runs `yarn build:preview` and then starts a running preview server. This allows Preview functionality to be tested on each CMS PR with all the wiring hooked up for you.
