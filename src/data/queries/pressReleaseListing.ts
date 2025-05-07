@@ -8,6 +8,8 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { isLovellTricarePath, isLovellVaPath } from '@/lib/drupal/lovell/utils'
 import {
   fetchAndConcatAllResourceCollectionPages,
   fetchSingleResourceCollectionPage,
@@ -15,6 +17,8 @@ import {
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
+import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.PRESS_RELEASE_LISTING]
 
@@ -38,6 +42,7 @@ type PressReleaseListingData = {
   totalItems: number
   totalPages: number
   current: number
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
@@ -70,13 +75,12 @@ export const data: QueryData<
       )
 
   // Fetch the menu name dynamically off of the field_office reference
-  let menu = null
-  if (entity.field_office.field_system_menu) {
-    menu = await getMenu(
-      entity.field_office.field_system_menu.resourceIdObjMeta
-        ?.drupal_internal__target_id
-    )
-  }
+  const menu = entity.field_office.field_system_menu
+    ? await getMenu(
+        entity.field_office.field_system_menu.resourceIdObjMeta
+          ?.drupal_internal__target_id
+      )
+    : null
 
   return {
     entity,
@@ -85,13 +89,14 @@ export const data: QueryData<
     totalItems,
     totalPages: totalPages,
     current: opts?.page,
+    lovell: opts.context?.lovell,
   }
 }
 
 export const formatter: QueryFormatter<
   PressReleaseListingData,
   PressReleaseListing
-> = ({ entity, releases, menu, totalItems, totalPages, current }) => {
+> = ({ entity, releases, menu, totalItems, totalPages, current, lovell }) => {
   const formattedReleases = releases.map((release) => {
     return queries.formatData(
       `${RESOURCE_TYPES.PRESS_RELEASE}--teaser`,
@@ -99,11 +104,23 @@ export const formatter: QueryFormatter<
     )
   })
 
-  const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+  // Check if this is a Lovell facility page (TRICARE or VA variant)
+  let variant = undefined
+  if (isLovellTricarePath(entity.path.alias)) {
+    variant = LOVELL.tricare.variant
+  } else if (isLovellVaPath(entity.path.alias)) {
+    variant = LOVELL.va.variant
+  }
+  const formattedMenu = buildSideNavDataFromMenu(
+    entity.path.alias,
+    menu,
+    variant
+  )
+
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
-    releases: formattedReleases,
+    'news-releases': formattedReleases,
     menu: formattedMenu,
     currentPage: current,
     totalItems,

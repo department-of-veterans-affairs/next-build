@@ -24,7 +24,7 @@ describe('PressReleaseListing component renders', () => {
         'Get the latest news from the Birmingham VA Health Care System.\\r\\n',
       type: 'node--press_releases_listing',
       published: true,
-      releases: formattedPressReleases,
+      'news-releases': formattedPressReleases,
       menu: {
         rootPath: 'sample/path/url',
         data: { name: '', description: '', links: [] },
@@ -65,7 +65,9 @@ describe('PressReleaseListing component renders', () => {
   })
 
   test('with no press releases', () => {
-    render(<PressReleaseListing {...pressReleaseListingProps} releases={[]} />)
+    render(
+      <PressReleaseListing {...pressReleaseListingProps} news-releases={[]} />
+    )
     expect(screen.queryByText(/News releases/)).toBeInTheDocument()
     const element = screen.getByText('No stories at this time.')
     expect(element).toBeInTheDocument()

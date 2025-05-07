@@ -7,8 +7,10 @@ import { FacilityOperatingStatusFlags } from '../drupal/node'
 import { ParagraphPhoneNumber } from '../drupal/paragraph'
 import { VamcEhr } from '../drupal/vamcEhr'
 import { PublishedEntity } from './publishedEntity'
+import { FormattedRelatedLinks } from './relatedLinks'
 import { SideNavMenu } from './sideNav'
 import { MediaImage } from '@/types/formatted/media'
+import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null
@@ -25,4 +27,13 @@ export type HealthCareLocalFacility = PublishedEntity & {
   geoLocation: FieldGeoLocation
   fieldTelephone: ParagraphPhoneNumber | null
   vaHealthConnectPhoneNumber: string | null
+  relatedLinks: FormattedRelatedLinks
+  locationServices: Array<{
+    title: string
+    /**
+     * The HTML output of the WYSIWYG editor, processed through `getHtmlFromField()`
+     */
+    wysiwigContents: string
+  }>
+  socialLinks: FacilitySocialLinksProps
 }
