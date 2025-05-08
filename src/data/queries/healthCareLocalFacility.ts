@@ -11,7 +11,11 @@ import {
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
-import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
+import {
+  getLovellVariantOfMenu,
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
@@ -134,5 +138,13 @@ export const formatter: QueryFormatter<
       fieldInstagram: entity.field_region_page.field_instagram ?? null,
       fieldYoutube: entity.field_region_page.field_youtube ?? null,
     },
+    lovellVariant: lovell?.variant,
+    lovellSwitchPath:
+      entity.field_main_location && lovell?.variant
+        ? getLovellVariantOfUrl(
+            entity.path.alias,
+            getOppositeChildVariant(lovell?.variant)
+          )
+        : null,
   }
 }
