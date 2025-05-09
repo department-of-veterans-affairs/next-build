@@ -283,6 +283,8 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 <p dir="ltr"><a href="http://www.va.gov/health-care/file-travel-pay-reimbursement/">Find out if you qualify for beneficiary travel benefits</a>.</p>",
     },
   ],
+  "lovellSwitchPath": null,
+  "lovellVariant": "tricare",
   "menu": {
     "data": {
       "description": "bar",
@@ -817,6 +819,8 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 <p dir="ltr"><a href="http://www.va.gov/health-care/file-travel-pay-reimbursement/">Find out if you qualify for beneficiary travel benefits</a>.</p>",
     },
   ],
+  "lovellSwitchPath": null,
+  "lovellVariant": undefined,
   "menu": {
     "data": {
       "description": "bar",
