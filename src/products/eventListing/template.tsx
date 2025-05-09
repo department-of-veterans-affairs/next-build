@@ -43,8 +43,14 @@ export function EventListing({
   }, [menu, events])
 
   return (
-    <>
-      <div key={id} className="usa-grid usa-grid-full vads-u-padding-bottom--3">
+    <div>
+      <div
+        key={id}
+        className="vads-grid-container vads-u-padding-bottom--3"
+        style={{
+          overflow: 'hidden',
+        }}
+      >
         {/* Widget coming from vets-website */}
         {menu && (
           <nav
@@ -54,7 +60,7 @@ export function EventListing({
           ></nav>
         )}
 
-        <div className="events vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 medium-screen:vads-u-padding-x--0 vads-u-padding-bottom--2">
+        <div className="events vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 tablet:vads-u-padding-x--0 vads-u-padding-bottom--2">
           <LovellSwitcher
             currentVariant={lovellVariant}
             switchPath={lovellSwitchPath}
@@ -70,9 +76,9 @@ export function EventListing({
         <div data-widget-type="events"></div>
       </div>
 
-      <div className="usa-grid usa-grid-full">
+      <div className="vads-grid-container">
         <ContentFooter />
       </div>
-    </>
+    </div>
   )
 }
