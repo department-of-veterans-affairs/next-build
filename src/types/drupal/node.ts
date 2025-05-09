@@ -50,6 +50,7 @@ import {
 export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
+  | NodeBannerAlertVAMCS
   | NodeFaqMultipleQA
   | NodeHealthCareLocalFacility
   | NodeLandingPage
@@ -68,6 +69,7 @@ export type NodeTypes =
   | NodeEvent
   | NodeEventListing
   | NodeVetCenter
+  | NodeVamcSystem
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -421,4 +423,10 @@ export interface NodeSupportService extends DrupalNode {
   field_link: FieldLink
   field_phone_number: string
   field_office: NodeOffice
+}
+
+export interface NodeVamcSystem extends DrupalNode {
+  field_intro_text: string
+  field_media: DrupalMediaImage
+  field_administration: FieldAdministration
 }

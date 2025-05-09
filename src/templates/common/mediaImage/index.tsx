@@ -63,7 +63,8 @@ export const MediaImage = (
     return null
   }
 
-  if (!props.alt) {
+  // Allow explicitly setting alt text to "" but not omitting the attribute entirely
+  if (props.alt == null) {
     return null
   }
 
