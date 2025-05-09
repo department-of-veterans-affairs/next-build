@@ -6,6 +6,8 @@ import { colorizePath } from './colorizePath'
 
 export function emitConsoleTree(graph: DependencyGraph): void {
   const visited = new Set<string>()
+  let totalCC = 0
+  let totalLoc = 0
 
   function walk(node: string, depth: number) {
     const info = graph.nodes[node]
@@ -24,6 +26,8 @@ export function emitConsoleTree(graph: DependencyGraph): void {
     }
 
     visited.add(node)
+    totalCC += info.cc
+    totalLoc += info.loc
     console.log(
       indent +
         chalk.cyan(`- ${colorizePath(node)} (${info.loc} LoC; ${info.cc} CC)`)
@@ -33,4 +37,14 @@ export function emitConsoleTree(graph: DependencyGraph): void {
   }
 
   walk(graph.root, 0)
+
+  console.log('\n')
+  console.log(
+    chalk.green('Total cyclomatic complexity:'),
+    chalk.magenta(totalCC)
+  )
+  console.log(
+    chalk.green('Total lines of code:        '),
+    chalk.magenta(totalLoc)
+  )
 }
