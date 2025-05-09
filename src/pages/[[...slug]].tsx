@@ -301,6 +301,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           bannerData,
           headerFooterData,
         },
+        revalidate: 30,
       }
     } catch (error) {
       if (error instanceof DoNotPublishError) {
