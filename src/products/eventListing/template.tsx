@@ -43,44 +43,42 @@ export function EventListing({
   }, [menu, events])
 
   return (
-    <>
-      <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-min-height--full-screen">
-        <div className="vads-u-flex--1">
-          <div
-            key={id}
-            className="vads-grid-container vads-u-padding-bottom--3"
-          >
-            {/* Widget coming from vets-website */}
-            {menu && (
-              <nav
-                data-template="navigation/facility_sidebar_nav"
-                aria-label="secondary"
-                data-widget-type="side-nav"
-              ></nav>
-            )}
-            <div className="events vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 medium-screen:vads-u-padding-x--0 vads-u-padding-bottom--2">
-              <LovellSwitcher
-                currentVariant={lovellVariant}
-                switchPath={lovellSwitchPath}
-              />
+    <div>
+      <div
+        key={id}
+        className="vads-grid-container vads-u-padding-bottom--3"
+        style={{
+          overflow: 'hidden',
+        }}
+      >
+        {/* Widget coming from vets-website */}
+        {menu && (
+          <nav
+            data-template="navigation/facility_sidebar_nav"
+            aria-label="secondary"
+            data-widget-type="side-nav"
+          ></nav>
+        )}
 
-              <h1 id="article-heading">{title}</h1>
-              <div className="va-introtext">
-                {introText && <p id="office-events-description">{introText}</p>}
-              </div>
-            </div>
+        <div className="events vads-u-display--flex vads-u-flex-direction--column vads-u-padding-x--1p5 tablet:vads-u-padding-x--0 vads-u-padding-bottom--2">
+          <LovellSwitcher
+            currentVariant={lovellVariant}
+            switchPath={lovellSwitchPath}
+          />
 
-            {/* Events widget coming from vets-website */}
-            <div data-widget-type="events"></div>
+          <h1 id="article-heading">{title}</h1>
+          <div className="va-introtext">
+            {introText && <p id="office-events-description">{introText}</p>}
           </div>
         </div>
 
-        <div className="vads-u-flex--0">
-          <div className="vads-grid-container">
-            <ContentFooter />
-          </div>
-        </div>
+        {/* Events widget coming from vets-website */}
+        <div data-widget-type="events"></div>
       </div>
-    </>
+
+      <div className="vads-grid-container">
+        <ContentFooter />
+      </div>
+    </div>
   )
 }
