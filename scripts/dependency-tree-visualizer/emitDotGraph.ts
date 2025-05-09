@@ -35,7 +35,7 @@ export function htmlLabel(node: NodeInfo): string {
   >`
 }
 
-export function generateDotGraph(graph: DependencyGraph): string {
+export function generateDotGraph(nodes: DependencyGraph['nodes']): string {
   const lines: string[] = ['digraph G {']
   lines.push('  node [shape=box, style=filled, fontname="Helvetica"];')
   lines.push('  edge [fontname="Helvetica"];')
@@ -44,7 +44,7 @@ export function generateDotGraph(graph: DependencyGraph): string {
   // lines.push('  rankdir=LR;');
 
   // Emit node labels with LoC and Cyclomatic Complexity
-  for (const node of Object.values(graph.nodes)) {
+  for (const node of Object.values(nodes)) {
     lines.push(
       `  "${node.filepath}" [label=${htmlLabel(
         node
@@ -55,7 +55,7 @@ export function generateDotGraph(graph: DependencyGraph): string {
   // Emit edges with optional count annotations
   const seenEdges = new Set<string>()
 
-  for (const node of Object.values(graph.nodes)) {
+  for (const node of Object.values(nodes)) {
     for (const { path: include, count } of node.includes) {
       const edgeKey = `"${node.filepath}" -> "${include}"`
 
@@ -65,7 +65,7 @@ export function generateDotGraph(graph: DependencyGraph): string {
 
       const label = count > 1 ? ` [label="${count}×"]` : ''
 
-      if (graph.nodes[include]) {
+      if (nodes[include]) {
         // Known node: regular edge
         lines.push(`  ${edgeKey}${label};`)
       } else {
