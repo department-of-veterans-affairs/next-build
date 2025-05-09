@@ -15,7 +15,7 @@ export function emitConsoleTree(graphs: DependencyGraph[]): void {
       const indent = '  '.repeat(depth)
 
       if (!info) {
-        console.log(indent + chalk.red(`⚠️  Missing: ${nodePath}`))
+        console.log(indent + chalk.red(`- ⚠️  Missing: ${nodePath}`))
         return
       }
 
