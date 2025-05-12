@@ -16,6 +16,7 @@ import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
   getLovellVariantOfTitle,
+  getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
@@ -78,18 +79,20 @@ export const formatter: QueryFormatter<
   LocalFacilityData,
   HealthCareLocalFacility
 > = ({ entity, menu, lovell }) => {
-  let { title } = entity
+  let { title, breadcrumbs } = entity
   let formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
 
   if (lovell?.isLovellVariantPage) {
-    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell?.variant)
-    title = getLovellVariantOfTitle(title, lovell?.variant)
+    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell.variant)
+    title = getLovellVariantOfTitle(title, lovell.variant)
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
   }
 
   return {
     ...entityBaseFields(entity),
     title,
+    breadcrumbs,
     address: entity.field_address,
     phoneNumber: entity.field_phone_number,
     vaHealthConnectPhoneNumber:

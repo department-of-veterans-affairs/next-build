@@ -15,6 +15,7 @@ import {
   FieldCCText,
   FieldGeoLocation,
   FieldHealthServicesArray,
+  BreadcrumbItem,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -140,6 +141,7 @@ export type FacilityOperatingStatusFlags =
   | string // TODO: Remove the catch-all; needed right now for importing JSON mock data; can remove after we implement runtime data validation
 
 export interface NodeHealthCareLocalFacility extends DrupalNode {
+  breadcrumbs: BreadcrumbItem[]
   field_address: FieldAddress
   field_description: string
   field_facility_classification: string // TODO: Figure out what these number strings mean and give it a better type
