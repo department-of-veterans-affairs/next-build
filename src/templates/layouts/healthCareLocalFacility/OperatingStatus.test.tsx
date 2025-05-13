@@ -4,7 +4,24 @@ import { ComponentProps } from 'react'
 
 const mockData: ComponentProps<typeof OperatingStatusFlags> = {
   operatingStatusFacility: 'normal',
-  basePath: '/test-nav-path',
+  menu: {
+    rootPath: '/test-nav-path',
+    data: {
+      name: 'test-nav',
+      description: 'test-nav-description',
+      links: [
+        {
+          url: {
+            path: '/test-nav-path',
+          },
+          description: 'test-nav-description',
+          expanded: true,
+          label: 'test-nav-label',
+          links: [],
+        },
+      ],
+    },
+  },
 }
 
 describe('HealthCareLocalFacility OperatingStatusFlags', () => {
@@ -26,7 +43,7 @@ describe('HealthCareLocalFacility OperatingStatusFlags', () => {
     (operatingStatus, expectedAlertStatus, expectedText) => {
       const { container } = render(
         <OperatingStatusFlags
-          basePath={mockData.basePath}
+          menu={mockData.menu}
           operatingStatusFacility={operatingStatus}
         />
       )
@@ -39,7 +56,7 @@ describe('HealthCareLocalFacility OperatingStatusFlags', () => {
       expect(link).toBeInTheDocument()
       expect(link).toHaveAttribute(
         'href',
-        mockData.basePath + '/operating-status'
+        mockData.menu.data.links[0].url.path + '/operating-status'
       )
       expect(link).toHaveAttribute('text', expectedText)
     }

@@ -133,7 +133,7 @@ export function HealthCareLocalFacility({
                 <div>
                   <OperatingStatusFlags
                     operatingStatusFacility={operatingStatusFacility}
-                    basePath={menu.data.links[0].url.path}
+                    menu={menu}
                   />
                   <section>
                     {/* Embedding structured data scripts for schema.org */}
