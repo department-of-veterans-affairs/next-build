@@ -14,7 +14,10 @@ import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
-
+import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { isLovellTricarePath, isLovellVaPath } from '@/lib/drupal/lovell/utils'
+import util from 'util'
+import fs from 'fs'
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -62,19 +65,14 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     entity.field_system_menu.resourceIdObjMeta.drupal_internal__target_id
   )
 
-  return { entity, menu, lovell: opts.context?.lovell }
+  return { entity, menu }
 }
 
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   entity,
   menu,
-  lovell,
 }) => {
-  let formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
-
-  if (lovell?.isLovellVariantPage) {
-    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell?.variant)
-  }
+  const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
     ...entityBaseFields(entity),

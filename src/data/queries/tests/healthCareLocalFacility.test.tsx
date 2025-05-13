@@ -34,9 +34,22 @@ const mockMenu = {
   tree: [menuItem],
 }
 
+const TRICARE_TEST_ID = 'lovel tricare test'
+
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
-  fetchSingleEntityOrPreview: jest.fn(() => mockFacilityData),
+  fetchSingleEntityOrPreview: (opts: { id: string }) => {
+    if (opts.id === TRICARE_TEST_ID) {
+      return {
+        ...mockFacilityData,
+        path: {
+          alias:
+            '/lovell-federal-health-care-tricare/locations/causeway-va-clinic',
+        },
+      }
+    }
+    return mockFacilityData
+  },
   getMenu: jest.fn(() => mockMenu),
 }))
 
@@ -60,7 +73,7 @@ describe('HealthCareLocalFacility query', () => {
   it('should handle the Lovell variant page menu', async () => {
     expect(
       await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
-        id: mockFacilityData.id,
+        id: TRICARE_TEST_ID,
         context: {
           path: '',
           drupalPath: '',

@@ -42,7 +42,7 @@ export function VamcSystem({
   // Note: The side nav widget is in a separate app in the static-pages bundle
   useEffect(() => {
     window.sideNav = menu
-  })
+  }, [menu])
 
   const imageStyle = '7_2_medium_thumbnail'
   const hasValidImage = image?.links?.[imageStyle]?.href

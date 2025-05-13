@@ -43,7 +43,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     },
   ],
   "entityId": 1272,
-  "entityPath": "/boston-health-care/locations/causeway-va-clinic",
+  "entityPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
   "facilityLocatorApiId": "vha_523BZ",
   "fieldTelephone": {
     "behavior_settings": [],
@@ -289,7 +289,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
       "links": [],
       "name": "Foo",
     },
-    "rootPath": "/boston-health-care/locations/causeway-va-clinic/",
+    "rootPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic/",
   },
   "metatags": [
     {
@@ -444,7 +444,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     },
   ],
   "operatingStatusFacility": "temporary_closure",
-  "path": "/boston-health-care/locations/causeway-va-clinic",
+  "path": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
   "phoneNumber": "800-865-3384",
   "published": true,
   "relatedLinks": {
@@ -523,7 +523,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
       "url": "https://twitter.com/VABostonHC",
     },
     "fieldYoutube": null,
-    "path": "/boston-health-care/locations/causeway-va-clinic",
+    "path": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
     "regionNickname": "VA Boston health care",
     "title": "VA Boston health care",
   },
