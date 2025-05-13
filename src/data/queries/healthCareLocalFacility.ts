@@ -11,6 +11,10 @@ import {
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import {
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
@@ -65,13 +69,13 @@ export const data: QueryData<
       )
     : null
 
-  return { entity, menu }
+  return { entity, menu, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<
   LocalFacilityData,
   HealthCareLocalFacility
-> = ({ entity, menu }) => {
+> = ({ entity, menu, lovell }) => {
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
 
@@ -129,5 +133,13 @@ export const formatter: QueryFormatter<
       fieldInstagram: entity.field_region_page.field_instagram ?? null,
       fieldYoutube: entity.field_region_page.field_youtube ?? null,
     },
+    lovellVariant: lovell?.variant,
+    lovellSwitchPath:
+      entity.field_main_location && lovell?.variant
+        ? getLovellVariantOfUrl(
+            entity.path.alias,
+            getOppositeChildVariant(lovell?.variant)
+          )
+        : null,
   }
 }
