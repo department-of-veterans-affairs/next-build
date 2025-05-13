@@ -40,7 +40,7 @@ import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffPr
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
-
+import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
@@ -58,6 +58,7 @@ import { VetCenter } from '@/templates/layouts/vetCenter'
 import { Wrapper } from '@/templates/layouts/wrapper'
 import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFacility'
 import { DoNotPublishError } from '@/lib/drupal/query'
+import { VamcSystem } from '@/templates/layouts/vamcSystem'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -167,6 +168,9 @@ export default function ResourcePage({
             <HealthCareLocalFacility
               {...(resource as FormattedHealthCareLocalFacility)}
             />
+          )}
+          {resource.type === RESOURCE_TYPES.VAMC_SYSTEM && (
+            <VamcSystem {...(resource as FormattedVamcSystem)} />
           )}
         </div>
       </main>

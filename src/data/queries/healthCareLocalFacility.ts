@@ -12,7 +12,6 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
-  getLovellVariantOfMenu,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
@@ -77,12 +76,8 @@ export const formatter: QueryFormatter<
   LocalFacilityData,
   HealthCareLocalFacility
 > = ({ entity, menu, lovell }) => {
-  let formattedMenu =
+  const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
-
-  if (lovell?.isLovellVariantPage) {
-    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell?.variant)
-  }
 
   return {
     ...entityBaseFields(entity),
