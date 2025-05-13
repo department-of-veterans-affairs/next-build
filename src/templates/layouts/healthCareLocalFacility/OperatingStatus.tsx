@@ -1,5 +1,9 @@
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
-import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
+
+interface OperatingStatusFlagsProps {
+  operatingStatusFacility: FacilityOperatingStatusFlags
+  basePath: string
+}
 
 /**
  * Return a <va-alert> with the appropriate status and link to the operating
@@ -10,14 +14,9 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
  */
 export const OperatingStatusFlags = ({
   operatingStatusFacility,
-  menu,
-}: Pick<
-  FormattedHealthCareLocalFacility,
-  'operatingStatusFacility' | 'menu'
->) => {
-  const linkBasePath = menu.data.links[0].url.path
-
-  if (!linkBasePath || operatingStatusFacility === 'normal') {
+  basePath,
+}: OperatingStatusFlagsProps) => {
+  if (!basePath || operatingStatusFacility === 'normal') {
     return null
   }
 
@@ -44,7 +43,7 @@ export const OperatingStatusFlags = ({
         <va-alert status={status} slim visible>
           <va-link
             class="vads-u-font-weight--bold operating-status-link"
-            href={`${linkBasePath}/operating-status`}
+            href={`${basePath}/operating-status`}
             text={text}
           />
         </va-alert>
