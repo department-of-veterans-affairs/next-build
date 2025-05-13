@@ -142,7 +142,7 @@ export const Event = ({
                     {facilityLocation?.field_address?.address_line1}
                   </p>
                 )}
-                {facilityLocation?.field_Address?.address_Line2 && (
+                {facilityLocation?.field_address?.address_line2 && (
                   <p className="vads-u-margin--0">
                     {facilityLocation?.field_address?.address_line2}
                   </p>
