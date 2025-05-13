@@ -242,7 +242,7 @@ export const Event = ({
               <>
                 {link && eventCTAText && (
                   <va-link-action
-                    class="vads-u-display--block"
+                    className="vads-u-display--block"
                     href={link?.uri}
                     text={eventCTAText}
                   />
@@ -251,7 +251,7 @@ export const Event = ({
                   <>
                     {mostRecentDate && eventCTAText && (
                       <va-link-action
-                        class="vads-u-display--block"
+                        className="vads-u-display--block"
                         href={createMailToLink(
                           emailCTA,
                           title,
