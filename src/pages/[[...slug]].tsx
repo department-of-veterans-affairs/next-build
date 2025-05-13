@@ -26,6 +26,9 @@ import {
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
 
+// Config
+const isExport = process.env.BUILD_OPTION === 'static'
+
 // Types
 import { Event as FormattedEvent } from '@/products/event/formatted-type'
 import { EventListing as FormattedEventListing } from '@/products/eventListing/formatted-type'
@@ -301,6 +304,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           bannerData,
           headerFooterData,
         },
+        revalidate: isExport ? false : 20, // revalidation, false for static export or 20 seconds for runtime
       }
     } catch (error) {
       if (error instanceof DoNotPublishError) {
