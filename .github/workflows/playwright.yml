@@ -60,6 +60,9 @@ jobs:
     - name: Install Playwright
       run: |
         yarn playwright install --with-deps
+    - name: test connectivity
+      run: |
+        curl -I https://pr1019-qrznp4qlvvfzaanqahkdxkegnxkedx5r.tugboat.vfs.va.gov/southern-nevada-health-care/news-releases/vasnhs-helping-veterans-prepare-for-secure-sign-in-changes/
     - name: Run Playwright tests
       run: |
         SITE_URL=${{ github.event.deployment_status.environment_url }} yarn test:playwright
