@@ -5,6 +5,7 @@ import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { FacilityListing } from '@/templates/components/facilityListing'
+import { RelatedLinks } from '@/templates/common/relatedLinks'
 // import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // import { TopTasks } from '@/templates/components/topTasks'
 // import { FacilityListing } from '@/templates/components/facilityListing'
@@ -28,11 +29,11 @@ export function VamcSystem({
   introText,
   image,
   administration,
-  fieldRelatedLinks,
   path,
   menu,
   // vamcEhrSystem,
   mainFacilities,
+  relatedLinks,
   // newsStoryTeasersFeatured,
   // eventTeasersFeatured,
   // eventTeasersAll,
@@ -92,6 +93,7 @@ export function VamcSystem({
                 text="See all locations"
               ></va-link>
             </section>
+
             {/* Manage your health online section */}
             {administration?.id !== LOVELL_TRICARE_ADMINISTRATION_ID && (
               <section>
@@ -107,15 +109,12 @@ export function VamcSystem({
                 </div>
               </section>
             )}
-            {/* Related Links Section */}
-            {fieldRelatedLinks && (
-              <div className="vads-u-margin-top--5">
-                {/* <ListOfLinkTeasers
-                  {...fieldRelatedLinks}
-                  regionNickname={title}
-                /> */}
-              </div>
-            )}
+
+            {/* Related links section */}
+            <div className="vads-u-margin-top--5">
+              <RelatedLinks {...relatedLinks} />
+            </div>
+
             {/* Stories Section */}
             {/* {newsStoryTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 && (
               <section>

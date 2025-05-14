@@ -53,6 +53,7 @@ export type NodeTypes =
   | NodeBasicLandingPage
   | NodeBannerAlertVAMCS
   | NodeFaqMultipleQA
+  | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
   | NodeLandingPage
   | NodeNewsStory
@@ -70,7 +71,6 @@ export type NodeTypes =
   | NodeEvent
   | NodeEventListing
   | NodeVetCenter
-  | NodeVamcSystem
   | NodeVamcSystemVaPolice
 
 /** Shared type structure for resource nodes. */
@@ -426,12 +426,6 @@ export interface NodeSupportService extends DrupalNode {
   field_link: FieldLink
   field_phone_number: string
   field_office: NodeOffice
-}
-
-export interface NodeVamcSystem extends DrupalNode {
-  field_intro_text: string
-  field_media: DrupalMediaImage
-  field_administration: FieldAdministration
 }
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {
