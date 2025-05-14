@@ -45,7 +45,7 @@ export const OperatingStatusFlags = ({
             class="vads-u-font-weight--bold operating-status-link"
             href={`${basePath}/operating-status`}
             text={text}
-          />
+          ></va-link>
         </va-alert>
       </div>
     )

@@ -38,7 +38,7 @@ export function FacilityListing({
     <div className="region-list usa-width-one-whole vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4 medium-screen:vads-u-margin-bottom--5">
       <section className="region-grid vads-u-margin-right--2">
         <h3 className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
-          <va-link href={path} text={title} />
+          <va-link href={path} text={title}></va-link>
         </h3>
 
         <OperatingStatusFlags
@@ -56,14 +56,14 @@ export function FacilityListing({
           {phoneNumber && (
             <div className="main-phone vads-u-margin-bottom--1">
               <strong>Main phone:</strong>{' '}
-              <va-telephone contact={phoneNumber} />
+              <va-telephone contact={phoneNumber}></va-telephone>
             </div>
           )}
 
           {vaHealthConnectPhoneNumber && (
             <div className="vads-u-margin-bottom--1">
               <strong>VA health connect:</strong>{' '}
-              <va-telephone contact={vaHealthConnectPhoneNumber} />
+              <va-telephone contact={vaHealthConnectPhoneNumber}></va-telephone>
             </div>
           )}
 

@@ -90,7 +90,7 @@ export function VamcSystem({
                 className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
                 href={`${path}/locations`}
                 text="See all locations"
-              />
+              ></va-link>
             </section>
             {/* Manage your health online section */}
             {administration?.id !== LOVELL_TRICARE_ADMINISTRATION_ID && (
@@ -132,7 +132,7 @@ export function VamcSystem({
                   className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
                   href={`${path}/stories`}
                   text="See all stories"
-                />
+                ></va-link>
               </section>
             )} */}
             {/* Events Section */}
@@ -158,12 +158,12 @@ export function VamcSystem({
                   className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
                   href={`${path}/events`}
                   text="See all events"
-                />
+                ></va-link>
               </section>
             )} */}
             {/* Social Links */}
             {/* <SocialLinks regionNickname={title} /> */}
-            <va-back-to-top />
+            <va-back-to-top></va-back-to-top>
           </article>
           <ContentFooter />
         </div>

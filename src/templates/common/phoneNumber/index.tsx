@@ -83,7 +83,7 @@ export const PhoneNumber = (
         sms={sms ? true : undefined}
         tty={tty ? true : undefined}
         data-testid={testId || undefined}
-      />
+      ></va-telephone>
     </p>
   )
 }
