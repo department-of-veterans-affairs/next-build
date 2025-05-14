@@ -3,20 +3,19 @@ import { MediaImage } from '@/types/formatted/media'
 import { Administration } from '@/types/formatted/administration'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PublishedEntity } from './publishedEntity'
-import { FieldAddress } from '../drupal/field_type'
-import { ParagraphPhoneNumber } from '../drupal/paragraph'
-import { FacilityOperatingStatusFlags } from '../drupal/node'
+import { HealthCareLocalFacility } from './healthCareLocalFacility'
 
-export type MinimalLocalFacility = {
-  title: string
-  path: string
-  operatingStatusFacility: FacilityOperatingStatusFlags
-  address: FieldAddress
-  phoneNumber: string
-  fieldTelephone: ParagraphPhoneNumber | null
-  vaHealthConnectPhoneNumber: string | null
-  image: MediaImage
-}
+export type MinimalLocalFacility = Pick<
+  HealthCareLocalFacility,
+  | 'title'
+  | 'path'
+  | 'operatingStatusFacility'
+  | 'address'
+  | 'phoneNumber'
+  | 'fieldTelephone'
+  | 'vaHealthConnectPhoneNumber'
+  | 'image'
+>
 
 export type VamcSystem = PublishedEntity & {
   title: string
