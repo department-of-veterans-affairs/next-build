@@ -28,7 +28,6 @@ import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
   isLovellBifurcatedResource,
-  getLovellVariantOfMenu,
   getLovellVariantOfBreadcrumbs,
 } from './utils'
 
@@ -190,16 +189,11 @@ export async function getLovellStaticPropsResource(
 ): Promise<LovellStaticPropsResource<LovellFormattedResource>> {
   // Lovell listing pages need Federal items merged
   if (context.lovell.isLovellVariantPage && context.listing.isListingPage) {
-    const resource = await getLovellListingPageStaticPropsResource(
+    return getLovellListingPageStaticPropsResource(
       resourceType as ListingResourceType,
       pathInfo,
       context
     )
-
-    return {
-      ...resource,
-      menu: getLovellVariantOfMenu(resource.menu, context.lovell.variant),
-    }
   }
 
   // Other Lovell pages depend on base resource

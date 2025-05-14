@@ -1,0 +1,364 @@
+{
+  "items": [],
+  "tree": [
+    {
+      "title": "Lovell Federal health care - TRICARE",
+      "url": "/lovell-federal-health-care-tricare",
+      "field_menu_section": "tricare"
+    },
+    {
+      "title": "Lovell Federal health care - VA",
+      "url": "/lovell-federal-health-care-va",
+      "field_menu_section": "va"
+    },
+    {
+      "title": "Lovell Federal health care",
+      "url": "/lovell-federal-health-care",
+      "field_menu_section": "both",
+      "items": [
+        {
+          "title": "SERVICES AND LOCATIONS",
+          "url": "",
+          "field_menu_section": "both",
+          "items": [
+            {
+              "title": "Health services",
+              "url": "/lovell-federal-health-care-va/health-services",
+              "field_menu_section": "va",
+              "items": [
+                {
+                  "title": "Returning service member care",
+                  "url": "/lovell-federal-health-care-tricare/health-services/returning-service-member-care",
+                  "field_menu_section": "tricare"
+                }
+              ]
+            },
+            {
+              "title": "Health services",
+              "url": "/lovell-federal-health-care-tricare/health-services",
+              "field_menu_section": "tricare"
+            },
+            {
+              "title": "Locations",
+              "url": "/lovell-federal-health-care-va/locations",
+              "field_menu_section": "va",
+              "items": [
+                {
+                  "title": "Captain James A. Lovell Federal Health Care Center",
+                  "url": "/lovell-federal-health-care-va/locations/captain-james-a-lovell-federal-health-care-center",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Evanston VA Clinic",
+                  "url": "/lovell-federal-health-care-va/locations/evanston-va-clinic",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Kenosha VA Clinic",
+                  "url": "/lovell-federal-health-care-va/locations/kenosha-va-clinic",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "McHenry VA Clinic",
+                  "url": "/lovell-federal-health-care-va/locations/mchenry-va-clinic",
+                  "field_menu_section": "va"
+                }
+              ]
+            },
+            {
+              "title": "Locations",
+              "url": "/lovell-federal-health-care-tricare/locations",
+              "field_menu_section": "tricare",
+              "items": [
+                {
+                  "title": "Captain James A. Lovell Federal Health Care Center",
+                  "url": "/lovell-federal-health-care-tricare/locations/captain-james-a-lovell-federal-health-care-center",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "Naval Great Lakes Burkey Mall Pharmacy",
+                  "url": "/lovell-federal-health-care-tricare/locations/naval-great-lakes-burkey-mall-pharmacy",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "USS Osborne Dental Clinic",
+                  "url": "/lovell-federal-health-care-tricare/locations/uss-osborne-dental-clinic",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "USS Red Rover",
+                  "url": "/lovell-federal-health-care-tricare/locations/uss-red-rover",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "USS Tranquillity",
+                  "url": "/lovell-federal-health-care-tricare/locations/uss-tranquillity",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "Zachary and Elizabeth Fisher Medical and Dental Clinic",
+                  "url": "/lovell-federal-health-care-tricare/locations/zachary-and-elizabeth-fisher-medical-and-dental-clinic",
+                  "field_menu_section": "tricare"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "NEWS AND EVENTS",
+          "url": "",
+          "field_menu_section": "both",
+          "items": [
+            {
+              "title": "Events",
+              "url": "/lovell-federal-health-care-va/events",
+              "field_menu_section": "va"
+            },
+            {
+              "title": "Events",
+              "url": "/lovell-federal-health-care-tricare/events",
+              "field_menu_section": "tricare"
+            },
+            {
+              "title": "News releases",
+              "url": "/lovell-federal-health-care-tricare/news-releases",
+              "field_menu_section": "tricare"
+            },
+            {
+              "title": "News releases",
+              "url": "/lovell-federal-health-care-va/news-releases",
+              "field_menu_section": "va"
+            },
+            {
+              "title": "Stories",
+              "url": "/lovell-federal-health-care-tricare/stories",
+              "field_menu_section": "tricare"
+            },
+            {
+              "title": "Stories",
+              "url": "/lovell-federal-health-care-va/stories",
+              "field_menu_section": "va"
+            }
+          ]
+        },
+        {
+          "title": "ABOUT LOVELL FEDERAL",
+          "url": "",
+          "field_menu_section": "both",
+          "items": [
+            {
+              "title": "About us",
+              "url": "/lovell-federal-health-care-va/about-us",
+              "field_menu_section": "both",
+              "items": [
+                {
+                  "title": "Mission and vision",
+                  "url": "/lovell-federal-health-care-va/about-us/mission-and-vision",
+                  "field_menu_section": "both"
+                },
+                {
+                  "title": "History",
+                  "url": "/lovell-federal-health-care-va/about-us/history",
+                  "field_menu_section": "both"
+                },
+                {
+                  "title": "Performance",
+                  "url": "/lovell-federal-health-care-va/about-us/performance",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Leadership",
+                  "url": "/lovell-federal-health-care-va/about-us/leadership",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Leadership",
+                  "url": "/lovell-federal-health-care-tricare/about-us/leadership",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "Research",
+                  "url": "/lovell-federal-health-care-va/research",
+                  "field_menu_section": "both"
+                }
+              ]
+            },
+            {
+              "title": "Programs",
+              "url": "/lovell-federal-health-care-va/programs",
+              "field_menu_section": "both",
+              "items": [
+                {
+                  "title": "VA Medical Foster Home program",
+                  "url": "/lovell-federal-health-care-va/programs/va-medical-foster-home-program",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Virtual Education Center",
+                  "url": "/lovell-federal-health-care-tricare/programs/virtual-education-center",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "Vocational rehabilitation",
+                  "url": "/lovell-federal-health-care-va/programs/vocational-rehabilitation",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Immunizations",
+                  "url": "/lovell-federal-health-care-tricare/programs/immunizations",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "Travel",
+                  "url": "/lovell-federal-health-care-va/programs/beneficiary-travel",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "PHASER program",
+                  "url": "/lovell-federal-health-care-va/programs/pharmacogenomic-testing-for-medications",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "PTSD care",
+                  "url": "/lovell-federal-health-care-va/programs/ptsd-care",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Addiction and substance use care",
+                  "url": "/lovell-federal-health-care-va/programs/addiction-and-substance-use-care",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Cafeteria and Retail Services",
+                  "url": "/lovell-federal-health-care-va/programs/cafeteria-and-retail-services",
+                  "field_menu_section": "both"
+                },
+                {
+                  "title": "Chaplain services",
+                  "url": "/lovell-federal-health-care-va/programs/chaplain-services",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Chaplain services",
+                  "url": "/lovell-federal-health-care-tricare/programs/chaplain-services",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "Electronic Health Record Modernization (EHRM)",
+                  "url": "/lovell-federal-health-care-tricare/programs/electronic-health-record-modernization-ehrm",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "Electronic Health Record Modernization (EHRM)",
+                  "url": "/lovell-federal-health-care-va/programs/electronic-health-record-modernization-ehrm",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Emergency preparedness",
+                  "url": "/lovell-federal-health-care-va/programs/emergency-management-and-preparedness",
+                  "field_menu_section": "both"
+                },
+                {
+                  "title": "Medical Home Port",
+                  "url": "/lovell-federal-health-care-tricare/programs/medical-home-port",
+                  "field_menu_section": "tricare"
+                },
+                {
+                  "title": "PACT Act Toxic Exposure Screening and your VA benefits",
+                  "url": "/lovell-federal-health-care-va/programs/toxic-exposure-screening-and-your-va-benefits",
+                  "field_menu_section": "va"
+                },
+                {
+                  "title": "Shuttle service",
+                  "url": "/lovell-federal-health-care-va/programs/shuttle-service",
+                  "field_menu_section": "both"
+                },
+                {
+                  "title": "Veterans justice outreach",
+                  "url": "/lovell-federal-health-care-va/programs/veterans-justice-outreach-program",
+                  "field_menu_section": "va"
+                }
+              ]
+            },
+            {
+              "title": "Policies",
+              "url": "/lovell-federal-health-care-va/policies",
+              "field_menu_section": "va"
+            },
+            {
+              "title": "Policies",
+              "url": "/lovell-federal-health-care-tricare/policies",
+              "field_menu_section": "tricare"
+            },
+            {
+              "title": "VA police",
+              "url": "/lovell-federal-health-care-va/va-police",
+              "field_menu_section": "va"
+            },
+            {
+              "title": "Work with us",
+              "url": "/lovell-federal-health-care-va/work-with-us",
+              "field_menu_section": "both",
+              "items": [
+                {
+                  "title": "Jobs and careers",
+                  "url": "/lovell-federal-health-care-va/work-with-us/jobs-and-careers",
+                  "field_menu_section": "both",
+                  "items": [
+                    {
+                      "title": "Command Sponsor Program",
+                      "url": "/lovell-federal-health-care-tricare/work-with-us/jobs-and-careers/command-sponsor-program",
+                      "field_menu_section": "tricare"
+                    }
+                  ]
+                },
+                {
+                  "title": "Internships and fellowships",
+                  "url": "/lovell-federal-health-care-va/work-with-us/internships-and-fellowships",
+                  "field_menu_section": "both",
+                  "items": [
+                    {
+                      "title": "Post-baccalaureate nurse residency program",
+                      "url": "/lovell-federal-health-care-tricare/work-with-us/internships-and-fellowships/post-baccalaureate-nurse-residency-program",
+                      "field_menu_section": "both"
+                    },
+                    {
+                      "title": "Psychology training programs",
+                      "url": "/lovell-federal-health-care-va/work-with-us/internships-and-fellowships/psychology-training-programs",
+                      "field_menu_section": "both"
+                    },
+                    {
+                      "title": "Advanced Education in General Dentistry (AEGD) Program",
+                      "url": "/lovell-federal-health-care-va/work-with-us/internships-and-fellowships/advanced-education-in-general-dentistry-aegd-program",
+                      "field_menu_section": "both"
+                    },
+                    {
+                      "title": "Pharmacy residency programs",
+                      "url": "/lovell-federal-health-care-va/work-with-us/internships-and-fellowships/pharmacy-residency-programs",
+                      "field_menu_section": "both"
+                    }
+                  ]
+                },
+                {
+                  "title": "Volunteer or donate",
+                  "url": "/lovell-federal-health-care-va/work-with-us/volunteer-or-donate",
+                  "field_menu_section": "both"
+                }
+              ]
+            },
+            {
+              "title": "Contact us",
+              "url": "/lovell-federal-health-care-va/contact-us",
+              "field_menu_section": "va"
+            },
+            {
+              "title": "Contact us",
+              "url": "/lovell-federal-health-care-tricare/contact-us",
+              "field_menu_section": "tricare"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
