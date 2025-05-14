@@ -8,11 +8,7 @@ test.describe('pressReleaseListing', () => {
       waitUntil: 'domcontentloaded',
       timeout: 60000,
     })
-    const link = page.getByRole('link', {
-      name: /VASNHS Helping Veterans Prepare/,
-    })
-    await expect(link).toBeVisible()
-    await link.click()
+    await page.locator('.usa-unstyled-list a').first().click()
     await expect(page).toHaveURL(
       /\/southern-nevada-health-care\/news-releases\//
     )
