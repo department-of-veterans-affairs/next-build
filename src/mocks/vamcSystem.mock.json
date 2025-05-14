@@ -798,9 +798,7 @@
             "drupal_internal__target_id": "link_teaser"
           }
         },
-        "relationshipNames": [
-          "paragraph_type"
-        ]
+        "relationshipNames": ["paragraph_type"]
       },
       {
         "type": "paragraph--link_teaser",
@@ -843,9 +841,7 @@
             "drupal_internal__target_id": "link_teaser"
           }
         },
-        "relationshipNames": [
-          "paragraph_type"
-        ]
+        "relationshipNames": ["paragraph_type"]
       },
       {
         "type": "paragraph--link_teaser",
@@ -888,9 +884,7 @@
             "drupal_internal__target_id": "link_teaser"
           }
         },
-        "relationshipNames": [
-          "paragraph_type"
-        ]
+        "relationshipNames": ["paragraph_type"]
       },
       {
         "type": "paragraph--link_teaser",
@@ -933,9 +927,7 @@
             "drupal_internal__target_id": "link_teaser"
           }
         },
-        "relationshipNames": [
-          "paragraph_type"
-        ]
+        "relationshipNames": ["paragraph_type"]
       },
       {
         "type": "paragraph--link_teaser",
@@ -978,9 +970,7 @@
             "drupal_internal__target_id": "link_teaser"
           }
         },
-        "relationshipNames": [
-          "paragraph_type"
-        ]
+        "relationshipNames": ["paragraph_type"]
       },
       {
         "type": "paragraph--link_teaser",
@@ -1023,9 +1013,7 @@
             "drupal_internal__target_id": "link_teaser"
           }
         },
-        "relationshipNames": [
-          "paragraph_type"
-        ]
+        "relationshipNames": ["paragraph_type"]
       },
       {
         "type": "paragraph--link_teaser",
@@ -1068,15 +1056,10 @@
             "drupal_internal__target_id": "link_teaser"
           }
         },
-        "relationshipNames": [
-          "paragraph_type"
-        ]
+        "relationshipNames": ["paragraph_type"]
       }
     ],
-    "relationshipNames": [
-      "paragraph_type",
-      "field_va_paragraphs"
-    ]
+    "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
   },
   "field_system_menu": {
     "type": "menu--menu",
