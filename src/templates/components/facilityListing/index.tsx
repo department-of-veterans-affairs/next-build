@@ -6,7 +6,6 @@ import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { MinimalLocalFacility } from '@/types/formatted/vamcSystem'
 
 type FacilityListingProps = {
-  // TODO: Figure out what this type should actually be
   facility: MinimalLocalFacility
   /**
    * The base path for the VAMC system that contains this facility. See the
