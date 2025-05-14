@@ -19,8 +19,6 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
 
-const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.VAMC_SYSTEM]
-
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -72,7 +70,7 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
         .getParams(RESOURCE_TYPES.VAMC_FACILITY)
         .addFilter('field_region_page.id', entity.id)
         .addFilter('field_main_location', '1'),
-      PAGE_SIZE
+      PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
 
   // Fetch the menu name dynamically off of the field_region_page reference if available.
