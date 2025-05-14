@@ -2,7 +2,7 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import {
   NodeHealthCareLocalFacility,
-  NodeVamcSystem,
+  NodeHealthCareRegionPage,
 } from '@/types/drupal/node'
 import { VamcSystem } from '@/types/formatted/vamcSystem'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -14,6 +14,7 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatRelatedLinks } from '@/data/queries/relatedLinks'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
@@ -25,8 +26,8 @@ export const params: QueryParams<null> = () => {
     'field_media',
     'field_media.image',
     'field_administration',
-    'field_clinical_health_services',
     'field_related_links',
+    'field_related_links.field_va_paragraphs',
   ])
 }
 
@@ -42,7 +43,7 @@ export type VamcSystemDataOpts = {
  * the menu for Lovell facilities.
  */
 type VamcSystemData = {
-  entity: NodeVamcSystem
+  entity: NodeHealthCareRegionPage
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
   mainFacilities: NodeHealthCareLocalFacility[]
@@ -56,10 +57,12 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     opts,
     RESOURCE_TYPES.VAMC_SYSTEM,
     params
-  )) as NodeVamcSystem
+  )) as NodeHealthCareRegionPage
 
   if (!entity) {
-    throw new Error(`NodeVamcSystem entity not found for id: ${opts.id}`)
+    throw new Error(
+      `NodeHealthCareRegionPage entity not found for id: ${opts.id}`
+    )
   }
 
   // Fetch list of local facilities related to this VAMC System
@@ -108,6 +111,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
       vaHealthConnectPhoneNumber: entity.field_va_health_connect_phone,
       image: formatImage(facility.field_media),
     })),
+    relatedLinks: formatRelatedLinks(entity),
     // vamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
@@ -118,7 +122,5 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     // fieldFlickr: entity.field_flickr,
     // fieldYoutube: entity.field_youtube,
     // fieldAppointmentsOnline: entity.field_appointments_online,
-    // fieldClinicalHealthServices: entity.field_clinical_health_services,
-    fieldRelatedLinks: entity.field_related_links,
   }
 }

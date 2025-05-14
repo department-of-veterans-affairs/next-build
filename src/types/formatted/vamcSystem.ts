@@ -4,6 +4,7 @@ import { Administration } from '@/types/formatted/administration'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PublishedEntity } from './publishedEntity'
 import { HealthCareLocalFacility } from './healthCareLocalFacility'
+import { FormattedRelatedLinks } from './relatedLinks'
 
 export type MinimalLocalFacility = Pick<
   HealthCareLocalFacility,
@@ -24,6 +25,6 @@ export type VamcSystem = PublishedEntity & {
   administration: Administration
   menu: SideNavMenu
   path: string
-  fieldRelatedLinks: ParagraphListOfLinks
   mainFacilities: MinimalLocalFacility[]
+  relatedLinks: FormattedRelatedLinks
 }

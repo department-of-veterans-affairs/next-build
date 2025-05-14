@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_media,field_media.image,field_administration,field_clinical_health_services,field_related_links"`;
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_media,field_media.image,field_administration,field_related_links,field_related_links.field_va_paragraphs"`;
 
 exports[`VamcSystem formatData outputs formatted data 1`] = `
 {
@@ -22,104 +22,6 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   ],
   "entityId": 8525,
   "entityPath": "/new-york-harbor-health-care",
-  "fieldRelatedLinks": {
-    "behavior_settings": [],
-    "breadcrumbs": [],
-    "content_translation_changed": null,
-    "content_translation_outdated": false,
-    "content_translation_source": "und",
-    "created": "2020-10-19T20:31:40+00:00",
-    "default_langcode": true,
-    "drupal_internal__id": 13881,
-    "drupal_internal__revision_id": 923261,
-    "field_title": "In the spotlight at VA New York Harbor health care",
-    "field_va_paragraphs": [
-      {
-        "id": "67ec0aee-d964-4e83-805f-2a133824c15c",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 13880,
-          "target_revision_id": 923254,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "ce9da3d6-c49d-4370-9493-9628bfa462d6",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30078,
-          "target_revision_id": 923255,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "e21ee8f3-d4c3-4c08-ba6f-b2a9ec1df35f",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30079,
-          "target_revision_id": 923256,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "752edbd1-0f5a-45a1-9b12-cfef9be7e62b",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30080,
-          "target_revision_id": 923257,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "f680869b-16f1-4507-a7a5-c30c41c9eaed",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30081,
-          "target_revision_id": 923258,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "da804006-05fe-4aba-8146-8fdfeb229ca1",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30082,
-          "target_revision_id": 923259,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "83a66277-e72b-4224-b261-5a36659b0c68",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30083,
-          "target_revision_id": 923260,
-        },
-        "type": "paragraph--link_teaser",
-      },
-    ],
-    "id": "8fee84a4-d821-4a90-ab51-25971100c481",
-    "langcode": "en",
-    "links": {
-      "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/list_of_link_teasers/8fee84a4-d821-4a90-ab51-25971100c481?resourceVersion=id%3A923261",
-      },
-    },
-    "paragraph_type": {
-      "id": "17be725c-343b-4050-a3c0-4e953226233e",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": "list_of_link_teasers",
-      },
-      "type": "paragraphs_type--paragraphs_type",
-    },
-    "parent_field_name": "field_related_links",
-    "parent_id": "8525",
-    "parent_type": "node",
-    "relationshipNames": [
-      "paragraph_type",
-      "field_va_paragraphs",
-    ],
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 13881,
-      "target_revision_id": 923261,
-    },
-    "revision_translation_affected": true,
-    "status": true,
-    "type": "paragraph--list_of_link_teasers",
-  },
   "id": "17bfe247-9df5-4217-a48a-973f8676d6e4",
   "image": {
     "alt": "Manhattan Veterans Administration Medical Center",
@@ -597,6 +499,39 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   "moderationState": "published",
   "path": "/new-york-harbor-health-care",
   "published": true,
+  "relatedLinks": {
+    "links": [
+      {
+        "title": "Get help from a patient advocate",
+        "uri": "/new-york-harbor-health-care/health-services/patient-advocates",
+      },
+      {
+        "title": "Access your health records",
+        "uri": "/new-york-harbor-health-care/medical-records-office",
+      },
+      {
+        "title": "Find a phone number",
+        "uri": "/new-york-harbor-health-care/contact-us",
+      },
+      {
+        "title": "Check your billing, insurance, and payment options",
+        "uri": "/new-york-harbor-health-care/billing-and-insurance",
+      },
+      {
+        "title": "Volunteer or donate",
+        "uri": "/new-york-harbor-health-care/work-with-us/volunteer-or-donate",
+      },
+      {
+        "title": "Read our annual reports and newsletters",
+        "uri": "https://www.visn2.va.gov/VISN2/index.asp",
+      },
+      {
+        "title": "Compare our performance with non-VA facilities.",
+        "uri": "/new-york-harbor-health-care/about-us/performance",
+      },
+    ],
+    "sectionTitle": "Other services at VA New York Harbor health care",
+  },
   "title": "VA New York Harbor health care",
   "type": "node--health_care_region_page",
 }
