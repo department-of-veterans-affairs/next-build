@@ -30,54 +30,56 @@ export const NewsStory = ({
   return (
     <>
       <div className="va-l-detail-page va-facility-page">
-        <div className="usa-grid usa-grid-full">
+        <div className="vads-grid-container">
           {/* nav here */}
-          <div className="usa-width-three-fourths">
-            <article className="usa-content">
-              <LovellSwitcher
-                currentVariant={lovellVariant}
-                switchPath={lovellSwitchPath}
-              />
-              <h1>{title}</h1>
-              {hasValidImage && (
-                <MediaImage
-                  {...image}
-                  className={imageClassName}
-                  imageStyle="2_1_large"
+          <div className="grid-row">
+            <div className="grid-col-12">
+              <article className="usa-content">
+                <LovellSwitcher
+                  currentVariant={lovellVariant}
+                  switchPath={lovellSwitchPath}
                 />
-              )}
-              {caption && hasValidImage && (
-                <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
-                  {caption}
-                </div>
-              )}
-              {author && (
-                <StaffNewsProfile
-                  field_name_first={author.field_name_first}
-                  field_last_name={author.field_last_name}
-                  field_description={author.field_description}
-                />
-              )}
-              <p className="vads-u-margin-bottom--2p5">
-                <time dateTime={formatDate(date)}>{formatDate(date)}</time>
-              </p>
+                <h1>{title}</h1>
+                {hasValidImage && (
+                  <MediaImage
+                    {...image}
+                    className={imageClassName}
+                    imageStyle="2_1_large"
+                  />
+                )}
+                {caption && hasValidImage && (
+                  <div className="vads-u-font-size--sm vads-u-margin-bottom--2p5">
+                    {caption}
+                  </div>
+                )}
+                {author && (
+                  <StaffNewsProfile
+                    field_name_first={author.field_name_first}
+                    field_last_name={author.field_last_name}
+                    field_description={author.field_description}
+                  />
+                )}
+                <p className="vads-u-margin-bottom--2p5">
+                  <time dateTime={formatDate(date)}>{formatDate(date)}</time>
+                </p>
 
-              <SocialLinks {...socialLinks} />
+                <SocialLinks {...socialLinks} />
 
-              <div className="usa-grid usa-grid-full vads-u-margin-bottom--2">
-                <div className="va-introtext">
-                  <p>{introText}</p>
+                <div className="vads-grid-container vads-u-padding-x--0 vads-u-margin-bottom--2">
+                  <div className="va-introtext">
+                    <p>{introText}</p>
+                  </div>
+                  <div
+                    className=""
+                    dangerouslySetInnerHTML={{
+                      __html: bodyContent,
+                    }}
+                  />
                 </div>
-                <div
-                  className=""
-                  dangerouslySetInnerHTML={{
-                    __html: bodyContent,
-                  }}
-                />
-              </div>
-              <StoryListingLink path={listing} />
-            </article>
-            <ContentFooter />
+                <StoryListingLink path={listing} />
+              </article>
+              <ContentFooter />
+            </div>
           </div>
         </div>
       </div>
