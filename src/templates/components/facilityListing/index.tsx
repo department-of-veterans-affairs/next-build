@@ -78,12 +78,12 @@ export function FacilityListing({
         </div>
       </section>
 
-      {image && image.links && path && (
+      {image && image.alt && image.links && path && (
         <section className="region-grid usa-width-one-half vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2">
           <a href={path} aria-label={image.alt}>
             <MediaImage
               {...image}
-              imageStyle="region-img"
+              imageStyle="3_2_medium_thumbnail"
               className="region-img"
             />
           </a>
