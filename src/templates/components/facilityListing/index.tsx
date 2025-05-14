@@ -41,12 +41,10 @@ export function FacilityListing({
           <va-link href={path} text={title} />
         </h3>
 
-        {operatingStatusFacility && operatingStatusFacility !== 'normal' && (
-          <OperatingStatusFlags
-            operatingStatusFacility={operatingStatusFacility}
-            basePath={basePath}
-          />
-        )}
+        <OperatingStatusFlags
+          operatingStatusFacility={operatingStatusFacility}
+          basePath={basePath}
+        />
 
         {type !== 'mobile' && (
           <div className="vads-u-margin-bottom--1">
