@@ -760,61 +760,323 @@
       {
         "type": "paragraph--link_teaser",
         "id": "67ec0aee-d964-4e83-805f-2a133824c15c",
+        "drupal_internal__id": 13880,
+        "drupal_internal__revision_id": 923254,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-10-19T20:31:40+00:00",
+        "parent_id": "13881",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "entity:node/9417",
+          "title": "Get help from a patient advocate",
+          "options": [],
+          "url": "/new-york-harbor-health-care/health-services/patient-advocates"
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/67ec0aee-d964-4e83-805f-2a133824c15c?resourceVersion=id%3A923254"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 923254,
           "drupal_internal__target_id": 13880
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
       },
       {
         "type": "paragraph--link_teaser",
         "id": "ce9da3d6-c49d-4370-9493-9628bfa462d6",
+        "drupal_internal__id": 30078,
+        "drupal_internal__revision_id": 923255,
+        "langcode": "en",
+        "status": true,
+        "created": "2021-03-02T14:33:44+00:00",
+        "parent_id": "13881",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "entity:node/45723",
+          "title": "Access your health records",
+          "options": [],
+          "url": "/new-york-harbor-health-care/medical-records-office"
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/ce9da3d6-c49d-4370-9493-9628bfa462d6?resourceVersion=id%3A923255"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 923255,
           "drupal_internal__target_id": 30078
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
       },
       {
         "type": "paragraph--link_teaser",
         "id": "e21ee8f3-d4c3-4c08-ba6f-b2a9ec1df35f",
+        "drupal_internal__id": 30079,
+        "drupal_internal__revision_id": 923256,
+        "langcode": "en",
+        "status": true,
+        "created": "2021-03-02T14:34:50+00:00",
+        "parent_id": "13881",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "entity:node/9441",
+          "title": "Find a phone number",
+          "options": [],
+          "url": "/new-york-harbor-health-care/contact-us"
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/e21ee8f3-d4c3-4c08-ba6f-b2a9ec1df35f?resourceVersion=id%3A923256"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 923256,
           "drupal_internal__target_id": 30079
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
       },
       {
         "type": "paragraph--link_teaser",
         "id": "752edbd1-0f5a-45a1-9b12-cfef9be7e62b",
+        "drupal_internal__id": 30080,
+        "drupal_internal__revision_id": 923257,
+        "langcode": "en",
+        "status": true,
+        "created": "2021-03-02T14:35:03+00:00",
+        "parent_id": "13881",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "entity:node/45597",
+          "title": "Check your billing, insurance, and payment options",
+          "options": [],
+          "url": "/new-york-harbor-health-care/billing-and-insurance"
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/752edbd1-0f5a-45a1-9b12-cfef9be7e62b?resourceVersion=id%3A923257"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 923257,
           "drupal_internal__target_id": 30080
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
       },
       {
         "type": "paragraph--link_teaser",
         "id": "f680869b-16f1-4507-a7a5-c30c41c9eaed",
+        "drupal_internal__id": 30081,
+        "drupal_internal__revision_id": 923258,
+        "langcode": "en",
+        "status": true,
+        "created": "2021-03-02T14:35:53+00:00",
+        "parent_id": "13881",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "entity:node/9430",
+          "title": "Volunteer or donate",
+          "options": [],
+          "url": "/new-york-harbor-health-care/work-with-us/volunteer-or-donate"
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/f680869b-16f1-4507-a7a5-c30c41c9eaed?resourceVersion=id%3A923258"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 923258,
           "drupal_internal__target_id": 30081
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
       },
       {
         "type": "paragraph--link_teaser",
         "id": "da804006-05fe-4aba-8146-8fdfeb229ca1",
+        "drupal_internal__id": 30082,
+        "drupal_internal__revision_id": 923259,
+        "langcode": "en",
+        "status": true,
+        "created": "2021-03-02T14:37:28+00:00",
+        "parent_id": "13881",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "https://www.visn2.va.gov/VISN2/index.asp",
+          "title": "Read our annual reports and newsletters",
+          "options": [],
+          "url": "https://www.visn2.va.gov/VISN2/index.asp"
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/da804006-05fe-4aba-8146-8fdfeb229ca1?resourceVersion=id%3A923259"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 923259,
           "drupal_internal__target_id": 30082
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
       },
       {
         "type": "paragraph--link_teaser",
         "id": "83a66277-e72b-4224-b261-5a36659b0c68",
+        "drupal_internal__id": 30083,
+        "drupal_internal__revision_id": 923260,
+        "langcode": "en",
+        "status": true,
+        "created": "2021-03-02T14:40:39+00:00",
+        "parent_id": "13881",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "entity:node/9437",
+          "title": "Compare our performance with non-VA facilities.",
+          "options": [],
+          "url": "/new-york-harbor-health-care/about-us/performance"
+        },
+        "field_link_summary": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/83a66277-e72b-4224-b261-5a36659b0c68?resourceVersion=id%3A923260"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 923260,
           "drupal_internal__target_id": 30083
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type"
+        ]
       }
     ],
-    "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
+    "relationshipNames": [
+      "paragraph_type",
+      "field_va_paragraphs"
+    ]
   },
   "field_system_menu": {
     "type": "menu--menu",
