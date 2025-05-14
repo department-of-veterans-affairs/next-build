@@ -4,6 +4,7 @@ import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
+import { FacilityListing } from '@/templates/components/facilityListing'
 // import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // import { TopTasks } from '@/templates/components/topTasks'
 // import { FacilityListing } from '@/templates/components/facilityListing'
@@ -31,7 +32,7 @@ export function VamcSystem({
   path,
   menu,
   // vamcEhrSystem,
-  // mainFacilities,
+  mainFacilities,
   // newsStoryTeasersFeatured,
   // eventTeasersFeatured,
   // eventTeasersAll,
@@ -77,13 +78,13 @@ export function VamcSystem({
               <h2 className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 medium-screen:vads-u-margin-bottom--2p5">
                 Locations
               </h2>
-              {/* {mainFacilities?.entities?.map((facility) => (
+              {mainFacilities.map((facility) => (
                 <FacilityListing
-                  key={facility.entityId}
-                  {...facility}
-                  fieldVaHealthConnectPhone={fieldVaHealthConnectPhone}
+                  key={facility.title}
+                  facility={facility}
+                  basePath={path}
                 />
-              ))} */}
+              ))}
               <va-link
                 active
                 className="vads-u-font-size--md vads-u-display--block vads-u-width--full"

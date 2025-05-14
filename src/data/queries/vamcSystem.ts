@@ -1,23 +1,26 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
-import { NodeVamcSystem } from '@/types/drupal/node'
+import {
+  NodeHealthCareLocalFacility,
+  NodeVamcSystem,
+} from '@/types/drupal/node'
 import { VamcSystem } from '@/types/formatted/vamcSystem'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
+  fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
-import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
-import { LOVELL } from '@/lib/drupal/lovell/constants'
-import { isLovellTricarePath, isLovellVaPath } from '@/lib/drupal/lovell/utils'
-import util from 'util'
-import fs from 'fs'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { queries } from '.'
+
+const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.VAMC_SYSTEM]
+
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -44,6 +47,7 @@ type VamcSystemData = {
   entity: NodeVamcSystem
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
+  mainFacilities: NodeHealthCareLocalFacility[]
 }
 
 // Implement the data loader.
@@ -60,20 +64,31 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     throw new Error(`NodeVamcSystem entity not found for id: ${opts.id}`)
   }
 
+  // Fetch list of local facilities related to this VAMC System
+  const { data: mainFacilities } =
+    await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
+      RESOURCE_TYPES.VAMC_FACILITY,
+      queries
+        .getParams(RESOURCE_TYPES.VAMC_FACILITY)
+        .addFilter('field_region_page.id', entity.id)
+        .addFilter('field_main_location', '1'),
+      PAGE_SIZE
+    )
+
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_system_menu.resourceIdObjMeta.drupal_internal__target_id
   )
 
-  return { entity, menu }
+  return { entity, menu, mainFacilities }
 }
 
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   entity,
   menu,
+  mainFacilities,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
-
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -85,6 +100,16 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     },
     path: entity.path.alias,
     menu: formattedMenu,
+    mainFacilities: mainFacilities.map((facility) => ({
+      title: facility.title,
+      path: facility.path.alias,
+      operatingStatusFacility: facility.field_operating_status_facility,
+      address: facility.field_address,
+      phoneNumber: facility.field_phone_number,
+      fieldTelephone: facility.field_telephone,
+      vaHealthConnectPhoneNumber: entity.field_va_health_connect_phone,
+      image: formatImage(facility.field_media),
+    })),
     // vamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,

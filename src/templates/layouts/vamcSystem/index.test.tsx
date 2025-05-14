@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import drupalMockData from '@/mocks/vamcSystem.mock.json'
+import drupalMockFacilityData from '@/mocks/healthCareLocalFacility.mock.json'
 import { VamcSystem } from './index'
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { formatter } from '@/data/queries/vamcSystem'
@@ -35,6 +36,10 @@ const mockData = formatter({
   entity: drupalMockData,
   menu: mockMenu,
   lovell: { isLovellVariantPage: false, variant: 'va' },
+  // @ts-expect-error drupalMockData technically has numbers instead of strings
+  // for some of the IDs, but this is a known problem. See
+  // https://github.com/chapter-three/next-drupal/issues/686#issuecomment-2083175598
+  mainFacilities: [drupalMockFacilityData],
 })
 
 describe('VamcSystem with valid data', () => {
