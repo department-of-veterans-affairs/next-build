@@ -4,6 +4,5 @@ export const PAGE_SIZES = {
   [RESOURCE_TYPES.STORY_LISTING]: 10,
   [RESOURCE_TYPES.PRESS_RELEASE_LISTING]: 10,
   [RESOURCE_TYPES.EVENT_LISTING]: 50,
-  [RESOURCE_TYPES.VAMC_SYSTEM]: 999,
   MAX: 50, //50 is JSON:API limit. Use this for fetching as many as possible at a time.
 } as const
