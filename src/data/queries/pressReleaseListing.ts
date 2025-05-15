@@ -16,7 +16,6 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { getLovellVariantOfMenu } from '@/lib/drupal/lovell/utils'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.PRESS_RELEASE_LISTING]
 
@@ -102,12 +101,7 @@ export const formatter: QueryFormatter<
     )
   })
 
-  let formattedMenu =
-    menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
-
-  if (lovell?.isLovellVariantPage) {
-    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell?.variant)
-  }
+  const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
     ...entityBaseFields(entity),

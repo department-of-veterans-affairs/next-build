@@ -11,6 +11,7 @@ import { FormattedRelatedLinks } from './relatedLinks'
 import { SideNavMenu } from './sideNav'
 import { MediaImage } from '@/types/formatted/media'
 import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null
@@ -36,4 +37,6 @@ export type HealthCareLocalFacility = PublishedEntity & {
     wysiwigContents: string
   }>
   socialLinks: FacilitySocialLinksProps
+  lovellVariant?: LovellChildVariant
+  lovellSwitchPath?: string
 }
