@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import drupalMockData from '@/mocks/vamcSystem.mock.json'
+import drupalMockFacilityData from '@/mocks/healthCareLocalFacility.mock.json'
 import { VamcSystem } from './index'
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { formatter } from '@/data/queries/vamcSystem'
@@ -35,6 +36,10 @@ const mockData = formatter({
   entity: drupalMockData,
   menu: mockMenu,
   lovell: { isLovellVariantPage: false, variant: 'va' },
+  // @ts-expect-error drupalMockData technically has numbers instead of strings
+  // for some of the IDs, but this is a known problem. See
+  // https://github.com/chapter-three/next-drupal/issues/686#issuecomment-2083175598
+  mainFacilities: [drupalMockFacilityData],
 })
 
 describe('VamcSystem with valid data', () => {
@@ -94,5 +99,57 @@ describe('VamcSystem with valid data', () => {
     const image = screen.getByRole('presentation')
     expect(image).toBeInTheDocument()
     expect(image.getAttribute('src')).toBeTruthy()
+  })
+
+  describe('Locations section', () => {
+    test('renders the locations section heading', () => {
+      render(<VamcSystem {...mockData} />)
+      expect(
+        screen.getByRole('heading', { name: 'Locations' })
+      ).toBeInTheDocument()
+    })
+
+    test('renders facility listings for each main facility', () => {
+      render(<VamcSystem {...mockData} />)
+
+      // Check that each facility's title is rendered within a va-link component
+      mockData.mainFacilities.forEach((facility) => {
+        const facilityLink = screen.getByRole('link', { name: facility.title })
+        expect(facilityLink).toBeInTheDocument()
+        expect(facilityLink).toHaveAttribute(
+          'href',
+          expect.stringContaining(facility.path)
+        )
+      })
+    })
+
+    test('renders the "See all locations" link with correct href', () => {
+      const { container } = render(<VamcSystem {...mockData} />)
+
+      const seeAllLink = container.querySelector(
+        'va-link[text="See all locations"]'
+      )
+      expect(seeAllLink).toBeInTheDocument()
+
+      // Find the parent va-link element and check its attributes
+      const vaLink = seeAllLink.closest('va-link')
+      expect(vaLink).toBeInTheDocument()
+      expect(vaLink).toHaveAttribute('href', `${mockData.path}/locations`)
+      expect(vaLink).toHaveAttribute('text', 'See all locations')
+      expect(vaLink).toHaveAttribute('active', 'true')
+    })
+
+    test('renders facility details including address and phone numbers', () => {
+      render(<VamcSystem {...mockData} />)
+
+      // Check for address
+      expect(screen.getByText(/251 Causeway Street/)).toBeInTheDocument()
+      expect(screen.getByText(/Boston, MA 02114-2104/)).toBeInTheDocument()
+
+      // Check for phone numbers
+      expect(screen.getByText('Main phone:')).toBeInTheDocument()
+      expect(screen.getByText('VA health connect:')).toBeInTheDocument()
+      expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
+    })
   })
 })
