@@ -15,7 +15,7 @@ export const Address = ({
   ]
 
   return (
-    <div className="vads-u-margin-bottom--3">
+    <>
       <address>
         <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
           {address.address_line1}
@@ -32,6 +32,6 @@ export const Address = ({
       <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
         <GoogleMapsDirections address={directionsString} location={title} />
       </p>
-    </div>
+    </>
   )
 }

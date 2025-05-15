@@ -150,7 +150,9 @@ export function HealthCareLocalFacility({
                     >
                       Address
                     </h3>
-                    <Address address={address} title={title} />
+                    <div className="vads-u-margin-bottom--3">
+                      <Address address={address} title={title} />
+                    </div>
 
                     <h3
                       className="vads-u-margin-top--0 vads-u-margin-bottom--1"
