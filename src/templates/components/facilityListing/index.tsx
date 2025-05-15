@@ -68,9 +68,10 @@ export function FacilityListing({
           )}
 
           {fieldTelephone && (
-            <div>
-              <PhoneNumber {...formatParagraphPhoneNumber(fieldTelephone)} />
-            </div>
+            <PhoneNumber
+              className="vads-u-margin--0"
+              {...formatParagraphPhoneNumber(fieldTelephone)}
+            />
           )}
         </div>
       </section>
