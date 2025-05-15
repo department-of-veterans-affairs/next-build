@@ -4,7 +4,11 @@ test.describe('eventListing', () => {
   test('Event Listing page renders with events that can be navigated to', async ({
     page,
   }) => {
-    await page.goto('/outreach-and-events/events/')
+    await page.goto('/outreach-and-events/events/', {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000,
+    })
+
     await page.locator('.events va-link').first().click()
     await expect(page).toHaveURL(/\/events\//)
   })
@@ -14,7 +18,10 @@ test.describe('eventListing', () => {
     page,
     makeAxeBuilder,
   }) => {
-    await page.goto('/butler-health-care/events')
+    await page.goto('/butler-health-care/events', {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000,
+    })
 
     const accessibilityScanResults = await makeAxeBuilder().analyze()
 

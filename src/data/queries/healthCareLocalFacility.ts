@@ -12,7 +12,6 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
-  getLovellVariantOfMenu,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
   getLovellVariantOfTitle,
@@ -80,14 +79,13 @@ export const formatter: QueryFormatter<
   HealthCareLocalFacility
 > = ({ entity, menu, lovell }) => {
   let { title, breadcrumbs } = entity
-  let formattedMenu =
-    menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
-
   if (lovell?.isLovellVariantPage) {
-    formattedMenu = getLovellVariantOfMenu(formattedMenu, lovell.variant)
     title = getLovellVariantOfTitle(title, lovell.variant)
     breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
   }
+
+  const formattedMenu =
+    menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
 
   return {
     ...entityBaseFields(entity),
