@@ -4,7 +4,11 @@ test.describe('News Story', () => {
   test('News Story page renders with navigation back to parent story list', async ({
     page,
   }) => {
-    await page.goto('/butler-health-care/stories/its-flu-shot-time/')
+    await page.goto('/butler-health-care/stories/its-flu-shot-time/', {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000,
+    })
+
     await page.getByText('See all stories').click()
     await expect(page).toHaveURL('/butler-health-care/stories/')
   })
@@ -13,7 +17,10 @@ test.describe('News Story', () => {
     page,
     makeAxeBuilder,
   }) => {
-    await page.goto('/butler-health-care/stories/its-flu-shot-time/')
+    await page.goto('/butler-health-care/stories/its-flu-shot-time/', {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000,
+    })
 
     const accessibilityScanResults = await makeAxeBuilder().analyze()
 

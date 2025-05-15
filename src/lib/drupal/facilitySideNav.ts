@@ -5,7 +5,13 @@ import {
   SideNavMenu,
 } from '@/types/formatted/sideNav'
 import { LovellVariant } from '@/lib/drupal/lovell/types'
-import { getLovellVariantOfUrl } from './lovell/utils'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
+import {
+  getLovellVariantOfMenu,
+  getLovellVariantOfUrl,
+  isLovellTricarePath,
+  isLovellVaPath,
+} from './lovell/utils'
 
 // Recursively fit menu items into sidenav-requested shape
 const normalizeMenuItem = (
@@ -53,12 +59,23 @@ const normalizeMenuData = (
 */
 export const buildSideNavDataFromMenu = (
   entityPath: string,
-  menu: Menu,
-  variant?: LovellVariant
+  menu: Menu
 ): SideNavMenu => {
-  const data = normalizeMenuData(menu, variant)
-  return {
-    rootPath: `${entityPath}/`,
-    data,
+  let variant = null
+  if (isLovellTricarePath(entityPath)) {
+    variant = LOVELL.tricare.variant
+  } else if (isLovellVaPath(entityPath)) {
+    variant = LOVELL.va.variant
   }
+
+  let sideNav = {
+    rootPath: `${entityPath}/`,
+    data: normalizeMenuData(menu, variant),
+  }
+
+  if (variant) {
+    sideNav = getLovellVariantOfMenu(sideNav, variant)
+  }
+
+  return sideNav
 }
