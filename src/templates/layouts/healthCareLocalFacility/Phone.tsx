@@ -56,7 +56,10 @@ export const Phone = ({
       )}
 
       {fieldTelephone?.field_phone_number && (
-        <PhoneNumber {...formatParagraphPhoneNumber(fieldTelephone)} />
+        <PhoneNumber
+          className="vads-u-margin--0"
+          {...formatParagraphPhoneNumber(fieldTelephone)}
+        />
       )}
     </div>
   )

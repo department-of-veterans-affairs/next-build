@@ -1,9 +1,8 @@
 import { MediaImage } from '@/templates/common/mediaImage'
 import { OperatingStatusFlags } from '@/templates/layouts/healthCareLocalFacility/OperatingStatus'
-import { PhoneNumber } from '@/templates/common/phoneNumber'
-import { formatter as formatParagraphPhoneNumber } from '@/data/queries/phoneNumber'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { MinimalLocalFacility } from '@/types/formatted/vamcSystem'
+import { Phone } from '@/templates/layouts/healthCareLocalFacility/Phone'
 
 type FacilityListingProps = {
   facility: MinimalLocalFacility
@@ -52,28 +51,11 @@ export function FacilityListing({
           </div>
         )}
 
-        <div className="vads-u-margin-bottom--0">
-          {phoneNumber && (
-            <div className="main-phone vads-u-margin-bottom--1">
-              <strong>Main phone:</strong>{' '}
-              <va-telephone contact={phoneNumber}></va-telephone>
-            </div>
-          )}
-
-          {vaHealthConnectPhoneNumber && (
-            <div className="vads-u-margin-bottom--1">
-              <strong>VA health connect:</strong>{' '}
-              <va-telephone contact={vaHealthConnectPhoneNumber}></va-telephone>
-            </div>
-          )}
-
-          {fieldTelephone && (
-            <PhoneNumber
-              className="vads-u-margin--0"
-              {...formatParagraphPhoneNumber(fieldTelephone)}
-            />
-          )}
-        </div>
+        <Phone
+          phoneNumber={phoneNumber}
+          vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
+          fieldTelephone={fieldTelephone}
+        />
       </section>
 
       {image && image.alt && image.links && path && (
