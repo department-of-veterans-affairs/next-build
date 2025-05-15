@@ -26,9 +26,9 @@ export interface TaxonomyTermHealthCareServiceTaxonomy
 }
 
 // Allow this for consistency, even though no fields are present.
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface TaxonomyTermLcCategories extends DrupalTaxonomyTerm {}
 
 // Allow this for consistency, even though no fields are present.
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface TaxonomyTermTopics extends DrupalTaxonomyTerm {}

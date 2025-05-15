@@ -3,7 +3,10 @@
  */
 
 import { getStaticProps } from '../pages/[[...slug]]'
-import { getStaticPropsResource } from '@/lib/drupal/staticProps'
+import {
+  getStaticPropsResource,
+  getExpandedStaticPropsContext,
+} from '@/lib/drupal/staticProps'
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 
@@ -28,10 +31,9 @@ describe('[[...slug]].tsx', () => {
       const mockPathInfo = { jsonapi: { resourceName: 'node--event' } }
 
       // Mock the functions
-      const {
-        getExpandedStaticPropsContext,
-      } = require('@/lib/drupal/staticProps')
-      getExpandedStaticPropsContext.mockReturnValue(mockExpandedContext)
+      ;(getExpandedStaticPropsContext as jest.Mock).mockReturnValue(
+        mockExpandedContext
+      )
       ;(drupalClient.translatePath as jest.Mock).mockResolvedValue(mockPathInfo)
 
       // Mock getStaticPropsResource to throw DoNotPublishError

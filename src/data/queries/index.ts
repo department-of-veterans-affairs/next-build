@@ -45,6 +45,7 @@ import * as StoryListing from '@/data/queries/storyListing'
 import * as SupportServices from '@/data/queries/supportServices'
 import * as Table from '@/data/queries/table'
 import * as VamcEhr from '@/data/queries/vamcEhr'
+import * as VamcSystem from '@/data/queries/vamcSystem'
 import * as VetCenter from '@/data/queries/vetCenter'
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
@@ -75,6 +76,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.RESOURCES_SUPPORT]: ResourcesSupport,
   [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
   [RESOURCE_TYPES.VAMC_FACILITY]: HealthCareLocalFacility,
+  [RESOURCE_TYPES.VAMC_SYSTEM]: VamcSystem,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
 
