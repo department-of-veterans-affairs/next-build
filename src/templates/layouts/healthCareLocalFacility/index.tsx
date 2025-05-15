@@ -17,6 +17,7 @@ import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import FacilitySocialLinks from './FacilitySocialLinks'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -44,6 +45,8 @@ export function HealthCareLocalFacility({
   relatedLinks,
   locationServices,
   socialLinks,
+  lovellVariant,
+  lovellSwitchPath,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -97,7 +100,10 @@ export function HealthCareLocalFacility({
         <nav aria-label="secondary" data-widget-type="side-nav" />
         <div className="usa-width-three-fourths">
           <article className="usa-content va-l-facility-detail">
-            <div>TODO: Lovell switch link</div>
+            <LovellSwitcher
+              currentVariant={lovellVariant}
+              switchPath={lovellSwitchPath}
+            />
 
             {title && <h1>{title}</h1>}
 

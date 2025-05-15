@@ -43,7 +43,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     },
   ],
   "entityId": 1272,
-  "entityPath": "/boston-health-care/locations/causeway-va-clinic",
+  "entityPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
   "facilityLocatorApiId": "vha_523BZ",
   "fieldTelephone": {
     "behavior_settings": [],
@@ -283,13 +283,15 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 <p dir="ltr"><a href="http://www.va.gov/health-care/file-travel-pay-reimbursement/">Find out if you qualify for beneficiary travel benefits</a>.</p>",
     },
   ],
+  "lovellSwitchPath": null,
+  "lovellVariant": "tricare",
   "menu": {
     "data": {
       "description": "bar",
       "links": [],
       "name": "Foo",
     },
-    "rootPath": "/boston-health-care/locations/causeway-va-clinic/",
+    "rootPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic/",
   },
   "metatags": [
     {
@@ -444,7 +446,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     },
   ],
   "operatingStatusFacility": "temporary_closure",
-  "path": "/boston-health-care/locations/causeway-va-clinic",
+  "path": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
   "phoneNumber": "800-865-3384",
   "published": true,
   "relatedLinks": {
@@ -523,7 +525,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
       "url": "https://twitter.com/VABostonHC",
     },
     "fieldYoutube": null,
-    "path": "/boston-health-care/locations/causeway-va-clinic",
+    "path": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
     "regionNickname": "VA Boston health care",
     "title": "VA Boston health care",
   },
@@ -817,6 +819,8 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 <p dir="ltr"><a href="http://www.va.gov/health-care/file-travel-pay-reimbursement/">Find out if you qualify for beneficiary travel benefits</a>.</p>",
     },
   ],
+  "lovellSwitchPath": null,
+  "lovellVariant": undefined,
   "menu": {
     "data": {
       "description": "bar",

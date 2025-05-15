@@ -14,8 +14,6 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
-import { LOVELL } from '@/lib/drupal/lovell/constants'
-import { isLovellTricarePath, isLovellVaPath } from '@/lib/drupal/lovell/utils'
 
 const PAGE_SIZE = PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
 // See listingParams for more information about this value and its use.
@@ -111,17 +109,9 @@ export const formatter: QueryFormatter<EventListingData, EventListing> = ({
     return queries.formatData(`${RESOURCE_TYPES.EVENT}--teaser`, event)
   })
 
-  // Check if this is a Lovell facility page (TRICARE or VA variant)
-  let variant = undefined
-  if (isLovellTricarePath(entity.path.alias)) {
-    variant = LOVELL.tricare.variant
-  } else if (isLovellVaPath(entity.path.alias)) {
-    variant = LOVELL.va.variant
-  }
-
   let formattedMenu = null
   if (menu !== null) {
-    formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu, variant)
+    formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   }
 
   return {
