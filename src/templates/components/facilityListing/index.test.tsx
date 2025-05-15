@@ -86,14 +86,14 @@ describe('FacilityListing with valid data', () => {
     // Check main phone
     expect(screen.getByText('Main phone:')).toBeInTheDocument()
     const mainPhone = container.querySelector(
-      `va-telephone[contact="${mockFacility.phoneNumber}"]`
+      `va-telephone[contact="${mockFacility.phoneNumber.replace(/-/g, '')}"]`
     )
     expect(mainPhone).toBeInTheDocument()
 
     // Check VA health connect phone
     expect(screen.getByText('VA health connect:')).toBeInTheDocument()
     const healthConnectPhone = container.querySelector(
-      `va-telephone[contact="${mockFacility.vaHealthConnectPhoneNumber}"]`
+      `va-telephone[contact="${mockFacility.vaHealthConnectPhoneNumber.replace(/-/g, '')}"]`
     )
     expect(healthConnectPhone).toBeInTheDocument()
 

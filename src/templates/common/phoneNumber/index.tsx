@@ -37,18 +37,28 @@ export const separateExtension = (
   }
 }
 
+type PhoneNumberProps = Omit<
+  FormattedPhoneNumber,
+  'phoneType' | 'extension' | 'id' | 'type'
+> & {
+  extension?: string
+  phoneType?: string
+  className?: string
+  testId?: string
+}
+
 /**
  * Component that displays a label plus a phone number (standard, SMS, fax, or TTY).
  * No header included.
  */
-export const PhoneNumber = (
-  props: FormattedPhoneNumber & {
-    className?: string
-    testId?: string
-  }
-) => {
-  const { className, extension, label, number, phoneType, testId } = props
-
+export const PhoneNumber = ({
+  className,
+  extension,
+  label,
+  number,
+  phoneType,
+  testId,
+}: PhoneNumberProps) => {
   if (!number) {
     return null
   }
@@ -72,6 +82,8 @@ export const PhoneNumber = (
     numberToDisplay = segmentedNumber.phoneNumber
   }
 
+  const internationalPattern = /\(?(\+1)\)?[- ]?/gi
+
   return (
     <p className={className || undefined} data-testid="phone">
       <strong>{`${labelToDisplay}: `}</strong>
@@ -82,6 +94,7 @@ export const PhoneNumber = (
         not-clickable={fax ? true : undefined}
         sms={sms ? true : undefined}
         tty={tty ? true : undefined}
+        international={internationalPattern.test(numberToDisplay)}
         data-testid={testId || undefined}
       ></va-telephone>
     </p>

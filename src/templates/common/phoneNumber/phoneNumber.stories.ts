@@ -12,8 +12,6 @@ type Story = StoryObj<typeof PhoneNumber>
 
 export const Standard: Story = {
   args: {
-    type: 'paragraph--phone_number',
-    id: '1234',
     extension: '1234',
     label: 'Phone',
     number: '123-456-7890',
@@ -23,9 +21,6 @@ export const Standard: Story = {
 
 export const SMS: Story = {
   args: {
-    type: 'paragraph--phone_number',
-    id: '1234',
-    extension: '',
     label: 'SMS',
     number: '5877384756',
     phoneType: 'sms',
@@ -34,9 +29,6 @@ export const SMS: Story = {
 
 export const Fax: Story = {
   args: {
-    type: 'paragraph--phone_number',
-    id: '1234',
-    extension: '',
     label: 'Fax',
     number: '5877384756',
     phoneType: 'fax',
@@ -45,9 +37,6 @@ export const Fax: Story = {
 
 export const TTY: Story = {
   args: {
-    type: 'paragraph--phone_number',
-    id: '1234',
-    extension: '',
     label: 'TTY',
     number: '2736456752',
     phoneType: 'tty',

@@ -1,30 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Phone, processPhoneToVaTelephoneOrFallback } from './Phone'
-
-describe('processPhoneToVaTelephoneOrFallback', () => {
-  it('returns null for empty input', () => {
-    const result = processPhoneToVaTelephoneOrFallback('')
-    expect(result).toBeNull()
-  })
-
-  it('renders <va-telephone> for valid number with extension', () => {
-    const { container } = render(
-      processPhoneToVaTelephoneOrFallback('123-456-7890 x123')
-    )
-    const vaTel = container.querySelector('va-telephone')
-    expect(vaTel).toBeInTheDocument()
-    expect(vaTel).toHaveAttribute('contact', '123-456-7890')
-    expect(vaTel).toHaveAttribute('extension', '123')
-  })
-
-  it('renders fallback <a> for invalid number', () => {
-    const { container } = render(processPhoneToVaTelephoneOrFallback('555'))
-    const telLink = container.querySelector('va-telephone')
-    expect(telLink).toBeInTheDocument()
-    expect(telLink).toHaveAttribute('contact', '555')
-    expect(telLink).toHaveTextContent('555')
-  })
-})
+import { Phone } from './Phone'
 
 describe('Phone', () => {
   it('renders nothing when no props are provided', () => {
@@ -97,11 +72,11 @@ describe('Phone', () => {
     expect(screen.getByText('Test Label:')).toBeInTheDocument()
 
     // Main phone
-    expect(vaTelephoneElements[0].getAttribute('contact')).toBe('123-456-7890')
+    expect(vaTelephoneElements[0].getAttribute('contact')).toBe('1234567890')
     expect(vaTelephoneElements[0].getAttribute('extension')).toBe('123')
 
     // VA Health connect
-    expect(vaTelephoneElements[1].getAttribute('contact')).toBe('987-654-3210')
+    expect(vaTelephoneElements[1].getAttribute('contact')).toBe('9876543210')
 
     // Field telephone number
     expect(vaTelephoneElements[2]).toHaveAttribute('not-clickable')
