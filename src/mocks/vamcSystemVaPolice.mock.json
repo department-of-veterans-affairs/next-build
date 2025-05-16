@@ -1,0 +1,482 @@
+{
+  "type": "node--vamc_system_va_police",
+  "id": "7833b254-f4e4-4adb-bce1-d72d5e337c1e",
+  "drupal_internal__nid": 63857,
+  "drupal_internal__vid": 829383,
+  "langcode": "en",
+  "revision_timestamp": "2023-12-20T21:57:55+00:00",
+  "status": true,
+  "title": "VA police",
+  "created": "2023-12-07T20:46:27+00:00",
+  "changed": "2023-12-20T21:57:55+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+      {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+      },
+      {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-arkansas-health-care",
+          "title": "VA Central Arkansas health care",
+          "options": []
+      },
+      {
+          "uri": "internal:#",
+          "title": "About VA Central Arkansas",
+          "options": []
+      },
+      {
+          "uri": "internal:#",
+          "title": "VA police",
+          "options": []
+      }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+      {
+          "tag": "meta",
+          "attributes": {
+              "name": "title",
+              "content": "VA police | VA Central Arkansas health care | Veterans Affairs"
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "name": "description",
+              "content": "VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members."
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "property": "og:site_name",
+              "content": "Veterans Affairs"
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "property": "og:title",
+              "content": "VA police | VA Central Arkansas health care | Veterans Affairs"
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "property": "og:description",
+              "content": "VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members."
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "property": "og:image:alt",
+              "content": "U.S. Department of Veterans Affairs"
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "name": "twitter:card",
+              "content": "summary_large_image"
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "name": "twitter:site",
+              "content": "@DeptVetAffairs"
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "name": "twitter:title",
+              "content": "VA police | Veterans Affairs"
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "name": "twitter:image:alt",
+              "content": "U.S. Department of Veterans Affairs"
+          }
+      },
+      {
+          "tag": "meta",
+          "attributes": {
+              "name": "twitter:image",
+              "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+      }
+  ],
+  "path": {
+      "alias": "/central-arkansas-health-care/va-police",
+      "pid": 93785,
+      "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_cc_faq": {
+      "target_type": "paragraph",
+      "target_id": "141575",
+      "target_field": null,
+      "fetched_bundle": "q_a_section",
+      "fetched": {
+          "field_accordion_display": [
+              {
+                  "value": "1"
+              }
+          ],
+          "field_questions": [
+              {
+                  "target_id": "141566",
+                  "target_revision_id": "1156960",
+                  "type": "paragraph",
+                  "bundle": "q_a",
+                  "pid": "141566",
+                  "label": "VAMC System - \"VA Police\" page content > Content > Questions",
+                  "status": true,
+                  "langcode": "en",
+                  "field_answer": [
+                      {
+                          "target_id": "141565",
+                          "target_revision_id": "1156959",
+                          "type": "paragraph",
+                          "bundle": "wysiwyg",
+                          "pid": "141565",
+                          "label": "VAMC System - \"VA Police\" page content > Content > Questions > Answer",
+                          "status": true,
+                          "langcode": "en",
+                          "field_wysiwyg": [
+                              {
+                                  "value": "<p>VA police are armed and uniformed federal law enforcement officers. They provide law enforcement and security services to Veterans and their families at VA medical centers and other VA health facilities. Services include crime prevention and investigation, maintaining law and order, vehicle and foot patrols, telecommunication services, and workplace violence prevention.</p>\r\n",
+                                  "format": "rich_text",
+                                  "processed": "<p>VA police are armed and uniformed federal law enforcement officers. They provide law enforcement and security services to Veterans and their families at VA medical centers and other VA health facilities. Services include crime prevention and investigation, maintaining law and order, vehicle and foot patrols, telecommunication services, and workplace violence prevention.</p>"
+                              }
+                          ]
+                      }
+                  ],
+                  "field_question": [
+                      {
+                          "value": "What services do VA police provide?"
+                      }
+                  ]
+              },
+              {
+                  "target_id": "141568",
+                  "target_revision_id": "1156962",
+                  "type": "paragraph",
+                  "bundle": "q_a",
+                  "pid": "141568",
+                  "label": "VAMC System - \"VA Police\" page content > Content > Questions",
+                  "status": true,
+                  "langcode": "en",
+                  "field_answer": [
+                      {
+                          "target_id": "141567",
+                          "target_revision_id": "1156961",
+                          "type": "paragraph",
+                          "bundle": "wysiwyg",
+                          "pid": "141567",
+                          "label": "VAMC System - \"VA Police\" page content > Content > Questions > Answer",
+                          "status": true,
+                          "langcode": "en",
+                          "field_wysiwyg": [
+                              {
+                                  "value": "<p>VA police and local law enforcement work together to respond to crimes that happen on VA property. VA police and local law enforcement partners train together on skills and tactics such as active threat drills, crisis intervention training, disaster response, and more.</p>\r\n",
+                                  "format": "rich_text",
+                                  "processed": "<p>VA police and local law enforcement work together to respond to crimes that happen on VA property. VA police and local law enforcement partners train together on skills and tactics such as active threat drills, crisis intervention training, disaster response, and more.</p>"
+                              }
+                          ]
+                      }
+                  ],
+                  "field_question": [
+                      {
+                          "value": "Do VA police work with local law enforcement?"
+                      }
+                  ]
+              },
+              {
+                  "target_id": "141570",
+                  "target_revision_id": "1156964",
+                  "type": "paragraph",
+                  "bundle": "q_a",
+                  "pid": "141570",
+                  "label": "VAMC System - \"VA Police\" page content > Content > Questions",
+                  "status": true,
+                  "langcode": "en",
+                  "field_answer": [
+                      {
+                          "target_id": "141569",
+                          "target_revision_id": "1156963",
+                          "type": "paragraph",
+                          "bundle": "wysiwyg",
+                          "pid": "141569",
+                          "label": "VAMC System - \"VA Police\" page content > Content > Questions > Answer",
+                          "status": true,
+                          "langcode": "en",
+                          "field_wysiwyg": [
+                              {
+                                  "value": "<p>90% of VA police have a military background. VA police is looking for qualified applicants to join its team. Candidates must have either criminal justice education, experience as a police officer, experience as a military police officer, or a combination of education and experience. Visit USAJOBS to search for current VA police job announcements.</p>\r\n\r\n<p><a href=\"/admin/content/linky/1625\">Go to USAJOBS.gov to search for current VA police job announcements</a></p>\r\n\r\n<p>Transitioning service members may be eligible for employment training, internship, and apprenticeship opportunities with VA police through the DOD SkillBridge program. For more information, email Skillbridge.vapolice@va.gov.</p>\r\n\r\n<p><a href=\"/admin/content/linky/17074\">Learn more about the DOD SkillBridge program</a></p>\r\n",
+                                  "format": "rich_text",
+                                  "processed": "<p>90% of VA police have a military background. VA police is looking for qualified applicants to join its team. Candidates must have either criminal justice education, experience as a police officer, experience as a military police officer, or a combination of education and experience. Visit USAJOBS to search for current VA police job announcements.</p>\n\n<p><a href=\"https://www.usajobs.gov/\">Go to USAJOBS.gov to search for current VA police job announcements</a></p>\n\n<p>Transitioning service members may be eligible for employment training, internship, and apprenticeship opportunities with VA police through the DOD SkillBridge program. For more information, email <a href=\"mailto:Skillbridge.vapolice@va.gov\">Skillbridge.vapolice@va.gov</a>.</p>\n\n<p><a href=\"https://skillbridge.osd.mil/\">Learn more about the DOD SkillBridge program</a></p>"
+                              }
+                          ]
+                      }
+                  ],
+                  "field_question": [
+                      {
+                          "value": "Am I eligible to join the VA police force?"
+                      }
+                  ]
+              },
+              {
+                  "target_id": "141572",
+                  "target_revision_id": "1156966",
+                  "type": "paragraph",
+                  "bundle": "q_a",
+                  "pid": "141572",
+                  "label": "VAMC System - \"VA Police\" page content > Content > Questions",
+                  "status": true,
+                  "langcode": "en",
+                  "field_answer": [
+                      {
+                          "target_id": "141571",
+                          "target_revision_id": "1156965",
+                          "type": "paragraph",
+                          "bundle": "wysiwyg",
+                          "pid": "141571",
+                          "label": "VAMC System - \"VA Police\" page content > Content > Questions > Answer",
+                          "status": true,
+                          "langcode": "en",
+                          "field_wysiwyg": [
+                              {
+                                  "value": "<p>As a part of its mission to “protect those who served,” VA police across the country will begin to use in-car and body-worn cameras by the end of 2023. This policy increases the safety of VA facilities by promoting transparency and accountability.</p>\r\n",
+                                  "format": "rich_text",
+                                  "processed": "<p>As a part of its mission to “protect those who served,” VA police across the country will begin to use in-car and body-worn cameras by the end of 2023. This policy increases the safety of VA facilities by promoting transparency and accountability.</p>"
+                              }
+                          ]
+                      }
+                  ],
+                  "field_question": [
+                      {
+                          "value": "Why do VA police wear body-worn cameras?"
+                      }
+                  ]
+              },
+              {
+                  "target_id": "141574",
+                  "target_revision_id": "1156968",
+                  "type": "paragraph",
+                  "bundle": "q_a",
+                  "pid": "141574",
+                  "label": "VAMC System - \"VA Police\" page content > Content > Questions",
+                  "status": true,
+                  "langcode": "en",
+                  "field_answer": [
+                      {
+                          "target_id": "141573",
+                          "target_revision_id": "1156967",
+                          "type": "paragraph",
+                          "bundle": "wysiwyg",
+                          "pid": "141573",
+                          "label": "VAMC System - \"VA Police\" page content > Content > Questions > Answer",
+                          "status": true,
+                          "langcode": "en",
+                          "field_wysiwyg": [
+                              {
+                                  "value": "<p>VA is committed to protecting the privacy of the Veterans, families, caregivers, and survivors we serve. All local VA privacy officers and VA police officers attend extensive privacy training before officers begin using body-worn cameras.</p>\r\n",
+                                  "format": "rich_text",
+                                  "processed": "<p>VA is committed to protecting the privacy of the Veterans, families, caregivers, and survivors we serve. All local VA privacy officers and VA police officers attend extensive privacy training before officers begin using body-worn cameras.</p>"
+                              }
+                          ]
+                      }
+                  ],
+                  "field_question": [
+                      {
+                          "value": "How will my privacy be protected?"
+                      }
+                  ]
+              }
+          ],
+          "field_section_header": [
+              {
+                  "value": "Other questions you may have about VA police"
+              }
+          ],
+          "field_section_intro": []
+      }
+  },
+  "field_cc_police_report": {
+      "target_type": "paragraph",
+      "target_id": "141561",
+      "target_field": null,
+      "fetched_bundle": "featured_content",
+      "fetched": {
+          "field_cta": [
+              {
+                  "target_id": "141560",
+                  "target_revision_id": "1156952",
+                  "type": "paragraph",
+                  "bundle": "button",
+                  "pid": "141560",
+                  "label": "VAMC System - \"VA Police\" page content > Content > Call to Action",
+                  "status": true,
+                  "langcode": "en",
+                  "field_button_label": [
+                      {
+                          "value": "Learn how to file a FOIA request"
+                      }
+                  ],
+                  "field_button_link": [
+                      {
+                          "uri": "https://department.va.gov/foia/",
+                          "title": "",
+                          "options": {
+                              "href": "https://department.va.gov/foia/",
+                              "data-entity-type": "",
+                              "data-entity-uuid": "",
+                              "data-entity-substitution": ""
+                          }
+                      }
+                  ]
+              }
+          ],
+          "field_description": [
+              {
+                  "value": "<p>To request a VA police report, you'll need to file a Freedom of Information Act (FOIA) request to your local VA privacy officer.</p>",
+                  "format": "rich_text_limited",
+                  "processed": "<p>To request a VA police report, you'll need to file a Freedom of Information Act (FOIA) request to your local VA privacy officer.</p>\n"
+              }
+          ],
+          "field_section_header": [
+              {
+                  "value": "How to request a VA police report"
+              }
+          ]
+      }
+  },
+  "field_cc_term_definitions": {
+      "target_type": "paragraph",
+      "target_id": "141563",
+      "target_field": null,
+      "fetched_bundle": "spanish_translation_summary",
+      "fetched": {
+          "field_text_expander": [
+              {
+                  "value": "What do these terms mean?"
+              }
+          ],
+          "field_wysiwyg": [
+              {
+                  "value": "<ul><li>A <strong>citation</strong> is a written record of violating the law.</li><li><strong>Police misconduct&nbsp;</strong>is police behavior that violates the law.</li></ul>",
+                  "format": "rich_text",
+                  "processed": "<ul><li>A <strong>citation</strong> is a written record of violating the law.</li><li><strong>Police misconduct&nbsp;</strong>is police behavior that violates the law.</li></ul>"
+              }
+          ]
+      }
+  },
+  "field_cc_term_definitions_nation": {
+      "target_type": "paragraph",
+      "target_id": "142044",
+      "target_field": null,
+      "fetched_bundle": "spanish_translation_summary",
+      "fetched": {
+          "field_text_expander": [
+              {
+                  "value": "What do these terms mean?"
+              }
+          ],
+          "field_wysiwyg": [
+              {
+                  "value": "<ul><li><strong>Use of force</strong> is when a VA police officer uses physical force to get someone to follow their orders.</li><li><strong>Weapons discharge</strong> is when someone fires a gun.</li></ul>",
+                  "format": "rich_text",
+                  "processed": "<ul><li><strong>Use of force</strong> is when a VA police officer uses physical force to get someone to follow their orders.</li><li><strong>Weapons discharge</strong> is when someone fires a gun.</li></ul>"
+              }
+          ]
+      }
+  },
+  "field_cc_va_police_overview": {
+      "target_type": "paragraph",
+      "target_id": "141558",
+      "target_field": null,
+      "fetched_bundle": "rich_text_char_limit_1000",
+      "fetched": {
+          "field_wysiwyg": [
+              {
+                  "value": "<p>VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.</p>",
+                  "format": "rich_text_limited",
+                  "processed": "<p>VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.</p>\n"
+              }
+          ]
+      }
+  },
+  "field_enforce_unique_combo": false,
+  "field_enforce_unique_combo_offic": false,
+  "field_last_saved_by_an_editor": "2023-11-20T02:56:16+00:00",
+  "links": {
+    "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vamc_system_va_police/7833b254-f4e4-4adb-bce1-d72d5e337c1e?resourceVersion=id%3A829383"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "77619bc5-cb6a-4fd4-8213-5ff019be1c57",
+    "resourceIdObjMeta": {
+        "drupal_internal__target_id": "vamc_system_va_police"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "efa9900b-7446-41bf-b6a9-a99287ae2235",
+    "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1215
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1317
+    }
+  },
+  "field_office": {
+    "type": "node--health_care_region_page",
+    "id": "8700947b-a31c-4290-a989-cc2c3bfe1ce0",
+    "resourceIdObjMeta": {
+        "drupal_internal__target_id": 7208
+    }
+  },
+  "field_phone_numbers_paragraph": [
+    {
+      "type": "paragraph--phone_number",
+      "id": "2bc3cc07-58a2-4d7f-b639-a90e0b890d7b",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 143069
+      }
+    }
+  ],
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "c7ce78da-5839-4347-88c1-a9c3b5a618c0",
+    "resourceIdObjMeta": {
+        "drupal_internal__target_id": 225
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_office",
+    "field_phone_numbers_paragraph",
+    "field_administration"
+  ]
+}
