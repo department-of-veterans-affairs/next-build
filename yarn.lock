@@ -6745,6 +6745,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chalk@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "chalk@npm:5.4.1"
+  checksum: 0c656f30b782fed4d99198825c0860158901f449a6b12b818b0aabad27ec970389e7e8767d0e00762175b23620c812e70c4fd92c0210e55fc2d993638b74e86e
+  languageName: node
+  linkType: hard
+
 "change-case@npm:^4.1.2":
   version: 4.1.2
   resolution: "change-case@npm:4.1.2"
@@ -8341,7 +8348,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "env-loader@workspace:packages/env-loader"
   dependencies:
-    chalk: ^5.3.0
+    chalk: ^5.4.1
     commander: ^12.0.0
     dotenv: ^16.4.5
     dotenv-expand: ^11.0.6
@@ -13448,7 +13455,7 @@ __metadata:
     "@typescript-eslint/parser": ^8.7.0
     axe-core: ^4.10.3
     axios: ^1.6.3
-    chalk: ^5.3.0
+    chalk: ^5.4.1
     chrome-launcher: ^1.1.2
     clsx: ^2.1.0
     commander: ^12.0.0
