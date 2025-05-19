@@ -433,4 +433,5 @@ export interface NodeVamcSystem extends DrupalNode {
 }
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {
+  field_administration: FieldAdministration
 }
