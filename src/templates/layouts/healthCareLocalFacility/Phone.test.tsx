@@ -29,7 +29,7 @@ describe('Phone', () => {
           drupal_internal__revision_id: 1234,
           status: true,
           langcode: 'en',
-          field_phone_label: 'Test Label',
+          field_phone_label: null,
           field_phone_number: '123-456-7890',
           field_phone_number_type: 'fax',
           field_phone_extension: '321',
@@ -37,7 +37,7 @@ describe('Phone', () => {
       />
     )
 
-    expect(screen.getByText('Test Label:')).toBeInTheDocument()
+    expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
     const tel = container.querySelector('va-telephone')
     expect(tel).toHaveAttribute('not-clickable')
     expect(tel.getAttribute('contact')).toBe('1234567890')
@@ -56,7 +56,7 @@ describe('Phone', () => {
           drupal_internal__revision_id: 1234,
           status: true,
           langcode: 'en',
-          field_phone_label: 'Test Label',
+          field_phone_label: null,
           field_phone_number: '555-555-5555',
           field_phone_number_type: 'fax',
           field_phone_extension: '321',
@@ -69,7 +69,7 @@ describe('Phone', () => {
 
     expect(screen.getByText('Main phone:')).toBeInTheDocument()
     expect(screen.getByText('VA health connect:')).toBeInTheDocument()
-    expect(screen.getByText('Test Label:')).toBeInTheDocument()
+    expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
 
     // Main phone
     expect(vaTelephoneElements[0].getAttribute('contact')).toBe('1234567890')

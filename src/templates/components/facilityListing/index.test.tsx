@@ -27,7 +27,7 @@ const mockFacility: MinimalLocalFacility = {
     status: true,
     created: '2024-01-01T00:00:00+00:00',
     changed: '2024-01-01T00:00:00+00:00',
-    field_phone_label: 'Mental health',
+    field_phone_label: null,
     field_phone_number: '800-555-9012',
     field_phone_extension: '',
     field_phone_number_type: 'voice',
@@ -98,14 +98,14 @@ describe('FacilityListing with valid data', () => {
     expect(healthConnectPhone).toBeInTheDocument()
 
     // Check mental health phone
-    expect(screen.getByText('Mental health:')).toBeInTheDocument()
+    expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
     const mentalHealthPhone = container.querySelector(
       `va-telephone[contact="${mockFacility.fieldTelephone.field_phone_number.replace(/-/g, '')}"]`
     )
     expect(mentalHealthPhone).toBeInTheDocument()
     expect(mentalHealthPhone).toHaveAttribute(
       'message-aria-describedby',
-      'Mental health'
+      'Mental health phone'
     )
   })
 

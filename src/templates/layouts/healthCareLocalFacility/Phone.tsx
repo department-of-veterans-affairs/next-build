@@ -2,15 +2,17 @@ import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { ParagraphPhoneNumber } from '@/types/drupal/paragraph'
 import { formatter as formatParagraphPhoneNumber } from '@/data/queries/phoneNumber'
 
+export interface PhoneProps {
+  phoneNumber?: string
+  vaHealthConnectPhoneNumber?: string
+  fieldTelephone?: ParagraphPhoneNumber | null
+}
+
 export const Phone = ({
   phoneNumber,
   vaHealthConnectPhoneNumber,
   fieldTelephone,
-}: {
-  phoneNumber?: string
-  vaHealthConnectPhoneNumber?: string
-  fieldTelephone?: ParagraphPhoneNumber | null
-}) => {
+}: PhoneProps) => {
   if (!phoneNumber && !vaHealthConnectPhoneNumber && !fieldTelephone) {
     return null
   }
@@ -37,6 +39,8 @@ export const Phone = ({
         <PhoneNumber
           className="vads-u-margin--0"
           {...formatParagraphPhoneNumber(fieldTelephone)}
+          // Note that this label is hardcoded for certain node types, like `node--health_care_local_facility`
+          label="Mental health phone"
         />
       )}
     </div>
