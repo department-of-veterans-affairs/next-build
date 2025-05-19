@@ -13,7 +13,7 @@ jobs:
     if: github.event.deployment_status.state == 'success'
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4.1.0
+      uses: aws-actions/configure-aws-credentials@v4.2.0
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}

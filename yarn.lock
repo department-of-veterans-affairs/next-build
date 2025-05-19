@@ -1898,10 +1898,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:^9.3.0":
-  version: 9.3.0
-  resolution: "@faker-js/faker@npm:9.3.0"
-  checksum: 0ee845a9b7dc0d6bc5bd9b7d89fc0a86b31bf0b4a55128feab5dd24c0e8e0b5f80f9ab40f639bf259b3edf62370677c1ebfd420cd8e51d4ca69b94d2ff208ba9
+"@faker-js/faker@npm:^9.7.0":
+  version: 9.7.0
+  resolution: "@faker-js/faker@npm:9.7.0"
+  checksum: 3b452be4cc3227728947ca9b1d733a2b0b971ab68e7e92275aea6906ac2d3826bac2494b334ee65a19751ee9f0c0d210f8cbfb310d4cd586c3b5c5f327c3207c
   languageName: node
   linkType: hard
 
@@ -6745,6 +6745,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chalk@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "chalk@npm:5.4.1"
+  checksum: 0c656f30b782fed4d99198825c0860158901f449a6b12b818b0aabad27ec970389e7e8767d0e00762175b23620c812e70c4fd92c0210e55fc2d993638b74e86e
+  languageName: node
+  linkType: hard
+
 "change-case@npm:^4.1.2":
   version: 4.1.2
   resolution: "change-case@npm:4.1.2"
@@ -8341,7 +8348,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "env-loader@workspace:packages/env-loader"
   dependencies:
-    chalk: ^5.3.0
+    chalk: ^5.4.1
     commander: ^12.0.0
     dotenv: ^16.4.5
     dotenv-expand: ^12.0.2
@@ -8722,14 +8729,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "eslint-config-prettier@npm:9.1.0"
+"eslint-config-prettier@npm:^10.1.2":
+  version: 10.1.2
+  resolution: "eslint-config-prettier@npm:10.1.2"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 9229b768c879f500ee54ca05925f31b0c0bafff3d9f5521f98ff05127356de78c81deb9365c86a5ec4efa990cb72b74df8612ae15965b14136044c73e1f6a907
+  checksum: 6b317378214a5935457bd9d7c3220ec37fb621e07bf31cf1ffb82bf38eca1cd89f338d18284114d504a865a6bb932faa5df29a18a72e6e43484dbc959d087620
   languageName: node
   linkType: hard
 
@@ -13419,7 +13426,7 @@ __metadata:
     "@department-of-veterans-affairs/component-library": ^48.0.1
     "@department-of-veterans-affairs/formation": ^12.0.0
     "@department-of-veterans-affairs/web-components": ^16.0.1
-    "@faker-js/faker": ^9.3.0
+    "@faker-js/faker": ^9.7.0
     "@fortawesome/fontawesome-free": ^5.15.4
     "@next/env": ^14.1.0
     "@octokit/rest": ^21.0.1
@@ -13448,7 +13455,7 @@ __metadata:
     "@typescript-eslint/parser": ^8.7.0
     axe-core: ^4.10.3
     axios: ^1.6.3
-    chalk: ^5.3.0
+    chalk: ^5.4.1
     chrome-launcher: ^1.1.2
     clsx: ^2.1.0
     commander: ^12.0.0
@@ -13459,7 +13466,7 @@ __metadata:
     env-loader: 0.1.0
     eslint: 8.57.0
     eslint-config-next: ^14.2.5
-    eslint-config-prettier: ^9.1.0
+    eslint-config-prettier: ^10.1.2
     eslint-plugin-jest: ^28.8.0
     eslint-plugin-jest-dom: ^5.5.0
     eslint-plugin-jsx-a11y: ^6.9.0
@@ -13509,7 +13516,7 @@ __metadata:
     typescript: ^5.6.2
     uswds: ^2.14.0
     uuid: ^9.0.1
-    validator: ^13.11.0
+    validator: ^13.15.0
   languageName: unknown
   linkType: soft
 
@@ -18384,10 +18391,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validator@npm:^13.11.0":
-  version: 13.12.0
-  resolution: "validator@npm:13.12.0"
-  checksum: fb8f070724770b1449ea1a968605823fdb112dbd10507b2802f8841cda3e7b5c376c40f18c84e6a7b59de320a06177e471554101a85f1fa8a70bac1a84e48adf
+"validator@npm:^13.15.0":
+  version: 13.15.0
+  resolution: "validator@npm:13.15.0"
+  checksum: 0d1faacb802336e69fafde33723b6de8e1833d1a3ec2b5202ffc69b95c8140db6d4728760026d738243d706cd324ea84808deea2ed647f571a3171d03ade8031
   languageName: node
   linkType: hard
 
