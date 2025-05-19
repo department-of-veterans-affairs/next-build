@@ -64,9 +64,6 @@ export const processEnv = async (
   // CLI
   const { args: cliArgs, options: cliOptions } = getCliOptionsAndArgs()
 
-  // eslint-disable-next-line no-console
-  console.log(`Using APP ENV: ${process.env.APP_ENV}`)
-
   // ENV FILE
   const envVars = getEnvFileVars(process.env.APP_ENV)
 
