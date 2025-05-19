@@ -163,8 +163,8 @@ export function VamcSystem({
             {/* Social Links */}
             {/* <SocialLinks regionNickname={title} /> */}
             <va-back-to-top></va-back-to-top>
+            <ContentFooter />
           </article>
-          <ContentFooter />
         </div>
       </div>
     </div>
