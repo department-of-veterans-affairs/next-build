@@ -1,4 +1,4 @@
-import { FacilityTopTasks, _topTaskLovellComp } from './index'
+import { FacilityTopTasks, RegionalTopTasks, _topTaskLovellComp } from './index'
 import { render } from '@testing-library/react'
 
 const lovellAdministration = { id: 1039, name: 'Lovell' }
@@ -62,6 +62,49 @@ describe('FacilityTopTasks', () => {
         /* @ts-expect-error Shouldn't happen, but just in case... */
         office={{ vamcEhrSystem: '' }}
         regionPage={{ vamcEhrSystem: 'cerner' }}
+        administration={lovellAdministration}
+      />
+    )
+    expect(
+      container.querySelector(
+        'va-link-action[text="MHS Genesis Patient Portal"]'
+      )
+    ).toBeInTheDocument()
+  })
+
+  it('should handle no slash in the path', () => {
+    const { container } = render(
+      <FacilityTopTasks path="test-nav-path" vamcEhrSystem="vista" />
+    )
+    expect(
+      container.querySelector(
+        'va-link-action[href="/test-nav-path/register-for-care"]'
+      )
+    ).toBeInTheDocument()
+  })
+})
+
+describe('RegionalTopTasks', () => {
+  it('should render the normal links', () => {
+    const { container } = render(
+      <RegionalTopTasks path="/test-nav-path" vamcEhrSystem="vista" />
+    )
+    expect(
+      container.querySelector('va-link-action[text="Make an appointment"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link-action[text="View all health services"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link-action[text="Register for care"]')
+    ).toBeInTheDocument()
+  })
+
+  it('should render the MHS link', () => {
+    const { container } = render(
+      <RegionalTopTasks
+        path="/test-nav-path"
+        vamcEhrSystem="cerner"
         administration={lovellAdministration}
       />
     )
