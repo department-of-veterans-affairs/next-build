@@ -16,9 +16,6 @@ services:
     aliases:
       - storybook
 
-    depends:
-      - redis
-
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
       # Commands that set up the basic preview infrastructure
@@ -84,8 +81,3 @@ services:
       online:
         # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
         - yarn storybook:build
-
-  # Redis cache for fetching data
-  redis:
-    image: tugboatqa/redis:latest
-    expose: 6379
