@@ -67,3 +67,4 @@ certs/VA-mozilla-combined.pem
 # processEnv() stuff
 build_id
 exit_code
+envs/.env.local.bak
