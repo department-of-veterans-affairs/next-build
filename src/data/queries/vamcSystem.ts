@@ -112,7 +112,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
       image: formatImage(facility.field_media),
     })),
     relatedLinks: formatRelatedLinks(entity),
-    // vamcEhrSystem: entity.field_vamc_ehr_system,
+    vamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,

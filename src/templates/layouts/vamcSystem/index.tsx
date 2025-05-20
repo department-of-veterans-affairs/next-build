@@ -32,7 +32,7 @@ export function VamcSystem({
   administration,
   path,
   menu,
-  // vamcEhrSystem,
+  vamcEhrSystem,
   mainFacilities,
   relatedLinks,
   // newsStoryTeasersFeatured,
@@ -68,11 +68,11 @@ export function VamcSystem({
                 <MediaImage {...image} imageStyle={imageStyle} alt="" />
               </div>
             )}
-            {/* <RegionalTopTasks
+            <RegionalTopTasks
               path={path}
               administration={administration}
               vamcEhrSystem={vamcEhrSystem}
-            /> */}
+            />
             {introText && (
               <div className="va-introtext">
                 <p className="vads-u-margin-bottom--0">{introText}</p>

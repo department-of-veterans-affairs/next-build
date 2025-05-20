@@ -208,7 +208,7 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
   field_media: DrupalMediaImage
   field_related_links: ParagraphListOfLinkTeasers | null
-  field_vamc_ehr_system: string
+  field_vamc_ehr_system: 'vista' | 'cerner' | 'cerner_staged'
   field_facebook: FieldLink
   field_flickr: FieldLink
   field_govdelivery_id_emerg: string
