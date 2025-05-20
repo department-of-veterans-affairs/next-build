@@ -70,6 +70,7 @@ export type NodeTypes =
   | NodeEventListing
   | NodeVetCenter
   | NodeVamcSystem
+  | NodeVamcSystemVaPolice
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -428,5 +429,9 @@ export interface NodeSupportService extends DrupalNode {
 export interface NodeVamcSystem extends DrupalNode {
   field_intro_text: string
   field_media: DrupalMediaImage
+  field_administration: FieldAdministration
+}
+
+export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
 }
