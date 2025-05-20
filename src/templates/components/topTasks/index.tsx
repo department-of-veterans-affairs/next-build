@@ -9,8 +9,6 @@ type TopTasksProps = {
   path: string
   vamcEhrSystem: VamcEhrSystem
   administration?: Administration
-  regionPage?: { vamcEhrSystem: VamcEhrSystem }
-  office?: { vamcEhrSystem: VamcEhrSystem }
 }
 
 /**
@@ -22,8 +20,6 @@ export const FacilityTopTasks = ({
   path,
   administration,
   vamcEhrSystem,
-  regionPage,
-  office,
 }: TopTasksProps) => {
   path = normalizePath(path)
 
@@ -32,8 +28,6 @@ export const FacilityTopTasks = ({
     path,
     administration,
     vamcEhrSystem,
-    regionPage,
-    office,
   })
 
   return (
@@ -71,8 +65,6 @@ export const RegionalTopTasks = ({
   path,
   administration,
   vamcEhrSystem,
-  regionPage,
-  office,
 }: TopTasksProps) => {
   path = normalizePath(path)
 
@@ -81,8 +73,6 @@ export const RegionalTopTasks = ({
     path,
     administration,
     vamcEhrSystem,
-    regionPage,
-    office,
   })
 
   return (
@@ -129,8 +119,6 @@ function topTaskLovellComp({
   path,
   administration,
   vamcEhrSystem,
-  regionPage,
-  office,
 }: TopTasksProps & { linkType?: 'make-an-appointment' }): {
   text: string
   url: string
@@ -144,8 +132,6 @@ function topTaskLovellComp({
     path,
     administration,
     vamcEhrSystem,
-    regionPage,
-    office,
   })
 }
 
@@ -159,19 +145,15 @@ export function _topTaskLovellComp({
   path,
   administration,
   vamcEhrSystem,
-  regionPage,
-  office,
 }: TopTasksProps & { isProd: boolean; linkType?: 'make-an-appointment' }): {
   text: string
   url: string
 } {
-  const flag =
-    vamcEhrSystem || office?.vamcEhrSystem || regionPage?.vamcEhrSystem || ''
-
   const isPageLovell = administration?.id === LOVELL_TRICARE_ADMINISTRATION_ID
 
   if (
-    (flag === 'cerner' || (flag === 'cerner_staged' && !isProd)) &&
+    (vamcEhrSystem === 'cerner' ||
+      (vamcEhrSystem === 'cerner_staged' && !isProd)) &&
     linkType === 'make-an-appointment' &&
     isPageLovell
   ) {

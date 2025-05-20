@@ -36,42 +36,6 @@ describe('FacilityTopTasks', () => {
     ).toBeInTheDocument()
   })
 
-  it('should render the MHS link from the office', () => {
-    const { container } = render(
-      <FacilityTopTasks
-        path="/test-nav-path"
-        /* @ts-expect-error Shouldn't happen, but just in case... */
-        vamcEhrSystem=""
-        office={{ vamcEhrSystem: 'cerner' }}
-        administration={lovellAdministration}
-      />
-    )
-    expect(
-      container.querySelector(
-        'va-link-action[text="MHS Genesis Patient Portal"]'
-      )
-    ).toBeInTheDocument()
-  })
-
-  it('should render the MHS link from the regonPage', () => {
-    const { container } = render(
-      <FacilityTopTasks
-        path="/test-nav-path"
-        /* @ts-expect-error Shouldn't happen, but just in case... */
-        vamcEhrSystem=""
-        /* @ts-expect-error Shouldn't happen, but just in case... */
-        office={{ vamcEhrSystem: '' }}
-        regionPage={{ vamcEhrSystem: 'cerner' }}
-        administration={lovellAdministration}
-      />
-    )
-    expect(
-      container.querySelector(
-        'va-link-action[text="MHS Genesis Patient Portal"]'
-      )
-    ).toBeInTheDocument()
-  })
-
   it('should handle no slash in the path', () => {
     const { container } = render(
       <FacilityTopTasks path="test-nav-path" vamcEhrSystem="vista" />
@@ -149,26 +113,6 @@ describe('topTaskLovellComp', () => {
     expect(_topTaskLovellComp(mhsLinkData)).toEqual(mhsLink)
   })
 
-  it('should fall back to office.vamcEhrSystem', () => {
-    expect(
-      _topTaskLovellComp({
-        ...mhsLinkData,
-        vamcEhrSystem: null,
-        office: cerner,
-      })
-    ).toEqual(mhsLink)
-  })
-
-  it('should fall back to regionPage.vamcEhrSystem', () => {
-    expect(
-      _topTaskLovellComp({
-        ...mhsLinkData,
-        vamcEhrSystem: null,
-        regionPage: cerner,
-      })
-    ).toEqual(mhsLink)
-  })
-
   it('should show the MHS link with cerner_staged on dev', () => {
     expect(
       _topTaskLovellComp({
@@ -222,8 +166,6 @@ describe('topTaskLovellComp', () => {
       _topTaskLovellComp({
         ...mhsLinkData,
         vamcEhrSystem: null,
-        office: undefined,
-        regionPage: undefined,
       })
     ).toEqual(normalLink)
   })
