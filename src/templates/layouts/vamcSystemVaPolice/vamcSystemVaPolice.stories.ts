@@ -12,6 +12,6 @@ type Story = StoryObj<typeof VamcSystemVaPolice>
 
 export const Example: Story = {
   args: {
-    title: 'Hello World!'
+    title: 'Hello World!',
   },
 }

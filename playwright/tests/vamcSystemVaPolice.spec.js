@@ -3,9 +3,7 @@ import { test, expect } from '../utils/next-test'
 // This test should be modified to test page output and function.
 // test.describe('VamcSystemVaPolice', () => {
 test.skip('VamcSystemVaPolice', () => {
-  test('VamcSystemVaPolice page renders', async ({
-    page,
-  }) => {
+  test('VamcSystemVaPolice page renders', async ({ page }) => {
     await page.goto('/update-this-link')
     await expect(page).toHaveURL('/update-this-link')
   })

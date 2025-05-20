@@ -2,7 +2,7 @@ import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/vamcSystemVaPolice.mock.json'
 
-const VamcSystemVaPoliceMock : NodeVamcSystemVaPolice = mockData
+const VamcSystemVaPoliceMock: NodeVamcSystemVaPolice = mockData
 
 describe('VamcSystemVaPolice formatData', () => {
   let windowSpy
@@ -19,10 +19,7 @@ describe('VamcSystemVaPolice formatData', () => {
     windowSpy.mockImplementation(() => undefined)
 
     expect(
-      queries.formatData(
-        'node--vamc_system_va_police',
-        VamcSystemVaPoliceMock
-      )
+      queries.formatData('node--vamc_system_va_police', VamcSystemVaPoliceMock)
     ).toMatchSnapshot()
   })
 })

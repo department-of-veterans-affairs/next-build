@@ -13,12 +13,12 @@ import {
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-    // uncomment to add referenced entity data to the response
-    // .addInclude([
-    //  'field_media',
-    //  'field_media.image',
-    //  'field_administration',
-    // ])
+  // uncomment to add referenced entity data to the response
+  // .addInclude([
+  //  'field_media',
+  //  'field_media.image',
+  //  'field_administration',
+  // ])
 }
 
 // Define the option types for the data loader.
@@ -28,10 +28,11 @@ export type VamcSystemVaPoliceDataOpts = {
 }
 
 // Implement the data loader.
-export const data: QueryData<VamcSystemVaPoliceDataOpts, NodeVamcSystemVaPolice> = async (
-  opts
-): Promise<NodeVamcSystemVaPolice> => {
-const entity = (await fetchSingleEntityOrPreview(
+export const data: QueryData<
+  VamcSystemVaPoliceDataOpts,
+  NodeVamcSystemVaPolice
+> = async (opts): Promise<NodeVamcSystemVaPolice> => {
+  const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
     params
@@ -40,10 +41,11 @@ const entity = (await fetchSingleEntityOrPreview(
   return entity
 }
 
-export const formatter: QueryFormatter<NodeVamcSystemVaPolice, VamcSystemVaPolice> = (
-  entity: NodeVamcSystemVaPolice
-) => {
+export const formatter: QueryFormatter<
+  NodeVamcSystemVaPolice,
+  VamcSystemVaPolice
+> = (entity: NodeVamcSystemVaPolice) => {
   return {
-    ...entityBaseFields(entity)
+    ...entityBaseFields(entity),
   }
 }

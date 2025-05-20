@@ -175,7 +175,9 @@ export default function ResourcePage({
             <VamcSystem {...(resource as FormattedVamcSystem)} />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE && (
-            <VamcSystemVaPolice {...(resource as FormattedVamcSystemVaPolice)} />
+            <VamcSystemVaPolice
+              {...(resource as FormattedVamcSystemVaPolice)}
+            />
           )}
         </div>
       </main>
