@@ -1,12 +1,12 @@
-import { TopTasks, _topTaskLovellComp } from './index'
+import { FacilityTopTasks, _topTaskLovellComp } from './index'
 import { render } from '@testing-library/react'
 
-const lovellAdministration = { entityId: 1039 }
+const lovellAdministration = { id: 1039, name: 'Lovell' }
 
-describe('TopTasks', () => {
+describe('FacilityTopTasks', () => {
   it('should render the normal links', () => {
     const { container } = render(
-      <TopTasks path="/test-nav-path" vamcEhrSystem="vista" />
+      <FacilityTopTasks path="/test-nav-path" vamcEhrSystem="vista" />
     )
     expect(
       container.querySelector('va-link-action[text="Make an appointment"]')
@@ -23,10 +23,10 @@ describe('TopTasks', () => {
 
   it('should render the MHS link', () => {
     const { container } = render(
-      <TopTasks
+      <FacilityTopTasks
         path="/test-nav-path"
         vamcEhrSystem="cerner"
-        administration={{ entityId: 1039 }}
+        administration={lovellAdministration}
       />
     )
     expect(
@@ -38,12 +38,12 @@ describe('TopTasks', () => {
 
   it('should render the MHS link from the office', () => {
     const { container } = render(
-      <TopTasks
+      <FacilityTopTasks
         path="/test-nav-path"
         /* @ts-expect-error Shouldn't happen, but just in case... */
         vamcEhrSystem=""
         office={{ vamcEhrSystem: 'cerner' }}
-        administration={{ entityId: 1039 }}
+        administration={lovellAdministration}
       />
     )
     expect(
@@ -55,14 +55,14 @@ describe('TopTasks', () => {
 
   it('should render the MHS link from the regonPage', () => {
     const { container } = render(
-      <TopTasks
+      <FacilityTopTasks
         path="/test-nav-path"
         /* @ts-expect-error Shouldn't happen, but just in case... */
         vamcEhrSystem=""
         /* @ts-expect-error Shouldn't happen, but just in case... */
         office={{ vamcEhrSystem: '' }}
         regionPage={{ vamcEhrSystem: 'cerner' }}
-        administration={{ entityId: 1039 }}
+        administration={lovellAdministration}
       />
     )
     expect(
@@ -74,7 +74,7 @@ describe('TopTasks', () => {
 
   it('should handle no slash in the path', () => {
     const { container } = render(
-      <TopTasks path="test-nav-path" vamcEhrSystem="vista" />
+      <FacilityTopTasks path="test-nav-path" vamcEhrSystem="vista" />
     )
     expect(
       container.querySelector(
@@ -160,7 +160,7 @@ describe('topTaskLovellComp', () => {
     expect(
       _topTaskLovellComp({
         ...mhsLinkData,
-        administration: { entityId: 1040 }, // Lovell is 1039
+        administration: { id: 1040, name: 'Test Administration' }, // Lovell is 1039
       })
     ).toEqual(normalLink)
   })

@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { FacilityListing } from '@/templates/components/facilityListing'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
+import { RegionalTopTasks } from '@/templates/components/topTasks'
 // import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // import { TopTasks } from '@/templates/components/topTasks'
 // import { FacilityListing } from '@/templates/components/facilityListing'
@@ -67,8 +68,11 @@ export function VamcSystem({
                 <MediaImage {...image} imageStyle={imageStyle} alt="" />
               </div>
             )}
-            {/* Was going to use TopTasks, but the links are different, and the wrapper uses different classes */}
-            <div className="usa-grid usa-grid-full vads-u-margin-top--0 vads-u-margin-bottom--3"></div>
+            {/* <RegionalTopTasks
+              path={path}
+              administration={administration}
+              vamcEhrSystem={vamcEhrSystem}
+            /> */}
             {introText && (
               <div className="va-introtext">
                 <p className="vads-u-margin-bottom--0">{introText}</p>
