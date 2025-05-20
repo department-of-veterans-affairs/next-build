@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA Central Arkansas health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/central-arkansas-health-care",
+    },
+    {
+      "options": [],
+      "title": "About VA Central Arkansas",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "VA police",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 63857,
+  "entityPath": "/central-arkansas-health-care/va-police",
+  "id": "7833b254-f4e4-4adb-bce1-d72d5e337c1e",
+  "lastUpdated": "2023-12-20T21:57:55+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "VA police | VA Central Arkansas health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA police | VA Central Arkansas health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA police | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "published": true,
+  "title": "VA police",
+  "type": "node--vamc_system_va_police",
+}
+`;
