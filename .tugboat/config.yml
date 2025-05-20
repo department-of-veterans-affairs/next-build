@@ -1,21 +1,11 @@
 services:
-  # Configure a standard apache webserver to host our site.
-  web:
-    # Use the most recent version of nginx.
-    image: tugboatqa/nginx:latest
-
+  nextjs:
+    image: tugboatqa/node:18.17.0-alpine
     # Explicitly set this as the default service
     #   1. Clones the git repository into the service container
     #   2. Exposes port 80 to the Tugboat HTTP proxy
     #   3. Routes requests to the preview URL to this service
     default: true
-
-    # Generates additional url aliases
-    # Default: https://pr-[hash].tugboat.vfs.va.gov
-    #          https://storybook-[hash].tugboat.vfs.va.gov
-    aliases:
-      - storybook
-
     # Run these commands to initialize the server, update it with any libraries and assets required, then build your site.
     commands:
       # Commands that set up the basic preview infrastructure
@@ -35,49 +25,13 @@ services:
         - cp "${TUGBOAT_ROOT}"/certs/*.crt /usr/local/share/ca-certificates
         - update-ca-certificates
 
-        # Setup nginx to serve 404 page.
-        - cp -f "${TUGBOAT_ROOT}"/.tugboat/vhost-web.conf /etc/nginx/conf.d/default.conf
-
-        # Setup storybook-*. vhost to serve compiled storybook.
-        - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
-
-        # Restart nginx with the new config
-        - sudo service nginx reload
-
         # Tugboat user can run our scripts
         - chmod -R 775 "./scripts/"
 
+      # Commands that import files, databases,  or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
+      update:
         # Clone vets-website
         - ./scripts/install-repos.sh
-
-      # Commands that build the site. This is where you would add
-      # steps required to set up or configure the site. When a
-      # preview is built from a base preview, the build workflow
-      # starts here, skipping the init and update steps, because the
-      # results of those are inherited from the base preview.
-      build:
-        # Update site URL
-        - echo \nSITE_URL_SERVICE=`${TUGBOAT_DEFAULT_SERVICE_URL}` >> ${TUGBOAT_ROOT}/envs/.env.tugboat
-
-        - yarn --version
-        # Install dependencies. These are included in .yarn/cache, shouldn't add significant time or network requests.
-        - yarn install
-
-        # Get vets-website assets in the right place
-        - BUILD_TYPE=tugboat node ./scripts/yarn/vets-website-assets.js
-
-        # Build the static pages. Set for self-signed certs
-        - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn build:preview
-
-        # Build the static pages. Set for self-signed certs
-        - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn start &
-
-        # Generate sitemap
-        - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn build:sitemap --SITE_URL ${TUGBOAT_DEFAULT_SERVICE_URL}
-        # Set the webroot to the output folder.
-        - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
-
-      # Run any commands after the site is built.
-      online:
-        # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
-        - yarn storybook:build
