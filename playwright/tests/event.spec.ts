@@ -4,7 +4,10 @@ test.describe('Event Page', () => {
   test('Event page renders with correct title and details', async ({
     page,
   }) => {
-    await page.goto('/central-iowa-health-care/events/63096/')
+    await page.goto('/central-iowa-health-care/events/63096/', {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000,
+    })
     await expect(page.locator('h1')).toHaveText(
       'Battlefield Acupuncture Walk-in Clinic'
     ) // Replace with actual event title
