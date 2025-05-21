@@ -17,8 +17,6 @@ syswideCas.addCAs('certs/rootCA.pem')
 const baseUrl =
   process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'https://va-gov-cms.ddev.site'
 
-const debug = process.env.DEBUG === 'true'
-
 const proxyFetch = (input: RequestInfo, init: RequestInit = {}) => {
   const agent = new SocksProxyAgent('socks5h://127.0.0.1:2001')
   return fetch(input, { ...init, agent })
