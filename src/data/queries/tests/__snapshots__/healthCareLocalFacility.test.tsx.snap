@@ -99,6 +99,1418 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "top": 42.36659056,
     "value": "POINT (-71.05901821 42.36659056)",
   },
+  "healthServices": [
+    {
+      "breadcrumbs": [
+        {
+          "options": [],
+          "title": "Home",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        },
+        {
+          "options": [],
+          "title": "VA Boston Health Care",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
+        },
+        {
+          "options": [],
+          "title": "Locations",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
+        },
+        {
+          "options": [],
+          "title": "West Roxbury VA Medical Center",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations/west-roxbury-va-medical-center",
+        },
+        {
+          "options": [],
+          "title": "Wheelchair and Mobility - West Roxbury VA Medical Center",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations/west-roxbury-va-medical-center/wheelchair-and-mobility",
+        },
+      ],
+      "changed": "2024-05-13T21:03:13+00:00",
+      "content_translation_outdated": false,
+      "content_translation_source": "und",
+      "created": "2021-11-23T22:37:06+00:00",
+      "default_langcode": true,
+      "drupal_internal__nid": 39654,
+      "drupal_internal__vid": 886491,
+      "expiration_date": null,
+      "field_administration": {
+        "breadcrumbs": [
+          {
+            "options": [],
+            "title": "Home",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          },
+          {
+            "options": [],
+            "title": "VHA",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+          },
+          {
+            "options": [],
+            "title": "VAMC facilities",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+          },
+          {
+            "options": [],
+            "title": "VISN 1",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
+          },
+          {
+            "options": [],
+            "title": "VA Boston health care",
+            "uri": "internal:#",
+          },
+        ],
+        "changed": "2024-08-13T20:05:29+00:00",
+        "content_translation_created": null,
+        "content_translation_outdated": false,
+        "content_translation_source": "und",
+        "content_translation_uid": null,
+        "default_langcode": true,
+        "description": null,
+        "drupal_internal__revision_id": 2322,
+        "drupal_internal__tid": 205,
+        "field_description": null,
+        "field_product": {
+          "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 284,
+          },
+          "type": "taxonomy_term--products",
+        },
+        "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+        "langcode": "en",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322",
+          },
+        },
+        "metatag": [
+          {
+            "attributes": {
+              "content": "VA Boston health care | VA.gov CMS",
+              "name": "title",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care",
+              "rel": "canonical",
+            },
+            "tag": "link",
+          },
+        ],
+        "moderation_state": null,
+        "name": "VA Boston health care",
+        "parent": [
+          {
+            "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 162,
+            },
+            "type": "taxonomy_term--administration",
+          },
+        ],
+        "path": {
+          "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+          "langcode": "en",
+          "pid": 7549,
+        },
+        "relationshipNames": [
+          "vid",
+          "revision_user",
+          "parent",
+          "content_translation_uid",
+          "field_product",
+        ],
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 205,
+        },
+        "revision_created": "2024-08-13T20:05:29+00:00",
+        "revision_log_message": null,
+        "revision_translation_affected": true,
+        "revision_user": {
+          "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 4942,
+          },
+          "type": "user--user",
+        },
+        "status": true,
+        "type": "taxonomy_term--administration",
+        "vid": {
+          "id": "645055c5-e567-4683-b6db-459ce04522ce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "administration",
+          },
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        },
+        "weight": 1,
+      },
+      "field_appointments_help_text": null,
+      "field_enforce_unique_combo": false,
+      "field_facility_location": {
+        "id": "d811b929-f561-4128-9b30-1debfe3e6a4a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1269,
+        },
+        "type": "node--health_care_local_facility",
+      },
+      "field_facility_service_loc_help": null,
+      "field_hservice_appt_intro_select": "custom_intro_text",
+      "field_hservice_appt_leadin": "The West Roxbury Mobility Clinic serves Veterans with Spinal Cord Injury/Disease or Amyotrophic Lateral Sclerosis. Others can be seen at Brockton or JP. Call for an evaluation or ask for a referral. ",
+      "field_hservices_lead_in_default": null,
+      "field_last_saved_by_an_editor": "2023-11-08T13:00:38+00:00",
+      "field_online_scheduling_availabl": "0",
+      "field_phone_numbers_paragraph": [
+        {
+          "id": "a2c3fbf4-8c13-46f1-8c8a-60701c9c4488",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 141372,
+            "target_revision_id": 1338174,
+          },
+          "type": "paragraph--phone_number",
+        },
+      ],
+      "field_referral_required": "0",
+      "field_regional_health_service": {
+        "breadcrumbs": [
+          {
+            "options": [],
+            "title": "Home",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          },
+          {
+            "options": [],
+            "title": "VA Boston Health Care",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
+          },
+          {
+            "options": [],
+            "title": "Health Services",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/health-services",
+          },
+          {
+            "options": [],
+            "title": "Wheelchair and Mobility At VA Boston Health Care",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/health-services/wheelchair-and-mobility-at-va-boston-health-care",
+          },
+        ],
+        "changed": "2023-11-15T13:10:07+00:00",
+        "content_translation_outdated": false,
+        "content_translation_source": "und",
+        "created": "2021-07-30T19:58:14+00:00",
+        "default_langcode": true,
+        "drupal_internal__nid": 28513,
+        "drupal_internal__vid": 822464,
+        "expiration_date": null,
+        "field_administration": {
+          "breadcrumbs": [
+            {
+              "options": [],
+              "title": "Home",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            },
+            {
+              "options": [],
+              "title": "VHA",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+            },
+            {
+              "options": [],
+              "title": "VAMC facilities",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+            },
+            {
+              "options": [],
+              "title": "VISN 1",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
+            },
+            {
+              "options": [],
+              "title": "VA Boston health care",
+              "uri": "internal:#",
+            },
+          ],
+          "changed": "2024-08-13T20:05:29+00:00",
+          "content_translation_created": null,
+          "content_translation_outdated": false,
+          "content_translation_source": "und",
+          "content_translation_uid": null,
+          "default_langcode": true,
+          "description": null,
+          "drupal_internal__revision_id": 2322,
+          "drupal_internal__tid": 205,
+          "field_description": null,
+          "field_product": {
+            "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 284,
+            },
+            "type": "taxonomy_term--products",
+          },
+          "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+          "langcode": "en",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322",
+            },
+          },
+          "metatag": [
+            {
+              "attributes": {
+                "content": "VA Boston health care | VA.gov CMS",
+                "name": "title",
+              },
+              "tag": "meta",
+            },
+            {
+              "attributes": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care",
+                "rel": "canonical",
+              },
+              "tag": "link",
+            },
+          ],
+          "moderation_state": null,
+          "name": "VA Boston health care",
+          "parent": [
+            {
+              "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 162,
+              },
+              "type": "taxonomy_term--administration",
+            },
+          ],
+          "path": {
+            "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+            "langcode": "en",
+            "pid": 7549,
+          },
+          "relationshipNames": [
+            "vid",
+            "revision_user",
+            "parent",
+            "content_translation_uid",
+            "field_product",
+          ],
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 205,
+          },
+          "revision_created": "2024-08-13T20:05:29+00:00",
+          "revision_log_message": null,
+          "revision_translation_affected": true,
+          "revision_user": {
+            "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 4942,
+            },
+            "type": "user--user",
+          },
+          "status": true,
+          "type": "taxonomy_term--administration",
+          "vid": {
+            "id": "645055c5-e567-4683-b6db-459ce04522ce",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "administration",
+            },
+            "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          },
+          "weight": 1,
+        },
+        "field_body": {
+          "format": "rich_text_limited",
+          "processed": "<p>Our team works with you to:</p>
+<ul>
+<li>Assess your individual need for mobility, which may include lightweight manual and sports or power wheelchairs</li>
+<li>Optimize seating positioning</li>
+<li>Achieve maximum function and independence</li>
+<li>Promote good posture, breathing, digestion and tissue health</li>
+<li>Prevent complications and additional injuries, such as pressure ulcers</li>
+</ul>
+<p>VA Boston Wheelchair and Seating Clinics provide lifelong service. Our program will repair damaged equipment or replace equipment when it is beyond repair, or when it is due for replacement.</p>
+<p><strong>Virtual care:</strong></p>
+<p>If the Veteran or caregiver has access to Veteran Video Connect on their smartphone, tablet or computer, there is a possibility that a portion of the wheelchair and seating visit could be conducted virtually. The program encourages Veterans to inquire about this virtual clinic option at time of scheduling.</p>
+<p><strong>How to schedule with Wheelchair and Seating clinics:</strong></p>
+<ul>
+<li>Veterans can call the clinic and self-refer if they feel an evaluation is indicated</li>
+</ul>
+<ul>
+<li>Veterans can obtain a referral from their primary care doctor or another specialty provider</li>
+</ul>
+",
+          "value": "<p>Our team works with you to:</p>
+
+<ul>
+	<li>Assess your individual need for mobility, which may include lightweight manual and sports or power wheelchairs</li>
+	<li>Optimize seating positioning</li>
+	<li>Achieve maximum function and independence</li>
+	<li>Promote good posture, breathing, digestion and tissue health</li>
+	<li>Prevent complications and additional injuries, such as pressure ulcers</li>
+</ul>
+
+<p>VA Boston Wheelchair and Seating Clinics provide lifelong service. Our program will repair damaged equipment or replace equipment when it is beyond repair, or when it is due for replacement.</p>
+
+<p><strong>Virtual care:</strong></p>
+
+<p>If the Veteran or caregiver has access to Veteran Video Connect on their smartphone, tablet or computer, there is a possibility that a portion of the wheelchair and seating visit could be conducted virtually. The program encourages Veterans to inquire about this virtual clinic option at time of scheduling.</p>
+
+<p><strong>How to schedule with Wheelchair and Seating clinics:</strong></p>
+
+<ul>
+	<li>Veterans can call the clinic and self-refer if they feel an evaluation is indicated</li>
+</ul>
+
+<ul>
+	<li>Veterans can obtain a referral from their primary care doctor or another specialty provider</li>
+</ul>
+",
+        },
+        "field_enforce_unique_combo": false,
+        "field_last_saved_by_an_editor": "2023-11-15T13:10:08+00:00",
+        "field_local_health_care_service_": [
+          {
+            "id": "86f7b249-3ad9-441b-830d-d264addd18ff",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 30357,
+            },
+            "type": "node--health_care_local_health_service",
+          },
+          {
+            "id": "b459696b-adf0-4333-b602-8168f82111eb",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 39653,
+            },
+            "type": "node--health_care_local_health_service",
+          },
+          {
+            "breadcrumbs": [
+              {
+                "options": [],
+                "title": "Home",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              },
+              {
+                "options": [],
+                "title": "VA Boston Health Care",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
+              },
+              {
+                "options": [],
+                "title": "Locations",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
+              },
+              {
+                "options": [],
+                "title": "West Roxbury VA Medical Center",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations/west-roxbury-va-medical-center",
+              },
+              {
+                "options": [],
+                "title": "Wheelchair and Mobility - West Roxbury VA Medical Center",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations/west-roxbury-va-medical-center/wheelchair-and-mobility",
+              },
+            ],
+            "changed": "2024-05-13T21:03:13+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2021-11-23T22:37:06+00:00",
+            "default_langcode": true,
+            "drupal_internal__nid": 39654,
+            "drupal_internal__vid": 886491,
+            "expiration_date": null,
+            "field_administration": {
+              "breadcrumbs": [
+                {
+                  "options": [],
+                  "title": "Home",
+                  "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                },
+                {
+                  "options": [],
+                  "title": "VHA",
+                  "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+                },
+                {
+                  "options": [],
+                  "title": "VAMC facilities",
+                  "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+                },
+                {
+                  "options": [],
+                  "title": "VISN 1",
+                  "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
+                },
+                {
+                  "options": [],
+                  "title": "VA Boston health care",
+                  "uri": "internal:#",
+                },
+              ],
+              "changed": "2024-08-13T20:05:29+00:00",
+              "content_translation_created": null,
+              "content_translation_outdated": false,
+              "content_translation_source": "und",
+              "content_translation_uid": null,
+              "default_langcode": true,
+              "description": null,
+              "drupal_internal__revision_id": 2322,
+              "drupal_internal__tid": 205,
+              "field_description": null,
+              "field_product": {
+                "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 284,
+                },
+                "type": "taxonomy_term--products",
+              },
+              "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+              "langcode": "en",
+              "links": {
+                "self": {
+                  "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322",
+                },
+              },
+              "metatag": [
+                {
+                  "attributes": {
+                    "content": "VA Boston health care | VA.gov CMS",
+                    "name": "title",
+                  },
+                  "tag": "meta",
+                },
+                {
+                  "attributes": {
+                    "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care",
+                    "rel": "canonical",
+                  },
+                  "tag": "link",
+                },
+              ],
+              "moderation_state": null,
+              "name": "VA Boston health care",
+              "parent": [
+                {
+                  "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+                  "resourceIdObjMeta": {
+                    "drupal_internal__target_id": 162,
+                  },
+                  "type": "taxonomy_term--administration",
+                },
+              ],
+              "path": {
+                "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+                "langcode": "en",
+                "pid": 7549,
+              },
+              "relationshipNames": [
+                "vid",
+                "revision_user",
+                "parent",
+                "content_translation_uid",
+                "field_product",
+              ],
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 205,
+              },
+              "revision_created": "2024-08-13T20:05:29+00:00",
+              "revision_log_message": null,
+              "revision_translation_affected": true,
+              "revision_user": {
+                "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 4942,
+                },
+                "type": "user--user",
+              },
+              "status": true,
+              "type": "taxonomy_term--administration",
+              "vid": {
+                "id": "645055c5-e567-4683-b6db-459ce04522ce",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "administration",
+                },
+                "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+              },
+              "weight": 1,
+            },
+            "field_appointments_help_text": null,
+            "field_enforce_unique_combo": false,
+            "field_facility_location": {
+              "id": "d811b929-f561-4128-9b30-1debfe3e6a4a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1269,
+              },
+              "type": "node--health_care_local_facility",
+            },
+            "field_facility_service_loc_help": null,
+            "field_hservice_appt_intro_select": "custom_intro_text",
+            "field_hservice_appt_leadin": "The West Roxbury Mobility Clinic serves Veterans with Spinal Cord Injury/Disease or Amyotrophic Lateral Sclerosis. Others can be seen at Brockton or JP. Call for an evaluation or ask for a referral. ",
+            "field_hservices_lead_in_default": null,
+            "field_last_saved_by_an_editor": "2023-11-08T13:00:38+00:00",
+            "field_online_scheduling_availabl": "0",
+            "field_phone_numbers_paragraph": [
+              {
+                "id": "a2c3fbf4-8c13-46f1-8c8a-60701c9c4488",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 141372,
+                  "target_revision_id": 1338174,
+                },
+                "type": "paragraph--phone_number",
+              },
+            ],
+            "field_referral_required": "0",
+            "field_regional_health_service": null,
+            "field_service_location": [
+              {
+                "behavior_settings": [],
+                "breadcrumbs": [],
+                "content_translation_changed": null,
+                "content_translation_outdated": false,
+                "content_translation_source": "und",
+                "created": "2021-11-23T22:37:06+00:00",
+                "default_langcode": true,
+                "drupal_internal__id": 93912,
+                "drupal_internal__revision_id": 1338178,
+                "field_additional_hours_info": "VA Boston Wheelchair and Seating Clinics provide lifelong service for all Veterans served in our clinics. Our program will repair damaged equipment or replace equipment when it is beyond repair or when it is due for replacement. ",
+                "field_appt_intro_text_custom": "The West Roxbury Mobility Clinic serves Veterans with Spinal Cord Injury/Disease or Amyotrophic Lateral Sclerosis. Others can be seen at Brockton or JP. Call for an evaluation or ask for a referral. ",
+                "field_appt_intro_text_type": "customize_text",
+                "field_email_contacts": [],
+                "field_hours": "2",
+                "field_office_hours": [
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 1,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 2,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 3,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 4,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 5,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "Closed",
+                    "day": 6,
+                    "endhours": null,
+                    "starthours": null,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "Closed",
+                    "day": 0,
+                    "endhours": null,
+                    "starthours": null,
+                  },
+                ],
+                "field_office_visits": "yes_appointment_only",
+                "field_online_scheduling_avail": "no",
+                "field_other_phone_numbers": [
+                  {
+                    "id": "de3cc05e-21d3-4f4c-94b1-750a168cef3c",
+                    "resourceIdObjMeta": {
+                      "drupal_internal__target_id": 153639,
+                      "target_revision_id": 1338175,
+                    },
+                    "type": "paragraph--phone_number",
+                  },
+                ],
+                "field_phone": [
+                  {
+                    "id": "c0811cd1-7f2c-4408-bb3f-3609b1e4fce8",
+                    "resourceIdObjMeta": {
+                      "drupal_internal__target_id": 141371,
+                      "target_revision_id": 1338176,
+                    },
+                    "type": "paragraph--phone_number",
+                  },
+                ],
+                "field_service_location_address": {
+                  "id": "ed91bbbd-3b4d-4016-82d1-847e0a761f23",
+                  "resourceIdObjMeta": {
+                    "drupal_internal__target_id": 93911,
+                    "target_revision_id": 1338177,
+                  },
+                  "type": "paragraph--service_location_address",
+                },
+                "field_use_facility_phone_number": false,
+                "field_use_main_facility_phone": false,
+                "field_virtual_support": null,
+                "id": "33e14f9d-b133-4287-ab28-ee32bfb62cf0",
+                "langcode": "en",
+                "links": {
+                  "self": {
+                    "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/33e14f9d-b133-4287-ab28-ee32bfb62cf0?resourceVersion=id%3A1338178",
+                  },
+                },
+                "paragraph_type": {
+                  "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+                  "resourceIdObjMeta": {
+                    "drupal_internal__target_id": "service_location",
+                  },
+                  "type": "paragraphs_type--paragraphs_type",
+                },
+                "parent_field_name": "field_service_location",
+                "parent_id": "39654",
+                "parent_type": "node",
+                "relationshipNames": [
+                  "paragraph_type",
+                  "field_email_contacts",
+                  "field_other_phone_numbers",
+                  "field_phone",
+                  "field_service_location_address",
+                ],
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 93912,
+                  "target_revision_id": 1338178,
+                },
+                "revision_translation_affected": true,
+                "status": true,
+                "type": "paragraph--service_location",
+              },
+            ],
+            "field_walk_ins_accepted": "0",
+            "id": "8f14f722-7ad6-4e1d-836d-ec4f91f1e071",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_health_service/8f14f722-7ad6-4e1d-836d-ec4f91f1e071?resourceVersion=id%3A886491",
+              },
+            },
+            "metatag": [
+              {
+                "attributes": {
+                  "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+                  "name": "title",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+                  "rel": "image_src",
+                },
+                "tag": "link",
+              },
+              {
+                "attributes": {
+                  "content": "Veterans Affairs",
+                  "property": "og:site_name",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+                  "property": "og:title",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+                  "property": "og:image",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "U.S. Department of Veterans Affairs",
+                  "property": "og:image:alt",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "summary_large_image",
+                  "name": "twitter:card",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "@DeptVetAffairs",
+                  "name": "twitter:site",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+                  "name": "twitter:title",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "U.S. Department of Veterans Affairs",
+                  "name": "twitter:image:alt",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+                  "name": "twitter:image",
+                },
+                "tag": "meta",
+              },
+            ],
+            "moderation_state": "published",
+            "node_type": {
+              "id": "30801b3d-e2cd-48db-9066-78f7530d34e2",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "health_care_local_health_service",
+              },
+              "type": "node_type--node_type",
+            },
+            "path": {
+              "alias": "/boston-health-care/locations/west-roxbury-va-medical-center/wheelchair-and-mobility",
+              "langcode": "en",
+              "pid": 49798,
+            },
+            "promote": false,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_facility_location",
+              "field_phone_numbers_paragraph",
+              "field_regional_health_service",
+              "field_service_location",
+              "field_administration",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 39654,
+            },
+            "revision_log": "Automated move of Facility Health Service data into Service Locations.",
+            "revision_timestamp": "2024-05-13T21:03:14+00:00",
+            "revision_translation_affected": true,
+            "revision_uid": {
+              "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1317,
+              },
+              "type": "user--user",
+            },
+            "status": true,
+            "sticky": false,
+            "title": "Wheelchair and mobility - West Roxbury VA Medical Center",
+            "type": "node--health_care_local_health_service",
+            "uid": {
+              "id": "d5defd98-763a-4a5a-bed8-a003686c02ba",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 2910,
+              },
+              "type": "user--user",
+            },
+            "warning_date": null,
+          },
+          {
+            "id": "a4718db9-e671-4a12-8343-b555fab976de",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 39655,
+            },
+            "type": "node--health_care_local_health_service",
+          },
+        ],
+        "field_region_page": {
+          "id": "def03529-b07f-4e36-b3aa-e88ffeaa222a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 11023,
+          },
+          "type": "node--health_care_region_page",
+        },
+        "field_service_name_and_descripti": {
+          "breadcrumbs": [
+            {
+              "options": [],
+              "title": "Home",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            },
+            {
+              "options": [],
+              "title": "VA Health Care",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care",
+            },
+            {
+              "options": [],
+              "title": "Wheelchair and Mobility",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care/wheelchair-and-mobility",
+            },
+          ],
+          "changed": "2024-11-05T17:37:39+00:00",
+          "content_translation_created": null,
+          "content_translation_outdated": false,
+          "content_translation_source": "und",
+          "content_translation_uid": null,
+          "default_langcode": true,
+          "description": {
+            "format": "rich_text",
+            "processed": "<p>We provide support and assistive devices, including wheelchairs, scooters, walkers&nbsp;and canes, to help you preserve and increase your mobility.</p>",
+            "value": "<p>We provide support and assistive devices, including wheelchairs, scooters, walkers and canes, to help you preserve and increase your mobility.</p>
+",
+          },
+          "drupal_internal__revision_id": 2863,
+          "drupal_internal__tid": 60,
+          "field_also_known_as": "Wheelchairs, scooters and custom seating",
+          "field_commonly_treated_condition": null,
+          "field_enforce_unique_combo_servi": false,
+          "field_facility_service_descripti": null,
+          "field_facility_service_header": null,
+          "field_health_service_api_id": "mobility",
+          "field_online_self_service": null,
+          "field_owner": {
+            "id": "missing",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+                  "meta": {
+                    "about": "Usage and meaning of the 'missing' resource identifier.",
+                  },
+                },
+              },
+            },
+            "type": "taxonomy_term--administration",
+          },
+          "field_regional_service_descripti": null,
+          "field_regional_service_header": null,
+          "field_service_type_of_care": "Specialty care",
+          "field_show_for_vamc_facilities": true,
+          "field_show_for_vba_facilities": false,
+          "field_show_for_vet_centers": false,
+          "field_tricare_description": null,
+          "field_tricare_specific_service": false,
+          "field_vba_com_conditions": null,
+          "field_vba_friendly_name": null,
+          "field_vba_service_descrip": null,
+          "field_vba_service_regions": [],
+          "field_vba_type_of_care": null,
+          "field_vet_center_com_conditions": null,
+          "field_vet_center_friendly_name": null,
+          "field_vet_center_required_servic": false,
+          "field_vet_center_service_descrip": null,
+          "field_vet_center_type_of_care": null,
+          "field_vha_healthservice_stopcode": null,
+          "id": "f4eb738f-cafb-428b-9f32-160bfa083367",
+          "langcode": "en",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/health_care_service_taxonomy/f4eb738f-cafb-428b-9f32-160bfa083367?resourceVersion=id%3A2863",
+            },
+          },
+          "metatag": [
+            {
+              "attributes": {
+                "content": "Wheelchair and mobility | VA.gov CMS",
+                "name": "title",
+              },
+              "tag": "meta",
+            },
+            {
+              "attributes": {
+                "content": "We provide support and assistive devices, including wheelchairs, scooters, walkers and canes, to help you preserve and increase your mobility.",
+                "name": "description",
+              },
+              "tag": "meta",
+            },
+            {
+              "attributes": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care/wheelchair-and-mobility",
+                "rel": "canonical",
+              },
+              "tag": "link",
+            },
+          ],
+          "moderation_state": "published",
+          "name": "Wheelchair and mobility",
+          "parent": [
+            {
+              "id": "virtual",
+              "resourceIdObjMeta": {
+                "links": {
+                  "help": {
+                    "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                    "meta": {
+                      "about": "Usage and meaning of the 'virtual' resource identifier.",
+                    },
+                  },
+                },
+              },
+              "type": "taxonomy_term--health_care_service_taxonomy",
+            },
+          ],
+          "path": {
+            "alias": "/health-care/wheelchair-and-mobility",
+            "langcode": "en",
+            "pid": 426,
+          },
+          "relationshipNames": [
+            "vid",
+            "revision_user",
+            "parent",
+            "content_translation_uid",
+            "field_vba_service_regions",
+            "field_owner",
+          ],
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 60,
+          },
+          "revision_created": "2024-11-05T17:37:39+00:00",
+          "revision_log_message": "update common conditions list",
+          "revision_translation_affected": true,
+          "revision_user": {
+            "id": "046efefc-96f6-4569-b30c-806ef618be5a",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1342,
+            },
+            "type": "user--user",
+          },
+          "status": true,
+          "type": "taxonomy_term--health_care_service_taxonomy",
+          "vid": {
+            "id": "1ae4c52e-f750-44eb-9e53-e10234617743",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "health_care_service_taxonomy",
+            },
+            "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          },
+          "weight": 0,
+        },
+        "id": "f5388369-8f72-4d99-8205-17040b8c5773",
+        "langcode": "en",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/regional_health_care_service_des/f5388369-8f72-4d99-8205-17040b8c5773?resourceVersion=id%3A822464",
+          },
+        },
+        "metatag": [
+          {
+            "attributes": {
+              "content": "Wheelchair and mobility at VA Boston health care | Veterans Affairs",
+              "name": "title",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+              "rel": "image_src",
+            },
+            "tag": "link",
+          },
+          {
+            "attributes": {
+              "content": "Veterans Affairs",
+              "property": "og:site_name",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "Wheelchair and mobility at VA Boston health care | Veterans Affairs",
+              "property": "og:title",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+              "property": "og:image",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "U.S. Department of Veterans Affairs",
+              "property": "og:image:alt",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "summary_large_image",
+              "name": "twitter:card",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "@DeptVetAffairs",
+              "name": "twitter:site",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "Wheelchair and mobility at VA Boston health care | Veterans Affairs",
+              "name": "twitter:title",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "U.S. Department of Veterans Affairs",
+              "name": "twitter:image:alt",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+              "name": "twitter:image",
+            },
+            "tag": "meta",
+          },
+        ],
+        "moderation_state": "published",
+        "node_type": {
+          "id": "d2e27d2b-acb1-471b-a628-4c41c3778729",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "regional_health_care_service_des",
+          },
+          "type": "node_type--node_type",
+        },
+        "path": {
+          "alias": "/boston-health-care/health-services/wheelchair-and-mobility-at-va-boston-health-care",
+          "langcode": "en",
+          "pid": 34458,
+        },
+        "promote": false,
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_administration",
+          "field_local_health_care_service_",
+          "field_region_page",
+          "field_service_name_and_descripti",
+        ],
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28513,
+        },
+        "revision_log": "Updating IAW LEAF request # 4078",
+        "revision_timestamp": "2023-11-15T13:10:07+00:00",
+        "revision_translation_affected": true,
+        "revision_uid": {
+          "id": "d5defd98-763a-4a5a-bed8-a003686c02ba",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2910,
+          },
+          "type": "user--user",
+        },
+        "status": true,
+        "sticky": false,
+        "title": "Wheelchair and mobility at VA Boston health care",
+        "type": "node--regional_health_care_service_des",
+        "uid": {
+          "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1317,
+          },
+          "type": "user--user",
+        },
+        "warning_date": null,
+      },
+      "field_service_location": [
+        {
+          "behavior_settings": [],
+          "breadcrumbs": [],
+          "content_translation_changed": null,
+          "content_translation_outdated": false,
+          "content_translation_source": "und",
+          "created": "2021-11-23T22:37:06+00:00",
+          "default_langcode": true,
+          "drupal_internal__id": 93912,
+          "drupal_internal__revision_id": 1338178,
+          "field_additional_hours_info": "VA Boston Wheelchair and Seating Clinics provide lifelong service for all Veterans served in our clinics. Our program will repair damaged equipment or replace equipment when it is beyond repair or when it is due for replacement. ",
+          "field_appt_intro_text_custom": "The West Roxbury Mobility Clinic serves Veterans with Spinal Cord Injury/Disease or Amyotrophic Lateral Sclerosis. Others can be seen at Brockton or JP. Call for an evaluation or ask for a referral. ",
+          "field_appt_intro_text_type": "customize_text",
+          "field_email_contacts": [],
+          "field_hours": "2",
+          "field_office_hours": [
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 1,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 2,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 3,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 4,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 5,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "Closed",
+              "day": 6,
+              "endhours": null,
+              "starthours": null,
+            },
+            {
+              "all_day": false,
+              "comment": "Closed",
+              "day": 0,
+              "endhours": null,
+              "starthours": null,
+            },
+          ],
+          "field_office_visits": "yes_appointment_only",
+          "field_online_scheduling_avail": "no",
+          "field_other_phone_numbers": [
+            {
+              "id": "de3cc05e-21d3-4f4c-94b1-750a168cef3c",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 153639,
+                "target_revision_id": 1338175,
+              },
+              "type": "paragraph--phone_number",
+            },
+          ],
+          "field_phone": [
+            {
+              "id": "c0811cd1-7f2c-4408-bb3f-3609b1e4fce8",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 141371,
+                "target_revision_id": 1338176,
+              },
+              "type": "paragraph--phone_number",
+            },
+          ],
+          "field_service_location_address": {
+            "id": "ed91bbbd-3b4d-4016-82d1-847e0a761f23",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 93911,
+              "target_revision_id": 1338177,
+            },
+            "type": "paragraph--service_location_address",
+          },
+          "field_use_facility_phone_number": false,
+          "field_use_main_facility_phone": false,
+          "field_virtual_support": null,
+          "id": "33e14f9d-b133-4287-ab28-ee32bfb62cf0",
+          "langcode": "en",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/33e14f9d-b133-4287-ab28-ee32bfb62cf0?resourceVersion=id%3A1338178",
+            },
+          },
+          "paragraph_type": {
+            "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "service_location",
+            },
+            "type": "paragraphs_type--paragraphs_type",
+          },
+          "parent_field_name": "field_service_location",
+          "parent_id": "39654",
+          "parent_type": "node",
+          "relationshipNames": [
+            "paragraph_type",
+            "field_email_contacts",
+            "field_other_phone_numbers",
+            "field_phone",
+            "field_service_location_address",
+          ],
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 93912,
+            "target_revision_id": 1338178,
+          },
+          "revision_translation_affected": true,
+          "status": true,
+          "type": "paragraph--service_location",
+        },
+      ],
+      "field_walk_ins_accepted": "0",
+      "id": "8f14f722-7ad6-4e1d-836d-ec4f91f1e071",
+      "langcode": "en",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_health_service/8f14f722-7ad6-4e1d-836d-ec4f91f1e071?resourceVersion=id%3A886491",
+        },
+      },
+      "metatag": [
+        {
+          "attributes": {
+            "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+            "name": "title",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+            "rel": "image_src",
+          },
+          "tag": "link",
+        },
+        {
+          "attributes": {
+            "content": "Veterans Affairs",
+            "property": "og:site_name",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+            "property": "og:title",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+            "property": "og:image",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "U.S. Department of Veterans Affairs",
+            "property": "og:image:alt",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "summary_large_image",
+            "name": "twitter:card",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "@DeptVetAffairs",
+            "name": "twitter:site",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+            "name": "twitter:title",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "U.S. Department of Veterans Affairs",
+            "name": "twitter:image:alt",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+            "name": "twitter:image",
+          },
+          "tag": "meta",
+        },
+      ],
+      "moderation_state": "published",
+      "node_type": {
+        "id": "30801b3d-e2cd-48db-9066-78f7530d34e2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_local_health_service",
+        },
+        "type": "node_type--node_type",
+      },
+      "path": {
+        "alias": "/boston-health-care/locations/west-roxbury-va-medical-center/wheelchair-and-mobility",
+        "langcode": "en",
+        "pid": 49798,
+      },
+      "promote": false,
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_facility_location",
+        "field_phone_numbers_paragraph",
+        "field_regional_health_service",
+        "field_service_location",
+        "field_administration",
+      ],
+      "revision_log": "Automated move of Facility Health Service data into Service Locations.",
+      "revision_timestamp": "2024-05-13T21:03:14+00:00",
+      "revision_translation_affected": true,
+      "revision_uid": {
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317,
+        },
+        "type": "user--user",
+      },
+      "status": true,
+      "sticky": false,
+      "title": "Wheelchair and mobility - West Roxbury VA Medical Center",
+      "type": "node--health_care_local_health_service",
+      "uid": {
+        "id": "d5defd98-763a-4a5a-bed8-a003686c02ba",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2910,
+        },
+        "type": "user--user",
+      },
+      "warning_date": null,
+    },
+  ],
   "id": "cb577a82-953f-4306-84c6-a65abf1b45ea",
   "image": {
     "alt": "Causeway VA Clinic",
@@ -635,6 +2047,1418 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "top": 42.36659056,
     "value": "POINT (-71.05901821 42.36659056)",
   },
+  "healthServices": [
+    {
+      "breadcrumbs": [
+        {
+          "options": [],
+          "title": "Home",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        },
+        {
+          "options": [],
+          "title": "VA Boston Health Care",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
+        },
+        {
+          "options": [],
+          "title": "Locations",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
+        },
+        {
+          "options": [],
+          "title": "West Roxbury VA Medical Center",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations/west-roxbury-va-medical-center",
+        },
+        {
+          "options": [],
+          "title": "Wheelchair and Mobility - West Roxbury VA Medical Center",
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations/west-roxbury-va-medical-center/wheelchair-and-mobility",
+        },
+      ],
+      "changed": "2024-05-13T21:03:13+00:00",
+      "content_translation_outdated": false,
+      "content_translation_source": "und",
+      "created": "2021-11-23T22:37:06+00:00",
+      "default_langcode": true,
+      "drupal_internal__nid": 39654,
+      "drupal_internal__vid": 886491,
+      "expiration_date": null,
+      "field_administration": {
+        "breadcrumbs": [
+          {
+            "options": [],
+            "title": "Home",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          },
+          {
+            "options": [],
+            "title": "VHA",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+          },
+          {
+            "options": [],
+            "title": "VAMC facilities",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+          },
+          {
+            "options": [],
+            "title": "VISN 1",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
+          },
+          {
+            "options": [],
+            "title": "VA Boston health care",
+            "uri": "internal:#",
+          },
+        ],
+        "changed": "2024-08-13T20:05:29+00:00",
+        "content_translation_created": null,
+        "content_translation_outdated": false,
+        "content_translation_source": "und",
+        "content_translation_uid": null,
+        "default_langcode": true,
+        "description": null,
+        "drupal_internal__revision_id": 2322,
+        "drupal_internal__tid": 205,
+        "field_description": null,
+        "field_product": {
+          "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 284,
+          },
+          "type": "taxonomy_term--products",
+        },
+        "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+        "langcode": "en",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322",
+          },
+        },
+        "metatag": [
+          {
+            "attributes": {
+              "content": "VA Boston health care | VA.gov CMS",
+              "name": "title",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care",
+              "rel": "canonical",
+            },
+            "tag": "link",
+          },
+        ],
+        "moderation_state": null,
+        "name": "VA Boston health care",
+        "parent": [
+          {
+            "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 162,
+            },
+            "type": "taxonomy_term--administration",
+          },
+        ],
+        "path": {
+          "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+          "langcode": "en",
+          "pid": 7549,
+        },
+        "relationshipNames": [
+          "vid",
+          "revision_user",
+          "parent",
+          "content_translation_uid",
+          "field_product",
+        ],
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 205,
+        },
+        "revision_created": "2024-08-13T20:05:29+00:00",
+        "revision_log_message": null,
+        "revision_translation_affected": true,
+        "revision_user": {
+          "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 4942,
+          },
+          "type": "user--user",
+        },
+        "status": true,
+        "type": "taxonomy_term--administration",
+        "vid": {
+          "id": "645055c5-e567-4683-b6db-459ce04522ce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "administration",
+          },
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        },
+        "weight": 1,
+      },
+      "field_appointments_help_text": null,
+      "field_enforce_unique_combo": false,
+      "field_facility_location": {
+        "id": "d811b929-f561-4128-9b30-1debfe3e6a4a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1269,
+        },
+        "type": "node--health_care_local_facility",
+      },
+      "field_facility_service_loc_help": null,
+      "field_hservice_appt_intro_select": "custom_intro_text",
+      "field_hservice_appt_leadin": "The West Roxbury Mobility Clinic serves Veterans with Spinal Cord Injury/Disease or Amyotrophic Lateral Sclerosis. Others can be seen at Brockton or JP. Call for an evaluation or ask for a referral. ",
+      "field_hservices_lead_in_default": null,
+      "field_last_saved_by_an_editor": "2023-11-08T13:00:38+00:00",
+      "field_online_scheduling_availabl": "0",
+      "field_phone_numbers_paragraph": [
+        {
+          "id": "a2c3fbf4-8c13-46f1-8c8a-60701c9c4488",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 141372,
+            "target_revision_id": 1338174,
+          },
+          "type": "paragraph--phone_number",
+        },
+      ],
+      "field_referral_required": "0",
+      "field_regional_health_service": {
+        "breadcrumbs": [
+          {
+            "options": [],
+            "title": "Home",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          },
+          {
+            "options": [],
+            "title": "VA Boston Health Care",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
+          },
+          {
+            "options": [],
+            "title": "Health Services",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/health-services",
+          },
+          {
+            "options": [],
+            "title": "Wheelchair and Mobility At VA Boston Health Care",
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/health-services/wheelchair-and-mobility-at-va-boston-health-care",
+          },
+        ],
+        "changed": "2023-11-15T13:10:07+00:00",
+        "content_translation_outdated": false,
+        "content_translation_source": "und",
+        "created": "2021-07-30T19:58:14+00:00",
+        "default_langcode": true,
+        "drupal_internal__nid": 28513,
+        "drupal_internal__vid": 822464,
+        "expiration_date": null,
+        "field_administration": {
+          "breadcrumbs": [
+            {
+              "options": [],
+              "title": "Home",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            },
+            {
+              "options": [],
+              "title": "VHA",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+            },
+            {
+              "options": [],
+              "title": "VAMC facilities",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+            },
+            {
+              "options": [],
+              "title": "VISN 1",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
+            },
+            {
+              "options": [],
+              "title": "VA Boston health care",
+              "uri": "internal:#",
+            },
+          ],
+          "changed": "2024-08-13T20:05:29+00:00",
+          "content_translation_created": null,
+          "content_translation_outdated": false,
+          "content_translation_source": "und",
+          "content_translation_uid": null,
+          "default_langcode": true,
+          "description": null,
+          "drupal_internal__revision_id": 2322,
+          "drupal_internal__tid": 205,
+          "field_description": null,
+          "field_product": {
+            "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 284,
+            },
+            "type": "taxonomy_term--products",
+          },
+          "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+          "langcode": "en",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322",
+            },
+          },
+          "metatag": [
+            {
+              "attributes": {
+                "content": "VA Boston health care | VA.gov CMS",
+                "name": "title",
+              },
+              "tag": "meta",
+            },
+            {
+              "attributes": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care",
+                "rel": "canonical",
+              },
+              "tag": "link",
+            },
+          ],
+          "moderation_state": null,
+          "name": "VA Boston health care",
+          "parent": [
+            {
+              "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 162,
+              },
+              "type": "taxonomy_term--administration",
+            },
+          ],
+          "path": {
+            "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+            "langcode": "en",
+            "pid": 7549,
+          },
+          "relationshipNames": [
+            "vid",
+            "revision_user",
+            "parent",
+            "content_translation_uid",
+            "field_product",
+          ],
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 205,
+          },
+          "revision_created": "2024-08-13T20:05:29+00:00",
+          "revision_log_message": null,
+          "revision_translation_affected": true,
+          "revision_user": {
+            "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 4942,
+            },
+            "type": "user--user",
+          },
+          "status": true,
+          "type": "taxonomy_term--administration",
+          "vid": {
+            "id": "645055c5-e567-4683-b6db-459ce04522ce",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "administration",
+            },
+            "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          },
+          "weight": 1,
+        },
+        "field_body": {
+          "format": "rich_text_limited",
+          "processed": "<p>Our team works with you to:</p>
+<ul>
+<li>Assess your individual need for mobility, which may include lightweight manual and sports or power wheelchairs</li>
+<li>Optimize seating positioning</li>
+<li>Achieve maximum function and independence</li>
+<li>Promote good posture, breathing, digestion and tissue health</li>
+<li>Prevent complications and additional injuries, such as pressure ulcers</li>
+</ul>
+<p>VA Boston Wheelchair and Seating Clinics provide lifelong service. Our program will repair damaged equipment or replace equipment when it is beyond repair, or when it is due for replacement.</p>
+<p><strong>Virtual care:</strong></p>
+<p>If the Veteran or caregiver has access to Veteran Video Connect on their smartphone, tablet or computer, there is a possibility that a portion of the wheelchair and seating visit could be conducted virtually. The program encourages Veterans to inquire about this virtual clinic option at time of scheduling.</p>
+<p><strong>How to schedule with Wheelchair and Seating clinics:</strong></p>
+<ul>
+<li>Veterans can call the clinic and self-refer if they feel an evaluation is indicated</li>
+</ul>
+<ul>
+<li>Veterans can obtain a referral from their primary care doctor or another specialty provider</li>
+</ul>
+",
+          "value": "<p>Our team works with you to:</p>
+
+<ul>
+	<li>Assess your individual need for mobility, which may include lightweight manual and sports or power wheelchairs</li>
+	<li>Optimize seating positioning</li>
+	<li>Achieve maximum function and independence</li>
+	<li>Promote good posture, breathing, digestion and tissue health</li>
+	<li>Prevent complications and additional injuries, such as pressure ulcers</li>
+</ul>
+
+<p>VA Boston Wheelchair and Seating Clinics provide lifelong service. Our program will repair damaged equipment or replace equipment when it is beyond repair, or when it is due for replacement.</p>
+
+<p><strong>Virtual care:</strong></p>
+
+<p>If the Veteran or caregiver has access to Veteran Video Connect on their smartphone, tablet or computer, there is a possibility that a portion of the wheelchair and seating visit could be conducted virtually. The program encourages Veterans to inquire about this virtual clinic option at time of scheduling.</p>
+
+<p><strong>How to schedule with Wheelchair and Seating clinics:</strong></p>
+
+<ul>
+	<li>Veterans can call the clinic and self-refer if they feel an evaluation is indicated</li>
+</ul>
+
+<ul>
+	<li>Veterans can obtain a referral from their primary care doctor or another specialty provider</li>
+</ul>
+",
+        },
+        "field_enforce_unique_combo": false,
+        "field_last_saved_by_an_editor": "2023-11-15T13:10:08+00:00",
+        "field_local_health_care_service_": [
+          {
+            "id": "86f7b249-3ad9-441b-830d-d264addd18ff",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 30357,
+            },
+            "type": "node--health_care_local_health_service",
+          },
+          {
+            "id": "b459696b-adf0-4333-b602-8168f82111eb",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 39653,
+            },
+            "type": "node--health_care_local_health_service",
+          },
+          {
+            "breadcrumbs": [
+              {
+                "options": [],
+                "title": "Home",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+              },
+              {
+                "options": [],
+                "title": "VA Boston Health Care",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
+              },
+              {
+                "options": [],
+                "title": "Locations",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
+              },
+              {
+                "options": [],
+                "title": "West Roxbury VA Medical Center",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations/west-roxbury-va-medical-center",
+              },
+              {
+                "options": [],
+                "title": "Wheelchair and Mobility - West Roxbury VA Medical Center",
+                "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations/west-roxbury-va-medical-center/wheelchair-and-mobility",
+              },
+            ],
+            "changed": "2024-05-13T21:03:13+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2021-11-23T22:37:06+00:00",
+            "default_langcode": true,
+            "drupal_internal__nid": 39654,
+            "drupal_internal__vid": 886491,
+            "expiration_date": null,
+            "field_administration": {
+              "breadcrumbs": [
+                {
+                  "options": [],
+                  "title": "Home",
+                  "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+                },
+                {
+                  "options": [],
+                  "title": "VHA",
+                  "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+                },
+                {
+                  "options": [],
+                  "title": "VAMC facilities",
+                  "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+                },
+                {
+                  "options": [],
+                  "title": "VISN 1",
+                  "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-1",
+                },
+                {
+                  "options": [],
+                  "title": "VA Boston health care",
+                  "uri": "internal:#",
+                },
+              ],
+              "changed": "2024-08-13T20:05:29+00:00",
+              "content_translation_created": null,
+              "content_translation_outdated": false,
+              "content_translation_source": "und",
+              "content_translation_uid": null,
+              "default_langcode": true,
+              "description": null,
+              "drupal_internal__revision_id": 2322,
+              "drupal_internal__tid": 205,
+              "field_description": null,
+              "field_product": {
+                "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 284,
+                },
+                "type": "taxonomy_term--products",
+              },
+              "id": "e783562e-2dde-46f9-85f3-57e33ac3f40a",
+              "langcode": "en",
+              "links": {
+                "self": {
+                  "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/e783562e-2dde-46f9-85f3-57e33ac3f40a?resourceVersion=id%3A2322",
+                },
+              },
+              "metatag": [
+                {
+                  "attributes": {
+                    "content": "VA Boston health care | VA.gov CMS",
+                    "name": "title",
+                  },
+                  "tag": "meta",
+                },
+                {
+                  "attributes": {
+                    "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-boston-health-care",
+                    "rel": "canonical",
+                  },
+                  "tag": "link",
+                },
+              ],
+              "moderation_state": null,
+              "name": "VA Boston health care",
+              "parent": [
+                {
+                  "id": "4a838abf-3d7b-4d6e-9239-cfecddbf926f",
+                  "resourceIdObjMeta": {
+                    "drupal_internal__target_id": 162,
+                  },
+                  "type": "taxonomy_term--administration",
+                },
+              ],
+              "path": {
+                "alias": "/section/vha/vamc-facilities/va-boston-health-care",
+                "langcode": "en",
+                "pid": 7549,
+              },
+              "relationshipNames": [
+                "vid",
+                "revision_user",
+                "parent",
+                "content_translation_uid",
+                "field_product",
+              ],
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 205,
+              },
+              "revision_created": "2024-08-13T20:05:29+00:00",
+              "revision_log_message": null,
+              "revision_translation_affected": true,
+              "revision_user": {
+                "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 4942,
+                },
+                "type": "user--user",
+              },
+              "status": true,
+              "type": "taxonomy_term--administration",
+              "vid": {
+                "id": "645055c5-e567-4683-b6db-459ce04522ce",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": "administration",
+                },
+                "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+              },
+              "weight": 1,
+            },
+            "field_appointments_help_text": null,
+            "field_enforce_unique_combo": false,
+            "field_facility_location": {
+              "id": "d811b929-f561-4128-9b30-1debfe3e6a4a",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1269,
+              },
+              "type": "node--health_care_local_facility",
+            },
+            "field_facility_service_loc_help": null,
+            "field_hservice_appt_intro_select": "custom_intro_text",
+            "field_hservice_appt_leadin": "The West Roxbury Mobility Clinic serves Veterans with Spinal Cord Injury/Disease or Amyotrophic Lateral Sclerosis. Others can be seen at Brockton or JP. Call for an evaluation or ask for a referral. ",
+            "field_hservices_lead_in_default": null,
+            "field_last_saved_by_an_editor": "2023-11-08T13:00:38+00:00",
+            "field_online_scheduling_availabl": "0",
+            "field_phone_numbers_paragraph": [
+              {
+                "id": "a2c3fbf4-8c13-46f1-8c8a-60701c9c4488",
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 141372,
+                  "target_revision_id": 1338174,
+                },
+                "type": "paragraph--phone_number",
+              },
+            ],
+            "field_referral_required": "0",
+            "field_regional_health_service": null,
+            "field_service_location": [
+              {
+                "behavior_settings": [],
+                "breadcrumbs": [],
+                "content_translation_changed": null,
+                "content_translation_outdated": false,
+                "content_translation_source": "und",
+                "created": "2021-11-23T22:37:06+00:00",
+                "default_langcode": true,
+                "drupal_internal__id": 93912,
+                "drupal_internal__revision_id": 1338178,
+                "field_additional_hours_info": "VA Boston Wheelchair and Seating Clinics provide lifelong service for all Veterans served in our clinics. Our program will repair damaged equipment or replace equipment when it is beyond repair or when it is due for replacement. ",
+                "field_appt_intro_text_custom": "The West Roxbury Mobility Clinic serves Veterans with Spinal Cord Injury/Disease or Amyotrophic Lateral Sclerosis. Others can be seen at Brockton or JP. Call for an evaluation or ask for a referral. ",
+                "field_appt_intro_text_type": "customize_text",
+                "field_email_contacts": [],
+                "field_hours": "2",
+                "field_office_hours": [
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 1,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 2,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 3,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 4,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "",
+                    "day": 5,
+                    "endhours": 1600,
+                    "starthours": 800,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "Closed",
+                    "day": 6,
+                    "endhours": null,
+                    "starthours": null,
+                  },
+                  {
+                    "all_day": false,
+                    "comment": "Closed",
+                    "day": 0,
+                    "endhours": null,
+                    "starthours": null,
+                  },
+                ],
+                "field_office_visits": "yes_appointment_only",
+                "field_online_scheduling_avail": "no",
+                "field_other_phone_numbers": [
+                  {
+                    "id": "de3cc05e-21d3-4f4c-94b1-750a168cef3c",
+                    "resourceIdObjMeta": {
+                      "drupal_internal__target_id": 153639,
+                      "target_revision_id": 1338175,
+                    },
+                    "type": "paragraph--phone_number",
+                  },
+                ],
+                "field_phone": [
+                  {
+                    "id": "c0811cd1-7f2c-4408-bb3f-3609b1e4fce8",
+                    "resourceIdObjMeta": {
+                      "drupal_internal__target_id": 141371,
+                      "target_revision_id": 1338176,
+                    },
+                    "type": "paragraph--phone_number",
+                  },
+                ],
+                "field_service_location_address": {
+                  "id": "ed91bbbd-3b4d-4016-82d1-847e0a761f23",
+                  "resourceIdObjMeta": {
+                    "drupal_internal__target_id": 93911,
+                    "target_revision_id": 1338177,
+                  },
+                  "type": "paragraph--service_location_address",
+                },
+                "field_use_facility_phone_number": false,
+                "field_use_main_facility_phone": false,
+                "field_virtual_support": null,
+                "id": "33e14f9d-b133-4287-ab28-ee32bfb62cf0",
+                "langcode": "en",
+                "links": {
+                  "self": {
+                    "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/33e14f9d-b133-4287-ab28-ee32bfb62cf0?resourceVersion=id%3A1338178",
+                  },
+                },
+                "paragraph_type": {
+                  "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+                  "resourceIdObjMeta": {
+                    "drupal_internal__target_id": "service_location",
+                  },
+                  "type": "paragraphs_type--paragraphs_type",
+                },
+                "parent_field_name": "field_service_location",
+                "parent_id": "39654",
+                "parent_type": "node",
+                "relationshipNames": [
+                  "paragraph_type",
+                  "field_email_contacts",
+                  "field_other_phone_numbers",
+                  "field_phone",
+                  "field_service_location_address",
+                ],
+                "resourceIdObjMeta": {
+                  "drupal_internal__target_id": 93912,
+                  "target_revision_id": 1338178,
+                },
+                "revision_translation_affected": true,
+                "status": true,
+                "type": "paragraph--service_location",
+              },
+            ],
+            "field_walk_ins_accepted": "0",
+            "id": "8f14f722-7ad6-4e1d-836d-ec4f91f1e071",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_health_service/8f14f722-7ad6-4e1d-836d-ec4f91f1e071?resourceVersion=id%3A886491",
+              },
+            },
+            "metatag": [
+              {
+                "attributes": {
+                  "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+                  "name": "title",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+                  "rel": "image_src",
+                },
+                "tag": "link",
+              },
+              {
+                "attributes": {
+                  "content": "Veterans Affairs",
+                  "property": "og:site_name",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+                  "property": "og:title",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+                  "property": "og:image",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "U.S. Department of Veterans Affairs",
+                  "property": "og:image:alt",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "summary_large_image",
+                  "name": "twitter:card",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "@DeptVetAffairs",
+                  "name": "twitter:site",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+                  "name": "twitter:title",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "U.S. Department of Veterans Affairs",
+                  "name": "twitter:image:alt",
+                },
+                "tag": "meta",
+              },
+              {
+                "attributes": {
+                  "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+                  "name": "twitter:image",
+                },
+                "tag": "meta",
+              },
+            ],
+            "moderation_state": "published",
+            "node_type": {
+              "id": "30801b3d-e2cd-48db-9066-78f7530d34e2",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "health_care_local_health_service",
+              },
+              "type": "node_type--node_type",
+            },
+            "path": {
+              "alias": "/boston-health-care/locations/west-roxbury-va-medical-center/wheelchair-and-mobility",
+              "langcode": "en",
+              "pid": 49798,
+            },
+            "promote": false,
+            "relationshipNames": [
+              "node_type",
+              "revision_uid",
+              "uid",
+              "field_facility_location",
+              "field_phone_numbers_paragraph",
+              "field_regional_health_service",
+              "field_service_location",
+              "field_administration",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 39654,
+            },
+            "revision_log": "Automated move of Facility Health Service data into Service Locations.",
+            "revision_timestamp": "2024-05-13T21:03:14+00:00",
+            "revision_translation_affected": true,
+            "revision_uid": {
+              "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 1317,
+              },
+              "type": "user--user",
+            },
+            "status": true,
+            "sticky": false,
+            "title": "Wheelchair and mobility - West Roxbury VA Medical Center",
+            "type": "node--health_care_local_health_service",
+            "uid": {
+              "id": "d5defd98-763a-4a5a-bed8-a003686c02ba",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 2910,
+              },
+              "type": "user--user",
+            },
+            "warning_date": null,
+          },
+          {
+            "id": "a4718db9-e671-4a12-8343-b555fab976de",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 39655,
+            },
+            "type": "node--health_care_local_health_service",
+          },
+        ],
+        "field_region_page": {
+          "id": "def03529-b07f-4e36-b3aa-e88ffeaa222a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 11023,
+          },
+          "type": "node--health_care_region_page",
+        },
+        "field_service_name_and_descripti": {
+          "breadcrumbs": [
+            {
+              "options": [],
+              "title": "Home",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            },
+            {
+              "options": [],
+              "title": "VA Health Care",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care",
+            },
+            {
+              "options": [],
+              "title": "Wheelchair and Mobility",
+              "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care/wheelchair-and-mobility",
+            },
+          ],
+          "changed": "2024-11-05T17:37:39+00:00",
+          "content_translation_created": null,
+          "content_translation_outdated": false,
+          "content_translation_source": "und",
+          "content_translation_uid": null,
+          "default_langcode": true,
+          "description": {
+            "format": "rich_text",
+            "processed": "<p>We provide support and assistive devices, including wheelchairs, scooters, walkers&nbsp;and canes, to help you preserve and increase your mobility.</p>",
+            "value": "<p>We provide support and assistive devices, including wheelchairs, scooters, walkers and canes, to help you preserve and increase your mobility.</p>
+",
+          },
+          "drupal_internal__revision_id": 2863,
+          "drupal_internal__tid": 60,
+          "field_also_known_as": "Wheelchairs, scooters and custom seating",
+          "field_commonly_treated_condition": null,
+          "field_enforce_unique_combo_servi": false,
+          "field_facility_service_descripti": null,
+          "field_facility_service_header": null,
+          "field_health_service_api_id": "mobility",
+          "field_online_self_service": null,
+          "field_owner": {
+            "id": "missing",
+            "resourceIdObjMeta": {
+              "links": {
+                "help": {
+                  "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+                  "meta": {
+                    "about": "Usage and meaning of the 'missing' resource identifier.",
+                  },
+                },
+              },
+            },
+            "type": "taxonomy_term--administration",
+          },
+          "field_regional_service_descripti": null,
+          "field_regional_service_header": null,
+          "field_service_type_of_care": "Specialty care",
+          "field_show_for_vamc_facilities": true,
+          "field_show_for_vba_facilities": false,
+          "field_show_for_vet_centers": false,
+          "field_tricare_description": null,
+          "field_tricare_specific_service": false,
+          "field_vba_com_conditions": null,
+          "field_vba_friendly_name": null,
+          "field_vba_service_descrip": null,
+          "field_vba_service_regions": [],
+          "field_vba_type_of_care": null,
+          "field_vet_center_com_conditions": null,
+          "field_vet_center_friendly_name": null,
+          "field_vet_center_required_servic": false,
+          "field_vet_center_service_descrip": null,
+          "field_vet_center_type_of_care": null,
+          "field_vha_healthservice_stopcode": null,
+          "id": "f4eb738f-cafb-428b-9f32-160bfa083367",
+          "langcode": "en",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/health_care_service_taxonomy/f4eb738f-cafb-428b-9f32-160bfa083367?resourceVersion=id%3A2863",
+            },
+          },
+          "metatag": [
+            {
+              "attributes": {
+                "content": "Wheelchair and mobility | VA.gov CMS",
+                "name": "title",
+              },
+              "tag": "meta",
+            },
+            {
+              "attributes": {
+                "content": "We provide support and assistive devices, including wheelchairs, scooters, walkers and canes, to help you preserve and increase your mobility.",
+                "name": "description",
+              },
+              "tag": "meta",
+            },
+            {
+              "attributes": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care/wheelchair-and-mobility",
+                "rel": "canonical",
+              },
+              "tag": "link",
+            },
+          ],
+          "moderation_state": "published",
+          "name": "Wheelchair and mobility",
+          "parent": [
+            {
+              "id": "virtual",
+              "resourceIdObjMeta": {
+                "links": {
+                  "help": {
+                    "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                    "meta": {
+                      "about": "Usage and meaning of the 'virtual' resource identifier.",
+                    },
+                  },
+                },
+              },
+              "type": "taxonomy_term--health_care_service_taxonomy",
+            },
+          ],
+          "path": {
+            "alias": "/health-care/wheelchair-and-mobility",
+            "langcode": "en",
+            "pid": 426,
+          },
+          "relationshipNames": [
+            "vid",
+            "revision_user",
+            "parent",
+            "content_translation_uid",
+            "field_vba_service_regions",
+            "field_owner",
+          ],
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 60,
+          },
+          "revision_created": "2024-11-05T17:37:39+00:00",
+          "revision_log_message": "update common conditions list",
+          "revision_translation_affected": true,
+          "revision_user": {
+            "id": "046efefc-96f6-4569-b30c-806ef618be5a",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 1342,
+            },
+            "type": "user--user",
+          },
+          "status": true,
+          "type": "taxonomy_term--health_care_service_taxonomy",
+          "vid": {
+            "id": "1ae4c52e-f750-44eb-9e53-e10234617743",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "health_care_service_taxonomy",
+            },
+            "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          },
+          "weight": 0,
+        },
+        "id": "f5388369-8f72-4d99-8205-17040b8c5773",
+        "langcode": "en",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/regional_health_care_service_des/f5388369-8f72-4d99-8205-17040b8c5773?resourceVersion=id%3A822464",
+          },
+        },
+        "metatag": [
+          {
+            "attributes": {
+              "content": "Wheelchair and mobility at VA Boston health care | Veterans Affairs",
+              "name": "title",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+              "rel": "image_src",
+            },
+            "tag": "link",
+          },
+          {
+            "attributes": {
+              "content": "Veterans Affairs",
+              "property": "og:site_name",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "Wheelchair and mobility at VA Boston health care | Veterans Affairs",
+              "property": "og:title",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+              "property": "og:image",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "U.S. Department of Veterans Affairs",
+              "property": "og:image:alt",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "summary_large_image",
+              "name": "twitter:card",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "@DeptVetAffairs",
+              "name": "twitter:site",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "Wheelchair and mobility at VA Boston health care | Veterans Affairs",
+              "name": "twitter:title",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "U.S. Department of Veterans Affairs",
+              "name": "twitter:image:alt",
+            },
+            "tag": "meta",
+          },
+          {
+            "attributes": {
+              "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+              "name": "twitter:image",
+            },
+            "tag": "meta",
+          },
+        ],
+        "moderation_state": "published",
+        "node_type": {
+          "id": "d2e27d2b-acb1-471b-a628-4c41c3778729",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "regional_health_care_service_des",
+          },
+          "type": "node_type--node_type",
+        },
+        "path": {
+          "alias": "/boston-health-care/health-services/wheelchair-and-mobility-at-va-boston-health-care",
+          "langcode": "en",
+          "pid": 34458,
+        },
+        "promote": false,
+        "relationshipNames": [
+          "node_type",
+          "revision_uid",
+          "uid",
+          "field_administration",
+          "field_local_health_care_service_",
+          "field_region_page",
+          "field_service_name_and_descripti",
+        ],
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28513,
+        },
+        "revision_log": "Updating IAW LEAF request # 4078",
+        "revision_timestamp": "2023-11-15T13:10:07+00:00",
+        "revision_translation_affected": true,
+        "revision_uid": {
+          "id": "d5defd98-763a-4a5a-bed8-a003686c02ba",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2910,
+          },
+          "type": "user--user",
+        },
+        "status": true,
+        "sticky": false,
+        "title": "Wheelchair and mobility at VA Boston health care",
+        "type": "node--regional_health_care_service_des",
+        "uid": {
+          "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 1317,
+          },
+          "type": "user--user",
+        },
+        "warning_date": null,
+      },
+      "field_service_location": [
+        {
+          "behavior_settings": [],
+          "breadcrumbs": [],
+          "content_translation_changed": null,
+          "content_translation_outdated": false,
+          "content_translation_source": "und",
+          "created": "2021-11-23T22:37:06+00:00",
+          "default_langcode": true,
+          "drupal_internal__id": 93912,
+          "drupal_internal__revision_id": 1338178,
+          "field_additional_hours_info": "VA Boston Wheelchair and Seating Clinics provide lifelong service for all Veterans served in our clinics. Our program will repair damaged equipment or replace equipment when it is beyond repair or when it is due for replacement. ",
+          "field_appt_intro_text_custom": "The West Roxbury Mobility Clinic serves Veterans with Spinal Cord Injury/Disease or Amyotrophic Lateral Sclerosis. Others can be seen at Brockton or JP. Call for an evaluation or ask for a referral. ",
+          "field_appt_intro_text_type": "customize_text",
+          "field_email_contacts": [],
+          "field_hours": "2",
+          "field_office_hours": [
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 1,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 2,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 3,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 4,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "",
+              "day": 5,
+              "endhours": 1600,
+              "starthours": 800,
+            },
+            {
+              "all_day": false,
+              "comment": "Closed",
+              "day": 6,
+              "endhours": null,
+              "starthours": null,
+            },
+            {
+              "all_day": false,
+              "comment": "Closed",
+              "day": 0,
+              "endhours": null,
+              "starthours": null,
+            },
+          ],
+          "field_office_visits": "yes_appointment_only",
+          "field_online_scheduling_avail": "no",
+          "field_other_phone_numbers": [
+            {
+              "id": "de3cc05e-21d3-4f4c-94b1-750a168cef3c",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 153639,
+                "target_revision_id": 1338175,
+              },
+              "type": "paragraph--phone_number",
+            },
+          ],
+          "field_phone": [
+            {
+              "id": "c0811cd1-7f2c-4408-bb3f-3609b1e4fce8",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 141371,
+                "target_revision_id": 1338176,
+              },
+              "type": "paragraph--phone_number",
+            },
+          ],
+          "field_service_location_address": {
+            "id": "ed91bbbd-3b4d-4016-82d1-847e0a761f23",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 93911,
+              "target_revision_id": 1338177,
+            },
+            "type": "paragraph--service_location_address",
+          },
+          "field_use_facility_phone_number": false,
+          "field_use_main_facility_phone": false,
+          "field_virtual_support": null,
+          "id": "33e14f9d-b133-4287-ab28-ee32bfb62cf0",
+          "langcode": "en",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/33e14f9d-b133-4287-ab28-ee32bfb62cf0?resourceVersion=id%3A1338178",
+            },
+          },
+          "paragraph_type": {
+            "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "service_location",
+            },
+            "type": "paragraphs_type--paragraphs_type",
+          },
+          "parent_field_name": "field_service_location",
+          "parent_id": "39654",
+          "parent_type": "node",
+          "relationshipNames": [
+            "paragraph_type",
+            "field_email_contacts",
+            "field_other_phone_numbers",
+            "field_phone",
+            "field_service_location_address",
+          ],
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 93912,
+            "target_revision_id": 1338178,
+          },
+          "revision_translation_affected": true,
+          "status": true,
+          "type": "paragraph--service_location",
+        },
+      ],
+      "field_walk_ins_accepted": "0",
+      "id": "8f14f722-7ad6-4e1d-836d-ec4f91f1e071",
+      "langcode": "en",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_health_service/8f14f722-7ad6-4e1d-836d-ec4f91f1e071?resourceVersion=id%3A886491",
+        },
+      },
+      "metatag": [
+        {
+          "attributes": {
+            "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+            "name": "title",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+            "rel": "image_src",
+          },
+          "tag": "link",
+        },
+        {
+          "attributes": {
+            "content": "Veterans Affairs",
+            "property": "og:site_name",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+            "property": "og:title",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+            "property": "og:image",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "U.S. Department of Veterans Affairs",
+            "property": "og:image:alt",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "summary_large_image",
+            "name": "twitter:card",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "@DeptVetAffairs",
+            "name": "twitter:site",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "Wheelchair and mobility - West Roxbury VA Medical Center | Veterans Affairs",
+            "name": "twitter:title",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "U.S. Department of Veterans Affairs",
+            "name": "twitter:image:alt",
+          },
+          "tag": "meta",
+        },
+        {
+          "attributes": {
+            "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+            "name": "twitter:image",
+          },
+          "tag": "meta",
+        },
+      ],
+      "moderation_state": "published",
+      "node_type": {
+        "id": "30801b3d-e2cd-48db-9066-78f7530d34e2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_local_health_service",
+        },
+        "type": "node_type--node_type",
+      },
+      "path": {
+        "alias": "/boston-health-care/locations/west-roxbury-va-medical-center/wheelchair-and-mobility",
+        "langcode": "en",
+        "pid": 49798,
+      },
+      "promote": false,
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_facility_location",
+        "field_phone_numbers_paragraph",
+        "field_regional_health_service",
+        "field_service_location",
+        "field_administration",
+      ],
+      "revision_log": "Automated move of Facility Health Service data into Service Locations.",
+      "revision_timestamp": "2024-05-13T21:03:14+00:00",
+      "revision_translation_affected": true,
+      "revision_uid": {
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317,
+        },
+        "type": "user--user",
+      },
+      "status": true,
+      "sticky": false,
+      "title": "Wheelchair and mobility - West Roxbury VA Medical Center",
+      "type": "node--health_care_local_health_service",
+      "uid": {
+        "id": "d5defd98-763a-4a5a-bed8-a003686c02ba",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2910,
+        },
+        "type": "user--user",
+      },
+      "warning_date": null,
+    },
+  ],
   "id": "cb577a82-953f-4306-84c6-a65abf1b45ea",
   "image": {
     "alt": "Causeway VA Clinic",

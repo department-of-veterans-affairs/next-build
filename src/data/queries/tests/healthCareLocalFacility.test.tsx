@@ -3,7 +3,7 @@
  */
 
 import { queries } from '@/data/queries'
-import mockFacilityData from '@/mocks/healthCareLocalFacility.mock.json'
+import mockFacilityData from '@/mocks/healthCareLocalFacility.mock'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import {
   formatter,
@@ -91,8 +91,6 @@ describe('HealthCareLocalFacility query', () => {
 describe('formatter', () => {
   const formatterParams: LocalFacilityData = {
     menu: mockMenu,
-    // @ts-expect-error The type coming from next-drupal for media_image doesn't
-    // match what we're actually getting from Drupal
     entity: mockFacilityData,
     lovell: {
       isLovellVariantPage: false,
@@ -157,8 +155,6 @@ describe('formatter', () => {
       expect(
         formatter({
           ...formatterParams,
-          // @ts-expect-error Same as above; next-drupal has the wrong static
-          // type here
           entity: {
             ...mockFacilityData,
             field_region_page: {
@@ -173,8 +169,6 @@ describe('formatter', () => {
       expect(
         formatter({
           ...formatterParams,
-          // @ts-expect-error Same as above; next-drupal has the wrong static
-          // type here
           entity: {
             ...mockFacilityData,
             field_main_location: true,
@@ -198,8 +192,6 @@ describe('formatter', () => {
       expect(
         formatter({
           ...formatterParams,
-          // @ts-expect-error Same as above; next-drupal has the wrong static
-          // type here
           entity: {
             ...mockFacilityData,
             field_main_location: false,
