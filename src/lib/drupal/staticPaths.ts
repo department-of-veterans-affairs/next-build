@@ -55,6 +55,12 @@ export async function getStaticPathsByResourceType(
     resourceType,
   })
 
+  if (!resources.length) {
+    throw new Error(
+      `[getStaticPathsByResourceType] No resources found for: ${resourceType}`
+    )
+  }
+
   // Modifiy resources per business logic
   const modifiedResources = await modifyStaticPathResourcesByResourceType(
     resourceType,

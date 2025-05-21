@@ -1,4 +1,5 @@
 import { getStaticPathsByResourceType } from './staticPaths'
+import type { StaticPathResource } from '@/types/formatted/staticPathResource'
 import { queries } from '@/data/queries'
 import { pathToSlug } from '@/lib/utils/slug'
 
@@ -30,20 +31,15 @@ describe('getStaticPathsByResourceType', () => {
     expect(result).toEqual(expectedStaticPaths)
   })
 
-  it('should return empty array if no resources are fetched', async () => {
+  it('should throw an error if no resources are returned', async () => {
     const resourceType = 'node--landing_page'
-    const mockResources = []
+    const mockResources: StaticPathResource[] = []
 
     ;(queries.getData as jest.Mock).mockResolvedValue(mockResources)
 
-    const expectedStaticPaths = []
-
-    const result = await getStaticPathsByResourceType(resourceType)
-
-    expect(queries.getData).toHaveBeenCalledWith('static-path-resources', {
-      resourceType,
-    })
-    expect(result).toEqual(expectedStaticPaths)
+    await expect(getStaticPathsByResourceType(resourceType)).rejects.toThrow(
+      `[getStaticPathsByResourceType] No resources found for: ${resourceType}`
+    )
   })
 
   it('should handle errors when fetching resources', async () => {
