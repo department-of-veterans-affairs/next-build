@@ -1,9 +1,7 @@
-import { VamcEhr } from '@/types/drupal/vamcEhr'
+import { VamcEhrSystem } from '@/types/drupal/vamcEhr'
 import { Administration } from '@/types/formatted/administration'
 
 const LOVELL_TRICARE_ADMINISTRATION_ID = 1039
-
-type VamcEhrSystem = VamcEhr['field_region_page']['field_vamc_ehr_system']
 
 type TopTasksProps = {
   path: string
