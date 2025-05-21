@@ -28,6 +28,9 @@ export const params: QueryParams<null> = () => {
     'field_administration',
     'field_telephone',
     'field_location_services',
+    'field_local_health_care_service_.field_regional_health_service.field_service_name_and_descripti',
+    'field_local_health_care_service_.field_administration',
+    'field_local_health_care_service_.field_service_location',
   ])
 }
 
@@ -78,6 +81,14 @@ export const formatter: QueryFormatter<
 > = ({ entity, menu, lovell }) => {
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
+
+  // Sort the health care services by name
+  entity.field_local_health_care_service_.sort((a, b) => {
+    return (
+      a.field_regional_health_service.field_service_name_and_descripti.name -
+      b.field_regional_health_service.field_service_name_and_descripti.name
+    )
+  })
 
   return {
     ...entityBaseFields(entity),
@@ -141,5 +152,6 @@ export const formatter: QueryFormatter<
             getOppositeChildVariant(lovell?.variant)
           )
         : null,
+    healthServices: entity.field_local_health_care_service_, // TODO: Format these
   }
 }
