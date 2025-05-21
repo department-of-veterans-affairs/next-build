@@ -142,7 +142,7 @@ export const Event = ({
                     {facilityLocation?.field_address?.address_line1}
                   </p>
                 )}
-                {facilityLocation?.field_Address?.address_Line2 && (
+                {facilityLocation?.field_address?.address_line2 && (
                   <p className="vads-u-margin--0">
                     {facilityLocation?.field_address?.address_line2}
                   </p>
@@ -242,7 +242,7 @@ export const Event = ({
               <>
                 {link && eventCTAText && (
                   <va-link-action
-                    class="vads-u-display--block"
+                    className="vads-u-display--block"
                     href={link?.uri}
                     text={eventCTAText}
                   />
@@ -251,7 +251,7 @@ export const Event = ({
                   <>
                     {mostRecentDate && eventCTAText && (
                       <va-link-action
-                        class="vads-u-display--block"
+                        className="vads-u-display--block"
                         href={createMailToLink(
                           emailCTA,
                           title,
