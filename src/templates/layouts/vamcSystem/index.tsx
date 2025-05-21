@@ -8,6 +8,7 @@ import { FacilityListing } from '@/templates/components/facilityListing'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
 // import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // import { TopTasks } from '@/templates/components/topTasks'
 // import { FacilityListing } from '@/templates/components/facilityListing'
@@ -106,11 +107,7 @@ export function VamcSystem({
                     ? 'Manage your VA health online'
                     : 'Manage your health online'}
                 </h2>
-                <div className="vads-u-display--flex medium-screen:vads-u-flex-direction--row vads-u-flex-direction--column">
-                  <div className="vads-u-margin-right--0 medium-screen:vads-u-margin-right--3">
-                    {/* TODO: Add health online links component */}
-                  </div>
-                </div>
+                <ManageYourHealthLinks vamcEhrSystem={vamcEhrSystem} />
               </section>
             )}
 
