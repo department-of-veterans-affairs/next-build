@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["./src"],
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "src/",
+    "target": "esnext",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "@/lib/*": ["../../src/lib/*"]
+    }
+  }
+}
