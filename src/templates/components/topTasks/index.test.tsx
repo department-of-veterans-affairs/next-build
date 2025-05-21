@@ -81,7 +81,7 @@ describe('RegionalTopTasks', () => {
 
   it('should handle no slash in the path', () => {
     const { container } = render(
-      <FacilityTopTasks path="test-nav-path" vamcEhrSystem="vista" />
+      <RegionalTopTasks path="test-nav-path" vamcEhrSystem="vista" />
     )
     expect(
       container.querySelector(
