@@ -34,6 +34,7 @@ const data = {
   facilityLocation: {
     type: 'node--health_care_local_facility',
     id: '1741a5af-05f4-4e71-83ce-f9a425dbdb91',
+    breadcrumbs: [],
     drupal_internal__nid: 1111,
     drupal_internal__vid: 837565,
     langcode: 'en',
