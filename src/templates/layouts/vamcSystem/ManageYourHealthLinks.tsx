@@ -78,7 +78,7 @@ export function ManageYourHealthLinks({
             text="Schedule and manage health appointments"
           />
         </div>
-        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center health-online-desktop-link">
+        <div className="vads-facility-hub-cta vads-u-display--none medium-screen:vads-u-display--flex vads-u-align-items--center">
           <va-icon
             class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
             size="3"
@@ -124,7 +124,7 @@ export function ManageYourHealthLinks({
             text="Order hearing aid batteries and accessories"
           />
         </div>
-        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center health-online-mobile-link">
+        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center medium-screen:vads-u-display--none">
           <va-icon
             class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
             size="3"
