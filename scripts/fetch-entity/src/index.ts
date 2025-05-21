@@ -5,26 +5,21 @@
  */
 
 import { program } from 'commander'
-// import { DrupalClientAuth } from 'next-drupal'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import util from 'util'
 
 import { getEnvFileVars } from './getEnvVars.ts'
 
-const envFileVars = getEnvFileVars('local', false)
-
 process.env = {
   ...process.env,
-  ...envFileVars,
+  ...getEnvFileVars(),
 }
 
 const { drupalClient } = await import('./drupalClient.ts')
 
 // The username & password will let us apply filters, so prefer that
 // Fall back to the client ID and secret otherwise
-//
-// @ts-expect-error It's possible for the env vars to not be set properly
-const withAuth: DrupalClientAuth = process.env.DRUPAL_USERNAME
+const withAuth = process.env.DRUPAL_USERNAME
   ? {
       username: process.env.DRUPAL_USERNAME,
       password: process.env.DRUPAL_PASSWORD,
@@ -58,6 +53,7 @@ program
 
       const data = await drupalClient.getResource(resourceType, uuid, {
         params: params.getQueryObject(),
+        // @ts-expect-error It's possible for the env vars to not be set properly
         withAuth,
       })
 

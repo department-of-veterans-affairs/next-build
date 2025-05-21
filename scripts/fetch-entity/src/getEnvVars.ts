@@ -12,24 +12,14 @@ export type EnvVars = {
   [key: string]: string
 }
 
-const loadEnvVarsFromPath = (path: string, verbose: boolean): EnvVars => {
+export const getEnvFileVars = (): EnvVars => {
   const envVars = {}
   dotenvExpand.expand(
     dotenv.config({
-      path,
+      path: 'envs/.env.local',
       override: true,
       processEnv: envVars,
     })
   )
-
-  if (verbose) {
-    // eslint-disable-next-line no-console
-    console.log(`Using environment variables from: ${path}`)
-  }
-
   return envVars
-}
-
-export const getEnvFileVars = (appEnv?: string, verbose = true): EnvVars => {
-  return loadEnvVarsFromPath(`envs/.env.local`, verbose)
 }
