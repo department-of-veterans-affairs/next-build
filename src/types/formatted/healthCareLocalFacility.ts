@@ -3,7 +3,10 @@ import {
   FieldGeoLocation,
   FieldOfficeHours,
 } from '../drupal/field_type'
-import { FacilityOperatingStatusFlags } from '../drupal/node'
+import {
+  FacilityOperatingStatusFlags,
+  NodeHealthCareLocalHealthService,
+} from '../drupal/node'
 import { ParagraphPhoneNumber } from '../drupal/paragraph'
 import { VamcEhr } from '../drupal/vamcEhr'
 import { PublishedEntity } from './publishedEntity'
@@ -39,4 +42,5 @@ export type HealthCareLocalFacility = PublishedEntity & {
   socialLinks: FacilitySocialLinksProps
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
+  healthServices: NodeHealthCareLocalHealthService[] // TODO: Format these
 }
