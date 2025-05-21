@@ -66,7 +66,7 @@ export function PressReleaseListing(
         data-widget-type="side-nav"
       ></nav>
       <div className="vads-grid-row">
-        <div className="vads-grid-col-9">
+        <div className="vads-grid-col-12">
           <article className="usa-content">
             <LovellSwitcher
               currentVariant={lovellVariant}
