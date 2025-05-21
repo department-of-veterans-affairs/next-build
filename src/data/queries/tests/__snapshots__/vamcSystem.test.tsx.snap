@@ -276,6 +276,220 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   },
   "introText": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
   "lastUpdated": "2023-04-13T18:17:36+00:00",
+  "mainFacilities": [
+    {
+      "address": {
+        "additional_name": null,
+        "address_line1": "251 Causeway Street",
+        "administrative_area": "MA",
+        "country_code": "US",
+        "dependent_locality": null,
+        "langcode": "en",
+        "locality": "Boston",
+        "postal_code": "02114-2104",
+      },
+      "fieldTelephone": {
+        "behavior_settings": [],
+        "breadcrumbs": [],
+        "content_translation_changed": "2025-02-27T17:26:37+00:00",
+        "content_translation_outdated": false,
+        "content_translation_source": "und",
+        "created": "2024-11-25T18:40:13+00:00",
+        "default_langcode": true,
+        "drupal_internal__id": 169966,
+        "drupal_internal__revision_id": 1666098,
+        "field_phone_extension": null,
+        "field_phone_label": "Mental health phone",
+        "field_phone_number": "800-865-3384",
+        "field_phone_number_type": "tel",
+        "id": "1174972e-ab4f-45f9-b814-04919526a828",
+        "langcode": "en",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1666098",
+          },
+        },
+        "paragraph_type": {
+          "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "phone_number",
+          },
+          "type": "paragraphs_type--paragraphs_type",
+        },
+        "parent_field_name": "field_telephone",
+        "parent_id": "1272",
+        "parent_type": "node",
+        "relationshipNames": [
+          "paragraph_type",
+        ],
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 169966,
+          "target_revision_id": 1666098,
+        },
+        "revision_translation_affected": true,
+        "status": true,
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": "Causeway VA Clinic",
+        "height": 330,
+        "id": "984fd14e-fc15-4bdf-9ffa-628105744a94",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "512",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "480",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "320",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "300",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "330",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "330",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "330",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94",
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "330",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+        },
+        "title": "",
+        "type": "media--image",
+        "width": 480,
+      },
+      "operatingStatusFacility": "temporary_closure",
+      "path": "/boston-health-care/locations/causeway-va-clinic",
+      "phoneNumber": "800-865-3384",
+      "title": "Causeway VA Clinic",
+      "vaHealthConnectPhoneNumber": "800-877-6976",
+    },
+  ],
   "menu": {
     "data": null,
     "rootPath": "/new-york-harbor-health-care/",
