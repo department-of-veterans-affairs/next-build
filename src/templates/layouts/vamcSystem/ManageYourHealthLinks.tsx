@@ -1,4 +1,5 @@
 import { VamcEhrSystem } from '@/types/drupal/vamcEhr'
+import clsx from 'clsx'
 
 interface ManageYourHealthLinksProps {
   vamcEhrSystem: VamcEhrSystem
@@ -42,110 +43,97 @@ export function ManageYourHealthLinks({
     return `/health-care/${path}`
   }
 
+  const renderIcon = (icon: string) => (
+    <va-icon
+      class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
+      size="3"
+      icon={icon}
+    />
+  )
+
+  const baseItemClasses =
+    'vads-facility-hub-cta vads-u-margin--0 vads-u-align-items--center vads-u-border-top--1px vads-u-border-color--primary-alt-light'
+  const normalItemClasses = clsx(baseItemClasses, 'vads-u-display--flex')
+  const mobileOnlyItemClasses = clsx(
+    baseItemClasses,
+    'vads-u-display--flex medium-screen:vads-u-display--none'
+  )
+  const desktopOnlyItemClasses = clsx(
+    baseItemClasses,
+    'vads-u-display--none medium-screen:vads-u-display--flex'
+  )
+
+  // Let's use border util classes instead
   return (
     <div className="vads-u-display--flex medium-screen:vads-u-flex-direction--row vads-u-flex-direction--column">
       <div className="vads-u-margin-right--0 medium-screen:vads-u-margin-right--3">
-        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="pill"
-          />
+        <p className={normalItemClasses}>
+          {renderIcon('pill')}
           <va-link
             href={getTopTaskUrl('refill-track-prescriptions/')}
             text="Refill and track your prescriptions"
           />
-        </div>
-        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="forum"
-          />
+        </p>
+        <p className={normalItemClasses}>
+          {renderIcon('forum')}
           <va-link
             href={getTopTaskUrl('secure-messaging/')}
             text="Send a secure message to your health care team"
           />
-        </div>
-        <div className="vads-facility-hub-cta vads-u-border-color--primary-alt-light medium-screen:vads-u-border-bottom--1px vads-u-display--flex vads-u-align-items--center">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="event_available"
-          />
+        </p>
+        <p className={normalItemClasses}>
+          {renderIcon('event_available')}
           <va-link
             href={getTopTaskUrl('schedule-view-va-appointments/')}
             text="Schedule and manage health appointments"
           />
-        </div>
-        <div className="vads-facility-hub-cta vads-u-display--none medium-screen:vads-u-display--flex vads-u-align-items--center">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="chat"
-          />
+        </p>
+        <p
+          className={clsx(desktopOnlyItemClasses, 'vads-u-border-bottom--1px')}
+        >
+          {renderIcon('chat')}
           <va-link
             href="https://mobile.va.gov/app/va-health-chat"
             text="Download VA Health Chat"
           />
-        </div>
+        </p>
       </div>
       <div>
-        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="note_add"
-          />
+        <p className={normalItemClasses}>
+          {renderIcon('note_add')}
           <va-link
             href={getTopTaskUrl('get-medical-records/')}
             text="Download your VA medical records (Blue Button)"
           />
-        </div>
-        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="assignment"
-          />
+        </p>
+        <p className={normalItemClasses}>
+          {renderIcon('assignment')}
           <va-link
             href={getTopTaskUrl('view-test-and-lab-results/')}
             text="View your lab and test results"
           />
-        </div>
-        <div className="vads-facility-hub-cta vads-facility-hub-cta-last-line vads-u-border-top--1px vads-u-border-color--primary-alt-light vads-u-display--flex vads-u-align-items--center">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="hearing_disabled"
-          />
+        </p>
+        <p className={normalItemClasses}>
+          {renderIcon('hearing_disabled')}
           <va-link
             href="/health-care/order-hearing-aid-batteries-and-accessories/"
             text="Order hearing aid batteries and accessories"
           />
-        </div>
-        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center medium-screen:vads-u-display--none">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="chat"
-          />
+        </p>
+        <p className={mobileOnlyItemClasses}>
+          {renderIcon('chat')}
           <va-link
             href="https://mobile.va.gov/app/va-health-chat"
             text="Download VA Health Chat"
           />
-        </div>
-        <div className="vads-facility-hub-cta vads-u-display--flex vads-u-align-items--center">
-          <va-icon
-            class="vads-u-color--link-default vads-facility-hub-cta-circle vads-u-margin-right--1"
-            size="3"
-            icon="phone"
-          />
+        </p>
+        <p className={clsx(normalItemClasses, 'vads-u-border-bottom--1px')}>
+          {renderIcon('phone')}
           <va-link
             href="https://www.va.gov/health/connect-to-va-care/index.asp"
             text="Connect to VA care"
           />
-        </div>
+        </p>
       </div>
     </div>
   )
