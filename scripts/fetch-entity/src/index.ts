@@ -1,9 +1,5 @@
 /* eslint-disable no-console */
 
-/**
- * Note: This script only works with Node or ts-node, not Bun or Deno.
- */
-
 import { program } from 'commander'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import util from 'util'
