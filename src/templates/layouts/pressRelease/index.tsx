@@ -86,8 +86,6 @@ export const PressRelease = ({
                             return (
                               <PhoneNumber
                                 key={phone.id}
-                                id={phone.id}
-                                type="phone"
                                 className="vads-u-margin-top--1 vads-u-margin-bottom--0"
                                 extension={phone.ext || null}
                                 number={phone.number}

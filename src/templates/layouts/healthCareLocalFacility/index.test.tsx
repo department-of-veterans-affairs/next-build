@@ -89,16 +89,18 @@ describe('HealthCareLocalFacility with valid data', () => {
     const { container } = render(<HealthCareLocalFacility {...mockData} />)
 
     expect(
-      container.querySelector(`va-telephone[contact="${mockData.phoneNumber}"]`)
-    ).toBeInTheDocument()
-    expect(
       container.querySelector(
-        `va-telephone[contact="${mockData.vaHealthConnectPhoneNumber}"]`
+        `va-telephone[contact="${mockData.phoneNumber.replace(/-/g, '')}"]`
       )
     ).toBeInTheDocument()
     expect(
       container.querySelector(
-        `va-telephone[contact="${mockData.fieldTelephone?.field_phone_number}"]`
+        `va-telephone[contact="${mockData.vaHealthConnectPhoneNumber.replace(/-/g, '')}"]`
+      )
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector(
+        `va-telephone[contact="${mockData.fieldTelephone?.field_phone_number?.replace(/-/g, '')}"]`
       )
     ).toBeInTheDocument()
   })
