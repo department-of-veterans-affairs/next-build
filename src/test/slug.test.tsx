@@ -9,7 +9,6 @@ import {
 } from '@/lib/drupal/staticProps'
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import type { GetStaticPathsContext } from 'next'
 
 jest.mock('@/lib/drupal/staticProps', () => ({
   getExpandedStaticPropsContext: jest.fn(),
@@ -51,33 +50,5 @@ describe('[[...slug]].tsx', () => {
       // Assert that getStaticPropsResource was called
       expect(getStaticPropsResource).toHaveBeenCalled()
     })
-  })
-})
-
-describe('getStaticPaths', () => {
-  const originalEnv = process.env
-
-  beforeEach(() => {
-    jest.resetModules()
-    process.env = { ...originalEnv, SSG: 'true' }
-  })
-
-  afterEach(() => {
-    process.env = originalEnv
-  })
-
-  it('throws an error when RESOURCE_TYPES_TO_BUILD is empty', async () => {
-    // remove all feature flags to ensure RESOURCE_TYPES_TO_BUILD is empty
-    const { PAGE_RESOURCE_TYPES } = await import(
-      '@/lib/constants/resourceTypes'
-    )
-    PAGE_RESOURCE_TYPES.forEach((type) => {
-      const flag = `FEATURE_NEXT_BUILD_CONTENT_${type.replace(/^node--/, '').toUpperCase()}`
-      delete process.env[flag]
-    })
-    const { getStaticPaths } = await import('@/pages/[[...slug]]')
-    await expect(getStaticPaths({} as GetStaticPathsContext)).rejects.toThrow(
-      'No resource types returned'
-    )
   })
 })

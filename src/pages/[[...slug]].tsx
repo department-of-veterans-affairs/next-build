@@ -206,8 +206,11 @@ export async function getStaticPaths(
       fallback: 'blocking',
     }
   }
+  /* eslint-disable no-console */
+
   if (!RESOURCE_TYPES_TO_BUILD.length) {
-    throw new Error('No resource types returned')
+    console.error('No resource types returned')
+    process.exit(1)
   }
   /* eslint-disable no-console */
   console.log(
