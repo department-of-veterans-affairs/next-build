@@ -73,20 +73,20 @@ import { VamcSystemVaPolice } from '@/templates/layouts/vamcSystemVaPolice'
 // eslint-disable-next-line prefer-const
 let RESOURCE_TYPES_TO_BUILD = []
 // FEATURE_NEXT_BUILD_CONTENT_ALL is checked to allow local developers to bypass flag checks.
-if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
-  RESOURCE_TYPES_TO_BUILD = PAGE_RESOURCE_TYPES
-} else {
-  // Check the env variables loaded from the CMS feature flags and env files to determine what
-  // content types to build.
-  for (let x = 0; x < PAGE_RESOURCE_TYPES.length; x++) {
-    const typeName = PAGE_RESOURCE_TYPES[x].replace(/^node--/, '').toUpperCase()
-    const flagName = `FEATURE_NEXT_BUILD_CONTENT_${typeName}`
-    // Note 'true' as a string is correct here. Env variables are always strings.
-    if (process.env[flagName] === 'true') {
-      RESOURCE_TYPES_TO_BUILD.push(PAGE_RESOURCE_TYPES[x])
-    }
-  }
-}
+// if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
+//   RESOURCE_TYPES_TO_BUILD = PAGE_RESOURCE_TYPES
+// } else {
+//   // Check the env variables loaded from the CMS feature flags and env files to determine what
+//   // content types to build.
+//   for (let x = 0; x < PAGE_RESOURCE_TYPES.length; x++) {
+//     const typeName = PAGE_RESOURCE_TYPES[x].replace(/^node--/, '').toUpperCase()
+//     const flagName = `FEATURE_NEXT_BUILD_CONTENT_${typeName}`
+//     // Note 'true' as a string is correct here. Env variables are always strings.
+//     if (process.env[flagName] === 'true') {
+//       RESOURCE_TYPES_TO_BUILD.push(PAGE_RESOURCE_TYPES[x])
+//     }
+//   }
+// }
 
 export const DynamicBreadcrumbs = dynamic(
   () => import('@/templates/common/breadcrumbs'),
@@ -212,7 +212,6 @@ export async function getStaticPaths(
     console.error('No resource types returned')
     process.exit(1)
   }
-  /* eslint-disable no-console */
   console.log(
     `\n\nBuilding ${RESOURCE_TYPES_TO_BUILD.length} resource types:`,
     RESOURCE_TYPES_TO_BUILD,
