@@ -35,15 +35,11 @@ const mockData = formatter({
   menu: mockMenu,
 })
 
-
-
 describe('VamcSystemVaPolice with valid data', () => {
   test('renders VamcSystemVaPolice component', () => {
     render(<VamcSystemVaPolice {...mockData} />)
 
-    const basicDataFields: Array<keyof FormattedVamcSystemVaPolice> = [
-      'title',
-    ]
+    const basicDataFields: Array<keyof FormattedVamcSystemVaPolice> = ['title']
     basicDataFields.forEach((key) =>
       expect(screen.getByText(mockData[key])).toBeInTheDocument()
     )
@@ -55,5 +51,4 @@ describe('VamcSystemVaPolice with valid data', () => {
     // we're adding it
     expect(window.sideNav).toEqual(mockData.menu)
   })
-
 })

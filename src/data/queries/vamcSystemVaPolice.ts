@@ -14,7 +14,6 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import util from 'util'
 import fs from 'fs'
-import { en } from '@faker-js/faker/.'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -47,7 +46,9 @@ export const data: QueryData<
   )) as NodeVamcSystemVaPolice
 
   if (!entity) {
-    throw new Error(`NodeVamcSystemVaPolice entity not found for id: ${opts.id}`)
+    throw new Error(
+      `NodeVamcSystemVaPolice entity not found for id: ${opts.id}`
+    )
   }
 
   // Fetch the menu name dynamically off of the field_office reference
@@ -61,10 +62,10 @@ export const data: QueryData<
   return { entity, menu }
 }
 
-export const formatter: QueryFormatter<VamcSystemVaPoliceData, VamcSystemVaPolice> = ({
-  entity,
-  menu,
-}) => {
+export const formatter: QueryFormatter<
+  VamcSystemVaPoliceData,
+  VamcSystemVaPolice
+> = ({ entity, menu }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   return {
     ...entityBaseFields(entity),

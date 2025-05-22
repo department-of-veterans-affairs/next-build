@@ -1,7 +1,7 @@
-import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from "@/types/formatted/vamcSystemVaPolice"
-import { ContentFooter } from "@/templates/common/contentFooter"
-import { useEffect } from "react"
-import { SideNavMenu } from "@/types/formatted/sideNav"
+import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
+import { ContentFooter } from '@/templates/common/contentFooter'
+import { useEffect } from 'react'
+import { SideNavMenu } from '@/types/formatted/sideNav'
 
 type VamcSystemVaPoliceProps = {
   title: string
@@ -15,17 +15,16 @@ declare const window: customWindow
 
 export function VamcSystemVaPolice({
   title,
-  path,
   menu,
- }: FormattedVamcSystemVaPolice) {
-   useEffect(() => {
-      window.sideNav = menu
-    }, [menu])
+}: FormattedVamcSystemVaPolice) {
+  useEffect(() => {
+    window.sideNav = menu
+  }, [menu])
 
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
-         {/* Nav data fille in by a separate script from `window.sideNav` */}
+        {/* Nav data fille in by a separate script from `window.sideNav` */}
         <nav aria-label="secondary" data-widget-type="side-nav" />
         {/* Main page content */}
         <div className="usa-width-three-fourths">
@@ -35,6 +34,5 @@ export function VamcSystemVaPolice({
         </div>
       </div>
     </div>
-
   )
 }
