@@ -4,10 +4,7 @@ exports[`DrupalJsonApiParams configuration params function sets the correct incl
 
 exports[`VamcSystem formatData outputs formatted data 1`] = `
 {
-  "administration": {
-    "id": 254,
-    "name": "VA New York Harbor health care",
-  },
+  "administrationId": 254,
   "breadcrumbs": [
     {
       "options": [],

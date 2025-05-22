@@ -10,7 +10,6 @@ import {
   SocialLinksProps,
   FieldLink,
 } from '@/types/drupal/field_type'
-import { Administration } from '@/types/formatted/administration'
 
 interface DateTimeRangeItem {
   value: string
@@ -50,7 +49,8 @@ export type Event = PublishedEntity & {
   description: string
   link: Link | null
   urlOfOnlineEvent: FieldLink
-  administration: Administration
+  administrationId: number | null
+  administrationName: string | null
 }
 
 // export type EventTeaser = PublishedEntity & {

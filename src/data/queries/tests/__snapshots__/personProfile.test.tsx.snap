@@ -2,10 +2,7 @@
 
 exports[`Person profile returns formatted data outputs formatted data 1`] = `
 {
-  "administration": {
-    "id": null,
-    "name": null,
-  },
+  "administrationId": undefined,
   "body": null,
   "breadcrumbs": undefined,
   "completeBiography": null,

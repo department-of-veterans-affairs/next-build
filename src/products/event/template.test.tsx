@@ -114,10 +114,8 @@ const data = {
       },
     },
   },
-  administration: {
-    id: 0,
-    name: '',
-  },
+  administrationId: 0,
+  administrationName: '',
 }
 
 describe('<Event /> Component', () => {
@@ -174,10 +172,8 @@ describe('<Event /> Component', () => {
       value: '<p>Event Body</p>',
       format: 'text',
     },
-    administration: {
-      id: 0,
-      name: '',
-    },
+    administrationId: 0,
+    administrationName: '',
   }
 
   beforeEach(() => {
@@ -267,10 +263,8 @@ describe('<Event /> Component', () => {
       render(
         <Event
           {...data}
-          administration={{
-            id: 1,
-            name: 'Test Administration',
-          }}
+          administrationId={1}
+          administrationName="Test Administration"
           listing="/test-listing"
           listingOffice="Test Office"
         />

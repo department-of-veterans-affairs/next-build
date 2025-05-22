@@ -1,3 +1,4 @@
+import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { VamcEhr } from '@/types/drupal/vamcEhr'
 
 type VamcEhrSystem = VamcEhr['field_region_page']['field_vamc_ehr_system']
@@ -5,7 +6,7 @@ type VamcEhrSystem = VamcEhr['field_region_page']['field_vamc_ehr_system']
 type TopTasksProps = {
   path: string
   vamcEhrSystem: VamcEhrSystem
-  administration?: { entityId: number }
+  administrationId?: number
   regionPage?: { vamcEhrSystem: VamcEhrSystem }
   office?: { vamcEhrSystem: VamcEhrSystem }
 }
@@ -17,7 +18,7 @@ type TopTasksProps = {
  */
 export const TopTasks = ({
   path,
-  administration,
+  administrationId,
   vamcEhrSystem,
   regionPage,
   office,
@@ -29,7 +30,7 @@ export const TopTasks = ({
   const topTask = topTaskLovellComp({
     linkType: 'make-an-appointment',
     path: slashPath,
-    administration,
+    administrationId,
     vamcEhrSystem,
     regionPage,
     office,
@@ -70,7 +71,7 @@ export const TopTasks = ({
 const topTaskLovellComp = ({
   linkType,
   path,
-  administration,
+  administrationId,
   vamcEhrSystem,
   regionPage,
   office,
@@ -85,7 +86,7 @@ const topTaskLovellComp = ({
     isProd,
     linkType,
     path,
-    administration,
+    administrationId,
     vamcEhrSystem,
     regionPage,
     office,
@@ -100,7 +101,7 @@ export const _topTaskLovellComp = ({
   isProd,
   linkType,
   path,
-  administration,
+  administrationId,
   vamcEhrSystem,
   regionPage,
   office,
@@ -111,7 +112,7 @@ export const _topTaskLovellComp = ({
   const flag =
     vamcEhrSystem || office?.vamcEhrSystem || regionPage?.vamcEhrSystem || ''
 
-  const isPageLovell = administration?.entityId === 1039
+  const isPageLovell = administrationId === LOVELL.tricare.administrationId
 
   if (
     (flag === 'cerner' || (flag === 'cerner_staged' && !isProd)) &&

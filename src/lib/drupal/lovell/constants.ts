@@ -3,28 +3,19 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 export const LOVELL = {
   federal: {
     title: 'Lovell Federal health care',
-    administration: {
-      id: 347,
-      name: 'Lovell Federal health care',
-    },
+    administrationId: 347,
     pathSegment: 'lovell-federal-health-care',
     variant: 'federal',
   },
   tricare: {
     title: 'Lovell Federal health care - TRICARE',
-    administration: {
-      id: 1039,
-      name: 'Lovell - TRICARE',
-    },
+    administrationId: 1039,
     pathSegment: 'lovell-federal-health-care-tricare',
     variant: 'tricare',
   },
   va: {
     title: 'Lovell Federal health care - VA',
-    administration: {
-      id: 1040,
-      name: 'Lovell - VA',
-    },
+    administrationId: 1040,
     pathSegment: 'lovell-federal-health-care-va',
     variant: 'va',
   },

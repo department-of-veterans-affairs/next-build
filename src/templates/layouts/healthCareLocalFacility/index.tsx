@@ -32,7 +32,7 @@ export function HealthCareLocalFacility({
   operatingStatusFacility,
   menu,
   path,
-  administration,
+  administrationId,
   vamcEhrSystem,
   officeHours,
   address,
@@ -115,7 +115,7 @@ export function HealthCareLocalFacility({
 
             <TopTasks
               path={regionBasePath}
-              administration={administration}
+              administrationId={administrationId}
               vamcEhrSystem={vamcEhrSystem}
             />
 

@@ -39,8 +39,7 @@ describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
     )
     expect(formattedData.listing).toBeUndefined()
     expect(formattedData.contacts).toEqual([])
-    expect(formattedData.administration.id).toBeNull()
-    expect(formattedData.administration.name).toBeNull()
+    expect(formattedData.administrationId).toBeUndefined()
     expect(formattedData.pdfVersion).toBeNull()
   })
   test('handles missing or null contact fields correctly', () => {

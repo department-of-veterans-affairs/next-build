@@ -11,6 +11,7 @@ import { FieldAdministration } from '@/types/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { fetchAndConcatAllResourceCollectionPages } from '@/lib/drupal/query'
+import { getAdministrationId } from './administration'
 
 const PAGE_SIZE = PAGE_SIZES.MAX
 
@@ -66,9 +67,8 @@ export const formatter: QueryFormatter<
   )
   return filteredResources.map((filteredResource) => ({
     path: filteredResource.path.alias,
-    administration: {
-      id: filteredResource.field_administration?.drupal_internal__tid || null,
-      name: filteredResource.field_administration?.name || null,
-    },
+    administrationId: getAdministrationId(
+      filteredResource.field_administration
+    ),
   }))
 }
