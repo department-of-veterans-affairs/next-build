@@ -101,7 +101,8 @@ export const formatter: QueryFormatter<
     menu: formattedMenu,
     path: entity.path.alias,
     administration: {
-      entityId: entity.field_administration.drupal_internal__tid,
+      id: entity.field_administration?.drupal_internal__tid || null,
+      name: entity.field_administration?.name || null,
     },
     vamcEhrSystem: entity.field_region_page.field_vamc_ehr_system,
     officeHours: entity.field_office_hours,

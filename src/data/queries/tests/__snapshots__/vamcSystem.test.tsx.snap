@@ -534,5 +534,6 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   },
   "title": "VA New York Harbor health care",
   "type": "node--health_care_region_page",
+  "vamcEhrSystem": "vista",
 }
 `;
