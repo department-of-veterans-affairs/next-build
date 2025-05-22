@@ -29,19 +29,24 @@ describe('[[...slug]].tsx', () => {
       // Mock the expanded context
       const mockExpandedContext = { drupalPath: '/test-path', preview: false }
       const mockPathInfo = { jsonapi: { resourceName: 'node--event' } }
+
       // Mock the functions
       ;(getExpandedStaticPropsContext as jest.Mock).mockReturnValue(
         mockExpandedContext
       )
       ;(drupalClient.translatePath as jest.Mock).mockResolvedValue(mockPathInfo)
+
       // Mock getStaticPropsResource to throw DoNotPublishError
       ;(getStaticPropsResource as jest.Mock).mockImplementation(() => {
         throw new DoNotPublishError('Do not publish error')
       })
+
       // Call getStaticProps
       const result = await getStaticProps(mockContext)
+
       // Assert that notFound is returned
       expect(result).toEqual({ notFound: true })
+
       // Assert that getStaticPropsResource was called
       expect(getStaticPropsResource).toHaveBeenCalled()
     })
