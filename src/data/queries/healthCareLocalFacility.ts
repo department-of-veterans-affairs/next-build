@@ -84,10 +84,16 @@ export const formatter: QueryFormatter<
 
   // Sort the health care services by name
   entity.field_local_health_care_service_.sort((a, b) => {
-    return (
-      a.field_regional_health_service.field_service_name_and_descripti.name -
-      b.field_regional_health_service.field_service_name_and_descripti.name
-    )
+    const nameA =
+      a.field_regional_health_service?.field_service_name_and_descripti?.name
+    const nameB =
+      b.field_regional_health_service?.field_service_name_and_descripti?.name
+
+    if (nameA === undefined && nameB === undefined) return 0
+    if (nameA === undefined) return 1 // a goes after b
+    if (nameB === undefined) return -1 // a goes before b
+
+    return nameA.localeCompare(nameB)
   })
 
   return {
