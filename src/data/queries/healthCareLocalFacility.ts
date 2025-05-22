@@ -20,6 +20,7 @@ import {
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { getAdministrationId } from './administration'
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
@@ -100,9 +101,7 @@ export const formatter: QueryFormatter<
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,
     path: entity.path.alias,
-    administration: {
-      entityId: entity.field_administration.drupal_internal__tid,
-    },
+    administrationId: getAdministrationId(entity.field_administration),
     vamcEhrSystem: entity.field_region_page.field_vamc_ehr_system,
     officeHours: entity.field_office_hours,
     image: formatImage(entity.field_media),

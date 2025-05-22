@@ -1,8 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { PressRelease } from './index'
-import { getByText } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
-import { getByTestId } from '@testing-library/dom'
 
 const contacts = [
   {
@@ -89,10 +87,7 @@ const data = {
   contacts: contacts,
   downloads: downloads,
   listing: '/wilmington-health-care/news-releases',
-  administration: {
-    id: 0,
-    name: '',
-  },
+  administrationId: 0,
   office: undefined,
 }
 

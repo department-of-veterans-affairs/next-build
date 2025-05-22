@@ -12,7 +12,7 @@ export function getLovellVariantOfStaticPathResource(
 ): StaticPathResource {
   return {
     path: getLovellVariantOfUrl(resource.path, LOVELL[variant].variant),
-    administration: LOVELL[variant].administration,
+    administrationId: LOVELL[variant].administrationId,
   }
 }
 

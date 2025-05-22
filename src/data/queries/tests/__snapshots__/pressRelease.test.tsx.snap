@@ -8,10 +8,7 @@ exports[`node--press_release formatData output formatted data 1`] = `
     "langcode": null,
     "locality": "Wilmington",
   },
-  "administration": {
-    "id": 188,
-    "name": "VA Wilmington health care",
-  },
+  "administrationId": 188,
   "breadcrumbs": [
     {
       "options": [],
