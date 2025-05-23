@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 /**
  * Represents a serialized object structure where circular/repeated references
- * are replaced with `{ refId }` and the full objects are provided in the
+ * are replaced with `{ __refId }` and the full objects are provided in the
  * `include` map.
  */
 export interface DereferencedData<T> {
@@ -15,7 +15,7 @@ export interface DereferencedData<T> {
  * `DereferencedData` structure.
  */
 export interface Reference {
-  refId: string
+  __refId: string
 }
 
 /**
@@ -25,12 +25,12 @@ export interface Reference {
 export function serialize<T>(input: T): DereferencedData<T> {
   // Map of all seen objects. Each object gets a UUID and a flag for whether
   // it's reused.
-  const seen = new Map<unknown, { refId: string; isDuplicate: boolean }>()
+  const seen = new Map<unknown, { __refId: string; isDuplicate: boolean }>()
 
-  // The final store of extracted objects that will be referenced by `{ refId }`
+  // The final store of extracted objects that will be referenced by `{ __refId }`
   const include: DereferencedData<T>['include'] = {}
 
-  // Guards against infinite recursion by tracking active refIds during
+  // Guards against infinite recursion by tracking active __refIds during
   // serialization
   const serializing = new Set<string>()
 
@@ -46,7 +46,7 @@ export function serialize<T>(input: T): DereferencedData<T> {
       existing.isDuplicate = true
       return
     } else {
-      seen.set(value, { refId: uuidv4(), isDuplicate: false })
+      seen.set(value, { __refId: uuidv4(), isDuplicate: false })
     }
 
     if (Array.isArray(value)) {
@@ -60,7 +60,7 @@ export function serialize<T>(input: T): DereferencedData<T> {
 
   /**
    * Second pass: recursively walks the data and replaces duplicate objects
-   * with `{ refId }`. If an object is marked as a duplicate, it is added to
+   * with `{ __refId }`. If an object is marked as a duplicate, it is added to
    * `include` and referenced by ID.
    */
   function walk(value: unknown): unknown {
@@ -68,14 +68,14 @@ export function serialize<T>(input: T): DereferencedData<T> {
 
     const entry = seen.get(value)
     if (entry?.isDuplicate) {
-      if (!(entry.refId in include)) {
-        // If we're already serializing this refId (due to circularity), just
+      if (!(entry.__refId in include)) {
+        // If we're already serializing this __refId (due to circularity), just
         // return the ref
-        if (serializing.has(entry.refId)) {
-          return { refId: entry.refId }
+        if (serializing.has(entry.__refId)) {
+          return { __refId: entry.__refId }
         }
 
-        serializing.add(entry.refId)
+        serializing.add(entry.__refId)
 
         // Recursively walk object or array content
         let result: unknown
@@ -89,11 +89,11 @@ export function serialize<T>(input: T): DereferencedData<T> {
           result = obj
         }
 
-        include[entry.refId] = result
-        serializing.delete(entry.refId)
+        include[entry.__refId] = result
+        serializing.delete(entry.__refId)
       }
 
-      return { refId: entry.refId }
+      return { __refId: entry.__refId }
     }
 
     // Not a duplicate, serialize normally
@@ -115,7 +115,7 @@ export function serialize<T>(input: T): DereferencedData<T> {
 
 /**
  * Reconstructs the original object from its serialized form, resolving all
- * `{ refId }` references. Preserves object identity and circular structure by
+ * `{ __refId }` references. Preserves object identity and circular structure by
  * caching resolved references.
  */
 export function deserialize<T>(data: DereferencedData<T>): T {
@@ -123,7 +123,7 @@ export function deserialize<T>(data: DereferencedData<T>): T {
   const cache = new Map<string, unknown>() // Used to maintain shared/circular reference identity
 
   /**
-   * Recursively resolves `{ refId }` references into actual object instances.
+   * Recursively resolves `{ __refId }` references into actual object instances.
    * Uses a cache to prevent reprocessing and to rebuild cycles correctly.
    */
   function resolve(value: unknown): unknown {
@@ -132,22 +132,22 @@ export function deserialize<T>(data: DereferencedData<T>): T {
     }
 
     if (typeof value === 'object' && value !== null) {
-      if ('refId' in value && typeof value.refId === 'string') {
-        const refId = (value as Reference).refId
+      if ('__refId' in value && typeof value.__refId === 'string') {
+        const __refId = (value as Reference).__refId
 
         // Return from cache if already resolved (handles shared/circular refs)
-        if (cache.has(refId)) {
-          return cache.get(refId)
+        if (cache.has(__refId)) {
+          return cache.get(__refId)
         }
 
-        const refData = include[refId]
+        const refData = include[__refId]
         if (refData === undefined) {
-          throw new Error(`Reference id ${refId} not found in include map`)
+          throw new Error(`Reference id ${__refId} not found in include map`)
         }
 
         // Create placeholder to support circular references
         const shell: Record<string, unknown> = {}
-        cache.set(refId, shell)
+        cache.set(__refId, shell)
 
         const resolved = resolve(refData)
         Object.assign(shell, resolved)

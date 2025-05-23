@@ -28,8 +28,8 @@ describe('data-serializer', () => {
 
     const uuids = Object.keys(result.include)
     expect(uuids.length).toBe(1)
-    expect(result.data.a).toEqual({ refId: uuids[0] })
-    expect(result.data.b).toEqual({ refId: uuids[0] })
+    expect(result.data.a).toEqual({ __refId: uuids[0] })
+    expect(result.data.b).toEqual({ __refId: uuids[0] })
 
     const roundTrip = deserialize(result)
     expect(roundTrip.a).toBe(roundTrip.b)
