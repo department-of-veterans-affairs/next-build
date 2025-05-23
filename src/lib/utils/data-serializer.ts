@@ -117,6 +117,9 @@ export function serialize<T>(input: T): DereferencedData<T> {
  * Reconstructs the original object from its serialized form, resolving all
  * `{ __refId }` references. Preserves object identity and circular structure by
  * caching resolved references.
+ *
+ * NOTE: The return value is type-asserted, so be careful with the type you
+ * assign to it!
  */
 export function deserialize<T>(data: DereferencedData<T>): T {
   const { data: root, include } = data
