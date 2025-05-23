@@ -38,7 +38,7 @@ export function serialize<T>(input: T): DereferencedData<T> {
     if (typeof value !== 'object' || value === null) return value
 
     const entry = seen.get(value)
-    if (entry && entry.isDuplicate) {
+    if (entry?.isDuplicate) {
       if (!(entry.refId in include)) {
         if (serializing.has(entry.refId)) {
           return { refId: entry.refId }
