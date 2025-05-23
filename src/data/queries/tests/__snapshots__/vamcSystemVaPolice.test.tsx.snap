@@ -28,6 +28,10 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
   "entityPath": "/central-arkansas-health-care/va-police",
   "id": "7833b254-f4e4-4adb-bce1-d72d5e337c1e",
   "lastUpdated": "2023-12-20T21:57:55+00:00",
+  "menu": {
+    "data": null,
+    "rootPath": "/central-arkansas-health-care/va-police/",
+  },
   "metatags": [
     {
       "attributes": {
@@ -108,6 +112,7 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "published",
+  "path": "/central-arkansas-health-care/va-police",
   "published": true,
   "title": "VA police",
   "type": "node--vamc_system_va_police",
