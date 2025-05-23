@@ -1,19 +1,43 @@
 import { v4 as uuidv4 } from 'uuid'
 
+/**
+ * Represents a serialized object structure where circular/repeated references
+ * are replaced with `{ refId }` and the full objects are provided in the
+ * `include` map.
+ */
 export interface DereferencedData<T> {
   data: T
   include: Record<string, unknown>
 }
 
+/**
+ * A reference to an object stored in the `include` section of a
+ * `DereferencedData` structure.
+ */
 export interface Reference {
   refId: string
 }
 
+/**
+ * Serializes an object containing circular and/or repeated references into a
+ * JSON-safe format by extracting duplicates into an `include` map.
+ */
 export function serialize<T>(input: T): DereferencedData<T> {
+  // Map of all seen objects. Each object gets a UUID and a flag for whether
+  // it's reused.
   const seen = new Map<unknown, { refId: string; isDuplicate: boolean }>()
+
+  // The final store of extracted objects that will be referenced by `{ refId }`
   const include: DereferencedData<T>['include'] = {}
+
+  // Guards against infinite recursion by tracking active refIds during
+  // serialization
   const serializing = new Set<string>()
 
+  /**
+   * First pass: detects duplicates and assigns UUIDs to all objects. Only marks
+   * objects as `isDuplicate` if seen more than once.
+   */
   function findDuplicates(value: unknown) {
     if (typeof value !== 'object' || value === null) return
 
@@ -34,34 +58,45 @@ export function serialize<T>(input: T): DereferencedData<T> {
     }
   }
 
+  /**
+   * Second pass: recursively walks the data and replaces duplicate objects
+   * with `{ refId }`. If an object is marked as a duplicate, it is added to
+   * `include` and referenced by ID.
+   */
   function walk(value: unknown): unknown {
     if (typeof value !== 'object' || value === null) return value
 
     const entry = seen.get(value)
     if (entry?.isDuplicate) {
       if (!(entry.refId in include)) {
+        // If we're already serializing this refId (due to circularity), just
+        // return the ref
         if (serializing.has(entry.refId)) {
           return { refId: entry.refId }
         }
 
         serializing.add(entry.refId)
 
-        // Recursively walk and build the included object
-        const result: Record<string, unknown> = {}
-        for (const [key, val] of Object.entries(value)) {
-          result[key] = walk(val)
+        // Recursively walk object or array content
+        let result: unknown
+        if (Array.isArray(value)) {
+          result = value.map(walk)
+        } else {
+          const obj: Record<string, unknown> = {}
+          for (const [key, val] of Object.entries(value)) {
+            obj[key] = walk(val)
+          }
+          result = obj
         }
 
-        include[entry.refId] = Array.isArray(value)
-          ? (value as unknown[]).map(walk)
-          : result
-
+        include[entry.refId] = result
         serializing.delete(entry.refId)
       }
 
       return { refId: entry.refId }
     }
 
+    // Not a duplicate, serialize normally
     if (Array.isArray(value)) {
       return value.map(walk)
     }
@@ -78,10 +113,19 @@ export function serialize<T>(input: T): DereferencedData<T> {
   return { data, include }
 }
 
+/**
+ * Reconstructs the original object from its serialized form, resolving all
+ * `{ refId }` references. Preserves object identity and circular structure by
+ * caching resolved references.
+ */
 export function deserialize<T>(data: DereferencedData<T>): T {
   const { data: root, include } = data
-  const cache = new Map<string, unknown>()
+  const cache = new Map<string, unknown>() // Used to maintain shared/circular reference identity
 
+  /**
+   * Recursively resolves `{ refId }` references into actual object instances.
+   * Uses a cache to prevent reprocessing and to rebuild cycles correctly.
+   */
   function resolve(value: unknown): unknown {
     if (Array.isArray(value)) {
       return value.map(resolve)
@@ -90,6 +134,8 @@ export function deserialize<T>(data: DereferencedData<T>): T {
     if (typeof value === 'object' && value !== null) {
       if ('refId' in value && typeof value.refId === 'string') {
         const refId = (value as Reference).refId
+
+        // Return from cache if already resolved (handles shared/circular refs)
         if (cache.has(refId)) {
           return cache.get(refId)
         }
@@ -99,7 +145,7 @@ export function deserialize<T>(data: DereferencedData<T>): T {
           throw new Error(`Reference id ${refId} not found in include map`)
         }
 
-        // Placeholder before recursion to support circular refs
+        // Create placeholder to support circular references
         const shell: Record<string, unknown> = {}
         cache.set(refId, shell)
 
