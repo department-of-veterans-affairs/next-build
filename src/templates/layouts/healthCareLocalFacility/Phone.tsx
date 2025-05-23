@@ -40,7 +40,7 @@ export const Phone = ({
           className="vads-u-margin--0"
           {...formatParagraphPhoneNumber(fieldTelephone)}
           // Note that this label is hardcoded for certain node types, like `node--health_care_local_facility`
-          label="Mental health phone"
+          label="Mental health care"
         />
       )}
     </div>

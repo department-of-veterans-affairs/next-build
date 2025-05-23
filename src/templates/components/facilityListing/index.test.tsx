@@ -97,15 +97,15 @@ describe('FacilityListing with valid data', () => {
     )
     expect(healthConnectPhone).toBeInTheDocument()
 
-    // Check mental health phone
-    expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
+    // Check Mental health phone number
+    expect(screen.getByText('Mental health care:')).toBeInTheDocument()
     const mentalHealthPhone = container.querySelector(
       `va-telephone[contact="${mockFacility.fieldTelephone.field_phone_number.replace(/-/g, '')}"]`
     )
     expect(mentalHealthPhone).toBeInTheDocument()
     expect(mentalHealthPhone).toHaveAttribute(
       'message-aria-describedby',
-      'Mental health phone'
+      'Mental health care'
     )
   })
 
