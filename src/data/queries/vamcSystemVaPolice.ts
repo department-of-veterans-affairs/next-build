@@ -13,7 +13,6 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 
-
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
