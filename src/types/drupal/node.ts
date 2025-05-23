@@ -153,7 +153,7 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_geolocation: FieldGeoLocation
   field_intro_text: string
   // TODO: Uncomment these
-  // field_local_health_care_service_: NodeHealthCareLocalHealthService[] //
+  field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   // field_location_services: ParagraphHealthCareLocalFacilityService[]
   field_main_location: boolean
   field_media: DrupalMediaImage
@@ -394,7 +394,7 @@ export interface NodeQA extends NodeAbstractResource {
 
 export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
-  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy[] //@todo
+  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
   field_region_page: NodeHealthCareRegionPage
   field_body: string
 }
