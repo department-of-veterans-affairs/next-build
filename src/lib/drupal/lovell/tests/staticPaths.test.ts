@@ -19,7 +19,7 @@ import {
 describe('getLovellVariantOfStaticPathResource', () => {
   const resource = {
     path: `/${LOVELL.va.pathSegment}/stories`,
-    administrationId: LOVELL.va.administrationId,
+    administration: LOVELL.va.administration,
   }
 
   test('should return resource adjusted for federal variant', () => {
@@ -29,7 +29,7 @@ describe('getLovellVariantOfStaticPathResource', () => {
     )
     expect(result).toStrictEqual({
       path: `/${LOVELL.federal.pathSegment}/stories`,
-      administrationId: LOVELL.federal.administrationId,
+      administration: LOVELL.federal.administration,
     })
   })
 
@@ -40,7 +40,7 @@ describe('getLovellVariantOfStaticPathResource', () => {
     )
     expect(result).toStrictEqual({
       path: `/${LOVELL.tricare.pathSegment}/stories`,
-      administrationId: LOVELL.tricare.administrationId,
+      administration: LOVELL.tricare.administration,
     })
   })
 

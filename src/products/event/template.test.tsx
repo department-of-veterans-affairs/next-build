@@ -174,8 +174,10 @@ describe('<Event /> Component', () => {
       value: '<p>Event Body</p>',
       format: 'text',
     },
-    administrationId: 0,
-    administrationName: '',
+    administration: {
+      entityId: 0,
+      name: '',
+    },
   }
 
   beforeEach(() => {

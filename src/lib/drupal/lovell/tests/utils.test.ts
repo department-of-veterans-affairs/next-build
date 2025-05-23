@@ -384,7 +384,7 @@ describe('isLovellBifurcatedResource', () => {
     const bifurcatedResource = {
       ...newsStoryPartialResource,
       entityPath: lovellVaResource.path,
-      administrationId: LOVELL.federal.administrationId,
+      administration: LOVELL.federal.administration,
     }
     const result = isLovellBifurcatedResource(bifurcatedResource)
     expect(result).toBe(true)
@@ -394,7 +394,7 @@ describe('isLovellBifurcatedResource', () => {
     const tricareResource = {
       ...newsStoryPartialResource,
       entityPath: lovellTricareResource.path,
-      administrationId: lovellTricareResource.administrationId,
+      administration: lovellTricareResource.administration,
     }
     const result = isLovellBifurcatedResource(tricareResource)
     expect(result).toBe(false)
@@ -404,7 +404,7 @@ describe('isLovellBifurcatedResource', () => {
     const vaResource = {
       ...newsStoryPartialResource,
       entityPath: lovellVaResource.path,
-      administrationId: lovellVaResource.administrationId,
+      administration: lovellVaResource.administration,
     }
     const result = isLovellBifurcatedResource(vaResource)
     expect(result).toBe(false)
@@ -414,7 +414,7 @@ describe('isLovellBifurcatedResource', () => {
     const someOtherResource = {
       ...newsStoryPartialResource,
       entityPath: otherResource.path,
-      administrationId: otherResource.administrationId,
+      administration: otherResource.administration,
     }
     const result = isLovellBifurcatedResource(someOtherResource)
     expect(result).toBe(false)

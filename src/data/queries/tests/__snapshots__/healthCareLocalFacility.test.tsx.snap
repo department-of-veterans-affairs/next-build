@@ -12,7 +12,10 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "locality": "Boston",
     "postal_code": "02114-2104",
   },
-  "administrationId": 205,
+  "administration": {
+    "entityId": 205,
+    "name": "VA Boston health care",
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -546,7 +549,10 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "locality": "Boston",
     "postal_code": "02114-2104",
   },
-  "administrationId": 205,
+  "administration": {
+    "entityId": 205,
+    "name": "VA Boston health care",
+  },
   "breadcrumbs": [
     {
       "options": [],

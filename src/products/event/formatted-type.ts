@@ -10,7 +10,7 @@ import {
   SocialLinksProps,
   FieldLink,
 } from '@/types/drupal/field_type'
-import { Administration } from '@/data/queries/administration'
+import { Administration } from '@/types/formatted/administration'
 
 interface DateTimeRangeItem {
   value: string

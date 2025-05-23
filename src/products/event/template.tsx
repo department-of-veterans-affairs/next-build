@@ -28,8 +28,7 @@ export const Event = ({
   cost,
   registrationRequired,
   socialLinks,
-  administrationId,
-  administrationName,
+  administration,
   link,
   additionalInfo,
   eventCTA,
@@ -331,9 +330,9 @@ export const Event = ({
         <h2 className="vads-u-font-size--h3 vads-u-margin-bottom--0">
           Other VA events
         </h2>
-        {administrationId != 7 &&
+        {administration?.entityId != 7 &&
           listingOffice != 'Outreach and events' &&
-          administrationName && (
+          administration?.name && (
             <p>
               <va-link
                 href={listing}
@@ -341,7 +340,7 @@ export const Event = ({
                   recordEvent({ event: 'nav-secondary-button-click' })
                 }
                 id="see-more-events"
-                text={`Browse the ${administrationName} events calendar`}
+                text={`Browse the ${administration.name} events calendar`}
               ></va-link>
             </p>
           )}

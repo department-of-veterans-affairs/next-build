@@ -76,7 +76,7 @@ describe('VamcSystem with valid data', () => {
     render(
       <VamcSystem
         {...mockData}
-        administrationId={LOVELL.tricare.administrationId}
+        administration={LOVELL.tricare.administration}
       />
     )
     expect(
@@ -86,7 +86,7 @@ describe('VamcSystem with valid data', () => {
 
   test('uses an alternate title for the administration section if the administration is 1040', () => {
     render(
-      <VamcSystem {...mockData} administrationId={LOVELL.va.administrationId} />
+      <VamcSystem {...mockData} administration={LOVELL.va.administration} />
     )
     expect(screen.getByText('Manage your VA health online')).toBeInTheDocument()
   })

@@ -1,4 +1,6 @@
+import { Administration } from './administration'
+
 export type StaticPathResource = {
   path: string
-  administrationId: number
+  administration: Administration
 }

@@ -51,7 +51,10 @@ const data = {
     title: 'We honor outstanding doctors',
   },
   listing: '/pittsburgh-health-care/stories',
-  administrationId: 12,
+  administration: {
+    entityId: 12,
+    name: 'VA Pittsburgh health care',
+  },
   metatags: [
     {
       attributes: {

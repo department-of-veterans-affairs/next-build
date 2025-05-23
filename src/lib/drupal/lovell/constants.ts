@@ -1,5 +1,5 @@
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { Administration } from '@/data/queries/administration'
+import { Administration } from '@/types/formatted/administration'
 
 export const LOVELL = {
   federal: {

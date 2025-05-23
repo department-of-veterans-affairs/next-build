@@ -1,13 +1,9 @@
 import { FieldAdministration } from '@/types/drupal/field_type'
-
-export interface Administration {
-  entityId: number
-  name: string | null
-}
+import { Administration } from '@/types/formatted/administration'
 
 /**
  * Formats a Drupal administration field into our standardized Administration interface.
- * 
+ *
  * In our Drupal content, the `field_administration` field points to a taxonomy Term
  * that is currently called "Section", but "Section" is only a human label added to
  * it in the Drupal interface, and that name has evolved over time. It was originally,

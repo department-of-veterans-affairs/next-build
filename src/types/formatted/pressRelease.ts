@@ -1,6 +1,7 @@
 import { ComponentType } from 'react'
 import { PublishedEntity } from './publishedEntity'
 import { FieldAddress } from '../drupal/field_type'
+import { Administration } from './administration'
 import { PressContact } from './contactInfo'
 
 export type PressReleaseTeaser = PublishedEntity & {
@@ -28,5 +29,5 @@ export type PressRelease = PublishedEntity & {
   contacts: PressContact[]
   downloads: PressReleaseDownload[]
   listing: string
-  administrationId: number
+  administration: Administration
 }

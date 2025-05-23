@@ -18,7 +18,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
   operatingStatusFacility: FacilityOperatingStatusFlags
   menu: SideNavMenu | null
   path: string
-  administrationId?: number
+  administration?: { entityId: number }
   vamcEhrSystem: VamcEhr['field_region_page']['field_vamc_ehr_system']
   officeHours: FieldOfficeHours[]
   address: FieldAddress

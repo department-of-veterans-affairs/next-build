@@ -25,7 +25,8 @@ describe(`${RESOURCE_TYPES.STORY} formatData`, () => {
 
     const formattedData = queries.formatData(RESOURCE_TYPES.STORY, modifiedMock)
     expect(formattedData.author).toBeNull()
-    expect(formattedData.administrationId).toBeUndefined()
+    expect(formattedData.administration.entityId).toBeNull()
+    expect(formattedData.administration.name).toBeNull()
   })
 })
 

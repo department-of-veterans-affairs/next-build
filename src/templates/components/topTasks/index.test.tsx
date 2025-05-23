@@ -1,6 +1,7 @@
-import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { TopTasks, _topTaskLovellComp } from './index'
 import { render } from '@testing-library/react'
+
+const lovellAdministration = { entityId: 1039 }
 
 describe('TopTasks', () => {
   it('should render the normal links', () => {
@@ -25,7 +26,7 @@ describe('TopTasks', () => {
       <TopTasks
         path="/test-nav-path"
         vamcEhrSystem="cerner"
-        administrationId={LOVELL.tricare.administrationId}
+        administration={{ entityId: 1039 }}
       />
     )
     expect(
@@ -42,7 +43,7 @@ describe('TopTasks', () => {
         /* @ts-expect-error Shouldn't happen, but just in case... */
         vamcEhrSystem=""
         office={{ vamcEhrSystem: 'cerner' }}
-        administrationId={LOVELL.tricare.administrationId}
+        administration={{ entityId: 1039 }}
       />
     )
     expect(
@@ -61,7 +62,7 @@ describe('TopTasks', () => {
         /* @ts-expect-error Shouldn't happen, but just in case... */
         office={{ vamcEhrSystem: '' }}
         regionPage={{ vamcEhrSystem: 'cerner' }}
-        administrationId={LOVELL.tricare.administrationId}
+        administration={{ entityId: 1039 }}
       />
     )
     expect(
@@ -89,7 +90,7 @@ describe('topTaskLovellComp', () => {
     isProd: true,
     linkType: 'make-an-appointment',
     path: '/test-nav-path',
-    administrationId: LOVELL.tricare.administrationId,
+    administration: lovellAdministration,
     ...cerner,
   }
   const mhsLink = {
@@ -159,7 +160,7 @@ describe('topTaskLovellComp', () => {
     expect(
       _topTaskLovellComp({
         ...mhsLinkData,
-        administrationId: LOVELL.va.administrationId,
+        administration: { entityId: 1040 }, // Lovell is 1039
       })
     ).toEqual(normalLink)
   })

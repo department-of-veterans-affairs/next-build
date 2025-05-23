@@ -1,6 +1,7 @@
 import { ComponentType } from 'react'
 import { PersonProfileTeaserProps } from '@/templates/components/staffNewsProfile'
 import { SocialLinksProps } from '@/types/drupal/field_type'
+import { Administration } from '@/types/formatted/administration'
 import { PublishedEntity } from './publishedEntity'
 import { MediaImage } from './media'
 
@@ -20,5 +21,5 @@ export type NewsStory = PublishedEntity & {
   date: string
   socialLinks: SocialLinksProps
   listing: string
-  administrationId: number
+  administration: Administration
 }

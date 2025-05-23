@@ -11,8 +11,10 @@ exports[`node--event formatData outputs formatted data 1`] = `
     "langcode": "en",
     "locality": "Urbandale",
   },
-  "administrationId": undefined,
-  "administrationName": undefined,
+  "administration": {
+    "entityId": null,
+    "name": null,
+  },
   "body": {
     "format": "rich_text",
     "processed": "<p>Pickleball Club</p>
