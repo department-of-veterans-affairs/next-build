@@ -85,7 +85,7 @@ export function getLovellChildVariantOfResource(
             path: variantPaths[variant],
           }
         : { path: '', title: '' },
-    administrationId: LOVELL[variant].administrationId,
+    administration: LOVELL[variant].administration,
     listing:
       'listing' in resource && resource.listing
         ? getLovellVariantOfUrl(resource.listing, variant)

@@ -114,8 +114,10 @@ const data = {
       },
     },
   },
-  administrationId: 0,
-  administrationName: '',
+  administration: {
+    entityId: 0,
+    name: '',
+  },
 }
 
 describe('<Event /> Component', () => {
@@ -263,8 +265,10 @@ describe('<Event /> Component', () => {
       render(
         <Event
           {...data}
-          administrationId={1}
-          administrationName="Test Administration"
+          administration={{
+            entityId: 1,
+            name: 'Test Administration',
+          }}
           listing="/test-listing"
           listingOffice="Test Office"
         />

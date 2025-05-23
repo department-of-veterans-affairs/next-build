@@ -32,24 +32,24 @@ export function isLovellFederalResource(
   resource: LovellFormattedResource | StaticPathResource
 ): boolean {
   return (
-    'administrationId' in resource &&
-    resource?.administrationId === LOVELL.federal.administrationId
+    'administration' in resource &&
+    resource?.administration?.entityId === LOVELL.federal.administration.entityId
   )
 }
 export function isLovellTricareResource(
   resource: LovellFormattedResource | StaticPathResource
 ): boolean {
   return (
-    'administrationId' in resource &&
-    resource?.administrationId === LOVELL.tricare.administrationId
+    'administration' in resource &&
+    resource?.administration?.entityId === LOVELL.tricare.administration.entityId
   )
 }
 export function isLovellVaResource(
   resource: LovellFormattedResource | StaticPathResource
 ): boolean {
   return (
-    'administrationId' in resource &&
-    resource?.administrationId === LOVELL.va.administrationId
+    'administration' in resource &&
+    resource?.administration?.entityId === LOVELL.va.administration.entityId
   )
 }
 export function isLovellResource(

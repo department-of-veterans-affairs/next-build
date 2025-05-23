@@ -11,7 +11,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { buildStaffProfileSidebarData } from '@/lib/drupal/staffProfileSideNav'
-import { getAdministrationId } from './administration'
+import { formatAdministration } from './administration'
 
 // Define the query params for fetching node--person_profile.
 export const params: QueryParams<null> = () => {
@@ -80,6 +80,6 @@ export const formatter: QueryFormatter<PersonProfileData, StaffProfile> = ({
     vamcTitle: entity?.field_office?.title || null,
     office: entity.field_office,
     menu: formattedMenu,
-    administrationId: getAdministrationId(entity.field_administration),
+    administration: formatAdministration(entity.field_administration),
   }
 }

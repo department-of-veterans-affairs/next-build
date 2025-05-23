@@ -15,7 +15,7 @@ import {
 } from '@/lib/drupal/query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { getNestedIncludes } from '@/lib/utils/queries'
-import { getAdministrationId } from '@/data/queries/administration'
+import { formatAdministration } from '@/data/queries/administration'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -73,7 +73,6 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     description: entity.field_description,
     link: entity.field_link,
     urlOfOnlineEvent: entity.field_url_of_an_online_event,
-    administrationId: getAdministrationId(entity.field_administration),
-    administrationName: entity.field_administration?.name,
+    administration: formatAdministration(entity.field_administration),
   }
 }

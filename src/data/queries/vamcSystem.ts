@@ -19,7 +19,7 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
-import { getAdministrationId } from './administration'
+import { formatAdministration } from './administration'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -96,7 +96,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     title: entity.title,
     introText: entity.field_intro_text,
     image: formatImage(entity.field_media),
-    administrationId: getAdministrationId(entity.field_administration),
+    administration: formatAdministration(entity.field_administration),
     path: entity.path.alias,
     menu: formattedMenu,
     mainFacilities: mainFacilities.map((facility) => ({

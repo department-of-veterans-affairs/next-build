@@ -10,7 +10,7 @@ import {
 } from '@/lib/drupal/query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { getNestedIncludes } from '@/lib/utils/queries'
-import { getAdministrationId } from './administration'
+import { formatAdministration } from './administration'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -57,6 +57,6 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStory> = (
       title: entity.title,
     },
     listing: entity.field_listing.path.alias,
-    administrationId: getAdministrationId(entity.field_administration),
+    administration: formatAdministration(entity.field_administration),
   }
 }

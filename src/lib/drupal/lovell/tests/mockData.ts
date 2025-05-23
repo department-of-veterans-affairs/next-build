@@ -20,22 +20,25 @@ export const otherSlug = ['some-other-health-care', 'stories', 'story-1']
 
 export const lovellFederalResource = {
   path: slugToPath(lovellFederalSlug),
-  administrationId: LOVELL.federal.administrationId,
+  administration: LOVELL.federal.administration,
 }
 
 export const lovellTricareResource = {
   path: slugToPath(lovellTricareSlug),
-  administrationId: LOVELL.tricare.administrationId,
+  administration: LOVELL.tricare.administration,
 }
 
 export const lovellVaResource = {
   path: slugToPath(lovellVaSlug),
-  administrationId: LOVELL.va.administrationId,
+  administration: LOVELL.va.administration,
 }
 
 export const otherResource = {
   path: slugToPath(otherSlug),
-  administrationId: 123,
+  administration: {
+    entityId: 123,
+    name: 'Some Other health care',
+  },
 }
 
 export const newsStoryPartialResource = {
