@@ -36,7 +36,7 @@ export const lovellVaResource = {
 export const otherResource = {
   path: slugToPath(otherSlug),
   administration: {
-    id: 123,
+    entityId: 123,
     name: 'Some Other health care',
   },
 }

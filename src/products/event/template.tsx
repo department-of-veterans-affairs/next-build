@@ -330,7 +330,7 @@ export const Event = ({
         <h2 className="vads-u-font-size--h3 vads-u-margin-bottom--0">
           Other VA events
         </h2>
-        {administration?.id != 7 &&
+        {administration?.entityId != 7 &&
           listingOffice != 'Outreach and events' &&
           administration?.name && (
             <p>

@@ -9,7 +9,7 @@ exports[`node--press_release formatData output formatted data 1`] = `
     "locality": "Wilmington",
   },
   "administration": {
-    "id": 188,
+    "entityId": 188,
     "name": "VA Wilmington health care",
   },
   "breadcrumbs": [

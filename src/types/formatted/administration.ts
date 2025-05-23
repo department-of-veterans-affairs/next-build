@@ -1,4 +1,4 @@
-export type Administration = {
-  id: number
-  name: string
+export interface Administration {
+  entityId: number
+  name: string | null
 }

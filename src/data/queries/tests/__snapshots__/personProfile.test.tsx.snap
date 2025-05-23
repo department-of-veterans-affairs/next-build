@@ -3,7 +3,7 @@
 exports[`Person profile returns formatted data outputs formatted data 1`] = `
 {
   "administration": {
-    "id": null,
+    "entityId": null,
     "name": null,
   },
   "body": null,
