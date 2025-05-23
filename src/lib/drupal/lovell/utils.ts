@@ -33,7 +33,8 @@ export function isLovellFederalResource(
 ): boolean {
   return (
     'administration' in resource &&
-    resource?.administration?.entityId === LOVELL.federal.administration.entityId
+    resource?.administration?.entityId ===
+      LOVELL.federal.administration.entityId
   )
 }
 export function isLovellTricareResource(
@@ -41,7 +42,8 @@ export function isLovellTricareResource(
 ): boolean {
   return (
     'administration' in resource &&
-    resource?.administration?.entityId === LOVELL.tricare.administration.entityId
+    resource?.administration?.entityId ===
+      LOVELL.tricare.administration.entityId
   )
 }
 export function isLovellVaResource(
