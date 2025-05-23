@@ -35,7 +35,7 @@ export function VamcSystemVaPolice({
               PLACEHOLDER INTRO TEXT
             </div>
             {/* Table of Contents */}
-            <va-on-this-page>PLACEHOLDER TABLE OF CONTENTS</va-on-this-page>
+            <va-on-this-page></va-on-this-page>
             {/* How to contact us (field_phone_numbers_paragraph) */}
             <div className="vads-u-margin-bottom--4" id="field-phone-numbers">
               <h2 id="how-to-contact-us-police">How to contact us</h2>
