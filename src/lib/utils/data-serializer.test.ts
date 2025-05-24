@@ -1,15 +1,15 @@
-import { serialize, deserialize } from './data-serializer'
+import { flattenObjectGraph, inflateObjectGraph } from './data-serializer'
 
 describe('data-serializer', () => {
   it('serializes and deserializes a simple object', () => {
     const input = { name: 'Alice', age: 30 }
-    const roundTrip = deserialize(serialize(input))
+    const roundTrip = inflateObjectGraph(flattenObjectGraph(input))
     expect(roundTrip).toEqual(input)
   })
 
   it('handles nested objects', () => {
     const input = { user: { name: 'Bob' }, active: true }
-    const roundTrip = deserialize(serialize(input))
+    const roundTrip = inflateObjectGraph(flattenObjectGraph(input))
     expect(roundTrip).toEqual(input)
   })
 
@@ -17,21 +17,21 @@ describe('data-serializer', () => {
     const input = {
       list: [1, 2, { a: 'x' }, { b: 'y' }],
     }
-    const roundTrip = deserialize(serialize(input))
+    const roundTrip = inflateObjectGraph(flattenObjectGraph(input))
     expect(roundTrip).toEqual(input)
   })
 
   it('deduplicates repeated references', () => {
     const shared = { value: 42 }
     const input = { a: shared, b: shared }
-    const result = serialize(input)
+    const result = flattenObjectGraph(input)
 
     const uuids = Object.keys(result.include)
     expect(uuids.length).toBe(1)
     expect(result.data.a).toEqual({ __refId: uuids[0] })
     expect(result.data.b).toEqual({ __refId: uuids[0] })
 
-    const roundTrip = deserialize(result)
+    const roundTrip = inflateObjectGraph(result)
     expect(roundTrip.a).toBe(roundTrip.b)
     expect(roundTrip.a).toEqual(shared)
   })
@@ -40,11 +40,11 @@ describe('data-serializer', () => {
     const obj: Record<string, unknown> = { name: 'Selfie' }
     obj.self = obj
 
-    const result = serialize(obj)
+    const result = flattenObjectGraph(obj)
     const uuids = Object.keys(result.include)
     expect(uuids.length).toBe(1)
 
-    const roundTrip = deserialize(result)
+    const roundTrip = inflateObjectGraph(result)
     expect(roundTrip.self).toBe(roundTrip)
   })
 
@@ -58,30 +58,30 @@ describe('data-serializer', () => {
     const child: Child = { name: 'child', parent }
     parent.child = child
 
-    const result = serialize(parent)
+    const result = flattenObjectGraph(parent)
     const uuids = Object.keys(result.include)
     expect(uuids.length).toBe(1)
 
-    const roundTrip = deserialize(result)
+    const roundTrip = inflateObjectGraph(result)
     expect(roundTrip.child.parent).toBe(roundTrip)
   })
 
   it('does not create includes for primitives', () => {
     const input = { a: 1, b: true, c: 'text' }
-    const result = serialize(input)
+    const result = flattenObjectGraph(input)
 
     expect(Object.keys(result.include)).toHaveLength(0)
-    expect(deserialize(result)).toEqual(input)
+    expect(inflateObjectGraph(result)).toEqual(input)
   })
 
   it('preserves repeated references in arrays', () => {
     const shared = { thing: 'yo' }
     const input = [shared, shared]
-    const result = serialize(input)
+    const result = flattenObjectGraph(input)
 
     expect(Object.keys(result.include)).toHaveLength(1)
     expect(result.data[0]).toEqual(result.data[1])
-    const deserializedData = deserialize(result)
+    const deserializedData = inflateObjectGraph(result)
     expect(deserializedData[0]).toBe(deserializedData[1])
   })
 
@@ -92,9 +92,9 @@ describe('data-serializer', () => {
       right: { leaf },
     }
 
-    const result = serialize(input)
+    const result = flattenObjectGraph(input)
     expect(Object.keys(result.include)).toHaveLength(1)
-    const roundTrip = deserialize(result)
+    const roundTrip = inflateObjectGraph(result)
 
     expect(roundTrip.left.leaf).toBe(roundTrip.right.leaf)
   })
@@ -106,8 +106,8 @@ describe('data-serializer', () => {
     a.b = b
     b.a = a
 
-    const result = serialize(a)
-    const roundTrip = deserialize(result)
+    const result = flattenObjectGraph(a)
+    const roundTrip = inflateObjectGraph(result)
 
     // TS gets a little (reasonably) annoyed that we're not more specific with
     // the static types. We know they're there.
@@ -122,8 +122,8 @@ describe('data-serializer', () => {
     const node: Record<string, unknown> = { id: 1 }
     node.children = [node]
 
-    const result = serialize(node)
-    const roundTrip = deserialize(result)
+    const result = flattenObjectGraph(node)
+    const roundTrip = inflateObjectGraph(result)
 
     expect(roundTrip.children[0]).toBe(roundTrip)
   })
@@ -135,8 +135,8 @@ describe('data-serializer', () => {
       c: { d: undefined, e: null },
     }
 
-    const result = serialize(input)
-    const roundTrip = deserialize(result)
+    const result = flattenObjectGraph(input)
+    const roundTrip = inflateObjectGraph(result)
 
     expect(roundTrip.a).toBeNull()
     expect(roundTrip.b).toBeUndefined()

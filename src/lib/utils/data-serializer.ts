@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
  * are replaced with `{ __refId }` and the full objects are provided in the
  * `include` map.
  */
-export interface DereferencedData<T> {
+export interface FlattenedGraph<T> {
   data: T
   include: Record<string, unknown>
 }
@@ -22,13 +22,13 @@ export interface Reference {
  * Serializes an object containing circular and/or repeated references into a
  * JSON-safe format by extracting duplicates into an `include` map.
  */
-export function serialize<T>(input: T): DereferencedData<T> {
+export function flattenObjectGraph<T>(input: T): FlattenedGraph<T> {
   // Map of all seen objects. Each object gets a UUID and a flag for whether
   // it's reused.
   const seen = new Map<unknown, { __refId: string; isDuplicate: boolean }>()
 
   // The final store of extracted objects that will be referenced by `{ __refId }`
-  const include: DereferencedData<T>['include'] = {}
+  const include: FlattenedGraph<T>['include'] = {}
 
   // Guards against infinite recursion by tracking active __refIds during
   // serialization
@@ -121,7 +121,7 @@ export function serialize<T>(input: T): DereferencedData<T> {
  * NOTE: The return value is type-asserted, so be careful with the type you
  * assign to it!
  */
-export function deserialize<T>(data: DereferencedData<T>): T {
+export function inflateObjectGraph<T>(data: FlattenedGraph<T>): T {
   const { data: root, include } = data
   const cache = new Map<string, unknown>() // Used to maintain shared/circular reference identity
 
