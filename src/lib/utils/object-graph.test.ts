@@ -1,4 +1,4 @@
-import { flattenObjectGraph, inflateObjectGraph } from './data-serializer'
+import { flattenObjectGraph, inflateObjectGraph } from './object-graph'
 
 describe('data-serializer', () => {
   it('serializes and deserializes a simple object', () => {
