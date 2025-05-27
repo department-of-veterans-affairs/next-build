@@ -130,42 +130,41 @@ export function inflateObjectGraph<T>(data: FlattenedGraph<T>): T {
    * Uses a cache to prevent reprocessing and to rebuild cycles correctly.
    */
   function resolve(value: unknown): unknown {
+    if (typeof value !== 'object' || value === null) return value
+
     if (Array.isArray(value)) {
       return value.map(resolve)
     }
 
-    if (typeof value === 'object' && value !== null) {
-      if ('__refId' in value && typeof value.__refId === 'string') {
-        const __refId = (value as Reference).__refId
+    // Only objects are left by this point
+    if ('__refId' in value && typeof value.__refId === 'string') {
+      const __refId = (value as Reference).__refId
 
-        // Return from cache if already resolved (handles shared/circular refs)
-        if (cache.has(__refId)) {
-          return cache.get(__refId)
-        }
-
-        const refData = include[__refId]
-        if (refData === undefined) {
-          throw new Error(`Reference id ${__refId} not found in include map`)
-        }
-
-        // Create placeholder to support circular references
-        const shell: Record<string, unknown> = {}
-        cache.set(__refId, shell)
-
-        const resolved = resolve(refData)
-        Object.assign(shell, resolved)
-
-        return shell
+      // Return from cache if already resolved (handles shared/circular refs)
+      if (cache.has(__refId)) {
+        return cache.get(__refId)
       }
 
-      const result: Record<string, unknown> = {}
-      for (const [key, val] of Object.entries(value)) {
-        result[key] = resolve(val)
+      const refData = include[__refId]
+      if (refData === undefined) {
+        throw new Error(`Reference id ${__refId} not found in include map`)
       }
-      return result
+
+      // Create placeholder to support circular references
+      const shell: Record<string, unknown> = {}
+      cache.set(__refId, shell)
+
+      const resolved = resolve(refData)
+      Object.assign(shell, resolved)
+
+      return shell
     }
 
-    return value
+    const result: Record<string, unknown> = {}
+    for (const [key, val] of Object.entries(value)) {
+      result[key] = resolve(val)
+    }
+    return result
   }
 
   return resolve(root) as T
