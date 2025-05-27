@@ -5,7 +5,6 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 
 type VamcSystemVaPoliceProps = {
   title: string
-  field_cc_va_police_overview
 }
 
 // Allows additions to window object without overwriting global type
