@@ -16,6 +16,7 @@ export const RESOURCE_TYPES = {
   VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
   QA: 'node--q_a',
   VAMC_SYSTEM_VA_POLICE: 'node--vamc_system_va_police',
+  LEADERSHIP_LISTING: 'node--leadership_listing',
 } as const
 
 // (Node) resources that generate full pages.
@@ -36,6 +37,7 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_FACILITY,
   RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
   RESOURCE_TYPES.VAMC_SYSTEM,
+  RESOURCE_TYPES.LEADERSHIP_LISTING,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {

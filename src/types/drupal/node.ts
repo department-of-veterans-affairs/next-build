@@ -72,6 +72,7 @@ export type NodeTypes =
   | NodeEventListing
   | NodeVetCenter
   | NodeVamcSystemVaPolice
+  | NodeLeadershipListing
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -430,4 +431,11 @@ export interface NodeSupportService extends DrupalNode {
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
+}
+
+export interface NodeLeadershipListing extends DrupalNode {
+  field_description: string
+  field_intro_text: string
+  field_office: NodeOffice | NodeHealthCareRegionPage
+  field_leadership_profiles: NodePersonProfile[]
 }
