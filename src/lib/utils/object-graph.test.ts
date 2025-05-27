@@ -1,7 +1,7 @@
 import { flattenObjectGraph, inflateObjectGraph } from './object-graph'
 
-describe('data-serializer', () => {
-  it('serializes and deserializes a simple object', () => {
+describe('object graph inflator and deflator', () => {
+  it('handles an object with only primitives', () => {
     const input = { name: 'Alice', age: 30 }
     const roundTrip = inflateObjectGraph(flattenObjectGraph(input))
     expect(roundTrip).toEqual(input)
@@ -128,7 +128,7 @@ describe('data-serializer', () => {
     expect(roundTrip.children[0]).toBe(roundTrip)
   })
 
-  it('handles null and skips undefined', () => {
+  it('handles null and undefined', () => {
     const input = {
       a: null,
       b: undefined,
@@ -139,8 +139,10 @@ describe('data-serializer', () => {
     const roundTrip = inflateObjectGraph(result)
 
     expect(roundTrip.a).toBeNull()
-    expect(roundTrip.b).toBeUndefined()
+    expect('b' in roundTrip).toBe(true) // Make sure it's still a property...
+    expect(roundTrip.b).toBeUndefined() // ...and that its value is `undefined`
     expect(roundTrip.c.e).toBeNull()
-    expect('d' in roundTrip.c).toBe(true) // optional: assert 'undefined' is retained
+    expect('d' in roundTrip.c).toBe(true)
+    expect(roundTrip.c.d).toBeUndefined()
   })
 })
