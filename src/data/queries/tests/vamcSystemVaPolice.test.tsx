@@ -1,25 +1,26 @@
-import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
+/**
+ * @jest-environment node
+ */
+
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/vamcSystemVaPolice.mock.json'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes' // Import RESOURCE_TYPES
 
-const VamcSystemVaPoliceMock: NodeVamcSystemVaPolice = mockData
+jest.mock('@/lib/drupal/query', () => ({
+  ...jest.requireActual('@/lib/drupal/query'),
+  fetchSingleEntityOrPreview: () => mockData, // Mock fetchSingleEntityOrPreview
+  getMenu: () => ({
+    items: [],
+    tree: [],
+  }),
+}))
 
 describe('VamcSystemVaPolice formatData', () => {
-  let windowSpy
-
-  beforeEach(() => {
-    windowSpy = jest.spyOn(window, 'window', 'get')
-  })
-
-  afterEach(() => {
-    windowSpy.mockRestore()
-  })
-
-  test('outputs formatted data', () => {
-    windowSpy.mockImplementation(() => undefined)
-
-    expect(
-      queries.formatData('node--vamc_system_va_police', VamcSystemVaPoliceMock)
-    ).toMatchSnapshot()
+  test('outputs formatted data', async () => {
+    const result = await queries.getData(
+      RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE, // Use the correct resource type
+      { id: mockData.id }
+    )
+    expect(result).toMatchSnapshot()
   })
 })

@@ -147,7 +147,7 @@ describe('VamcSystem with valid data', () => {
       // Check for phone numbers
       expect(screen.getByText('Main phone:')).toBeInTheDocument()
       expect(screen.getByText('VA health connect:')).toBeInTheDocument()
-      expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
+      expect(screen.getByText('Mental health care:')).toBeInTheDocument()
     })
   })
 })
