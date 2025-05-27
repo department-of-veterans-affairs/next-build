@@ -44,7 +44,7 @@ export function flattenObjectGraph<T>(input: T): FlattenedGraph<T> {
     const existing = seen.get(value)
     if (existing) {
       existing.isDuplicate = true
-      return
+      return // Make sure we don't recurse infinitely
     } else {
       seen.set(value, { __refId: uuidv4(), isDuplicate: false })
     }
@@ -69,7 +69,7 @@ export function flattenObjectGraph<T>(input: T): FlattenedGraph<T> {
     const entry = seen.get(value)
     if (entry?.isDuplicate) {
       if (!(entry.__refId in include)) {
-        // If we're already serializing this __refId (due to circularity), just
+        // If we're currently serializing this __refId (due to circularity), just
         // return the ref
         if (serializing.has(entry.__refId)) {
           return { __refId: entry.__refId }
