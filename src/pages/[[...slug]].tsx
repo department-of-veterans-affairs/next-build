@@ -26,7 +26,7 @@ import {
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
 import {
-  flattenObjectGraph,
+  deflateObjectGraph,
   inflateObjectGraph,
   FlattenedGraph,
 } from '@/lib/utils/object-graph'
@@ -324,7 +324,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       return {
         props: {
           preview: expandedContext.preview || false,
-          serializedResource: flattenObjectGraph(resource),
+          serializedResource: deflateObjectGraph(resource),
           bannerData,
           headerFooterData,
         },

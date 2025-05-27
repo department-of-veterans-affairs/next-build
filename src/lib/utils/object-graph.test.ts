@@ -1,15 +1,15 @@
-import { flattenObjectGraph, inflateObjectGraph } from './object-graph'
+import { deflateObjectGraph, inflateObjectGraph } from './object-graph'
 
 describe('object graph inflator and deflator', () => {
   it('handles an object with only primitives', () => {
     const input = { name: 'Alice', age: 30 }
-    const roundTrip = inflateObjectGraph(flattenObjectGraph(input))
+    const roundTrip = inflateObjectGraph(deflateObjectGraph(input))
     expect(roundTrip).toEqual(input)
   })
 
   it('handles nested objects', () => {
     const input = { user: { name: 'Bob' }, active: true }
-    const roundTrip = inflateObjectGraph(flattenObjectGraph(input))
+    const roundTrip = inflateObjectGraph(deflateObjectGraph(input))
     expect(roundTrip).toEqual(input)
   })
 
@@ -17,14 +17,14 @@ describe('object graph inflator and deflator', () => {
     const input = {
       list: [1, 2, { a: 'x' }, { b: 'y' }],
     }
-    const roundTrip = inflateObjectGraph(flattenObjectGraph(input))
+    const roundTrip = inflateObjectGraph(deflateObjectGraph(input))
     expect(roundTrip).toEqual(input)
   })
 
   it('deduplicates repeated references', () => {
     const shared = { value: 42 }
     const input = { a: shared, b: shared }
-    const result = flattenObjectGraph(input)
+    const result = deflateObjectGraph(input)
 
     const uuids = Object.keys(result.include)
     expect(uuids.length).toBe(1)
@@ -40,7 +40,7 @@ describe('object graph inflator and deflator', () => {
     const obj: Record<string, unknown> = { name: 'Selfie' }
     obj.self = obj
 
-    const result = flattenObjectGraph(obj)
+    const result = deflateObjectGraph(obj)
     const uuids = Object.keys(result.include)
     expect(uuids.length).toBe(1)
 
@@ -58,7 +58,7 @@ describe('object graph inflator and deflator', () => {
     const child: Child = { name: 'child', parent }
     parent.child = child
 
-    const result = flattenObjectGraph(parent)
+    const result = deflateObjectGraph(parent)
     const uuids = Object.keys(result.include)
     expect(uuids.length).toBe(1)
 
@@ -68,7 +68,7 @@ describe('object graph inflator and deflator', () => {
 
   it('does not create includes for primitives', () => {
     const input = { a: 1, b: true, c: 'text' }
-    const result = flattenObjectGraph(input)
+    const result = deflateObjectGraph(input)
 
     expect(Object.keys(result.include)).toHaveLength(0)
     expect(inflateObjectGraph(result)).toEqual(input)
@@ -77,7 +77,7 @@ describe('object graph inflator and deflator', () => {
   it('preserves repeated references in arrays', () => {
     const shared = { thing: 'yo' }
     const input = [shared, shared]
-    const result = flattenObjectGraph(input)
+    const result = deflateObjectGraph(input)
 
     expect(Object.keys(result.include)).toHaveLength(1)
     expect(result.data[0]).toEqual(result.data[1])
@@ -92,7 +92,7 @@ describe('object graph inflator and deflator', () => {
       right: { leaf },
     }
 
-    const result = flattenObjectGraph(input)
+    const result = deflateObjectGraph(input)
     expect(Object.keys(result.include)).toHaveLength(1)
     const roundTrip = inflateObjectGraph(result)
 
@@ -106,7 +106,7 @@ describe('object graph inflator and deflator', () => {
     a.b = b
     b.a = a
 
-    const result = flattenObjectGraph(a)
+    const result = deflateObjectGraph(a)
     const roundTrip = inflateObjectGraph(result)
 
     // TS gets a little (reasonably) annoyed that we're not more specific with
@@ -122,7 +122,7 @@ describe('object graph inflator and deflator', () => {
     const node: Record<string, unknown> = { id: 1 }
     node.children = [node]
 
-    const result = flattenObjectGraph(node)
+    const result = deflateObjectGraph(node)
     const roundTrip = inflateObjectGraph(result)
 
     expect(roundTrip.children[0]).toBe(roundTrip)
@@ -135,7 +135,7 @@ describe('object graph inflator and deflator', () => {
       c: { d: undefined, e: null },
     }
 
-    const result = flattenObjectGraph(input)
+    const result = deflateObjectGraph(input)
     const roundTrip = inflateObjectGraph(result)
 
     expect(roundTrip.a).toBeNull()

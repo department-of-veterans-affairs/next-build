@@ -22,7 +22,7 @@ export interface Reference {
  * Serializes an object containing circular and/or repeated references into a
  * JSON-safe format by extracting duplicates into an `include` map.
  */
-export function flattenObjectGraph<T>(input: T): FlattenedGraph<T> {
+export function deflateObjectGraph<T>(input: T): FlattenedGraph<T> {
   // Map of all seen objects. Each object gets a UUID and a flag for whether
   // it's reused.
   const seen = new Map<unknown, { __refId: string; isDuplicate: boolean }>()
