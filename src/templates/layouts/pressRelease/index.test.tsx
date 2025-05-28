@@ -90,7 +90,7 @@ const data = {
   downloads: downloads,
   listing: '/wilmington-health-care/news-releases',
   administration: {
-    id: 0,
+    entityId: 0,
     name: '',
   },
   office: undefined,

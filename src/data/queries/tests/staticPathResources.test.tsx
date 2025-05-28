@@ -84,11 +84,11 @@ describe('Static paths formatter', () => {
     const formattedData = formatter(mockResourcesWithAdmin)
 
     expect(formattedData[0].path).toBe('/test-path-1')
-    expect(formattedData[0].administration.id).toBe(10)
+    expect(formattedData[0].administration.entityId).toBe(10)
     expect(formattedData[0].administration.name).toBe('Administration 1')
 
     expect(formattedData[1].path).toBe('/test-path-2')
-    expect(formattedData[1].administration.id).toBeNull()
+    expect(formattedData[1].administration.entityId).toBeNull()
     expect(formattedData[1].administration.name).toBeNull()
   })
   test('filters out resources without a path', () => {
