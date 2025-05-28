@@ -28,7 +28,7 @@ const proxyFetch = (input: RequestInfo, init: RequestInit = {}) => {
     // know that this is a thing we can add.
     initParams.agent = agent
   }
-  return fetch(input, { ...init, agent })
+  return fetch(input, initParams)
 }
 
 export const drupalClient = new DrupalClient(baseUrl, {
