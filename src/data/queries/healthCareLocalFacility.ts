@@ -14,10 +14,13 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
+  getLovellVariantOfTitle,
+  getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { formatter as formatAdministration } from './administration'
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
@@ -79,6 +82,12 @@ export const formatter: QueryFormatter<
   LocalFacilityData,
   HealthCareLocalFacility
 > = ({ entity, menu, lovell }) => {
+  let { title, breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    title = getLovellVariantOfTitle(title, lovell.variant)
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
+
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
 
@@ -98,6 +107,8 @@ export const formatter: QueryFormatter<
 
   return {
     ...entityBaseFields(entity),
+    title,
+    breadcrumbs,
     address: entity.field_address,
     phoneNumber: entity.field_phone_number,
     vaHealthConnectPhoneNumber:
@@ -107,9 +118,7 @@ export const formatter: QueryFormatter<
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,
     path: entity.path.alias,
-    administration: {
-      entityId: entity.field_administration.drupal_internal__tid,
-    },
+    administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_region_page.field_vamc_ehr_system,
     officeHours: entity.field_office_hours,
     image: formatImage(entity.field_media),

@@ -1,12 +1,11 @@
-import { TopTasks, _topTaskLovellComp } from './index'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { FacilityTopTasks, RegionalTopTasks, _topTaskLovellComp } from './index'
 import { render } from '@testing-library/react'
 
-const lovellAdministration = { entityId: 1039 }
-
-describe('TopTasks', () => {
+describe('FacilityTopTasks', () => {
   it('should render the normal links', () => {
     const { container } = render(
-      <TopTasks path="/test-nav-path" vamcEhrSystem="vista" />
+      <FacilityTopTasks path="/test-nav-path" vamcEhrSystem="vista" />
     )
     expect(
       container.querySelector('va-link-action[text="Make an appointment"]')
@@ -23,46 +22,10 @@ describe('TopTasks', () => {
 
   it('should render the MHS link', () => {
     const { container } = render(
-      <TopTasks
+      <FacilityTopTasks
         path="/test-nav-path"
         vamcEhrSystem="cerner"
-        administration={{ entityId: 1039 }}
-      />
-    )
-    expect(
-      container.querySelector(
-        'va-link-action[text="MHS Genesis Patient Portal"]'
-      )
-    ).toBeInTheDocument()
-  })
-
-  it('should render the MHS link from the office', () => {
-    const { container } = render(
-      <TopTasks
-        path="/test-nav-path"
-        /* @ts-expect-error Shouldn't happen, but just in case... */
-        vamcEhrSystem=""
-        office={{ vamcEhrSystem: 'cerner' }}
-        administration={{ entityId: 1039 }}
-      />
-    )
-    expect(
-      container.querySelector(
-        'va-link-action[text="MHS Genesis Patient Portal"]'
-      )
-    ).toBeInTheDocument()
-  })
-
-  it('should render the MHS link from the regonPage', () => {
-    const { container } = render(
-      <TopTasks
-        path="/test-nav-path"
-        /* @ts-expect-error Shouldn't happen, but just in case... */
-        vamcEhrSystem=""
-        /* @ts-expect-error Shouldn't happen, but just in case... */
-        office={{ vamcEhrSystem: '' }}
-        regionPage={{ vamcEhrSystem: 'cerner' }}
-        administration={{ entityId: 1039 }}
+        administration={LOVELL.tricare.administration}
       />
     )
     expect(
@@ -74,7 +37,50 @@ describe('TopTasks', () => {
 
   it('should handle no slash in the path', () => {
     const { container } = render(
-      <TopTasks path="test-nav-path" vamcEhrSystem="vista" />
+      <FacilityTopTasks path="test-nav-path" vamcEhrSystem="vista" />
+    )
+    expect(
+      container.querySelector(
+        'va-link-action[href="/test-nav-path/register-for-care"]'
+      )
+    ).toBeInTheDocument()
+  })
+})
+
+describe('RegionalTopTasks', () => {
+  it('should render the normal links', () => {
+    const { container } = render(
+      <RegionalTopTasks path="/test-nav-path" vamcEhrSystem="vista" />
+    )
+    expect(
+      container.querySelector('va-link-action[text="Make an appointment"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link-action[text="View all health services"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('va-link-action[text="Register for care"]')
+    ).toBeInTheDocument()
+  })
+
+  it('should render the MHS link', () => {
+    const { container } = render(
+      <RegionalTopTasks
+        path="/test-nav-path"
+        vamcEhrSystem="cerner"
+        administration={LOVELL.tricare.administration}
+      />
+    )
+    expect(
+      container.querySelector(
+        'va-link-action[text="MHS Genesis Patient Portal"]'
+      )
+    ).toBeInTheDocument()
+  })
+
+  it('should handle no slash in the path', () => {
+    const { container } = render(
+      <RegionalTopTasks path="test-nav-path" vamcEhrSystem="vista" />
     )
     expect(
       container.querySelector(
@@ -90,7 +96,7 @@ describe('topTaskLovellComp', () => {
     isProd: true,
     linkType: 'make-an-appointment',
     path: '/test-nav-path',
-    administration: lovellAdministration,
+    administration: LOVELL.tricare.administration,
     ...cerner,
   }
   const mhsLink = {
@@ -104,26 +110,6 @@ describe('topTaskLovellComp', () => {
 
   it('should show the MHS link vamcEhrSystem is cerner', () => {
     expect(_topTaskLovellComp(mhsLinkData)).toEqual(mhsLink)
-  })
-
-  it('should fall back to office.vamcEhrSystem', () => {
-    expect(
-      _topTaskLovellComp({
-        ...mhsLinkData,
-        vamcEhrSystem: null,
-        office: cerner,
-      })
-    ).toEqual(mhsLink)
-  })
-
-  it('should fall back to regionPage.vamcEhrSystem', () => {
-    expect(
-      _topTaskLovellComp({
-        ...mhsLinkData,
-        vamcEhrSystem: null,
-        regionPage: cerner,
-      })
-    ).toEqual(mhsLink)
   })
 
   it('should show the MHS link with cerner_staged on dev', () => {
@@ -156,11 +142,11 @@ describe('topTaskLovellComp', () => {
     ).toEqual(normalLink)
   })
 
-  it("should show the normal link if the page isn't Lovell", () => {
+  it("should show the normal link if the page isn't Lovell TRICARE", () => {
     expect(
       _topTaskLovellComp({
         ...mhsLinkData,
-        administration: { entityId: 1040 }, // Lovell is 1039
+        administration: LOVELL.va.administration,
       })
     ).toEqual(normalLink)
   })
@@ -179,8 +165,6 @@ describe('topTaskLovellComp', () => {
       _topTaskLovellComp({
         ...mhsLinkData,
         vamcEhrSystem: null,
-        office: undefined,
-        regionPage: undefined,
       })
     ).toEqual(normalLink)
   })

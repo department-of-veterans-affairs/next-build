@@ -12,7 +12,7 @@ exports[`node--event formatData outputs formatted data 1`] = `
     "locality": "Urbandale",
   },
   "administration": {
-    "id": null,
+    "entityId": null,
     "name": null,
   },
   "body": {

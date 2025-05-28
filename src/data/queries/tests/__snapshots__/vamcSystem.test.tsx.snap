@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_media,field_media.image,field_administration,field_clinical_health_services,field_related_links"`;
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_media,field_media.image,field_administration,field_related_links,field_related_links.field_va_paragraphs"`;
 
 exports[`VamcSystem formatData outputs formatted data 1`] = `
 {
   "administration": {
-    "id": 254,
+    "entityId": 254,
     "name": "VA New York Harbor health care",
   },
   "breadcrumbs": [
@@ -22,104 +22,6 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   ],
   "entityId": 8525,
   "entityPath": "/new-york-harbor-health-care",
-  "fieldRelatedLinks": {
-    "behavior_settings": [],
-    "breadcrumbs": [],
-    "content_translation_changed": null,
-    "content_translation_outdated": false,
-    "content_translation_source": "und",
-    "created": "2020-10-19T20:31:40+00:00",
-    "default_langcode": true,
-    "drupal_internal__id": 13881,
-    "drupal_internal__revision_id": 923261,
-    "field_title": "In the spotlight at VA New York Harbor health care",
-    "field_va_paragraphs": [
-      {
-        "id": "67ec0aee-d964-4e83-805f-2a133824c15c",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 13880,
-          "target_revision_id": 923254,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "ce9da3d6-c49d-4370-9493-9628bfa462d6",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30078,
-          "target_revision_id": 923255,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "e21ee8f3-d4c3-4c08-ba6f-b2a9ec1df35f",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30079,
-          "target_revision_id": 923256,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "752edbd1-0f5a-45a1-9b12-cfef9be7e62b",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30080,
-          "target_revision_id": 923257,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "f680869b-16f1-4507-a7a5-c30c41c9eaed",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30081,
-          "target_revision_id": 923258,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "da804006-05fe-4aba-8146-8fdfeb229ca1",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30082,
-          "target_revision_id": 923259,
-        },
-        "type": "paragraph--link_teaser",
-      },
-      {
-        "id": "83a66277-e72b-4224-b261-5a36659b0c68",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 30083,
-          "target_revision_id": 923260,
-        },
-        "type": "paragraph--link_teaser",
-      },
-    ],
-    "id": "8fee84a4-d821-4a90-ab51-25971100c481",
-    "langcode": "en",
-    "links": {
-      "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/list_of_link_teasers/8fee84a4-d821-4a90-ab51-25971100c481?resourceVersion=id%3A923261",
-      },
-    },
-    "paragraph_type": {
-      "id": "17be725c-343b-4050-a3c0-4e953226233e",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": "list_of_link_teasers",
-      },
-      "type": "paragraphs_type--paragraphs_type",
-    },
-    "parent_field_name": "field_related_links",
-    "parent_id": "8525",
-    "parent_type": "node",
-    "relationshipNames": [
-      "paragraph_type",
-      "field_va_paragraphs",
-    ],
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 13881,
-      "target_revision_id": 923261,
-    },
-    "revision_translation_affected": true,
-    "status": true,
-    "type": "paragraph--list_of_link_teasers",
-  },
   "id": "17bfe247-9df5-4217-a48a-973f8676d6e4",
   "image": {
     "alt": "Manhattan Veterans Administration Medical Center",
@@ -276,6 +178,220 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   },
   "introText": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
   "lastUpdated": "2023-04-13T18:17:36+00:00",
+  "mainFacilities": [
+    {
+      "address": {
+        "additional_name": null,
+        "address_line1": "251 Causeway Street",
+        "administrative_area": "MA",
+        "country_code": "US",
+        "dependent_locality": null,
+        "langcode": "en",
+        "locality": "Boston",
+        "postal_code": "02114-2104",
+      },
+      "fieldTelephone": {
+        "behavior_settings": [],
+        "breadcrumbs": [],
+        "content_translation_changed": "2025-02-27T17:26:37+00:00",
+        "content_translation_outdated": false,
+        "content_translation_source": "und",
+        "created": "2024-11-25T18:40:13+00:00",
+        "default_langcode": true,
+        "drupal_internal__id": 169966,
+        "drupal_internal__revision_id": 1666098,
+        "field_phone_extension": null,
+        "field_phone_label": "Mental health phone",
+        "field_phone_number": "800-865-3384",
+        "field_phone_number_type": "tel",
+        "id": "1174972e-ab4f-45f9-b814-04919526a828",
+        "langcode": "en",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/1174972e-ab4f-45f9-b814-04919526a828?resourceVersion=id%3A1666098",
+          },
+        },
+        "paragraph_type": {
+          "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "phone_number",
+          },
+          "type": "paragraphs_type--paragraphs_type",
+        },
+        "parent_field_name": "field_telephone",
+        "parent_id": "1272",
+        "parent_type": "node",
+        "relationshipNames": [
+          "paragraph_type",
+        ],
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 169966,
+          "target_revision_id": 1666098,
+        },
+        "revision_translation_affected": true,
+        "status": true,
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": "Causeway VA Clinic",
+        "height": 330,
+        "id": "984fd14e-fc15-4bdf-9ffa-628105744a94",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "512",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "480",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "320",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "300",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "330",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "330",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "330",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/984fd14e-fc15-4bdf-9ffa-628105744a94",
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/causewaycboc.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "330",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+        },
+        "title": "",
+        "type": "media--image",
+        "width": 480,
+      },
+      "operatingStatusFacility": "temporary_closure",
+      "path": "/boston-health-care/locations/causeway-va-clinic",
+      "phoneNumber": "800-865-3384",
+      "title": "Causeway VA Clinic",
+      "vaHealthConnectPhoneNumber": "800-877-6976",
+    },
+  ],
   "menu": {
     "data": null,
     "rootPath": "/new-york-harbor-health-care/",
@@ -383,7 +499,41 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   "moderationState": "published",
   "path": "/new-york-harbor-health-care",
   "published": true,
+  "relatedLinks": {
+    "links": [
+      {
+        "title": "Get help from a patient advocate",
+        "uri": "/new-york-harbor-health-care/health-services/patient-advocates",
+      },
+      {
+        "title": "Access your health records",
+        "uri": "/new-york-harbor-health-care/medical-records-office",
+      },
+      {
+        "title": "Find a phone number",
+        "uri": "/new-york-harbor-health-care/contact-us",
+      },
+      {
+        "title": "Check your billing, insurance, and payment options",
+        "uri": "/new-york-harbor-health-care/billing-and-insurance",
+      },
+      {
+        "title": "Volunteer or donate",
+        "uri": "/new-york-harbor-health-care/work-with-us/volunteer-or-donate",
+      },
+      {
+        "title": "Read our annual reports and newsletters",
+        "uri": "https://www.visn2.va.gov/VISN2/index.asp",
+      },
+      {
+        "title": "Compare our performance with non-VA facilities.",
+        "uri": "/new-york-harbor-health-care/about-us/performance",
+      },
+    ],
+    "sectionTitle": "Other services at VA New York Harbor health care",
+  },
   "title": "VA New York Harbor health care",
   "type": "node--health_care_region_page",
+  "vamcEhrSystem": "vista",
 }
 `;

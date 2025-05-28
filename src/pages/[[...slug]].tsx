@@ -25,6 +25,11 @@ import {
 } from '@/lib/drupal/staticProps'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
+import {
+  deflateObjectGraph,
+  inflateObjectGraph,
+  FlattenedGraph,
+} from '@/lib/utils/object-graph'
 
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
@@ -95,17 +100,21 @@ export const DynamicBreadcrumbs = dynamic(
 
 // [[...slug]] is a catchall route. We build the appropriate layout based on the resource returned for a given path.
 export default function ResourcePage({
-  resource,
+  serializedResource,
   bannerData,
   headerFooterData,
   preview,
 }: {
-  resource: StaticPropsResource<FormattedPageResource>
+  serializedResource: FlattenedGraph<StaticPropsResource<FormattedPageResource>>
   bannerData: LayoutProps['bannerData']
   headerFooterData: LayoutProps['headerFooterData']
   preview: boolean
 }) {
-  if (!resource) return null
+  if (!serializedResource) return null
+  const resource =
+    inflateObjectGraph<StaticPropsResource<FormattedPageResource>>(
+      serializedResource
+    )
   const comment = `
       --
       | resourceType: ${resource?.type || 'N/A'}
@@ -206,8 +215,12 @@ export async function getStaticPaths(
       fallback: 'blocking',
     }
   }
-
   /* eslint-disable no-console */
+
+  if (!RESOURCE_TYPES_TO_BUILD.length) {
+    console.error('No resource types returned')
+    process.exit(1)
+  }
   console.log(
     `\n\nBuilding ${RESOURCE_TYPES_TO_BUILD.length} resource types:`,
     RESOURCE_TYPES_TO_BUILD,
@@ -311,7 +324,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       return {
         props: {
           preview: expandedContext.preview || false,
-          resource,
+          serializedResource: deflateObjectGraph(resource),
           bannerData,
           headerFooterData,
         },

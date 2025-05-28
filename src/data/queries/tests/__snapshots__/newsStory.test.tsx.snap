@@ -3,7 +3,7 @@
 exports[`node--news_story formatData outputs formatted data 1`] = `
 {
   "administration": {
-    "id": 12,
+    "entityId": 12,
     "name": "VA Pittsburgh health care",
   },
   "author": {

@@ -4,6 +4,11 @@ import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
+import { FacilityListing } from '@/templates/components/facilityListing'
+import { RelatedLinks } from '@/templates/common/relatedLinks'
+import { RegionalTopTasks } from '@/templates/components/topTasks'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
 // import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // import { TopTasks } from '@/templates/components/topTasks'
 // import { FacilityListing } from '@/templates/components/facilityListing'
@@ -12,9 +17,6 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 // import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
-
-const LOVELL_TRICARE_ADMINISTRATION_ID = 1039
-const LOVELL_VA_ADMINISTRATION_ID = 1040
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -27,11 +29,11 @@ export function VamcSystem({
   introText,
   image,
   administration,
-  fieldRelatedLinks,
   path,
   menu,
-  // vamcEhrSystem,
-  // mainFacilities,
+  vamcEhrSystem,
+  mainFacilities,
+  relatedLinks,
   // newsStoryTeasersFeatured,
   // eventTeasersFeatured,
   // eventTeasersAll,
@@ -65,8 +67,11 @@ export function VamcSystem({
                 <MediaImage {...image} imageStyle={imageStyle} alt="" />
               </div>
             )}
-            {/* Was going to use TopTasks, but the links are different, and the wrapper uses different classes */}
-            <div className="usa-grid usa-grid-full vads-u-margin-top--0 vads-u-margin-bottom--3"></div>
+            <RegionalTopTasks
+              path={path}
+              administration={administration}
+              vamcEhrSystem={vamcEhrSystem}
+            />
             {introText && (
               <div className="va-introtext">
                 <p className="vads-u-margin-bottom--0">{introText}</p>
@@ -77,44 +82,40 @@ export function VamcSystem({
               <h2 className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 medium-screen:vads-u-margin-bottom--2p5">
                 Locations
               </h2>
-              {/* {mainFacilities?.entities?.map((facility) => (
+              {mainFacilities.map((facility) => (
                 <FacilityListing
-                  key={facility.entityId}
-                  {...facility}
-                  fieldVaHealthConnectPhone={fieldVaHealthConnectPhone}
+                  key={facility.title}
+                  facility={facility}
+                  basePath={path}
                 />
-              ))} */}
+              ))}
               <va-link
                 active
                 className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
                 href={`${path}/locations`}
                 text="See all locations"
-              />
+              ></va-link>
             </section>
+
             {/* Manage your health online section */}
-            {administration?.id !== LOVELL_TRICARE_ADMINISTRATION_ID && (
+            {administration?.entityId !==
+              LOVELL.tricare.administration.entityId && (
               <section>
                 <h2>
-                  {administration?.id === LOVELL_VA_ADMINISTRATION_ID
+                  {administration?.entityId ===
+                  LOVELL.va.administration.entityId
                     ? 'Manage your VA health online'
                     : 'Manage your health online'}
                 </h2>
-                <div className="vads-u-display--flex medium-screen:vads-u-flex-direction--row vads-u-flex-direction--column">
-                  <div className="vads-u-margin-right--0 medium-screen:vads-u-margin-right--3">
-                    {/* TODO: Add health online links component */}
-                  </div>
-                </div>
+                <ManageYourHealthLinks vamcEhrSystem={vamcEhrSystem} />
               </section>
             )}
-            {/* Related Links Section */}
-            {fieldRelatedLinks && (
-              <div className="vads-u-margin-top--5">
-                {/* <ListOfLinkTeasers
-                  {...fieldRelatedLinks}
-                  regionNickname={title}
-                /> */}
-              </div>
-            )}
+
+            {/* Related links section */}
+            <div className="vads-u-margin-top--5">
+              <RelatedLinks {...relatedLinks} />
+            </div>
+
             {/* Stories Section */}
             {/* {newsStoryTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 && (
               <section>
@@ -131,7 +132,7 @@ export function VamcSystem({
                   className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
                   href={`${path}/stories`}
                   text="See all stories"
-                />
+                ></va-link>
               </section>
             )} */}
             {/* Events Section */}
@@ -157,14 +158,14 @@ export function VamcSystem({
                   className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
                   href={`${path}/events`}
                   text="See all events"
-                />
+                ></va-link>
               </section>
             )} */}
             {/* Social Links */}
             {/* <SocialLinks regionNickname={title} /> */}
-            <va-back-to-top />
+            <va-back-to-top></va-back-to-top>
+            <ContentFooter />
           </article>
-          <ContentFooter />
         </div>
       </div>
     </div>

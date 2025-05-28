@@ -212,10 +212,6 @@ export function VetCenterOutstation({
                         number={phoneNumber}
                         label="Main phone"
                         className="main-phone vads-u-margin-bottom--1"
-                        phoneType=""
-                        extension=""
-                        id=""
-                        type=""
                       />
                       {ccVetCenterCallCenter && (
                         <>
@@ -223,10 +219,6 @@ export function VetCenterOutstation({
                             number={phoneNumber}
                             label="After hours"
                             className="main-phone vads-u-margin-bottom--1"
-                            phoneType=""
-                            extension=""
-                            id=""
-                            type=""
                           />
                           <div className="vads-u-margin-bottom--2">
                             Need help after hours? We are available 24/7. Call

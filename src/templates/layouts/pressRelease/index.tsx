@@ -22,9 +22,9 @@ export const PressRelease = ({
     <>
       <div>
         <div className="va-l-detail-page va-facility-page">
-          <div className="usa-grid usa-grid-full">
+          <div className="vads-grid-container">
             {/* nav here */}
-            <div className="usa-width-three-fourths">
+            <div className="vads-grid-col-12">
               <article className="usa-content">
                 <LovellSwitcher
                   currentVariant={lovellVariant}
@@ -86,8 +86,6 @@ export const PressRelease = ({
                             return (
                               <PhoneNumber
                                 key={phone.id}
-                                id={phone.id}
-                                type="phone"
                                 className="vads-u-margin-top--1 vads-u-margin-bottom--0"
                                 extension={phone.ext || null}
                                 number={phone.number}

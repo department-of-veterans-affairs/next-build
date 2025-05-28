@@ -15,13 +15,14 @@ import { SideNavMenu } from './sideNav'
 import { MediaImage } from '@/types/formatted/media'
 import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+import { Administration } from '@/types/formatted/administration'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null
   operatingStatusFacility: FacilityOperatingStatusFlags
   menu: SideNavMenu | null
   path: string
-  administration?: { entityId: number }
+  administration?: Administration
   vamcEhrSystem: VamcEhr['field_region_page']['field_vamc_ehr_system']
   officeHours: FieldOfficeHours[]
   address: FieldAddress

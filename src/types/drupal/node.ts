@@ -15,6 +15,7 @@ import {
   FieldCCText,
   FieldGeoLocation,
   FieldHealthServicesArray,
+  BreadcrumbItem,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -45,13 +46,14 @@ import {
   TaxonomyTermLcCategories,
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
-
+import { VamcEhrSystem } from './vamcEhr'
 /** Union of all node types.  */
 export type NodeTypes =
   | NodeBanner
   | NodeBasicLandingPage
   | NodeBannerAlertVAMCS
   | NodeFaqMultipleQA
+  | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
   | NodeLandingPage
   | NodeNewsStory
@@ -69,7 +71,6 @@ export type NodeTypes =
   | NodeEvent
   | NodeEventListing
   | NodeVetCenter
-  | NodeVamcSystem
   | NodeVamcSystemVaPolice
 
 /** Shared type structure for resource nodes. */
@@ -143,6 +144,7 @@ export type FacilityOperatingStatusFlags =
   | string // TODO: Remove the catch-all; needed right now for importing JSON mock data; can remove after we implement runtime data validation
 
 export interface NodeHealthCareLocalFacility extends DrupalNode {
+  breadcrumbs: BreadcrumbItem[]
   field_address: FieldAddress
   field_description: string
   field_facility_classification: string // TODO: Figure out what these number strings mean and give it a better type
@@ -206,7 +208,7 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
   field_media: DrupalMediaImage
   field_related_links: ParagraphListOfLinkTeasers | null
-  field_vamc_ehr_system: string
+  field_vamc_ehr_system: VamcEhrSystem
   field_facebook: FieldLink
   field_flickr: FieldLink
   field_govdelivery_id_emerg: string
@@ -424,12 +426,6 @@ export interface NodeSupportService extends DrupalNode {
   field_link: FieldLink
   field_phone_number: string
   field_office: NodeOffice
-}
-
-export interface NodeVamcSystem extends DrupalNode {
-  field_intro_text: string
-  field_media: DrupalMediaImage
-  field_administration: FieldAdministration
 }
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {
