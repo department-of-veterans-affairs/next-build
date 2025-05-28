@@ -160,4 +160,15 @@ describe('object graph inflator and deflator', () => {
     expect(roundTrip.a[1]).toBe(roundTrip.a)
     expect(Array.isArray(roundTrip.a)).toBe(true)
   })
+
+  it('throws an error when a reference is missing from the include map', () => {
+    const fakeGraph = {
+      data: { __refId: 'nonexistent-ref' },
+      include: {}, // Empty include map—missing the referenced ID
+    }
+
+    expect(() => {
+      inflateObjectGraph(fakeGraph)
+    }).toThrow(/Reference id nonexistent-ref not found in include map/)
+  })
 })
