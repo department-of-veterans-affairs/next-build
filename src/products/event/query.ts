@@ -15,7 +15,7 @@ import {
 } from '@/lib/drupal/query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { getNestedIncludes } from '@/lib/utils/queries'
-import { formatAdministration } from '@/data/queries/administration'
+import { formatter as formatAdministration } from '@/data/queries/administration'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([

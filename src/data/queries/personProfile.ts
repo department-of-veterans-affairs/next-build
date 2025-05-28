@@ -11,7 +11,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { buildStaffProfileSidebarData } from '@/lib/drupal/staffProfileSideNav'
-import { formatAdministration } from './administration'
+import { formatter as formatAdministration } from './administration'
 
 // Define the query params for fetching node--person_profile.
 export const params: QueryParams<null> = () => {

@@ -11,7 +11,7 @@ import { FieldAdministration } from '@/types/drupal/field_type'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { fetchAndConcatAllResourceCollectionPages } from '@/lib/drupal/query'
-import { formatAdministration } from './administration'
+import { formatter as formatAdministration } from './administration'
 
 const PAGE_SIZE = PAGE_SIZES.MAX
 

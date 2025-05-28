@@ -10,7 +10,7 @@ import { Administration } from '@/types/formatted/administration'
  * "administration" (and thus the name of the field). Since the only machine name of
  * it is `field_administration`, we'll continue to call it "administration" in our code.
  */
-export const formatAdministration = (
+export const formatter = (
   administration: FieldAdministration | null | undefined
 ): Administration => ({
   entityId: administration?.drupal_internal__tid || null, // "t" is for taxonomy term

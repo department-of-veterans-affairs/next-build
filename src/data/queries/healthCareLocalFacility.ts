@@ -20,7 +20,7 @@ import {
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { formatAdministration } from './administration'
+import { formatter as formatAdministration } from './administration'
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {

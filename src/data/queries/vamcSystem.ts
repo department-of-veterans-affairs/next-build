@@ -19,7 +19,7 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
-import { formatAdministration } from './administration'
+import { formatter as formatAdministration } from './administration'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
