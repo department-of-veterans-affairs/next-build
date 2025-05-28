@@ -63,7 +63,7 @@ export function deflateObjectGraph<T>(input: T): FlattenedGraph<T> {
    * with `{ __refId }`. If an object is marked as a duplicate, it is added to
    * `include` and referenced by ID.
    */
-  function walk(value: unknown): unknown {
+  function replaceDuplicateRefs(value: unknown): unknown {
     if (typeof value !== 'object' || value === null) return value
 
     const entry = seen.get(value)
@@ -80,11 +80,11 @@ export function deflateObjectGraph<T>(input: T): FlattenedGraph<T> {
         // Recursively walk object or array content
         let result: unknown
         if (Array.isArray(value)) {
-          result = value.map(walk)
+          result = value.map(replaceDuplicateRefs)
         } else {
           const obj: Record<string, unknown> = {}
           for (const [key, val] of Object.entries(value)) {
-            obj[key] = walk(val)
+            obj[key] = replaceDuplicateRefs(val)
           }
           result = obj
         }
@@ -98,18 +98,18 @@ export function deflateObjectGraph<T>(input: T): FlattenedGraph<T> {
 
     // Not a duplicate, serialize normally
     if (Array.isArray(value)) {
-      return value.map(walk)
+      return value.map(replaceDuplicateRefs)
     }
 
     const output: Record<string, unknown> = {}
     for (const [key, val] of Object.entries(value)) {
-      output[key] = walk(val)
+      output[key] = replaceDuplicateRefs(val)
     }
     return output
   }
 
   findDuplicates(input)
-  const data = walk(input) as T
+  const data = replaceDuplicateRefs(input) as T
   return { data, include }
 }
 
