@@ -22,9 +22,9 @@ export const PressRelease = ({
     <>
       <div>
         <div className="va-l-detail-page va-facility-page">
-          <div className="usa-grid usa-grid-full">
+          <div className="vads-grid-container">
             {/* nav here */}
-            <div className="usa-width-three-fourths">
+            <div className="vads-grid-col-12">
               <article className="usa-content">
                 <LovellSwitcher
                   currentVariant={lovellVariant}

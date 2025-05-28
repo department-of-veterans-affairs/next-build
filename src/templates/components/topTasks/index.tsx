@@ -1,7 +1,6 @@
+import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { VamcEhrSystem } from '@/types/drupal/vamcEhr'
 import { Administration } from '@/types/formatted/administration'
-
-const LOVELL_TRICARE_ADMINISTRATION_ID = 1039
 
 type TopTasksProps = {
   path: string
@@ -147,7 +146,8 @@ export function _topTaskLovellComp({
   text: string
   url: string
 } {
-  const isPageLovell = administration?.id === LOVELL_TRICARE_ADMINISTRATION_ID
+  const isPageLovell =
+    administration?.entityId === LOVELL.tricare.administration.entityId
 
   if (
     (vamcEhrSystem === 'cerner' ||

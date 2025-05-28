@@ -6,6 +6,7 @@ import { VamcSystem } from './index'
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { formatter } from '@/data/queries/vamcSystem'
 import { DrupalMenuLinkContent } from 'next-drupal'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -93,7 +94,7 @@ describe('VamcSystem with valid data', () => {
     test('renders MHS Genesis Patient Portal link for Lovell Tricare with Cerner', () => {
       const lovellData = {
         ...mockData,
-        administration: { ...mockData.administration, id: 1039 }, // LOVELL_TRICARE_ADMINISTRATION_ID
+        administration: LOVELL.tricare.administration,
         vamcEhrSystem: 'cerner' as const,
       }
       const { container } = render(<VamcSystem {...lovellData} />)
@@ -129,7 +130,7 @@ describe('VamcSystem with valid data', () => {
     render(
       <VamcSystem
         {...mockData}
-        administration={{ ...mockData.administration, id: 1039 }}
+        administration={LOVELL.tricare.administration}
       />
     )
     expect(
@@ -139,10 +140,7 @@ describe('VamcSystem with valid data', () => {
 
   test('uses an alternate title for the administration section if the administration is 1040', () => {
     render(
-      <VamcSystem
-        {...mockData}
-        administration={{ ...mockData.administration, id: 1040 }}
-      />
+      <VamcSystem {...mockData} administration={LOVELL.va.administration} />
     )
     expect(screen.getByText('Manage your VA health online')).toBeInTheDocument()
   })
@@ -203,7 +201,7 @@ describe('VamcSystem with valid data', () => {
       // Check for phone numbers
       expect(screen.getByText('Main phone:')).toBeInTheDocument()
       expect(screen.getByText('VA health connect:')).toBeInTheDocument()
-      expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
+      expect(screen.getByText('Mental health care:')).toBeInTheDocument()
     })
   })
 })

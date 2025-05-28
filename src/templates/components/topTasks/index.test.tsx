@@ -1,7 +1,6 @@
+import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { FacilityTopTasks, RegionalTopTasks, _topTaskLovellComp } from './index'
 import { render } from '@testing-library/react'
-
-const lovellAdministration = { id: 1039, name: 'Lovell' }
 
 describe('FacilityTopTasks', () => {
   it('should render the normal links', () => {
@@ -26,7 +25,7 @@ describe('FacilityTopTasks', () => {
       <FacilityTopTasks
         path="/test-nav-path"
         vamcEhrSystem="cerner"
-        administration={lovellAdministration}
+        administration={LOVELL.tricare.administration}
       />
     )
     expect(
@@ -69,7 +68,7 @@ describe('RegionalTopTasks', () => {
       <RegionalTopTasks
         path="/test-nav-path"
         vamcEhrSystem="cerner"
-        administration={lovellAdministration}
+        administration={LOVELL.tricare.administration}
       />
     )
     expect(
@@ -97,7 +96,7 @@ describe('topTaskLovellComp', () => {
     isProd: true,
     linkType: 'make-an-appointment',
     path: '/test-nav-path',
-    administration: lovellAdministration,
+    administration: LOVELL.tricare.administration,
     ...cerner,
   }
   const mhsLink = {
@@ -143,11 +142,11 @@ describe('topTaskLovellComp', () => {
     ).toEqual(normalLink)
   })
 
-  it("should show the normal link if the page isn't Lovell", () => {
+  it("should show the normal link if the page isn't Lovell TRICARE", () => {
     expect(
       _topTaskLovellComp({
         ...mhsLinkData,
-        administration: { id: 1040, name: 'Test Administration' }, // Lovell is 1039
+        administration: LOVELL.va.administration,
       })
     ).toEqual(normalLink)
   })

@@ -7,6 +7,7 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 import { FacilityListing } from '@/templates/components/facilityListing'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
 // import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // import { TopTasks } from '@/templates/components/topTasks'
 // import { FacilityListing } from '@/templates/components/facilityListing'
@@ -15,9 +16,6 @@ import { RegionalTopTasks } from '@/templates/components/topTasks'
 // import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
-
-const LOVELL_TRICARE_ADMINISTRATION_ID = 1039
-const LOVELL_VA_ADMINISTRATION_ID = 1040
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -99,10 +97,12 @@ export function VamcSystem({
             </section>
 
             {/* Manage your health online section */}
-            {administration?.id !== LOVELL_TRICARE_ADMINISTRATION_ID && (
+            {administration?.entityId !==
+              LOVELL.tricare.administration.entityId && (
               <section>
                 <h2>
-                  {administration?.id === LOVELL_VA_ADMINISTRATION_ID
+                  {administration?.entityId ===
+                  LOVELL.va.administration.entityId
                     ? 'Manage your VA health online'
                     : 'Manage your health online'}
                 </h2>
