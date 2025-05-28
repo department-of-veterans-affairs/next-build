@@ -46,7 +46,7 @@ import {
   TaxonomyTermLcCategories,
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
-
+import { VamcEhrSystem } from './vamcEhr'
 /** Union of all node types.  */
 export type NodeTypes =
   | NodeBanner
@@ -208,7 +208,7 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
   field_media: DrupalMediaImage
   field_related_links: ParagraphListOfLinkTeasers | null
-  field_vamc_ehr_system: string
+  field_vamc_ehr_system: VamcEhrSystem
   field_facebook: FieldLink
   field_flickr: FieldLink
   field_govdelivery_id_emerg: string
