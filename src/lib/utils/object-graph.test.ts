@@ -145,4 +145,19 @@ describe('object graph inflator and deflator', () => {
     expect('d' in roundTrip.c).toBe(true)
     expect(roundTrip.c.d).toBeUndefined()
   })
+
+  // This shouldn't ever happen, but just in case...
+  it('handles circular array references', () => {
+    const array: unknown[] = ['b']
+    const input = {
+      a: array,
+    }
+    array.push(array)
+
+    const result = deflateObjectGraph(input)
+    const roundTrip = inflateObjectGraph(result)
+
+    expect(roundTrip.a[1]).toBe(roundTrip.a)
+    expect(Array.isArray(roundTrip.a)).toBe(true)
+  })
 })

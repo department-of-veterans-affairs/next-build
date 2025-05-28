@@ -151,13 +151,23 @@ export function inflateObjectGraph<T>(data: FlattenedGraph<T>): T {
       }
 
       // Create placeholder to support circular references
-      const shell: Record<string, unknown> = {}
-      cache.set(__refId, shell)
+      if (Array.isArray(refData)) {
+        const shell: unknown[] = []
+        cache.set(__refId, shell)
 
-      const resolved = resolve(refData)
-      Object.assign(shell, resolved)
+        const resolved = refData.map(resolve)
+        shell.push(...resolved)
 
-      return shell
+        return shell
+      } else {
+        const shell: Record<string, unknown> = {}
+        cache.set(__refId, shell)
+
+        const resolved = resolve(refData)
+        Object.assign(shell, resolved)
+
+        return shell
+      }
     }
 
     const result: Record<string, unknown> = {}
