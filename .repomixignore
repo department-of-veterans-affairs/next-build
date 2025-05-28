@@ -1,0 +1,21 @@
+# Jest snapshots
+*.snap
+
+# Storybook stories
+*.stories.*
+
+# Mock data
+*.mock.*
+src/products/**/mock.js*
+
+# Add the path to the mock file you want to include here.
+# Alternatively, use the --include flag to include specific files:
+# repomix --include src/path/to/my-data.mock.json
+#
+# src/path/to/my-data.mock.json
+
+# Pages unrelated to templates and migrating them
+src/pages/_playground/*
+src/pages/api/*
+src/pages/data/*
+src/pages/demo/*
