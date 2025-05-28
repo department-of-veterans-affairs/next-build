@@ -13,6 +13,6 @@ import { Administration } from '@/types/formatted/administration'
 export const formatter = (
   administration: FieldAdministration | null | undefined
 ): Administration => ({
-  entityId: administration?.drupal_internal__tid || null, // "t" is for taxonomy term
-  name: administration?.name || null,
+  entityId: administration?.drupal_internal__tid ?? null, // "t" is for taxonomy term
+  name: administration?.name ?? null,
 })
