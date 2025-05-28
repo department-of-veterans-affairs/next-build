@@ -3,9 +3,8 @@
 ###
 # Run the fetch-entity script using a version of Node that can strip the
 # TypeScript anotations. The current version in the .nvmrc file can't do that,
-# so we're leveraging `nvm use` to change the version of Node _just for this
-# script._ If the correct version of Node isn't installed with `nvm`, it'll
-# install it first.
+# so we're leveraging `nvm` to make sure a version of Node that will run this
+# script is installed, then specifically using that version to run it.
 ###
 
 # The version of Node.js to use for this script
