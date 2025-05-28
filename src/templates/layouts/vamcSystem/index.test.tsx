@@ -56,6 +56,60 @@ describe('VamcSystem with valid data', () => {
     )
   })
 
+  describe('RegionalTopTasks', () => {
+    test('renders all expected va-link-action elements with correct attributes', () => {
+      const { container } = render(<VamcSystem {...mockData} />)
+
+      // Check for "Make an appointment" link
+      const appointmentLink = container.querySelector(
+        'va-link-action[text="Make an appointment"]'
+      )
+      expect(appointmentLink).toBeInTheDocument()
+      expect(appointmentLink).toHaveAttribute(
+        'href',
+        `${mockData.path}/make-an-appointment`
+      )
+
+      // Check for "View all health services" link
+      const healthServicesLink = container.querySelector(
+        'va-link-action[text="View all health services"]'
+      )
+      expect(healthServicesLink).toBeInTheDocument()
+      expect(healthServicesLink).toHaveAttribute(
+        'href',
+        `${mockData.path}/health-services`
+      )
+
+      // Check for "Register for care" link
+      const registerLink = container.querySelector(
+        'va-link-action[text="Register for care"]'
+      )
+      expect(registerLink).toBeInTheDocument()
+      expect(registerLink).toHaveAttribute(
+        'href',
+        `${mockData.path}/register-for-care`
+      )
+    })
+
+    test('renders MHS Genesis Patient Portal link for Lovell Tricare with Cerner', () => {
+      const lovellData = {
+        ...mockData,
+        administration: LOVELL.tricare.administration,
+        vamcEhrSystem: 'cerner' as const,
+      }
+      const { container } = render(<VamcSystem {...lovellData} />)
+
+      const genesisLink = container.querySelector(
+        'va-link-action[text="MHS Genesis Patient Portal"]'
+      )
+      expect(genesisLink).toBeInTheDocument()
+      expect(genesisLink).toHaveAttribute(
+        'href',
+        'https://my.mhsgenesis.health.mil/'
+      )
+    })
+  })
+
   test('adds the sideNav to window.sideNav', () => {
     render(<VamcSystem {...mockData} />)
 
