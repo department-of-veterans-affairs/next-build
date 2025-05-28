@@ -19,6 +19,15 @@ const baseUrl =
 
 const proxyFetch = (input: RequestInfo, init: RequestInit = {}) => {
   const agent = new SocksProxyAgent('socks5h://127.0.0.1:2001')
+  const initParams = { ...init }
+  const url = input instanceof Request ? input.url : input
+  if (url.match('va-gov-cms.ddev.site')) {
+    syswideCas.addCAs('certs/rootCA.pem')
+  } else {
+    // @ts-expect-error We don't have any TS types for node-fetch, so it doesn't
+    // know that this is a thing we can add.
+    initParams.agent = agent
+  }
   return fetch(input, { ...init, agent })
 }
 
