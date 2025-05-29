@@ -50,6 +50,7 @@ import * as VamcSystemVaPolice from '@/data/queries/vamcSystemVaPolice'
 import * as VetCenter from '@/data/queries/vetCenter'
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
+import * as LeadershipListing from '@/data/queries/leadershipListing'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -81,6 +82,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
+  [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
