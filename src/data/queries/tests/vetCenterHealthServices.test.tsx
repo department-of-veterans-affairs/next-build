@@ -4,8 +4,8 @@
 
 import { FieldHealthServicesArray } from '@/types/drupal/field_type'
 import { queries } from '@/data/queries'
-import mockResponse from '@/mocks/healthServices.mock.json'
-import { params } from '../healthServices'
+import mockResponse from '@/mocks/vetCenterHealthServices.mock.json'
+import { params } from '../vetCenterHealthServices'
 
 const HealthServicesMock: FieldHealthServicesArray = mockResponse
 
