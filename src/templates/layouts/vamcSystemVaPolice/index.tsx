@@ -33,7 +33,7 @@ export function VamcSystemVaPolice({
             <h1>{title}</h1>
             {/* Intro text (field_cc_va_police_overview)} */}
             <div
-              className="va-introtext vads-u-font-size--lg vads-u-font-family--serif"
+              className="va-introtext"
               dangerouslySetInnerHTML={{ __html: policeOverview.html }}
             ></div>
             {/* Table of Contents */}
