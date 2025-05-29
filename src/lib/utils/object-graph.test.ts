@@ -28,7 +28,9 @@ describe('object graph inflator and deflator', () => {
 
     const uuids = Object.keys(result.include)
     expect(uuids.length).toBe(1)
+    // @ts-expect-error `data` could technically be a ref, but we know it isn't
     expect(result.data.a).toEqual({ __refId: uuids[0] })
+    // @ts-expect-error `data` could technically be a ref, but we know it isn't
     expect(result.data.b).toEqual({ __refId: uuids[0] })
 
     const roundTrip = inflateObjectGraph(result)

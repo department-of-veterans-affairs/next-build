@@ -1,15 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
-
-/**
- * Represents a serialized object structure where circular/repeated references
- * are replaced with `{ __refId }` and the full objects are provided in the
- * `include` map.
- */
-export interface FlattenedGraph<T> {
-  data: T
-  include: Record<string, unknown>
-}
-
 /**
  * A reference to an object stored in the `include` section of a
  * `DereferencedData` structure.
@@ -19,23 +7,42 @@ export interface Reference {
 }
 
 /**
+ * Recursive helper type
+ */
+export type Flattened<T> = T extends (infer U)[] // If T is an array
+  ? Flattened<U>[] | Reference
+  : T extends object // If T is an object
+    ? { [K in keyof T]: Flattened<T[K]> } | Reference
+    : T // Otherwise (primitive), leave as is
+
+/**
+ * Represents a serialized object structure where circular/repeated references
+ * are replaced with `{ __refId }` and the full objects are provided in the
+ * `include` map.
+ */
+export interface FlattenedGraph<T> {
+  data: Flattened<T>
+  include: Record<string, unknown>
+}
+
+/**
  * Serializes an object containing circular and/or repeated references into a
  * JSON-safe format by extracting duplicates into an `include` map.
  */
 export function deflateObjectGraph<T>(input: T): FlattenedGraph<T> {
-  // Map of all seen objects. Each object gets a UUID and a flag for whether
+  // Map of all seen objects. Each object gets an ID and a flag for whether
   // it's reused.
-  const seen = new Map<unknown, { __refId: string; isDuplicate: boolean }>()
+  const seen = new Map<unknown, Reference & { isDuplicate: boolean }>()
 
   // The final store of extracted objects that will be referenced by `{ __refId }`
   const include: FlattenedGraph<T>['include'] = {}
 
   // Guards against infinite recursion by tracking active __refIds during
   // serialization
-  const serializing = new Set<string>()
+  const serializing = new Set<Reference['__refId']>()
 
   /**
-   * First pass: detects duplicates and assigns UUIDs to all objects. Only marks
+   * First pass: detects duplicates and assigns IDs to all objects. Only marks
    * objects as `isDuplicate` if seen more than once.
    */
   function findDuplicates(value: unknown) {
@@ -46,7 +53,7 @@ export function deflateObjectGraph<T>(input: T): FlattenedGraph<T> {
       existing.isDuplicate = true
       return // Make sure we don't recurse infinitely
     } else {
-      seen.set(value, { __refId: uuidv4(), isDuplicate: false })
+      seen.set(value, { __refId: seen.size.toString(), isDuplicate: false })
     }
 
     if (Array.isArray(value)) {
@@ -109,7 +116,7 @@ export function deflateObjectGraph<T>(input: T): FlattenedGraph<T> {
   }
 
   findDuplicates(input)
-  const data = replaceDuplicateRefs(input) as T
+  const data = replaceDuplicateRefs(input) as Flattened<T>
   return { data, include }
 }
 
@@ -123,7 +130,7 @@ export function deflateObjectGraph<T>(input: T): FlattenedGraph<T> {
  */
 export function inflateObjectGraph<T>(data: FlattenedGraph<T>): T {
   const { data: root, include } = data
-  const cache = new Map<string, unknown>() // Used to maintain shared/circular reference identity
+  const cache = new Map<Reference['__refId'], unknown>() // Used to maintain shared/circular reference identity
 
   /**
    * Recursively resolves `{ __refId }` references into actual object instances.
