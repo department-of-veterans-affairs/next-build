@@ -1,10 +1,10 @@
-import { ParagraphListOfLinks } from '@/types/drupal/paragraph'
 import { MediaImage } from '@/types/formatted/media'
 import { Administration } from '@/types/formatted/administration'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PublishedEntity } from './publishedEntity'
 import { HealthCareLocalFacility } from './healthCareLocalFacility'
 import { FormattedRelatedLinks } from './relatedLinks'
+import { NodeHealthCareRegionPage } from '../drupal/node'
 
 export type MinimalLocalFacility = Pick<
   HealthCareLocalFacility,
@@ -27,4 +27,5 @@ export type VamcSystem = PublishedEntity & {
   path: string
   mainFacilities: MinimalLocalFacility[]
   relatedLinks: FormattedRelatedLinks
+  vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
 }

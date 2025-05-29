@@ -37,7 +37,7 @@ describe('Phone', () => {
       />
     )
 
-    expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
+    expect(screen.getByText('Mental health care:')).toBeInTheDocument()
     const tel = container.querySelector('va-telephone')
     expect(tel).toHaveAttribute('not-clickable')
     expect(tel.getAttribute('contact')).toBe('1234567890')
@@ -69,7 +69,7 @@ describe('Phone', () => {
 
     expect(screen.getByText('Main phone:')).toBeInTheDocument()
     expect(screen.getByText('VA health connect:')).toBeInTheDocument()
-    expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
+    expect(screen.getByText('Mental health care:')).toBeInTheDocument()
 
     // Main phone
     expect(vaTelephoneElements[0].getAttribute('contact')).toBe('1234567890')

@@ -6,6 +6,9 @@ import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { FacilityListing } from '@/templates/components/facilityListing'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
+import { RegionalTopTasks } from '@/templates/components/topTasks'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
 // import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // import { TopTasks } from '@/templates/components/topTasks'
 // import { FacilityListing } from '@/templates/components/facilityListing'
@@ -14,9 +17,6 @@ import { RelatedLinks } from '@/templates/common/relatedLinks'
 // import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
-
-const LOVELL_TRICARE_ADMINISTRATION_ID = 1039
-const LOVELL_VA_ADMINISTRATION_ID = 1040
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -31,7 +31,7 @@ export function VamcSystem({
   administration,
   path,
   menu,
-  // vamcEhrSystem,
+  vamcEhrSystem,
   mainFacilities,
   relatedLinks,
   // newsStoryTeasersFeatured,
@@ -67,8 +67,11 @@ export function VamcSystem({
                 <MediaImage {...image} imageStyle={imageStyle} alt="" />
               </div>
             )}
-            {/* Was going to use TopTasks, but the links are different, and the wrapper uses different classes */}
-            <div className="usa-grid usa-grid-full vads-u-margin-top--0 vads-u-margin-bottom--3"></div>
+            <RegionalTopTasks
+              path={path}
+              administration={administration}
+              vamcEhrSystem={vamcEhrSystem}
+            />
             {introText && (
               <div className="va-introtext">
                 <p className="vads-u-margin-bottom--0">{introText}</p>
@@ -95,18 +98,16 @@ export function VamcSystem({
             </section>
 
             {/* Manage your health online section */}
-            {administration?.id !== LOVELL_TRICARE_ADMINISTRATION_ID && (
+            {administration?.entityId !==
+              LOVELL.tricare.administration.entityId && (
               <section>
                 <h2>
-                  {administration?.id === LOVELL_VA_ADMINISTRATION_ID
+                  {administration?.entityId ===
+                  LOVELL.va.administration.entityId
                     ? 'Manage your VA health online'
                     : 'Manage your health online'}
                 </h2>
-                <div className="vads-u-display--flex medium-screen:vads-u-flex-direction--row vads-u-flex-direction--column">
-                  <div className="vads-u-margin-right--0 medium-screen:vads-u-margin-right--3">
-                    {/* TODO: Add health online links component */}
-                  </div>
-                </div>
+                <ManageYourHealthLinks vamcEhrSystem={vamcEhrSystem} />
               </section>
             )}
 

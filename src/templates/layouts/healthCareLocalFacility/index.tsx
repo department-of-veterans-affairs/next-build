@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
-import { TopTasks } from '@/templates/components/topTasks'
+import { FacilityTopTasks } from '@/templates/components/topTasks'
 import { numberToTimeString } from '@/lib/utils/numberToTimeString'
 import { dayOfWeek } from '@/lib/utils/dayOfWeek'
 
@@ -113,7 +113,7 @@ export function HealthCareLocalFacility({
               </div>
             )}
 
-            <TopTasks
+            <FacilityTopTasks
               path={regionBasePath}
               administration={administration}
               vamcEhrSystem={vamcEhrSystem}

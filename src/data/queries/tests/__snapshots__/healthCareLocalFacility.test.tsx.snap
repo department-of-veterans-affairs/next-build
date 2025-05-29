@@ -14,6 +14,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
   },
   "administration": {
     "entityId": 205,
+    "name": "VA Boston health care",
   },
   "breadcrumbs": [
     {
@@ -550,6 +551,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
   },
   "administration": {
     "entityId": 205,
+    "name": "VA Boston health care",
   },
   "breadcrumbs": [
     {

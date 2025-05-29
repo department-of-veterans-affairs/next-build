@@ -115,7 +115,7 @@ const data = {
     },
   },
   administration: {
-    id: 0,
+    entityId: 0,
     name: '',
   },
 }
@@ -175,7 +175,7 @@ describe('<Event /> Component', () => {
       format: 'text',
     },
     administration: {
-      id: 0,
+      entityId: 0,
       name: '',
     },
   }
@@ -268,7 +268,7 @@ describe('<Event /> Component', () => {
         <Event
           {...data}
           administration={{
-            id: 1,
+            entityId: 1,
             name: 'Test Administration',
           }}
           listing="/test-listing"

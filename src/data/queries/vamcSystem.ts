@@ -19,6 +19,7 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
+import { formatter as formatAdministration } from './administration'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -95,10 +96,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     title: entity.title,
     introText: entity.field_intro_text,
     image: formatImage(entity.field_media),
-    administration: {
-      id: entity.field_administration?.drupal_internal__tid || null,
-      name: entity.field_administration?.name || null,
-    },
+    administration: formatAdministration(entity.field_administration),
     path: entity.path.alias,
     menu: formattedMenu,
     mainFacilities: mainFacilities.map((facility) => ({
@@ -112,7 +110,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
       image: formatImage(facility.field_media),
     })),
     relatedLinks: formatRelatedLinks(entity),
-    // vamcEhrSystem: entity.field_vamc_ehr_system,
+    vamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,

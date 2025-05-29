@@ -6,6 +6,7 @@ import { VamcSystem } from './index'
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { formatter } from '@/data/queries/vamcSystem'
 import { DrupalMenuLinkContent } from 'next-drupal'
+import { LOVELL } from '@/lib/drupal/lovell/constants'
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -55,6 +56,60 @@ describe('VamcSystem with valid data', () => {
     )
   })
 
+  describe('RegionalTopTasks', () => {
+    test('renders all expected va-link-action elements with correct attributes', () => {
+      const { container } = render(<VamcSystem {...mockData} />)
+
+      // Check for "Make an appointment" link
+      const appointmentLink = container.querySelector(
+        'va-link-action[text="Make an appointment"]'
+      )
+      expect(appointmentLink).toBeInTheDocument()
+      expect(appointmentLink).toHaveAttribute(
+        'href',
+        `${mockData.path}/make-an-appointment`
+      )
+
+      // Check for "View all health services" link
+      const healthServicesLink = container.querySelector(
+        'va-link-action[text="View all health services"]'
+      )
+      expect(healthServicesLink).toBeInTheDocument()
+      expect(healthServicesLink).toHaveAttribute(
+        'href',
+        `${mockData.path}/health-services`
+      )
+
+      // Check for "Register for care" link
+      const registerLink = container.querySelector(
+        'va-link-action[text="Register for care"]'
+      )
+      expect(registerLink).toBeInTheDocument()
+      expect(registerLink).toHaveAttribute(
+        'href',
+        `${mockData.path}/register-for-care`
+      )
+    })
+
+    test('renders MHS Genesis Patient Portal link for Lovell Tricare with Cerner', () => {
+      const lovellData = {
+        ...mockData,
+        administration: LOVELL.tricare.administration,
+        vamcEhrSystem: 'cerner' as const,
+      }
+      const { container } = render(<VamcSystem {...lovellData} />)
+
+      const genesisLink = container.querySelector(
+        'va-link-action[text="MHS Genesis Patient Portal"]'
+      )
+      expect(genesisLink).toBeInTheDocument()
+      expect(genesisLink).toHaveAttribute(
+        'href',
+        'https://my.mhsgenesis.health.mil/'
+      )
+    })
+  })
+
   test('adds the sideNav to window.sideNav', () => {
     render(<VamcSystem {...mockData} />)
 
@@ -75,7 +130,7 @@ describe('VamcSystem with valid data', () => {
     render(
       <VamcSystem
         {...mockData}
-        administration={{ ...mockData.administration, id: 1039 }}
+        administration={LOVELL.tricare.administration}
       />
     )
     expect(
@@ -85,10 +140,7 @@ describe('VamcSystem with valid data', () => {
 
   test('uses an alternate title for the administration section if the administration is 1040', () => {
     render(
-      <VamcSystem
-        {...mockData}
-        administration={{ ...mockData.administration, id: 1040 }}
-      />
+      <VamcSystem {...mockData} administration={LOVELL.va.administration} />
     )
     expect(screen.getByText('Manage your VA health online')).toBeInTheDocument()
   })
@@ -149,7 +201,7 @@ describe('VamcSystem with valid data', () => {
       // Check for phone numbers
       expect(screen.getByText('Main phone:')).toBeInTheDocument()
       expect(screen.getByText('VA health connect:')).toBeInTheDocument()
-      expect(screen.getByText('Mental health phone:')).toBeInTheDocument()
+      expect(screen.getByText('Mental health care:')).toBeInTheDocument()
     })
   })
 })
