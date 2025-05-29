@@ -16,6 +16,7 @@ declare const window: customWindow
 export function VamcSystemVaPolice({
   title,
   menu,
+  policeOverview,
 }: FormattedVamcSystemVaPolice) {
   useEffect(() => {
     window.sideNav = menu
@@ -31,9 +32,10 @@ export function VamcSystemVaPolice({
           <article className="usa-content">
             <h1>{title}</h1>
             {/* Intro text (field_cc_va_police_overview)} */}
-            <div className="va-introtext vads-u-font-size--lg vads-u-font-family--serif">
-              <p>PLACEHOLDER VA POLICE OVERVIEW</p>
-            </div>
+            <div
+              className="va-introtext vads-u-font-size--lg vads-u-font-family--serif"
+              dangerouslySetInnerHTML={{ __html: policeOverview.html }}
+            ></div>
             {/* Table of Contents */}
             <va-on-this-page></va-on-this-page>
             {/* How to contact us (field_phone_numbers_paragraph) */}
