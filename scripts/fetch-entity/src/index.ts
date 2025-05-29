@@ -3,6 +3,7 @@
 import { program } from 'commander'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import util from 'util'
+import { deflateObjectGraph } from '../../../src/lib/utils/object-graph.ts'
 
 import { getEnvFileVars } from './getEnvVars.ts'
 
@@ -36,22 +37,27 @@ program
     'Dot-notated, space-separated includes (e.g. field_telephone field_region_page.field_related_links.field_va_paragraphs)'
   )
   .option('--json', 'Output as JSON. Beware of circular references!')
+  .option('--deflate', 'Deflate the output to remove circular references')
   .action(
     async (
       resourceType: string,
       uuid: string,
-      options: { include?: string[]; json?: boolean }
+      options: { include?: string[]; json?: boolean; deflate?: boolean }
     ) => {
       const params = new DrupalJsonApiParams()
       if (options.include?.length) {
         params.addInclude(options.include)
       }
 
-      const data = await drupalClient.getResource(resourceType, uuid, {
+      let data: unknown = await drupalClient.getResource(resourceType, uuid, {
         params: params.getQueryObject(),
         // @ts-expect-error It's possible for the env vars to not be set properly
         withAuth,
       })
+
+      if (options.deflate) {
+        data = deflateObjectGraph(data)
+      }
 
       // NOTE: There may be a thing we can do to just _check_ for circular
       // references. console.log(util.format('%j', data)) will output just
