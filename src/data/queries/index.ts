@@ -19,7 +19,6 @@ import * as ExpandableText from '@/data/queries/expandableText'
 import * as FeaturedContent from '@/data/queries/featuredContent'
 import * as HeaderFooter from '@/data/queries/headerFooter'
 import * as HealthCareLocalFacility from '@/data/queries/healthCareLocalFacility'
-import * as HealthServices from '@/data/queries/vetCenterHealthServices'
 import * as LinkTeaser from '@/data/queries/linkTeaser'
 import * as MediaDocument from '@/data/queries/mediaDocument'
 import * as MediaImage from '@/data/queries/mediaImage'
@@ -48,6 +47,7 @@ import * as VamcEhr from '@/data/queries/vamcEhr'
 import * as VamcSystem from '@/data/queries/vamcSystem'
 import * as VamcSystemVaPolice from '@/data/queries/vamcSystemVaPolice'
 import * as VetCenter from '@/data/queries/vetCenter'
+import * as VetCenterHealthServices from '@/data/queries/vetCenterHealthServices'
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
 import {
@@ -65,7 +65,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.EVENT]: Event,
   [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
   [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
-  [RESOURCE_TYPES.HEALTH_SERVICES]: HealthServices,
+  [RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES]: VetCenterHealthServices,
   [RESOURCE_TYPES.STORY]: NewsStory,
   [`${RESOURCE_TYPES.STORY}--teaser` as const]: NewsStoryTeaser,
   [RESOURCE_TYPES.STORY_LISTING]: StoryListing,

@@ -1,8 +1,8 @@
 import { VetCenterFieldHealthServicesArray } from '@/types/drupal/field_type'
 import {
-  HealthService as FormattedHealthService,
-  HealthServices as FormattedHealthServices,
-} from '@/types/formatted/healthServices'
+  VetCenterHealthService as FormattedHealthService,
+  VetCenterHealthServices as FormattedHealthServices,
+} from '@/types/formatted/vetCenterHealthServices'
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
