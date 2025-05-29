@@ -1,4 +1,4 @@
-import ServicesList from '../servicesList'
+import ServicesList from '../vetCenterHealthServicesList'
 import { VetCenterHealthServices as FormattedHealthServices } from '@/types/formatted/vetCenterHealthServices'
 
 interface HealthServicesProps {
