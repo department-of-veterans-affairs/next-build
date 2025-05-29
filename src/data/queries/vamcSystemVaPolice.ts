@@ -12,6 +12,7 @@ import {
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -74,5 +75,13 @@ export const formatter: QueryFormatter<
     // },
     path: entity.path.alias,
     menu: formattedMenu,
+    policeOverview: {
+      type: 'paragraph--wysiwyg',
+      id: entity.field_cc_va_police_overview.target_id || '',
+      html:
+        getHtmlFromField(
+          entity.field_cc_va_police_overview?.fetched?.field_wysiwyg?.[0]
+        ) || '',
+    },
   }
 }

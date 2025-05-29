@@ -113,6 +113,12 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
   ],
   "moderationState": "published",
   "path": "/central-arkansas-health-care/va-police",
+  "policeOverview": {
+    "html": "<p>VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.</p>
+",
+    "id": "141558",
+    "type": "paragraph--wysiwyg",
+  },
   "published": true,
   "title": "VA police",
   "type": "node--vamc_system_va_police",
