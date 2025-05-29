@@ -1,5 +1,7 @@
 /**
- * Mock data for the VAMC facility.
+ * Mock data for the VAMC facility. Import from this rather than the JSON file
+ * to inflate the object graph automatically. The data has circular references,
+ * so it needs deflation for serialization and inflation for use.
  */
 
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
