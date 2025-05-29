@@ -4,7 +4,7 @@
 
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/vamcSystem.mock.json'
-import mockFacilityData from '@/mocks/healthCareLocalFacility.mock.json'
+import mockFacilityData from '@/mocks/healthCareLocalFacility.mock'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from '../vamcSystem'
 
