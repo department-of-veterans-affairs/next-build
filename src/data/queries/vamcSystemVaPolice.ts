@@ -83,5 +83,6 @@ export const formatter: QueryFormatter<
           entity.field_cc_va_police_overview?.fetched?.field_wysiwyg?.[0]
         ) || '',
     },
+    system: entity.field_office?.title || '',
   }
 }

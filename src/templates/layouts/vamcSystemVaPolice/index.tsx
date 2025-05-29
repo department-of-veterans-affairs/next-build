@@ -17,6 +17,7 @@ export function VamcSystemVaPolice({
   title,
   menu,
   policeOverview,
+  system,
 }: FormattedVamcSystemVaPolice) {
   useEffect(() => {
     window.sideNav = menu
@@ -43,7 +44,7 @@ export function VamcSystemVaPolice({
               <h2 id="how-to-contact-us-police">How to contact us</h2>
               <p>
                 Use our non-emergency phone number to request more information
-                about VA police at PLACEHOLDER FIELD OFFICE ENTITY TITLE.
+                about VA police at {system}.
               </p>
               <p>
                 You can call us at{' '}

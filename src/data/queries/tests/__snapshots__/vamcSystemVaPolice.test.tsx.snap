@@ -120,6 +120,7 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
     "type": "paragraph--wysiwyg",
   },
   "published": true,
+  "system": "VA Central Arkansas health care",
   "title": "VA police",
   "type": "node--vamc_system_va_police",
 }

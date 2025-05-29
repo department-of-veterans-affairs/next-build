@@ -8,4 +8,5 @@ export type VamcSystemVaPolice = PublishedEntity & {
   menu: SideNavMenu
   path: string
   policeOverview: Wysiwyg
+  system: string
 }
