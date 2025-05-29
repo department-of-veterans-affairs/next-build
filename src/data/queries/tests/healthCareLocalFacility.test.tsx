@@ -11,6 +11,7 @@ import {
   params,
 } from '../healthCareLocalFacility'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { deflateObjectGraph } from '@/lib/utils/object-graph'
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -63,28 +64,26 @@ describe('DrupalJsonApiParams configuration', () => {
 
 describe('HealthCareLocalFacility query', () => {
   it('should output formatted data', async () => {
-    expect(
-      await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
-        id: mockFacilityData.id,
-      })
-    ).toMatchSnapshot()
+    const data = await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
+      id: mockFacilityData.id,
+    })
+    expect(deflateObjectGraph(data)).toMatchSnapshot()
   })
 
   it('should handle the Lovell variant page menu', async () => {
-    expect(
-      await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
-        id: TRICARE_TEST_ID,
-        context: {
-          path: '',
-          drupalPath: '',
-          listing: { isListingPage: false, firstPagePath: '', page: 0 },
-          lovell: {
-            isLovellVariantPage: true,
-            variant: 'tricare',
-          },
+    const data = await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
+      id: TRICARE_TEST_ID,
+      context: {
+        path: '',
+        drupalPath: '',
+        listing: { isListingPage: false, firstPagePath: '', page: 0 },
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
         },
-      })
-    ).toMatchSnapshot()
+      },
+    })
+    expect(deflateObjectGraph(data)).toMatchSnapshot()
   })
 })
 
