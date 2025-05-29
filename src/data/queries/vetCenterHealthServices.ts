@@ -1,4 +1,4 @@
-import { FieldHealthServicesArray } from '@/types/drupal/field_type'
+import { VetCenterFieldHealthServicesArray } from '@/types/drupal/field_type'
 import {
   HealthService as FormattedHealthService,
   HealthServices as FormattedHealthServices,
@@ -13,9 +13,9 @@ export const params: QueryParams<null> = () => {
 }
 
 export const formatter: QueryFormatter<
-  FieldHealthServicesArray,
+  VetCenterFieldHealthServicesArray,
   FormattedHealthServices
-> = (entities: FieldHealthServicesArray): FormattedHealthServices => {
+> = (entities: VetCenterFieldHealthServicesArray): FormattedHealthServices => {
   return entities.map((item): FormattedHealthService => {
     const serviceEntity = item.field_service_name_and_descripti
     if (!serviceEntity) return null
