@@ -14,7 +14,7 @@ import {
   FieldNestedLink,
   FieldCCText,
   FieldGeoLocation,
-  FieldHealthServicesArray,
+  VetCenterFieldHealthServicesArray,
   BreadcrumbItem,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
@@ -185,7 +185,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_phone_number: string
   field_timezone: string
   field_administration: FieldAdministration
-  field_health_services: FieldHealthServicesArray
+  field_health_services: VetCenterFieldHealthServicesArray
   field_media: DrupalMediaImage
   field_prepare_for_visit: ParagraphAccordion[]
   field_vet_center_feature_content: ParagraphFeaturedContent[]

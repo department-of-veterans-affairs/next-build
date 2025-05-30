@@ -30,7 +30,7 @@ export const params: QueryParams<null> = () => {
     ),
     ...getNestedIncludes(
       'field_health_services',
-      RESOURCE_TYPES.HEALTH_SERVICES
+      RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES
     ),
   ])
 }
@@ -58,7 +58,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
 ) => {
   // format health services / filter per category
   const healthServicesArray = queries.formatData(
-    RESOURCE_TYPES.HEALTH_SERVICES,
+    RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES,
     entity.field_health_services
   )
   const counselingServicesArray = healthServicesArray.filter(

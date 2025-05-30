@@ -2,7 +2,7 @@ export const RESOURCE_TYPES = {
   BENEFITS_HUB: 'node--landing_page',
   EVENT: 'node--event',
   EVENT_LISTING: 'node--event_listing',
-  HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
+  VET_CENTER_HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
   PRESS_RELEASE: 'node--press_release',
   PRESS_RELEASE_LISTING: 'node--press_releases_listing',
   RESOURCES_SUPPORT: 'node--support_resources_detail_page',

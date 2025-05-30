@@ -1,8 +1,8 @@
-import { FieldHealthServicesArray } from '@/types/drupal/field_type'
+import { VetCenterFieldHealthServicesArray } from '@/types/drupal/field_type'
 import {
-  HealthService as FormattedHealthService,
-  HealthServices as FormattedHealthServices,
-} from '@/types/formatted/healthServices'
+  VetCenterHealthService as FormattedHealthService,
+  VetCenterHealthServices as FormattedHealthServices,
+} from '@/types/formatted/vetCenterHealthServices'
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
@@ -13,9 +13,9 @@ export const params: QueryParams<null> = () => {
 }
 
 export const formatter: QueryFormatter<
-  FieldHealthServicesArray,
+  VetCenterFieldHealthServicesArray,
   FormattedHealthServices
-> = (entities: FieldHealthServicesArray): FormattedHealthServices => {
+> = (entities: VetCenterFieldHealthServicesArray): FormattedHealthServices => {
   return entities.map((item): FormattedHealthService => {
     const serviceEntity = item.field_service_name_and_descripti
     if (!serviceEntity) return null
