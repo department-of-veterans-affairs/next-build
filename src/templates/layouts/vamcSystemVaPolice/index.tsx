@@ -18,6 +18,7 @@ export function VamcSystemVaPolice({
   menu,
   policeOverview,
   system,
+  phoneNumber,
 }: FormattedVamcSystemVaPolice) {
   useEffect(() => {
     window.sideNav = menu
@@ -47,12 +48,12 @@ export function VamcSystemVaPolice({
                 about VA police at {system}.
               </p>
               <p>
-                You can call us at{' '}
+                You can call us at&nbsp;
                 <va-telephone
-                  contact="PLACEHOLDER phoneNumber.contact"
-                  extension="PLACEHOLDER phoneNumber.extension"
+                  contact={phoneNumber.number}
+                  extension={phoneNumber.extension}
                 ></va-telephone>
-                <span>000-000-00000</span>
+                <span>. We’re here 24/7.</span>
               </p>
             </div>
             {/* How to request a VA police report (field_cc_police_report) */}

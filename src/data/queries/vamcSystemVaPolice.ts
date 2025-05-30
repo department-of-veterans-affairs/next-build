@@ -1,6 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { VamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -13,12 +12,14 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { queries } from '.'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_administration',
     'field_office',
+    'field_phone_numbers_paragraph',
   ])
 }
 
@@ -84,5 +85,20 @@ export const formatter: QueryFormatter<
         ) || '',
     },
     system: entity.field_office?.title || '',
+    phoneNumber: {
+      extension:
+        entity.field_phone_numbers_paragraph?.[0]?.field_extension || '',
+      number:
+        entity.field_phone_numbers_paragraph?.[0]?.field_phone_number || '',
+      phoneType:
+        entity.field_phone_numbers_paragraph?.[0]?.field_phone_number_type ||
+        '',
+      id: entity.field_phone_numbers_paragraph?.[0]?.id || '',
+      type: 'paragraph--phone_number',
+    },
+    // phoneNumber: queries.formatData(
+    //       'paragraph--phone_number',
+    //       entity.field_phone_numbers_paragraph[0]
+    //     ),
   }
 }
