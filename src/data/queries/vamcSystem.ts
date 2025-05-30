@@ -117,10 +117,12 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     relatedLinks: formatRelatedLinks(entity),
     vamcEhrSystem: entity.field_vamc_ehr_system,
     lovellVariant: lovell?.variant,
-    lovellSwitchPath: getLovellVariantOfUrl(
-      entity.path.alias,
-      getOppositeChildVariant(lovell?.variant)
-    ),
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path.alias,
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : undefined,
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,

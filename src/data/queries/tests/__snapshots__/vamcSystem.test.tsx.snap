@@ -178,7 +178,7 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   },
   "introText": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
   "lastUpdated": "2023-04-13T18:17:36+00:00",
-  "lovellSwitchPath": "/new-york-harbor-health-care",
+  "lovellSwitchPath": undefined,
   "lovellVariant": undefined,
   "mainFacilities": [
     {
