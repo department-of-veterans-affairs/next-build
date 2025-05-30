@@ -5,6 +5,7 @@ import { PublishedEntity } from './publishedEntity'
 import { HealthCareLocalFacility } from './healthCareLocalFacility'
 import { FormattedRelatedLinks } from './relatedLinks'
 import { NodeHealthCareRegionPage } from '../drupal/node'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 export type MinimalLocalFacility = Pick<
   HealthCareLocalFacility,
@@ -28,4 +29,6 @@ export type VamcSystem = PublishedEntity & {
   mainFacilities: MinimalLocalFacility[]
   relatedLinks: FormattedRelatedLinks
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
+  lovellVariant?: LovellChildVariant
+  lovellSwitchPath?: string
 }
