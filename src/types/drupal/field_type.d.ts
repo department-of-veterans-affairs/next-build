@@ -110,12 +110,12 @@ export interface BreadCrumbLink {
  * Types for services and health services
  */
 
-export interface FieldHealthService {
+export interface VetCenterFieldHealthService {
   field_body?: FieldFormattedText
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
 }
 
-export type FieldHealthServicesArray = FieldHealthService[]
+export type VetCenterFieldHealthServicesArray = VetCenterFieldHealthService[]
 
 export interface FieldCCText {
   target_id?: string
