@@ -29,6 +29,6 @@ export type VamcSystem = PublishedEntity & {
   mainFacilities: MinimalLocalFacility[]
   relatedLinks: FormattedRelatedLinks
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
-  lovellVariant?: LovellChildVariant
-  lovellSwitchPath?: string
+  lovellVariant?: LovellChildVariant | null
+  lovellSwitchPath?: string | null
 }
