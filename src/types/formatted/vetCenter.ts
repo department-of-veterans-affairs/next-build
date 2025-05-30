@@ -5,7 +5,7 @@ import {
   FieldAddress,
 } from '../drupal/field_type'
 import { PublishedEntity } from './publishedEntity'
-import { HealthServices as FormattedHealthServices } from './healthServices'
+import { VetCenterHealthServices as FormattedHealthServices } from './vetCenterHealthServices'
 import { FeaturedContent as FormattedFeaturedContent } from './featuredContent'
 import { MediaImage as FormattedMediaImage } from './media'
 import { AccordionItem as FormattedAccordionItem } from './accordion'

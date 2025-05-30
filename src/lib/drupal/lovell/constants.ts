@@ -2,6 +2,12 @@ import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { Administration } from '@/types/formatted/administration'
 
 export const LOVELL = {
+  /**
+   * The "federal" variant isn't actually one of the variants, but it's used in Drupal to
+   * house the bifurcated pages that we wish to define only once and generate copies of
+   * for both TRICARE and VA. It is a "Section" (Administration) in Drupal that resources
+   * can be assigned to.
+   */
   federal: {
     title: 'Lovell Federal health care',
     administration: {

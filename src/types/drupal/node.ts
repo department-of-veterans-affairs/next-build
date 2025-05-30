@@ -14,7 +14,7 @@ import {
   FieldNestedLink,
   FieldCCText,
   FieldGeoLocation,
-  FieldHealthServicesArray,
+  VetCenterFieldHealthServicesArray,
   BreadcrumbItem,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
@@ -153,7 +153,7 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_geolocation: FieldGeoLocation
   field_intro_text: string
   // TODO: Uncomment these
-  // field_local_health_care_service_: NodeHealthCareLocalHealthService[] //
+  field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   // field_location_services: ParagraphHealthCareLocalFacilityService[]
   field_main_location: boolean
   field_media: DrupalMediaImage
@@ -185,7 +185,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_phone_number: string
   field_timezone: string
   field_administration: FieldAdministration
-  field_health_services: FieldHealthServicesArray
+  field_health_services: VetCenterFieldHealthServicesArray
   field_media: DrupalMediaImage
   field_prepare_for_visit: ParagraphAccordion[]
   field_vet_center_feature_content: ParagraphFeaturedContent[]
@@ -394,7 +394,7 @@ export interface NodeQA extends NodeAbstractResource {
 
 export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
-  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy[] //@todo
+  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
   field_region_page: NodeHealthCareRegionPage
   field_body: string
 }

@@ -3,7 +3,7 @@
  */
 
 import { queries } from '@/data/queries'
-import mockFacilityData from '@/mocks/healthCareLocalFacility.mock.json'
+import mockFacilityData from '@/mocks/healthCareLocalFacility.mock'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import {
   formatter,
@@ -11,6 +11,7 @@ import {
   params,
 } from '../healthCareLocalFacility'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { deflateObjectGraph } from '@/lib/utils/object-graph'
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -63,36 +64,32 @@ describe('DrupalJsonApiParams configuration', () => {
 
 describe('HealthCareLocalFacility query', () => {
   it('should output formatted data', async () => {
-    expect(
-      await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
-        id: mockFacilityData.id,
-      })
-    ).toMatchSnapshot()
+    const data = await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
+      id: mockFacilityData.id,
+    })
+    expect(deflateObjectGraph(data)).toMatchSnapshot()
   })
 
   it('should handle the Lovell variant page menu', async () => {
-    expect(
-      await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
-        id: TRICARE_TEST_ID,
-        context: {
-          path: '',
-          drupalPath: '',
-          listing: { isListingPage: false, firstPagePath: '', page: 0 },
-          lovell: {
-            isLovellVariantPage: true,
-            variant: 'tricare',
-          },
+    const data = await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
+      id: TRICARE_TEST_ID,
+      context: {
+        path: '',
+        drupalPath: '',
+        listing: { isListingPage: false, firstPagePath: '', page: 0 },
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
         },
-      })
-    ).toMatchSnapshot()
+      },
+    })
+    expect(deflateObjectGraph(data)).toMatchSnapshot()
   })
 })
 
 describe('formatter', () => {
   const formatterParams: LocalFacilityData = {
     menu: mockMenu,
-    // @ts-expect-error The type coming from next-drupal for media_image doesn't
-    // match what we're actually getting from Drupal
     entity: mockFacilityData,
     lovell: {
       isLovellVariantPage: false,
@@ -157,8 +154,6 @@ describe('formatter', () => {
       expect(
         formatter({
           ...formatterParams,
-          // @ts-expect-error Same as above; next-drupal has the wrong static
-          // type here
           entity: {
             ...mockFacilityData,
             field_region_page: {
@@ -173,8 +168,6 @@ describe('formatter', () => {
       expect(
         formatter({
           ...formatterParams,
-          // @ts-expect-error Same as above; next-drupal has the wrong static
-          // type here
           entity: {
             ...mockFacilityData,
             field_main_location: true,
@@ -198,8 +191,6 @@ describe('formatter', () => {
       expect(
         formatter({
           ...formatterParams,
-          // @ts-expect-error Same as above; next-drupal has the wrong static
-          // type here
           entity: {
             ...mockFacilityData,
             field_main_location: false,

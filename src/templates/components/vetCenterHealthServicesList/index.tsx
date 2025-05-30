@@ -1,5 +1,5 @@
 import React from 'react'
-import { HealthServices as FormattedHealthServices } from '@/types/formatted/healthServices'
+import { VetCenterHealthServices as FormattedHealthServices } from '@/types/formatted/vetCenterHealthServices'
 import { slugifyString } from '@/lib/utils/slug'
 
 interface ServicesListProps {
