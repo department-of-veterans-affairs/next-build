@@ -5,15 +5,23 @@
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/vamcSystem.mock.json'
 import mockFacilityData from '@/mocks/healthCareLocalFacility.mock'
+import mockStoryData from '@/mocks/newsStory.mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from '../vamcSystem'
 
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
   fetchSingleEntityOrPreview: () => mockData,
-  fetchAndConcatAllResourceCollectionPages: () => ({
-    data: [mockFacilityData],
-  }),
+  fetchAndConcatAllResourceCollectionPages: (nodeType: string) => {
+    switch (nodeType) {
+      case RESOURCE_TYPES.VAMC_FACILITY:
+        return { data: [mockFacilityData] }
+      case RESOURCE_TYPES.STORY:
+        return { data: [mockStoryData] }
+      default:
+        return { data: [] }
+    }
+  },
   getMenu: () => ({
     items: [],
     tree: [],

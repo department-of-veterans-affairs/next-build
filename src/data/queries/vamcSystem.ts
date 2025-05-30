@@ -3,6 +3,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import {
   NodeHealthCareLocalFacility,
   NodeHealthCareRegionPage,
+  NodeNewsStory,
 } from '@/types/drupal/node'
 import { VamcSystem } from '@/types/formatted/vamcSystem'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -19,7 +20,8 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
-import { formatter as formatAdministration } from './administration'
+import { formatter as formatAdministration } from '@/data/queries/administration'
+import { formatter as formatNewsStoryTeaser } from '@/data/queries/newsStoryTeaser'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
@@ -52,6 +54,7 @@ type VamcSystemData = {
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
   mainFacilities: NodeHealthCareLocalFacility[]
+  featuredStories: NodeNewsStory[]
 }
 
 // Implement the data loader.
@@ -81,18 +84,37 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
 
+  const { data: featuredStories } =
+    await fetchAndConcatAllResourceCollectionPages<NodeNewsStory>(
+      RESOURCE_TYPES.STORY,
+      queries
+        .getParams(RESOURCE_TYPES.STORY)
+        .addInclude(['field_listing'])
+        .addFilter('field_listing.field_office.id', entity.id)
+        .addFilter('status', '1')
+        .addFilter('field_featured', '1'),
+      PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
+    )
+
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_system_menu.resourceIdObjMeta.drupal_internal__target_id
   )
 
-  return { entity, menu, mainFacilities, lovell: opts.context?.lovell }
+  return {
+    entity,
+    menu,
+    mainFacilities,
+    featuredStories,
+    lovell: opts.context?.lovell,
+  }
 }
 
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   entity,
   menu,
   mainFacilities,
+  featuredStories,
   lovell,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
@@ -114,6 +136,8 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
       vaHealthConnectPhoneNumber: entity.field_va_health_connect_phone,
       image: formatImage(facility.field_media),
     })),
+    // Only show the first two featured stories
+    featuredStories: featuredStories.map(formatNewsStoryTeaser),
     relatedLinks: formatRelatedLinks(entity),
     vamcEhrSystem: entity.field_vamc_ehr_system,
     lovellVariant: lovell?.variant ?? null,
