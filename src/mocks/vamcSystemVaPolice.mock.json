@@ -453,15 +453,44 @@
     "id": "8700947b-a31c-4290-a989-cc2c3bfe1ce0",
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 7208
-    }
+    },
+    "title": "VA Central Arkansas health care"
   },
   "field_phone_numbers_paragraph": [
     {
       "type": "paragraph--phone_number",
       "id": "2bc3cc07-58a2-4d7f-b639-a90e0b890d7b",
+      "drupal_internal__id": 143069,
+      "drupal_internal__revision_id": 1153996,
+      "langcode": "en",
+      "status": true,
+      "created": "2023-12-18T21:13:56+00:00",
+      "parent_id": "63857",
+      "parent_type": "node",
+      "parent_field_name": "field_phone_numbers_paragraph",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2023-12-18T21:13:56+00:00",
+      "field_phone_extension": null,
+      "field_phone_label": "non-emergency phone number, 24/7",
+      "field_phone_number": "501-257-6550",
+      "field_phone_number_type": "tel",
       "resourceIdObjMeta": {
         "drupal_internal__target_id": 143069
-      }
+      },
+      "relationshipNames": [
+        {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+          "meta": {
+            "drupal_internal__target_id": "phone_number"
+          }
+        }
+      ]
     }
   ],
   "field_administration": {
