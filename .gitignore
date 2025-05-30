@@ -68,4 +68,6 @@ certs/VA-mozilla-combined.pem
 build_id
 exit_code
 envs/.env.local.bak
-.tugboat/config.yml.old
+
+# repomix
+*repomix-output.txt
