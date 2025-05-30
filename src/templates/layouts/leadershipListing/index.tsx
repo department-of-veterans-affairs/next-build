@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { LeadershipListing as FormattedLeadershipListing } from '@/types/formatted/leadershipListing'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-
+import { ContentFooter } from '@/templates/common/contentFooter'
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
@@ -24,7 +24,8 @@ export function LeadershipListing({
             <div className="va-introtext">
               <p>{introText}</p>
             </div>
-            <div>TODO Staff Profile teasers</div>
+            <div>*TODO Staff Profile teasers*</div>
+            <ContentFooter />
           </article>
         </div>
       </div>
