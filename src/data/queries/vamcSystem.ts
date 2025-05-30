@@ -20,6 +20,10 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
 import { formatter as formatAdministration } from './administration'
+import {
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -82,13 +86,14 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     entity.field_system_menu.resourceIdObjMeta.drupal_internal__target_id
   )
 
-  return { entity, menu, mainFacilities }
+  return { entity, menu, mainFacilities, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   entity,
   menu,
   mainFacilities,
+  lovell,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   return {
@@ -111,6 +116,13 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     })),
     relatedLinks: formatRelatedLinks(entity),
     vamcEhrSystem: entity.field_vamc_ehr_system,
+    lovellVariant: lovell?.variant ?? null,
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path.alias,
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : null,
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,

@@ -9,10 +9,7 @@ import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
-// import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-// import { TopTasks } from '@/templates/components/topTasks'
-// import { FacilityListing } from '@/templates/components/facilityListing'
-// import { MainButtons } from '@/templates/components/mainButtons'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 // import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
 // import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
@@ -34,11 +31,8 @@ export function VamcSystem({
   vamcEhrSystem,
   mainFacilities,
   relatedLinks,
-  // newsStoryTeasersFeatured,
-  // eventTeasersFeatured,
-  // eventTeasersAll,
-  // lovellVariant,
-  // lovellSwitchPath,
+  lovellVariant,
+  lovellSwitchPath,
 }: LovellStaticPropsResource<FormattedVamcSystem>) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -57,10 +51,10 @@ export function VamcSystem({
         {/* Main page content */}
         <div className="usa-width-three-fourths">
           <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
-            {/* <LovellSwitcher
+            <LovellSwitcher
               currentVariant={lovellVariant}
               switchPath={lovellSwitchPath}
-            /> */}
+            />
             {title && <h1>{title}</h1>}
             {hasValidImage && (
               <div className="duotone darken lighten medium-screen:vads-u-margin-bottom--0p5">
