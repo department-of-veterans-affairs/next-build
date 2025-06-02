@@ -147,6 +147,17 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
+    socialLinks: {
+      regionNickname: entity.title,
+      fieldGovdeliveryIdEmerg: entity.field_govdelivery_id_emerg ?? null,
+      fieldGovdeliveryIdNews: entity.field_govdelivery_id_news ?? null,
+      fieldOperatingStatus: entity.field_operating_status ?? null,
+      fieldFacebook: entity.field_facebook ?? null,
+      fieldTwitter: entity.field_twitter ?? null,
+      fieldFlickr: entity.field_flickr ?? null,
+      fieldInstagram: entity.field_instagram ?? null,
+      fieldYoutube: entity.field_youtube ?? null,
+    },
     // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
     // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
     // fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,

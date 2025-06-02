@@ -1,13 +1,8 @@
+import { FieldLink } from '@/types/drupal/field_type'
 import React from 'react'
 
-interface SocialLink {
-  uri: string
-  title: string
-}
-
-interface OperatingStatus {
-  url: string
-}
+type SocialLink = Pick<FieldLink, 'uri' | 'title'>
+type OperatingStatus = Pick<FieldLink, 'url'>
 
 export interface FacilitySocialLinksProps {
   regionNickname: string

@@ -11,6 +11,7 @@ import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { StoryTeaser } from './StoryTeaser'
+import FacilitySocialLinks from '../healthCareLocalFacility/FacilitySocialLinks'
 // import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
@@ -36,6 +37,7 @@ export function VamcSystem({
   featuredStories,
   lovellVariant,
   lovellSwitchPath,
+  socialLinks,
 }: LovellStaticPropsResource<FormattedVamcSystem>) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -158,7 +160,7 @@ export function VamcSystem({
               </section>
             )} */}
             {/* Social Links */}
-            {/* <SocialLinks regionNickname={title} /> */}
+            <FacilitySocialLinks {...socialLinks} />
             <va-back-to-top></va-back-to-top>
             <ContentFooter />
           </article>
