@@ -28,7 +28,7 @@ jobs:
           env_variable_name: GHA_CONTENT_BUILD_DATADOG_API_KEY
 
       - name: Send GitHub Actions metrics to DataDog
-        uses: int128/datadog-actions-metrics@61c9084a989b70e49e5affbae34a3c5cfbda75cf # v1.114.0
+        uses: int128/datadog-actions-metrics@89e653f0a026d4d59ca3a740b6e8975ae67a0c1e # v1.117.0
         with:
           datadog-api-key: ${{ env.GHA_CONTENT_BUILD_DATADOG_API_KEY }}
           collect-job-metrics: true
