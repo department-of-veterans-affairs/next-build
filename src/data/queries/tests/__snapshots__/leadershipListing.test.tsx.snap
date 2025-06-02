@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeadershipListing formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://va-gov-cms.ddev.site/",
+    },
+    {
+      "options": [],
+      "title": "VA White River Junction health care",
+      "uri": "https://va-gov-cms.ddev.site/white-river-junction-health-care",
+    },
+    {
+      "options": [],
+      "title": "ABOUT VA WHITE RIVER JUNCTION",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "About us",
+      "uri": "https://va-gov-cms.ddev.site/white-river-junction-health-care/about-us",
+    },
+    {
+      "options": [],
+      "title": "Leadership",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 27519,
+  "entityPath": "/white-river-junction-health-care/about-us/leadership",
+  "id": "dd02e587-f784-41cf-8489-ffad717e6a29",
+  "introText": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+  "lastUpdated": "2022-02-07T21:25:26+00:00",
+  "menu": null,
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Leadership | VA White River Junction health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Leadership | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Leadership | VA White River Junction health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "published": true,
+  "title": "Leadership",
+  "type": "node--leadership_listing",
+}
+`;
