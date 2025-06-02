@@ -15,6 +15,16 @@ export type SidebarData = {
   parent: { label: string; url: { path: string }; links: Link[] }
 }
 
+export type StaffProfileTeaser = PublishedEntity & {
+  media?: MediaImage
+  firstName: string
+  lastName: string
+  suffix?: string
+  vamcTitle: string
+  phoneNumber?: FormattedPhoneNumber
+  link: string
+}
+
 export type StaffProfile = PublishedEntity & {
   firstName: string
   lastName: string
