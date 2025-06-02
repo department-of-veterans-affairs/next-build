@@ -1,4 +1,10 @@
-export const HealthServices = () => {
+import { NodeHealthCareLocalHealthService } from '@/types/drupal/node'
+
+export const HealthServices = ({
+  healthServices,
+}: {
+  healthServices: NodeHealthCareLocalHealthService[]
+}) => {
   return (
     <>
       <h2
