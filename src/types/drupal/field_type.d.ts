@@ -34,9 +34,13 @@ export interface FieldLink {
   options: unknown[]
 }
 export interface FieldOfficeHours {
+  /** Day of the week (e.g., "Monday", "Tuesday", or numeric). */
   day: number
+  /** Start time in military format (0–2359) or undefined; special values (0=midnight, 1200=noon). */
   starthours: number
+  /** End time in military format (0–2359) or undefined; special values (0=midnight, 1200=noon). */
   endhours: number
+  /** Optional comment about the day's hours (e.g., "Closed for lunch"). */
   comment: string
 }
 
