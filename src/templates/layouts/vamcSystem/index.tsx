@@ -116,18 +116,19 @@ export function VamcSystem({
             {/* Stories Section */}
             {featuredStories.length > 0 && (
               <section>
-                <h2 className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-top--5">
+                <h3 className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-top--5">
                   Stories
-                </h2>
+                </h3>
                 {featuredStories.slice(0, MAX_FEATURED_STORIES).map((story) => (
                   <NewsStoryTeaser key={story.id} {...story} />
                 ))}
-                <va-link
-                  active
-                  className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
-                  href={`${path}/stories`}
-                  text="See all stories"
-                ></va-link>
+                <p className="vads-u-margin-y--0">
+                  <va-link
+                    active
+                    href={`${path}/stories`}
+                    text="See all stories"
+                  ></va-link>
+                </p>
               </section>
             )}
             {/* Events Section */}
