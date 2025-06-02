@@ -4,9 +4,16 @@ import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 interface ServiceAddressProps {
   serviceLocationAddress: ParagraphServiceLocationAddress
   facilityAddress?: FieldAddress
-  headerLevel?: number // Corresponds to serviceLocationAddressHeaderLevel
+  headerLevel?: number
 }
 
+/**
+ * Health Service Address component for use in both VAMC Facility & VHA
+ * Facility.
+ *
+ * NOTE: This is a 1:1 correlation to the content-build template. It could use
+ * some refactoring.
+ */
 export const ServiceAddress = ({
   serviceLocationAddress,
   facilityAddress,
