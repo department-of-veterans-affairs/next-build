@@ -1,6 +1,6 @@
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { EventWidgetTeaser } from '@/products/event/formatted-type'
-import { formatDateObject, deriveMostRecentDate, formatEventDateTime } from '@/lib/utils/date'
+import { deriveMostRecentDate, formatEventDateTime } from '@/lib/utils/date'
 
 /** Teaser event. */
 export const EventTeaser = ({
@@ -11,42 +11,9 @@ export const EventTeaser = ({
   fieldFacilityLocation,
   fieldLocationHumanreadable,
 }: EventWidgetTeaser) => {
-  console.log("fieldDatetimeRangeTimezone", fieldDatetimeRangeTimezone)
-  // Use existing date utilities following the same pattern as the event template
-  const formattedDates = fieldDatetimeRangeTimezone ? formatDateObject([fieldDatetimeRangeTimezone]) : []
-  const mostRecentDate = formattedDates.length > 0 ? deriveMostRecentDate(formattedDates) : null
+  // Use the exact same pattern as the event template
+  const mostRecentDate = deriveMostRecentDate(fieldDatetimeRangeTimezone)
   const formattedDateTime = formatEventDateTime(mostRecentDate)
-
-  // Parse the formatted date/time to extract components for display logic
-  const hasDateTime = mostRecentDate && formattedDateTime && formattedDateTime !== 'No event data'
-  
-  // Extract timezone from the formatted string
-  const timezone = mostRecentDate?.timezone ? 
-    new Intl.DateTimeFormat('en-US', { 
-      timeZone: mostRecentDate.timezone, 
-      timeZoneName: 'short' 
-    })
-      .formatToParts(new Date())
-      .find(part => part.type === 'timeZoneName')
-      ?.value.replace(/S|D/i, '') || 'ET' 
-    : 'ET'
-
-  // Extract date and time parts from the formatted string
-  let startDateNoTime = ''
-  let timeRange = ''
-  
-  if (hasDateTime) {
-    // Format: "Thu. May 4, 2023, 12:00 pm – 2:00 pm ET"
-    const parts = formattedDateTime.split(', ')
-    if (parts.length >= 3) {
-      startDateNoTime = `${parts[0]}, ${parts[1]}, ${parts[2].split(',')[0]}`
-      const timePart = parts[2].split(', ')[1]
-      if (timePart) {
-        // Remove the timezone from the time part since we'll add it separately
-        timeRange = timePart.replace(` ${timezone}`, '')
-      }
-    }
-  }
 
   return (
     <div data-template="teasers/event" className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4">
@@ -64,12 +31,8 @@ export const EventTeaser = ({
           <strong>When</strong>
         </div>
         <div className="usa-width-five-sixths">
-          {hasDateTime ? (
-            <>
-              <span className="event-date">{startDateNoTime}</span><br />
-              <span className="event-time">{timeRange}</span>
-              <span> {timezone}</span>
-            </>
+          {mostRecentDate ? (
+            <span>{formattedDateTime}</span>
           ) : (
             <span>Date and time to be announced</span>
           )}
