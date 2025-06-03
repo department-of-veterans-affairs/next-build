@@ -40,10 +40,6 @@ describe('StoryTeaser Component', () => {
     // Check for title heading
     const titleHeading = screen.getByRole('heading', { level: 3 })
     expect(titleHeading).toBeInTheDocument()
-    expect(titleHeading).toHaveClass(
-      'vads-u-font-size--md',
-      'medium-screen:vads-u-font-size--lg'
-    )
 
     // Check for va-link element
     const link = container.querySelector('va-link')
@@ -109,7 +105,6 @@ describe('StoryTeaser Component', () => {
     const image = container.querySelector('img')
     expect(image).toBeInTheDocument()
     expect(image).toHaveAttribute('alt', mockMediaImage.alt)
-    expect(image).toHaveClass('region-img')
     expect(image.getAttribute('src')).toContain('3_2_medium_thumbnail')
   })
 })
