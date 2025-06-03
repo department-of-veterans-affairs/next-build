@@ -19,6 +19,7 @@ export function VamcSystemVaPolice({
   policeOverview,
   system,
   phoneNumber,
+  policeReport,
 }: FormattedVamcSystemVaPolice) {
   useEffect(() => {
     window.sideNav = menu
@@ -61,7 +62,17 @@ export function VamcSystemVaPolice({
               className="vads-u-margin-bottom--3"
               id="field-va-police-reports"
             >
-              PLACEHOLDER VA POLICE REPORTS
+              <va-summary-box uswds="true" class="vads-u-border--0">
+                <h3 slot="headline">{policeReport.title}</h3>
+                <div>
+                  {/* fieldDescription is HTML inline, surrounded by a <p> tag */}
+                  {policeReport.description}
+                  <va-link
+                    href={policeReport.link?.url}
+                    text={policeReport.link?.label}
+                  />
+                </div>
+              </va-summary-box>
             </div>
             {/* Other questions you may have about VA police (field_cc_faq) */}
             <div className="vads-u-margin-bottom--3" id="field-cc-faq-police">

@@ -2,7 +2,10 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { VamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -13,6 +16,9 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { queries } from '.'
+import { FeaturedContent } from '@/types/formatted/featuredContent'
+import { Button } from '@/types/formatted/button'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -20,6 +26,10 @@ export const params: QueryParams<null> = () => {
     'field_administration',
     'field_office',
     'field_phone_numbers_paragraph',
+    ...getNestedIncludes(
+      'field_cc_va_police_overview',
+      PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT
+    ),
   ])
 }
 
@@ -95,6 +105,27 @@ export const formatter: QueryFormatter<
         '',
       id: entity.field_phone_numbers_paragraph?.[0]?.id || '',
       type: 'paragraph--phone_number',
+    },
+    policeReport: {
+      id: entity.field_cc_police_report?.[0]?.target_id || '',
+      type: 'paragraph--featured_content',
+      title:
+        entity.field_cc_police_report?.fetched?.field_section_header?.[0]
+          ?.value || '',
+      description:
+        entity.field_cc_police_report?.fetched?.field_description?.[0]
+          ?.processed || '',
+      image: entity.field_cc_police_report?.fetched?.field_image || null,
+      link: {
+        id: entity.field_cc_police_report?.fetched?.field_cta?.[0]?.id || null,
+        type: 'paragraph--button',
+        label:
+          entity.field_cc_police_report?.fetched?.field_cta?.[0]
+            ?.field_button_label?.[0]?.value || null,
+        url:
+          entity.field_cc_police_report?.fetched?.field_cta?.[0]
+            ?.field_button_link?.[0]?.uri || '',
+      },
     },
     // phoneNumber: queries.formatData(
     //       'paragraph--phone_number',
