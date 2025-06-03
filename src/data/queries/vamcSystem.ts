@@ -4,6 +4,7 @@ import {
   NodeHealthCareLocalFacility,
   NodeHealthCareRegionPage,
   NodeNewsStory,
+  NodeEvent,
 } from '@/types/drupal/node'
 import { VamcSystem } from '@/types/formatted/vamcSystem'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -22,6 +23,7 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
 import { formatter as formatAdministration } from '@/data/queries/administration'
 import { formatter as formatNewsStoryTeaser } from '@/data/queries/newsStoryTeaser'
+import { formatter as formatEventTeaser } from '@/data/queries/eventTeaser'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
@@ -55,6 +57,8 @@ type VamcSystemData = {
   lovell?: ExpandedStaticPropsContext['lovell']
   mainFacilities: NodeHealthCareLocalFacility[]
   featuredStories: NodeNewsStory[]
+  featuredEvents: NodeEvent[]
+  otherEvents: NodeEvent[]
 }
 
 // Implement the data loader.
@@ -96,6 +100,32 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
       PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
     )
 
+  // const { data: featuredEvents } = await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+  //   RESOURCE_TYPES.EVENT,
+  //   queries
+  //     .getParams(RESOURCE_TYPES.EVENT)
+  //     .addInclude(['field_listing'])
+  //     .addFilter('field_listing.field_office.id', entity.id)
+  //     .addFilter('status', '1')
+  //     .addFilter('field_featured', '1')
+  //     .addFilter('field_datetime_range_timezone.value', (new Date()).toISOString(), '>='),
+  //   PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+  // )
+
+  const { data: otherEvents } = await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+    RESOURCE_TYPES.EVENT,
+    queries
+      .getParams(RESOURCE_TYPES.EVENT)
+      .addInclude(['field_listing'])
+      .addFilter('field_listing.field_office.id', entity.id)
+      .addFilter('status', '1')
+      .addFilter('field_datetime_range_timezone.0.value', 1735838394, '>='),
+    PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+  )
+
+  const featuredEvents: any = [];
+  // const otherEvents: any = [];
+
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_system_menu.resourceIdObjMeta.drupal_internal__target_id
@@ -106,6 +136,8 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     menu,
     mainFacilities,
     featuredStories,
+    featuredEvents,
+    otherEvents,
     lovell: opts.context?.lovell,
   }
 }
@@ -115,6 +147,8 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   menu,
   mainFacilities,
   featuredStories,
+  featuredEvents,
+  otherEvents,
   lovell,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
@@ -138,6 +172,8 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     })),
     // Only show the first two featured stories
     featuredStories: featuredStories.map(formatNewsStoryTeaser),
+    featuredEvents: featuredEvents.map(formatEventTeaser),
+    otherEvents: otherEvents.map(formatEventTeaser),
     relatedLinks: formatRelatedLinks(entity),
     vamcEhrSystem: entity.field_vamc_ehr_system,
     lovellVariant: lovell?.variant ?? null,

@@ -13,7 +13,7 @@ import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { StoryTeaser } from './StoryTeaser'
 import FacilitySocialLinks from '../healthCareLocalFacility/FacilitySocialLinks'
 // import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
-// import { EventTeaser } from '@/templates/components/eventTeaser'
+import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
 
 // Allows additions to window object without overwriting global type
@@ -35,6 +35,8 @@ export function VamcSystem({
   mainFacilities,
   relatedLinks,
   featuredStories,
+  featuredEvents,
+  otherEvents,
   lovellVariant,
   lovellSwitchPath,
   socialLinks,
@@ -47,6 +49,9 @@ export function VamcSystem({
 
   const imageStyle = '7_2_medium_thumbnail'
   const hasValidImage = image?.links?.[imageStyle]?.href
+
+  console.log('featuredEvents', featuredEvents)
+  console.log('otherEvents', otherEvents)
 
   return (
     <div className="va-l-detail-page va-facility-page">
@@ -134,23 +139,21 @@ export function VamcSystem({
               </section>
             )}
             {/* Events Section */}
-            {/* {(eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 ||
-              eventTeasersAll?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0) && (
+            {(featuredEvents.length > 0 ||
+              otherEvents.length > 0) && (
               <section>
                 <h2 className="vads-u-margin-top--4 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--2p5">
                   Events
                 </h2>
-                {eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.map(
+                {featuredEvents.length ? featuredEvents.map(
+                  (event) => (
+                    <EventTeaser key={event.entityId} {...event} />
+                  )
+                ) : otherEvents.slice(0, 1).map(
                   (event) => (
                     <EventTeaser key={event.entityId} {...event} />
                   )
                 )}
-                {!eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length &&
-                  eventTeasersAll?.entities?.[0]?.reverseFieldListingNode?.entities
-                    ?.slice(0, 1)
-                    .map((event) => (
-                      <EventTeaser key={event.entityId} {...event} />
-                    ))}
                 <va-link
                   active
                   className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
@@ -158,7 +161,7 @@ export function VamcSystem({
                   text="See all events"
                 ></va-link>
               </section>
-            )} */}
+            )}
             {/* Social Links */}
             <FacilitySocialLinks {...socialLinks} />
             <va-back-to-top></va-back-to-top>
