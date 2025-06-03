@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import drupalMockData from '@/mocks/vamcSystem.mock.json'
 import drupalMockFacilityData from '@/mocks/healthCareLocalFacility.mock'
+import drupalMockStoryData from '@/mocks/newsStory.mock.json'
 import { VamcSystem } from './index'
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { formatter } from '@/data/queries/vamcSystem'
@@ -38,6 +39,7 @@ const mockData = formatter({
   menu: mockMenu,
   lovell: { isLovellVariantPage: false, variant: undefined },
   mainFacilities: [drupalMockFacilityData],
+  featuredStories: [drupalMockStoryData],
 })
 
 describe('VamcSystem with valid data', () => {
@@ -261,6 +263,99 @@ describe('VamcSystem with valid data', () => {
       expect(
         screen.queryByText(/You are viewing this page as a .* beneficiary/)
       ).not.toBeInTheDocument()
+    })
+  })
+
+  describe('Stories section', () => {
+    test('renders the stories section heading when featured stories exist', () => {
+      render(<VamcSystem {...mockData} />)
+      expect(
+        screen.getByRole('heading', { name: 'Stories' })
+      ).toBeInTheDocument()
+    })
+
+    test('renders featured stories up to the maximum limit', () => {
+      // Create test data with more than MAX_FEATURED_STORIES (2) stories
+      const mockStoryData = {
+        id: 'story-id',
+        type: 'node--news_story',
+        published: true,
+        title: 'Test Story',
+        introText: 'Test intro text',
+        link: '/test-story',
+        image: mockData.featuredStories[0].image,
+        lastUpdated: '2021-05-25T14:00:00.000Z',
+      }
+
+      const dataWithMultipleStories = {
+        ...mockData,
+        featuredStories: [
+          { ...mockStoryData, id: 'story-1', title: 'Story 1' },
+          { ...mockStoryData, id: 'story-2', title: 'Story 2' },
+          { ...mockStoryData, id: 'story-3', title: 'Story 3' },
+        ],
+      }
+
+      const { container } = render(<VamcSystem {...dataWithMultipleStories} />)
+
+      // Should render only the first 2 stories (MAX_FEATURED_STORIES = 2)
+      const story1Link = container.querySelector('va-link[text="Story 1"]')
+      const story2Link = container.querySelector('va-link[text="Story 2"]')
+      const story3Link = container.querySelector('va-link[text="Story 3"]')
+
+      expect(story1Link).toBeInTheDocument()
+      expect(story2Link).toBeInTheDocument()
+      expect(story3Link).not.toBeInTheDocument()
+    })
+
+    test('renders story titles as links with correct hrefs', () => {
+      const { container } = render(<VamcSystem {...mockData} />)
+
+      // Check that each featured story's title is rendered as a va-link
+      mockData.featuredStories.forEach((story) => {
+        const storyLink = container.querySelector(
+          `va-link[text="${story.title}"]`
+        )
+        expect(storyLink).toBeInTheDocument()
+        expect(storyLink).toHaveAttribute('href', story.link)
+      })
+    })
+
+    test('renders story intro text', () => {
+      render(<VamcSystem {...mockData} />)
+
+      mockData.featuredStories.forEach((story) => {
+        // The intro text is truncated in the NewsStoryTeaser component
+        // We'll just check that some portion of it appears
+        const introTextWords = story.introText.split(' ').slice(0, 5).join(' ')
+        expect(screen.getByText(new RegExp(introTextWords))).toBeInTheDocument()
+      })
+    })
+
+    test('renders the "See all stories" link with correct href', () => {
+      const { container } = render(<VamcSystem {...mockData} />)
+
+      const seeAllLink = container.querySelector(
+        'va-link[text="See all stories"]'
+      )
+      expect(seeAllLink).toBeInTheDocument()
+      expect(seeAllLink).toHaveAttribute('href', `${mockData.path}/stories`)
+      expect(seeAllLink).toHaveAttribute('text', 'See all stories')
+      expect(seeAllLink).toHaveAttribute('active', 'true')
+    })
+
+    test('does not render the stories section when no featured stories exist', () => {
+      const dataWithoutStories = {
+        ...mockData,
+        featuredStories: [],
+      }
+
+      render(<VamcSystem {...dataWithoutStories} />)
+
+      expect(
+        screen.queryByRole('heading', { name: 'Stories' })
+      ).not.toBeInTheDocument()
+      expect(screen.queryByText('See all stories')).not.toBeInTheDocument()
     })
   })
 })
