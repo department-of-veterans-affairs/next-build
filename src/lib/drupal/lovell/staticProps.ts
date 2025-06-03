@@ -159,7 +159,10 @@ async function getLovellListingPageStaticPropsResource(
         link: getLovellVariantOfUrl(item.link, context.lovell.variant),
       }
     }),
-  ]
+  ].sort((a, b) => {
+    return new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
+  })
+
   const pageSize = PAGE_SIZES[resourceType]
   const sliceStart = (context.listing.page - 1) * pageSize
   const sliceEnd = sliceStart + pageSize
