@@ -13,6 +13,7 @@ describe('LeadershipListing with valid data', () => {
         title={'Hello world'}
         introText={'This is an intro text.'}
         menu={null}
+        profiles={[]}
       />
     )
 
@@ -40,6 +41,7 @@ describe('LeadershipListing with valid data', () => {
         title={'Hello world'}
         menu={mockMenu}
         introText={'This is an intro text.'}
+        profiles={[]}
       />
     )
 
