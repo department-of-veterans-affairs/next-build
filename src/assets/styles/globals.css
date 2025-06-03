@@ -53,3 +53,7 @@ body {
   width: 45px;
   padding: 0;
 }
+
+.social-links:last-child {
+  margin-bottom: 0 !important;
+}
