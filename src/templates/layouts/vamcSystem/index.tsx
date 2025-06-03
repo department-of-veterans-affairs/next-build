@@ -10,7 +10,7 @@ import { RegionalTopTasks } from '@/templates/components/topTasks'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
+import { StoryTeaser } from './StoryTeaser'
 // import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
@@ -120,7 +120,7 @@ export function VamcSystem({
                   Stories
                 </h3>
                 {featuredStories.slice(0, MAX_FEATURED_STORIES).map((story) => (
-                  <NewsStoryTeaser key={story.id} {...story} />
+                  <StoryTeaser key={story.id} {...story} />
                 ))}
                 <p className="vads-u-margin-y--0">
                   <va-link
