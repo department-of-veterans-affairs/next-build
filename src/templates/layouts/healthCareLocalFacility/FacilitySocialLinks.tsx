@@ -1,4 +1,5 @@
 import { FieldLink } from '@/types/drupal/field_type'
+import clsx from 'clsx'
 import React from 'react'
 
 type SocialLink = Pick<FieldLink, 'uri' | 'title'>
@@ -127,16 +128,17 @@ const FacilitySocialLinks = ({
   const renderLinkColumn = (links: React.ReactNode[]) => (
     <div className="medium-screen:vads-grid-col-6">
       {links.map((link, index) => (
-        <div
-          className={
+        <p
+          className={clsx(
+            'vads-u-margin-top--0',
             index === socialLinks.length - 1
               ? 'vads-u-margin-bottom--0'
               : 'vads-u-margin-bottom--2'
-          }
+          )}
           key={index}
         >
           {link}
-        </div>
+        </p>
       ))}
     </div>
   )
