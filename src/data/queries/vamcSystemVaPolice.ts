@@ -122,9 +122,5 @@ export const formatter: QueryFormatter<
             ?.field_button_link?.[0]?.uri || '',
       },
     },
-    // phoneNumber: queries.formatData(
-    //       'paragraph--phone_number',
-    //       entity.field_phone_numbers_paragraph[0]
-    //     ),
   }
 }
