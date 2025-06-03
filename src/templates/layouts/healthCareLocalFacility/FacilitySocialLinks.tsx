@@ -125,7 +125,7 @@ const FacilitySocialLinks = ({
   }
 
   const renderLinkColumn = (links: React.ReactNode[]) => (
-    <div className="vads-grid-col-6">
+    <div className="medium-screen:vads-grid-col-6">
       {links.map((link, index) => (
         <div
           className={
