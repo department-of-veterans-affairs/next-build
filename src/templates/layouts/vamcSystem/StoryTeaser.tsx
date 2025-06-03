@@ -18,17 +18,15 @@ export const StoryTeaser = ({
         <va-link href={link} text={title} />
       </h3>
       <p className="vads-u-margin-y--0">
-        {introText ? truncateWordsOrChar(introText, 60, true) : ''}
+        {truncateWordsOrChar(introText, 60, true)}
       </p>
     </div>
     <div className="region-grid vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--0">
-      {image && (
-        <MediaImage
-          {...image}
-          imageStyle="3_2_medium_thumbnail"
-          className="region-img"
-        />
-      )}
+      <MediaImage
+        {...image}
+        imageStyle="3_2_medium_thumbnail"
+        className="region-img"
+      />
     </div>
   </div>
 )
