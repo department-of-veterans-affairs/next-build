@@ -87,7 +87,7 @@ export const formatter: QueryFormatter<
     system: entity.field_office?.title || '',
     phoneNumber: {
       extension:
-        entity.field_phone_numbers_paragraph?.[0]?.field_extension || '',
+        entity.field_phone_numbers_paragraph?.[0]?.field_phone_extension || '',
       number:
         entity.field_phone_numbers_paragraph?.[0]?.field_phone_number || '',
       phoneType:
