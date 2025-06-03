@@ -75,7 +75,10 @@ export const formatter: QueryFormatter<
           profile.field_telephone
         ),
         media: queries.formatData('media--image', profile.field_media),
-        link: profile.path?.alias || '',
+        link:
+          profile.path?.alias && profile.field_complete_biography_create
+            ? profile.path?.alias
+            : '',
         id: profile.id,
       }
     })
