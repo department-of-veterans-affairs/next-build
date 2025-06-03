@@ -10,8 +10,8 @@ import { RegionalTopTasks } from '@/templates/components/topTasks'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { StoryTeaser } from './StoryTeaser'
 // import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
-// import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
 
@@ -20,6 +20,8 @@ interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
 declare const window: customWindow
+
+const MAX_FEATURED_STORIES = 2
 
 export function VamcSystem({
   title,
@@ -31,6 +33,7 @@ export function VamcSystem({
   vamcEhrSystem,
   mainFacilities,
   relatedLinks,
+  featuredStories,
   lovellVariant,
   lovellSwitchPath,
 }: LovellStaticPropsResource<FormattedVamcSystem>) {
@@ -111,24 +114,23 @@ export function VamcSystem({
             </div>
 
             {/* Stories Section */}
-            {/* {newsStoryTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 && (
+            {featuredStories.length > 0 && (
               <section>
                 <h2 className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-top--5">
                   Stories
                 </h2>
-                {newsStoryTeasersFeatured.entities[0].reverseFieldListingNode.entities
-                  .slice(0, 2)
-                  .map((story) => (
-                    <NewsStoryTeaser key={story.entityId} {...story} />
-                  ))}
-                <va-link
-                  active
-                  className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
-                  href={`${path}/stories`}
-                  text="See all stories"
-                ></va-link>
+                {featuredStories.slice(0, MAX_FEATURED_STORIES).map((story) => (
+                  <StoryTeaser key={story.id} {...story} />
+                ))}
+                <p className="vads-u-margin-y--0">
+                  <va-link
+                    active
+                    href={`${path}/stories`}
+                    text="See all stories"
+                  ></va-link>
+                </p>
               </section>
-            )} */}
+            )}
             {/* Events Section */}
             {/* {(eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 ||
               eventTeasersAll?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0) && (
