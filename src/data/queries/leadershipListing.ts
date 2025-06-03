@@ -61,22 +61,24 @@ export const formatter: QueryFormatter<
 > = ({ entity, menu }) => {
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
-  const formattedProfiles = entity.field_leadership.map((profile) => {
-    return {
-      firstName: profile.field_name_first,
-      lastName: profile.field_last_name,
-      vamcTitle: profile.field_office?.title || '',
-      description: profile.field_description || '',
-      suffix: profile.field_suffix || '',
-      phoneNumber: queries.formatData(
-        'paragraph--phone_number',
-        profile.field_telephone
-      ),
-      media: queries.formatData('media--image', profile.field_media),
-      link: profile.path.alias,
-      id: profile.id,
-    }
-  })
+  const formattedProfiles = entity.field_leadership
+    .filter((profile) => profile.status === true)
+    .map((profile) => {
+      return {
+        firstName: profile.field_name_first || '',
+        lastName: profile.field_last_name || '',
+        vamcTitle: profile.field_office?.title || '',
+        description: profile.field_description || '',
+        suffix: profile.field_suffix || '',
+        phoneNumber: queries.formatData(
+          'paragraph--phone_number',
+          profile.field_telephone
+        ),
+        media: queries.formatData('media--image', profile.field_media),
+        link: profile.path?.alias || '',
+        id: profile.id,
+      }
+    })
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
