@@ -432,6 +432,7 @@ export interface NodeSupportService extends DrupalNode {
 export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
   field_cc_va_police_overview: FieldCCText
+  field_phone_numbers_paragraph: ParagraphPhoneNumber[]
 }
 
 export interface NodeLeadershipListing extends DrupalNode {
