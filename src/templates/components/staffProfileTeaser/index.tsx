@@ -17,7 +17,10 @@ export const StaffProfileTeaser = ({
   return (
     <div className="vads-u-display--flex vads-u-margin-bottom--4">
       {media && (
-        <div className="vads-u-margin-right--2 vads-u-flex--auto">
+        <div
+          className="vads-u-margin-right--2 vads-u-flex--auto"
+          data-testid="staff-profile-image"
+        >
           <MediaImage
             {...media}
             className="person-profile-detail-page-image vads-u-width--auto"
@@ -31,6 +34,7 @@ export const StaffProfileTeaser = ({
             class="vads-u-display--block vads-u-margin-bottom--1 vads-u-font-family--serif vads-u-font-weight--bold vads-u-font-size--lg"
             href={link}
             text={`${firstName} ${lastName} ${suffix}`}
+            data-testid="staff-profile-link"
           ></va-link>
         ) : (
           <span
@@ -54,7 +58,7 @@ export const StaffProfileTeaser = ({
             {vamcTitle}
           </p>
         )}
-        {phoneNumber && <PhoneNumber {...phoneNumber} />}
+        {phoneNumber && <PhoneNumber {...phoneNumber} testId="phone-number" />}
       </div>
     </div>
   )
