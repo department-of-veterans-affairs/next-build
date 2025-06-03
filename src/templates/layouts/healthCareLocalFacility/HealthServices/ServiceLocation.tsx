@@ -1,4 +1,4 @@
-import { ServiceLocationTemplateData } from './types'
+import { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 
