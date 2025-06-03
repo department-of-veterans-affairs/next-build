@@ -1,27 +1,17 @@
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { EventWidgetTeaser } from '@/products/event/formatted-type'
 import { formatDateObject, deriveMostRecentDate, formatEventDateTime } from '@/lib/utils/date'
-import { ComponentType } from 'react'
-
-interface EventTeaserProps extends EventWidgetTeaser {
-  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
-}
 
 /** Teaser event. */
 export const EventTeaser = ({
-  headingLevel,
   title,
   entityUrl,
   fieldDescription,
   fieldDatetimeRangeTimezone,
   fieldFacilityLocation,
   fieldLocationHumanreadable,
-}: EventTeaserProps) => {
-  const TitleTag = ({ children, className }) => {
-    const Heading = headingLevel ? headingLevel : 'h2'
-    return <Heading className={className}>{children}</Heading>
-  }
-
+}: EventWidgetTeaser) => {
+  console.log("fieldDatetimeRangeTimezone", fieldDatetimeRangeTimezone)
   // Use existing date utilities following the same pattern as the event template
   const formattedDates = fieldDatetimeRangeTimezone ? formatDateObject([fieldDatetimeRangeTimezone]) : []
   const mostRecentDate = formattedDates.length > 0 ? deriveMostRecentDate(formattedDates) : null
@@ -60,14 +50,14 @@ export const EventTeaser = ({
 
   return (
     <div data-template="teasers/event" className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4">
-      <TitleTag className="vads-u-margin-top--0 vad-u-margin-bottom-1 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
+      <h3 className="vads-u-margin-top--0 vad-u-margin-bottom-1 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
         <va-link
           text={title}
           href={entityUrl.path}
         />
-      </TitleTag>
+      </h3>
       <p className="vads-u-margin-bottom--1p5 vads-u-margin-top--0">
-        {truncateWordsOrChar(fieldDescription, 60, true)}
+        {truncateWordsOrChar(fieldDescription ?? "", 60, true)}
       </p>
       <div className="usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--row vads-u-margin-bottom--1">
         <div className="vads-u-margin-right--2 when-where-width">
