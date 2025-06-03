@@ -14,6 +14,7 @@ export const StaffProfileTeaser = ({
   link,
   id,
 }: FormattedStaffProfileTeaser) => {
+  const formattedName = `${firstName} ${lastName} ${suffix || ''}`.trim()
   return (
     <div className="vads-u-display--flex vads-u-margin-bottom--4">
       {media && (
@@ -23,7 +24,7 @@ export const StaffProfileTeaser = ({
         >
           <MediaImage
             {...media}
-            className="person-profile-detail-page-image vads-u-width--auto"
+            className="bio-image vads-u-width--auto"
             imageStyle="2_3_medium_thumbnail"
           />
         </div>
@@ -33,7 +34,7 @@ export const StaffProfileTeaser = ({
           <va-link
             class="vads-u-display--block vads-u-margin-bottom--1 vads-u-font-family--serif vads-u-font-weight--bold vads-u-font-size--lg"
             href={link}
-            text={`${firstName} ${lastName} ${suffix}`}
+            text={formattedName}
             data-testid="staff-profile-link"
           ></va-link>
         ) : (
@@ -45,7 +46,7 @@ export const StaffProfileTeaser = ({
             vads-u-margin-bottom--1
             vads-u-font-size--lg"
           >
-            {`${firstName} ${lastName} ${suffix}`}
+            {formattedName}
           </span>
         )}
         {description && (
