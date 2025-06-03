@@ -26,10 +26,6 @@ export const params: QueryParams<null> = () => {
     'field_administration',
     'field_office',
     'field_phone_numbers_paragraph',
-    ...getNestedIncludes(
-      'field_cc_va_police_overview',
-      PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT
-    ),
   ])
 }
 
@@ -115,7 +111,6 @@ export const formatter: QueryFormatter<
       description:
         entity.field_cc_police_report?.fetched?.field_description?.[0]
           ?.processed || '',
-      image: entity.field_cc_police_report?.fetched?.field_image || null,
       link: {
         id: entity.field_cc_police_report?.fetched?.field_cta?.[0]?.id || null,
         type: 'paragraph--button',

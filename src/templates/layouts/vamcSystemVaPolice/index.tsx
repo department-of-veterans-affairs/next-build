@@ -66,7 +66,13 @@ export function VamcSystemVaPolice({
                 <h3 slot="headline">{policeReport.title}</h3>
                 <div>
                   {/* fieldDescription is HTML inline, surrounded by a <p> tag */}
-                  {policeReport.description}
+                  {policeReport.description && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: policeReport.description,
+                      }}
+                    />
+                  )}
                   <va-link
                     href={policeReport.link?.url}
                     text={policeReport.link?.label}

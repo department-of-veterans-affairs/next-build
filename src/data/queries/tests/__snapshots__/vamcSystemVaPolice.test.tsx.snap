@@ -130,7 +130,6 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
     "description": "<p>To request a VA police report, you'll need to file a Freedom of Information Act (FOIA) request to your local VA privacy officer.</p>
 ",
     "id": "",
-    "image": null,
     "link": {
       "id": null,
       "label": "Learn how to file a FOIA request",
