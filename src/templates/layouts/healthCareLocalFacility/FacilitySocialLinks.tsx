@@ -46,12 +46,15 @@ const FacilitySocialLinks = ({
   return (
     <section
       data-template="facilities/facility_social_links"
-      className="feature vads-u-background-color--gray-lightest vads-u-margin-top--4 mobile-lg:vads-u-margin-top--6 vads-u-padding-x--3 vads-u-padding-y--2p5"
+      className="vads-u-background-color--gray-lightest vads-u-margin-top--4 mobile-lg:vads-u-margin-top--6 vads-u-padding-x--3 vads-u-padding-y--2p5"
     >
-      <h2 id="get-updates" className="vads-u-margin-bottom--2">
+      <h2
+        id="get-updates"
+        className="vads-u-margin-top--0 vads-u-margin-bottom--2"
+      >
         Get updates from {regionNickname}
       </h2>
-      <div className="vads-grid-row">
+      <div className="vads-grid-row vads-grid-gap-sm">
         {showGovDelivery && (
           <div className="vads-grid-col-6">
             {fieldGovdeliveryIdNews && (
@@ -100,78 +103,76 @@ const FacilitySocialLinks = ({
 
         {showSocialLinks && (
           <div className="vads-grid-col-6">
-            <div>
-              {fieldFacebook && (
-                <div className="social-links vads-u-margin-bottom--2">
-                  <va-icon
-                    size="3"
-                    icon="facebook"
-                    class="vads-u-color--link-default vads-u-margin-right--0p5"
-                  />
-                  <va-link
-                    href={fieldFacebook.uri}
-                    rel="noreferrer"
-                    text={fieldFacebook.title}
-                  />
-                </div>
-              )}
-              {fieldTwitter && (
-                <div className="social-links vads-u-margin-bottom--2">
-                  <va-icon
-                    size="3"
-                    icon="x"
-                    class="vads-u-color--link-default vads-u-margin-right--0p5"
-                  />
-                  <va-link
-                    href={fieldTwitter.uri}
-                    rel="noreferrer"
-                    text={fieldTwitter.title}
-                  />
-                </div>
-              )}
-              {fieldFlickr && (
-                <div className="social-links vads-u-margin-bottom--2">
-                  <va-icon
-                    size="3"
-                    icon="flickr"
-                    class="vads-u-color--link-default vads-u-margin-right--0p5"
-                  />
-                  <va-link
-                    href={fieldFlickr.uri}
-                    rel="noreferrer"
-                    text={fieldFlickr.title}
-                  />
-                </div>
-              )}
-              {fieldInstagram && (
-                <div className="social-links vads-u-margin-bottom--2">
-                  <va-icon
-                    size="3"
-                    icon="instagram"
-                    class="vads-u-color--link-default vads-u-margin-right--0p5"
-                  />
-                  <va-link
-                    href={fieldInstagram.uri}
-                    rel="noreferrer"
-                    text={fieldInstagram.title}
-                  />
-                </div>
-              )}
-              {fieldYoutube && (
-                <div className="social-links vads-u-margin-bottom--2">
-                  <va-icon
-                    size="3"
-                    icon="youtube"
-                    class="vads-u-color--link-default vads-u-margin-right--0p5"
-                  />
-                  <va-link
-                    href={fieldYoutube.uri}
-                    rel="noreferrer"
-                    text={fieldYoutube.title}
-                  />
-                </div>
-              )}
-            </div>
+            {fieldFacebook && (
+              <div className="social-links vads-u-margin-bottom--2">
+                <va-icon
+                  size="3"
+                  icon="facebook"
+                  class="vads-u-color--link-default vads-u-margin-right--0p5"
+                />
+                <va-link
+                  href={fieldFacebook.uri}
+                  rel="noreferrer"
+                  text={fieldFacebook.title}
+                />
+              </div>
+            )}
+            {fieldTwitter && (
+              <div className="social-links vads-u-margin-bottom--2">
+                <va-icon
+                  size="3"
+                  icon="x"
+                  class="vads-u-color--link-default vads-u-margin-right--0p5"
+                />
+                <va-link
+                  href={fieldTwitter.uri}
+                  rel="noreferrer"
+                  text={fieldTwitter.title}
+                />
+              </div>
+            )}
+            {fieldFlickr && (
+              <div className="social-links vads-u-margin-bottom--2">
+                <va-icon
+                  size="3"
+                  icon="flickr"
+                  class="vads-u-color--link-default vads-u-margin-right--0p5"
+                />
+                <va-link
+                  href={fieldFlickr.uri}
+                  rel="noreferrer"
+                  text={fieldFlickr.title}
+                />
+              </div>
+            )}
+            {fieldInstagram && (
+              <div className="social-links vads-u-margin-bottom--2">
+                <va-icon
+                  size="3"
+                  icon="instagram"
+                  class="vads-u-color--link-default vads-u-margin-right--0p5"
+                />
+                <va-link
+                  href={fieldInstagram.uri}
+                  rel="noreferrer"
+                  text={fieldInstagram.title}
+                />
+              </div>
+            )}
+            {fieldYoutube && (
+              <div className="social-links vads-u-margin-bottom--2">
+                <va-icon
+                  size="3"
+                  icon="youtube"
+                  class="vads-u-color--link-default vads-u-margin-right--0p5"
+                />
+                <va-link
+                  href={fieldYoutube.uri}
+                  rel="noreferrer"
+                  text={fieldYoutube.title}
+                />
+              </div>
+            )}
           </div>
         )}
       </div>
