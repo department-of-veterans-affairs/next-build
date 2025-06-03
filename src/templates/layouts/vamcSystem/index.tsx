@@ -116,9 +116,9 @@ export function VamcSystem({
             {/* Stories Section */}
             {featuredStories.length > 0 && (
               <section>
-                <h3 className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-top--5">
+                <h2 className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-top--5">
                   Stories
-                </h3>
+                </h2>
                 {featuredStories.slice(0, MAX_FEATURED_STORIES).map((story) => (
                   <StoryTeaser key={story.id} {...story} />
                 ))}
