@@ -27,21 +27,119 @@ const FacilitySocialLinks = ({
   fieldInstagram,
   fieldYoutube,
 }: FacilitySocialLinksProps) => {
-  const showGovDelivery =
-    !!fieldGovdeliveryIdEmerg ||
-    !!fieldGovdeliveryIdNews ||
-    !!fieldOperatingStatus
+  const renderIcon = (icon: string) => (
+    <va-icon
+      icon={icon}
+      size="3"
+      class="vads-u-color--link-default vads-u-margin-right--0p5"
+    />
+  )
 
-  const showSocialLinks =
-    !!fieldFacebook ||
-    !!fieldTwitter ||
-    !!fieldFlickr ||
-    !!fieldInstagram ||
-    !!fieldYoutube
+  const govDeliveryLinks = [
+    fieldGovdeliveryIdNews && (
+      <>
+        {renderIcon('mail')}
+        <va-link
+          href={`https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=${fieldGovdeliveryIdNews}`}
+          rel="noreferrer"
+          text={`Subscribe to ${regionNickname} news and announcements`}
+        />
+      </>
+    ),
+    fieldGovdeliveryIdEmerg && (
+      <>
+        {renderIcon('mail')}
+        <va-link
+          href={`https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=${fieldGovdeliveryIdEmerg}`}
+          rel="noreferrer"
+          text={`Subscribe to ${regionNickname} emergency notifications`}
+        />
+      </>
+    ),
+    fieldOperatingStatus?.url && (
+      <>
+        {renderIcon('adjust')}
+        <va-link
+          href={fieldOperatingStatus.url}
+          text={`${regionNickname} operating status`}
+        />
+      </>
+    ),
+  ].filter(Boolean)
 
-  if (!showGovDelivery && !showSocialLinks) {
+  const socialLinks = [
+    fieldFacebook && (
+      <>
+        {renderIcon('facebook')}
+        <va-link
+          href={fieldFacebook.uri}
+          rel="noreferrer"
+          text={fieldFacebook.title}
+        />
+      </>
+    ),
+    fieldTwitter && (
+      <>
+        {renderIcon('x')}
+        <va-link
+          href={fieldTwitter.uri}
+          rel="noreferrer"
+          text={fieldTwitter.title}
+        />
+      </>
+    ),
+    fieldFlickr && (
+      <>
+        {renderIcon('flickr')}
+        <va-link
+          href={fieldFlickr.uri}
+          rel="noreferrer"
+          text={fieldFlickr.title}
+        />
+      </>
+    ),
+    fieldInstagram && (
+      <>
+        {renderIcon('instagram')}
+        <va-link
+          href={fieldInstagram.uri}
+          rel="noreferrer"
+          text={fieldInstagram.title}
+        />
+      </>
+    ),
+    fieldYoutube && (
+      <>
+        {renderIcon('youtube')}
+        <va-link
+          href={fieldYoutube.uri}
+          rel="noreferrer"
+          text={fieldYoutube.title}
+        />
+      </>
+    ),
+  ].filter(Boolean)
+
+  if (!govDeliveryLinks.length && !socialLinks.length) {
     return null
   }
+
+  const renderLinkColumn = (links: React.ReactNode[]) => (
+    <div className="vads-grid-col-6">
+      {links.map((link, index) => (
+        <div
+          className={
+            index === socialLinks.length - 1
+              ? 'vads-u-margin-bottom--0'
+              : 'vads-u-margin-bottom--2'
+          }
+          key={index}
+        >
+          {link}
+        </div>
+      ))}
+    </div>
+  )
 
   return (
     <section
@@ -55,126 +153,8 @@ const FacilitySocialLinks = ({
         Get updates from {regionNickname}
       </h2>
       <div className="vads-grid-row vads-grid-gap-sm">
-        {showGovDelivery && (
-          <div className="vads-grid-col-6">
-            {fieldGovdeliveryIdNews && (
-              <div className="vads-u-margin-bottom--2">
-                <va-icon
-                  icon="mail"
-                  size="3"
-                  class="vads-u-color--link-default vads-u-margin-right--0p5"
-                />
-                <va-link
-                  href={`https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=${fieldGovdeliveryIdNews}`}
-                  rel="noreferrer"
-                  text={`Subscribe to ${regionNickname} news and announcements`}
-                />
-              </div>
-            )}
-            {fieldGovdeliveryIdEmerg && (
-              <div className="vads-u-margin-bottom--2">
-                <va-icon
-                  icon="mail"
-                  size="3"
-                  class="vads-u-color--link-default vads-u-margin-right--0p5"
-                />
-                <va-link
-                  href={`https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=${fieldGovdeliveryIdEmerg}`}
-                  rel="noreferrer"
-                  text={`Subscribe to ${regionNickname} emergency notifications`}
-                />
-              </div>
-            )}
-            {fieldOperatingStatus?.url && (
-              <div className="vads-u-margin-bottom--2">
-                <va-icon
-                  icon="adjust"
-                  size="3"
-                  class="vads-u-color--link-default vads-u-margin-right--0p5"
-                />
-                <va-link
-                  href={fieldOperatingStatus.url}
-                  text={`${regionNickname} operating status`}
-                />
-              </div>
-            )}
-          </div>
-        )}
-
-        {showSocialLinks && (
-          <div className="vads-grid-col-6">
-            {fieldFacebook && (
-              <div className="social-links vads-u-margin-bottom--2">
-                <va-icon
-                  size="3"
-                  icon="facebook"
-                  class="vads-u-color--link-default vads-u-margin-right--0p5"
-                />
-                <va-link
-                  href={fieldFacebook.uri}
-                  rel="noreferrer"
-                  text={fieldFacebook.title}
-                />
-              </div>
-            )}
-            {fieldTwitter && (
-              <div className="social-links vads-u-margin-bottom--2">
-                <va-icon
-                  size="3"
-                  icon="x"
-                  class="vads-u-color--link-default vads-u-margin-right--0p5"
-                />
-                <va-link
-                  href={fieldTwitter.uri}
-                  rel="noreferrer"
-                  text={fieldTwitter.title}
-                />
-              </div>
-            )}
-            {fieldFlickr && (
-              <div className="social-links vads-u-margin-bottom--2">
-                <va-icon
-                  size="3"
-                  icon="flickr"
-                  class="vads-u-color--link-default vads-u-margin-right--0p5"
-                />
-                <va-link
-                  href={fieldFlickr.uri}
-                  rel="noreferrer"
-                  text={fieldFlickr.title}
-                />
-              </div>
-            )}
-            {fieldInstagram && (
-              <div className="social-links vads-u-margin-bottom--2">
-                <va-icon
-                  size="3"
-                  icon="instagram"
-                  class="vads-u-color--link-default vads-u-margin-right--0p5"
-                />
-                <va-link
-                  href={fieldInstagram.uri}
-                  rel="noreferrer"
-                  text={fieldInstagram.title}
-                />
-              </div>
-            )}
-            {fieldYoutube && (
-              <div className="social-links vads-u-margin-bottom--2">
-                <va-icon
-                  size="3"
-                  icon="youtube"
-                  class="vads-u-color--link-default vads-u-margin-right--0p5"
-                />
-                <va-link
-                  href={fieldYoutube.uri}
-                  rel="noreferrer"
-                  text={fieldYoutube.title}
-                />
-              </div>
-            )}
-          </div>
-        )}
+        {govDeliveryLinks.length > 0 && renderLinkColumn(govDeliveryLinks)}
+        {socialLinks.length > 0 && renderLinkColumn(socialLinks)}
       </div>
     </section>
   )
