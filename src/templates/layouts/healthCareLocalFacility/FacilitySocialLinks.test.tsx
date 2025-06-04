@@ -159,4 +159,46 @@ describe('FacilitySocialLinks', () => {
       expect(link?.getAttribute('href')).toBe(href)
     }
   })
+
+  test('applies correct margin classes to paragraph elements wrapping links', () => {
+    const { container } = render(
+      <FacilitySocialLinks
+        {...baseProps}
+        fieldGovdeliveryIdNews="NEWS123"
+        fieldGovdeliveryIdEmerg="EMERG456"
+        fieldOperatingStatus={{ url: '/status' }}
+        fieldFacebook={{ uri: '#', title: 'Facebook' }}
+        fieldTwitter={{ uri: '#', title: 'Twitter' }}
+      />
+    )
+
+    // Get all paragraph elements
+    const paragraphs = container.querySelectorAll('p')
+
+    // First column (GovDelivery links + operating status) - 3 items
+    const firstColumnParagraphs = Array.from(paragraphs).slice(0, 3)
+
+    // Check that first two paragraphs in first column have margin-bottom--2
+    expect(firstColumnParagraphs[0]).toHaveClass('vads-u-margin-bottom--2')
+    expect(firstColumnParagraphs[1]).toHaveClass('vads-u-margin-bottom--2')
+
+    // Check that last paragraph in first column has margin-bottom--0
+    expect(firstColumnParagraphs[2]).toHaveClass('vads-u-margin-bottom--0')
+    expect(firstColumnParagraphs[2]).not.toHaveClass('vads-u-margin-bottom--2')
+
+    // Second column (social media links) - 2 items
+    const secondColumnParagraphs = Array.from(paragraphs).slice(3, 5)
+
+    // Check that first paragraph in second column has margin-bottom--2
+    expect(secondColumnParagraphs[0]).toHaveClass('vads-u-margin-bottom--2')
+
+    // Check that last paragraph in second column has margin-bottom--0
+    expect(secondColumnParagraphs[1]).toHaveClass('vads-u-margin-bottom--0')
+    expect(secondColumnParagraphs[1]).not.toHaveClass('vads-u-margin-bottom--2')
+
+    // All paragraphs should have margin-top--0
+    paragraphs.forEach((paragraph) => {
+      expect(paragraph).toHaveClass('vads-u-margin-top--0')
+    })
+  })
 })
