@@ -16,6 +16,7 @@ import { VamcEhr } from '../drupal/vamcEhr'
 import { PublishedEntity } from './publishedEntity'
 import { FormattedRelatedLinks } from './relatedLinks'
 import { SideNavMenu } from './sideNav'
+import { EmailContact } from './contactInfo'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null
@@ -43,15 +44,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
   socialLinks: FacilitySocialLinksProps
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
-  healthServices: FormattedHealthServices[]
-}
-
-/** Represents an email contact with optional label and required email address. */
-interface EmailContact {
-  /** Optional label for the email contact (e.g., "Support"). */
-  fieldEmailLabel?: string
-  /** The email address (e.g., "example@va.gov"). */
-  fieldEmailAddress: string
+  healthServices: FormattedVAMCFacilityHealthServices[]
 }
 
 /** Represents the "single" object containing service-related fields. */
@@ -88,16 +81,6 @@ interface VamcFacilityServiceLocation {
 
 /** Represents the main input data structure for the service location template. */
 export interface ServiceLocationTemplateData {
-  /** Type of location ("nonclinical", "vba", or other values). */
-  typeOfLocation: 'nonclinical' | 'vba' | string
-  /** Header level used for subheadings (e.g., 2, 3, 4, etc.). */
-  serviceLocationSubHeaderLevel: number | string
-  /** Optional service header text. */
-  serviceHeader?: string
-  /** Optional service description text. */
-  serviceDescription?: string
-  /** Unique entity ID for generating DOM IDs or tracking. */
-  entityId: string | number
   /**
    * Indicates if a referral is required
    * "0" for no
@@ -111,30 +94,44 @@ export interface ServiceLocationTemplateData {
     | 'not_applicable'
     | 'unknown'
     | string
-  /** Telephone object for mental health or main contact, containing an entity with phone details. */
+  /**
+   * Telephone object for mental health, containing an entity with phone details.
+   * This comes from the top-level VAMC facility.
+   */
   fieldTelephone?: PhoneNumber
   /** Optional fallback main phone number. */
   fieldPhoneNumber?: string
   /** Flag indicating if the service is a mental health service (true/false). */
   isMentalHealthService?: boolean
-  /** Nested object containing many other service-related fields. */
+  /**
+   * Nested object containing many other service-related fields.
+   * TODO: Rename this silly thing (for now, it's just naming parity with the
+   * content build template)
+   */
   single: VamcFacilityServiceLocation
 }
 
-export interface FormattedHealthServices {
-  // Main health service metadata
+export interface FormattedVAMCFacilityHealthServices {
+  /** Name of the service taxonomy for the regional health service. */
   name: string
+  /** Comes from the service taxonomy of the regional health service. */
   fieldAlsoKnownAs?: string
+  /** Comes from the service taxonomy of the regional health service. */
   fieldCommonlyTreatedCondition?: string
+  /** Comes from the service taxonomy of the regional health service. */
   fieldTricareDescription?: string
-  description?: {
-    processed: string
-  }
+  description?: string
+  /** Comes from the service taxonomy of the regional health service. */
   entityId: string | number
+  /**
+   * The machine name without the entity type prefix, e.g.,
+   * "health_care_local_health_service".
+   */
   entityBundle: string
-  fieldBody?: {
-    processed: string
-  }
+  /**
+   * This comes from the VAMC System Health Service found at `field_retional`
+   */
+  fieldBody?: string
 
   // Locations associated with this service
   locations: ServiceLocationTemplateData[]
