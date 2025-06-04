@@ -34,7 +34,7 @@ export function VamcSystemVaPolice({
         <div className="usa-width-three-fourths">
           <article className="usa-content">
             <h1>{title}</h1>
-            {/* Intro text (field_cc_va_police_overview)} */}
+            {/* Renders field_cc_va_police_overview with its tags inside the <div>  */}
             <div
               className="va-introtext"
               dangerouslySetInnerHTML={{ __html: policeOverview.html }}
@@ -63,21 +63,23 @@ export function VamcSystemVaPolice({
               id="field-va-police-reports"
             >
               <va-summary-box uswds="true" class="vads-u-border--0">
-                <h3 slot="headline">{policeReport.title}</h3>
-                <div>
-                  {/* fieldDescription is HTML inline, surrounded by a <p> tag */}
-                  {policeReport.description && (
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: policeReport.description,
-                      }}
-                    />
-                  )}
-                  <va-link
-                    href={policeReport.link?.url}
-                    text={policeReport.link?.label}
-                  />
-                </div>
+                <h3
+                  slot="headline"
+                  id="how-to-request-a-va-police-rep"
+                  className="vads-u-font-size--h3"
+                >
+                  {policeReport.title}
+                </h3>
+                {/* Renders field_cc_police_report with its tags inside the <div> */}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: policeReport.description,
+                  }}
+                />
+                <va-link
+                  href={policeReport.link?.url}
+                  text={policeReport.link?.label}
+                />
               </va-summary-box>
             </div>
             {/* Other questions you may have about VA police (field_cc_faq) */}

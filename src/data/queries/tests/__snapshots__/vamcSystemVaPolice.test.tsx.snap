@@ -131,7 +131,7 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
 ",
     "id": "",
     "link": {
-      "id": null,
+      "id": "",
       "label": "Learn how to file a FOIA request",
       "type": "paragraph--button",
       "url": "https://department.va.gov/foia/",

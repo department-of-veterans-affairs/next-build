@@ -2,10 +2,7 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { VamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
-import {
-  PARAGRAPH_RESOURCE_TYPES,
-  RESOURCE_TYPES,
-} from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -84,7 +81,7 @@ export const formatter: QueryFormatter<
     menu: formattedMenu,
     policeOverview: {
       type: 'paragraph--wysiwyg',
-      id: entity.field_cc_va_police_overview.target_id || '',
+      id: entity.field_cc_va_police_overview.target_id ?? '',
       html:
         getHtmlFromField(
           entity.field_cc_va_police_overview?.fetched?.field_wysiwyg?.[0]
@@ -99,11 +96,11 @@ export const formatter: QueryFormatter<
       phoneType:
         entity.field_phone_numbers_paragraph?.[0]?.field_phone_number_type ||
         '',
-      id: entity.field_phone_numbers_paragraph?.[0]?.id || '',
+      id: entity.field_phone_numbers_paragraph?.[0]?.id ?? '',
       type: 'paragraph--phone_number',
     },
     policeReport: {
-      id: entity.field_cc_police_report?.[0]?.target_id || '',
+      id: entity.field_cc_police_report?.[0]?.target_id ?? '',
       type: 'paragraph--featured_content',
       title:
         entity.field_cc_police_report?.fetched?.field_section_header?.[0]
@@ -112,11 +109,11 @@ export const formatter: QueryFormatter<
         entity.field_cc_police_report?.fetched?.field_description?.[0]
           ?.processed || '',
       link: {
-        id: entity.field_cc_police_report?.fetched?.field_cta?.[0]?.id || null,
+        id: entity.field_cc_police_report?.fetched?.field_cta?.[0]?.id ?? '',
         type: 'paragraph--button',
         label:
           entity.field_cc_police_report?.fetched?.field_cta?.[0]
-            ?.field_button_label?.[0]?.value || null,
+            ?.field_button_label?.[0]?.value || '',
         url:
           entity.field_cc_police_report?.fetched?.field_cta?.[0]
             ?.field_button_link?.[0]?.uri || '',
