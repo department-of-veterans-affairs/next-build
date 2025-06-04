@@ -28,4 +28,68 @@ describe('LeadershipListing formatData', () => {
       })
     ).toMatchSnapshot()
   })
+  describe('Lovell variant handling', () => {
+    const lovellPath = {
+      alias: '/lovell-federal-health-care-va/about-us/leadership',
+      pid: 79642,
+      langcode: 'en',
+    }
+    const lovellBreadcrumbs = [
+      {
+        uri: 'https://va-gov-cms.ddev.site/',
+        title: 'Home',
+        options: [],
+      },
+      {
+        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care',
+        title: 'Lovell Federal health care',
+        options: [],
+      },
+      {
+        uri: 'internal:#',
+        title: 'ABOUT LOVELL FEDERAL',
+        options: [],
+      },
+      {
+        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-va/about-us',
+        title: 'About us',
+        options: [],
+      },
+      {
+        uri: 'internal:#',
+        title: 'Leadership',
+        options: [],
+      },
+    ]
+    test('outputs formatted data with Lovell variant', () => {
+      const formattedData = queries.formatData('node--leadership_listing', {
+        entity: leadershipListingMock,
+        menu: null,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
+        },
+      })
+      expect(formattedData).toMatchSnapshot()
+    })
+    test('updates the breadcrumbs for Lovell variant', () => {
+      const formattedData = queries.formatData('node--leadership_listing', {
+        entity: {
+          ...leadershipListingMock,
+          path: lovellPath,
+          breadcrumbs: lovellBreadcrumbs,
+        },
+        menu: null,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
+        },
+      })
+      expect(formattedData.breadcrumbs[1]).toEqual({
+        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-tricare',
+        title: 'Lovell Federal health care - TRICARE',
+        options: [],
+      })
+    })
+  })
 })

@@ -1,5 +1,240 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`LeadershipListing formatData Lovell variant handling outputs formatted data with Lovell variant 1`] = `
+{
+  "administration": {
+    "entityId": null,
+    "name": null,
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://va-gov-cms.ddev.site/",
+    },
+    {
+      "options": [],
+      "title": "VA White River Junction health care",
+      "uri": "https://va-gov-cms.ddev.site/white-river-junction-health-care",
+    },
+    {
+      "options": [],
+      "title": "ABOUT VA WHITE RIVER JUNCTION",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "About us",
+      "uri": "https://va-gov-cms.ddev.site/white-river-junction-health-care/about-us",
+    },
+    {
+      "options": [],
+      "title": "Leadership",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 27519,
+  "entityPath": "/white-river-junction-health-care/about-us/leadership",
+  "id": "dd02e587-f784-41cf-8489-ffad717e6a29",
+  "introText": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+  "lastUpdated": "2022-02-07T21:25:26+00:00",
+  "lovellSwitchPath": "/white-river-junction-health-care/about-us/leadership",
+  "lovellVariant": "tricare",
+  "menu": null,
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Leadership | VA White River Junction health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Leadership | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Find contact information for members of VA White River Junction Healthcare System's leadership team.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Leadership | VA White River Junction health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "profiles": [
+    {
+      "description": "Executive Director",
+      "firstName": "Brett ",
+      "id": "1d904e9d-8fa5-457d-88db-1f0e61b44c42",
+      "lastName": "Rusch",
+      "link": "/white-river-junction-health-care/staff-profiles/brett-rusch",
+      "media": {
+        "alt": "Executive Director",
+        "height": 4384,
+        "id": "cb77541a-6da8-4d38-93be-c84d5c595b3f",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/cb77541a-6da8-4d38-93be-c84d5c595b3f",
+          },
+        },
+        "title": "",
+        "type": "media--image",
+        "width": 3328,
+      },
+      "phoneNumber": {
+        "entityId": 166138,
+        "extension": "5400",
+        "id": "abd718dc-d96c-44ee-af54-00f6b62180ad",
+        "label": null,
+        "number": "802-295-9363",
+        "phoneType": "phone",
+        "type": "paragraph--phone_number",
+      },
+      "suffix": "MD",
+      "vamcTitle": "VA White River Junction health care",
+    },
+    {
+      "description": "Chief of Staff",
+      "firstName": "Daniel ",
+      "id": "62bdd347-52a8-4f26-95e6-d5e5a55d141e",
+      "lastName": "O'Rouke",
+      "link": "/white-river-junction-health-care/staff-profiles/daniel-orouke",
+      "media": {
+        "alt": "Chief of Staff",
+        "height": 3368,
+        "id": "5000eeee-6043-4d2c-83c6-937768652c2d",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/5000eeee-6043-4d2c-83c6-937768652c2d",
+          },
+        },
+        "title": "",
+        "type": "media--image",
+        "width": 2694,
+      },
+      "phoneNumber": {
+        "entityId": 166140,
+        "extension": "5420",
+        "id": "477f1bcf-b197-4d68-8a3d-f969c5af4e81",
+        "label": null,
+        "number": "802-295-9363",
+        "phoneType": "phone",
+        "type": "paragraph--phone_number",
+      },
+      "suffix": "Dr.",
+      "vamcTitle": "VA White River Junction health care",
+    },
+    {
+      "description": "Associate Director of Nursing and Patient Care Services ",
+      "firstName": "Kelley",
+      "id": "6c81991e-3bd0-469d-9ee0-816afb0ed7d1",
+      "lastName": "Saindon",
+      "link": "/white-river-junction-health-care/staff-profiles/kelley-saindon",
+      "media": {
+        "alt": "Dr. Kelley Saindon Headshot",
+        "height": 3300,
+        "id": "19cf0f99-1f49-46a6-8667-000778153813",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/19cf0f99-1f49-46a6-8667-000778153813",
+          },
+        },
+        "title": "",
+        "type": "media--image",
+        "width": 2550,
+      },
+      "phoneNumber": null,
+      "suffix": "DNP, RN, NE-BC, CHPN ",
+      "vamcTitle": "VA White River Junction health care",
+    },
+  ],
+  "published": true,
+  "title": "Leadership",
+  "type": "node--leadership_listing",
+}
+`;
+
 exports[`LeadershipListing formatData outputs formatted data 1`] = `
 {
   "administration": {
