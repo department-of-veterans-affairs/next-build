@@ -7,6 +7,11 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+import { formatter as formatAdministration } from '@/data/queries/administration'
+import {
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 
 import {
   entityBaseFields,
@@ -22,6 +27,8 @@ export const params: QueryParams<null> = () => {
     'field_office',
     'field_leadership.field_media.image',
     'field_leadership.field_telephone',
+    'field_leadership.field_office',
+    'field_administration',
   ])
 }
 
@@ -34,6 +41,7 @@ export type LeadershipListingDataOpts = {
 export type LeadershipListingData = {
   entity: NodeLeadershipListing
   menu: Menu | null
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
@@ -54,13 +62,13 @@ export const data: QueryData<
       )
     : null
 
-  return { entity, menu }
+  return { entity, menu, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<
   LeadershipListingData,
   LeadershipListing
-> = ({ entity, menu }) => {
+> = ({ entity, menu, lovell }) => {
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
   const formattedProfiles = entity.field_leadership
@@ -86,5 +94,13 @@ export const formatter: QueryFormatter<
     introText: entity.field_intro_text,
     profiles: formattedProfiles,
     menu: formattedMenu,
+    administration: formatAdministration(entity.field_administration),
+    lovellVariant: lovell?.variant ?? null,
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path.alias,
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : null,
   }
 }

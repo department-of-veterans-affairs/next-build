@@ -2,6 +2,7 @@ import React from 'react'
 import { StaffProfileTeaser as FormattedStaffProfileTeaser } from '@/types/formatted/staffProfile'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { getLovellVariantOfUrl } from '@/lib/drupal/lovell/utils'
 
 export const StaffProfileTeaser = ({
   media,
@@ -12,7 +13,7 @@ export const StaffProfileTeaser = ({
   vamcTitle,
   phoneNumber,
   link,
-  id,
+  lovellVariant,
 }: FormattedStaffProfileTeaser) => {
   const formattedName = `${firstName} ${lastName} ${suffix || ''}`.trim()
   return (
@@ -33,18 +34,20 @@ export const StaffProfileTeaser = ({
         {link ? (
           <va-link
             class="vads-u-display--block vads-u-margin-bottom--1 vads-u-font-family--serif vads-u-font-weight--bold vads-u-font-size--lg"
-            href={link}
+            href={
+              lovellVariant ? getLovellVariantOfUrl(link, lovellVariant) : link
+            }
             text={formattedName}
             data-testid="staff-profile-link"
           ></va-link>
         ) : (
           <span
             className="
-            vads-u-font-family--serif
-            vads-u-font-weight--bold
-            vads-u-display--block
-            vads-u-margin-bottom--1
-            vads-u-font-size--lg"
+              vads-u-font-family--serif
+              vads-u-font-weight--bold
+              vads-u-display--block
+              vads-u-margin-bottom--1
+              vads-u-font-size--lg"
           >
             {formattedName}
           </span>
@@ -55,11 +58,17 @@ export const StaffProfileTeaser = ({
           </p>
         )}
         {vamcTitle && (
-          <p className="vads-u-margin--0 vads-u-font-family--serif medium-screen:vads-u-font-size--lg">
+          <p className="vads-u-margin--0 vads-u-margin-bottom--1 vads-u-font-family--serif medium-screen:vads-u-font-size--lg">
             {vamcTitle}
           </p>
         )}
-        {phoneNumber && <PhoneNumber {...phoneNumber} testId="phone-number" />}
+        {phoneNumber && (
+          <PhoneNumber
+            {...phoneNumber}
+            testId="phone-number"
+            className="vads-u-margin--0 vads-u-margin-bottom--1"
+          />
+        )}
       </div>
     </div>
   )

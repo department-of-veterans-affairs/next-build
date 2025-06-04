@@ -3,6 +3,8 @@ import { LeadershipListing as FormattedLeadershipListing } from '@/types/formatt
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { StaffProfileTeaser } from '@/templates/components/staffProfileTeaser'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
@@ -12,7 +14,9 @@ export function LeadershipListing({
   introText,
   menu,
   profiles,
-}: FormattedLeadershipListing) {
+  lovellVariant,
+  lovellSwitchPath,
+}: LovellStaticPropsResource<FormattedLeadershipListing>) {
   useEffect(() => {
     window.sideNav = menu
   })
@@ -22,13 +26,20 @@ export function LeadershipListing({
         <nav aria-label="secondary" data-widget-type="side-nav" />
         <div className="usa-width-three-fourths">
           <article className="usa-content">
-            <div>*TODO Lovell Switch*</div>
+            <LovellSwitcher
+              currentVariant={lovellVariant}
+              switchPath={lovellSwitchPath}
+            />
             <h1 className="vads-u-margin-bottom--3">{title}</h1>
             <div className="va-introtext">
               <p>{introText}</p>
             </div>
             {profiles.map((profile) => (
-              <StaffProfileTeaser {...profile} key={profile.id} />
+              <StaffProfileTeaser
+                {...profile}
+                key={profile.id}
+                lovellVariant={lovellVariant}
+              />
             ))}
             <ContentFooter />
           </article>
