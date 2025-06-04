@@ -68,6 +68,23 @@ describe('LeadershipListing with valid data', () => {
         media: null,
         link: '/profiles/john-doe',
       },
+      {
+        id: 'profile-2',
+        firstName: 'Jane',
+        lastName: 'Doe',
+        vamcTitle: 'Also Chief of Staff',
+        description: 'Test description',
+        suffix: '',
+        phoneNumber: {
+          id: 'phone-1',
+          number: '123-456-7891',
+          phoneType: 'Office',
+          extension: '',
+          type: 'phone_number',
+        },
+        media: null,
+        link: '/profiles/jane-doe',
+      },
     ]
 
     render(

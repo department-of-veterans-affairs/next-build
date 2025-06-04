@@ -5,7 +5,9 @@ import { LeadershipListing } from '@/types/formatted/leadershipListing'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
-import { queries } from '.'
+import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
@@ -70,11 +72,8 @@ export const formatter: QueryFormatter<
         vamcTitle: profile.field_office?.title || '',
         description: profile.field_description || '',
         suffix: profile.field_suffix || '',
-        phoneNumber: queries.formatData(
-          'paragraph--phone_number',
-          profile.field_telephone
-        ),
-        media: queries.formatData('media--image', profile.field_media),
+        phoneNumber: formatPhone(profile.field_telephone),
+        media: formatImage(profile.field_media),
         link:
           profile.path?.alias && profile.field_complete_biography_create
             ? profile.path?.alias
