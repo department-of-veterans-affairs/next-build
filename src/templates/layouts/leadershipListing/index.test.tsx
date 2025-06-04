@@ -104,8 +104,8 @@ describe('LeadershipListing with valid data', () => {
       expect(screen.getByText(profile.vamcTitle)).toBeInTheDocument()
     })
   })
-  describe('Lovell variants - tricare', () => {
-    test('LovellSwitcher is rendered', () => {
+  describe('Lovell variants', () => {
+    test('Tricare LovellSwitcher is rendered', () => {
       render(
         <LeadershipListing
           id="test-id"
@@ -122,6 +122,25 @@ describe('LeadershipListing with valid data', () => {
       )
       expect(
         screen.getByText('You are viewing this page as a TRICARE beneficiary.')
+      ).toBeInTheDocument()
+    })
+    test('VA LovellSwitcher is rendered', () => {
+      render(
+        <LeadershipListing
+          id="test-id"
+          type="test-type"
+          published={true}
+          lastUpdated={new Date().toISOString()}
+          title={'Hello world'}
+          menu={null}
+          introText={'This is an intro text.'}
+          profiles={[]}
+          lovellSwitchPath="/lovell-federal-health-care-tricare/leadership"
+          lovellVariant="va"
+        />
+      )
+      expect(
+        screen.getByText('You are viewing this page as a VA beneficiary.')
       ).toBeInTheDocument()
     })
   })
