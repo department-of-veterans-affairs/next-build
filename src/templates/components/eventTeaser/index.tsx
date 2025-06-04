@@ -1,6 +1,7 @@
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { EventWidgetTeaser } from '@/products/event/formatted-type'
 import { deriveMostRecentDate, formatEventDateTime } from '@/lib/utils/date'
+import clsx from 'clsx'
 
 /** Teaser event. */
 export const EventTeaser = ({
@@ -15,8 +16,9 @@ export const EventTeaser = ({
   const mostRecentDate = deriveMostRecentDate(fieldDatetimeRangeTimezone)
   const formattedDateTime = formatEventDateTime(mostRecentDate)
 
-  const col1Class = 'vads-grid-col-2 tablet:vads-grid-col-1'
-  const col2Class = 'vads-grid-col-10 tablet:vads-grid-col-11'
+  const rowClass = 'vads-grid-row vads-grid-gap-1'
+  const col1Class = 'vads-grid-col-auto'
+  const col2Class = 'vads-grid-col-fill'
 
   return (
     <div data-template="teasers/event" className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4">
@@ -29,10 +31,7 @@ export const EventTeaser = ({
       <p className="vads-u-margin-bottom--1p5 vads-u-margin-top--0">
         {truncateWordsOrChar(fieldDescription ?? "", 60, true)}
       </p>
-      <div className="vads-grid-row vads-grid-gap-2 vads-u-margin-bottom--1">
-        {/* I really wanted to use `vads-grid-col-auto` with a width-8 utility class, but
-            the fixed width utility classes don't exist in VADS like they do in USWDS.
-            I would have set the other column to `vads-grid-col-fill`. */}
+      <div className={clsx(rowClass, "vads-u-margin-bottom--1")}>
         <div className={col1Class}>
           <strong>When</strong>
         </div>
@@ -45,7 +44,7 @@ export const EventTeaser = ({
         </div>
       </div>
       {fieldFacilityLocation && (
-        <div className="vads-grid-row vads-grid-gap-2">
+        <div className={rowClass}>
           <div className={col1Class}>
             <strong>Where</strong>
           </div>
