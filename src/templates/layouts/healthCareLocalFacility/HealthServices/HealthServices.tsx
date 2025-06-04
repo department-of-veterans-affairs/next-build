@@ -1,10 +1,10 @@
-import { FormattedHealthServices } from '@/types/formatted/healthCareLocalFacility'
+import { FormattedVAMCFacilityHealthServices } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceLocation } from './ServiceLocation'
 
 export const HealthServices = ({
   healthServices,
 }: {
-  healthServices: FormattedHealthServices[]
+  healthServices: FormattedVAMCFacilityHealthServices[]
 }) => {
   return (
     <>
@@ -42,10 +42,10 @@ export const HealthServices = ({
 
               {service.fieldTricareDescription ? (
                 <div>{service.fieldTricareDescription}</div>
-              ) : service.description?.processed ? (
+              ) : service.description ? (
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: service.description.processed,
+                    __html: service.description,
                   }}
                 />
               ) : null}
@@ -66,10 +66,10 @@ export const HealthServices = ({
                 />
               )}
 
-              {service.fieldBody?.processed && (
+              {service.fieldBody && (
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: service.fieldBody.processed.replace(/<h3/g, '<h4'),
+                    __html: service.fieldBody.replace(/<h3/g, '<h4'),
                   }}
                 />
               )}

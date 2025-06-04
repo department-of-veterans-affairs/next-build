@@ -4,7 +4,6 @@ import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 interface ServiceAddressProps {
   serviceLocationAddress: ParagraphServiceLocationAddress
   facilityAddress?: FieldAddress
-  headerLevel?: number
 }
 
 /**
@@ -17,7 +16,6 @@ interface ServiceAddressProps {
 export const ServiceAddress = ({
   serviceLocationAddress,
   facilityAddress,
-  headerLevel = 3,
 }: ServiceAddressProps) => {
   const useFacilityAddress =
     serviceLocationAddress.field_use_facility_address && facilityAddress
@@ -43,15 +41,13 @@ export const ServiceAddress = ({
     return null
   }
 
-  const HeadingTag = `h${headerLevel}` as keyof JSX.IntrinsicElements
-
   return (
     <div className="vads-u-display--flex vads-u-flex-direction--column">
       {serviceLocationAddress.field_clinic_name ? (
-        <HeadingTag>{serviceLocationAddress.field_clinic_name}</HeadingTag>
+        <h5>{serviceLocationAddress.field_clinic_name}</h5>
       ) : serviceLocationAddress.field_building_name_number ||
         serviceLocationAddress.field_wing_floor_or_room_number ? (
-        <HeadingTag>Location</HeadingTag>
+        <h5>Location</h5>
       ) : null}
 
       {hasAddress && !serviceLocationAddress.field_use_facility_address && (

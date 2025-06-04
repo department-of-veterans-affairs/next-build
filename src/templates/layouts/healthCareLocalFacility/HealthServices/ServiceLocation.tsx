@@ -12,24 +12,12 @@ const VaLinkAction = ({ href, text }: { href: string; text: string }) => (
 
 export const ServiceLocation = (props: ServiceLocationTemplateData) => {
   const {
-    typeOfLocation,
-    serviceLocationSubHeaderLevel,
-    serviceHeader,
-    serviceDescription,
-    entityId,
     fieldReferralRequired,
     fieldTelephone,
     fieldPhoneNumber,
     isMentalHealthService,
     single,
   } = props
-
-  const serviceLocationH = Number(serviceLocationSubHeaderLevel) || 3
-  const HeadingTag = `h${serviceLocationH}` as keyof JSX.IntrinsicElements
-  const nextHeadingLevel = serviceLocationH + 1
-
-  // Determine container
-  const Container = typeOfLocation === 'nonclinical' ? 'div' : 'va-card'
 
   // Determine service main phone
   // Determine main phone number
@@ -57,25 +45,7 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
   const showOnlineScheduleLink = single.fieldOnlineSchedulingAvail === 'yes'
 
   return (
-    <Container className="break-word-wrap">
-      {serviceHeader && (
-        <>
-          <HeadingTag className="vads-u-margin-y--0">
-            {serviceHeader}
-          </HeadingTag>
-        </>
-      )}
-
-      {serviceDescription && (
-        <p
-          id={`vba-service-body-${entityId}`}
-          className="vads-u-margin-top--2 vads-u-margin-bottom--0"
-        >
-          {serviceDescription}{' '}
-          {/* Add drupalToVaPath/phoneLinks transforms if needed */}
-        </p>
-      )}
-
+    <va-card className="break-word-wrap">
       {/* Office visits and virtual support */}
       {(hasOfficeVisits ||
         hasVirtualSupport ||
@@ -138,12 +108,12 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
         hasAppointmentPhoneNumbers ||
         showMainNumberForAppointments ||
         showOnlineScheduleLink) && (
-        <HeadingTag
+        <h4
           className="vads-u-margin-top--2 vads-u-line-height--1"
           data-testid="service-location-appoinments-header"
         >
           Appointments
-        </HeadingTag>
+        </h4>
       )}
 
       {/* Appointment intro text */}
@@ -162,9 +132,9 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
                 data-testid="service-location-default-text"
                 className="vads-u-margin-bottom--0"
               >
-                {typeOfLocation === 'vba'
-                  ? 'Contact us to schedule, reschedule, or cancel your appointment.'
-                  : 'Contact us to schedule, reschedule, or cancel your appointment. If a referral is required, you’ll need to contact your primary care provider first.'}
+                Contact us to schedule, reschedule, or cancel your appointment.
+                If a referral is required, you’ll need to contact your primary
+                care provider first.
               </p>
             )}
           </div>
@@ -199,11 +169,7 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
           className="vads-u-margin-top--2 vads-u-margin-bottom--1"
         >
           <VaLinkAction
-            href={
-              typeOfLocation === 'vba'
-                ? 'https://va.my.site.com/VAVERA/s/'
-                : '/health-care/schedule-view-va-appointments'
-            }
+            href="/health-care/schedule-view-va-appointments"
             text="Schedule an appointment online"
           />
         </div>
@@ -213,7 +179,6 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
       {single.fieldServiceLocationAddress?.entity && (
         <ServiceAddress
           serviceLocationAddress={single.fieldServiceLocationAddress.entity}
-          headerLevel={nextHeadingLevel}
         />
       )}
 
@@ -243,20 +208,14 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
       {/* Email contacts */}
       {single.fieldEmailContacts?.map((email, i) => (
         <p key={i} data-testid="service-location-email-contact">
-          {email.fieldEmailLabel && (
-            <HeadingTag>{email.fieldEmailLabel}</HeadingTag>
-          )}
-          <a href={`mailto:${email.fieldEmailAddress}`}>
-            {email.fieldEmailAddress}
-          </a>
+          {email.label && <h4>{email.label}</h4>}
+          <a href={`mailto:${email.address}`}>{email.address}</a>
         </p>
       ))}
 
       {/* Service hours */}
       {single.fieldHours !== '1' && (
-        <HeadingTag data-testid="service-location-field-hours">
-          Service Hours
-        </HeadingTag>
+        <h4 data-testid="service-location-field-hours">Service Hours</h4>
       )}
       {single.fieldHours && (
         <div>
@@ -276,6 +235,6 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
           {single.fieldAdditionalHoursInfo}
         </p>
       )}
-    </Container>
+    </va-card>
   )
 }
