@@ -44,9 +44,10 @@ services:
         # Get vets-website assets in the right place
         - BUILD_TYPE=tugboat node ./scripts/yarn/vets-website-assets.js
 
-      online:
+      build:
         # Build the static pages. Set for self-signed certs
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn build:preview
 
-        # Build the static pages. Set for self-signed certs
+      online:
+        # Start the Nextjs Server
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn start
