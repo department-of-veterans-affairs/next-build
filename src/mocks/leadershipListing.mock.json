@@ -364,9 +364,127 @@
       "field_media": {
         "type": "media--image",
         "id": "4d71f078-127a-4786-90cb-d99d60f295de",
+        "drupal_internal__mid": 8819,
+        "drupal_internal__vid": 9300,
+        "status": true,
+        "name": "B.Rusch 11.03.2021 headshot 2.jpg",
+        "created": "2021-11-16T19:32:56+00:00",
+        "changed": "2021-11-16T19:32:56+00:00",
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/media/8819",
+            "title": "B.Rusch 11.03.2021 Headshot 2.jpg",
+            "options": []
+          }
+        ],
+        "path": {
+          "alias": null,
+          "pid": null,
+          "langcode": "en"
+        },
+        "field_description": null,
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/4d71f078-127a-4786-90cb-d99d60f295de?resourceVersion=id%3A9300"
+          }
+        },
         "resourceIdObjMeta": {
           "drupal_internal__target_id": 8819
-        }
+        },
+        "bundle": {
+          "type": "media_type--media_type",
+          "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "image"
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2932
+          }
+        },
+        "thumbnail": {
+          "type": "file--file",
+          "id": "cb77541a-6da8-4d38-93be-c84d5c595b3f",
+          "drupal_internal__fid": 9847,
+          "langcode": "en",
+          "filename": "B.Rusch 11.03.2021 headshot 2.jpg",
+          "uri": {
+            "value": "public://2021-11/B.Rusch 11.03.2021 headshot 2.jpg",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-11/B.Rusch%2011.03.2021%20headshot%202.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 8607378,
+          "status": true,
+          "created": "2021-11-16T19:32:56+00:00",
+          "changed": "2021-11-16T19:33:51+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/cb77541a-6da8-4d38-93be-c84d5c595b3f"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Executive Director",
+            "title": null,
+            "width": 3328,
+            "height": 4384,
+            "drupal_internal__target_id": 9847
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2932
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "image": {
+          "type": "file--file",
+          "id": "cb77541a-6da8-4d38-93be-c84d5c595b3f",
+          "drupal_internal__fid": 9847,
+          "langcode": "en",
+          "filename": "B.Rusch 11.03.2021 headshot 2.jpg",
+          "uri": {
+            "value": "public://2021-11/B.Rusch 11.03.2021 headshot 2.jpg",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-11/B.Rusch%2011.03.2021%20headshot%202.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 8607378,
+          "status": true,
+          "created": "2021-11-16T19:32:56+00:00",
+          "changed": "2021-11-16T19:33:51+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/cb77541a-6da8-4d38-93be-c84d5c595b3f"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Executive Director",
+            "title": "",
+            "width": 3328,
+            "height": 4384,
+            "drupal_internal__target_id": 9847
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2932
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
       },
       "field_office": {
         "type": "node--health_care_region_page",
@@ -914,10 +1032,42 @@
       "field_telephone": {
         "type": "paragraph--phone_number",
         "id": "abd718dc-d96c-44ee-af54-00f6b62180ad",
+        "drupal_internal__id": 166138,
+        "drupal_internal__revision_id": 1566547,
+        "langcode": "en",
+        "status": true,
+        "created": "2024-11-25T18:00:06+00:00",
+        "parent_id": "19496",
+        "parent_type": "node",
+        "parent_field_name": "field_telephone",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": "2024-11-25T18:00:06+00:00",
+        "field_phone_extension": "5400",
+        "field_phone_label": null,
+        "field_phone_number": "802-295-9363",
+        "field_phone_number_type": "phone",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/abd718dc-d96c-44ee-af54-00f6b62180ad?resourceVersion=id%3A1566547"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 1566547,
           "drupal_internal__target_id": 166138
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "phone_number"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
       },
       "relationshipNames": [
         "node_type",
@@ -1103,9 +1253,127 @@
       "field_media": {
         "type": "media--image",
         "id": "c0e9e30c-7ef5-4177-93eb-42ed74763d5f",
+        "drupal_internal__mid": 18763,
+        "drupal_internal__vid": 19778,
+        "status": true,
+        "name": "B.Rhoads 10.2022 internet.jpg",
+        "created": "2022-11-01T11:59:33+00:00",
+        "changed": "2022-11-01T11:59:33+00:00",
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/media/image/18763",
+            "title": "B.Rhoads 10.2022 Internet.jpg",
+            "options": []
+          }
+        ],
+        "path": {
+          "alias": "/media/image/18763",
+          "pid": 70504,
+          "langcode": "en"
+        },
+        "field_description": null,
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/c0e9e30c-7ef5-4177-93eb-42ed74763d5f?resourceVersion=id%3A19778"
+          }
+        },
         "resourceIdObjMeta": {
           "drupal_internal__target_id": 18763
-        }
+        },
+        "bundle": {
+          "type": "media_type--media_type",
+          "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "image"
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2932
+          }
+        },
+        "thumbnail": {
+          "type": "file--file",
+          "id": "c8a84cd8-5a39-44e2-94e6-08de3766989d",
+          "drupal_internal__fid": 21781,
+          "langcode": "en",
+          "filename": "B.Rhoads 10.2022 internet.jpg",
+          "uri": {
+            "value": "public://2022-11/B.Rhoads 10.2022 internet.jpg",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2022-11/B.Rhoads%2010.2022%20internet.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 6019499,
+          "status": true,
+          "created": "2022-11-01T11:59:33+00:00",
+          "changed": "2022-11-01T12:00:11+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/c8a84cd8-5a39-44e2-94e6-08de3766989d"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Becky Rhoads, AuD Headshot",
+            "title": null,
+            "width": 2880,
+            "height": 3744,
+            "drupal_internal__target_id": 21781
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2932
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "image": {
+          "type": "file--file",
+          "id": "c8a84cd8-5a39-44e2-94e6-08de3766989d",
+          "drupal_internal__fid": 21781,
+          "langcode": "en",
+          "filename": "B.Rhoads 10.2022 internet.jpg",
+          "uri": {
+            "value": "public://2022-11/B.Rhoads 10.2022 internet.jpg",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2022-11/B.Rhoads%2010.2022%20internet.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 6019499,
+          "status": true,
+          "created": "2022-11-01T11:59:33+00:00",
+          "changed": "2022-11-01T12:00:11+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/c8a84cd8-5a39-44e2-94e6-08de3766989d"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Becky Rhoads, AuD Headshot",
+            "title": "",
+            "width": 2880,
+            "height": 3744,
+            "drupal_internal__target_id": 21781
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2932
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
       },
       "field_office": {
         "type": "node--health_care_region_page",
@@ -1653,10 +1921,42 @@
       "field_telephone": {
         "type": "paragraph--phone_number",
         "id": "11924a57-938f-4949-b6b8-2fc26ce341d1",
+        "drupal_internal__id": 166139,
+        "drupal_internal__revision_id": 1566549,
+        "langcode": "en",
+        "status": true,
+        "created": "2024-11-25T18:00:06+00:00",
+        "parent_id": "19500",
+        "parent_type": "node",
+        "parent_field_name": "field_telephone",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": "2024-11-25T18:00:06+00:00",
+        "field_phone_extension": "5410",
+        "field_phone_label": null,
+        "field_phone_number": "802-295-9363",
+        "field_phone_number_type": "phone",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/11924a57-938f-4949-b6b8-2fc26ce341d1?resourceVersion=id%3A1566549"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 1566549,
           "drupal_internal__target_id": 166139
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "phone_number"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
       },
       "relationshipNames": [
         "node_type",
@@ -1842,9 +2142,127 @@
       "field_media": {
         "type": "media--image",
         "id": "ffa5afb3-2984-4bbb-903e-57d401a16c3a",
+        "drupal_internal__mid": 8817,
+        "drupal_internal__vid": 9298,
+        "status": true,
+        "name": "COS.Headshot.Orourke-cropped.jpg",
+        "created": "2021-11-16T19:19:13+00:00",
+        "changed": "2021-11-16T19:19:13+00:00",
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/media/8817",
+            "title": "COS.Headshot.Orourke-cropped.jpg",
+            "options": []
+          }
+        ],
+        "path": {
+          "alias": null,
+          "pid": null,
+          "langcode": "en"
+        },
+        "field_description": null,
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/ffa5afb3-2984-4bbb-903e-57d401a16c3a?resourceVersion=id%3A9298"
+          }
+        },
         "resourceIdObjMeta": {
           "drupal_internal__target_id": 8817
-        }
+        },
+        "bundle": {
+          "type": "media_type--media_type",
+          "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "image"
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2932
+          }
+        },
+        "thumbnail": {
+          "type": "file--file",
+          "id": "5000eeee-6043-4d2c-83c6-937768652c2d",
+          "drupal_internal__fid": 9845,
+          "langcode": "en",
+          "filename": "COS.Headshot.Orourke-cropped.jpg",
+          "uri": {
+            "value": "public://2021-11/COS.Headshot.Orourke-cropped.jpg",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-11/COS.Headshot.Orourke-cropped.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 2322332,
+          "status": true,
+          "created": "2021-11-16T19:19:13+00:00",
+          "changed": "2021-11-16T19:24:24+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/5000eeee-6043-4d2c-83c6-937768652c2d"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Chief of Staff",
+            "title": null,
+            "width": 2694,
+            "height": 3368,
+            "drupal_internal__target_id": 9845
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2932
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "image": {
+          "type": "file--file",
+          "id": "5000eeee-6043-4d2c-83c6-937768652c2d",
+          "drupal_internal__fid": 9845,
+          "langcode": "en",
+          "filename": "COS.Headshot.Orourke-cropped.jpg",
+          "uri": {
+            "value": "public://2021-11/COS.Headshot.Orourke-cropped.jpg",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-11/COS.Headshot.Orourke-cropped.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 2322332,
+          "status": true,
+          "created": "2021-11-16T19:19:13+00:00",
+          "changed": "2021-11-16T19:24:24+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/5000eeee-6043-4d2c-83c6-937768652c2d"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Chief of Staff",
+            "title": "",
+            "width": 2694,
+            "height": 3368,
+            "drupal_internal__target_id": 9845
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2932
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
       },
       "field_office": {
         "type": "node--health_care_region_page",
@@ -2392,10 +2810,42 @@
       "field_telephone": {
         "type": "paragraph--phone_number",
         "id": "477f1bcf-b197-4d68-8a3d-f969c5af4e81",
+        "drupal_internal__id": 166140,
+        "drupal_internal__revision_id": 1566551,
+        "langcode": "en",
+        "status": true,
+        "created": "2024-11-25T18:00:06+00:00",
+        "parent_id": "19503",
+        "parent_type": "node",
+        "parent_field_name": "field_telephone",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": "2024-11-25T18:00:06+00:00",
+        "field_phone_extension": "5420",
+        "field_phone_label": null,
+        "field_phone_number": "802-295-9363",
+        "field_phone_number_type": "phone",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/phone_number/477f1bcf-b197-4d68-8a3d-f969c5af4e81?resourceVersion=id%3A1566551"
+          }
+        },
         "resourceIdObjMeta": {
           "target_revision_id": 1566551,
           "drupal_internal__target_id": 166140
-        }
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "phone_number"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
       },
       "relationshipNames": [
         "node_type",
@@ -2581,9 +3031,127 @@
       "field_media": {
         "type": "media--image",
         "id": "5170f1b7-1262-4047-be3b-5084a15ae1c1",
+        "drupal_internal__mid": 19995,
+        "drupal_internal__vid": 21225,
+        "status": true,
+        "name": "K.Saindon_12.20.2022.jpg",
+        "created": "2022-12-21T18:23:33+00:00",
+        "changed": "2022-12-21T18:23:33+00:00",
+        "breadcrumbs": [
+          {
+            "uri": "https://va-gov-cms.ddev.site/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://va-gov-cms.ddev.site/media/image/19995",
+            "title": "K.Saindon_12.20.2022.jpg",
+            "options": []
+          }
+        ],
+        "path": {
+          "alias": "/media/image/19995",
+          "pid": 73907,
+          "langcode": "en"
+        },
+        "field_description": "Dr. Kelley Saindon Headshot",
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/5170f1b7-1262-4047-be3b-5084a15ae1c1?resourceVersion=id%3A21225"
+          }
+        },
         "resourceIdObjMeta": {
           "drupal_internal__target_id": 19995
-        }
+        },
+        "bundle": {
+          "type": "media_type--media_type",
+          "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "image"
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2932
+          }
+        },
+        "thumbnail": {
+          "type": "file--file",
+          "id": "19cf0f99-1f49-46a6-8667-000778153813",
+          "drupal_internal__fid": 23382,
+          "langcode": "en",
+          "filename": "K.Saindon_12.20.2022.jpg",
+          "uri": {
+            "value": "public://2022-12/K.Saindon_12.20.2022.jpg",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2022-12/K.Saindon_12.20.2022.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 3430785,
+          "status": true,
+          "created": "2022-12-21T18:23:33+00:00",
+          "changed": "2022-12-21T18:24:16+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/19cf0f99-1f49-46a6-8667-000778153813"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Dr. Kelley Saindon Headshot",
+            "title": null,
+            "width": 2550,
+            "height": 3300,
+            "drupal_internal__target_id": 23382
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2932
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "image": {
+          "type": "file--file",
+          "id": "19cf0f99-1f49-46a6-8667-000778153813",
+          "drupal_internal__fid": 23382,
+          "langcode": "en",
+          "filename": "K.Saindon_12.20.2022.jpg",
+          "uri": {
+            "value": "public://2022-12/K.Saindon_12.20.2022.jpg",
+            "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2022-12/K.Saindon_12.20.2022.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 3430785,
+          "status": true,
+          "created": "2022-12-21T18:23:33+00:00",
+          "changed": "2022-12-21T18:24:16+00:00",
+          "breadcrumbs": [],
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/19cf0f99-1f49-46a6-8667-000778153813"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Dr. Kelley Saindon Headshot",
+            "title": "",
+            "width": 2550,
+            "height": 3300,
+            "drupal_internal__target_id": 23382
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "84aedadb-18dc-49fa-985c-3c9e58745b79",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2932
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
       },
       "field_office": {
         "type": "node--health_care_region_page",

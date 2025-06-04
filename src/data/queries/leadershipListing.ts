@@ -5,6 +5,9 @@ import { LeadershipListing } from '@/types/formatted/leadershipListing'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
@@ -17,6 +20,8 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_leadership',
     'field_office',
+    'field_leadership.field_media.image',
+    'field_leadership.field_telephone',
   ])
 }
 
@@ -58,9 +63,28 @@ export const formatter: QueryFormatter<
 > = ({ entity, menu }) => {
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
+  const formattedProfiles = entity.field_leadership
+    .filter((profile) => profile.status === true)
+    .map((profile) => {
+      return {
+        firstName: profile.field_name_first || '',
+        lastName: profile.field_last_name || '',
+        vamcTitle: profile.field_office?.title || '',
+        description: profile.field_description || '',
+        suffix: profile.field_suffix || '',
+        phoneNumber: formatPhone(profile.field_telephone),
+        media: formatImage(profile.field_media),
+        link:
+          profile.path?.alias && profile.field_complete_biography_create
+            ? profile.path?.alias
+            : '',
+        id: profile.id,
+      }
+    })
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
+    profiles: formattedProfiles,
     menu: formattedMenu,
   }
 }
