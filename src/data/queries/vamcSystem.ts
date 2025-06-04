@@ -100,29 +100,39 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
       PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
     )
 
-  const { data: featuredEvents } = await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-    RESOURCE_TYPES.EVENT,
-    queries
-      .getParams(RESOURCE_TYPES.EVENT)
-      .addInclude(['field_listing'])
-      .addFilter('field_listing.field_office.id', entity.id)
-      .addFilter('status', '1')
-      .addFilter('field_featured', '1')
-      .addFilter('field_datetime_range_timezone.value', (new Date()).toISOString(), '>='),
-    PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
-  )
+  const { data: featuredEvents } =
+    await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+      RESOURCE_TYPES.EVENT,
+      queries
+        .getParams(RESOURCE_TYPES.EVENT)
+        .addInclude(['field_listing'])
+        .addFilter('field_listing.field_office.id', entity.id)
+        .addFilter('status', '1')
+        .addFilter('field_featured', '1')
+        .addFilter(
+          'field_datetime_range_timezone.value',
+          new Date().toISOString(),
+          '>='
+        ),
+      PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+    )
 
-  const { data: otherEvents } = await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-    RESOURCE_TYPES.EVENT,
-    queries
-      .getParams(RESOURCE_TYPES.EVENT)
-      .addInclude(['field_listing'])
-      .addFilter('field_listing.field_office.id', entity.id)
-      .addFilter('status', '1')
-      // @ts-expect-error - The timestamp needs to be a number, but this function expects string values
-      .addFilter('field_datetime_range_timezone.0.value', Math.floor(Date.now() / 1000), '>='),
-    PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
-  )
+  const { data: otherEvents } =
+    await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+      RESOURCE_TYPES.EVENT,
+      queries
+        .getParams(RESOURCE_TYPES.EVENT)
+        .addInclude(['field_listing'])
+        .addFilter('field_listing.field_office.id', entity.id)
+        .addFilter('status', '1')
+        .addFilter(
+          'field_datetime_range_timezone.0.value',
+          // @ts-expect-error - The timestamp needs to be a number, but this function expects string values
+          Math.floor(Date.now() / 1000),
+          '>='
+        ),
+      PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+    )
 
   // const featuredEvents: any = [];
   // const otherEvents: any = [];

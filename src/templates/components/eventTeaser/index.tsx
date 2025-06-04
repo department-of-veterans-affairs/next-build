@@ -21,17 +21,17 @@ export const EventTeaser = ({
   const col2Class = 'vads-grid-col-fill'
 
   return (
-    <div data-template="teasers/event" className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4">
+    <div
+      data-template="teasers/event"
+      className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4"
+    >
       <h3 className="vads-u-margin-top--0 vad-u-margin-bottom-1 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
-        <va-link
-          text={title}
-          href={entityUrl.path}
-        />
+        <va-link text={title} href={entityUrl.path} />
       </h3>
       <p className="vads-u-margin-bottom--1p5 vads-u-margin-top--0">
-        {truncateWordsOrChar(fieldDescription ?? "", 60, true)}
+        {truncateWordsOrChar(fieldDescription ?? '', 60, true)}
       </p>
-      <div className={clsx(rowClass, "vads-u-margin-bottom--1")}>
+      <div className={clsx(rowClass, 'vads-u-margin-bottom--1')}>
         <div className={col1Class}>
           <strong>When</strong>
         </div>

@@ -8,6 +8,13 @@ import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { formatter } from '@/data/queries/vamcSystem'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
+import mockEventData from '@/products/event/mock.json'
+
+const mockFeaturedEventData = {
+  ...mockEventData,
+  field_featured: true,
+  title: 'Dodgeball Club',
+}
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -40,6 +47,8 @@ const mockData = formatter({
   lovell: { isLovellVariantPage: false, variant: undefined },
   mainFacilities: [drupalMockFacilityData],
   featuredStories: [drupalMockStoryData],
+  featuredEvents: [mockFeaturedEventData],
+  otherEvents: [mockEventData],
 })
 
 describe('VamcSystem with valid data', () => {

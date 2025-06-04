@@ -139,21 +139,20 @@ export function VamcSystem({
               </section>
             )}
             {/* Events Section */}
-            {(featuredEvents.length > 0 ||
-              otherEvents.length > 0) && (
+            {(featuredEvents.length > 0 || otherEvents.length > 0) && (
               <section>
                 <h2 className="vads-u-margin-top--4 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--2p5">
                   Events
                 </h2>
-                {featuredEvents.length ? featuredEvents.map(
-                  (event) => (
-                    <EventTeaser key={event.entityId} {...event} />
-                  )
-                ) : otherEvents.slice(0, 1).map(
-                  (event) => (
-                    <EventTeaser key={event.entityId} {...event} />
-                  )
-                )}
+                {featuredEvents.length
+                  ? featuredEvents.map((event) => (
+                      <EventTeaser key={event.entityId} {...event} />
+                    ))
+                  : otherEvents
+                      .slice(0, 1)
+                      .map((event) => (
+                        <EventTeaser key={event.entityId} {...event} />
+                      ))}
                 <va-link
                   active
                   className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
