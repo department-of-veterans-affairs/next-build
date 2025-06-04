@@ -15,6 +15,9 @@ export const EventTeaser = ({
   const mostRecentDate = deriveMostRecentDate(fieldDatetimeRangeTimezone)
   const formattedDateTime = formatEventDateTime(mostRecentDate)
 
+  const col1Class = 'vads-grid-col-2 tablet:vads-grid-col-1'
+  const col2Class = 'vads-grid-col-10 tablet:vads-grid-col-11'
+
   return (
     <div data-template="teasers/event" className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4">
       <h3 className="vads-u-margin-top--0 vad-u-margin-bottom-1 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
@@ -26,11 +29,14 @@ export const EventTeaser = ({
       <p className="vads-u-margin-bottom--1p5 vads-u-margin-top--0">
         {truncateWordsOrChar(fieldDescription ?? "", 60, true)}
       </p>
-      <div className="usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--row vads-u-margin-bottom--1">
-        <div className="vads-u-margin-right--2 when-where-width">
+      <div className="vads-grid-row vads-grid-gap-2 vads-u-margin-bottom--1">
+        {/* I really wanted to use `vads-grid-col-auto` with a width-8 utility class, but
+            the fixed width utility classes don't exist in VADS like they do in USWDS.
+            I would have set the other column to `vads-grid-col-fill`. */}
+        <div className={col1Class}>
           <strong>When</strong>
         </div>
-        <div className="usa-width-five-sixths">
+        <div className={col2Class}>
           {mostRecentDate ? (
             <span>{formattedDateTime}</span>
           ) : (
@@ -39,11 +45,11 @@ export const EventTeaser = ({
         </div>
       </div>
       {fieldFacilityLocation && (
-        <div className="usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--row">
-          <div className="vads-u-margin-right--2 when-where-width">
+        <div className="vads-grid-row vads-grid-gap-2">
+          <div className={col1Class}>
             <strong>Where</strong>
           </div>
-          <div className="usa-width-five-sixths">
+          <div className={col2Class}>
             <p className="vads-u-margin-top--0 vads-u-margin-bottom--1">
               <va-link
                 href={fieldFacilityLocation.entity.entityUrl.path}
