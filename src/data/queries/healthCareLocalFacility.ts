@@ -18,6 +18,8 @@ import {
   getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+import { formatter as formatEmail } from '@/data/queries/emailContact'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from './administration'
@@ -31,6 +33,8 @@ export const params: QueryParams<null> = () => {
     'field_administration',
     'field_telephone',
     'field_location_services',
+    'field_local_health_care_service_',
+    'field_local_health_care_service_.field_regional_health_service',
     'field_local_health_care_service_.field_regional_health_service.field_service_name_and_descripti',
     'field_local_health_care_service_.field_administration',
     'field_local_health_care_service_.field_service_location',
@@ -105,7 +109,9 @@ export const formatter: QueryFormatter<
     return nameA.localeCompare(nameB)
   })
 
-  return {
+  console.log('health service', entity.field_local_health_care_service_)
+
+  const formattedFacilityData: HealthCareLocalFacility = {
     ...entityBaseFields(entity),
     title,
     breadcrumbs,
@@ -167,6 +173,59 @@ export const formatter: QueryFormatter<
             getOppositeChildVariant(lovell?.variant)
           )
         : null,
-    healthServices: entity.field_local_health_care_service_, // TODO: Format these
+    healthServices: entity.field_local_health_care_service_.map(
+      (healthService) => {
+        const serviceTaxonomy =
+          healthService.field_regional_health_service
+            .field_service_name_and_descripti
+        return {
+          name: serviceTaxonomy?.name ?? '',
+          fieldAlsoKnownAs: serviceTaxonomy?.field_also_known_as ?? '',
+          fieldCommonlyTreatedCondition:
+            serviceTaxonomy?.field_commonly_treated_condition ?? '',
+          fieldTricareDescription:
+            serviceTaxonomy?.field_tricare_description ?? null,
+          description: serviceTaxonomy?.description ?? null,
+          entityId: serviceTaxonomy.id,
+          entityBundle: healthService.type.split('--')[1],
+          fieldBody:
+            healthService.field_regional_health_service.field_body.processed,
+          locations: healthService.field_service_location.map((location) => {
+            return {
+              fieldReferralRequired: healthService.field_referral_required,
+              fieldTelephone: formatPhone(entity.field_telephone),
+              fieldPhoneNumber: entity.field_phone_number,
+              isMentalHealthService: serviceTaxonomy.name
+                .toLowerCase()
+                .includes('mental health'),
+              single: {
+                fieldOfficeVisists: location.field_office_visits,
+                fieldVirtualSupport: location.field_virtual_support,
+                fieldApptIntroTextType: location.field_appt_intro_text_type,
+                fieldApptIntroTextCustom: location.field_appt_intro_text_custom,
+                fieldOtherPhoneNumbers:
+                  location.field_other_phone_numbers.map(formatPhone),
+                fieldOnlineSchedulingAvail:
+                  location.field_online_scheduling_avail,
+                fieldPhone: location.field_phone.map(formatPhone),
+                fieldEmailContacts:
+                  location.field_email_contacts.map(formatEmail),
+                fieldHours: location.field_hours,
+                fieldOfficeHours: location.field_office_hours,
+                fieldAdditionalHoursInfo: location.field_additional_hours_info,
+                fieldUseMainFacilityPhone:
+                  location.field_use_main_facility_phone,
+                fieldUseFacilityPhoneNumber:
+                  location.field_use_facility_phone_number,
+                fieldServiceLocationAddress:
+                  location.field_service_location_address,
+              },
+            }
+          }),
+          fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
+        }
+      }
+    ),
   }
+  return formattedFacilityData
 }
