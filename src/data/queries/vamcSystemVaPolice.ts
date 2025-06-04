@@ -13,6 +13,9 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { queries } from '.'
+import { FeaturedContent } from '@/types/formatted/featuredContent'
+import { Button } from '@/types/formatted/button'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -78,7 +81,7 @@ export const formatter: QueryFormatter<
     menu: formattedMenu,
     policeOverview: {
       type: 'paragraph--wysiwyg',
-      id: entity.field_cc_va_police_overview.target_id || '',
+      id: entity.field_cc_va_police_overview.target_id ?? '',
       html:
         getHtmlFromField(
           entity.field_cc_va_police_overview?.fetched?.field_wysiwyg?.[0]
@@ -93,12 +96,28 @@ export const formatter: QueryFormatter<
       phoneType:
         entity.field_phone_numbers_paragraph?.[0]?.field_phone_number_type ||
         '',
-      id: entity.field_phone_numbers_paragraph?.[0]?.id || '',
+      id: entity.field_phone_numbers_paragraph?.[0]?.id ?? '',
       type: 'paragraph--phone_number',
     },
-    // phoneNumber: queries.formatData(
-    //       'paragraph--phone_number',
-    //       entity.field_phone_numbers_paragraph[0]
-    //     ),
+    policeReport: {
+      id: entity.field_cc_police_report?.[0]?.target_id ?? '',
+      type: 'paragraph--featured_content',
+      title:
+        entity.field_cc_police_report?.fetched?.field_section_header?.[0]
+          ?.value || '',
+      description:
+        entity.field_cc_police_report?.fetched?.field_description?.[0]
+          ?.processed || '',
+      link: {
+        id: entity.field_cc_police_report?.fetched?.field_cta?.[0]?.id ?? '',
+        type: 'paragraph--button',
+        label:
+          entity.field_cc_police_report?.fetched?.field_cta?.[0]
+            ?.field_button_label?.[0]?.value || '',
+        url:
+          entity.field_cc_police_report?.fetched?.field_cta?.[0]
+            ?.field_button_link?.[0]?.uri || '',
+      },
+    },
   }
 }

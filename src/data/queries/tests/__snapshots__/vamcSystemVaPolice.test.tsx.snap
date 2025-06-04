@@ -126,6 +126,19 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
     "id": "141558",
     "type": "paragraph--wysiwyg",
   },
+  "policeReport": {
+    "description": "<p>To request a VA police report, you'll need to file a Freedom of Information Act (FOIA) request to your local VA privacy officer.</p>
+",
+    "id": "",
+    "link": {
+      "id": "",
+      "label": "Learn how to file a FOIA request",
+      "type": "paragraph--button",
+      "url": "https://department.va.gov/foia/",
+    },
+    "title": "How to request a VA police report",
+    "type": "paragraph--featured_content",
+  },
   "published": true,
   "system": "VA Central Arkansas health care",
   "title": "VA police",
