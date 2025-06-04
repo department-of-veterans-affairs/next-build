@@ -397,7 +397,7 @@ export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
   field_region_page: NodeHealthCareRegionPage
-  field_body: string
+  field_body: FieldFormattedText
 }
 
 export interface NodeStepByStep extends NodeAbstractResource {
