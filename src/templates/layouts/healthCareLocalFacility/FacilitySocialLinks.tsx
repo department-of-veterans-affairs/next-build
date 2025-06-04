@@ -125,22 +125,27 @@ const FacilitySocialLinks = ({
     return null
   }
 
-  const renderLinkColumn = (links: React.ReactNode[]) => (
-    <div className="tablet:vads-grid-col-6">
-      {links.map((link, index) => (
-        <p
-          className={clsx(
-            'vads-u-margin-top--0',
-            index === links.length - 1
-              ? 'vads-u-margin-bottom--0'
-              : 'vads-u-margin-bottom--2'
-          )}
-          key={index}
-        >
-          {link}
-        </p>
-      ))}
-    </div>
+  const renderLinks = (links: React.ReactNode[]) =>
+    links.map((link, index) => (
+      <p
+        className={clsx(
+          'vads-u-margin-top--0',
+          index === links.length - 1
+            ? 'vads-u-margin-bottom--0'
+            : 'vads-u-margin-bottom--2'
+        )}
+        key={index}
+      >
+        {link}
+      </p>
+    ))
+
+  // Put a gap between the two "columns" on mobile because they're stacked
+  const colClass = 'vads-grid-col tablet:vads-grid-col-6'
+  const firstColClass = clsx(
+    colClass,
+    socialLinks.length > 0 &&
+      'vads-u-margin-bottom--2 tablet:vads-u-margin-bottom--0'
   )
 
   return (
@@ -154,9 +159,13 @@ const FacilitySocialLinks = ({
       >
         Get updates from {regionNickname}
       </h2>
-      <div className="vads-grid-row vads-grid-gap-md">
-        {govDeliveryLinks.length > 0 && renderLinkColumn(govDeliveryLinks)}
-        {socialLinks.length > 0 && renderLinkColumn(socialLinks)}
+      <div className="vads-grid-row vads-u-flex-direction--column tablet:vads-u-flex-direction--row vads-grid-gap-md">
+        {govDeliveryLinks.length > 0 && (
+          <div className={firstColClass}>{renderLinks(govDeliveryLinks)}</div>
+        )}
+        {socialLinks.length > 0 && (
+          <div className={colClass}>{renderLinks(socialLinks)}</div>
+        )}
       </div>
     </section>
   )
