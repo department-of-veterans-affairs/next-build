@@ -126,12 +126,12 @@ const FacilitySocialLinks = ({
   }
 
   const renderLinkColumn = (links: React.ReactNode[]) => (
-    <div className="medium-screen:vads-grid-col-6">
+    <div className="tablet:vads-grid-col-6">
       {links.map((link, index) => (
         <p
           className={clsx(
             'vads-u-margin-top--0',
-            index === socialLinks.length - 1
+            index === links.length - 1
               ? 'vads-u-margin-bottom--0'
               : 'vads-u-margin-bottom--2'
           )}
@@ -154,7 +154,7 @@ const FacilitySocialLinks = ({
       >
         Get updates from {regionNickname}
       </h2>
-      <div className="vads-grid-row vads-grid-gap-sm">
+      <div className="vads-grid-row vads-grid-gap-md">
         {govDeliveryLinks.length > 0 && renderLinkColumn(govDeliveryLinks)}
         {socialLinks.length > 0 && renderLinkColumn(socialLinks)}
       </div>
