@@ -13,7 +13,9 @@ describe('DrupalJsonApiParams configuration', () => {
   test('params function includes the correct fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
-    expect(queryString).toMatch(/include=field_leadership,field_office/)
+    expect(queryString).toMatch(
+      /include=field_leadership,field_office,field_leadership.field_media.image,field_leadership.field_telephone,field_leadership.field_office,field_administration/
+    )
   })
 })
 
