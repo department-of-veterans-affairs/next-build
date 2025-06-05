@@ -20,6 +20,7 @@ import * as FeaturedContent from '@/data/queries/featuredContent'
 import * as HeaderFooter from '@/data/queries/headerFooter'
 import * as HealthCareLocalFacility from '@/data/queries/healthCareLocalFacility'
 import * as LinkTeaser from '@/data/queries/linkTeaser'
+import * as LocationsListing from '@/data/queries/locationsListing'
 import * as MediaDocument from '@/data/queries/mediaDocument'
 import * as MediaImage from '@/data/queries/mediaImage'
 import * as MediaVideo from '@/data/queries/mediaVideo'
@@ -67,6 +68,7 @@ export const QUERIES_MAP = {
   [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
   [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
   [RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES]: VetCenterHealthServices,
+  [RESOURCE_TYPES.LOCATIONS_LISTING]: LocationsListing,
   [RESOURCE_TYPES.STORY]: NewsStory,
   [`${RESOURCE_TYPES.STORY}--teaser` as const]: NewsStoryTeaser,
   [RESOURCE_TYPES.STORY_LISTING]: StoryListing,

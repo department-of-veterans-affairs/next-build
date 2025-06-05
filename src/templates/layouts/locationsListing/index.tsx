@@ -1,0 +1,75 @@
+type LocationsListingProps = {
+  title: string
+}
+
+export function LocationsListing({ title }: LocationsListingProps) {
+  return (
+    <div className="interior" id="content">
+      <main className="va-l-detail-page va-locations-listing-page">
+        <div className="vads-u-padding-x--2p5">
+          <div className="vads-grid-container large-screen:vads-u-padding-x--0">
+            <div className="vads-l-row">
+              {/* Sidebar Navigation */}
+              <div className="vads-l-col--12 medium-screen:vads-l-col--3">
+                <div>TODO: Facility sidebar navigation</div>
+              </div>
+
+              {/* Main Content */}
+              <div className="vads-l-col--12 medium-screen:vads-l-col--9">
+                <article className="usa-content">
+                  <div>TODO: Lovell switch link</div>
+
+                  <h1 className="vads-u-margin-bottom--2">{title}</h1>
+
+                  <div className="vads-l-row vads-u-margin-y--1p5">
+                    <div className="vads-l-col--12">
+                      <div>TODO: Main buttons (region base path)</div>
+                    </div>
+                  </div>
+
+                  <section className="locations clearfix">
+                    <h2
+                      className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
+                      id="main-locations"
+                    >
+                      Main locations
+                    </h2>
+                    <div>TODO: Main location list</div>
+
+                    <h2
+                      className="medium-screen:vads-u-margin-bottom--4"
+                      id="community-clinic-locations"
+                    >
+                      Health clinic locations
+                    </h2>
+                    <div>TODO: Other facility list (sorted)</div>
+
+                    <h2
+                      className="medium-screen:vads-u-margin-bottom--4"
+                      id="mobile-clinic-locations"
+                    >
+                      Mobile clinics
+                    </h2>
+                    <div>TODO: Mobile facility list (sorted)</div>
+
+                    <h2
+                      className="medium-screen:vads-u-margin-bottom--4"
+                      id="other-nearby-va-locations"
+                    >
+                      Other nearby VA locations
+                    </h2>
+                    <div>TODO: Data widget for other VA locations</div>
+                  </section>
+
+                  <va-back-to-top />
+
+                  <div>TODO: Above-footer elements</div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  )
+}

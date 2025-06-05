@@ -37,6 +37,7 @@ const isExport = process.env.BUILD_OPTION === 'static'
 // Types
 import { Event as FormattedEvent } from '@/products/event/formatted-type'
 import { EventListing as FormattedEventListing } from '@/products/eventListing/formatted-type'
+import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
@@ -53,6 +54,7 @@ import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
 import { EventListing } from '@/products/eventListing/template'
 import { LayoutProps } from '@/templates/layouts/wrapper'
+import { LocationsListing } from '@/templates/layouts/locationsListing'
 import { Meta } from '@/templates/common/meta'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { PressRelease } from '@/templates/layouts/pressRelease'
@@ -150,6 +152,9 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.EVENT_LISTING && (
             <EventListing {...(resource as FormattedEventListing)} />
+          )}
+          {resource.type === RESOURCE_TYPES.LOCATIONS_LISTING && (
+            <LocationsListing {...(resource as FormattedLocationsListing)} />
           )}
           {resource.type === RESOURCE_TYPES.STORY && (
             <NewsStory {...(resource as FormattedNewsStory)} />
