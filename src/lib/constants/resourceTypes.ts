@@ -2,7 +2,7 @@ export const RESOURCE_TYPES = {
   BENEFITS_HUB: 'node--landing_page',
   EVENT: 'node--event',
   EVENT_LISTING: 'node--event_listing',
-  HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
+  VET_CENTER_HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
   PRESS_RELEASE: 'node--press_release',
   PRESS_RELEASE_LISTING: 'node--press_releases_listing',
   RESOURCES_SUPPORT: 'node--support_resources_detail_page',
@@ -16,6 +16,7 @@ export const RESOURCE_TYPES = {
   VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
   QA: 'node--q_a',
   VAMC_SYSTEM_VA_POLICE: 'node--vamc_system_va_police',
+  LEADERSHIP_LISTING: 'node--leadership_listing',
   LOCATIONS_LISTING: 'node--locations_listing',
 } as const
 
@@ -38,6 +39,7 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_FACILITY,
   RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
   RESOURCE_TYPES.VAMC_SYSTEM,
+  RESOURCE_TYPES.LEADERSHIP_LISTING,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {

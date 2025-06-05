@@ -3,7 +3,7 @@ import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { AlertBlock } from '@/templates/components/alertBlock'
-import HealthServices from '@/templates/components/healthServices'
+import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
@@ -293,15 +293,18 @@ export function VetCenter({
           </div>
 
           {/* Health Services */}
-          <HealthServices
+          <VetCenterHealthServices
             services={counselingHealthServices}
             typeOfCare={'counseling'}
           />
-          <HealthServices
+          <VetCenterHealthServices
             services={referralHealthServices}
             typeOfCare={'referral'}
           />
-          <HealthServices services={otherHealthServices} typeOfCare={'other'} />
+          <VetCenterHealthServices
+            services={otherHealthServices}
+            typeOfCare={'other'}
+          />
 
           {/* FAQs */}
           {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}

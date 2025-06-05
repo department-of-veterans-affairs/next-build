@@ -5,6 +5,9 @@ import { PublishedEntity } from './publishedEntity'
 import { HealthCareLocalFacility } from './healthCareLocalFacility'
 import { FormattedRelatedLinks } from './relatedLinks'
 import { NodeHealthCareRegionPage } from '../drupal/node'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+import { NewsStoryTeaser } from '@/types/formatted/newsStory'
+import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
 
 export type MinimalLocalFacility = Pick<
   HealthCareLocalFacility,
@@ -26,6 +29,10 @@ export type VamcSystem = PublishedEntity & {
   menu: SideNavMenu
   path: string
   mainFacilities: MinimalLocalFacility[]
+  featuredStories: NewsStoryTeaser[]
   relatedLinks: FormattedRelatedLinks
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
+  lovellVariant?: LovellChildVariant | null
+  lovellSwitchPath?: string | null
+  socialLinks: FacilitySocialLinksProps
 }

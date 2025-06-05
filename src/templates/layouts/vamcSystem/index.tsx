@@ -9,12 +9,10 @@ import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
-// import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-// import { TopTasks } from '@/templates/components/topTasks'
-// import { FacilityListing } from '@/templates/components/facilityListing'
-// import { MainButtons } from '@/templates/components/mainButtons'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { StoryTeaser } from './StoryTeaser'
+import FacilitySocialLinks from '../healthCareLocalFacility/FacilitySocialLinks'
 // import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
-// import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 // import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
 
@@ -23,6 +21,8 @@ interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
 declare const window: customWindow
+
+const MAX_FEATURED_STORIES = 2
 
 export function VamcSystem({
   title,
@@ -34,11 +34,10 @@ export function VamcSystem({
   vamcEhrSystem,
   mainFacilities,
   relatedLinks,
-  // newsStoryTeasersFeatured,
-  // eventTeasersFeatured,
-  // eventTeasersAll,
-  // lovellVariant,
-  // lovellSwitchPath,
+  featuredStories,
+  lovellVariant,
+  lovellSwitchPath,
+  socialLinks,
 }: LovellStaticPropsResource<FormattedVamcSystem>) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -57,10 +56,10 @@ export function VamcSystem({
         {/* Main page content */}
         <div className="usa-width-three-fourths">
           <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
-            {/* <LovellSwitcher
+            <LovellSwitcher
               currentVariant={lovellVariant}
               switchPath={lovellSwitchPath}
-            /> */}
+            />
             {title && <h1>{title}</h1>}
             {hasValidImage && (
               <div className="duotone darken lighten medium-screen:vads-u-margin-bottom--0p5">
@@ -117,24 +116,23 @@ export function VamcSystem({
             </div>
 
             {/* Stories Section */}
-            {/* {newsStoryTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 && (
+            {featuredStories.length > 0 && (
               <section>
                 <h2 className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-top--5">
                   Stories
                 </h2>
-                {newsStoryTeasersFeatured.entities[0].reverseFieldListingNode.entities
-                  .slice(0, 2)
-                  .map((story) => (
-                    <NewsStoryTeaser key={story.entityId} {...story} />
-                  ))}
-                <va-link
-                  active
-                  className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
-                  href={`${path}/stories`}
-                  text="See all stories"
-                ></va-link>
+                {featuredStories.slice(0, MAX_FEATURED_STORIES).map((story) => (
+                  <StoryTeaser key={story.id} {...story} />
+                ))}
+                <p className="vads-u-margin-y--0">
+                  <va-link
+                    active
+                    href={`${path}/stories`}
+                    text="See all stories"
+                  ></va-link>
+                </p>
               </section>
-            )} */}
+            )}
             {/* Events Section */}
             {/* {(eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 ||
               eventTeasersAll?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0) && (
@@ -162,7 +160,7 @@ export function VamcSystem({
               </section>
             )} */}
             {/* Social Links */}
-            {/* <SocialLinks regionNickname={title} /> */}
+            <FacilitySocialLinks {...socialLinks} />
             <va-back-to-top></va-back-to-top>
             <ContentFooter />
           </article>

@@ -1,4 +1,4 @@
-export interface HealthService {
+export interface VetCenterHealthService {
   name: string
   vetCenterTypeOfCare?: string
   vetCenterFriendlyName?: string
@@ -10,4 +10,4 @@ export interface HealthService {
   body?: string
 }
 
-export type HealthServices = HealthService[]
+export type VetCenterHealthServices = VetCenterHealthService[]
