@@ -25,6 +25,8 @@ import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from './administration'
 
+const isPublished = (entity: { status: boolean }) => entity.status === true
+
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -171,7 +173,16 @@ export const formatter: QueryFormatter<
           )
         : null,
     healthServices: entity.field_local_health_care_service_
-      .filter((healthService) => healthService.status === true)
+      // Make sure we're only dealing with published health services. If they're
+      // not published, they'll be entity references with no actual data.
+      .filter(isPublished)
+      // Make sure the service taxonomy exists. It's unclear why it wouldn't
+      // exist, but...it's a problem that can happen.
+      .filter(
+        (healthService) =>
+          healthService.field_regional_health_service
+            ?.field_service_name_and_descripti
+      )
       .map((healthService) => {
         const serviceTaxonomy =
           healthService.field_regional_health_service
@@ -202,13 +213,17 @@ export const formatter: QueryFormatter<
                 fieldVirtualSupport: location.field_virtual_support,
                 fieldApptIntroTextType: location.field_appt_intro_text_type,
                 fieldApptIntroTextCustom: location.field_appt_intro_text_custom,
-                fieldOtherPhoneNumbers:
-                  location.field_other_phone_numbers.map(formatPhone),
+                fieldOtherPhoneNumbers: location.field_other_phone_numbers
+                  .filter(isPublished)
+                  .map(formatPhone),
                 fieldOnlineSchedulingAvail:
                   location.field_online_scheduling_avail,
-                fieldPhone: location.field_phone.map(formatPhone),
-                fieldEmailContacts:
-                  location.field_email_contacts.map(formatEmail),
+                fieldPhone: location.field_phone
+                  .filter(isPublished)
+                  .map(formatPhone),
+                fieldEmailContacts: location.field_email_contacts
+                  .filter(isPublished)
+                  .map(formatEmail),
                 fieldHours: location.field_hours,
                 fieldOfficeHours: location.field_office_hours,
                 fieldAdditionalHoursInfo: location.field_additional_hours_info,
