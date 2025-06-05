@@ -7,7 +7,7 @@ import { PhoneNumber } from '@/types/formatted/phoneNumber'
 import { FeaturedContent } from './featuredContent'
 import { QaGroup } from './qaGroup'
 import { QaSection } from './qaSection'
-import { FormattedCcQaSection } from './ccQaSection'
+import { FormattedCcQa, FormattedCcQaSection } from './ccQaSection'
 
 
 export type VamcSystemVaPolice = PublishedEntity & {
@@ -19,7 +19,7 @@ export type VamcSystemVaPolice = PublishedEntity & {
   phoneNumber: PhoneNumber
   policeReport: FeaturedContent
   // questionsAccordion: QaSection
-  field_cc_faq: FormattedCcQaSection
+  faqs: FormattedCcQaSection
 
 
 }

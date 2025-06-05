@@ -3,9 +3,12 @@ import { ParagraphQaSection } from '@/types/drupal/paragraph'
 import { QaSection } from '@/types/formatted/qaSection'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 
+
 export const formatter: QueryFormatter<ParagraphQaSection, QaSection> = (
   entity: ParagraphQaSection
 ) => {
+  // console.log('cbu04905header: ', entity.field_section_header)
+
   return {
     header: entity.field_section_header,
     intro: entity.field_section_intro || null,

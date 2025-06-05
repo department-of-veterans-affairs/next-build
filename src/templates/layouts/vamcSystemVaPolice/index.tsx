@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { QaCollapsiblePanel } from '@/templates/components/qaCollapsiblePanel'
 import { CCQaSection } from '@/templates/components/ccQaSection'
+import { QaSection } from '@/templates/components/qaSection'
 
 
 
@@ -24,7 +25,8 @@ export function VamcSystemVaPolice({
   system,
   phoneNumber,
   policeReport,
-  field_cc_faq,
+  faqs
+  // field_cc_faq,
   // questionsAccordion
 }: FormattedVamcSystemVaPolice) {
   useEffect(() => {
@@ -92,7 +94,9 @@ export function VamcSystemVaPolice({
             {/* <div className="vads-u-margin-bottom--3" id="field-cc-faq-police"> */}
               {/* <QaCollapsiblePanel questions={questionsAccordion} /> */}
             {/* </div> */}
-            <CCQaSection {...field_cc_faq} />
+            {/* FAQs */}
+          {/* {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />} */}
+            <QaSection {...faqs} />
           </article>
           <va-back-to-top></va-back-to-top>
           {/* Footer */}
