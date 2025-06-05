@@ -1,3 +1,4 @@
+import util from 'util'
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
@@ -33,8 +34,6 @@ export const params: QueryParams<null> = () => {
     'field_administration',
     'field_telephone',
     'field_location_services',
-    'field_local_health_care_service_',
-    'field_local_health_care_service_.field_regional_health_service',
     'field_local_health_care_service_.field_regional_health_service.field_service_name_and_descripti',
     'field_local_health_care_service_.field_administration',
     'field_local_health_care_service_.field_service_location',
@@ -109,8 +108,6 @@ export const formatter: QueryFormatter<
     return nameA.localeCompare(nameB)
   })
 
-  console.log('health service', entity.field_local_health_care_service_)
-
   const formattedFacilityData: HealthCareLocalFacility = {
     ...entityBaseFields(entity),
     title,
@@ -173,11 +170,13 @@ export const formatter: QueryFormatter<
             getOppositeChildVariant(lovell?.variant)
           )
         : null,
-    healthServices: entity.field_local_health_care_service_.map(
-      (healthService) => {
+    healthServices: entity.field_local_health_care_service_
+      .filter((healthService) => healthService.status === true)
+      .map((healthService) => {
         const serviceTaxonomy =
           healthService.field_regional_health_service
             .field_service_name_and_descripti
+
         return {
           name: serviceTaxonomy?.name ?? '',
           fieldAlsoKnownAs: serviceTaxonomy?.field_also_known_as ?? '',
@@ -224,8 +223,7 @@ export const formatter: QueryFormatter<
           }),
           fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
         }
-      }
-    ),
+      }),
   }
   return formattedFacilityData
 }
