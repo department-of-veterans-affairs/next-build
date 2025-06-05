@@ -53,12 +53,12 @@ export const StaffProfileTeaser = ({
           </span>
         )}
         {description && (
-          <p className="vads-u-margin--0 vads-u-font-family--serif medium-screen:vads-u-font-size--lg">
+          <p className="vads-u-margin--0 vads-u-font-family--serif tablet:vads-u-font-size--lg">
             {description}
           </p>
         )}
         {vamcTitle && (
-          <p className="vads-u-margin--0 vads-u-margin-bottom--1 vads-u-font-family--serif medium-screen:vads-u-font-size--lg">
+          <p className="vads-u-margin--0 vads-u-margin-bottom--1 vads-u-font-family--serif tablet:vads-u-font-size--lg">
             {vamcTitle}
           </p>
         )}
