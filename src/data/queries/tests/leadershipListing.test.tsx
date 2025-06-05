@@ -91,5 +91,31 @@ describe('LeadershipListing formatData', () => {
         options: [],
       })
     })
+    test('formats links correctly for Lovell variant', () => {
+      const formattedData = queries.formatData('node--leadership_listing', {
+        entity: {
+          ...leadershipListingMock,
+          field_leadership: [
+            {
+              ...leadershipListingMock.field_leadership[0],
+              path: {
+                alias:
+                  '/lovell-federal-health-care-va/staff-profiles/robert-buckley',
+                pid: 76097,
+                langcode: 'en',
+              },
+            },
+          ],
+        },
+        menu: null,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
+        },
+      })
+      expect(formattedData.profiles[0].link).toEqual(
+        '/lovell-federal-health-care-tricare/staff-profiles/robert-buckley'
+      )
+    })
   })
 })

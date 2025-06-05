@@ -91,33 +91,4 @@ describe('StaffProfileTeaser', () => {
     expect(screen.queryByText('Chief of Staff')).not.toBeInTheDocument()
     expect(screen.queryByTestId('phone-number')).not.toBeInTheDocument()
   })
-  describe('Lovell variants', () => {
-    it('renders with Lovell variant link', () => {
-      render(
-        <StaffProfileTeaser
-          {...baseProps}
-          link="/lovell-federal-health-care/profile/jane-doe"
-          lovellVariant="va"
-        />
-      )
-      expect(screen.getByTestId('staff-profile-link')).toHaveAttribute(
-        'href',
-        '/lovell-federal-health-care-va/profile/jane-doe'
-      )
-    })
-
-    it('renders with Tricare variant link', () => {
-      render(
-        <StaffProfileTeaser
-          {...baseProps}
-          link="/lovell-federal-health-care/profile/jane-doe"
-          lovellVariant="tricare"
-        />
-      )
-      expect(screen.getByTestId('staff-profile-link')).toHaveAttribute(
-        'href',
-        '/lovell-federal-health-care-tricare/profile/jane-doe'
-      )
-    })
-  })
 })

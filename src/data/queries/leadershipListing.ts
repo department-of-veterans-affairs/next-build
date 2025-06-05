@@ -79,6 +79,15 @@ export const formatter: QueryFormatter<
   const formattedProfiles = entity.field_leadership
     .filter((profile) => profile.status === true)
     .map((profile) => {
+      const formattedLink = () => {
+        if (!profile.path?.alias || !profile.field_complete_biography_create) {
+          return ''
+        }
+        if (lovell?.isLovellVariantPage) {
+          return getLovellVariantOfUrl(profile.path.alias, lovell.variant)
+        }
+        return profile.path.alias
+      }
       return {
         firstName: profile.field_name_first || '',
         lastName: profile.field_last_name || '',
@@ -87,10 +96,7 @@ export const formatter: QueryFormatter<
         suffix: profile.field_suffix || '',
         phoneNumber: formatPhone(profile.field_telephone),
         media: formatImage(profile.field_media),
-        link:
-          profile.path?.alias && profile.field_complete_biography_create
-            ? profile.path?.alias
-            : '',
+        link: formattedLink(),
         id: profile.id,
       }
     })

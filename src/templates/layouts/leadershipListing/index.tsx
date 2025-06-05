@@ -35,11 +35,7 @@ export function LeadershipListing({
               <p>{introText}</p>
             </div>
             {profiles.map((profile) => (
-              <StaffProfileTeaser
-                {...profile}
-                key={profile.id}
-                lovellVariant={lovellVariant}
-              />
+              <StaffProfileTeaser {...profile} key={profile.id} />
             ))}
             <ContentFooter />
           </article>

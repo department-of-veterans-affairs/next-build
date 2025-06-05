@@ -25,7 +25,6 @@ export type StaffProfileTeaser = {
   phoneNumber?: FormattedPhoneNumber
   link: string
   id: string
-  lovellVariant?: LovellChildVariant
 }
 
 export type StaffProfile = PublishedEntity & {

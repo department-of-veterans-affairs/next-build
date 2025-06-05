@@ -2,7 +2,6 @@ import React from 'react'
 import { StaffProfileTeaser as FormattedStaffProfileTeaser } from '@/types/formatted/staffProfile'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
-import { getLovellVariantOfUrl } from '@/lib/drupal/lovell/utils'
 
 export const StaffProfileTeaser = ({
   media,
@@ -13,7 +12,6 @@ export const StaffProfileTeaser = ({
   vamcTitle,
   phoneNumber,
   link,
-  lovellVariant,
 }: FormattedStaffProfileTeaser) => {
   const formattedName = `${firstName} ${lastName} ${suffix || ''}`.trim()
   return (
@@ -34,9 +32,7 @@ export const StaffProfileTeaser = ({
         {link ? (
           <va-link
             class="vads-u-display--block vads-u-margin-bottom--1 vads-u-font-family--serif vads-u-font-weight--bold vads-u-font-size--lg"
-            href={
-              lovellVariant ? getLovellVariantOfUrl(link, lovellVariant) : link
-            }
+            href={link}
             text={formattedName}
             data-testid="staff-profile-link"
           ></va-link>
