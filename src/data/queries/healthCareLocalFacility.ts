@@ -149,8 +149,6 @@ export const formatter: QueryFormatter<
       wysiwigContents: getHtmlFromField(service.field_wysiwyg),
     })),
     socialLinks: {
-      path: entity.path.alias,
-      title: entity.field_region_page.title,
       regionNickname: entity.field_region_page.title,
       fieldGovdeliveryIdEmerg:
         entity.field_region_page.field_govdelivery_id_emerg ?? null,
