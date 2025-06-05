@@ -11,6 +11,7 @@ export const EventTeaser = ({
   fieldDatetimeRangeTimezone,
   fieldFacilityLocation,
   fieldLocationHumanreadable,
+  fieldFeatured,
 }: EventWidgetTeaser) => {
   // Use the exact same pattern as the event template
   const mostRecentDate = deriveMostRecentDate(fieldDatetimeRangeTimezone)
@@ -23,6 +24,7 @@ export const EventTeaser = ({
   return (
     <div
       data-template="teasers/event"
+      data-featured={fieldFeatured}
       className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4"
     >
       <h3 className="vads-u-margin-top--0 vad-u-margin-bottom-1 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
