@@ -2,11 +2,7 @@ import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/types/forma
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { QaCollapsiblePanel } from '@/templates/components/qaCollapsiblePanel'
-import { CCQaSection } from '@/templates/components/ccQaSection'
 import { QaSection } from '@/templates/components/qaSection'
-
-
 
 type VamcSystemVaPoliceProps = {
   title: string
@@ -25,9 +21,7 @@ export function VamcSystemVaPolice({
   system,
   phoneNumber,
   policeReport,
-  faqs
-  // field_cc_faq,
-  // questionsAccordion
+  faqs,
 }: FormattedVamcSystemVaPolice) {
   useEffect(() => {
     window.sideNav = menu
@@ -91,12 +85,10 @@ export function VamcSystemVaPolice({
               </va-summary-box>
             </div>
             {/* Other questions you may have about VA police (field_cc_faq) */}
-            {/* <div className="vads-u-margin-bottom--3" id="field-cc-faq-police"> */}
-              {/* <QaCollapsiblePanel questions={questionsAccordion} /> */}
-            {/* </div> */}
-            {/* FAQs */}
-          {/* {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />} */}
-            <QaSection {...faqs} />
+            <div className="vads-u-margin-bottom--3" id="field-cc-faq-police">
+              {/* FAQs */}
+              {faqs && <QaSection {...faqs} />}
+            </div>
           </article>
           <va-back-to-top></va-back-to-top>
           {/* Footer */}
