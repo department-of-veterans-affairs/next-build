@@ -133,7 +133,7 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
           Math.floor(Date.now() / 1000),
           '>='
         )
-        .addSort('field_datetime_range_timezone', 'ASC'),
+        .addSort('field_datetime_range_timezone.0.value', 'ASC'),
       PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
     )
 
