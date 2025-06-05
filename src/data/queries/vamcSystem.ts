@@ -100,6 +100,7 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
       PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
     )
 
+  // Fetch all featured, published events that are in the future
   const { data: featuredEvents } =
     await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
       RESOURCE_TYPES.EVENT,
@@ -117,6 +118,7 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
       PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
     )
 
+  // Fetch all non-featured, published events that are in the future
   const { data: otherEvents } =
     await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
       RESOURCE_TYPES.EVENT,
@@ -130,7 +132,8 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
           // @ts-expect-error - The timestamp needs to be a number, but this function expects string values
           Math.floor(Date.now() / 1000),
           '>='
-        ),
+        )
+        .addSort('field_datetime_range_timezone', 'ASC'),
       PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
     )
 
