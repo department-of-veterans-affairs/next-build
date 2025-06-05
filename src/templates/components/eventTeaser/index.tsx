@@ -33,20 +33,24 @@ export const EventTeaser = ({
       </p>
       <div className={clsx(rowClass, 'vads-u-margin-bottom--1')}>
         <div className={col1Class}>
-          <strong>When</strong>
+          <p className="vads-u-margin-y--0">
+            <strong>When</strong>
+          </p>
         </div>
         <div className={col2Class}>
-          {mostRecentDate ? (
-            <span>{formattedDateTime}</span>
-          ) : (
-            <span>Date and time to be announced</span>
-          )}
+          <p className="vads-u-margin-y--0">
+            {mostRecentDate
+              ? formattedDateTime
+              : 'Date and time to be announced'}
+          </p>
         </div>
       </div>
       {fieldFacilityLocation && (
         <div className={rowClass}>
           <div className={col1Class}>
-            <strong>Where</strong>
+            <p className="vads-u-margin-y--0">
+              <strong>Where</strong>
+            </p>
           </div>
           <div className={col2Class}>
             <p className="vads-u-margin-top--0 vads-u-margin-bottom--1">
@@ -55,9 +59,9 @@ export const EventTeaser = ({
                 text={fieldFacilityLocation.entity.title}
               />
             </p>
-            {fieldLocationHumanreadable && (
-              <span>{fieldLocationHumanreadable}</span>
-            )}
+            <p className="vads-u-margin-y--0">
+              {fieldLocationHumanreadable && fieldLocationHumanreadable}
+            </p>
           </div>
         </div>
       )}
