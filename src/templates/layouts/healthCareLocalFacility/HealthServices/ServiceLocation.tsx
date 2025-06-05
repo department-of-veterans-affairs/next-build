@@ -2,23 +2,13 @@ import { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFa
 import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 
-// TODO: Replace these with the web components
-const VaIcon = ({ icon, size }: { icon: string; size: string }) => (
-  <span>{icon}</span>
-)
-const VaLinkAction = ({ href, text }: { href: string; text: string }) => (
-  <a href={href}>{text}</a>
-)
-
-export const ServiceLocation = (props: ServiceLocationTemplateData) => {
-  const {
-    fieldReferralRequired,
-    fieldTelephone,
-    fieldPhoneNumber,
-    isMentalHealthService,
-    single,
-  } = props
-
+export const ServiceLocation = ({
+  fieldReferralRequired,
+  fieldTelephone,
+  fieldPhoneNumber,
+  isMentalHealthService,
+  single,
+}: ServiceLocationTemplateData) => {
   // Determine service main phone
   // Determine main phone number
   const mainPhone =
@@ -56,7 +46,11 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
         <div className="vads-u-padding-top--1">
           {hasOfficeVisits && (
             <p className="vads-u-margin-top--0 vads-u-margin-bottom--0">
-              <VaIcon icon="location_city" size="3" />{' '}
+              <va-icon
+                class="vads-u-margin-right--0p5"
+                icon="location_city"
+                size="3"
+              ></va-icon>{' '}
               {{
                 yes_appointment_only: 'Visit our office, by appointment only',
                 yes_walk_in_visits_only:
@@ -68,14 +62,15 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
           )}
           {hasVirtualSupport && (
             <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-              <VaIcon
+              <va-icon
+                class="vads-u-margin-right--0p5"
                 icon={
                   single.fieldVirtualSupport === 'yes_veterans_can_call'
                     ? 'phone'
                     : 'calendar_today'
                 }
                 size="3"
-              />{' '}
+              ></va-icon>{' '}
               {{
                 yes_appointment_only: 'Virtual visits by appointment only',
                 yes_veterans_can_call: 'Call at your convenience',
@@ -89,12 +84,13 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
               fieldReferralRequired
             ) && (
               <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                <VaIcon
+                <va-icon
+                  class="vads-u-margin-right--0p5"
                   icon={
                     fieldReferralRequired === '1' ? 'check_circle' : 'cancel'
                   }
                   size="3"
-                />{' '}
+                ></va-icon>
                 {fieldReferralRequired === '1'
                   ? 'A referral is required'
                   : 'A referral is not required'}
@@ -168,10 +164,12 @@ export const ServiceLocation = (props: ServiceLocationTemplateData) => {
           data-testid="service-location-action-link-online"
           className="vads-u-margin-top--2 vads-u-margin-bottom--1"
         >
-          <VaLinkAction
+          <va-link-action
+            class="vads-u-display--block"
             href="/health-care/schedule-view-va-appointments"
             text="Schedule an appointment online"
-          />
+            type="secondary"
+          ></va-link-action>
         </div>
       )}
 
