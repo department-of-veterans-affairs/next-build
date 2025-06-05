@@ -70,7 +70,6 @@ export const formatter: QueryFormatter<
   VamcSystemVaPolice
 > = ({ entity, menu }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
-  const { field_cc_faq } = entity
   // Similarly, this formats centralized content FAQs to match what our QA components are expecting
   const buildFaqs = (faqs) => {
     const buildQuestionArray = (questions) => {
