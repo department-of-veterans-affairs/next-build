@@ -56,6 +56,7 @@ export type NodeTypes =
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
   | NodeLandingPage
+  | NodeLocationsListing
   | NodeNewsStory
   | NodeOffice
   | NodePersonProfile
@@ -431,4 +432,13 @@ export interface NodeSupportService extends DrupalNode {
 export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
   field_cc_va_police_overview: FieldCCText
+}
+
+export interface NodeLocationsListing extends DrupalNode {
+  field_description: string
+  field_office: {
+    type: string
+    id: string
+    resourceIdObjMeta: { drupal_internal__target_id: number }
+  }
 }
