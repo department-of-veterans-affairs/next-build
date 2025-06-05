@@ -1,4 +1,3 @@
-import util from 'util'
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
