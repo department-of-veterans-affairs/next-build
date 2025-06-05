@@ -16,6 +16,8 @@ import { queries } from '.'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
 import { Button } from '@/types/formatted/button'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { buildFormattedFaqs } from '../ccProcessors/ccBuildFormattedFaqs'
+
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -70,7 +72,12 @@ export const formatter: QueryFormatter<
   VamcSystemVaPolice
 > = ({ entity, menu }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+  const {field_cc_faq} = entity
+  const faqs = buildFormattedFaqs(field_cc_faq)
+  console.log('Formatted FAQs:', faqs)
   return {
+    field_cc_faq: buildFormattedFaqs(field_cc_faq),
+
     ...entityBaseFields(entity),
     title: entity.title,
     // administration: {
@@ -119,5 +126,19 @@ export const formatter: QueryFormatter<
             ?.field_button_link?.[0]?.uri || '',
       },
     },
+    // questionsAccordion: {
+    //   id: entity.field_cc_faq?.target_id ?? '',
+    //   type: 'paragraph--q_a_section',
+    //   header: entity.field_cc_faq?.fetched?.field_section_header?.[0]?.value || '',
+    //   displayAccordion: entity.field_cc_faq?.fetched?.field_accordion_display ?? false,
+    //   intro: getHtmlFromField(entity.field_cc_faq?.fetched?.field_section_intro?.[0]) || '',
+    //   questions: entity.field_cc_faq?.fetched?.field_questions?.map((question) => ({
+    //     id: question.target_id ?? '',
+    //     type: 'paragraph--qa',
+    //     question: question.field_question?.[0]?.value || '',
+    //     answer: getHtmlFromField(question.field_answer?.[0].field_wysiwyg?.[0].processed) || '',
+    //   })) || [],
+    // },
   }
+
 }

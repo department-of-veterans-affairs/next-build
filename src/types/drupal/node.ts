@@ -19,6 +19,7 @@ import {
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
+  CCQASection,
   ParagraphAccordion,
   ParagraphAlert,
   ParagraphAlertSingle,
@@ -433,6 +434,8 @@ export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
   field_cc_va_police_overview: FieldCCText
   field_phone_numbers_paragraph: ParagraphPhoneNumber[]
+  // field_cc_faq: ParagraphQaGroup
+  field_cc_faq: CCQASection
 }
 
 export interface NodeLeadershipListing extends DrupalNode {

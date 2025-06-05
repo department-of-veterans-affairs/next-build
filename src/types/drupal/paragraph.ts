@@ -7,6 +7,8 @@ import {
   FieldLink,
   FieldOfficeHours,
   FieldTable,
+  CCString,
+  CCBoolean
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import { NodeLandingPage, NodePersonProfile, NodeSupportService } from './node'
@@ -250,4 +252,32 @@ export interface ParagraphTable extends DrupalParagraph {
 
 export interface ParagraphWysiwyg extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
+}
+
+export type CCAnswer = {
+  bundle: string // likely wysiwyg
+  target_id: string
+  pid: string
+  field_wysiwyg?: Array<FieldFormattedText>
+}
+
+export type CCQA = {
+  bundle: string // "q_a" -- item
+  target_id: string
+  pid: string
+  langcode: string // "en" mostly
+  status: boolean // should hopefully only get true values in CC linked content
+  field_question: Array<CCString>
+  field_answer: Array<CCAnswer>
+}
+
+export type CCQASection = {
+  target_id: string // no pid - not really a true paragraph type
+  fetched_bundle: string //'q_a_section' not bundle
+  fetched: {
+    field_accordion_display: CCBoolean // really a boolean {value: "1"} or {value: "0"}
+    field_section_header: Array<CCString>
+    field_section_intro: Array<CCString>
+    field_questions: Array<CCQA>
+  }
 }
