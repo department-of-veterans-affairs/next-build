@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { LeadershipListing as FormattedLeadershipListing } from '@/types/formatted/leadershipListing'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/templates/common/contentFooter'
+import { StaffProfileTeaser } from '@/templates/components/staffProfileTeaser'
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
@@ -10,6 +11,7 @@ export function LeadershipListing({
   title,
   introText,
   menu,
+  profiles,
 }: FormattedLeadershipListing) {
   useEffect(() => {
     window.sideNav = menu
@@ -25,7 +27,9 @@ export function LeadershipListing({
             <div className="va-introtext">
               <p>{introText}</p>
             </div>
-            <div>*TODO Staff Profile teasers*</div>
+            {profiles.map((profile) => (
+              <StaffProfileTeaser {...profile} key={profile.id} />
+            ))}
             <ContentFooter />
           </article>
         </div>

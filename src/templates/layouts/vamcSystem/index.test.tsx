@@ -358,4 +358,25 @@ describe('VamcSystem with valid data', () => {
       expect(screen.queryByText('See all stories')).not.toBeInTheDocument()
     })
   })
+
+  describe('Social Links section', () => {
+    test('renders the social links section when social links data is provided', () => {
+      const { container } = render(<VamcSystem {...mockData} />)
+
+      // Check that the social links section is rendered
+      expect(
+        screen.getByRole('heading', { name: 'VA New York Harbor health care' })
+      ).toBeInTheDocument()
+
+      // Check that Facebook link is rendered with correct attributes
+      const facebookLink = container.querySelector(
+        `va-link[text="${mockData.socialLinks.fieldFacebook.title}"]`
+      )
+      expect(facebookLink).toBeInTheDocument()
+      expect(facebookLink).toHaveAttribute(
+        'href',
+        mockData.socialLinks.fieldFacebook.uri
+      )
+    })
+  })
 })
