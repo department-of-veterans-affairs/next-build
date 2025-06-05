@@ -21,10 +21,10 @@ export function LeadershipListing({
     window.sideNav = menu
   })
   return (
-    <div className="interior" id="content">
-      <div className="usa-grid usa-grid-full">
-        <nav aria-label="secondary" data-widget-type="side-nav" />
-        <div className="usa-width-three-fourths">
+    <div className="vads-grid-container">
+      <nav aria-label="secondary" data-widget-type="side-nav" />
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-12">
           <article className="usa-content">
             <LovellSwitcher
               currentVariant={lovellVariant}
