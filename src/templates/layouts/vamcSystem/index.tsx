@@ -36,7 +36,7 @@ export function VamcSystem({
   relatedLinks,
   featuredStories,
   featuredEvents,
-  otherEvents,
+  fallbackEvent,
   lovellVariant,
   lovellSwitchPath,
   socialLinks,
@@ -52,6 +52,10 @@ export function VamcSystem({
 
   // console.log('featuredEvents', featuredEvents)
   // console.log('otherEvents', otherEvents)
+  // if (typeof window !== 'undefined') {
+  //   window.featuredEvents = featuredEvents
+  //   window.otherEvents = otherEvents
+  // }
 
   return (
     <div className="va-l-detail-page va-facility-page">
@@ -139,7 +143,7 @@ export function VamcSystem({
               </section>
             )}
             {/* Events Section */}
-            {(featuredEvents.length > 0 || otherEvents.length > 0) && (
+            {(featuredEvents.length > 0 || fallbackEvent) && (
               <section>
                 <h2 className="vads-u-margin-top--4 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--2p5">
                   Events
@@ -148,11 +152,9 @@ export function VamcSystem({
                   ? featuredEvents.map((event) => (
                       <EventTeaser key={event.entityId} {...event} />
                     ))
-                  : otherEvents
-                      .slice(0, 1)
-                      .map((event) => (
-                        <EventTeaser key={event.entityId} {...event} />
-                      ))}
+                  : fallbackEvent && (
+                      <EventTeaser key={fallbackEvent.entityId} {...fallbackEvent} />
+                    )}
                 <va-link
                   active
                   className="vads-u-font-size--md vads-u-display--block vads-u-width--full"

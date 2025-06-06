@@ -18,8 +18,8 @@ export const Default: Story = {
       'Get important VA updates and hear from VAPHS leadership and representatives from VBA’s Pittsburgh Regional Office and the National Cemetery of the Alleghenies.',
     datetimeRange: [
       {
-        value: '2028-12-11T15:30:00+00:00',
-        end_value: '2028-12-11T16:30:00+00:00',
+        value: Math.floor(new Date('2028-12-11T15:30:00+00:00').getTime() / 1000),
+        end_value: Math.floor(new Date('2028-12-11T16:30:00+00:00').getTime() / 1000),
         duration: 60,
         rrule: null,
         rrule_index: null,

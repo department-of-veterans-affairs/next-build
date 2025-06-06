@@ -32,7 +32,7 @@ export type VamcSystem = PublishedEntity & {
   mainFacilities: MinimalLocalFacility[]
   featuredStories: NewsStoryTeaser[]
   featuredEvents: EventWidgetTeaser[]
-  otherEvents: EventWidgetTeaser[]
+  fallbackEvent: EventWidgetTeaser | null
   relatedLinks: FormattedRelatedLinks
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
   lovellVariant?: LovellChildVariant | null

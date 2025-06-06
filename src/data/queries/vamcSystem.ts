@@ -28,6 +28,9 @@ import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import {
+  getNextEventOccurrences,
+} from '@/products/event/query-utils'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -58,7 +61,7 @@ type VamcSystemData = {
   mainFacilities: NodeHealthCareLocalFacility[]
   featuredStories: NodeNewsStory[]
   featuredEvents: NodeEvent[]
-  otherEvents: NodeEvent[]
+  fallbackEvent: NodeEvent | null
 }
 
 // Implement the data loader.
@@ -101,41 +104,25 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     )
 
   // Fetch all featured, published events that are in the future
-  const { data: featuredEvents } =
-    await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-      RESOURCE_TYPES.EVENT,
-      queries
-        .getParams(RESOURCE_TYPES.EVENT)
-        .addInclude(['field_listing'])
-        .addFilter('field_listing.field_office.id', entity.id)
-        .addFilter('status', '1')
-        .addFilter('field_featured', '1')
-        .addFilter(
-          'field_datetime_range_timezone.value',
-          new Date().toISOString(),
-          '>='
-        ),
-      PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
-    )
+  const nowUnix = Math.floor(Date.now() / 1000)
+  const featuredEvents = getNextEventOccurrences(
+    await fetchSystemEvents(entity.id, true),
+    nowUnix
+  )
 
-  // Fetch all non-featured, published events that are in the future
-  const { data: otherEvents } =
-    await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-      RESOURCE_TYPES.EVENT,
-      queries
-        .getParams(RESOURCE_TYPES.EVENT)
-        .addInclude(['field_listing'])
-        .addFilter('field_listing.field_office.id', entity.id)
-        .addFilter('status', '1')
-        .addFilter(
-          'field_datetime_range_timezone.0.value',
-          // @ts-expect-error - The timestamp needs to be a number, but this function expects string values
-          Math.floor(Date.now() / 1000),
-          '>='
-        )
-        .addSort('field_datetime_range_timezone.0.value', 'ASC'),
-      PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
-    )
+  console.log('🤖 featuredEvents', featuredEvents)
+
+  // If there are none, fetch all non-featured, published events that are in the future
+  let fallbackEvent: NodeEvent | null = null
+  if (featuredEvents.length === 0) {
+    console.log('No featured events, fetching fallback event')
+    const otherEvents = getNextEventOccurrences(
+      await fetchSystemEvents(entity.id, false),
+      nowUnix
+    );
+    console.log('🤖 otherEvents', otherEvents)
+    fallbackEvent = otherEvents[0] ?? null
+  }
 
   // const featuredEvents: any = [];
   // const otherEvents: any = [];
@@ -151,9 +138,23 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     mainFacilities,
     featuredStories,
     featuredEvents,
-    otherEvents,
+    fallbackEvent,
     lovell: opts.context?.lovell,
   }
+}
+
+async function fetchSystemEvents(systemId: string, featured: boolean) {
+  return (await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+    RESOURCE_TYPES.EVENT,
+    queries
+      .getParams(RESOURCE_TYPES.EVENT)
+      .addInclude(['field_listing'])
+      .addFilter('field_listing.field_office.id', systemId)
+      .addFilter('status', '1')
+      .addFilter('field_featured', featured ? '1' : '0'),
+    PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+  )
+).data
 }
 
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
@@ -162,7 +163,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   mainFacilities,
   featuredStories,
   featuredEvents,
-  otherEvents,
+  fallbackEvent,
   lovell,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
@@ -187,7 +188,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     // Only show the first two featured stories
     featuredStories: featuredStories.map(formatNewsStoryTeaser),
     featuredEvents: featuredEvents.map(formatEventTeaser),
-    otherEvents: otherEvents.map(formatEventTeaser),
+    fallbackEvent: fallbackEvent ? formatEventTeaser(fallbackEvent) : null,
     relatedLinks: formatRelatedLinks(entity),
     vamcEhrSystem: entity.field_vamc_ehr_system,
     lovellVariant: lovell?.variant ?? null,
