@@ -4,7 +4,7 @@ export const buildStaffProfileSidebarData = (
   title: string,
   fieldOfficePath: string
 ): SidebarData => {
-  const formattedTitle = title.replace(/&quot;/g, '""')
+  const formattedTitle = title.replace(/&quot;/g, '"')
   const leadershipPath = '/about-us/leadership'
 
   return {
