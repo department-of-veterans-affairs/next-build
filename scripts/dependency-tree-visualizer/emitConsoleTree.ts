@@ -4,23 +4,30 @@ import chalk from 'chalk'
 import { DependencyGraph } from './DependencyGraph'
 import { colorizePath } from './colorizePath'
 
-export function emitConsoleTree(graphs: DependencyGraph[]): void {
+export function emitConsoleTree(
+  graphs: DependencyGraph[],
+  summary: boolean
+): void {
   const visited = new Set<string>()
   let totalCC = 0
   let totalLoc = 0
+  let maxDepth = 0
+
+  const log = summary ? (...args: unknown[]) => {} : console.log.bind(console)
 
   graphs.forEach((graph) => {
     function walk(nodePath: string, depth: number) {
+      if (depth > maxDepth) maxDepth = depth
       const info = graph.nodes[nodePath]
       const indent = '  '.repeat(depth)
 
       if (!info) {
-        console.log(indent + chalk.red(`- ⚠️  Missing: ${nodePath}`))
+        log(indent + chalk.red(`- ⚠️  Missing: ${nodePath}`))
         return
       }
 
       if (visited.has(nodePath)) {
-        console.log(
+        log(
           indent +
             chalk.yellow(`- ${colorizePath(nodePath)} (already included)`)
         )
@@ -30,7 +37,7 @@ export function emitConsoleTree(graphs: DependencyGraph[]): void {
       visited.add(nodePath)
       totalCC += info.cc
       totalLoc += info.loc
-      console.log(
+      log(
         indent +
           chalk.cyan(
             `- ${colorizePath(nodePath)} (${info.loc} LoC; ${info.cc} CC)`
@@ -43,7 +50,7 @@ export function emitConsoleTree(graphs: DependencyGraph[]): void {
     walk(graph.root, 0)
   })
 
-  console.log('\n')
+  log('\n')
   console.log(
     chalk.green('Total cyclomatic complexity:'),
     chalk.magenta(totalCC)
@@ -51,5 +58,13 @@ export function emitConsoleTree(graphs: DependencyGraph[]): void {
   console.log(
     chalk.green('Total lines of code:        '),
     chalk.magenta(totalLoc)
+  )
+  console.log(
+    chalk.green('Maximum depth of tree:      '),
+    chalk.magenta(maxDepth + 1) // 0-indexed depth
+  )
+  console.log(
+    chalk.green('Total number of files:      '),
+    chalk.magenta(visited.size)
   )
 }
