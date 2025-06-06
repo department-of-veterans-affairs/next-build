@@ -7,6 +7,12 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+import { formatter as formatAdministration } from '@/data/queries/administration'
+import {
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+  getLovellVariantOfBreadcrumbs,
+} from '@/lib/drupal/lovell/utils'
 
 import {
   entityBaseFields,
@@ -22,6 +28,8 @@ export const params: QueryParams<null> = () => {
     'field_office',
     'field_leadership.field_media.image',
     'field_leadership.field_telephone',
+    'field_leadership.field_office',
+    'field_administration',
   ])
 }
 
@@ -34,6 +42,7 @@ export type LeadershipListingDataOpts = {
 export type LeadershipListingData = {
   entity: NodeLeadershipListing
   menu: Menu | null
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
@@ -54,18 +63,31 @@ export const data: QueryData<
       )
     : null
 
-  return { entity, menu }
+  return { entity, menu, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<
   LeadershipListingData,
   LeadershipListing
-> = ({ entity, menu }) => {
+> = ({ entity, menu, lovell }) => {
+  let { breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
   const formattedProfiles = entity.field_leadership
     .filter((profile) => profile.status === true)
     .map((profile) => {
+      const formattedLink = () => {
+        if (!profile.path?.alias || !profile.field_complete_biography_create) {
+          return ''
+        }
+        if (lovell?.isLovellVariantPage) {
+          return getLovellVariantOfUrl(profile.path.alias, lovell.variant)
+        }
+        return profile.path.alias
+      }
       return {
         firstName: profile.field_name_first || '',
         lastName: profile.field_last_name || '',
@@ -74,17 +96,23 @@ export const formatter: QueryFormatter<
         suffix: profile.field_suffix || '',
         phoneNumber: formatPhone(profile.field_telephone),
         media: formatImage(profile.field_media),
-        link:
-          profile.path?.alias && profile.field_complete_biography_create
-            ? profile.path?.alias
-            : '',
+        link: formattedLink(),
         id: profile.id,
       }
     })
   return {
     ...entityBaseFields(entity),
+    breadcrumbs,
     introText: entity.field_intro_text,
     profiles: formattedProfiles,
     menu: formattedMenu,
+    administration: formatAdministration(entity.field_administration),
+    lovellVariant: lovell?.variant ?? null,
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path.alias,
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : null,
   }
 }

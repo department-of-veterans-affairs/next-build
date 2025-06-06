@@ -12,7 +12,6 @@ export const StaffProfileTeaser = ({
   vamcTitle,
   phoneNumber,
   link,
-  id,
 }: FormattedStaffProfileTeaser) => {
   const formattedName = `${firstName} ${lastName} ${suffix || ''}`.trim()
   return (
@@ -40,26 +39,32 @@ export const StaffProfileTeaser = ({
         ) : (
           <span
             className="
-            vads-u-font-family--serif
-            vads-u-font-weight--bold
-            vads-u-display--block
-            vads-u-margin-bottom--1
-            vads-u-font-size--lg"
+              vads-u-font-family--serif
+              vads-u-font-weight--bold
+              vads-u-display--block
+              vads-u-margin-bottom--1
+              vads-u-font-size--lg"
           >
             {formattedName}
           </span>
         )}
         {description && (
-          <p className="vads-u-margin--0 vads-u-font-family--serif medium-screen:vads-u-font-size--lg">
+          <p className="vads-u-margin--0 vads-u-font-family--serif tablet:vads-u-font-size--lg">
             {description}
           </p>
         )}
         {vamcTitle && (
-          <p className="vads-u-margin--0 vads-u-font-family--serif medium-screen:vads-u-font-size--lg">
+          <p className="vads-u-margin--0 vads-u-margin-bottom--1 vads-u-font-family--serif tablet:vads-u-font-size--lg">
             {vamcTitle}
           </p>
         )}
-        {phoneNumber && <PhoneNumber {...phoneNumber} testId="phone-number" />}
+        {phoneNumber && (
+          <PhoneNumber
+            {...phoneNumber}
+            testId="phone-number"
+            className="vads-u-margin--0 vads-u-margin-bottom--1"
+          />
+        )}
       </div>
     </div>
   )
