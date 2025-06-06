@@ -79,7 +79,7 @@ export const formatter: QueryFormatter<
         question: question.field_question[0]?.value || null,
         answers: [
           {
-            html: question.field_answer[0]?.field_wysiwyg[0]?.value || null,
+            html: question.field_answer[0]?.field_wysiwyg[0]?.processed || null,
           },
         ],
         header: question.label || null,
