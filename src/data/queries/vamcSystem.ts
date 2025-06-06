@@ -28,9 +28,8 @@ import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
-import {
-  getNextEventOccurrences,
-} from '@/products/event/query-utils'
+import { getNextEventOccurrences } from '@/products/event/query-utils'
+import { writeFileSync } from 'fs'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -110,17 +109,13 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     nowUnix
   )
 
-  console.log('🤖 featuredEvents', featuredEvents)
-
   // If there are none, fetch all non-featured, published events that are in the future
   let fallbackEvent: NodeEvent | null = null
   if (featuredEvents.length === 0) {
-    console.log('No featured events, fetching fallback event')
     const otherEvents = getNextEventOccurrences(
       await fetchSystemEvents(entity.id, false),
       nowUnix
-    );
-    console.log('🤖 otherEvents', otherEvents)
+    )
     fallbackEvent = otherEvents[0] ?? null
   }
 
@@ -144,17 +139,18 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
 }
 
 async function fetchSystemEvents(systemId: string, featured: boolean) {
-  return (await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-    RESOURCE_TYPES.EVENT,
-    queries
-      .getParams(RESOURCE_TYPES.EVENT)
-      .addInclude(['field_listing'])
-      .addFilter('field_listing.field_office.id', systemId)
-      .addFilter('status', '1')
-      .addFilter('field_featured', featured ? '1' : '0'),
-    PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
-  )
-).data
+  return (
+    await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+      RESOURCE_TYPES.EVENT,
+      queries
+        .getParams(RESOURCE_TYPES.EVENT)
+        .addInclude(['field_listing'])
+        .addFilter('field_listing.field_office.id', systemId)
+        .addFilter('status', '1')
+        .addFilter('field_featured', featured ? '1' : '0'),
+      PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+    )
+  ).data
 }
 
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({

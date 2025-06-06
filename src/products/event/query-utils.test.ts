@@ -3,38 +3,39 @@ import { FieldDateTimeRange } from '@/types/drupal/field_type'
 import { getNextEventOccurrences } from './query-utils'
 
 // Mock NodeEvent with minimal required fields for testing
-const mockEvent = (
-  title: string,
-  dateTimeRanges: FieldDateTimeRange[]
-): NodeEvent =>
+const mockEvent = (title: string, dateTimeRanges: FieldDateTimeRange[]) =>
   ({
     title,
     field_datetime_range_timezone: dateTimeRanges,
-  }) as any
+  }) as NodeEvent
 
 // Helper to create FieldDateTimeRange objects
-const mockRange = (timestampSeconds: number): FieldDateTimeRange =>
-  ({
-    value: timestampSeconds,
-    end_value: timestampSeconds + 3600, // 1 hour duration
-  }) as any
+const mockRange = (startIsoString: string): FieldDateTimeRange => {
+  const startDate = new Date(startIsoString)
+  const endDate = new Date(startDate.getTime() + 60 * 60 * 1000) // 1 hour duration
+  return {
+    value: startIsoString,
+    end_value: endDate.toISOString(),
+  } as FieldDateTimeRange
+}
 
 describe('getNextEventOccurrences', () => {
   // Base timestamp for tests - January 15, 2024 at noon UTC
   const baseTimestamp = 1705320000 // 2024-01-15T12:00:00Z
 
-  const pastTimestamp1 = baseTimestamp - 86400 // 1 day before
-  const pastTimestamp2 = baseTimestamp - 3600 // 1 hour before
-  const futureTimestamp1 = baseTimestamp + 3600 // 1 hour after
-  const futureTimestamp2 = baseTimestamp + 86400 // 1 day after
-  const futureTimestamp3 = baseTimestamp + 172800 // 2 days after
+  // ISO datetime strings for testing
+  const pastDateTime1 = '2024-01-14T12:00:00.000Z' // 1 day before
+  const pastDateTime2 = '2024-01-15T11:00:00.000Z' // 1 hour before
+  const futureDateTime1 = '2024-01-15T13:00:00.000Z' // 1 hour after
+  const futureDateTime2 = '2024-01-16T12:00:00.000Z' // 1 day after
+  const futureDateTime3 = '2024-01-17T12:00:00.000Z' // 2 days after
 
   describe('basic filtering functionality', () => {
     it('should filter out events with no future occurrences', () => {
       const events = [
         mockEvent('Past Event', [
-          mockRange(pastTimestamp1),
-          mockRange(pastTimestamp2),
+          mockRange(pastDateTime1),
+          mockRange(pastDateTime2),
         ]),
       ]
 
@@ -46,8 +47,8 @@ describe('getNextEventOccurrences', () => {
     it('should include events with future occurrences', () => {
       const events = [
         mockEvent('Future Event', [
-          mockRange(futureTimestamp1),
-          mockRange(futureTimestamp2),
+          mockRange(futureDateTime1),
+          mockRange(futureDateTime2),
         ]),
       ]
 
@@ -61,10 +62,10 @@ describe('getNextEventOccurrences', () => {
     it('should filter out past occurrences but keep future ones for the same event', () => {
       const events = [
         mockEvent('Mixed Event', [
-          mockRange(pastTimestamp1),
-          mockRange(pastTimestamp2),
-          mockRange(futureTimestamp1),
-          mockRange(futureTimestamp2),
+          mockRange(pastDateTime1),
+          mockRange(pastDateTime2),
+          mockRange(futureDateTime1),
+          mockRange(futureDateTime2),
         ]),
       ]
 
@@ -73,10 +74,10 @@ describe('getNextEventOccurrences', () => {
       expect(result).toHaveLength(1)
       expect(result[0].field_datetime_range_timezone).toHaveLength(2)
       expect(result[0].field_datetime_range_timezone[0].value).toBe(
-        futureTimestamp1
+        futureDateTime1
       )
       expect(result[0].field_datetime_range_timezone[1].value).toBe(
-        futureTimestamp2
+        futureDateTime2
       )
     })
   })
@@ -84,9 +85,9 @@ describe('getNextEventOccurrences', () => {
   describe('sorting functionality', () => {
     it('should sort events by earliest occurrence', () => {
       const events = [
-        mockEvent('Later Event', [mockRange(futureTimestamp3)]),
-        mockEvent('Earlier Event', [mockRange(futureTimestamp1)]),
-        mockEvent('Middle Event', [mockRange(futureTimestamp2)]),
+        mockEvent('Later Event', [mockRange(futureDateTime3)]),
+        mockEvent('Earlier Event', [mockRange(futureDateTime1)]),
+        mockEvent('Middle Event', [mockRange(futureDateTime2)]),
       ]
 
       const result = getNextEventOccurrences(events, baseTimestamp)
@@ -100,12 +101,12 @@ describe('getNextEventOccurrences', () => {
     it('should sort by earliest occurrence even when events have multiple dates', () => {
       const events = [
         mockEvent('Event A', [
-          mockRange(futureTimestamp2),
-          mockRange(futureTimestamp3),
+          mockRange(futureDateTime2),
+          mockRange(futureDateTime3),
         ]),
         mockEvent('Event B', [
-          mockRange(futureTimestamp1),
-          mockRange(futureTimestamp3),
+          mockRange(futureDateTime1),
+          mockRange(futureDateTime3),
         ]),
       ]
 
@@ -132,7 +133,7 @@ describe('getNextEventOccurrences', () => {
 
     it('should handle events with exactly matching timestamp (should be excluded)', () => {
       const events = [
-        mockEvent('Exact Match Event', [mockRange(baseTimestamp)]),
+        mockEvent('Exact Match Event', [mockRange('2024-01-15T12:00:00.000Z')]),
       ]
 
       const result = getNextEventOccurrences(events, baseTimestamp)
@@ -141,7 +142,7 @@ describe('getNextEventOccurrences', () => {
 
     it('should handle events with timestamp one second after cutoff', () => {
       const events = [
-        mockEvent('Just After Event', [mockRange(baseTimestamp + 1)]),
+        mockEvent('Just After Event', [mockRange('2024-01-15T12:00:01.000Z')]),
       ]
 
       const result = getNextEventOccurrences(events, baseTimestamp)
@@ -153,8 +154,8 @@ describe('getNextEventOccurrences', () => {
   describe('data integrity', () => {
     it('should preserve original event data except for filtered datetime ranges', () => {
       const originalEvent = mockEvent('Test Event', [
-        mockRange(pastTimestamp1),
-        mockRange(futureTimestamp1),
+        mockRange(pastDateTime1),
+        mockRange(futureDateTime1),
       ])
 
       // Add some custom properties to verify they're preserved
@@ -172,10 +173,10 @@ describe('getNextEventOccurrences', () => {
     it('should not mutate original events array', () => {
       const originalEvents = [
         mockEvent('Event 1', [
-          mockRange(pastTimestamp1),
-          mockRange(futureTimestamp1),
+          mockRange(pastDateTime1),
+          mockRange(futureDateTime1),
         ]),
-        mockEvent('Event 2', [mockRange(futureTimestamp2)]),
+        mockEvent('Event 2', [mockRange(futureDateTime2)]),
       ]
 
       const originalLength =
@@ -188,7 +189,7 @@ describe('getNextEventOccurrences', () => {
         originalLength
       )
       expect(originalEvents[0].field_datetime_range_timezone[0].value).toBe(
-        pastTimestamp1
+        pastDateTime1
       )
     })
   })
@@ -198,19 +199,19 @@ describe('getNextEventOccurrences', () => {
       const events = [
         // Event with mostly past dates, one future
         mockEvent('Mostly Past', [
-          mockRange(pastTimestamp2),
-          mockRange(pastTimestamp1),
-          mockRange(futureTimestamp3),
+          mockRange(pastDateTime2),
+          mockRange(pastDateTime1),
+          mockRange(futureDateTime3),
         ]),
         // Event with only future dates
         mockEvent('All Future', [
-          mockRange(futureTimestamp1),
-          mockRange(futureTimestamp2),
+          mockRange(futureDateTime1),
+          mockRange(futureDateTime2),
         ]),
         // Event with only past dates (should be filtered out)
         mockEvent('All Past', [
-          mockRange(pastTimestamp1),
-          mockRange(pastTimestamp2),
+          mockRange(pastDateTime1),
+          mockRange(pastDateTime2),
         ]),
       ]
 
@@ -224,7 +225,7 @@ describe('getNextEventOccurrences', () => {
       expect(result[0].field_datetime_range_timezone).toHaveLength(2)
       expect(result[1].field_datetime_range_timezone).toHaveLength(1)
       expect(result[1].field_datetime_range_timezone[0].value).toBe(
-        futureTimestamp3
+        futureDateTime3
       )
     })
   })

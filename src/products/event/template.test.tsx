@@ -126,8 +126,8 @@ describe('<Event /> Component', () => {
     description: 'Test Description',
     datetimeRange: [
       {
-        value: Math.floor(new Date('2024-03-22T10:00:00').getTime() / 1000),
-        end_value: Math.floor(new Date('2024-03-22T12:00:00').getTime() / 1000),
+        value: '2024-03-22T10:00:00',
+        end_value: '2024-03-22T12:00:00',
         duration: 200,
         rrule: 1,
         rrule_index: 1,

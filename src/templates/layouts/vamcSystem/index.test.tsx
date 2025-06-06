@@ -48,7 +48,7 @@ const mockData = formatter({
   mainFacilities: [drupalMockFacilityData],
   featuredStories: [drupalMockStoryData],
   featuredEvents: [mockFeaturedEventData],
-  otherEvents: [mockEventData],
+  fallbackEvent: mockEventData,
 })
 
 describe('VamcSystem with valid data', () => {
@@ -460,7 +460,7 @@ describe('VamcSystem with valid data', () => {
       const dataWithoutEvents = {
         ...mockData,
         featuredEvents: [],
-        otherEvents: [],
+        fallbackEvent: null,
       }
 
       render(<VamcSystem {...dataWithoutEvents} />)
@@ -472,13 +472,15 @@ describe('VamcSystem with valid data', () => {
     })
 
     test('renders other events when no featured events exist', () => {
-      const dataWithOnlyOtherEvents = {
+      const dataWithOnlyFallbackEvent = {
         ...mockData,
         featuredEvents: [],
-        // otherEvents should still exist from mockData
+        // fallbackEvent should still exist from mockData
       }
 
-      const { container } = render(<VamcSystem {...dataWithOnlyOtherEvents} />)
+      const { container } = render(
+        <VamcSystem {...dataWithOnlyFallbackEvent} />
+      )
 
       // When no featured events exist, should render first other event
       const otherEventLink = container.querySelector(

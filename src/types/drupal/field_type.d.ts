@@ -81,8 +81,8 @@ export interface FieldNestedLink {
 }
 
 export interface FieldDateTimeRange {
-  value: number
-  end_value: number
+  value: string
+  end_value: string
   duration: number
   rrule: number
   rrule_index: number

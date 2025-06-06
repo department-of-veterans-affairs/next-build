@@ -1,4 +1,7 @@
-import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
+import {
+  NodeEventListing,
+  NodeHealthCareLocalFacility,
+} from '@/types/drupal/node'
 import { MediaImage } from '@/types/formatted/media'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import {
@@ -10,8 +13,8 @@ import {
 import { Administration } from '@/types/formatted/administration'
 
 interface DateTimeRangeItem {
-  value: number
-  end_value: number
+  value: string
+  end_value: string
   duration: number
   rrule: number
   rrule_index: number

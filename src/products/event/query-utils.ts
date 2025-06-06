@@ -1,43 +1,51 @@
-import { NodeEvent } from "@/types/drupal/node";
+import { NodeEvent } from '@/types/drupal/node'
 
 /**
  * Based on [this function from vets-website that drives the event listing page](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/applications/static-pages/events/helpers/index.js#L78),
  * this function takes each recurring event and makes copies of it to represent each
  * occurrence of the event. Optionally filters out any event before the `afterTimestamp`.
  * It then sorts all of the events from earliest to latest.
- * 
+ *
  * @param events - The events to expand.
  * @param afterTimestamp - If this unix timestamp (seconds) is provided, it will only
  * include events that occur after that timestamp in the returned array.
  * @returns An array of expanded events.
  */
-export function expandRecurringEvents(events: NodeEvent[], afterTimestamp?: number) {
+export function expandRecurringEvents(
+  events: NodeEvent[],
+  afterTimestamp?: number
+) {
   const allEvents = events.reduce((fullEvents, event) => {
-    let eventTimes = event.field_datetime_range_timezone ?? [];
+    let eventTimes = event.field_datetime_range_timezone ?? []
     if (afterTimestamp) {
-      eventTimes = eventTimes.filter(time => time.value > afterTimestamp);
+      eventTimes = eventTimes.filter(
+        (time) => timestamp(time.value) > afterTimestamp
+      )
     }
 
     // Create copies of the event for each occurrence, excluding previous occurences in
     // the field_datetime_range_timezone array.
     eventTimes.forEach((_, index) => {
-      const timeZonesCopy = [...eventTimes];
+      const timeZonesCopy = [...eventTimes]
       for (let i = 0; i < index; i++) {
-        timeZonesCopy.unshift(timeZonesCopy.pop());
+        timeZonesCopy.unshift(timeZonesCopy.pop())
       }
-      fullEvents.push({ ...event, field_datetime_range_timezone: timeZonesCopy });
-    });
+      fullEvents.push({
+        ...event,
+        field_datetime_range_timezone: timeZonesCopy,
+      })
+    })
 
-    return fullEvents;
-  }, [] as NodeEvent[]);
+    return fullEvents
+  }, [] as NodeEvent[])
 
   allEvents.sort(
     (event1, event2) =>
-      event1?.field_datetime_range_timezone[0]?.value -
-      event2?.field_datetime_range_timezone[0]?.value,
-  );
+      timestamp(event1?.field_datetime_range_timezone[0]?.value) -
+      timestamp(event2?.field_datetime_range_timezone[0]?.value)
+  )
 
-  return allEvents;
+  return allEvents
 }
 
 /**
@@ -47,21 +55,33 @@ export function expandRecurringEvents(events: NodeEvent[], afterTimestamp?: numb
  * filter out any events before the timestamp. Remaining events will then be sorted from
  * earliest to latest.
  */
-export function getNextEventOccurrences(events: NodeEvent[], afterTimestamp: number) {
+export function getNextEventOccurrences(
+  events: NodeEvent[],
+  afterTimestamp: number
+) {
   const filteredEvents = events.reduce((eventsAfterTimestamp, event) => {
-    const eventTimes = event.field_datetime_range_timezone.filter(time => time.value > afterTimestamp);
+    const eventTimes = event.field_datetime_range_timezone.filter(
+      (time) => timestamp(time.value) > afterTimestamp
+    )
     if (eventTimes.length > 0) {
-      eventsAfterTimestamp.push({...event, field_datetime_range_timezone: eventTimes});
+      eventsAfterTimestamp.push({
+        ...event,
+        field_datetime_range_timezone: eventTimes,
+      })
     }
 
-    return eventsAfterTimestamp;
-  }, [] as NodeEvent[]);
+    return eventsAfterTimestamp
+  }, [] as NodeEvent[])
 
   filteredEvents.sort(
     (event1, event2) =>
-      event1?.field_datetime_range_timezone[0]?.value -
-      event2?.field_datetime_range_timezone[0]?.value,
-  );
+      timestamp(event1?.field_datetime_range_timezone[0]?.value) -
+      timestamp(event2?.field_datetime_range_timezone[0]?.value)
+  )
 
-  return filteredEvents;
+  return filteredEvents
+}
+
+function timestamp(date: string) {
+  return new Date(date).getTime() / 1000
 }
