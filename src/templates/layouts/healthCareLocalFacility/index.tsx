@@ -47,6 +47,7 @@ export function HealthCareLocalFacility({
   socialLinks,
   lovellVariant,
   lovellSwitchPath,
+  healthServices,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -179,7 +180,7 @@ export function HealthCareLocalFacility({
               sectionTitle={relatedLinks.sectionTitle}
               links={relatedLinks.links}
             />
-            <HealthServices />
+            <HealthServices healthServices={healthServices} />
             {facilityLocatorApiId.includes('vha_') && (
               <div
                 data-widget-type="facility-patient-satisfaction-scores"
