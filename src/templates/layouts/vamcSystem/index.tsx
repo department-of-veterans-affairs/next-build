@@ -153,7 +153,10 @@ export function VamcSystem({
                       <EventTeaser key={event.entityId} {...event} />
                     ))
                   : fallbackEvent && (
-                      <EventTeaser key={fallbackEvent.entityId} {...fallbackEvent} />
+                      <EventTeaser
+                        key={fallbackEvent.entityId}
+                        {...fallbackEvent}
+                      />
                     )}
                 <va-link
                   active
