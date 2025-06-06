@@ -35,7 +35,7 @@ export const ServiceLocation = ({
   const showOnlineScheduleLink = single.fieldOnlineSchedulingAvail === 'yes'
 
   return (
-    <va-card className="break-word-wrap">
+    <va-card class="vads-u-margin-y--2 break-word-wrap">
       {/* Office visits and virtual support */}
       {(hasOfficeVisits ||
         hasVirtualSupport ||
