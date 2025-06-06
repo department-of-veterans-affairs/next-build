@@ -22,6 +22,8 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
   ],
   "entityId": 8525,
   "entityPath": "/new-york-harbor-health-care",
+  "fallbackEvent": null,
+  "featuredEvents": [],
   "featuredStories": [
     {
       "headingLevel": "h2",

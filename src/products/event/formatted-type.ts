@@ -92,7 +92,7 @@ export type EventWidgetTeaser = {
     timezone: string
     value: number
   }
-  fieldDescription: string
+  fieldDescription: string | null
   fieldEventCost: string
   fieldEventCta: string
   fieldEventRegistrationrequired: boolean
