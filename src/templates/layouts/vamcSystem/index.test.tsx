@@ -433,6 +433,17 @@ describe('VamcSystem with valid data', () => {
     })
 
     test('renders event date and time information', () => {
+      // Mock timezone to Mountain Time to ensure consistent test results no matter where
+      // the test is run (Pacific on my machine, Central on CI)
+      const originalResolvedOptions =
+        Intl.DateTimeFormat.prototype.resolvedOptions
+      jest
+        .spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions')
+        .mockReturnValue({
+          ...originalResolvedOptions.call(new Intl.DateTimeFormat()),
+          timeZone: 'America/Denver',
+        })
+
       render(<VamcSystem {...mockData} />)
 
       // Check that "When" label appears for events
@@ -440,8 +451,11 @@ describe('VamcSystem with valid data', () => {
 
       // Check that formatted date appears (from our EventTeaser tests, we know this format)
       expect(
-        screen.getByText('Thu. Sep 14, 2023, 7:00 a.m. – 9:00 a.m. PT')
+        screen.getByText('Thu. Sep 14, 2023, 8:00 a.m. – 10:00 a.m. MT')
       ).toBeInTheDocument()
+
+      // Restore the original resolvedOptions implementation
+      jest.restoreAllMocks()
     })
 
     test('renders the "See all events" link with correct href', () => {

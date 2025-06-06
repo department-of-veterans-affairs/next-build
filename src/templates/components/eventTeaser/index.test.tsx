@@ -83,13 +83,27 @@ describe('EventTeaser Component', () => {
 
   describe('Date and Time Section', () => {
     test('displays formatted date from real data', () => {
+      // Mock timezone to Mountain Time to ensure consistent test results no matter where
+      // the test is run (Pacific on my machine, Central on CI)
+      const originalResolvedOptions =
+        Intl.DateTimeFormat.prototype.resolvedOptions
+      jest
+        .spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions')
+        .mockReturnValue({
+          ...originalResolvedOptions.call(new Intl.DateTimeFormat()),
+          timeZone: 'America/Denver',
+        })
+
       render(<EventTeaser {...formattedEventData} />)
 
       // Should show a date (the exact format will depend on the current date and timezone)
       expect(screen.getByText('When')).toBeInTheDocument()
       expect(
-        screen.getByText('Thu. Sep 14, 2023, 7:00 a.m. – 9:00 a.m. PT')
+        screen.getByText('Thu. Sep 14, 2023, 8:00 a.m. – 10:00 a.m. MT')
       ).toBeInTheDocument()
+
+      // Restore the original resolvedOptions implementation
+      jest.restoreAllMocks()
     })
 
     test('applies correct grid classes to when section', () => {
