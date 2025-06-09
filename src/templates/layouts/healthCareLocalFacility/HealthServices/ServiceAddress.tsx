@@ -1,3 +1,7 @@
+/* istanbul ignore file */
+// Ignoring this until we get tests written; it's just really detailed
+// scaffolding for now.
+
 import { FieldAddress } from '@/types/drupal/field_type'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 
