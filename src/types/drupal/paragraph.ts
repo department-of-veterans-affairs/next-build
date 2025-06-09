@@ -212,13 +212,37 @@ export interface ParagraphRichTextCharLimit1000 extends DrupalParagraph {
 }
 
 export interface ParagraphServiceLocation extends DrupalParagraph {
-  field_additional_hours_info: string
-  field_service_location_address: ParagraphServiceLocationAddress
-  field_email_contacts: ParagraphEmailContact[]
-  field_office_hours: FieldOfficeHours[]
-  field_phone: ParagraphPhoneNumber[]
-  field_hours: string
-  field_use_main_facility_phone: boolean
+  /** Type of office visits supported (e.g., "no", "yes_appointment_only"). */
+  field_office_visits?: string
+  /** Type of virtual support available (e.g., "yes_veterans_can_call"). */
+  field_virtual_support?: string
+  /** Appointment intro text type ("remove_text", "customize_text", "use_default_text"). */
+  field_appt_intro_text_type?:
+    | 'remove_text'
+    | 'customize_text'
+    | 'use_default_text'
+  /** Custom appointment intro text (if applicable). */
+  fieldApptIntro_text_custom?: string
+  /** Array of additional phone numbers for appointments or contact. */
+  field_other_phone_numbers?: ParagraphPhoneNumber[]
+  /** Indicates if online scheduling is available ("yes" or others). */
+  field_online_scheduling_avail?: 'yes' | string
+  /** Array of additional contact phone numbers. */
+  field_phone?: ParagraphPhoneNumber[]
+  /** Array of email contact objects. */
+  field_email_contacts?: ParagraphEmailContact[]
+  /** Service hours configuration ("0" for facility hours, "1" for unspecified, "2" for specific hours). */
+  field_hours?: '0' | '1' | '2' | string
+  /** Specific service office hours (array of hour objects). */
+  field_office_hours?: FieldOfficeHours[]
+  /** Additional information about service hours. */
+  field_additional_hours_info?: string
+  /** Indicates if the main facility phone number should be used (true/false). */
+  field_use_main_facility_phone?: boolean
+  /** Indicates if the facility phone number should be used for appointments (true/false). */
+  field_use_facility_phone_number?: boolean
+  /** Optional service location address entity. */
+  field_service_location_address?: ParagraphServiceLocationAddress
 }
 
 export interface ParagraphServiceLocationAddress extends DrupalParagraph {

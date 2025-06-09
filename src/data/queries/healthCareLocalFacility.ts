@@ -18,9 +18,13 @@ import {
   getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+import { formatter as formatEmail } from '@/data/queries/emailContact'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from './administration'
+
+const isPublished = (entity: { status: boolean }) => entity.status === true
 
 // Define the query params for fetching node--health_care_local_facility.
 export const params: QueryParams<null> = () => {
@@ -105,7 +109,7 @@ export const formatter: QueryFormatter<
     return nameA.localeCompare(nameB)
   })
 
-  return {
+  const formattedFacilityData: HealthCareLocalFacility = {
     ...entityBaseFields(entity),
     title,
     breadcrumbs,
@@ -144,8 +148,6 @@ export const formatter: QueryFormatter<
       wysiwigContents: getHtmlFromField(service.field_wysiwyg),
     })),
     socialLinks: {
-      path: entity.path.alias,
-      title: entity.field_region_page.title,
       regionNickname: entity.field_region_page.title,
       fieldGovdeliveryIdEmerg:
         entity.field_region_page.field_govdelivery_id_emerg ?? null,
@@ -167,6 +169,73 @@ export const formatter: QueryFormatter<
             getOppositeChildVariant(lovell?.variant)
           )
         : null,
-    healthServices: entity.field_local_health_care_service_, // TODO: Format these
+    healthServices: entity.field_local_health_care_service_
+      // Make sure we're only dealing with published health services. If they're
+      // not published, they'll be entity references with no actual data.
+      .filter(isPublished)
+      // Make sure the service taxonomy exists. It's unclear why it wouldn't
+      // exist, but...it's a problem that can happen.
+      .filter(
+        (healthService) =>
+          healthService.field_regional_health_service
+            ?.field_service_name_and_descripti
+      )
+      .map((healthService) => {
+        const serviceTaxonomy =
+          healthService.field_regional_health_service
+            .field_service_name_and_descripti
+
+        return {
+          name: serviceTaxonomy?.name ?? '',
+          fieldAlsoKnownAs: serviceTaxonomy?.field_also_known_as ?? '',
+          fieldCommonlyTreatedCondition:
+            serviceTaxonomy?.field_commonly_treated_condition ?? '',
+          fieldTricareDescription:
+            serviceTaxonomy?.field_tricare_description ?? null,
+          description: serviceTaxonomy?.description?.processed ?? null,
+          entityId: serviceTaxonomy.id,
+          entityBundle: healthService.type.split('--')[1],
+          fieldBody:
+            healthService.field_regional_health_service.field_body.processed,
+          locations: healthService.field_service_location.map((location) => {
+            return {
+              fieldReferralRequired: healthService.field_referral_required,
+              fieldTelephone: formatPhone(entity.field_telephone),
+              fieldPhoneNumber: entity.field_phone_number,
+              isMentalHealthService: serviceTaxonomy.name
+                .toLowerCase()
+                .includes('mental health'),
+              single: {
+                fieldOfficeVisists: location.field_office_visits,
+                fieldVirtualSupport: location.field_virtual_support,
+                fieldApptIntroTextType: location.field_appt_intro_text_type,
+                fieldApptIntroTextCustom: location.field_appt_intro_text_custom,
+                fieldOtherPhoneNumbers: location.field_other_phone_numbers
+                  .filter(isPublished)
+                  .map(formatPhone),
+                fieldOnlineSchedulingAvail:
+                  location.field_online_scheduling_avail,
+                fieldPhone: location.field_phone
+                  .filter(isPublished)
+                  .map(formatPhone),
+                fieldEmailContacts: location.field_email_contacts
+                  .filter(isPublished)
+                  .map(formatEmail),
+                fieldHours: location.field_hours,
+                fieldOfficeHours: location.field_office_hours,
+                fieldAdditionalHoursInfo: location.field_additional_hours_info,
+                fieldUseMainFacilityPhone:
+                  location.field_use_main_facility_phone,
+                fieldUseFacilityPhoneNumber:
+                  location.field_use_facility_phone_number,
+                fieldServiceLocationAddress:
+                  location.field_service_location_address,
+              },
+            }
+          }),
+          fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
+        }
+      }),
   }
+  return formattedFacilityData
 }
