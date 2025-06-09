@@ -159,6 +159,10 @@ async function getLovellListingPageStaticPropsResource(
         link: getLovellVariantOfUrl(item.link, context.lovell.variant),
       }
     }),
+    // For Lovell pages, we merge two separately-sorted lists (child variant and federal).
+    // The merged array is not guaranteed to be globally sorted, so we must sort again here
+    // to ensure the final list is in the correct order (e.g., newest to oldest).
+    // Non-Lovell pages do not need this, as their single API call returns a sorted list. - .addSort('-field_release_date')
   ].sort((a, b) => {
     return new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
   })
