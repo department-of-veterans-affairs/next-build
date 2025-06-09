@@ -192,7 +192,7 @@ export const formatter: QueryFormatter<
             serviceTaxonomy?.field_commonly_treated_condition ?? '',
           fieldTricareDescription:
             serviceTaxonomy?.field_tricare_description ?? null,
-          description: serviceTaxonomy?.description ?? null,
+          description: serviceTaxonomy?.description?.processed ?? null,
           entityId: serviceTaxonomy.id,
           entityBundle: healthService.type.split('--')[1],
           fieldBody:
