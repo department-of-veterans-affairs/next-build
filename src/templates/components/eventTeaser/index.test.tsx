@@ -72,7 +72,7 @@ describe('EventTeaser Component', () => {
       expect(wordCount).toBeLessThanOrEqual(62) // Should be around 60 words plus "..."
 
       // The truncated text should contain ellipsis
-      expect(descriptionElement.textContent).toContain('...')
+      expect(descriptionElement.textContent?.endsWith('...')).toBe(true)
 
       // And should be shorter than the original
       expect(descriptionElement.textContent?.length || 0).toBeLessThan(
@@ -82,17 +82,25 @@ describe('EventTeaser Component', () => {
   })
 
   describe('Date and Time Section', () => {
-    test('displays formatted date from real data', () => {
-      // Mock timezone to Mountain Time to ensure consistent test results no matter where
-      // the test is run (Pacific on my machine, Central on CI)
+    function mockTimeZone(timeZone: string) {
       const originalResolvedOptions =
         Intl.DateTimeFormat.prototype.resolvedOptions
       jest
         .spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions')
         .mockReturnValue({
           ...originalResolvedOptions.call(new Intl.DateTimeFormat()),
-          timeZone: 'America/Denver',
+          timeZone,
         })
+    }
+
+    afterEach(() => {
+      jest.restoreAllMocks()
+    })
+
+    test('displays formatted date from real data', () => {
+      // Mock timezone to Mountain Time to ensure consistent test results no matter where
+      // the test is run (Pacific on my machine, Central on CI)
+      mockTimeZone('America/Denver')
 
       render(<EventTeaser {...formattedEventData} />)
 
@@ -101,9 +109,6 @@ describe('EventTeaser Component', () => {
       expect(
         screen.getByText('Thu. Sep 14, 2023, 8:00 a.m. – 10:00 a.m. MT')
       ).toBeInTheDocument()
-
-      // Restore the original resolvedOptions implementation
-      jest.restoreAllMocks()
     })
 
     test('applies correct grid classes to when section', () => {

@@ -16,7 +16,7 @@ import { NodeEvent } from '@/types/drupal/node'
  * have to fetch all of the events, figure out the "next occurence" of each event, and
  * then use that information to sort the events and take the first one.
  *
- * This is based on [this function from vets-website that drives the event listing page](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/applications/static-pages/events/helpers/index.js#L78).
+ * This is based on [this function from vets-website that drives the event listing page](https://github.com/department-of-veterans-affairs/vets-website/blob/15f67b3cbe725bf7469b191128bbae33c609b826/src/applications/static-pages/events/helpers/index.js#L78).
  * Originally I recreated a version of that function here, which expanded all recurring
  * events, but I found that really I only needed the next occurence of each event for my
  * use case. A copy of that function can be found in an earlier commit.
