@@ -158,12 +158,13 @@ export function VamcSystem({
                         {...fallbackEvent}
                       />
                     )}
-                <va-link
-                  active
-                  className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
-                  href={`${path}/events`}
-                  text="See all events"
-                ></va-link>
+                <p className="vads-u-margin-y--0">
+                  <va-link
+                    active
+                    href={`${path}/events`}
+                    text="See all events"
+                  ></va-link>
+                </p>
               </section>
             )}
             {/* Social Links */}
