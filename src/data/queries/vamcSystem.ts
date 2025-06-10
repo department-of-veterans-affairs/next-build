@@ -119,9 +119,6 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     fallbackEvent = otherEvents[0] ?? null
   }
 
-  // const featuredEvents: any = [];
-  // const otherEvents: any = [];
-
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_system_menu.resourceIdObjMeta.drupal_internal__target_id

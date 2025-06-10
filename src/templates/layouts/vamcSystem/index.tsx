@@ -50,13 +50,6 @@ export function VamcSystem({
   const imageStyle = '7_2_medium_thumbnail'
   const hasValidImage = image?.links?.[imageStyle]?.href
 
-  // console.log('featuredEvents', featuredEvents)
-  // console.log('otherEvents', otherEvents)
-  // if (typeof window !== 'undefined') {
-  //   window.featuredEvents = featuredEvents
-  //   window.otherEvents = otherEvents
-  // }
-
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
