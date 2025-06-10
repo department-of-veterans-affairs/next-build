@@ -47,12 +47,5 @@ export const formatter: QueryFormatter<
 > = (entity) => {
   return {
     ...entityBaseFields(entity),
-    type: 'node--locations_listing', // explicitly define the type as a string literal
-    entityId: entity.drupal_internal__nid,
-    entityPath: entity.path?.alias || '',
-    breadcrumbs: entity.breadcrumbs ?? [],
-    metatags: entity.metatag || [],
-    lastUpdated: entity.changed,
-    title: entity.title,
   }
 }

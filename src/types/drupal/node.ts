@@ -445,9 +445,4 @@ export interface NodeLeadershipListing extends DrupalNode {
 
 export interface NodeLocationsListing extends DrupalNode {
   field_description: string
-  field_office: {
-    type: string
-    id: string
-    resourceIdObjMeta: { drupal_internal__target_id: number }
-  }
 }

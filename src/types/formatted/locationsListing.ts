@@ -1,13 +1,5 @@
-import { BreadcrumbItem } from '@/types/drupal/field_type'
-import { MetaTag } from './metatags'
+import { PublishedEntity } from './publishedEntity'
 
-export type LocationsListing = {
-  id: string
-  type: 'node--locations_listing'
+export type LocationsListing = PublishedEntity & {
   title: string
-  entityId: number
-  entityPath: string
-  breadcrumbs: BreadcrumbItem[]
-  metatags: MetaTag[]
-  lastUpdated: string
 }
