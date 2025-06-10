@@ -56,6 +56,7 @@ export type NodeTypes =
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
   | NodeLandingPage
+  | NodeLocationsListing
   | NodeNewsStory
   | NodeOffice
   | NodePersonProfile
@@ -440,4 +441,8 @@ export interface NodeLeadershipListing extends DrupalNode {
   field_intro_text: string
   field_office: NodeOffice | NodeHealthCareRegionPage
   field_leadership_profiles: NodePersonProfile[]
+}
+
+export interface NodeLocationsListing extends DrupalNode {
+  field_description: string
 }
