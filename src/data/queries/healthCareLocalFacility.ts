@@ -192,11 +192,12 @@ export const formatter: QueryFormatter<
             serviceTaxonomy?.field_commonly_treated_condition ?? '',
           fieldTricareDescription:
             serviceTaxonomy?.field_tricare_description ?? null,
-          description: serviceTaxonomy?.description?.processed ?? null,
+          description: getHtmlFromField(serviceTaxonomy?.description) ?? null,
           entityId: serviceTaxonomy.id,
           entityBundle: healthService.type.split('--')[1],
-          fieldBody:
-            healthService.field_regional_health_service.field_body.processed,
+          fieldBody: getHtmlFromField(
+            healthService.field_regional_health_service.field_body
+          ),
           locations: healthService.field_service_location.map((location) => {
             return {
               fieldReferralRequired: healthService.field_referral_required,
