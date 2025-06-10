@@ -49,7 +49,11 @@ export const HealthServices = ({
                 )}
 
                 {service.fieldTricareDescription ? (
-                  <div>{service.fieldTricareDescription}</div>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: service.fieldTricareDescription,
+                    }}
+                  />
                 ) : service.description ? (
                   <div
                     dangerouslySetInnerHTML={{
