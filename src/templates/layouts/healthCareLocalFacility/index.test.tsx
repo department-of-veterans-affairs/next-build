@@ -36,14 +36,8 @@ const mockData = formatter({
 describe('HealthCareLocalFacility with valid data', () => {
   test('renders HealthCareLocalFacility component with basic data', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-
-    const basicDataFields: Array<keyof FormattedHealthCareLocalFacility> = [
-      'title',
-      'introText',
-    ]
-    basicDataFields.forEach((key) =>
-      expect(screen.getByText(mockData[key])).toBeInTheDocument()
-    )
+    expect(screen.getByText(mockData.title.trim())).toBeInTheDocument()
+    expect(screen.getByText(mockData.introText.trim())).toBeInTheDocument()
   })
 
   // Once window.sideNav is populated, the static-pages app will render the menu
