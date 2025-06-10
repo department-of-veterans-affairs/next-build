@@ -54,6 +54,16 @@ describe('DrupalJsonApiParams configuration', () => {
 })
 
 describe('VamcSystem formatData', () => {
+  beforeAll(() => {
+    // Mock Date.now() to return a fixed timestamp so that mock events
+    // aren't filtered out by getNextEventOccurrences
+    jest.spyOn(Date, 'now').mockReturnValue(new Date('2020-01-01').getTime())
+  })
+
+  afterAll(() => {
+    jest.restoreAllMocks()
+  })
+
   test('outputs formatted data', async () => {
     expect(
       await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { id: mockData.id })
