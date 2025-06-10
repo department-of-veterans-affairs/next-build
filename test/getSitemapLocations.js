@@ -18,7 +18,7 @@ export async function getSitemapLocations(baseUrl) {
   const fetcher = getFetcher(baseUrl, debug)
   // handle trailing slash
   const base = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
-  const mainSitemapUrl = `${base}/sitemap.xml`
+  const mainSitemapUrl = `${base}/sitemap-nb.xml`
 
   const response = await fetcher(mainSitemapUrl)
 

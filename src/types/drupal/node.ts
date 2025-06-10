@@ -57,6 +57,7 @@ export type NodeTypes =
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
   | NodeLandingPage
+  | NodeLocationsListing
   | NodeNewsStory
   | NodeOffice
   | NodePersonProfile
@@ -398,7 +399,7 @@ export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
   field_region_page: NodeHealthCareRegionPage
-  field_body: string
+  field_body: FieldFormattedText
 }
 
 export interface NodeStepByStep extends NodeAbstractResource {
@@ -442,4 +443,8 @@ export interface NodeLeadershipListing extends DrupalNode {
   field_intro_text: string
   field_office: NodeOffice | NodeHealthCareRegionPage
   field_leadership_profiles: NodePersonProfile[]
+}
+
+export interface NodeLocationsListing extends DrupalNode {
+  field_description: string
 }

@@ -20,6 +20,7 @@ export interface TaxonomyTermHealthCareServiceTaxonomy
   field_service_type_of_care: string
   field_vet_center_type_of_care: string
   field_vha_healthservice_stopcode: number
+  field_tricare_description: string
 
   // Override description with FieldFormattedText
   description: FieldFormattedText
