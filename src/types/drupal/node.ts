@@ -47,6 +47,7 @@ import {
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 import { VamcEhrSystem } from './vamcEhr'
+import { QaSection } from '../formatted/qaSection'
 /** Union of all node types.  */
 export type NodeTypes =
   | NodeBanner
@@ -434,6 +435,7 @@ export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
   field_cc_va_police_overview: FieldCCText
   field_phone_numbers_paragraph: ParagraphPhoneNumber[]
+  field_cc_faq: ParagraphCCVetCenterFaqs
 }
 
 export interface NodeLeadershipListing extends DrupalNode {

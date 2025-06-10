@@ -2,7 +2,10 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { VamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -12,10 +15,8 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { queries } from '.'
-import { FeaturedContent } from '@/types/formatted/featuredContent'
-import { Button } from '@/types/formatted/button'
-import { getNestedIncludes } from '@/lib/utils/queries'
+import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
+import { buildFaqs } from '@/data/utils/ccFaqs'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -70,13 +71,10 @@ export const formatter: QueryFormatter<
   VamcSystemVaPolice
 > = ({ entity, menu }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    // administration: {
-    //   id: entity.field_administration?.drupal_internal__tid || null,
-    //   title: entity.field_administration?.name || null,
-    // },
     path: entity.path.alias,
     menu: formattedMenu,
     policeOverview: {
@@ -119,5 +117,6 @@ export const formatter: QueryFormatter<
             ?.field_button_link?.[0]?.uri || '',
       },
     },
+    faqs: buildFaqs(entity.field_cc_faq),
   }
 }
