@@ -207,7 +207,7 @@ export const formatter: QueryFormatter<
                 .toLowerCase()
                 .includes('mental health'),
               single: {
-                fieldOfficeVisists: location.field_office_visits,
+                fieldOfficeVisits: location.field_office_visits,
                 fieldVirtualSupport: location.field_virtual_support,
                 fieldApptIntroTextType: location.field_appt_intro_text_type,
                 fieldApptIntroTextCustom: location.field_appt_intro_text_custom,
