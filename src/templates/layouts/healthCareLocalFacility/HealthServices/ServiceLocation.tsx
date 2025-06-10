@@ -38,15 +38,14 @@ export const ServiceLocation = ({
     single.fieldVirtualSupport !== 'null'
   const showOnlineScheduleLink = single.fieldOnlineSchedulingAvail === 'yes'
 
+  const showReferralRequirement =
+    fieldReferralRequired &&
+    !['not_applicable', 'unknown', '2'].includes(fieldReferralRequired)
+
   return (
     <va-card class="vads-u-margin-y--2 break-word-wrap">
       {/* Office visits and virtual support */}
-      {(hasOfficeVisits ||
-        hasVirtualSupport ||
-        (fieldReferralRequired &&
-          !['not_applicable', 'unknown', '2'].includes(
-            fieldReferralRequired
-          ))) && (
+      {(hasOfficeVisits || hasVirtualSupport || showReferralRequirement) && (
         <div className="vads-u-padding-top--1">
           {hasOfficeVisits && (
             <p className="vads-u-margin-top--0 vads-u-margin-bottom--0">
@@ -83,23 +82,18 @@ export const ServiceLocation = ({
               }[single.fieldVirtualSupport as string] || ''}
             </p>
           )}
-          {fieldReferralRequired &&
-            !['not_applicable', 'unknown', '2'].includes(
-              fieldReferralRequired
-            ) && (
-              <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                <va-icon
-                  class="vads-u-margin-right--0p5"
-                  icon={
-                    fieldReferralRequired === '1' ? 'check_circle' : 'cancel'
-                  }
-                  size="3"
-                ></va-icon>
-                {fieldReferralRequired === '1'
-                  ? 'A referral is required'
-                  : 'A referral is not required'}
-              </p>
-            )}
+          {showReferralRequirement && (
+            <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
+              <va-icon
+                class="vads-u-margin-right--0p5"
+                icon={fieldReferralRequired === '1' ? 'check_circle' : 'cancel'}
+                size="3"
+              ></va-icon>
+              {fieldReferralRequired === '1'
+                ? 'A referral is required'
+                : 'A referral is not required'}
+            </p>
+          )}
         </div>
       )}
 
