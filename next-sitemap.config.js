@@ -10,6 +10,8 @@ const sitemapConfig = {
   exclude: [],
   // change the default sitemap file name
   sitemapBaseFileName: 'sitemap-nb',
+  changefreq: false,
+  priority: false,
 
   generateRobotsTxt: false, // (optional)
 
