@@ -16,7 +16,7 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
-import { buildFaqs } from './ccFaqs'
+import { buildFaqs } from '@/lib/drupal/ccFaqs'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {

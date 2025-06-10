@@ -24,7 +24,7 @@ export const buildFaqs = (faqs) => {
     header: faqs.fetched.field_section_header[0]?.value || null,
     intro: faqs.fetched.field_section_intro[0]?.value || null,
     displayAccordion:
-      Boolean(faqs.fetched.field_accordion_display[0]?.value) || false,
+      Boolean(faqs.fetched.field_accordion_display[0]?.value) ?? false,
     questions: buildQuestionArray(faqs.fetched.field_questions),
   }
 }
