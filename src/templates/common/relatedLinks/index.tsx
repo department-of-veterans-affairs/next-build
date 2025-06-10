@@ -21,7 +21,10 @@ export const RelatedLinks = ({
   return (
     <section className="vads-u-background-color--gray-lightest vads-u-padding--2p5">
       {sectionTitle && (
-        <h2 className="vads-u-margin-top--0 vads-u-margin-bottom--2 vads-u-font-size--h3 vads-u-padding-bottom--0p5 vads-u-border-bottom--1px vads-u-border-color--gray-light">
+        <h2
+          id="related-links"
+          className="vads-u-margin-top--0 vads-u-margin-bottom--2 vads-u-font-size--h3 vads-u-padding-bottom--0p5 vads-u-border-bottom--1px vads-u-border-color--gray-light"
+        >
           {sectionTitle}
         </h2>
       )}
