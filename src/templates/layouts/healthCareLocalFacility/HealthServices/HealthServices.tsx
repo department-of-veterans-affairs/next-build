@@ -77,7 +77,9 @@ export const HealthServices = ({
                 {service.fieldBody && (
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: service.fieldBody.replace(/<h3/g, '<h4'),
+                      __html: service.fieldBody
+                        .replace(/<h3/g, '<h4')
+                        .replace(/<\/h3/g, '</h4'),
                     }}
                   />
                 )}
