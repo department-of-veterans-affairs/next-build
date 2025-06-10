@@ -1,6 +1,44 @@
+// Mock declarations
+jest.mock('@/lib/drupal/staticProps', () => ({
+  fetchSingleStaticPropsResource: jest.fn(),
+  getDefaultStaticPropsResource: jest.fn(),
+}))
+
+jest.mock('../utils', () => ({
+  ...jest.requireActual('../utils'),
+  isLovellTricareSlug: (slug) => slug === lovellTricareSlug,
+  isLovellVaSlug: (slug) => slug === lovellVaSlug,
+  getLovellVariantOfBreadcrumbs: (breadcrumbs) => breadcrumbs,
+  getLovellVariantOfUrl: (url) => url,
+  getOppositeChildVariant: (variant) =>
+    variant === 'tricare' ? 'va' : 'tricare',
+  isLovellBifurcatedResource: () => false,
+}))
+
+jest.mock('@/lib/drupal/drupalClient', () => ({
+  drupalClient: {
+    translatePath: jest.fn().mockResolvedValue({
+      entity: {
+        uuid: 'test-uuid',
+        id: '1',
+        type: 'node--press_releases_listing',
+        bundle: 'press_releases_listing',
+        canonical: '/test',
+      },
+    }),
+  },
+}))
+
 import { LOVELL } from '../constants'
-import { getLovellStaticPropsContext } from '../staticProps'
+import {
+  getLovellStaticPropsContext,
+  getLovellStaticPropsResource,
+} from '../staticProps'
 import { lovellTricareSlug, lovellVaSlug, otherSlug } from './mockData'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { DrupalTranslatedPath } from 'next-drupal'
+import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { fetchSingleStaticPropsResource } from '@/lib/drupal/staticProps'
 
 describe('getLovellStaticPropsContext', () => {
   test('should return TRICARE-populated Lovell values when TRICARE page', () => {
@@ -40,6 +78,90 @@ describe('getLovellStaticPropsContext', () => {
       isLovellVariantPage: false,
       variant: null,
     })
+  })
+})
+
+describe('getLovellStaticPropsResource press release sorting', () => {
+  const mockChildVariantPage = {
+    'news-releases': [
+      {
+        title: 'Older TRICARE Release',
+        releaseDate: '2024-01-01T10:00:00-04:00',
+      },
+      {
+        title: 'Newer TRICARE Release',
+        releaseDate: '2024-02-01T10:00:00-04:00',
+      },
+    ],
+    totalItems: 2,
+    totalPages: 1,
+    currentPage: 1,
+    breadcrumbs: [],
+    entityPath: '/tricare/news-releases',
+  }
+
+  const mockFederalPage = {
+    'news-releases': [
+      {
+        title: 'Oldest Federal Release',
+        releaseDate: '2023-12-01T10:00:00-04:00',
+      },
+      {
+        title: 'Newest Federal Release',
+        releaseDate: '2024-03-01T10:00:00-04:00',
+      },
+    ],
+    totalItems: 2,
+    totalPages: 1,
+    currentPage: 1,
+    breadcrumbs: [],
+    entityPath: '/federal/news-releases',
+  }
+  // We mock fetchSingleStaticPropsResource to return the child variant page on the first call
+  // and the federal page on the second call. This simulates the real data-fetching sequence
+  // for Lovell pages, which always fetches both sources in this order.
+  beforeEach(() => {
+    ;(fetchSingleStaticPropsResource as jest.Mock)
+      .mockImplementationOnce(() => Promise.resolve(mockChildVariantPage))
+      .mockImplementationOnce(() => Promise.resolve(mockFederalPage))
+  })
+
+  it('sorts merged press releases by releaseDate in descending order', async () => {
+    const pathInfo: DrupalTranslatedPath = {
+      entity: {
+        uuid: 'test-uuid',
+        id: '1',
+        type: 'node--press_releases_listing',
+        bundle: 'press_releases_listing',
+        canonical: '/test',
+      },
+      resolved: 'true',
+      isHomePath: false,
+    }
+    const context: ExpandedStaticPropsContext = {
+      path: '/test',
+      drupalPath: '/test',
+      lovell: {
+        variant: 'tricare',
+        isLovellVariantPage: true,
+      },
+      listing: {
+        page: 1,
+        isListingPage: true,
+        firstPagePath: '/test',
+      },
+    }
+    const result = await getLovellStaticPropsResource(
+      RESOURCE_TYPES.PRESS_RELEASE_LISTING,
+      pathInfo,
+      context
+    )
+    const releases = result['news-releases']
+    expect(releases).toHaveLength(4)
+    expect(releases[0].title).toBe('Newest Federal Release')
+    expect(releases[1].title).toBe('Newer TRICARE Release')
+    expect(releases[2].title).toBe('Older TRICARE Release')
+    expect(releases[3].title).toBe('Oldest Federal Release')
   })
 })
 
