@@ -194,8 +194,10 @@ describe('VamcSystem with valid data', () => {
       render(<VamcSystem {...mockData} />)
 
       // Check for address
-      expect(screen.getByText(/251 Causeway Street/)).toBeInTheDocument()
-      expect(screen.getByText(/Boston, MA 02114-2104/)).toBeInTheDocument()
+      expect(
+        screen.getByText(/61 Lincoln Street, Suite 112/)
+      ).toBeInTheDocument()
+      expect(screen.getByText(/Framingham, MA 01702-8264/)).toBeInTheDocument()
 
       // Check for phone numbers
       expect(screen.getByText('Main phone:')).toBeInTheDocument()
