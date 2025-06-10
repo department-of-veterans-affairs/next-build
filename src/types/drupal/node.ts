@@ -72,6 +72,7 @@ export type NodeTypes =
   | NodeEventListing
   | NodeVetCenter
   | NodeVamcSystemVaPolice
+  | NodeLeadershipListing
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -396,7 +397,7 @@ export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
   field_region_page: NodeHealthCareRegionPage
-  field_body: string
+  field_body: FieldFormattedText
 }
 
 export interface NodeStepByStep extends NodeAbstractResource {
@@ -431,4 +432,12 @@ export interface NodeSupportService extends DrupalNode {
 export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
   field_cc_va_police_overview: FieldCCText
+  field_phone_numbers_paragraph: ParagraphPhoneNumber[]
+}
+
+export interface NodeLeadershipListing extends DrupalNode {
+  field_description: string
+  field_intro_text: string
+  field_office: NodeOffice | NodeHealthCareRegionPage
+  field_leadership_profiles: NodePersonProfile[]
 }

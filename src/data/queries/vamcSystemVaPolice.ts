@@ -1,6 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { drupalClient } from '@/lib/drupal/drupalClient'
 import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { VamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -13,12 +12,17 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { queries } from '.'
+import { FeaturedContent } from '@/types/formatted/featuredContent'
+import { Button } from '@/types/formatted/button'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_administration',
     'field_office',
+    'field_phone_numbers_paragraph',
   ])
 }
 
@@ -77,11 +81,43 @@ export const formatter: QueryFormatter<
     menu: formattedMenu,
     policeOverview: {
       type: 'paragraph--wysiwyg',
-      id: entity.field_cc_va_police_overview.target_id || '',
+      id: entity.field_cc_va_police_overview.target_id ?? '',
       html:
         getHtmlFromField(
           entity.field_cc_va_police_overview?.fetched?.field_wysiwyg?.[0]
         ) || '',
+    },
+    system: entity.field_office?.title || '',
+    phoneNumber: {
+      extension:
+        entity.field_phone_numbers_paragraph?.[0]?.field_phone_extension || '',
+      number:
+        entity.field_phone_numbers_paragraph?.[0]?.field_phone_number || '',
+      phoneType:
+        entity.field_phone_numbers_paragraph?.[0]?.field_phone_number_type ||
+        '',
+      id: entity.field_phone_numbers_paragraph?.[0]?.id ?? '',
+      type: 'paragraph--phone_number',
+    },
+    policeReport: {
+      id: entity.field_cc_police_report?.[0]?.target_id ?? '',
+      type: 'paragraph--featured_content',
+      title:
+        entity.field_cc_police_report?.fetched?.field_section_header?.[0]
+          ?.value || '',
+      description:
+        entity.field_cc_police_report?.fetched?.field_description?.[0]
+          ?.processed || '',
+      link: {
+        id: entity.field_cc_police_report?.fetched?.field_cta?.[0]?.id ?? '',
+        type: 'paragraph--button',
+        label:
+          entity.field_cc_police_report?.fetched?.field_cta?.[0]
+            ?.field_button_label?.[0]?.value || '',
+        url:
+          entity.field_cc_police_report?.fetched?.field_cta?.[0]
+            ?.field_button_link?.[0]?.uri || '',
+      },
     },
   }
 }
