@@ -26,6 +26,71 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
   ],
   "entityId": 63857,
   "entityPath": "/central-arkansas-health-care/va-police",
+  "faqs": {
+    "displayAccordion": true,
+    "header": "Other questions you may have about VA police",
+    "id": "141575",
+    "intro": null,
+    "questions": [
+      {
+        "answers": [
+          {
+            "html": "<p>VA police are armed and uniformed federal law enforcement officers. They provide law enforcement and security services to Veterans and their families at VA medical centers and other VA health facilities. Services include crime prevention and investigation, maintaining law and order, vehicle and foot patrols, telecommunication services, and workplace violence prevention.</p>",
+          },
+        ],
+        "header": "VAMC System - "VA Police" page content > Content > Questions",
+        "id": "141566",
+        "question": "What services do VA police provide?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>VA police and local law enforcement work together to respond to crimes that happen on VA property. VA police and local law enforcement partners train together on skills and tactics such as active threat drills, crisis intervention training, disaster response, and more.</p>",
+          },
+        ],
+        "header": "VAMC System - "VA Police" page content > Content > Questions",
+        "id": "141568",
+        "question": "Do VA police work with local law enforcement?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>90% of VA police have a military background. VA police is looking for qualified applicants to join its team. Candidates must have either criminal justice education, experience as a police officer, experience as a military police officer, or a combination of education and experience. Visit USAJOBS to search for current VA police job announcements.</p>
+
+<p><a href="https://www.usajobs.gov/">Go to USAJOBS.gov to search for current VA police job announcements</a></p>
+
+<p>Transitioning service members may be eligible for employment training, internship, and apprenticeship opportunities with VA police through the DOD SkillBridge program. For more information, email <a href="mailto:Skillbridge.vapolice@va.gov">Skillbridge.vapolice@va.gov</a>.</p>
+
+<p><a href="https://skillbridge.osd.mil/">Learn more about the DOD SkillBridge program</a></p>",
+          },
+        ],
+        "header": "VAMC System - "VA Police" page content > Content > Questions",
+        "id": "141570",
+        "question": "Am I eligible to join the VA police force?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>As a part of its mission to “protect those who served,” VA police across the country will begin to use in-car and body-worn cameras by the end of 2023. This policy increases the safety of VA facilities by promoting transparency and accountability.</p>",
+          },
+        ],
+        "header": "VAMC System - "VA Police" page content > Content > Questions",
+        "id": "141572",
+        "question": "Why do VA police wear body-worn cameras?",
+      },
+      {
+        "answers": [
+          {
+            "html": "<p>VA is committed to protecting the privacy of the Veterans, families, caregivers, and survivors we serve. All local VA privacy officers and VA police officers attend extensive privacy training before officers begin using body-worn cameras.</p>",
+          },
+        ],
+        "header": "VAMC System - "VA Police" page content > Content > Questions",
+        "id": "141574",
+        "question": "How will my privacy be protected?",
+      },
+    ],
+    "type": "paragraph--q_a_section",
+  },
   "id": "7833b254-f4e4-4adb-bce1-d72d5e337c1e",
   "lastUpdated": "2023-12-20T21:57:55+00:00",
   "menu": {

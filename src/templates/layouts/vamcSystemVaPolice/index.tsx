@@ -2,6 +2,7 @@ import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/types/forma
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
+import { QaSection } from '@/templates/components/qaSection'
 
 type VamcSystemVaPoliceProps = {
   title: string
@@ -20,6 +21,7 @@ export function VamcSystemVaPolice({
   system,
   phoneNumber,
   policeReport,
+  faqs,
 }: FormattedVamcSystemVaPolice) {
   useEffect(() => {
     window.sideNav = menu
@@ -84,7 +86,8 @@ export function VamcSystemVaPolice({
             </div>
             {/* Other questions you may have about VA police (field_cc_faq) */}
             <div className="vads-u-margin-bottom--3" id="field-cc-faq-police">
-              PLACEHOLDER FAQ
+              {/* FAQs */}
+              {faqs && <QaSection {...faqs} />}
             </div>
           </article>
           <va-back-to-top></va-back-to-top>
