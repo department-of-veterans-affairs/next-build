@@ -5,7 +5,7 @@ test.describe('LocationsListing page', () => {
     await page.goto('/boston-health-care/locations/')
     await expect(page).toHaveURL('/boston-health-care/locations/')
     await expect(
-      page.getByRole('heading', { name: /locations/i })
+      page.getByRole('heading', { name: /locations/i, level: 1 })
     ).toBeVisible()
   })
 
