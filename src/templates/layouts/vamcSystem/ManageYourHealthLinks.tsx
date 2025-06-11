@@ -56,17 +56,17 @@ export function ManageYourHealthLinks({
   const normalItemClasses = clsx(baseItemClasses, 'vads-u-display--flex')
   const mobileOnlyItemClasses = clsx(
     baseItemClasses,
-    'vads-u-display--flex medium-screen:vads-u-display--none'
+    'vads-u-display--flex tablet:vads-u-display--none'
   )
   const desktopOnlyItemClasses = clsx(
     baseItemClasses,
-    'vads-u-display--none medium-screen:vads-u-display--flex'
+    'vads-u-display--none tablet:vads-u-display--flex'
   )
 
   // Let's use border util classes instead
   return (
-    <div className="vads-u-display--flex medium-screen:vads-u-flex-direction--row vads-u-flex-direction--column">
-      <div className="vads-u-margin-right--0 medium-screen:vads-u-margin-right--3">
+    <div className="vads-u-display--flex tablet:vads-u-flex-direction--row vads-u-flex-direction--column">
+      <div className="vads-u-margin-right--0 tablet:vads-u-margin-right--3">
         <p className={normalItemClasses}>
           {renderIcon('pill')}
           <va-link

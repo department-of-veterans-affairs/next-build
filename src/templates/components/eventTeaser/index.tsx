@@ -25,9 +25,9 @@ export const EventTeaser = ({
     <div
       data-template="teasers/event"
       data-featured={fieldFeatured}
-      className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-bottom--4"
+      className="vads-u-margin-bottom--3 tablet:vads-u-margin-bottom--4"
     >
-      <h3 className="vads-u-margin-top--0 vads-u-margin-bottom-1 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
+      <h3 className="vads-u-margin-top--0 vads-u-margin-bottom-1 vads-u-font-size--md tablet:vads-u-font-size--lg">
         <va-link text={title} href={entityUrl.path} />
       </h3>
       <p className="vads-u-margin-bottom--1p5 vads-u-margin-top--0">
