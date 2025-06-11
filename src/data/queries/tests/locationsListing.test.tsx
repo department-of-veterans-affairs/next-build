@@ -22,7 +22,7 @@ describe('LocationsListing formatData', () => {
   // Patch mock to ensure path.alias exists and menu has a valid tree
   const patchedMock = {
     ...LocationsListingMock,
-    path: { alias: '/boston-health-care/', pid: 1, langcode: 'en' },
+    path: { alias: '/boston-health-care/locations/', pid: 1, langcode: 'en' },
     field_office: {
       ...LocationsListingMock.field_office,
       field_system_menu: {

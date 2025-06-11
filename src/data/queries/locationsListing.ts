@@ -42,9 +42,7 @@ export const data: QueryData<
   )) as NodeLocationsListing
 
   if (!entity) {
-    throw new Error(
-      `NodeVamcSystemVaPolice entity not found for id: ${opts.id}`
-    )
+    throw new Error(`NodeLocationsListing entity not found for id: ${opts.id}`)
   }
   const menu = entity.field_office.field_system_menu
     ? await getMenu(
