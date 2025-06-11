@@ -90,12 +90,13 @@ export function VamcSystem({
                   basePath={path}
                 />
               ))}
-              <va-link
-                active
-                className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
-                href={`${path}/locations`}
-                text="See all locations"
-              ></va-link>
+              <p className="vads-u-margin-y--0">
+                <va-link
+                  active
+                  href={`${path}/locations`}
+                  text="See all locations"
+                ></va-link>
+              </p>
             </section>
 
             {/* Manage your health online section */}
