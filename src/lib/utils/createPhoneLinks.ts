@@ -6,7 +6,6 @@
  * @returns The content with phone numbers wrapped in <va-telephone> tags.
  */
 export const createPhoneLinks = (content: string) => {
-  console.log('calling createPhoneLinks')
   // Change phone to tap to dial.
   const replacePattern =
     /\(?(\d{3})\)?[- ]*(\d{3})[- ]*(\d{4}),?(?: ?x\.? ?(\d*)| ?ext\.? ?(\d*))?(?!([^<]*>)|(((?!<v?a).)*<\/v?a.*>))/gi
@@ -15,8 +14,6 @@ export const createPhoneLinks = (content: string) => {
   if (!matches) {
     return content
   }
-
-  console.log('  replacing phone numbers', matches)
 
   return content.replace(
     replacePattern,
