@@ -34,9 +34,9 @@ export function FacilityListing({
   } = facility
 
   return (
-    <div className="region-list usa-width-one-whole vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4 medium-screen:vads-u-margin-bottom--5">
-      <section className="region-grid vads-u-margin-right--2">
-        <h3 className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md medium-screen:vads-u-font-size--lg">
+    <div className="vads-grid-row vads-grid-gap-5 vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4 tablet:vads-u-margin-bottom--5">
+      <section className="mobile-lg:vads-grid-col-6 tablet:vads-grid-col-8">
+        <h3 className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md tablet:vads-u-font-size--lg">
           <va-link href={path} text={title}></va-link>
         </h3>
 
@@ -59,7 +59,7 @@ export function FacilityListing({
       </section>
 
       {image && image.alt && image.links && path && (
-        <section className="region-grid usa-width-one-half vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2">
+        <section className="mobile-lg:vads-grid-col-6 tablet:vads-grid-col-4 vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2">
           <a href={path} aria-label={image.alt}>
             <MediaImage
               {...image}

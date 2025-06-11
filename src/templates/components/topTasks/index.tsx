@@ -28,7 +28,7 @@ export const FacilityTopTasks = ({
   })
 
   return (
-    <div className="usa-grid usa-grid-full vads-u-margin-bottom--6">
+    <div className="vads-u-margin-bottom--6">
       <div data-template="facilities/facilities_health_services_buttons">
         <va-link-action
           class="vads-u-display--block"
@@ -73,7 +73,7 @@ export const RegionalTopTasks = ({
   })
 
   return (
-    <div className="usa-grid usa-grid-full vads-u-margin-top--0 vads-u-margin-bottom--3">
+    <div className="vads-u-margin-top--0 vads-u-margin-bottom--3">
       <div>
         <va-link-action
           class="vads-u-display--block"
