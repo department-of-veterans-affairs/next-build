@@ -148,7 +148,10 @@ export default function ResourcePage({
       <main>
         <div id="content" className="interior">
           {resource.type === RESOURCE_TYPES.EVENT && (
-            <Event {...(resource as FormattedEvent)} />
+            <>
+              <div>Testing Chnage</div>
+              <Event {...(resource as FormattedEvent)} />
+            </>
           )}
           {resource.type === RESOURCE_TYPES.EVENT_LISTING && (
             <EventListing {...(resource as FormattedEventListing)} />
