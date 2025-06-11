@@ -64,7 +64,7 @@ export function VamcSystem({
               />
               {title && <h1>{title}</h1>}
               {hasValidImage && (
-                <div className="duotone darken lighten medium-screen:vads-u-margin-bottom--0p5">
+                <div className="duotone darken lighten tablet:vads-u-margin-bottom--0p5">
                   <MediaImage {...image} imageStyle={imageStyle} alt="" />
                 </div>
               )}
@@ -80,7 +80,7 @@ export function VamcSystem({
               )}
               {/* Locations Section */}
               <section>
-                <h2 className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 medium-screen:vads-u-margin-bottom--2p5">
+                <h2 className="vads-u-font-size--xl vads-u-margin-top--3 tablet:vads-u-margin-top--5 tablet:vads-u-margin-bottom--2p5">
                   Locations
                 </h2>
                 {mainFacilities.map((facility) => (
@@ -121,7 +121,7 @@ export function VamcSystem({
               {/* Stories Section */}
               {featuredStories.length > 0 && (
                 <section>
-                  <h2 className="vads-u-margin-bottom--3 medium-screen:vads-u-margin-top--5">
+                  <h2 className="vads-u-margin-bottom--3 tablet:vads-u-margin-top--5">
                     Stories
                   </h2>
                   {featuredStories
@@ -141,7 +141,7 @@ export function VamcSystem({
               {/* Events Section */}
               {(featuredEvents.length > 0 || fallbackEvent) && (
                 <section>
-                  <h2 className="vads-u-margin-top--4 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--2p5">
+                  <h2 className="vads-u-margin-top--4 vads-u-margin-bottom--2 tablet:vads-u-margin-bottom--2p5">
                     Events
                   </h2>
                   {featuredEvents.length
