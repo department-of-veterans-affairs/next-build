@@ -364,7 +364,7 @@ export interface NodeEvent extends DrupalNode {
   field_publish_to_outreach_cal: boolean
   field_event_registrationrequired: boolean
 
-  field_description: string
+  field_description: string | null
   field_link: FieldNestedLink
   field_url_of_an_online_event: FieldLink
   field_listing: NodeEventListing

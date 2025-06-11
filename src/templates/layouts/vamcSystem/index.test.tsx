@@ -8,6 +8,13 @@ import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { formatter } from '@/data/queries/vamcSystem'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
+import mockEventData from '@/products/event/mock.json'
+
+const mockFeaturedEventData = {
+  ...mockEventData,
+  field_featured: true,
+  title: 'Dodgeball Club',
+}
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -40,6 +47,8 @@ const mockData = formatter({
   lovell: { isLovellVariantPage: false, variant: undefined },
   mainFacilities: [drupalMockFacilityData],
   featuredStories: [drupalMockStoryData],
+  featuredEvents: [mockFeaturedEventData],
+  fallbackEvent: mockEventData,
 })
 
 describe('VamcSystem with valid data', () => {
@@ -358,6 +367,151 @@ describe('VamcSystem with valid data', () => {
         screen.queryByRole('heading', { name: 'Stories' })
       ).not.toBeInTheDocument()
       expect(screen.queryByText('See all stories')).not.toBeInTheDocument()
+    })
+  })
+
+  describe('Events section', () => {
+    function mockTimeZone(timeZone: string) {
+      const originalResolvedOptions =
+        Intl.DateTimeFormat.prototype.resolvedOptions
+      jest
+        .spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions')
+        .mockReturnValue({
+          ...originalResolvedOptions.call(new Intl.DateTimeFormat()),
+          timeZone,
+        })
+    }
+
+    afterEach(() => {
+      jest.restoreAllMocks()
+    })
+
+    test('renders the events section heading when featured events exist', () => {
+      render(<VamcSystem {...mockData} />)
+      expect(
+        screen.getByRole('heading', { name: 'Events' })
+      ).toBeInTheDocument()
+    })
+
+    test('renders all featured events without limit', () => {
+      // Create test data with multiple events (unlike stories, events don't have a MAX limit)
+      const dataWithMultipleEvents = {
+        ...mockData,
+        featuredEvents: [
+          ...mockData.featuredEvents,
+          {
+            ...mockData.featuredEvents[0],
+            entityId: 'event-2',
+            title: 'Basketball Club',
+          },
+          {
+            ...mockData.featuredEvents[0],
+            entityId: 'event-3',
+            title: 'Soccer Club',
+          },
+        ],
+      }
+
+      const { container } = render(<VamcSystem {...dataWithMultipleEvents} />)
+
+      // Should render all featured events (no MAX limit like stories)
+      const event1Link = container.querySelector(
+        'va-link[text="Dodgeball Club"]'
+      )
+      const event2Link = container.querySelector(
+        'va-link[text="Basketball Club"]'
+      )
+      const event3Link = container.querySelector('va-link[text="Soccer Club"]')
+
+      expect(event1Link).toBeInTheDocument()
+      expect(event2Link).toBeInTheDocument()
+      expect(event3Link).toBeInTheDocument()
+    })
+
+    test('renders event titles as links with correct hrefs', () => {
+      const { container } = render(<VamcSystem {...mockData} />)
+
+      // Check that each featured event's title is rendered as a va-link
+      mockData.featuredEvents.forEach((event) => {
+        const eventLink = container.querySelector(
+          `va-link[text="${event.title}"]`
+        )
+        expect(eventLink).toBeInTheDocument()
+        expect(eventLink).toHaveAttribute('href', event.entityUrl.path)
+      })
+    })
+
+    test('renders event descriptions', () => {
+      render(<VamcSystem {...mockData} />)
+
+      // Check that event descriptions are rendered (they may be truncated)
+      // The mock data has "Pickleball " as the description
+      expect(screen.getByText(/Pickleball/)).toBeInTheDocument()
+    })
+
+    test('renders event date and time information', () => {
+      // Mock timezone to Mountain Time to ensure consistent test results no matter where
+      // the test is run (Pacific on my machine, Central on CI)
+      mockTimeZone('America/Denver')
+
+      render(<VamcSystem {...mockData} />)
+
+      // Check that "When" label appears for events
+      expect(screen.getAllByText('When').length).toBeGreaterThan(0)
+
+      // Check that formatted date appears (from our EventTeaser tests, we know this format)
+      expect(
+        screen.getByText('Thu. Sep 14, 2023, 8:00 a.m. – 10:00 a.m. MT')
+      ).toBeInTheDocument()
+    })
+
+    test('renders the "See all events" link with correct href', () => {
+      const { container } = render(<VamcSystem {...mockData} />)
+
+      const seeAllLink = container.querySelector(
+        'va-link[text="See all events"]'
+      )
+      expect(seeAllLink).toBeInTheDocument()
+      expect(seeAllLink).toHaveAttribute('href', `${mockData.path}/events`)
+      expect(seeAllLink).toHaveAttribute('text', 'See all events')
+      expect(seeAllLink).toHaveAttribute('active', 'true')
+    })
+
+    test('does not render the events section when no events exist', () => {
+      const dataWithoutEvents = {
+        ...mockData,
+        featuredEvents: [],
+        fallbackEvent: null,
+      }
+
+      render(<VamcSystem {...dataWithoutEvents} />)
+
+      expect(
+        screen.queryByRole('heading', { name: 'Events' })
+      ).not.toBeInTheDocument()
+      expect(screen.queryByText('See all events')).not.toBeInTheDocument()
+    })
+
+    test('renders other events when no featured events exist', () => {
+      const dataWithOnlyFallbackEvent = {
+        ...mockData,
+        featuredEvents: [],
+        // fallbackEvent should still exist from mockData
+      }
+
+      const { container } = render(
+        <VamcSystem {...dataWithOnlyFallbackEvent} />
+      )
+
+      // When no featured events exist, should render first other event
+      const otherEventLink = container.querySelector(
+        'va-link[text="Pickleball Club"]'
+      )
+      expect(otherEventLink).toBeInTheDocument()
+      expect(otherEventLink).toHaveAttribute(
+        'href',
+        '/central-iowa-health-care/events/52265'
+      )
     })
   })
 
