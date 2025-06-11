@@ -23,6 +23,7 @@ import { formatter as formatEmail } from '@/data/queries/emailContact'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from './administration'
+import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 
@@ -210,7 +211,9 @@ export const formatter: QueryFormatter<
                 fieldOfficeVisits: location.field_office_visits,
                 fieldVirtualSupport: location.field_virtual_support,
                 fieldApptIntroTextType: location.field_appt_intro_text_type,
-                fieldApptIntroTextCustom: location.field_appt_intro_text_custom,
+                fieldApptIntroTextCustom: createPhoneLinks(
+                  location.field_appt_intro_text_custom
+                ),
                 fieldOtherPhoneNumbers: location.field_other_phone_numbers
                   .filter(isPublished)
                   .map(formatPhone),

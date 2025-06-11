@@ -138,7 +138,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "isMentalHealthService": false,
             "single": {
               "fieldAdditionalHoursInfo": null,
-              "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at 774-826-2870.",
+              "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.",
               "fieldApptIntroTextType": "customize_text",
               "fieldEmailContacts": [],
               "fieldHours": "2",
@@ -320,7 +320,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "isMentalHealthService": false,
             "single": {
               "fieldAdditionalHoursInfo": null,
-              "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at 800-273-8255 and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+              "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at <va-telephone contact="800-273-8255" extension=""></va-telephone> and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
               "fieldApptIntroTextType": "customize_text",
               "fieldEmailContacts": [],
               "fieldHours": "0",
@@ -1139,7 +1139,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "isMentalHealthService": false,
             "single": {
               "fieldAdditionalHoursInfo": null,
-              "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at 774-826-2870.",
+              "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.",
               "fieldApptIntroTextType": "customize_text",
               "fieldEmailContacts": [],
               "fieldHours": "2",
@@ -1321,7 +1321,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "isMentalHealthService": false,
             "single": {
               "fieldAdditionalHoursInfo": null,
-              "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at 800-273-8255 and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+              "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at <va-telephone contact="800-273-8255" extension=""></va-telephone> and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
               "fieldApptIntroTextType": "customize_text",
               "fieldEmailContacts": [],
               "fieldHours": "0",
