@@ -58,44 +58,46 @@ export function PressReleaseListing(
     )
 
   return (
-    <div key={id} className="usa-grid usa-grid-full">
+    <div key={id} className="vads-grid-container">
       {/* Widget coming from vets-website */}
       <nav
         data-template="navigation/facility_sidebar_nav"
         aria-label="secondary"
         data-widget-type="side-nav"
       ></nav>
-      <div className="usa-width-three-fourths">
-        <article className="usa-content">
-          <LovellSwitcher
-            currentVariant={lovellVariant}
-            switchPath={lovellSwitchPath}
-          />
-          <h1 id="article-heading">{title}</h1>
-          <div className="vads-l-grid-container--full">
-            <div className="va-introtext">
-              {introText && <p id="office-events-description">{introText}</p>}
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-12">
+          <article className="usa-content">
+            <LovellSwitcher
+              currentVariant={lovellVariant}
+              switchPath={lovellSwitchPath}
+            />
+            <h1 id="article-heading">{title}</h1>
+            <div className="vads-grid-container--full">
+              <div className="va-introtext">
+                {introText && <p id="office-events-description">{introText}</p>}
+              </div>
+              <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
+              {totalPages > 1 && (
+                <VaPagination
+                  page={currentPage}
+                  pages={totalPages}
+                  maxPageListLength={DEFAULT_PAGE_LIST_LENGTH}
+                  onPageSelect={(page) => {
+                    const newPage =
+                      page.detail.page > 1 ? `page-${page.detail.page}` : ''
+                    const newUrl = window.location.href.replace(
+                      /(?<=news-releases\/).*/, // everything after /news-releases/
+                      newPage
+                    )
+                    window.location.assign(newUrl)
+                  }}
+                />
+              )}
             </div>
-            <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
-            {totalPages > 1 && (
-              <VaPagination
-                page={currentPage}
-                pages={totalPages}
-                maxPageListLength={DEFAULT_PAGE_LIST_LENGTH}
-                onPageSelect={(page) => {
-                  const newPage =
-                    page.detail.page > 1 ? `page-${page.detail.page}` : ''
-                  const newUrl = window.location.href.replace(
-                    /(?<=news-releases\/).*/, // everything after /news-releases/
-                    newPage
-                  )
-                  window.location.assign(newUrl)
-                }}
-              />
-            )}
-          </div>
-        </article>
-        <ContentFooter />
+          </article>
+          <ContentFooter />
+        </div>
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
-import { TopTasks } from '@/templates/components/topTasks'
+import { FacilityTopTasks } from '@/templates/components/topTasks'
 import { numberToTimeString } from '@/lib/utils/numberToTimeString'
 import { dayOfWeek } from '@/lib/utils/dayOfWeek'
 
@@ -47,6 +47,7 @@ export function HealthCareLocalFacility({
   socialLinks,
   lovellVariant,
   lovellSwitchPath,
+  healthServices,
 }: FormattedHealthCareLocalFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -113,7 +114,7 @@ export function HealthCareLocalFacility({
               </div>
             )}
 
-            <TopTasks
+            <FacilityTopTasks
               path={regionBasePath}
               administration={administration}
               vamcEhrSystem={vamcEhrSystem}
@@ -179,7 +180,7 @@ export function HealthCareLocalFacility({
               sectionTitle={relatedLinks.sectionTitle}
               links={relatedLinks.links}
             />
-            <HealthServices />
+            <HealthServices healthServices={healthServices} />
             {facilityLocatorApiId.includes('vha_') && (
               <div
                 data-widget-type="facility-patient-satisfaction-scores"

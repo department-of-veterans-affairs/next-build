@@ -52,7 +52,7 @@ const data = {
   },
   listing: '/pittsburgh-health-care/stories',
   administration: {
-    id: 12,
+    entityId: 12,
     name: 'VA Pittsburgh health care',
   },
   metatags: [

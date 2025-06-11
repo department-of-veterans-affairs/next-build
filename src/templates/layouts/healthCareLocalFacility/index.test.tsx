@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import drupalMockData from '@/mocks/healthCareLocalFacility.mock.json'
+import drupalMockData from '@/mocks/healthCareLocalFacility.mock'
 import { HealthCareLocalFacility } from './index'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { formatter } from '@/data/queries/healthCareLocalFacility'
@@ -28,9 +28,6 @@ const mockMenu = {
 }
 
 const mockData = formatter({
-  // @ts-expect-error drupalMockData technically has numbers instead of strings
-  // for some of the IDs, but this is a known problem. See
-  // https://github.com/chapter-three/next-drupal/issues/686#issuecomment-2083175598
   entity: drupalMockData,
   menu: mockMenu,
   lovell: { isLovellVariantPage: false, variant: 'va' },
@@ -39,14 +36,8 @@ const mockData = formatter({
 describe('HealthCareLocalFacility with valid data', () => {
   test('renders HealthCareLocalFacility component with basic data', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-
-    const basicDataFields: Array<keyof FormattedHealthCareLocalFacility> = [
-      'title',
-      'introText',
-    ]
-    basicDataFields.forEach((key) =>
-      expect(screen.getByText(mockData[key])).toBeInTheDocument()
-    )
+    expect(screen.getByText(mockData.title.trim())).toBeInTheDocument()
+    expect(screen.getByText(mockData.introText.trim())).toBeInTheDocument()
   })
 
   // Once window.sideNav is populated, the static-pages app will render the menu

@@ -14,7 +14,7 @@ import {
   FieldNestedLink,
   FieldCCText,
   FieldGeoLocation,
-  FieldHealthServicesArray,
+  VetCenterFieldHealthServicesArray,
   BreadcrumbItem,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
@@ -46,7 +46,8 @@ import {
   TaxonomyTermLcCategories,
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
-
+import { VamcEhrSystem } from './vamcEhr'
+import { QaSection } from '../formatted/qaSection'
 /** Union of all node types.  */
 export type NodeTypes =
   | NodeBanner
@@ -56,6 +57,7 @@ export type NodeTypes =
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
   | NodeLandingPage
+  | NodeLocationsListing
   | NodeNewsStory
   | NodeOffice
   | NodePersonProfile
@@ -72,6 +74,7 @@ export type NodeTypes =
   | NodeEventListing
   | NodeVetCenter
   | NodeVamcSystemVaPolice
+  | NodeLeadershipListing
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -153,7 +156,7 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_geolocation: FieldGeoLocation
   field_intro_text: string
   // TODO: Uncomment these
-  // field_local_health_care_service_: NodeHealthCareLocalHealthService[] //
+  field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   // field_location_services: ParagraphHealthCareLocalFacilityService[]
   field_main_location: boolean
   field_media: DrupalMediaImage
@@ -185,7 +188,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_phone_number: string
   field_timezone: string
   field_administration: FieldAdministration
-  field_health_services: FieldHealthServicesArray
+  field_health_services: VetCenterFieldHealthServicesArray
   field_media: DrupalMediaImage
   field_prepare_for_visit: ParagraphAccordion[]
   field_vet_center_feature_content: ParagraphFeaturedContent[]
@@ -208,7 +211,7 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_appointments_online: boolean
   field_media: DrupalMediaImage
   field_related_links: ParagraphListOfLinkTeasers | null
-  field_vamc_ehr_system: string
+  field_vamc_ehr_system: VamcEhrSystem
   field_facebook: FieldLink
   field_flickr: FieldLink
   field_govdelivery_id_emerg: string
@@ -361,7 +364,7 @@ export interface NodeEvent extends DrupalNode {
   field_publish_to_outreach_cal: boolean
   field_event_registrationrequired: boolean
 
-  field_description: string
+  field_description: string | null
   field_link: FieldNestedLink
   field_url_of_an_online_event: FieldLink
   field_listing: NodeEventListing
@@ -394,9 +397,9 @@ export interface NodeQA extends NodeAbstractResource {
 
 export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
-  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy[] //@todo
+  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
   field_region_page: NodeHealthCareRegionPage
-  field_body: string
+  field_body: FieldFormattedText
 }
 
 export interface NodeStepByStep extends NodeAbstractResource {
@@ -430,4 +433,18 @@ export interface NodeSupportService extends DrupalNode {
 
 export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
+  field_cc_va_police_overview: FieldCCText
+  field_phone_numbers_paragraph: ParagraphPhoneNumber[]
+  field_cc_faq: ParagraphCCVetCenterFaqs
+}
+
+export interface NodeLeadershipListing extends DrupalNode {
+  field_description: string
+  field_intro_text: string
+  field_office: NodeOffice | NodeHealthCareRegionPage
+  field_leadership_profiles: NodePersonProfile[]
+}
+
+export interface NodeLocationsListing extends DrupalNode {
+  field_description: string
 }

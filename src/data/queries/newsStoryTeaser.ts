@@ -1,9 +1,9 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
-import { queries } from '.'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory } from '@/types/drupal/node'
 import { NewsStoryTeaser } from '@/types/formatted/newsStory'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatter as formatImage } from '@/data/queries/mediaImage'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {
@@ -22,7 +22,7 @@ export const formatter: QueryFormatter<NodeNewsStory, NewsStoryTeaser> = (
     published: entity.status,
     headingLevel: 'h2', //@todo fix headingLevel,
     title: entity.title,
-    image: queries.formatData('media--image', entity.field_media), //cropType: '2_1_large'
+    image: formatImage(entity.field_media), //cropType: '2_1_large'
     link: `${entity.path.alias}`,
     introText: entity.field_intro_text,
     lastUpdated: entity.field_last_saved_by_an_editor || entity.created,

@@ -51,4 +51,12 @@ describe('VamcSystemVaPolice with valid data', () => {
     // we're adding it
     expect(window.sideNav).toEqual(mockData.menu)
   })
+  test('renders the police overview', () => {
+    render(<VamcSystemVaPolice {...mockData} />)
+    expect(
+      screen.getByText(
+        'VA police officers help make VA medical centers and other VA health facilities safe for Veterans and their family members.'
+      )
+    ).toBeInTheDocument()
+  })
 })

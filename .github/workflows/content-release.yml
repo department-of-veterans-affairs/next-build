@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@f24d7193d98baebaeacc7e2227925dd47cc267f5 # v4.2.0
+      uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -210,56 +210,55 @@ jobs:
             ls -l
           fi
 
-    # - name: Build sitemap
-    #   run: |
-    #     cd main && yarn build:sitemap
-    #     cd out
-    #     if [ -f sitemap.xml ]; then
-    #         echo "File found!"
-    #         cp sitemap.xml sitemap-nb.xml
-    #     else
-    #         touch sitemap-nb.xml
-    #     fi
-    #   shell: bash
+    - name: Build sitemap
+      run: |
+        cd main && yarn build:sitemap
+        cd out
+        if [ -f sitemap-nb.xml ]; then
+            echo "File found!"
+        else
+            touch sitemap-nb.xml
+        fi
+      shell: bash
 
-    # - name: setup bucket descriptor
-    #   id: bucket-descriptor
-    #   run: |
-    #     if [ "${{ inputs.build_type }}" == 'dev' ]; then
-    #       echo NEXT_SITEMAP_LOCATION="https://dev.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-    #       echo OLD_SITEMAP_LOCATION="https://dev.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-    #     elif [ "${{ inputs.build_type }}" == 'staging'] ; then
-    #       echo NEXT_SITEMAP_LOCATION="https://staging.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-    #       echo OLD_SITEMAP_LOCATION="https://staging.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-    #     elif [ "${{ inputs.build_type }}" == 'prod' ]; then
-    #       echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-    #       echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-    #     else
-    #       echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
-    #       echo OLD_SITEMAP_LOCATION="https://www.va.gov/sitemap-cb.xml" >> $GITHUB_OUTPUT
-    #     fi
-    #   shell: bash
+    - name: setup bucket descriptor
+      id: bucket-descriptor
+      run: |
+        if [ "${{ inputs.build_type }}" == 'dev' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://dev.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo CB_SITEMAP_LOCATION="https://dev.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.build_type }}" == 'staging'] ; then
+          echo NEXT_SITEMAP_LOCATION="https://staging.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo CB_SITEMAP_LOCATION="https://staging.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.build_type }}" == 'prod' ]; then
+          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo CB_SITEMAP_LOCATION="https://www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        else
+          echo NEXT_SITEMAP_LOCATION="https://www.va.gov/sitemap-nb.xml" >> $GITHUB_OUTPUT
+          echo CB_SITEMAP_LOCATION="https://www.va.gov/sitemap.xml" >> $GITHUB_OUTPUT
+        fi
+      shell: bash
 
-    # - name: Generate new sitemap
-    #   run: |
-    #     cd main
-    #     cd out
-    #     echo "${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}"
-    #     cat <<'EOF' >> sitemap.xml
-    #     <?xml version="1.0" encoding="UTF-8"?>
-    #       <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    #         <sitemap>
-    #           <loc>${{steps.bucket-descriptor.outputs.NEXT_SITEMAP_LOCATION}}</loc>
-    #         </sitemap>
-    #         <sitemap>
-    #           <loc>${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}</loc>
-    #         </sitemap>
-    #       </sitemapindex>
-    #     EOF
+    - name: Generate new sitemap
+      run: |
+        cd main
+        cd out
+        echo "${{steps.bucket-descriptor.outputs.OLD_SITEMAP_LOCATION}}"
+        cat <<'EOF' >> sitemap_index.xml
+        <?xml version="1.0" encoding="UTF-8"?>
+          <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <sitemap>
+              <loc>${{steps.bucket-descriptor.outputs.NEXT_SITEMAP_LOCATION}}</loc>
+            </sitemap>
+            <sitemap>
+              <loc>${{steps.bucket-descriptor.outputs.CB_SITEMAP_LOCATION}}</loc>
+            </sitemap>
+          </sitemapindex>
+        EOF
 
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@f24d7193d98baebaeacc7e2227925dd47cc267f5 # v4.2.0
+      uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -328,7 +327,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@f24d7193d98baebaeacc7e2227925dd47cc267f5 # v4.2.0
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -382,7 +381,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@f24d7193d98baebaeacc7e2227925dd47cc267f5 # v4.2.0
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -467,7 +466,7 @@ jobs:
             jq '.series[].tags[3] = "trigger:${{env.BUILD_TRIGGER}}"' > metrics.json
 
         - name: Configure AWS credentials
-          uses: aws-actions/configure-aws-credentials@f24d7193d98baebaeacc7e2227925dd47cc267f5 # v4.2.0
+          uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

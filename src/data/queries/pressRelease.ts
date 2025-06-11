@@ -10,6 +10,7 @@ import {
 } from '@/lib/drupal/query'
 import { get } from 'lodash'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatter as formatAdministration } from './administration'
 
 // Define the query params for fetching node--press_release.
 export const params: QueryParams<null> = () => {
@@ -105,9 +106,6 @@ export const formatter: QueryFormatter<NodePressRelease, PressRelease> = (
     contacts: formattedContacts,
     downloads: downloads,
     listing: entity.field_listing?.path?.alias,
-    administration: {
-      id: entity.field_administration?.drupal_internal__tid || null,
-      name: entity.field_administration?.name || null,
-    },
+    administration: formatAdministration(entity.field_administration),
   }
 }

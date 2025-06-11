@@ -8,6 +8,10 @@ const sitemapConfig = {
   sitemapSize: 100000, //set some large size in bytes so we have one sitemap.xml?
   // relative paths to exclude
   exclude: [],
+  // change the default sitemap file name
+  sitemapBaseFileName: 'sitemap-nb',
+  changefreq: false,
+  priority: false,
 
   generateRobotsTxt: false, // (optional)
 

@@ -28,7 +28,7 @@ export const listingParams: QueryParams<string> = (listingEntityId: string) => {
   return queries
     .getParams(`${RESOURCE_TYPES.PRESS_RELEASE}--teaser`)
     .addFilter('field_listing.id', listingEntityId)
-    .addSort('-created')
+    .addSort('-field_release_date')
 }
 
 // Define the option types for the data loader.
