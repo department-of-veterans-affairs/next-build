@@ -13,7 +13,7 @@ import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { StoryTeaser } from './StoryTeaser'
 import FacilitySocialLinks from '../healthCareLocalFacility/FacilitySocialLinks'
 // import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
-// import { EventTeaser } from '@/templates/components/eventTeaser'
+import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
 
 // Allows additions to window object without overwriting global type
@@ -35,6 +35,8 @@ export function VamcSystem({
   mainFacilities,
   relatedLinks,
   featuredStories,
+  featuredEvents,
+  fallbackEvent,
   lovellVariant,
   lovellSwitchPath,
   socialLinks,
@@ -134,31 +136,30 @@ export function VamcSystem({
               </section>
             )}
             {/* Events Section */}
-            {/* {(eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0 ||
-              eventTeasersAll?.entities?.[0]?.reverseFieldListingNode?.entities?.length > 0) && (
+            {(featuredEvents.length > 0 || fallbackEvent) && (
               <section>
                 <h2 className="vads-u-margin-top--4 vads-u-margin-bottom--2 medium-screen:vads-u-margin-bottom--2p5">
                   Events
                 </h2>
-                {eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.map(
-                  (event) => (
-                    <EventTeaser key={event.entityId} {...event} />
-                  )
-                )}
-                {!eventTeasersFeatured?.entities?.[0]?.reverseFieldListingNode?.entities?.length &&
-                  eventTeasersAll?.entities?.[0]?.reverseFieldListingNode?.entities
-                    ?.slice(0, 1)
-                    .map((event) => (
+                {featuredEvents.length
+                  ? featuredEvents.map((event) => (
                       <EventTeaser key={event.entityId} {...event} />
-                    ))}
-                <va-link
-                  active
-                  className="vads-u-font-size--md vads-u-display--block vads-u-width--full"
-                  href={`${path}/events`}
-                  text="See all events"
-                ></va-link>
+                    ))
+                  : fallbackEvent && (
+                      <EventTeaser
+                        key={fallbackEvent.entityId}
+                        {...fallbackEvent}
+                      />
+                    )}
+                <p className="vads-u-margin-y--0">
+                  <va-link
+                    active
+                    href={`${path}/events`}
+                    text="See all events"
+                  ></va-link>
+                </p>
               </section>
-            )} */}
+            )}
             {/* Social Links */}
             <FacilitySocialLinks {...socialLinks} />
             <va-back-to-top></va-back-to-top>

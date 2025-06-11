@@ -4,6 +4,7 @@ import {
   NodeHealthCareLocalFacility,
   NodeHealthCareRegionPage,
   NodeNewsStory,
+  NodeEvent,
 } from '@/types/drupal/node'
 import { VamcSystem } from '@/types/formatted/vamcSystem'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -22,10 +23,13 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
 import { formatter as formatAdministration } from '@/data/queries/administration'
 import { formatter as formatNewsStoryTeaser } from '@/data/queries/newsStoryTeaser'
+import { formatter as formatEventTeaser } from '@/data/queries/eventTeaser'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import { getNextEventOccurrences } from '@/products/event/query-utils'
+import { writeFileSync } from 'fs'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -55,6 +59,8 @@ type VamcSystemData = {
   lovell?: ExpandedStaticPropsContext['lovell']
   mainFacilities: NodeHealthCareLocalFacility[]
   featuredStories: NodeNewsStory[]
+  featuredEvents: NodeEvent[]
+  fallbackEvent: NodeEvent | null
 }
 
 // Implement the data loader.
@@ -96,6 +102,23 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
       PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
     )
 
+  // Fetch all featured, published events that are in the future
+  const nowUnix = Math.floor(Date.now() / 1000)
+  const featuredEvents = getNextEventOccurrences(
+    await fetchSystemEvents(entity.id, true),
+    nowUnix
+  )
+
+  // If there are none, fetch all non-featured, published events that are in the future
+  let fallbackEvent: NodeEvent | null = null
+  if (featuredEvents.length === 0) {
+    const otherEvents = getNextEventOccurrences(
+      await fetchSystemEvents(entity.id, false),
+      nowUnix
+    )
+    fallbackEvent = otherEvents[0] ?? null
+  }
+
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_system_menu.resourceIdObjMeta.drupal_internal__target_id
@@ -106,8 +129,25 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     menu,
     mainFacilities,
     featuredStories,
+    featuredEvents,
+    fallbackEvent,
     lovell: opts.context?.lovell,
   }
+}
+
+async function fetchSystemEvents(systemId: string, featured: boolean) {
+  return (
+    await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+      RESOURCE_TYPES.EVENT,
+      queries
+        .getParams(RESOURCE_TYPES.EVENT)
+        .addInclude(['field_listing'])
+        .addFilter('field_listing.field_office.id', systemId)
+        .addFilter('status', '1')
+        .addFilter('field_featured', featured ? '1' : '0'),
+      PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+    )
+  ).data
 }
 
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
@@ -115,6 +155,8 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   menu,
   mainFacilities,
   featuredStories,
+  featuredEvents,
+  fallbackEvent,
   lovell,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
@@ -138,6 +180,8 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
     })),
     // Only show the first two featured stories
     featuredStories: featuredStories.map(formatNewsStoryTeaser),
+    featuredEvents: featuredEvents.map(formatEventTeaser),
+    fallbackEvent: fallbackEvent ? formatEventTeaser(fallbackEvent) : null,
     relatedLinks: formatRelatedLinks(entity),
     vamcEhrSystem: entity.field_vamc_ehr_system,
     lovellVariant: lovell?.variant ?? null,
