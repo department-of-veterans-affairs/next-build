@@ -2,12 +2,12 @@
  * @jest-environment node
  */
 
-import { FieldHealthServicesArray } from '@/types/drupal/field_type'
+import { VetCenterFieldHealthServicesArray } from '@/types/drupal/field_type'
 import { queries } from '@/data/queries'
-import mockResponse from '@/mocks/healthServices.mock.json'
-import { params } from '../healthServices'
+import mockResponse from '@/mocks/vetCenterHealthServices.mock.json'
+import { params } from '../vetCenterHealthServices'
 
-const HealthServicesMock: FieldHealthServicesArray = mockResponse
+const HealthServicesMock: VetCenterFieldHealthServicesArray = mockResponse
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {

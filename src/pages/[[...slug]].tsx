@@ -25,6 +25,11 @@ import {
 } from '@/lib/drupal/staticProps'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
 import { FormattedPageResource } from '@/data/queries'
+import {
+  deflateObjectGraph,
+  inflateObjectGraph,
+  FlattenedGraph,
+} from '@/lib/utils/object-graph'
 
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
@@ -32,6 +37,7 @@ const isExport = process.env.BUILD_OPTION === 'static'
 // Types
 import { Event as FormattedEvent } from '@/products/event/formatted-type'
 import { EventListing as FormattedEventListing } from '@/products/eventListing/formatted-type'
+import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
 import { NewsStory as FormattedNewsStory } from '@/types/formatted/newsStory'
 import { PressRelease as FormattedPressRelease } from '@/types/formatted/pressRelease'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
@@ -42,11 +48,13 @@ import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
+import { LeadershipListing as FormattedLeadershipListing } from '@/types/formatted/leadershipListing'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
 import { EventListing } from '@/products/eventListing/template'
 import { LayoutProps } from '@/templates/layouts/wrapper'
+import { LocationsListing } from '@/templates/layouts/locationsListing'
 import { Meta } from '@/templates/common/meta'
 import { NewsStory } from '@/templates/layouts/newsStory'
 import { PressRelease } from '@/templates/layouts/pressRelease'
@@ -61,6 +69,7 @@ import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFaci
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '@/templates/layouts/vamcSystem'
 import { VamcSystemVaPolice } from '@/templates/layouts/vamcSystemVaPolice'
+import { LeadershipListing } from '@/templates/layouts/leadershipListing'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -95,17 +104,21 @@ export const DynamicBreadcrumbs = dynamic(
 
 // [[...slug]] is a catchall route. We build the appropriate layout based on the resource returned for a given path.
 export default function ResourcePage({
-  resource,
+  serializedResource,
   bannerData,
   headerFooterData,
   preview,
 }: {
-  resource: StaticPropsResource<FormattedPageResource>
+  serializedResource: FlattenedGraph<StaticPropsResource<FormattedPageResource>>
   bannerData: LayoutProps['bannerData']
   headerFooterData: LayoutProps['headerFooterData']
   preview: boolean
 }) {
-  if (!resource) return null
+  if (!serializedResource) return null
+  const resource =
+    inflateObjectGraph<StaticPropsResource<FormattedPageResource>>(
+      serializedResource
+    )
   const comment = `
       --
       | resourceType: ${resource?.type || 'N/A'}
@@ -139,6 +152,9 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.EVENT_LISTING && (
             <EventListing {...(resource as FormattedEventListing)} />
+          )}
+          {resource.type === RESOURCE_TYPES.LOCATIONS_LISTING && (
+            <LocationsListing {...(resource as FormattedLocationsListing)} />
           )}
           {resource.type === RESOURCE_TYPES.STORY && (
             <NewsStory {...(resource as FormattedNewsStory)} />
@@ -178,6 +194,9 @@ export default function ResourcePage({
             <VamcSystemVaPolice
               {...(resource as FormattedVamcSystemVaPolice)}
             />
+          )}
+          {resource.type === RESOURCE_TYPES.LEADERSHIP_LISTING && (
+            <LeadershipListing {...(resource as FormattedLeadershipListing)} />
           )}
         </div>
       </main>
@@ -315,7 +334,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       return {
         props: {
           preview: expandedContext.preview || false,
-          resource,
+          serializedResource: deflateObjectGraph(resource),
           bannerData,
           headerFooterData,
         },

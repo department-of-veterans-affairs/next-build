@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react'
-import HealthServices from './'
-import { HealthServices as FormattedHealthServices } from '@/types/formatted/healthServices'
+import VetCenterHealthServices from './'
+import { VetCenterHealthServices as FormattedHealthServices } from '@/types/formatted/vetCenterHealthServices'
 
-const meta: Meta<typeof HealthServices> = {
+const meta: Meta<typeof VetCenterHealthServices> = {
   title: 'Components/Health Services',
-  component: HealthServices,
+  component: VetCenterHealthServices,
 }
 export default meta
 
-type Story = StoryObj<typeof HealthServices>
+type Story = StoryObj<typeof VetCenterHealthServices>
 
 const sampleServices: FormattedHealthServices = [
   {

@@ -1,10 +1,14 @@
-import { ParagraphListOfLinks } from '@/types/drupal/paragraph'
 import { MediaImage } from '@/types/formatted/media'
 import { Administration } from '@/types/formatted/administration'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PublishedEntity } from './publishedEntity'
 import { HealthCareLocalFacility } from './healthCareLocalFacility'
 import { FormattedRelatedLinks } from './relatedLinks'
+import { NodeHealthCareRegionPage } from '../drupal/node'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+import { NewsStoryTeaser } from '@/types/formatted/newsStory'
+import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
+import { EventWidgetTeaser } from '@/products/event/formatted-type'
 
 export type MinimalLocalFacility = Pick<
   HealthCareLocalFacility,
@@ -26,5 +30,12 @@ export type VamcSystem = PublishedEntity & {
   menu: SideNavMenu
   path: string
   mainFacilities: MinimalLocalFacility[]
+  featuredStories: NewsStoryTeaser[]
+  featuredEvents: EventWidgetTeaser[]
+  fallbackEvent: EventWidgetTeaser | null
   relatedLinks: FormattedRelatedLinks
+  vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
+  lovellVariant?: LovellChildVariant | null
+  lovellSwitchPath?: string | null
+  socialLinks: FacilitySocialLinksProps
 }

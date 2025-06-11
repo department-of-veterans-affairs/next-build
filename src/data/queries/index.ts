@@ -19,8 +19,8 @@ import * as ExpandableText from '@/data/queries/expandableText'
 import * as FeaturedContent from '@/data/queries/featuredContent'
 import * as HeaderFooter from '@/data/queries/headerFooter'
 import * as HealthCareLocalFacility from '@/data/queries/healthCareLocalFacility'
-import * as HealthServices from '@/data/queries/healthServices'
 import * as LinkTeaser from '@/data/queries/linkTeaser'
+import * as LocationsListing from '@/data/queries/locationsListing'
 import * as MediaDocument from '@/data/queries/mediaDocument'
 import * as MediaImage from '@/data/queries/mediaImage'
 import * as MediaVideo from '@/data/queries/mediaVideo'
@@ -48,8 +48,10 @@ import * as VamcEhr from '@/data/queries/vamcEhr'
 import * as VamcSystem from '@/data/queries/vamcSystem'
 import * as VamcSystemVaPolice from '@/data/queries/vamcSystemVaPolice'
 import * as VetCenter from '@/data/queries/vetCenter'
+import * as VetCenterHealthServices from '@/data/queries/vetCenterHealthServices'
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
+import * as LeadershipListing from '@/data/queries/leadershipListing'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -65,7 +67,8 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.EVENT]: Event,
   [`${RESOURCE_TYPES.EVENT}--teaser` as const]: EventTeaser,
   [RESOURCE_TYPES.EVENT_LISTING]: EventListing,
-  [RESOURCE_TYPES.HEALTH_SERVICES]: HealthServices,
+  [RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES]: VetCenterHealthServices,
+  [RESOURCE_TYPES.LOCATIONS_LISTING]: LocationsListing,
   [RESOURCE_TYPES.STORY]: NewsStory,
   [`${RESOURCE_TYPES.STORY}--teaser` as const]: NewsStoryTeaser,
   [RESOURCE_TYPES.STORY_LISTING]: StoryListing,
@@ -81,6 +84,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
+  [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

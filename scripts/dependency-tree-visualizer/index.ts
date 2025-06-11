@@ -17,39 +17,48 @@ import { DependencyGraph } from './DependencyGraph'
 if (require.main === module) {
   program
     .option('--dot', 'Emit a .dot file for Graphviz')
+    .option(
+      '--summary',
+      'Show only the summary of the dependency tree (only used when emitting to the console)'
+    )
     .argument(
       '<paths-to-templates...>',
       'One or more paths to the templates to find the dependency tree of'
     )
-    .action((pathsToTemplates: string[], options: { dot: boolean }) => {
-      const entryFile = path.resolve(pathsToTemplates[0])
+    .action(
+      (
+        pathsToTemplates: string[],
+        options: { dot?: boolean; summary?: boolean }
+      ) => {
+        const entryFile = path.resolve(pathsToTemplates[0])
 
-      // Find the root directory of content build
-      const parts = entryFile.split(path.sep)
-      const contentBuildPath = parts
-        .slice(0, parts.indexOf('content-build') + 1)
-        .join(path.sep)
+        // Find the root directory of content build
+        const parts = entryFile.split(path.sep)
+        const contentBuildPath = parts
+          .slice(0, parts.indexOf('content-build') + 1)
+          .join(path.sep)
 
-      const graphs = pathsToTemplates.map((entryFile: string) =>
-        buildDependencyGraph(entryFile, contentBuildPath)
-      )
-
-      if (options.dot) {
-        const dot = generateDotGraph(
-          graphs.reduce(
-            (allNodes, currentGraph) => ({
-              ...allNodes,
-              ...currentGraph.nodes,
-            }),
-            {} as DependencyGraph['nodes']
-          )
+        const graphs = pathsToTemplates.map((entryFile: string) =>
+          buildDependencyGraph(entryFile, contentBuildPath)
         )
-        fs.writeFileSync('graph.dot', dot)
-        console.log(chalk.green('DOT graph written to graph.dot'))
-      } else {
-        emitConsoleTree(graphs)
+
+        if (options.dot) {
+          const dot = generateDotGraph(
+            graphs.reduce(
+              (allNodes, currentGraph) => ({
+                ...allNodes,
+                ...currentGraph.nodes,
+              }),
+              {} as DependencyGraph['nodes']
+            )
+          )
+          fs.writeFileSync('graph.dot', dot)
+          console.log(chalk.green('DOT graph written to graph.dot'))
+        } else {
+          emitConsoleTree(graphs, !!options.summary)
+        }
       }
-    })
+    )
 
   program.parse()
 }
