@@ -40,11 +40,7 @@ export const EventTeaser = ({
           </p>
         </div>
         <div className={col2Class}>
-          <p className="vads-u-margin-y--0">
-            {mostRecentDate
-              ? formattedDateTime
-              : 'Date and time to be announced'}
-          </p>
+          <p className="vads-u-margin-y--0">{formattedDateTime}</p>
         </div>
       </div>
       {fieldFacilityLocation && (
