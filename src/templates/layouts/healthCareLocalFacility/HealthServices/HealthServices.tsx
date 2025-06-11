@@ -4,6 +4,7 @@
 
 import { FormattedVAMCFacilityHealthServices } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceLocation } from './ServiceLocation'
+import { hashReference } from '@/lib/utils/hashReference'
 
 export const HealthServices = ({
   healthServices,
@@ -22,10 +23,7 @@ export const HealthServices = ({
 
       <va-accordion>
         {healthServices.map((service) => {
-          const id = service.name
-            .toLowerCase()
-            .replace(/\s+/g, '-')
-            .slice(0, 60)
+          // Will this always be true for VAMC facilities?
           const isVha = service.fieldFacilityLocatorApiId?.startsWith('vha_')
           const hasLocationData =
             service.locations?.[0]?.single?.fieldServiceLocationAddress
@@ -36,11 +34,10 @@ export const HealthServices = ({
 
           return (
             <va-accordion-item
-              key={id}
+              key={service.name}
               data-label={service.name}
               data-childlabel={service.fieldAlsoKnownAs}
-              data-template="facilities/facilities_health_service"
-              id={id}
+              id={hashReference(service.name)}
               class="facilities_health_service va-accordion-item"
               subheader={service.fieldAlsoKnownAs}
             >
