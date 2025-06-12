@@ -6,15 +6,27 @@ import { queries } from '@/data/queries'
 import mockData from '@/mocks/locationsListing.mock.json'
 import { NodeLocationsListing } from '@/types/drupal/node'
 import { params } from '../locationsListing'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
 const LocationsListingMock: NodeLocationsListing = mockData[0]
 
-// remove if this component does not have a data fetch
+jest.mock('@/lib/drupal/query', () => ({
+  ...jest.requireActual('@/lib/drupal/query'),
+  fetchSingleEntityOrPreview: () => mockData[0],
+  getMenu: () => ({
+    items: [],
+    tree: [],
+  }),
+}))
+
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     // Should include field_office
     expect(queryString).toMatch(/include=field_office/)
+    expect(queryString).toMatchSnapshot()
   })
 })
 
@@ -76,7 +88,11 @@ describe('LocationsListing formatData', () => {
     expect(Array.isArray(formatted.menu.data.links)).toBe(true)
   })
 
-  test('handles no answers correctly', () => {
-    // TODO
+  test('outputs formatted data via getData', async () => {
+    expect(
+      await queries.getData(RESOURCE_TYPES.LOCATIONS_LISTING, {
+        id: mockData[0].id,
+      })
+    ).toMatchSnapshot()
   })
 })
