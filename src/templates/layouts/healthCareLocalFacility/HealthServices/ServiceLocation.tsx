@@ -118,13 +118,10 @@ export const ServiceLocation = ({
               <p
                 data-testid="service-location-custom-text"
                 className="vads-u-margin-bottom--0"
-              >
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: single.fieldApptIntroTextCustom,
-                  }}
-                />
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: single.fieldApptIntroTextCustom,
+                }}
+              />
             ) : (
               <p
                 data-testid="service-location-default-text"
