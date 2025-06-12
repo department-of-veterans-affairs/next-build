@@ -45,6 +45,14 @@ describe('createPhoneLinks', () => {
     expect(output).toBe(input)
   })
 
+  it('does not wrap numbers inside filenames', () => {
+    // Technically inside an <a>, but just double-checking
+    const input =
+      '<a href="https://www.va.gov/files/2024-10/Ompractice-Flyer-800-555-1234.pdf">'
+    const output = createPhoneLinks(input)
+    expect(output).toBe(input)
+  })
+
   it('wraps multiple phone numbers', () => {
     const input = 'Call 800-555-1234 or 212-999-8888 for assistance.'
     const output = createPhoneLinks(input)
