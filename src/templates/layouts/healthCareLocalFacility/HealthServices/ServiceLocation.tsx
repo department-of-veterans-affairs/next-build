@@ -144,6 +144,7 @@ export const ServiceLocation = ({
       {showMainNumberForAppointments && (
         <div data-testid="service-location-main-facility-phone">
           <PhoneNumber
+            treatment="h4"
             number={mainPhone.number}
             extension={mainPhone.extension}
             phoneType={mainPhone.phoneType}
@@ -157,7 +158,7 @@ export const ServiceLocation = ({
       {hasAppointmentPhoneNumbers && (
         <div data-testid="service-location-show-other-phone-numbers">
           {single.fieldOtherPhoneNumbers?.map((num, idx) => (
-            <PhoneNumber key={idx} {...num} />
+            <PhoneNumber key={idx} treatment="h4" {...num} />
           ))}
         </div>
       )}
@@ -189,6 +190,7 @@ export const ServiceLocation = ({
       {single.fieldUseMainFacilityPhone && mainPhone && (
         <div data-testid="service-location-main-facility-phone-for-contact">
           <PhoneNumber
+            treatment="h4"
             number={mainPhone.number}
             extension={mainPhone.extension}
             phoneType={mainPhone.phoneType}
@@ -202,7 +204,7 @@ export const ServiceLocation = ({
       {hasOtherContactPhoneNumbers && (
         <div data-testid="service-location-show-contact-phone-numbers">
           {single.fieldPhone?.map((num, idx) => (
-            <PhoneNumber key={idx} {...num} />
+            <PhoneNumber treatment="h4" key={idx} {...num} />
           ))}
         </div>
       )}
