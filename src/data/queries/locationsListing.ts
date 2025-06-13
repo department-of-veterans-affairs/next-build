@@ -63,7 +63,7 @@ export const formatter: QueryFormatter<
     ...entityBaseFields(entity),
     administration: formatAdministration(entity.field_administration),
     title: entity.title,
-    path: entity.path.alias,
+    path: entity.field_office.path.alias,
     menu: formattedMenu,
     vamcEhrSystem: entity.field_office.field_vamc_ehr_system,
   }

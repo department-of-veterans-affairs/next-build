@@ -34,9 +34,11 @@ describe('LocationsListing formatData', () => {
   // Patch mock to ensure path.alias exists and menu has a valid tree
   const patchedMock = {
     ...LocationsListingMock,
-    path: { alias: '/boston-health-care/locations/', pid: 1, langcode: 'en' },
+    path: { alias: '/boston-health-care/locations', pid: 3946, langcode: 'en' },
     field_office: {
       ...LocationsListingMock.field_office,
+      id: '32bcb8dc-9064-4e3a-a8c5-496777967f4d',
+      path: { alias: '/boston-health-care', pid: 3084, langcode: 'en' },
       field_system_menu: {
         ...LocationsListingMock.field_office?.field_system_menu,
         tree: [

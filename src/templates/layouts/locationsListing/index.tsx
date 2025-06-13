@@ -37,12 +37,6 @@ export function LocationsListing({
                 administration={administration}
                 vamcEhrSystem={vamcEhrSystem}
               />
-              <div className="vads-l-row vads-u-margin-y--1p5">
-                <div className="vads-l-col--12">
-                  <div>TODO: Main buttons (region base path)</div>
-                </div>
-              </div>
-
               <section className="locations clearfix">
                 <h2
                   className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
