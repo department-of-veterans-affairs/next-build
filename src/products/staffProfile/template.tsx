@@ -1,5 +1,5 @@
 import StaffProfileSideBarNav from '@/templates/components/staffProfileSideBarNav'
-import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
+import { StaffProfile as FormattedStaffProfile } from '@/products/staffProfile/formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { MediaImage } from '@/templates/common/mediaImage'

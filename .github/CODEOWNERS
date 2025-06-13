@@ -14,3 +14,4 @@ src/products/*/template.tsx @department-of-veterans-affairs/next-build-product @
 # Code ownership of individual products
 src/products/event/ @department-of-veterans-affairs/ap-team
 src/products/eventListing/ @department-of-veterans-affairs/ap-team
+src/products/staffProfile/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend

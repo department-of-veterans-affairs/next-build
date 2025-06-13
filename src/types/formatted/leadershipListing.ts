@@ -1,6 +1,6 @@
 import { PublishedEntity } from './publishedEntity'
 import { SideNavMenu } from './sideNav'
-import { StaffProfileTeaser } from './staffProfile'
+import { StaffProfileTeaser } from '@/products/staffProfile/formatted-type'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 export type LeadershipListing = PublishedEntity & {
