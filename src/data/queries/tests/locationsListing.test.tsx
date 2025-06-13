@@ -6,15 +6,27 @@ import { queries } from '@/data/queries'
 import mockData from '@/mocks/locationsListing.mock.json'
 import { NodeLocationsListing } from '@/types/drupal/node'
 import { params } from '../locationsListing'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+
 const LocationsListingMock: NodeLocationsListing = mockData[0]
 
-// remove if this component does not have a data fetch
+jest.mock('@/lib/drupal/query', () => ({
+  ...jest.requireActual('@/lib/drupal/query'),
+  fetchSingleEntityOrPreview: () => mockData[0],
+  getMenu: () => ({
+    items: [],
+    tree: [],
+  }),
+}))
+
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
     // Should include field_office
     expect(queryString).toMatch(/include=field_office/)
+    expect(queryString).toMatchSnapshot()
   })
 })
 
@@ -22,9 +34,11 @@ describe('LocationsListing formatData', () => {
   // Patch mock to ensure path.alias exists and menu has a valid tree
   const patchedMock = {
     ...LocationsListingMock,
-    path: { alias: '/boston-health-care/locations/', pid: 1, langcode: 'en' },
+    path: { alias: '/boston-health-care/locations', pid: 3946, langcode: 'en' },
     field_office: {
       ...LocationsListingMock.field_office,
+      id: '32bcb8dc-9064-4e3a-a8c5-496777967f4d',
+      path: { alias: '/boston-health-care', pid: 3084, langcode: 'en' },
       field_system_menu: {
         ...LocationsListingMock.field_office?.field_system_menu,
         tree: [
@@ -76,7 +90,11 @@ describe('LocationsListing formatData', () => {
     expect(Array.isArray(formatted.menu.data.links)).toBe(true)
   })
 
-  test('handles no answers correctly', () => {
-    // TODO
+  test('outputs formatted data via getData', async () => {
+    expect(
+      await queries.getData(RESOURCE_TYPES.LOCATIONS_LISTING, {
+        id: mockData[0].id,
+      })
+    ).toMatchSnapshot()
   })
 })

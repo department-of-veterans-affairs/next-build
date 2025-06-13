@@ -147,9 +147,9 @@
     "content_translation_source": "und",
     "content_translation_outdated": false,
     "field_description": "VA Lebanon Health Care system locations, address, hours of operations, and health care services provided.",
+    "field_enforce_unique_combo": null,
     "field_last_saved_by_an_editor": "2021-02-17T14:42:50+00:00",
     "field_meta_tags": null,
-    "field_enforce_unique_combo": null,
     "links": {
       "self": {
         "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/locations_listing/eb0c10d2-b199-4665-82db-6241eb6bae56?resourceVersion=id%3A366083"
@@ -179,16 +179,903 @@
     "field_administration": {
       "type": "taxonomy_term--administration",
       "id": "c1a891f3-b9f0-48c3-a006-9ad0ac63386a",
+      "drupal_internal__tid": 180,
+      "drupal_internal__revision_id": 2342,
+      "langcode": "en",
+      "revision_created": "2024-08-13T20:05:29+00:00",
+      "status": true,
+      "name": "VA Lebanon health care",
+      "description": null,
+      "weight": 4,
+      "changed": "2024-08-13T20:05:29+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+          "title": "VHA",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+          "title": "VAMC facilities",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-4",
+          "title": "VISN 4",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "VA Lebanon health care",
+          "options": []
+        }
+      ],
+      "moderation_state": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "VA Lebanon health care | VA.gov CMS"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-lebanon-health-care"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/section/vha/vamc-facilities/va-lebanon-health-care",
+        "pid": 1764,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "field_description": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/c1a891f3-b9f0-48c3-a006-9ad0ac63386a?resourceVersion=id%3A2342"
+        }
+      },
       "resourceIdObjMeta": {
         "drupal_internal__target_id": 180
-      }
+      },
+      "vid": {
+        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        "id": "645055c5-e567-4683-b6db-459ce04522ce",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "administration"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4942
+        }
+      },
+      "parent": [
+        {
+          "type": "taxonomy_term--administration",
+          "id": "62ba5bc4-5bf3-4888-a2bb-0489ead0c76f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 157
+          }
+        }
+      ],
+      "content_translation_uid": null,
+      "field_product": {
+        "type": "taxonomy_term--products",
+        "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 284
+        }
+      },
+      "relationshipNames": [
+        "vid",
+        "revision_user",
+        "parent",
+        "content_translation_uid",
+        "field_product"
+      ]
     },
     "field_office": {
       "type": "node--health_care_region_page",
       "id": "32bcb8dc-9064-4e3a-a8c5-496777967f4d",
+      "drupal_internal__nid": 2357,
+      "drupal_internal__vid": 964677,
+      "langcode": "en",
+      "revision_timestamp": "2024-09-16T20:36:12+00:00",
+      "status": true,
+      "title": "VA Lebanon health care",
+      "created": "2019-12-06T14:32:47+00:00",
+      "changed": "2025-03-11T12:20:45+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "VA Lebanon health care",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "VA Lebanon health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "Lebanon VA Medical Center | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "VA Lebanon health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:description",
+            "content": "Lebanon VA Medical Center | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-02/LebanonVAMC-x340x210-5-2013.jpg"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image:alt",
+            "content": "Photo of Lebanon Veterans Administration Medical Center"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "VA Lebanon health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:description",
+            "content": "Lebanon VA Medical Center | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image:alt",
+            "content": "Photo of Lebanon Veterans Administration Medical Center"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-02/LebanonVAMC-x340x210-5-2013.jpg"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/lebanon-health-care",
+        "pid": 3084,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_appointments_online": false,
+      "field_description": "Lebanon VA Medical Center | Veterans Affairs",
+      "field_facebook": {
+        "uri": "https://www.facebook.com/login/?next=https%3A//www.facebook.com/VALebanon",
+        "title": "Lebanon VA Medical Center Facebook page",
+        "options": {
+          "href": "https://www.facebook.com/login/?next=https%3A//www.facebook.com/VALebanon",
+          "data-entity-type": "",
+          "data-entity-uuid": "",
+          "data-entity-substitution": ""
+        },
+        "url": "https://www.facebook.com/login/?next=https%3A//www.facebook.com/VALebanon"
+      },
+      "field_flickr": null,
+      "field_govdelivery_id_emerg": "USVHA_393",
+      "field_govdelivery_id_news": "USVHA_C84",
+      "field_instagram": null,
+      "field_intro_text": "At the VA Lebanon Healthcare System, our expert health care teams focus on your needs and the needs of other Veterans, your families, and caregivers. Find a health care facility near you, and manage your health online. Sign up for community events and updates, and learn what’s new at your local VA medical center and clinics.",
+      "field_last_saved_by_an_editor": "2024-09-16T20:36:13+00:00",
+      "field_meta_tags": null,
+      "field_operating_status": {
+        "uri": "entity:node/2366",
+        "title": "Operating status - VA Lebanon health care",
+        "options": {
+          "href": "entity:node/2366",
+          "data-entity-type": "node",
+          "data-entity-uuid": "ceb772f3-3940-473f-a7af-869d8d443185",
+          "data-entity-substitution": "canonical"
+        },
+        "url": "/lebanon-health-care/operating-status"
+      },
+      "field_other_va_locations": [
+        "vc_0242V",
+        "vc_0218V",
+        "vha_595QA",
+        "vba_310g"
+      ],
+      "field_twitter": {
+        "uri": "https://twitter.com/VALebanon",
+        "title": "Lebanon VA Medical Center on Twitter",
+        "options": {
+          "href": "https://twitter.com/VALebanon",
+          "data-entity-type": "",
+          "data-entity-uuid": "",
+          "data-entity-substitution": ""
+        },
+        "url": "https://twitter.com/VALebanon"
+      },
+      "field_vamc_ehr_system": "vista",
+      "field_vamc_system_official_name": "Lebanon VA Medical Center",
+      "field_va_health_connect_phone": "855-679-0952",
+      "field_youtube": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/32bcb8dc-9064-4e3a-a8c5-496777967f4d?resourceVersion=id%3A964677"
+        }
+      },
       "resourceIdObjMeta": {
         "drupal_internal__target_id": 2357
-      }
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_region_page"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "75a67a30-cd28-45b6-8c99-ca1071f9f940",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 5043
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 197
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "c1a891f3-b9f0-48c3-a006-9ad0ac63386a",
+        "drupal_internal__tid": 180,
+        "drupal_internal__revision_id": 2342,
+        "langcode": "en",
+        "revision_created": "2024-08-13T20:05:29+00:00",
+        "status": true,
+        "name": "VA Lebanon health care",
+        "description": null,
+        "weight": 4,
+        "changed": "2024-08-13T20:05:29+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+            "title": "Home",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+            "title": "VHA",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+            "title": "VAMC facilities",
+            "options": []
+          },
+          {
+            "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-4",
+            "title": "VISN 4",
+            "options": []
+          },
+          {
+            "uri": "internal:#",
+            "title": "VA Lebanon health care",
+            "options": []
+          }
+        ],
+        "moderation_state": null,
+        "metatag": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "title",
+              "content": "VA Lebanon health care | VA.gov CMS"
+            }
+          },
+          {
+            "tag": "link",
+            "attributes": {
+              "rel": "canonical",
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/vamc-facilities/va-lebanon-health-care"
+            }
+          }
+        ],
+        "path": {
+          "alias": "/section/vha/vamc-facilities/va-lebanon-health-care",
+          "pid": 1764,
+          "langcode": "en"
+        },
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "field_description": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/c1a891f3-b9f0-48c3-a006-9ad0ac63386a?resourceVersion=id%3A2342"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 180
+        },
+        "vid": {
+          "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+          "id": "645055c5-e567-4683-b6db-459ce04522ce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "administration"
+          }
+        },
+        "revision_user": {
+          "type": "user--user",
+          "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 4942
+          }
+        },
+        "parent": [
+          {
+            "type": "taxonomy_term--administration",
+            "id": "62ba5bc4-5bf3-4888-a2bb-0489ead0c76f",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 157
+            }
+          }
+        ],
+        "content_translation_uid": null,
+        "field_product": {
+          "type": "taxonomy_term--products",
+          "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 284
+          }
+        },
+        "relationshipNames": [
+          "vid",
+          "revision_user",
+          "parent",
+          "content_translation_uid",
+          "field_product"
+        ]
+      },
+      "field_clinical_health_services": [
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "a422017b-6550-4302-b170-0fe55448187a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5091
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "9c2d9bd7-fa3e-4741-9ef9-4afe28b65f7c",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5124
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "d87ffc83-7939-462d-a553-58f597fc079c",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5126
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "74db82f0-0a9a-4f4b-a3c5-468b2bc8386e",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5129
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "84c60da6-b4b9-43fb-b61f-8bed729f1cca",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5149
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "e7947206-2d79-4e02-844b-73b556f67612",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5153
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "72e1bd83-43b1-4bc0-abf4-5d76b02630d3",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5155
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "6a0598c9-b381-422d-9c2a-f96a31041bc4",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5170
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "0b9ef2a2-0407-4583-9ffa-19630e6b32b3",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5176
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "ad8cfa5d-d7f2-4702-bb11-2163f5ccf68d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5179
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "5da6845e-f26b-45e0-9178-fed3ab20632a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5182
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "4e8101a4-3dac-45dd-80df-df520e33fce4",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5185
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "4d189fdd-f5bc-43e6-b0a1-a8958794d7ec",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5189
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "missing",
+          "resourceIdObjMeta": {
+            "links": {
+              "help": {
+                "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+                "meta": {
+                  "about": "Usage and meaning of the 'missing' resource identifier."
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "52566c6c-3b4c-46ba-b293-3240f974c5a0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5202
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "764da114-0b22-4334-84fc-ce5cb739522a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5267
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "998c80ad-f5bd-4819-b6dc-55d4e7318494",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5270
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "f89d737f-41b6-4485-875b-4aad18d35d8e",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5275
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "8f9ab379-2bac-4bd8-8355-0044ddd9f9f1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5279
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "2f7d0c16-adcf-4e27-ba11-2e8066fb293a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5287
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "7fc52765-ffc6-49e6-8e10-76bf8d945dac",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5303
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "83658826-c156-4ee0-9370-ccc16347cba1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5305
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "3ee1653f-c8e8-40be-83c8-9698fa3f560d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5312
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "81709166-b32c-46e6-ba6e-2676fa2b675b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5314
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "6b09b574-24cc-45f0-8a56-c97045797f57",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5320
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "24dac5f6-12a4-4070-8916-72e9b4aa626c",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5326
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "8052d765-7265-4734-82aa-aa223701d4f9",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5328
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "635caea6-6d47-4fd7-9cd1-9c02acb0c6e2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5330
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "404f376c-8d58-4d0b-9e4f-6295127c4843",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5333
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "696cf252-2863-4223-a99d-41799cb9b6e5",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5335
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "8b3fc73c-cf14-4896-a493-1bd63e8d2ec1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5337
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "60acb921-f4b2-4907-aba0-0e470f145c63",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5343
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "53874208-7a13-4fd7-87c0-1cb7e6e120d2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5345
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "badd6197-f905-43e9-bae3-443498391c43",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5348
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "d263daac-9f97-4c8c-b06f-c06fd3047123",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5362
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "bee79566-5b83-40a7-a840-7e782e0bd20a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5367
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "3e52b873-c36e-49b6-a2d5-b23836361ef2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5369
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "ff454858-3d18-470f-b056-32880dcc7650",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5376
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "e738750d-d600-4d9f-90b8-6dea68e5a104",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5383
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "c6d9375f-0e11-4e91-bbfd-c8e14fbb77c9",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5390
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "0f6132e8-0c4e-4256-8dc9-44904f5fa8a7",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5396
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "57bde8f9-cd7d-4c60-9240-1e1f47441125",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5400
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "75f35f6f-55eb-4b56-a428-96a8108231c7",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5402
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "c7f71213-e2de-4c69-87cc-420a36f5b870",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5404
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "f51e35a0-8b83-4a08-b037-2add93ab842f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5406
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "e25f7610-4789-447b-bac2-62afa9196bf9",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5410
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "07da5305-8064-4a52-8f77-029f3fbe8221",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5414
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "1d4f734a-e674-4490-9b97-8664cd4e2720",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5419
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "59e014ce-98e3-4956-97c1-03cfb87abf6a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5421
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "cc89dfeb-cc33-4b83-96db-ff9b0bb92b29",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5423
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "2e6c9dbb-54fd-4cef-a5af-02a35bb7139a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5430
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "ea48c3e2-bfd6-4dff-b026-6e5f04b4eb1c",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5432
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "703337f9-ae37-437c-ad7d-3922662a9338",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5434
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "4edaca45-0b23-44fb-b189-5037b174bd4b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5437
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "27c54269-cd53-4174-a559-7613b253d6a2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5444
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "58883755-b28a-40d2-b6db-039a632754fc",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 5448
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "4cbfc215-0329-41c5-95a8-b4cac8ffcd8b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 15241
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "98c14a27-d68c-4bc5-9b9f-e359addcb2ce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 55923
+          }
+        },
+        {
+          "type": "node--regional_health_care_service_des",
+          "id": "1f3d83c6-0b9b-4c51-af2c-02ac8d6d7584",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 77945
+          }
+        }
+      ],
+      "field_media": {
+        "type": "media--image",
+        "id": "c59f7de9-17f7-4f85-ba27-51d7cef3a8b7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 816
+        }
+      },
+      "field_related_links": {
+        "type": "paragraph--list_of_link_teasers",
+        "id": "8e4fa135-d5a9-4e53-8304-ac42617d9cc4",
+        "resourceIdObjMeta": {
+          "target_revision_id": 1478842,
+          "drupal_internal__target_id": 7795
+        }
+      },
+      "field_system_menu": {
+        "type": "menu--menu",
+        "id": "75d70206-1747-4c43-be26-69f61e2405be",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "va-lebanon"
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_clinical_health_services",
+        "field_media",
+        "field_related_links",
+        "field_system_menu"
+      ]
     },
     "relationshipNames": [
       "node_type",

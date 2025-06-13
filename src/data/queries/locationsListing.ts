@@ -11,14 +11,14 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
+import { formatter as formatAdministration } from './administration'
 
 // Define the query params for fetching node--locations_listing.
 export const params: QueryParams<null> = () => {
-  return (
-    new DrupalJsonApiParams()
-      // uncomment to add referenced entity data to the response
-      .addInclude(['field_office'])
-  )
+  return new DrupalJsonApiParams().addInclude([
+    'field_office',
+    'field_administration',
+  ])
 }
 
 // Define the option types for the data loader.
@@ -61,8 +61,10 @@ export const formatter: QueryFormatter<
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   return {
     ...entityBaseFields(entity),
+    administration: formatAdministration(entity.field_administration),
     title: entity.title,
-    path: entity.path.alias,
+    path: entity.field_office.path.alias,
     menu: formattedMenu,
+    vamcEhrSystem: entity.field_office.field_vamc_ehr_system,
   }
 }
