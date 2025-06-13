@@ -136,7 +136,7 @@ export const ServiceLocation = ({
         )}
 
       {/* Main phone number */}
-      {showMainNumberForAppointments && mainPhone && (
+      {showMainNumberForAppointments && (
         <div data-testid="service-location-main-facility-phone">
           <PhoneNumber
             number={mainPhone.number}
