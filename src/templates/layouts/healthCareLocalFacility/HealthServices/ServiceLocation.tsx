@@ -5,6 +5,7 @@
 import { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 export const ServiceLocation = ({
   fieldReferralRequired,
@@ -19,14 +20,18 @@ export const ServiceLocation = ({
     isMentalHealthService && fieldTelephone
       ? fieldTelephone
       : fieldPhoneNumber
-        ? { number: fieldPhoneNumber, extension: '', phoneType: 'tel' }
+        ? ({
+            number: fieldPhoneNumber,
+            extension: '',
+            phoneType: 'tel',
+          } as PhoneNumberType)
         : null
 
   const showMainNumberForAppointments =
     mainPhone && single.fieldUseFacilityPhoneNumber
   const hasAppointmentPhoneNumbers =
     (single.fieldOtherPhoneNumbers?.length || 0) > 0
-  const hasOtherContactPhoneNumbers = (single.fieldPhone?.length || 0) > 0
+  const hasOtherContactPhoneNumbers = (single.fieldPhone?.length ?? 0) > 0
 
   const hasOfficeVisits =
     single.fieldOfficeVisits &&
