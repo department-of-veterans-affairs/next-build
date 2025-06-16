@@ -239,6 +239,7 @@ export const formatter: QueryFormatter<
             }
           }),
           fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
+          fieldHealthServiceApiId: serviceTaxonomy.field_health_service_api_id,
         }
       }),
   }

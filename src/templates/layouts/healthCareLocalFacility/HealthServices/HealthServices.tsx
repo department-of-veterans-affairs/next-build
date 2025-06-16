@@ -69,7 +69,7 @@ export const HealthServices = ({
                   <div
                     data-widget-type="facility-appointment-wait-times-widget"
                     data-facility={service.fieldFacilityLocatorApiId}
-                    data-service={service.name}
+                    data-service={service.fieldHealthServiceApiId}
                   />
                 )}
 
