@@ -121,6 +121,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "nutrition",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -243,6 +244,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "primaryCare",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -303,6 +305,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "suicidePrevention",
         "fieldTricareDescription": "Call the Military and Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
         "locations": [
           {
@@ -363,6 +366,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "telehealth",
         "fieldTricareDescription": "With TRICARE telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care and more—from home or elsewhere.",
         "locations": [
           {
@@ -426,6 +430,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "wholeHealth",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -537,6 +542,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "women's primary care, mental health, obstetrics, gynecology, pap smear, mammogram",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "womensHealth",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -1122,6 +1128,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "nutrition",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -1244,6 +1251,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "primaryCare",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -1304,6 +1312,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "suicidePrevention",
         "fieldTricareDescription": "Call the Military and Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
         "locations": [
           {
@@ -1364,6 +1373,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "telehealth",
         "fieldTricareDescription": "With TRICARE telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care and more—from home or elsewhere.",
         "locations": [
           {
@@ -1427,6 +1437,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "wholeHealth",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -1538,6 +1549,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "women's primary care, mental health, obstetrics, gynecology, pap smear, mammogram",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "womensHealth",
         "fieldTricareDescription": null,
         "locations": [
           {
