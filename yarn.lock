@@ -1661,6 +1661,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@department-of-veterans-affairs/web-components@npm:18.4.0":
+  version: 18.4.0
+  resolution: "@department-of-veterans-affairs/web-components@npm:18.4.0"
+  dependencies:
+    "@stencil/core": 4.20.0
+    aria-hidden: ^1.1.3
+    body-scroll-lock: ^4.0.0-beta.0
+    chromatic: ^11.0.4
+    classnames: ^2.3.1
+    intersection-observer: ^0.12.0
+    libphonenumber-js: ^1.12.7
+  peerDependencies:
+    "@department-of-veterans-affairs/formation": ^11.0.6
+    i18next: "*"
+    i18next-browser-languagedetector: "*"
+  checksum: e23df9de90cf7f7d0306554a17b9bb17eccb37e2ddecc5b881c023aab3fa362c3acfe676e053b1e495921878c69bb756f91223cdc411b0bf9f6a17fe14292881
+  languageName: node
+  linkType: hard
+
 "@emnapi/runtime@npm:^1.2.0":
   version: 1.3.0
   resolution: "@emnapi/runtime@npm:1.3.0"
@@ -12632,6 +12651,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"libphonenumber-js@npm:^1.12.7":
+  version: 1.12.9
+  resolution: "libphonenumber-js@npm:1.12.9"
+  checksum: 9d01151ffa1d0f634ebbc4e7d5cde6baa7c53765e162745cb2dd85815e04b42847ff2e4c54fe172121c335c86cd6f5ce9192af62237099213e799de653d5a6dd
+  languageName: node
+  linkType: hard
+
 "liftoff@npm:^4.0.0":
   version: 4.0.0
   resolution: "liftoff@npm:4.0.0"
@@ -13595,7 +13621,7 @@ __metadata:
     "@axe-core/playwright": ^4.8.2
     "@department-of-veterans-affairs/component-library": 50.2.1
     "@department-of-veterans-affairs/formation": ^12.0.0
-    "@department-of-veterans-affairs/web-components": 18.1.2
+    "@department-of-veterans-affairs/web-components": 18.4.0
     "@faker-js/faker": ^9.7.0
     "@fortawesome/fontawesome-free": ^5.15.4
     "@next/env": ^14.1.0
