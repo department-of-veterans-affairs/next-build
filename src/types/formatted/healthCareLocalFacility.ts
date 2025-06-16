@@ -65,9 +65,15 @@ interface VamcFacilityServiceLocation {
   fieldPhone?: PhoneNumber[]
   /** Array of email contact objects. */
   fieldEmailContacts?: EmailContact[]
-  /** Service hours configuration ("0" for facility hours, "1" for unspecified, "2" for specific hours). */
+  /**
+   * Service hours configuration
+   *
+   * "0" to show facility hours
+   * "1" to show no service hours
+   * "2" to show specific hours defined in `fieldOfficeHours`
+   * */
   fieldHours?: '0' | '1' | '2' | string
-  /** Specific service office hours (array of hour objects). */
+  /** Specific service office hours. */
   fieldOfficeHours?: FieldOfficeHours[]
   /** Additional information about service hours. */
   fieldAdditionalHoursInfo?: string
@@ -83,6 +89,7 @@ interface VamcFacilityServiceLocation {
 export interface ServiceLocationTemplateData {
   /**
    * Indicates if a referral is required
+   *
    * "0" for no
    * "1" for yes
    * "2", "not_applicable", or "unknown" to omit the referral section
