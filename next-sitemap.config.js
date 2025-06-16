@@ -14,16 +14,17 @@ const sitemapConfig = {
   priority: false,
   generateRobotsTxt: false, // (optional)
   transform: async (config, path) => {
-    const { JSDOM } = await import('jsdom')
-    const pathToFile = `./out${path}/index.html`
+    // Transform found paths to add lastmod date https://github.com/iamvishnusankar/next-sitemap?tab=readme-ov-file#custom-transformation-function
+    const { JSDOM } = await import('jsdom') // Import JSDOM to parse HTML files
+    const pathToFile = `./out${path}/index.html` // Construct the path to the static file in the `out` directory
     const date = JSDOM.fromFile(pathToFile).then((dom) => {
       return dom.window.document
         .querySelector("meta[name='DC.Date']")
         .getAttribute('content')
-    })
+    }) // get the date from the DC.Date meta tag in the HTML of the static file for each path
     return {
-      loc: path,
-      lastmod: await date, // static date for now, can be updated later
+      loc: path, // Required to be returned in sitemap => this will be exported as http(s)://<config.siteUrl>/<path>
+      lastmod: await date, // The parsed date from the HTML file
     }
   },
   // todo: migrate to server side sitemap to include last edited date from content for lastmod
