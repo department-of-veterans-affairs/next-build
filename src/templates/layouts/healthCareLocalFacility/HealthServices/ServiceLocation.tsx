@@ -6,6 +6,7 @@ import { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFa
 import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
+import { Hours } from '@/templates/components/hours'
 
 export const ServiceLocation = ({
   fieldReferralRequired,
@@ -218,20 +219,23 @@ export const ServiceLocation = ({
       ))}
 
       {/* Service hours */}
-      {single.fieldHours !== '1' && (
-        <h4 data-testid="service-location-field-hours">Service Hours</h4>
+      {single.fieldHours === '2' && single.fieldOfficeHours && (
+        <>
+          <h4 data-testid="service-location-field-hours">Service Hours</h4>
+          <div>
+            <Hours allHours={single.fieldOfficeHours} />
+          </div>
+        </>
       )}
-      {single.fieldHours && (
-        <div>
-          {single.fieldHours === '2' && single.fieldOfficeHours && (
-            <p>(Service-specific hours rendering here)</p>
-          )}
-          {single.fieldHours === '0' && (
+      {single.fieldHours === '0' && (
+        <>
+          <h4 data-testid="service-location-field-hours">Service Hours</h4>
+          <div>
             <p data-testid="service-location-field-hours-same-as-facility">
               The service hours are the same as our facility hours.
             </p>
-          )}
-        </div>
+          </div>
+        </>
       )}
 
       {single.fieldAdditionalHoursInfo && (

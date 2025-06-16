@@ -5,7 +5,7 @@ import { HoursItem } from './HoursItem'
 
 type HoursProps = {
   allHours: FieldOfficeHours[]
-  headerType: 'small' | 'standard' | 'clinical' | 'office'
+  headerType?: 'small' | 'standard' | 'clinical' | 'office'
   nonTraditionalMessage?: Wysiwyg
 }
 
