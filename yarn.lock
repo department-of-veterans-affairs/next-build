@@ -3344,59 +3344,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redis/bloom@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@redis/bloom@npm:1.2.0"
+"@redis/bloom@npm:5.5.6":
+  version: 5.5.6
+  resolution: "@redis/bloom@npm:5.5.6"
   peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: 8c214227287d6b278109098bca00afc601cf84f7da9c6c24f4fa7d3854b946170e5893aa86ed607ba017a4198231d570541c79931b98b6d50b262971022d1d6c
+    "@redis/client": ^5.5.6
+  checksum: 72cef8eef4359ffded156ed3bba99144842dca25077ff357b689f5d11796c4fb3f15156f61cc322178807a59353be2ea32b8eecdcb4c4b0ae91fed1889fff03c
   languageName: node
   linkType: hard
 
-"@redis/client@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@redis/client@npm:1.6.0"
+"@redis/client@npm:5.5.6":
+  version: 5.5.6
+  resolution: "@redis/client@npm:5.5.6"
   dependencies:
     cluster-key-slot: 1.1.2
-    generic-pool: 3.9.0
-    yallist: 4.0.0
-  checksum: c01c89a793541dc6908a97f375fec3ac28bed7f92b1c20351a3073ce75c0263998a30c3316cbb76e6a4403059d9982d40aec0bc8f1b3cab43615edaaf05980da
+  checksum: dbf486100ad76dea19a32731ec8966d2401c4dfb2088d79a086ec7c5482b41bab6089669202b81b569fe7eb0f55a209fdb02cffc2b90ffe45a8b8893cb2f2d59
   languageName: node
   linkType: hard
 
-"@redis/graph@npm:1.1.1":
-  version: 1.1.1
-  resolution: "@redis/graph@npm:1.1.1"
+"@redis/json@npm:5.5.6":
+  version: 5.5.6
+  resolution: "@redis/json@npm:5.5.6"
   peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: caf9b9a3ff82a08ae543c356a3fed548399ae79aba5ed08ce6cf1b522b955eb5cee4406b0ed0c6899345f8fbc06dfd6cd51304ae8422c3ebbc468f53294dc509
+    "@redis/client": ^5.5.6
+  checksum: 804cec9bb4aa0032346a0d8caf49496359de79db2861b0a2c331f1058231b2eb3b5dd2cb83d00ebc1cbf35e37436f8caa9f08aa975c00f62b2eb27ba499bec99
   languageName: node
   linkType: hard
 
-"@redis/json@npm:1.0.7":
-  version: 1.0.7
-  resolution: "@redis/json@npm:1.0.7"
+"@redis/search@npm:5.5.6":
+  version: 5.5.6
+  resolution: "@redis/search@npm:5.5.6"
   peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: a84d51c06a2af9a42eff5a6db795e7c0f7ada27d958f5d762b6f9778f413399dbe6a0c2ab00dd7ccc5fdab5f2940afbab4a56c2b1c284a2326d0f79965d5bba1
+    "@redis/client": ^5.5.6
+  checksum: efe82ab0a64321bb4008fb81f72784f30fbf54045cf9f118207016674cd330da5cd92afb53f53b9cba7b3765a88f04b2d27b512cbb8b6c610ea218b092b9b1ab
   languageName: node
   linkType: hard
 
-"@redis/search@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@redis/search@npm:1.2.0"
+"@redis/time-series@npm:5.5.6":
+  version: 5.5.6
+  resolution: "@redis/time-series@npm:5.5.6"
   peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: 256ddf8b30f216b605e571c9085e0efd5e3b43229b57db8ba0eea3376540ada437b68509c3bb0354e3c784f5fa1b825593cc602ebbfc5cbfa9e46d5c7be67eb6
-  languageName: node
-  linkType: hard
-
-"@redis/time-series@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@redis/time-series@npm:1.1.0"
-  peerDependencies:
-    "@redis/client": ^1.0.0
-  checksum: 785f024e1c83866708beb254f765e561ccd6e6caad61b697223b3355ee92ca1e99a4d312c4ce03a3d6a29a223f38a2ec844c80b47990fa3bd9ddc56a30c1376f
+    "@redis/client": ^5.5.6
+  checksum: 0db2337daf8c39f237d8a7fa259787d2915d6e3f139458e10caf0cef70835914521de3d41998008d6e0b252cd6ae4bc1018dad035128b2188c5ed5c49a78aa07
   languageName: node
   linkType: hard
 
@@ -10033,13 +10022,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"generic-pool@npm:3.9.0":
-  version: 3.9.0
-  resolution: "generic-pool@npm:3.9.0"
-  checksum: 3d89e9b2018d2e3bbf44fec78c76b2b7d56d6a484237aa9daf6ff6eedb14b0899dadd703b5d810219baab2eb28e5128fb18b29e91e602deb2eccac14492d8ca8
-  languageName: node
-  linkType: hard
-
 "gensync@npm:^1.0.0-beta.2":
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
@@ -13675,7 +13657,7 @@ __metadata:
     react-dom: ^18.2.0
     react-gtm-module: ^2.0.11
     react-json-view: ^1.21.3
-    redis: ^4.7.0
+    redis: ^5.5.6
     safe-json-stringify: ^1.2.0
     storybook: ^8.0.5
     superjson: ^2.2.2
@@ -15964,17 +15946,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redis@npm:^4.7.0":
-  version: 4.7.0
-  resolution: "redis@npm:4.7.0"
+"redis@npm:^5.5.6":
+  version: 5.5.6
+  resolution: "redis@npm:5.5.6"
   dependencies:
-    "@redis/bloom": 1.2.0
-    "@redis/client": 1.6.0
-    "@redis/graph": 1.1.1
-    "@redis/json": 1.0.7
-    "@redis/search": 1.2.0
-    "@redis/time-series": 1.1.0
-  checksum: 625172dd913118241288c33f351cda42630819bc82a1dc31f22e1d3e0a4267075ecb851aecfaf106a0c73ff287a434a3df3d2a8ce46713acf68d34d66efc39ec
+    "@redis/bloom": 5.5.6
+    "@redis/client": 5.5.6
+    "@redis/json": 5.5.6
+    "@redis/search": 5.5.6
+    "@redis/time-series": 5.5.6
+  checksum: 1d383caedfe1c77ffbe1f051542b07c7e3fc4d543f8e6ba2783478c526fe3c810f1ac1cc301bd698830b95d9c53a10bcac2576f4e44d3fef4da6fe21f7db9115
   languageName: node
   linkType: hard
 
@@ -19055,17 +19036,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yallist@npm:4.0.0, yallist@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "yallist@npm:4.0.0"
-  checksum: 343617202af32df2a15a3be36a5a8c0c8545208f3d3dfbc6bb7c3e3b7e8c6f8e7485432e4f3b88da3031a6e20afa7c711eded32ddfb122896ac5d914e75848d5
-  languageName: node
-  linkType: hard
-
 "yallist@npm:^3.0.2":
   version: 3.1.1
   resolution: "yallist@npm:3.1.1"
   checksum: 48f7bb00dc19fc635a13a39fe547f527b10c9290e7b3e836b9a8f1ca04d4d342e85714416b3c2ab74949c9c66f9cebb0473e6bc353b79035356103b47641285d
+  languageName: node
+  linkType: hard
+
+"yallist@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "yallist@npm:4.0.0"
+  checksum: 343617202af32df2a15a3be36a5a8c0c8545208f3d3dfbc6bb7c3e3b7e8c6f8e7485432e4f3b88da3031a6e20afa7c711eded32ddfb122896ac5d914e75848d5
   languageName: node
   linkType: hard
 
