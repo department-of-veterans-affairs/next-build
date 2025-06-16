@@ -4,6 +4,7 @@ import { HealthCareLocalFacility } from './index'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { formatter } from '@/data/queries/healthCareLocalFacility'
 import { DrupalMenuLinkContent } from 'next-drupal'
+import { within } from '@testing-library/react'
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -99,11 +100,17 @@ describe('HealthCareLocalFacility with valid data', () => {
   test('renders the hours', () => {
     render(<HealthCareLocalFacility {...mockData} />)
 
+    const facilityHoursSection = screen.getByTestId('facility-hours')
+
     expect(
-      screen.getByRole('heading', { name: 'Facility hours' })
+      within(facilityHoursSection).getByRole('heading', {
+        name: 'Facility hours',
+      })
     ).toBeInTheDocument()
-    expect(screen.getAllByText(/7:30 a.m. to 4:00 p.m./)).toHaveLength(5)
-    expect(screen.getAllByText(/Closed/)).toHaveLength(2)
+    expect(
+      within(facilityHoursSection).getAllByText(/7:30 a.m. to 4:00 p.m./)
+    ).toHaveLength(5)
+    expect(within(facilityHoursSection).getAllByText(/Closed/)).toHaveLength(2)
   })
 
   test('renders the related links', () => {
