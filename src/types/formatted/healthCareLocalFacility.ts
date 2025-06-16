@@ -132,13 +132,10 @@ export interface FormattedVAMCFacilityHealthServices {
    * This comes from the VAMC System Health Service found at `field_retional`
    */
   fieldBody?: string
-
-  // Locations associated with this service
+  /** Locations associated with this service */
   locations: ServiceLocationTemplateData[]
-
-  // Facility data
   fieldFacilityLocatorApiId?: string
-
-  // Fallback content
+  fieldHealthServiceApiId?: string
+  /** Fallback content */
   localServiceDescription?: string
 }

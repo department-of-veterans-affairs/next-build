@@ -203,6 +203,8 @@ export const formatter: QueryFormatter<
           locations: healthService.field_service_location.map((location) => {
             return {
               fieldReferralRequired: healthService.field_referral_required,
+              // TODO: Pull this out of `locations` and rename to...I think
+              // `primaryFacilityPhone` or something?
               fieldTelephone: formatPhone(entity.field_telephone),
               fieldPhoneNumber: entity.field_phone_number,
               isMentalHealthService: serviceTaxonomy.name
