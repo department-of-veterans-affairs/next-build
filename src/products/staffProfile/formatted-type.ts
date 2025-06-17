@@ -1,6 +1,6 @@
-import { MediaImage } from './media'
+import { MediaImage } from '@/types/formatted/media'
 import { PhoneNumber as FormattedPhoneNumber } from '@/types/formatted/phoneNumber'
-import { PublishedEntity } from './publishedEntity'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 export type Link = {

@@ -33,7 +33,7 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   "entityId": 3097,
   "entityPath": "/boston-health-care/locations",
   "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
-  "lastUpdated": "2021-02-17T14:42:51+00:00",
+  "lastUpdated": "2021-02-17T14:42:50+00:00",
   "menu": {
     "data": {
       "description": "Test Description",
