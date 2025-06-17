@@ -31,7 +31,7 @@ export function LocationsListing({
             <article className="usa-content">
               <div>TODO: Lovell switch link</div>
 
-              <h1 className="vads-u-margin-bottom--2">{title}</h1>
+              <h1 className="vads-u-margin-bottom--3p5">{title}</h1>
               <RegionalTopTasks
                 path={path}
                 administration={administration}
@@ -39,7 +39,7 @@ export function LocationsListing({
               />
               <section className="locations clearfix">
                 <h2
-                  className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
+                  className="vads-u-margin-top--1p5 medium-screen:vads-u-margin-top--3p5 vads-u-font-size--xl"
                   id="main-locations"
                 >
                   Main locations
