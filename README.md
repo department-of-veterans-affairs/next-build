@@ -24,7 +24,7 @@ You should set these up before attempting to install the repo.
 
 2. Clone the vets-website repo adjacent to next-build in the same parent directory. `git clone git@github.com:department-of-veterans-affairs/vets-website.git`. This is necessary to source some assets used by various FE widgets, like fonts and images.
 
-3. In the `next-build/` directory, `nvm use 18` && `yarn set version stable`
+3. In the `next-build/` directory, `nvm use 22` && `yarn set version stable`
 
 4. Run `yarn install`.
 
@@ -120,7 +120,7 @@ See the [Preview README](/READMEs/preview.md) for more information.
 
 By default, the `yarn setup` command pulls assets from the prod S3 bucket. This can be changed base on the `BUILD_TYPE` env var.
 
-To use assets from your local vets-website branch, first run a local build in that repo to compile your desired changes. **Be sure to check your node versions when switching between these repos!** `vets-website` uses node 14, `next-build` uses node 18. Using the wrong version when building will cause errors in both repos!
+To use assets from your local vets-website branch, first run a local build in that repo to compile your desired changes. **Be sure to check your node versions when switching between these repos!** `vets-website` uses node 14, `next-build` uses node 22. Using the wrong version when building will cause errors in both repos!
 
 Then running `BUILD_TYPE=localhost yarn setup` will create a symlink to the local compiled output instead of downloading assets from a S3 bucket.
 
