@@ -84,14 +84,7 @@ export type EventWidgetTeaser = {
     value: string
   }
   fieldCtaEmail: string
-  fieldDatetimeRangeTimezone: {
-    duration: number
-    endTime: string
-    endValue: number
-    startTime: string
-    timezone: string
-    value: number
-  }
+  fieldDatetimeRangeTimezone: DateTimeRangeItem[]
   fieldDescription: string | null
   fieldEventCost: string
   fieldEventCta: string
