@@ -194,7 +194,13 @@ export const formatter: QueryFormatter<
             serviceTaxonomy?.field_commonly_treated_condition ?? '',
           fieldTricareDescription:
             serviceTaxonomy?.field_tricare_description ?? null,
-          description: getHtmlFromField(serviceTaxonomy?.description) ?? null,
+          // If it's TRICARE, use the TRICARE description. Otherwise, use the
+          // regular description.
+          description:
+            serviceTaxonomy?.name === 'Lovel - TRICARE' && // Is this the best way to check?
+            serviceTaxonomy?.field_tricare_description
+              ? serviceTaxonomy?.field_tricare_description
+              : (getHtmlFromField(serviceTaxonomy?.description) ?? null),
           entityId: serviceTaxonomy.id,
           entityBundle: healthService.type.split('--')[1],
           fieldBody: getHtmlFromField(

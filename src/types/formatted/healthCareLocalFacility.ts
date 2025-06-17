@@ -125,8 +125,6 @@ export interface FormattedVAMCFacilityHealthService {
   fieldAlsoKnownAs?: string
   /** Comes from the service taxonomy of the regional health service. */
   fieldCommonlyTreatedCondition?: string
-  /** Comes from the service taxonomy of the regional health service. */
-  fieldTricareDescription?: string
   description?: string
   /** Comes from the service taxonomy of the regional health service. */
   entityId: string | number

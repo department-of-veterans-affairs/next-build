@@ -28,10 +28,6 @@ export const HealthServices = ({
           const hasLocationData =
             service.locations?.[0]?.single?.fieldServiceLocationAddress
 
-          const serviceDescription = service.fieldTricareDescription
-            ? service.fieldTricareDescription
-            : service.description
-
           return (
             <va-accordion-item
               key={service.name}
@@ -49,10 +45,10 @@ export const HealthServices = ({
                   </p>
                 )}
 
-                {serviceDescription && (
+                {service.description && (
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: serviceDescription,
+                      __html: service.description,
                     }}
                   />
                 )}
