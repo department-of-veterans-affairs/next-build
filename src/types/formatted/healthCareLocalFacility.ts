@@ -44,7 +44,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
   socialLinks: FacilitySocialLinksProps
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
-  healthServices: FormattedVAMCFacilityHealthServices[]
+  healthServices: FormattedVAMCFacilityHealthService[]
 }
 
 /** Represents the "single" object containing service-related fields. */
@@ -118,7 +118,7 @@ export interface ServiceLocationTemplateData {
   single: VamcFacilityServiceLocation
 }
 
-export interface FormattedVAMCFacilityHealthServices {
+export interface FormattedVAMCFacilityHealthService {
   /** Name of the service taxonomy for the regional health service. */
   name: string
   /** Comes from the service taxonomy of the regional health service. */

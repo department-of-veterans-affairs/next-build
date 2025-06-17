@@ -2,14 +2,14 @@
 // Ignoring this until we get tests written; it's just really detailed
 // scaffolding for now.
 
-import { FormattedVAMCFacilityHealthServices } from '@/types/formatted/healthCareLocalFacility'
+import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceLocation } from './ServiceLocation'
 import { hashReference } from '@/lib/utils/hashReference'
 
 export const HealthServices = ({
   healthServices,
 }: {
-  healthServices: FormattedVAMCFacilityHealthServices[]
+  healthServices: FormattedVAMCFacilityHealthService[]
 }) => {
   return (
     <>
