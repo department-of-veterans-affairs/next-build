@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
-import { NodeHealthCareRegionPage } from '@/types/drupal/node'
-import { Administration } from '@/types/formatted/administration'
 import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
 
 interface customWindow extends Window {
