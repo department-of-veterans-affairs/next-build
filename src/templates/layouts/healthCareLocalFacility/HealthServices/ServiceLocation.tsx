@@ -212,10 +212,10 @@ export const ServiceLocation = ({
 
       {/* Email contacts */}
       {single.fieldEmailContacts?.map((email, i) => (
-        <p key={i} data-testid="service-location-email-contact">
+        <div key={i} data-testid="service-location-email-contact">
           {email.label && <h4>{email.label}</h4>}
           <a href={`mailto:${email.address}`}>{email.address}</a>
-        </p>
+        </div>
       ))}
 
       {/* Service hours */}

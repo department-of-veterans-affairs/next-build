@@ -41,6 +41,7 @@ export const params: QueryParams<null> = () => {
     'field_local_health_care_service_.field_service_location.field_phone',
     'field_local_health_care_service_.field_service_location.field_other_phone_numbers',
     'field_local_health_care_service_.field_service_location.field_service_location_address',
+    'field_local_health_care_service_.field_service_location.field_email_contacts',
   ])
 }
 
