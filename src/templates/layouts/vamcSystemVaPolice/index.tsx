@@ -29,7 +29,7 @@ export function VamcSystemVaPolice({
 
   return (
     <div className="va-l-detail-page va-facility-page">
-      <div className="usa-grid usa-grid-full">
+      <div className="vads-grid-container">
         {/* Nav data fille in by a separate script from `window.sideNav` */}
         <nav aria-label="secondary" data-widget-type="side-nav" />
         {/* Main page content */}
