@@ -57,11 +57,9 @@ describe('EventListing with valid data', () => {
           },
         },
         fieldBody: {
-          value:
-            '<p>Patients are invited to participate in our next patient tele-town hall - all you need is a cell phone!</p><p>Do you want to hear about how it\'s going with the new Federal Electronic Health Record we implemented last year?<br>Do you know about the most recent changes to how you can log in to your online health care portal?<br>Or do you just have questions about your care, or your loved one\'s care, here at Lovell FHCC?</p><p>This is a tele-town hall, which means we\'ll invite patients to participate via a robo-call the day before and right at the start of the town hall. We call a randomized group of current patients - those who have had appointments here in the past two years.</p><p>However, if you want to make sure you can participate, please send your phone number to <a href="mailto:FHCC.Feedback@va.gov">FHCC.Feedback@va.gov</a>.<br>If you have questions about this town hall, please <a href="tel:224-610-3714">224-610-3714</a>.</p>',
+          value: '<p>test body</p>',
           format: 'rich_text',
-          processed:
-            '<p>Patients are invited to participate in our next patient tele-town hall - all you need is a cell phone!</p><p>Do you want to hear about how it\'s going with the new Federal Electronic Health Record we implemented last year?<br>Do you know about the most recent changes to how you can log in to your online health care portal?<br>Or do you just have questions about your care, or your loved one\'s care, here at Lovell FHCC?</p><p>This is a tele-town hall, which means we\'ll invite patients to participate via a robo-call the day before and right at the start of the town hall. We call a randomized group of current patients - those who have had appointments here in the past two years.</p><p>However, if you want to make sure you can participate, please send your phone number to <a href="mailto:FHCC.Feedback@va.gov">FHCC.Feedback@va.gov</a>.<br>If you have questions about this town hall, please <a href="tel:224-610-3714">224-610-3714</a>.</p>',
+          processed: '<p>test body</p>',
         },
         fieldCtaEmail: null,
         fieldDatetimeRangeTimezone: [
