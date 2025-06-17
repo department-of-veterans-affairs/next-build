@@ -180,9 +180,9 @@ export const ServiceLocation = ({
       )}
 
       {/* Service location address */}
-      {single.fieldServiceLocationAddress?.entity && (
+      {single.fieldServiceLocationAddress && (
         <ServiceAddress
-          serviceLocationAddress={single.fieldServiceLocationAddress.entity}
+          serviceLocationAddress={single.fieldServiceLocationAddress}
         />
       )}
 
