@@ -79,7 +79,7 @@ jobs:
     runs-on: [self-hosted, asg]
     needs: [validate-build-status, login-to-amazon-ecr]
     container:
-      image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
+      image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-22.16.0-bullseye:latest
       credentials:
         username: ${{ needs.login-to-amazon-ecr.outputs.docker_username }}
         password: ${{ needs.login-to-amazon-ecr.outputs.docker_password }}
@@ -114,7 +114,7 @@ jobs:
 
     - uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 22
     - name: Setup Yarn
       run: |
         cd main
