@@ -31,7 +31,8 @@ describe('Hours Component', () => {
   it('handles "closed" status correctly', () => {
     const allHours = [{ day: 1, starthours: null, endhours: null, comment: '' }]
     render(<Hours allHours={allHours} headerType="standard" />)
-    expect(screen.getByText('Closed')).toBeInTheDocument()
+    // Also fills in the blanks with "Closed"
+    expect(screen.getAllByText('Closed')).toHaveLength(7)
   })
 
   it('renders "Clinical hours" for clinical header type', () => {

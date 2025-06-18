@@ -9,6 +9,29 @@ type HoursProps = {
   nonTraditionalMessage?: Wysiwyg
 }
 
+const normalizeHours = (allHours: FieldOfficeHours[]) => {
+  const normalizedHours = [...allHours]
+
+  // Add any missing days
+  for (let day = 0; day < 7; day++) {
+    if (allHours.find((hours) => hours.day === day)) {
+      continue
+    }
+    normalizedHours.push({
+      day,
+      starthours: null,
+      endhours: null,
+    })
+  }
+
+  // sort hours so diplay order is monday-sunday
+  normalizedHours.sort((a, b) => a.day - b.day)
+  const sunday = normalizedHours.shift()
+  if (sunday) normalizedHours.push(sunday)
+
+  return normalizedHours
+}
+
 export const Hours = ({
   allHours,
   headerType,
@@ -17,11 +40,6 @@ export const Hours = ({
   if (!allHours || allHours.length === 0) {
     return null
   }
-
-  // sort hours so diplay order is monday-sunday
-  const sortedHours = [...allHours].sort((a, b) => a.day - b.day)
-  const sunday = sortedHours.shift()
-  if (sunday) sortedHours.push(sunday)
 
   const renderHeader = () => {
     switch (headerType) {
@@ -91,7 +109,7 @@ export const Hours = ({
         {renderHeader()}
         <div className="vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row vads-u-margin-bottom--0">
           <ul className="vads-u-flex--1 va-c-facility-hours-list vads-u-margin-top--0 vads-u-margin-bottom--1 mobile-lg:vads-u-margin-bottom--0 vads-u-margin-right--3">
-            {sortedHours.map((hoursItem, index) => (
+            {normalizeHours(allHours).map((hoursItem, index) => (
               <HoursItem item={hoursItem} key={index} />
             ))}
           </ul>
