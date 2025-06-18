@@ -48,10 +48,10 @@ export const ServiceAddress = ({
   return (
     <div className="vads-u-display--flex vads-u-flex-direction--column">
       {serviceLocationAddress.field_clinic_name ? (
-        <h5>{serviceLocationAddress.field_clinic_name}</h5>
+        <h4>{serviceLocationAddress.field_clinic_name}</h4>
       ) : serviceLocationAddress.field_building_name_number ||
         serviceLocationAddress.field_wing_floor_or_room_number ? (
-        <h5>Location</h5>
+        <h4>Location</h4>
       ) : null}
 
       {hasAddress && !serviceLocationAddress.field_use_facility_address && (
