@@ -199,7 +199,7 @@ export const formatter: QueryFormatter<
           // If it's TRICARE, use the TRICARE description. Otherwise, use the
           // regular description.
           description:
-            serviceTaxonomy?.name === 'Lovel - TRICARE' && // Is this the best way to check?
+            healthService.field_administration.name === 'Lovell - TRICARE' && // Is this the best way to check?
             serviceTaxonomy?.field_tricare_description
               ? serviceTaxonomy?.field_tricare_description
               : (getHtmlFromField(serviceTaxonomy?.description) ?? null),
