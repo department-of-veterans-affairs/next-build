@@ -37,10 +37,6 @@ export const Hours = ({
   headerType,
   nonTraditionalMessage,
 }: HoursProps) => {
-  if (!allHours || allHours.length === 0) {
-    return null
-  }
-
   const renderHeader = () => {
     switch (headerType) {
       case 'small':
