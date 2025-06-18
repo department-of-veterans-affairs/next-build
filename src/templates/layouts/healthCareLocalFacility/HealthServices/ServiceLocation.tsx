@@ -231,7 +231,10 @@ export const ServiceLocation = ({
         <>
           <h4 data-testid="service-location-field-hours">Service Hours</h4>
           <div>
-            <p data-testid="service-location-field-hours-same-as-facility">
+            <p
+              className="vads-u-margin-y--0"
+              data-testid="service-location-field-hours-same-as-facility"
+            >
               The service hours are the same as our facility hours.
             </p>
           </div>
