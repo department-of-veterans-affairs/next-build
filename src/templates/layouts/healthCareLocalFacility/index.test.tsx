@@ -148,4 +148,65 @@ describe('HealthCareLocalFacility with valid data', () => {
       )
     ).not.toBeInTheDocument()
   })
+
+  test('renders LovellSwitcher when lovellVariant is provided', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+    expect(screen.getByText('Switch to Lovell Federal health care')).toBeInTheDocument()
+  })
+
+  test('does not render LovellSwitcher when lovellVariant is undefined', () => {
+    const dataWithoutLovell = { ...mockData, lovellVariant: undefined }
+    render(<HealthCareLocalFacility {...dataWithoutLovell} />)
+    expect(screen.queryByText('Switch to Lovell Federal health care')).not.toBeInTheDocument()
+  })
+
+  test('renders structured schema data script', () => {
+    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+    const scriptElement = container.querySelector('script[type="application/ld+json"]')
+    expect(scriptElement).toBeInTheDocument()
+    expect(scriptElement?.textContent).toContain('schema.org')
+    expect(scriptElement?.textContent).toContain(mockData.title)
+  })
+
+  test('renders FacilityTopTasks component', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+    expect(screen.getByText('Top tasks')).toBeInTheDocument()
+  })
+
+  test('renders HealthServices when healthServices are provided', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+    expect(screen.getByText('Health services offered here')).toBeInTheDocument()
+  })
+
+  test('does not render HealthServices when healthServices are empty', () => {
+    const dataWithoutServices = { ...mockData, healthServices: [] }
+    render(<HealthCareLocalFacility {...dataWithoutServices} />)
+    expect(screen.queryByText('Health services offered here')).not.toBeInTheDocument()
+  })
+
+  test('renders patient satisfaction widget for VHA facilities', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+    expect(screen.getByTestId('patient-satisfaction-widget')).toBeInTheDocument()
+  })
+
+  test('does not render patient satisfaction widget for non-VHA facilities', () => {
+    const nonVhaData = { ...mockData, facilityLocatorApiId: 'vc_123' }
+    render(<HealthCareLocalFacility {...nonVhaData} />)
+    expect(screen.queryByTestId('patient-satisfaction-widget')).not.toBeInTheDocument()
+  })
+
+  test('renders FacilitySocialLinks when socialLinks are provided', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+    expect(screen.getByText('Connect with us')).toBeInTheDocument()
+  })
+
+  test('renders ContentFooter with lastUpdated date', () => {
+    render(<HealthCareLocalFacility {...mockData} />)
+    expect(screen.getByText(`Last updated: ${mockData.lastUpdated}`)).toBeInTheDocument()
+  })
+
+  test('renders va-back-to-top component', () => {
+    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+    expect(container.querySelector('va-back-to-top')).toBeInTheDocument()
+  })
 })
