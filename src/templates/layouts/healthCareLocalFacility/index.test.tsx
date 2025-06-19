@@ -190,7 +190,10 @@ describe('HealthCareLocalFacility with valid data', () => {
   test('renders HealthServices when healthServices are provided', () => {
     render(<HealthCareLocalFacility {...mockData} />)
     expect(
-      screen.getByText('Health services offered at this facility')
+      screen.getByRole('heading', {
+        name: 'Health services offered here',
+        level: 2,
+      })
     ).toBeInTheDocument()
   })
 
