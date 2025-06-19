@@ -149,7 +149,7 @@ describe('HealthCareLocalFacility with valid data', () => {
     ).not.toBeInTheDocument()
   })
 
-  test('renders LovellSwitcher when lovellVariant is provided', () => {
+  test('renders LovellSwitcher when lovellVariant and lovellSwitchPath are provided', () => {
     // lovellVariant is set to 'va' in the mock data already
     render(
       <HealthCareLocalFacility
