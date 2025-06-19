@@ -150,19 +150,33 @@ describe('HealthCareLocalFacility with valid data', () => {
   })
 
   test('renders LovellSwitcher when lovellVariant is provided', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByRole('link', { name: 'Switch to Lovell Federal health care' })).toBeInTheDocument()
+    // lovellVariant is set to 'va' in the mock data already
+    render(
+      <HealthCareLocalFacility
+        {...mockData}
+        lovellSwitchPath="/the/other/path"
+      />
+    )
+    expect(
+      screen.getByRole('heading', {
+        name: 'You are viewing this page as a VA beneficiary.',
+      })
+    ).toBeInTheDocument()
   })
 
   test('does not render LovellSwitcher when lovellVariant is undefined', () => {
     const dataWithoutLovell = { ...mockData, lovellVariant: undefined }
     render(<HealthCareLocalFacility {...dataWithoutLovell} />)
-    expect(screen.queryByText('Switch to Lovell Federal health care')).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('Switch to Lovell Federal health care')
+    ).not.toBeInTheDocument()
   })
 
   test('renders structured schema data script', () => {
     const { container } = render(<HealthCareLocalFacility {...mockData} />)
-    const scriptElement = container.querySelector('script[type="application/ld+json"]')
+    const scriptElement = container.querySelector(
+      'script[type="application/ld+json"]'
+    )
     expect(scriptElement).toBeInTheDocument()
     expect(scriptElement?.textContent).toContain('schema.org')
     expect(scriptElement?.textContent).toContain(mockData.title)
@@ -170,39 +184,53 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('renders FacilityTopTasks component', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByRole('link', { name: 'Make an appointment' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', { name: 'Make an appointment' })
+    ).toBeInTheDocument()
   })
 
   test('renders HealthServices when healthServices are provided', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByText('Health services offered at this facility')).toBeInTheDocument()
+    expect(
+      screen.getByText('Health services offered at this facility')
+    ).toBeInTheDocument()
   })
 
   test('does not render HealthServices when healthServices are empty', () => {
     const dataWithoutServices = { ...mockData, healthServices: [] }
     render(<HealthCareLocalFacility {...dataWithoutServices} />)
-    expect(screen.queryByText('Health services offered at this facility')).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('Health services offered at this facility')
+    ).not.toBeInTheDocument()
   })
 
   test('renders patient satisfaction widget for VHA facilities', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByTestId('patient-satisfaction-widget')).toBeInTheDocument()
+    expect(
+      screen.getByTestId('patient-satisfaction-widget')
+    ).toBeInTheDocument()
   })
 
   test('does not render patient satisfaction widget for non-VHA facilities', () => {
     const nonVhaData = { ...mockData, facilityLocatorApiId: 'vc_123' }
     render(<HealthCareLocalFacility {...nonVhaData} />)
-    expect(screen.queryByTestId('patient-satisfaction-widget')).not.toBeInTheDocument()
+    expect(
+      screen.queryByTestId('patient-satisfaction-widget')
+    ).not.toBeInTheDocument()
   })
 
   test('renders FacilitySocialLinks when socialLinks are provided', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByText('Connect with VA Boston health care')).toBeInTheDocument()
+    expect(
+      screen.getByText('Connect with VA Boston health care')
+    ).toBeInTheDocument()
   })
 
   test('renders ContentFooter with lastUpdated date', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByText(new RegExp(`Last updated:.*${mockData.lastUpdated}`))).toBeInTheDocument()
+    expect(
+      screen.getByText(new RegExp(`Last updated:.*${mockData.lastUpdated}`))
+    ).toBeInTheDocument()
   })
 
   test('renders va-back-to-top component', () => {
