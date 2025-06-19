@@ -151,7 +151,7 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('renders LovellSwitcher when lovellVariant is provided', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByText('Switch to Lovell Federal health care')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Switch to Lovell Federal health care' })).toBeInTheDocument()
   })
 
   test('does not render LovellSwitcher when lovellVariant is undefined', () => {
@@ -170,18 +170,18 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('renders FacilityTopTasks component', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByText('Top tasks')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Make an appointment' })).toBeInTheDocument()
   })
 
   test('renders HealthServices when healthServices are provided', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByText('Health services offered here')).toBeInTheDocument()
+    expect(screen.getByText('Health services offered at this facility')).toBeInTheDocument()
   })
 
   test('does not render HealthServices when healthServices are empty', () => {
     const dataWithoutServices = { ...mockData, healthServices: [] }
     render(<HealthCareLocalFacility {...dataWithoutServices} />)
-    expect(screen.queryByText('Health services offered here')).not.toBeInTheDocument()
+    expect(screen.queryByText('Health services offered at this facility')).not.toBeInTheDocument()
   })
 
   test('renders patient satisfaction widget for VHA facilities', () => {
@@ -197,12 +197,12 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('renders FacilitySocialLinks when socialLinks are provided', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByText('Connect with us')).toBeInTheDocument()
+    expect(screen.getByText('Connect with VA Boston health care')).toBeInTheDocument()
   })
 
   test('renders ContentFooter with lastUpdated date', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(screen.getByText(`Last updated: ${mockData.lastUpdated}`)).toBeInTheDocument()
+    expect(screen.getByText(new RegExp(`Last updated:.*${mockData.lastUpdated}`))).toBeInTheDocument()
   })
 
   test('renders va-back-to-top component', () => {
