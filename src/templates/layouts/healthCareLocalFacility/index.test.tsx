@@ -223,7 +223,10 @@ describe('HealthCareLocalFacility with valid data', () => {
   test('renders FacilitySocialLinks when socialLinks are provided', () => {
     render(<HealthCareLocalFacility {...mockData} />)
     expect(
-      screen.getByText('Connect with VA Boston health care')
+      screen.getByRole('heading', {
+        name: 'Get updates from VA Boston health care',
+        level: 2,
+      })
     ).toBeInTheDocument()
   })
 
