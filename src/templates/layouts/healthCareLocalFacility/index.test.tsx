@@ -184,9 +184,7 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('renders FacilityTopTasks component', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(
-      screen.getByRole('link', { name: 'Make an appointment' })
-    ).toBeInTheDocument()
+    expect(screen.getByTestId('facility-top-tasks')).toBeInTheDocument()
   })
 
   test('renders HealthServices when healthServices are provided', () => {
