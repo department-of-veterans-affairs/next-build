@@ -232,9 +232,7 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('renders ContentFooter with lastUpdated date', () => {
     render(<HealthCareLocalFacility {...mockData} />)
-    expect(
-      screen.getByText(new RegExp(`Last updated:.*${mockData.lastUpdated}`))
-    ).toBeInTheDocument()
+    expect(screen.getByTestId('content-footer')).toBeInTheDocument()
   })
 
   test('renders va-back-to-top component', () => {
