@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { HealthServices } from './HealthServices'
 import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
+import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 
 // Mock ServiceLocation to simplify tests
 jest.mock('./ServiceLocation', () => ({
@@ -20,7 +21,11 @@ describe('HealthServices', () => {
       locations: [
         {
           single: {
-            fieldServiceLocationAddress: {},
+            // We're mocking out the service location component, so we don't
+            // need to provide a full address object.
+            // NOTE: This is relying on static typing to test for the proper
+            // integration.
+            fieldServiceLocationAddress: {} as ParagraphServiceLocationAddress,
           },
         },
       ],
