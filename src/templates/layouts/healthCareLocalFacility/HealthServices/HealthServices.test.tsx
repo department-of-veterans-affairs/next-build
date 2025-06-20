@@ -83,6 +83,7 @@ describe('HealthServices', () => {
     )
 
     // Service names are rendered as text in h3 elements
+    // Use screen.getByRole() #AI!
     expect(screen.getByText('Primary Care')).toBeInTheDocument()
     expect(screen.getByText('Mental Health')).toBeInTheDocument()
     expect(screen.getByText('Dental')).toBeInTheDocument()
