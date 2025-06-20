@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
 import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
+import { FacilityListing } from '@/templates/components/facilityListing'
 
 interface customWindow extends Window {
   sideNav?: SideNavMenu
@@ -14,6 +15,7 @@ export function LocationsListing({
   vamcEhrSystem,
   administration,
   path,
+  mainFacilities,
 }: FormattedLocationsListing) {
   useEffect(() => {
     window.sideNav = menu
@@ -36,13 +38,23 @@ export function LocationsListing({
                 vamcEhrSystem={vamcEhrSystem}
               />
               <section className="locations clearfix">
-                <h2
-                  className="vads-u-margin-top--1p5 medium-screen:vads-u-margin-top--3p5 vads-u-font-size--xl"
-                  id="main-locations"
-                >
-                  Main locations
-                </h2>
-                <div>TODO: Main location list</div>
+                {mainFacilities.length > 0 && (
+                  <>
+                    <h2
+                      className="vads-u-margin-top--1p5 medium-screen:vads-u-margin-top--3p5 vads-u-font-size--xl"
+                      id="main-locations"
+                    >
+                      Main locations
+                    </h2>
+                    {mainFacilities.map((facility) => (
+                      <FacilityListing
+                        key={facility.title}
+                        facility={facility}
+                        basePath={path}
+                      />
+                    ))}
+                  </>
+                )}
 
                 <h2
                   className="medium-screen:vads-u-margin-bottom--4"

@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { LocationsListing } from './index'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
+import { MinimalLocalFacility } from '@/types/formatted/locationsListing'
 
 // Mock menu data for testing
 const mockMenu = {
@@ -21,7 +22,28 @@ const mockBaseProps = {
   menu: mockMenu,
   administration: LOVELL.va.administration,
   vamcEhrSystem: 'vista' as const,
+  mainFacilities: [],
 }
+
+const mockMainFacilities: MinimalLocalFacility[] = [
+  {
+    title: 'Lovell Federal health care',
+    path: '/lovell-federal-health-care',
+    operatingStatusFacility: 'normal',
+    address: {
+      langcode: 'en',
+      country_code: 'US',
+      administrative_area: 'IL',
+      locality: 'North Chicago',
+      postal_code: '60064',
+      address_line1: '3001 Green Bay Frontage Rd',
+    },
+    phoneNumber: '224-610-3747',
+    vaHealthConnectPhoneNumber: '877-698-7422',
+    fieldTelephone: null,
+    image: null,
+  },
+]
 
 describe('LocationsListing', () => {
   test('renders the given title in an <h1>', () => {
@@ -86,5 +108,36 @@ describe('LocationsListing', () => {
       'href',
       '/va-locations/make-an-appointment'
     )
+  })
+
+  describe('Main Facilities', () => {
+    test('renders main facilities section with facilities', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="VA Locations"
+          path="/va-locations"
+          mainFacilities={mockMainFacilities}
+        />
+      )
+      expect(
+        screen.getByRole('heading', { name: /Main locations/i })
+      ).toBeInTheDocument()
+      expect(screen.getByText(/3001 Green Bay Frontage Rd/)).toBeInTheDocument()
+    })
+
+    test('does not render main facilities section without facilities', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="VA Locations"
+          path="/va-locations"
+          mainFacilities={[]}
+        />
+      )
+      expect(
+        screen.queryByRole('heading', { name: /Main locations/i })
+      ).not.toBeInTheDocument()
+    })
   })
 })
