@@ -14,6 +14,9 @@ const LocationsListingMock: NodeLocationsListing = mockData[0]
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
   fetchSingleEntityOrPreview: () => mockData[0],
+  fetchAndConcatAllResourceCollectionPages: () => ({
+    data: [],
+  }),
   getMenu: () => ({
     items: [],
     tree: [],
