@@ -82,11 +82,16 @@ describe('HealthServices', () => {
       <HealthServices healthServices={mockHealthServices} />
     )
 
-    // Service names are rendered as text in h3 elements
-    // Use screen.getByRole() #AI!
-    expect(screen.getByText('Primary Care')).toBeInTheDocument()
-    expect(screen.getByText('Mental Health')).toBeInTheDocument()
-    expect(screen.getByText('Dental')).toBeInTheDocument()
+    // Service names are rendered as headings of level 3
+    expect(
+      screen.getByRole('heading', { name: 'Primary Care', level: 3 })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Mental Health', level: 3 })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Dental', level: 3 })
+    ).toBeInTheDocument()
 
     // Subheaders are rendered as data-childlabel attributes
     expect(
