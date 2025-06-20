@@ -109,6 +109,10 @@ describe('HealthServices', () => {
     ).toBeInTheDocument()
   })
 
+  it('does not renders common conditions when they are not present', () => {
+    // Fill this in AI!
+  })
+
   it('renders service descriptions', () => {
     render(<HealthServices healthServices={mockHealthServices} />)
     expect(
