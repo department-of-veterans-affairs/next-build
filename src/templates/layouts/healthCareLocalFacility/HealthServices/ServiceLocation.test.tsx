@@ -17,12 +17,16 @@ const baseProps: ServiceLocationTemplateData = {
     fieldUseFacilityPhoneNumber: true,
     fieldOtherPhoneNumbers: [
       {
+        id: '1',
+        type: 'tel',
         number: '555-1111',
         extension: '',
         phoneType: 'tel',
         label: 'Appointments',
       },
       {
+        id: '2',
+        type: 'fax',
         number: '555-2222',
         extension: '456',
         phoneType: 'fax',
@@ -31,6 +35,8 @@ const baseProps: ServiceLocationTemplateData = {
     ],
     fieldPhone: [
       {
+        id: '3',
+        type: 'tel',
         number: '555-3333',
         extension: '',
         phoneType: 'tel',
@@ -41,10 +47,18 @@ const baseProps: ServiceLocationTemplateData = {
     fieldVirtualSupport: 'yes_veterans_can_call',
     fieldOnlineSchedulingAvail: 'yes',
     fieldServiceLocationAddress: {
+      drupal_internal__id: 1,
+      drupal_internal__revision_id: 1,
+      type: '',
+      langcode: 'en',
+      id: '1',
+      status: true,
       field_building_name_number: 'Building 1',
       field_clinic_name: 'Clinic A',
       field_wing_floor_or_room_number: 'Room 101',
       field_address: {
+        langcode: 'en',
+        country_code: 'US',
         address_line1: '123 Main St',
         address_line2: '',
         locality: 'Anytown',
@@ -191,7 +205,12 @@ describe('ServiceLocation', () => {
   test('shows email contacts', () => {
     const props = { ...baseProps }
     props.single.fieldEmailContacts = [
-      { address: 'contact@example.com', label: 'General Inquiries' },
+      {
+        address: 'contact@example.com',
+        label: 'General Inquiries',
+        id: '1',
+        type: 'paragraph--email_contact',
+      },
     ]
 
     render(<ServiceLocation {...props} />)
