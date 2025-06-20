@@ -109,8 +109,23 @@ describe('HealthServices', () => {
     ).toBeInTheDocument()
   })
 
-  it('does not renders common conditions when they are not present', () => {
-    // Fill this in AI!
+  it('does not render common conditions when they are not present', () => {
+    const mockServiceWithoutConditions: FormattedVAMCFacilityHealthService[] = [
+      {
+        name: 'Dental',
+        entityId: 3,
+        entityBundle: 'health_care_service',
+        locations: [],
+        localServiceDescription: 'Local dental description',
+      },
+    ]
+
+    render(<HealthServices healthServices={mockServiceWithoutConditions} />)
+
+    // The common conditions text should not be present
+    expect(
+      screen.queryByText(/Common conditions:/)
+    ).not.toBeInTheDocument()
   })
 
   it('renders service descriptions', () => {
