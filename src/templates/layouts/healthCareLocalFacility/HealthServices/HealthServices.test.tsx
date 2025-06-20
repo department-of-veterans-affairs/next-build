@@ -123,9 +123,7 @@ describe('HealthServices', () => {
     render(<HealthServices healthServices={mockServiceWithoutConditions} />)
 
     // The common conditions text should not be present
-    expect(
-      screen.queryByText(/Common conditions:/)
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText(/Common conditions:/)).not.toBeInTheDocument()
   })
 
   it('renders service descriptions', () => {
@@ -135,13 +133,16 @@ describe('HealthServices', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders ServiceLocation when address data exists', () => {
+  it('renders ServiceLocation only when address data exists', () => {
     render(<HealthServices healthServices={mockHealthServices} />)
     expect(screen.getAllByText('Mock ServiceLocation')).toHaveLength(1)
   })
 
   it('renders local description when no location data', () => {
     render(<HealthServices healthServices={mockHealthServices} />)
+    expect(
+      screen.queryByText('Local primary care description')
+    ).not.toBeInTheDocument()
     expect(
       screen.getByText('Local mental health description')
     ).toBeInTheDocument()
