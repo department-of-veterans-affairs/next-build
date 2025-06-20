@@ -48,7 +48,7 @@ describe('ServiceAddress', () => {
     expect(container.firstChild).toBeNull()
   })
 
-  it('displays facility address when useFacilityAddress is true', () => {
+  it('displays no address when useFacilityAddress is true', () => {
     render(
       <ServiceAddress
         serviceLocationAddress={{
@@ -60,10 +60,13 @@ describe('ServiceAddress', () => {
     )
 
     expect(screen.getByText('Cardiology Clinic')).toBeInTheDocument()
-    expect(screen.getByText('123 Main St')).toBeInTheDocument()
-    expect(screen.getByText('Los Angeles, CA 90001')).toBeInTheDocument()
-    expect(screen.getByText('Building 5')).toBeInTheDocument()
-    expect(screen.getByText('Room 203')).toBeInTheDocument()
+    // Neither the facility nor the service address should be displayed
+    expect(
+      screen.queryByText(mockFacilityAddress.address_line1)
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(mockServiceAddress.address_line1)
+    ).not.toBeInTheDocument()
   })
 
   it('displays service address when useFacilityAddress is false', () => {
