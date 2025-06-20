@@ -120,7 +120,7 @@ describe('ServiceLocation', () => {
     render(<ServiceLocation {...baseProps} />)
 
     expect(
-      screen.getByText('Schedule an appointment online')
+      screen.getByText('Schedule an appointment online', { exact: true })
     ).toBeInTheDocument()
   })
 
@@ -129,7 +129,10 @@ describe('ServiceLocation', () => {
 
     expect(screen.getByText('Service Hours')).toBeInTheDocument()
     expect(
-      screen.getByText('Monday: 8:00 a.m. to 5:00 p.m.')
+      screen.getByText('Mon: 8:00 a.m. to 5:00 p.m. Open')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('Tue: 8:00 a.m. to 5:00 p.m. Open')
     ).toBeInTheDocument()
     expect(screen.getByText('Closed on holidays')).toBeInTheDocument()
   })
