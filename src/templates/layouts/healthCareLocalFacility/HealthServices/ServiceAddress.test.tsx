@@ -24,6 +24,10 @@ describe('ServiceAddress', () => {
   }
 
   const mockServiceLocationAddress: ParagraphServiceLocationAddress = {
+    drupal_internal__id: 1,
+    drupal_internal__revision_id: 1,
+    langcode: 'en',
+    status: true,
     id: '1',
     type: 'paragraph--service_location_address',
     field_address: mockServiceAddress,
