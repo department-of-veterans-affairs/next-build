@@ -90,21 +90,32 @@ describe('ServiceLocation', () => {
     expect(screen.getByText('A referral is required')).toBeInTheDocument()
 
     // Should render appointments header
-    expect(screen.getByText('Appointments')).toBeInTheDocument()
+    expect(
+      screen.getByTestId('service-location-appoinments-header')
+    ).toHaveTextContent('Appointments')
   })
 
   test('shows correct phone numbers', () => {
     render(<ServiceLocation {...baseProps} />)
 
     // Main phone for appointments
-    expect(screen.getByText('555-1234')).toBeInTheDocument()
+    const mainPhoneElement = screen.getByTestId('main-phone-appointments')
+    expect(mainPhoneElement).toHaveAttribute('contact', '5551234')
 
     // Other appointment phones
-    expect(screen.getByText('555-1111')).toBeInTheDocument()
-    expect(screen.getByText('555-2222')).toBeInTheDocument()
+    const otherPhonesContainer = screen.getByTestId(
+      'service-location-show-other-phone-numbers'
+    )
+    const vaTelephones = otherPhonesContainer.querySelectorAll('va-telephone')
+    expect(vaTelephones[0]).toHaveAttribute('contact', '5551111')
+    expect(vaTelephones[1]).toHaveAttribute('contact', '5552222')
 
     // Contact phone
-    expect(screen.getByText('555-3333')).toBeInTheDocument()
+    const contactPhonesContainer = screen.getByTestId(
+      'service-location-show-contact-phone-numbers'
+    )
+    const contactPhone = contactPhonesContainer.querySelector('va-telephone')
+    expect(contactPhone).toHaveAttribute('contact', '5553333')
   })
 
   test('shows service location address', () => {
@@ -119,21 +130,30 @@ describe('ServiceLocation', () => {
   test('shows online scheduling when available', () => {
     render(<ServiceLocation {...baseProps} />)
 
-    expect(
-      screen.getByText('Schedule an appointment online', { exact: true })
-    ).toBeInTheDocument()
+    const linkAction = screen
+      .getByTestId('service-location-action-link-online')
+      .querySelector('va-link-action')
+    expect(linkAction).toHaveAttribute(
+      'text',
+      'Schedule an appointment online'
+    )
   })
 
   test('shows service hours when available', () => {
     render(<ServiceLocation {...baseProps} />)
 
     expect(screen.getByText('Service Hours')).toBeInTheDocument()
-    expect(
-      screen.getByText('Mon: 8:00 a.m. to 5:00 p.m. Open')
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText('Tue: 8:00 a.m. to 5:00 p.m. Open')
-    ).toBeInTheDocument()
+    
+    // Check Monday hours
+    expect(screen.getByText('Mon:')).toBeInTheDocument()
+    expect(screen.getByText('8:00 a.m. to 5:00 p.m.')).toBeInTheDocument()
+    expect(screen.getByText('Open')).toBeInTheDocument()
+    
+    // Check Tuesday hours
+    expect(screen.getByText('Tue:')).toBeInTheDocument()
+    expect(screen.getByText('8:00 a.m. to 5:00 p.m.')).toBeInTheDocument()
+    expect(screen.getByText('Open')).toBeInTheDocument()
+    
     expect(screen.getByText('Closed on holidays')).toBeInTheDocument()
   })
 
