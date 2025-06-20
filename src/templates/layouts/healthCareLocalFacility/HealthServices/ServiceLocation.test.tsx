@@ -4,7 +4,7 @@ import type { ServiceLocationTemplateData } from '@/types/formatted/healthCareLo
 import type { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 // Mock data for different test scenarios
-const baseProps: ServiceLocationTemplateData = {
+const getBaseProps = (): ServiceLocationTemplateData => ({
   fieldReferralRequired: '1',
   fieldTelephone: {
     number: '555-1234',
@@ -86,11 +86,11 @@ const baseProps: ServiceLocationTemplateData = {
     fieldUseMainFacilityPhone: true,
     fieldApptIntroTextType: 'use_default_text',
   },
-}
+})
 
 describe('ServiceLocation', () => {
   test('renders basic information', () => {
-    render(<ServiceLocation {...baseProps} />)
+    render(<ServiceLocation {...getBaseProps()} />)
 
     // Should render office visits info
     expect(
@@ -110,7 +110,7 @@ describe('ServiceLocation', () => {
   })
 
   test('shows correct phone numbers', () => {
-    render(<ServiceLocation {...baseProps} />)
+    render(<ServiceLocation {...getBaseProps()} />)
 
     // Main phone for appointments
     const mainPhoneElement = screen.getByTestId('main-phone-appointments')
@@ -133,7 +133,7 @@ describe('ServiceLocation', () => {
   })
 
   test('shows service location address', () => {
-    render(<ServiceLocation {...baseProps} />)
+    render(<ServiceLocation {...getBaseProps()} />)
 
     expect(screen.getByText('Building 1')).toBeInTheDocument()
     expect(screen.getByText('Room 101')).toBeInTheDocument()
@@ -142,7 +142,7 @@ describe('ServiceLocation', () => {
   })
 
   test('shows online scheduling when available', () => {
-    render(<ServiceLocation {...baseProps} />)
+    render(<ServiceLocation {...getBaseProps()} />)
 
     const linkAction = screen
       .getByTestId('service-location-action-link-online')
@@ -151,7 +151,7 @@ describe('ServiceLocation', () => {
   })
 
   test('shows service hours when available', () => {
-    render(<ServiceLocation {...baseProps} />)
+    render(<ServiceLocation {...getBaseProps()} />)
 
     expect(screen.getByText('Service Hours')).toBeInTheDocument()
 
@@ -167,7 +167,7 @@ describe('ServiceLocation', () => {
   })
 
   test('shows same-as-facility hours message', () => {
-    const props = { ...baseProps }
+    const props = { ...getBaseProps() }
     props.single.fieldHours = '0'
     delete props.single.fieldOfficeHours
 
@@ -179,7 +179,7 @@ describe('ServiceLocation', () => {
   })
 
   test('does not show referral when not applicable', () => {
-    const props = { ...baseProps }
+    const props = { ...getBaseProps() }
     props.fieldReferralRequired = 'not_applicable'
 
     render(<ServiceLocation {...props} />)
@@ -191,7 +191,7 @@ describe('ServiceLocation', () => {
   })
 
   test('shows custom appointment text', () => {
-    const props = { ...baseProps }
+    const props = { ...getBaseProps() }
     props.single.fieldApptIntroTextType = 'customize_text'
     props.single.fieldApptIntroTextCustom = 'Custom appointment instructions'
 
@@ -203,7 +203,7 @@ describe('ServiceLocation', () => {
   })
 
   test('shows email contacts', () => {
-    const props = { ...baseProps }
+    const props = { ...getBaseProps() }
     props.single.fieldEmailContacts = [
       {
         address: 'contact@example.com',
