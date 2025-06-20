@@ -69,13 +69,16 @@ describe('HealthServices', () => {
   })
 
   it('renders service names and subheaders', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    const { container } = render(<HealthServices healthServices={mockHealthServices} />)
     
+    // Service names are rendered as text in h3 elements
     expect(screen.getByText('Primary Care')).toBeInTheDocument()
-    expect(screen.getByText('General Medicine')).toBeInTheDocument()
     expect(screen.getByText('Mental Health')).toBeInTheDocument()
-    expect(screen.getByText('Behavioral Health')).toBeInTheDocument()
     expect(screen.getByText('Dental')).toBeInTheDocument()
+    
+    // Subheaders are rendered as data-childlabel attributes
+    expect(container.querySelector('[data-childlabel="General Medicine"]')).toBeInTheDocument()
+    expect(container.querySelector('[data-childlabel="Behavioral Health"]')).toBeInTheDocument()
   })
 
   it('renders common conditions when present', () => {
