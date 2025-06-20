@@ -209,4 +209,113 @@ describe('formatter', () => {
       ).toBeNull()
     })
   })
+
+  describe('healthServices', () => {
+    const mockPhone = {
+      number: '800-555-1212',
+      extension: '456',
+      phoneType: 'tel',
+      label: 'Main',
+    }
+
+    const mockEmail = {
+      fieldEmailAddress: 'support@va.gov',
+      fieldEmailLabel: 'Support',
+    }
+
+    it('should filter out unpublished health services', () => {
+      expect(mockFacilityData.field_local_health_care_service_).toHaveLength(8)
+      expect(
+        mockFacilityData.field_local_health_care_service_
+          .map((e) => e.status)
+          .filter((s) => s === false)
+      ).toHaveLength(2)
+      // 8 total - 2 unpublished = 6
+      expect(formatter(formatterParams).healthServices).toHaveLength(6)
+    })
+
+    it('should filter out health services with missing regional taxonomy term', () => {
+      expect(
+        formatter({
+          ...formatterParams,
+          entity: {
+            ...mockFacilityData,
+            field_local_health_care_service_:
+              mockFacilityData.field_local_health_care_service_.map((e) => ({
+                ...e,
+                field_regional_health_service: {
+                  ...e.field_regional_health_service,
+                  field_service_name_and_descripti: null, // Delete this service taxonomy for every health service
+                },
+              })),
+          },
+        }).healthServices
+      ).toHaveLength(0)
+    })
+
+    // NOTE: The rest of these tests are redundant with the snapshot tests
+    // above, but they're here to be explicit.
+
+    it('formats phone numbers in the description', () => {
+      // Deep clone the formatterParams to avoid mutating the original
+      const clonedParams = structuredClone(formatterParams)
+      clonedParams.entity.field_local_health_care_service_[0].status = true
+      clonedParams.entity.field_local_health_care_service_[0].field_regional_health_service.field_service_name_and_descripti.description.processed =
+        'Call us at 123-456-7890'
+      expect(formatter(clonedParams).healthServices[0].description).toContain(
+        'Call us at <va-telephone contact="123-456-7890"'
+      )
+    })
+
+    it('formats custom appointment text with phone links', () => {
+      const clonedParams = structuredClone(formatterParams)
+      clonedParams.entity.field_local_health_care_service_[0].status = true
+      clonedParams.entity.field_local_health_care_service_[0].field_service_location[0].field_appt_intro_text_custom =
+        'Call us at 123-456-7890'
+
+      expect(
+        formatter(clonedParams).healthServices[0].locations[0].single
+          .fieldApptIntroTextCustom
+      ).toContain('Call us at <va-telephone contact="123-456-7890"')
+    })
+
+    it('flags mental health services based on name match', () => {
+      const clonedParams = structuredClone(formatterParams)
+      clonedParams.entity.field_local_health_care_service_[0].status = true
+      clonedParams.entity.field_local_health_care_service_[0].field_regional_health_service.field_service_name_and_descripti.name =
+        'Mental Health Services'
+
+      const result = formatter(clonedParams)
+      const isMH = result.healthServices[0].locations[0].isMentalHealthService
+
+      expect(isMH).toBe(true)
+    })
+
+    it('uses the fieldTricareDescription if this is a Lovell facility and the administration is Lovell - TRICARE', () => {
+      const clonedParams = structuredClone(formatterParams)
+      const serviceTaxonomy = {
+        ...clonedParams.entity.field_local_health_care_service_[0]
+          .field_regional_health_service.field_service_name_and_descripti,
+        field_tricare_description: 'This is the TRICARE description',
+        description: 'This is the VA description',
+      }
+      clonedParams.entity.field_local_health_care_service_[0].status = true
+      clonedParams.entity.field_local_health_care_service_[0].field_regional_health_service.field_service_name_and_descripti =
+        serviceTaxonomy
+      clonedParams.entity.field_local_health_care_service_[0].field_administration.name =
+        'Lovell - TRICARE'
+
+      const result = formatter(clonedParams)
+      const description = result.healthServices[0].description
+
+      expect(description).toContain('This is the TRICARE description')
+      expect(description).not.toContain('This is the VA description')
+    })
+
+    it('uses the correct entity bundle', () => {
+      expect(formatter(formatterParams).healthServices[0].entityBundle).toEqual(
+        'health_care_local_health_service'
+      )
+    })
+  })
 })

@@ -1,7 +1,3 @@
-/* istanbul ignore file */
-// Ignoring this until we get tests written; it's just really detailed
-// scaffolding for now.
-
 import { FieldAddress } from '@/types/drupal/field_type'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 
@@ -21,6 +17,10 @@ export const ServiceAddress = ({
   serviceLocationAddress,
   facilityAddress,
 }: ServiceAddressProps) => {
+  // TODO: When refactoring this, we won't ever need the `facilityAddress`, so
+  // we can remove it. If `field_use_facility_address` is true, we show no
+  // `addressData`.
+
   const useFacilityAddress =
     serviceLocationAddress.field_use_facility_address && facilityAddress
   const addressData = useFacilityAddress

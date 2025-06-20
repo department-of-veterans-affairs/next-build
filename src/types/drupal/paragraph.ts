@@ -249,6 +249,13 @@ export interface ParagraphServiceLocationAddress extends DrupalParagraph {
   field_address: FieldAddress
   field_building_name_number: string
   field_clinic_name: string
+  /**
+   * Indicates whether to show the service address in the location card.
+   *
+   * If true, the service address will be shown.
+   * If false, no address will be shown in the location card (because it's the
+   * same as the facility.)
+   */
   field_use_facility_address: boolean
   field_wing_floor_or_room_number: string
 }
