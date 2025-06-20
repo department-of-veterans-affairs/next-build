@@ -77,70 +77,48 @@ const baseProps: ServiceLocationTemplateData = {
 describe('ServiceLocation', () => {
   test('renders basic information', () => {
     render(<ServiceLocation {...baseProps} />)
-    
+
     // Should render office visits info
     expect(
       screen.getByText('Visit our office, by appointment only')
     ).toBeInTheDocument()
-    
+
     // Should render virtual support info
-    expect(
-      screen.getByText('Call at your convenience')
-    ).toBeInTheDocument()
-    
+    expect(screen.getByText('Call at your convenience')).toBeInTheDocument()
+
     // Should render referral requirement
-    expect(
-      screen.getByText('A referral is required')
-    ).toBeInTheDocument()
-    
+    expect(screen.getByText('A referral is required')).toBeInTheDocument()
+
     // Should render appointments header
-    expect(
-      screen.getByText('Appointments')
-    ).toBeInTheDocument()
+    expect(screen.getByText('Appointments')).toBeInTheDocument()
   })
 
   test('shows correct phone numbers', () => {
     render(<ServiceLocation {...baseProps} />)
-    
+
     // Main phone for appointments
-    expect(
-      screen.getByText('555-1234')
-    ).toBeInTheDocument()
-    
+    expect(screen.getByText('555-1234')).toBeInTheDocument()
+
     // Other appointment phones
-    expect(
-      screen.getByText('555-1111')
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText('555-2222')
-    ).toBeInTheDocument()
-    
+    expect(screen.getByText('555-1111')).toBeInTheDocument()
+    expect(screen.getByText('555-2222')).toBeInTheDocument()
+
     // Contact phone
-    expect(
-      screen.getByText('555-3333')
-    ).toBeInTheDocument()
+    expect(screen.getByText('555-3333')).toBeInTheDocument()
   })
 
   test('shows service location address', () => {
     render(<ServiceLocation {...baseProps} />)
-    
-    expect(
-      screen.getByText('Building 1')
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText('Room 101')
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText('123 Main St')
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText('Anytown, CA 12345')
-    ).toBeInTheDocument()
+
+    expect(screen.getByText('Building 1')).toBeInTheDocument()
+    expect(screen.getByText('Room 101')).toBeInTheDocument()
+    expect(screen.getByText('123 Main St')).toBeInTheDocument()
+    expect(screen.getByText('Anytown, CA 12345')).toBeInTheDocument()
   })
 
   test('shows online scheduling when available', () => {
     render(<ServiceLocation {...baseProps} />)
-    
+
     expect(
       screen.getByText('Schedule an appointment online')
     ).toBeInTheDocument()
@@ -148,25 +126,21 @@ describe('ServiceLocation', () => {
 
   test('shows service hours when available', () => {
     render(<ServiceLocation {...baseProps} />)
-    
-    expect(
-      screen.getByText('Service Hours')
-    ).toBeInTheDocument()
+
+    expect(screen.getByText('Service Hours')).toBeInTheDocument()
     expect(
       screen.getByText('Monday: 8:00 a.m. to 5:00 p.m.')
     ).toBeInTheDocument()
-    expect(
-      screen.getByText('Closed on holidays')
-    ).toBeInTheDocument()
+    expect(screen.getByText('Closed on holidays')).toBeInTheDocument()
   })
 
   test('shows same-as-facility hours message', () => {
     const props = { ...baseProps }
     props.single.fieldHours = '0'
     delete props.single.fieldOfficeHours
-    
+
     render(<ServiceLocation {...props} />)
-    
+
     expect(
       screen.getByText('The service hours are the same as our facility hours.')
     ).toBeInTheDocument()
@@ -175,12 +149,10 @@ describe('ServiceLocation', () => {
   test('does not show referral when not applicable', () => {
     const props = { ...baseProps }
     props.fieldReferralRequired = 'not_applicable'
-    
+
     render(<ServiceLocation {...props} />)
-    
-    expect(
-      screen.queryByText('A referral is required')
-    ).not.toBeInTheDocument()
+
+    expect(screen.queryByText('A referral is required')).not.toBeInTheDocument()
     expect(
       screen.queryByText('A referral is not required')
     ).not.toBeInTheDocument()
@@ -190,9 +162,9 @@ describe('ServiceLocation', () => {
     const props = { ...baseProps }
     props.single.fieldApptIntroTextType = 'customize_text'
     props.single.fieldApptIntroTextCustom = 'Custom appointment instructions'
-    
+
     render(<ServiceLocation {...props} />)
-    
+
     expect(
       screen.getByText('Custom appointment instructions')
     ).toBeInTheDocument()
@@ -201,16 +173,12 @@ describe('ServiceLocation', () => {
   test('shows email contacts', () => {
     const props = { ...baseProps }
     props.single.fieldEmailContacts = [
-      { address: 'contact@example.com', label: 'General Inquiries' }
+      { address: 'contact@example.com', label: 'General Inquiries' },
     ]
-    
+
     render(<ServiceLocation {...props} />)
-    
-    expect(
-      screen.getByText('General Inquiries')
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText('contact@example.com')
-    ).toBeInTheDocument()
+
+    expect(screen.getByText('General Inquiries')).toBeInTheDocument()
+    expect(screen.getByText('contact@example.com')).toBeInTheDocument()
   })
 })
