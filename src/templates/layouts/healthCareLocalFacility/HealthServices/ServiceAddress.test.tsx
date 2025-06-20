@@ -63,7 +63,9 @@ describe('ServiceAddress', () => {
       />
     )
 
-    expect(screen.getByText('Cardiology Clinic')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Cardiology Clinic', level: 4 })
+    ).toBeInTheDocument()
     // Neither the facility nor the service address should be displayed
     expect(
       screen.queryByText(mockFacilityAddress.address_line1)
@@ -115,7 +117,9 @@ describe('ServiceAddress', () => {
       />
     )
 
-    expect(screen.getByText('Location')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Location', level: 4 })
+    ).toBeInTheDocument()
     expect(screen.getByText('Building 5')).toBeInTheDocument()
     expect(screen.getByText('Room 203')).toBeInTheDocument()
     expect(screen.getByText('456 Service Rd')).toBeInTheDocument()
@@ -134,7 +138,9 @@ describe('ServiceAddress', () => {
       />
     )
 
-    expect(screen.getByText('Orthopedics Clinic')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Orthopedics Clinic', level: 4 })
+    ).toBeInTheDocument()
     expect(screen.getByText('456 Service Rd')).toBeInTheDocument()
     expect(screen.getByText('San Francisco, CA 94101')).toBeInTheDocument()
     expect(screen.getByText('Tower B')).toBeInTheDocument()
