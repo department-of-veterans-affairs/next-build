@@ -123,9 +123,7 @@ describe('LocationsListing', () => {
       expect(
         screen.getByRole('heading', { name: /Main locations/i })
       ).toBeInTheDocument()
-      expect(
-        screen.getByText(/3001 Green Bay Frontage Rd/)
-      ).toBeInTheDocument()
+      expect(screen.getByText(/3001 Green Bay Frontage Rd/)).toBeInTheDocument()
     })
 
     test('does not render main facilities section without facilities', () => {

@@ -1,6 +1,9 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeHealthCareLocalFacility, NodeLocationsListing } from '@/types/drupal/node'
+import {
+  NodeHealthCareLocalFacility,
+  NodeLocationsListing,
+} from '@/types/drupal/node'
 import { LocationsListing } from '@/types/formatted/locationsListing'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
@@ -34,7 +37,6 @@ type LocationsListingData = {
   entity: NodeLocationsListing
   menu: Menu | null
   mainFacilities: NodeHealthCareLocalFacility[]
-
 }
 // Implement the data loader.
 export const data: QueryData<

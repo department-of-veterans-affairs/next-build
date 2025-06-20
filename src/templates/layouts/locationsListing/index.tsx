@@ -15,7 +15,7 @@ export function LocationsListing({
   vamcEhrSystem,
   administration,
   path,
-  mainFacilities
+  mainFacilities,
 }: FormattedLocationsListing) {
   useEffect(() => {
     window.sideNav = menu
