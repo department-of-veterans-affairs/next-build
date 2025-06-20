@@ -741,7 +741,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
       "width": 180,
     },
     "introText": "The Framingham VA Clinic provides primary care and specialty services, including mental health, laboratory services and more. The primary care team at the clinic manages most health issues and provides Veterans with access to a wide range of inpatient and outpatient specialty care through the VA Boston Healthcare System. With free on-site parking, the clinic provides an attractive option for area Veterans who don't want to travel to one of the three main campuses in Boston and Brockton for primary care. ",
-    "lastUpdated": "2024-11-25T18:41:35+00:00",
+    "lastUpdated": "2024-10-01T15:11:12+00:00",
     "locationServices": [
       {
         "title": "Parking",
@@ -1748,7 +1748,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
       "width": 180,
     },
     "introText": "The Framingham VA Clinic provides primary care and specialty services, including mental health, laboratory services and more. The primary care team at the clinic manages most health issues and provides Veterans with access to a wide range of inpatient and outpatient specialty care through the VA Boston Healthcare System. With free on-site parking, the clinic provides an attractive option for area Veterans who don't want to travel to one of the three main campuses in Boston and Brockton for primary care. ",
-    "lastUpdated": "2024-11-25T18:41:35+00:00",
+    "lastUpdated": "2024-10-01T15:11:12+00:00",
     "locationServices": [
       {
         "title": "Parking",

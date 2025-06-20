@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_office,field_administration"`;
+
 exports[`LocationsListing formatData outputs formatted data 1`] = `
 {
+  "administration": {
+    "entityId": 180,
+    "name": "VA Lebanon health care",
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -25,9 +31,28 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
     },
   ],
   "entityId": 3097,
-  "entityPath": "/lebanon-health-care/locations",
+  "entityPath": "/boston-health-care/locations",
   "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
-  "lastUpdated": "2021-02-17T14:42:51+00:00",
+  "lastUpdated": "2021-02-17T14:42:50+00:00",
+  "menu": {
+    "data": {
+      "description": "Test Description",
+      "links": [
+        {
+          "description": "Test Description",
+          "expanded": true,
+          "label": "Test Title",
+          "links": [],
+          "lovellSection": "Test Section",
+          "url": {
+            "path": "/test-url",
+          },
+        },
+      ],
+      "name": "Test Title",
+    },
+    "rootPath": "/boston-health-care/locations/",
+  },
   "metatags": [
     {
       "attributes": {
@@ -129,8 +154,155 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "published",
+  "path": "/boston-health-care",
   "published": true,
   "title": "Locations",
   "type": "node--locations_listing",
+  "vamcEhrSystem": "vista",
+}
+`;
+
+exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
+{
+  "administration": {
+    "entityId": 180,
+    "name": "VA Lebanon health care",
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA Lebanon health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lebanon-health-care",
+    },
+    {
+      "options": [],
+      "title": "Services and locations",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "Locations",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 3097,
+  "entityPath": "/lebanon-health-care/locations",
+  "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
+  "lastUpdated": "2021-02-17T14:42:50+00:00",
+  "menu": {
+    "data": null,
+    "rootPath": "/lebanon-health-care/locations/",
+  },
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Locations | VA Lebanon health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA Lebanon Health Care system locations, address, hours of operations, and health care services provided.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Locations | VA Lebanon health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA Lebanon Health Care system locations, address, hours of operations, and health care services provided.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Locations | VA Lebanon health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA Lebanon Health Care system locations, address, hours of operations, and health care services provided.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "path": "/lebanon-health-care",
+  "published": true,
+  "title": "Locations",
+  "type": "node--locations_listing",
+  "vamcEhrSystem": "vista",
 }
 `;

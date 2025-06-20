@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { MediaImage } from '@/types/formatted/media'
-import { StaffProfile } from './index'
-import { StaffProfile as FormattedStaffProfile } from '@/types/formatted/staffProfile'
+import { StaffProfile } from './template'
+import { StaffProfile as FormattedStaffProfile } from '@/products/staffProfile/formatted-type'
 
 describe('StaffProfile Component', () => {
   const mediaImage: MediaImage = {

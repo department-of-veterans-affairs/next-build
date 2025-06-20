@@ -8,6 +8,7 @@ import { NodeHealthCareRegionPage } from '../drupal/node'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { NewsStoryTeaser } from '@/types/formatted/newsStory'
 import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
+import { EventWidgetTeaser } from '@/products/event/formatted-type'
 
 export type MinimalLocalFacility = Pick<
   HealthCareLocalFacility,
@@ -30,6 +31,8 @@ export type VamcSystem = PublishedEntity & {
   path: string
   mainFacilities: MinimalLocalFacility[]
   featuredStories: NewsStoryTeaser[]
+  featuredEvents: EventWidgetTeaser[]
+  fallbackEvent: EventWidgetTeaser | null
   relatedLinks: FormattedRelatedLinks
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
   lovellVariant?: LovellChildVariant | null

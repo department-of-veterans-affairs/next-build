@@ -6,11 +6,6 @@ on:
   # This currently UTC -> EDT.
   schedule:
     - cron: "35 9 * * 1-5"
-  # Runs each time there is a new Production Tag created.
-  workflow_run:
-    workflows: ['Create Production Tag']
-    types: [completed]
-    branches: [main]
 
 concurrency: next-build-content-release-staging
 
