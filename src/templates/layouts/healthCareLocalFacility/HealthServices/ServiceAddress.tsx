@@ -17,6 +17,10 @@ export const ServiceAddress = ({
   serviceLocationAddress,
   facilityAddress,
 }: ServiceAddressProps) => {
+  // TODO: When refactoring this, we won't ever need the `facilityAddress`, so
+  // we can remove it. If `field_use_facility_address` is true, we show no
+  // `addressData`.
+
   const useFacilityAddress =
     serviceLocationAddress.field_use_facility_address && facilityAddress
   const addressData = useFacilityAddress
