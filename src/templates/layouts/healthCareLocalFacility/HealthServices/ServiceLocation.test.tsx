@@ -133,27 +133,22 @@ describe('ServiceLocation', () => {
     const linkAction = screen
       .getByTestId('service-location-action-link-online')
       .querySelector('va-link-action')
-    expect(linkAction).toHaveAttribute(
-      'text',
-      'Schedule an appointment online'
-    )
+    expect(linkAction).toHaveAttribute('text', 'Schedule an appointment online')
   })
 
   test('shows service hours when available', () => {
     render(<ServiceLocation {...baseProps} />)
 
     expect(screen.getByText('Service Hours')).toBeInTheDocument()
-    
-    // Check Monday hours
+
+    // Not a great way to assert that the hours are associated with Monday and
+    // Tuesday, but...we can be pretyt confident, anyhow
     expect(screen.getByText('Mon:')).toBeInTheDocument()
-    expect(screen.getByText('8:00 a.m. to 5:00 p.m.')).toBeInTheDocument()
-    expect(screen.getByText('Open')).toBeInTheDocument()
-    
-    // Check Tuesday hours
     expect(screen.getByText('Tue:')).toBeInTheDocument()
-    expect(screen.getByText('8:00 a.m. to 5:00 p.m.')).toBeInTheDocument()
-    expect(screen.getByText('Open')).toBeInTheDocument()
-    
+    expect(
+      screen.getAllByText(/8:00 a\.m\. to 5:00 p\.m\.\s+Open/)
+    ).toHaveLength(2)
+
     expect(screen.getByText('Closed on holidays')).toBeInTheDocument()
   })
 
