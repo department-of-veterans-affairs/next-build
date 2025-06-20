@@ -166,7 +166,9 @@ export function HealthCareLocalFacility({
                       vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
                       fieldTelephone={fieldTelephone}
                     />
-                    <Hours allHours={officeHours} headerType="clinical" />
+                    <div data-testid="facility-hours">
+                      <Hours allHours={officeHours} headerType="clinical" />
+                    </div>
                   </section>
                 </div>
               </div>

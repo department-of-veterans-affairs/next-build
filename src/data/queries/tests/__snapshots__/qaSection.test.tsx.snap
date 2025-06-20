@@ -10,7 +10,7 @@ exports[`QaSection formatData outputs formatted data 1`] = `
     {
       "answers": [
         {
-          "html": undefined,
+          "html": "",
           "id": "f6dfd8da-877f-46bd-9707-28861c27003e",
           "type": "paragraph--wysiwyg",
         },
@@ -22,7 +22,7 @@ exports[`QaSection formatData outputs formatted data 1`] = `
     {
       "answers": [
         {
-          "html": undefined,
+          "html": "",
           "id": "004d4d31-9e5f-4dcd-ab19-1aef98daefd4",
           "type": "paragraph--wysiwyg",
         },

@@ -5,6 +5,8 @@
 import { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
+import { Hours } from '@/templates/components/hours'
 
 export const ServiceLocation = ({
   fieldReferralRequired,
@@ -19,14 +21,18 @@ export const ServiceLocation = ({
     isMentalHealthService && fieldTelephone
       ? fieldTelephone
       : fieldPhoneNumber
-        ? { number: fieldPhoneNumber, extension: '', phoneType: 'tel' }
+        ? ({
+            number: fieldPhoneNumber,
+            extension: '',
+            phoneType: 'tel',
+          } as PhoneNumberType)
         : null
 
   const showMainNumberForAppointments =
     mainPhone && single.fieldUseFacilityPhoneNumber
   const hasAppointmentPhoneNumbers =
     (single.fieldOtherPhoneNumbers?.length || 0) > 0
-  const hasOtherContactPhoneNumbers = (single.fieldPhone?.length || 0) > 0
+  const hasOtherContactPhoneNumbers = (single.fieldPhone?.length ?? 0) > 0
 
   const hasOfficeVisits =
     single.fieldOfficeVisits &&
@@ -38,15 +44,14 @@ export const ServiceLocation = ({
     single.fieldVirtualSupport !== 'null'
   const showOnlineScheduleLink = single.fieldOnlineSchedulingAvail === 'yes'
 
+  const showReferralRequirement =
+    fieldReferralRequired &&
+    !['not_applicable', 'unknown', '2'].includes(fieldReferralRequired)
+
   return (
     <va-card class="vads-u-margin-y--2 break-word-wrap">
       {/* Office visits and virtual support */}
-      {(hasOfficeVisits ||
-        hasVirtualSupport ||
-        (fieldReferralRequired &&
-          !['not_applicable', 'unknown', '2'].includes(
-            fieldReferralRequired
-          ))) && (
+      {(hasOfficeVisits || hasVirtualSupport || showReferralRequirement) && (
         <div className="vads-u-padding-top--1">
           {hasOfficeVisits && (
             <p className="vads-u-margin-top--0 vads-u-margin-bottom--0">
@@ -83,23 +88,18 @@ export const ServiceLocation = ({
               }[single.fieldVirtualSupport as string] || ''}
             </p>
           )}
-          {fieldReferralRequired &&
-            !['not_applicable', 'unknown', '2'].includes(
-              fieldReferralRequired
-            ) && (
-              <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
-                <va-icon
-                  class="vads-u-margin-right--0p5"
-                  icon={
-                    fieldReferralRequired === '1' ? 'check_circle' : 'cancel'
-                  }
-                  size="3"
-                ></va-icon>
-                {fieldReferralRequired === '1'
-                  ? 'A referral is required'
-                  : 'A referral is not required'}
-              </p>
-            )}
+          {showReferralRequirement && (
+            <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
+              <va-icon
+                class="vads-u-margin-right--0p5"
+                icon={fieldReferralRequired === '1' ? 'check_circle' : 'cancel'}
+                size="3"
+              ></va-icon>
+              {fieldReferralRequired === '1'
+                ? 'A referral is required'
+                : 'A referral is not required'}
+            </p>
+          )}
         </div>
       )}
 
@@ -124,9 +124,10 @@ export const ServiceLocation = ({
               <p
                 data-testid="service-location-custom-text"
                 className="vads-u-margin-bottom--0"
-              >
-                {single.fieldApptIntroTextCustom}
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: single.fieldApptIntroTextCustom,
+                }}
+              />
             ) : (
               <p
                 data-testid="service-location-default-text"
@@ -141,9 +142,10 @@ export const ServiceLocation = ({
         )}
 
       {/* Main phone number */}
-      {showMainNumberForAppointments && mainPhone && (
+      {showMainNumberForAppointments && (
         <div data-testid="service-location-main-facility-phone">
           <PhoneNumber
+            treatment="h4"
             number={mainPhone.number}
             extension={mainPhone.extension}
             phoneType={mainPhone.phoneType}
@@ -157,7 +159,7 @@ export const ServiceLocation = ({
       {hasAppointmentPhoneNumbers && (
         <div data-testid="service-location-show-other-phone-numbers">
           {single.fieldOtherPhoneNumbers?.map((num, idx) => (
-            <PhoneNumber key={idx} {...num} />
+            <PhoneNumber key={idx} treatment="h4" {...num} />
           ))}
         </div>
       )}
@@ -178,9 +180,9 @@ export const ServiceLocation = ({
       )}
 
       {/* Service location address */}
-      {single.fieldServiceLocationAddress?.entity && (
+      {single.fieldServiceLocationAddress && (
         <ServiceAddress
-          serviceLocationAddress={single.fieldServiceLocationAddress.entity}
+          serviceLocationAddress={single.fieldServiceLocationAddress}
         />
       )}
 
@@ -189,6 +191,7 @@ export const ServiceLocation = ({
       {single.fieldUseMainFacilityPhone && mainPhone && (
         <div data-testid="service-location-main-facility-phone-for-contact">
           <PhoneNumber
+            treatment="h4"
             number={mainPhone.number}
             extension={mainPhone.extension}
             phoneType={mainPhone.phoneType}
@@ -202,34 +205,40 @@ export const ServiceLocation = ({
       {hasOtherContactPhoneNumbers && (
         <div data-testid="service-location-show-contact-phone-numbers">
           {single.fieldPhone?.map((num, idx) => (
-            <PhoneNumber key={idx} {...num} />
+            <PhoneNumber treatment="h4" key={idx} {...num} />
           ))}
         </div>
       )}
 
       {/* Email contacts */}
       {single.fieldEmailContacts?.map((email, i) => (
-        <p key={i} data-testid="service-location-email-contact">
+        <div key={i} data-testid="service-location-email-contact">
           {email.label && <h4>{email.label}</h4>}
           <a href={`mailto:${email.address}`}>{email.address}</a>
-        </p>
+        </div>
       ))}
 
       {/* Service hours */}
-      {single.fieldHours !== '1' && (
-        <h4 data-testid="service-location-field-hours">Service Hours</h4>
+      {single.fieldHours === '2' && single.fieldOfficeHours && (
+        <>
+          <h4 data-testid="service-location-field-hours">Service Hours</h4>
+          <div>
+            <Hours allHours={single.fieldOfficeHours} />
+          </div>
+        </>
       )}
-      {single.fieldHours && (
-        <div>
-          {single.fieldHours === '2' && single.fieldOfficeHours && (
-            <p>(Service-specific hours rendering here)</p>
-          )}
-          {single.fieldHours === '0' && (
-            <p data-testid="service-location-field-hours-same-as-facility">
+      {single.fieldHours === '0' && (
+        <>
+          <h4 data-testid="service-location-field-hours">Service Hours</h4>
+          <div>
+            <p
+              className="vads-u-margin-y--0"
+              data-testid="service-location-field-hours-same-as-facility"
+            >
               The service hours are the same as our facility hours.
             </p>
-          )}
-        </div>
+          </div>
+        </>
       )}
 
       {single.fieldAdditionalHoursInfo && (

@@ -196,6 +196,7 @@ export interface NodeVetCenter extends DrupalNode {
 }
 
 export interface NodeHealthCareLocalHealthService extends DrupalNode {
+  field_administration: FieldAdministration
   field_hservice_appt_intro_select: string
   field_hservice_appt_leadin: string
   field_walk_ins_accepted: string
