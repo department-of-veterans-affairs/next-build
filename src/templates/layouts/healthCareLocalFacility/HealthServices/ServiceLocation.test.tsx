@@ -1,0 +1,216 @@
+import { render, screen } from '@testing-library/react'
+import { ServiceLocation } from './ServiceLocation'
+import type { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFacility'
+import type { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
+
+// Mock data for different test scenarios
+const baseProps: ServiceLocationTemplateData = {
+  fieldReferralRequired: '1',
+  fieldTelephone: {
+    number: '555-1234',
+    extension: '123',
+    phoneType: 'tel',
+  } as PhoneNumberType,
+  fieldPhoneNumber: '555-5678',
+  isMentalHealthService: true,
+  single: {
+    fieldUseFacilityPhoneNumber: true,
+    fieldOtherPhoneNumbers: [
+      {
+        number: '555-1111',
+        extension: '',
+        phoneType: 'tel',
+        label: 'Appointments',
+      },
+      {
+        number: '555-2222',
+        extension: '456',
+        phoneType: 'fax',
+        label: 'Fax',
+      },
+    ],
+    fieldPhone: [
+      {
+        number: '555-3333',
+        extension: '',
+        phoneType: 'tel',
+        label: 'Main contact',
+      },
+    ],
+    fieldOfficeVisits: 'yes_appointment_only',
+    fieldVirtualSupport: 'yes_veterans_can_call',
+    fieldOnlineSchedulingAvail: 'yes',
+    fieldServiceLocationAddress: {
+      field_building_name_number: 'Building 1',
+      field_clinic_name: 'Clinic A',
+      field_wing_floor_or_room_number: 'Room 101',
+      field_address: {
+        address_line1: '123 Main St',
+        address_line2: '',
+        locality: 'Anytown',
+        administrative_area: 'CA',
+        postal_code: '12345',
+      },
+      field_use_facility_address: false,
+    },
+    fieldHours: '2',
+    fieldOfficeHours: [
+      {
+        day: 1,
+        starthours: 800,
+        endhours: 1700,
+        comment: 'Open',
+      },
+      {
+        day: 2,
+        starthours: 800,
+        endhours: 1700,
+        comment: 'Open',
+      },
+    ],
+    fieldAdditionalHoursInfo: 'Closed on holidays',
+    fieldUseMainFacilityPhone: true,
+    fieldApptIntroTextType: 'use_default_text',
+  },
+}
+
+describe('ServiceLocation', () => {
+  test('renders basic information', () => {
+    render(<ServiceLocation {...baseProps} />)
+    
+    // Should render office visits info
+    expect(
+      screen.getByText('Visit our office, by appointment only')
+    ).toBeInTheDocument()
+    
+    // Should render virtual support info
+    expect(
+      screen.getByText('Call at your convenience')
+    ).toBeInTheDocument()
+    
+    // Should render referral requirement
+    expect(
+      screen.getByText('A referral is required')
+    ).toBeInTheDocument()
+    
+    // Should render appointments header
+    expect(
+      screen.getByText('Appointments')
+    ).toBeInTheDocument()
+  })
+
+  test('shows correct phone numbers', () => {
+    render(<ServiceLocation {...baseProps} />)
+    
+    // Main phone for appointments
+    expect(
+      screen.getByText('555-1234')
+    ).toBeInTheDocument()
+    
+    // Other appointment phones
+    expect(
+      screen.getByText('555-1111')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('555-2222')
+    ).toBeInTheDocument()
+    
+    // Contact phone
+    expect(
+      screen.getByText('555-3333')
+    ).toBeInTheDocument()
+  })
+
+  test('shows service location address', () => {
+    render(<ServiceLocation {...baseProps} />)
+    
+    expect(
+      screen.getByText('Building 1')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('Room 101')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('123 Main St')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('Anytown, CA 12345')
+    ).toBeInTheDocument()
+  })
+
+  test('shows online scheduling when available', () => {
+    render(<ServiceLocation {...baseProps} />)
+    
+    expect(
+      screen.getByText('Schedule an appointment online')
+    ).toBeInTheDocument()
+  })
+
+  test('shows service hours when available', () => {
+    render(<ServiceLocation {...baseProps} />)
+    
+    expect(
+      screen.getByText('Service Hours')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('Monday: 8:00 a.m. to 5:00 p.m.')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('Closed on holidays')
+    ).toBeInTheDocument()
+  })
+
+  test('shows same-as-facility hours message', () => {
+    const props = { ...baseProps }
+    props.single.fieldHours = '0'
+    delete props.single.fieldOfficeHours
+    
+    render(<ServiceLocation {...props} />)
+    
+    expect(
+      screen.getByText('The service hours are the same as our facility hours.')
+    ).toBeInTheDocument()
+  })
+
+  test('does not show referral when not applicable', () => {
+    const props = { ...baseProps }
+    props.fieldReferralRequired = 'not_applicable'
+    
+    render(<ServiceLocation {...props} />)
+    
+    expect(
+      screen.queryByText('A referral is required')
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('A referral is not required')
+    ).not.toBeInTheDocument()
+  })
+
+  test('shows custom appointment text', () => {
+    const props = { ...baseProps }
+    props.single.fieldApptIntroTextType = 'customize_text'
+    props.single.fieldApptIntroTextCustom = 'Custom appointment instructions'
+    
+    render(<ServiceLocation {...props} />)
+    
+    expect(
+      screen.getByText('Custom appointment instructions')
+    ).toBeInTheDocument()
+  })
+
+  test('shows email contacts', () => {
+    const props = { ...baseProps }
+    props.single.fieldEmailContacts = [
+      { address: 'contact@example.com', label: 'General Inquiries' }
+    ]
+    
+    render(<ServiceLocation {...props} />)
+    
+    expect(
+      screen.getByText('General Inquiries')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('contact@example.com')
+    ).toBeInTheDocument()
+  })
+})
