@@ -1,5 +1,5 @@
 import { PublishedEntity } from './publishedEntity'
-import { NewsStoryTeaser } from '@/types/formatted/newsStory'
+import { NewsStoryTeaser } from '@/products/newsStory/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
 export type StoryListingLink = {

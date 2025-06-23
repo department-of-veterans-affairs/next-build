@@ -24,7 +24,7 @@ import {
 } from './lovell/types'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
-import { NewsStoryDataOpts } from '@/data/queries/newsStory'
+import { NewsStoryDataOpts } from '@/products/newsStory/query'
 import { PressReleaseDataOpts } from '@/data/queries/pressRelease'
 
 export type ExpandedStaticPropsContext = GetStaticPropsContext & {
