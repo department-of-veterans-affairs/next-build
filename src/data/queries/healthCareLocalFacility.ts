@@ -201,7 +201,7 @@ export const formatter: QueryFormatter<
           description:
             healthService.field_administration.name === 'Lovell - TRICARE' && // Is this the best way to check?
             serviceTaxonomy?.field_tricare_description
-              ? serviceTaxonomy?.field_tricare_description
+              ? serviceTaxonomy?.field_tricare_description // Should this also transform phone numbers into <va-telephone>s?
               : (getHtmlFromField(serviceTaxonomy?.description) ?? null),
           entityId: serviceTaxonomy.id,
           entityBundle: healthService.type.split('--')[1],
