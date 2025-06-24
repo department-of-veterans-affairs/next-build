@@ -13,6 +13,8 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Event as FormattedEvent } from '@/products/event/formatted-type'
 import { SocialLinks } from '@/templates/common/socialLinks'
 import { formatEventCTA, createMailToLink } from '@/lib/utils/events'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
 export const Event = ({
   title,
@@ -37,7 +39,9 @@ export const Event = ({
   body,
   listing,
   listingOffice,
-}: FormattedEvent) => {
+  lovellVariant,
+  lovellSwitchPath,
+}: LovellStaticPropsResource<FormattedEvent>) => {
   const [mostRecentDate, setMostRecentDate] = useState(null)
   const [showAllEvents, setShowAllEvents] = useState(false)
 
@@ -88,6 +92,10 @@ export const Event = ({
     <div className="va-l-detail-page va-facility-page">
       <div className="vads-grid-container">
         <div>
+          <LovellSwitcher
+            currentVariant={lovellVariant}
+            switchPath={lovellSwitchPath}
+          />
           {/* Title */}
           <h1>{title}</h1>
 

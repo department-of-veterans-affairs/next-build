@@ -45,6 +45,16 @@ type PhoneNumberProps = Omit<
   phoneType?: string
   className?: string
   testId?: string
+} & {
+  /**
+   * How to display the phone number.
+   *
+   * `'inline'` will display the phone number on a single line with <p><strong>label</strong></p>.
+   * `'h4'` will display the phone number on two lines with the label in an h4 element.
+   *
+   * @default 'inline'
+   */
+  treatment?: 'inline' | 'h4'
 }
 
 /**
@@ -58,6 +68,7 @@ export const PhoneNumber = ({
   number,
   phoneType,
   testId,
+  treatment = 'inline',
 }: PhoneNumberProps) => {
   if (!number) {
     return null
@@ -84,19 +95,32 @@ export const PhoneNumber = ({
 
   const internationalPattern = /\(?(\+1)\)?[- ]?/gi
 
+  const phoneComponent = (
+    <va-telephone
+      contact={numberToDisplay.replace?.(/-/g, '')}
+      extension={extensionToDisplay || null}
+      message-aria-describedby={isRegularPhone ? label || 'Phone' : undefined}
+      not-clickable={fax ? true : undefined}
+      sms={sms ? true : undefined}
+      tty={tty ? true : undefined}
+      international={internationalPattern.test(numberToDisplay)}
+      data-testid={testId || undefined}
+    ></va-telephone>
+  )
+
+  if (treatment === 'h4') {
+    return (
+      <div className={className || undefined} data-testid="phone">
+        <h4>{labelToDisplay}</h4>
+        {phoneComponent}
+      </div>
+    )
+  }
+
   return (
     <p className={className || undefined} data-testid="phone">
       <strong>{`${labelToDisplay}: `}</strong>
-      <va-telephone
-        contact={numberToDisplay.replace?.(/-/g, '')}
-        extension={extensionToDisplay || null}
-        message-aria-describedby={isRegularPhone ? label || 'Phone' : undefined}
-        not-clickable={fax ? true : undefined}
-        sms={sms ? true : undefined}
-        tty={tty ? true : undefined}
-        international={internationalPattern.test(numberToDisplay)}
-        data-testid={testId || undefined}
-      ></va-telephone>
+      {phoneComponent}
     </p>
   )
 }

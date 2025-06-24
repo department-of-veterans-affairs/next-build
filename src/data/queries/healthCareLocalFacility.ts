@@ -23,6 +23,7 @@ import { formatter as formatEmail } from '@/data/queries/emailContact'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from './administration'
+import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 
@@ -37,7 +38,10 @@ export const params: QueryParams<null> = () => {
     'field_location_services',
     'field_local_health_care_service_.field_regional_health_service.field_service_name_and_descripti',
     'field_local_health_care_service_.field_administration',
-    'field_local_health_care_service_.field_service_location',
+    'field_local_health_care_service_.field_service_location.field_phone',
+    'field_local_health_care_service_.field_service_location.field_other_phone_numbers',
+    'field_local_health_care_service_.field_service_location.field_service_location_address',
+    'field_local_health_care_service_.field_service_location.field_email_contacts',
   ])
 }
 
@@ -192,24 +196,35 @@ export const formatter: QueryFormatter<
             serviceTaxonomy?.field_commonly_treated_condition ?? '',
           fieldTricareDescription:
             serviceTaxonomy?.field_tricare_description ?? null,
-          description: serviceTaxonomy?.description?.processed ?? null,
+          // If it's TRICARE, use the TRICARE description. Otherwise, use the
+          // regular description.
+          description:
+            healthService.field_administration.name === 'Lovell - TRICARE' && // Is this the best way to check?
+            serviceTaxonomy?.field_tricare_description
+              ? serviceTaxonomy?.field_tricare_description // Should this also transform phone numbers into <va-telephone>s?
+              : (getHtmlFromField(serviceTaxonomy?.description) ?? null),
           entityId: serviceTaxonomy.id,
           entityBundle: healthService.type.split('--')[1],
-          fieldBody:
-            healthService.field_regional_health_service.field_body.processed,
+          fieldBody: getHtmlFromField(
+            healthService.field_regional_health_service.field_body
+          ),
           locations: healthService.field_service_location.map((location) => {
             return {
               fieldReferralRequired: healthService.field_referral_required,
+              // TODO: Pull this out of `locations` and rename to...I think
+              // `primaryFacilityPhone` or something?
               fieldTelephone: formatPhone(entity.field_telephone),
               fieldPhoneNumber: entity.field_phone_number,
               isMentalHealthService: serviceTaxonomy.name
                 .toLowerCase()
                 .includes('mental health'),
               single: {
-                fieldOfficeVisists: location.field_office_visits,
+                fieldOfficeVisits: location.field_office_visits,
                 fieldVirtualSupport: location.field_virtual_support,
                 fieldApptIntroTextType: location.field_appt_intro_text_type,
-                fieldApptIntroTextCustom: location.field_appt_intro_text_custom,
+                fieldApptIntroTextCustom: createPhoneLinks(
+                  location.field_appt_intro_text_custom
+                ),
                 fieldOtherPhoneNumbers: location.field_other_phone_numbers
                   .filter(isPublished)
                   .map(formatPhone),
@@ -234,6 +249,7 @@ export const formatter: QueryFormatter<
             }
           }),
           fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
+          fieldHealthServiceApiId: serviceTaxonomy.field_health_service_api_id,
         }
       }),
   }

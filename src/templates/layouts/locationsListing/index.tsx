@@ -1,15 +1,20 @@
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-type LocationsListingProps = {
-  title: string
-  menu?: SideNavMenu
-}
+import { RegionalTopTasks } from '@/templates/components/topTasks'
+import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
+
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
 declare const window: customWindow
 
-export function LocationsListing({ title, menu }: LocationsListingProps) {
+export function LocationsListing({
+  title,
+  menu,
+  vamcEhrSystem,
+  administration,
+  path,
+}: FormattedLocationsListing) {
   useEffect(() => {
     window.sideNav = menu
   }, [menu])
@@ -24,17 +29,15 @@ export function LocationsListing({ title, menu }: LocationsListingProps) {
             <article className="usa-content">
               <div>TODO: Lovell switch link</div>
 
-              <h1 className="vads-u-margin-bottom--2">{title}</h1>
-
-              <div className="vads-l-row vads-u-margin-y--1p5">
-                <div className="vads-l-col--12">
-                  <div>TODO: Main buttons (region base path)</div>
-                </div>
-              </div>
-
+              <h1 className="vads-u-margin-bottom--3p5">{title}</h1>
+              <RegionalTopTasks
+                path={path}
+                administration={administration}
+                vamcEhrSystem={vamcEhrSystem}
+              />
               <section className="locations clearfix">
                 <h2
-                  className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
+                  className="vads-u-margin-top--1p5 medium-screen:vads-u-margin-top--3p5 vads-u-font-size--xl"
                   id="main-locations"
                 >
                   Main locations

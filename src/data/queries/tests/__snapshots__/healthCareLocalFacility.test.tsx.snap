@@ -116,11 +116,12 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 <li>Pregnancy and postpartum nutrition</li>
 <li>Weight management</li>
 </ul>
-<p>To access care, ask your Primary Care team for a consult or call the Nutrition Scheduler at 774-826-2870.</p>
+<p>To access care, ask your Primary Care team for a consult or call the Nutrition Scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.</p>
 <p><a href="https://www.va.gov/boston-health-care/programs/nutrition-food-and-dietary-care/">Learn more about VA Boston's Nutrition and Food Service</a>.</p>
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "nutrition",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -138,7 +139,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "isMentalHealthService": false,
             "single": {
               "fieldAdditionalHoursInfo": null,
-              "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at 774-826-2870.",
+              "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.",
               "fieldApptIntroTextType": "customize_text",
               "fieldEmailContacts": [],
               "fieldHours": "2",
@@ -193,7 +194,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
                   "starthours": null,
                 },
               ],
-              "fieldOfficeVisists": "yes_with_or_without_appointment",
+              "fieldOfficeVisits": "yes_with_or_without_appointment",
               "fieldOnlineSchedulingAvail": "yes",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -239,10 +240,11 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 <p>Emergency Services are provided only by the Emergency Department on the West Roxbury campus. However, for urgent conditions that are appropriate to be treated on an outpatient basis in a primary care clinical setting, same-day or next-day appointments in primary care are available.</p>
 <p><strong>Patient Call Center</strong></p>
 <p>The Patient Call Center is a very important part of primary care, providing ready access to the primary care team. Patients may use this system to communicate with the team, receive clinical advice or answers to questions, request renewal of medications, and to make or change a clinic appointment. All patients enrolled in primary care have access to this service.</p>
-<p>To reach the Patient Call Center, dial&nbsp;<strong>1-800-865-3384 --</strong>&nbsp;available 24 hours per day.</p>
+<p>To reach the Patient Call Center, dial&nbsp;<strong>1-<va-telephone contact="800-865-3384" extension=""></va-telephone> --</strong>&nbsp;available 24 hours per day.</p>
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "primaryCare",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -265,7 +267,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
               "fieldEmailContacts": [],
               "fieldHours": "0",
               "fieldOfficeHours": [],
-              "fieldOfficeVisists": "yes_appointment_only",
+              "fieldOfficeVisits": "yes_appointment_only",
               "fieldOnlineSchedulingAvail": "yes",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -303,6 +305,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "suicidePrevention",
         "fieldTricareDescription": "Call the Military and Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
         "locations": [
           {
@@ -320,12 +323,12 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "isMentalHealthService": false,
             "single": {
               "fieldAdditionalHoursInfo": null,
-              "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at 800-273-8255 and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+              "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at <va-telephone contact="800-273-8255" extension=""></va-telephone> and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
               "fieldApptIntroTextType": "customize_text",
               "fieldEmailContacts": [],
               "fieldHours": "0",
               "fieldOfficeHours": [],
-              "fieldOfficeVisists": "yes_with_or_without_appointment",
+              "fieldOfficeVisits": "yes_with_or_without_appointment",
               "fieldOnlineSchedulingAvail": "yes",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -363,6 +366,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "telehealth",
         "fieldTricareDescription": "With TRICARE telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care and more—from home or elsewhere.",
         "locations": [
           {
@@ -385,7 +389,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
               "fieldEmailContacts": [],
               "fieldHours": "0",
               "fieldOfficeHours": [],
-              "fieldOfficeVisists": "yes_appointment_only",
+              "fieldOfficeVisits": "yes_appointment_only",
               "fieldOnlineSchedulingAvail": "no",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -426,6 +430,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "wholeHealth",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -498,7 +503,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
                   "starthours": null,
                 },
               ],
-              "fieldOfficeVisists": null,
+              "fieldOfficeVisits": null,
               "fieldOnlineSchedulingAvail": null,
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -533,10 +538,11 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 </ul>
 <p><a href="/boston-health-care/health-services/women-veteran-care" data-entity-type="node" data-entity-uuid="465d7e8f-b8e0-4bf2-b5a9-625690c02eaa" data-entity-substitution="canonical" title="Women Veteran care">Learn more and connect with&nbsp;the Women Veterans Program Manager</a>.&nbsp;</p>
 <p><strong>Women Veterans Call Center</strong></p>
-<p>The Women Veterans Call Center provides women Veterans information about VA services and resources, benefits and eligibility. The toll-free line is available Monday through Friday, 8:00 a.m. – 10:00 p.m. Eastern Time and on Saturdays, 8:00 a.m. – 6:30 p.m. Please see the <a href="https://www.womenshealth.va.gov/programoverview/wvcc.asp">Women Veterans Call Center website </a>or call 855-VA-WOMEN -- 855-829-6636. Call, chat or text are all available.</p>
+<p>The Women Veterans Call Center provides women Veterans information about VA services and resources, benefits and eligibility. The toll-free line is available Monday through Friday, 8:00 a.m. – 10:00 p.m. Eastern Time and on Saturdays, 8:00 a.m. – 6:30 p.m. Please see the <a href="https://www.womenshealth.va.gov/programoverview/wvcc.asp">Women Veterans Call Center website </a>or call 855-VA-WOMEN -- <va-telephone contact="855-829-6636" extension=""></va-telephone>. Call, chat or text are all available.</p>
 ",
         "fieldCommonlyTreatedCondition": "women's primary care, mental health, obstetrics, gynecology, pap smear, mammogram",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "womensHealth",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -559,7 +565,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
               "fieldEmailContacts": [],
               "fieldHours": "0",
               "fieldOfficeHours": [],
-              "fieldOfficeVisists": "yes_appointment_only",
+              "fieldOfficeVisits": "yes_appointment_only",
               "fieldOnlineSchedulingAvail": "yes",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -735,7 +741,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
       "width": 180,
     },
     "introText": "The Framingham VA Clinic provides primary care and specialty services, including mental health, laboratory services and more. The primary care team at the clinic manages most health issues and provides Veterans with access to a wide range of inpatient and outpatient specialty care through the VA Boston Healthcare System. With free on-site parking, the clinic provides an attractive option for area Veterans who don't want to travel to one of the three main campuses in Boston and Brockton for primary care. ",
-    "lastUpdated": "2024-11-25T18:41:35+00:00",
+    "lastUpdated": "2024-10-01T15:11:12+00:00",
     "locationServices": [
       {
         "title": "Parking",
@@ -1117,11 +1123,12 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 <li>Pregnancy and postpartum nutrition</li>
 <li>Weight management</li>
 </ul>
-<p>To access care, ask your Primary Care team for a consult or call the Nutrition Scheduler at 774-826-2870.</p>
+<p>To access care, ask your Primary Care team for a consult or call the Nutrition Scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.</p>
 <p><a href="https://www.va.gov/boston-health-care/programs/nutrition-food-and-dietary-care/">Learn more about VA Boston's Nutrition and Food Service</a>.</p>
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "nutrition",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -1139,7 +1146,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "isMentalHealthService": false,
             "single": {
               "fieldAdditionalHoursInfo": null,
-              "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at 774-826-2870.",
+              "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.",
               "fieldApptIntroTextType": "customize_text",
               "fieldEmailContacts": [],
               "fieldHours": "2",
@@ -1194,7 +1201,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
                   "starthours": null,
                 },
               ],
-              "fieldOfficeVisists": "yes_with_or_without_appointment",
+              "fieldOfficeVisits": "yes_with_or_without_appointment",
               "fieldOnlineSchedulingAvail": "yes",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -1240,10 +1247,11 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 <p>Emergency Services are provided only by the Emergency Department on the West Roxbury campus. However, for urgent conditions that are appropriate to be treated on an outpatient basis in a primary care clinical setting, same-day or next-day appointments in primary care are available.</p>
 <p><strong>Patient Call Center</strong></p>
 <p>The Patient Call Center is a very important part of primary care, providing ready access to the primary care team. Patients may use this system to communicate with the team, receive clinical advice or answers to questions, request renewal of medications, and to make or change a clinic appointment. All patients enrolled in primary care have access to this service.</p>
-<p>To reach the Patient Call Center, dial&nbsp;<strong>1-800-865-3384 --</strong>&nbsp;available 24 hours per day.</p>
+<p>To reach the Patient Call Center, dial&nbsp;<strong>1-<va-telephone contact="800-865-3384" extension=""></va-telephone> --</strong>&nbsp;available 24 hours per day.</p>
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "primaryCare",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -1266,7 +1274,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
               "fieldEmailContacts": [],
               "fieldHours": "0",
               "fieldOfficeHours": [],
-              "fieldOfficeVisists": "yes_appointment_only",
+              "fieldOfficeVisits": "yes_appointment_only",
               "fieldOnlineSchedulingAvail": "yes",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -1304,6 +1312,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "suicidePrevention",
         "fieldTricareDescription": "Call the Military and Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
         "locations": [
           {
@@ -1321,12 +1330,12 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "isMentalHealthService": false,
             "single": {
               "fieldAdditionalHoursInfo": null,
-              "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at 800-273-8255 and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+              "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at <va-telephone contact="800-273-8255" extension=""></va-telephone> and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
               "fieldApptIntroTextType": "customize_text",
               "fieldEmailContacts": [],
               "fieldHours": "0",
               "fieldOfficeHours": [],
-              "fieldOfficeVisists": "yes_with_or_without_appointment",
+              "fieldOfficeVisits": "yes_with_or_without_appointment",
               "fieldOnlineSchedulingAvail": "yes",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -1364,6 +1373,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "telehealth",
         "fieldTricareDescription": "With TRICARE telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care and more—from home or elsewhere.",
         "locations": [
           {
@@ -1386,7 +1396,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
               "fieldEmailContacts": [],
               "fieldHours": "0",
               "fieldOfficeHours": [],
-              "fieldOfficeVisists": "yes_appointment_only",
+              "fieldOfficeVisits": "yes_appointment_only",
               "fieldOnlineSchedulingAvail": "no",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -1427,6 +1437,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 ",
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "wholeHealth",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -1499,7 +1510,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
                   "starthours": null,
                 },
               ],
-              "fieldOfficeVisists": null,
+              "fieldOfficeVisits": null,
               "fieldOnlineSchedulingAvail": null,
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -1534,10 +1545,11 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
 </ul>
 <p><a href="/boston-health-care/health-services/women-veteran-care" data-entity-type="node" data-entity-uuid="465d7e8f-b8e0-4bf2-b5a9-625690c02eaa" data-entity-substitution="canonical" title="Women Veteran care">Learn more and connect with&nbsp;the Women Veterans Program Manager</a>.&nbsp;</p>
 <p><strong>Women Veterans Call Center</strong></p>
-<p>The Women Veterans Call Center provides women Veterans information about VA services and resources, benefits and eligibility. The toll-free line is available Monday through Friday, 8:00 a.m. – 10:00 p.m. Eastern Time and on Saturdays, 8:00 a.m. – 6:30 p.m. Please see the <a href="https://www.womenshealth.va.gov/programoverview/wvcc.asp">Women Veterans Call Center website </a>or call 855-VA-WOMEN -- 855-829-6636. Call, chat or text are all available.</p>
+<p>The Women Veterans Call Center provides women Veterans information about VA services and resources, benefits and eligibility. The toll-free line is available Monday through Friday, 8:00 a.m. – 10:00 p.m. Eastern Time and on Saturdays, 8:00 a.m. – 6:30 p.m. Please see the <a href="https://www.womenshealth.va.gov/programoverview/wvcc.asp">Women Veterans Call Center website </a>or call 855-VA-WOMEN -- <va-telephone contact="855-829-6636" extension=""></va-telephone>. Call, chat or text are all available.</p>
 ",
         "fieldCommonlyTreatedCondition": "women's primary care, mental health, obstetrics, gynecology, pap smear, mammogram",
         "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "womensHealth",
         "fieldTricareDescription": null,
         "locations": [
           {
@@ -1560,7 +1572,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
               "fieldEmailContacts": [],
               "fieldHours": "0",
               "fieldOfficeHours": [],
-              "fieldOfficeVisists": "yes_appointment_only",
+              "fieldOfficeVisits": "yes_appointment_only",
               "fieldOnlineSchedulingAvail": "yes",
               "fieldOtherPhoneNumbers": [],
               "fieldPhone": [],
@@ -1736,7 +1748,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
       "width": 180,
     },
     "introText": "The Framingham VA Clinic provides primary care and specialty services, including mental health, laboratory services and more. The primary care team at the clinic manages most health issues and provides Veterans with access to a wide range of inpatient and outpatient specialty care through the VA Boston Healthcare System. With free on-site parking, the clinic provides an attractive option for area Veterans who don't want to travel to one of the three main campuses in Boston and Brockton for primary care. ",
-    "lastUpdated": "2024-11-25T18:41:35+00:00",
+    "lastUpdated": "2024-10-01T15:11:12+00:00",
     "locationServices": [
       {
         "title": "Parking",

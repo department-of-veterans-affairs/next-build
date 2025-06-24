@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { StaffProfile } from '@/templates/layouts/staffProfile'
+import { StaffProfile } from '@/products/staffProfile/template'
 
 const meta: Meta<typeof StaffProfile> = {
   title: 'Layout/Staff Profile',

@@ -1,8 +1,8 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { queries } from '.'
+import { queries } from '@/data/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePersonProfile } from '@/types/drupal/node'
-import { StaffProfile } from '@/types/formatted/staffProfile'
+import { StaffProfile } from '@/products/staffProfile/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -11,7 +11,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { buildStaffProfileSidebarData } from '@/lib/drupal/staffProfileSideNav'
-import { formatter as formatAdministration } from './administration'
+import { formatter as formatAdministration } from '@/data/queries/administration'
 
 // Define the query params for fetching node--person_profile.
 export const params: QueryParams<null> = () => {

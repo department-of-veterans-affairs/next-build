@@ -21,7 +21,6 @@ Production content releases use https://prod.cms.va.gov/ as their content source
 Dev and Staging content releases are triggered by the following events:
 
 - On a schedule, nightly at 5:05 am ET or 5:35 am ET for Dev and Staging respectively. This keeps content relatively fresh even when there are no code changes to trigger a Dev or Staging content release.
-- When any code is merged to the `main` branch of Next Build and has a successfull CI run on main - this is to keep Dev and Staging up-to-date with code changes they come in.
 - Manually through the Github Actions interface
 
 Dev and Staging content releases use https://main-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/ as their content source.
