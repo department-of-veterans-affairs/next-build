@@ -14,9 +14,36 @@ const LocationsListingMock: NodeLocationsListing = mockData[0]
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
   fetchSingleEntityOrPreview: () => mockData[0],
-  fetchAndConcatAllResourceCollectionPages: () => ({
-    data: [],
-  }),
+  fetchAndConcatAllResourceCollectionPages: (nodeType: string) => {
+    if (nodeType === RESOURCE_TYPES.VAMC_FACILITY) {
+      return {
+        data: [
+          {
+            ...LocationsListingMock.field_office,
+            title: 'Test Facility',
+            path: { alias: '/test-facility' },
+            field_operating_status_facility: 'normal',
+            field_phone_number: '800-555-1234',
+            field_telephone: {
+              id: 'test-phone-id',
+              type: 'paragraph--phone_number',
+              field_phone_number: '800-555-9012',
+              field_phone_extension: '',
+              field_phone_number_type: 'voice',
+            },
+            field_media: {
+              id: 'mock-image-id',
+              type: 'media--image',
+              links: {},
+              resourceIdObjMeta: { alt: 'Mock image' },
+              image: {},
+            },
+          },
+        ],
+      }
+    }
+    return { data: [] }
+  },
   getMenu: () => ({
     items: [],
     tree: [],
@@ -108,38 +135,6 @@ describe('LocationsListing formatData', () => {
       await queries.getData(RESOURCE_TYPES.LOCATIONS_LISTING, {
         id: mockData[0].id,
       })
-    ).toMatchSnapshot()
-  })
-
-  test('outputs formatted data with a main facility', () => {
-    const facilityNode = {
-      ...LocationsListingMock.field_office,
-      title: 'Test Facility',
-      path: { alias: '/test-facility' },
-      field_operating_status_facility: 'normal',
-      field_phone_number: '800-555-1234',
-      field_telephone: {
-        id: 'test-phone-id',
-        type: 'paragraph--phone_number',
-        field_phone_number: '800-555-9012',
-        field_phone_extension: '',
-        field_phone_number_type: 'voice',
-      },
-      field_media: {
-        id: 'mock-image-id',
-        type: 'media--image',
-        links: {},
-        resourceIdObjMeta: { alt: 'Mock image' },
-        image: {},
-      },
-    }
-    const formattedInput = {
-      entity: patchedMock,
-      menu: patchedMock.field_office?.field_system_menu || null,
-      mainFacilities: [facilityNode],
-    }
-    expect(
-      queries.formatData('node--locations_listing', formattedInput)
     ).toMatchSnapshot()
   })
 })
