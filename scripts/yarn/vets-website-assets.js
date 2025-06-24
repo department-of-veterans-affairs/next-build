@@ -50,6 +50,7 @@ const destinationPath = path.resolve(__dirname, '../../public/generated/')
 
 // Function that loops through to download all compiled js assets listed in a bucket's manifest.
 async function downloadFromLiveBucket(buildtype) {
+  debug('Downloading assets from live bucket...')
   const bucket = BUILD_TYPE_BUCKET[buildtype]
 
   const fileManifestRequest = await fetch(`${bucket}/${fileManifestPath}`)
@@ -111,6 +112,7 @@ async function moveAssetsFromVetsWebsite() {
 
 // Determine build type and request all assets accordingly.
 async function gatherAssets() {
+  debug('Gathering vets-website assets...')
   const buildtype = process.env.BUILD_TYPE || 'vagovprod'
 
   // Clean any existing assets or symlinks
