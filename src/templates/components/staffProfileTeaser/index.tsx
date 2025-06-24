@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaffProfileTeaser as FormattedStaffProfileTeaser } from '@/types/formatted/staffProfile'
+import { StaffProfileTeaser as FormattedStaffProfileTeaser } from '@/products/staffProfile/formatted-type'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 

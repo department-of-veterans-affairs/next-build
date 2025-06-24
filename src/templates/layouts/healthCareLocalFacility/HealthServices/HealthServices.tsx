@@ -1,14 +1,11 @@
-/* istanbul ignore file */
-// Ignoring this until we get tests written; it's just really detailed
-// scaffolding for now.
-
-import { FormattedVAMCFacilityHealthServices } from '@/types/formatted/healthCareLocalFacility'
+import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceLocation } from './ServiceLocation'
+import { hashReference } from '@/lib/utils/hashReference'
 
 export const HealthServices = ({
   healthServices,
 }: {
-  healthServices: FormattedVAMCFacilityHealthServices[]
+  healthServices: FormattedVAMCFacilityHealthService[]
 }) => {
   return (
     <>
@@ -22,21 +19,17 @@ export const HealthServices = ({
 
       <va-accordion>
         {healthServices.map((service) => {
-          const id = service.name
-            .toLowerCase()
-            .replace(/\s+/g, '-')
-            .slice(0, 60)
+          // Will this always be true for VAMC facilities?
           const isVha = service.fieldFacilityLocatorApiId?.startsWith('vha_')
           const hasLocationData =
             service.locations?.[0]?.single?.fieldServiceLocationAddress
 
           return (
             <va-accordion-item
-              key={id}
+              key={service.name}
               data-label={service.name}
               data-childlabel={service.fieldAlsoKnownAs}
-              data-template="facilities/facilities_health_service"
-              id={id}
+              id={hashReference(service.name)}
               class="facilities_health_service va-accordion-item"
               subheader={service.fieldAlsoKnownAs}
             >
@@ -48,15 +41,13 @@ export const HealthServices = ({
                   </p>
                 )}
 
-                {service.fieldTricareDescription ? (
-                  <div>{service.fieldTricareDescription}</div>
-                ) : service.description ? (
+                {service.description && (
                   <div
                     dangerouslySetInnerHTML={{
                       __html: service.description,
                     }}
                   />
-                ) : null}
+                )}
 
                 {hasLocationData ? (
                   service.locations.map((locationData, i) => (
@@ -70,14 +61,16 @@ export const HealthServices = ({
                   <div
                     data-widget-type="facility-appointment-wait-times-widget"
                     data-facility={service.fieldFacilityLocatorApiId}
-                    data-service={service.name}
+                    data-service={service.fieldHealthServiceApiId}
                   />
                 )}
 
                 {service.fieldBody && (
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: service.fieldBody.replace(/<h3/g, '<h4'),
+                      __html: service.fieldBody
+                        .replace(/<h3/g, '<h4')
+                        .replace(/<\/h3/g, '</h4'),
                     }}
                   />
                 )}

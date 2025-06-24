@@ -44,7 +44,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
   socialLinks: FacilitySocialLinksProps
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
-  healthServices: FormattedVAMCFacilityHealthServices[]
+  healthServices: FormattedVAMCFacilityHealthService[]
 }
 
 /** Represents the "single" object containing service-related fields. */
@@ -65,9 +65,15 @@ interface VamcFacilityServiceLocation {
   fieldPhone?: PhoneNumber[]
   /** Array of email contact objects. */
   fieldEmailContacts?: EmailContact[]
-  /** Service hours configuration ("0" for facility hours, "1" for unspecified, "2" for specific hours). */
+  /**
+   * Service hours configuration
+   *
+   * "0" to show facility hours
+   * "1" to show no service hours
+   * "2" to show specific hours defined in `fieldOfficeHours`
+   * */
   fieldHours?: '0' | '1' | '2' | string
-  /** Specific service office hours (array of hour objects). */
+  /** Specific service office hours. */
   fieldOfficeHours?: FieldOfficeHours[]
   /** Additional information about service hours. */
   fieldAdditionalHoursInfo?: string
@@ -83,6 +89,7 @@ interface VamcFacilityServiceLocation {
 export interface ServiceLocationTemplateData {
   /**
    * Indicates if a referral is required
+   *
    * "0" for no
    * "1" for yes
    * "2", "not_applicable", or "unknown" to omit the referral section
@@ -111,15 +118,13 @@ export interface ServiceLocationTemplateData {
   single: VamcFacilityServiceLocation
 }
 
-export interface FormattedVAMCFacilityHealthServices {
+export interface FormattedVAMCFacilityHealthService {
   /** Name of the service taxonomy for the regional health service. */
   name: string
   /** Comes from the service taxonomy of the regional health service. */
   fieldAlsoKnownAs?: string
   /** Comes from the service taxonomy of the regional health service. */
   fieldCommonlyTreatedCondition?: string
-  /** Comes from the service taxonomy of the regional health service. */
-  fieldTricareDescription?: string
   description?: string
   /** Comes from the service taxonomy of the regional health service. */
   entityId: string | number
@@ -132,13 +137,10 @@ export interface FormattedVAMCFacilityHealthServices {
    * This comes from the VAMC System Health Service found at `field_retional`
    */
   fieldBody?: string
-
-  // Locations associated with this service
+  /** Locations associated with this service */
   locations: ServiceLocationTemplateData[]
-
-  // Facility data
   fieldFacilityLocatorApiId?: string
-
-  // Fallback content
+  fieldHealthServiceApiId?: string
+  /** Fallback content */
   localServiceDescription?: string
 }

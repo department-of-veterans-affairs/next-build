@@ -51,7 +51,6 @@ export const formatter: QueryFormatter<NodeEvent, Event> = (
     ...entityBaseFields(entity),
     image: queries.formatData('media--image', entity.field_media), //cropType: '2_1_large'
     date: entity.created,
-    lastUpdated: entity.changed,
     socialLinks: {
       path: `${process.env.SITE_URL}${entity.path.alias}`,
       title: entity.title,
