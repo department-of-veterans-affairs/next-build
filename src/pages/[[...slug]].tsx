@@ -32,7 +32,7 @@ import {
   FlattenedGraph,
 } from '@/lib/utils/object-graph'
 
-const slugLogger = Debug('slug:log')
+const slugLogger = Debug('slug')
 const log = slugLogger.extend('log')
 const warn = slugLogger.extend('warn')
 const error = slugLogger.extend('error')
