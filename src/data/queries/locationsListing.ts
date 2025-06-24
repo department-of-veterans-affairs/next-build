@@ -72,7 +72,9 @@ export const data: QueryData<
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
 
-  // Categorize facilities
+  // Categorize facilities based on content build template
+  // Matches GraphQL categorization: main (field_main_location=true),
+  // mobile (field_mobile=true), other (neither main nor mobile)
   const mainFacilities = allFacilities.filter((f) => f.field_main_location)
   const mobileFacilities = allFacilities.filter((f) => f.field_mobile)
   const healthClinicFacilities = allFacilities.filter(
@@ -98,6 +100,7 @@ export const formatter: QueryFormatter<
   mobileFacilities,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+  // Mobile clinics don't include VA Health Connect phone numbers in production so we add a flag to exclude them
   const formatFacility = (
     facility: NodeHealthCareLocalFacility,
     includeHealthConnect = true
