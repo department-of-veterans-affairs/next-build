@@ -59,7 +59,7 @@ export const data: QueryData<
       )
     : null
   // Fetch list of local facilities related to this Locations Listing
-  // added the sort to ensure this matches content build order
+  // added the sort to be alphabetical which is different from content build to be more helpful
   const { data: mainFacilities } =
     await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
       RESOURCE_TYPES.VAMC_FACILITY,
@@ -67,7 +67,7 @@ export const data: QueryData<
         .getParams(RESOURCE_TYPES.VAMC_FACILITY)
         .addFilter('field_region_page.id', entity.field_office.id)
         .addFilter('field_main_location', '1')
-        .addSort('drupal_internal__nid'),
+        .addSort('title', 'ASC'),
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
   return { entity, menu, mainFacilities }
