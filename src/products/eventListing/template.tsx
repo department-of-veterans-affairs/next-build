@@ -15,6 +15,7 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { getLovellVariantOfUrl } from '@/lib/drupal/lovell/utils'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -37,7 +38,17 @@ export function EventListing({
   // Add data to the window object for the sidebar & event widgets
   useEffect(() => {
     window.sideNav = menu
-
+    // Process Lovell URL for events if lovellVariant is provided
+    if (lovellVariant) {
+      events = events.map((event) => ({
+        ...event,
+        entityUrl: {
+          path: lovellVariant
+            ? getLovellVariantOfUrl(event.entityUrl.path, lovellVariant)
+            : event.entityUrl.path,
+        },
+      }))
+    }
     // This populates the whole events widget.
     window.allEventTeasers = { entities: events }
   }, [menu, events])
