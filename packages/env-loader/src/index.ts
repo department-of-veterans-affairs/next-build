@@ -76,10 +76,7 @@ export const processEnv = async (
     const drupalBaseUrlProp = 'NEXT_PUBLIC_DRUPAL_BASE_URL'
     const drupalBaseUrl =
       cliOptions[drupalBaseUrlProp] || envVars[drupalBaseUrlProp]
-    cmsFeatureFlags = await getCmsFeatureFlags(
-      drupalBaseUrl as string,
-      cliOptions.DEBUG as boolean
-    )
+    cmsFeatureFlags = await getCmsFeatureFlags(drupalBaseUrl as string)
   }
 
   process.env = {
@@ -90,6 +87,8 @@ export const processEnv = async (
       ...cliOptions,
     },
   }
+
+  console.log(process.env)
 
   await cleanup(verbose)
 
