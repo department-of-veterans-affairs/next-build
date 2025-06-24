@@ -110,4 +110,36 @@ describe('LocationsListing formatData', () => {
       })
     ).toMatchSnapshot()
   })
+
+  test('outputs formatted data with a main facility', () => {
+    const facilityNode = {
+      ...LocationsListingMock.field_office,
+      title: 'Test Facility',
+      path: { alias: '/test-facility' },
+      field_operating_status_facility: 'normal',
+      field_phone_number: '800-555-1234',
+      field_telephone: {
+        id: 'test-phone-id',
+        type: 'paragraph--phone_number',
+        field_phone_number: '800-555-9012',
+        field_phone_extension: '',
+        field_phone_number_type: 'voice',
+      },
+      field_media: {
+        id: 'mock-image-id',
+        type: 'media--image',
+        links: {},
+        resourceIdObjMeta: { alt: 'Mock image' },
+        image: {},
+      },
+    }
+    const formattedInput = {
+      entity: patchedMock,
+      menu: patchedMock.field_office?.field_system_menu || null,
+      mainFacilities: [facilityNode],
+    }
+    expect(
+      queries.formatData('node--locations_listing', formattedInput)
+    ).toMatchSnapshot()
+  })
 })
