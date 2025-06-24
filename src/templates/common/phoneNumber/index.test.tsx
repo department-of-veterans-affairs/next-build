@@ -1,13 +1,13 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { PhoneNumber, separateExtension } from '.'
 import { PhoneNumber as FormattedPhoneNumber } from '@/types/formatted/phoneNumber'
 
 describe('PhoneNumber Component', () => {
   const createPhoneData = (
-    extension,
-    label,
-    number,
-    phoneType,
+    extension: FormattedPhoneNumber['extension'],
+    label: FormattedPhoneNumber['label'],
+    number: FormattedPhoneNumber['number'],
+    phoneType: FormattedPhoneNumber['phoneType'],
     type = 'paragraph--phone_number',
     id = '1234'
   ): FormattedPhoneNumber => ({
@@ -113,6 +113,22 @@ describe('PhoneNumber Component', () => {
       expect(container.innerHTML).not.toContain('message-aria-describedby')
       expect(container.innerHTML).not.toContain('not-clickable')
       expect(container.innerHTML).not.toContain('sms')
+    })
+  })
+
+  describe('treatments', () => {
+    it('renders as p by default', () => {
+      const phone = createPhoneData('', 'Phone', '123-456-7890', 'phone')
+      render(<PhoneNumber {...phone} />)
+
+      expect(screen.getByRole('paragraph')).toBeInTheDocument()
+    })
+
+    it('renders as h4 when treatment is set to h4', () => {
+      const phone = createPhoneData('', 'Phone', '123-456-7890', 'phone')
+      render(<PhoneNumber {...phone} treatment="h4" />)
+
+      expect(screen.getByRole('heading', { level: 4 })).toBeInTheDocument()
     })
   })
 })

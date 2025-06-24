@@ -166,7 +166,9 @@ export function HealthCareLocalFacility({
                       vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
                       fieldTelephone={fieldTelephone}
                     />
-                    <Hours allHours={officeHours} headerType="clinical" />
+                    <div data-testid="facility-hours">
+                      <Hours allHours={officeHours} headerType="clinical" />
+                    </div>
                   </section>
                 </div>
               </div>
@@ -183,6 +185,7 @@ export function HealthCareLocalFacility({
             <HealthServices healthServices={healthServices} />
             {facilityLocatorApiId.includes('vha_') && (
               <div
+                data-testid="patient-satisfaction-widget"
                 data-widget-type="facility-patient-satisfaction-scores"
                 data-facility={`"vha_${facilityLocatorApiId.split('_')[1].toUpperCase()}"`}
               />

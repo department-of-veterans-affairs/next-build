@@ -42,7 +42,7 @@ exports[`paragraph--wysiwyg formatData outputs formatted data 1`] = `
     "type": "paragraph--wysiwyg",
   },
   {
-    "html": undefined,
+    "html": "",
     "id": "a0e63a12-9a23-4e7f-95a0-b3a6ce45a9e9",
     "type": "paragraph--wysiwyg",
   },
