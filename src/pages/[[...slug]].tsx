@@ -284,7 +284,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
 
     if (!pathInfo) {
-      console.warn('No path info found, returning notFound')
+      warn('No path info found, returning notFound')
       return {
         notFound: true,
       }
@@ -294,7 +294,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     const resourceType = pathInfo.jsonapi.resourceName
 
     if (!RESOURCE_TYPES_TO_BUILD.includes(resourceType)) {
-      console.warn(
+      warn(
         `Resource type ${resourceType} not in RESOURCE_TYPES_TO_BUILD, returning notFound`
       )
       return {
@@ -323,7 +323,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       // If we're not in preview mode and the resource is not published,
       // Return page not found.
       if (!expandedContext.preview && !resource?.published) {
-        console.warn(
+        warn(
           'Resource not published and not in preview mode, returning notFound'
         )
         return {
