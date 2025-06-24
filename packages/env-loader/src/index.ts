@@ -88,8 +88,6 @@ export const processEnv = async (
     },
   }
 
-  console.log(process.env)
-
   await cleanup(verbose)
 
   // Pass additional arguments through to the underlying command
