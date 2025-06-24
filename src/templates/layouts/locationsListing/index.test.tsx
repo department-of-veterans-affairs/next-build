@@ -187,7 +187,6 @@ describe('LocationsListing', () => {
       expect(
         screen.getByRole('heading', { name: /Mobile clinics/i })
       ).toBeInTheDocument()
-      expect(screen.getByText(/3001 Green Bay Frontage Rd/)).toBeInTheDocument()
     })
 
     test('does not render mobile facilities section without facilities', () => {

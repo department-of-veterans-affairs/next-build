@@ -60,8 +60,8 @@ export function LocationsListing({
                 {healthClinicFacilities.length > 0 && (
                   <>
                     <h2
-                      className="vads-u-font-size--xl vads-u-margin-top--5 vads-u-margin-bottom--2p5"
-                      id="mobile-clinic-locations"
+                      className="tablet:vads-u-margin-bottom--4"
+                      id="community-clinic-locations"
                     >
                       Health clinic locations
                     </h2>
@@ -77,7 +77,7 @@ export function LocationsListing({
                 {mobileFacilities.length > 0 && (
                   <>
                     <h2
-                      className="vads-u-font-size--xl vads-u-margin-top--5 vads-u-margin-bottom--2p5"
+                      className="tablet:vads-u-margin-bottom--4"
                       id="mobile-clinic-locations"
                     >
                       Mobile clinics
@@ -87,6 +87,7 @@ export function LocationsListing({
                         key={facility.title}
                         facility={facility}
                         basePath={path}
+                        type="mobile"
                       />
                     ))}
                   </>
