@@ -3,7 +3,7 @@ import Debug from 'debug'
 import { SocksProxyAgent } from 'socks-proxy-agent'
 
 const logger = Debug('proxy-fetcher')
-// const log = logger.extend('log')
+const log = logger.extend('log')
 const error = logger.extend('error')
 
 /**
@@ -83,16 +83,14 @@ export const getFetcher = (
       })
 
       if (!response.ok) {
-        error(
-          `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${JSON.stringify(
-            {
-              url: response.url,
-              status: response.status,
-              statusText: response.statusText,
-            },
-            null,
-            2
-          )}`
+        const logOrError = attempt < retryCount ? log : error
+        logOrError(
+          `Failed request (Attempt ${attempt} of ${retryCount + 1}): %o`,
+          {
+            url: response.url,
+            status: response.status,
+            statusText: response.statusText,
+          }
         )
         throw new Error(
           `Failed request to ${response.url}: ${response.status} ${response.statusText}`
