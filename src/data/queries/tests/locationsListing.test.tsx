@@ -14,6 +14,36 @@ const LocationsListingMock: NodeLocationsListing = mockData[0]
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
   fetchSingleEntityOrPreview: () => mockData[0],
+  fetchAndConcatAllResourceCollectionPages: (nodeType: string) => {
+    if (nodeType === RESOURCE_TYPES.VAMC_FACILITY) {
+      return {
+        data: [
+          {
+            ...LocationsListingMock.field_office,
+            title: 'Test Facility',
+            path: { alias: '/test-facility' },
+            field_operating_status_facility: 'normal',
+            field_phone_number: '800-555-1234',
+            field_telephone: {
+              id: 'test-phone-id',
+              type: 'paragraph--phone_number',
+              field_phone_number: '800-555-9012',
+              field_phone_extension: '',
+              field_phone_number_type: 'voice',
+            },
+            field_media: {
+              id: 'mock-image-id',
+              type: 'media--image',
+              links: {},
+              resourceIdObjMeta: { alt: 'Mock image' },
+              image: {},
+            },
+          },
+        ],
+      }
+    }
+    return { data: [] }
+  },
   getMenu: () => ({
     items: [],
     tree: [],
@@ -70,6 +100,7 @@ describe('LocationsListing formatData', () => {
   const formattedInput = {
     entity: patchedMock,
     menu: patchedMock.field_office?.field_system_menu || null,
+    mainFacilities: [],
   }
 
   test('outputs formatted data', () => {
@@ -88,6 +119,15 @@ describe('LocationsListing formatData', () => {
     expect(formatted.menu).toHaveProperty('data')
     expect(formatted.menu.data).toHaveProperty('links')
     expect(Array.isArray(formatted.menu.data.links)).toBe(true)
+  })
+
+  test('includes mainFacilities array', () => {
+    const formatted = queries.formatData(
+      'node--locations_listing',
+      formattedInput
+    )
+    expect(formatted.mainFacilities).toBeDefined()
+    expect(Array.isArray(formatted.mainFacilities)).toBe(true)
   })
 
   test('outputs formatted data via getData', async () => {

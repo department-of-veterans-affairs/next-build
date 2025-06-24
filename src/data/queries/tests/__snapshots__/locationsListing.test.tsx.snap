@@ -34,6 +34,7 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   "entityPath": "/boston-health-care/locations",
   "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
   "lastUpdated": "2021-02-17T14:42:50+00:00",
+  "mainFacilities": [],
   "menu": {
     "data": {
       "description": "Test Description",
@@ -194,6 +195,32 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
   "entityPath": "/lebanon-health-care/locations",
   "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
   "lastUpdated": "2021-02-17T14:42:50+00:00",
+  "mainFacilities": [
+    {
+      "address": undefined,
+      "fieldTelephone": {
+        "field_phone_extension": "",
+        "field_phone_number": "800-555-9012",
+        "field_phone_number_type": "voice",
+        "id": "test-phone-id",
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": undefined,
+        "height": undefined,
+        "id": undefined,
+        "links": undefined,
+        "title": undefined,
+        "type": "media--image",
+        "width": undefined,
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/test-facility",
+      "phoneNumber": "800-555-1234",
+      "title": "Test Facility",
+      "vaHealthConnectPhoneNumber": "855-679-0952",
+    },
+  ],
   "menu": {
     "data": null,
     "rootPath": "/lebanon-health-care/locations/",
