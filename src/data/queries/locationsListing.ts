@@ -37,6 +37,8 @@ type LocationsListingData = {
   entity: NodeLocationsListing
   menu: Menu | null
   mainFacilities: NodeHealthCareLocalFacility[]
+  healthClinicFacilities: NodeHealthCareLocalFacility[]
+  mobileFacilities: NodeHealthCareLocalFacility[]
 }
 // Implement the data loader.
 export const data: QueryData<
@@ -60,24 +62,58 @@ export const data: QueryData<
     : null
   // Fetch list of local facilities related to this Locations Listing
   // added the sort to ensure this matches content build order
-  const { data: mainFacilities } =
+  const { data: allFacilities } =
     await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
       RESOURCE_TYPES.VAMC_FACILITY,
       queries
         .getParams(RESOURCE_TYPES.VAMC_FACILITY)
         .addFilter('field_region_page.id', entity.field_office.id)
-        .addFilter('field_main_location', '1')
-        .addSort('drupal_internal__nid'),
+        .addSort('title'),
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
-  return { entity, menu, mainFacilities }
+
+  // Categorize facilities
+  const mainFacilities = allFacilities.filter((f) => f.field_main_location)
+  const mobileFacilities = allFacilities.filter((f) => f.field_mobile)
+  const healthClinicFacilities = allFacilities.filter(
+    (f) => !f.field_main_location && !f.field_mobile
+  )
+  return {
+    entity,
+    menu,
+    mainFacilities,
+    healthClinicFacilities,
+    mobileFacilities,
+  }
 }
 
 export const formatter: QueryFormatter<
   LocationsListingData,
   LocationsListing
-> = ({ entity, menu, mainFacilities }) => {
+> = ({
+  entity,
+  menu,
+  mainFacilities,
+  healthClinicFacilities,
+  mobileFacilities,
+}) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
+  const formatFacility = (
+    facility: NodeHealthCareLocalFacility,
+    includeHealthConnect = true
+  ) => ({
+    title: facility.title,
+    path: facility.path.alias,
+    operatingStatusFacility: facility.field_operating_status_facility,
+    address: facility.field_address,
+    phoneNumber: facility.field_phone_number,
+    fieldTelephone: facility.field_telephone,
+    vaHealthConnectPhoneNumber: includeHealthConnect
+      ? (entity.field_office.field_va_health_connect_phone ?? null)
+      : null,
+    image: formatImage(facility.field_media),
+  })
+
   return {
     ...entityBaseFields(entity),
     administration: formatAdministration(entity.field_administration),
@@ -85,16 +121,14 @@ export const formatter: QueryFormatter<
     path: entity.field_office.path.alias,
     menu: formattedMenu,
     vamcEhrSystem: entity.field_office.field_vamc_ehr_system,
-    mainFacilities: mainFacilities.map((facility) => ({
-      title: facility.title,
-      path: facility.path.alias,
-      operatingStatusFacility: facility.field_operating_status_facility,
-      address: facility.field_address,
-      phoneNumber: facility.field_phone_number,
-      fieldTelephone: facility.field_telephone,
-      vaHealthConnectPhoneNumber:
-        entity.field_office.field_va_health_connect_phone ?? null,
-      image: formatImage(facility.field_media),
-    })),
+    mainFacilities: mainFacilities.map((facility) =>
+      formatFacility(facility, true)
+    ),
+    healthClinicFacilities: healthClinicFacilities.map((facility) =>
+      formatFacility(facility, true)
+    ),
+    mobileFacilities: mobileFacilities.map((facility) =>
+      formatFacility(facility, false)
+    ),
   }
 }

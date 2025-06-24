@@ -23,4 +23,6 @@ export type LocationsListing = PublishedEntity & {
   administration: Administration
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
   mainFacilities: MinimalLocalFacility[]
+  healthClinicFacilities: MinimalLocalFacility[]
+  mobileFacilities: MinimalLocalFacility[]
 }

@@ -74,6 +74,8 @@ describe('LocationsListing formatData', () => {
     entity: patchedMock,
     menu: patchedMock.field_office?.field_system_menu || null,
     mainFacilities: [],
+    healthClinicFacilities: [],
+    mobileFacilities: [],
   }
 
   test('outputs formatted data', () => {
