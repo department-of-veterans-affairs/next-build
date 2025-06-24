@@ -32,7 +32,7 @@ import {
   FlattenedGraph,
 } from '@/lib/utils/object-graph'
 
-const slugLogger = Debug('slug')
+const slugLogger = Debug('next-build:slug')
 const log = slugLogger.extend('log')
 const warn = slugLogger.extend('warn')
 const error = slugLogger.extend('error')
@@ -221,6 +221,7 @@ export default function ResourcePage({
 export async function getStaticPaths(
   context: GetStaticPathsContext
 ): Promise<GetStaticPathsResult> {
+  log('getStaticPaths called')
   // `getStaticPaths` is called on every request in dev mode (`next dev`). We don't need this,
   // so we set SSG=false (default) for `next dev` and set SSG=true on `next build/export`.
   // `getStaticPaths` will never be called during runtime (`next start`), but SSG will default
@@ -250,8 +251,8 @@ export async function getStaticPaths(
 
   log('Finished fetching page paths')
 
-  log('\n')
-  // eslint-disable-next-line no-console
+  /* eslint-disable no-console */
+  console.log('\n')
   console.table(
     RESOURCE_TYPES_TO_BUILD.reduce((resourceTable, resourceName, index) => {
       return {
@@ -260,7 +261,7 @@ export async function getStaticPaths(
       }
     }, {})
   )
-  log('\n')
+  /* eslint-enable no-console */
 
   return {
     paths: resources.flat(),
