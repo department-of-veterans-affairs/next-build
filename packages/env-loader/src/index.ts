@@ -122,8 +122,9 @@ export const processEnv = async (
 
 async function cleanup(verbose = false) {
   const chalk = await import('chalk').then((mod) => mod.default)
+  const Debug = await import('debug').then((mod) => mod.default)
 
-  const log = verbose ? console.log : () => {}
+  const log = Debug('env-loader:cleanup')
 
   log(chalk.blue('\nCleaning up...'))
   try {
