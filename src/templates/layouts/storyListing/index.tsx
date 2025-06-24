@@ -12,7 +12,7 @@
 import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
-import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '@/types/formatted/newsStory'
+import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '@/products/newsStory/formatted-type'
 import { NewsStoryTeaser } from '@/templates/components/newsStoryTeaser'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'

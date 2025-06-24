@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { MediaImage } from '@/types/formatted/media'
-import { NewsStory } from './index'
+import { NewsStory } from '@/products/newsStory/template'
 
 const mediaImage: MediaImage = {
   id: '3',

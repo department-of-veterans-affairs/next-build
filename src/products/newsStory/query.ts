@@ -1,8 +1,8 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { queries } from '.'
+import { queries } from '@/data/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory } from '@/types/drupal/node'
-import { NewsStory } from '@/types/formatted/newsStory'
+import { NewsStory } from '@/products/newsStory/formatted-type'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -10,7 +10,7 @@ import {
 } from '@/lib/drupal/query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { getNestedIncludes } from '@/lib/utils/queries'
-import { formatter as formatAdministration } from './administration'
+import { formatter as formatAdministration } from '@/data/queries/administration'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {

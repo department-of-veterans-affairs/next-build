@@ -15,3 +15,4 @@ src/products/*/template.tsx @department-of-veterans-affairs/next-build-product @
 src/products/event/ @department-of-veterans-affairs/ap-team
 src/products/eventListing/ @department-of-veterans-affairs/ap-team
 src/products/staffProfile/ @department-of-veterans-affairs/ap-team
+src/products/newsStory/ @department-of-veterans-affairs/ap-team
