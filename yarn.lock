@@ -13646,7 +13646,7 @@ __metadata:
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
     nock: ^13.5.4
-    node_extra_ca_certs_mozilla_bundle: ^1.0.6
+    node_extra_ca_certs_mozilla_bundle: 1.0.7
     npm: ^10.8.2
     playwright-core: ^1.47.2
     plop: ^4.0.1
@@ -13969,14 +13969,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node_extra_ca_certs_mozilla_bundle@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "node_extra_ca_certs_mozilla_bundle@npm:1.0.6"
+"node_extra_ca_certs_mozilla_bundle@npm:1.0.7":
+  version: 1.0.7
+  resolution: "node_extra_ca_certs_mozilla_bundle@npm:1.0.7"
   dependencies:
     axios: ^1.6.5
     cross-env: ^7.0.3
     csvtojson: ^2.0.10
-  checksum: 4774e8cb053625d0ca504c01f69eef0834e7b945e67a302516172e7cc5bf27ab580d8cc6dfe0b6d9979419dbfb811b53a3804662323977f50c76603b6e162f0f
+  checksum: a0d1684fc657eccdb24069bf0beda72249e6f7d40fa97c98bdf43031b91a46a9d681ccf24ae19707d770e24ed13f7bb83ac587a55f6a715a3b34a84ed6e82061
   languageName: node
   linkType: hard
 
