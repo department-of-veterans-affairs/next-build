@@ -69,7 +69,7 @@ async function downloadFromLiveBucket(buildtype) {
       debug(`Excluding: ${bundleFileName} from download`)
     } else {
       if (!bundleResponse.ok) {
-        debug(`Failed to download asset: ${bundleUrl}`, bundleResponse)
+        debug(`Failed to download asset: ${bundleUrl} %O`, bundleResponse)
         throw new Error(`Failed to download asset: ${bundleUrl}`)
       }
 
@@ -106,7 +106,7 @@ async function moveAssetsFromVetsWebsite() {
     }
     debug('Copied font files from vets-website.')
   } catch (err) {
-    debug(err)
+    debug('%O', err)
   }
 }
 
@@ -123,7 +123,7 @@ async function gatherAssets() {
         `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
       )
     } catch (err) {
-      debug(err)
+      debug('%O', err)
     }
   }
   // Download compiled js assets from the appropriate bucket.
@@ -148,7 +148,7 @@ async function gatherAssets() {
         debug('Symlink already exists.')
       }
     } catch (error) {
-      debug('\nError creating symlink:', error)
+      debug('\nError creating symlink: %O', error)
       debug('\nRe-build your local vets-website assets and try again. \n')
     }
   }
