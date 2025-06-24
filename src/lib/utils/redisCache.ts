@@ -1,16 +1,10 @@
 /* eslint-disable no-console */
 import { DataCache } from 'next-drupal'
-import {
-  createClient,
-  RedisClientType,
-  RedisFunctions,
-  RedisModules,
-  RedisScripts,
-} from 'redis'
+import { createClient } from 'redis'
 
 export async function createRedisClient(
-  url
-): Promise<RedisClientType<RedisModules, RedisFunctions, RedisScripts>> {
+  url: string
+): Promise<ReturnType<typeof createClient>> {
   return await createClient({ url })
     .on('error', (err) => console.error(`Redis Error: ${err}`))
     .on('connect', () => console.info('Redis connected'))
@@ -20,7 +14,7 @@ export async function createRedisClient(
 }
 
 export function redisCache(
-  client: Promise<RedisClientType<RedisModules, RedisFunctions, RedisScripts>>
+  client: Promise<ReturnType<typeof createClient>>
 ): DataCache {
   return {
     async set(key, value) {
