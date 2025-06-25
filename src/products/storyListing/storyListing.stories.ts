@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { StoryListing } from './index'
-import data from '@/mocks/storyListing.mock.json'
+import { StoryListing } from '@/products/storyListing/template'
+import data from '@/products/storyListing/mock.json'
 import { formattedStories } from '@/mocks/formattedNewsStories.mock'
 
 const meta: Meta<typeof StoryListing> = {
