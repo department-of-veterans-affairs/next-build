@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import { StoryListing } from '@/templates/layouts/storyListing'
-import { StoryListing as FormattedStoryListing } from '@/types/formatted/storyListing'
+import { StoryListing } from '@/products/storyListing/template'
+import { StoryListing as FormattedStoryListing } from '@/products/storyListing/formatted-type'
 import { formattedStories } from '@/mocks/formattedNewsStories.mock'
 
 describe('<StoryListing> component renders', () => {

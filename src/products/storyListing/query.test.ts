@@ -7,7 +7,7 @@ import {
   listingParams,
   data,
   formatter,
-} from '../storyListing'
+} from '@/products/storyListing/query'
 import * as queryModule from '@/lib/drupal/query'
 
 jest.mock('@/lib/drupal/query', () => {
@@ -42,21 +42,21 @@ jest.mock('@/lib/drupal/query', () => {
 })
 
 // mocking the queries object to return a mock params object
-jest.mock('..', () => {
-  const mockParams = {
-    addFilter: jest.fn().mockReturnThis(),
-    addSort: jest.fn().mockReturnThis(),
-    getQueryString: jest
-      .fn()
-      .mockReturnValue('filter[field_listing.id]=123&sort=-created'),
-  }
-  return {
-    queries: {
-      getParams: jest.fn().mockReturnValue(mockParams),
-    },
-    formatData: jest.fn().mockReturnValue({}),
-  }
-})
+// jest.mock('@/products/storyListing/query', () => {
+//   const mockParams = {
+//     addFilter: jest.fn().mockReturnThis(),
+//     addSort: jest.fn().mockReturnThis(),
+//     getQueryString: jest
+//       .fn()
+//       .mockReturnValue('filter[field_listing.id]=123&sort=-created'),
+//   }
+//   return {
+//     queries: {
+//       getParams: jest.fn().mockReturnValue(mockParams),
+//     },
+//     formatData: jest.fn().mockReturnValue({}),
+//   }
+// })
 
 describe('data function for StoryListing', () => {
   test('invokes data function with mocked dependencies', async () => {
