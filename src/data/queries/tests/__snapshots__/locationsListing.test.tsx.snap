@@ -32,9 +32,60 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   ],
   "entityId": 3097,
   "entityPath": "/boston-health-care/locations",
+  "healthClinicFacilities": [
+    {
+      "address": undefined,
+      "fieldTelephone": {
+        "field_phone_extension": "",
+        "field_phone_number": "800-555-9013",
+        "field_phone_number_type": "voice",
+        "id": "clinic-phone-id",
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": undefined,
+        "height": undefined,
+        "id": undefined,
+        "links": undefined,
+        "title": undefined,
+        "type": "media--image",
+        "width": undefined,
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/health-clinic",
+      "phoneNumber": "800-555-2345",
+      "title": "Health Clinic",
+      "vaHealthConnectPhoneNumber": "855-679-0952",
+    },
+  ],
   "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
   "lastUpdated": "2021-02-17T14:42:50+00:00",
-  "mainFacilities": [],
+  "mainFacilities": [
+    {
+      "address": undefined,
+      "fieldTelephone": {
+        "field_phone_extension": "",
+        "field_phone_number": "800-555-9012",
+        "field_phone_number_type": "voice",
+        "id": "main-phone-id",
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": undefined,
+        "height": undefined,
+        "id": undefined,
+        "links": undefined,
+        "title": undefined,
+        "type": "media--image",
+        "width": undefined,
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/main-hospital",
+      "phoneNumber": "800-555-1234",
+      "title": "Main Hospital",
+      "vaHealthConnectPhoneNumber": "855-679-0952",
+    },
+  ],
   "menu": {
     "data": {
       "description": "Test Description",
@@ -154,6 +205,32 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
       "tag": "meta",
     },
   ],
+  "mobileFacilities": [
+    {
+      "address": undefined,
+      "fieldTelephone": {
+        "field_phone_extension": "",
+        "field_phone_number": "800-555-9014",
+        "field_phone_number_type": "voice",
+        "id": "mobile-phone-id",
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": undefined,
+        "height": undefined,
+        "id": undefined,
+        "links": undefined,
+        "title": undefined,
+        "type": "media--image",
+        "width": undefined,
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/mobile-clinic",
+      "phoneNumber": "800-555-3456",
+      "title": "Mobile Clinic",
+      "vaHealthConnectPhoneNumber": null,
+    },
+  ],
   "moderationState": "published",
   "path": "/boston-health-care",
   "published": true,
@@ -193,9 +270,7 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
   ],
   "entityId": 3097,
   "entityPath": "/lebanon-health-care/locations",
-  "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
-  "lastUpdated": "2021-02-17T14:42:50+00:00",
-  "mainFacilities": [
+  "healthClinicFacilities": [
     {
       "address": undefined,
       "fieldTelephone": {
@@ -221,6 +296,9 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
       "vaHealthConnectPhoneNumber": "855-679-0952",
     },
   ],
+  "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
+  "lastUpdated": "2021-02-17T14:42:50+00:00",
+  "mainFacilities": [],
   "menu": {
     "data": null,
     "rootPath": "/lebanon-health-care/locations/",
@@ -325,6 +403,7 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
       "tag": "meta",
     },
   ],
+  "mobileFacilities": [],
   "moderationState": "published",
   "path": "/lebanon-health-care",
   "published": true,

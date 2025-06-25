@@ -23,6 +23,8 @@ const mockBaseProps = {
   administration: LOVELL.va.administration,
   vamcEhrSystem: 'vista' as const,
   mainFacilities: [],
+  healthClinicFacilities: [],
+  mobileFacilities: [],
 }
 
 const mockMainFacilities: MinimalLocalFacility[] = [
@@ -137,6 +139,67 @@ describe('LocationsListing', () => {
       )
       expect(
         screen.queryByRole('heading', { name: /Main locations/i })
+      ).not.toBeInTheDocument()
+    })
+  })
+
+  describe('Health Clinic Facilities', () => {
+    test('renders health clinic facilities section with facilities', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="VA Locations"
+          path="/va-locations"
+          healthClinicFacilities={mockMainFacilities}
+        />
+      )
+      expect(
+        screen.getByRole('heading', { name: /Health clinic locations/i })
+      ).toBeInTheDocument()
+      expect(screen.getByText(/3001 Green Bay Frontage Rd/)).toBeInTheDocument()
+    })
+
+    test('does not render health clinic facilities section without facilities', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="VA Locations"
+          path="/va-locations"
+          healthClinicFacilities={[]}
+        />
+      )
+      expect(
+        screen.queryByRole('heading', { name: /Health clinic locations/i })
+      ).not.toBeInTheDocument()
+    })
+  })
+
+  describe('Mobile Facilities', () => {
+    test('renders mobile facilities section with facilities', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="VA Locations"
+          path="/va-locations"
+          mobileFacilities={mockMainFacilities}
+        />
+      )
+      expect(
+        screen.getByRole('heading', { name: /Mobile clinics/i })
+      ).toBeInTheDocument()
+    })
+
+    test('does not render mobile facilities section without facilities', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="VA Locations"
+          path="/va-locations"
+          mobileFacilities={[]}
+        />
+      )
+      expect(
+        screen.queryByRole('heading', { name: /Mobile clinics/i })
       ).not.toBeInTheDocument()
     })
   })

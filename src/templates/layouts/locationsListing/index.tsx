@@ -16,6 +16,8 @@ export function LocationsListing({
   administration,
   path,
   mainFacilities,
+  healthClinicFacilities,
+  mobileFacilities,
 }: FormattedLocationsListing) {
   useEffect(() => {
     window.sideNav = menu
@@ -55,23 +57,41 @@ export function LocationsListing({
                     ))}
                   </>
                 )}
-
-                <h2
-                  className="medium-screen:vads-u-margin-bottom--4"
-                  id="community-clinic-locations"
-                >
-                  Health clinic locations
-                </h2>
-                <div>TODO: Other facility list (sorted)</div>
-
-                <h2
-                  className="medium-screen:vads-u-margin-bottom--4"
-                  id="mobile-clinic-locations"
-                >
-                  Mobile clinics
-                </h2>
-                <div>TODO: Mobile facility list (sorted)</div>
-
+                {healthClinicFacilities.length > 0 && (
+                  <>
+                    <h2
+                      className="tablet:vads-u-margin-bottom--4"
+                      id="community-clinic-locations"
+                    >
+                      Health clinic locations
+                    </h2>
+                    {healthClinicFacilities.map((facility) => (
+                      <FacilityListing
+                        key={facility.title}
+                        facility={facility}
+                        basePath={path}
+                      />
+                    ))}
+                  </>
+                )}
+                {mobileFacilities.length > 0 && (
+                  <>
+                    <h2
+                      className="tablet:vads-u-margin-bottom--4"
+                      id="mobile-clinic-locations"
+                    >
+                      Mobile clinics
+                    </h2>
+                    {mobileFacilities.map((facility) => (
+                      <FacilityListing
+                        key={facility.title}
+                        facility={facility}
+                        basePath={path}
+                        type="mobile"
+                      />
+                    ))}
+                  </>
+                )}
                 <h2
                   className="medium-screen:vads-u-margin-bottom--4"
                   id="other-nearby-va-locations"

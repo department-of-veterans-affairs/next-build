@@ -100,7 +100,81 @@ describe('LocationsListing formatData', () => {
   const formattedInput = {
     entity: patchedMock,
     menu: patchedMock.field_office?.field_system_menu || null,
-    mainFacilities: [],
+    mainFacilities: [
+      {
+        ...LocationsListingMock.field_office,
+        title: 'Main Hospital',
+        path: { alias: '/main-hospital' },
+        field_main_location: true,
+        field_mobile: false,
+        field_operating_status_facility: 'normal',
+        field_phone_number: '800-555-1234',
+        field_telephone: {
+          id: 'main-phone-id',
+          type: 'paragraph--phone_number',
+          field_phone_number: '800-555-9012',
+          field_phone_extension: '',
+          field_phone_number_type: 'voice',
+        },
+        field_media: {
+          id: 'main-image-id',
+          type: 'media--image',
+          links: {},
+          resourceIdObjMeta: { alt: 'Main hospital image' },
+          image: {},
+        },
+      },
+    ],
+    healthClinicFacilities: [
+      {
+        ...LocationsListingMock.field_office,
+        title: 'Health Clinic',
+        path: { alias: '/health-clinic' },
+        field_main_location: false,
+        field_mobile: false,
+        field_operating_status_facility: 'normal',
+        field_phone_number: '800-555-2345',
+        field_telephone: {
+          id: 'clinic-phone-id',
+          type: 'paragraph--phone_number',
+          field_phone_number: '800-555-9013',
+          field_phone_extension: '',
+          field_phone_number_type: 'voice',
+        },
+        field_media: {
+          id: 'clinic-image-id',
+          type: 'media--image',
+          links: {},
+          resourceIdObjMeta: { alt: 'Health clinic image' },
+          image: {},
+        },
+      },
+    ],
+    mobileFacilities: [
+      {
+        ...LocationsListingMock.field_office,
+        title: 'Mobile Clinic',
+        path: { alias: '/mobile-clinic' },
+        field_main_location: false,
+        field_mobile: true,
+        field_operating_status_facility: 'normal',
+        field_phone_number: '800-555-3456',
+        field_telephone: {
+          id: 'mobile-phone-id',
+          type: 'paragraph--phone_number',
+          field_phone_number: '800-555-9014',
+          field_phone_extension: '',
+          field_phone_number_type: 'voice',
+        },
+        field_media: {
+          id: 'mobile-image-id',
+          type: 'media--image',
+          links: {},
+          resourceIdObjMeta: { alt: 'Mobile clinic image' },
+          image: {},
+        },
+      },
+    ],
   }
 
   test('outputs formatted data', () => {
