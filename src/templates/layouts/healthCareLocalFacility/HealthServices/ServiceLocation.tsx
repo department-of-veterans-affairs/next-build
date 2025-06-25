@@ -1,7 +1,3 @@
-/* istanbul ignore file */
-// Ignoring this until we get tests written; it's just really detailed
-// scaffolding for now.
-
 import { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/templates/common/phoneNumber'

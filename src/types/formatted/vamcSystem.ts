@@ -6,7 +6,7 @@ import { HealthCareLocalFacility } from './healthCareLocalFacility'
 import { FormattedRelatedLinks } from './relatedLinks'
 import { NodeHealthCareRegionPage } from '../drupal/node'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
-import { NewsStoryTeaser } from '@/types/formatted/newsStory'
+import { NewsStoryTeaser } from '@/products/newsStory/formatted-type'
 import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
 import { EventWidgetTeaser } from '@/products/event/formatted-type'
 

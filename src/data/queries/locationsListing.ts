@@ -62,13 +62,14 @@ export const data: QueryData<
     : null
   // Fetch list of local facilities related to this Locations Listing
   // added the sort to ensure this matches content build order
+  // Fetch list of local facilities related to this Locations Listing
   const { data: allFacilities } =
     await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
       RESOURCE_TYPES.VAMC_FACILITY,
       queries
         .getParams(RESOURCE_TYPES.VAMC_FACILITY)
         .addFilter('field_region_page.id', entity.field_office.id)
-        .addSort('title'),
+        .addSort('title', 'ASC'),
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
 

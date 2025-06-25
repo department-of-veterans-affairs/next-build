@@ -3,7 +3,7 @@
  */
 
 import { NodeNewsStory } from '@/types/drupal/node'
-import mockData from '@/mocks/newsStory.mock.json'
+import mockData from '@/products/newsStory/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params, formatter } from '../newsStoryTeaser'
 
