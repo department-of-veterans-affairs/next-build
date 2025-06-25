@@ -83,7 +83,7 @@ export const getFetcher = (
       })
 
       if (!response.ok) {
-        const logOrError = attempt < retryCount ? log : error
+        const logOrError = attempt <= retryCount ? log : error
         logOrError(
           `Failed request (Attempt ${attempt} of ${retryCount + 1}): %o`,
           {
