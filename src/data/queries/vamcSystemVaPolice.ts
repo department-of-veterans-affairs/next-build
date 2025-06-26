@@ -2,10 +2,7 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 import { VamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
-import {
-  PARAGRAPH_RESOURCE_TYPES,
-  RESOURCE_TYPES,
-} from '@/lib/constants/resourceTypes'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -15,8 +12,8 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 import { buildFaqs } from '@/data/utils/ccFaqs'
+import { getLovellVariantOfBreadcrumbs } from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -36,6 +33,7 @@ export type VamcSystemVaPoliceDataOpts = {
 type VamcSystemVaPoliceData = {
   entity: NodeVamcSystemVaPolice
   menu: Menu | null
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
@@ -63,18 +61,23 @@ export const data: QueryData<
       )
     : null
 
-  return { entity, menu }
+  return { entity, menu, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<
   VamcSystemVaPoliceData,
   VamcSystemVaPolice
-> = ({ entity, menu }) => {
+> = ({ entity, menu, lovell }) => {
+  let { breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
   return {
     ...entityBaseFields(entity),
     title: entity.title,
+    breadcrumbs,
     path: entity.path.alias,
     menu: formattedMenu,
     policeOverview: {
