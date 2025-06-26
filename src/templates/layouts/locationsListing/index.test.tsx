@@ -203,4 +203,16 @@ describe('LocationsListing', () => {
       ).not.toBeInTheDocument()
     })
   })
+
+  test('renders the ContentFooter component with the Feedback button by id', () => {
+    render(
+      <LocationsListing
+        {...mockBaseProps}
+        title="VA Locations"
+        path="/va-locations"
+      />
+    )
+    const feedbackButton = screen.getByTestId('content-footer')
+    expect(feedbackButton).toBeInTheDocument()
+  })
 })
