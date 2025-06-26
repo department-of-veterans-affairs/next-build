@@ -6,9 +6,9 @@ describe('Hours Component', () => {
   const nonTraditionalWarning =
     'We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.'
 
-  it('renders null when allHours is empty', () => {
-    const { container } = render(<Hours allHours={[]} headerType="standard" />)
-    expect(container).toBeEmptyDOMElement()
+  it('renders all closed when allHours is empty', () => {
+    render(<Hours allHours={[]} headerType="standard" />)
+    expect(screen.getAllByText('Closed')).toHaveLength(7)
   })
 
   it('renders the correct header for "standard" header type', () => {
@@ -31,7 +31,8 @@ describe('Hours Component', () => {
   it('handles "closed" status correctly', () => {
     const allHours = [{ day: 1, starthours: null, endhours: null, comment: '' }]
     render(<Hours allHours={allHours} headerType="standard" />)
-    expect(screen.getByText('Closed')).toBeInTheDocument()
+    // Also fills in the blanks with "Closed"
+    expect(screen.getAllByText('Closed')).toHaveLength(7)
   })
 
   it('renders "Clinical hours" for clinical header type', () => {

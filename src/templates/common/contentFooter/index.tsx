@@ -25,7 +25,10 @@ export function ContentFooter({
   }
 
   return (
-    <div className={`last-updated ${wrapperClasses}`}>
+    <div
+      data-testid="content-footer"
+      className={`last-updated ${wrapperClasses}`}
+    >
       <div className="mobile-lg:vads-u-display--flex above-footer-elements-container">
         {lastUpdated && (
           <div className="vads-u-flex--auto">

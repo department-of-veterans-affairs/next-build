@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_office,field_administration"`;
+
 exports[`LocationsListing formatData outputs formatted data 1`] = `
 {
+  "administration": {
+    "entityId": 180,
+    "name": "VA Lebanon health care",
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -25,9 +31,61 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
     },
   ],
   "entityId": 3097,
-  "entityPath": "/boston-health-care/locations/",
+  "entityPath": "/boston-health-care/locations",
+  "healthClinicFacilities": [
+    {
+      "address": undefined,
+      "fieldTelephone": {
+        "field_phone_extension": "",
+        "field_phone_number": "800-555-9013",
+        "field_phone_number_type": "voice",
+        "id": "clinic-phone-id",
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": undefined,
+        "height": undefined,
+        "id": undefined,
+        "links": undefined,
+        "title": undefined,
+        "type": "media--image",
+        "width": undefined,
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/health-clinic",
+      "phoneNumber": "800-555-2345",
+      "title": "Health Clinic",
+      "vaHealthConnectPhoneNumber": "855-679-0952",
+    },
+  ],
   "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
-  "lastUpdated": "2021-02-17T14:42:51+00:00",
+  "lastUpdated": "2021-02-17T14:42:50+00:00",
+  "mainFacilities": [
+    {
+      "address": undefined,
+      "fieldTelephone": {
+        "field_phone_extension": "",
+        "field_phone_number": "800-555-9012",
+        "field_phone_number_type": "voice",
+        "id": "main-phone-id",
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": undefined,
+        "height": undefined,
+        "id": undefined,
+        "links": undefined,
+        "title": undefined,
+        "type": "media--image",
+        "width": undefined,
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/main-hospital",
+      "phoneNumber": "800-555-1234",
+      "title": "Main Hospital",
+      "vaHealthConnectPhoneNumber": "855-679-0952",
+    },
+  ],
   "menu": {
     "data": {
       "description": "Test Description",
@@ -45,7 +103,7 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
       ],
       "name": "Test Title",
     },
-    "rootPath": "/boston-health-care/locations//",
+    "rootPath": "/boston-health-care/locations/",
   },
   "metatags": [
     {
@@ -147,10 +205,210 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
       "tag": "meta",
     },
   ],
+  "mobileFacilities": [
+    {
+      "address": undefined,
+      "fieldTelephone": {
+        "field_phone_extension": "",
+        "field_phone_number": "800-555-9014",
+        "field_phone_number_type": "voice",
+        "id": "mobile-phone-id",
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": undefined,
+        "height": undefined,
+        "id": undefined,
+        "links": undefined,
+        "title": undefined,
+        "type": "media--image",
+        "width": undefined,
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/mobile-clinic",
+      "phoneNumber": "800-555-3456",
+      "title": "Mobile Clinic",
+      "vaHealthConnectPhoneNumber": null,
+    },
+  ],
   "moderationState": "published",
-  "path": "/boston-health-care/locations/",
+  "path": "/boston-health-care",
   "published": true,
   "title": "Locations",
   "type": "node--locations_listing",
+  "vamcEhrSystem": "vista",
+}
+`;
+
+exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
+{
+  "administration": {
+    "entityId": 180,
+    "name": "VA Lebanon health care",
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA Lebanon health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/lebanon-health-care",
+    },
+    {
+      "options": [],
+      "title": "Services and locations",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "Locations",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 3097,
+  "entityPath": "/lebanon-health-care/locations",
+  "healthClinicFacilities": [
+    {
+      "address": undefined,
+      "fieldTelephone": {
+        "field_phone_extension": "",
+        "field_phone_number": "800-555-9012",
+        "field_phone_number_type": "voice",
+        "id": "test-phone-id",
+        "type": "paragraph--phone_number",
+      },
+      "image": {
+        "alt": undefined,
+        "height": undefined,
+        "id": undefined,
+        "links": undefined,
+        "title": undefined,
+        "type": "media--image",
+        "width": undefined,
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/test-facility",
+      "phoneNumber": "800-555-1234",
+      "title": "Test Facility",
+      "vaHealthConnectPhoneNumber": "855-679-0952",
+    },
+  ],
+  "id": "eb0c10d2-b199-4665-82db-6241eb6bae56",
+  "lastUpdated": "2021-02-17T14:42:50+00:00",
+  "mainFacilities": [],
+  "menu": {
+    "data": null,
+    "rootPath": "/lebanon-health-care/locations/",
+  },
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Locations | VA Lebanon health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA Lebanon Health Care system locations, address, hours of operations, and health care services provided.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Locations | VA Lebanon health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA Lebanon Health Care system locations, address, hours of operations, and health care services provided.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Locations | VA Lebanon health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA Lebanon Health Care system locations, address, hours of operations, and health care services provided.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+  ],
+  "mobileFacilities": [],
+  "moderationState": "published",
+  "path": "/lebanon-health-care",
+  "published": true,
+  "title": "Locations",
+  "type": "node--locations_listing",
+  "vamcEhrSystem": "vista",
 }
 `;

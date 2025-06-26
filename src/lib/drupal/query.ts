@@ -138,7 +138,8 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity | null => {
     title: entity.title,
     metatags: entity.metatag,
     breadcrumbs: entity.breadcrumbs,
-    lastUpdated: entity.changed || entity.created,
+    lastUpdated:
+      entity.field_last_saved_by_an_editor || entity.changed || entity.created,
   }
 }
 

@@ -111,7 +111,7 @@ jobs:
 
   build:
     name: Build static pages & deploy to S3
-    timeout-minutes: 60
+    timeout-minutes: 90 # Adding 50% more time. Build is taking close to 50 minutes on a cold cache and the new sitemap takes about 10 minutes.
     runs-on: [self-hosted, asg]
     needs: [validate-build-status, login-to-amazon-ecr]
     outputs:
@@ -123,7 +123,7 @@ jobs:
       SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
       YARN_OUTPUT: ${{ steps.export-yarn-output.outputs.YARN_OUTPUT }}
     container:
-      image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-18.19.0-bullseye:latest
+      image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-22.16.0-bullseye:latest
       credentials:
         username: ${{ needs.login-to-amazon-ecr.outputs.docker_username }}
         password: ${{ needs.login-to-amazon-ecr.outputs.docker_password }}
@@ -166,7 +166,7 @@ jobs:
 
     - uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 22
     - name: Setup Yarn
       run: |
         cd main

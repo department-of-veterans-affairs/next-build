@@ -1,4 +1,4 @@
-import { SidebarData } from '@/types/formatted/staffProfile'
+import { SidebarData } from '@/products/staffProfile/formatted-type'
 
 export const buildStaffProfileSidebarData = (
   title: string,
