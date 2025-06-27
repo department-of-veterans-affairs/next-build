@@ -212,7 +212,7 @@ describe('LocationsListing', () => {
         path="/va-locations"
       />
     )
-    const feedbackButton = screen.getByTestId('content-footer')
-    expect(feedbackButton).toBeInTheDocument()
+    const footerTestId = screen.getByTestId('content-footer')
+    expect(footerTestId).toBeInTheDocument()
   })
 })

@@ -103,8 +103,8 @@ export function LocationsListing({
               </section>
 
               <va-back-to-top />
+              <ContentFooter />
             </article>
-            <ContentFooter />
           </div>
         </div>
       </main>
