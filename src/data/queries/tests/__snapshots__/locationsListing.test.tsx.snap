@@ -36,10 +36,12 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
     {
       "address": undefined,
       "fieldTelephone": {
-        "field_phone_extension": "",
-        "field_phone_number": "800-555-9013",
-        "field_phone_number_type": "voice",
+        "entityId": undefined,
+        "extension": "",
         "id": "clinic-phone-id",
+        "label": undefined,
+        "number": "800-555-9013",
+        "phoneType": "voice",
         "type": "paragraph--phone_number",
       },
       "image": {
@@ -64,10 +66,12 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
     {
       "address": undefined,
       "fieldTelephone": {
-        "field_phone_extension": "",
-        "field_phone_number": "800-555-9012",
-        "field_phone_number_type": "voice",
+        "entityId": undefined,
+        "extension": "",
         "id": "main-phone-id",
+        "label": undefined,
+        "number": "800-555-9012",
+        "phoneType": "voice",
         "type": "paragraph--phone_number",
       },
       "image": {
@@ -209,10 +213,12 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
     {
       "address": undefined,
       "fieldTelephone": {
-        "field_phone_extension": "",
-        "field_phone_number": "800-555-9014",
-        "field_phone_number_type": "voice",
+        "entityId": undefined,
+        "extension": "",
         "id": "mobile-phone-id",
+        "label": undefined,
+        "number": "800-555-9014",
+        "phoneType": "voice",
         "type": "paragraph--phone_number",
       },
       "image": {
@@ -274,10 +280,12 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
     {
       "address": undefined,
       "fieldTelephone": {
-        "field_phone_extension": "",
-        "field_phone_number": "800-555-9012",
-        "field_phone_number_type": "voice",
+        "entityId": undefined,
+        "extension": "",
         "id": "test-phone-id",
+        "label": undefined,
+        "number": "800-555-9012",
+        "phoneType": "voice",
         "type": "paragraph--phone_number",
       },
       "image": {

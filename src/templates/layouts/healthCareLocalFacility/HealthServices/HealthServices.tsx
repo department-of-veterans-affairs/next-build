@@ -1,6 +1,7 @@
 import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceLocation } from './ServiceLocation'
 import { hashReference } from '@/lib/utils/hashReference'
+import { PhoneNumber } from '@/types/formatted/phoneNumber'
 
 export const HealthServices = ({
   healthServices,
@@ -10,7 +11,7 @@ export const HealthServices = ({
 }: {
   healthServices: FormattedVAMCFacilityHealthService[]
   fieldReferralRequired?: string
-  fieldTelephone?: PhoneNumberType
+  fieldTelephone?: PhoneNumber
   fieldPhoneNumber?: string
 }) => {
   return (

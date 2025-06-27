@@ -31,6 +31,9 @@ export type HealthCareLocalFacility = PublishedEntity & {
   facilityLocatorApiId: string
   geoLocation: FieldGeoLocation
   fieldTelephone: PhoneNumber | null
+  /** Optional fallback main phone number. */
+  fieldPhoneNumber?: string
+  fieldReferralRequired?: string
   vaHealthConnectPhoneNumber: string | null
   relatedLinks: FormattedRelatedLinks
   locationServices: Array<{
@@ -103,15 +106,11 @@ export interface FormattedVAMCFacilityHealthService {
    * This comes from the VAMC System Health Service found at `field_retional`
    */
   fieldBody?: string
-  /** Referral requirement for the entire service */
-  fieldReferralRequired?: string
   /**
    * Telephone object for mental health, containing an entity with phone details.
    * This comes from the top-level VAMC facility.
    */
   fieldTelephone?: PhoneNumber
-  /** Optional fallback main phone number. */
-  fieldPhoneNumber?: string
   /** Flag indicating if this is a mental health service */
   isMentalHealthService?: boolean
   /** Locations associated with this service */

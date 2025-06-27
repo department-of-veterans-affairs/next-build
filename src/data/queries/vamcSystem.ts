@@ -30,7 +30,6 @@ import {
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 import { getNextEventOccurrences } from '@/products/event/query-utils'
-import { writeFileSync } from 'fs'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
