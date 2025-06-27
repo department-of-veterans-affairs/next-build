@@ -210,14 +210,16 @@ export const formatter: QueryFormatter<
           ),
           locations: healthService.field_service_location.map((location) => {
             return {
+              // AI: All these fields...
               fieldReferralRequired: healthService.field_referral_required,
-              // TODO: Pull this out of `locations` and rename to...I think
-              // `primaryFacilityPhone` or something?
               fieldTelephone: formatPhone(entity.field_telephone),
               fieldPhoneNumber: entity.field_phone_number,
               isMentalHealthService: serviceTaxonomy.name
                 .toLowerCase()
                 .includes('mental health'),
+              // ...can be hoisted outside of the `locations` array and passed
+              // into the `ServiceLocation` component as props. Be sure to
+              // update the components and static types too. AI!
               single: {
                 fieldOfficeVisits: location.field_office_visits,
                 fieldVirtualSupport: location.field_virtual_support,
