@@ -51,7 +51,11 @@ export const HealthServices = ({
 
                 {hasLocationData ? (
                   service.locations.map((locationData, i) => (
-                    <ServiceLocation key={i} {...locationData} />
+                    <ServiceLocation
+                      key={i}
+                      {...service}
+                      {...locationData}
+                    />
                   ))
                 ) : (
                   <div>{service.localServiceDescription}</div>

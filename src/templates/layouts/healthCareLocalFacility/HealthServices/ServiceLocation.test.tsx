@@ -4,7 +4,7 @@ import type { ServiceLocationTemplateData } from '@/types/formatted/healthCareLo
 import type { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 // Mock data for different test scenarios
-const getBaseProps = (): ServiceLocationTemplateData => ({
+const getBaseProps = () => ({
   fieldReferralRequired: '1',
   fieldTelephone: {
     number: '555-1234',

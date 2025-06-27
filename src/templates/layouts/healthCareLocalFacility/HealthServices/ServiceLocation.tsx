@@ -10,7 +10,13 @@ export const ServiceLocation = ({
   fieldPhoneNumber,
   isMentalHealthService,
   single,
-}: ServiceLocationTemplateData) => {
+}: {
+  fieldReferralRequired?: string
+  fieldTelephone?: PhoneNumber
+  fieldPhoneNumber?: string
+  isMentalHealthService?: boolean
+  single: VamcFacilityServiceLocation
+}) => {
   // Determine service main phone
   // Determine main phone number
   const mainPhone =

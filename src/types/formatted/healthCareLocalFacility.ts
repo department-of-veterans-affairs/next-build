@@ -137,8 +137,18 @@ export interface FormattedVAMCFacilityHealthService {
    * This comes from the VAMC System Health Service found at `field_retional`
    */
   fieldBody?: string
+  /** Referral requirement for the entire service */
+  fieldReferralRequired?: string
+  /** Telephone for the entire service */
+  fieldTelephone?: PhoneNumber
+  /** Phone number for the entire service */
+  fieldPhoneNumber?: string
+  /** Flag indicating if this is a mental health service */
+  isMentalHealthService?: boolean
   /** Locations associated with this service */
-  locations: ServiceLocationTemplateData[]
+  locations: {
+    single: VamcFacilityServiceLocation
+  }[]
   fieldFacilityLocatorApiId?: string
   fieldHealthServiceApiId?: string
   /** Fallback content */
