@@ -13,7 +13,7 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
   } as PhoneNumberType,
   fieldPhoneNumber: '555-5678',
   isMentalHealthService: true,
-  single: {
+  location: {
     fieldUseFacilityPhoneNumber: true,
     fieldOtherPhoneNumbers: [
       {

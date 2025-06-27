@@ -29,7 +29,7 @@ export const HealthServices = ({
           // Will this always be true for VAMC facilities?
           const isVha = service.fieldFacilityLocatorApiId?.startsWith('vha_')
           const hasLocationData =
-            service.locations?.[0]?.single?.fieldServiceLocationAddress
+            service.locations?.[0]?.fieldServiceLocationAddress
 
           return (
             <va-accordion-item
@@ -57,9 +57,9 @@ export const HealthServices = ({
                 )}
 
                 {hasLocationData ? (
-                  service.locations.map((locationData, i) => (
+                  service.locations.map((location, i) => (
                     <ServiceLocation
-                      {...locationData}
+                      location={location}
                       key={i}
                       fieldReferralRequired={fieldReferralRequired}
                       fieldTelephone={fieldTelephone}

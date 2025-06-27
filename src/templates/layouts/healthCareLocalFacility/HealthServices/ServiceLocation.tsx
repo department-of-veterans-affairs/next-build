@@ -9,7 +9,7 @@ export const ServiceLocation = ({
   fieldTelephone,
   fieldPhoneNumber,
   isMentalHealthService,
-  single,
+  location,
 }: {
   fieldReferralRequired?: string
   fieldTelephone?: PhoneNumberType
