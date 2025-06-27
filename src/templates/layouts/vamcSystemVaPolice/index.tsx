@@ -65,7 +65,7 @@ export function VamcSystemVaPolice({
                 className="vads-u-margin-bottom--3"
                 id="field-va-police-reports"
               >
-                <va-summary-box uswds="true" class="vads-u-border--0">
+                <va-summary-box uswds="true">
                   <h3
                     slot="headline"
                     id="how-to-request-a-va-police-rep"
