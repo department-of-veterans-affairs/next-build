@@ -1,10 +1,12 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
+import Debug from 'debug'
 import fetch from 'cross-fetch'
 import fs from 'fs-extra'
 import path from 'path'
 import { fileURLToPath } from 'url'
+
+const debug = Debug('vets-website-assets')
 
 /**
  * This script gathers additional assets for building the front-end of VA.gov.
@@ -48,6 +50,7 @@ const destinationPath = path.resolve(__dirname, '../../public/generated/')
 
 // Function that loops through to download all compiled js assets listed in a bucket's manifest.
 async function downloadFromLiveBucket(buildtype) {
+  debug('Downloading assets from live bucket...')
   const bucket = BUILD_TYPE_BUCKET[buildtype]
 
   const fileManifestRequest = await fetch(`${bucket}/${fileManifestPath}`)
@@ -63,9 +66,10 @@ async function downloadFromLiveBucket(buildtype) {
     const bundleResponse = await fetch(bundleUrl)
 
     if (bundleFileName.includes('generated/../')) {
-      console.log(`Excluding: ${bundleFileName} from download`)
+      debug(`Excluding: ${bundleFileName} from download`)
     } else {
       if (!bundleResponse.ok) {
+        debug(`Failed to download asset: ${bundleUrl} %O`, bundleResponse)
         throw new Error(`Failed to download asset: ${bundleUrl}`)
       }
 
@@ -86,11 +90,11 @@ async function downloadFromLiveBucket(buildtype) {
 // Gather assets that are expected by the compiled files but not included in the bucket (because content-build would source them).
 // These are primarily images.
 async function moveAssetsFromVetsWebsite() {
-  console.log('Moving additional assets from adjacent vets-website repo...')
+  debug('Moving additional assets from adjacent vets-website repo...')
 
   try {
     fs.copySync(`${vetsWebsiteAssetPath}/img`, './public/img/')
-    console.log('Copied image assets from vets-website.')
+    debug('Copied image assets from vets-website.')
 
     const fontsDir = fs.readdirSync(`${vetsWebsiteAssetPath}/fonts`)
     for (let i = 0; i < fontsDir.length; i += 1) {
@@ -100,39 +104,38 @@ async function moveAssetsFromVetsWebsite() {
         `${destinationPath}/${font}`
       )
     }
-    console.log('Copied font files from vets-website.')
+    debug('Copied font files from vets-website.')
   } catch (err) {
-    console.error(err)
+    debug('%O', err)
   }
 }
 
 // Determine build type and request all assets accordingly.
 async function gatherAssets() {
+  debug('Gathering vets-website assets...')
   const buildtype = process.env.BUILD_TYPE || 'vagovprod'
 
   // Clean any existing assets or symlinks
   if (fs.pathExistsSync(destinationPath)) {
     try {
       fs.rmSync(destinationPath, { recursive: true, force: true })
-      console.log(
+      debug(
         `Removed existing vets-website assets. Preparing to gather fresh from ${BUILD_TYPE_BUCKET[buildtype]}`
       )
     } catch (err) {
-      console.error(err)
+      debug('%O', err)
     }
   }
   // Download compiled js assets from the appropriate bucket.
   if (buildtype !== 'localhost') {
     await downloadFromLiveBucket(buildtype)
-    console.log(
+    debug(
       `Successfully downloaded all assets listed in ${BUILD_TYPE_BUCKET[buildtype]}/${fileManifestPath}`
     )
   }
   // Localhost, use symlink from adjacent cloned repo for all assets
   else {
-    console.log(
-      'Attempting to symlink assets from your local vets-website repo...'
-    )
+    debug('Attempting to symlink assets from your local vets-website repo...')
 
     try {
       // Checks if symlink already exists
@@ -140,19 +143,19 @@ async function gatherAssets() {
 
       if (!exists) {
         fs.ensureSymlinkSync(localBucket, destinationPath, 'dir') // 'dir' is windows only, ignored elsewhere
-        console.log('Symlink created successfully!')
+        debug('Symlink created successfully!')
       } else {
-        console.log('Symlink already exists.')
+        debug('Symlink already exists.')
       }
     } catch (error) {
-      console.error('\nError creating symlink:', error)
-      console.log('\nRe-build your local vets-website assets and try again. \n')
+      debug('\nError creating symlink: %O', error)
+      debug('\nRe-build your local vets-website assets and try again. \n')
     }
   }
 
   await moveAssetsFromVetsWebsite()
 
-  console.log('\nAll vets-website assets gathered.')
+  debug('\nAll vets-website assets gathered.')
 }
 
 gatherAssets()
