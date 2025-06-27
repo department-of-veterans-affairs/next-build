@@ -40,9 +40,7 @@ describe('HealthServices', () => {
       entityBundle: 'health_care_service',
       locations: [
         {
-          single: {
-            fieldServiceLocationAddress: null,
-          },
+          fieldServiceLocationAddress: null,
         },
       ],
       fieldBody: '<p>Specialized mental health services</p>',
