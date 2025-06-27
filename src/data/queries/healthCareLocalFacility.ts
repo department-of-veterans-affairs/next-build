@@ -201,16 +201,19 @@ export const formatter: QueryFormatter<
           description:
             healthService.field_administration.name === 'Lovell - TRICARE' && // Is this the best way to check?
             serviceTaxonomy?.field_tricare_description
-              ? serviceTaxonomy?.field_tricare_description // Should this also transform phone numbers into <va-telephone>s?
+              ? serviceTaxonomy?.field_tricare_description
               : (getHtmlFromField(serviceTaxonomy?.description) ?? null),
           entityId: serviceTaxonomy.id,
           entityBundle: healthService.type.split('--')[1],
           fieldBody: getHtmlFromField(
             healthService.field_regional_health_service.field_body
           ),
+          // AI: Hoist these properties...
           fieldReferralRequired: healthService.field_referral_required,
           fieldTelephone: formatPhone(entity.field_telephone),
           fieldPhoneNumber: entity.field_phone_number,
+          // ...up one level and be sure to change the static types, tests, and
+          // components as well AI!
           isMentalHealthService: serviceTaxonomy.name
             .toLowerCase()
             .includes('mental health'),
