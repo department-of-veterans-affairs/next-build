@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
 import { HealthServices } from './HealthServices'
 import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
+import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 // Mock ServiceLocation to simplify tests
 jest.mock('./ServiceLocation', () => ({
@@ -20,13 +21,11 @@ describe('HealthServices', () => {
       entityBundle: 'health_care_service',
       locations: [
         {
-          single: {
-            // We're mocking out the service location component, so we don't
-            // need to provide a full address object.
-            // NOTE: This is relying on static typing to test for the proper
-            // integration.
-            fieldServiceLocationAddress: {} as ParagraphServiceLocationAddress,
-          },
+          // We're mocking out the service location component, so we don't
+          // need to provide a full address object.
+          // NOTE: This is relying on static typing to test for the proper
+          // integration.
+          fieldServiceLocationAddress: {} as ParagraphServiceLocationAddress,
         },
       ],
       fieldFacilityLocatorApiId: 'vha_123',
@@ -40,9 +39,7 @@ describe('HealthServices', () => {
       entityBundle: 'health_care_service',
       locations: [
         {
-          single: {
-            fieldServiceLocationAddress: null,
-          },
+          fieldServiceLocationAddress: null,
         },
       ],
       fieldBody: '<p>Specialized mental health services</p>',
@@ -57,8 +54,18 @@ describe('HealthServices', () => {
     },
   ]
 
+  const baseProps: ComponentProps<typeof HealthServices> = {
+    healthServices: mockHealthServices,
+    mentalHealthPhoneNumber: {
+      number: '555-1234',
+      extension: '123',
+      phoneType: 'tel',
+    } as PhoneNumberType,
+    mainPhoneString: '555-5678',
+  }
+
   it('renders section title and description', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
 
     expect(
       screen.getByRole('heading', {
@@ -73,14 +80,12 @@ describe('HealthServices', () => {
   })
 
   it('renders correct number of accordion items', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(3)
   })
 
   it('renders service names and subheaders', () => {
-    const { container } = render(
-      <HealthServices healthServices={mockHealthServices} />
-    )
+    const { container } = render(<HealthServices {...baseProps} />)
 
     // Service names are rendered as headings of level 3
     expect(
@@ -103,7 +108,7 @@ describe('HealthServices', () => {
   })
 
   it('renders common conditions when present', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(
       screen.getByText('Common conditions: Diabetes, Hypertension')
     ).toBeInTheDocument()
@@ -120,26 +125,31 @@ describe('HealthServices', () => {
       },
     ]
 
-    render(<HealthServices healthServices={mockServiceWithoutConditions} />)
+    render(
+      <HealthServices
+        {...baseProps}
+        healthServices={mockServiceWithoutConditions}
+      />
+    )
 
     // The common conditions text should not be present
     expect(screen.queryByText(/Common conditions:/)).not.toBeInTheDocument()
   })
 
   it('renders service descriptions', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(
       screen.getByText('Comprehensive primary care services')
     ).toBeInTheDocument()
   })
 
   it('renders ServiceLocation only when address data exists', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(screen.getAllByText('Mock ServiceLocation')).toHaveLength(1)
   })
 
   it('renders local description when no location data', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(
       screen.queryByText('Local primary care description')
     ).not.toBeInTheDocument()
@@ -150,7 +160,7 @@ describe('HealthServices', () => {
   })
 
   it('renders wait times widget for VHA facilities', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
 
     const widget = document.querySelector(
       'div[data-widget-type="facility-appointment-wait-times-widget"]'
@@ -162,7 +172,7 @@ describe('HealthServices', () => {
   })
 
   it('renders additional body content', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(
       screen.getByText('Specialized mental health services')
     ).toBeInTheDocument()

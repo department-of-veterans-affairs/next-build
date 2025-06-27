@@ -24,12 +24,12 @@ import { queries } from '.'
 import { formatter as formatAdministration } from '@/data/queries/administration'
 import { formatter as formatNewsStoryTeaser } from '@/data/queries/newsStoryTeaser'
 import { formatter as formatEventTeaser } from '@/data/queries/eventTeaser'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 import { getNextEventOccurrences } from '@/products/event/query-utils'
-import { writeFileSync } from 'fs'
 
 // Define the query params for fetching node--vamc_system.
 export const params: QueryParams<null> = () => {
@@ -173,8 +173,8 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
       path: facility.path.alias,
       operatingStatusFacility: facility.field_operating_status_facility,
       address: facility.field_address,
-      phoneNumber: facility.field_phone_number,
-      fieldTelephone: facility.field_telephone,
+      mainPhoneString: facility.field_phone_number,
+      mentalHealthPhoneNumber: formatPhone(facility.field_telephone),
       vaHealthConnectPhoneNumber: entity.field_va_health_connect_phone,
       image: formatImage(facility.field_media),
     })),

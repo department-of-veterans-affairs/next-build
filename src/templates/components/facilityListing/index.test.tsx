@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { FacilityListing } from './index'
 import { MinimalLocalFacility } from '@/types/formatted/vamcSystem'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 
 const mockFacility: MinimalLocalFacility = {
   title: 'Test Facility',
@@ -16,9 +17,9 @@ const mockFacility: MinimalLocalFacility = {
     administrative_area: 'TS',
     postal_code: '12345',
   },
-  phoneNumber: '800-555-1234',
+  mainPhoneString: '800-555-1234',
   vaHealthConnectPhoneNumber: '800-555-5678',
-  fieldTelephone: {
+  mentalHealthPhoneNumber: formatPhone({
     id: 'test-phone-id',
     type: 'paragraph--phone_number',
     drupal_internal__id: 123,
@@ -31,7 +32,7 @@ const mockFacility: MinimalLocalFacility = {
     field_phone_number: '800-555-9012',
     field_phone_extension: '',
     field_phone_number_type: 'voice',
-  },
+  }),
   image: {
     id: 'test-image',
     alt: 'Test Facility Image',
@@ -86,7 +87,7 @@ describe('FacilityListing with valid data', () => {
     // Check main phone
     expect(screen.getByText('Main phone:')).toBeInTheDocument()
     const mainPhone = container.querySelector(
-      `va-telephone[contact="${mockFacility.phoneNumber.replace(/-/g, '')}"]`
+      `va-telephone[contact="${mockFacility.mainPhoneString.replace(/-/g, '')}"]`
     )
     expect(mainPhone).toBeInTheDocument()
 
@@ -100,7 +101,7 @@ describe('FacilityListing with valid data', () => {
     // Check Mental health phone number
     expect(screen.getByText('Mental health care:')).toBeInTheDocument()
     const mentalHealthPhone = container.querySelector(
-      `va-telephone[contact="${mockFacility.fieldTelephone.field_phone_number.replace(/-/g, '')}"]`
+      `va-telephone[contact="${mockFacility.mentalHealthPhoneNumber.number.replace(/-/g, '')}"]`
     )
     expect(mentalHealthPhone).toBeInTheDocument()
     expect(mentalHealthPhone).toHaveAttribute(
