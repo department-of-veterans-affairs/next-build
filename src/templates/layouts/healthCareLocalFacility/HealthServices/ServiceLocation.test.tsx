@@ -15,7 +15,7 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
   isMentalHealthService: true,
   location: {
     fieldUseFacilityPhoneNumber: true,
-    fieldOtherPhoneNumbers: [
+    appointmentPhoneNumbers: [
       {
         id: '1',
         type: 'tel',

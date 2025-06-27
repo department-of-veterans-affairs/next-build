@@ -33,7 +33,7 @@ export const ServiceLocation = ({
   const showMainNumberForAppointments =
     mainPhone && location.fieldUseFacilityPhoneNumber
   const hasAppointmentPhoneNumbers =
-    (location.fieldOtherPhoneNumbers?.length || 0) > 0
+    (location.appointmentPhoneNumbers?.length || 0) > 0
   const hasOtherContactPhoneNumbers =
     (location.contactInfoPhoneNumbers?.length ?? 0) > 0
 
@@ -162,7 +162,7 @@ export const ServiceLocation = ({
       {/* Other appointment phone numbers */}
       {hasAppointmentPhoneNumbers && (
         <div data-testid="service-location-show-other-phone-numbers">
-          {location.fieldOtherPhoneNumbers?.map((num, idx) => (
+          {location.appointmentPhoneNumbers?.map((num, idx) => (
             <PhoneNumber key={idx} treatment="h4" {...num} />
           ))}
         </div>
