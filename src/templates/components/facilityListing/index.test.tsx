@@ -19,7 +19,7 @@ const mockFacility: MinimalLocalFacility = {
   },
   mainPhoneString: '800-555-1234',
   vaHealthConnectPhoneNumber: '800-555-5678',
-  fieldTelephone: formatPhone({
+  mentalHealthPhoneNumber: formatPhone({
     id: 'test-phone-id',
     type: 'paragraph--phone_number',
     drupal_internal__id: 123,
@@ -101,7 +101,7 @@ describe('FacilityListing with valid data', () => {
     // Check Mental health phone number
     expect(screen.getByText('Mental health care:')).toBeInTheDocument()
     const mentalHealthPhone = container.querySelector(
-      `va-telephone[contact="${mockFacility.fieldTelephone.number.replace(/-/g, '')}"]`
+      `va-telephone[contact="${mockFacility.mentalHealthPhoneNumber.number.replace(/-/g, '')}"]`
     )
     expect(mentalHealthPhone).toBeInTheDocument()
     expect(mentalHealthPhone).toHaveAttribute(

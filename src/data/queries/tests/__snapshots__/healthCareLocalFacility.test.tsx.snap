@@ -47,15 +47,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "entityId": 1273,
     "entityPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
     "facilityLocatorApiId": "vha_523GA",
-    "fieldTelephone": {
-      "entityId": 169967,
-      "extension": null,
-      "id": "3997e698-ea95-4155-8bb6-7aa268dd1b45",
-      "label": null,
-      "number": "800-865-3384",
-      "phoneType": "phone",
-      "type": "paragraph--phone_number",
-    },
     "geoLocation": {
       "bottom": 42.28301175,
       "geo_type": "Point",
@@ -652,6 +643,15 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "lovellSwitchPath": null,
     "lovellVariant": "tricare",
     "mainPhoneString": "800-865-3384",
+    "mentalHealthPhoneNumber": {
+      "entityId": 169967,
+      "extension": null,
+      "id": "3997e698-ea95-4155-8bb6-7aa268dd1b45",
+      "label": null,
+      "number": "800-865-3384",
+      "phoneType": "phone",
+      "type": "paragraph--phone_number",
+    },
     "menu": {
       "data": {
         "description": "bar",
@@ -949,15 +949,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "entityId": 1273,
     "entityPath": "/boston-health-care/locations/framingham-va-clinic",
     "facilityLocatorApiId": "vha_523GA",
-    "fieldTelephone": {
-      "entityId": 169967,
-      "extension": null,
-      "id": "3997e698-ea95-4155-8bb6-7aa268dd1b45",
-      "label": null,
-      "number": "800-865-3384",
-      "phoneType": "phone",
-      "type": "paragraph--phone_number",
-    },
     "geoLocation": {
       "bottom": 42.28301175,
       "geo_type": "Point",
@@ -1554,6 +1545,15 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "lovellSwitchPath": null,
     "lovellVariant": undefined,
     "mainPhoneString": "800-865-3384",
+    "mentalHealthPhoneNumber": {
+      "entityId": 169967,
+      "extension": null,
+      "id": "3997e698-ea95-4155-8bb6-7aa268dd1b45",
+      "label": null,
+      "number": "800-865-3384",
+      "phoneType": "phone",
+      "type": "paragraph--phone_number",
+    },
     "menu": {
       "data": {
         "description": "bar",

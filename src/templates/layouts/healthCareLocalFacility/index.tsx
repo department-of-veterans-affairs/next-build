@@ -41,7 +41,7 @@ export function HealthCareLocalFacility({
   image,
   facilityLocatorApiId,
   geoLocation,
-  fieldTelephone,
+  mentalHealthPhoneNumber: fieldTelephone,
   relatedLinks,
   locationServices,
   socialLinks,

@@ -35,15 +35,6 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   "healthClinicFacilities": [
     {
       "address": undefined,
-      "fieldTelephone": {
-        "entityId": undefined,
-        "extension": "",
-        "id": "clinic-phone-id",
-        "label": undefined,
-        "number": "800-555-9013",
-        "phoneType": "voice",
-        "type": "paragraph--phone_number",
-      },
       "image": {
         "alt": undefined,
         "height": undefined,
@@ -54,6 +45,15 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
         "width": undefined,
       },
       "mainPhoneString": "800-555-2345",
+      "mentalHealthPhoneNumber": {
+        "entityId": undefined,
+        "extension": "",
+        "id": "clinic-phone-id",
+        "label": undefined,
+        "number": "800-555-9013",
+        "phoneType": "voice",
+        "type": "paragraph--phone_number",
+      },
       "operatingStatusFacility": "normal",
       "path": "/health-clinic",
       "title": "Health Clinic",
@@ -65,15 +65,6 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   "mainFacilities": [
     {
       "address": undefined,
-      "fieldTelephone": {
-        "entityId": undefined,
-        "extension": "",
-        "id": "main-phone-id",
-        "label": undefined,
-        "number": "800-555-9012",
-        "phoneType": "voice",
-        "type": "paragraph--phone_number",
-      },
       "image": {
         "alt": undefined,
         "height": undefined,
@@ -84,6 +75,15 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
         "width": undefined,
       },
       "mainPhoneString": "800-555-1234",
+      "mentalHealthPhoneNumber": {
+        "entityId": undefined,
+        "extension": "",
+        "id": "main-phone-id",
+        "label": undefined,
+        "number": "800-555-9012",
+        "phoneType": "voice",
+        "type": "paragraph--phone_number",
+      },
       "operatingStatusFacility": "normal",
       "path": "/main-hospital",
       "title": "Main Hospital",
@@ -212,15 +212,6 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   "mobileFacilities": [
     {
       "address": undefined,
-      "fieldTelephone": {
-        "entityId": undefined,
-        "extension": "",
-        "id": "mobile-phone-id",
-        "label": undefined,
-        "number": "800-555-9014",
-        "phoneType": "voice",
-        "type": "paragraph--phone_number",
-      },
       "image": {
         "alt": undefined,
         "height": undefined,
@@ -231,6 +222,15 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
         "width": undefined,
       },
       "mainPhoneString": "800-555-3456",
+      "mentalHealthPhoneNumber": {
+        "entityId": undefined,
+        "extension": "",
+        "id": "mobile-phone-id",
+        "label": undefined,
+        "number": "800-555-9014",
+        "phoneType": "voice",
+        "type": "paragraph--phone_number",
+      },
       "operatingStatusFacility": "normal",
       "path": "/mobile-clinic",
       "title": "Mobile Clinic",
@@ -279,15 +279,6 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
   "healthClinicFacilities": [
     {
       "address": undefined,
-      "fieldTelephone": {
-        "entityId": undefined,
-        "extension": "",
-        "id": "test-phone-id",
-        "label": undefined,
-        "number": "800-555-9012",
-        "phoneType": "voice",
-        "type": "paragraph--phone_number",
-      },
       "image": {
         "alt": undefined,
         "height": undefined,
@@ -298,6 +289,15 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
         "width": undefined,
       },
       "mainPhoneString": "800-555-1234",
+      "mentalHealthPhoneNumber": {
+        "entityId": undefined,
+        "extension": "",
+        "id": "test-phone-id",
+        "label": undefined,
+        "number": "800-555-9012",
+        "phoneType": "voice",
+        "type": "paragraph--phone_number",
+      },
       "operatingStatusFacility": "normal",
       "path": "/test-facility",
       "title": "Test Facility",

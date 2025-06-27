@@ -92,7 +92,7 @@ describe('HealthCareLocalFacility with valid data', () => {
     ).toBeInTheDocument()
     expect(
       container.querySelector(
-        `va-telephone[contact="${mockData.fieldTelephone?.number?.replace(/-/g, '')}"]`
+        `va-telephone[contact="${mockData.mentalHealthPhoneNumber?.number?.replace(/-/g, '')}"]`
       )
     ).toBeInTheDocument()
   })

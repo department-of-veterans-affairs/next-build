@@ -112,7 +112,7 @@ export const formatter: QueryFormatter<
     operatingStatusFacility: facility.field_operating_status_facility,
     address: facility.field_address,
     mainPhoneString: facility.field_phone_number,
-    fieldTelephone: formatPhone(facility.field_telephone),
+    mentalHealthPhoneNumber: formatPhone(facility.field_telephone),
     vaHealthConnectPhoneNumber: includeHealthConnect
       ? (entity.field_office.field_va_health_connect_phone ?? null)
       : null,

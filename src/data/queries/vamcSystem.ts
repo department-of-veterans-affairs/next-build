@@ -174,7 +174,7 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
       operatingStatusFacility: facility.field_operating_status_facility,
       address: facility.field_address,
       mainPhoneString: facility.field_phone_number,
-      fieldTelephone: formatPhone(facility.field_telephone),
+      mentalHealthPhoneNumber: formatPhone(facility.field_telephone),
       vaHealthConnectPhoneNumber: entity.field_va_health_connect_phone,
       image: formatImage(facility.field_media),
     })),

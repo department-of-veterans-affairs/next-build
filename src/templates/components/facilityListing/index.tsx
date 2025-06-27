@@ -29,7 +29,7 @@ export function FacilityListing({
     address,
     mainPhoneString,
     vaHealthConnectPhoneNumber,
-    fieldTelephone,
+    mentalHealthPhoneNumber: fieldTelephone,
     image,
   } = facility
 

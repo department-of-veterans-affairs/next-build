@@ -42,7 +42,7 @@ const mockMainFacilities: MinimalLocalFacility[] = [
     },
     mainPhoneString: '224-610-3747',
     vaHealthConnectPhoneNumber: '877-698-7422',
-    fieldTelephone: null,
+    mentalHealthPhoneNumber: null,
     image: null,
   },
 ]
