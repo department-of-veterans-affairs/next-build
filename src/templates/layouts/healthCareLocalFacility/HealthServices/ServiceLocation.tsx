@@ -31,20 +31,20 @@ export const ServiceLocation = ({
         : null
 
   const showMainNumberForAppointments =
-    mainPhone && single.fieldUseFacilityPhoneNumber
+    mainPhone && location.fieldUseFacilityPhoneNumber
   const hasAppointmentPhoneNumbers =
-    (single.fieldOtherPhoneNumbers?.length || 0) > 0
-  const hasOtherContactPhoneNumbers = (single.fieldPhone?.length ?? 0) > 0
+    (location.fieldOtherPhoneNumbers?.length || 0) > 0
+  const hasOtherContactPhoneNumbers = (location.fieldPhone?.length ?? 0) > 0
 
   const hasOfficeVisits =
-    single.fieldOfficeVisits &&
-    single.fieldOfficeVisits !== 'no' &&
-    single.fieldOfficeVisits !== 'null'
+    location.fieldOfficeVisits &&
+    location.fieldOfficeVisits !== 'no' &&
+    location.fieldOfficeVisits !== 'null'
   const hasVirtualSupport =
-    single.fieldVirtualSupport &&
-    single.fieldVirtualSupport !== 'no' &&
-    single.fieldVirtualSupport !== 'null'
-  const showOnlineScheduleLink = single.fieldOnlineSchedulingAvail === 'yes'
+    location.fieldVirtualSupport &&
+    location.fieldVirtualSupport !== 'no' &&
+    location.fieldVirtualSupport !== 'null'
+  const showOnlineScheduleLink = location.fieldOnlineSchedulingAvail === 'yes'
 
   const showReferralRequirement =
     fieldReferralRequired &&
@@ -68,7 +68,7 @@ export const ServiceLocation = ({
                   'Visit our office, walk-in visits only',
                 yes_with_or_without_appointment:
                   'Visit our office, with or without an appointment',
-              }[single.fieldOfficeVisits as string] || ''}
+              }[location.fieldOfficeVisits as string] || ''}
             </p>
           )}
           {hasVirtualSupport && (
@@ -76,7 +76,7 @@ export const ServiceLocation = ({
               <va-icon
                 class="vads-u-margin-right--0p5"
                 icon={
-                  single.fieldVirtualSupport === 'yes_veterans_can_call'
+                  location.fieldVirtualSupport === 'yes_veterans_can_call'
                     ? 'phone'
                     : 'calendar_today'
                 }
@@ -87,7 +87,7 @@ export const ServiceLocation = ({
                 yes_veterans_can_call: 'Call at your convenience',
                 virtual_visits_may_be_available:
                   'Virtual visits may be available',
-              }[single.fieldVirtualSupport as string] || ''}
+              }[location.fieldVirtualSupport as string] || ''}
             </p>
           )}
           {showReferralRequirement && (
@@ -106,7 +106,7 @@ export const ServiceLocation = ({
       )}
 
       {/* Appointments header */}
-      {(single.fieldApptIntroTextType !== 'remove_text' ||
+      {(location.fieldApptIntroTextType !== 'remove_text' ||
         hasAppointmentPhoneNumbers ||
         showMainNumberForAppointments ||
         showOnlineScheduleLink) && (
@@ -119,15 +119,15 @@ export const ServiceLocation = ({
       )}
 
       {/* Appointment intro text */}
-      {single.fieldApptIntroTextType &&
-        single.fieldApptIntroTextType !== 'remove_text' && (
+      {location.fieldApptIntroTextType &&
+        location.fieldApptIntroTextType !== 'remove_text' && (
           <div>
-            {single.fieldApptIntroTextType === 'customize_text' ? (
+            {location.fieldApptIntroTextType === 'customize_text' ? (
               <p
                 data-testid="service-location-custom-text"
                 className="vads-u-margin-bottom--0"
                 dangerouslySetInnerHTML={{
-                  __html: single.fieldApptIntroTextCustom,
+                  __html: location.fieldApptIntroTextCustom,
                 }}
               />
             ) : (
@@ -160,7 +160,7 @@ export const ServiceLocation = ({
       {/* Other appointment phone numbers */}
       {hasAppointmentPhoneNumbers && (
         <div data-testid="service-location-show-other-phone-numbers">
-          {single.fieldOtherPhoneNumbers?.map((num, idx) => (
+          {location.fieldOtherPhoneNumbers?.map((num, idx) => (
             <PhoneNumber key={idx} treatment="h4" {...num} />
           ))}
         </div>
@@ -182,15 +182,15 @@ export const ServiceLocation = ({
       )}
 
       {/* Service location address */}
-      {single.fieldServiceLocationAddress && (
+      {location.fieldServiceLocationAddress && (
         <ServiceAddress
-          serviceLocationAddress={single.fieldServiceLocationAddress}
+          serviceLocationAddress={location.fieldServiceLocationAddress}
         />
       )}
 
       {/* Main facility phone for contact */}
 
-      {single.fieldUseMainFacilityPhone && mainPhone && (
+      {location.fieldUseMainFacilityPhone && mainPhone && (
         <div data-testid="service-location-main-facility-phone-for-contact">
           <PhoneNumber
             treatment="h4"
@@ -206,14 +206,14 @@ export const ServiceLocation = ({
       {/* Additional contact phone numbers */}
       {hasOtherContactPhoneNumbers && (
         <div data-testid="service-location-show-contact-phone-numbers">
-          {single.fieldPhone?.map((num, idx) => (
+          {location.fieldPhone?.map((num, idx) => (
             <PhoneNumber treatment="h4" key={idx} {...num} />
           ))}
         </div>
       )}
 
       {/* Email contacts */}
-      {single.fieldEmailContacts?.map((email, i) => (
+      {location.fieldEmailContacts?.map((email, i) => (
         <div key={i} data-testid="service-location-email-contact">
           {email.label && <h4>{email.label}</h4>}
           <a href={`mailto:${email.address}`}>{email.address}</a>
@@ -221,15 +221,15 @@ export const ServiceLocation = ({
       ))}
 
       {/* Service hours */}
-      {single.fieldHours === '2' && single.fieldOfficeHours && (
+      {location.fieldHours === '2' && location.fieldOfficeHours && (
         <>
           <h4 data-testid="service-location-field-hours">Service Hours</h4>
           <div>
-            <Hours allHours={single.fieldOfficeHours} />
+            <Hours allHours={location.fieldOfficeHours} />
           </div>
         </>
       )}
-      {single.fieldHours === '0' && (
+      {location.fieldHours === '0' && (
         <>
           <h4 data-testid="service-location-field-hours">Service Hours</h4>
           <div>
@@ -243,9 +243,9 @@ export const ServiceLocation = ({
         </>
       )}
 
-      {single.fieldAdditionalHoursInfo && (
+      {location.fieldAdditionalHoursInfo && (
         <p className="vads-u-margin-bottom--0">
-          {single.fieldAdditionalHoursInfo}
+          {location.fieldAdditionalHoursInfo}
         </p>
       )}
     </va-card>
