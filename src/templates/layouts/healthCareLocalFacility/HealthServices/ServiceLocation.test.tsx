@@ -1,9 +1,10 @@
+import { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
 import { ServiceLocation } from './ServiceLocation'
 import type { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 // Mock data for different test scenarios
-const getBaseProps = () => ({
+const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
   fieldReferralRequired: '1',
   fieldTelephone: {
     number: '555-1234',

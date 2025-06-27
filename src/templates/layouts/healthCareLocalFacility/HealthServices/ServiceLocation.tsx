@@ -2,6 +2,7 @@ import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 import { Hours } from '@/templates/components/hours'
+import { VamcFacilityServiceLocation } from '@/types/formatted/healthCareLocalFacility'
 
 export const ServiceLocation = ({
   fieldReferralRequired,
@@ -11,7 +12,7 @@ export const ServiceLocation = ({
   single,
 }: {
   fieldReferralRequired?: string
-  fieldTelephone?: PhoneNumber
+  fieldTelephone?: PhoneNumberType
   fieldPhoneNumber?: string
   isMentalHealthService?: boolean
   single: VamcFacilityServiceLocation

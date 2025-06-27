@@ -48,7 +48,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
 }
 
 /** Represents the "single" object containing service-related fields. */
-interface VamcFacilityServiceLocation {
+export interface VamcFacilityServiceLocation {
   /** Type of office visits supported (e.g., "no", "yes_appointment_only"). */
   fieldOfficeVisits?: string
   /** Type of virtual support available (e.g., "yes_veterans_can_call"). */
