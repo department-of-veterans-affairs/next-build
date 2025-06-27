@@ -9,7 +9,7 @@ describe('Phone', () => {
   })
 
   it('renders main phone', () => {
-    const { container } = render(<Phone phoneNumber="123-456-7890 x123" />)
+    const { container } = render(<Phone mainPhoneString="123-456-7890 x123" />)
     expect(screen.getByText('Main phone:')).toBeInTheDocument()
     const tel = container.querySelector('va-telephone')
     expect(tel).toBeInTheDocument()
@@ -23,7 +23,7 @@ describe('Phone', () => {
   it('renders fieldTelephone info', () => {
     const { container } = render(
       <Phone
-        fieldTelephone={formatPhone({
+        mentalHealthPhoneNumber={formatPhone({
           id: 'blech',
           type: 'paragraph--phone_number',
           drupal_internal__id: 1234,
@@ -48,9 +48,9 @@ describe('Phone', () => {
   it('renders all phone numbers', () => {
     const { container } = render(
       <Phone
-        phoneNumber="123-456-7890 x123"
+        mainPhoneString="123-456-7890 x123"
         vaHealthConnectPhoneNumber="987-654-3210"
-        fieldTelephone={formatPhone({
+        mentalHealthPhoneNumber={formatPhone({
           id: 'blech',
           type: 'paragraph--phone_number',
           drupal_internal__id: 1234,

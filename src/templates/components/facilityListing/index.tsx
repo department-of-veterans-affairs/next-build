@@ -52,9 +52,9 @@ export function FacilityListing({
         )}
 
         <Phone
-          phoneNumber={mainPhoneString}
+          mainPhoneString={mainPhoneString}
           vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
-          fieldTelephone={fieldTelephone}
+          mentalHealthPhoneNumber={fieldTelephone}
         />
       </section>
 

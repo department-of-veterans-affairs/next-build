@@ -2,27 +2,31 @@ import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 export interface PhoneProps {
-  phoneNumber?: string
+  mainPhoneString?: string
   vaHealthConnectPhoneNumber?: string
-  fieldTelephone?: PhoneNumberType | null
+  mentalHealthPhoneNumber?: PhoneNumberType | null
 }
 
 export const Phone = ({
-  phoneNumber,
+  mainPhoneString,
   vaHealthConnectPhoneNumber,
-  fieldTelephone,
+  mentalHealthPhoneNumber,
 }: PhoneProps) => {
-  if (!phoneNumber && !vaHealthConnectPhoneNumber && !fieldTelephone) {
+  if (
+    !mainPhoneString &&
+    !vaHealthConnectPhoneNumber &&
+    !mentalHealthPhoneNumber
+  ) {
     return null
   }
 
   return (
     <div data-testid="phone" className="vads-u-margin-bottom--0">
-      {phoneNumber && (
+      {mainPhoneString && (
         <PhoneNumber
           className="main-phone vads-u-margin-bottom--1 vads-u-margin-top--0"
           label="Main phone"
-          number={phoneNumber}
+          number={mainPhoneString}
         />
       )}
 
@@ -34,10 +38,10 @@ export const Phone = ({
         />
       )}
 
-      {fieldTelephone?.number && (
+      {mentalHealthPhoneNumber?.number && (
         <PhoneNumber
           className="vads-u-margin--0"
-          {...fieldTelephone}
+          {...mentalHealthPhoneNumber}
           // Note that this label is hardcoded for certain node types, like `node--health_care_local_facility`
           label="Mental health care"
         />
