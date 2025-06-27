@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
 import { HealthServices } from './HealthServices'
 import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
@@ -54,14 +54,14 @@ describe('HealthServices', () => {
     },
   ]
 
-  const baseProps = {
+  const baseProps: ComponentProps<typeof HealthServices> = {
     healthServices: mockHealthServices,
-    fieldTelephone: {
+    mentalHealthPhoneNumber: {
       number: '555-1234',
       extension: '123',
       phoneType: 'tel',
     } as PhoneNumberType,
-    fieldPhoneNumber: '555-5678',
+    mainPhoneString: '555-5678',
   }
 
   it('renders section title and description', () => {

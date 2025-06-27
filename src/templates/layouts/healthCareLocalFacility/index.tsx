@@ -184,8 +184,8 @@ export function HealthCareLocalFacility({
             />
             <HealthServices
               healthServices={healthServices}
-              fieldTelephone={fieldTelephone}
-              fieldPhoneNumber={mainPhoneString}
+              mentalHealthPhoneNumber={fieldTelephone}
+              mainPhoneString={mainPhoneString}
             />
             {facilityLocatorApiId.includes('vha_') && (
               <div
