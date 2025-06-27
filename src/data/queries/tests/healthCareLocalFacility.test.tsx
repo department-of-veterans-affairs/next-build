@@ -286,7 +286,7 @@ describe('formatter', () => {
         'Mental Health Services'
 
       const result = formatter(clonedParams)
-      const isMH = result.healthServices[0].locations[0].isMentalHealthService
+      const isMH = result.healthServices[0].isMentalHealthService
 
       expect(isMH).toBe(true)
     })
