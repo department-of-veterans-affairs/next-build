@@ -64,9 +64,17 @@ export interface VamcFacilityServiceLocation {
   fieldApptIntroTextType?: 'remove_text' | 'customize_text' | 'use_default_text'
   /** Custom appointment intro text (if applicable). */
   fieldApptIntroTextCustom?: string
-  /** Array of additional phone numbers for appointments or contact. */
+  /**
+   * Array of additional phone numbers for appointments or contact.
+   *
+   * Comes from `location.field_other_phone_numbers`
+   */
   appointmentPhoneNumbers?: PhoneNumber[]
-  /** Array of additional contact phone numbers. */
+  /**
+   * Array of additional contact phone numbers.
+   *
+   * Comes from `location.field_phone`
+   */
   contactInfoPhoneNumbers?: PhoneNumber[]
   /** Indicates if online scheduling is available ("yes" or others). */
   fieldOnlineSchedulingAvail?: 'yes' | string
