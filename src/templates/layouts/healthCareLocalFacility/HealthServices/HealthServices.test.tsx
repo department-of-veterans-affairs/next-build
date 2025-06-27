@@ -85,9 +85,7 @@ describe('HealthServices', () => {
   })
 
   it('renders service names and subheaders', () => {
-    const { container } = render(
-      <HealthServices {...baseProps} />
-    )
+    const { container } = render(<HealthServices {...baseProps} />)
 
     // Service names are rendered as headings of level 3
     expect(
@@ -110,7 +108,7 @@ describe('HealthServices', () => {
   })
 
   it('renders common conditions when present', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(
       screen.getByText('Common conditions: Diabetes, Hypertension')
     ).toBeInTheDocument()
@@ -139,19 +137,19 @@ describe('HealthServices', () => {
   })
 
   it('renders service descriptions', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(
       screen.getByText('Comprehensive primary care services')
     ).toBeInTheDocument()
   })
 
   it('renders ServiceLocation only when address data exists', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(screen.getAllByText('Mock ServiceLocation')).toHaveLength(1)
   })
 
   it('renders local description when no location data', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(
       screen.queryByText('Local primary care description')
     ).not.toBeInTheDocument()
@@ -162,7 +160,7 @@ describe('HealthServices', () => {
   })
 
   it('renders wait times widget for VHA facilities', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
 
     const widget = document.querySelector(
       'div[data-widget-type="facility-appointment-wait-times-widget"]'
@@ -174,7 +172,7 @@ describe('HealthServices', () => {
   })
 
   it('renders additional body content', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(
       screen.getByText('Specialized mental health services')
     ).toBeInTheDocument()
