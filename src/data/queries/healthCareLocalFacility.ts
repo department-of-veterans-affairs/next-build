@@ -121,7 +121,9 @@ export const formatter: QueryFormatter<
     phoneNumber: entity.field_phone_number,
     vaHealthConnectPhoneNumber:
       entity.field_region_page.field_va_health_connect_phone,
-    fieldTelephone: entity.field_telephone,
+    fieldTelephone: formatPhone(entity.field_telephone),
+    fieldReferralRequired: entity.field_referral_required,
+    fieldPhoneNumber: entity.field_phone_number,
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,
