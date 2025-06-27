@@ -107,8 +107,20 @@ export interface FormattedVAMCFacilityHealthService {
   fieldAlsoKnownAs?: string
   /** Comes from the service taxonomy of the regional health service. */
   fieldCommonlyTreatedCondition?: string
-  /** Referral requirement for the service */
-  fieldReferralRequired?: string
+  /**
+   * Indicates if a referral is required
+   *
+   * "0" for no
+   * "1" for yes
+   * "2", "not_applicable", or "unknown" to omit the referral section
+   */
+  fieldReferralRequired?:
+    | '0'
+    | '1'
+    | '2'
+    | 'not_applicable'
+    | 'unknown'
+    | string
   description?: string
   /** Comes from the service taxonomy of the regional health service. */
   entityId: string | number
