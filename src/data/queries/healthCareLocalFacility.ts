@@ -211,42 +211,37 @@ export const formatter: QueryFormatter<
           fieldBody: getHtmlFromField(
             healthService.field_regional_health_service.field_body
           ),
-          // AI: Hoist these properties...
           isMentalHealthService: serviceTaxonomy.name
             .toLowerCase()
             .includes('mental health'),
-          locations: healthService.field_service_location.map((location) => {
-            return {
-              single: {
-                fieldOfficeVisits: location.field_office_visits,
-                fieldVirtualSupport: location.field_virtual_support,
-                fieldApptIntroTextType: location.field_appt_intro_text_type,
-                fieldApptIntroTextCustom: createPhoneLinks(
-                  location.field_appt_intro_text_custom
-                ),
-                fieldOtherPhoneNumbers: location.field_other_phone_numbers
-                  .filter(isPublished)
-                  .map(formatPhone),
-                fieldOnlineSchedulingAvail:
-                  location.field_online_scheduling_avail,
-                fieldPhone: location.field_phone
-                  .filter(isPublished)
-                  .map(formatPhone),
-                fieldEmailContacts: location.field_email_contacts
-                  .filter(isPublished)
-                  .map(formatEmail),
-                fieldHours: location.field_hours,
-                fieldOfficeHours: location.field_office_hours,
-                fieldAdditionalHoursInfo: location.field_additional_hours_info,
-                fieldUseMainFacilityPhone:
-                  location.field_use_main_facility_phone,
-                fieldUseFacilityPhoneNumber:
-                  location.field_use_facility_phone_number,
-                fieldServiceLocationAddress:
-                  location.field_service_location_address,
-              },
-            }
-          }),
+          locations: healthService.field_service_location.map((location) => ({
+            fieldOfficeVisits: location.field_office_visits,
+            fieldVirtualSupport: location.field_virtual_support,
+            fieldApptIntroTextType: location.field_appt_intro_text_type,
+            fieldApptIntroTextCustom: createPhoneLinks(
+              location.field_appt_intro_text_custom
+            ),
+            fieldOtherPhoneNumbers: location.field_other_phone_numbers
+              .filter(isPublished)
+              .map(formatPhone),
+            fieldOnlineSchedulingAvail:
+              location.field_online_scheduling_avail,
+            fieldPhone: location.field_phone
+              .filter(isPublished)
+              .map(formatPhone),
+            fieldEmailContacts: location.field_email_contacts
+              .filter(isPublished)
+              .map(formatEmail),
+            fieldHours: location.field_hours,
+            fieldOfficeHours: location.field_office_hours,
+            fieldAdditionalHoursInfo: location.field_additional_hours_info,
+            fieldUseMainFacilityPhone:
+              location.field_use_main_facility_phone,
+            fieldUseFacilityPhoneNumber:
+              location.field_use_facility_phone_number,
+            fieldServiceLocationAddress:
+              location.field_service_location_address,
+          })),
           fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
           fieldHealthServiceApiId: serviceTaxonomy.field_health_service_api_id,
         }

@@ -15,7 +15,7 @@ export const ServiceLocation = ({
   fieldTelephone?: PhoneNumberType
   fieldPhoneNumber?: string
   isMentalHealthService?: boolean
-  single: VamcFacilityServiceLocation
+  location: VamcFacilityServiceLocation
 }) => {
   // Determine service main phone
   // Determine main phone number
