@@ -114,8 +114,6 @@ export interface FormattedVAMCFacilityHealthService {
   /** Flag indicating if this is a mental health service */
   isMentalHealthService?: boolean
   /** Locations associated with this service */
-  // Let's flatten this object to remove the "single" key. Remember to change
-  // the usage in the components and tests as well. AI!
   locations: VamcFacilityServiceLocation[]
   fieldFacilityLocatorApiId?: string
   fieldHealthServiceApiId?: string
