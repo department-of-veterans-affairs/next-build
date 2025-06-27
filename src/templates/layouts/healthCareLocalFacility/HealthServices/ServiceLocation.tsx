@@ -91,6 +91,7 @@ export const ServiceLocation = ({
             </p>
           )}
           {showReferralRequirement && (
+            // Write a test for this condition AI!
             <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
               <va-icon
                 class="vads-u-margin-right--0p5"
