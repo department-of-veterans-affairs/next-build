@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { PressRelease } from './index'
+import { PressRelease } from '@/products/pressRelease/template'
 import { getByText } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
 import { getByTestId } from '@testing-library/dom'

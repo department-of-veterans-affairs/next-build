@@ -25,7 +25,7 @@ import {
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { ListingPageDataOpts } from '@/lib/drupal/listingPages'
 import { NewsStoryDataOpts } from '@/products/newsStory/query'
-import { PressReleaseDataOpts } from '@/data/queries/pressRelease'
+import { PressReleaseDataOpts } from '@/products/pressRelease/query'
 
 export type ExpandedStaticPropsContext = GetStaticPropsContext & {
   path: string
