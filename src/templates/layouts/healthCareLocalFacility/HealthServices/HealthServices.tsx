@@ -4,8 +4,14 @@ import { hashReference } from '@/lib/utils/hashReference'
 
 export const HealthServices = ({
   healthServices,
+  fieldReferralRequired,
+  fieldTelephone,
+  fieldPhoneNumber,
 }: {
   healthServices: FormattedVAMCFacilityHealthService[]
+  fieldReferralRequired?: string
+  fieldTelephone?: PhoneNumberType
+  fieldPhoneNumber?: string
 }) => {
   return (
     <>
@@ -54,9 +60,9 @@ export const HealthServices = ({
                     <ServiceLocation
                       {...locationData}
                       key={i}
-                      fieldReferralRequired={service.fieldReferralRequired}
-                      fieldTelephone={service.fieldTelephone}
-                      fieldPhoneNumber={service.fieldPhoneNumber}
+                      fieldReferralRequired={fieldReferralRequired}
+                      fieldTelephone={fieldTelephone}
+                      fieldPhoneNumber={fieldPhoneNumber}
                       isMentalHealthService={service.isMentalHealthService}
                     />
                   ))

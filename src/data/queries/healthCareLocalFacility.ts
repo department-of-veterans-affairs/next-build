@@ -209,11 +209,6 @@ export const formatter: QueryFormatter<
             healthService.field_regional_health_service.field_body
           ),
           // AI: Hoist these properties...
-          fieldReferralRequired: healthService.field_referral_required,
-          fieldTelephone: formatPhone(entity.field_telephone),
-          fieldPhoneNumber: entity.field_phone_number,
-          // ...up one more level out of the health services. Be sure to change
-          // the static types, tests, and components as well AI!
           isMentalHealthService: serviceTaxonomy.name
             .toLowerCase()
             .includes('mental health'),
