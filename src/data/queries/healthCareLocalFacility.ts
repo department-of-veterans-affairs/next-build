@@ -123,7 +123,6 @@ export const formatter: QueryFormatter<
       entity.field_region_page.field_va_health_connect_phone,
     fieldTelephone: formatPhone(entity.field_telephone),
 
-    fieldReferralRequired: entity.field_referral_required,
     fieldPhoneNumber: entity.field_phone_number,
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
@@ -197,6 +196,7 @@ export const formatter: QueryFormatter<
           fieldAlsoKnownAs: serviceTaxonomy?.field_also_known_as ?? '',
           fieldCommonlyTreatedCondition:
             serviceTaxonomy?.field_commonly_treated_condition ?? '',
+          fieldReferralRequired: healthService.field_referral_required,
           fieldTricareDescription:
             serviceTaxonomy?.field_tricare_description ?? null,
           // If it's TRICARE, use the TRICARE description. Otherwise, use the
@@ -224,8 +224,7 @@ export const formatter: QueryFormatter<
             fieldOtherPhoneNumbers: location.field_other_phone_numbers
               .filter(isPublished)
               .map(formatPhone),
-            fieldOnlineSchedulingAvail:
-              location.field_online_scheduling_avail,
+            fieldOnlineSchedulingAvail: location.field_online_scheduling_avail,
             fieldPhone: location.field_phone
               .filter(isPublished)
               .map(formatPhone),
@@ -235,8 +234,7 @@ export const formatter: QueryFormatter<
             fieldHours: location.field_hours,
             fieldOfficeHours: location.field_office_hours,
             fieldAdditionalHoursInfo: location.field_additional_hours_info,
-            fieldUseMainFacilityPhone:
-              location.field_use_main_facility_phone,
+            fieldUseMainFacilityPhone: location.field_use_main_facility_phone,
             fieldUseFacilityPhoneNumber:
               location.field_use_facility_phone_number,
             fieldServiceLocationAddress:
