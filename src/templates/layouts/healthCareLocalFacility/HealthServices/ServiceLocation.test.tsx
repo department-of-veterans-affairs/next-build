@@ -168,8 +168,8 @@ describe('ServiceLocation', () => {
 
   test('shows same-as-facility hours message', () => {
     const props = { ...getBaseProps() }
-    props.single.fieldHours = '0'
-    delete props.single.fieldOfficeHours
+    props.location.fieldHours = '0'
+    delete props.location.fieldOfficeHours
 
     render(<ServiceLocation {...props} />)
 
@@ -192,8 +192,8 @@ describe('ServiceLocation', () => {
 
   test('shows custom appointment text', () => {
     const props = { ...getBaseProps() }
-    props.single.fieldApptIntroTextType = 'customize_text'
-    props.single.fieldApptIntroTextCustom = 'Custom appointment instructions'
+    props.location.fieldApptIntroTextType = 'customize_text'
+    props.location.fieldApptIntroTextCustom = 'Custom appointment instructions'
 
     render(<ServiceLocation {...props} />)
 
@@ -204,7 +204,7 @@ describe('ServiceLocation', () => {
 
   test('shows email contacts', () => {
     const props = { ...getBaseProps() }
-    props.single.fieldEmailContacts = [
+    props.location.fieldEmailContacts = [
       {
         address: 'contact@example.com',
         label: 'General Inquiries',

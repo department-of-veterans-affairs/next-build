@@ -274,7 +274,7 @@ describe('formatter', () => {
         'Call us at 123-456-7890'
 
       expect(
-        formatter(clonedParams).healthServices[0].locations[0].single
+        formatter(clonedParams).healthServices[0].locations[0]
           .fieldApptIntroTextCustom
       ).toContain('Call us at <va-telephone contact="123-456-7890"')
     })
