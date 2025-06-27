@@ -39,6 +39,7 @@ type LocationsListingData = {
   mainFacilities: NodeHealthCareLocalFacility[]
   healthClinicFacilities: NodeHealthCareLocalFacility[]
   mobileFacilities: NodeHealthCareLocalFacility[]
+  otherVaLocationIds: string[]
 }
 // Implement the data loader.
 export const data: QueryData<
@@ -81,12 +82,14 @@ export const data: QueryData<
   const healthClinicFacilities = allFacilities.filter(
     (f) => !f.field_main_location && !f.field_mobile
   )
+  const otherVaLocationIds = entity.field_office.field_other_va_locations
   return {
     entity,
     menu,
     mainFacilities,
     healthClinicFacilities,
     mobileFacilities,
+    otherVaLocationIds,
   }
 }
 
@@ -99,6 +102,7 @@ export const formatter: QueryFormatter<
   mainFacilities,
   healthClinicFacilities,
   mobileFacilities,
+  otherVaLocationIds,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   // Mobile clinics don't include VA Health Connect phone numbers in production so we add a flag to exclude them
@@ -134,5 +138,6 @@ export const formatter: QueryFormatter<
     mobileFacilities: mobileFacilities.map((facility) =>
       formatFacility(facility, false)
     ),
+    otherVaLocationIds,
   }
 }

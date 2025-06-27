@@ -25,4 +25,5 @@ export type LocationsListing = PublishedEntity & {
   mainFacilities: MinimalLocalFacility[]
   healthClinicFacilities: MinimalLocalFacility[]
   mobileFacilities: MinimalLocalFacility[]
+  otherVaLocationIds: string[]
 }
