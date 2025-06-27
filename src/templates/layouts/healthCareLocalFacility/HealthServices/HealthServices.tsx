@@ -52,9 +52,12 @@ export const HealthServices = ({
                 {hasLocationData ? (
                   service.locations.map((locationData, i) => (
                     <ServiceLocation
-                      key={i}
-                      {...service}
                       {...locationData}
+                      key={i}
+                      fieldReferralRequired={service.fieldReferralRequired}
+                      fieldTelephone={service.fieldTelephone}
+                      fieldPhoneNumber={service.fieldPhoneNumber}
+                      isMentalHealthService={service.isMentalHealthService}
                     />
                   ))
                 ) : (
