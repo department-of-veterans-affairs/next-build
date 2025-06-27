@@ -33,7 +33,6 @@ export type HealthCareLocalFacility = PublishedEntity & {
   fieldTelephone: PhoneNumber | null
   /** Optional fallback main phone number. */
   fieldPhoneNumber?: string
-  fieldReferralRequired?: string
   vaHealthConnectPhoneNumber: string | null
   relatedLinks: FormattedRelatedLinks
   locationServices: Array<{
@@ -94,6 +93,7 @@ export interface FormattedVAMCFacilityHealthService {
   fieldAlsoKnownAs?: string
   /** Comes from the service taxonomy of the regional health service. */
   fieldCommonlyTreatedCondition?: string
+  fieldReferralRequired?: string
   description?: string
   /** Comes from the service taxonomy of the regional health service. */
   entityId: string | number
