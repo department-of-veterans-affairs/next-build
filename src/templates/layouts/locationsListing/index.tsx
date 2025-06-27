@@ -3,6 +3,7 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
 import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
 import { FacilityListing } from '@/templates/components/facilityListing'
+import { ContentFooter } from '@/templates/common/contentFooter'
 
 interface customWindow extends Window {
   sideNav?: SideNavMenu
@@ -102,8 +103,7 @@ export function LocationsListing({
               </section>
 
               <va-back-to-top />
-
-              <div>TODO: Above-footer elements</div>
+              <ContentFooter />
             </article>
           </div>
         </div>
