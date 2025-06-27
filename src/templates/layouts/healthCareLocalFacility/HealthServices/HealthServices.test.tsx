@@ -20,13 +20,11 @@ describe('HealthServices', () => {
       entityBundle: 'health_care_service',
       locations: [
         {
-          single: {
-            // We're mocking out the service location component, so we don't
-            // need to provide a full address object.
-            // NOTE: This is relying on static typing to test for the proper
-            // integration.
-            fieldServiceLocationAddress: {} as ParagraphServiceLocationAddress,
-          },
+          // We're mocking out the service location component, so we don't
+          // need to provide a full address object.
+          // NOTE: This is relying on static typing to test for the proper
+          // integration.
+          fieldServiceLocationAddress: {} as ParagraphServiceLocationAddress,
         },
       ],
       fieldFacilityLocatorApiId: 'vha_123',
