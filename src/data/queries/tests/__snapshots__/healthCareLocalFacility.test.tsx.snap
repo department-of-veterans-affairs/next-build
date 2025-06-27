@@ -48,7 +48,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "entityPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
     "facilityLocatorApiId": "vha_523GA",
     "fieldPhoneNumber": "800-865-3384",
-    "fieldReferralRequired": undefined,
     "fieldTelephone": {
       "entityId": 169967,
       "extension": null,
@@ -91,6 +90,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "nutrition",
+        "fieldReferralRequired": "0",
         "fieldTricareDescription": null,
         "isMentalHealthService": false,
         "locations": [
@@ -201,6 +201,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "primaryCare",
+        "fieldReferralRequired": "0",
         "fieldTricareDescription": null,
         "isMentalHealthService": false,
         "locations": [
@@ -249,6 +250,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "suicidePrevention",
+        "fieldReferralRequired": "0",
         "fieldTricareDescription": "Call the Military and Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
         "isMentalHealthService": false,
         "locations": [
@@ -297,6 +299,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "telehealth",
+        "fieldReferralRequired": "1",
         "fieldTricareDescription": "With TRICARE telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care and more—from home or elsewhere.",
         "isMentalHealthService": false,
         "locations": [
@@ -348,6 +351,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "wholeHealth",
+        "fieldReferralRequired": "not_applicable",
         "fieldTricareDescription": null,
         "isMentalHealthService": false,
         "locations": [
@@ -447,6 +451,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "fieldCommonlyTreatedCondition": "women's primary care, mental health, obstetrics, gynecology, pap smear, mammogram",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "womensHealth",
+        "fieldReferralRequired": "0",
         "fieldTricareDescription": null,
         "isMentalHealthService": false,
         "locations": [
@@ -946,7 +951,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "entityPath": "/boston-health-care/locations/framingham-va-clinic",
     "facilityLocatorApiId": "vha_523GA",
     "fieldPhoneNumber": "800-865-3384",
-    "fieldReferralRequired": undefined,
     "fieldTelephone": {
       "entityId": 169967,
       "extension": null,
@@ -989,6 +993,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "nutrition",
+        "fieldReferralRequired": "0",
         "fieldTricareDescription": null,
         "isMentalHealthService": false,
         "locations": [
@@ -1099,6 +1104,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "primaryCare",
+        "fieldReferralRequired": "0",
         "fieldTricareDescription": null,
         "isMentalHealthService": false,
         "locations": [
@@ -1147,6 +1153,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "suicidePrevention",
+        "fieldReferralRequired": "0",
         "fieldTricareDescription": "Call the Military and Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
         "isMentalHealthService": false,
         "locations": [
@@ -1195,6 +1202,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "telehealth",
+        "fieldReferralRequired": "1",
         "fieldTricareDescription": "With TRICARE telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care and more—from home or elsewhere.",
         "isMentalHealthService": false,
         "locations": [
@@ -1246,6 +1254,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "fieldCommonlyTreatedCondition": "",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "wholeHealth",
+        "fieldReferralRequired": "not_applicable",
         "fieldTricareDescription": null,
         "isMentalHealthService": false,
         "locations": [
@@ -1345,6 +1354,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "fieldCommonlyTreatedCondition": "women's primary care, mental health, obstetrics, gynecology, pap smear, mammogram",
         "fieldFacilityLocatorApiId": "vha_523GA",
         "fieldHealthServiceApiId": "womensHealth",
+        "fieldReferralRequired": "0",
         "fieldTricareDescription": null,
         "isMentalHealthService": false,
         "locations": [

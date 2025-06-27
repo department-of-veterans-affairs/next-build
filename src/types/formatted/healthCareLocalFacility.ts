@@ -93,6 +93,7 @@ export interface FormattedVAMCFacilityHealthService {
   fieldAlsoKnownAs?: string
   /** Comes from the service taxonomy of the regional health service. */
   fieldCommonlyTreatedCondition?: string
+  /** Referral requirement for the service */
   fieldReferralRequired?: string
   description?: string
   /** Comes from the service taxonomy of the regional health service. */

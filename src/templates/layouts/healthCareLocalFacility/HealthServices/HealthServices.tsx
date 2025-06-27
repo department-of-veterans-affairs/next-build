@@ -5,14 +5,12 @@ import { PhoneNumber } from '@/types/formatted/phoneNumber'
 
 export const HealthServices = ({
   healthServices,
-  fieldReferralRequired,
   fieldTelephone,
   fieldPhoneNumber,
 }: {
   healthServices: FormattedVAMCFacilityHealthService[]
-  fieldReferralRequired?: string
-  fieldTelephone?: PhoneNumber
-  fieldPhoneNumber?: string
+  fieldTelephone: PhoneNumber
+  fieldPhoneNumber: string
 }) => {
   return (
     <>
@@ -61,7 +59,7 @@ export const HealthServices = ({
                     <ServiceLocation
                       location={location}
                       key={i}
-                      fieldReferralRequired={fieldReferralRequired}
+                      fieldReferralRequired={service.fieldReferralRequired}
                       fieldTelephone={fieldTelephone}
                       fieldPhoneNumber={fieldPhoneNumber}
                       isMentalHealthService={service.isMentalHealthService}
