@@ -6,12 +6,12 @@ import type { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumb
 // Mock data for different test scenarios
 const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
   fieldReferralRequired: '1',
-  fieldTelephone: {
+  mentalHealthPhoneNumber: {
     number: '555-1234',
     extension: '123',
     phoneType: 'tel',
   } as PhoneNumberType,
-  fieldPhoneNumber: '555-5678',
+  mainPhoneString: '555-5678',
   isMentalHealthService: true,
   location: {
     fieldUseFacilityPhoneNumber: true,

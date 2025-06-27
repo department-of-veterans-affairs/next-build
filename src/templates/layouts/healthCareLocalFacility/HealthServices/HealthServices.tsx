@@ -60,8 +60,8 @@ export const HealthServices = ({
                       location={location}
                       key={i}
                       fieldReferralRequired={service.fieldReferralRequired}
-                      fieldTelephone={mentalHealthPhoneNumber}
-                      fieldPhoneNumber={mainPhoneString}
+                      mentalHealthPhoneNumber={mentalHealthPhoneNumber}
+                      mainPhoneString={mainPhoneString}
                       isMentalHealthService={service.isMentalHealthService}
                     />
                   ))

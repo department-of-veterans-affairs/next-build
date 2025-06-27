@@ -6,25 +6,25 @@ import { VamcFacilityServiceLocation } from '@/types/formatted/healthCareLocalFa
 
 export const ServiceLocation = ({
   fieldReferralRequired,
-  fieldTelephone,
-  fieldPhoneNumber,
+  mentalHealthPhoneNumber,
+  mainPhoneString,
   isMentalHealthService,
   location,
 }: {
   fieldReferralRequired?: string
-  fieldTelephone?: PhoneNumberType
-  fieldPhoneNumber?: string
+  mentalHealthPhoneNumber?: PhoneNumberType
+  mainPhoneString?: string
   isMentalHealthService?: boolean
   location: VamcFacilityServiceLocation
 }) => {
   // Determine service main phone
   // Determine main phone number
   const mainPhone =
-    isMentalHealthService && fieldTelephone
-      ? fieldTelephone
-      : fieldPhoneNumber
+    isMentalHealthService && mentalHealthPhoneNumber
+      ? mentalHealthPhoneNumber
+      : mainPhoneString
         ? ({
-            number: fieldPhoneNumber,
+            number: mainPhoneString,
             extension: '',
             phoneType: 'tel',
           } as PhoneNumberType)
