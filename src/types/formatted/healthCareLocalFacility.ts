@@ -26,13 +26,16 @@ export type HealthCareLocalFacility = PublishedEntity & {
   vamcEhrSystem: VamcEhr['field_region_page']['field_vamc_ehr_system']
   officeHours: FieldOfficeHours[]
   address: FieldAddress
+  /**
+   * Main phone number for the facility.
+   *
+   * Comes from `facilityEntity.field_phone_number`
+   */
   phoneNumber: string
   image: MediaImage
   facilityLocatorApiId: string
   geoLocation: FieldGeoLocation
   fieldTelephone: PhoneNumber | null
-  /** Optional fallback main phone number. */
-  fieldPhoneNumber?: string
   vaHealthConnectPhoneNumber: string | null
   relatedLinks: FormattedRelatedLinks
   locationServices: Array<{

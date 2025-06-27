@@ -122,8 +122,6 @@ export const formatter: QueryFormatter<
     vaHealthConnectPhoneNumber:
       entity.field_region_page.field_va_health_connect_phone,
     fieldTelephone: formatPhone(entity.field_telephone),
-
-    fieldPhoneNumber: entity.field_phone_number,
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,

@@ -47,7 +47,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     "entityId": 1273,
     "entityPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
     "facilityLocatorApiId": "vha_523GA",
-    "fieldPhoneNumber": "800-865-3384",
     "fieldTelephone": {
       "entityId": 169967,
       "extension": null,
@@ -950,7 +949,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     "entityId": 1273,
     "entityPath": "/boston-health-care/locations/framingham-va-clinic",
     "facilityLocatorApiId": "vha_523GA",
-    "fieldPhoneNumber": "800-865-3384",
     "fieldTelephone": {
       "entityId": 169967,
       "extension": null,
