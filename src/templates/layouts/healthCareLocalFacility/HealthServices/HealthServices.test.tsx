@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { HealthServices } from './HealthServices'
 import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
+import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 // Mock ServiceLocation to simplify tests
 jest.mock('./ServiceLocation', () => ({
@@ -53,8 +54,18 @@ describe('HealthServices', () => {
     },
   ]
 
+  const baseProps = {
+    healthServices: mockHealthServices,
+    fieldTelephone: {
+      number: '555-1234',
+      extension: '123',
+      phoneType: 'tel',
+    } as PhoneNumberType,
+    fieldPhoneNumber: '555-5678',
+  }
+
   it('renders section title and description', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
 
     expect(
       screen.getByRole('heading', {
