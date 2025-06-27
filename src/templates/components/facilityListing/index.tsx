@@ -29,7 +29,7 @@ export function FacilityListing({
     address,
     mainPhoneString,
     vaHealthConnectPhoneNumber,
-    mentalHealthPhoneNumber: fieldTelephone,
+    mentalHealthPhoneNumber,
     image,
   } = facility
 
@@ -54,7 +54,7 @@ export function FacilityListing({
         <Phone
           mainPhoneString={mainPhoneString}
           vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
-          mentalHealthPhoneNumber={fieldTelephone}
+          mentalHealthPhoneNumber={mentalHealthPhoneNumber}
         />
       </section>
 
