@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import { ServiceLocation } from './ServiceLocation'
-import type { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFacility'
 import type { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 // Mock data for different test scenarios

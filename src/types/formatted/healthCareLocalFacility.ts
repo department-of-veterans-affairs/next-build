@@ -85,39 +85,6 @@ interface VamcFacilityServiceLocation {
   fieldServiceLocationAddress?: ParagraphServiceLocationAddress
 }
 
-/** Represents the main input data structure for the service location template. */
-export interface ServiceLocationTemplateData {
-  /**
-   * Indicates if a referral is required
-   *
-   * "0" for no
-   * "1" for yes
-   * "2", "not_applicable", or "unknown" to omit the referral section
-   */
-  fieldReferralRequired?:
-    | '0'
-    | '1'
-    | '2'
-    | 'not_applicable'
-    | 'unknown'
-    | string
-  /**
-   * Telephone object for mental health, containing an entity with phone details.
-   * This comes from the top-level VAMC facility.
-   */
-  fieldTelephone?: PhoneNumber
-  /** Optional fallback main phone number. */
-  fieldPhoneNumber?: string
-  /** Flag indicating if the service is a mental health service (true/false). */
-  isMentalHealthService?: boolean
-  /**
-   * Nested object containing many other service-related fields.
-   * TODO: Rename this silly thing (for now, it's just naming parity with the
-   * content build template)
-   */
-  single: VamcFacilityServiceLocation
-}
-
 export interface FormattedVAMCFacilityHealthService {
   /** Name of the service taxonomy for the regional health service. */
   name: string
@@ -139,9 +106,12 @@ export interface FormattedVAMCFacilityHealthService {
   fieldBody?: string
   /** Referral requirement for the entire service */
   fieldReferralRequired?: string
-  /** Telephone for the entire service */
+  /**
+   * Telephone object for mental health, containing an entity with phone details.
+   * This comes from the top-level VAMC facility.
+   */
   fieldTelephone?: PhoneNumber
-  /** Phone number for the entire service */
+  /** Optional fallback main phone number. */
   fieldPhoneNumber?: string
   /** Flag indicating if this is a mental health service */
   isMentalHealthService?: boolean
