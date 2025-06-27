@@ -182,7 +182,11 @@ export function HealthCareLocalFacility({
               sectionTitle={relatedLinks.sectionTitle}
               links={relatedLinks.links}
             />
-            <HealthServices healthServices={healthServices} />
+            <HealthServices
+              healthServices={healthServices}
+              fieldTelephone={fieldTelephone}
+              fieldPhoneNumber={phoneNumber}
+            />
             {facilityLocatorApiId.includes('vha_') && (
               <div
                 data-testid="patient-satisfaction-widget"
