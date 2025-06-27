@@ -1,11 +1,10 @@
 import { PhoneNumber } from '@/templates/common/phoneNumber'
-import { ParagraphPhoneNumber } from '@/types/drupal/paragraph'
-import { formatter as formatParagraphPhoneNumber } from '@/data/queries/phoneNumber'
+import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 export interface PhoneProps {
   phoneNumber?: string
   vaHealthConnectPhoneNumber?: string
-  fieldTelephone?: ParagraphPhoneNumber | null
+  fieldTelephone?: PhoneNumberType | null
 }
 
 export const Phone = ({
@@ -18,7 +17,7 @@ export const Phone = ({
   }
 
   return (
-    <div className="vads-u-margin-bottom--0">
+    <div data-testid="phone" className="vads-u-margin-bottom--0">
       {phoneNumber && (
         <PhoneNumber
           className="main-phone vads-u-margin-bottom--1 vads-u-margin-top--0"
@@ -35,10 +34,11 @@ export const Phone = ({
         />
       )}
 
-      {fieldTelephone?.field_phone_number && (
+      <pre>{JSON.stringify(fieldTelephone, null, 2)}</pre>
+      {fieldTelephone?.number && (
         <PhoneNumber
           className="vads-u-margin--0"
-          {...formatParagraphPhoneNumber(fieldTelephone)}
+          {...fieldTelephone}
           // Note that this label is hardcoded for certain node types, like `node--health_care_local_facility`
           label="Mental health care"
         />

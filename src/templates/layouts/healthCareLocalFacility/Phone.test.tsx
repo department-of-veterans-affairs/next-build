@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Phone } from './Phone'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 
 describe('Phone', () => {
   it('renders nothing when no props are provided', () => {
@@ -22,7 +23,7 @@ describe('Phone', () => {
   it('renders fieldTelephone info', () => {
     const { container } = render(
       <Phone
-        fieldTelephone={{
+        fieldTelephone={formatPhone({
           id: 'blech',
           type: 'paragraph--phone_number',
           drupal_internal__id: 1234,
@@ -33,7 +34,7 @@ describe('Phone', () => {
           field_phone_number: '123-456-7890',
           field_phone_number_type: 'fax',
           field_phone_extension: '321',
-        }}
+        })}
       />
     )
 
@@ -49,7 +50,7 @@ describe('Phone', () => {
       <Phone
         phoneNumber="123-456-7890 x123"
         vaHealthConnectPhoneNumber="987-654-3210"
-        fieldTelephone={{
+        fieldTelephone={formatPhone({
           id: 'blech',
           type: 'paragraph--phone_number',
           drupal_internal__id: 1234,
@@ -60,7 +61,7 @@ describe('Phone', () => {
           field_phone_number: '555-555-5555',
           field_phone_number_type: 'fax',
           field_phone_extension: '321',
-        }}
+        })}
       />
     )
 

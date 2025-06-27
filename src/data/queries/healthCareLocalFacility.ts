@@ -122,6 +122,7 @@ export const formatter: QueryFormatter<
     vaHealthConnectPhoneNumber:
       entity.field_region_page.field_va_health_connect_phone,
     fieldTelephone: formatPhone(entity.field_telephone),
+
     fieldReferralRequired: entity.field_referral_required,
     fieldPhoneNumber: entity.field_phone_number,
     introText: entity.field_intro_text,

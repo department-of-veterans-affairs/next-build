@@ -11,7 +11,6 @@ import {
   FieldOfficeHours,
 } from '../drupal/field_type'
 import { FacilityOperatingStatusFlags } from '../drupal/node'
-import { ParagraphPhoneNumber } from '../drupal/paragraph'
 import { VamcEhr } from '../drupal/vamcEhr'
 import { PublishedEntity } from './publishedEntity'
 import { FormattedRelatedLinks } from './relatedLinks'
@@ -31,7 +30,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
   image: MediaImage
   facilityLocatorApiId: string
   geoLocation: FieldGeoLocation
-  fieldTelephone: ParagraphPhoneNumber | null
+  fieldTelephone: PhoneNumber | null
   vaHealthConnectPhoneNumber: string | null
   relatedLinks: FormattedRelatedLinks
   locationServices: Array<{
