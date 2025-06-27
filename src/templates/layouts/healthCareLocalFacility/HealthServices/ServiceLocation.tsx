@@ -34,7 +34,8 @@ export const ServiceLocation = ({
     mainPhone && location.fieldUseFacilityPhoneNumber
   const hasAppointmentPhoneNumbers =
     (location.fieldOtherPhoneNumbers?.length || 0) > 0
-  const hasOtherContactPhoneNumbers = (location.fieldPhone?.length ?? 0) > 0
+  const hasOtherContactPhoneNumbers =
+    (location.contactInfoPhoneNumbers?.length ?? 0) > 0
 
   const hasOfficeVisits =
     location.fieldOfficeVisits &&
@@ -96,12 +97,12 @@ export const ServiceLocation = ({
                 class="vads-u-margin-right--0p5"
                 icon={fieldReferralRequired === '1' ? 'check_circle' : 'cancel'}
                 size="3"
-              data-testid="referral-icon"
-            ></va-icon>
-            {fieldReferralRequired === '1'
-              ? 'A referral is required'
-              : 'A referral is not required'}
-          </p>
+                data-testid="referral-icon"
+              ></va-icon>
+              {fieldReferralRequired === '1'
+                ? 'A referral is required'
+                : 'A referral is not required'}
+            </p>
           )}
         </div>
       )}
@@ -207,7 +208,7 @@ export const ServiceLocation = ({
       {/* Additional contact phone numbers */}
       {hasOtherContactPhoneNumbers && (
         <div data-testid="service-location-show-contact-phone-numbers">
-          {location.fieldPhone?.map((num, idx) => (
+          {location.contactInfoPhoneNumbers?.map((num, idx) => (
             <PhoneNumber treatment="h4" key={idx} {...num} />
           ))}
         </div>

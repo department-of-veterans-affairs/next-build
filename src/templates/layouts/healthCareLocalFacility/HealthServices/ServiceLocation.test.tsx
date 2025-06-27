@@ -33,7 +33,7 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
         label: 'Fax',
       },
     ],
-    fieldPhone: [
+    contactInfoPhoneNumbers: [
       {
         id: '3',
         type: 'tel',
@@ -197,7 +197,10 @@ describe('ServiceLocation', () => {
     render(<ServiceLocation {...props} />)
 
     expect(screen.getByText('A referral is required')).toBeInTheDocument()
-    expect(screen.getByTestId('referral-icon')).toHaveAttribute('icon', 'check_circle')
+    expect(screen.getByTestId('referral-icon')).toHaveAttribute(
+      'icon',
+      'check_circle'
+    )
   })
 
   test('shows referral not required when fieldReferralRequired is "0"', () => {
@@ -207,7 +210,10 @@ describe('ServiceLocation', () => {
     render(<ServiceLocation {...props} />)
 
     expect(screen.getByText('A referral is not required')).toBeInTheDocument()
-    expect(screen.getByTestId('referral-icon')).toHaveAttribute('icon', 'cancel')
+    expect(screen.getByTestId('referral-icon')).toHaveAttribute(
+      'icon',
+      'cancel'
+    )
   })
 
   test('shows custom appointment text', () => {

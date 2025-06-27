@@ -66,10 +66,10 @@ export interface VamcFacilityServiceLocation {
   fieldApptIntroTextCustom?: string
   /** Array of additional phone numbers for appointments or contact. */
   fieldOtherPhoneNumbers?: PhoneNumber[]
+  /** Array of additional contact phone numbers. */
+  contactInfoPhoneNumbers?: PhoneNumber[]
   /** Indicates if online scheduling is available ("yes" or others). */
   fieldOnlineSchedulingAvail?: 'yes' | string
-  /** Array of additional contact phone numbers. */
-  fieldPhone?: PhoneNumber[]
   /** Array of email contact objects. */
   fieldEmailContacts?: EmailContact[]
   /**
