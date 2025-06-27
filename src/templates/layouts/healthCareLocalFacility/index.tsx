@@ -36,7 +36,7 @@ export function HealthCareLocalFacility({
   vamcEhrSystem,
   officeHours,
   address,
-  phoneNumber,
+  mainPhoneString,
   vaHealthConnectPhoneNumber,
   image,
   facilityLocatorApiId,
@@ -68,7 +68,7 @@ export function HealthCareLocalFacility({
       postalCode: address.postal_code,
     },
     name: title,
-    telephone: phoneNumber,
+    telephone: mainPhoneString,
     openingHoursSpecification: officeHours.map((hours) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: `https://schema.org/${dayOfWeek(hours.day)}`,
@@ -162,7 +162,7 @@ export function HealthCareLocalFacility({
                       Phone numbers
                     </h3>
                     <Phone
-                      phoneNumber={phoneNumber}
+                      phoneNumber={mainPhoneString}
                       vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
                       fieldTelephone={fieldTelephone}
                     />
@@ -185,7 +185,7 @@ export function HealthCareLocalFacility({
             <HealthServices
               healthServices={healthServices}
               fieldTelephone={fieldTelephone}
-              fieldPhoneNumber={phoneNumber}
+              fieldPhoneNumber={mainPhoneString}
             />
             {facilityLocatorApiId.includes('vha_') && (
               <div

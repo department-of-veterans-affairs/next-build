@@ -10,7 +10,7 @@ export type MinimalLocalFacility = Pick<
   | 'path'
   | 'operatingStatusFacility'
   | 'address'
-  | 'phoneNumber'
+  | 'mainPhoneString'
   | 'fieldTelephone'
   | 'vaHealthConnectPhoneNumber'
   | 'image'

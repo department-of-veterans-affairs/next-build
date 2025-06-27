@@ -651,6 +651,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     ],
     "lovellSwitchPath": null,
     "lovellVariant": "tricare",
+    "mainPhoneString": "800-865-3384",
     "menu": {
       "data": {
         "description": "bar",
@@ -813,7 +814,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
     ],
     "operatingStatusFacility": "normal",
     "path": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
-    "phoneNumber": "800-865-3384",
     "published": true,
     "relatedLinks": {
       "links": [
@@ -1553,6 +1553,7 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     ],
     "lovellSwitchPath": null,
     "lovellVariant": undefined,
+    "mainPhoneString": "800-865-3384",
     "menu": {
       "data": {
         "description": "bar",
@@ -1726,7 +1727,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
     ],
     "operatingStatusFacility": "normal",
     "path": "/boston-health-care/locations/framingham-va-clinic",
-    "phoneNumber": "800-865-3384",
     "published": true,
     "relatedLinks": {
       "links": [

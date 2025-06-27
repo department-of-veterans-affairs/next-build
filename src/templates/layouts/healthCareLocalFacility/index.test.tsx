@@ -82,7 +82,7 @@ describe('HealthCareLocalFacility with valid data', () => {
 
     expect(
       container.querySelector(
-        `va-telephone[contact="${mockData.phoneNumber.replace(/-/g, '')}"]`
+        `va-telephone[contact="${mockData.mainPhoneString.replace(/-/g, '')}"]`
       )
     ).toBeInTheDocument()
     expect(
@@ -188,7 +188,7 @@ describe('HealthCareLocalFacility with valid data', () => {
     expect(jsonData['@context']).toBe('https://schema.org')
     expect(jsonData['@type']).toBe('Place')
     expect(jsonData.name).toBe(mockData.title)
-    expect(jsonData.telephone).toBe(mockData.phoneNumber)
+    expect(jsonData.telephone).toBe(mockData.mainPhoneString)
 
     // Test address
     expect(jsonData.address['@type']).toBe('PostalAddress')

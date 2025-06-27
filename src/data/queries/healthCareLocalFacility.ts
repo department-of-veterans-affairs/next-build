@@ -118,7 +118,7 @@ export const formatter: QueryFormatter<
     title,
     breadcrumbs,
     address: entity.field_address,
-    phoneNumber: entity.field_phone_number,
+    mainPhoneString: entity.field_phone_number,
     vaHealthConnectPhoneNumber:
       entity.field_region_page.field_va_health_connect_phone,
     fieldTelephone: formatPhone(entity.field_telephone),

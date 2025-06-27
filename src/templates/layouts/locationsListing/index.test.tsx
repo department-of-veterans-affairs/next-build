@@ -40,7 +40,7 @@ const mockMainFacilities: MinimalLocalFacility[] = [
       postal_code: '60064',
       address_line1: '3001 Green Bay Frontage Rd',
     },
-    phoneNumber: '224-610-3747',
+    mainPhoneString: '224-610-3747',
     vaHealthConnectPhoneNumber: '877-698-7422',
     fieldTelephone: null,
     image: null,

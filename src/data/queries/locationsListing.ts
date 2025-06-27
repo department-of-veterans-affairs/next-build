@@ -111,7 +111,7 @@ export const formatter: QueryFormatter<
     path: facility.path.alias,
     operatingStatusFacility: facility.field_operating_status_facility,
     address: facility.field_address,
-    phoneNumber: facility.field_phone_number,
+    mainPhoneString: facility.field_phone_number,
     fieldTelephone: formatPhone(facility.field_telephone),
     vaHealthConnectPhoneNumber: includeHealthConnect
       ? (entity.field_office.field_va_health_connect_phone ?? null)

@@ -31,7 +31,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
    *
    * Comes from `facilityEntity.field_phone_number`
    */
-  phoneNumber: string
+  mainPhoneString: string
   image: MediaImage
   facilityLocatorApiId: string
   geoLocation: FieldGeoLocation

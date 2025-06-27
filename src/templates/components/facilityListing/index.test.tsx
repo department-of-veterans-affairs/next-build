@@ -17,7 +17,7 @@ const mockFacility: MinimalLocalFacility = {
     administrative_area: 'TS',
     postal_code: '12345',
   },
-  phoneNumber: '800-555-1234',
+  mainPhoneString: '800-555-1234',
   vaHealthConnectPhoneNumber: '800-555-5678',
   fieldTelephone: formatPhone({
     id: 'test-phone-id',
@@ -87,7 +87,7 @@ describe('FacilityListing with valid data', () => {
     // Check main phone
     expect(screen.getByText('Main phone:')).toBeInTheDocument()
     const mainPhone = container.querySelector(
-      `va-telephone[contact="${mockFacility.phoneNumber.replace(/-/g, '')}"]`
+      `va-telephone[contact="${mockFacility.mainPhoneString.replace(/-/g, '')}"]`
     )
     expect(mainPhone).toBeInTheDocument()
 
