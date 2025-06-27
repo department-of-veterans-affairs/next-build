@@ -80,13 +80,13 @@ describe('HealthServices', () => {
   })
 
   it('renders correct number of accordion items', () => {
-    render(<HealthServices healthServices={mockHealthServices} />)
+    render(<HealthServices {...baseProps} />)
     expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(3)
   })
 
   it('renders service names and subheaders', () => {
     const { container } = render(
-      <HealthServices healthServices={mockHealthServices} />
+      <HealthServices {...baseProps} />
     )
 
     // Service names are rendered as headings of level 3
@@ -127,7 +127,12 @@ describe('HealthServices', () => {
       },
     ]
 
-    render(<HealthServices healthServices={mockServiceWithoutConditions} />)
+    render(
+      <HealthServices
+        {...baseProps}
+        healthServices={mockServiceWithoutConditions}
+      />
+    )
 
     // The common conditions text should not be present
     expect(screen.queryByText(/Common conditions:/)).not.toBeInTheDocument()
