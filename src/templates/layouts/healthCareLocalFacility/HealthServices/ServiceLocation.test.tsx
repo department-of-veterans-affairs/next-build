@@ -190,6 +190,26 @@ describe('ServiceLocation', () => {
     ).not.toBeInTheDocument()
   })
 
+  test('shows referral required when fieldReferralRequired is "1"', () => {
+    const props = { ...getBaseProps() }
+    props.fieldReferralRequired = '1'
+
+    render(<ServiceLocation {...props} />)
+
+    expect(screen.getByText('A referral is required')).toBeInTheDocument()
+    expect(screen.getByTestId('referral-icon')).toHaveAttribute('icon', 'check_circle')
+  })
+
+  test('shows referral not required when fieldReferralRequired is "0"', () => {
+    const props = { ...getBaseProps() }
+    props.fieldReferralRequired = '0'
+
+    render(<ServiceLocation {...props} />)
+
+    expect(screen.getByText('A referral is not required')).toBeInTheDocument()
+    expect(screen.getByTestId('referral-icon')).toHaveAttribute('icon', 'cancel')
+  })
+
   test('shows custom appointment text', () => {
     const props = { ...getBaseProps() }
     props.location.fieldApptIntroTextType = 'customize_text'

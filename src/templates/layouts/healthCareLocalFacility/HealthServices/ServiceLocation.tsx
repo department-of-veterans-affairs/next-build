@@ -91,17 +91,17 @@ export const ServiceLocation = ({
             </p>
           )}
           {showReferralRequirement && (
-            // Write a test for this condition AI!
             <p className="vads-u-margin-top--1 vads-u-margin-bottom--0">
               <va-icon
                 class="vads-u-margin-right--0p5"
                 icon={fieldReferralRequired === '1' ? 'check_circle' : 'cancel'}
                 size="3"
-              ></va-icon>
-              {fieldReferralRequired === '1'
-                ? 'A referral is required'
-                : 'A referral is not required'}
-            </p>
+              data-testid="referral-icon"
+            ></va-icon>
+            {fieldReferralRequired === '1'
+              ? 'A referral is required'
+              : 'A referral is not required'}
+          </p>
           )}
         </div>
       )}
