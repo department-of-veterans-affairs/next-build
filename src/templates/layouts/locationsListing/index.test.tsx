@@ -25,6 +25,7 @@ const mockBaseProps = {
   mainFacilities: [],
   healthClinicFacilities: [],
   mobileFacilities: [],
+  otherVaLocationIds: [],
 }
 
 const mockMainFacilities: MinimalLocalFacility[] = [

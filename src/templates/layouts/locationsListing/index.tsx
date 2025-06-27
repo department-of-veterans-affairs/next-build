@@ -18,10 +18,19 @@ export function LocationsListing({
   mainFacilities,
   healthClinicFacilities,
   mobileFacilities,
+  otherVaLocationIds,
 }: FormattedLocationsListing) {
   useEffect(() => {
     window.sideNav = menu
   }, [menu])
+
+  // Debug: log what is passed to the widget
+  if (otherVaLocationIds && otherVaLocationIds.length > 0) {
+    // Only log once per render
+    // eslint-disable-next-line no-console
+    console.log('Other VA Location IDs passed to widget:', otherVaLocationIds)
+  }
+
   return (
     <div className="interior" id="content">
       <main className="va-l-detail-page va-facility-page">
@@ -92,17 +101,22 @@ export function LocationsListing({
                     ))}
                   </>
                 )}
-                <h2
-                  className="medium-screen:vads-u-margin-bottom--4"
-                  id="other-nearby-va-locations"
-                >
-                  Other nearby VA locations
-                </h2>
-                <div>TODO: Data widget for other VA locations</div>
+                {otherVaLocationIds.length > 0 && (
+                  <>
+                    <h2
+                      className="medium-screen:vads-u-margin-bottom--4"
+                      id="other-nearby-va-locations"
+                    >
+                      Other nearby VA locations
+                    </h2>
+                    <div
+                      data-widget-type="other-facility-locations-list"
+                      data-facilities={JSON.stringify(otherVaLocationIds)}
+                    />
+                  </>
+                )}
               </section>
-
               <va-back-to-top />
-
               <div>TODO: Above-footer elements</div>
             </article>
           </div>

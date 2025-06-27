@@ -175,6 +175,7 @@ describe('LocationsListing formatData', () => {
         },
       },
     ],
+    otherVaLocationIds: [],
   }
 
   test('outputs formatted data', () => {
