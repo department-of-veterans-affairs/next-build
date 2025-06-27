@@ -34,7 +34,6 @@ export const Phone = ({
         />
       )}
 
-      <pre>{JSON.stringify(fieldTelephone, null, 2)}</pre>
       {fieldTelephone?.number && (
         <PhoneNumber
           className="vads-u-margin--0"
