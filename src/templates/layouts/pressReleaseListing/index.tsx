@@ -13,7 +13,7 @@
 import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
-import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '@/types/formatted/pressRelease'
+import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '@/products/pressRelease/formatted-type'
 import { PressReleaseTeaser } from '@/templates/components/pressReleaseTeaser'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'

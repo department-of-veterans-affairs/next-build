@@ -24,7 +24,7 @@ export function LocationsListing({
     window.sideNav = menu
   }, [menu])
   return (
-    <div className="interior" id="content">
+    <div className="interior">
       <main className="va-l-detail-page va-facility-page">
         <div className="usa-grid usa-grid-full">
           {/* Sidebar Navigation */}
