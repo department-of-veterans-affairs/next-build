@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
-//import data from '@/mocks/pressRelease.mock.json'
-import { PressRelease } from './index'
+//import data from '@/products/pressRelease/mock.json'
+import { PressRelease } from '@/products/pressRelease/template'
 
 const meta: Meta<typeof PressRelease> = {
   title: 'Layouts/Press Release',
