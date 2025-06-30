@@ -85,6 +85,8 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.",
             "fieldApptIntroTextType": "customize_text",
@@ -143,8 +145,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             ],
             "fieldOfficeVisits": "yes_with_or_without_appointment",
             "fieldOnlineSchedulingAvail": "yes",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "cfe515fb-e4bf-468b-a7df-a8eb1d26e6e7",
               "resourceIdObjMeta": {
@@ -196,6 +196,8 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Please contact us to schedule, reschedule or cancel your appointment.",
             "fieldApptIntroTextType": "customize_text",
@@ -204,8 +206,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "fieldOfficeHours": [],
             "fieldOfficeVisits": "yes_appointment_only",
             "fieldOnlineSchedulingAvail": "yes",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "0a509a8a-78ca-4972-b788-7ec377976c32",
               "resourceIdObjMeta": {
@@ -245,6 +245,8 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at <va-telephone contact="800-273-8255" extension=""></va-telephone> and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
             "fieldApptIntroTextType": "customize_text",
@@ -253,8 +255,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "fieldOfficeHours": [],
             "fieldOfficeVisits": "yes_with_or_without_appointment",
             "fieldOnlineSchedulingAvail": "yes",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "19e9127d-20bc-49c7-a8bf-65d5262ddbe6",
               "resourceIdObjMeta": {
@@ -294,6 +294,8 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Contact your primary care provider for a telehealth referral.",
             "fieldApptIntroTextType": "customize_text",
@@ -302,8 +304,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "fieldOfficeHours": [],
             "fieldOfficeVisits": "yes_appointment_only",
             "fieldOnlineSchedulingAvail": "no",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "a917bc36-f392-4609-b6d7-0e3032ae5313",
               "resourceIdObjMeta": {
@@ -346,6 +346,8 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Contact us to schedule, reschedule or cancel your appointment.",
             "fieldApptIntroTextType": "customize_text",
@@ -404,8 +406,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             ],
             "fieldOfficeVisits": null,
             "fieldOnlineSchedulingAvail": null,
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "5c51213b-0ac4-48e0-a839-fdc10e572778",
               "resourceIdObjMeta": {
@@ -446,6 +446,8 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Contact us to schedule, reschedule or cancel your appointment.",
             "fieldApptIntroTextType": "customize_text",
@@ -454,8 +456,6 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
             "fieldOfficeHours": [],
             "fieldOfficeVisits": "yes_appointment_only",
             "fieldOnlineSchedulingAvail": "yes",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "3ba1d19d-6233-4735-8de8-44b6166c76ca",
               "resourceIdObjMeta": {
@@ -987,6 +987,8 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.",
             "fieldApptIntroTextType": "customize_text",
@@ -1045,8 +1047,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             ],
             "fieldOfficeVisits": "yes_with_or_without_appointment",
             "fieldOnlineSchedulingAvail": "yes",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "cfe515fb-e4bf-468b-a7df-a8eb1d26e6e7",
               "resourceIdObjMeta": {
@@ -1098,6 +1098,8 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Please contact us to schedule, reschedule or cancel your appointment.",
             "fieldApptIntroTextType": "customize_text",
@@ -1106,8 +1108,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "fieldOfficeHours": [],
             "fieldOfficeVisits": "yes_appointment_only",
             "fieldOnlineSchedulingAvail": "yes",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "0a509a8a-78ca-4972-b788-7ec377976c32",
               "resourceIdObjMeta": {
@@ -1147,6 +1147,8 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at <va-telephone contact="800-273-8255" extension=""></va-telephone> and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
             "fieldApptIntroTextType": "customize_text",
@@ -1155,8 +1157,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "fieldOfficeHours": [],
             "fieldOfficeVisits": "yes_with_or_without_appointment",
             "fieldOnlineSchedulingAvail": "yes",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "19e9127d-20bc-49c7-a8bf-65d5262ddbe6",
               "resourceIdObjMeta": {
@@ -1196,6 +1196,8 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Contact your primary care provider for a telehealth referral.",
             "fieldApptIntroTextType": "customize_text",
@@ -1204,8 +1206,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "fieldOfficeHours": [],
             "fieldOfficeVisits": "yes_appointment_only",
             "fieldOnlineSchedulingAvail": "no",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "a917bc36-f392-4609-b6d7-0e3032ae5313",
               "resourceIdObjMeta": {
@@ -1248,6 +1248,8 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Contact us to schedule, reschedule or cancel your appointment.",
             "fieldApptIntroTextType": "customize_text",
@@ -1306,8 +1308,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             ],
             "fieldOfficeVisits": null,
             "fieldOnlineSchedulingAvail": null,
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "5c51213b-0ac4-48e0-a839-fdc10e572778",
               "resourceIdObjMeta": {
@@ -1348,6 +1348,8 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
         "isMentalHealthService": false,
         "locations": [
           {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
             "fieldAdditionalHoursInfo": null,
             "fieldApptIntroTextCustom": "Contact us to schedule, reschedule or cancel your appointment.",
             "fieldApptIntroTextType": "customize_text",
@@ -1356,8 +1358,6 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
             "fieldOfficeHours": [],
             "fieldOfficeVisits": "yes_appointment_only",
             "fieldOnlineSchedulingAvail": "yes",
-            "fieldOtherPhoneNumbers": [],
-            "fieldPhone": [],
             "fieldServiceLocationAddress": {
               "id": "3ba1d19d-6233-4735-8de8-44b6166c76ca",
               "resourceIdObjMeta": {

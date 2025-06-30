@@ -219,11 +219,11 @@ export const formatter: QueryFormatter<
             fieldApptIntroTextCustom: createPhoneLinks(
               location.field_appt_intro_text_custom
             ),
-            fieldOtherPhoneNumbers: location.field_other_phone_numbers
+            appointmentPhoneNumbers: location.field_other_phone_numbers
               .filter(isPublished)
               .map(formatPhone),
             fieldOnlineSchedulingAvail: location.field_online_scheduling_avail,
-            fieldPhone: location.field_phone
+            contactInfoPhoneNumbers: location.field_phone
               .filter(isPublished)
               .map(formatPhone),
             fieldEmailContacts: location.field_email_contacts
