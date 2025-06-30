@@ -85,7 +85,7 @@
     "redis": "^5.5.6",
     "safe-json-stringify": "^1.2.0",
     "superjson": "^2.2.2",
-    "swr": "^2.2.4",
+    "swr": "^2.3.3",
     "uswds": "^2.14.0",
     "uuid": "^9.0.1",
     "validator": "^13.15.0"
@@ -125,7 +125,7 @@
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.8.0",
-    "eslint-plugin-testing-library": "^7.4.0",
+    "eslint-plugin-testing-library": "^7.5.3",
     "eslint-plugin-unused-imports": "^4.1.4",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
