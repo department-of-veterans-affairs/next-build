@@ -45,7 +45,6 @@ export const ResourcesSupport = ({
 }: FormattedResourcesSupport) => {
   return (
     <div
-      id="content"
       className="interior"
       data-template="node-support_resources_detail_page"
       data-resource-type="node--support_resources_detail_page"
