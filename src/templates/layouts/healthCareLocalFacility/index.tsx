@@ -95,7 +95,7 @@ export function HealthCareLocalFacility({
   const regionBasePath = path.split('/')[1]
 
   return (
-    <div className="interior" id="content">
+    <div className="interior">
       <div className="usa-grid usa-grid-full">
         {/* Nav data fille in by a separate script from `window.sideNav` */}
         <nav aria-label="secondary" data-widget-type="side-nav" />
