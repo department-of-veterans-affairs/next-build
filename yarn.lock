@@ -1649,6 +1649,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@datadog/browser-core@npm:6.12.3":
+  version: 6.12.3
+  resolution: "@datadog/browser-core@npm:6.12.3"
+  checksum: a93e9bd05ac55713f91863dc14cf52d2d9d884d8d48a6e98fbba392f859abc6469324bbf1f7a9f0a10711eba74a5935b8ae1041d62c671edab1026c51ee86ec5
+  languageName: node
+  linkType: hard
+
+"@datadog/browser-rum-core@npm:6.12.3":
+  version: 6.12.3
+  resolution: "@datadog/browser-rum-core@npm:6.12.3"
+  dependencies:
+    "@datadog/browser-core": 6.12.3
+  checksum: 432e95758e7520e4dca8077a476860bd5bbd79ec0e334c6f7cc24e6226a71c5b58f1e194f4bda5e88f75c754a37927ec2aa16f009b9863bc13389b5471f911bc
+  languageName: node
+  linkType: hard
+
+"@datadog/browser-rum@npm:^6.12.3":
+  version: 6.12.3
+  resolution: "@datadog/browser-rum@npm:6.12.3"
+  dependencies:
+    "@datadog/browser-core": 6.12.3
+    "@datadog/browser-rum-core": 6.12.3
+  peerDependencies:
+    "@datadog/browser-logs": 6.12.3
+  peerDependenciesMeta:
+    "@datadog/browser-logs":
+      optional: true
+  checksum: ebb274075f11c4d54e021d63a3c8982602ddcede93942ee5468fd081a512aae680111f7c50013d8e491a2b1e2f768c077db052b4812073328a261179a5de82b2
+  languageName: node
+  linkType: hard
+
 "@department-of-veterans-affairs/component-library@npm:50.2.1":
   version: 50.2.1
   resolution: "@department-of-veterans-affairs/component-library@npm:50.2.1"
@@ -13755,6 +13786,7 @@ __metadata:
     "@actions/core": ^1.10.1
     "@actions/github": ^6.0.0
     "@axe-core/playwright": ^4.8.2
+    "@datadog/browser-rum": ^6.12.3
     "@department-of-veterans-affairs/component-library": 50.2.1
     "@department-of-veterans-affairs/formation": ^12.0.0
     "@department-of-veterans-affairs/web-components": 18.4.0
