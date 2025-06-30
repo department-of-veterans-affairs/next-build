@@ -1,5 +1,5 @@
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
-import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '@/types/formatted/pressRelease'
+import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '@/products/pressRelease/formatted-type'
 import { formatDate } from '@/lib/utils/helpers'
 
 /** Teaser press release */

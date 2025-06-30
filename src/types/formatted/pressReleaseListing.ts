@@ -1,5 +1,5 @@
 import { PublishedEntity } from './publishedEntity'
-import { PressReleaseTeaser } from '@/types/formatted/pressRelease'
+import { PressReleaseTeaser } from '@/products/pressRelease/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
 export type PressReleaseListingLink = {

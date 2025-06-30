@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePressRelease } from '@/types/drupal/node'
-import { PressRelease } from '@/types/formatted/pressRelease'
+import { PressRelease } from '@/products/pressRelease/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -10,7 +10,7 @@ import {
 } from '@/lib/drupal/query'
 import { get } from 'lodash'
 import { getNestedIncludes } from '@/lib/utils/queries'
-import { formatter as formatAdministration } from './administration'
+import { formatter as formatAdministration } from '@/data/queries/administration'
 
 // Define the query params for fetching node--press_release.
 export const params: QueryParams<null> = () => {
