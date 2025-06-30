@@ -4,9 +4,9 @@
 
 import { NodePressRelease } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/pressRelease.mock.json'
+import mockData from '@/products/pressRelease/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { params } from '../pressRelease'
+import { params } from '@/products/pressRelease/query'
 
 const nodePressReleaseMock: NodePressRelease = {
   ...mockData,
