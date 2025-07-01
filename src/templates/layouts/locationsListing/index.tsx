@@ -4,6 +4,8 @@ import { RegionalTopTasks } from '@/templates/components/topTasks'
 import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
 import { FacilityListing } from '@/templates/components/facilityListing'
 import { ContentFooter } from '@/templates/common/contentFooter'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
 interface customWindow extends Window {
   sideNav?: SideNavMenu
@@ -19,7 +21,9 @@ export function LocationsListing({
   mainFacilities,
   healthClinicFacilities,
   mobileFacilities,
-}: FormattedLocationsListing) {
+  lovellVariant,
+  lovellSwitchPath,
+}: LovellStaticPropsResource<FormattedLocationsListing>) {
   useEffect(() => {
     window.sideNav = menu
   }, [menu])
@@ -32,7 +36,10 @@ export function LocationsListing({
           {/* Main Content */}
           <div className="usa-width-three-fourths">
             <article className="usa-content">
-              <div>TODO: Lovell switch link</div>
+              <LovellSwitcher
+                currentVariant={lovellVariant}
+                switchPath={lovellSwitchPath}
+              />
 
               <h1 className="vads-u-margin-bottom--3p5">{title}</h1>
               <RegionalTopTasks
