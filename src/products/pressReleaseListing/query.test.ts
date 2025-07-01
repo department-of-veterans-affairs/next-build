@@ -7,7 +7,7 @@ import {
   listingParams,
   data,
   formatter,
-} from '../pressReleaseListing'
+} from '@/products/pressReleaseListing/query'
 import * as queryModule from '@/lib/drupal/query'
 
 jest.mock('@/lib/drupal/query', () => {
@@ -41,7 +41,7 @@ jest.mock('@/lib/drupal/query', () => {
 })
 
 // mocking the queries object to return a mock params object
-jest.mock('..', () => {
+jest.mock('@/data/queries', () => {
   const mockParams = {
     addFilter: jest.fn().mockReturnThis(),
     addSort: jest.fn().mockReturnThis(),

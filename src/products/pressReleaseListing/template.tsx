@@ -12,14 +12,14 @@
 
 import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { PressReleaseListing as FormattedPressReleaseListing } from '@/types/formatted/pressReleaseListing'
+import { PressReleaseListing as FormattedPressReleaseListing } from '@/products/pressReleaseListing/formatted-type'
 import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '@/products/pressRelease/formatted-type'
 import { PressReleaseTeaser } from '@/templates/components/pressReleaseTeaser'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-import { DEFAULT_PAGE_LIST_LENGTH } from '../../../constants/pagination'
+import { DEFAULT_PAGE_LIST_LENGTH } from '../../constants/pagination'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {

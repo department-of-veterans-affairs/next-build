@@ -1,4 +1,4 @@
-import { PublishedEntity } from './publishedEntity'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { PressReleaseTeaser } from '@/products/pressRelease/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
