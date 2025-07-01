@@ -449,4 +449,5 @@ export interface NodeLeadershipListing extends DrupalNode {
 
 export interface NodeLocationsListing extends DrupalNode {
   field_description: string
+  breadcrumbs: BreadcrumbItem[]
 }

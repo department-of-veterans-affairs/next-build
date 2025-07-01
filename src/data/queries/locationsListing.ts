@@ -19,6 +19,7 @@ import { formatter as formatAdministration } from './administration'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
+import { getLovellVariantOfBreadcrumbs } from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--locations_listing.
 export const params: QueryParams<null> = () => {
@@ -39,6 +40,7 @@ type LocationsListingData = {
   mainFacilities: NodeHealthCareLocalFacility[]
   healthClinicFacilities: NodeHealthCareLocalFacility[]
   mobileFacilities: NodeHealthCareLocalFacility[]
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 // Implement the data loader.
 export const data: QueryData<
@@ -87,6 +89,7 @@ export const data: QueryData<
     mainFacilities,
     healthClinicFacilities,
     mobileFacilities,
+    lovell: opts.context?.lovell,
   }
 }
 
@@ -99,6 +102,7 @@ export const formatter: QueryFormatter<
   mainFacilities,
   healthClinicFacilities,
   mobileFacilities,
+  lovell,
 }) => {
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   // Mobile clinics don't include VA Health Connect phone numbers in production so we add a flag to exclude them
@@ -117,7 +121,10 @@ export const formatter: QueryFormatter<
       : null,
     image: formatImage(facility.field_media),
   })
-
+  let { breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
   return {
     ...entityBaseFields(entity),
     administration: formatAdministration(entity.field_administration),
@@ -134,5 +141,6 @@ export const formatter: QueryFormatter<
     mobileFacilities: mobileFacilities.map((facility) =>
       formatFacility(facility, false)
     ),
+    breadcrumbs,
   }
 }
