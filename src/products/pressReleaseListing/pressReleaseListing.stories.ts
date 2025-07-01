@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { PressReleaseListing } from './index'
-import data from '@/mocks/pressReleaseListing.mock.json'
+import { PressReleaseListing } from '@/products/pressReleaseListing/template'
+import data from '@/products/pressReleaseListing/mock.json'
 import { formattedPressReleases } from '@/mocks/formattedPressReleases.mock'
 
 const meta: Meta<typeof PressReleaseListing> = {
