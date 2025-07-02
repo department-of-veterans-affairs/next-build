@@ -137,6 +137,8 @@ async function fetchFeaturedStories(
       PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
     )
 
+  // If this is a Lovell variant page, there could be stories that are shared between this
+  // variant and the other variant (Lovell bifurcated resources), so fetch those as well
   if (isLovellVariantPage) {
     const { data: parentStories } =
       await fetchAndConcatAllResourceCollectionPages<NodeNewsStory>(
@@ -181,7 +183,8 @@ async function fetchSystemEvents(
       )
     ).data
 
-    // If this is a Lovell variant page, fetch the parent events as well
+    // If this is a Lovell variant page, there could be events that are shared between this
+    // variant and the other variant (Lovell bifurcated resources), so fetch those as well
     if (isLovellVariantPage) {
       const parentEvents = (
         await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
