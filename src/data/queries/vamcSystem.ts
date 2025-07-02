@@ -29,7 +29,6 @@ import {
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 import { getNextEventOccurrences } from '@/products/event/query-utils'
-import { writeFileSync } from 'fs'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 
 // Define the query params for fetching node--vamc_system.
@@ -93,39 +92,10 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
 
-  let { data: featuredStories } =
-    await fetchAndConcatAllResourceCollectionPages<NodeNewsStory>(
-      RESOURCE_TYPES.STORY,
-      queries
-        .getParams(RESOURCE_TYPES.STORY)
-        .addInclude(['field_listing'])
-        .addFilter('field_listing.field_office.id', entity.id)
-        .addFilter('status', '1')
-        .addFilter('field_featured', '1'),
-      PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
-    )
-
-  if (lovell?.isLovellVariantPage) {
-    const { data: parentStories } =
-      await fetchAndConcatAllResourceCollectionPages<NodeNewsStory>(
-        RESOURCE_TYPES.STORY,
-        queries
-          .getParams(RESOURCE_TYPES.STORY)
-          .addInclude([
-            'field_listing',
-            'field_listing.field_office',
-            'field_listing.field_office.field_administration',
-          ])
-          .addFilter(
-            'field_listing.field_office.field_administration.drupal_internal__tid',
-            LOVELL.federal.administration.entityId.toString()
-          )
-          .addFilter('status', '1')
-          .addFilter('field_featured', '1'),
-        PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
-      )
-    featuredStories = [...featuredStories, ...parentStories]
-  }
+  const featuredStories = await fetchFeaturedStories(
+    entity.id,
+    lovell?.isLovellVariantPage ?? false
+  )
 
   // Fetch all featured, published events that are in the future
   const nowUnix = Math.floor(Date.now() / 1000)
@@ -158,6 +128,47 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
     fallbackEvent,
     lovell,
   }
+}
+
+async function fetchFeaturedStories(
+  systemId: string,
+  isLovellVariantPage: boolean
+) {
+  let { data: featuredStories } =
+    await fetchAndConcatAllResourceCollectionPages<NodeNewsStory>(
+      RESOURCE_TYPES.STORY,
+      queries
+        .getParams(RESOURCE_TYPES.STORY)
+        .addInclude(['field_listing'])
+        .addFilter('field_listing.field_office.id', systemId)
+        .addFilter('status', '1')
+        .addFilter('field_featured', '1'),
+      PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
+    )
+
+  if (isLovellVariantPage) {
+    const { data: parentStories } =
+      await fetchAndConcatAllResourceCollectionPages<NodeNewsStory>(
+        RESOURCE_TYPES.STORY,
+        queries
+          .getParams(RESOURCE_TYPES.STORY)
+          .addInclude([
+            'field_listing',
+            'field_listing.field_office',
+            'field_listing.field_office.field_administration',
+          ])
+          .addFilter(
+            'field_listing.field_office.field_administration.drupal_internal__tid',
+            LOVELL.federal.administration.entityId.toString()
+          )
+          .addFilter('status', '1')
+          .addFilter('field_featured', '1'),
+        PAGE_SIZES[RESOURCE_TYPES.STORY_LISTING]
+      )
+    featuredStories = [...featuredStories, ...parentStories]
+  }
+
+  return featuredStories
 }
 
 async function fetchSystemEvents(systemId: string, featured: boolean) {
