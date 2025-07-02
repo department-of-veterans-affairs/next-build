@@ -9,4 +9,7 @@ const botRegex = new RegExp(botPattern, 'i')
 export const isBot = (agent = navigator.userAgent) => botRegex.test(agent)
 
 export const canInitDatadog = ({ agent }: { agent?: string } = {}) =>
-  process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.LOCAL && !isBot(agent)
+  !isBot(agent) &&
+  !!process.env.NEXT_PUBLIC_DATADOG_RUM_APP_ID &&
+  !!process.env.NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN &&
+  !!process.env.NEXT_PUBLIC_DATADOG_RUM_SERVICE

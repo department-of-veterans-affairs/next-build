@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -15,23 +19,63 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "typeRoots": ["node_modules/@types"],
-    "types": ["node", "jest"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "jest"
+    ],
     "paths": {
-      "@/assets/*": ["./src/assets/*"],
-      "@/api/*": ["./src/pages/api/*"],
-      "@/data/*": ["./src/data/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/lib/*": ["./src/lib/*"],
-      "@/mocks/*": ["./src/mocks/*"],
-      "@/pages/*": ["./src/pages/*"],
-      "@/stories/*": ["./src/stories/*"],
-      "@/templates/*": ["./src/templates/*"],
-      "@/types/*": ["./src/types/*"],
-      "@/products/*": ["./src/products/*"],
-      "@/playwright/*": ["./playwright/*"],
-      "react": ["./node_modules/@types/react"]
-    }
+      "@/datadogConnector/*": [
+        "./src/datadogConnector/*"
+      ],
+      "@/assets/*": [
+        "./src/assets/*"
+      ],
+      "@/api/*": [
+        "./src/pages/api/*"
+      ],
+      "@/data/*": [
+        "./src/data/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/lib/*": [
+        "./src/lib/*"
+      ],
+      "@/mocks/*": [
+        "./src/mocks/*"
+      ],
+      "@/pages/*": [
+        "./src/pages/*"
+      ],
+      "@/stories/*": [
+        "./src/stories/*"
+      ],
+      "@/templates/*": [
+        "./src/templates/*"
+      ],
+      "@/types/*": [
+        "./src/types/*"
+      ],
+      "@/products/*": [
+        "./src/products/*"
+      ],
+      "@/playwright/*": [
+        "./playwright/*"
+      ],
+      "react": [
+        "./node_modules/@types/react"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
@@ -43,7 +87,12 @@
     "test/*",
     "example_tests/*",
     ".storybook/*",
-    "playwright/**/*"
+    "playwright/**/*",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "src/__tests__", "public/generated"]
+  "exclude": [
+    "node_modules",
+    "src/__tests__",
+    "public/generated"
+  ]
 }
