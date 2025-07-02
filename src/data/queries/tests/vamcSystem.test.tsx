@@ -43,6 +43,11 @@ const mockNonFeaturedEventData = {
   field_featured: false,
 }
 
+// Individual mock functions for each resource type
+const mockVamcFacilityQuery = jest.fn()
+const mockStoryQuery = jest.fn()
+const mockEventQuery = jest.fn()
+
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
   fetchSingleEntityOrPreview: () => mockData,
@@ -50,52 +55,13 @@ jest.mock('@/lib/drupal/query', () => ({
     nodeType: string,
     params: DrupalJsonApiParams
   ) => {
-    const queryObj = params.getQueryObject()
-    
     switch (nodeType) {
       case RESOURCE_TYPES.VAMC_FACILITY:
-        return { data: [mockFacilityData] }
-      
+        return mockVamcFacilityQuery(params)
       case RESOURCE_TYPES.STORY:
-        // Check if this is a Lovell federal query (has administration filter)
-        const isLovellParentStoryQuery = queryObj.filter && 
-          Object.keys(queryObj.filter).some(key => 
-            key.includes('field_administration.drupal_internal__tid')
-          )
-        
-        if (isLovellParentStoryQuery) {
-          // Return parent stories for Lovell federal queries
-          return { data: [mockParentStoryData] }
-        }
-        
-        // Return regular stories for system-specific queries
-        return { data: [mockStoryData] }
-      
+        return mockStoryQuery(params)
       case RESOURCE_TYPES.EVENT:
-        // Check if this is a Lovell federal query
-        const isLovellParentEventQuery = queryObj.filter && 
-          Object.keys(queryObj.filter).some(key => 
-            key.includes('field_administration.drupal_internal__tid')
-          )
-        
-        const isFeatured = queryObj.filter?.field_featured === '1'
-        
-        if (isLovellParentEventQuery) {
-          // Return parent events for Lovell federal queries
-          if (isFeatured) {
-            return { data: [mockParentEventData] }
-          } else {
-            return { data: [{ ...mockParentEventData, field_featured: false }] }
-          }
-        }
-        
-        // Return system-specific events
-        if (isFeatured) {
-          return { data: [mockFeaturedEventData] }
-        } else {
-          return { data: [mockNonFeaturedEventData] }
-        }
-      
+        return mockEventQuery(params)
       default:
         return { data: [] }
     }
@@ -121,6 +87,49 @@ describe('VamcSystem formatData', () => {
     jest.spyOn(Date, 'now').mockReturnValue(new Date('2020-01-01').getTime())
   })
 
+  beforeEach(() => {
+    // Reset all mocks to default behavior before each test
+    mockVamcFacilityQuery.mockReturnValue({ data: [mockFacilityData] })
+
+    mockStoryQuery.mockImplementation((params: DrupalJsonApiParams) => {
+      const queryObj = params.getQueryObject()
+      const isLovellParentStoryQuery =
+        queryObj.filter &&
+        Object.keys(queryObj.filter).some((key) =>
+          key.includes('field_administration.drupal_internal__tid')
+        )
+
+      if (isLovellParentStoryQuery) {
+        return { data: [mockParentStoryData] }
+      }
+      return { data: [mockStoryData] }
+    })
+
+    mockEventQuery.mockImplementation((params: DrupalJsonApiParams) => {
+      const queryObj = params.getQueryObject()
+      const isLovellParentEventQuery =
+        queryObj.filter &&
+        Object.keys(queryObj.filter).some((key) =>
+          key.includes('field_administration.drupal_internal__tid')
+        )
+      const isFeatured = queryObj.filter?.field_featured === '1'
+
+      if (isLovellParentEventQuery) {
+        if (isFeatured) {
+          return { data: [mockParentEventData] }
+        } else {
+          return { data: [{ ...mockParentEventData, field_featured: false }] }
+        }
+      }
+
+      if (isFeatured) {
+        return { data: [mockFeaturedEventData] }
+      } else {
+        return { data: [mockNonFeaturedEventData] }
+      }
+    })
+  })
+
   afterAll(() => {
     jest.restoreAllMocks()
   })
@@ -143,20 +152,36 @@ describe('VamcSystem formatData', () => {
         },
       }
 
-      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { 
-        id: mockData.id, 
-        context: lovellContext 
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
+        context: lovellContext,
       })
-      
+
       // Verify that featuredStories includes both system and parent stories
       expect(result.featuredStories).toHaveLength(2)
-      expect(result.featuredStories.some(story => story.title === mockStoryData.title)).toBe(true)
-      expect(result.featuredStories.some(story => story.title === mockParentStoryData.title)).toBe(true)
-      
+      expect(
+        result.featuredStories.some(
+          (story) => story.title === mockStoryData.title
+        )
+      ).toBe(true)
+      expect(
+        result.featuredStories.some(
+          (story) => story.title === mockParentStoryData.title
+        )
+      ).toBe(true)
+
       // Verify that featuredEvents includes both system and parent events
       expect(result.featuredEvents).toHaveLength(2)
-      expect(result.featuredEvents.some(event => event.title === mockFeaturedEventData.title)).toBe(true)
-      expect(result.featuredEvents.some(event => event.title === mockParentEventData.title)).toBe(true)
+      expect(
+        result.featuredEvents.some(
+          (event) => event.title === mockFeaturedEventData.title
+        )
+      ).toBe(true)
+      expect(
+        result.featuredEvents.some(
+          (event) => event.title === mockParentEventData.title
+        )
+      ).toBe(true)
     })
 
     test('outputs formatted data with Lovell TRICARE variant context', async () => {
@@ -170,11 +195,11 @@ describe('VamcSystem formatData', () => {
         },
       }
 
-      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { 
-        id: mockData.id, 
-        context: lovellContext 
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
+        context: lovellContext,
       })
-      
+
       // Should have the same behavior as VA variant - includes both system and parent content
       expect(result.featuredStories).toHaveLength(2)
       expect(result.featuredEvents).toHaveLength(2)
@@ -191,43 +216,43 @@ describe('VamcSystem formatData', () => {
         },
       }
 
-      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { 
-        id: mockData.id, 
-        context: regularContext 
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
+        context: regularContext,
       })
 
       // Should only have system-specific content, not parent content
       expect(result.featuredStories).toHaveLength(1)
       expect(result.featuredStories[0].title).toBe(mockStoryData.title)
-      
+
       expect(result.featuredEvents).toHaveLength(1)
       expect(result.featuredEvents[0].title).toBe(mockFeaturedEventData.title)
     })
 
-         test('handles context with non-Lovell lovell property', async () => {
-       const contextWithoutLovell: ExpandedStaticPropsContext = {
-         path: '',
-         drupalPath: '',
-         listing: { isListingPage: false, firstPagePath: '', page: 0 },
-         lovell: {
-           isLovellVariantPage: false,
-           variant: null,
-         },
-       }
+    test('handles context with non-Lovell lovell property', async () => {
+      const contextWithoutLovell: ExpandedStaticPropsContext = {
+        path: '',
+        drupalPath: '',
+        listing: { isListingPage: false, firstPagePath: '', page: 0 },
+        lovell: {
+          isLovellVariantPage: false,
+          variant: null,
+        },
+      }
 
-       const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { 
-         id: mockData.id, 
-         context: contextWithoutLovell 
-       })
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
+        context: contextWithoutLovell,
+      })
 
-       // Should behave like non-Lovell variant
-       expect(result.featuredStories).toHaveLength(1)
-       expect(result.featuredEvents).toHaveLength(1)
-     })
+      // Should behave like non-Lovell variant
+      expect(result.featuredStories).toHaveLength(1)
+      expect(result.featuredEvents).toHaveLength(1)
+    })
 
     test('handles no context provided', async () => {
-      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { 
-        id: mockData.id 
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
       })
 
       // Should behave like non-Lovell variant
@@ -236,137 +261,109 @@ describe('VamcSystem formatData', () => {
     })
 
     test('inherits parent content when system has no featured content (Lovell variant)', async () => {
-      // Create a mock that returns empty for system queries but content for parent queries
-      const mockWithNoSystemContent = jest.fn((nodeType: string, params: DrupalJsonApiParams) => {
+      // Override mocks for this specific test
+      mockStoryQuery.mockImplementation((params: DrupalJsonApiParams) => {
         const queryObj = params.getQueryObject()
-        
-        switch (nodeType) {
-          case RESOURCE_TYPES.VAMC_FACILITY:
-            return { data: [mockFacilityData] }
-          
-          case RESOURCE_TYPES.STORY:
-            const isLovellParentStoryQuery = queryObj.filter && 
-              Object.keys(queryObj.filter).some(key => 
-                key.includes('field_administration.drupal_internal__tid')
-              )
-            
-            if (isLovellParentStoryQuery) {
-              // Return parent stories for Lovell federal queries
-              return { data: [mockParentStoryData] }
-            }
-            
-            // Return empty for system-specific queries
-            return { data: [] }
-          
-          case RESOURCE_TYPES.EVENT:
-            const isLovellParentEventQuery = queryObj.filter && 
-              Object.keys(queryObj.filter).some(key => 
-                key.includes('field_administration.drupal_internal__tid')
-              )
-            
-            const isFeatured = queryObj.filter?.field_featured === '1'
-            
-            if (isLovellParentEventQuery) {
-              // Return parent events for Lovell federal queries
-              if (isFeatured) {
-                return { data: [mockParentEventData] }
-              } else {
-                return { data: [{ ...mockParentEventData, field_featured: false }] }
-              }
-            }
-            
-            // Return empty for system-specific queries (no featured or non-featured events)
-            return { data: [] }
-          
-          default:
-            return { data: [] }
+        const isLovellParentStoryQuery =
+          queryObj.filter &&
+          Object.keys(queryObj.filter).some((key) =>
+            key.includes('field_administration.drupal_internal__tid')
+          )
+
+        if (isLovellParentStoryQuery) {
+          return { data: [mockParentStoryData] }
         }
+        return { data: [] } // No system stories
       })
 
-      // Temporarily replace the mock
-      const originalMock = require('@/lib/drupal/query').fetchAndConcatAllResourceCollectionPages
-      require('@/lib/drupal/query').fetchAndConcatAllResourceCollectionPages = mockWithNoSystemContent
+      mockEventQuery.mockImplementation((params: DrupalJsonApiParams) => {
+        const queryObj = params.getQueryObject()
+        const isLovellParentEventQuery =
+          queryObj.filter &&
+          Object.keys(queryObj.filter).some((key) =>
+            key.includes('field_administration.drupal_internal__tid')
+          )
+        const isFeatured = queryObj.filter?.field_featured === '1'
 
-      try {
-        const lovellContext: ExpandedStaticPropsContext = {
-          path: '',
-          drupalPath: '',
-          listing: { isListingPage: false, firstPagePath: '', page: 0 },
-          lovell: {
-            isLovellVariantPage: true,
-            variant: LOVELL.va.variant,
-          },
+        if (isLovellParentEventQuery) {
+          if (isFeatured) {
+            return { data: [mockParentEventData] }
+          } else {
+            return { data: [{ ...mockParentEventData, field_featured: false }] }
+          }
         }
+        return { data: [] } // No system events
+      })
 
-        const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { 
-          id: mockData.id, 
-          context: lovellContext 
-        })
-
-        // Should only have parent content, no system content
-        expect(result.featuredStories).toHaveLength(1)
-        expect(result.featuredStories[0].title).toBe(mockParentStoryData.title)
-        
-        expect(result.featuredEvents).toHaveLength(1)
-        expect(result.featuredEvents[0].title).toBe(mockParentEventData.title)
-        
-        // Should have no fallback event since we found featured events from parent
-        expect(result.fallbackEvent).toBeNull()
-      } finally {
-        // Restore the original mock
-        require('@/lib/drupal/query').fetchAndConcatAllResourceCollectionPages = originalMock
+      const lovellContext: ExpandedStaticPropsContext = {
+        path: '',
+        drupalPath: '',
+        listing: { isListingPage: false, firstPagePath: '', page: 0 },
+        lovell: {
+          isLovellVariantPage: true,
+          variant: LOVELL.va.variant,
+        },
       }
+
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
+        context: lovellContext,
+      })
+
+      // Should only have parent content, no system content
+      expect(result.featuredStories).toHaveLength(1)
+      expect(result.featuredStories[0].title).toBe(mockParentStoryData.title)
+
+      expect(result.featuredEvents).toHaveLength(1)
+      expect(result.featuredEvents[0].title).toBe(mockParentEventData.title)
+
+      // Should have no fallback event since we found featured events from parent
+      expect(result.fallbackEvent).toBeNull()
     })
   })
 
   describe('Event fallback functionality', () => {
-    // Mock scenario where no featured events exist
-    const mockWithNoFeaturedEvents = jest.fn()
-
-    beforeEach(() => {
-      mockWithNoFeaturedEvents.mockImplementation((nodeType: string, params: DrupalJsonApiParams) => {
-        const queryObj = params.getQueryObject()
-        
-        if (nodeType === RESOURCE_TYPES.EVENT && queryObj.filter?.field_featured === '1') {
-          // No featured events
-          return { data: [] }
-        }
-        
-        if (nodeType === RESOURCE_TYPES.EVENT && queryObj.filter?.field_featured === '0') {
-          // Return non-featured event as fallback
-          return { data: [mockNonFeaturedEventData] }
-        }
-        
-        // Default behavior for other cases
-        return { data: [] }
-      })
-    })
-
     test('uses fallback event when no featured events exist', async () => {
-      // Temporarily mock the function to return no featured events
-      const originalMock = require('@/lib/drupal/query').fetchAndConcatAllResourceCollectionPages
-      require('@/lib/drupal/query').fetchAndConcatAllResourceCollectionPages = mockWithNoFeaturedEvents
+      // Override event mock to return no featured events but have non-featured events
+      mockEventQuery.mockImplementation((params: DrupalJsonApiParams) => {
+        const queryObj = params.getQueryObject()
+        const isFeatured = queryObj.filter?.field_featured === '1'
 
-      try {
-        const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { 
-          id: mockData.id 
-        })
+        if (isFeatured) {
+          return { data: [] } // No featured events
+        } else {
+          return { data: [mockNonFeaturedEventData] } // Non-featured events exist
+        }
+      })
 
-        expect(result.featuredEvents).toHaveLength(0)
-        expect(result.fallbackEvent).toBeTruthy()
-        expect(result.fallbackEvent?.title).toBe(mockNonFeaturedEventData.title)
-      } finally {
-        // Restore the original mock
-        require('@/lib/drupal/query').fetchAndConcatAllResourceCollectionPages = originalMock
-      }
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
+      })
+
+      expect(result.featuredEvents).toHaveLength(0)
+      expect(result.fallbackEvent).toBeTruthy()
+      expect(result.fallbackEvent?.title).toBe(mockNonFeaturedEventData.title)
     })
 
     test('has no fallback event when featured events exist', async () => {
-      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, { 
-        id: mockData.id 
+      // Use default mock behavior (has featured events)
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
       })
 
       expect(result.featuredEvents.length).toBeGreaterThan(0)
+      expect(result.fallbackEvent).toBeNull()
+    })
+
+    test('has no fallback event when no events exist at all', async () => {
+      // Override event mock to return no events at all
+      mockEventQuery.mockReturnValue({ data: [] })
+
+      const result = await queries.getData(RESOURCE_TYPES.VAMC_SYSTEM, {
+        id: mockData.id,
+      })
+
+      expect(result.featuredEvents).toHaveLength(0)
       expect(result.fallbackEvent).toBeNull()
     })
   })
