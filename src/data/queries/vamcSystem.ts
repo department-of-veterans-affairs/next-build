@@ -80,6 +80,7 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
   }
 
   const lovell = opts.context?.lovell
+  const isLovellVariantPage = lovell?.isLovellVariantPage ?? false
 
   // Fetch list of local facilities related to this VAMC System
   const { data: mainFacilities } =
@@ -92,27 +93,17 @@ export const data: QueryData<VamcSystemDataOpts, VamcSystemData> = async (
       PAGE_SIZES[RESOURCE_TYPES.VAMC_FACILITY]
     )
 
+  // Fetch featured stories for this VAMC System
   const featuredStories = await fetchFeaturedStories(
     entity.id,
-    lovell?.isLovellVariantPage ?? false
+    isLovellVariantPage
   )
 
-  // Fetch all featured, published events that are in the future
-  const nowUnix = Math.floor(Date.now() / 1000)
-  const featuredEvents = getNextEventOccurrences(
-    await fetchSystemEvents(entity.id, true),
-    nowUnix
+  // Fetch featured events or a fallback non-featured event for this VAMC System
+  const { featuredEvents, fallbackEvent } = await fetchSystemEvents(
+    entity.id,
+    isLovellVariantPage
   )
-
-  // If there are none, fetch all non-featured, published events that are in the future
-  let fallbackEvent: NodeEvent | null = null
-  if (featuredEvents.length === 0) {
-    const otherEvents = getNextEventOccurrences(
-      await fetchSystemEvents(entity.id, false),
-      nowUnix
-    )
-    fallbackEvent = otherEvents[0] ?? null
-  }
 
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
@@ -171,19 +162,74 @@ async function fetchFeaturedStories(
   return featuredStories
 }
 
-async function fetchSystemEvents(systemId: string, featured: boolean) {
-  return (
-    await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
-      RESOURCE_TYPES.EVENT,
-      queries
-        .getParams(RESOURCE_TYPES.EVENT)
-        .addInclude(['field_listing'])
-        .addFilter('field_listing.field_office.id', systemId)
-        .addFilter('status', '1')
-        .addFilter('field_featured', featured ? '1' : '0'),
-      PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+async function fetchSystemEvents(
+  systemId: string,
+  isLovellVariantPage: boolean
+) {
+  // Helper that will fetch all featured or non-featured events and handle Lovell logic
+  const fetchAllEvents = async (featured: boolean) => {
+    const entityEvents = (
+      await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+        RESOURCE_TYPES.EVENT,
+        queries
+          .getParams(RESOURCE_TYPES.EVENT)
+          .addInclude(['field_listing'])
+          .addFilter('field_listing.field_office.id', systemId)
+          .addFilter('status', '1')
+          .addFilter('field_featured', featured ? '1' : '0'),
+        PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+      )
+    ).data
+
+    // If this is a Lovell variant page, fetch the parent events as well
+    if (isLovellVariantPage) {
+      const parentEvents = (
+        await fetchAndConcatAllResourceCollectionPages<NodeEvent>(
+          RESOURCE_TYPES.EVENT,
+          queries
+            .getParams(RESOURCE_TYPES.EVENT)
+            .addInclude([
+              'field_listing',
+              'field_listing.field_office',
+              'field_listing.field_office.field_administration',
+            ])
+            .addFilter(
+              'field_listing.field_office.field_administration.drupal_internal__tid',
+              LOVELL.federal.administration.entityId.toString()
+            )
+            .addFilter('status', '1')
+            .addFilter('field_featured', featured ? '1' : '0'),
+          PAGE_SIZES[RESOURCE_TYPES.EVENT_LISTING]
+        )
+      ).data
+      return [...entityEvents, ...parentEvents]
+    }
+
+    return entityEvents
+  }
+
+  // Fetch all featured, published events that are in the future
+  const nowUnix = Math.floor(Date.now() / 1000)
+  const featuredEvents = getNextEventOccurrences(
+    await fetchAllEvents(true),
+    nowUnix
+  )
+
+  // If there are none, fetch all non-featured, published events that are in the future
+  let fallbackEvent: NodeEvent | null = null
+  if (featuredEvents.length === 0) {
+    const otherEvents = getNextEventOccurrences(
+      await fetchAllEvents(false),
+      nowUnix
     )
-  ).data
+    // Take the event that is soonest in the future
+    fallbackEvent = otherEvents[0] ?? null
+  }
+
+  return {
+    featuredEvents,
+    fallbackEvent,
+  }
 }
 
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
@@ -238,14 +284,5 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
       fieldInstagram: entity.field_instagram ?? null,
       fieldYoutube: entity.field_youtube ?? null,
     },
-    // fieldVaHealthConnectPhone: entity.field_va_health_connect_phone,
-    // fieldVamcEhrSystem: entity.field_vamc_ehr_system,
-    // fieldVamcSystemOfficialName: entity.field_vamc_system_official_name,
-    // fieldFacebook: entity.field_facebook,
-    // fieldTwitter: entity.field_twitter,
-    // fieldInstagram: entity.field_instagram,
-    // fieldFlickr: entity.field_flickr,
-    // fieldYoutube: entity.field_youtube,
-    // fieldAppointmentsOnline: entity.field_appointments_online,
   }
 }
