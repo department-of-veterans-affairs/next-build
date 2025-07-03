@@ -185,8 +185,8 @@ export function VetCenter({
               <div>
                 <div className="vads-c-facility-detail">
                   <section className="vads-facility-detail">
-                    <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
-                      Main Location
+                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--2p5">
+                      Main location
                     </h3>
 
                     {/* For the ExpandableOperatingStatus widget in vets-website */}
@@ -200,17 +200,22 @@ export function VetCenter({
                     /> */}
 
                     <div className="vads-u-margin-bottom--3">
-                      <address>
-                        <div>{address.address_line1}</div>
-                        {address.address_line2 && (
-                          <div>{address.address_line2}</div>
-                        )}
-                        <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
-                      </address>
-                      <GoogleMapsDirections
-                        address={directionsString}
-                        location={title}
-                      />
+                      <p className="vads-u-font-weight--bold vads-u-margin-bottom--0p5">
+                        Address
+                      </p>
+                      <p className="vads-u-margin--0">
+                        <address>
+                          <div>{address.address_line1}</div>
+                          {address.address_line2 && (
+                            <div>{address.address_line2}</div>
+                          )}
+                          <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
+                        </address>
+                        <GoogleMapsDirections
+                          address={directionsString}
+                          location={title}
+                        />
+                      </p>
                     </div>
 
                     <h4 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
