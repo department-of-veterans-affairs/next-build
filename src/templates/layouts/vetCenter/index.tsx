@@ -154,15 +154,28 @@ export function VetCenter({
     )
   }
 
+  const alsoCalled =
+    officialName && title !== officialName
+      ? `Also called the ${officialName}`
+      : null
+  const alsoCalledId = 'vet-center-title'
+
   return (
     <div className="usa-grid usa-grid-full">
       <div className="usa-width-three-fourths">
         <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
           {title && (
             <>
-              <h1 aria-describedby="vet-center-title">{title}</h1>
-              {officialName && title !== officialName && (
-                <p id="vet-center-title">Also called the {officialName}</p>
+              <h1 aria-describedby={alsoCalled ? alsoCalledId : undefined}>
+                {title}
+              </h1>
+              {alsoCalled && (
+                <p
+                  id={alsoCalledId}
+                  className="vads-u-font-family--serif vads-u-font-size--lg vads-u-font-weight--bold"
+                >
+                  {alsoCalled}
+                </p>
               )}
             </>
           )}
