@@ -118,10 +118,10 @@ export const formatter: QueryFormatter<
     title,
     breadcrumbs,
     address: entity.field_address,
-    phoneNumber: entity.field_phone_number,
+    mainPhoneString: entity.field_phone_number,
     vaHealthConnectPhoneNumber:
       entity.field_region_page.field_va_health_connect_phone,
-    fieldTelephone: entity.field_telephone,
+    mentalHealthPhoneNumber: formatPhone(entity.field_telephone),
     introText: entity.field_intro_text,
     operatingStatusFacility: entity.field_operating_status_facility,
     menu: formattedMenu,
@@ -194,6 +194,7 @@ export const formatter: QueryFormatter<
           fieldAlsoKnownAs: serviceTaxonomy?.field_also_known_as ?? '',
           fieldCommonlyTreatedCondition:
             serviceTaxonomy?.field_commonly_treated_condition ?? '',
+          fieldReferralRequired: healthService.field_referral_required,
           fieldTricareDescription:
             serviceTaxonomy?.field_tricare_description ?? null,
           // If it's TRICARE, use the TRICARE description. Otherwise, use the
@@ -201,53 +202,42 @@ export const formatter: QueryFormatter<
           description:
             healthService.field_administration.name === 'Lovell - TRICARE' && // Is this the best way to check?
             serviceTaxonomy?.field_tricare_description
-              ? serviceTaxonomy?.field_tricare_description // Should this also transform phone numbers into <va-telephone>s?
+              ? serviceTaxonomy?.field_tricare_description
               : (getHtmlFromField(serviceTaxonomy?.description) ?? null),
           entityId: serviceTaxonomy.id,
           entityBundle: healthService.type.split('--')[1],
           fieldBody: getHtmlFromField(
             healthService.field_regional_health_service.field_body
           ),
-          locations: healthService.field_service_location.map((location) => {
-            return {
-              fieldReferralRequired: healthService.field_referral_required,
-              // TODO: Pull this out of `locations` and rename to...I think
-              // `primaryFacilityPhone` or something?
-              fieldTelephone: formatPhone(entity.field_telephone),
-              fieldPhoneNumber: entity.field_phone_number,
-              isMentalHealthService: serviceTaxonomy.name
-                .toLowerCase()
-                .includes('mental health'),
-              single: {
-                fieldOfficeVisits: location.field_office_visits,
-                fieldVirtualSupport: location.field_virtual_support,
-                fieldApptIntroTextType: location.field_appt_intro_text_type,
-                fieldApptIntroTextCustom: createPhoneLinks(
-                  location.field_appt_intro_text_custom
-                ),
-                fieldOtherPhoneNumbers: location.field_other_phone_numbers
-                  .filter(isPublished)
-                  .map(formatPhone),
-                fieldOnlineSchedulingAvail:
-                  location.field_online_scheduling_avail,
-                fieldPhone: location.field_phone
-                  .filter(isPublished)
-                  .map(formatPhone),
-                fieldEmailContacts: location.field_email_contacts
-                  .filter(isPublished)
-                  .map(formatEmail),
-                fieldHours: location.field_hours,
-                fieldOfficeHours: location.field_office_hours,
-                fieldAdditionalHoursInfo: location.field_additional_hours_info,
-                fieldUseMainFacilityPhone:
-                  location.field_use_main_facility_phone,
-                fieldUseFacilityPhoneNumber:
-                  location.field_use_facility_phone_number,
-                fieldServiceLocationAddress:
-                  location.field_service_location_address,
-              },
-            }
-          }),
+          isMentalHealthService: serviceTaxonomy.name
+            .toLowerCase()
+            .includes('mental health'),
+          locations: healthService.field_service_location.map((location) => ({
+            fieldOfficeVisits: location.field_office_visits,
+            fieldVirtualSupport: location.field_virtual_support,
+            fieldApptIntroTextType: location.field_appt_intro_text_type,
+            fieldApptIntroTextCustom: createPhoneLinks(
+              location.field_appt_intro_text_custom
+            ),
+            appointmentPhoneNumbers: location.field_other_phone_numbers
+              .filter(isPublished)
+              .map(formatPhone),
+            fieldOnlineSchedulingAvail: location.field_online_scheduling_avail,
+            contactInfoPhoneNumbers: location.field_phone
+              .filter(isPublished)
+              .map(formatPhone),
+            fieldEmailContacts: location.field_email_contacts
+              .filter(isPublished)
+              .map(formatEmail),
+            fieldHours: location.field_hours,
+            fieldOfficeHours: location.field_office_hours,
+            fieldAdditionalHoursInfo: location.field_additional_hours_info,
+            fieldUseMainFacilityPhone: location.field_use_main_facility_phone,
+            fieldUseFacilityPhoneNumber:
+              location.field_use_facility_phone_number,
+            fieldServiceLocationAddress:
+              location.field_service_location_address,
+          })),
           fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
           fieldHealthServiceApiId: serviceTaxonomy.field_health_service_api_id,
         }

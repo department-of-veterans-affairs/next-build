@@ -17,6 +17,7 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { formatter as formatAdministration } from './administration'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
 import {
@@ -123,8 +124,8 @@ export const formatter: QueryFormatter<
     path: facility.path.alias,
     operatingStatusFacility: facility.field_operating_status_facility,
     address: facility.field_address,
-    phoneNumber: facility.field_phone_number,
-    fieldTelephone: facility.field_telephone,
+    mainPhoneString: facility.field_phone_number,
+    mentalHealthPhoneNumber: formatPhone(facility.field_telephone),
     vaHealthConnectPhoneNumber: includeHealthConnect
       ? (entity.field_office.field_va_health_connect_phone ?? null)
       : null,
