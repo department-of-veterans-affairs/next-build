@@ -35,13 +35,6 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   "healthClinicFacilities": [
     {
       "address": undefined,
-      "fieldTelephone": {
-        "field_phone_extension": "",
-        "field_phone_number": "800-555-9013",
-        "field_phone_number_type": "voice",
-        "id": "clinic-phone-id",
-        "type": "paragraph--phone_number",
-      },
       "image": {
         "alt": undefined,
         "height": undefined,
@@ -51,9 +44,18 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
         "type": "media--image",
         "width": undefined,
       },
+      "mainPhoneString": "800-555-2345",
+      "mentalHealthPhoneNumber": {
+        "entityId": undefined,
+        "extension": "",
+        "id": "clinic-phone-id",
+        "label": undefined,
+        "number": "800-555-9013",
+        "phoneType": "voice",
+        "type": "paragraph--phone_number",
+      },
       "operatingStatusFacility": "normal",
       "path": "/health-clinic",
-      "phoneNumber": "800-555-2345",
       "title": "Health Clinic",
       "vaHealthConnectPhoneNumber": "855-679-0952",
     },
@@ -63,13 +65,6 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   "mainFacilities": [
     {
       "address": undefined,
-      "fieldTelephone": {
-        "field_phone_extension": "",
-        "field_phone_number": "800-555-9012",
-        "field_phone_number_type": "voice",
-        "id": "main-phone-id",
-        "type": "paragraph--phone_number",
-      },
       "image": {
         "alt": undefined,
         "height": undefined,
@@ -79,9 +74,18 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
         "type": "media--image",
         "width": undefined,
       },
+      "mainPhoneString": "800-555-1234",
+      "mentalHealthPhoneNumber": {
+        "entityId": undefined,
+        "extension": "",
+        "id": "main-phone-id",
+        "label": undefined,
+        "number": "800-555-9012",
+        "phoneType": "voice",
+        "type": "paragraph--phone_number",
+      },
       "operatingStatusFacility": "normal",
       "path": "/main-hospital",
-      "phoneNumber": "800-555-1234",
       "title": "Main Hospital",
       "vaHealthConnectPhoneNumber": "855-679-0952",
     },
@@ -208,13 +212,6 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
   "mobileFacilities": [
     {
       "address": undefined,
-      "fieldTelephone": {
-        "field_phone_extension": "",
-        "field_phone_number": "800-555-9014",
-        "field_phone_number_type": "voice",
-        "id": "mobile-phone-id",
-        "type": "paragraph--phone_number",
-      },
       "image": {
         "alt": undefined,
         "height": undefined,
@@ -224,9 +221,18 @@ exports[`LocationsListing formatData outputs formatted data 1`] = `
         "type": "media--image",
         "width": undefined,
       },
+      "mainPhoneString": "800-555-3456",
+      "mentalHealthPhoneNumber": {
+        "entityId": undefined,
+        "extension": "",
+        "id": "mobile-phone-id",
+        "label": undefined,
+        "number": "800-555-9014",
+        "phoneType": "voice",
+        "type": "paragraph--phone_number",
+      },
       "operatingStatusFacility": "normal",
       "path": "/mobile-clinic",
-      "phoneNumber": "800-555-3456",
       "title": "Mobile Clinic",
       "vaHealthConnectPhoneNumber": null,
     },
@@ -273,13 +279,6 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
   "healthClinicFacilities": [
     {
       "address": undefined,
-      "fieldTelephone": {
-        "field_phone_extension": "",
-        "field_phone_number": "800-555-9012",
-        "field_phone_number_type": "voice",
-        "id": "test-phone-id",
-        "type": "paragraph--phone_number",
-      },
       "image": {
         "alt": undefined,
         "height": undefined,
@@ -289,9 +288,18 @@ exports[`LocationsListing formatData outputs formatted data via getData 1`] = `
         "type": "media--image",
         "width": undefined,
       },
+      "mainPhoneString": "800-555-1234",
+      "mentalHealthPhoneNumber": {
+        "entityId": undefined,
+        "extension": "",
+        "id": "test-phone-id",
+        "label": undefined,
+        "number": "800-555-9012",
+        "phoneType": "voice",
+        "type": "paragraph--phone_number",
+      },
       "operatingStatusFacility": "normal",
       "path": "/test-facility",
-      "phoneNumber": "800-555-1234",
       "title": "Test Facility",
       "vaHealthConnectPhoneNumber": "855-679-0952",
     },

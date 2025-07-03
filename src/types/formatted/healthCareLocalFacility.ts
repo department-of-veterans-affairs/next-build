@@ -11,7 +11,6 @@ import {
   FieldOfficeHours,
 } from '../drupal/field_type'
 import { FacilityOperatingStatusFlags } from '../drupal/node'
-import { ParagraphPhoneNumber } from '../drupal/paragraph'
 import { VamcEhr } from '../drupal/vamcEhr'
 import { PublishedEntity } from './publishedEntity'
 import { FormattedRelatedLinks } from './relatedLinks'
@@ -27,11 +26,19 @@ export type HealthCareLocalFacility = PublishedEntity & {
   vamcEhrSystem: VamcEhr['field_region_page']['field_vamc_ehr_system']
   officeHours: FieldOfficeHours[]
   address: FieldAddress
-  phoneNumber: string
+  /**
+   * Main phone number for the facility.
+   *
+   * Comes from `facilityEntity.field_phone_number`
+   */
+  mainPhoneString: string
   image: MediaImage
   facilityLocatorApiId: string
   geoLocation: FieldGeoLocation
-  fieldTelephone: ParagraphPhoneNumber | null
+  /**
+   * Comes from `facilityEntity.field_telephone`
+   */
+  mentalHealthPhoneNumber: PhoneNumber | null
   vaHealthConnectPhoneNumber: string | null
   relatedLinks: FormattedRelatedLinks
   locationServices: Array<{
@@ -48,7 +55,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
 }
 
 /** Represents the "single" object containing service-related fields. */
-interface VamcFacilityServiceLocation {
+export interface VamcFacilityServiceLocation {
   /** Type of office visits supported (e.g., "no", "yes_appointment_only"). */
   fieldOfficeVisits?: string
   /** Type of virtual support available (e.g., "yes_veterans_can_call"). */
@@ -57,12 +64,20 @@ interface VamcFacilityServiceLocation {
   fieldApptIntroTextType?: 'remove_text' | 'customize_text' | 'use_default_text'
   /** Custom appointment intro text (if applicable). */
   fieldApptIntroTextCustom?: string
-  /** Array of additional phone numbers for appointments or contact. */
-  fieldOtherPhoneNumbers?: PhoneNumber[]
+  /**
+   * Array of additional phone numbers for appointments or contact.
+   *
+   * Comes from `location.field_other_phone_numbers`
+   */
+  appointmentPhoneNumbers?: PhoneNumber[]
+  /**
+   * Array of additional contact phone numbers.
+   *
+   * Comes from `location.field_phone`
+   */
+  contactInfoPhoneNumbers?: PhoneNumber[]
   /** Indicates if online scheduling is available ("yes" or others). */
   fieldOnlineSchedulingAvail?: 'yes' | string
-  /** Array of additional contact phone numbers. */
-  fieldPhone?: PhoneNumber[]
   /** Array of email contact objects. */
   fieldEmailContacts?: EmailContact[]
   /**
@@ -85,8 +100,13 @@ interface VamcFacilityServiceLocation {
   fieldServiceLocationAddress?: ParagraphServiceLocationAddress
 }
 
-/** Represents the main input data structure for the service location template. */
-export interface ServiceLocationTemplateData {
+export interface FormattedVAMCFacilityHealthService {
+  /** Name of the service taxonomy for the regional health service. */
+  name: string
+  /** Comes from the service taxonomy of the regional health service. */
+  fieldAlsoKnownAs?: string
+  /** Comes from the service taxonomy of the regional health service. */
+  fieldCommonlyTreatedCondition?: string
   /**
    * Indicates if a referral is required
    *
@@ -101,30 +121,6 @@ export interface ServiceLocationTemplateData {
     | 'not_applicable'
     | 'unknown'
     | string
-  /**
-   * Telephone object for mental health, containing an entity with phone details.
-   * This comes from the top-level VAMC facility.
-   */
-  fieldTelephone?: PhoneNumber
-  /** Optional fallback main phone number. */
-  fieldPhoneNumber?: string
-  /** Flag indicating if the service is a mental health service (true/false). */
-  isMentalHealthService?: boolean
-  /**
-   * Nested object containing many other service-related fields.
-   * TODO: Rename this silly thing (for now, it's just naming parity with the
-   * content build template)
-   */
-  single: VamcFacilityServiceLocation
-}
-
-export interface FormattedVAMCFacilityHealthService {
-  /** Name of the service taxonomy for the regional health service. */
-  name: string
-  /** Comes from the service taxonomy of the regional health service. */
-  fieldAlsoKnownAs?: string
-  /** Comes from the service taxonomy of the regional health service. */
-  fieldCommonlyTreatedCondition?: string
   description?: string
   /** Comes from the service taxonomy of the regional health service. */
   entityId: string | number
@@ -137,8 +133,10 @@ export interface FormattedVAMCFacilityHealthService {
    * This comes from the VAMC System Health Service found at `field_retional`
    */
   fieldBody?: string
+  /** Flag indicating if this is a mental health service */
+  isMentalHealthService?: boolean
   /** Locations associated with this service */
-  locations: ServiceLocationTemplateData[]
+  locations: VamcFacilityServiceLocation[]
   fieldFacilityLocatorApiId?: string
   fieldHealthServiceApiId?: string
   /** Fallback content */

@@ -17,8 +17,14 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { formatter as formatAdministration } from './administration'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '.'
+import {
+  getLovellVariantOfBreadcrumbs,
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--locations_listing.
 export const params: QueryParams<null> = () => {
@@ -39,6 +45,7 @@ type LocationsListingData = {
   mainFacilities: NodeHealthCareLocalFacility[]
   healthClinicFacilities: NodeHealthCareLocalFacility[]
   mobileFacilities: NodeHealthCareLocalFacility[]
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 // Implement the data loader.
 export const data: QueryData<
@@ -87,6 +94,7 @@ export const data: QueryData<
     mainFacilities,
     healthClinicFacilities,
     mobileFacilities,
+    lovell: opts.context?.lovell,
   }
 }
 
@@ -99,7 +107,13 @@ export const formatter: QueryFormatter<
   mainFacilities,
   healthClinicFacilities,
   mobileFacilities,
+  lovell,
 }) => {
+  let { breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
+
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
   // Mobile clinics don't include VA Health Connect phone numbers in production so we add a flag to exclude them
   const formatFacility = (
@@ -110,18 +124,19 @@ export const formatter: QueryFormatter<
     path: facility.path.alias,
     operatingStatusFacility: facility.field_operating_status_facility,
     address: facility.field_address,
-    phoneNumber: facility.field_phone_number,
-    fieldTelephone: facility.field_telephone,
+    mainPhoneString: facility.field_phone_number,
+    mentalHealthPhoneNumber: formatPhone(facility.field_telephone),
     vaHealthConnectPhoneNumber: includeHealthConnect
       ? (entity.field_office.field_va_health_connect_phone ?? null)
       : null,
     image: formatImage(facility.field_media),
   })
 
-  return {
+  const baseResult = {
     ...entityBaseFields(entity),
     administration: formatAdministration(entity.field_administration),
     title: entity.title,
+    breadcrumbs,
     path: entity.field_office.path.alias,
     menu: formattedMenu,
     vamcEhrSystem: entity.field_office.field_vamc_ehr_system,
@@ -135,4 +150,18 @@ export const formatter: QueryFormatter<
       formatFacility(facility, false)
     ),
   }
+
+  // Add Lovell variant information if this is a Lovell page
+  if (lovell?.isLovellVariantPage) {
+    return {
+      ...baseResult,
+      lovellVariant: lovell.variant,
+      lovellSwitchPath: getLovellVariantOfUrl(
+        entity.path.alias,
+        getOppositeChildVariant(lovell.variant)
+      ),
+    }
+  }
+
+  return baseResult
 }

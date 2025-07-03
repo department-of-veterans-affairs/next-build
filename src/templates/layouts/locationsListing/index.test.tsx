@@ -40,9 +40,9 @@ const mockMainFacilities: MinimalLocalFacility[] = [
       postal_code: '60064',
       address_line1: '3001 Green Bay Frontage Rd',
     },
-    phoneNumber: '224-610-3747',
+    mainPhoneString: '224-610-3747',
     vaHealthConnectPhoneNumber: '877-698-7422',
-    fieldTelephone: null,
+    mentalHealthPhoneNumber: null,
     image: null,
   },
 ]
@@ -214,5 +214,66 @@ describe('LocationsListing', () => {
     )
     const footerTestId = screen.getByTestId('content-footer')
     expect(footerTestId).toBeInTheDocument()
+  })
+
+  describe('LovellSwitcher', () => {
+    test('renders LovellSwitcher when Lovell variant is provided', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="Lovell VA Locations"
+          path="/lovell-federal-health-care-va/locations"
+          lovellVariant="va"
+          lovellSwitchPath="/lovell-federal-health-care-tricare/locations"
+        />
+      )
+      const alert = screen.getByText(
+        /you are viewing this page as a va beneficiary/i
+      )
+      expect(alert).toBeInTheDocument()
+    })
+
+    test('does not render LovellSwitcher when Lovell variant is not provided', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="Regular VA Locations"
+          path="/va-locations"
+        />
+      )
+      expect(
+        screen.queryByText(/you are viewing this page as a/i)
+      ).not.toBeInTheDocument()
+    })
+
+    test('renders correct switch text for VA variant', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="Lovell VA Locations"
+          path="/lovell-federal-health-care-va/locations"
+          lovellVariant="va"
+          lovellSwitchPath="/lovell-federal-health-care-tricare/locations"
+        />
+      )
+      expect(
+        screen.getByText(/you are viewing this page as a va beneficiary/i)
+      ).toBeInTheDocument()
+    })
+
+    test('renders correct switch text for TRICARE variant', () => {
+      render(
+        <LocationsListing
+          {...mockBaseProps}
+          title="Lovell TRICARE Locations"
+          path="/lovell-federal-health-care-tricare/locations"
+          lovellVariant="tricare"
+          lovellSwitchPath="/lovell-federal-health-care-va/locations"
+        />
+      )
+      expect(
+        screen.getByText(/you are viewing this page as a tricare beneficiary/i)
+      ).toBeInTheDocument()
+    })
   })
 })
