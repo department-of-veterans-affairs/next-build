@@ -98,7 +98,7 @@ export const ServiceLocation = ({
                 icon={fieldReferralRequired === '1' ? 'check_circle' : 'cancel'}
                 size="3"
                 data-testid="referral-icon"
-              ></va-icon>
+              ></va-icon>{' '}
               {fieldReferralRequired === '1'
                 ? 'A referral is required'
                 : 'A referral is not required'}
