@@ -7,6 +7,7 @@ import VetCenterHealthServices from '@/templates/components/vetCenterHealthServi
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
+import { PhoneNumber } from '@/templates/common/phoneNumber'
 
 export function VetCenter({
   address,
@@ -213,14 +214,11 @@ export function VetCenter({
                       />
                     </div>
 
-                    <h4 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
-                      Direct line
-                    </h4>
-                    <div className="vads-u-margin-bottom--3">
-                      <div className="main-phone vads-u-margin-bottom--1">
-                        <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
-                      </div>
-                    </div>
+                    <PhoneNumber
+                      className="vads-u-margin-y--3"
+                      label="Main phone"
+                      number={phoneNumber}
+                    />
 
                     <Hours
                       headerType="standard"
