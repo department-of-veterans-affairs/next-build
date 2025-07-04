@@ -240,15 +240,19 @@ export function VetCenter({
           {/* Other locations */}
           <div className="vads-u-margin-bottom--3">
             <h3 className="vads-u-font-size--lg vads-u-line-height--1 vads-u-margin-bottom--1">
-              Other Locations
+              Other locations
             </h3>
-            <div>
-              <p className="vads-u-margin-bottom--0 vads-u-line-height--4">
-                Vet Centers are community based to be more accessible in areas
-                where you live.
-              </p>
-              <a href={`${path}/locations`}>View more {title} locations</a>
-            </div>
+            <p>
+              Vet Centers are community based to be more accessible in areas
+              where you live.
+            </p>
+            <p>
+              <va-link
+                active
+                href={`${path}/locations`}
+                text={`View more ${title} locations`}
+              ></va-link>
+            </p>
           </div>
 
           {/* Call Center Information */}
