@@ -171,7 +171,7 @@ export function VetCenter({
               <p>{introText}</p>
             </div>
           )}
-          <va-on-this-page class="vads-u-margin-left--1 vads-u-margin-bottom--0 vads-u-padding-bottom--0"></va-on-this-page>
+          <va-on-this-page></va-on-this-page>
 
           {/* Locations and contact */}
           <h2 id="locations-and-contact-information">
