@@ -50,7 +50,7 @@
     "@department-of-veterans-affairs/web-components": "18.4.0",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@octokit/rest": "^21.0.1",
-    "@storybook/react": "^8.0.5",
+    "@storybook/react": "^9.0.15",
     "@types/react-gtm-module": "^2.0.4",
     "axios": "^1.6.3",
     "chalk": "^5.4.1",
