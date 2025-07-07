@@ -3653,7 +3653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:8.3.5, @storybook/addon-actions@npm:^8.1.11":
+"@storybook/addon-actions@npm:8.3.5":
   version: 8.3.5
   resolution: "@storybook/addon-actions@npm:8.3.5"
   dependencies:
@@ -3665,6 +3665,13 @@ __metadata:
   peerDependencies:
     storybook: ^8.3.5
   checksum: be3a1d3dfc4d550e4a6a0751a345bface9cb0e2b1f3b564266bad1ea7e684bd8e00d6f5245d009fa29d441bded95ed224b8a4155105cb898aef9d2f20e28a187
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-actions@npm:^9.0.8":
+  version: 9.0.8
+  resolution: "@storybook/addon-actions@npm:9.0.8"
+  checksum: 3c5ad1ea7cfe80064aa55ff332c6f2849269520a84ce28b0ca36263ac45710ed9a0983d6f244d562425bc8d8d33400715f61f10303b5fd5e6a6b8183066deb0d
   languageName: node
   linkType: hard
 
@@ -13769,7 +13776,7 @@ __metadata:
     "@octokit/rest": ^21.0.1
     "@playwright/test": ^1.46.1
     "@storybook/addon-a11y": ^8.1.1
-    "@storybook/addon-actions": ^8.1.11
+    "@storybook/addon-actions": ^9.0.8
     "@storybook/addon-essentials": ^8.0.5
     "@storybook/addon-interactions": ^8.0.9
     "@storybook/addon-links": ^9.0.10
