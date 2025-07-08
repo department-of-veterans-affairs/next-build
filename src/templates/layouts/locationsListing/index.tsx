@@ -111,7 +111,7 @@ export function LocationsListing({
                     </h2>
                     <div
                       data-widget-type="other-facility-locations-list"
-                      data-facilities={JSON.stringify(otherVaLocationIds)}
+                      data-facilities={otherVaLocationIds.join(',')}
                     />
                   </>
                 )}
