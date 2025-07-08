@@ -220,4 +220,19 @@ describe('VetCenter with valid data', () => {
     expect(screen.queryByText(/1010 Delafield Road/)).toBeInTheDocument()
     expect(screen.queryByText(/In the spotlight/)).toBeInTheDocument()
   })
+
+  test('renders ExpandableOperatingStatus when operating status is provided', () => {
+    const testDataWithOperatingStatus = {
+      ...mockData,
+      operatingStatusFacility: 'limited' as const,
+      operatingStatusMoreInfo: 'Limited hours due to maintenance',
+    }
+
+    const { container } = render(<VetCenter {...testDataWithOperatingStatus} />)
+
+    expect(container.querySelector('va-alert-expandable')).toBeInTheDocument()
+    expect(
+      screen.getByText('Limited hours due to maintenance')
+    ).toBeInTheDocument()
+  })
 })
