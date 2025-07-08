@@ -239,9 +239,7 @@ export function VetCenter({
 
           {/* Other locations */}
           <div className="vads-u-margin-bottom--3">
-            <h3 className="vads-u-font-size--lg vads-u-line-height--1 vads-u-margin-bottom--1">
-              Other locations
-            </h3>
+            <h3>Other locations</h3>
             <p>
               Vet Centers are community based to be more accessible in areas
               where you live.
