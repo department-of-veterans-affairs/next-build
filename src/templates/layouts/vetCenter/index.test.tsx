@@ -220,4 +220,22 @@ describe('VetCenter with valid data', () => {
     expect(screen.queryByText(/1010 Delafield Road/)).toBeInTheDocument()
     expect(screen.queryByText(/In the spotlight/)).toBeInTheDocument()
   })
+
+  test('renders phone number with standardized PhoneNumber component', () => {
+    render(<VetCenter {...mockData} />)
+
+    // Check that the phone number is displayed with "Main phone" label
+    expect(screen.getByText(/Main phone:/)).toBeInTheDocument()
+
+    // Check that the phone number is rendered using the va-telephone component
+    const phoneElement = screen.getByTestId('phone')
+    expect(phoneElement).toBeInTheDocument()
+
+    // Check that the va-telephone component is present
+    const vaTelephoneElement = document.querySelector('va-telephone')
+    expect(vaTelephoneElement).toBeInTheDocument()
+
+    // Verify the contact attribute contains the phone number without dashes
+    expect(vaTelephoneElement?.getAttribute('contact')).toBe('1234567890')
+  })
 })
