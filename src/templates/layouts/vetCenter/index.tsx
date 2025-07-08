@@ -8,6 +8,7 @@ import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
 import { ExpandableOperatingStatus } from './ExpandableOperatingStatus'
+import { PhoneNumber } from '@/templates/common/phoneNumber'
 
 export function VetCenter({
   address,
@@ -157,15 +158,28 @@ export function VetCenter({
     )
   }
 
+  const alsoCalled =
+    officialName && title !== officialName
+      ? `Also called the ${officialName}`
+      : null
+  const alsoCalledId = 'vet-center-title'
+
   return (
     <div className="usa-grid usa-grid-full">
       <div className="usa-width-three-fourths">
         <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
           {title && (
             <>
-              <h1 aria-describedby="vet-center-title">{title}</h1>
-              {officialName && title !== officialName && (
-                <p id="vet-center-title">Also called the {officialName}</p>
+              <h1 aria-describedby={alsoCalled ? alsoCalledId : undefined}>
+                {title}
+              </h1>
+              {alsoCalled && (
+                <p
+                  id={alsoCalledId}
+                  className="vads-u-font-family--serif vads-u-font-size--lg vads-u-font-weight--bold"
+                >
+                  {alsoCalled}
+                </p>
               )}
             </>
           )}
@@ -174,7 +188,7 @@ export function VetCenter({
               <p>{introText}</p>
             </div>
           )}
-          <va-on-this-page class="vads-u-margin-left--1 vads-u-margin-bottom--0 vads-u-padding-bottom--0"></va-on-this-page>
+          <va-on-this-page></va-on-this-page>
 
           {/* Locations and contact */}
           <h2 id="locations-and-contact-information">
@@ -188,8 +202,8 @@ export function VetCenter({
               <div>
                 <div className="vads-c-facility-detail">
                   <section className="vads-facility-detail">
-                    <h3 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
-                      Main Location
+                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--2p5">
+                      Main location
                     </h3>
 
                     <ExpandableOperatingStatus
@@ -198,27 +212,29 @@ export function VetCenter({
                     />
 
                     <div className="vads-u-margin-bottom--3">
-                      <address>
-                        <div>{address.address_line1}</div>
-                        {address.address_line2 && (
-                          <div>{address.address_line2}</div>
-                        )}
-                        <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
-                      </address>
-                      <GoogleMapsDirections
-                        address={directionsString}
-                        location={title}
-                      />
+                      <p className="vads-u-font-weight--bold vads-u-margin-bottom--0p5">
+                        Address
+                      </p>
+                      <p className="vads-u-margin--0">
+                        <address>
+                          <div>{address.address_line1}</div>
+                          {address.address_line2 && (
+                            <div>{address.address_line2}</div>
+                          )}
+                          <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
+                        </address>
+                        <GoogleMapsDirections
+                          address={directionsString}
+                          location={title}
+                        />
+                      </p>
                     </div>
 
-                    <h4 className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
-                      Direct line
-                    </h4>
-                    <div className="vads-u-margin-bottom--3">
-                      <div className="main-phone vads-u-margin-bottom--1">
-                        <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
-                      </div>
-                    </div>
+                    <PhoneNumber
+                      className="vads-u-margin-y--3"
+                      label="Main phone"
+                      number={phoneNumber}
+                    />
 
                     <Hours
                       headerType="standard"
@@ -237,16 +253,18 @@ export function VetCenter({
 
           {/* Other locations */}
           <div className="vads-u-margin-bottom--3">
-            <h3 className="vads-u-font-size--lg vads-u-line-height--1 vads-u-margin-bottom--1">
-              Other Locations
-            </h3>
-            <div>
-              <p className="vads-u-margin-bottom--0 vads-u-line-height--4">
-                Vet Centers are community based to be more accessible in areas
-                where you live.
-              </p>
-              <a href={`${path}/locations`}>View more {title} locations</a>
-            </div>
+            <h3>Other locations</h3>
+            <p>
+              Vet Centers are community based to be more accessible in areas
+              where you live.
+            </p>
+            <p>
+              <va-link
+                active
+                href={`${path}/locations`}
+                text={`View more ${title} locations`}
+              ></va-link>
+            </p>
           </div>
 
           {/* Call Center Information */}
