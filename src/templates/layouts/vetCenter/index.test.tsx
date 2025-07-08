@@ -300,7 +300,7 @@ describe('VetCenter with valid data', () => {
       expect(heading).not.toHaveAttribute('aria-describedby')
     })
 
-    test('handles case where title is null but officialName exists', () => {
+    test('does not render "Also called" when title is null but officialName exists', () => {
       const dataWithNullTitle = {
         ...mockData,
         title: null,
