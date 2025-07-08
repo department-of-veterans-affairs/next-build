@@ -1,4 +1,3 @@
-import { before } from 'node:test'
 import { isBot, canInitDatadog } from './canInitDatadog'
 
 describe('isBot', () => {
@@ -14,24 +13,30 @@ describe('isBot', () => {
   })
 })
 
-describe('canInitDatadog No Env Vars', () => {
-  // Clear environment variables
-  before(() => {
+describe('canInitDatadog', () => {
+  beforeEach(() => {
+    // Setup environment variables
+    process.env.NEXT_PUBLIC_DATADOG_RUM_APP_ID = 'test-app-id'
+    process.env.NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN = 'test-client-token'
+    process.env.NEXT_PUBLIC_DATADOG_RUM_SERVICE = 'test'
+    process.env.NEXT_PUBLIC_BUILD_TYPE = 'test'
+    process.env.NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE = '10'
+  })
+
+  afterEach(() => {
+    // Clean up environment variables
     delete process.env.NEXT_PUBLIC_DATADOG_RUM_APP_ID
     delete process.env.NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN
     delete process.env.NEXT_PUBLIC_DATADOG_RUM_SERVICE
+    delete process.env.NEXT_PUBLIC_BUILD_TYPE
+    delete process.env.NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE
   })
-  it('should return false if no environment variables are set', () => {
-    expect(canInitDatadog()).toBe(false)
-  })
-})
 
-describe('canInitDatadog', () => {
-  // Mock environment variables
-  beforeAll(() => {
-    process.env.NEXT_PUBLIC_DATADOG_RUM_APP_ID = 'test'
-    process.env.NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN = 'test'
-    process.env.NEXT_PUBLIC_DATADOG_RUM_SERVICE = 'test'
+  it('should return false if no environment variables are set', () => {
+    delete process.env.NEXT_PUBLIC_DATADOG_RUM_APP_ID
+    delete process.env.NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN
+
+    expect(canInitDatadog()).toBe(false)
   })
 
   it('should return false if the user agent is a bot', () => {
@@ -39,7 +44,7 @@ describe('canInitDatadog', () => {
     expect(canInitDatadog(botUserAgent)).toBe(false)
   })
 
-  it('should return true if the user agent is not a bot', () => {
+  it('should return true if the user agent is not a bot and all required env vars are set', () => {
     const normalUserAgent = {
       agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
     }
