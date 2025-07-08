@@ -174,6 +174,7 @@ describe('LocationsListing formatData', () => {
         },
       },
     ],
+    otherVaLocationIds: [],
   }
 
   test('outputs formatted data', () => {
@@ -232,6 +233,7 @@ describe('LocationsListing formatData', () => {
           isLovellVariantPage: true,
           variant: 'va' as const,
         },
+        otherVaLocationIds: [],
       }
 
       const result = queries.formatData(
@@ -291,6 +293,7 @@ describe('LocationsListing formatData', () => {
           isLovellVariantPage: true,
           variant: 'va' as const,
         },
+        otherVaLocationIds: [],
       }
 
       const result = queries.formatData(
@@ -312,6 +315,7 @@ describe('LocationsListing formatData', () => {
         mainFacilities: [],
         healthClinicFacilities: [],
         mobileFacilities: [],
+        otherVaLocationIds: [],
       }
 
       const result = queries.formatData(
