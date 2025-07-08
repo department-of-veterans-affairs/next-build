@@ -36,23 +36,20 @@ export const ExpandableOperatingStatus = ({
   const statusAlert = statusAlerts[operatingStatusFlag]
   if (statusAlert) {
     const { status, text } = statusAlert
-    const style = { maxWidth: '303px' }
 
     const alert = operatingStatusMoreInfo ? (
       <VaAlertExpandable
         trigger={text}
         status={status}
-        className="vads-u-margin-y--0 vamc-facility-expandable-alert"
-        style={style}
+        className="vads-u-margin-y--0 vamc-facility-expandable-alert vads-u-measure--1"
       >
         <p dangerouslySetInnerHTML={{ __html: operatingStatusMoreInfo }} />
       </VaAlertExpandable>
     ) : (
       <VaAlert
         status={status}
-        className="vads-u-margin-y--0"
+        className="vads-u-margin-y--0 vads-u-measure--1"
         slim
-        style={style}
       >
         <p className="vads-u-margin-y--0 vads-u-padding-y--0 vads-u-font-weight--bold">
           {text}
