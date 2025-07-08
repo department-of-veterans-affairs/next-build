@@ -41,7 +41,7 @@ export const ExpandableOperatingStatus = ({
         className="vads-u-margin-y--0 vamc-facility-expandable-alert"
         style={style}
       >
-        <p>{operatingStatusMoreInfo}</p>
+        <p dangerouslySetInnerHTML={{ __html: operatingStatusMoreInfo }} />
       </va-alert-expandable>
     ) : (
       <va-alert
