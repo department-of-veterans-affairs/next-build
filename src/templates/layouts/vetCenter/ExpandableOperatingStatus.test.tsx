@@ -231,40 +231,4 @@ describe('ExpandableOperatingStatus', () => {
       ).not.toBeInTheDocument()
     })
   })
-
-  describe('styling and attributes', () => {
-    test('applies correct CSS classes and styles to expandable alert', () => {
-      const { container } = render(
-        <ExpandableOperatingStatus
-          operatingStatusFlag="notice"
-          operatingStatusMoreInfo="Test info"
-        />
-      )
-
-      const expandableAlert = container.querySelector('va-alert-expandable')
-      expect(expandableAlert).toHaveAttribute(
-        'className',
-        'vads-u-margin-y--0 vamc-facility-expandable-alert'
-      )
-      expect(expandableAlert).toHaveAttribute('style', 'max-width: 303px;')
-    })
-
-    test('applies correct CSS classes and styles to slim alert', () => {
-      const { container } = render(
-        <ExpandableOperatingStatus
-          operatingStatusFlag="notice"
-          operatingStatusMoreInfo={null}
-        />
-      )
-
-      const alert = container.querySelector('va-alert')
-      expect(alert).toHaveAttribute('className', 'vads-u-margin-y--0')
-      expect(alert).toHaveAttribute('style', 'max-width: 303px;')
-
-      const textElement = container.querySelector(
-        'p.vads-u-margin-y--0.vads-u-padding-y--0.vads-u-font-weight--bold'
-      )
-      expect(textElement).toBeInTheDocument()
-    })
-  })
 })

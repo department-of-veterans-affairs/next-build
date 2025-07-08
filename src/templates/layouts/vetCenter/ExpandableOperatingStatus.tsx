@@ -1,4 +1,8 @@
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
+import {
+  VaAlert,
+  VaAlertExpandable,
+} from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 
 const statusAlerts: Record<
   FacilityOperatingStatusFlags,
@@ -35,16 +39,16 @@ export const ExpandableOperatingStatus = ({
     const style = { maxWidth: '303px' }
 
     const alert = operatingStatusMoreInfo ? (
-      <va-alert-expandable
+      <VaAlertExpandable
         trigger={text}
         status={status}
         className="vads-u-margin-y--0 vamc-facility-expandable-alert"
         style={style}
       >
         <p dangerouslySetInnerHTML={{ __html: operatingStatusMoreInfo }} />
-      </va-alert-expandable>
+      </VaAlertExpandable>
     ) : (
-      <va-alert
+      <VaAlert
         status={status}
         className="vads-u-margin-y--0"
         slim
@@ -53,7 +57,7 @@ export const ExpandableOperatingStatus = ({
         <p className="vads-u-margin-y--0 vads-u-padding-y--0 vads-u-font-weight--bold">
           {text}
         </p>
-      </va-alert>
+      </VaAlert>
     )
 
     return <div className="vads-u-margin-bottom--1">{alert}</div>
