@@ -166,7 +166,9 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     officialName: entity.field_official_name,
     operatingStatusFacility: entity.field_operating_status_facility,
     operatingStatusMoreInfo: entity.field_operating_status_more_info
-      ? getHtmlFromDrupalContent(entity.field_operating_status_more_info)
+      ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
+          convertNewlines: true,
+        })
       : null,
     phoneNumber: entity.field_phone_number,
     timezone: entity.field_timezone,

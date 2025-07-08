@@ -1,4 +1,7 @@
-import { getHtmlFromDrupalContent } from './getHtmlFromDrupalContent'
+import {
+  getHtmlFromDrupalContent,
+  GetHtmlFromDrupalContentOptions,
+} from './getHtmlFromDrupalContent'
 
 describe('getHtmlFromDrupalContent', () => {
   test('should apply createPhoneLinks transformation', () => {
@@ -23,16 +26,28 @@ describe('getHtmlFromDrupalContent', () => {
     expect(result).toBe('<a href="/files/document.pdf">Document</a>')
   })
 
-  test('should apply newlinesToBr transformation', () => {
+  test('should apply newlinesToBr transformation when convertNewlines is true', () => {
+    const input = 'Line 1\nLine 2\nLine 3'
+    const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
+    expect(result).toBe('Line 1<br>Line 2<br>Line 3')
+  })
+
+  test('should not convert newlines when convertNewlines is false', () => {
+    const input = 'Line 1\nLine 2\nLine 3'
+    const result = getHtmlFromDrupalContent(input, { convertNewlines: false })
+    expect(result).toBe('Line 1\nLine 2\nLine 3')
+  })
+
+  test('should not convert newlines when no options provided', () => {
     const input = 'Line 1\nLine 2\nLine 3'
     const result = getHtmlFromDrupalContent(input)
-    expect(result).toBe('Line 1<br>Line 2<br>Line 3')
+    expect(result).toBe('Line 1\nLine 2\nLine 3')
   })
 
   test('should apply all transformations in sequence', () => {
     const input =
       'Call 555-123-4567\nVisit <a href="https://va.gov/sites/default/files/info.pdf">this file</a>\nFor more info'
-    const result = getHtmlFromDrupalContent(input)
+    const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
 
     // Should contain phone link
     expect(result).toContain(
@@ -59,7 +74,7 @@ describe('getHtmlFromDrupalContent', () => {
   test('should handle complex content with all transformation types', () => {
     const input =
       'Contact: 555-123-4567\nDownload: <a href="https://va.gov/sites/default/files/form.pdf">Form</a>\nImage: <a href="https://va.gov/sites/default/files/photo.jpg">Photo</a>\nThank you!'
-    const result = getHtmlFromDrupalContent(input)
+    const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
 
     // Check phone number transformation
     expect(result).toContain(
@@ -82,13 +97,13 @@ describe('getHtmlFromDrupalContent', () => {
 
   test('should handle mixed newline patterns', () => {
     const input = 'Start\n\nMiddle\n\n\nEnd'
-    const result = getHtmlFromDrupalContent(input)
+    const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
     expect(result).toBe('Start<br><br>Middle<br><br><br>End')
   })
 
   test('should preserve existing HTML while adding transformations', () => {
     const input = '<p>Call 555-123-4567</p>\n<div>More content</div>'
-    const result = getHtmlFromDrupalContent(input)
+    const result = getHtmlFromDrupalContent(input, { convertNewlines: true })
 
     // Should preserve HTML tags
     expect(result).toContain('<p>')
@@ -103,5 +118,20 @@ describe('getHtmlFromDrupalContent', () => {
 
     // Should convert newline to br
     expect(result).toContain('<br>')
+  })
+
+  test('should handle empty options object', () => {
+    const input = 'Line 1\nLine 2'
+    const result = getHtmlFromDrupalContent(input, {})
+    expect(result).toBe('Line 1\nLine 2') // Should not convert newlines
+  })
+
+  test('should handle options with convertNewlines undefined', () => {
+    const input = 'Line 1\nLine 2'
+    const options: GetHtmlFromDrupalContentOptions = {
+      convertNewlines: undefined,
+    }
+    const result = getHtmlFromDrupalContent(input, options)
+    expect(result).toBe('Line 1\nLine 2') // Should not convert newlines when undefined
   })
 })
