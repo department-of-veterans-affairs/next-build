@@ -96,7 +96,7 @@ export function HealthCareLocalFacility({
 
   return (
     <div className="interior">
-      <div className="usa-grid usa-grid-full">
+      <div className="vads-grid-container">
         {/* Nav data fille in by a separate script from `window.sideNav` */}
         <nav aria-label="secondary" data-widget-type="side-nav" />
         <div className="usa-width-three-fourths">
@@ -129,8 +129,8 @@ export function HealthCareLocalFacility({
             >
               Location and contact information
             </h2>
-            <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
-              <div className="usa-width-two-thirds vads-u-padding-right--0p5">
+            <div className="region-list vads-grid-container vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
+              <div className="vads-grid-col-8 vads-u-padding-right--0p5">
                 <div>
                   <OperatingStatusFlags
                     operatingStatusFacility={operatingStatusFacility}
