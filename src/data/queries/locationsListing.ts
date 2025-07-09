@@ -46,6 +46,7 @@ type LocationsListingData = {
   healthClinicFacilities: NodeHealthCareLocalFacility[]
   mobileFacilities: NodeHealthCareLocalFacility[]
   lovell?: ExpandedStaticPropsContext['lovell']
+  otherVaLocationIds: string[]
 }
 // Implement the data loader.
 export const data: QueryData<
@@ -88,6 +89,7 @@ export const data: QueryData<
   const healthClinicFacilities = allFacilities.filter(
     (f) => !f.field_main_location && !f.field_mobile
   )
+  const otherVaLocationIds = entity.field_office.field_other_va_locations
   return {
     entity,
     menu,
@@ -95,6 +97,7 @@ export const data: QueryData<
     healthClinicFacilities,
     mobileFacilities,
     lovell: opts.context?.lovell,
+    otherVaLocationIds,
   }
 }
 
@@ -108,6 +111,7 @@ export const formatter: QueryFormatter<
   healthClinicFacilities,
   mobileFacilities,
   lovell,
+  otherVaLocationIds,
 }) => {
   let { breadcrumbs } = entity
   if (lovell?.isLovellVariantPage) {
@@ -149,6 +153,7 @@ export const formatter: QueryFormatter<
     mobileFacilities: mobileFacilities.map((facility) =>
       formatFacility(facility, false)
     ),
+    otherVaLocationIds,
   }
 
   // Add Lovell variant information if this is a Lovell page

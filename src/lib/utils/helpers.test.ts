@@ -9,6 +9,7 @@ import {
   escape,
   numToWord,
   formatDate,
+  newlinesToBr,
 } from './helpers'
 
 describe('truncateWordsOrChar', () => {
@@ -308,5 +309,49 @@ describe('formatDate', () => {
   test('handles invalid inputs', () => {
     expect(() => formatDate('invalid-date')).not.toThrow()
     expect(formatDate('invalid-date')).toBe('Invalid Date')
+  })
+})
+
+describe('newlinesToBr', () => {
+  test('should convert single newline to <br> tag', () => {
+    const input = 'Line 1\nLine 2'
+    const result = newlinesToBr(input)
+    expect(result).toBe('Line 1<br>Line 2')
+  })
+
+  test('should convert multiple newlines to multiple <br> tags', () => {
+    const input = 'Line 1\nLine 2\nLine 3'
+    const result = newlinesToBr(input)
+    expect(result).toBe('Line 1<br>Line 2<br>Line 3')
+  })
+
+  test('should convert consecutive newlines to consecutive <br> tags', () => {
+    const input = 'Line 1\n\nLine 3'
+    const result = newlinesToBr(input)
+    expect(result).toBe('Line 1<br><br>Line 3')
+  })
+
+  test('should handle empty string', () => {
+    const input = ''
+    const result = newlinesToBr(input)
+    expect(result).toBe('')
+  })
+
+  test('should handle string without newlines', () => {
+    const input = 'No newlines here'
+    const result = newlinesToBr(input)
+    expect(result).toBe('No newlines here')
+  })
+
+  test('should handle newlines at the beginning and end', () => {
+    const input = '\nMiddle line\n'
+    const result = newlinesToBr(input)
+    expect(result).toBe('<br>Middle line<br>')
+  })
+
+  test('should handle only newlines', () => {
+    const input = '\n\n\n'
+    const result = newlinesToBr(input)
+    expect(result).toBe('<br><br><br>')
   })
 })

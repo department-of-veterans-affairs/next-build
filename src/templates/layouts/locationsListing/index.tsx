@@ -23,6 +23,7 @@ export function LocationsListing({
   mobileFacilities,
   lovellVariant,
   lovellSwitchPath,
+  otherVaLocationIds,
 }: LovellStaticPropsResource<FormattedLocationsListing>) {
   useEffect(() => {
     window.sideNav = menu
@@ -101,13 +102,20 @@ export function LocationsListing({
                       ))}
                     </>
                   )}
-                  <h2
-                    className="tablet:vads-u-margin-bottom--4"
-                    id="other-nearby-va-locations"
-                  >
-                    Other nearby VA locations
-                  </h2>
-                  <div>TODO: Data widget for other VA locations</div>
+                  {otherVaLocationIds.length > 0 && (
+                    <>
+                      <h2
+                        className="tablet:vads-u-margin-bottom--4"
+                        id="other-nearby-va-locations"
+                      >
+                        Other nearby VA locations
+                      </h2>
+                      <div
+                        data-widget-type="other-facility-locations-list"
+                        data-facilities={otherVaLocationIds.join(',')}
+                      />
+                    </>
+                  )}
                 </section>
 
                 <va-back-to-top />

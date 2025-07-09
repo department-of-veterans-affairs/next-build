@@ -7,6 +7,7 @@ import VetCenterHealthServices from '@/templates/components/vetCenterHealthServi
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
+import { ExpandableOperatingStatus } from './ExpandableOperatingStatus'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 
 export function VetCenter({
@@ -19,6 +20,8 @@ export function VetCenter({
   introText,
   officeHours,
   officialName,
+  operatingStatusFacility,
+  operatingStatusMoreInfo,
   phoneNumber,
   healthServices,
   counselingHealthServices,
@@ -203,15 +206,10 @@ export function VetCenter({
                       Main location
                     </h3>
 
-                    {/* For the ExpandableOperatingStatus widget in vets-website */}
-
-                    {/* TODO: potential change to the vets-website widget to not use facilityId as a prop on div */}
-                    {/* <div
-                      data-widget-type={`expandable-operating-status-${fieldFacilityLocatorApiId}`}
-                      facilityId={fieldFacilityLocatorApiId}
-                      status={operatingStatusFacility}
-                      info={operatingStatusMoreInfo}
-                    /> */}
+                    <ExpandableOperatingStatus
+                      operatingStatusFlag={operatingStatusFacility}
+                      operatingStatusMoreInfo={operatingStatusMoreInfo}
+                    />
 
                     <div className="vads-u-margin-bottom--3">
                       <p className="vads-u-font-weight--bold vads-u-margin-bottom--0p5">

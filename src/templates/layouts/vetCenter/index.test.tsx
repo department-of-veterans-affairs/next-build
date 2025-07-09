@@ -314,6 +314,21 @@ describe('VetCenter with valid data', () => {
     })
   })
 
+  test('renders ExpandableOperatingStatus when operating status is provided', () => {
+    const testDataWithOperatingStatus = {
+      ...mockData,
+      operatingStatusFacility: 'limited' as const,
+      operatingStatusMoreInfo: 'Limited hours due to maintenance',
+    }
+
+    const { container } = render(<VetCenter {...testDataWithOperatingStatus} />)
+
+    expect(container.querySelector('va-alert-expandable')).toBeInTheDocument()
+    expect(
+      screen.getByText('Limited hours due to maintenance')
+    ).toBeInTheDocument()
+  })
+
   test('renders phone number with standardized PhoneNumber component', () => {
     render(<VetCenter {...mockData} />)
 
