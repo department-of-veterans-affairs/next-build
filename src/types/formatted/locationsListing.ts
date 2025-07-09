@@ -28,4 +28,5 @@ export type LocationsListing = PublishedEntity & {
   mobileFacilities: MinimalLocalFacility[]
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
+  otherVaLocationIds: string[]
 }
