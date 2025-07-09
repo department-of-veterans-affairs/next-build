@@ -204,6 +204,15 @@ describe('LocationsListing formatData', () => {
     expect(Array.isArray(formatted.mainFacilities)).toBe(true)
   })
 
+  test('includes otherVaLocationIds array', () => {
+    const formatted = queries.formatData(
+      'node--locations_listing',
+      formattedInput
+    )
+    expect(formatted.otherVaLocationIds).toBeDefined()
+    expect(Array.isArray(formatted.otherVaLocationIds)).toBe(true)
+  })
+
   test('outputs formatted data via getData', async () => {
     expect(
       await queries.getData(RESOURCE_TYPES.LOCATIONS_LISTING, {
