@@ -1,6 +1,8 @@
 import { FieldFormattedText } from '@/types/drupal/field_type'
-import { drupalToVaPath } from './helpers'
-import { createPhoneLinks } from './createPhoneLinks'
+import {
+  getHtmlFromDrupalContent,
+  GetHtmlFromDrupalContentOptions,
+} from './getHtmlFromDrupalContent'
 
 /**
  * Extract the processed HTML from a FieldFormattedText field and apply filters.
@@ -8,10 +10,6 @@ import { createPhoneLinks } from './createPhoneLinks'
  * Return the HTML string after processing.
  */
 export const getHtmlFromField = (
-  formattedTextField?: Pick<FieldFormattedText, 'processed'>
-) => {
-  return [createPhoneLinks, drupalToVaPath].reduce(
-    (contentToTransform, transformFn) => transformFn(contentToTransform),
-    formattedTextField?.processed ?? ''
-  )
-}
+  formattedTextField?: Pick<FieldFormattedText, 'processed'>,
+  options?: GetHtmlFromDrupalContentOptions
+) => getHtmlFromDrupalContent(formattedTextField?.processed ?? '', options)

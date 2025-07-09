@@ -11,6 +11,7 @@ import { MediaImage as FormattedMediaImage } from './media'
 import { AccordionItem as FormattedAccordionItem } from './accordion'
 import { Wysiwyg as FormattedWysiwyg } from './wysiwyg'
 import { QaSection as PublishedQaSection } from './qaSection'
+import { FacilityOperatingStatusFlags } from '../drupal/node'
 
 export type VetCenter = PublishedEntity & {
   address: FieldAddress
@@ -22,7 +23,7 @@ export type VetCenter = PublishedEntity & {
   lastSavedByAnEditor: string | null
   officeHours: FieldOfficeHours[]
   officialName: string
-  operatingStatusFacility: string
+  operatingStatusFacility: FacilityOperatingStatusFlags
   operatingStatusMoreInfo: string | null
   phoneNumber: string
   timezone: string

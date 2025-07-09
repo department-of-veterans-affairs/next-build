@@ -154,3 +154,10 @@ export const numToWord = (num) => {
       (num % 10 ? '-' + belowTwenty[(num % 10) - 1] : '')
     )
 }
+
+/**
+ * Convert newline characters to HTML <br> tags.
+ */
+export const newlinesToBr = (content: string): string => {
+  return content.replace(/\n/g, '<br>')
+}
