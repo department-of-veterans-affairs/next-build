@@ -131,7 +131,7 @@ export function HealthCareLocalFacility({
                 Location and contact information
               </h2>
               <div className="region-list vads-grid-container vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
-                <div className="vads-grid-col-8 vads-u-padding-right--0p5">
+                <div className="mobile-lg:vads-grid-col-8 vads-u-padding-right--0p5">
                   <div>
                     <OperatingStatusFlags
                       operatingStatusFacility={operatingStatusFacility}
