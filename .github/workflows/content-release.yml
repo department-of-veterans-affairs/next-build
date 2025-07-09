@@ -131,7 +131,11 @@ jobs:
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
         APP_ENV: ${{ inputs.build_type || 'prod' }}
-
+        NEXT_PUBLIC_DATADOG_RUM_APP_ID: ${{ secrets.NEXT_PUBLIC_DATADOG_RUM_APP_ID }}
+        NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN: ${{ secrets.NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN }}
+        NEXT_PUBLIC_DATADOG_RUM_SERVICE: ${{ secrets.NEXT_PUBLIC_DATADOG_RUM_SERVICE }}
+        NEXT_PUBLIC_BUILD_TYPE: ${{ inputs.build_type || 'prod' }}
+        NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE: ${{ secrets.NEXT_PUBLIC_DATADOG_RUM_SESSION_SAMPLE_RATE }}
 
       ports:
         - 80
