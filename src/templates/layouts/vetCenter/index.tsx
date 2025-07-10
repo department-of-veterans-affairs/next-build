@@ -249,6 +249,18 @@ export function VetCenter({
             />
           </div>
 
+          {/* Call Center Information */}
+          {ccVetCenterCallCenter && (
+            <div className="vads-u-margin-bottom--2">
+              <AlertBlock
+                alertType="info"
+                id="field-cc-vet-call-center"
+                title="Need help after hours?"
+                content={ccVetCenterCallCenter}
+              />
+            </div>
+          )}
+
           {/* Other locations */}
           <div className="vads-u-margin-bottom--3">
             <h2>Other locations</h2>
@@ -264,18 +276,6 @@ export function VetCenter({
               ></va-link>
             </p>
           </div>
-
-          {/* Call Center Information */}
-          {ccVetCenterCallCenter && (
-            <div className="vads-u-margin-bottom--2">
-              <AlertBlock
-                alertType="info"
-                id="field-cc-vet-call-center"
-                title="Need help after hours?"
-                content={ccVetCenterCallCenter}
-              />
-            </div>
-          )}
 
           {/* Prepare for Your Visit */}
           {prepareForVisit && prepareForVisit.length > 0 && (
