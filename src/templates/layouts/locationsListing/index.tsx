@@ -31,95 +31,97 @@ export function LocationsListing({
   return (
     <div className="interior">
       <main className="va-l-detail-page va-facility-page">
-        <div className="usa-grid usa-grid-full">
+        <div className="vads-grid-container">
           {/* Sidebar Navigation */}
           <nav aria-label="secondary" data-widget-type="side-nav" />
           {/* Main Content */}
-          <div className="usa-width-three-fourths">
-            <article className="usa-content">
-              <LovellSwitcher
-                currentVariant={lovellVariant}
-                switchPath={lovellSwitchPath}
-              />
+          <div className="vads-grid-row">
+            <div className="vads-grid-col-12">
+              <article className="usa-content">
+                <LovellSwitcher
+                  currentVariant={lovellVariant}
+                  switchPath={lovellSwitchPath}
+                />
 
-              <h1 className="vads-u-margin-bottom--3p5">{title}</h1>
-              <RegionalTopTasks
-                path={path}
-                administration={administration}
-                vamcEhrSystem={vamcEhrSystem}
-              />
-              <section className="locations clearfix">
-                {mainFacilities.length > 0 && (
-                  <>
-                    <h2
-                      className="vads-u-margin-top--1p5 medium-screen:vads-u-margin-top--3p5 vads-u-font-size--xl"
-                      id="main-locations"
-                    >
-                      Main locations
-                    </h2>
-                    {mainFacilities.map((facility) => (
-                      <FacilityListing
-                        key={facility.title}
-                        facility={facility}
-                        basePath={path}
+                <h1 className="vads-u-margin-bottom--3p5">{title}</h1>
+                <RegionalTopTasks
+                  path={path}
+                  administration={administration}
+                  vamcEhrSystem={vamcEhrSystem}
+                />
+                <section className="locations clearfix">
+                  {mainFacilities.length > 0 && (
+                    <>
+                      <h2
+                        className="vads-u-margin-top--1p5 tablet:vads-u-margin-top--3p5 vads-u-font-size--xl"
+                        id="main-locations"
+                      >
+                        Main locations
+                      </h2>
+                      {mainFacilities.map((facility) => (
+                        <FacilityListing
+                          key={facility.title}
+                          facility={facility}
+                          basePath={path}
+                        />
+                      ))}
+                    </>
+                  )}
+                  {healthClinicFacilities.length > 0 && (
+                    <>
+                      <h2
+                        className="tablet:vads-u-margin-bottom--4"
+                        id="community-clinic-locations"
+                      >
+                        Health clinic locations
+                      </h2>
+                      {healthClinicFacilities.map((facility) => (
+                        <FacilityListing
+                          key={facility.title}
+                          facility={facility}
+                          basePath={path}
+                        />
+                      ))}
+                    </>
+                  )}
+                  {mobileFacilities.length > 0 && (
+                    <>
+                      <h2
+                        className="tablet:vads-u-margin-bottom--4"
+                        id="mobile-clinic-locations"
+                      >
+                        Mobile clinics
+                      </h2>
+                      {mobileFacilities.map((facility) => (
+                        <FacilityListing
+                          key={facility.title}
+                          facility={facility}
+                          basePath={path}
+                          type="mobile"
+                        />
+                      ))}
+                    </>
+                  )}
+                  {otherVaLocationIds.length > 0 && (
+                    <>
+                      <h2
+                        className="tablet:vads-u-margin-bottom--4"
+                        id="other-nearby-va-locations"
+                      >
+                        Other nearby VA locations
+                      </h2>
+                      <div
+                        data-widget-type="other-facility-locations-list"
+                        data-facilities={otherVaLocationIds.join(',')}
                       />
-                    ))}
-                  </>
-                )}
-                {healthClinicFacilities.length > 0 && (
-                  <>
-                    <h2
-                      className="tablet:vads-u-margin-bottom--4"
-                      id="community-clinic-locations"
-                    >
-                      Health clinic locations
-                    </h2>
-                    {healthClinicFacilities.map((facility) => (
-                      <FacilityListing
-                        key={facility.title}
-                        facility={facility}
-                        basePath={path}
-                      />
-                    ))}
-                  </>
-                )}
-                {mobileFacilities.length > 0 && (
-                  <>
-                    <h2
-                      className="tablet:vads-u-margin-bottom--4"
-                      id="mobile-clinic-locations"
-                    >
-                      Mobile clinics
-                    </h2>
-                    {mobileFacilities.map((facility) => (
-                      <FacilityListing
-                        key={facility.title}
-                        facility={facility}
-                        basePath={path}
-                        type="mobile"
-                      />
-                    ))}
-                  </>
-                )}
-                {otherVaLocationIds.length > 0 && (
-                  <>
-                    <h2
-                      className="medium-screen:vads-u-margin-bottom--4"
-                      id="other-nearby-va-locations"
-                    >
-                      Other nearby VA locations
-                    </h2>
-                    <div
-                      data-widget-type="other-facility-locations-list"
-                      data-facilities={otherVaLocationIds.join(',')}
-                    />
-                  </>
-                )}
-              </section>
+                    </>
+                  )}
+                </section>
 
-              <va-back-to-top />
-              <ContentFooter />
-            </article>
+                <va-back-to-top />
+                <ContentFooter />
+              </article>
+            </div>
           </div>
         </div>
       </main>
