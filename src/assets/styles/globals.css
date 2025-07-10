@@ -20,6 +20,10 @@ body {
   padding-top: 0.78125rem;
 }
 
+va-button#mdFormButton::part(button) {
+  margin-right: 0px;
+}
+
 .feedback-button {
   background-color: var(color-primary);
   font-size: 1rem;

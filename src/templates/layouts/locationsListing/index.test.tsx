@@ -25,6 +25,7 @@ const mockBaseProps = {
   mainFacilities: [],
   healthClinicFacilities: [],
   mobileFacilities: [],
+  otherVaLocationIds: [],
 }
 
 const mockMainFacilities: MinimalLocalFacility[] = [
@@ -275,5 +276,33 @@ describe('LocationsListing', () => {
         screen.getByText(/you are viewing this page as a tricare beneficiary/i)
       ).toBeInTheDocument()
     })
+  })
+
+  test('renders other nearby VA locations section when otherVaLocationIds has values', () => {
+    render(
+      <LocationsListing
+        {...mockBaseProps}
+        title="VA Locations"
+        path="/va-locations"
+        otherVaLocationIds={['123', '456']}
+      />
+    )
+    expect(
+      screen.getByRole('heading', { name: /Other nearby VA locations/i })
+    ).toBeInTheDocument()
+  })
+
+  test('does not render other nearby VA locations section when otherVaLocationIds is empty', () => {
+    render(
+      <LocationsListing
+        {...mockBaseProps}
+        title="VA Locations"
+        path="/va-locations"
+        otherVaLocationIds={[]}
+      />
+    )
+    expect(
+      screen.queryByRole('heading', { name: /Other nearby VA locations/i })
+    ).not.toBeInTheDocument()
   })
 })

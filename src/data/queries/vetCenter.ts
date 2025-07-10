@@ -17,6 +17,7 @@ import { FeaturedContent } from '@/types/formatted/featuredContent'
 import { Button } from '@/types/formatted/button'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -164,7 +165,11 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     officeHours: entity.field_office_hours,
     officialName: entity.field_official_name,
     operatingStatusFacility: entity.field_operating_status_facility,
-    operatingStatusMoreInfo: entity.field_operating_status_more_info ?? null,
+    operatingStatusMoreInfo: entity.field_operating_status_more_info
+      ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
+          convertNewlines: true,
+        })
+      : null,
     phoneNumber: entity.field_phone_number,
     timezone: entity.field_timezone,
     administration: entity.field_administration,

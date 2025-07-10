@@ -25,6 +25,7 @@ declare namespace JSX {
     'va-accordion'
     'va-accordion-item'
     'va-alert'
+    'va-alert-expandable'
     'va-back-to-top'
     'va-breadcrumbs'
     'va-button'

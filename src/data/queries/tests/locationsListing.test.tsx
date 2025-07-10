@@ -174,6 +174,7 @@ describe('LocationsListing formatData', () => {
         },
       },
     ],
+    otherVaLocationIds: [],
   }
 
   test('outputs formatted data', () => {
@@ -201,6 +202,15 @@ describe('LocationsListing formatData', () => {
     )
     expect(formatted.mainFacilities).toBeDefined()
     expect(Array.isArray(formatted.mainFacilities)).toBe(true)
+  })
+
+  test('includes otherVaLocationIds array', () => {
+    const formatted = queries.formatData(
+      'node--locations_listing',
+      formattedInput
+    )
+    expect(formatted.otherVaLocationIds).toBeDefined()
+    expect(Array.isArray(formatted.otherVaLocationIds)).toBe(true)
   })
 
   test('outputs formatted data via getData', async () => {
@@ -232,6 +242,7 @@ describe('LocationsListing formatData', () => {
           isLovellVariantPage: true,
           variant: 'va' as const,
         },
+        otherVaLocationIds: [],
       }
 
       const result = queries.formatData(
@@ -291,6 +302,7 @@ describe('LocationsListing formatData', () => {
           isLovellVariantPage: true,
           variant: 'va' as const,
         },
+        otherVaLocationIds: [],
       }
 
       const result = queries.formatData(
@@ -312,6 +324,7 @@ describe('LocationsListing formatData', () => {
         mainFacilities: [],
         healthClinicFacilities: [],
         mobileFacilities: [],
+        otherVaLocationIds: [],
       }
 
       const result = queries.formatData(
