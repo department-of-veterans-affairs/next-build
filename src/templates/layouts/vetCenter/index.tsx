@@ -198,7 +198,7 @@ export function VetCenter({
             <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
               <div className="vads-c-facility-detail">
                 <section className="vads-facility-detail">
-                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--2p5">
+                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                     Address
                   </h3>
 
@@ -226,9 +226,11 @@ export function VetCenter({
                     />
                   </p>
 
-                  <h3>Phone number</h3>
+                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    Phone number
+                  </h3>
                   <PhoneNumber
-                    className="vads-u-margin-y--3"
+                    className="vads-u-margin-top--0 vads-u-margin-bottom--3"
                     label="Main phone"
                     number={phoneNumber}
                   />
