@@ -189,62 +189,56 @@ export function VetCenter({
 
           {/* Locations and contact */}
           <h2 id="locations-and-contact-information">
-            Locations and contact information
+            Location and contact information
           </h2>
           <div
             className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column
           mobile-lg:vads-u-flex-direction--row facility"
           >
             <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
-              <div>
-                <div className="vads-c-facility-detail">
-                  <section className="vads-facility-detail">
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--2p5">
-                      Main location
-                    </h3>
+              <div className="vads-c-facility-detail">
+                <section className="vads-facility-detail">
+                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--2p5">
+                    Address
+                  </h3>
 
-                    {/* For the ExpandableOperatingStatus widget in vets-website */}
+                  {/* For the ExpandableOperatingStatus widget in vets-website */}
 
-                    {/* TODO: potential change to the vets-website widget to not use facilityId as a prop on div */}
-                    {/* <div
-                      data-widget-type={`expandable-operating-status-${fieldFacilityLocatorApiId}`}
-                      facilityId={fieldFacilityLocatorApiId}
-                      status={operatingStatusFacility}
-                      info={operatingStatusMoreInfo}
-                    /> */}
+                  {/* TODO: potential change to the vets-website widget to not use facilityId as a prop on div */}
+                  {/* <div
+                    data-widget-type={`expandable-operating-status-${fieldFacilityLocatorApiId}`}
+                    facilityId={fieldFacilityLocatorApiId}
+                    status={operatingStatusFacility}
+                    info={operatingStatusMoreInfo}
+                  /> */}
 
-                    <div className="vads-u-margin-bottom--3">
-                      <p className="vads-u-font-weight--bold vads-u-margin-bottom--0p5">
-                        Address
-                      </p>
-                      <p className="vads-u-margin--0">
-                        <address>
-                          <div>{address.address_line1}</div>
-                          {address.address_line2 && (
-                            <div>{address.address_line2}</div>
-                          )}
-                          <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
-                        </address>
-                        <GoogleMapsDirections
-                          address={directionsString}
-                          location={title}
-                        />
-                      </p>
-                    </div>
-
-                    <PhoneNumber
-                      className="vads-u-margin-y--3"
-                      label="Main phone"
-                      number={phoneNumber}
+                  <p className="vads-u-margin--0 vads-u-margin-bottom--3">
+                    <address>
+                      <div>{address.address_line1}</div>
+                      {address.address_line2 && (
+                        <div>{address.address_line2}</div>
+                      )}
+                      <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
+                    </address>
+                    <GoogleMapsDirections
+                      address={directionsString}
+                      location={title}
                     />
+                  </p>
 
-                    <Hours
-                      headerType="standard"
-                      allHours={officeHours}
-                      nonTraditionalMessage={ccNonTraditionalHours}
-                    />
-                  </section>
-                </div>
+                  <h3>Phone number</h3>
+                  <PhoneNumber
+                    className="vads-u-margin-y--3"
+                    label="Main phone"
+                    number={phoneNumber}
+                  />
+
+                  <Hours
+                    headerType="standard"
+                    allHours={officeHours}
+                    nonTraditionalMessage={ccNonTraditionalHours}
+                  />
+                </section>
               </div>
             </div>
             <ImageAndStaticMap
