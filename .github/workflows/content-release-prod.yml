@@ -7,11 +7,8 @@ on:
   schedule:
     # Content release to prod is every 30 minutes between the hours of 8 am - 8 pm ET,
     # with the exception of 3:30 pm ET to allow for CMS deploy.
-    # cron times are UTC
-    # Every 30 minutes, at 12:00 AM through 12:59 AM, 01:00 PM through 7:59 PM, and 09:00 PM through 11:59 PM, Monday through Friday
-    - cron: "*/30 0,13-19,21-23 * * 1-5"
-    # At 08:00 PM, Monday through Friday
-    - cron: "0 20 * * 1-5"
+    - cron: "*/30 12-18,20-23 * * 1-5"
+    - cron: "0 19 * * 1-5"
 
 
   # Runs on API call. Used for CMS-driven build triggers.
