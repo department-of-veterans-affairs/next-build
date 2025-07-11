@@ -18,6 +18,7 @@ export const RESOURCE_TYPES = {
   VAMC_SYSTEM_VA_POLICE: 'node--vamc_system_va_police',
   LEADERSHIP_LISTING: 'node--leadership_listing',
   LOCATIONS_LISTING: 'node--locations_listing',
+  CENTRALIZED_CONTENT: 'node--centralized_content',
 } as const
 
 // (Node) resources that generate full pages.

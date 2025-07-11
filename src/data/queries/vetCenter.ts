@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { queries } from '.'
-import { NodeVetCenter } from '@/types/drupal/node'
+import { NodeCentralizedContent, NodeVetCenter } from '@/types/drupal/node'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import {
   PARAGRAPH_RESOURCE_TYPES,
@@ -11,6 +11,7 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 import {
   entityBaseFields,
+  fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
@@ -19,6 +20,7 @@ import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { DrupalMediaImage } from '@/types/drupal/media'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -43,8 +45,13 @@ export type VetCenterDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+export type VetCenterData = {
+  entity: NodeVetCenter
+  bannerMedia: DrupalMediaImage
+}
+
 // Implement the data loader.
-export const data: QueryData<VetCenterDataOpts, NodeVetCenter> = async (
+export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
   opts
 ): Promise<NodeVetCenter> => {
   const entity = (await fetchSingleEntityOrPreview(
@@ -52,11 +59,20 @@ export const data: QueryData<VetCenterDataOpts, NodeVetCenter> = async (
     RESOURCE_TYPES.VET_CENTER,
     params
   )) as NodeVetCenter
-  return entity
+
+  // field_content_block.field_media.image
+  const centralizedContent = (await fetchAndConcatAllResourceCollectionPages<NodeCentralizedContent>(
+    RESOURCE_TYPES.CENTRALIZED_CONTENT,
+    new DrupalJsonApiParams().addFilter('drupal_internal__nid', '16142').addInclude(['field_content_block.field_media.image']),
+    1
+  )).data[0]
+  const bannerMedia = centralizedContent.field_content_block[0].field_media
+
+  return {entity, bannerMedia}
 }
 
-export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
-  entity: NodeVetCenter
+export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = (
+  {entity, bannerMedia}: VetCenterData
 ) => {
   // format health services / filter per category
   const healthServicesArray = queries.formatData(
@@ -149,6 +165,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
 
   return {
     ...entityBaseFields(entity),
+    bannerImage: queries.formatData('media--image', bannerMedia),
     address: entity.field_address,
     ccNonTraditionalHours: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
