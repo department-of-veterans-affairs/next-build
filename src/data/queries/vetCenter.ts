@@ -18,6 +18,7 @@ import { Button } from '@/types/formatted/button'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -120,7 +121,9 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
         question: question.field_question[0]?.value || null,
         answers: [
           {
-            html: question.field_answer[0]?.field_wysiwyg[0]?.value || null,
+            html:
+              getHtmlFromField(question.field_answer[0]?.field_wysiwyg[0]) ||
+              null,
           },
         ],
         header: question.label || null,
