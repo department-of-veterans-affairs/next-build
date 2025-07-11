@@ -53,27 +53,32 @@ export type VetCenterData = {
 // Implement the data loader.
 export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
   opts
-): Promise<NodeVetCenter> => {
+): Promise<VetCenterData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VET_CENTER,
     params
   )) as NodeVetCenter
 
-  // field_content_block.field_media.image
-  const centralizedContent = (await fetchAndConcatAllResourceCollectionPages<NodeCentralizedContent>(
-    RESOURCE_TYPES.CENTRALIZED_CONTENT,
-    new DrupalJsonApiParams().addFilter('drupal_internal__nid', '16142').addInclude(['field_content_block.field_media.image']),
-    1
-  )).data[0]
-  const bannerMedia = centralizedContent.field_content_block[0].field_media
+  const bannerMediaId =
+    entity.field_vet_center_banner_image.fetched.field_media[0].target_id
+  const bannerMedia = (
+    await fetchAndConcatAllResourceCollectionPages<DrupalMediaImage>(
+      'media--image',
+      new DrupalJsonApiParams()
+        .addFilter('drupal_internal__mid', bannerMediaId)
+        .addInclude(['image']),
+      1
+    )
+  ).data[0]
 
-  return {entity, bannerMedia}
+  return { entity, bannerMedia }
 }
 
-export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = (
-  {entity, bannerMedia}: VetCenterData
-) => {
+export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = ({
+  entity,
+  bannerMedia,
+}: VetCenterData) => {
   // format health services / filter per category
   const healthServicesArray = queries.formatData(
     RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES,
@@ -165,7 +170,6 @@ export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = (
 
   return {
     ...entityBaseFields(entity),
-    bannerImage: queries.formatData('media--image', bannerMedia),
     address: entity.field_address,
     ccNonTraditionalHours: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
@@ -209,6 +213,7 @@ export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = (
     referralHealthServices: referralServicesArray,
     otherHealthServices: otherServicesArray,
     image: queries.formatData('media--image', entity.field_media),
+    bannerImage: queries.formatData('media--image', bannerMedia),
     prepareForVisit: entity.field_prepare_for_visit.map(
       (prepareForVisitItem) => {
         return queries.formatData(

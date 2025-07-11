@@ -19,6 +19,7 @@ export const RESOURCE_TYPES = {
   LEADERSHIP_LISTING: 'node--leadership_listing',
   LOCATIONS_LISTING: 'node--locations_listing',
   CENTRALIZED_CONTENT: 'node--centralized_content',
+  MEDIA: 'media--image',
 } as const
 
 // (Node) resources that generate full pages.
