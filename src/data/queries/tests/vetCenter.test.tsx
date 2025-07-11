@@ -124,5 +124,15 @@ describe('VetCenter formatter function', () => {
       const formattedVetCenter = formatter(mockWithUndefinedFields)
       expect(formattedVetCenter.missionExplainer).toBeNull()
     })
+
+    test('returns null for mission explainer when field_mission_explainer is null', () => {
+      const mockWithNullField = {
+        ...VetCenterMock,
+        field_mission_explainer: null,
+      }
+
+      const formattedVetCenter = formatter(mockWithNullField)
+      expect(formattedVetCenter.missionExplainer).toBeNull()
+    })
   })
 })

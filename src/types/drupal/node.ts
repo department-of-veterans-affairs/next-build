@@ -181,7 +181,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
   field_geolocation: FieldGeoLocation
   field_intro_text: string
-  field_mission_explainer: FieldMissionExplainer
+  field_mission_explainer: FieldMissionExplainer | null
   field_last_saved_by_an_editor?: string
   field_office_hours: FieldOfficeHours[]
   field_official_name: string

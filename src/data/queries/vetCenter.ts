@@ -141,9 +141,9 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
 
   const missionExplainer = {
     heading:
-      entity.field_mission_explainer.fetched.field_magichead_heading[0]?.value,
+      entity.field_mission_explainer?.fetched.field_magichead_heading[0]?.value,
     body: getHtmlFromField(
-      entity.field_mission_explainer.fetched.field_magichead_body[0] ?? null
+      entity.field_mission_explainer?.fetched.field_magichead_body[0] ?? null
     ),
   }
 
