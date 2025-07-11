@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { queries } from '.'
-import { NodeCentralizedContent, NodeVetCenter } from '@/types/drupal/node'
+import { NodeVetCenter } from '@/types/drupal/node'
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import {
   PARAGRAPH_RESOURCE_TYPES,
@@ -60,6 +60,7 @@ export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
     params
   )) as NodeVetCenter
 
+  // Fetch the banner image, which we have a reference to from the centralized content
   const bannerMediaId =
     entity.field_vet_center_banner_image.fetched.field_media[0].target_id
   const bannerMedia = (
