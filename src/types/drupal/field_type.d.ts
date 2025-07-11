@@ -136,6 +136,15 @@ export interface FieldCCText {
   }
 }
 
+export interface FieldMissionExplainer {
+  target_id?: string
+  fetched_bundle: string
+  fetched: {
+    field_magichead_body: FieldFormattedText[]
+    field_magichead_heading: Pick<FieldFormattedText, 'value'>[]
+  }
+}
+
 export type FieldGeoLocation = {
   value: string
   geo_type: string

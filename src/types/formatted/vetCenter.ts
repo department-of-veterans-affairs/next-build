@@ -20,6 +20,10 @@ export type VetCenter = PublishedEntity & {
   ccVetCenterFaqs: PublishedQaSection
   geolocation: FieldGeoLocation
   introText: string
+  missionExplainer: {
+    heading: string
+    body: string
+  }
   lastSavedByAnEditor: string | null
   officeHours: FieldOfficeHours[]
   officialName: string

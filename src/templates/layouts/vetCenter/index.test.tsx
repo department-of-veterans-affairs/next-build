@@ -81,6 +81,10 @@ describe('VetCenter with valid data', () => {
       },
     ],
     introText: 'Test introText',
+    missionExplainer: {
+      heading: 'Our commitment',
+      body: "<p>We offer a range of services, from talk therapy to recreational activities. Our team will work with you to identify your goals and make a plan to meet them. We'll help you and your family build meaningful connections to improve your quality of life.</p>",
+    },
     officeHours: [
       { day: 0, starthours: null, endhours: null, comment: 'Closed' },
       { day: 1, starthours: 800, endhours: 1630, comment: '' },
