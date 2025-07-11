@@ -2,21 +2,10 @@
  * @jest-environment node
  */
 
-import { formatter, VetCenterData } from '../vetCenter' // Adjust the import path as necessary
 import { mockResponse as mockVetCenter } from '@/mocks/vetCenter.mock'
-import { DrupalMediaImage } from '@/types/drupal/media'
-import mockBannerMediaJson from '@/mocks/mediaImage.mock.json'
+import mockBannerMedia from '@/mocks/mediaImage.mock.json'
 import { queries } from '@/data/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-
-// Use the existing media image mock as banner media with proper type casting
-const bannerMedia = mockBannerMediaJson as unknown as DrupalMediaImage
-
-// Create the VetCenterData mock
-const mockVetCenterData: VetCenterData = {
-  entity: mockVetCenter,
-  bannerMedia: bannerMedia,
-}
 
 const mockBannerMediaQuery = jest.fn()
 const mockVetCenterQuery = jest.fn()
@@ -37,7 +26,7 @@ describe('VetCenter query', () => {
     // Reset mocks to default behavior before each test
     mockVetCenterQuery.mockReturnValue(mockVetCenter)
     mockBannerMediaQuery.mockReturnValue({
-      data: [bannerMedia],
+      data: [mockBannerMedia],
     })
   })
 
