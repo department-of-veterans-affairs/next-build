@@ -3,15 +3,26 @@
  */
 
 import { NodeVetCenter } from '@/types/drupal/node'
-import { formatter } from '../vetCenter' // Adjust the import path as necessary
+import { formatter, VetCenterData } from '../vetCenter' // Adjust the import path as necessary
 import { mockResponse } from '@/mocks/vetCenter.mock'
+import { DrupalMediaImage } from '@/types/drupal/media'
+import mockBannerMediaJson from '@/mocks/mediaImage.mock.json'
 
 const VetCenterMock: NodeVetCenter = mockResponse
+
+// Use the existing media image mock as banner media with proper type casting
+const bannerMedia = mockBannerMediaJson as unknown as DrupalMediaImage
+
+// Create the VetCenterData mock
+const VetCenterDataMock: VetCenterData = {
+  entity: VetCenterMock,
+  bannerMedia: bannerMedia,
+}
 
 describe('VetCenter formatter function', () => {
   // Example test for filtering health services
   test('correctly filters health services by care type', () => {
-    const formattedVetCenter = formatter(VetCenterMock)
+    const formattedVetCenter = formatter(VetCenterDataMock)
 
     expect(formattedVetCenter.counselingHealthServices).toBeDefined()
     expect(formattedVetCenter.referralHealthServices).toBeDefined()
@@ -19,9 +30,12 @@ describe('VetCenter formatter function', () => {
   })
 
   test('handles empty health services array', () => {
-    const modifiedVetCenterMock = {
-      ...VetCenterMock,
-      field_health_services: [],
+    const modifiedVetCenterMock: VetCenterData = {
+      entity: {
+        ...VetCenterMock,
+        field_health_services: [],
+      },
+      bannerMedia: bannerMedia,
     }
     const formattedVetCenter = formatter(modifiedVetCenterMock)
 
@@ -32,12 +46,12 @@ describe('VetCenter formatter function', () => {
   })
 
   test('builds featured content array including centralized content', () => {
-    const formattedVetCenter = formatter(VetCenterMock)
+    const formattedVetCenter = formatter(VetCenterDataMock)
     expect(formattedVetCenter.featuredContent).toBeDefined()
   })
 
   test('builds FAQs section correctly', () => {
-    const formattedVetCenter = formatter(VetCenterMock)
+    const formattedVetCenter = formatter(VetCenterDataMock)
 
     expect(formattedVetCenter.ccVetCenterFaqs).toBeDefined()
     expect(formattedVetCenter.ccVetCenterFaqs.questions.length).toBeGreaterThan(
@@ -54,22 +68,23 @@ describe('VetCenter formatter function', () => {
         format: string
         processed: string
       } | null> = []
-    ) => ({
-      ...VetCenterMock,
-      field_mission_explainer: {
-        target_type: 'paragraph',
-        target_id: '158439',
-        target_field: null,
-        fetched_bundle: 'magichead_group',
-        fetched: {
-          field_magichead_body: bodyArray,
-          field_magichead_heading: headingArray,
+    ): VetCenterData => ({
+      entity: {
+        ...VetCenterMock,
+        field_mission_explainer: {
+          target_id: '158439',
+          fetched_bundle: 'magichead_group',
+          fetched: {
+            field_magichead_body: bodyArray,
+            field_magichead_heading: headingArray,
+          },
         },
       },
+      bannerMedia: bannerMedia,
     })
 
     test('formats mission explainer correctly when data is present', () => {
-      const formattedVetCenter = formatter(VetCenterMock)
+      const formattedVetCenter = formatter(VetCenterDataMock)
 
       expect(formattedVetCenter.missionExplainer).toBeDefined()
       expect(formattedVetCenter.missionExplainer.heading).toBe('Our commitment')

@@ -194,6 +194,24 @@ export const mockResponse = {
     width: 700,
     height: 350,
   },
+  bannerImage: {
+    id: 'banner-image-id',
+    links: {
+      '2_1_large': {
+        href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/banner-image.jpg',
+        meta: {
+          linkParams: {
+            width: 1200,
+            height: 600,
+          },
+        },
+      },
+    },
+    alt: 'Banner image for vet center',
+    title: '',
+    width: 1200,
+    height: 600,
+  },
   prepareForVisit: null,
   title: 'Test title',
   fieldFacilityLocatorApiId: 'Test API ID',
