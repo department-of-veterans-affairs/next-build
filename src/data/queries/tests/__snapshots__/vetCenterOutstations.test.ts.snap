@@ -562,7 +562,7 @@ exports[`VetCenterOutstation formatData handles ccFeaturedContent not getting fe
       "header": "Appointments",
       "html": "<p><strong>Contacting the Springfield Vet Center</strong></p>
 <ul>
-<li>Please call <strong>413-737-5167</strong> to speak with a staff member that will assist you with scheduling an appointment, questions you may have or provide an appropriate referral.</li>
+<li>Please call <strong><va-telephone contact="413-737-5167" extension=""></va-telephone></strong> to speak with a staff member that will assist you with scheduling an appointment, questions you may have or provide an appropriate referral.</li>
 <li>Same day services available, call for details.</li>
 <li>Non-traditional hours (including every other Saturday) available by appointment.</li>
 <li>If you call us and reach the 24/7 Vet Center Call Center which is located in Colorado, you may leave a message with their team.&nbsp; They can provide a warm hand-off to us and we will contact you right away.&nbsp; If you call outside of our normal operating hours the Vet Center Call Center will answer your call.</li>
@@ -590,7 +590,7 @@ exports[`VetCenterOutstation formatData handles ccFeaturedContent not getting fe
       "header": "Transportation services and schedule",
       "html": "<p><strong>Bus:</strong> Pioneer Valley Transit Authority has a stop within 500 ft of the Springfield Vet Center. Visit <a href="http://www.pvta.com/schedules.php">http://www.pvta.com/schedules.php</a>.</p>
 <p>&nbsp;</p>
-<p><strong>DAV: </strong>Local DAV Transportation may be contacted&nbsp;directly at <strong>413-582-3078</strong>. Veteran must provide the following information to schedule transportation services; first and last name, Last 4 SSN, pick up street address, contact number, location of appointment, and time of appointment.</p>
+<p><strong>DAV: </strong>Local DAV Transportation may be contacted&nbsp;directly at <strong><va-telephone contact="413-582-3078" extension=""></va-telephone></strong>. Veteran must provide the following information to schedule transportation services; first and last name, Last 4 SSN, pick up street address, contact number, location of appointment, and time of appointment.</p>
 <p>Check with your local senior center for low cost transportation options.</p>
 ",
       "id": "90289c88-e193-4237-a74e-8cef0152413f",
@@ -1148,7 +1148,7 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
       "header": "Appointments",
       "html": "<p><strong>Contacting the Springfield Vet Center</strong></p>
 <ul>
-<li>Please call <strong>413-737-5167</strong> to speak with a staff member that will assist you with scheduling an appointment, questions you may have or provide an appropriate referral.</li>
+<li>Please call <strong><va-telephone contact="413-737-5167" extension=""></va-telephone></strong> to speak with a staff member that will assist you with scheduling an appointment, questions you may have or provide an appropriate referral.</li>
 <li>Same day services available, call for details.</li>
 <li>Non-traditional hours (including every other Saturday) available by appointment.</li>
 <li>If you call us and reach the 24/7 Vet Center Call Center which is located in Colorado, you may leave a message with their team.&nbsp; They can provide a warm hand-off to us and we will contact you right away.&nbsp; If you call outside of our normal operating hours the Vet Center Call Center will answer your call.</li>
@@ -1176,7 +1176,7 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
       "header": "Transportation services and schedule",
       "html": "<p><strong>Bus:</strong> Pioneer Valley Transit Authority has a stop within 500 ft of the Springfield Vet Center. Visit <a href="http://www.pvta.com/schedules.php">http://www.pvta.com/schedules.php</a>.</p>
 <p>&nbsp;</p>
-<p><strong>DAV: </strong>Local DAV Transportation may be contacted&nbsp;directly at <strong>413-582-3078</strong>. Veteran must provide the following information to schedule transportation services; first and last name, Last 4 SSN, pick up street address, contact number, location of appointment, and time of appointment.</p>
+<p><strong>DAV: </strong>Local DAV Transportation may be contacted&nbsp;directly at <strong><va-telephone contact="413-582-3078" extension=""></va-telephone></strong>. Veteran must provide the following information to schedule transportation services; first and last name, Last 4 SSN, pick up street address, contact number, location of appointment, and time of appointment.</p>
 <p>Check with your local senior center for low cost transportation options.</p>
 ",
       "id": "90289c88-e193-4237-a74e-8cef0152413f",
