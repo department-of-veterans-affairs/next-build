@@ -174,10 +174,6 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_location_services: ParagraphHealthCareLocalFacilityService[]
 }
 
-export interface NodeCentralizedContent extends DrupalNode {
-  field_content_block: any[]
-}
-
 export interface NodeVetCenter extends DrupalNode {
   field_address: FieldAddress
   field_cc_non_traditional_hours: FieldCCText
