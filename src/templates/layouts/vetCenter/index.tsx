@@ -18,6 +18,7 @@ export function VetCenter({
   geolocation,
   featuredContent,
   introText,
+  missionExplainer,
   officeHours,
   officialName,
   operatingStatusFacility,
@@ -187,6 +188,19 @@ export function VetCenter({
             <div className="va-introtext">
               <p>{introText}</p>
             </div>
+          )}
+          {missionExplainer && (
+            <va-summary-box
+              class="vads-u-margin-bottom--4 medium-screen:vads-u-margin-bottom--0"
+              data-header-id-excluded="true"
+            >
+              <h2 slot="headline">{missionExplainer.heading}</h2>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: missionExplainer.body,
+                }}
+              />
+            </va-summary-box>
           )}
           <va-on-this-page></va-on-this-page>
 

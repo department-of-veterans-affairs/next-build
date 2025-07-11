@@ -18,6 +18,7 @@ import { Button } from '@/types/formatted/button'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -138,6 +139,14 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     }
   }
 
+  const missionExplainer = {
+    heading:
+      entity.field_mission_explainer?.fetched.field_magichead_heading[0]?.value,
+    body: getHtmlFromField(
+      entity.field_mission_explainer?.fetched.field_magichead_body[0] ?? null
+    ),
+  }
+
   return {
     ...entityBaseFields(entity),
     address: entity.field_address,
@@ -161,6 +170,10 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     ccVetCenterFeaturedCon: entity.field_cc_vet_center_featured_con,
     geolocation: entity.field_geolocation,
     introText: entity.field_intro_text,
+    missionExplainer:
+      missionExplainer.heading && missionExplainer.body
+        ? missionExplainer
+        : null,
     lastSavedByAnEditor: entity.field_last_saved_by_an_editor ?? null,
     officeHours: entity.field_office_hours,
     officialName: entity.field_official_name,
