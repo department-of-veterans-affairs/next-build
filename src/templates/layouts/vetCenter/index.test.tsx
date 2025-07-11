@@ -350,4 +350,38 @@ describe('VetCenter with valid data', () => {
     // Verify the contact attribute contains the phone number without dashes
     expect(vaTelephoneElement?.getAttribute('contact')).toBe('1234567890')
   })
+
+  describe('Mission Explainer functionality', () => {
+    test('renders mission explainer when data is present', () => {
+      render(<VetCenter {...mockData} />)
+
+      // Check that the mission explainer va-summary-box is rendered
+      const summaryBox = document.querySelector('va-summary-box')
+      expect(summaryBox).toBeInTheDocument()
+
+      // Check that the heading is rendered correctly
+      expect(screen.getByText('Our commitment')).toBeInTheDocument()
+
+      // Check that the body content is rendered
+      expect(
+        screen.getByText(/We offer a range of services/)
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText(/talk therapy to recreational activities/)
+      ).toBeInTheDocument()
+    })
+
+    test('does not render mission explainer when data is missing', () => {
+      const dataWithoutMissionExplainer = {
+        ...mockData,
+        missionExplainer: null,
+      }
+
+      render(<VetCenter {...dataWithoutMissionExplainer} />)
+
+      // Check that the mission explainer va-summary-box is not rendered
+      const summaryBox = document.querySelector('va-summary-box')
+      expect(summaryBox).not.toBeInTheDocument()
+    })
+  })
 })
