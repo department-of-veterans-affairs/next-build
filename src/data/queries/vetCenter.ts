@@ -11,6 +11,7 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 import {
   entityBaseFields,
+  fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
@@ -19,6 +20,7 @@ import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { DrupalMediaImage } from '@/types/drupal/media'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -43,21 +45,41 @@ export type VetCenterDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+export type VetCenterData = {
+  entity: NodeVetCenter
+  bannerMedia: DrupalMediaImage
+}
+
 // Implement the data loader.
-export const data: QueryData<VetCenterDataOpts, NodeVetCenter> = async (
+export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
   opts
-): Promise<NodeVetCenter> => {
+): Promise<VetCenterData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VET_CENTER,
     params
   )) as NodeVetCenter
-  return entity
+
+  // Fetch the banner image, which we have a reference to from the centralized content
+  const bannerMediaId =
+    entity.field_vet_center_banner_image.fetched.field_media[0].target_id
+  const bannerMedia = (
+    await fetchAndConcatAllResourceCollectionPages<DrupalMediaImage>(
+      'media--image',
+      new DrupalJsonApiParams()
+        .addFilter('drupal_internal__mid', bannerMediaId)
+        .addInclude(['image']),
+      1
+    )
+  ).data[0]
+
+  return { entity, bannerMedia }
 }
 
-export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
-  entity: NodeVetCenter
-) => {
+export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = ({
+  entity,
+  bannerMedia,
+}: VetCenterData) => {
   // format health services / filter per category
   const healthServicesArray = queries.formatData(
     RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES,
@@ -192,6 +214,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     referralHealthServices: referralServicesArray,
     otherHealthServices: otherServicesArray,
     image: queries.formatData('media--image', entity.field_media),
+    bannerImage: queries.formatData('media--image', bannerMedia),
     prepareForVisit: entity.field_prepare_for_visit.map(
       (prepareForVisitItem) => {
         return queries.formatData(
