@@ -192,79 +192,59 @@ export function VetCenter({
 
           {/* Locations and contact */}
           <h2 id="locations-and-contact-information">
-            Locations and contact information
+            Location and contact information
           </h2>
           <div
             className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column
           mobile-lg:vads-u-flex-direction--row facility"
           >
             <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
-              <div>
-                <div className="vads-c-facility-detail">
-                  <section className="vads-facility-detail">
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--2p5">
-                      Main location
-                    </h3>
+              <div className="vads-c-facility-detail">
+                <section className="vads-facility-detail">
+                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    Address
+                  </h3>
 
-                    <ExpandableOperatingStatus
-                      operatingStatusFlag={operatingStatusFacility}
-                      operatingStatusMoreInfo={operatingStatusMoreInfo}
+                  <ExpandableOperatingStatus
+                    operatingStatusFlag={operatingStatusFacility}
+                    operatingStatusMoreInfo={operatingStatusMoreInfo}
+                  />
+
+                  <p className="vads-u-margin--0 vads-u-margin-bottom--3">
+                    <address>
+                      <div>{address.address_line1}</div>
+                      {address.address_line2 && (
+                        <div>{address.address_line2}</div>
+                      )}
+                      <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
+                    </address>
+                    <GoogleMapsDirections
+                      address={directionsString}
+                      location={title}
                     />
+                  </p>
 
-                    <div className="vads-u-margin-bottom--3">
-                      <p className="vads-u-font-weight--bold vads-u-margin-bottom--0p5">
-                        Address
-                      </p>
-                      <p className="vads-u-margin--0">
-                        <address>
-                          <div>{address.address_line1}</div>
-                          {address.address_line2 && (
-                            <div>{address.address_line2}</div>
-                          )}
-                          <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
-                        </address>
-                        <GoogleMapsDirections
-                          address={directionsString}
-                          location={title}
-                        />
-                      </p>
-                    </div>
+                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                    Phone number
+                  </h3>
+                  <PhoneNumber
+                    className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+                    label="Main phone"
+                    number={phoneNumber}
+                  />
 
-                    <PhoneNumber
-                      className="vads-u-margin-y--3"
-                      label="Main phone"
-                      number={phoneNumber}
-                    />
-
-                    <Hours
-                      headerType="standard"
-                      allHours={officeHours}
-                      nonTraditionalMessage={ccNonTraditionalHours}
-                    />
-                  </section>
-                </div>
+                  <Hours
+                    headerType="standard"
+                    allHours={officeHours}
+                    nonTraditionalMessage={ccNonTraditionalHours}
+                  />
+                </section>
               </div>
             </div>
             <ImageAndStaticMap
               image={image}
               facilityId={fieldFacilityLocatorApiId}
             />
-          </div>
-
-          {/* Other locations */}
-          <div className="vads-u-margin-bottom--3">
-            <h3>Other locations</h3>
-            <p>
-              Vet Centers are community based to be more accessible in areas
-              where you live.
-            </p>
-            <p>
-              <va-link
-                active
-                href={`${path}/locations`}
-                text={`View more ${title} locations`}
-              ></va-link>
-            </p>
           </div>
 
           {/* Call Center Information */}
@@ -278,6 +258,22 @@ export function VetCenter({
               />
             </div>
           )}
+
+          {/* Other locations */}
+          <div className="vads-u-margin-bottom--3">
+            <h2 id="other-locations">Other locations</h2>
+            <p>
+              Vet Centers are community based to be more accessible in areas
+              where you live.
+            </p>
+            <p>
+              <va-link
+                active
+                href={`${path}/locations`}
+                text={`View more ${title} locations`}
+              ></va-link>
+            </p>
+          </div>
 
           {/* Prepare for Your Visit */}
           {prepareForVisit && prepareForVisit.length > 0 && (
