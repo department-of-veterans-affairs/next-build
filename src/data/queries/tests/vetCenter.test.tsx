@@ -32,7 +32,7 @@ jest.mock('@/lib/drupal/query', () => ({
   },
 }))
 
-describe('VetCenter data function', () => {
+describe('VetCenter query', () => {
   beforeEach(() => {
     // Reset mocks to default behavior before each test
     mockVetCenterQuery.mockReturnValue(mockVetCenter)
@@ -232,45 +232,50 @@ describe('VetCenter data function', () => {
       expect(formattedVetCenter.missionExplainer).toBeNull()
     })
   })
-})
 
-describe('VetCenter formatter function', () => {
-  // Example test for filtering health services
-  test('correctly filters health services by care type', () => {
-    const formattedVetCenter = formatter(mockVetCenterData)
+  test('correctly filters health services by care type', async () => {
+    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+      id: mockVetCenter.id,
+    })
 
-    expect(formattedVetCenter.counselingHealthServices).toBeDefined()
-    expect(formattedVetCenter.referralHealthServices).toBeDefined()
-    expect(formattedVetCenter.otherHealthServices).toBeDefined()
+    expect(result.counselingHealthServices).toBeDefined()
+    expect(result.referralHealthServices).toBeDefined()
+    expect(result.otherHealthServices).toBeDefined()
   })
 
-  test('handles empty health services array', () => {
-    const modifiedmockVetCenter: VetCenterData = {
-      entity: {
-        ...mockVetCenter,
-        field_health_services: [],
-      },
-      bannerMedia: bannerMedia,
+  test('handles empty health services array', async () => {
+    // Create mock with empty health services
+    const mockVetCenterWithEmptyHealthServices = {
+      ...mockVetCenter,
+      field_health_services: [],
     }
-    const formattedVetCenter = formatter(modifiedmockVetCenter)
 
-    expect(formattedVetCenter.healthServices).toEqual([])
-    expect(formattedVetCenter.counselingHealthServices).toEqual([])
-    expect(formattedVetCenter.referralHealthServices).toEqual([])
-    expect(formattedVetCenter.otherHealthServices).toEqual([])
+    mockVetCenterQuery.mockReturnValue(mockVetCenterWithEmptyHealthServices)
+
+    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+      id: mockVetCenter.id,
+    })
+
+    expect(result.healthServices).toEqual([])
+    expect(result.counselingHealthServices).toEqual([])
+    expect(result.referralHealthServices).toEqual([])
+    expect(result.otherHealthServices).toEqual([])
   })
 
-  test('builds featured content array including centralized content', () => {
-    const formattedVetCenter = formatter(mockVetCenterData)
-    expect(formattedVetCenter.featuredContent).toBeDefined()
+  test('builds featured content array including centralized content', async () => {
+    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+      id: mockVetCenter.id,
+    })
+
+    expect(result.featuredContent).toBeDefined()
   })
 
-  test('builds FAQs section correctly', () => {
-    const formattedVetCenter = formatter(mockVetCenterData)
+  test('builds FAQs section correctly', async () => {
+    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+      id: mockVetCenter.id,
+    })
 
-    expect(formattedVetCenter.ccVetCenterFaqs).toBeDefined()
-    expect(formattedVetCenter.ccVetCenterFaqs.questions.length).toBeGreaterThan(
-      0
-    )
+    expect(result.ccVetCenterFaqs).toBeDefined()
+    expect(result.ccVetCenterFaqs.questions.length).toBeGreaterThan(0)
   })
 })
