@@ -2,99 +2,105 @@
  * @jest-environment node
  */
 
-import { NodeVetCenter } from '@/types/drupal/node'
 import { formatter, VetCenterData } from '../vetCenter' // Adjust the import path as necessary
-import { mockResponse } from '@/mocks/vetCenter.mock'
+import { mockResponse as mockVetCenter } from '@/mocks/vetCenter.mock'
 import { DrupalMediaImage } from '@/types/drupal/media'
 import mockBannerMediaJson from '@/mocks/mediaImage.mock.json'
-
-const VetCenterMock: NodeVetCenter = mockResponse
+import { queries } from '@/data/queries'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 // Use the existing media image mock as banner media with proper type casting
 const bannerMedia = mockBannerMediaJson as unknown as DrupalMediaImage
 
 // Create the VetCenterData mock
-const VetCenterDataMock: VetCenterData = {
-  entity: VetCenterMock,
+const mockVetCenterData: VetCenterData = {
+  entity: mockVetCenter,
   bannerMedia: bannerMedia,
 }
 
-describe('VetCenter formatter function', () => {
-  // Example test for filtering health services
-  test('correctly filters health services by care type', () => {
-    const formattedVetCenter = formatter(VetCenterDataMock)
+const mockBannerMediaQuery = jest.fn()
+const mockVetCenterQuery = jest.fn()
 
-    expect(formattedVetCenter.counselingHealthServices).toBeDefined()
-    expect(formattedVetCenter.referralHealthServices).toBeDefined()
-    expect(formattedVetCenter.otherHealthServices).toBeDefined()
-  })
-
-  test('handles empty health services array', () => {
-    const modifiedVetCenterMock: VetCenterData = {
-      entity: {
-        ...VetCenterMock,
-        field_health_services: [],
-      },
-      bannerMedia: bannerMedia,
+jest.mock('@/lib/drupal/query', () => ({
+  ...jest.requireActual('@/lib/drupal/query'),
+  fetchSingleEntityOrPreview: (...args) => mockVetCenterQuery(...args),
+  fetchAndConcatAllResourceCollectionPages: (nodeType: string) => {
+    if (nodeType === 'media--image') {
+      return mockBannerMediaQuery()
     }
-    const formattedVetCenter = formatter(modifiedVetCenterMock)
+    return { data: [] }
+  },
+}))
 
-    expect(formattedVetCenter.healthServices).toEqual([])
-    expect(formattedVetCenter.counselingHealthServices).toEqual([])
-    expect(formattedVetCenter.referralHealthServices).toEqual([])
-    expect(formattedVetCenter.otherHealthServices).toEqual([])
+describe('VetCenter data function', () => {
+  beforeEach(() => {
+    // Reset mocks to default behavior before each test
+    mockVetCenterQuery.mockReturnValue(mockVetCenter)
+    mockBannerMediaQuery.mockReturnValue({
+      data: [bannerMedia],
+    })
   })
 
-  test('builds featured content array including centralized content', () => {
-    const formattedVetCenter = formatter(VetCenterDataMock)
-    expect(formattedVetCenter.featuredContent).toBeDefined()
+  afterAll(() => {
+    jest.restoreAllMocks()
   })
 
-  test('builds FAQs section correctly', () => {
-    const formattedVetCenter = formatter(VetCenterDataMock)
+  test('fetches and returns formatted VetCenter data with banner image', async () => {
+    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+      id: mockVetCenter.id,
+    })
 
-    expect(formattedVetCenter.ccVetCenterFaqs).toBeDefined()
-    expect(formattedVetCenter.ccVetCenterFaqs.questions.length).toBeGreaterThan(
-      0
-    )
+    expect(result).toBeDefined()
+    expect(result.title).toBe(mockVetCenter.title)
+    expect(result.bannerImage).toBeDefined()
+    expect(result.bannerImage).toHaveProperty('id')
+    expect(result.bannerImage).toHaveProperty('links')
+    expect(mockBannerMediaQuery).toHaveBeenCalled()
   })
 
   describe('Banner Image functionality', () => {
-    test('handles missing banner media gracefully', () => {
-      const mockWithoutBannerMedia: VetCenterData = {
-        entity: VetCenterMock,
-        bannerMedia: null,
-      }
+    test('handles missing banner media gracefully', async () => {
+      // Mock banner media fetch to return empty array
+      mockBannerMediaQuery.mockReturnValue({
+        data: [],
+      })
 
-      const formattedVetCenter = formatter(mockWithoutBannerMedia)
-      expect(formattedVetCenter.bannerImage).toBeNull()
+      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+        id: mockVetCenter.id,
+      })
+
+      expect(result.bannerImage).toBeNull()
     })
 
-    test('banner image contains expected MediaImage properties', () => {
-      const formattedVetCenter = formatter(VetCenterDataMock)
+    test('banner image contains expected MediaImage properties', async () => {
+      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+        id: mockVetCenter.id,
+      })
 
-      expect(formattedVetCenter.bannerImage).not.toBeNull()
-      expect(typeof formattedVetCenter.bannerImage.id).toBe('string')
-      expect(formattedVetCenter.bannerImage.alt).toBeDefined()
-      expect(formattedVetCenter.bannerImage.title).toBeDefined()
-      expect(typeof formattedVetCenter.bannerImage.width).toBe('number')
-      expect(typeof formattedVetCenter.bannerImage.height).toBe('number')
-      expect(formattedVetCenter.bannerImage.links).toBeDefined()
-      expect(typeof formattedVetCenter.bannerImage.links).toBe('object')
+      expect(result.bannerImage).not.toBeNull()
+      expect(typeof result.bannerImage.id).toBe('string')
+      expect(result.bannerImage.alt).toBeDefined()
+      expect(result.bannerImage.title).toBeDefined()
+      expect(typeof result.bannerImage.width).toBe('number')
+      expect(typeof result.bannerImage.height).toBe('number')
+      expect(result.bannerImage.links).toBeDefined()
+      expect(typeof result.bannerImage.links).toBe('object')
     })
 
-    test('banner image links contain href properties', () => {
-      const formattedVetCenter = formatter(VetCenterDataMock)
+    test('banner image links contain href properties', async () => {
+      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+        id: mockVetCenter.id,
+      })
 
-      expect(formattedVetCenter.bannerImage).not.toBeNull()
-      const links = formattedVetCenter.bannerImage?.links
+      expect(result.bannerImage).not.toBeNull()
+      const links = result.bannerImage?.links
       expect(links).toBeDefined()
-      const linkKeys = Object.keys(formattedVetCenter.bannerImage.links)
+      const linkKeys = Object.keys(result.bannerImage.links)
       expect(linkKeys.length).toBeGreaterThan(0)
 
       // Check that each link has an href property
       linkKeys.forEach((key) => {
-        const link = formattedVetCenter.bannerImage.links[key]
+        const link = result.bannerImage.links[key]
         expect(link).toHaveProperty('href')
         expect(typeof link.href).toBe('string')
         expect(link.href).toBeTruthy()
@@ -103,84 +109,117 @@ describe('VetCenter formatter function', () => {
   })
 
   describe('Mission Explainer functionality', () => {
-    // Helper function to create mission explainer mock data
-    const createMissionExplainerMock = (
-      headingArray: Array<{ value: string } | undefined> = [],
-      bodyArray: Array<{
-        value: string
-        format: string
-        processed: string
-      } | null> = []
-    ): VetCenterData => ({
-      entity: {
-        ...VetCenterMock,
-        field_mission_explainer: {
-          target_id: '158439',
-          fetched_bundle: 'magichead_group',
-          fetched: {
-            field_magichead_body: bodyArray,
-            field_magichead_heading: headingArray,
-          },
-        },
-      },
-      bannerMedia: bannerMedia,
-    })
+    test('formats mission explainer correctly when data is present', async () => {
+      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+        id: mockVetCenter.id,
+      })
 
-    test('formats mission explainer correctly when data is present', () => {
-      const formattedVetCenter = formatter(VetCenterDataMock)
-
-      expect(formattedVetCenter.missionExplainer).toBeDefined()
-      expect(formattedVetCenter.missionExplainer.heading).toBe('Our commitment')
-      expect(formattedVetCenter.missionExplainer.body).toContain(
+      expect(result.missionExplainer).toBeDefined()
+      expect(result.missionExplainer.heading).toBe('Our commitment')
+      expect(result.missionExplainer.body).toContain(
         'We offer a range of services'
       )
-      expect(formattedVetCenter.missionExplainer.body).toContain(
+      expect(result.missionExplainer.body).toContain(
         'talk therapy to recreational activities'
       )
     })
 
-    test('returns null for mission explainer when heading is missing', () => {
-      const mockWithMissingHeading = createMissionExplainerMock(
-        [], // Empty heading array
-        [
-          {
-            value: '<p>Some body content</p>',
-            format: 'rich_text_limited',
-            processed: '<p>Some body content</p>',
+    test('returns null for mission explainer when heading is missing', async () => {
+      // Create custom mock for this test
+      const mockVetCenterWithMissingHeading = {
+        ...mockVetCenter,
+        field_mission_explainer: {
+          target_id: '158439',
+          fetched_bundle: 'magichead_group',
+          fetched: {
+            field_magichead_body: [
+              {
+                value: '<p>Some body content</p>',
+                format: 'rich_text_limited',
+                processed: '<p>Some body content</p>',
+              },
+            ],
+            field_magichead_heading: [], // Empty heading array
           },
-        ]
-      )
+        },
+      }
 
-      const formattedVetCenter = formatter(mockWithMissingHeading)
-      expect(formattedVetCenter.missionExplainer).toBeNull()
+      mockVetCenterQuery.mockReturnValue(mockVetCenterWithMissingHeading)
+
+      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+        id: mockVetCenter.id,
+      })
+
+      expect(result.missionExplainer).toBeNull()
     })
 
-    test('returns null for mission explainer when body is missing', () => {
-      const mockWithMissingBody = createMissionExplainerMock(
-        [{ value: 'Our commitment' }],
-        [] // Empty body array
-      )
+    test('returns null for mission explainer when body is missing', async () => {
+      // Create custom mock for this test
+      const mockVetCenterWithMissingBody = {
+        ...mockVetCenter,
+        field_mission_explainer: {
+          target_id: '158439',
+          fetched_bundle: 'magichead_group',
+          fetched: {
+            field_magichead_body: [], // Empty body array
+            field_magichead_heading: [{ value: 'Our commitment' }],
+          },
+        },
+      }
 
-      const formattedVetCenter = formatter(mockWithMissingBody)
-      expect(formattedVetCenter.missionExplainer).toBeNull()
+      mockVetCenterQuery.mockReturnValue(mockVetCenterWithMissingBody)
+
+      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+        id: mockVetCenter.id,
+      })
+
+      expect(result.missionExplainer).toBeNull()
     })
 
-    test('returns null for mission explainer when both heading and body are missing', () => {
-      const mockWithMissingBoth = createMissionExplainerMock([], [])
+    test('returns null for mission explainer when both heading and body are missing', async () => {
+      // Create custom mock for this test
+      const mockVetCenterWithMissingBoth = {
+        ...mockVetCenter,
+        field_mission_explainer: {
+          target_id: '158439',
+          fetched_bundle: 'magichead_group',
+          fetched: {
+            field_magichead_body: [],
+            field_magichead_heading: [],
+          },
+        },
+      }
 
-      const formattedVetCenter = formatter(mockWithMissingBoth)
-      expect(formattedVetCenter.missionExplainer).toBeNull()
+      mockVetCenterQuery.mockReturnValue(mockVetCenterWithMissingBoth)
+
+      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+        id: mockVetCenter.id,
+      })
+
+      expect(result.missionExplainer).toBeNull()
     })
 
-    test('handles undefined mission explainer field gracefully', () => {
-      const mockWithUndefinedFields = createMissionExplainerMock(
-        [undefined], // Array with undefined value
-        [null] // Array with null value
-      )
+    test('handles undefined mission explainer field gracefully', async () => {
+      // Create custom mock for this test
+      const mockVetCenterWithUndefinedFields = {
+        ...mockVetCenter,
+        field_mission_explainer: {
+          target_id: '158439',
+          fetched_bundle: 'magichead_group',
+          fetched: {
+            field_magichead_body: [null], // Array with null value
+            field_magichead_heading: [undefined], // Array with undefined value
+          },
+        },
+      }
 
-      // Should not throw an error and should return null
-      const formattedVetCenter = formatter(mockWithUndefinedFields)
-      expect(formattedVetCenter.missionExplainer).toBeNull()
+      mockVetCenterQuery.mockReturnValue(mockVetCenterWithUndefinedFields)
+
+      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
+        id: mockVetCenter.id,
+      })
+
+      expect(result.missionExplainer).toBeNull()
     })
 
     test('returns null for mission explainer when field_mission_explainer is null', () => {
@@ -192,5 +231,46 @@ describe('VetCenter formatter function', () => {
       const formattedVetCenter = formatter(mockWithNullField)
       expect(formattedVetCenter.missionExplainer).toBeNull()
     })
+  })
+})
+
+describe('VetCenter formatter function', () => {
+  // Example test for filtering health services
+  test('correctly filters health services by care type', () => {
+    const formattedVetCenter = formatter(mockVetCenterData)
+
+    expect(formattedVetCenter.counselingHealthServices).toBeDefined()
+    expect(formattedVetCenter.referralHealthServices).toBeDefined()
+    expect(formattedVetCenter.otherHealthServices).toBeDefined()
+  })
+
+  test('handles empty health services array', () => {
+    const modifiedmockVetCenter: VetCenterData = {
+      entity: {
+        ...mockVetCenter,
+        field_health_services: [],
+      },
+      bannerMedia: bannerMedia,
+    }
+    const formattedVetCenter = formatter(modifiedmockVetCenter)
+
+    expect(formattedVetCenter.healthServices).toEqual([])
+    expect(formattedVetCenter.counselingHealthServices).toEqual([])
+    expect(formattedVetCenter.referralHealthServices).toEqual([])
+    expect(formattedVetCenter.otherHealthServices).toEqual([])
+  })
+
+  test('builds featured content array including centralized content', () => {
+    const formattedVetCenter = formatter(mockVetCenterData)
+    expect(formattedVetCenter.featuredContent).toBeDefined()
+  })
+
+  test('builds FAQs section correctly', () => {
+    const formattedVetCenter = formatter(mockVetCenterData)
+
+    expect(formattedVetCenter.ccVetCenterFaqs).toBeDefined()
+    expect(formattedVetCenter.ccVetCenterFaqs.questions.length).toBeGreaterThan(
+      0
+    )
   })
 })
