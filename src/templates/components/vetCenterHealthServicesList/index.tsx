@@ -24,10 +24,14 @@ function ServicesList({ services }: ServicesListProps) {
               <p>{service.vetCenterComConditions}</p>
             )}
             {service.vetCenterServiceDescription && (
-              <p>{service.vetCenterServiceDescription}</p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: service.vetCenterServiceDescription,
+                }}
+              />
             )}
             {service.body && (
-              <div dangerouslySetInnerHTML={{ __html: service.body }} />
+              <p dangerouslySetInnerHTML={{ __html: service.body }} />
             )}
           </va-accordion-item>
         ))}

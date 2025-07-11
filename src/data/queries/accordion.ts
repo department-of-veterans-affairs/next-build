@@ -1,6 +1,7 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphAccordion } from '@/types/drupal/paragraph'
 import { AccordionItem } from '@/types/formatted/accordion'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 export const formatter: QueryFormatter<ParagraphAccordion, AccordionItem> = (
   entity: ParagraphAccordion
@@ -10,6 +11,6 @@ export const formatter: QueryFormatter<ParagraphAccordion, AccordionItem> = (
     id: entity.id,
     entityId: entity.drupal_internal__id,
     header: entity.field_header || null,
-    html: entity.field_rich_wysiwyg.processed,
+    html: getHtmlFromField(entity.field_rich_wysiwyg),
   }
 }
