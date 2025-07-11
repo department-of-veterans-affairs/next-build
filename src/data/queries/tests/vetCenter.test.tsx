@@ -59,6 +59,49 @@ describe('VetCenter formatter function', () => {
     )
   })
 
+  describe('Banner Image functionality', () => {
+    test('handles missing banner media gracefully', () => {
+      const mockWithoutBannerMedia: VetCenterData = {
+        entity: VetCenterMock,
+        bannerMedia: null,
+      }
+
+      const formattedVetCenter = formatter(mockWithoutBannerMedia)
+      expect(formattedVetCenter.bannerImage).toBeNull()
+    })
+
+    test('banner image contains expected MediaImage properties', () => {
+      const formattedVetCenter = formatter(VetCenterDataMock)
+
+      expect(formattedVetCenter.bannerImage).not.toBeNull()
+      expect(typeof formattedVetCenter.bannerImage.id).toBe('string')
+      expect(formattedVetCenter.bannerImage.alt).toBeDefined()
+      expect(formattedVetCenter.bannerImage.title).toBeDefined()
+      expect(typeof formattedVetCenter.bannerImage.width).toBe('number')
+      expect(typeof formattedVetCenter.bannerImage.height).toBe('number')
+      expect(formattedVetCenter.bannerImage.links).toBeDefined()
+      expect(typeof formattedVetCenter.bannerImage.links).toBe('object')
+    })
+
+    test('banner image links contain href properties', () => {
+      const formattedVetCenter = formatter(VetCenterDataMock)
+
+      expect(formattedVetCenter.bannerImage).not.toBeNull()
+      const links = formattedVetCenter.bannerImage?.links
+      expect(links).toBeDefined()
+      const linkKeys = Object.keys(formattedVetCenter.bannerImage.links)
+      expect(linkKeys.length).toBeGreaterThan(0)
+
+      // Check that each link has an href property
+      linkKeys.forEach((key) => {
+        const link = formattedVetCenter.bannerImage.links[key]
+        expect(link).toHaveProperty('href')
+        expect(typeof link.href).toBe('string')
+        expect(link.href).toBeTruthy()
+      })
+    })
+  })
+
   describe('Mission Explainer functionality', () => {
     // Helper function to create mission explainer mock data
     const createMissionExplainerMock = (
