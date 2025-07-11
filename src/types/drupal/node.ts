@@ -17,6 +17,7 @@ import {
   VetCenterFieldHealthServicesArray,
   BreadcrumbItem,
   FieldMissionExplainer,
+  FieldVetCenterBannerImage,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -198,6 +199,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_media: DrupalMediaImage
   field_prepare_for_visit: ParagraphAccordion[]
   field_vet_center_feature_content: ParagraphFeaturedContent[]
+  field_vet_center_banner_image: FieldVetCenterBannerImage
   field_facility_locator_api_id: string
 }
 
