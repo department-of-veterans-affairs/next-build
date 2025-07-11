@@ -23,7 +23,7 @@ export type VetCenter = PublishedEntity & {
   missionExplainer: {
     heading: string
     body: string
-  }
+  } | null
   lastSavedByAnEditor: string | null
   officeHours: FieldOfficeHours[]
   officialName: string
