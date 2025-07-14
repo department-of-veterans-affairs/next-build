@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { LeadershipListing as FormattedLeadershipListing } from '@/types/formatted/leadershipListing'
+import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { StaffProfileTeaser } from '@/templates/components/staffProfileTeaser'
