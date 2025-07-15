@@ -21,6 +21,12 @@ jest.mock('@/lib/drupal/query', () => ({
   },
 }))
 
+function getData() {
+  return queries.getData(RESOURCE_TYPES.VET_CENTER, {
+    id: mockVetCenter.id,
+  })
+}
+
 describe('VetCenter query', () => {
   beforeEach(() => {
     // Reset mocks to default behavior before each test
@@ -35,9 +41,7 @@ describe('VetCenter query', () => {
   })
 
   test('fetches and returns formatted VetCenter data with banner image', async () => {
-    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-      id: mockVetCenter.id,
-    })
+    const result = await getData()
 
     expect(result).toBeDefined()
     expect(result.title).toBe(mockVetCenter.title)
@@ -54,17 +58,13 @@ describe('VetCenter query', () => {
         data: [],
       })
 
-      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-        id: mockVetCenter.id,
-      })
+      const result = await getData()
 
       expect(result.bannerImage).toBeNull()
     })
 
     test('banner image contains expected MediaImage properties', async () => {
-      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-        id: mockVetCenter.id,
-      })
+      const result = await getData()
 
       expect(result.bannerImage).not.toBeNull()
       expect(typeof result.bannerImage.id).toBe('string')
@@ -77,9 +77,7 @@ describe('VetCenter query', () => {
     })
 
     test('banner image links contain href properties', async () => {
-      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-        id: mockVetCenter.id,
-      })
+      const result = await getData()
 
       expect(result.bannerImage).not.toBeNull()
       const links = result.bannerImage?.links
@@ -99,9 +97,7 @@ describe('VetCenter query', () => {
 
   describe('Mission Explainer functionality', () => {
     test('formats mission explainer correctly when data is present', async () => {
-      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-        id: mockVetCenter.id,
-      })
+      const result = await getData()
 
       expect(result.missionExplainer).toBeDefined()
       expect(result.missionExplainer.heading).toBe('Our commitment')
@@ -135,9 +131,7 @@ describe('VetCenter query', () => {
 
       mockVetCenterQuery.mockReturnValue(mockVetCenterWithMissingHeading)
 
-      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-        id: mockVetCenter.id,
-      })
+      const result = await getData()
 
       expect(result.missionExplainer).toBeNull()
     })
@@ -158,9 +152,7 @@ describe('VetCenter query', () => {
 
       mockVetCenterQuery.mockReturnValue(mockVetCenterWithMissingBody)
 
-      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-        id: mockVetCenter.id,
-      })
+      const result = await getData()
 
       expect(result.missionExplainer).toBeNull()
     })
@@ -181,9 +173,7 @@ describe('VetCenter query', () => {
 
       mockVetCenterQuery.mockReturnValue(mockVetCenterWithMissingBoth)
 
-      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-        id: mockVetCenter.id,
-      })
+      const result = await getData()
 
       expect(result.missionExplainer).toBeNull()
     })
@@ -204,28 +194,27 @@ describe('VetCenter query', () => {
 
       mockVetCenterQuery.mockReturnValue(mockVetCenterWithUndefinedFields)
 
-      const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-        id: mockVetCenter.id,
-      })
+      const result = await getData()
 
       expect(result.missionExplainer).toBeNull()
     })
 
-    test('returns null for mission explainer when field_mission_explainer is null', () => {
+    test('returns null for mission explainer when field_mission_explainer is null', async () => {
       const mockWithNullField = {
-        ...VetCenterMock,
+        ...mockVetCenter,
         field_mission_explainer: null,
       }
 
-      const formattedVetCenter = formatter(mockWithNullField)
-      expect(formattedVetCenter.missionExplainer).toBeNull()
+      mockVetCenterQuery.mockReturnValue(mockWithNullField)
+
+      const result = await getData()
+
+      expect(result.missionExplainer).toBeNull()
     })
   })
 
   test('correctly filters health services by care type', async () => {
-    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-      id: mockVetCenter.id,
-    })
+    const result = await getData()
 
     expect(result.counselingHealthServices).toBeDefined()
     expect(result.referralHealthServices).toBeDefined()
@@ -241,9 +230,7 @@ describe('VetCenter query', () => {
 
     mockVetCenterQuery.mockReturnValue(mockVetCenterWithEmptyHealthServices)
 
-    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-      id: mockVetCenter.id,
-    })
+    const result = await getData()
 
     expect(result.healthServices).toEqual([])
     expect(result.counselingHealthServices).toEqual([])
@@ -252,17 +239,13 @@ describe('VetCenter query', () => {
   })
 
   test('builds featured content array including centralized content', async () => {
-    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-      id: mockVetCenter.id,
-    })
+    const result = await getData()
 
     expect(result.featuredContent).toBeDefined()
   })
 
   test('builds FAQs section correctly', async () => {
-    const result = await queries.getData(RESOURCE_TYPES.VET_CENTER, {
-      id: mockVetCenter.id,
-    })
+    const result = await getData()
 
     expect(result.ccVetCenterFaqs).toBeDefined()
     expect(result.ccVetCenterFaqs.questions.length).toBeGreaterThan(0)
