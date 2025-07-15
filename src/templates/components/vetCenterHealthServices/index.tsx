@@ -7,9 +7,9 @@ interface HealthServicesProps {
 }
 
 const headingsMap = {
-  counseling: 'Counseling Services',
-  referral: 'Referral Services',
-  default: 'Other Services',
+  counseling: 'Counseling services',
+  referral: 'Referral services',
+  default: 'Other services',
 }
 
 function HealthServices({ services, typeOfCare }: HealthServicesProps) {
@@ -26,7 +26,7 @@ function HealthServices({ services, typeOfCare }: HealthServicesProps) {
       >
         {heading}
       </h2>
-      <p>Click on a service for more details.</p>
+      <p>Select a topic to learn more.</p>
       <ServicesList services={services} />
     </>
   )

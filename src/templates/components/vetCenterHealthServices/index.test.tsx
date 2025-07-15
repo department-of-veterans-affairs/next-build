@@ -25,9 +25,9 @@ describe('VetCenterHealthServices Component', () => {
         typeOfCare="counseling"
       />
     )
-    expect(screen.getByText('Counseling Services')).toBeInTheDocument()
+    expect(screen.getByText('Counseling services')).toBeInTheDocument()
     expect(
-      screen.getByText('Click on a service for more details.')
+      screen.getByText('Select a topic to learn more.')
     ).toBeInTheDocument()
   })
 
@@ -35,18 +35,18 @@ describe('VetCenterHealthServices Component', () => {
     render(
       <VetCenterHealthServices services={mockServices} typeOfCare="referral" />
     )
-    expect(screen.getByText('Referral Services')).toBeInTheDocument()
+    expect(screen.getByText('Referral services')).toBeInTheDocument()
   })
 
   it('renders the default heading when typeOfCare is not recognized', () => {
     render(
       <VetCenterHealthServices services={mockServices} typeOfCare="unknown" />
     )
-    expect(screen.getByText('Other Services')).toBeInTheDocument()
+    expect(screen.getByText('Other services')).toBeInTheDocument()
   })
 
   it('renders nothing when services array is empty', () => {
     render(<VetCenterHealthServices services={[]} typeOfCare="counseling" />)
-    expect(screen.queryByText('Counseling Services')).toBeNull()
+    expect(screen.queryByText('Counseling services')).toBeNull()
   })
 })
