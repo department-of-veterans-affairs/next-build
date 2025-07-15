@@ -70,3 +70,7 @@ exit_code
 
 # repomix
 *repomix-output.txt
+
+# locust load testing cache files
+devops-testing/load-testing/__pycache__
+

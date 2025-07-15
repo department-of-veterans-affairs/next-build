@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  master:
+    build: .
+    ports:
+      - '8089:8089'
+    command: -f /locust/locustfile.py --master -H http://localhost:3999
+    volumes:
+      - ./:/locust
+
+  worker:
+    build: .
+    command: -f /locust/locustfile.py --worker --master-host master
+    volumes:
+      - ./:/locust
+    depends_on:
+      - master
