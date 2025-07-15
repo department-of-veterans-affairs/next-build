@@ -3,8 +3,8 @@
  */
 import { NodeLeadershipListing } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/leadershipListing.mock.json'
-import { params } from '../leadershipListing'
+import mockData from '@/products/leadershipListing/mock.json'
+import { params } from './query'
 
 //eslint-disable-next-line
 const leadershipListingMock: NodeLeadershipListing | any = mockData

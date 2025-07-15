@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { LeadershipListing } from './index'
+import { LeadershipListing } from './template'
 
 const meta: Meta<typeof LeadershipListing> = {
   title: 'Uncategorized/LeadershipListing',
