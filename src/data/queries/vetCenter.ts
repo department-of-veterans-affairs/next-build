@@ -121,7 +121,9 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
         question: question.field_question[0]?.value || null,
         answers: [
           {
-            html: question.field_answer[0]?.field_wysiwyg[0]?.value || null,
+            html:
+              getHtmlFromField(question.field_answer[0]?.field_wysiwyg[0]) ||
+              null,
           },
         ],
         header: question.label || null,
@@ -153,13 +155,15 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     ccNonTraditionalHours: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
       id: entity.id || null,
-      html: entity.field_cc_non_traditional_hours.fetched.field_wysiwyg[0]
-        .processed,
+      html: getHtmlFromField(
+        entity.field_cc_non_traditional_hours.fetched.field_wysiwyg[0]
+      ),
     },
     ccVetCenterCallCenter: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
-      html: entity.field_cc_vet_center_call_center.fetched.field_wysiwyg[0]
-        .processed,
+      html: getHtmlFromField(
+        entity.field_cc_vet_center_call_center.fetched.field_wysiwyg[0]
+      ),
       id: entity.id || null,
     },
     ccVetCenterFaqs: buildFaqs(entity.field_cc_vet_center_faqs),
