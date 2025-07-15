@@ -31,7 +31,7 @@ function ServicesList({ services }: ServicesListProps) {
               />
             )}
             {service.body && (
-              <p dangerouslySetInnerHTML={{ __html: service.body }} />
+              <div dangerouslySetInnerHTML={{ __html: service.body }} />
             )}
           </va-accordion-item>
         ))}
