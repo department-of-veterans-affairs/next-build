@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import drupalMockData from '@/mocks/vamcSystemVaPolice.mock.json'
-import { VamcSystemVaPolice } from './index'
-import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
-import { formatter } from '@/data/queries/vamcSystemVaPolice'
+import drupalMockData from '@/products/vamcSystemVaPolice/mock.json'
+import { VamcSystemVaPolice } from './template'
+import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
+import { formatter } from '@/products/vamcSystemVaPolice/query'
 import { DrupalMenuLinkContent } from 'next-drupal'
 
 const menuItem: DrupalMenuLinkContent = {

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { VamcSystemVaPolice } from './index'
+import { VamcSystemVaPolice } from './template'
 
 const meta: Meta<typeof VamcSystemVaPolice> = {
   title: 'Uncategorized/VamcSystemVaPolice',

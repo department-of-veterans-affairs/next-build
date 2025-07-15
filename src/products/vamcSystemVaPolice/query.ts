@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
-import { VamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
+import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {

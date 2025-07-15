@@ -1,4 +1,4 @@
-import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
+import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
