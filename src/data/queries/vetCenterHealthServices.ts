@@ -16,7 +16,7 @@ export const formatter: QueryFormatter<
   VetCenterFieldHealthServicesArray,
   FormattedHealthServices
 > = (entities: VetCenterFieldHealthServicesArray): FormattedHealthServices => {
-  return entities.map((item): FormattedHealthService => {
+  const formattedServices = entities.map((item): FormattedHealthService => {
     const serviceEntity = item.field_service_name_and_descripti
     if (!serviceEntity) return null
 
@@ -36,4 +36,14 @@ export const formatter: QueryFormatter<
       body: item.field_body?.processed || null,
     }
   })
+
+  // Sort services alphabetically by name
+  formattedServices.sort((a, b) => {
+    if (a.name && b.name) {
+      return a.name.localeCompare(b.name)
+    }
+    return 0
+  })
+
+  return formattedServices
 }
