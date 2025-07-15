@@ -6,7 +6,6 @@ export interface VetCenterHealthService {
   vetCenterComConditions?: string
   commonlyTreatedCondition?: string
   vetCenterServiceDescription?: string
-  description?: string
   body?: string
 }
 

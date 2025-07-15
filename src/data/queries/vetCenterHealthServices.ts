@@ -5,6 +5,8 @@ import {
 } from '@/types/formatted/vetCenterHealthServices'
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -34,9 +36,10 @@ export const formatter: QueryFormatter<
         commonlyTreatedCondition:
           serviceEntity.field_commonly_treated_condition || null,
         vetCenterServiceDescription:
-          serviceEntity.field_vet_center_service_descrip || null,
-        description: serviceEntity.description?.processed || null,
-        body: item.field_body?.processed || null,
+          getHtmlFromDrupalContent(
+            serviceEntity.field_vet_center_service_descrip
+          ) || null,
+        body: getHtmlFromField(item.field_body) || null,
       }
     })
     .filter(Boolean)

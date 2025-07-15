@@ -38,7 +38,6 @@ describe('healthServices formatData', () => {
         field_vet_center_com_conditions: null,
         field_commonly_treated_condition: null,
         field_vet_center_service_descrip: null,
-        description: { processed: null },
       },
       field_body: null,
     }))
@@ -56,7 +55,6 @@ describe('healthServices formatData', () => {
       expect(service.vetCenterComConditions).toBeNull()
       expect(service.commonlyTreatedCondition).toBeNull()
       expect(service.vetCenterServiceDescription).toBeNull()
-      expect(service.description).toBeNull()
       expect(service.body).toBeNull()
     })
   })

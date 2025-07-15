@@ -51,7 +51,7 @@ import * as VetCenter from '@/data/queries/vetCenter'
 import * as VetCenterHealthServices from '@/data/queries/vetCenterHealthServices'
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
-import * as LeadershipListing from '@/data/queries/leadershipListing'
+import * as LeadershipListing from '@/products/leadershipListing/query'
 import {
   ResourceType,
   ParagraphResourceType,
