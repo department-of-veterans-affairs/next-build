@@ -36,7 +36,6 @@ export const formatter: QueryFormatter<
         getHtmlFromDrupalContent(
           serviceEntity.field_vet_center_service_descrip
         ) || null,
-      description: getHtmlFromField(serviceEntity.description) || null,
       body: getHtmlFromField(item.field_body) || null,
     }
   })

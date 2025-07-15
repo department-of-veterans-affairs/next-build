@@ -213,7 +213,6 @@ exports[`VetCenterOutstation formatData handles ccFeaturedContent not getting fe
       "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
 ",
       "commonlyTreatedCondition": null,
-      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
       "name": "Military sexual trauma care",
       "vetCenterComConditions": null,
       "vetCenterFriendlyName": null,
@@ -380,7 +379,6 @@ exports[`VetCenterOutstation formatData handles ccFeaturedContent not getting fe
       "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
 ",
       "commonlyTreatedCondition": null,
-      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
       "name": "Military sexual trauma care",
       "vetCenterComConditions": null,
       "vetCenterFriendlyName": null,
@@ -896,7 +894,6 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
       "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
 ",
       "commonlyTreatedCondition": null,
-      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
       "name": "Military sexual trauma care",
       "vetCenterComConditions": null,
       "vetCenterFriendlyName": null,
@@ -966,7 +963,6 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
       "body": "<p>Military sexual trauma can happen to both men and women. If you experienced sexual assault or harassment during military service - no matter when you served – we provide counseling and treatment.</p>
 ",
       "commonlyTreatedCondition": null,
-      "description": "Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.",
       "name": "Military sexual trauma care",
       "vetCenterComConditions": null,
       "vetCenterFriendlyName": null,
