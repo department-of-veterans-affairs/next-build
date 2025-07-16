@@ -16,6 +16,7 @@ export const RESOURCE_TYPES = {
   VAMC_FACILITY: 'node--health_care_local_facility',
   VAMC_SYSTEM_VA_POLICE: 'node--vamc_system_va_police',
   VAMC_SYSTEM: 'node--health_care_region_page',
+  VBA_FACILITY: 'node--vba_facility',
   VET_CENTER_HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
   VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
   VET_CENTER: 'node--vet_center',
@@ -41,6 +42,7 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
   RESOURCE_TYPES.VAMC_SYSTEM,
   RESOURCE_TYPES.LEADERSHIP_LISTING,
+  RESOURCE_TYPES.VBA_FACILITY,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {
