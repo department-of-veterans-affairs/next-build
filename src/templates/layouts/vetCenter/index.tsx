@@ -190,7 +190,7 @@ export function VetCenter({
             <MediaImage
               {...bannerImage}
               imageStyle="7_2_medium_thumbnail"
-              alt=""
+              className="vads-u-padding-y--1p5"
             />
           )}
           {introText && (
