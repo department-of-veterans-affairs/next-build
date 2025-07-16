@@ -453,7 +453,7 @@ export const mockResponse = {
       ],
       field_section_intro: [
         {
-          value: 'Click on a topic for more details.',
+          value: 'Select a topic to learn more.',
         },
       ],
     },
