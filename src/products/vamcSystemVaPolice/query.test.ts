@@ -3,7 +3,7 @@
  */
 
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/vamcSystemVaPolice.mock.json'
+import mockData from '@/products/vamcSystemVaPolice/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes' // Import RESOURCE_TYPES
 
 jest.mock('@/lib/drupal/query', () => ({
