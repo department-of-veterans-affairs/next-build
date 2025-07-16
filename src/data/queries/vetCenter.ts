@@ -47,7 +47,7 @@ export type VetCenterDataOpts = {
 
 export type VetCenterData = {
   entity: NodeVetCenter
-  bannerMedia: DrupalMediaImage
+  bannerMedia: DrupalMediaImage | null
 }
 
 // Implement the data loader.
@@ -62,16 +62,19 @@ export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
 
   // Fetch the banner image, which we have a reference to from the centralized content
   const bannerMediaId =
-    entity.field_vet_center_banner_image.fetched.field_media[0].target_id
-  const bannerMedia = (
-    await fetchAndConcatAllResourceCollectionPages<DrupalMediaImage>(
-      'media--image',
-      new DrupalJsonApiParams()
-        .addFilter('drupal_internal__mid', bannerMediaId)
-        .addInclude(['image']),
-      1
-    )
-  ).data[0]
+    entity.field_vet_center_banner_image?.fetched.field_media[0].target_id
+  let bannerMedia = null
+  if (bannerMediaId) {
+    bannerMedia = (
+      await fetchAndConcatAllResourceCollectionPages<DrupalMediaImage>(
+        'media--image',
+        new DrupalJsonApiParams()
+          .addFilter('drupal_internal__mid', bannerMediaId)
+          .addInclude(['image']),
+        1
+      )
+    ).data[0]
+  }
 
   return { entity, bannerMedia }
 }
@@ -214,7 +217,9 @@ export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = ({
     referralHealthServices: referralServicesArray,
     otherHealthServices: otherServicesArray,
     image: queries.formatData('media--image', entity.field_media),
-    bannerImage: queries.formatData('media--image', bannerMedia),
+    bannerImage: bannerMedia
+      ? queries.formatData('media--image', bannerMedia)
+      : null,
     prepareForVisit: entity.field_prepare_for_visit.map(
       (prepareForVisitItem) => {
         return queries.formatData(

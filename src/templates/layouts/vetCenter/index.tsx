@@ -186,11 +186,13 @@ export function VetCenter({
               )}
             </>
           )}
-          <MediaImage
-            {...bannerImage}
-            imageStyle="7_2_medium_thumbnail"
-            alt=""
-          />
+          {bannerImage && (
+            <MediaImage
+              {...bannerImage}
+              imageStyle="7_2_medium_thumbnail"
+              alt=""
+            />
+          )}
           {introText && (
             <div className="va-introtext">
               <p>{introText}</p>
