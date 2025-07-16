@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeLeadershipListing } from '@/types/drupal/node'
-import { LeadershipListing } from '@/types/formatted/leadershipListing'
+import { LeadershipListing } from '@/products/leadershipListing/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'

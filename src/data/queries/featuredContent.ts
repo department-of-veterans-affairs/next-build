@@ -3,6 +3,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ParagraphFeaturedContent } from '@/types/drupal/paragraph'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
 import { queries } from '.'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude(['field_cta'])
@@ -18,7 +19,7 @@ export const formatter: QueryFormatter<
     id: entity.id,
     entityId: entity.drupal_internal__id || null,
     title: entity.field_section_header,
-    description: entity.field_description.processed || null,
+    description: getHtmlFromField(entity.field_description) || null,
     link: entity.field_cta
       ? queries.formatData('paragraph--button', entity.field_cta)
       : null,

@@ -19,7 +19,6 @@ const sampleServices: FormattedHealthServices = [
     vetCenterComConditions: 'Common Conditions etc...',
     commonlyTreatedCondition: null,
     vetCenterServiceDescription: 'PTSD care description...',
-    description: 'PTSD care detailed description...',
     body: '<p>PTSD care body content...</p>',
   },
   {
@@ -30,7 +29,6 @@ const sampleServices: FormattedHealthServices = [
     vetCenterComConditions: null,
     commonlyTreatedCondition: null,
     vetCenterServiceDescription: 'Couples and family counseling...',
-    description: 'Couples and family counseling detailed description...',
     body: '<p>Couples and family counseling body content...</p>',
   },
   {
@@ -41,7 +39,6 @@ const sampleServices: FormattedHealthServices = [
     vetCenterComConditions: null,
     commonlyTreatedCondition: null,
     vetCenterServiceDescription: 'Community engagement description...',
-    description: 'Community engagement detailed description...',
     body: '<p>PCommunity engagement body content...</p>',
   },
 ]

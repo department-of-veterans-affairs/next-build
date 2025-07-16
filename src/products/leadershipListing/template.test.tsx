@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { LeadershipListing } from './index'
+import { LeadershipListing } from './template'
 
 describe('LeadershipListing with valid data', () => {
   test('renders LeadershipListing component with intro text', () => {
