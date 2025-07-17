@@ -19,10 +19,13 @@ async function runRUMTest() {
     const startTime = Date.now()
 
     // Navigate to your website
-    await page.goto('https://dev.va.gov', {
-      waitUntil: 'networkidle',
-      timeout: 30000,
-    })
+    await page.goto(
+      'https://www.va.gov/cheyenne-health-care/stories/a-therapy-session-in-a-shipping-container-if-needed/',
+      {
+        waitUntil: 'domcontentloaded',
+        timeout: 30000,
+      }
+    )
 
     // Wait for Datadog RUM to initialize
     await page.waitForTimeout(2000)
@@ -46,7 +49,7 @@ async function runRUMTest() {
     // Wait for RUM data to be sent
     await page.waitForTimeout(3000)
   } catch (error) {
-    //console.error('Error during test:', error);
+    console.error('Error during test:', error)
   } finally {
     await browser.close()
   }
@@ -70,9 +73,33 @@ async function runContinuousMonitoring() {
   }
 }
 
+function findArg(args, flag) {
+  const index = args.indexOf(flag)
+  return {
+    found: index !== -1,
+    index: index,
+    value: index !== -1 && index + 1 < args.length ? args[index + 1] : null,
+  }
+}
+
+const args = process.argv.slice(2)
+const usersArg = findArg(args, '--users')
+// console.log(`Running RUM test with ${usersArg.found ? parseInt(usersArg.value, 10) : 'default single user'} users at ${new Date(Date.now()).toLocaleString()}`);
 // Run single test or continuous monitoring
 if (process.argv.includes('--continuous')) {
-  runContinuousMonitoring()
+  if (usersArg.found) {
+    for (let i = 0; i < parseInt(usersArg.value, 10); i++) {
+      runContinuousMonitoring()
+    }
+  } else {
+    runContinuousMonitoring()
+  }
 } else {
-  runRUMTest()
+  if (usersArg.found) {
+    for (let i = 0; i < parseInt(usersArg.value, 10); i++) {
+      runRUMTest()
+    }
+  } else {
+    runRUMTest()
+  }
 }
