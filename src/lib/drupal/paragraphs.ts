@@ -48,3 +48,67 @@ export const formatParagraph = <T extends FormattableParagraphResourceType>(
     return null
   }
 }
+
+type EntityFetchedParagraph = { type: string; bundle: string }
+function isEntityFetchedParagraph(
+  paragraph: unknown
+): paragraph is EntityFetchedParagraph {
+  return (
+    paragraph != null &&
+    typeof paragraph === 'object' &&
+    (paragraph as EntityFetchedParagraph).type === 'paragraph' &&
+    'bundle' in paragraph
+  )
+}
+
+const EXPECTED_ARRAY_FIELDS = [
+  'field_links',
+  'field_audience_beneficiares',
+  'field_non_beneficiares',
+  'field_topics',
+]
+
+/**
+ * Recursively converts a paragraph that was fetched using [entity_field_fetch](https://www.drupal.org/project/entity_field_fetch)
+ * to a normal paragraph that we'd expect from the base Drupal API.
+ */
+export function entityFetchedParagraphsToNormalParagraphs<T extends unknown>(
+  paragraph: T
+): T | DrupalParagraph {
+  if (!isEntityFetchedParagraph(paragraph)) {
+    return paragraph
+  }
+
+  const convertProperty = ([key, value]) => {
+    if (Array.isArray(value)) {
+      const firstItem = value[0];
+
+      // Peak at the first value to see if this is an array of entity_field_fetch
+      // paragraphs. If so, recursively convert them to normal paragraphs.
+      if (isEntityFetchedParagraph(firstItem)) {
+        return [key, value.map(entityFetchedParagraphsToNormalParagraphs)]
+      }
+
+      // It's most likely one of the messed-up entity_field_fetch fields that we're
+      // looking for. These field values are being converted to arrays by
+      // entity_field_fetch, but we want to convert them back to single values by just
+      // grabbing the first value.
+      if (!EXPECTED_ARRAY_FIELDS.includes(key) && value.length === 1) {
+        // Even weirder still is that some fields that are normally just strings behave
+        // like `FieldFormattedText` objects except they only have a `value` property.
+        // We need to handle that here.
+        if (firstItem.value && !('format' in firstItem) && !('processed' in firstItem)) {
+          return [key, firstItem.value]
+        }
+        return [key, firstItem]
+      }
+    }
+    return [key, value]
+  }
+
+  const { type, bundle, ...properties } = paragraph
+  return {
+    type: `${type}--${bundle}`,
+    ...Object.fromEntries(Object.entries(properties).map(convertProperty)),
+  } as DrupalParagraph
+}
