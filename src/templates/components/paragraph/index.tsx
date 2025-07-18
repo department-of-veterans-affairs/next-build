@@ -51,6 +51,7 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
       return <AccordionItem {...(paragraph as FormattedAccordionItem)} />
 
     case PARAGRAPH_RESOURCE_TYPES.ALERT:
+      console.log("🍑 alert", paragraph)
       return <Alert {...(paragraph as FormattedAlert)} />
 
     case PARAGRAPH_RESOURCE_TYPES.ALERT_SINGLE:
