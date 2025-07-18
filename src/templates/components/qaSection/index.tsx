@@ -14,6 +14,7 @@ export function QaSection({
   const setHeaderh3 = header ? true : false
   // Prepare id for use by va-on-this-page component to identify the QaSection
   const headerId = header ? slugifyString(header) : ''
+  console.log('🍈🍈 questions', questions)
   return (
     <div data-template="paragraphs/q_a_section">
       {header && <h2 id={headerId}>{header}</h2>}
@@ -23,7 +24,7 @@ export function QaSection({
       ) : (
         questions.map((questionContent: FormattedParagraph) => (
           <Paragraph
-            key={questionContent.id}
+            key={questionContent.id || questionContent.entityId}
             setHeaderh3={setHeaderh3}
             {...questionContent}
           />

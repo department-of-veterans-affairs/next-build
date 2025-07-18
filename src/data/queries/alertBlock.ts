@@ -12,7 +12,6 @@ export const formatter: QueryFormatter<BlockAlert, AlertBlock> = (
   if (!entity) {
     return null
   }
-  console.log("block alert formatter", entity)
 
   return {
     alertType: (entity.field_alert_type === 'information'

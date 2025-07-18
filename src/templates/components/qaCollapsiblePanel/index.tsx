@@ -4,7 +4,7 @@ export const QaCollapsiblePanel = ({ questions }) => {
       <va-accordion>
         {questions.map((questionObject) => (
           <va-accordion-item
-            key={questionObject.id}
+            key={questionObject.id || questionObject.entityId}
             class="va-accordion-item"
             header={questionObject.question}
             id={`${questionObject.question}-header`}
