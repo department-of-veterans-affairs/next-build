@@ -149,7 +149,7 @@ export function VetCenter({
         >
           Prepare for your visit
         </h2>
-        <p>Click on a topic for more details.</p>
+        <p>Select a topic to learn more.</p>
         <div className="vads-u-margin-bottom--3">
           <Accordion
             id={'prepare-for-your-visit'}

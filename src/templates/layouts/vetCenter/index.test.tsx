@@ -28,7 +28,7 @@ describe('VetCenter with valid data', () => {
       type: 'paragraph--q_a_section' as FormattedQaSection['type'],
       id: '5f582f12-b72f-4a35-a9df-411485c8e446',
       header: 'How we’re different than a clinic',
-      intro: 'Click on a topic for more details.',
+      intro: 'Select a topic to learn more.',
       displayAccordion: true,
       questions: [
         {
