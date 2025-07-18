@@ -20,6 +20,7 @@ import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { entityFetchedParagraphsToNormalParagraphs, formatParagraph } from '@/lib/drupal/paragraphs'
 import { ParagraphCCVetCenterFaqs, ParagraphQaSection } from '@/types/drupal/paragraph'
+import { QaSection } from '@/types/formatted/qaSection'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -120,7 +121,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
       bundle: faqs.fetched_bundle,
       ...faqs.fetched
     }) as ParagraphQaSection
-    return formatParagraph(normalizedQaSection)
+    return formatParagraph(normalizedQaSection) as QaSection
   }
 
   const missionExplainer = {
@@ -130,8 +131,6 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
       entity.field_mission_explainer?.fetched.field_magichead_body[0] ?? null
     ),
   }
-
-  const faqs = formatFaq(entity.field_cc_vet_center_faqs)
 
   return {
     ...entityBaseFields(entity),
@@ -150,7 +149,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
       ),
       id: entity.id || null,
     },
-    ccVetCenterFaqs: faqs,
+    ccVetCenterFaqs: formatFaq(entity.field_cc_vet_center_faqs),
     featuredContent: buildFeaturedContentArray(
       entity.field_cc_vet_center_featured_con,
       entity.field_vet_center_feature_content

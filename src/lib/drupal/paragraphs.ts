@@ -68,6 +68,10 @@ const EXPECTED_ARRAY_FIELDS = [
   'field_topics',
 ]
 
+const POSSIBLY_EMPTY_FIELDS = [
+  'field_alert_block_reference'
+]
+
 /**
  * Recursively converts a paragraph that was fetched using [entity_field_fetch](https://www.drupal.org/project/entity_field_fetch)
  * to a normal paragraph that we'd expect from the base Drupal API.
@@ -101,6 +105,12 @@ export function entityFetchedParagraphsToNormalParagraphs<T extends unknown>(
           return [key, firstItem.value]
         }
         return [key, firstItem]
+      }
+
+      // It seems that sometimes null values are converted to an empty array, so in that
+      // case we want to convert it back to null.
+      if (POSSIBLY_EMPTY_FIELDS.includes(key) && value.length === 0) {
+        return [key, null]
       }
     }
     return [key, value]
