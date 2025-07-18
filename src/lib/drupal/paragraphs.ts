@@ -49,7 +49,7 @@ export const formatParagraph = <T extends FormattableParagraphResourceType>(
   }
 }
 
-type EntityFetchedParagraph = { type: string; bundle: string }
+type EntityFetchedParagraph = { type: string; bundle: string; target_id: string }
 function isEntityFetchedParagraph(
   paragraph: unknown
 ): paragraph is EntityFetchedParagraph {
@@ -116,9 +116,10 @@ export function entityFetchedParagraphsToNormalParagraphs<T extends unknown>(
     return [key, value]
   }
 
-  const { type, bundle, ...properties } = paragraph
+  const { type, bundle, target_id, ...properties } = paragraph
   return {
     type: `${type}--${bundle}`,
+    id: target_id,
     ...Object.fromEntries(Object.entries(properties).map(convertProperty)),
   } as DrupalParagraph
 }
