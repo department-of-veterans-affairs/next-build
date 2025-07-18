@@ -457,5 +457,5 @@ export interface NodeLocationsListing extends DrupalNode {
 }
 
 export interface NodeVbaFacility extends DrupalNode {
-  field_body: string
+  title: string
 }
