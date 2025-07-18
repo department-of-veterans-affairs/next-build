@@ -2,6 +2,7 @@ import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
+import { MediaImage } from '@/templates/common/mediaImage'
 import { AlertBlock } from '@/templates/components/alertBlock'
 import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
@@ -29,6 +30,7 @@ export function VetCenter({
   referralHealthServices,
   otherHealthServices,
   image,
+  bannerImage,
   prepareForVisit,
   title,
   fieldFacilityLocatorApiId,
@@ -183,6 +185,13 @@ export function VetCenter({
                 </p>
               )}
             </>
+          )}
+          {bannerImage && (
+            <MediaImage
+              {...bannerImage}
+              imageStyle="7_2_medium_thumbnail"
+              className="vads-u-padding-y--1p5"
+            />
           )}
           {introText && (
             <div className="va-introtext">
