@@ -12,12 +12,12 @@ import {
 // Define the query params for fetching node--vba_facility.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-    // uncomment to add referenced entity data to the response
-    // .addInclude([
-    //  'field_media',
-    //  'field_media.image',
-    //  'field_administration',
-    // ])
+  // uncomment to add referenced entity data to the response
+  // .addInclude([
+  //  'field_media',
+  //  'field_media.image',
+  //  'field_administration',
+  // ])
 }
 
 // Define the option types for the data loader.
@@ -30,7 +30,7 @@ export type VbaFacilityDataOpts = {
 export const data: QueryData<VbaFacilityDataOpts, NodeVbaFacility> = async (
   opts
 ): Promise<NodeVbaFacility> => {
-const entity = (await fetchSingleEntityOrPreview(
+  const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VBA_FACILITY,
     params
@@ -43,6 +43,6 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
   entity: NodeVbaFacility
 ) => {
   return {
-    ...entityBaseFields(entity)
+    ...entityBaseFields(entity),
   }
 }
