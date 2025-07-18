@@ -2,9 +2,9 @@ export const QaCollapsiblePanel = ({ questions }) => {
   return (
     <div data-template="paragraphs/q_a.collapsible_panel">
       <va-accordion>
-        {questions.map((questionObject, index) => (
+        {questions.map((questionObject) => (
           <va-accordion-item
-            key={questionObject.id || questionObject.entityId || `${questionObject.type}-${index}`}
+            key={questionObject.id}
             class="va-accordion-item"
             header={questionObject.question}
             id={`${questionObject.question}-header`}

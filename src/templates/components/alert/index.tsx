@@ -29,11 +29,8 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
         {heading}
       </h2>
 
-      {paragraphs?.map((paragraph, index) => (
-        <Paragraph
-          key={paragraph.id || paragraph.entityId || `${paragraph.type}-${index}`}
-          {...paragraph}
-        />
+      {paragraphs?.map((paragraph) => (
+        <Paragraph key={paragraph.id} {...paragraph} />
       ))}
     </va-alert>
   )
