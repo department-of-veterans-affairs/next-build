@@ -70,6 +70,7 @@ import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '@/templates/layouts/vamcSystem'
 import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
 import { LeadershipListing } from '@/products/leadershipListing/template'
+import { VbaFacility } from '@/templates/layouts/vbaFacility'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -198,6 +199,11 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.LEADERSHIP_LISTING && (
             <LeadershipListing {...(resource as FormattedLeadershipListing)} />
           )}
+          {resource.type === RESOURCE_TYPES.VBA_FACILITY && (
+            <VbaFacility {...(resource as FormattedPageResource)} />
+          )}
+
+          {/* This is a catch-all for any resource types that don't have a specific template. */}
         </div>
       </main>
 

@@ -52,6 +52,7 @@ import * as VetCenterHealthServices from '@/data/queries/vetCenterHealthServices
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
 import * as LeadershipListing from '@/products/leadershipListing/query'
+import * as VbaFacility from '@/data/queries/vbaFacility'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -85,6 +86,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
   [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
+  [RESOURCE_TYPES.VBA_FACILITY]: VbaFacility,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
