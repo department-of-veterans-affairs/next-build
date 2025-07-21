@@ -2,10 +2,6 @@
 
 What does this PR address?
 
-## Generated description
-
-(Select this text, hit the Copilot button, and select "Generate".)
-
 ## Ticket
 
 <!--
@@ -31,6 +27,10 @@ Closes _link to ticket_
 Explain the steps needed for testing
 
 ## QA steps
+
+<!--
+Note: Github Copilot will be added as a PR reviewer automatically. Please pay attention to its suggestions, but use your judgement when deciding whether to incorporate them.
+-->
 
 What needs to be checked to prove this works?
 What needs to be checked to prove it didn't break any related things?
