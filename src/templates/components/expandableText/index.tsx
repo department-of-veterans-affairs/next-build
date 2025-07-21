@@ -1,4 +1,3 @@
-import { VaAlertExpandable } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { isEmpty } from 'lodash'
 import { ExpandableText as FormattedExpandableText } from '@/types/formatted/expandableText'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
@@ -11,7 +10,7 @@ export function ExpandableText({
   if (isEmpty(header)) return
 
   return (
-    <VaAlertExpandable id={id} trigger={header}>
+    <va-additional-info disable-border uswds trigger={header}>
       {text && (
         <div
           dangerouslySetInnerHTML={{
@@ -19,6 +18,6 @@ export function ExpandableText({
           }}
         />
       )}
-    </VaAlertExpandable>
+    </va-additional-info>
   )
 }
