@@ -18,8 +18,14 @@ import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { entityFetchedParagraphsToNormalParagraphs, formatParagraph } from '@/lib/drupal/paragraphs'
-import { ParagraphCCVetCenterFaqs, ParagraphQaSection } from '@/types/drupal/paragraph'
+import {
+  entityFetchedParagraphsToNormalParagraphs,
+  formatParagraph,
+} from '@/lib/drupal/paragraphs'
+import {
+  ParagraphCCVetCenterFaqs,
+  ParagraphQaSection,
+} from '@/types/drupal/paragraph'
 import { QaSection } from '@/types/formatted/qaSection'
 
 // Define the query params for fetching node--vet_center.
@@ -119,7 +125,7 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     const normalizedQaSection = entityFetchedParagraphsToNormalParagraphs({
       type: faqs.target_type,
       bundle: faqs.fetched_bundle,
-      ...faqs.fetched
+      ...faqs.fetched,
     }) as ParagraphQaSection
     return formatParagraph(normalizedQaSection) as QaSection
   }

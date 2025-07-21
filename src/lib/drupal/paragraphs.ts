@@ -49,7 +49,11 @@ export const formatParagraph = <T extends FormattableParagraphResourceType>(
   }
 }
 
-type EntityFetchedParagraph = { type: string; bundle: string; target_id: string }
+type EntityFetchedParagraph = {
+  type: string
+  bundle: string
+  target_id: string
+}
 function isEntityFetchedParagraph(
   paragraph: unknown
 ): paragraph is EntityFetchedParagraph {
@@ -68,15 +72,13 @@ const EXPECTED_ARRAY_FIELDS = [
   'field_topics',
 ]
 
-const POSSIBLY_EMPTY_FIELDS = [
-  'field_alert_block_reference'
-]
+const POSSIBLY_EMPTY_FIELDS = ['field_alert_block_reference']
 
 /**
  * Recursively converts a paragraph that was fetched using [entity_field_fetch](https://www.drupal.org/project/entity_field_fetch)
  * to a normal paragraph that we'd expect from the base Drupal API.
  */
-export function entityFetchedParagraphsToNormalParagraphs<T extends unknown>(
+export function entityFetchedParagraphsToNormalParagraphs<T>(
   paragraph: T
 ): T | DrupalParagraph {
   if (!isEntityFetchedParagraph(paragraph)) {
@@ -85,7 +87,7 @@ export function entityFetchedParagraphsToNormalParagraphs<T extends unknown>(
 
   const convertProperty = ([key, value]) => {
     if (Array.isArray(value)) {
-      const firstItem = value[0];
+      const firstItem = value[0]
 
       // Peak at the first value to see if this is an array of entity_field_fetch
       // paragraphs. If so, recursively convert them to normal paragraphs.
@@ -101,7 +103,11 @@ export function entityFetchedParagraphsToNormalParagraphs<T extends unknown>(
         // Even weirder still is that some fields that are normally just strings behave
         // like `FieldFormattedText` objects except they only have a `value` property.
         // We need to handle that here.
-        if (firstItem.value && !('format' in firstItem) && !('processed' in firstItem)) {
+        if (
+          firstItem.value &&
+          !('format' in firstItem) &&
+          !('processed' in firstItem)
+        ) {
           return [key, firstItem.value]
         }
         return [key, firstItem]
