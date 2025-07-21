@@ -202,8 +202,6 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.VBA_FACILITY && (
             <VbaFacility {...(resource as FormattedPageResource)} />
           )}
-
-          {/* This is a catch-all for any resource types that don't have a specific template. */}
         </div>
       </main>
 

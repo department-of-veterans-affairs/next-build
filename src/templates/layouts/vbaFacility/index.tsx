@@ -14,24 +14,37 @@ export function VbaFacility({ title, lastUpdated }: FormattedVBAFacility) {
 
             <va-on-this-page></va-on-this-page>
 
-            <h2 className="vads-u-margin-bottom--3">
+            <h2
+              id="location-and-contact-informati"
+              className="vads-u-margin-bottom--3"
+            >
               Location and contact information
             </h2>
             <div>TODO: Add conditional Prepare for your visit</div>
-            <h2 className="vads-u-margin-bottom--3">Prepare for your visit</h2>
+            <h2 id="prepare-for-your-visit" className="vads-u-margin-bottom--3">
+              Prepare for your visit
+            </h2>
 
-            <h2 className="vads-u-margin-bottom--3">In the spotlight</h2>
+            <h2 id="in-the-spotlight" className="vads-u-margin-bottom--3">
+              In the spotlight
+            </h2>
             <div>TODO: Add In the spotlight cards</div>
 
             <div>TODO: Add services/benefits</div>
 
             <div>TODO: Add conditional get updates links</div>
-            <h2 className="vads-u-margin-bottom--3">
+            <h2
+              id="other-nearby-va-locations"
+              className="vads-u-margin-bottom--3"
+            >
               Other nearby VA locations
             </h2>
             <div>TODO: Add Other nearby VA locations</div>
 
-            <h2 className="vads-u-margin-bottom--3">
+            <h2
+              id="va-locations-in-other-areas"
+              className="vads-u-margin-bottom--3"
+            >
               VA locations in other areas
             </h2>
             <p>Looking for a VA benefits location in another area?</p>
