@@ -4,10 +4,10 @@ import { test, expect } from '../utils/next-test'
 test.describe('Vba_facility', () => {
   test('Vba_facility page renders', async ({ page }) => {
     await page.goto(
-      '/togus-va-regional-benefit-office-at-togus-va-medical-center'
+      '/togus-va-regional-benefit-office-at-togus-va-medical-center/'
     )
     await expect(page).toHaveURL(
-      '/togus-va-regional-benefit-office-at-togus-va-medical-center'
+      '/togus-va-regional-benefit-office-at-togus-va-medical-center/'
     )
   })
 
@@ -16,7 +16,7 @@ test.describe('Vba_facility', () => {
     makeAxeBuilder,
   }) => {
     await page.goto(
-      '/togus-va-regional-benefit-office-at-togus-va-medical-center'
+      '/togus-va-regional-benefit-office-at-togus-va-medical-center/'
     )
 
     const accessibilityScanResults = await makeAxeBuilder().analyze()
