@@ -77,6 +77,7 @@ export type NodeTypes =
   | NodeVetCenter
   | NodeVamcSystemVaPolice
   | NodeLeadershipListing
+  | NodeVbaFacility
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -453,4 +454,8 @@ export interface NodeLeadershipListing extends DrupalNode {
 
 export interface NodeLocationsListing extends DrupalNode {
   field_description: string
+}
+
+export interface NodeVbaFacility extends DrupalNode {
+  title: string
 }

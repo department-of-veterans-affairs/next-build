@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VbaFacility formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://va-gov-cms.ddev.site/",
+    },
+    {
+      "options": [],
+      "title": "St. Petersburg VA Regional Benefit Office",
+      "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office",
+    },
+    {
+      "options": [],
+      "title": "Veteran Readiness and Employment Office At West Palm Beach VA Medical Center",
+      "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
+    },
+  ],
+  "entityId": 4030,
+  "entityPath": "/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
+  "id": "a08da437-55a4-451c-8f90-af498f38a297",
+  "lastUpdated": "2023-09-19T13:13:04+00:00",
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans. Find a benefit office near you or sign up for updates.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans. Find a benefit office near you or sign up for updates.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "archived",
+  "published": false,
+  "title": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center",
+  "type": "node--vba_facility",
+}
+`;

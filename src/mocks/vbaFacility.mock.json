@@ -1,0 +1,510 @@
+{
+  "type": "node--vba_facility",
+  "id": "a08da437-55a4-451c-8f90-af498f38a297",
+  "drupal_internal__nid": 4030,
+  "drupal_internal__vid": 814843,
+  "langcode": "en",
+  "revision_timestamp": "2023-10-10T19:55:05+00:00",
+  "status": false,
+  "title": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center",
+  "created": "2020-04-06T21:38:32+00:00",
+  "changed": "2023-10-10T19:55:00+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://va-gov-cms.ddev.site/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office",
+      "title": "St. Petersburg VA Regional Benefit Office",
+      "options": []
+    },
+    {
+      "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
+      "title": "Veteran Readiness and Employment Office At West Palm Beach VA Medical Center",
+      "options": []
+    }
+  ],
+  "moderation_state": "archived",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "description",
+        "content": "We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans. Find a benefit office near you or sign up for updates."
+      }
+    },
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "image_src",
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:description",
+        "content": "We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans. Find a benefit office near you or sign up for updates."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
+    "pid": 4914,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_address": {
+    "langcode": "en",
+    "country_code": "US",
+    "administrative_area": "FL",
+    "locality": "West Palm Beach",
+    "dependent_locality": null,
+    "postal_code": "33410",
+    "address_line1": "7305 N. Military Trail, Bldg 10",
+    "additional_name": null
+  },
+  "field_alert_type": null,
+  "field_banner_content": null,
+  "field_banner_title": null,
+  "field_banner_types_description": null,
+  "field_cc_benefits_hotline": {
+    "target_type": "paragraph",
+    "target_id": "9be07ebb-f363-4780-af80-412b38a3b680",
+    "target_field": null,
+    "fetched_bundle": "phone_number",
+    "fetched": {
+      "field_phone_extension": [],
+      "field_phone_label": [
+        {
+          "value": "VA benefits hotline"
+        }
+      ],
+      "field_phone_number": [
+        {
+          "value": "800-827-1000"
+        }
+      ],
+      "field_phone_number_type": [
+        {
+          "value": "tel"
+        }
+      ]
+    }
+  },
+  "field_cc_benefit_office_hours_va": {
+    "target_type": "paragraph",
+    "target_id": "9777245d-83b7-4c9e-aa71-d73065869e39",
+    "target_field": null,
+    "fetched_bundle": "rich_text_char_limit_1000",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<p>Hours may vary for different services.</p><p>Select a service on this page to check the hours.</p>",
+          "format": "rich_text_limited",
+          "processed": "<p>Hours may vary for different services.</p>\n<p>Select a service on this page to check the hours.</p>\n"
+        }
+      ]
+    }
+  },
+  "field_cc_cant_find_benefits": {
+    "target_type": "paragraph",
+    "target_id": "bb9545bd-10e1-41e1-9924-ab07eb3b92fa",
+    "target_field": null,
+    "fetched_bundle": "featured_content",
+    "fetched": {
+      "field_cta": [
+        {
+          "target_id": "139797",
+          "target_revision_id": "1731262",
+          "type": "paragraph",
+          "bundle": "button",
+          "pid": "139797",
+          "label": "VBA -- benefit office content > Content > Call to Action",
+          "status": true,
+          "langcode": "en",
+          "field_button_label": [
+            {
+              "value": "Find a VA benefits location"
+            }
+          ],
+          "field_button_link": [
+            {
+              "uri": "https://www.va.gov/find-locations/?facilityType=benefits",
+              "title": "",
+              "options": {
+                "href": "https://www.va.gov/find-locations/?facilityType=benefits",
+                "data-entity-type": "",
+                "data-entity-uuid": "",
+                "data-entity-substitution": ""
+              }
+            }
+          ]
+        }
+      ],
+      "field_description": [
+        {
+          "value": "<p>Call our VA benefits hotline at <a href=\"tel:+18008271000\" aria-label=\"8 0 0. 8 2 7. 1 0 0 0.\">800-827-1000</a> (<a href=\"tel:711\" aria-label=\"TTY. 7 1 1.\">TTY: 711</a>). We’re here 8:00 a.m. to 9:00 p.m. ET, Monday through Friday.</p>",
+          "format": "rich_text_limited",
+          "processed": "<p>Call our VA benefits hotline at <a href=\"tel:+18008271000\" aria-label=\"8 0 0. 8 2 7. 1 0 0 0.\">800-827-1000</a> (<a href=\"tel:711\" aria-label=\"TTY. 7 1 1.\">TTY: 711</a>). We’re here 8:00 a.m. to 9:00 p.m. ET, Monday through Friday.</p>\n"
+        }
+      ],
+      "field_section_header": [
+        {
+          "value": "Can't find the service you're looking for?"
+        }
+      ]
+    }
+  },
+  "field_cc_get_updates_from_vba": {
+    "target_type": "paragraph",
+    "target_id": "5bc10434-a9f2-4d39-9fbc-c0b6bbf635d5",
+    "target_field": null,
+    "fetched_bundle": "list_of_links",
+    "fetched": {
+      "field_link": [],
+      "field_links": [
+        {
+          "uri": "https://public.govdelivery.com/accounts/USVAVBA/subscribers/new",
+          "title": "Subscribe to our newsletter about VA benefits",
+          "options": {
+            "href": "https://public.govdelivery.com/accounts/USVAVBA/subscribers/new",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "data-entity-substitution": ""
+          }
+        },
+        {
+          "uri": "https://www.facebook.com/VeteransAffairs",
+          "title": "Get updates about VA benefits on Facebook",
+          "options": {
+            "href": "https://www.facebook.com/VeteransAffairs",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "data-entity-substitution": ""
+          }
+        },
+        {
+          "uri": "https://twitter.com/DeptVetAffairs/",
+          "title": "Get updates about VA benefits on X",
+          "options": {
+            "href": "https://twitter.com/DeptVetAffairs/",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "data-entity-substitution": ""
+          }
+        },
+        {
+          "uri": "https://www.instagram.com/deptvetaffairs/",
+          "title": "Get updates about VA benefits on Instagram",
+          "options": {
+            "href": "https://www.instagram.com/deptvetaffairs/",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "data-entity-substitution": ""
+          }
+        }
+      ],
+      "field_section_header": [
+        {
+          "value": "Get updates from the Veterans Benefits Administration"
+        }
+      ]
+    }
+  },
+  "field_cc_meta_tags": {
+    "target_type": "paragraph",
+    "target_id": "142580",
+    "target_field": null,
+    "fetched_bundle": "rich_text_char_limit_1000",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<p>We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans. Find a benefit office near you or sign up for updates.</p>",
+          "format": "rich_text_limited",
+          "processed": "<p>We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans. Find a benefit office near you or sign up for updates.</p>\n"
+        }
+      ]
+    }
+  },
+  "field_cc_national_spotlight_1": {
+    "target_type": "paragraph",
+    "target_id": "5d084f72-5c30-46ec-8da9-8b436cf7c5c5",
+    "target_field": null,
+    "fetched_bundle": "featured_content",
+    "fetched": {
+      "field_cta": [
+        {
+          "target_id": "139794",
+          "target_revision_id": "1731259",
+          "type": "paragraph",
+          "bundle": "button",
+          "pid": "139794",
+          "label": "VBA -- benefit office content > Content > Call to Action",
+          "status": true,
+          "langcode": "en",
+          "field_button_label": [
+            {
+              "value": "Learn about accredited representatives"
+            }
+          ],
+          "field_button_link": [
+            {
+              "uri": "https://www.va.gov/get-help-from-accredited-representative/",
+              "title": "",
+              "options": {
+                "href": "https://www.va.gov/get-help-from-accredited-representative/",
+                "data-entity-type": "",
+                "data-entity-uuid": "",
+                "data-entity-substitution": ""
+              }
+            }
+          ]
+        }
+      ],
+      "field_description": [
+        {
+          "value": "<p>VA-accredited representatives can help you file a claim or request a decision review. </p><p>Protect your benefits and avoid unlawful fees. </p><p>Get responsible, qualified help from a VA accredited representative.</p>",
+          "format": "rich_text_limited",
+          "processed": "<p>VA-accredited representatives can help you file a claim or request a decision review. </p>\n<p>Protect your benefits and avoid unlawful fees. </p>\n<p>Get responsible, qualified help from a VA accredited representative.</p>\n"
+        }
+      ],
+      "field_section_header": [
+        {
+          "value": "VA accredited representatives"
+        }
+      ]
+    }
+  },
+  "field_cc_vba_facility_overview": {
+    "target_type": "paragraph",
+    "target_id": "eecd106d-261c-4496-b449-8ce405945f2f",
+    "target_field": null,
+    "fetched_bundle": "rich_text_char_limit_1000",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<p>We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans.</p>",
+          "format": "rich_text_limited",
+          "processed": "<p>We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans.</p>\n"
+        }
+      ]
+    }
+  },
+  "field_dismissible_option": null,
+  "field_facility_locator_api_id": "vba_317a",
+  "field_facility_vba_classificatio": "6",
+  "field_geolocation": {
+    "value": "POINT (-80.1117675 26.786079)",
+    "geo_type": "Point",
+    "lat": 26.786079,
+    "lon": -80.1117675,
+    "left": -80.1117675,
+    "top": 26.786079,
+    "right": -80.1117675,
+    "bottom": 26.786079,
+    "geohash": "dhz03h22hx091",
+    "latlon": "26.786079,-80.1117675"
+  },
+  "field_intro_text": null,
+  "field_last_saved_by_an_editor": "2023-09-19T13:13:04+00:00",
+  "field_non_va_location_url": null,
+  "field_non_va_official_name": null,
+  "field_office_hours": [
+    {
+      "day": 1,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 2,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 3,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 4,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 5,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 6,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 0,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    }
+  ],
+  "field_operating_status_facility": "normal",
+  "field_operating_status_more_info": null,
+  "field_phone_number": "800-827-1000",
+  "field_show_banner": null,
+  "field_table_of_contents": null,
+  "field_timezone": "America/New_York",
+  "links": {
+    "self": {
+      "href": "https://va-gov-cms.ddev.site/jsonapi/node/vba_facility/a08da437-55a4-451c-8f90-af498f38a297?resourceVersion=id%3A814843"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "c9bfebb0-907c-4867-9ae1-620bc3c45388",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vba_facility"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "5ef9cdd2-2d6e-4412-939f-d1a076df73bd",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 4073
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "dfcd9f10-2641-4cb8-93d1-b2b929c008ed",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1063
+    }
+  },
+  "field_local_spotlight": [],
+  "field_media": null,
+  "field_office": {
+    "type": "node--vba_facility",
+    "id": "be192005-0a06-4fb7-8082-3660e83072c1",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 4029
+    }
+  },
+  "field_prepare_for_visit": [],
+  "field_shared_vha_location": {
+    "type": "node--health_care_local_facility",
+    "id": "a9120249-2599-4890-8306-0c5fa07621d3",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1423
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_local_spotlight",
+    "field_media",
+    "field_office",
+    "field_prepare_for_visit",
+    "field_shared_vha_location"
+  ]
+}
