@@ -1,3 +1,5 @@
+import { Paragraph } from '@/templates/components/paragraph'
+
 export const QaCollapsiblePanel = ({ questions }) => {
   return (
     <div data-template="paragraphs/q_a.collapsible_panel">
@@ -18,11 +20,8 @@ export const QaCollapsiblePanel = ({ questions }) => {
               data-analytics-faq-text={questionObject.question}
             >
               <div id={`qa-${questionObject.id}`}>
-                {questionObject.answers.map((answer, index) => (
-                  <div
-                    key={index}
-                    dangerouslySetInnerHTML={{ __html: answer.html }}
-                  />
+                {questionObject.answers.map((answer) => (
+                  <Paragraph key={answer.id || answer.entityId} {...answer} />
                 ))}
               </div>
             </div>
