@@ -28,7 +28,7 @@ describe('VetCenter with valid data', () => {
       type: 'paragraph--q_a_section' as FormattedQaSection['type'],
       id: '5f582f12-b72f-4a35-a9df-411485c8e446',
       header: 'How we’re different than a clinic',
-      intro: 'Click on a topic for more details.',
+      intro: 'Select a topic to learn more.',
       displayAccordion: true,
       questions: [
         {
@@ -200,6 +200,24 @@ describe('VetCenter with valid data', () => {
       title: '',
       width: 700,
       height: 350,
+    },
+    bannerImage: {
+      id: 'banner-image-id',
+      links: {
+        '2_1_large': {
+          href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/banner-image.jpg',
+          meta: {
+            linkParams: {
+              width: 1200,
+              height: 600,
+            },
+          },
+        },
+      },
+      alt: 'Banner image for vet center',
+      title: '',
+      width: 1200,
+      height: 600,
     },
     prepareForVisit: null,
     title: 'Test title',

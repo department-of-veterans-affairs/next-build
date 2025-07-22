@@ -126,7 +126,7 @@ exports[`VetCenterOutstation formatData handles ccFeaturedContent not getting fe
     "displayAccordion": true,
     "header": "How we’re different than a clinic",
     "id": "5f582f12-b72f-4a35-a9df-411485c8e446",
-    "intro": "Click on a topic for more details.",
+    "intro": "Select a topic to learn more.",
     "questions": [
       {
         "answers": [
@@ -760,7 +760,7 @@ exports[`VetCenterOutstation formatData outputs formatted data 1`] = `
     "displayAccordion": true,
     "header": "How we’re different than a clinic",
     "id": "5f582f12-b72f-4a35-a9df-411485c8e446",
-    "intro": "Click on a topic for more details.",
+    "intro": "Select a topic to learn more.",
     "questions": [
       {
         "answers": [

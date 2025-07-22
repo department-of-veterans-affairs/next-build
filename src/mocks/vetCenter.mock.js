@@ -453,7 +453,7 @@ export const mockResponse = {
       ],
       field_section_intro: [
         {
-          value: 'Click on a topic for more details.',
+          value: 'Select a topic to learn more.',
         },
       ],
     },
@@ -1460,6 +1460,19 @@ export const mockResponse = {
       relationshipNames: ['paragraph_type', 'field_cta'],
     },
   ],
+  field_vet_center_banner_image: {
+    target_type: 'paragraph',
+    target_id: '158541',
+    target_field: null,
+    fetched_bundle: 'media',
+    fetched: {
+      field_media: [
+        {
+          target_id: '36006',
+        },
+      ],
+    },
+  },
   relationshipNames: [
     'node_type',
     'revision_uid',
@@ -1469,5 +1482,6 @@ export const mockResponse = {
     'field_media',
     'field_prepare_for_visit',
     'field_vet_center_feature_content',
+    'field_vet_center_banner_image',
   ],
 }

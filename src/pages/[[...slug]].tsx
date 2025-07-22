@@ -47,7 +47,7 @@ import { StoryListing as FormattedStoryListing } from '@/products/storyListing/f
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
-import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
+import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
@@ -68,8 +68,9 @@ import { Wrapper } from '@/templates/layouts/wrapper'
 import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFacility'
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '@/templates/layouts/vamcSystem'
-import { VamcSystemVaPolice } from '@/templates/layouts/vamcSystemVaPolice'
+import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
 import { LeadershipListing } from '@/products/leadershipListing/template'
+import { VbaFacility } from '@/templates/layouts/vbaFacility'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -197,6 +198,9 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.LEADERSHIP_LISTING && (
             <LeadershipListing {...(resource as FormattedLeadershipListing)} />
+          )}
+          {resource.type === RESOURCE_TYPES.VBA_FACILITY && (
+            <VbaFacility {...(resource as FormattedPageResource)} />
           )}
         </div>
       </main>

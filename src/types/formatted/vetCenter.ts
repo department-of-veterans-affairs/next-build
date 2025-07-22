@@ -38,6 +38,7 @@ export type VetCenter = PublishedEntity & {
   referralHealthServices: FormattedHealthServices
   otherHealthServices: FormattedHealthServices
   image: FormattedMediaImage
+  bannerImage: FormattedMediaImage | null
   prepareForVisit: FormattedAccordionItem[]
   fieldFacilityLocatorApiId: string
   path: string
