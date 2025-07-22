@@ -68,7 +68,7 @@
     "jest-extended": "^6.0.0",
     "jsdom": "^26.1.0",
     "jsona": "^1.12.1",
-    "lighthouse": "^12.2.0",
+    "lighthouse": "^12.8.0",
     "linkinator": "^6.0.3",
     "lodash": "^4.17.21",
     "mq-polyfill": "^1.1.8",
