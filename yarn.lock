@@ -14951,7 +14951,7 @@ __metadata:
     mq-polyfill: ^1.1.8
     msw: ^2.4.9
     next: ^14.2.5
-    next-drupal: latest
+    next-drupal: ^2.0.0
     next-drupal-query: ^0.4.0
     next-sitemap: ^4.2.3
     nock: ^13.5.4
@@ -14993,7 +14993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-drupal@npm:latest":
+"next-drupal@npm:^2.0.0":
   version: 2.0.0
   resolution: "next-drupal@npm:2.0.0"
   dependencies:
