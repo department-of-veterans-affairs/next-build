@@ -36,12 +36,12 @@ export function HealthCareLocalFacility({
   vamcEhrSystem,
   officeHours,
   address,
-  phoneNumber,
+  mainPhoneString,
   vaHealthConnectPhoneNumber,
   image,
   facilityLocatorApiId,
   geoLocation,
-  fieldTelephone,
+  mentalHealthPhoneNumber: fieldTelephone,
   relatedLinks,
   locationServices,
   socialLinks,
@@ -68,7 +68,7 @@ export function HealthCareLocalFacility({
       postalCode: address.postal_code,
     },
     name: title,
-    telephone: phoneNumber,
+    telephone: mainPhoneString,
     openingHoursSpecification: officeHours.map((hours) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: `https://schema.org/${dayOfWeek(hours.day)}`,
@@ -95,105 +95,111 @@ export function HealthCareLocalFacility({
   const regionBasePath = path.split('/')[1]
 
   return (
-    <div className="interior" id="content">
-      <div className="usa-grid usa-grid-full">
+    <div className="interior">
+      <div className="vads-grid-container">
         {/* Nav data fille in by a separate script from `window.sideNav` */}
         <nav aria-label="secondary" data-widget-type="side-nav" />
-        <div className="usa-width-three-fourths">
-          <article className="usa-content va-l-facility-detail">
-            <LovellSwitcher
-              currentVariant={lovellVariant}
-              switchPath={lovellSwitchPath}
-            />
+        <div className="vads-grid-row">
+          <div className="vads-grid-col-12">
+            <article className="usa-content va-l-facility-detail">
+              <LovellSwitcher
+                currentVariant={lovellVariant}
+                switchPath={lovellSwitchPath}
+              />
 
-            {title && <h1>{title}</h1>}
+              {title && <h1>{title}</h1>}
 
-            {introText && (
-              <div className="va-introtext">
-                <p>{introText}</p>
-              </div>
-            )}
-
-            <FacilityTopTasks
-              path={regionBasePath}
-              administration={administration}
-              vamcEhrSystem={vamcEhrSystem}
-            />
-
-            <va-on-this-page></va-on-this-page>
-
-            {/* Main content */}
-            <h2
-              id="location-and-contact-information"
-              className="vads-u-margin-bottom--3"
-            >
-              Location and contact information
-            </h2>
-            <div className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
-              <div className="usa-width-two-thirds vads-u-padding-right--0p5">
-                <div>
-                  <OperatingStatusFlags
-                    operatingStatusFacility={operatingStatusFacility}
-                    basePath={menu.data.links[0].url.path}
-                  />
-                  <section>
-                    {/* Embedding structured data scripts for schema.org */}
-                    <script
-                      type="application/ld+json"
-                      dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(structuredSchemaData),
-                      }}
-                    />
-
-                    <h3
-                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
-                      id="address-heading"
-                    >
-                      Address
-                    </h3>
-                    <div className="vads-u-margin-bottom--3">
-                      <Address address={address} title={title} />
-                    </div>
-
-                    <h3
-                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
-                      id="phone-numbers"
-                    >
-                      Phone numbers
-                    </h3>
-                    <Phone
-                      phoneNumber={phoneNumber}
-                      vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
-                      fieldTelephone={fieldTelephone}
-                    />
-                    <div data-testid="facility-hours">
-                      <Hours allHours={officeHours} headerType="clinical" />
-                    </div>
-                  </section>
+              {introText && (
+                <div className="va-introtext">
+                  <p>{introText}</p>
                 </div>
+              )}
+
+              <FacilityTopTasks
+                path={regionBasePath}
+                administration={administration}
+                vamcEhrSystem={vamcEhrSystem}
+              />
+
+              <va-on-this-page></va-on-this-page>
+
+              {/* Main content */}
+              <h2
+                id="location-and-contact-information"
+                className="vads-u-margin-bottom--3"
+              >
+                Location and contact information
+              </h2>
+              <div className="region-list vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
+                <div className="mobile-lg:vads-grid-col-8 vads-u-padding-right--0p5">
+                  <div>
+                    <OperatingStatusFlags
+                      operatingStatusFacility={operatingStatusFacility}
+                      basePath={menu.data.links[0].url.path}
+                    />
+                    <section>
+                      {/* Embedding structured data scripts for schema.org */}
+                      <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                          __html: JSON.stringify(structuredSchemaData),
+                        }}
+                      />
+
+                      <h3
+                        className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                        id="address-heading"
+                      >
+                        Address
+                      </h3>
+                      <div className="vads-u-margin-bottom--3">
+                        <Address address={address} title={title} />
+                      </div>
+
+                      <h3
+                        className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                        id="phone-numbers"
+                      >
+                        Phone numbers
+                      </h3>
+                      <Phone
+                        mainPhoneString={mainPhoneString}
+                        vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
+                        mentalHealthPhoneNumber={fieldTelephone}
+                      />
+                      <div data-testid="facility-hours">
+                        <Hours allHours={officeHours} headerType="clinical" />
+                      </div>
+                    </section>
+                  </div>
+                </div>
+                <ImageAndStaticMap
+                  image={image}
+                  facilityId={facilityLocatorApiId}
+                />
               </div>
-              <ImageAndStaticMap
-                image={image}
-                facilityId={facilityLocatorApiId}
+              <LocationServices items={locationServices} />
+              <RelatedLinks
+                sectionTitle={relatedLinks.sectionTitle}
+                links={relatedLinks.links}
               />
-            </div>
-            <LocationServices items={locationServices} />
-            <RelatedLinks
-              sectionTitle={relatedLinks.sectionTitle}
-              links={relatedLinks.links}
-            />
-            <HealthServices healthServices={healthServices} />
-            {facilityLocatorApiId.includes('vha_') && (
-              <div
-                data-testid="patient-satisfaction-widget"
-                data-widget-type="facility-patient-satisfaction-scores"
-                data-facility={`"vha_${facilityLocatorApiId.split('_')[1].toUpperCase()}"`}
+              <HealthServices
+                healthServices={healthServices}
+                mentalHealthPhoneNumber={fieldTelephone}
+                mainPhoneString={mainPhoneString}
               />
-            )}
-            <FacilitySocialLinks {...socialLinks} />
-            <va-back-to-top></va-back-to-top>
-            <ContentFooter lastUpdated={lastUpdated} />
-          </article>
+              {facilityLocatorApiId.includes('vha_') && (
+                <div
+                  data-testid="patient-satisfaction-widget"
+                  data-widget-type="facility-patient-satisfaction-scores"
+                  data-facility={`"vha_${facilityLocatorApiId.split('_')[1].toUpperCase()}"`}
+                />
+              )}
+              <FacilitySocialLinks {...socialLinks} />
+              <va-back-to-top></va-back-to-top>
+              <ContentFooter lastUpdated={lastUpdated} />
+            </article>
+          </div>
         </div>
       </div>
     </div>

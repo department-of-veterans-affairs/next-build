@@ -1,21 +1,21 @@
+import { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
 import { ServiceLocation } from './ServiceLocation'
-import type { ServiceLocationTemplateData } from '@/types/formatted/healthCareLocalFacility'
 import type { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 // Mock data for different test scenarios
-const getBaseProps = (): ServiceLocationTemplateData => ({
+const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
   fieldReferralRequired: '1',
-  fieldTelephone: {
+  mentalHealthPhoneNumber: {
     number: '555-1234',
     extension: '123',
     phoneType: 'tel',
   } as PhoneNumberType,
-  fieldPhoneNumber: '555-5678',
+  mainPhoneString: '555-5678',
   isMentalHealthService: true,
-  single: {
+  location: {
     fieldUseFacilityPhoneNumber: true,
-    fieldOtherPhoneNumbers: [
+    appointmentPhoneNumbers: [
       {
         id: '1',
         type: 'tel',
@@ -33,7 +33,7 @@ const getBaseProps = (): ServiceLocationTemplateData => ({
         label: 'Fax',
       },
     ],
-    fieldPhone: [
+    contactInfoPhoneNumbers: [
       {
         id: '3',
         type: 'tel',
@@ -168,8 +168,8 @@ describe('ServiceLocation', () => {
 
   test('shows same-as-facility hours message', () => {
     const props = { ...getBaseProps() }
-    props.single.fieldHours = '0'
-    delete props.single.fieldOfficeHours
+    props.location.fieldHours = '0'
+    delete props.location.fieldOfficeHours
 
     render(<ServiceLocation {...props} />)
 
@@ -190,10 +190,36 @@ describe('ServiceLocation', () => {
     ).not.toBeInTheDocument()
   })
 
+  test('shows referral required when fieldReferralRequired is "1"', () => {
+    const props = { ...getBaseProps() }
+    props.fieldReferralRequired = '1'
+
+    render(<ServiceLocation {...props} />)
+
+    expect(screen.getByText('A referral is required')).toBeInTheDocument()
+    expect(screen.getByTestId('referral-icon')).toHaveAttribute(
+      'icon',
+      'check_circle'
+    )
+  })
+
+  test('shows referral not required when fieldReferralRequired is "0"', () => {
+    const props = { ...getBaseProps() }
+    props.fieldReferralRequired = '0'
+
+    render(<ServiceLocation {...props} />)
+
+    expect(screen.getByText('A referral is not required')).toBeInTheDocument()
+    expect(screen.getByTestId('referral-icon')).toHaveAttribute(
+      'icon',
+      'cancel'
+    )
+  })
+
   test('shows custom appointment text', () => {
     const props = { ...getBaseProps() }
-    props.single.fieldApptIntroTextType = 'customize_text'
-    props.single.fieldApptIntroTextCustom = 'Custom appointment instructions'
+    props.location.fieldApptIntroTextType = 'customize_text'
+    props.location.fieldApptIntroTextCustom = 'Custom appointment instructions'
 
     render(<ServiceLocation {...props} />)
 
@@ -204,7 +230,7 @@ describe('ServiceLocation', () => {
 
   test('shows email contacts', () => {
     const props = { ...getBaseProps() }
-    props.single.fieldEmailContacts = [
+    props.location.fieldEmailContacts = [
       {
         address: 'contact@example.com',
         label: 'General Inquiries',

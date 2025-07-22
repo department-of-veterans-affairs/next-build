@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Phone } from './Phone'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 
 describe('Phone', () => {
   it('renders nothing when no props are provided', () => {
@@ -8,7 +9,7 @@ describe('Phone', () => {
   })
 
   it('renders main phone', () => {
-    const { container } = render(<Phone phoneNumber="123-456-7890 x123" />)
+    const { container } = render(<Phone mainPhoneString="123-456-7890 x123" />)
     expect(screen.getByText('Main phone:')).toBeInTheDocument()
     const tel = container.querySelector('va-telephone')
     expect(tel).toBeInTheDocument()
@@ -22,7 +23,7 @@ describe('Phone', () => {
   it('renders fieldTelephone info', () => {
     const { container } = render(
       <Phone
-        fieldTelephone={{
+        mentalHealthPhoneNumber={formatPhone({
           id: 'blech',
           type: 'paragraph--phone_number',
           drupal_internal__id: 1234,
@@ -33,7 +34,7 @@ describe('Phone', () => {
           field_phone_number: '123-456-7890',
           field_phone_number_type: 'fax',
           field_phone_extension: '321',
-        }}
+        })}
       />
     )
 
@@ -47,9 +48,9 @@ describe('Phone', () => {
   it('renders all phone numbers', () => {
     const { container } = render(
       <Phone
-        phoneNumber="123-456-7890 x123"
+        mainPhoneString="123-456-7890 x123"
         vaHealthConnectPhoneNumber="987-654-3210"
-        fieldTelephone={{
+        mentalHealthPhoneNumber={formatPhone({
           id: 'blech',
           type: 'paragraph--phone_number',
           drupal_internal__id: 1234,
@@ -60,7 +61,7 @@ describe('Phone', () => {
           field_phone_number: '555-555-5555',
           field_phone_number_type: 'fax',
           field_phone_extension: '321',
-        }}
+        })}
       />
     )
 

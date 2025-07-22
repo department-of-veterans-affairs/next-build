@@ -1,11 +1,16 @@
 import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
 import { ServiceLocation } from './ServiceLocation'
 import { hashReference } from '@/lib/utils/hashReference'
+import { PhoneNumber } from '@/types/formatted/phoneNumber'
 
 export const HealthServices = ({
   healthServices,
+  mentalHealthPhoneNumber,
+  mainPhoneString,
 }: {
   healthServices: FormattedVAMCFacilityHealthService[]
+  mentalHealthPhoneNumber: PhoneNumber
+  mainPhoneString: string
 }) => {
   return (
     <>
@@ -22,7 +27,7 @@ export const HealthServices = ({
           // Will this always be true for VAMC facilities?
           const isVha = service.fieldFacilityLocatorApiId?.startsWith('vha_')
           const hasLocationData =
-            service.locations?.[0]?.single?.fieldServiceLocationAddress
+            service.locations?.[0]?.fieldServiceLocationAddress
 
           return (
             <va-accordion-item
@@ -50,8 +55,15 @@ export const HealthServices = ({
                 )}
 
                 {hasLocationData ? (
-                  service.locations.map((locationData, i) => (
-                    <ServiceLocation key={i} {...locationData} />
+                  service.locations.map((location, i) => (
+                    <ServiceLocation
+                      location={location}
+                      key={i}
+                      fieldReferralRequired={service.fieldReferralRequired}
+                      mentalHealthPhoneNumber={mentalHealthPhoneNumber}
+                      mainPhoneString={mainPhoneString}
+                      isMentalHealthService={service.isMentalHealthService}
+                    />
                   ))
                 ) : (
                   <div>{service.localServiceDescription}</div>

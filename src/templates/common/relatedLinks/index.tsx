@@ -1,5 +1,6 @@
 import { isEmpty } from 'lodash'
 import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
+import { recordEvent } from '@/lib/analytics/recordEvent'
 
 export const RelatedLinks = ({
   links,
@@ -12,7 +13,18 @@ export const RelatedLinks = ({
   const renderLink = (uri: string, title: string, summary?: string) => (
     <>
       <p className="vads-u-margin--0">
-        <va-link disable-analytics href={uri} text={title} />
+        <va-link
+          disable-analytics
+          onClick={() =>
+            recordEvent({
+              event: 'nav-featured-content-link-click',
+              'featured-content-header': sectionTitle,
+              'featured-content-click-label': title,
+            })
+          }
+          href={uri}
+          text={title}
+        />
       </p>
       {summary && <p className="vads-u-margin--0">{summary}</p>}
     </>

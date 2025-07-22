@@ -11,12 +11,16 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
 import {
   entityBaseFields,
+  fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
 import { Button } from '@/types/formatted/button'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { DrupalMediaImage } from '@/types/drupal/media'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -41,21 +45,44 @@ export type VetCenterDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+export type VetCenterData = {
+  entity: NodeVetCenter
+  bannerMedia: DrupalMediaImage | null
+}
+
 // Implement the data loader.
-export const data: QueryData<VetCenterDataOpts, NodeVetCenter> = async (
+export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
   opts
-): Promise<NodeVetCenter> => {
+): Promise<VetCenterData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VET_CENTER,
     params
   )) as NodeVetCenter
-  return entity
+
+  // Fetch the banner image, which we have a reference to from the centralized content
+  const bannerMediaId =
+    entity.field_vet_center_banner_image?.fetched.field_media[0].target_id
+  let bannerMedia = null
+  if (bannerMediaId) {
+    bannerMedia = (
+      await fetchAndConcatAllResourceCollectionPages<DrupalMediaImage>(
+        'media--image',
+        new DrupalJsonApiParams()
+          .addFilter('drupal_internal__mid', bannerMediaId)
+          .addInclude(['image']),
+        1
+      )
+    ).data[0]
+  }
+
+  return { entity, bannerMedia }
 }
 
-export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
-  entity: NodeVetCenter
-) => {
+export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = ({
+  entity,
+  bannerMedia,
+}: VetCenterData) => {
   // format health services / filter per category
   const healthServicesArray = queries.formatData(
     RESOURCE_TYPES.VET_CENTER_HEALTH_SERVICES,
@@ -119,7 +146,9 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
         question: question.field_question[0]?.value || null,
         answers: [
           {
-            html: question.field_answer[0]?.field_wysiwyg[0]?.value || null,
+            html:
+              getHtmlFromField(question.field_answer[0]?.field_wysiwyg[0]) ||
+              null,
           },
         ],
         header: question.label || null,
@@ -137,19 +166,29 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     }
   }
 
+  const missionExplainer = {
+    heading:
+      entity.field_mission_explainer?.fetched.field_magichead_heading[0]?.value,
+    body: getHtmlFromField(
+      entity.field_mission_explainer?.fetched.field_magichead_body[0] ?? null
+    ),
+  }
+
   return {
     ...entityBaseFields(entity),
     address: entity.field_address,
     ccNonTraditionalHours: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
       id: entity.id || null,
-      html: entity.field_cc_non_traditional_hours.fetched.field_wysiwyg[0]
-        .processed,
+      html: getHtmlFromField(
+        entity.field_cc_non_traditional_hours.fetched.field_wysiwyg[0]
+      ),
     },
     ccVetCenterCallCenter: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
-      html: entity.field_cc_vet_center_call_center.fetched.field_wysiwyg[0]
-        .processed,
+      html: getHtmlFromField(
+        entity.field_cc_vet_center_call_center.fetched.field_wysiwyg[0]
+      ),
       id: entity.id || null,
     },
     ccVetCenterFaqs: buildFaqs(entity.field_cc_vet_center_faqs),
@@ -160,11 +199,19 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     ccVetCenterFeaturedCon: entity.field_cc_vet_center_featured_con,
     geolocation: entity.field_geolocation,
     introText: entity.field_intro_text,
+    missionExplainer:
+      missionExplainer.heading && missionExplainer.body
+        ? missionExplainer
+        : null,
     lastSavedByAnEditor: entity.field_last_saved_by_an_editor ?? null,
     officeHours: entity.field_office_hours,
     officialName: entity.field_official_name,
     operatingStatusFacility: entity.field_operating_status_facility,
-    operatingStatusMoreInfo: entity.field_operating_status_more_info ?? null,
+    operatingStatusMoreInfo: entity.field_operating_status_more_info
+      ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
+          convertNewlines: true,
+        })
+      : null,
     phoneNumber: entity.field_phone_number,
     timezone: entity.field_timezone,
     administration: entity.field_administration,
@@ -174,6 +221,9 @@ export const formatter: QueryFormatter<NodeVetCenter, FormattedVetCenter> = (
     referralHealthServices: referralServicesArray,
     otherHealthServices: otherServicesArray,
     image: queries.formatData('media--image', entity.field_media),
+    bannerImage: bannerMedia
+      ? queries.formatData('media--image', bannerMedia)
+      : null,
     prepareForVisit: entity.field_prepare_for_visit.map(
       (prepareForVisitItem) => {
         return queries.formatData(

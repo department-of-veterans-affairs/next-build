@@ -11,6 +11,7 @@ import { MediaImage as FormattedMediaImage } from './media'
 import { AccordionItem as FormattedAccordionItem } from './accordion'
 import { Wysiwyg as FormattedWysiwyg } from './wysiwyg'
 import { QaSection as PublishedQaSection } from './qaSection'
+import { FacilityOperatingStatusFlags } from '../drupal/node'
 
 export type VetCenter = PublishedEntity & {
   address: FieldAddress
@@ -19,10 +20,14 @@ export type VetCenter = PublishedEntity & {
   ccVetCenterFaqs: PublishedQaSection
   geolocation: FieldGeoLocation
   introText: string
+  missionExplainer: {
+    heading: string
+    body: string
+  } | null
   lastSavedByAnEditor: string | null
   officeHours: FieldOfficeHours[]
   officialName: string
-  operatingStatusFacility: string
+  operatingStatusFacility: FacilityOperatingStatusFlags
   operatingStatusMoreInfo: string | null
   phoneNumber: string
   timezone: string
@@ -33,6 +38,7 @@ export type VetCenter = PublishedEntity & {
   referralHealthServices: FormattedHealthServices
   otherHealthServices: FormattedHealthServices
   image: FormattedMediaImage
+  bannerImage: FormattedMediaImage | null
   prepareForVisit: FormattedAccordionItem[]
   fieldFacilityLocatorApiId: string
   path: string

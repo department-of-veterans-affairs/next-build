@@ -157,7 +157,7 @@ const FacilitySocialLinks = ({
         id="get-updates"
         className="vads-u-margin-top--0 vads-u-margin-bottom--2"
       >
-        Get updates from {regionNickname}
+        {`Get updates from ${regionNickname}`}
       </h2>
       <div className="vads-grid-row vads-u-flex-direction--column tablet:vads-u-flex-direction--row vads-grid-gap-md">
         {govDeliveryLinks.length > 0 && (

@@ -29,8 +29,8 @@ import * as NewsStoryTeaser from '@/data/queries/newsStoryTeaser'
 import * as NumberCallout from '@/data/queries/numberCallout'
 import * as PersonProfile from '@/products/staffProfile/query'
 import * as PhoneNumber from '@/data/queries/phoneNumber'
-import * as PressRelease from '@/data/queries/pressRelease'
-import * as PressReleaseListing from '@/data/queries/pressReleaseListing'
+import * as PressRelease from '@/products/pressRelease/query'
+import * as PressReleaseListing from '@/products/pressReleaseListing/query'
 import * as PressReleaseTeaser from '@/data/queries/pressReleaseTeaser'
 import * as ProcessList from '@/data/queries/processList'
 import * as PromoBlock from '@/data/queries/promoBlock'
@@ -41,17 +41,18 @@ import * as QuestionAnswer from '@/data/queries/questionAnswer'
 import * as ReactWidget from '@/data/queries/reactWidget'
 import * as ResourcesSupport from '@/data/queries/resourcesSupport'
 import * as StaticPathResources from '@/data/queries/staticPathResources'
-import * as StoryListing from '@/data/queries/storyListing'
+import * as StoryListing from '@/products/storyListing/query'
 import * as SupportServices from '@/data/queries/supportServices'
 import * as Table from '@/data/queries/table'
 import * as VamcEhr from '@/data/queries/vamcEhr'
 import * as VamcSystem from '@/data/queries/vamcSystem'
-import * as VamcSystemVaPolice from '@/data/queries/vamcSystemVaPolice'
+import * as VamcSystemVaPolice from '@/products/vamcSystemVaPolice/query'
 import * as VetCenter from '@/data/queries/vetCenter'
 import * as VetCenterHealthServices from '@/data/queries/vetCenterHealthServices'
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
-import * as LeadershipListing from '@/data/queries/leadershipListing'
+import * as LeadershipListing from '@/products/leadershipListing/query'
+import * as VbaFacility from '@/data/queries/vbaFacility'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -85,6 +86,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
   [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
+  [RESOURCE_TYPES.VBA_FACILITY]: VbaFacility,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

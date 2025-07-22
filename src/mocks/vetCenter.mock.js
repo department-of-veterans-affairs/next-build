@@ -453,7 +453,7 @@ export const mockResponse = {
       ],
       field_section_intro: [
         {
-          value: 'Click on a topic for more details.',
+          value: 'Select a topic to learn more.',
         },
       ],
     },
@@ -1022,6 +1022,28 @@ export const mockResponse = {
       ],
     },
   ],
+  field_mission_explainer: {
+    target_type: 'paragraph',
+    target_id: '158439',
+    target_field: null,
+    fetched_bundle: 'magichead_group',
+    fetched: {
+      field_magichead_body: [
+        {
+          value:
+            "<ul><li>We offer a range of services, from talk therapy to recreational activities. Our team will work with you to identify your goals and make a plan to meet them. We'll help you and your family build meaningful connections to improve your quality of life.</li><li>Our counseling is confidential. We won’t share any information about you or the services you receive without your permission—except in a life-threatening situation. Our records can't be accessed by other VA offices, the Defense Department, military units, or community providers.</li><li>We encourage you to contact us, even if you're not sure you're eligible. We'll find a way to connect you with the help you need.</li></ul>",
+          format: 'rich_text_limited',
+          processed:
+            "<ul>\n<li>We offer a range of services, from talk therapy to recreational activities. Our team will work with you to identify your goals and make a plan to meet them. We'll help you and your family build meaningful connections to improve your quality of life.</li>\n<li>Our counseling is confidential. We won’t share any information about you or the services you receive without your permission—except in a life-threatening situation. Our records can't be accessed by other VA offices, the Defense Department, military units, or community providers.</li>\n<li>We encourage you to contact us, even if you're not sure you're eligible. We'll find a way to connect you with the help you need.</li>\n</ul>\n",
+        },
+      ],
+      field_magichead_heading: [
+        {
+          value: 'Our commitment',
+        },
+      ],
+    },
+  },
   field_media: {
     type: 'media--image',
     id: '6982c62d-26f7-41bf-a4ed-3ec4e6e9f198',
@@ -1438,6 +1460,19 @@ export const mockResponse = {
       relationshipNames: ['paragraph_type', 'field_cta'],
     },
   ],
+  field_vet_center_banner_image: {
+    target_type: 'paragraph',
+    target_id: '158541',
+    target_field: null,
+    fetched_bundle: 'media',
+    fetched: {
+      field_media: [
+        {
+          target_id: '36006',
+        },
+      ],
+    },
+  },
   relationshipNames: [
     'node_type',
     'revision_uid',
@@ -1447,5 +1482,6 @@ export const mockResponse = {
     'field_media',
     'field_prepare_for_visit',
     'field_vet_center_feature_content',
+    'field_vet_center_banner_image',
   ],
 }
