@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VetCenter with valid data renders schema.org structured data scripts correctly 1`] = `
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pittsburgh",
+      "addressRegion": "PA",
+      "streetAddress": "1010 Delafield Road",
+    },
+    "branchCode": "Test API ID",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "40.42665609",
+      "longitude": "-80.05719073",
+    },
+    "hasMap": "https://maps.google.com?saddr=Current+Location&daddr=1010%20Delafield%20Road%2C%20Pittsburgh%2C%20undefined",
+    "image": "https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/doctor-year2019-decker-480_0.jpg",
+    "name": "Test title",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "closes": null,
+        "dayOfWeek": "https://schema.org/0",
+        "opens": null,
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "closes": 1630,
+        "dayOfWeek": "https://schema.org/1",
+        "opens": 800,
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "closes": 1630,
+        "dayOfWeek": "https://schema.org/2",
+        "opens": 800,
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "closes": 1630,
+        "dayOfWeek": "https://schema.org/3",
+        "opens": 800,
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "closes": 1630,
+        "dayOfWeek": "https://schema.org/4",
+        "opens": 800,
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "closes": 1630,
+        "dayOfWeek": "https://schema.org/5",
+        "opens": 800,
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "closes": null,
+        "dayOfWeek": "https://schema.org/6",
+        "opens": null,
+      },
+    ],
+    "telephone": "123-456-7890",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "GovernmentService",
+    "alternateName": null,
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "PA",
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Veteran",
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "servicePhone": {
+        "@type": "ContactPoint",
+        "telephone": null,
+      },
+      "serviceUrl": "https://www.va.gov",
+    },
+    "name": "Test title",
+    "provider": {
+      "@type": "GovernmentOrganization",
+      "name": "Veterans Affairs",
+      "url": "https://www.va.gov",
+    },
+    "serviceLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pittsburgh",
+        "addressRegion": "PA",
+        "streetAddress": "1010 Delafield Road1010 Delafield Road",
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.42665609",
+        "longitude": "-80.05719073",
+      },
+      "name": "Test title",
+    },
+    "serviceOperator": {
+      "@type": "GovernmentOrganization",
+      "name": "US Department of Veterans Affairs",
+    },
+    "serviceType": "counseling",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "GovernmentService",
+    "alternateName": null,
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "PA",
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Veteran",
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "servicePhone": {
+        "@type": "ContactPoint",
+        "telephone": null,
+      },
+      "serviceUrl": "https://www.va.gov",
+    },
+    "name": "Test title",
+    "provider": {
+      "@type": "GovernmentOrganization",
+      "name": "Veterans Affairs",
+      "url": "https://www.va.gov",
+    },
+    "serviceLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pittsburgh",
+        "addressRegion": "PA",
+        "streetAddress": "1010 Delafield Road1010 Delafield Road",
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.42665609",
+        "longitude": "-80.05719073",
+      },
+      "name": "Test title",
+    },
+    "serviceOperator": {
+      "@type": "GovernmentOrganization",
+      "name": "US Department of Veterans Affairs",
+    },
+    "serviceType": "referral",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "GovernmentService",
+    "alternateName": null,
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "PA",
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Veteran",
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "servicePhone": {
+        "@type": "ContactPoint",
+        "telephone": null,
+      },
+      "serviceUrl": "https://www.va.gov",
+    },
+    "name": "Test title",
+    "provider": {
+      "@type": "GovernmentOrganization",
+      "name": "Veterans Affairs",
+      "url": "https://www.va.gov",
+    },
+    "serviceLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pittsburgh",
+        "addressRegion": "PA",
+        "streetAddress": "1010 Delafield Road1010 Delafield Road",
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.42665609",
+        "longitude": "-80.05719073",
+      },
+      "name": "Test title",
+    },
+    "serviceOperator": {
+      "@type": "GovernmentOrganization",
+      "name": "US Department of Veterans Affairs",
+    },
+    "serviceType": "other",
+  },
+]
+`;
