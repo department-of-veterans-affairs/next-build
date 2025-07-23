@@ -22,8 +22,7 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
       data-entity-id={entityId}
       status={alertType}
       class="vads-u-margin-top--3"
-      role="alert"
-      uswds="false"
+      uswds
     >
       <h2 slot="headline" className="vads-u-font-size--h3">
         {heading}

@@ -19,8 +19,11 @@ describe('<AlertNonReusable> Component', () => {
       paragraphs: [wysiwyg],
     }
 
-    render(<AlertNonReusable {...mockAlertNonReusableData} />)
-    expect(screen.getByRole('alert')).toHaveAttribute('status', 'info')
+    const { container } = render(
+      <AlertNonReusable {...mockAlertNonReusableData} />
+    )
+    const alertEl = container.querySelector('va-alert')
+    expect(alertEl).toHaveAttribute('status', 'info')
     expect(screen.getByText('Test Heading')).toBeInTheDocument()
     expect(screen.getByText('Test text')).toBeInTheDocument()
   })
