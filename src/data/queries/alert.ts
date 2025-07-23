@@ -9,8 +9,8 @@ export const formatter: QueryFormatter<ParagraphAlert, Alert> = (
 ) => {
   return {
     type: entity.type as Alert['type'],
-    id: entity.id,
-    entityId: entity.drupal_internal__id,
+    id: entity.id ?? null,
+    entityId: entity.drupal_internal__id ?? null,
     alertType: entity.field_alert_type as AlertType,
     heading: entity.field_alert_heading,
     blockReference: queries.formatData(
