@@ -1,5 +1,4 @@
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
-import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { MediaImage } from '@/templates/common/mediaImage'
@@ -10,6 +9,7 @@ import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
 import { ExpandableOperatingStatus } from './ExpandableOperatingStatus'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 
 export function VetCenter({
   address,
@@ -36,12 +36,6 @@ export function VetCenter({
   fieldFacilityLocatorApiId,
   path,
 }: FormattedVetCenter) {
-  const directionsString = [
-    address?.address_line1,
-    address?.locality,
-    address?.administrative_area,
-  ]
-
   const structuredSchemaData = {
     '@context': 'https://schema.org',
     '@type': 'Place',
@@ -233,19 +227,9 @@ export function VetCenter({
                     operatingStatusMoreInfo={operatingStatusMoreInfo}
                   />
 
-                  <p className="vads-u-margin--0 vads-u-margin-bottom--3">
-                    <address>
-                      <div>{address.address_line1}</div>
-                      {address.address_line2 && (
-                        <div>{address.address_line2}</div>
-                      )}
-                      <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
-                    </address>
-                    <GoogleMapsDirections
-                      address={directionsString}
-                      location={title}
-                    />
-                  </p>
+                  <div className="vads-u-margin--0 vads-u-margin-bottom--3">
+                    <Address address={address} title={title} />
+                  </div>
 
                   <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                     Phone number
