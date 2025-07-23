@@ -122,6 +122,7 @@ export interface ParagraphCCFeaturedContent {
 }
 
 export interface ParagraphCCVetCenterFaqs {
+  target_type: string
   fetched_bundle: string
   fetched: {
     field_accordion_display: Array<{ value: string }>

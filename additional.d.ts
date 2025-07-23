@@ -24,6 +24,7 @@ declare namespace JSX {
   interface IntrinsicElements {
     'va-accordion'
     'va-accordion-item'
+    'va-additional-info'
     'va-alert'
     'va-alert-expandable'
     'va-back-to-top'
