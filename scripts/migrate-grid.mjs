@@ -40,10 +40,10 @@ const breakpointReplacements = {
 }
 
 const foundationRegexes = [
-  /\b(row|column|columns)\b/g,
-  /\bsmall-[\w-]+\b/g,
-  /\bmedium-[\w-]+\b/g,
-  /\blarge-[\w-]+\b/g,
+  /[" :](row|column|columns)\b/g,
+  /[" :]small-[\w-]+\b/g,
+  /[" :]medium-[\w-]+\b/g,
+  /[" :]large-[\w-]+\b/g,
 ]
 
 // --- Migration Function ---
