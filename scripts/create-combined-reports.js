@@ -73,6 +73,13 @@ const createCombinedReports = () => {
     }
   }
 
+  // Write csv report to file
+  fs.writeFile('broken-links-report.csv', csvReport, (err) => {
+    if (err) {
+      console.error(err)
+    }
+  })
+
   console.log(
     `\n Report CSV file written to: ${chalk.green(
       process.cwd() + '/broken-links-report.csv'
