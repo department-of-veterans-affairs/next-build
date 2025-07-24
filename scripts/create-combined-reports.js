@@ -63,49 +63,6 @@ const createCombinedReports = () => {
     )}`
   )
 
-  let markDownReport = ''
-
-  // Output a markdown report for easy readability.
-  markDownReport += `# VA.gov broken link report\n`
-  markDownReport += `Found ${combinedJson.metrics.brokenLinkCount} broken links on ${combinedJson.metrics.pagesScanned} pages.\n`
-  const dateTime = new Date().toString()
-  markDownReport += `Report generated: ${dateTime}\n\n`
-
-  // First group by source page
-  markDownReport += `## Broken links grouped by source page\n`
-  for (const parent of Object.keys(combinedJson.brokenLinksByParent)) {
-    markDownReport += `Source: ${parent}\n`
-    for (const child of combinedJson.brokenLinksByParent[parent]) {
-      markDownReport += `- ${child.url}, response code ${child.status}\n`
-    }
-    markDownReport += `\n`
-  }
-  markDownReport += `\n`
-
-  // Group by broken link.
-  markDownReport += `## Broken links grouped by destination\n`
-  markDownReport += `Each broken link and all the pages it appears on.\n\n`
-  for (const child of Object.keys(combinedJson.brokenLinksByLink)) {
-    markDownReport += `Broken destination: ${child}\n`
-    for (const parent of combinedJson.brokenLinksByLink[child]) {
-      markDownReport += `- ${parent.parent}\n`
-    }
-    markDownReport += `\n`
-  }
-
-  // Write markdown report to file
-  fs.writeFile('broken-links-report.md', markDownReport, (err) => {
-    if (err) {
-      console.error(err)
-    }
-  })
-
-  console.log(
-    `\n Report Markdown file written to: ${chalk.green(
-      process.cwd() + '/broken-links-report.md'
-    )}`
-  )
-
   // Generate a CSV report
   let csvReport = `Source, Broken Link, Error Code\n`
   for (const parent of Object.keys(combinedJson.brokenLinksByParent)) {
@@ -115,13 +72,6 @@ const createCombinedReports = () => {
       csvReport += `${sanitizedParent},${sanitizedChildUrl},${child.status}\n`
     }
   }
-
-  // Write markdown report to file
-  fs.writeFile('broken-links-report.csv', csvReport, (err) => {
-    if (err) {
-      console.error(err)
-    }
-  })
 
   console.log(
     `\n Report CSV file written to: ${chalk.green(
