@@ -82,7 +82,7 @@ function migrateContent(content, filePath) {
   // Foundation class cleanup (warn instead of replace)
   const lines = updated.split('\n')
   const allFoundationMatches = []
-  
+
   for (const regex of foundationRegexes) {
     lines.forEach((line, lineNumber) => {
       const lineMatches = line.match(regex)
@@ -90,42 +90,40 @@ function migrateContent(content, filePath) {
         allFoundationMatches.push({
           lineNumber: lineNumber + 1,
           line: line.trim(),
-          matches: lineMatches
+          matches: lineMatches,
         })
       }
     })
   }
-  
+
   if (allFoundationMatches.length > 0) {
-    console.warn(
-      `⚠️  [${filePath}] contains deprecated Foundation class(es):`
-    )
+    console.warn(`⚠️  [${filePath}] contains deprecated Foundation class(es):`)
     allFoundationMatches.forEach(({ lineNumber, line, matches }) => {
       let highlightedLine = line
       // Sort matches by position in reverse order to avoid index shifting
       const matchPositions = []
-      matches.forEach(match => {
+      matches.forEach((match) => {
         const regex = new RegExp(`\\b${match}\\b`, 'g')
         let matchResult
         while ((matchResult = regex.exec(line)) !== null) {
           matchPositions.push({
             start: matchResult.index,
             end: matchResult.index + match.length,
-            match: match
+            match: match,
           })
         }
       })
-      
+
       // Sort by start position in reverse order
       matchPositions.sort((a, b) => b.start - a.start)
-      
+
       // Replace matches from end to start to maintain positions
       matchPositions.forEach(({ start, end, match }) => {
         const before = highlightedLine.substring(0, start)
         const after = highlightedLine.substring(end)
         highlightedLine = before + chalk.yellow(match) + after
       })
-      
+
       console.warn(`   Line ${lineNumber}: ${chalk.cyan(highlightedLine)}`)
     })
     hasChanges = true
