@@ -100,11 +100,8 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           <h2 id="locations-and-contact-information">
             Location and contact information
           </h2>
-          <div
-            className="region-list vads-grid-container vads-u-display--flex vads-u-flex-direction--column
-          mobile-lg:vads-u-flex-direction--row facility"
-          >
-            <div className="vads-grid-col-8 vads-u-display--block vads-u-width--full">
+          <div className="region-list vads-grid-row vads-grid-gap-5 vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility">
+            <div className="mobile-lg:vads-grid-col-6 tablet:vads-grid-col-8">
               <div className="vads-c-facility-detail">
                 <section className="vads-facility-detail">
                   <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
