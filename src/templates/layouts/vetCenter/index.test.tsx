@@ -389,6 +389,15 @@ describe('VetCenter with valid data', () => {
     expect(vaTelephoneElement?.getAttribute('contact')).toBe('1234567890')
   })
 
+  test('renders feedback button in ContentFooter component', () => {
+    const { container } = render(<VetCenter {...mockData} />)
+
+    // Check that the feedback button is present from the va-button component
+    expect(
+      container.querySelector('va-button[id="mdFormButton"]')
+    ).toBeInTheDocument()
+  })
+
   describe('Mission Explainer functionality', () => {
     test('renders mission explainer when data is present', () => {
       render(<VetCenter {...mockData} />)

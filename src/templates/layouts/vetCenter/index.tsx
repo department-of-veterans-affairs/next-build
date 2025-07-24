@@ -11,6 +11,7 @@ import { ExpandableOperatingStatus } from './ExpandableOperatingStatus'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { SchemaScript } from './SchemaScript'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
+import { ContentFooter } from '@/templates/common/contentFooter'
 
 export function VetCenter(vetCenterProps: FormattedVetCenter) {
   const {
@@ -239,6 +240,8 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
 
           <va-back-to-top></va-back-to-top>
+
+          <ContentFooter />
 
           <SchemaScript vetCenter={vetCenterProps} />
         </article>
