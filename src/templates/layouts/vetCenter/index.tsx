@@ -51,7 +51,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
   const alsoCalledId = 'vet-center-title'
 
   return (
-    <div className="usa-grid usa-grid-full">
+    <div className="vads-grid-container">
       <div className="usa-width-three-fourths">
         <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
           {title && (
@@ -83,7 +83,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           )}
           {missionExplainer && (
             <va-summary-box
-              class="vads-u-margin-bottom--4 medium-screen:vads-u-margin-bottom--0"
+              class="vads-u-margin-bottom--4 tablet:vads-u-margin-bottom--0"
               data-header-id-excluded="true"
             >
               <h2 slot="headline">{missionExplainer.heading}</h2>
@@ -101,10 +101,10 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
             Location and contact information
           </h2>
           <div
-            className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column
+            className="region-list vads-grid-container vads-u-display--flex vads-u-flex-direction--column
           mobile-lg:vads-u-flex-direction--row facility"
           >
-            <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
+            <div className="vads-grid-col-8 vads-u-display--block vads-u-width--full">
               <div className="vads-c-facility-detail">
                 <section className="vads-facility-detail">
                   <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
@@ -186,7 +186,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           </h2>
           <div
             id="field-vet-center-feature-content"
-            className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4 "
+            className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-flex-direction--row vads-u-margin-bottom--4 "
           >
             {featuredContent &&
               featuredContent.map((content, index) => (
