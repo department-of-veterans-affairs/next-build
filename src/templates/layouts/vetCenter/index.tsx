@@ -1,6 +1,7 @@
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
+import { TextWithImage } from '@/templates/components/textWithImage'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { AlertBlock } from '@/templates/components/alertBlock'
 import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
@@ -100,45 +101,42 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           <h2 id="locations-and-contact-information">
             Location and contact information
           </h2>
-          <div className="region-list vads-grid-row vads-grid-gap-5 vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility">
-            <div className="mobile-lg:vads-grid-col-6 tablet:vads-grid-col-8">
-              <div className="vads-c-facility-detail">
-                <section className="vads-facility-detail">
-                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                    Address
-                  </h3>
-
-                  <ExpandableOperatingStatus
-                    operatingStatusFlag={operatingStatusFacility}
-                    operatingStatusMoreInfo={operatingStatusMoreInfo}
-                  />
-
-                  <div className="vads-u-margin--0 vads-u-margin-bottom--3">
-                    <Address address={address} title={title} />
-                  </div>
-
-                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                    Phone number
-                  </h3>
-                  <PhoneNumber
-                    className="vads-u-margin-top--0 vads-u-margin-bottom--3"
-                    label="Main phone"
-                    number={phoneNumber}
-                  />
-
-                  <Hours
-                    headerType="standard"
-                    allHours={officeHours}
-                    nonTraditionalMessage={ccNonTraditionalHours}
-                  />
-                </section>
-              </div>
-            </div>
-            <ImageAndStaticMap
-              image={image}
-              facilityId={fieldFacilityLocatorApiId}
+          <TextWithImage
+            className="region-list facility"
+            hackyImageAndStaticMapHack
+            image={
+              <ImageAndStaticMap
+                image={image}
+                facilityId={fieldFacilityLocatorApiId}
+              />
+            }
+          >
+            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Address
+            </h3>
+            <ExpandableOperatingStatus
+              operatingStatusFlag={operatingStatusFacility}
+              operatingStatusMoreInfo={operatingStatusMoreInfo}
             />
-          </div>
+            <div className="vads-u-margin--0 vads-u-margin-bottom--3">
+              <Address address={address} title={title} />
+            </div>
+
+            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Phone number
+            </h3>
+            <PhoneNumber
+              className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+              label="Main phone"
+              number={phoneNumber}
+            />
+
+            <Hours
+              headerType="standard"
+              allHours={officeHours}
+              nonTraditionalMessage={ccNonTraditionalHours}
+            />
+          </TextWithImage>
 
           {/* Call Center Information */}
           {ccVetCenterCallCenter && (
