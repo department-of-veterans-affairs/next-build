@@ -12,7 +12,7 @@ export const ImageAndStaticMap: React.FC<ImageAndStaticMapProps> = ({
   facilityId,
 }) => {
   return (
-    <div className="mobile-lg:vads-grid-col-4 inline-table-helper vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2 vads-u-margin-left--auto facility">
+    <>
       <MediaImage
         {...image}
         imageStyle="3_2_medium_thumbnail"
@@ -21,6 +21,6 @@ export const ImageAndStaticMap: React.FC<ImageAndStaticMapProps> = ({
       <div data-widget-type="facility-map" data-facility={facilityId}>
         {/* TODO: Create Facility Map component for display here */}
       </div>
-    </div>
+    </>
   )
 }
