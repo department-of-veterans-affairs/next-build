@@ -40,10 +40,10 @@ const breakpointReplacements = {
 }
 
 const foundationRegexes = [
-  /\b(row|column|columns)\b/g,
-  /\bsmall-[\w-]+\b/g,
-  /\bmedium-[\w-]+\b/g,
-  /\blarge-[\w-]+\b/g,
+  /[" :](row|column|columns)\b/g,
+  /[" :]small-[\w-]+\b/g,
+  /[" :]medium-[\w-]+\b/g,
+  /[" :]large-[\w-]+\b/g,
 ]
 
 // --- Migration Function ---
@@ -80,14 +80,53 @@ function migrateContent(content, filePath) {
   }
 
   // Foundation class cleanup (warn instead of replace)
+  const lines = updated.split('\n')
+  const allFoundationMatches = []
+
   for (const regex of foundationRegexes) {
-    if (regex.test(updated)) {
-      console.warn(
-        `⚠️  [${filePath}] contains deprecated Foundation class(es):`,
-        updated.match(regex)
-      )
-      hasChanges = true
-    }
+    lines.forEach((line, lineNumber) => {
+      const lineMatches = line.match(regex)
+      if (lineMatches) {
+        allFoundationMatches.push({
+          lineNumber: lineNumber + 1,
+          line: line.trim(),
+          matches: lineMatches,
+        })
+      }
+    })
+  }
+
+  if (allFoundationMatches.length > 0) {
+    console.warn(`⚠️  [${filePath}] contains deprecated Foundation class(es):`)
+    allFoundationMatches.forEach(({ lineNumber, line, matches }) => {
+      let highlightedLine = line
+      // Sort matches by position in reverse order to avoid index shifting
+      const matchPositions = []
+      matches.forEach((match) => {
+        const regex = new RegExp(`\\b${match}\\b`, 'g')
+        let matchResult
+        while ((matchResult = regex.exec(line)) !== null) {
+          matchPositions.push({
+            start: matchResult.index,
+            end: matchResult.index + match.length,
+            match: match,
+          })
+        }
+      })
+
+      // Sort by start position in reverse order
+      matchPositions.sort((a, b) => b.start - a.start)
+
+      // Replace matches from end to start to maintain positions
+      matchPositions.forEach(({ start, end, match }) => {
+        const before = highlightedLine.substring(0, start)
+        const after = highlightedLine.substring(end)
+        highlightedLine = before + chalk.yellow(match) + after
+      })
+
+      console.warn(`   Line ${lineNumber}: ${chalk.cyan(highlightedLine)}`)
+    })
+    hasChanges = true
   }
 
   // Remove duplicate class names
