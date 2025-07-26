@@ -20,6 +20,9 @@ export const RESOURCE_TYPES = {
   VET_CENTER_HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
   VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
   VET_CENTER: 'node--vet_center',
+  VET_CENTER_LOCATION_LISTING: 'node--vet_center_locations_list',
+  VET_CENTER_CAP: 'node--vet_center_cap',
+  VET_CENTER_MOBILE_VET_CENTER: 'node--vet_center_mobile_vet_center',
 } as const
 
 // (Node) resources that generate full pages.
@@ -43,6 +46,7 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_SYSTEM,
   RESOURCE_TYPES.VBA_FACILITY,
   RESOURCE_TYPES.LEADERSHIP_LISTING,
+  RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {

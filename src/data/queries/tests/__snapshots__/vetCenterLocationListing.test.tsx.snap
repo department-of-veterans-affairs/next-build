@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VetCenterLocationListing formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "Colorado Springs Vet Center",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/colorado-springs-vet-center",
+    },
+    {
+      "options": [],
+      "title": "Locations",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/colorado-springs-vet-center/locations",
+    },
+  ],
+  "entityId": 17943,
+  "entityPath": "/colorado-springs-vet-center/locations",
+  "fieldNearbyMobileVetCenters": [],
+  "fieldOffice": {},
+  "id": "93fde050-0972-447f-89ac-8f2298c97386",
+  "lastUpdated": "2021-07-14T14:25:21+00:00",
+  "metatags": [],
+  "moderationState": "published",
+  "published": true,
+  "title": "Locations",
+  "type": "node--vet_center_locations_list",
+}
+`;
