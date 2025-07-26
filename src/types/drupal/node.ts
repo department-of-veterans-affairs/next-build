@@ -75,6 +75,7 @@ export type NodeTypes =
   | NodeEvent
   | NodeEventListing
   | NodeVetCenter
+  | NodeVetCenterLocationListing
   | NodeVamcSystemVaPolice
   | NodeLeadershipListing
   | NodeVbaFacility
@@ -458,4 +459,19 @@ export interface NodeLocationsListing extends DrupalNode {
 
 export interface NodeVbaFacility extends DrupalNode {
   title: string
+}
+
+export interface NodeVetCenterLocationListing extends DrupalNode {
+  field_office: Omit<
+    NodeVetCenter,
+    | 'field_administration'
+    | 'field_prepare_for_visit'
+    | 'field_vet_center_feature_content'
+    | 'field_health_services'
+  >
+  field_nearby_mobile_vet_centers: NodeVetCenterMobileVetCenter[]
+}
+
+export interface NodeVetCenterMobileVetCenter extends DrupalNode {
+  field_phone_number: string
 }
