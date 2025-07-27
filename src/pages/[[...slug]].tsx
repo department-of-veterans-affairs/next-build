@@ -3,6 +3,7 @@
  *
  * For more information on this file, see READMEs/[[...slug]].md
  */
+import Debug from 'debug'
 import * as React from 'react'
 import {
   GetStaticPathsContext,
@@ -31,6 +32,11 @@ import {
   FlattenedGraph,
 } from '@/lib/utils/object-graph'
 
+const slugLogger = Debug('next-build:slug')
+const log = slugLogger.extend('log')
+const warn = slugLogger.extend('warn')
+const error = slugLogger.extend('error')
+
 // Config
 const isExport = process.env.BUILD_OPTION === 'static'
 
@@ -47,8 +53,8 @@ import { StoryListing as FormattedStoryListing } from '@/products/storyListing/f
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
-import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/types/formatted/vamcSystemVaPolice'
-import { LeadershipListing as FormattedLeadershipListing } from '@/types/formatted/leadershipListing'
+import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
+import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
@@ -68,8 +74,9 @@ import { Wrapper } from '@/templates/layouts/wrapper'
 import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFacility'
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '@/templates/layouts/vamcSystem'
-import { VamcSystemVaPolice } from '@/templates/layouts/vamcSystemVaPolice'
-import { LeadershipListing } from '@/templates/layouts/leadershipListing'
+import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
+import { LeadershipListing } from '@/products/leadershipListing/template'
+import { VbaFacility } from '@/templates/layouts/vbaFacility'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -198,6 +205,9 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.LEADERSHIP_LISTING && (
             <LeadershipListing {...(resource as FormattedLeadershipListing)} />
           )}
+          {resource.type === RESOURCE_TYPES.VBA_FACILITY && (
+            <VbaFacility {...(resource as FormattedPageResource)} />
+          )}
         </div>
       </main>
 
@@ -215,6 +225,7 @@ export default function ResourcePage({
 export async function getStaticPaths(
   context: GetStaticPathsContext
 ): Promise<GetStaticPathsResult> {
+  log('getStaticPaths called')
   // `getStaticPaths` is called on every request in dev mode (`next dev`). We don't need this,
   // so we set SSG=false (default) for `next dev` and set SSG=true on `next build/export`.
   // `getStaticPaths` will never be called during runtime (`next start`), but SSG will default
@@ -225,26 +236,26 @@ export async function getStaticPaths(
       fallback: 'blocking',
     }
   }
-  /* eslint-disable no-console */
 
   if (!RESOURCE_TYPES_TO_BUILD.length) {
-    console.error('No resource types returned')
+    error('No resource types returned')
     process.exit(1)
   }
-  console.log(
+  log(
     `\n\nBuilding ${RESOURCE_TYPES_TO_BUILD.length} resource types:`,
     RESOURCE_TYPES_TO_BUILD,
     '\n\n'
   )
 
-  console.time('Fetching page paths')
+  log('Fetching page paths...')
 
   const resources = await Promise.all(
     RESOURCE_TYPES_TO_BUILD.map(getStaticPathsByResourceType)
   )
 
-  console.timeEnd('Fetching page paths')
+  log('Finished fetching page paths')
 
+  /* eslint-disable no-console */
   console.log('\n')
   console.table(
     RESOURCE_TYPES_TO_BUILD.reduce((resourceTable, resourceName, index) => {
@@ -254,7 +265,6 @@ export async function getStaticPaths(
       }
     }, {})
   )
-  console.log('\n')
   /* eslint-enable no-console */
 
   return {
@@ -278,7 +288,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     }
 
     if (!pathInfo) {
-      console.warn('No path info found, returning notFound')
+      warn('No path info found, returning notFound')
       return {
         notFound: true,
       }
@@ -288,7 +298,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     const resourceType = pathInfo.jsonapi.resourceName
 
     if (!RESOURCE_TYPES_TO_BUILD.includes(resourceType)) {
-      console.warn(
+      warn(
         `Resource type ${resourceType} not in RESOURCE_TYPES_TO_BUILD, returning notFound`
       )
       return {
@@ -305,8 +315,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
         )
       } catch (e) {
         const util = await import('util')
-        console.error('\n\nFailed to fetch resource:')
-        console.error(
+        error('\n\nFailed to fetch resource:')
+        error(
           util.inspect(
             { resourceType, pathInfo, expandedContext },
             { colors: true, depth: null }
@@ -317,7 +327,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       // If we're not in preview mode and the resource is not published,
       // Return page not found.
       if (!expandedContext.preview && !resource?.published) {
-        console.warn(
+        warn(
           'Resource not published and not in preview mode, returning notFound'
         )
         return {
@@ -348,8 +358,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       }
     }
   } catch (err) {
-    console.error('Error in getStaticProps:', err)
-    console.error(`SSG env var: ${process.env.SSG} (${typeof process.env.SSG})`)
+    error('Error in getStaticProps:', err)
+    error(`SSG env var: ${process.env.SSG} (${typeof process.env.SSG})`)
     if (process.env.SSG === 'true') {
       const fs = await import('fs')
       const path = await import('path')
@@ -360,7 +370,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       try {
         // If another child process has done this, we don't need to do it again
         if (!fs.existsSync(exitCodePath)) {
-          console.error(
+          error(
             chalk.red('Exiting static site generation to avoid partial build')
           )
 
@@ -373,14 +383,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
           )
           process.kill(nextBuildPID, 'SIGINT')
         } else {
-          console.warn(
-            chalk.yellow(`file exists at ${exitCodePath}. Contents:`)
-          )
-          console.warn(fs.readFileSync(exitCodePath).toString())
+          warn(chalk.yellow(`file exists at ${exitCodePath}. Contents:`))
+          warn(fs.readFileSync(exitCodePath).toString())
         }
       } catch (deathThrow) {
         // Couldn't kill the process; probably because it's already been killed
-        console.error(
+        error(
           chalk.red('Failed to exit without killing the process:'),
           deathThrow
         )

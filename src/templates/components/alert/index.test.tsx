@@ -41,15 +41,15 @@ describe('<Alert> Component', () => {
         content: wysiwyg,
       },
     }
-    render(<Alert {...mockAlertWithBlockReference} />)
-    const alertBlock = screen.queryByRole('alert')
+    const { container } = render(<Alert {...mockAlertWithBlockReference} />)
+    const alertBlock = container.querySelector('va-alert')
     expect(alertBlock).toBeInTheDocument()
     expect(screen.getByText('Block Reference Title')).toBeInTheDocument()
   })
 
   it('renders custom alert with paragraphs when blockReference is not provided', () => {
-    render(<Alert {...mockAlert} />)
-    const customAlert = screen.getByRole('alert')
+    const { container } = render(<Alert {...mockAlert} />)
+    const customAlert = container.querySelector('va-alert')
     expect(customAlert).toHaveAttribute(
       'data-paragraph-type',
       'paragraph--alert'

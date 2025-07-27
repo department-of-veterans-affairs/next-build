@@ -17,7 +17,7 @@ export const formatter: QueryFormatter<
     type: entity.type as
       | 'paragraph--wysiwyg'
       | 'paragraph--rich_text_char_limit_1000',
-    id: entity.id,
+    id: entity.id ?? null,
     html,
   }
 }

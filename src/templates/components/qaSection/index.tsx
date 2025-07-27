@@ -23,7 +23,7 @@ export function QaSection({
       ) : (
         questions.map((questionContent: FormattedParagraph) => (
           <Paragraph
-            key={questionContent.id}
+            key={questionContent.id || questionContent.entityId}
             setHeaderh3={setHeaderh3}
             {...questionContent}
           />

@@ -35,7 +35,7 @@ export const Example: Story = {
       type: 'paragraph--q_a_section',
       id: '5f582f12-b72f-4a35-a9df-411485c8e446',
       header: 'How Vet Centers are different than a medical clinic',
-      intro: 'Click on a topic for more details.',
+      intro: 'Select a topic to learn more.',
       displayAccordion: true,
       questions: [
         {
@@ -102,8 +102,6 @@ export const Example: Story = {
         commonlyTreatedCondition: null,
         vetCenterServiceDescription:
           'If you have symptoms of PTSD after a traumatic event, we can help. We offer assessment and support through private counseling and group therapy. We can also refer you to VA or community counseling for treatment and therapy resources.',
-        description:
-          '<p>If you have symptoms of PTSD after a traumatic event, we can help. We offer assessment and treatment support such as private counseling, group therapy and medication. It’s never too late to get help.</p>',
         body: '<p>Pittsburgh Vet Center offers individual and group counseling.</p><p>Specialty care includes</p><ul><li>Evidence based therapies such as; Cognitive Processing Therapy (CPT) and Prolonged Exposure (PE).</li><li>Whole health activities such as yoga and mindfulness</li><li>Seeking Safety for PTSD and substance abuse disorder dual diagnosis</li></ul>',
       },
       {
@@ -114,8 +112,6 @@ export const Example: Story = {
         vetCenterComConditions: null,
         commonlyTreatedCondition: null,
         vetCenterServiceDescription:
-          'We offer couples and family counseling to support you as you work toward meeting your goals.',
-        description:
           'We offer couples and family counseling to support you as you work toward meeting your goals.',
         body: '<p>Pittsburgh Vet Center counselors on-site to offer family and couples counseling.</p><p>Specialty care includes</p><ul><li>Couples counseling and support</li><li>Spouse and Significant Other groups</li></ul>',
       },
@@ -128,8 +124,6 @@ export const Example: Story = {
         commonlyTreatedCondition: null,
         vetCenterServiceDescription:
           'If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.',
-        description:
-          'Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.',
         body: '<p>Pittsburgh Vet Center offers individual and group counseling by counselors with specific training related to military sexual trauma care.</p>',
       },
     ],
@@ -144,8 +138,6 @@ export const Example: Story = {
         commonlyTreatedCondition: null,
         vetCenterServiceDescription:
           'If you have symptoms of PTSD after a traumatic event, we can help. We offer assessment and support through private counseling and group therapy. We can also refer you to VA or community counseling for treatment and therapy resources.',
-        description:
-          '<p>If you have symptoms of PTSD after a traumatic event, we can help. We offer assessment and treatment support such as private counseling, group therapy and medication. It’s never too late to get help.</p>',
         body: '<p>Pittsburgh Vet Center offers individual and group counseling.</p><p>Specialty care includes</p><ul><li>Evidence based therapies such as; Cognitive Processing Therapy (CPT) and Prolonged Exposure (PE).</li><li>Whole health activities such as yoga and mindfulness</li><li>Seeking Safety for PTSD and substance abuse disorder dual diagnosis</li></ul>',
       },
     ],
@@ -158,8 +150,6 @@ export const Example: Story = {
         vetCenterComConditions: null,
         commonlyTreatedCondition: null,
         vetCenterServiceDescription:
-          'We offer couples and family counseling to support you as you work toward meeting your goals.',
-        description:
           'We offer couples and family counseling to support you as you work toward meeting your goals.',
         body: '<p>Pittsburgh Vet Center counselors on-site to offer family and couples counseling.</p><p>Specialty care includes</p><ul><li>Couples counseling and support</li><li>Spouse and Significant Other groups</li></ul>',
       },
@@ -174,8 +164,6 @@ export const Example: Story = {
         commonlyTreatedCondition: null,
         vetCenterServiceDescription:
           'If you experienced sexual assault or harassment during military service, we can help you get the counseling you need. Any Veteran or service member, including members of the National Guard and Reserve forces, who experienced military sexual trauma is eligible to receive counseling. This applies to people of all genders from any service era.',
-        description:
-          'Military sexual trauma can happen to both genders. If you experienced sexual assault or harassment during military service—no matter when you served—we provide counseling and treatment.',
         body: '<p>Pittsburgh Vet Center offers individual and group counseling by counselors with specific training related to military sexual trauma care.</p>',
       },
     ],

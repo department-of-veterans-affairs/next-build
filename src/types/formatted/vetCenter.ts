@@ -20,6 +20,10 @@ export type VetCenter = PublishedEntity & {
   ccVetCenterFaqs: PublishedQaSection
   geolocation: FieldGeoLocation
   introText: string
+  missionExplainer: {
+    heading: string
+    body: string
+  } | null
   lastSavedByAnEditor: string | null
   officeHours: FieldOfficeHours[]
   officialName: string
@@ -34,6 +38,7 @@ export type VetCenter = PublishedEntity & {
   referralHealthServices: FormattedHealthServices
   otherHealthServices: FormattedHealthServices
   image: FormattedMediaImage
+  bannerImage: FormattedMediaImage | null
   prepareForVisit: FormattedAccordionItem[]
   fieldFacilityLocatorApiId: string
   path: string

@@ -66,8 +66,6 @@ export const getCliOptionsAndArgs = (): CliOptionsAndArgs => {
 
   program
     .passThroughOptions()
-    .option('--DEBUG', 'Verbose logging on build', false)
-    .option('--no-DEBUG', 'No verbose logging on build')
     .option('--NEXT_IMAGE_DOMAIN <url>', 'Drupal image domain')
     .option(
       '--NEXT_PUBLIC_ASSETS_URL <url>',

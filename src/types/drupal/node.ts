@@ -16,6 +16,8 @@ import {
   FieldGeoLocation,
   VetCenterFieldHealthServicesArray,
   BreadcrumbItem,
+  FieldMissionExplainer,
+  FieldVetCenterBannerImage,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -75,6 +77,7 @@ export type NodeTypes =
   | NodeVetCenter
   | NodeVamcSystemVaPolice
   | NodeLeadershipListing
+  | NodeVbaFacility
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -180,6 +183,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
   field_geolocation: FieldGeoLocation
   field_intro_text: string
+  field_mission_explainer: FieldMissionExplainer | null
   field_last_saved_by_an_editor?: string
   field_office_hours: FieldOfficeHours[]
   field_official_name: string
@@ -192,6 +196,7 @@ export interface NodeVetCenter extends DrupalNode {
   field_media: DrupalMediaImage
   field_prepare_for_visit: ParagraphAccordion[]
   field_vet_center_feature_content: ParagraphFeaturedContent[]
+  field_vet_center_banner_image: FieldVetCenterBannerImage
   field_facility_locator_api_id: string
 }
 
@@ -449,4 +454,8 @@ export interface NodeLeadershipListing extends DrupalNode {
 
 export interface NodeLocationsListing extends DrupalNode {
   field_description: string
+}
+
+export interface NodeVbaFacility extends DrupalNode {
+  title: string
 }

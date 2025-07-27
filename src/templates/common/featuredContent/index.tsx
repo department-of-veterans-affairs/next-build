@@ -20,12 +20,14 @@ export function FeaturedContent({
         />
       )}
       {link && link.url && (
-        <va-link
-          href={link.url}
-          text={link.label}
-          active={true}
-          data-testid="featured-content-link"
-        />
+        <p>
+          <va-link
+            href={link.url}
+            text={link.label}
+            active={true}
+            data-testid="featured-content-link"
+          />
+        </p>
       )}
     </va-card>
   )

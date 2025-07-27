@@ -46,12 +46,13 @@ import * as SupportServices from '@/data/queries/supportServices'
 import * as Table from '@/data/queries/table'
 import * as VamcEhr from '@/data/queries/vamcEhr'
 import * as VamcSystem from '@/data/queries/vamcSystem'
-import * as VamcSystemVaPolice from '@/data/queries/vamcSystemVaPolice'
+import * as VamcSystemVaPolice from '@/products/vamcSystemVaPolice/query'
 import * as VetCenter from '@/data/queries/vetCenter'
 import * as VetCenterHealthServices from '@/data/queries/vetCenterHealthServices'
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
-import * as LeadershipListing from '@/data/queries/leadershipListing'
+import * as LeadershipListing from '@/products/leadershipListing/query'
+import * as VbaFacility from '@/data/queries/vbaFacility'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -85,6 +86,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
   [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
+  [RESOURCE_TYPES.VBA_FACILITY]: VbaFacility,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

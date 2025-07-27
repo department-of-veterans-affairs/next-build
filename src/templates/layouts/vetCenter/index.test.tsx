@@ -28,7 +28,7 @@ describe('VetCenter with valid data', () => {
       type: 'paragraph--q_a_section' as FormattedQaSection['type'],
       id: '5f582f12-b72f-4a35-a9df-411485c8e446',
       header: 'How we’re different than a clinic',
-      intro: 'Click on a topic for more details.',
+      intro: 'Select a topic to learn more.',
       displayAccordion: true,
       questions: [
         {
@@ -81,6 +81,10 @@ describe('VetCenter with valid data', () => {
       },
     ],
     introText: 'Test introText',
+    missionExplainer: {
+      heading: 'Our commitment',
+      body: "<p>We offer a range of services, from talk therapy to recreational activities. Our team will work with you to identify your goals and make a plan to meet them. We'll help you and your family build meaningful connections to improve your quality of life.</p>",
+    },
     officeHours: [
       { day: 0, starthours: null, endhours: null, comment: 'Closed' },
       { day: 1, starthours: 800, endhours: 1630, comment: '' },
@@ -197,6 +201,24 @@ describe('VetCenter with valid data', () => {
       width: 700,
       height: 350,
     },
+    bannerImage: {
+      id: 'banner-image-id',
+      links: {
+        '2_1_large': {
+          href: 'https://s3-us-gov-west-1.amazonaws.com/content.www.va.gov/img/styles/2_1_large/public/2019-05/banner-image.jpg',
+          meta: {
+            linkParams: {
+              width: 1200,
+              height: 600,
+            },
+          },
+        },
+      },
+      alt: 'Banner image for vet center',
+      title: '',
+      width: 1200,
+      height: 600,
+    },
     prepareForVisit: null,
     title: 'Test title',
     fieldFacilityLocatorApiId: 'Test API ID',
@@ -219,6 +241,26 @@ describe('VetCenter with valid data', () => {
     expect(screen.queryByText(/Test introText/)).toBeInTheDocument()
     expect(screen.queryByText(/1010 Delafield Road/)).toBeInTheDocument()
     expect(screen.queryByText(/In the spotlight/)).toBeInTheDocument()
+  })
+
+  test('renders schema.org structured data scripts correctly', () => {
+    const { container } = render(<VetCenter {...mockData} />)
+
+    // Get all script tags with type="application/ld+json"
+    const scriptTags = container.querySelectorAll(
+      'script[type="application/ld+json"]'
+    )
+
+    // Should have at least 2 script tags (main place data + health services)
+    expect(scriptTags.length).toBeGreaterThan(1)
+
+    // Extract and parse the JSON from each script tag
+    const scriptContents = Array.from(scriptTags).map((script) => {
+      return JSON.parse((script as HTMLScriptElement).innerHTML)
+    })
+
+    // Take snapshot of the structured data to ensure consistency
+    expect(scriptContents).toMatchSnapshot()
   })
 
   describe('Also called functionality', () => {
@@ -345,5 +387,48 @@ describe('VetCenter with valid data', () => {
 
     // Verify the contact attribute contains the phone number without dashes
     expect(vaTelephoneElement?.getAttribute('contact')).toBe('1234567890')
+  })
+
+  test('renders feedback button in ContentFooter component', () => {
+    const { container } = render(<VetCenter {...mockData} />)
+
+    // Check that the feedback button is present from the va-button component
+    expect(
+      container.querySelector('va-button[id="mdFormButton"]')
+    ).toBeInTheDocument()
+  })
+
+  describe('Mission Explainer functionality', () => {
+    test('renders mission explainer when data is present', () => {
+      render(<VetCenter {...mockData} />)
+
+      // Check that the mission explainer va-summary-box is rendered
+      const summaryBox = document.querySelector('va-summary-box')
+      expect(summaryBox).toBeInTheDocument()
+
+      // Check that the heading is rendered correctly
+      expect(screen.getByText('Our commitment')).toBeInTheDocument()
+
+      // Check that the body content is rendered
+      expect(
+        screen.getByText(/We offer a range of services/)
+      ).toBeInTheDocument()
+      expect(
+        screen.getByText(/talk therapy to recreational activities/)
+      ).toBeInTheDocument()
+    })
+
+    test('does not render mission explainer when data is missing', () => {
+      const dataWithoutMissionExplainer = {
+        ...mockData,
+        missionExplainer: null,
+      }
+
+      render(<VetCenter {...dataWithoutMissionExplainer} />)
+
+      // Check that the mission explainer va-summary-box is not rendered
+      const summaryBox = document.querySelector('va-summary-box')
+      expect(summaryBox).not.toBeInTheDocument()
+    })
   })
 })
