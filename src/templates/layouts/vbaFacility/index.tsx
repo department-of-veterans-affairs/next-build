@@ -18,8 +18,26 @@ export function VbaFacility({
                 <Wysiwyg {...ccVBAFacilityOverview} />
               </div>
             )}
-            <div>TODO: Add buttons</div>
-
+            <div>
+              <va-link-action
+                class="vads-u-display--block"
+                href="https://va.my.site.com/VAVERA/s/"
+                text="Make an appointment"
+                type="secondary"
+              />
+              <va-link-action
+                class="vads-u-display--block"
+                href="https://ask.va.gov"
+                text="Ask a benefit question"
+                type="secondary"
+              />
+              <va-link-action
+                class="vads-u-display--block"
+                href="/claim-or-appeal-status"
+                text="Check a claim status"
+                type="secondary"
+              />
+            </div>
             <va-on-this-page></va-on-this-page>
 
             <h2
