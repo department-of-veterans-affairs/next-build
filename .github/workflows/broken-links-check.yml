@@ -106,7 +106,6 @@ jobs:
         id: rename-report-files
         run: |
           mv broken-links-report-combined.json "broken-links-report-combined-run-${{github.run_id}}.json"
-          mv broken-links-report.md "broken-links-report-run-${{github.run_id}}.md"
           mv broken-links-report.csv "broken-links-report-run-${{github.run_id}}.csv"
           echo REPORT_JSON=broken-links-report-combined-run-${{github.run_id}}.json >> $GITHUB_OUTPUT
 
@@ -116,14 +115,6 @@ jobs:
         with:
           name: "broken-links-report-combined-run-${{github.run_id}}.json"
           path: broken-links-report-combined-run-${{github.run_id}}.json
-          retention-days: 30
-
-      - name: Upload report markdown
-        id: upload-report-markdown
-        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
-        with:
-          name: "broken-links-report-run-${{github.run_id}}.md"
-          path: broken-links-report-run-${{github.run_id}}.md
           retention-days: 30
 
       - name: Upload report CSV
