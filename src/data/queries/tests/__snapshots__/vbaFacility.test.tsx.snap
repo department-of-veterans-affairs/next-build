@@ -19,6 +19,12 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
       "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
     },
   ],
+  "ccVBAFacilityOverview": {
+    "html": "<p>We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans.</p>
+",
+    "id": "a08da437-55a4-451c-8f90-af498f38a297",
+    "type": "paragraph--wysiwyg",
+  },
   "entityId": 4030,
   "entityPath": "/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
   "id": "a08da437-55a4-451c-8f90-af498f38a297",
