@@ -3,7 +3,7 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { PhoneNumber } from '@/types/formatted/phoneNumber'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
-import { QaSection } from '@/types/formatted/qaSection'
+import { QaSection as PublishedQaSection } from '@/types/formatted/qaSection'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 export type VamcSystemVaPolice = PublishedEntity & {
@@ -14,6 +14,6 @@ export type VamcSystemVaPolice = PublishedEntity & {
   system: string
   phoneNumber: PhoneNumber
   policeReport: FeaturedContent
-  faqs: QaSection
+  faqs: PublishedQaSection
   lovellVariant?: LovellChildVariant
 }

@@ -139,9 +139,11 @@ export const formatter: QueryFormatter<
       },
     },
     faqs: Array.isArray(entity.field_cc_faq)
-      ? entity.field_cc_faq.map((faq) => formatFaq(faq))
+      ? entity.field_cc_faq.length > 0
+        ? formatFaq(entity.field_cc_faq[0])
+        : null
       : entity.field_cc_faq
-      ? formatFaq(entity.field_cc_faq)
-      : null,
+        ? formatFaq(entity.field_cc_faq)
+        : null,
   }
 }
