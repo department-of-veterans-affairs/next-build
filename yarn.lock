@@ -4161,15 +4161,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:^8.1.1":
-  version: 8.3.5
-  resolution: "@storybook/addon-a11y@npm:8.3.5"
+"@storybook/addon-a11y@npm:^9.0.18":
+  version: 9.0.18
+  resolution: "@storybook/addon-a11y@npm:9.0.18"
   dependencies:
-    "@storybook/addon-highlight": 8.3.5
+    "@storybook/global": ^5.0.0
     axe-core: ^4.2.0
   peerDependencies:
-    storybook: ^8.3.5
-  checksum: 203f55f9c328f7710bc0997d5bfb673cc64b87b14c2d5a0ac36dcc2ab83d78b9e11856fc9fa85963b5cbae367377c5966a577913bc082d7c0e7c49aab4f9691b
+    storybook: ^9.0.18
+  checksum: 25144f59876cb4c6f17945baf2676d3af4472522fbc384f1c5b72219427d3f600deb6e22e068b2ef3ec9a4781955b04d17c17ce235fe4498e3af9a68f3153dff
   languageName: node
   linkType: hard
 
@@ -14603,7 +14603,7 @@ __metadata:
     "@next/env": ^14.1.0
     "@octokit/rest": ^21.0.1
     "@playwright/test": ^1.46.1
-    "@storybook/addon-a11y": ^8.1.1
+    "@storybook/addon-a11y": ^9.0.18
     "@storybook/addon-actions": ^8.1.11
     "@storybook/addon-essentials": ^8.0.5
     "@storybook/addon-interactions": ^8.0.9
