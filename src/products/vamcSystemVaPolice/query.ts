@@ -138,6 +138,10 @@ export const formatter: QueryFormatter<
             ?.field_button_link?.[0]?.uri || '',
       },
     },
-    faqs: formatFaq(entity.field_cc_faq),
+    faqs: Array.isArray(entity.field_cc_faq)
+      ? entity.field_cc_faq.map((faq) => formatFaq(faq))
+      : entity.field_cc_faq
+      ? formatFaq(entity.field_cc_faq)
+      : null,
   }
 }
