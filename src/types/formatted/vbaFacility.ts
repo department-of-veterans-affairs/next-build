@@ -3,11 +3,14 @@ import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
 import { PhoneContact as FormattedPhoneContact } from '@/types/formatted/contactInfo'
+import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
 
 export type VbaFacility = PublishedEntity & {
   title: string
   ccBenefitsHotline: FormattedPhoneContact
   ccVBAFacilityOverview: FormattedWysiwyg
+  fieldFacilityLocatorApiId: string
+  image: FormattedMediaImage
   officeHours: FieldOfficeHours[]
   operatingStatusFacility: FacilityOperatingStatusFlags
   operatingStatusMoreInfo: string | null

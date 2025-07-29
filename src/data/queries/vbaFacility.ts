@@ -1,5 +1,6 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { queries } from '.'
 import { NodeVbaFacility } from '@/types/drupal/node'
 import { VbaFacility } from '@/types/formatted/vbaFacility'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
@@ -18,13 +19,10 @@ import { PhoneContact } from '@/types/formatted/contactInfo'
 
 // Define the query params for fetching node--vba_facility.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-  // uncomment to add referenced entity data to the response
-  // .addInclude([
-  //  'field_media',
-  //  'field_media.image',
-  //  'field_administration',
-  // ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_media',
+    'field_media.image',
+  ])
 }
 
 // Define the option types for the data loader.
@@ -72,6 +70,10 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
       ),
       id: entity.field_cc_vba_facility_overview.target_id || null,
     },
+    fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
+    image: entity.field_media
+      ? queries.formatData('media--image', entity.field_media)
+      : null,
     officeHours: entity.field_office_hours,
     operatingStatusFacility: entity.field_operating_status_facility,
     operatingStatusMoreInfo: entity.field_operating_status_more_info

@@ -12,6 +12,8 @@ export function VbaFacility({
   lastUpdated,
   ccBenefitsHotline,
   ccVBAFacilityOverview,
+  fieldFacilityLocatorApiId,
+  image,
   officeHours,
   operatingStatusFacility,
   operatingStatusMoreInfo,
@@ -96,10 +98,10 @@ export function VbaFacility({
                   </section>
                 </div>
               </div>
-              {/* <ImageAndStaticMap
+              <ImageAndStaticMap
                 image={image}
                 facilityId={fieldFacilityLocatorApiId}
-              /> */}
+              />
             </div>
             <div>TODO: Add conditional Prepare for your visit</div>
             <h2 id="prepare-for-your-visit" className="vads-u-margin-bottom--3">
