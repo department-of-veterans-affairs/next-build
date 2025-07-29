@@ -32,7 +32,13 @@
       "@/products/*": ["./src/products/*"],
       "@/playwright/*": ["./playwright/*"],
       "react": ["./node_modules/@types/react"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": false
   },
   "include": [
     "next-env.d.ts",
