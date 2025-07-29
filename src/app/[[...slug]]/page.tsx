@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import Debug from 'debug'
+import chalk from 'chalk'
 import {
   RESOURCE_TYPES,
   PAGE_RESOURCE_TYPES,
@@ -79,7 +80,7 @@ export async function generateStaticParams() {
   }
 
   log(
-    `Building ${resourceTypesToBuild.length} resource types:`,
+    `Building ${chalk.green(resourceTypesToBuild.length)} resource types:`,
     resourceTypesToBuild
   )
 
@@ -90,7 +91,9 @@ export async function generateStaticParams() {
   // Log the number of paths per resource type
   resourceTypesToBuild.forEach((resourceType, index) => {
     const count = paths[index].length
-    log(`Built ${count} paths for resource type: ${resourceType}`)
+    log(
+      `Building ${chalk.green(count)} paths for resource type: ${chalk.blue(resourceType)}`
+    )
   })
 
   return paths.flat()
