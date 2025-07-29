@@ -82,6 +82,5 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
         })
       : null,
     phoneNumber: entity.field_phone_number,
-    timezone: entity.field_timezone,
   }
 }
