@@ -45,19 +45,13 @@ def load_urls_with_sitemap():
         # 2. Local sitemap.xml file
         # 3. Common sitemap URLs if base URL is known
         
-        sitemap_source = os.environ.get('SITEMAP_URL')
-        if not sitemap_source:
-            # Check for local sitemap.xml
-            local_sitemap = os.path.join(os.path.dirname(__file__), 'sitemap.xml')
-            if os.path.exists(local_sitemap):
-                sitemap_source = local_sitemap
-                print(f"Using local sitemap: {local_sitemap}")
         
-        if sitemap_source:
-            sitemap_urls = load_sitemap_urls(sitemap_source)
-            if sitemap_urls:
-                urls.update(sitemap_urls)
-                print(f"Loaded {sum(len(v) for v in sitemap_urls.values())} URLs from sitemap")
+        sitemap_source = os.environ.get('SITEMAP_URL')
+        print(f"Using sitemap source: {sitemap_source}")
+        sitemap_urls = load_sitemap_urls(sitemap_source)
+        if sitemap_urls:
+            urls.update(sitemap_urls)
+            print(f"Loaded {sum(len(v) for v in sitemap_urls.values())} URLs from sitemap")
     
     # Fall back to JSON configuration
     if not urls:
@@ -71,55 +65,74 @@ def load_urls_with_sitemap():
     
     return urls
 
+
+def filter_by_source(data, target_source):
+    print(f"Filtering URLs by source: {target_source}")
+    try:
+        source_urls =  {
+            key: [item for item in items if item.get('source') == target_source]
+            for key, items in data.items()
+        }
+        # Remove empty categories
+        filtered_categories = {}
+        for category, url_list in source_urls.items():
+            if url_list:
+                filtered_categories[category] = url_list
+    except Exception as e:
+        print(f"Error filtering URLs by source '{target_source}': {e}")
+        return None
+
+    return filtered_categories
+
 # Load URLs at module level with sitemap support
 URLS = load_urls_with_sitemap()
-
-class WebsiteUser(HttpUser):
-    """Base user class with common behaviors"""
-    abstract = True
+NEXTBUILD_URLS = filter_by_source(URLS, 'sitemap-nb.xml')
+CONTENTBUILD_URLS = filter_by_source(URLS, 'sitemap-cb.xml')
+REACTROUTES_URLS = filter_by_source(URLS, 'sitemap-reactroutes.xml')
+class NextBuildUser(HttpUser):
+    """User behavior for Next Build application"""
     wait_time = between(1, 5)
-    
+    weight = 1
+
     def on_start(self):
         """Called when a user starts"""
         pass
-    
-    @task(3)
-    def view_pages(self):
-        """Browse various pages"""
-        page = random.choice(URLS.get("pages", ["/page1.html"]))
-        self.client.get(page)
 
+    @task(1)
+    def request_random_url(self):
+        category = random.choice(list(NEXTBUILD_URLS.keys()))
+        page = random.choice(NEXTBUILD_URLS[category])
+        self.client.get(page['url'])
 
-class NormalLoadUser(WebsiteUser):
-    """User behavior during normal load conditions"""
-    wait_time = between(2, 8)
+class ContentBuildUser(HttpUser):
+    """User behavior for Content Build application"""
+    wait_time = between(1, 5)
     weight = 1
 
-class PeakLoadUser(WebsiteUser):
-    """User behavior during peak load conditions"""
-    wait_time = between(1, 3)
-    weight = 1
-    
-    @task(2)
-    def rapid_browsing(self):
-        """More aggressive browsing during peak times"""
-        pages = URLS.get("pages", ["/page1.html"])
-        for _ in range(3):
-            page = random.choice(pages)
-            self.client.get(page)
+    def on_start(self):
+        """Called when a user starts"""
+        pass
 
-class SpikeLoadUser(WebsiteUser):
-    """User behavior during spike load conditions"""
-    wait_time = between(0.5, 2)
+    @task(1)
+    def request_random_url(self):
+        category = random.choice(list(CONTENTBUILD_URLS.keys()))
+        page = random.choice(CONTENTBUILD_URLS[category])
+        self.client.get(page['url'])
+
+class ReactRouterUser(HttpUser):
+    """User behavior for React Router application"""
+    wait_time = between(1, 5)
     weight = 1
 
-    @task(2)
-    def rapid_browsing(self):
-        """More aggressive browsing during peak times"""
-        pages = URLS.get("pages", ["/page1.html"])
-        for _ in range(3):
-            page = random.choice(pages)
-            self.client.get(page)
+    def on_start(self):
+        """Called when a user starts"""
+        pass
+
+    @task(1)
+    def request_random_url(self):
+        category = random.choice(list(REACTROUTES_URLS.keys()))
+        page = random.choice(REACTROUTES_URLS[category])
+        self.client.get(page['url'])
 
 class CustomLoadTestShape(LoadTestShape):
     """
@@ -132,9 +145,9 @@ class CustomLoadTestShape(LoadTestShape):
     
     stages = [
         # Normal load phase (5 minutes)
-        {"duration": 30, "users": 10, "spawn_rate": 2, "user_classes": [NormalLoadUser]},   # Ramp up to 10 users
-        {"duration": 60, "users": 30, "spawn_rate": 2, "user_classes": [PeakLoadUser]},  # Steady at 30 users
-        {"duration": 90, "users": 50, "spawn_rate": 2, "user_classes": [SpikeLoadUser]},  # Increase to 50 users
+        {"duration": 30, "users": 10, "spawn_rate": 2, "user_classes": [NextBuildUser]},   # Ramp up to 10 users
+        {"duration": 60, "users": 30, "spawn_rate": 2, "user_classes": [NextBuildUser, ContentBuildUser]},  # Steady at 30 users
+        {"duration": 90, "users": 50, "spawn_rate": 2, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]},  # Increase to 50 users
     ]
     
     def tick(self):
