@@ -1,3 +1,5 @@
+'use client'
+
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { Banner as FormattedBanner } from '@/types/formatted/banners'
 

@@ -1,3 +1,5 @@
+'use client'
+
 import { VaPromoBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { PromoBanner as FormattedPromoBanner } from '@/types/formatted/banners'
 

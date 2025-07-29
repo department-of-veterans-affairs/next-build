@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { MedalliaAssets } from '@/templates/common/medallia'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
