@@ -99,7 +99,7 @@ export const getFetcher = (
         if ([404, 403].includes(response.status)) {
           log(`Aborting retry: ${response.status} received`)
           const { AbortError } = await import('p-retry')
-          throw new AbortError(errorMessage)
+          throw new AbortError(new Error(errorMessage, { cause: response }))
         }
 
         throw new Error(errorMessage)

@@ -361,6 +361,19 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   } catch (err) {
     error('Error in getStaticProps:', err)
     error(`SSG env var: ${process.env.SSG} (${typeof process.env.SSG})`)
+
+    // If we get a 403, it's probably because we're trying to preview an unpublished page.
+    // Return a 404 instead of failing the build.
+    //
+    // NOTE: The cause is added to the AbortError message in proxy-fetcher
+    if (err.cause?.status === 403) {
+      log('getStaticProps: 403 received; returning notFound')
+      return {
+        notFound: true,
+      }
+    }
+
+    // If we're in SSG mode, exit the build process. Otherwise, return a 404.
     if (process.env.SSG === 'true') {
       const fs = await import('fs')
       const path = await import('path')
