@@ -1,7 +1,7 @@
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VbaFacility as FormattedVBAFacility } from '@/types/formatted/vbaFacility'
 import { Wysiwyg } from '@/templates/components/wysiwyg'
-import { ExpandableOperatingStatus } from '../vetCenter/ExpandableOperatingStatus'
+import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { Hours } from '@/templates/components/hours'
