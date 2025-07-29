@@ -2,10 +2,8 @@
 
 import { useEffect } from 'react'
 import Script from 'next/script'
-import Head from 'next/head'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Wrapper } from '@/templates/layouts/wrapper'
-import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { CommonAndPopular } from '@/templates/common/commonAndPopular'
 
 export default function NotFound() {
@@ -19,10 +17,6 @@ export default function NotFound() {
   const headerFooterData = null // This should be fetched appropriately
 
   return (
-    <>
-      <Head>
-        <title>VA.gov | Veterans Affairs</title>
-      </Head>
       <Wrapper bannerData={[]} headerFooterData={headerFooterData}>
         <div
           className="main maintenance-page vads-u-padding-top--4"
@@ -78,6 +72,5 @@ export default function NotFound() {
           src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
         />
       </Wrapper>
-    </>
   )
 }

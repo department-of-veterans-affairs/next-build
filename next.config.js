@@ -16,9 +16,7 @@ const nextConfig = {
   trailingSlash: true,
   assetPrefix: undefined,
   output: isExport ? 'export' : undefined,
-  // Enable both App Router and Pages Router during migration
   experimental: {
-    appDir: true,
     largePageDataBytes: 512 * 1000, // 512kb, is 128kb by default
   },
   // assetPrefix: isProd

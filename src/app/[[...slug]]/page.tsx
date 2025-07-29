@@ -1,7 +1,11 @@
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { StaticPropsResource } from '@/lib/drupal/staticProps'
+import { getStaticPropsResource, getExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
+import { drupalClient } from '@/lib/drupal/drupalClient'
+import { draftMode } from 'next/headers'
+import { notFound } from 'next/navigation'
 import { FormattedPageResource } from '@/data/queries'
 import {
   inflateObjectGraph,
@@ -51,22 +55,49 @@ const DynamicBreadcrumbs = dynamic(
 )
 
 // [[...slug]] is a catchall route.
-export default function ResourcePage({
-  serializedResource,
-  bannerData,
-  headerFooterData,
-  preview,
-}: {
-  serializedResource: FlattenedGraph<StaticPropsResource<FormattedPageResource>>
-  bannerData: LayoutProps['bannerData']
-  headerFooterData: LayoutProps['headerFooterData']
-  preview: boolean
-}) {
-  if (!serializedResource) return null
-  const resource =
-    inflateObjectGraph<StaticPropsResource<FormattedPageResource>>(
-      serializedResource
-    )
+export default async function ResourcePage({ params }: { params: { slug?: string[] } }) {
+  const { isEnabled: preview } = draftMode()
+  const path = params.slug ? `/${params.slug.join('/')}` : '/'
+  
+  let pathInfo
+  try {
+    if (preview) {
+      // For preview mode, we might need different handling
+      pathInfo = await drupalClient.translatePath(path)
+    } else {
+      pathInfo = await drupalClient.translatePath(path)
+    }
+  } catch (error) {
+    console.error('Error translating path:', error)
+    notFound()
+  }
+
+  if (!pathInfo) {
+    notFound()
+  }
+
+  const resourceType = pathInfo.jsonapi.resourceName
+  
+  let resource
+  try {
+    // Create a mock context similar to what getStaticProps receives
+    const context = {
+      preview,
+      params: { slug: params.slug || [] },
+      previewData: preview ? {} : undefined,
+    }
+    const expandedContext = getExpandedStaticPropsContext(context)
+    resource = await getStaticPropsResource(resourceType, pathInfo, expandedContext)
+  } catch (error) {
+    console.error('Error fetching resource:', error)
+    notFound()
+  }
+
+  if (!resource) {
+    notFound()
+  }
+
+  const { bannerData, headerFooterData } = await getGlobalElements(path)
   const comment = `
       --
       | resourceType: ${resource?.type || 'N/A'}
