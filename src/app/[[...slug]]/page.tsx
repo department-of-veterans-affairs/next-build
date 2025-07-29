@@ -87,7 +87,11 @@ export async function generateStaticParams() {
     resourceTypesToBuild.map(getStaticPathsByResourceType)
   )
 
-  // Count each resource type's paths and log the total for each resource type AI!
+  // Log the number of paths per resource type
+  resourceTypesToBuild.forEach((resourceType, index) => {
+    const count = paths[index].length
+    log(`Built ${count} paths for resource type: ${resourceType}`)
+  })
 
   return paths.flat()
 }
