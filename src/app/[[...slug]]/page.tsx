@@ -1,16 +1,17 @@
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
+import Debug from 'debug'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { getStaticPropsResource, getExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import {
+  getStaticPropsResource,
+  getExpandedStaticPropsContext,
+} from '@/lib/drupal/staticProps'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
-import { FormattedPageResource } from '@/data/queries'
-import {
-  inflateObjectGraph,
-  FlattenedGraph,
-} from '@/lib/utils/object-graph'
+import { FormattedPageResource, queries } from '@/data/queries'
+import { inflateObjectGraph, FlattenedGraph } from '@/lib/utils/object-graph'
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
@@ -55,41 +56,75 @@ const DynamicBreadcrumbs = dynamic(
 )
 
 // [[...slug]] is a catchall route.
-export default async function ResourcePage({ params }: { params: { slug?: string[] } }) {
+export default async function ResourcePage({
+  params,
+}: {
+  params: { slug?: string[] }
+}) {
+  const debug = Debug('next-build:slug')
+  const log = debug.extend('log')
+  const errorLog = debug.extend('error')
+
   const { isEnabled: preview } = draftMode()
-  const path = params.slug ? `/${params.slug.join('/')}` : '/'
-  
+  const slug = params.slug || []
+  const path = slug.length > 0 ? `/${slug.join('/')}` : '/'
+
+  log('Processing path:', path)
+
   let pathInfo
   try {
+    // For preview mode, we need to handle unpublished content differently
     if (preview) {
-      // For preview mode, we might need different handling
-      pathInfo = await drupalClient.translatePath(path)
+      // Create a minimal context-like object for translatePathFromContext
+      const contextForTranslation = {
+        params: { slug },
+        preview: true,
+        previewData: {},
+      }
+      pathInfo = await drupalClient.translatePathFromContext(
+        contextForTranslation
+      )
     } else {
       pathInfo = await drupalClient.translatePath(path)
     }
   } catch (error) {
-    console.error('Error translating path:', error)
+    errorLog('Error translating path:', error)
     notFound()
   }
 
   if (!pathInfo) {
+    errorLog('Path info not found for path:', path)
     notFound()
   }
 
   const resourceType = pathInfo.jsonapi.resourceName
-  
+  log('Resource type:', resourceType)
+
   let resource
   try {
-    // Create a mock context similar to what getStaticProps receives
-    const context = {
-      preview,
-      params: { slug: params.slug || [] },
-      previewData: preview ? {} : undefined,
+    // Get the resource ID from pathInfo
+    const id = pathInfo.entity?.uuid
+    if (!id) {
+      throw new Error('No entity UUID found in pathInfo')
     }
-    const expandedContext = getExpandedStaticPropsContext(context)
-    resource = await getStaticPropsResource(resourceType, pathInfo, expandedContext)
+
+    // Build query options directly instead of using the old context pattern
+    const queryOpts = {
+      id,
+      context: {
+        preview,
+        params: { slug },
+      },
+    }
+
+    log('Fetching resource for type:', resourceType, 'with ID:', id)
+    resource = await queries.getData(resourceType as unknown, queryOpts)
+
+    if (!resource) {
+      throw new Error(`No resource found for ${resourceType} with ID ${id}`)
+    }
   } catch (error) {
-    console.error('Error fetching resource:', error)
+    errorLog('Error fetching resource:', error)
     notFound()
   }
 
