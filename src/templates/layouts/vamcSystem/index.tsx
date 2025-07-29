@@ -1,3 +1,5 @@
+'use client'
+
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { ContentFooter } from '@/templates/common/contentFooter'

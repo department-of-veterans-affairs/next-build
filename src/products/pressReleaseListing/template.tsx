@@ -1,3 +1,5 @@
+'use client'
+
 /**
  * ### Overview
  * Press Release Listing represents the collection pages for News Stories in a facility.

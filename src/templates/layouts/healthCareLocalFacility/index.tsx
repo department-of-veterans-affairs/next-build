@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
