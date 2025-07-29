@@ -16,13 +16,15 @@ const nextConfig = {
   trailingSlash: true,
   assetPrefix: undefined,
   output: isExport ? 'export' : undefined,
+  // Enable both App Router and Pages Router during migration
+  experimental: {
+    appDir: true,
+    largePageDataBytes: 512 * 1000, // 512kb, is 128kb by default
+  },
   // assetPrefix: isProd
   //   ? 'https://s3.us-gov-west-1.amazonaws.com/next-content.www.va.gov/'
   //   : undefined,
   staticPageGenerationTimeout: 180, //arbitrary; 60 is default but it's too small
-  experimental: {
-    largePageDataBytes: 512 * 1000, // 512kb, is 128kb by default
-  },
   // This ensures the generated files use a consistent hash inside of the generated `.next/` directory.
   // Necessary in order for correct asset references in various locations (S3 static files, cms preview server, etc)
   generateBuildId: async () => {
