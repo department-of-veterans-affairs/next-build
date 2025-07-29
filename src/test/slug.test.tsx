@@ -73,7 +73,8 @@ describe('[[...slug]].tsx', () => {
       // Assert that notFound is returned
       expect(result).toEqual({ notFound: true })
 
-      // Assert that getStaticPropsResource was called
+      // Assert that getStaticPropsResource was not called (because it shouldn't
+      // have gotten that far)
       expect(getStaticPropsResource).not.toHaveBeenCalled()
     })
   })
