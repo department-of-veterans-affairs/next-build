@@ -24,6 +24,10 @@ jest.mock('@/lib/drupal/drupalClient', () => ({
 
 describe('[[...slug]].tsx', () => {
   describe('getStaticProps', () => {
+    afterEach(() => {
+      jest.resetAllMocks()
+    })
+
     const mockContext = { params: { slug: ['test-path'] }, preview: false }
     it('returns notFound when DoNotPublishError is thrown', async () => {
       // Mock the expanded context
@@ -49,6 +53,28 @@ describe('[[...slug]].tsx', () => {
 
       // Assert that getStaticPropsResource was called
       expect(getStaticPropsResource).toHaveBeenCalled()
+    })
+
+    it('returns notFound when translatePath returns a 403', async () => {
+      // Mock the expanded context
+      const mockExpandedContext = { drupalPath: '/test-path', preview: false }
+
+      // Mock the functions
+      ;(getExpandedStaticPropsContext as jest.Mock).mockReturnValue(
+        mockExpandedContext
+      )
+      ;(drupalClient.translatePath as jest.Mock).mockRejectedValue(
+        new Error('Failed to fetch the thing', { cause: { status: 403 } })
+      )
+
+      // Call getStaticProps
+      const result = await getStaticProps(mockContext)
+
+      // Assert that notFound is returned
+      expect(result).toEqual({ notFound: true })
+
+      // Assert that getStaticPropsResource was called
+      expect(getStaticPropsResource).not.toHaveBeenCalled()
     })
   })
 })
