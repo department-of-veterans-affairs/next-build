@@ -97,4 +97,4 @@ jobs:
 
   playwright-action:
     name: Playwright Tests
-    uses: ./.github/actions/playwright.yml
+    uses: ./.github/workflows/playwright.yml
