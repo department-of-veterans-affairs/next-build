@@ -106,14 +106,14 @@ export default async function ResourcePage({
   params: { slug?: string[] }
 }) {
   const debug = Debug('next-build:slug')
-  const log = debug.extend('log')
+  const verbose = debug.extend('verbose')
   const errorLog = debug.extend('error')
 
   const { isEnabled: preview } = draftMode()
   const slug = params.slug || []
   const path = slug.length > 0 ? `/${slug.join('/')}` : '/'
 
-  log('Processing path:', path)
+  verbose('Processing path:', path)
 
   let pathInfo
   try {
@@ -142,7 +142,7 @@ export default async function ResourcePage({
   }
 
   const resourceType = pathInfo.jsonapi.resourceName
-  log('Resource type:', resourceType)
+  verbose('Resource type:', resourceType)
 
   let resource
   try {
@@ -161,7 +161,7 @@ export default async function ResourcePage({
       },
     }
 
-    log('Fetching resource for type:', resourceType, 'with ID:', id)
+    verbose('Fetching resource for type:', resourceType, 'with ID:', id)
     resource = await queries.getData(resourceType, queryOpts)
 
     if (!resource) {
