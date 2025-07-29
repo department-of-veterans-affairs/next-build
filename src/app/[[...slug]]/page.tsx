@@ -2,21 +2,15 @@ import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import Debug from 'debug'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import {
-  getStaticPropsResource,
-  getExpandedStaticPropsContext,
-} from '@/lib/drupal/staticProps'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { FormattedPageResource, queries } from '@/data/queries'
-import { inflateObjectGraph, FlattenedGraph } from '@/lib/utils/object-graph'
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
 import { EventListing } from '@/products/eventListing/template'
-import { LayoutProps } from '@/templates/layouts/wrapper'
 import { LocationsListing } from '@/templates/layouts/locationsListing'
 import { Meta } from '@/templates/common/meta'
 import { NewsStory } from '@/products/newsStory/template'
@@ -49,6 +43,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 
 const DynamicBreadcrumbs = dynamic(
   () => import('@/templates/common/breadcrumbs'),
@@ -202,7 +197,9 @@ export default async function ResourcePage({
             />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM && (
-            <VamcSystem {...(resource as FormattedVamcSystem)} />
+            <VamcSystem
+              {...(resource as LovellStaticPropsResource<FormattedVamcSystem>)}
+            />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE && (
             <VamcSystemVaPolice

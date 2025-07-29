@@ -20,7 +20,7 @@ export const Banner = ({
       windowSession={dismiss ? 'dismiss-session' : null}
       data-testid="banner"
     >
-      <div dangerouslySetInnerHTML={{ __html: body }} />
+      <div dangerouslySetInnerHTML={{ __html: body ?? '' }} />
     </VaBanner>
   )
 }
