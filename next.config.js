@@ -1,4 +1,4 @@
-const isProd = process.env.APP_ENV === 'prod'
+const isProd = process.env.APP_ENV === 'vagovprod'
 const isExport = process.env.BUILD_OPTION === 'static'
 
 /**

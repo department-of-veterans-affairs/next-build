@@ -124,7 +124,7 @@ function topTaskLovellComp({
   url: string
 } {
   // TODO: Is this right?
-  const isProd = process.env.APP_ENV === 'prod'
+  const isProd = process.env.APP_ENV === 'vagovprod'
 
   return _topTaskLovellComp({
     isProd,

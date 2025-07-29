@@ -6,7 +6,7 @@ interface ManageYourHealthLinksProps {
 }
 
 export function isProd() {
-  return process.env.APP_ENV === 'prod'
+  return process.env.APP_ENV === 'vagovprod'
 }
 
 export function ManageYourHealthLinks({

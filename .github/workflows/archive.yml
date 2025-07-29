@@ -12,7 +12,7 @@ on:
 
 env:
   BUILD_TYPE: vagovprod
-  APP_ENV: prod
+          APP_ENV: vagovprod
   NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
   SLACK_CHANNEL: C06DSBT7CBW #status-next-build
 
