@@ -130,7 +130,7 @@ jobs:
       # Certs added for the self hosted runner
       env:
         NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
-        APP_ENV: ${{ inputs.build_type || 'prod' }}
+        APP_ENV: ${{ inputs.build_type || 'vagovprod' }}
         NEXT_PUBLIC_DATADOG_RUM_APP_ID: ${{ secrets.NEXT_PUBLIC_DATADOG_RUM_APP_ID }}
         NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN: ${{ secrets.NEXT_PUBLIC_DATADOG_RUM_CLIENT_TOKEN }}
         NEXT_PUBLIC_DATADOG_RUM_SERVICE: ${{ secrets.NEXT_PUBLIC_DATADOG_RUM_SERVICE }}

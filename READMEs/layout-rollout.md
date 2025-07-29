@@ -98,7 +98,7 @@ When you are submitting a PR, add your feature flag variable to .env.test and .e
 
 When you are merging a new layout template and need to test it on Dev and Staging, you will need to add the feature flag variable to those environments. This is because the database for those environments is derived from the Production database, and the feature flag should not be enabled on Production until launch. These will need to be added to .env.dev and .env.staging, if testing on those environments is desired.
 
-Feature flag variables should _never_ be added to the .env.prod file. Feature flags on Prod must _always_ be controlled from the Prod CMS itself.
+Feature flag variables should _never_ be added to the .env.vagovprod file. Feature flags on Prod must _always_ be controlled from the Prod CMS itself.
 
 ## Content Build use of feature flags
 

@@ -80,7 +80,7 @@ describe('ManageYourHealthLinks', () => {
   })
 
   it('generates correct URLs for Cerner system in production', () => {
-    process.env.APP_ENV = 'prod'
+    process.env.APP_ENV = 'vagovprod'
     const { container } = render(
       <ManageYourHealthLinks vamcEhrSystem="cerner" />
     )
@@ -109,7 +109,7 @@ describe('ManageYourHealthLinks', () => {
   })
 
   it('generates correct URLs for Cerner staged system in non-production', () => {
-    process.env.APP_ENV = 'dev'
+    process.env.APP_ENV = 'vagovdev'
     const { container } = render(
       <ManageYourHealthLinks vamcEhrSystem="cerner_staged" />
     )
@@ -138,7 +138,7 @@ describe('ManageYourHealthLinks', () => {
   })
 
   it('generates default URLs for Cerner staged in production', () => {
-    process.env.APP_ENV = 'prod'
+    process.env.APP_ENV = 'vagovprod'
     const { container } = render(
       <ManageYourHealthLinks vamcEhrSystem="cerner_staged" />
     )
