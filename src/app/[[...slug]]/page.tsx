@@ -118,7 +118,7 @@ export default async function ResourcePage({
     }
 
     log('Fetching resource for type:', resourceType, 'with ID:', id)
-    resource = await queries.getData(resourceType as unknown, queryOpts)
+    resource = await queries.getData(resourceType, queryOpts)
 
     if (!resource) {
       throw new Error(`No resource found for ${resourceType} with ID ${id}`)
