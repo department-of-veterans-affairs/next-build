@@ -55,6 +55,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
+import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
@@ -206,7 +207,7 @@ export default function ResourcePage({
             <LeadershipListing {...(resource as FormattedLeadershipListing)} />
           )}
           {resource.type === RESOURCE_TYPES.VBA_FACILITY && (
-            <VbaFacility {...(resource as FormattedPageResource)} />
+            <VbaFacility {...(resource as FormattedVbaFacility)} />
           )}
         </div>
       </main>

@@ -1,15 +1,23 @@
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VbaFacility as FormattedVBAFacility } from '@/types/formatted/vbaFacility'
+import { Wysiwyg } from '@/templates/components/wysiwyg'
 
-export function VbaFacility({ title, lastUpdated }: FormattedVBAFacility) {
+export function VbaFacility({
+  title,
+  lastUpdated,
+  ccVBAFacilityOverview,
+}: FormattedVBAFacility) {
   return (
     <div className="interior">
       <main className="va-l-detail-page va-facility-page">
         <div className="vads-grid-container">
           <article className="usa-content va-l-facility-detail">
             <h1>{title}</h1>
-
-            <div>TODO: Add conditional intro text</div>
+            {ccVBAFacilityOverview && (
+              <div className="va-introtext">
+                <Wysiwyg {...ccVBAFacilityOverview} />
+              </div>
+            )}
             <div>TODO: Add buttons</div>
 
             <va-on-this-page></va-on-this-page>
