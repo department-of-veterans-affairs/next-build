@@ -128,7 +128,7 @@ jobs:
       # Takes the information above and constructs json to deliver to Slack.
       - name: Prepare Slack payload
         run: |
-          node scripts/broken-links-slack-payload.js -m ${{ steps.upload-report-markdown.outputs.artifact-url }} -i ${{ steps.rename-report-files.outputs.REPORT_JSON}} -c ${{ steps.upload-report-csv.outputs.artifact-url }}
+          node scripts/broken-links-slack-payload.js -i ${{ steps.rename-report-files.outputs.REPORT_JSON}} -c ${{ steps.upload-report-csv.outputs.artifact-url }}
 
       - name: Export Slack payload
         id: export-slack-payload
