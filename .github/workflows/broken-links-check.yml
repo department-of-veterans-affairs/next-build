@@ -96,7 +96,7 @@ jobs:
         with:
           merge-multiple: true
 
-      # Combines the individual reports, creates and outputs json, md, csv.
+      # Combines the individual reports, creates and outputs json and csv.
       - name: Create reports
         run: |
           node scripts/create-combined-reports.js
