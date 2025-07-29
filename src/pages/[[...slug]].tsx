@@ -352,6 +352,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       }
     } catch (error) {
       if (error instanceof DoNotPublishError) {
+        log('getStaticProps: DoNotPublishError, returning notFound')
         return { notFound: true }
       } else {
         throw error
