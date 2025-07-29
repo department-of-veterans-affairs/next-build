@@ -35,18 +35,21 @@ export function VbaFacility({
                 href="https://va.my.site.com/VAVERA/s/"
                 text="Make an appointment"
                 type="secondary"
+                data-testid="make-appointment-link"
               />
               <va-link-action
                 class="vads-u-display--block"
                 href="https://ask.va.gov"
                 text="Ask a benefit question"
                 type="secondary"
+                data-testid="ask-benefit-question-link"
               />
               <va-link-action
                 class="vads-u-display--block"
                 href="/claim-or-appeal-status"
                 text="Check a claim status"
                 type="secondary"
+                data-testid="check-claim-status-link"
               />
             </div>
             <va-on-this-page></va-on-this-page>
