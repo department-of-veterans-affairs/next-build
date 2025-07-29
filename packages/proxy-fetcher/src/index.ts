@@ -102,7 +102,7 @@ export const getFetcher = (
           throw new AbortError(new Error(errorMessage, { cause: response }))
         }
 
-        throw new Error(errorMessage)
+        throw new Error(errorMessage, { cause: response })
       }
 
       return response
