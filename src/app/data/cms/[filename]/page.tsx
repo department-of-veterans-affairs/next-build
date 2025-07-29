@@ -31,14 +31,19 @@ interface Props {
   }
 }
 
-/* This component never generates a page, but returns 404 after generating static files */
+/**
+ * This component never generates a page, but returns 404 after generating static files
+ *
+ * NOTE: This is a server component, so we can perform file system operations
+ * here.
+ */
 export default async function StaticJsonPage({ params }: Props) {
   const { filename } = params
-  
+
   const staticJsonFile = STATIC_JSON_FILES.find(
     (file) => file.filename === filename
   )
-  
+
   if (staticJsonFile) {
     const { filename: fileBasename, query, queryOpts = {} } = staticJsonFile
 
@@ -55,7 +60,7 @@ export default async function StaticJsonPage({ params }: Props) {
     }
     fs.writeFileSync(filePath, JSON.stringify(data))
   }
-  
+
   // Always return 404 after processing
   notFound()
 }
