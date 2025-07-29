@@ -4,6 +4,7 @@ import { NodeVbaFacility } from '@/types/drupal/node'
 import { VbaFacility } from '@/types/formatted/vbaFacility'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,
@@ -13,6 +14,7 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { PhoneContact } from '@/types/formatted/contactInfo'
 
 // Define the query params for fetching node--vba_facility.
 export const params: QueryParams<null> = () => {
@@ -49,12 +51,35 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
 ) => {
   return {
     ...entityBaseFields(entity),
+    address: entity.field_address,
+    ccBenefitsHotline: {
+      type: PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT as PhoneContact['type'],
+      label:
+        entity.field_cc_benefits_hotline.fetched.field_phone_label[0]?.value ||
+        null,
+      number:
+        entity.field_cc_benefits_hotline.fetched.field_phone_number[0]?.value ||
+        null,
+      extension:
+        entity.field_cc_benefits_hotline.fetched.field_phone_extension[0]
+          ?.value || null,
+      id: entity.field_cc_benefits_hotline.target_id || null,
+    },
     ccVBAFacilityOverview: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
       html: getHtmlFromField(
         entity.field_cc_vba_facility_overview.fetched.field_wysiwyg[0]
       ),
-      id: entity.id || null,
+      id: entity.field_cc_vba_facility_overview.target_id || null,
     },
+    officeHours: entity.field_office_hours,
+    operatingStatusFacility: entity.field_operating_status_facility,
+    operatingStatusMoreInfo: entity.field_operating_status_more_info
+      ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
+          convertNewlines: true,
+        })
+      : null,
+    phoneNumber: entity.field_phone_number,
+    timezone: entity.field_timezone,
   }
 }

@@ -1,11 +1,22 @@
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VbaFacility as FormattedVBAFacility } from '@/types/formatted/vbaFacility'
 import { Wysiwyg } from '@/templates/components/wysiwyg'
+import { ExpandableOperatingStatus } from '../vetCenter/ExpandableOperatingStatus'
+import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
+import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { Hours } from '@/templates/components/hours'
+import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 
 export function VbaFacility({
   title,
   lastUpdated,
+  ccBenefitsHotline,
   ccVBAFacilityOverview,
+  officeHours,
+  operatingStatusFacility,
+  operatingStatusMoreInfo,
+  phoneNumber,
+  address,
 }: FormattedVBAFacility) {
   return (
     <div className="interior">
@@ -18,7 +29,7 @@ export function VbaFacility({
                 <Wysiwyg {...ccVBAFacilityOverview} />
               </div>
             )}
-            <div>
+            <div className="vads-u-margin-top--1p5 vads-u-margin-bottom--3">
               <va-link-action
                 class="vads-u-display--block"
                 href="https://va.my.site.com/VAVERA/s/"
@@ -46,6 +57,47 @@ export function VbaFacility({
             >
               Location and contact information
             </h2>
+            <div
+              className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column
+            mobile-lg:vads-u-flex-direction--row facility"
+            >
+              <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
+                <div className="vads-c-facility-detail">
+                  <section className="vads-facility-detail">
+                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                      Address
+                    </h3>
+
+                    <ExpandableOperatingStatus
+                      operatingStatusFlag={operatingStatusFacility}
+                      operatingStatusMoreInfo={operatingStatusMoreInfo}
+                    />
+
+                    <div className="vads-u-margin--0 vads-u-margin-bottom--3">
+                      <Address address={address} title={title} />
+                    </div>
+
+                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                      Phone numbers
+                    </h3>
+                    <PhoneNumber
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+                      label="Main phone"
+                      number={phoneNumber}
+                    />
+                    <PhoneNumber
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+                      {...ccBenefitsHotline}
+                    />
+                    <Hours headerType="office" allHours={officeHours} />
+                  </section>
+                </div>
+              </div>
+              {/* <ImageAndStaticMap
+                image={image}
+                facilityId={fieldFacilityLocatorApiId}
+              /> */}
+            </div>
             <div>TODO: Add conditional Prepare for your visit</div>
             <h2 id="prepare-for-your-visit" className="vads-u-margin-bottom--3">
               Prepare for your visit

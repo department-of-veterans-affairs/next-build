@@ -1,25 +1,18 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VbaFacility } from './index'
-import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
+import mockData from '@/mocks/vbaFacility.mock.json'
+import { formatter } from '@/data/queries/vbaFacility'
 
 describe('VbaFacility with valid data', () => {
+  const formattedMockData = formatter(mockData)
   test('renders VbaFacility component', () => {
-    render(
-      <VbaFacility
-        id="test-id"
-        type="test-type"
-        published={true}
-        lastUpdated={new Date().toISOString()}
-        title={'Hello world'}
-        ccVBAFacilityOverview={{
-          id: '1',
-          type: 'paragraph--wysiwyg' as FormattedWysiwyg['type'],
-          html: '<p>We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans.</p>',
-        }}
-      />
-    )
+    render(<VbaFacility {...formattedMockData} />)
 
-    expect(screen.queryByText(/Hello world/)).toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /Veteran Readiness and Employment Office at West Palm Beach VA Medical Center/
+      )
+    ).toBeInTheDocument()
   })
 })
