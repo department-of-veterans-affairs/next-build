@@ -1,7 +1,11 @@
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import Debug from 'debug'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  RESOURCE_TYPES,
+  PAGE_RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
+import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { draftMode } from 'next/headers'
@@ -49,6 +53,44 @@ const DynamicBreadcrumbs = dynamic(
   () => import('@/templates/common/breadcrumbs'),
   { ssr: false }
 )
+
+export async function generateStaticParams() {
+  const debug = Debug('next-build:slug')
+  const log = debug.extend('log')
+  const errorLog = debug.extend('error')
+
+  // Determine which resource types to build based on environment variables
+  let resourceTypesToBuild = []
+  if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
+    resourceTypesToBuild = PAGE_RESOURCE_TYPES
+  } else {
+    for (const resourceType of PAGE_RESOURCE_TYPES) {
+      const typeName = resourceType.replace(/^node--/, '').toUpperCase()
+      const flagName = `FEATURE_NEXT_BUILD_CONTENT_${typeName}`
+      if (process.env[flagName] === 'true') {
+        resourceTypesToBuild.push(resourceType)
+      }
+    }
+  }
+
+  if (resourceTypesToBuild.length === 0) {
+    errorLog('No resource types to build.')
+    return []
+  }
+
+  log(
+    `Building ${resourceTypesToBuild.length} resource types:`,
+    resourceTypesToBuild
+  )
+
+  const paths = await Promise.all(
+    resourceTypesToBuild.map(getStaticPathsByResourceType)
+  )
+
+  // Count each resource type's paths and log the total for each resource type AI!
+
+  return paths.flat()
+}
 
 // [[...slug]] is a catchall route.
 export default async function ResourcePage({
