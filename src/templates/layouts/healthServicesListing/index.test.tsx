@@ -7,7 +7,6 @@ describe('HealthServicesListing with valid data', () => {
     render(
       <HealthServicesListing
         title={'Health services'}
-        description={'Test description'}
         introText={'Test intro'}
         id={'test-id'}
         type={'node--health_services_listing'}
@@ -19,11 +18,10 @@ describe('HealthServicesListing with valid data', () => {
     expect(screen.getByText('Health services')).toBeInTheDocument()
   })
 
-  test('renders description and intro text when provided', () => {
+  test('renders intro text when provided', () => {
     render(
       <HealthServicesListing
         title={'Health Services'}
-        description={'This is a test description'}
         introText={'This is intro text'}
         id={'test-id'}
         type={'node--health_services_listing'}
@@ -32,7 +30,26 @@ describe('HealthServicesListing with valid data', () => {
       />
     )
 
-    expect(screen.getByText('This is a test description')).toBeInTheDocument()
     expect(screen.getByText('This is intro text')).toBeInTheDocument()
+  })
+
+  test('renders section headings correctly', () => {
+    render(
+      <HealthServicesListing
+        title={'Health Services'}
+        introText={'This is intro text'}
+        id={'test-id'}
+        type={'node--health_services_listing'}
+        published={true}
+        lastUpdated={'2023-01-01'}
+      />
+    )
+
+    expect(screen.getByText('In the spotlight')).toBeInTheDocument()
+    expect(screen.getByText('Primary care')).toBeInTheDocument()
+    expect(screen.getByText('Mental health care')).toBeInTheDocument()
+    expect(screen.getByText('Specialty care')).toBeInTheDocument()
+    expect(screen.getByText('Social programs and services')).toBeInTheDocument()
+    expect(screen.getByText('Other services')).toBeInTheDocument()
   })
 })

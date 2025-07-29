@@ -24,7 +24,6 @@ exports[`HealthServicesListing formatData outputs formatted data 1`] = `
       "uri": "internal:#",
     },
   ],
-  "description": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
   "entityId": 18495,
   "entityPath": "/north-texas-health-care/health-services",
   "id": "86576faa-1cdd-43a7-8abf-5cab98d7c388",

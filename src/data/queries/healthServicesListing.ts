@@ -40,7 +40,6 @@ export const formatter: QueryFormatter<
 > = (entity: NodeHealthServicesListing) => {
   return {
     ...entityBaseFields(entity),
-    description: entity.field_description,
     introText: entity.field_intro_text,
   }
 }

@@ -37,7 +37,6 @@ describe('HealthServicesListing formatData', () => {
       mockWithEmptyDescription
     )
 
-    expect(result.description).toBe('')
     expect(result.introText).toBe('')
   })
 })
