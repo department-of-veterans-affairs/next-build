@@ -22,6 +22,7 @@ export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_media',
     'field_media.image',
+    'field_prepare_for_visit',
   ])
 }
 
@@ -81,6 +82,14 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
           convertNewlines: true,
         })
       : null,
+    prepareForVisit: entity.field_prepare_for_visit.map(
+      (prepareForVisitItem) => {
+        return queries.formatData(
+          PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM,
+          prepareForVisitItem
+        )
+      }
+    ),
     phoneNumber: entity.field_phone_number,
   }
 }

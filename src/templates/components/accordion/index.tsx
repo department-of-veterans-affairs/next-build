@@ -16,6 +16,7 @@ export function AccordionItem({
       header={header}
       class="va-accordion-item"
       id={`${id}-${slugifyString(header)}`}
+      data-testid={`accordion-item-${id}-${slugifyString(header)}`}
     >
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
     </va-accordion-item>

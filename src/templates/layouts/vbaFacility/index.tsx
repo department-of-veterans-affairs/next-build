@@ -4,8 +4,10 @@ import { Wysiwyg } from '@/templates/components/wysiwyg'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { Accordion } from '@/templates/components/accordion'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
+import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
 
 export function VbaFacility({
   title,
@@ -17,6 +19,7 @@ export function VbaFacility({
   officeHours,
   operatingStatusFacility,
   operatingStatusMoreInfo,
+  prepareForVisit,
   phoneNumber,
   address,
 }: FormattedVBAFacility) {
@@ -103,10 +106,10 @@ export function VbaFacility({
                 facilityId={fieldFacilityLocatorApiId}
               />
             </div>
-            <div>TODO: Add conditional Prepare for your visit</div>
-            <h2 id="prepare-for-your-visit" className="vads-u-margin-bottom--3">
-              Prepare for your visit
-            </h2>
+            {/* Prepare for Your Visit */}
+            {prepareForVisit && prepareForVisit.length > 0 && (
+              <PrepareForVisitAccordions visitItems={prepareForVisit} />
+            )}
 
             <h2 id="in-the-spotlight" className="vads-u-margin-bottom--3">
               In the spotlight

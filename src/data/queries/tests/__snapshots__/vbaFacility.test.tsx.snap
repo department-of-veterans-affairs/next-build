@@ -196,6 +196,7 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
   "operatingStatusFacility": "normal",
   "operatingStatusMoreInfo": null,
   "phoneNumber": "800-827-1000",
+  "prepareForVisit": [],
   "published": false,
   "title": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center",
   "type": "node--vba_facility",
