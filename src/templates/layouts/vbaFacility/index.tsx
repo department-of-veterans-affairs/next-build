@@ -86,7 +86,7 @@ export function VbaFacility({
                       Phone numbers
                     </h3>
                     <PhoneNumber
-                      className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
                       label="Main phone"
                       number={phoneNumber}
                     />
