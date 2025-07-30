@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   // Fetch the headless CMS to check if the provided `slug` exists
   try {
     const path = await drupalClient.translatePath(slug)
-    
+
     if (!path) {
       return NextResponse.json({ message: 'Invalid slug' }, { status: 401 })
     }
