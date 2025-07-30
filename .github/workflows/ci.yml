@@ -7,8 +7,6 @@ on:
 permissions:
   pull-requests: write
   issues: write
-  id-token: write
-  contents: read
 
 jobs:
 
@@ -96,7 +94,3 @@ jobs:
 
       - name: Example tests
         run: yarn test:examples
-
-  playwright-action:
-    name: Playwright Tests
-    uses: ./.github/workflows/playwright.yml
