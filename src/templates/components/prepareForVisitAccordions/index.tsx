@@ -3,15 +3,19 @@ import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accor
 
 type PrepareForVisitAccordions = {
   visitItems: FormattedAccordionItem[]
+  topMargin?: boolean
 }
 
-export const PrepareForVisitAccordions = ({ visitItems }) => {
+export const PrepareForVisitAccordions = ({
+  visitItems,
+  topMargin = false,
+}) => {
   if (visitItems.length === 0) return null
   return (
     <>
       <h2
         id="prepare-for-your-visit"
-        className="vads-u-margin-top--0 vads-u-font-size--lg mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
+        className={`${topMargin ? '' : 'vads-u-margin-top--0'} vads-u-font-size--lg mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2`}
       >
         Prepare for your visit
       </h2>

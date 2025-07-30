@@ -109,7 +109,10 @@ export function VbaFacility({
             </div>
             {/* Prepare for Your Visit */}
             {prepareForVisit && prepareForVisit.length > 0 && (
-              <PrepareForVisitAccordions visitItems={prepareForVisit} />
+              <PrepareForVisitAccordions
+                visitItems={prepareForVisit}
+                topMargin
+              />
             )}
             {/* In the spotlight */}
             <h2 id="in-the-spotlight" className="vads-u-margin-bottom--3">

@@ -31,4 +31,14 @@ describe('PrepareForVisitAccordions', () => {
     ).toBeInTheDocument()
     expect(screen.getByText('Check in at the front desk.')).toBeInTheDocument()
   })
+  it('applies top margin class when topMargin prop is false', () => {
+    render(
+      <PrepareForVisitAccordions
+        visitItems={mockAccordions}
+        topMargin={false}
+      />
+    )
+    const heading = screen.getByText('Prepare for your visit')
+    expect(heading).toHaveClass('vads-u-margin-top--0')
+  })
 })
