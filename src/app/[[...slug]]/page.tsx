@@ -48,6 +48,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
+import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 
 const DynamicBreadcrumbs = dynamic(
@@ -106,6 +107,7 @@ export default async function ResourcePage({
   params: { slug?: string[] }
 }) {
   const debug = Debug('next-build:slug')
+  const log = debug.extend('log')
   const verbose = debug.extend('verbose')
   const errorLog = debug.extend('error')
 
@@ -132,6 +134,10 @@ export default async function ResourcePage({
       pathInfo = await drupalClient.translatePath(path)
     }
   } catch (error) {
+    if (error.cause.status === 403) {
+      log('403 error translating path:', path, 'returning 404')
+      notFound()
+    }
     errorLog('Error translating path:', error)
     notFound()
   }
@@ -259,7 +265,7 @@ export default async function ResourcePage({
             <LeadershipListing {...(resource as FormattedLeadershipListing)} />
           )}
           {resource.type === RESOURCE_TYPES.VBA_FACILITY && (
-            <VbaFacility {...(resource as FormattedPageResource)} />
+            <VbaFacility {...(resource as FormattedVbaFacility)} />
           )}
         </div>
       </main>

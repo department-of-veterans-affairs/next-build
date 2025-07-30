@@ -2,7 +2,12 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVbaFacility } from '@/types/drupal/node'
 import { VbaFacility } from '@/types/formatted/vbaFacility'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -44,5 +49,12 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
 ) => {
   return {
     ...entityBaseFields(entity),
+    ccVBAFacilityOverview: {
+      type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
+      html: getHtmlFromField(
+        entity.field_cc_vba_facility_overview.fetched.field_wysiwyg[0]
+      ),
+      id: entity.id || null,
+    },
   }
 }
