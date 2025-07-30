@@ -6,7 +6,7 @@ import { addResource } from './scripts/yarn/plop/addResource.js'
 export default function (plop) {
   plop.setActionType('addResource', addResource)
 
-  // Create a new component with a test stub and Storybook entry.
+  // Create a new component with a test stub
   plop.setGenerator('Component', {
     description: 'New React component',
     prompts: [
@@ -26,11 +26,6 @@ export default function (plop) {
         type: 'add',
         path: 'src/templates/components/{{camelCase name}}/index.test.tsx',
         templateFile: 'generator-templates/component/test.hbs',
-      },
-      {
-        type: 'add',
-        path: 'src/templates/components/{{camelCase name}}/{{camelCase name}}.stories.ts',
-        templateFile: 'generator-templates/component/story.hbs',
       },
     ],
   })
@@ -128,11 +123,6 @@ export default function (plop) {
         type: 'add',
         path: 'src/templates/layouts/{{camelCase name}}/index.test.tsx',
         templateFile: 'generator-templates/component/test.hbs',
-      },
-      {
-        type: 'add',
-        path: 'src/templates/layouts/{{camelCase name}}/{{camelCase name}}.stories.ts',
-        templateFile: 'generator-templates/component/story.hbs',
       },
       {
         type: 'add',

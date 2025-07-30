@@ -10,12 +10,6 @@ services:
     #   3. Routes requests to the preview URL to this service
     default: true
 
-    # Generates additional url aliases
-    # Default: https://pr-[hash].tugboat.vfs.va.gov
-    #          https://storybook-[hash].tugboat.vfs.va.gov
-    aliases:
-      - storybook
-
     depends:
       - redis
 
@@ -40,9 +34,6 @@ services:
 
         # Setup nginx to serve 404 page.
         - cp -f "${TUGBOAT_ROOT}"/.tugboat/vhost-web.conf /etc/nginx/conf.d/default.conf
-
-        # Setup storybook-*. vhost to serve compiled storybook.
-        - cp "${TUGBOAT_ROOT}"/.tugboat/vhost-storybook.conf /etc/nginx/conf.d/storybook.conf
 
         # Restart nginx with the new config
         - sudo service nginx reload
@@ -75,11 +66,6 @@ services:
         - NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt yarn build:sitemap --SITE_URL ${TUGBOAT_DEFAULT_SERVICE_URL}
         # Set the webroot to the output folder.
         - ln -snf "${TUGBOAT_ROOT}/out" "${DOCROOT}"
-
-      # Run any commands after the site is built.
-      online:
-        # Build the static version of storybook to serve at storybook-[hash].tugboat.vfs.va.gov
-        - yarn storybook:build
 
   # Redis cache for fetching data
   redis:

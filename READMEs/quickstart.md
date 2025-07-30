@@ -220,9 +220,6 @@ You won’t be able to commit unless:
   - Check tugboat logs
     - Data may be null for specific fields
       - Update field in your formatter (data/queries/<name>.ts)
-- Getting TypeError on Storybook on all paragraphs, layouts, commons, and components
-  - Delete & install node modules
-  - Delete & install yarn.lock
 - Getting TypeError … null… static-pages.entry.js
   - Check if you are calling a null property in your index.tsx
 - If you see /bin/sh: <text>: No such file or directory
