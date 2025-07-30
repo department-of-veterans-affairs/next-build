@@ -7,7 +7,7 @@ import VetCenterHealthServices from '@/templates/components/vetCenterHealthServi
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
-import { ExpandableOperatingStatus } from './ExpandableOperatingStatus'
+import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { SchemaScript } from './SchemaScript'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
