@@ -1,3 +1,5 @@
+'use client'
+
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 import {
   VaAlert,

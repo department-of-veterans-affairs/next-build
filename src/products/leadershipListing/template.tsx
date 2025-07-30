@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'

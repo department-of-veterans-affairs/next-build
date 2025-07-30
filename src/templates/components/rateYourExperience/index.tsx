@@ -1,3 +1,5 @@
+'use client'
+
 import { MouseEvent, ChangeEvent, useState } from 'react'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 import { recordEvent } from '@/lib/analytics/recordEvent'

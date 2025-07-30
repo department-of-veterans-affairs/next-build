@@ -1,3 +1,5 @@
+'use client'
+
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { BenefitsHubLinks as FormattedBenefitsHubLinks } from '@/types/formatted/benefitsHub'
 

@@ -32,7 +32,13 @@
       "@/products/*": ["./src/products/*"],
       "@/playwright/*": ["./playwright/*"],
       "react": ["./node_modules/@types/react"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": false
   },
   "include": [
     "next-env.d.ts",
@@ -44,7 +50,8 @@
     "test/*",
     "example_tests/*",
     ".storybook/*",
-    "playwright/**/*"
+    "playwright/**/*",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules", "src/__tests__", "public/generated"]
 }

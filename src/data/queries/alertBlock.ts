@@ -6,7 +6,7 @@ import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { ExpandableText } from '@/types/formatted/expandableText'
 
-export const formatter: QueryFormatter<BlockAlert, AlertBlock> = (
+export const formatter: QueryFormatter<BlockAlert, AlertBlock | null> = (
   entity: BlockAlert
 ) => {
   if (!entity) {

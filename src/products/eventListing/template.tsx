@@ -1,3 +1,5 @@
+'use client'
+
 /**
  * ### Overview
  * Event Listing represents the collection pages for Events within a facility.

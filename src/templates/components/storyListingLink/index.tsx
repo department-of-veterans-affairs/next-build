@@ -1,3 +1,5 @@
+'use client'
+
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { StoryListingLink as FormattedStoryListingLink } from '@/products/storyListing/formatted-type'
 

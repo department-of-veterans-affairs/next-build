@@ -1,3 +1,5 @@
+'use client'
+
 import { VaBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
 import { Banner as FormattedBanner } from '@/types/formatted/banners'
 
@@ -18,7 +20,7 @@ export const Banner = ({
       windowSession={dismiss ? 'dismiss-session' : null}
       data-testid="banner"
     >
-      <div dangerouslySetInnerHTML={{ __html: body }} />
+      <div dangerouslySetInnerHTML={{ __html: body ?? '' }} />
     </VaBanner>
   )
 }

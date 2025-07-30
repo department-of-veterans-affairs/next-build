@@ -1,3 +1,5 @@
+'use client'
+
 import { isEmpty } from 'lodash'
 import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
 import { recordEvent } from '@/lib/analytics/recordEvent'

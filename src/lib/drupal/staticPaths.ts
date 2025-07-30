@@ -49,7 +49,7 @@ async function modifyStaticPathResourcesByResourceType(
 
 export async function getStaticPathsByResourceType(
   resourceType: ResourceType
-): ReturnType<typeof drupalClient.getStaticPathsFromContext> {
+): Promise<{ slug: string[] }[]> {
   // Get resources from which static paths can be built
   const resources = await queries.getData('static-path-resources', {
     resourceType,
@@ -63,8 +63,6 @@ export async function getStaticPathsByResourceType(
 
   // Convert the resources to static paths
   return modifiedResources.map((resource) => ({
-    params: {
-      slug: pathToSlug(resource.path),
-    },
+    slug: pathToSlug(resource.path),
   }))
 }

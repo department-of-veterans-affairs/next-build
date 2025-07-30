@@ -82,7 +82,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
     "react-gtm-module": "^2.0.11",
-    "react-json-view": "^1.21.3",
     "redis": "^5.5.6",
     "safe-json-stringify": "^1.2.0",
     "superjson": "^2.2.2",

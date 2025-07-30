@@ -1,3 +1,5 @@
+'use client'
+
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { ContentFooter } from '@/templates/common/contentFooter'
@@ -59,8 +61,8 @@ export function VamcSystem({
           <div className="vads-grid-col-12">
             <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
               <LovellSwitcher
-                currentVariant={lovellVariant}
-                switchPath={lovellSwitchPath}
+                currentVariant={lovellVariant ?? 'va'}
+                switchPath={lovellSwitchPath ?? 'va'}
               />
               {title && <h1>{title}</h1>}
               {hasValidImage && (

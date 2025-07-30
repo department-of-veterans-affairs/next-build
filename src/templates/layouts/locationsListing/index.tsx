@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
