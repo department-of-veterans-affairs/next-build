@@ -1,11 +1,15 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { queries } from '.'
 import { NodeVbaFacility } from '@/types/drupal/node'
 import { VbaFacility } from '@/types/formatted/vbaFacility'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
+import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as FormatFeaturedContent } from '@/data/queries/featuredContent'
+import { formatter as FormatAccordionItem } from '@/data/queries/accordion'
+
 import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,
@@ -23,6 +27,10 @@ export const params: QueryParams<null> = () => {
     'field_media',
     'field_media.image',
     'field_prepare_for_visit',
+    ...getNestedIncludes(
+      'field_local_spotlight',
+      PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT
+    ),
   ])
 }
 
@@ -48,6 +56,46 @@ export const data: QueryData<VbaFacilityDataOpts, NodeVbaFacility> = async (
 export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
   entity: NodeVbaFacility
 ) => {
+  const featuredContent = [
+    FormatFeaturedContent({
+      type: 'paragraph--featured_content',
+      id: entity.field_cc_national_spotlight_1.target_id,
+      field_section_header:
+        entity.field_cc_national_spotlight_1.fetched.field_section_header[0]
+          .value,
+      field_description: {
+        ...entity.field_cc_national_spotlight_1.fetched.field_description[0],
+      },
+      drupal_internal__id: null,
+      drupal_internal__revision_id: null,
+      langcode: null,
+      status: true,
+      field_cta: {
+        type: 'paragraph--button',
+        field_button_label:
+          entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+            .field_button_label[0].value,
+        field_button_link: {
+          ...entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+            .field_button_link[0],
+        },
+        drupal_internal__id:
+          entity.field_cc_national_spotlight_1.fetched.field_cta[0].target_id,
+        drupal_internal__revision_id:
+          entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+            .target_revision_id,
+        langcode:
+          entity.field_cc_national_spotlight_1.fetched.field_cta[0].langcode,
+        status:
+          entity.field_cc_national_spotlight_1.fetched.field_cta[0].status,
+        id: null,
+      },
+    }),
+    ...entity.field_local_spotlight.map((feature) => {
+      return FormatFeaturedContent(feature)
+    }),
+  ]
+
   return {
     ...entityBaseFields(entity),
     address: entity.field_address,
@@ -71,10 +119,9 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
       ),
       id: entity.field_cc_vba_facility_overview.target_id || null,
     },
+    featuredContent: featuredContent,
     fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
-    image: entity.field_media
-      ? queries.formatData('media--image', entity.field_media)
-      : null,
+    image: entity.field_media ? formatImage(entity.field_media) : null,
     officeHours: entity.field_office_hours,
     operatingStatusFacility: entity.field_operating_status_facility,
     operatingStatusMoreInfo: entity.field_operating_status_more_info
@@ -84,10 +131,7 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
       : null,
     prepareForVisit: entity.field_prepare_for_visit.map(
       (prepareForVisitItem) => {
-        return queries.formatData(
-          PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM,
-          prepareForVisitItem
-        )
+        return FormatAccordionItem(prepareForVisitItem)
       }
     ),
     phoneNumber: entity.field_phone_number,
