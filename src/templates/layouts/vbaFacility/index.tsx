@@ -4,6 +4,7 @@ import { Wysiwyg } from '@/templates/components/wysiwyg'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { FeaturedContent } from '@/templates/common/featuredContent'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
@@ -13,6 +14,7 @@ export function VbaFacility({
   lastUpdated,
   ccBenefitsHotline,
   ccVBAFacilityOverview,
+  featuredContent,
   fieldFacilityLocatorApiId,
   image,
   officeHours,
@@ -109,10 +111,25 @@ export function VbaFacility({
             {prepareForVisit && prepareForVisit.length > 0 && (
               <PrepareForVisitAccordions visitItems={prepareForVisit} />
             )}
-
+            {/* In the spotlight */}
             <h2 id="in-the-spotlight" className="vads-u-margin-bottom--3">
               In the spotlight
             </h2>
+            <div
+              id="field-vet-center-feature-content"
+              className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4"
+            >
+              {featuredContent &&
+                featuredContent.map((content, index) => (
+                  <FeaturedContent
+                    key={index}
+                    title={content.title}
+                    description={content.description}
+                    link={content.link}
+                    id={content.id || ''}
+                  />
+                ))}
+            </div>
             <div>TODO: Add In the spotlight cards</div>
 
             <div>TODO: Add services/benefits</div>
