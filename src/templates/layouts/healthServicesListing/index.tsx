@@ -41,7 +41,7 @@ export function HealthServicesListing({
 
               {/* TODO: Featured Content Section - conditional on fieldFeaturedContentHealthser */}
               <section id="featured-services">
-                <h2>In the spotlight</h2>
+                <h2 id="in-the-spotlight">In the spotlight</h2>
                 <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4">
                   {/* TODO: Replace with actual LinkTeaser components from fieldFeaturedContentHealthser */}
                   <p> TODO: Add LinkTeaser components here </p>
@@ -60,7 +60,7 @@ export function HealthServicesListing({
                 { id: 'other-services', title: 'Other services' },
               ].map(({ id, title }) => (
                 <section key={id} id={id}>
-                  <h2>{title}</h2>
+                  <h2 id={`${id}-services`}>{title}</h2>
                   {/* TODO: Replace with actual ServiceGroupListing component from health_services_listing_services.liquid */}
                   {/* Example using existing HealthServices component: */}
                   <p> TODO: Add HealthServices component here </p>
