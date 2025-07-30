@@ -91,7 +91,7 @@ export function VbaFacility({
                       number={phoneNumber}
                     />
                     <PhoneNumber
-                      className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
                       {...ccBenefitsHotline}
                     />
                     <Hours headerType="office" allHours={officeHours} />
