@@ -32,10 +32,7 @@ const customJestConfig: Config = {
     'src/**/*.{js,jsx,ts,tsx}',
     '!**/__tests__/**.test.{js,jsx,ts,tsx}',
     '!example_tests/**/*.{js,jsx,ts,tsx}',
-    '!.storybook/*.{js,jsx,ts,tsx}',
     '!playwright/**/*.{js,jsx,ts,tsx}',
-    '!src/**/*.stories.{js,jsx,ts,tsx}',
-    '!src/stories/**',
     // Some files excluded from unit test coverage reporting in favor of e2e tests
     '!src/lib/utils/redisCache.ts',
     '!src/lib/drupal/drupalClient.ts',
