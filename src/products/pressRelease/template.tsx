@@ -1,3 +1,5 @@
+'use client'
+
 import { PressRelease as FormattedPressRelease } from '@/products/pressRelease/formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
