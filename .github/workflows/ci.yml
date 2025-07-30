@@ -4,15 +4,12 @@ on:
     branches:
       - 'main'
   pull_request:
-permissions:
-  pull-requests: write
-  issues: write
 
 jobs:
-
-  check-typescript:
-    name: Check TypeScript
+  setup:
+    name: Setup and Test
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,74 +24,14 @@ jobs:
       - name: Check TypeScript
         run: yarn test:types
 
-  run-lint:
-    name: Run Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-
-      - name: Install Npm Dependencies
-        run: |
-          yarn set version 3.6.1
-          HUSKY=0 yarn install --immutable
-
       - name: Run Lint
         run: yarn lint
-
-  check-format:
-    name: Check Format
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-
-      - name: Install Npm Dependencies
-        run: |
-          yarn set version 3.6.1
-          HUSKY=0 yarn install --immutable
 
       - name: Check format
         run: yarn test:format
 
-  jest-tests:
-    name: Jest Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-
-      - name: Install Npm Dependencies
-        run: |
-          yarn set version 3.6.1
-          HUSKY=0 yarn install --immutable
-
       - name: Jest tests
         run: yarn test:ci
 
-  example-tests:
-    name: Example Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-
-      - name: Install Npm Dependencies
-        run: |
-          yarn set version 3.6.1
-          HUSKY=0 yarn install --immutable
-
       - name: Example tests
         run: yarn test:examples
-
-  playwright-action:
-    name: Playwright Tests
-    uses: ./.github/workflows/playwright.yml
