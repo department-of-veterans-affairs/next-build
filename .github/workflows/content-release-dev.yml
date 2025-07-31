@@ -6,6 +6,9 @@ on:
   # This currently UTC -> EDT.
   schedule:
     - cron: "05 9 * * 1-5"
+  # Runs on API call. Used for CMS-driven build triggers.
+  repository_dispatch:
+    types: [content-release-dev]
 
 concurrency: next-build-content-release-dev
 
@@ -17,5 +20,3 @@ jobs:
     with:
       build_type: "dev"
     secrets: inherit
-
-
