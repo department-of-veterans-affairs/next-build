@@ -7,8 +7,8 @@ import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
-import { formatter as FormatFeaturedContent } from '@/data/queries/featuredContent'
-import { formatter as FormatAccordionItem } from '@/data/queries/accordion'
+import { formatter as formatFeaturedContent } from '@/data/queries/featuredContent'
+import { formatter as formatAccordionItem } from '@/data/queries/accordion'
 
 import {
   PARAGRAPH_RESOURCE_TYPES,
@@ -57,7 +57,7 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
   entity: NodeVbaFacility
 ) => {
   const featuredContent = [
-    FormatFeaturedContent({
+    formatFeaturedContent({
       type: 'paragraph--featured_content',
       id: entity.field_cc_national_spotlight_1.target_id,
       field_section_header:
@@ -92,7 +92,7 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
       },
     }),
     ...entity.field_local_spotlight.map((feature) => {
-      return FormatFeaturedContent(feature)
+      return formatFeaturedContent(feature)
     }),
   ]
 
@@ -131,7 +131,7 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
       : null,
     prepareForVisit: entity.field_prepare_for_visit.map(
       (prepareForVisitItem) => {
-        return FormatAccordionItem(prepareForVisitItem)
+        return formatAccordionItem(prepareForVisitItem)
       }
     ),
     phoneNumber: entity.field_phone_number,
