@@ -133,7 +133,7 @@ export function VbaFacility({
                   />
                 ))}
             </div>
-            <div>TODO: Add In the spotlight cards</div>
+            
 
             <div>TODO: Add services/benefits</div>
 
