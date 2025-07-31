@@ -13,6 +13,7 @@ export function VbaFacility({
   title,
   lastUpdated,
   ccBenefitsHotline,
+  ccCantFindBenefits,
   ccVBAFacilityOverview,
   featuredContent,
   fieldFacilityLocatorApiId,
@@ -136,7 +137,26 @@ export function VbaFacility({
             </div>
 
             <div>TODO: Add services/benefits</div>
-
+            {ccCantFindBenefits && (
+              <va-alert
+                status="info"
+                visible
+                data-testid="cant-find-benefits-alert"
+              >
+                <h2 id="cant-find-benefits-headline" slot="headline">
+                  {ccCantFindBenefits.header}
+                </h2>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: ccCantFindBenefits.description,
+                  }}
+                ></div>
+                <va-link
+                  href={ccCantFindBenefits.link.url}
+                  text={ccCantFindBenefits.link.label}
+                />
+              </va-alert>
+            )}
             <div>TODO: Add conditional get updates links</div>
             <h2
               id="other-nearby-va-locations"
