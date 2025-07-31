@@ -112,6 +112,7 @@ export function VbaFacility({
               <PrepareForVisitAccordions
                 visitItems={prepareForVisit}
                 topMargin
+                accordionId="vba-regional-facilities-accordion-prepare-for-visit"
               />
             )}
             {/* In the spotlight */}

@@ -4,11 +4,13 @@ import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accor
 type PrepareForVisitAccordions = {
   visitItems: FormattedAccordionItem[]
   topMargin?: boolean
+  accordionId?: string
 }
 
 export const PrepareForVisitAccordions = ({
   visitItems,
   topMargin = false,
+  accordionId = 'prepare-for-your-visit-accordion-',
 }) => {
   if (visitItems.length === 0) return null
   return (
@@ -21,7 +23,11 @@ export const PrepareForVisitAccordions = ({
       </h2>
       <p>Select a topic to learn more.</p>
       <div className="vads-u-margin-bottom--3">
-        <Accordion id={'prepare-for-your-visit'} bordered items={visitItems} />
+        <Accordion
+          id={accordionId}
+          bordered
+          items={visitItems.map((item) => ({ ...item, itemLevel: 3 }))}
+        />
       </div>
     </>
   )

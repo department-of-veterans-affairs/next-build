@@ -9,14 +9,16 @@ export function AccordionItem({
   id,
   header,
   html,
+  itemLevel,
 }: ParagraphComponent<FormattedAccordionItem>) {
   return (
     <va-accordion-item
       key={`${id}-${slugifyString(header)}`}
       header={header}
       class="va-accordion-item"
-      id={`${id}-${slugifyString(header)}`}
+      id={`${slugifyString(header)}`}
       data-testid={`accordion-item-${id}-${slugifyString(header)}`}
+      level={itemLevel ?? 2}
     >
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
     </va-accordion-item>
