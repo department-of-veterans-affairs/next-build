@@ -134,7 +134,6 @@ export function VbaFacility({
                   />
                 ))}
             </div>
-            
 
             <div>TODO: Add services/benefits</div>
 
