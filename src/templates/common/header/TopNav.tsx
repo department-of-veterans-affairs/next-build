@@ -33,15 +33,15 @@ export const TopNav = () => {
                 id="gov-banner"
                 aria-hidden="true"
               >
-                <div className="usa-banner-guidance-gov usa-width-one-half">
+                <div className="usa-banner-guidance-gov usa-width-one-half usa-media-block">
                   <Image
-                    className="usa-banner-icon usa-media_block-img"
+                    className="usa-banner-icon usa-media-block__img"
                     src="/img/icon-dot-gov.svg"
                     alt="Dot gov"
                     height="38"
                     width="38"
                   />
-                  <div className="usa-media_block-body">
+                  <div className="usa-media-block__body">
                     <p>
                       <strong>The .gov means it’s official.</strong>
                       <br />
@@ -51,15 +51,15 @@ export const TopNav = () => {
                     </p>
                   </div>
                 </div>
-                <div className="usa-banner-guidance-ssl usa-width-one-half">
+                <div className="usa-banner-guidance-ssl usa-width-one-half usa-media-block">
                   <Image
-                    className="usa-banner-icon usa-media_block-img"
+                    className="usa-banner-icon usa-media-block__img"
                     src="/img/icon-https.svg"
                     alt="SSL"
                     height={'38'}
                     width="38"
                   />
-                  <div className="usa-media_block-body">
+                  <div className="usa-media-block__body">
                     <p>
                       <strong>The site is secure.</strong>
                       <br /> The <strong>https://</strong> ensures that
