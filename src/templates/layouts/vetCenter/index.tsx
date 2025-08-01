@@ -6,12 +6,12 @@ import { AlertBlock } from '@/templates/components/alertBlock'
 import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
-import { Accordion } from '@/templates/components/accordion'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { SchemaScript } from './SchemaScript'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { ContentFooter } from '@/templates/common/contentFooter'
+import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
 
 export function VetCenter(vetCenterProps: FormattedVetCenter) {
   const {
@@ -43,28 +43,6 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
     address?.locality,
     address?.administrative_area,
   ]
-
-  const PrepareForVisitComponent = ({ visitItems }) => {
-    if (visitItems.length === 0) return null
-    return (
-      <>
-        <h2
-          id="prepare-for-your-visit"
-          className="vads-u-margin-top--0 vads-u-font-size--lg mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
-        >
-          Prepare for your visit
-        </h2>
-        <p>Select a topic to learn more.</p>
-        <div className="vads-u-margin-bottom--3">
-          <Accordion
-            id={'prepare-for-your-visit'}
-            bordered
-            items={prepareForVisit}
-          />
-        </div>
-      </>
-    )
-  }
 
   const alsoCalled =
     officialName && title !== officialName
@@ -195,7 +173,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
 
           {/* Prepare for Your Visit */}
           {prepareForVisit && prepareForVisit.length > 0 && (
-            <PrepareForVisitComponent visitItems={prepareForVisit} />
+            <PrepareForVisitAccordions visitItems={prepareForVisit} />
           )}
 
           {/* Featured Content */}
