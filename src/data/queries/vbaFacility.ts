@@ -129,11 +129,7 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
           convertNewlines: true,
         })
       : null,
-    prepareForVisit: entity.field_prepare_for_visit.map(
-      (prepareForVisitItem) => {
-        return formatAccordionItem(prepareForVisitItem)
-      }
-    ),
+    prepareForVisit: entity.field_prepare_for_visit.map(formatAccordionItem),
     phoneNumber: entity.field_phone_number,
   }
 }
