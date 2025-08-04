@@ -44,7 +44,8 @@
     "test/*",
     "example_tests/*",
     ".storybook/*",
-    "playwright/**/*"
+    "playwright/**/*",
+    "playwright.config.ts"
   ],
   "exclude": ["node_modules", "src/__tests__", "public/generated"]
 }
