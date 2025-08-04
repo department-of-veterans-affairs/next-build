@@ -50,6 +50,7 @@ import * as VamcSystemVaPolice from '@/products/vamcSystemVaPolice/query'
 import * as VetCenter from '@/data/queries/vetCenter'
 import * as VetCenterHealthServices from '@/data/queries/vetCenterHealthServices'
 import * as VetCenterOutstation from '@/data/queries/vetCenterOutstation'
+import * as VetCenterLocationListing from '@/data/queries/vetCenterLocationListing'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
 import * as LeadershipListing from '@/products/leadershipListing/query'
 import * as VbaFacility from '@/data/queries/vbaFacility'
@@ -85,6 +86,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
+  [RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING]: VetCenterLocationListing,
   [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
   [RESOURCE_TYPES.VBA_FACILITY]: VbaFacility,
 

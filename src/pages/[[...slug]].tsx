@@ -55,6 +55,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
+import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
 import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
@@ -78,6 +79,7 @@ import { VamcSystem } from '@/templates/layouts/vamcSystem'
 import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
 import { LeadershipListing } from '@/products/leadershipListing/template'
 import { VbaFacility } from '@/templates/layouts/vbaFacility'
+import { VetCenterLocationListing } from '@/templates/layouts/vetCenterLocationListing'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -208,6 +210,11 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.VBA_FACILITY && (
             <VbaFacility {...(resource as FormattedVbaFacility)} />
+          )}
+          {resource.type === RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING && (
+            <VetCenterLocationListing
+              {...(resource as FormattedVetCenterLocationListing)}
+            />
           )}
         </div>
       </main>
