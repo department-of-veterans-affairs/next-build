@@ -7,6 +7,15 @@ import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
 import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
 import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
 
+type CantFindBenefits = {
+  header: string | null
+  description: string | null
+  link: {
+    label: string | null
+    url: string | null
+  }
+}
+
 export type VbaFacility = PublishedEntity & {
   title: string
   ccBenefitsHotline: FormattedPhoneContact
@@ -20,4 +29,5 @@ export type VbaFacility = PublishedEntity & {
   prepareForVisit: FormattedAccordionItem[]
   phoneNumber: string
   address: FieldAddress
+  ccCantFindBenefits: CantFindBenefits | null
 }

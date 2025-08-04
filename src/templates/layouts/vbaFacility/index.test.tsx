@@ -63,4 +63,20 @@ describe('VbaFacility with valid data', () => {
       screen.getByText('Limited hours due to maintenance')
     ).toBeInTheDocument()
   })
+  test('renders the cant find benefits alert', () => {
+    render(<VbaFacility {...formattedMockData} />)
+
+    expect(screen.getByTestId('cant-find-benefits-alert')).toBeInTheDocument()
+  })
+  test('does not render the cant find benefits alert if not in data', () => {
+    const dataWithoutCantFindBenefits = {
+      ...formattedMockData,
+      ccCantFindBenefits: null,
+    }
+    render(<VbaFacility {...dataWithoutCantFindBenefits} />)
+
+    expect(
+      screen.queryByTestId('cant-find-benefits-alert')
+    ).not.toBeInTheDocument()
+  })
 })
