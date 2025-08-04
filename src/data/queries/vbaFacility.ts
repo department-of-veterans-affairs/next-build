@@ -112,6 +112,24 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
           ?.value || null,
       id: entity.field_cc_benefits_hotline.target_id || null,
     },
+    ccCantFindBenefits: entity.field_cc_cant_find_benefits
+      ? {
+          header:
+            entity.field_cc_cant_find_benefits?.fetched?.field_section_header[0]
+              ?.value || null,
+          description: getHtmlFromField(
+            entity.field_cc_cant_find_benefits?.fetched?.field_description[0]
+          ),
+          link: {
+            label:
+              entity.field_cc_cant_find_benefits?.fetched?.field_cta[0]
+                ?.field_button_label[0]?.value || null,
+            url:
+              entity.field_cc_cant_find_benefits?.fetched?.field_cta[0]
+                ?.field_button_link[0]?.uri || null,
+          },
+        }
+      : null,
     ccVBAFacilityOverview: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
       html: getHtmlFromField(
