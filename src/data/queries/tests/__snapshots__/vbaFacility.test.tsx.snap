@@ -2,6 +2,16 @@
 
 exports[`VbaFacility formatData outputs formatted data 1`] = `
 {
+  "address": {
+    "additional_name": null,
+    "address_line1": "7305 N. Military Trail, Bldg 10",
+    "administrative_area": "FL",
+    "country_code": "US",
+    "dependent_locality": null,
+    "langcode": "en",
+    "locality": "West Palm Beach",
+    "postal_code": "33410",
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -19,9 +29,43 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
       "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
     },
   ],
+  "ccBenefitsHotline": {
+    "extension": null,
+    "id": "9be07ebb-f363-4780-af80-412b38a3b680",
+    "label": "VA benefits hotline",
+    "number": "800-827-1000",
+    "type": "paragraph--phone_number",
+  },
+  "ccVBAFacilityOverview": {
+    "html": "<p>We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans.</p>
+",
+    "id": "eecd106d-261c-4496-b449-8ce405945f2f",
+    "type": "paragraph--wysiwyg",
+  },
   "entityId": 4030,
   "entityPath": "/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
+  "featuredContent": [
+    {
+      "description": "<p>VA-accredited representatives can help you file a claim or request a decision review. </p>
+<p>Protect your benefits and avoid unlawful fees. </p>
+<p>Get responsible, qualified help from a VA accredited representative.</p>
+",
+      "entityId": null,
+      "id": "5d084f72-5c30-46ec-8da9-8b436cf7c5c5",
+      "link": {
+        "entityId": "139794",
+        "id": null,
+        "label": "Learn about accredited representatives",
+        "type": "paragraph--button",
+        "url": "https://www.va.gov/get-help-from-accredited-representative/",
+      },
+      "title": "VA accredited representatives",
+      "type": "paragraph--featured_content",
+    },
+  ],
+  "fieldFacilityLocatorApiId": "vba_317a",
   "id": "a08da437-55a4-451c-8f90-af498f38a297",
+  "image": null,
   "lastUpdated": "2023-09-19T13:13:04+00:00",
   "metatags": [
     {
@@ -117,6 +161,61 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "archived",
+  "officeHours": [
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 1,
+      "endhours": 1630,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 2,
+      "endhours": 1630,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 3,
+      "endhours": 1630,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 4,
+      "endhours": 1630,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "",
+      "day": 5,
+      "endhours": 1630,
+      "starthours": 800,
+    },
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 6,
+      "endhours": null,
+      "starthours": null,
+    },
+    {
+      "all_day": false,
+      "comment": "Closed",
+      "day": 0,
+      "endhours": null,
+      "starthours": null,
+    },
+  ],
+  "operatingStatusFacility": "normal",
+  "operatingStatusMoreInfo": null,
+  "phoneNumber": "800-827-1000",
+  "prepareForVisit": [],
   "published": false,
   "title": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center",
   "type": "node--vba_facility",

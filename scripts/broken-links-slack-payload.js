@@ -20,10 +20,6 @@ program
     'The output location of the Slack payload file',
     DEFAULT_OUTPUT_FILE
   )
-  .option(
-    '-m, --markdown-url <markdown-url>',
-    'The URL for the markdown report artifact'
-  )
   .option('-c, --csv-url <csv-url>', 'The URL for the CSV report artifact')
   .option('-d, --debug', 'Output debug information')
   .parse(process.argv)
@@ -62,7 +58,6 @@ const createBrokenLinksSlackPayload = () => {
           ${icon} *Broken link check* (Workflow run: <${RUN_URL}>)\n
           *Pages scanned:* ${brokenLinks.metrics.pagesScanned}\n
           *Broken links:* *${brokenLinks.metrics.brokenLinkCount}* out of ${brokenLinks.metrics.linksChecked} checked\n\n
-          *Markdown report:* ${options.markdownUrl}\n
           *CSV report:* ${options.csvUrl}\n\n
           cc: ${GROUP_TO_NOTIFY}`,
       },

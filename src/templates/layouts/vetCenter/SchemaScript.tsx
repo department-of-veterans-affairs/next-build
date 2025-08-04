@@ -78,31 +78,31 @@ export function SchemaScript({ vetCenter }: SchemaScriptProps) {
           '@type': 'ContactPoint',
           telephone: service?.phoneNumber || null,
         },
+        serviceLocation: {
+          '@type': 'Place', // Changed from 'GovernmentOffice' in production
+          name: title,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress:
+              fieldAddress.address_line1 +
+              (address.address_line2
+                ? `${address.address_line1}${address.address_line2}`
+                : address.address_line1),
+            addressLocality: fieldAddress?.locality,
+            addressRegion: fieldAddress?.administrative_area,
+            postalCode: fieldAddress?.postal_code,
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: geolocation.lat.toString(),
+            longitude: geolocation.lon.toString(),
+          },
+        },
       },
       provider: {
         '@type': 'GovernmentOrganization',
         name: 'Veterans Affairs',
         url: 'https://www.va.gov',
-      },
-      serviceLocation: {
-        '@type': 'Place',
-        name: title,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress:
-            fieldAddress.address_line1 +
-            (address.address_line2
-              ? `${address.address_line1}${address.address_line2}`
-              : address.address_line1),
-          addressLocality: fieldAddress?.locality,
-          addressRegion: fieldAddress?.administrative_area,
-          postalCode: fieldAddress?.postal_code,
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: geolocation.lat.toString(),
-          longitude: geolocation.lon.toString(),
-        },
       },
     }))
   }

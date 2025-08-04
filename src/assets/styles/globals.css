@@ -57,3 +57,7 @@ va-button#mdFormButton::part(button) {
   width: 45px;
   padding: 0;
 }
+.spotlight-card {
+  min-width: 30%;
+  word-wrap: break-word;
+}

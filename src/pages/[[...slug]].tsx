@@ -56,6 +56,7 @@ import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
+import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
@@ -208,7 +209,7 @@ export default function ResourcePage({
             <LeadershipListing {...(resource as FormattedLeadershipListing)} />
           )}
           {resource.type === RESOURCE_TYPES.VBA_FACILITY && (
-            <VbaFacility {...(resource as FormattedPageResource)} />
+            <VbaFacility {...(resource as FormattedVbaFacility)} />
           )}
           {resource.type === RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING && (
             <VetCenterLocationListing
@@ -359,6 +360,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       }
     } catch (error) {
       if (error instanceof DoNotPublishError) {
+        log('getStaticProps: DoNotPublishError, returning notFound')
         return { notFound: true }
       } else {
         throw error
@@ -367,6 +369,19 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   } catch (err) {
     error('Error in getStaticProps:', err)
     error(`SSG env var: ${process.env.SSG} (${typeof process.env.SSG})`)
+
+    // If we get a 403, it's probably because we're trying to preview an unpublished page.
+    // Return a 404 instead of failing the build.
+    //
+    // NOTE: The cause is added to the AbortError message in proxy-fetcher
+    if (err.cause?.status === 403) {
+      log('getStaticProps: 403 received; returning notFound')
+      return {
+        notFound: true,
+      }
+    }
+
+    // If we're in SSG mode, exit the build process. Otherwise, return a 404.
     if (process.env.SSG === 'true') {
       const fs = await import('fs')
       const path = await import('path')
