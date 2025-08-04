@@ -8,8 +8,8 @@ export const formatter: QueryFormatter<ParagraphButton, Button> = (
 ) => {
   return {
     type: entity.type as Button['type'],
-    id: entity.id,
-    entityId: entity.drupal_internal__id,
+    id: entity.id || null,
+    entityId: entity.drupal_internal__id || null,
     url: entity.field_button_link?.uri || null,
     label: entity.field_button_label || null,
   }
