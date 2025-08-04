@@ -15,7 +15,7 @@ export function VetCenterLocationListing({
             {title && <h1>{title}</h1>}
 
             <h2
-              className="vads-u-font-size--xl vads-u-margin-top--0 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
+              className="vads-u-margin-top--0 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
               id="main-location"
             >
               Main location
@@ -33,7 +33,7 @@ export function VetCenterLocationListing({
             <div>TODO: Nearby vet centers component</div>
 
             <h2
-              className="vads-u-font-size--xl vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
+              className="vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
               id="vet-centers-other-areas"
             >
               Vet Centers in other areas
