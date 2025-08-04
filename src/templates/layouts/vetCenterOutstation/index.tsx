@@ -1,12 +1,11 @@
 import { VetCenterOutstation as FormattedVetCenterOutstation } from '@/types/formatted/vetCenterOutstation'
 import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
-import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
-import { TextWithImage } from '@/templates/components/textWithImage'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { TextWithImageAndMap } from '@/templates/components/textWithImageAndMap'
 
 export function VetCenterOutstation({
   address,
@@ -181,15 +180,10 @@ export function VetCenterOutstation({
           >
             Location and contact information
           </h2>
-          <TextWithImage
+          <TextWithImageAndMap
             className="region-list facility"
-            hackyImageAndStaticMapHack
-            image={
-              <ImageAndStaticMap
-                image={image}
-                facilityId={fieldFacilityLocatorApiId}
-              />
-            }
+            imageProps={image}
+            facilityId={fieldFacilityLocatorApiId}
           >
             <div>
               <div className="vads-c-facility-detail">
@@ -241,7 +235,7 @@ export function VetCenterOutstation({
                 </section>
               </div>
             </div>
-          </TextWithImage>
+          </TextWithImageAndMap>
 
           <h2 id="in-the-spotlight" className="vads-u-margin-y--2">
             In the spotlight

@@ -13,12 +13,11 @@ import { OperatingStatusFlags } from './OperatingStatus'
 import { Address } from './Address'
 import { Phone } from './Phone'
 import { Hours } from '@/templates/components/hours'
-import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
-import { TextWithImage } from '@/templates/components/textWithImage'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import FacilitySocialLinks from './FacilitySocialLinks'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { TextWithImageAndMap } from '@/templates/components/textWithImageAndMap'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -131,15 +130,10 @@ export function HealthCareLocalFacility({
               >
                 Location and contact information
               </h2>
-              <TextWithImage
+              <TextWithImageAndMap
                 className="region-list facility"
-                hackyImageAndStaticMapHack
-                image={
-                  <ImageAndStaticMap
-                    image={image}
-                    facilityId={facilityLocatorApiId}
-                  />
-                }
+                imageProps={image}
+                facilityId={facilityLocatorApiId}
               >
                 <div>
                   <OperatingStatusFlags
@@ -181,7 +175,7 @@ export function HealthCareLocalFacility({
                     </div>
                   </section>
                 </div>
-              </TextWithImage>
+              </TextWithImageAndMap>
               <LocationServices items={locationServices} />
               <RelatedLinks
                 sectionTitle={relatedLinks.sectionTitle}

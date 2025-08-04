@@ -1,7 +1,7 @@
 import React, { ReactNode, HTMLAttributes } from 'react'
 import clsx from 'clsx'
 
-type TextWithImageProps = HTMLAttributes<HTMLDivElement> & {
+export type TextWithImageProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * The image content to display on the right side (desktop) or top (mobile)
    * Can be any ReactNode - image, link, or other content
@@ -29,16 +29,6 @@ type TextWithImageProps = HTMLAttributes<HTMLDivElement> & {
     | 'vads-grid-gap-3'
     | 'vads-grid-gap-4'
     | 'vads-grid-gap-5'
-  /**
-   * The old CSS for the `ImageAndStaticMap` component used in production is pretty hacky.
-   * Because the `ImageAndStaticMap` elements have a "facility-img" class that applies a
-   * minimum width, our column needs to be able to grow to contain it. This was being
-   * achieved in a hacky way by setting the image column's display property to
-   * `inline-table`, whereas a more flexbox-friendly way would be to set the `flex-grow`
-   * to 1 and the `flex-basis` to `fit-content`. We don't have a VADS utility class for
-   * `flex-basis`. An even better way would be to not have a minimum width on the image.
-   */
-  hackyImageAndStaticMapHack?: boolean
 }
 
 export function TextWithImage({
@@ -48,7 +38,6 @@ export function TextWithImage({
   imageClassName = '',
   className,
   gridGap = 'vads-grid-gap-5',
-  hackyImageAndStaticMapHack = false,
   ...divProps
 }: TextWithImageProps) {
   return (
@@ -72,8 +61,7 @@ export function TextWithImage({
       <div
         className={clsx(
           'mobile-lg:vads-grid-col-6 tablet:vads-grid-col-4 vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2',
-          imageClassName,
-          hackyImageAndStaticMapHack && 'inline-table-helper'
+          imageClassName
         )}
       >
         {image}

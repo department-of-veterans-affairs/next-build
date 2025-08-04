@@ -1,7 +1,5 @@
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { Hours } from '@/templates/components/hours'
-import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
-import { TextWithImage } from '@/templates/components/textWithImage'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { AlertBlock } from '@/templates/components/alertBlock'
 import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
@@ -13,6 +11,7 @@ import { SchemaScript } from './SchemaScript'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
+import { TextWithImageAndMap } from '@/templates/components/textWithImageAndMap'
 
 export function VetCenter(vetCenterProps: FormattedVetCenter) {
   const {
@@ -101,15 +100,10 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           <h2 id="locations-and-contact-information">
             Location and contact information
           </h2>
-          <TextWithImage
+          <TextWithImageAndMap
             className="region-list facility"
-            hackyImageAndStaticMapHack
-            image={
-              <ImageAndStaticMap
-                image={image}
-                facilityId={fieldFacilityLocatorApiId}
-              />
-            }
+            imageProps={image}
+            facilityId={fieldFacilityLocatorApiId}
           >
             <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
               Address
@@ -136,7 +130,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
               allHours={officeHours}
               nonTraditionalMessage={ccNonTraditionalHours}
             />
-          </TextWithImage>
+          </TextWithImageAndMap>
 
           {/* Call Center Information */}
           {ccVetCenterCallCenter && (
