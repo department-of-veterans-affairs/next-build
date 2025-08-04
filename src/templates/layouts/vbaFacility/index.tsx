@@ -151,12 +151,13 @@ export function VbaFacility({
                     __html: ccCantFindBenefits.description,
                   }}
                 ></div>
-                {ccCantFindBenefits.link && (
-                  <va-link
-                    href={ccCantFindBenefits.link.url}
-                    text={ccCantFindBenefits.link.label}
-                  />
-                )}
+                {ccCantFindBenefits.link.url &&
+                  ccCantFindBenefits.link.label && (
+                    <va-link
+                      href={ccCantFindBenefits.link.url}
+                      text={ccCantFindBenefits.link.label}
+                    />
+                  )}
               </va-alert>
             )}
             <div>TODO: Add conditional get updates links</div>

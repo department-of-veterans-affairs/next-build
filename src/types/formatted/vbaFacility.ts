@@ -13,7 +13,7 @@ type CantFindBenefits = {
   link: {
     label: string | null
     url: string | null
-  } | null
+  }
 }
 
 export type VbaFacility = PublishedEntity & {

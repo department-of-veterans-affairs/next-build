@@ -71,7 +71,7 @@ describe('VbaFacility with valid data', () => {
   test('does not render the cant find benefits alert if not in data', () => {
     const dataWithoutCantFindBenefits = {
       ...formattedMockData,
-      ccCantFindBenefits: undefined,
+      ccCantFindBenefits: null,
     }
     render(<VbaFacility {...dataWithoutCantFindBenefits} />)
 
