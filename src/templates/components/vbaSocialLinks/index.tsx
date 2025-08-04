@@ -1,0 +1,110 @@
+<section className="feature vads-u-background-color--gray-lightest vads-u-margin-top--4 mobile-lg:vads-u-margin-top--6 vads-u-padding-x--3 vads-u-padding-y--2p5">
+  <h2 className="vads-u-margin-bottom--2">{header}</h2>
+  <div className="usa-grid usa-grid-full">
+    {% if fieldGovdeliveryIdEmerg != empty or fieldNews != empty %}
+      <div class="usa-width-one-half">
+        {% if fieldNews != empty %}
+          <div class="vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2">
+            <va-icon
+              icon="mail"
+              size="3"
+              class="vads-u-color--link-default vads-u-margin-right--1"></va-icon>
+            <va-link 
+              href="{{ fieldNews.uri }}" 
+              text="{{ fieldNews.title }}"
+            >
+            </va-link>
+          </div>
+        {% endif %}
+
+        {% if fieldGovdeliveryIdEmerg != empty %}
+          <div class="vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2">
+            <va-icon
+              icon="mail"
+              size="3"
+              class="vads-u-color--link-default vads-u-margin-right--1"></va-icon>
+            <va-link 
+              href="https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id={{ fieldGovdeliveryIdEmerg }}" 
+              text="Subscribe to {{ regionNickname }} emergency notifications"
+            >
+            </va-link>
+          </div>
+        {% endif %}
+        {% if fieldFacebook != empty %}
+          <div class="vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2">
+            <va-icon
+              icon="facebook"
+              size="3"
+              class="vads-u-color--link-default vads-u-margin-right--1"></va-icon>
+            <va-link 
+              href="{{ fieldFacebook.uri }}" 
+              text="{{ fieldFacebook.title }}"
+            >
+            </va-link>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if fieldFacebook != empty | | fieldTwitter != empty | | fieldFlickr != empty | | fieldInstagram != empty %}
+      <div class="usa-width-one-half">
+        <div class="">
+          {% if fieldTwitter != empty %}
+            <div class="vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2">
+              <va-icon
+                icon="x"
+                size="3"
+                class="vads-u-color--link-default vads-u-margin-right--1"></va-icon>
+              <va-link 
+                href="{{ fieldTwitter.uri }}" 
+                text="{{ fieldTwitter.title }}"
+              >
+              </va-link>
+            </div>
+          {% endif %}
+          {% if fieldFlickr != empty %}
+            <div class="vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2">
+              <va-icon
+                icon="flickr"
+                size="3"
+                class="vads-u-color--link-default vads-u-margin-right--1"></va-icon>
+              <va-link 
+                href="{{ fieldFlickr.uri }}" 
+                text="{{ fieldFlickr.title }}"
+              >
+              </va-link>
+            </div>
+          {% endif %}
+
+          {% if fieldInstagram != empty %}
+            <div class="vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2">
+              <va-icon
+                icon="instagram"
+                size="3"
+                class="vads-u-color--link-default vads-u-margin-right--1"></va-icon>
+              <va-link 
+                href="{{ fieldInstagram.uri }}" 
+                text="{{ fieldInstagram.title }}"
+              >
+              </va-link>
+            </div>
+          {% endif %}
+
+          {% if fieldYoutube != empty %}
+            <div class="vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2">
+              <va-icon
+                icon="youtube"
+                size="3"
+                class="vads-u-color--link-default vads-u-margin-right--1"></va-icon>
+              <va-link 
+                href="{{ fieldYoutube.uri }}" 
+                text="{{ fieldYoutube.title }}"
+              >
+              </va-link>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>

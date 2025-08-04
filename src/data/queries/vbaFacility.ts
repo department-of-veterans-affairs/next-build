@@ -52,7 +52,17 @@ export const data: QueryData<VbaFacilityDataOpts, NodeVbaFacility> = async (
 
   return entity
 }
-
+const getLinkType = (uri: string) => {
+  if (uri.includes('facebook.com')) {
+    return 'facebook'
+  } else if (uri.includes('twitter.com') || uri.includes('x.com')) {
+    return 'x'
+  } else if (uri.includes('instagram.com')) {
+    return 'instagram'
+  } else if (uri.includes('govdelivery.com')) {
+    return 'subscribe'
+  }
+}
 export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
   entity: NodeVbaFacility
 ) => {
@@ -130,6 +140,14 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
           },
         }
       : null,
+    ccGetUpdates: entity.field_cc_get_updates_from_vba ? {
+      heading: entity.field_cc_get_updates_from_vba.fetched.field_section_header[0].value || null,
+      links: entity.field_cc_get_updates_from_vba.fetched.field_links.map(link => ({
+        label: link.field_link_label[0].title,
+        url: link.field_link_url[0].uri,
+        type: getLinkType(link.field_link_url[0].uri),
+      })),
+    } : null,
     ccVBAFacilityOverview: {
       type: PARAGRAPH_RESOURCE_TYPES.WYSIWYG as Wysiwyg['type'],
       html: getHtmlFromField(

@@ -31,6 +31,7 @@ export function VbaFacility({
   lastUpdated,
   ccBenefitsHotline,
   ccCantFindBenefits,
+  ccGetUpdates,
   ccVBAFacilityOverview,
   featuredContent,
   facilityLocatorApiId,
@@ -188,6 +189,11 @@ export function VbaFacility({
               </va-alert>
             )}
             <div>TODO: Add conditional get updates links</div>
+
+            <div>TODO: Add conditional get updates links</div>ccGetUpdates
+            { ccGetUpdates && (
+              
+            )}
             <h2
               id="other-nearby-va-locations"
               className="vads-u-margin-bottom--3"
