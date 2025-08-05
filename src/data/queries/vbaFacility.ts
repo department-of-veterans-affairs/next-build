@@ -137,6 +137,7 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
       ),
       id: entity.field_cc_vba_facility_overview.target_id || null,
     },
+    facilityLocatorApiId: entity.field_facility_locator_api_id,
     featuredContent: featuredContent,
     fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
     image: entity.field_media ? formatImage(entity.field_media) : null,

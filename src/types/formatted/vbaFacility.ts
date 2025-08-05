@@ -20,6 +20,7 @@ export type VbaFacility = PublishedEntity & {
   title: string
   ccBenefitsHotline: FormattedPhoneContact
   ccVBAFacilityOverview: FormattedWysiwyg
+  facilityLocatorApiId: string
   featuredContent: FormattedFeaturedContent[]
   fieldFacilityLocatorApiId: string
   image: FormattedMediaImage

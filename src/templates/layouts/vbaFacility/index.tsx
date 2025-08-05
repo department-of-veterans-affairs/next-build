@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VbaFacility as FormattedVBAFacility } from '@/types/formatted/vbaFacility'
 import { Wysiwyg } from '@/templates/components/wysiwyg'
@@ -8,6 +9,21 @@ import { FeaturedContent } from '@/templates/common/featuredContent'
 import { Hours } from '@/templates/components/hours'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
+
+type facilityApiAddress = {
+  addressLine1: string
+  addressLine2?: string | null
+  administrativeArea: string
+  countryCode: string
+  locality: string
+  postalCode: string
+}
+interface customWindow extends Window {
+  mainVBAPhone?: string
+  mainVBAAddress?: facilityApiAddress
+  mainVBAFacilityApiId?: string
+}
+declare const window: customWindow
 
 export function VbaFacility({
   title,
@@ -25,6 +41,18 @@ export function VbaFacility({
   phoneNumber,
   address,
 }: FormattedVBAFacility) {
+  useEffect(() => {
+    window.mainVBAPhone = phoneNumber
+    window.mainVBAAddress = {
+      addressLine1: address.address_line1,
+      addressLine2: address.address_line2 || null,
+      administrativeArea: address.administrative_area,
+      countryCode: address.country_code,
+      locality: address.locality,
+      postalCode: address.postal_code,
+    }
+    window.mainVBAFacilityApiId = fieldFacilityLocatorApiId
+  }, [phoneNumber, address, fieldFacilityLocatorApiId])
   return (
     <div className="interior">
       <main className="va-l-detail-page va-facility-page">
@@ -167,7 +195,7 @@ export function VbaFacility({
             >
               Other nearby VA locations
             </h2>
-            <div>TODO: Add Other nearby VA locations</div>
+            <div data-widget-type="va-location-nearby"></div>
 
             <h2
               id="va-locations-in-other-areas"
