@@ -1,7 +1,7 @@
 import React from 'react'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
 import { ContentFooter } from '@/templates/common/contentFooter'
-import { VetCenterInfo } from './VetCenterInfo'
+import { VetCenterLocationInfo } from './VetCenterLocationInfo'
 
 export function VetCenterLocationListing({
   title,
@@ -23,7 +23,10 @@ export function VetCenterLocationListing({
             </h2>
 
             {fieldOffice && (
-              <VetCenterInfo vetCenter={fieldOffice} isMainOffice={true} />
+              <VetCenterLocationInfo
+                vetCenter={fieldOffice}
+                isMainOffice={true}
+              />
             )}
 
             {/* TODO: Check if satellite locations exist */}

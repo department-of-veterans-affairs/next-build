@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { VetCenterInfo } from './VetCenterInfo'
+import { VetCenterLocationInfo } from './VetCenterLocationInfo'
 
 const mockVetCenter = {
   id: 'test-id',
@@ -53,22 +53,28 @@ const mockVetCenter = {
   operatingStatusMoreInfo: null,
 }
 
-describe('VetCenterInfo', () => {
+describe('VetCenterLocationInfo', () => {
   it('renders the vet center title', () => {
-    render(<VetCenterInfo vetCenter={mockVetCenter} isMainOffice={true} />)
+    render(
+      <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={true} />
+    )
 
     expect(screen.getByText('Test Vet Center')).toBeInTheDocument()
   })
 
   it.skip('renders the address when provided', () => {
-    render(<VetCenterInfo vetCenter={mockVetCenter} isMainOffice={true} />)
+    render(
+      <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={true} />
+    )
 
     expect(screen.getByText('123 Test St')).toBeInTheDocument()
     expect(screen.getByText('Test City, TS 12345')).toBeInTheDocument()
   })
 
   it('renders the phone number when provided', () => {
-    render(<VetCenterInfo vetCenter={mockVetCenter} isMainOffice={true} />)
+    render(
+      <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={true} />
+    )
 
     // The phone number is rendered in a va-telephone element, so we check for the contact attribute
     const phoneElement = screen.getByTestId('phone')
@@ -76,13 +82,17 @@ describe('VetCenterInfo', () => {
   })
 
   it('renders hours when isMainOffice is true and officeHours are provided', () => {
-    render(<VetCenterInfo vetCenter={mockVetCenter} isMainOffice={true} />)
+    render(
+      <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={true} />
+    )
 
     expect(screen.getByText('Hours')).toBeInTheDocument()
   })
 
   it('does not render hours when isMainOffice is false', () => {
-    render(<VetCenterInfo vetCenter={mockVetCenter} isMainOffice={false} />)
+    render(
+      <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={false} />
+    )
 
     expect(screen.queryByText('Hours')).not.toBeInTheDocument()
   })

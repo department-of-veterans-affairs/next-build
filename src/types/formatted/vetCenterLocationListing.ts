@@ -25,7 +25,7 @@ export type CommonVetCenterFields = {
  * Main Vet Center info type for location listings.
  * This is a simplified version of VetCenter for listing purposes.
  */
-export type VetCenterInfo = CommonVetCenterFields & {
+export type VetCenterLocationInfo = CommonVetCenterFields & {
   type: 'node--vet_center'
   officialName: string
   phoneNumber: string
@@ -38,7 +38,7 @@ export type VetCenterInfo = CommonVetCenterFields & {
  * Vet Center CAP info type for location listings.
  * This is a simplified version of VetCenterCap for listing purposes.
  */
-export type VetCenterCapInfo = CommonVetCenterFields & {
+export type VetCenterCapLocationInfo = CommonVetCenterFields & {
   type: 'node--vet_center_cap'
   geographicalIdentifier: string
   vetcenterCapHoursOptIn: boolean
@@ -50,7 +50,7 @@ export type VetCenterCapInfo = CommonVetCenterFields & {
  * Vet Center Mobile Vet Center info type for location listings.
  * This is a simplified version of VetCenterMobileVetCenter for listing purposes.
  */
-export type VetCenterMobileVetCenterInfo = CommonVetCenterFields & {
+export type MobileVetCenterLocationInfo = CommonVetCenterFields & {
   type: 'node--vet_center_mobile_vet_center'
   phoneNumber: string
 }
@@ -59,12 +59,12 @@ export type VetCenterMobileVetCenterInfo = CommonVetCenterFields & {
  * Union type for all Vet Center info types used in location listings.
  */
 export type VetCenterInfoVariant =
-  | VetCenterInfo
-  | VetCenterCapInfo
-  | VetCenterMobileVetCenterInfo
+  | VetCenterLocationInfo
+  | VetCenterCapLocationInfo
+  | MobileVetCenterLocationInfo
 
 export type VetCenterLocationListing = PublishedEntity & {
   title: string
-  fieldOffice: VetCenterInfo
-  fieldNearbyMobileVetCenters: VetCenterMobileVetCenterInfo[]
+  fieldOffice: VetCenterLocationInfo
+  fieldNearbyMobileVetCenters: MobileVetCenterLocationInfo[]
 }

@@ -9,8 +9,8 @@ import {
 import {
   VetCenterLocationListing,
   VetCenterInfoVariant,
-  VetCenterMobileVetCenterInfo,
-  VetCenterInfo,
+  MobileVetCenterLocationInfo,
+  VetCenterLocationInfo,
 } from '@/types/formatted/vetCenterLocationListing'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
@@ -130,9 +130,9 @@ export const formatter: QueryFormatter<
 
     fieldOffice: formatVetCenterVariant(
       entity.field_office as NodeVetCenter
-    ) as VetCenterInfo,
+    ) as VetCenterLocationInfo,
     fieldNearbyMobileVetCenters: entity.field_nearby_mobile_vet_centers.map(
       formatVetCenterVariant
-    ) as VetCenterMobileVetCenterInfo[],
+    ) as MobileVetCenterLocationInfo[],
   }
 }

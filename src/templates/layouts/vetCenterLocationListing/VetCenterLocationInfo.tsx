@@ -1,8 +1,8 @@
 import {
   VetCenterInfoVariant,
-  VetCenterInfo as VetCenterInfoType,
-  VetCenterCapInfo,
-  VetCenterMobileVetCenterInfo,
+  VetCenterLocationInfo as VetCenterLocationInfoType,
+  VetCenterCapLocationInfo,
+  MobileVetCenterLocationInfo,
 } from '@/types/formatted/vetCenterLocationListing'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
@@ -11,7 +11,7 @@ import { MediaImage } from '@/templates/common/mediaImage'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 
-interface VetCenterInfoProps {
+interface VetCenterLocationInfoProps {
   isMainOffice?: boolean
   mainVetCenterPhone?: string
   vetCenter: VetCenterInfoVariant
@@ -21,28 +21,28 @@ interface VetCenterInfoProps {
 // Type guards to check Vet Center variant types
 const isMainVetCenter = (
   vetCenter: VetCenterInfoVariant
-): vetCenter is VetCenterInfoType => {
+): vetCenter is VetCenterLocationInfoType => {
   return vetCenter.type === 'node--vet_center'
 }
 
 const isVetCenterCap = (
   vetCenter: VetCenterInfoVariant
-): vetCenter is VetCenterCapInfo => {
+): vetCenter is VetCenterCapLocationInfo => {
   return vetCenter.type === 'node--vet_center_cap'
 }
 
 const isVetCenterMobile = (
   vetCenter: VetCenterInfoVariant
-): vetCenter is VetCenterMobileVetCenterInfo => {
+): vetCenter is MobileVetCenterLocationInfo => {
   return vetCenter.type === 'node--vet_center_mobile_vet_center'
 }
 
-export const VetCenterInfo = ({
+export const VetCenterLocationInfo = ({
   vetCenter,
   isMainOffice = false,
   vetCenterUrl,
   mainVetCenterPhone,
-}: VetCenterInfoProps) => {
+}: VetCenterLocationInfoProps) => {
   const { title, address, image, fieldFacilityLocatorApiId } = vetCenter
 
   // Extract variant-specific fields
