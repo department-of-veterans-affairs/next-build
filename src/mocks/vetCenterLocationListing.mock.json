@@ -135,6 +135,18 @@
         "address_line2": "Suite 130"
       },
       "field_facility_locator_api_id": "vc_0836MVC",
+      "field_geolocation": {
+        "value": "POINT(-104.609 38.254)",
+        "geo_type": "Point",
+        "lat": 38.254,
+        "lon": -104.609,
+        "left": -104.609,
+        "top": 38.254,
+        "right": -104.609,
+        "bottom": 38.254,
+        "geohash": "9xj8kq8xq",
+        "latlon": "38.254,-104.609"
+      },
       "field_last_saved_by_an_editor": "2023-11-01T14:46:43+00:00",
       "field_office_hours": [
         {
@@ -228,10 +240,115 @@
       },
       "field_media": {
         "type": "media--image",
-        "id": "7e7f9dd6-708e-4345-97fe-7fb8cf2fbb72",
+        "id": "6982c62d-26f7-41bf-a4ed-3ec4e6e9f198",
+        "drupal_internal__mid": "4125",
+        "drupal_internal__vid": "4373",
+        "status": true,
+        "langcode": "en",
+        "name": "spfld vet center photo.jpg",
+        "created": "2021-06-03T20:06:55+00:00",
+        "changed": "2021-06-03T20:06:55+00:00",
+        "path": {
+          "alias": null,
+          "pid": null,
+          "langcode": "en"
+        },
+        "field_description": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/6982c62d-26f7-41bf-a4ed-3ec4e6e9f198?resourceVersion=id%3A4373"
+          }
+        },
         "resourceIdObjMeta": {
-          "drupal_internal__target_id": 27914
-        }
+          "drupal_internal__target_id": 4125
+        },
+        "bundle": {
+          "type": "media_type--media_type",
+          "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "image"
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2014
+          }
+        },
+        "thumbnail": {
+          "type": "file--file",
+          "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+          "drupal_internal__fid": 4537,
+          "langcode": "en",
+          "filename": "spfld vet center photo.jpg",
+          "uri": {
+            "value": "public://2021-06/spfld vet center photo_4.jpg",
+            "url": "/sites/default/files/2021-06/spfld%20vet%20center%20photo_4.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 1848144,
+          "status": true,
+          "created": "2021-06-03T20:06:55+00:00",
+          "changed": "2021-06-03T20:09:06+00:00",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Springfield MA Vet Center",
+            "title": null,
+            "width": 4032,
+            "height": 3024,
+            "drupal_internal__target_id": 4537
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2014
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "image": {
+          "type": "file--file",
+          "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+          "drupal_internal__fid": "4537",
+          "langcode": "en",
+          "filename": "spfld vet center photo.jpg",
+          "uri": {
+            "value": "public://2021-06/spfld vet center photo_4.jpg",
+            "url": "/sites/default/files/2021-06/spfld%20vet%20center%20photo_4.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 1848144,
+          "status": true,
+          "created": "2021-06-03T20:06:55+00:00",
+          "changed": "2021-06-03T20:09:06+00:00",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Springfield MA Vet Center",
+            "title": "",
+            "width": 4032,
+            "height": 3024,
+            "drupal_internal__target_id": 4537
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2014
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
       },
       "field_office": {
         "type": "node--vet_center",
@@ -455,10 +572,115 @@
     "field_health_services": null,
     "field_media": {
       "type": "media--image",
-      "id": "df83abd7-b1db-4a1f-8a2a-e229627b7543",
+      "id": "6982c62d-26f7-41bf-a4ed-3ec4e6e9f198",
+      "drupal_internal__mid": "4125",
+      "drupal_internal__vid": "4373",
+      "status": true,
+      "langcode": "en",
+      "name": "spfld vet center photo.jpg",
+      "created": "2021-06-03T20:06:55+00:00",
+      "changed": "2021-06-03T20:06:55+00:00",
+      "path": {
+        "alias": null,
+        "pid": null,
+        "langcode": "en"
+      },
+      "field_description": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/6982c62d-26f7-41bf-a4ed-3ec4e6e9f198?resourceVersion=id%3A4373"
+        }
+      },
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 4231
-      }
+        "drupal_internal__target_id": 4125
+      },
+      "bundle": {
+        "type": "media_type--media_type",
+        "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "image"
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2014
+        }
+      },
+      "thumbnail": {
+        "type": "file--file",
+        "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+        "drupal_internal__fid": 4537,
+        "langcode": "en",
+        "filename": "spfld vet center photo.jpg",
+        "uri": {
+          "value": "public://2021-06/spfld vet center photo_4.jpg",
+          "url": "/sites/default/files/2021-06/spfld%20vet%20center%20photo_4.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 1848144,
+        "status": true,
+        "created": "2021-06-03T20:06:55+00:00",
+        "changed": "2021-06-03T20:09:06+00:00",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7"
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Springfield MA Vet Center",
+          "title": null,
+          "width": 4032,
+          "height": 3024,
+          "drupal_internal__target_id": 4537
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2014
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "image": {
+        "type": "file--file",
+        "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+        "drupal_internal__fid": "4537",
+        "langcode": "en",
+        "filename": "spfld vet center photo.jpg",
+        "uri": {
+          "value": "public://2021-06/spfld vet center photo_4.jpg",
+          "url": "/sites/default/files/2021-06/spfld%20vet%20center%20photo_4.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 1848144,
+        "status": true,
+        "created": "2021-06-03T20:06:55+00:00",
+        "changed": "2021-06-03T20:09:06+00:00",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7"
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Springfield MA Vet Center",
+          "title": "",
+          "width": 4032,
+          "height": 3024,
+          "drupal_internal__target_id": 4537
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2014
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
     },
     "field_prepare_for_visit": null,
     "field_vet_center_feature_content": null,
