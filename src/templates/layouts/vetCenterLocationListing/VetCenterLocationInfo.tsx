@@ -15,7 +15,6 @@ interface VetCenterLocationInfoProps {
   isMainOffice?: boolean
   mainVetCenterPhone?: string
   vetCenter: VetCenterInfoVariant
-  vetCenterUrl?: string
 }
 
 // Type guards to check Vet Center variant types
@@ -40,7 +39,6 @@ const isVetCenterMobile = (
 export const VetCenterLocationInfo = ({
   vetCenter,
   isMainOffice = false,
-  vetCenterUrl,
   mainVetCenterPhone,
 }: VetCenterLocationInfoProps) => {
   const { title, address, image, fieldFacilityLocatorApiId } = vetCenter
@@ -85,8 +83,8 @@ export const VetCenterLocationInfo = ({
               className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md vads-u-font-size--lg"
               aria-describedby={alsoCalled ? alsoCalledId : undefined}
             >
-              {vetCenterUrl ? (
-                <va-link href={vetCenterUrl} text={title}></va-link>
+              {isMainOffice ? (
+                <va-link href={vetCenter.path} text={title}></va-link>
               ) : (
                 <span>{title}</span>
               )}

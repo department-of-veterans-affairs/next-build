@@ -55,11 +55,12 @@ const mockVetCenter = {
 
 describe('VetCenterLocationInfo', () => {
   it('renders the vet center title', () => {
-    render(
+    const { container } = render(
       <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={true} />
     )
 
-    expect(screen.getByText('Test Vet Center')).toBeInTheDocument()
+    const link = container.querySelector('va-link[text="Test Vet Center"]')
+    expect(link).toBeInTheDocument()
   })
 
   it.skip('renders the address when provided', () => {
