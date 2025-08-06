@@ -219,6 +219,7 @@ jobs:
       id: export-warnings
       run: |
         cd main
+        node scripts/consolidate-warning-logs.js
         echo EXPORT_WARNINGS=$([ -f logs/warnings.md ] && cat logs/warnings.md || echo '') >> $GITHUB_OUTPUT
 
     - name: Build sitemap
