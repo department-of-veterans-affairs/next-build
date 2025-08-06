@@ -8,52 +8,52 @@ export const TopNav = () => {
           <div className="usa-banner">
             <div className="usa-accordion">
               <div className="usa-banner-header">
-              <div className="vads-grid-container usa-banner-inner">
-                <div className="vads-grid-row">
-                  <Image
-                    src="/img/tiny-usa-flag.png"
-                    alt="U.S. flag"
-                    height="20"
-                    width="20"
-                  />
-                  <p>An official website of the United States government</p>
-                  <button
-                    id="usa-banner-toggle"
-                    className="usa-accordion-button usa-banner-button"
-                    aria-expanded="false"
-                    aria-controls="gov-banner"
-                  >
-                    <span className="usa-banner-button-text">
-                      Here’s how you know
-                    </span>
-                  </button>
+                <div className="vads-grid-container usa-banner-inner">
+                  <div className="vads-grid-row">
+                    <Image
+                      src="/img/tiny-usa-flag.png"
+                      alt="U.S. flag"
+                      height="20"
+                      width="20"
+                    />
+                    <p>An official website of the United States government</p>
+                    <button
+                      id="usa-banner-toggle"
+                      className="usa-accordion-button usa-banner-button"
+                      aria-expanded="false"
+                      aria-controls="gov-banner"
+                    >
+                      <span className="usa-banner-button-text">
+                        Here’s how you know
+                      </span>
+                    </button>
                   </div>
                 </div>
-                </div>
+              </div>
               <div
                 className="usa-banner-content vads-grid-container usa-accordion-content"
                 id="gov-banner"
                 aria-hidden="true"
               >
                 <div className="vads-grid-row">
-                <div className="usa-banner-guidance-gov desktop-lg:vads-grid-col-6 usa-media-block">
-                  <Image
-                    className="usa-banner-icon usa-media-block__img"
-                    src="/img/icon-dot-gov.svg"
-                    alt="Dot gov"
-                    height="38"
-                    width="38"
-                  />
-                  <div className="usa-media-block__body">
-                    <p>
-                      <strong>The .gov means it’s official.</strong>
-                      <br />
-                      Federal government websites often end in .gov or .mil.
-                      Before sharing sensitive information, make sure
-                      you&apos;re on a federal government site.
-                    </p>
+                  <div className="usa-banner-guidance-gov desktop-lg:vads-grid-col-6 usa-media-block">
+                    <Image
+                      className="usa-banner-icon usa-media-block__img"
+                      src="/img/icon-dot-gov.svg"
+                      alt="Dot gov"
+                      height="38"
+                      width="38"
+                    />
+                    <div className="usa-media-block__body">
+                      <p>
+                        <strong>The .gov means it’s official.</strong>
+                        <br />
+                        Federal government websites often end in .gov or .mil.
+                        Before sharing sensitive information, make sure
+                        you&apos;re on a federal government site.
+                      </p>
+                    </div>
                   </div>
-                </div>
                 </div>
                 <div className="usa-banner-guidance-ssl desktop-lg:vads-grid-col-6 usa-media-block">
                   <Image
