@@ -80,6 +80,7 @@ import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
 import { LeadershipListing } from '@/products/leadershipListing/template'
 import { VbaFacility } from '@/templates/layouts/vbaFacility'
 import { VetCenterLocationListing } from '@/templates/layouts/vetCenterLocationListing'
+import { writeWarningToFile } from '@/lib/utils/writeWarningToFile'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -376,6 +377,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     // NOTE: The cause is added to the AbortError message in proxy-fetcher
     if (err.cause?.status === 403) {
       log('getStaticProps: 403 received; returning notFound')
+      writeWarningToFile(`403 received from Drupal for ${context.params?.slug}`)
       return {
         notFound: true,
       }
