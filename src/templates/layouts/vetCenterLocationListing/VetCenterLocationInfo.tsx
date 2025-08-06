@@ -9,7 +9,6 @@ import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { Hours } from '@/templates/components/hours'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
-import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 
 interface VetCenterLocationInfoProps {
   isMainOffice?: boolean
@@ -140,12 +139,15 @@ export const VetCenterLocationInfo = ({
       </section>
 
       <section className="region-grid usa-width-one-half vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2">
-        {image && isMainOffice && (
-          <ImageAndStaticMap
-            image={image}
-            facilityId={fieldFacilityLocatorApiId}
-          />
-        )}
+        {image && <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />}
+        <div
+          data-widget-type={
+            isMainOffice
+              ? 'facility-map-satellite-main-office'
+              : 'facility-map-satellite-locations'
+          }
+          data-facility={fieldFacilityLocatorApiId}
+        />
       </section>
     </div>
   )
