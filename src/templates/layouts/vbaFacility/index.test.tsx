@@ -94,7 +94,7 @@ describe('VbaFacility with valid data', () => {
     })
     // @ts-expect-error - window.mainVBAFacilityApiId is not a default window property, but we're adding it
     expect(window.mainVBAFacilityApiId).toBe(
-      formattedMockData.fieldFacilityLocatorApiId
+      formattedMockData.facilityLocatorApiId
     )
   })
 })

@@ -139,7 +139,6 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
     },
     facilityLocatorApiId: entity.field_facility_locator_api_id,
     featuredContent: featuredContent,
-    fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
     image: entity.field_media ? formatImage(entity.field_media) : null,
     officeHours: entity.field_office_hours,
     operatingStatusFacility: entity.field_operating_status_facility,

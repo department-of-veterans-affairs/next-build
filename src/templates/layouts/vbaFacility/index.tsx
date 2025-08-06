@@ -32,7 +32,7 @@ export function VbaFacility({
   ccCantFindBenefits,
   ccVBAFacilityOverview,
   featuredContent,
-  fieldFacilityLocatorApiId,
+  facilityLocatorApiId,
   image,
   officeHours,
   operatingStatusFacility,
@@ -51,8 +51,8 @@ export function VbaFacility({
       locality: address.locality,
       postalCode: address.postal_code,
     }
-    window.mainVBAFacilityApiId = fieldFacilityLocatorApiId
-  }, [phoneNumber, address, fieldFacilityLocatorApiId])
+    window.mainVBAFacilityApiId = facilityLocatorApiId
+  }, [phoneNumber, address, facilityLocatorApiId])
   return (
     <div className="interior">
       <main className="va-l-detail-page va-facility-page">
@@ -133,7 +133,7 @@ export function VbaFacility({
               </div>
               <ImageAndStaticMap
                 image={image}
-                facilityId={fieldFacilityLocatorApiId}
+                facilityId={facilityLocatorApiId}
               />
             </div>
             {/* Prepare for Your Visit */}

@@ -22,7 +22,6 @@ export type VbaFacility = PublishedEntity & {
   ccVBAFacilityOverview: FormattedWysiwyg
   facilityLocatorApiId: string
   featuredContent: FormattedFeaturedContent[]
-  fieldFacilityLocatorApiId: string
   image: FormattedMediaImage
   officeHours: FieldOfficeHours[]
   operatingStatusFacility: FacilityOperatingStatusFlags
