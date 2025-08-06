@@ -5,7 +5,8 @@ import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
-import { TextWithImageAndMap } from '@/templates/components/textWithImageAndMap'
+import { TextWithImage } from '@/templates/components/textWithImage'
+import { MediaImage } from '@/templates/common/mediaImage'
 
 export function VetCenterOutstation({
   address,
@@ -180,62 +181,60 @@ export function VetCenterOutstation({
           >
             Location and contact information
           </h2>
-          <TextWithImageAndMap
-            className="region-list facility"
-            imageProps={image}
-            facilityId={fieldFacilityLocatorApiId}
+          <TextWithImage
+            image={
+              <>
+                <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
+                <div
+                  data-widget-type="facility-map"
+                  data-facility={fieldFacilityLocatorApiId}
+                />
+              </>
+            }
           >
-            <div>
-              <div className="vads-c-facility-detail">
-                <section className="vads-facility-detail vads-u-padding-bottom--5">
-                  {/* TODO: put operating status here */}
-                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                    Address
-                  </h3>
-                  <div className="vads-u-margin-bottom--3">
-                    <address>
-                      <div>{address.address_line1}</div>
-                      {address.address_line2 && (
-                        <div>{address.address_line2}</div>
-                      )}
-                      <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
-                    </address>
-                    <GoogleMapsDirections
-                      address={directionsString}
-                      location={title}
-                    />
-                  </div>
-
-                  <div className="vads-u-margin-bottom--3">
-                    <PhoneNumber
-                      number={phoneNumber}
-                      label="Main phone"
-                      className="main-phone vads-u-margin-bottom--1"
-                    />
-                    {ccVetCenterCallCenter && (
-                      <>
-                        <PhoneNumber
-                          number={phoneNumber}
-                          label="After hours"
-                          className="main-phone vads-u-margin-bottom--1"
-                        />
-                        <div className="vads-u-margin-bottom--2">
-                          Need help after hours? We are available 24/7. Call us
-                          anytime.
-                        </div>
-                      </>
-                    )}
-                  </div>
-
-                  <Hours
-                    headerType="standard"
-                    allHours={officeHours}
-                    nonTraditionalMessage={ccNonTraditionalHours}
-                  />
-                </section>
-              </div>
+            {/* TODO: put operating status here */}
+            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Address
+            </h3>
+            <div className="vads-u-margin-bottom--3">
+              <address>
+                <div>{address.address_line1}</div>
+                {address.address_line2 && <div>{address.address_line2}</div>}
+                <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
+              </address>
+              <GoogleMapsDirections
+                address={directionsString}
+                location={title}
+              />
             </div>
-          </TextWithImageAndMap>
+
+            <div className="vads-u-margin-bottom--3">
+              <PhoneNumber
+                number={phoneNumber}
+                label="Main phone"
+                className="main-phone vads-u-margin-bottom--1"
+              />
+              {ccVetCenterCallCenter && (
+                <>
+                  <PhoneNumber
+                    number={phoneNumber}
+                    label="After hours"
+                    className="main-phone vads-u-margin-bottom--1"
+                  />
+                  <div className="vads-u-margin-bottom--2">
+                    Need help after hours? We are available 24/7. Call us
+                    anytime.
+                  </div>
+                </>
+              )}
+            </div>
+
+            <Hours
+              headerType="standard"
+              allHours={officeHours}
+              nonTraditionalMessage={ccNonTraditionalHours}
+            />
+          </TextWithImage>
 
           <h2 id="in-the-spotlight" className="vads-u-margin-y--2">
             In the spotlight

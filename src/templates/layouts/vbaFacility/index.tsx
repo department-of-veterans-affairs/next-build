@@ -7,7 +7,8 @@ import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { Hours } from '@/templates/components/hours'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
-import { TextWithImageAndMap } from '@/templates/components/textWithImageAndMap'
+import { MediaImage } from '@/templates/common/mediaImage'
+import { TextWithImage } from '@/templates/components/textWithImage'
 
 export function VbaFacility({
   title,
@@ -67,10 +68,16 @@ export function VbaFacility({
             >
               Location and contact information
             </h2>
-            <TextWithImageAndMap
-              className="region-list facility"
-              imageProps={image}
-              facilityId={fieldFacilityLocatorApiId}
+            <TextWithImage
+              image={
+                <>
+                  <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
+                  <div
+                    data-widget-type="facility-map"
+                    data-facility={fieldFacilityLocatorApiId}
+                  />
+                </>
+              }
             >
               <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
                 Address
@@ -98,7 +105,7 @@ export function VbaFacility({
                 {...ccBenefitsHotline}
               />
               <Hours headerType="office" allHours={officeHours} />
-            </TextWithImageAndMap>
+            </TextWithImage>
 
             {/* Prepare for Your Visit */}
             {prepareForVisit && prepareForVisit.length > 0 && (

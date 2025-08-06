@@ -17,7 +17,8 @@ import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import FacilitySocialLinks from './FacilitySocialLinks'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-import { TextWithImageAndMap } from '@/templates/components/textWithImageAndMap'
+import { MediaImage } from '@/templates/common/mediaImage'
+import { TextWithImage } from '@/templates/components/textWithImage'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -130,10 +131,16 @@ export function HealthCareLocalFacility({
               >
                 Location and contact information
               </h2>
-              <TextWithImageAndMap
-                className="region-list facility"
-                imageProps={image}
-                facilityId={facilityLocatorApiId}
+              <TextWithImage
+                image={
+                  <>
+                    <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
+                    <div
+                      data-widget-type="facility-map"
+                      data-facility={facilityLocatorApiId}
+                    />
+                  </>
+                }
               >
                 <div>
                   <OperatingStatusFlags
@@ -175,7 +182,7 @@ export function HealthCareLocalFacility({
                     </div>
                   </section>
                 </div>
-              </TextWithImageAndMap>
+              </TextWithImage>
               <LocationServices items={locationServices} />
               <RelatedLinks
                 sectionTitle={relatedLinks.sectionTitle}
