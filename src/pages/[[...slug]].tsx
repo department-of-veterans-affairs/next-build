@@ -293,6 +293,28 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     if (expandedContext.preview) {
       pathInfo = await drupalClient.translatePathFromContext(expandedContext)
     } else {
+      // As a test, mock a failed request 10% of the time.
+      if (Math.random() < 0.1) {
+        const mockResponse = {
+          ok: false,
+          status: 403,
+          statusText: 'Forbidden',
+          url: expandedContext.drupalPath,
+        }
+
+        warn(`[MOCKED] Failed request to ${mockResponse.url}: %o`, {
+          url: mockResponse.url,
+          status: mockResponse.status,
+          statusText: mockResponse.statusText,
+        })
+
+        throw new Error(
+          `Failed request to ${mockResponse.url}: ${mockResponse.status} ${mockResponse.statusText}`,
+          { cause: mockResponse }
+        )
+      }
+      // End test
+
       pathInfo = await drupalClient.translatePath(expandedContext.drupalPath)
     }
 

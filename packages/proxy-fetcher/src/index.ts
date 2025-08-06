@@ -78,40 +78,6 @@ export const getFetcher = (
     // Wrap fetching in p-retry for resilience.
     const retryCount = 5
     const wrappedCrossFetch = async (attempt) => {
-      // As a test, mock a failed request 10% of the time.
-      const url = typeof input === 'string' ? input : input.url
-      if (
-        attempt === 1 &&
-        url.includes('translate-path') &&
-        Math.random() < 0.1
-      ) {
-        const mockResponse = {
-          ok: false,
-          status: 403,
-          statusText: 'Forbidden',
-          url: typeof input === 'string' ? input : input.url,
-        }
-
-        const logOrError = attempt <= retryCount ? log : error
-        logOrError(
-          `[MOCKED] Failed request (Attempt ${attempt} of ${retryCount + 1}): %o`,
-          {
-            url: mockResponse.url,
-            status: mockResponse.status,
-            statusText: mockResponse.statusText,
-          }
-        )
-
-        const { AbortError } = await import('p-retry')
-        throw new AbortError(
-          new Error(
-            `Failed request to ${mockResponse.url}: ${mockResponse.status} ${mockResponse.statusText}`,
-            { cause: mockResponse }
-          )
-        )
-      }
-      // End test
-
       const response = await crossFetch(input, {
         ...options,
       })
