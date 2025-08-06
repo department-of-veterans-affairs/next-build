@@ -25,7 +25,7 @@ export type CommonVetCenterFields = {
  * Main Vet Center info type for location listings.
  * This is a simplified version of VetCenter for listing purposes.
  */
-export type VetCenterLocationInfo = CommonVetCenterFields & {
+export type VetCenterLocationInfo = PublishedEntity & CommonVetCenterFields & {
   type: 'node--vet_center'
   officialName: string
   phoneNumber: string
@@ -38,7 +38,7 @@ export type VetCenterLocationInfo = CommonVetCenterFields & {
  * Vet Center CAP info type for location listings.
  * This is a simplified version of VetCenterCap for listing purposes.
  */
-export type VetCenterCapLocationInfo = CommonVetCenterFields & {
+export type VetCenterCapLocationInfo = PublishedEntity & CommonVetCenterFields & {
   type: 'node--vet_center_cap'
   geographicalIdentifier: string
   vetcenterCapHoursOptIn: boolean
@@ -46,11 +46,20 @@ export type VetCenterCapLocationInfo = CommonVetCenterFields & {
   operatingStatusMoreInfo: string | null
 }
 
+export type VetCenterOutstationLocationInfo = PublishedEntity & CommonVetCenterFields & {
+  type: 'node--vet_center_outstation'
+  operatingStatusFacility: FacilityOperatingStatusFlags
+  operatingStatusMoreInfo: string | null
+  phoneNumber: string
+  officeHours: FieldOfficeHours[]
+  officialName: string
+}
+
 /**
  * Vet Center Mobile Vet Center info type for location listings.
  * This is a simplified version of VetCenterMobileVetCenter for listing purposes.
  */
-export type MobileVetCenterLocationInfo = CommonVetCenterFields & {
+export type MobileVetCenterLocationInfo = PublishedEntity & CommonVetCenterFields & {
   type: 'node--vet_center_mobile_vet_center'
   phoneNumber: string
 }
@@ -61,10 +70,13 @@ export type MobileVetCenterLocationInfo = CommonVetCenterFields & {
 export type VetCenterInfoVariant =
   | VetCenterLocationInfo
   | VetCenterCapLocationInfo
+  | VetCenterOutstationLocationInfo
   | MobileVetCenterLocationInfo
 
 export type VetCenterLocationListing = PublishedEntity & {
   title: string
   fieldOffice: VetCenterLocationInfo
-  fieldNearbyMobileVetCenters: MobileVetCenterLocationInfo[]
+  nearbyMobileVetCenters: MobileVetCenterLocationInfo[]
+  mobileVetCenters: MobileVetCenterLocationInfo[]
+  satelliteLocations: (VetCenterCapLocationInfo | VetCenterOutstationLocationInfo)[]
 }

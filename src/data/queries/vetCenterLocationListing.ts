@@ -5,21 +5,26 @@ import {
   NodeVetCenterCap,
   NodeVetCenterLocationListing,
   NodeVetCenterMobileVetCenter,
+  NodeVetCenterOutstation,
 } from '@/types/drupal/node'
 import {
   VetCenterLocationListing,
   VetCenterInfoVariant,
   MobileVetCenterLocationInfo,
   VetCenterLocationInfo,
+  VetCenterCapLocationInfo,
+  VetCenterOutstationLocationInfo,
 } from '@/types/formatted/vetCenterLocationListing'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  fetchAndConcatAllResourceCollectionPages
 } from '@/lib/drupal/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 
 // Define the query params for fetching node--vet_center_locations_list.
 export const params: QueryParams<null> = () => {
@@ -39,18 +44,49 @@ export type VetCenterLocationListingDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+type VetCenterLocationListingData = {
+  entity: NodeVetCenterLocationListing
+  satelliteLocations: Array<NodeVetCenterCap | NodeVetCenterOutstation>
+  mobileVetCenters: Array<NodeVetCenterMobileVetCenter>
+}
+
 // Implement the data loader.
 export const data: QueryData<
   VetCenterLocationListingDataOpts,
-  NodeVetCenterLocationListing
-> = async (opts): Promise<NodeVetCenterLocationListing> => {
+  VetCenterLocationListingData
+> = async (opts): Promise<VetCenterLocationListingData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING,
     params
   )) as NodeVetCenterLocationListing
 
-  return entity
+  const { data: caps } = await fetchAndConcatAllResourceCollectionPages<NodeVetCenterCap>(
+    RESOURCE_TYPES.VET_CENTER_CAP,
+    new DrupalJsonApiParams()
+      .addFilter('field_office.id', entity.id),
+    PAGE_SIZES.MAX
+  )
+
+  const { data: outstations } = await fetchAndConcatAllResourceCollectionPages<NodeVetCenterOutstation>(  
+    RESOURCE_TYPES.VET_CENTER_OUTSTATION,
+    new DrupalJsonApiParams()
+      .addFilter('field_office.id', entity.id),
+    PAGE_SIZES.MAX
+  ) 
+
+  const { data: mobileVetCenters } = await fetchAndConcatAllResourceCollectionPages<NodeVetCenterMobileVetCenter>(
+    RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER,
+    new DrupalJsonApiParams()
+      .addFilter('field_office.id', entity.id),
+    PAGE_SIZES.MAX
+  )
+
+  return {
+    entity,
+    satelliteLocations: [...caps, ...outstations],
+    mobileVetCenters,
+  }
 }
 
 // Single formatter function that handles all Vet Center variants
@@ -115,24 +151,23 @@ const formatVetCenterVariant = (
 }
 
 export const formatter: QueryFormatter<
-  NodeVetCenterLocationListing,
+VetCenterLocationListingData,
   VetCenterLocationListing
-> = (entity: NodeVetCenterLocationListing) => {
+> = ({entity, satelliteLocations, mobileVetCenters}: VetCenterLocationListingData) => {
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    // Note to future Patrick: The field office is a node--vet_center, but all the
-    // satellite locations are made up of both field_nearby_mobile_vet_centers and a
-    // reverse lookup of associated "node--vet_center_outstation", "node--vet_center_cap"
-    // (community access point), and "node--vet_center_mobile_vet_center" (but I'm
-    // guessing these would already be included in the field_nearby_mobile_vet_centers)
-    // according to the original graphql query.
-
     fieldOffice: formatVetCenterVariant(
       entity.field_office as NodeVetCenter
     ) as VetCenterLocationInfo,
-    fieldNearbyMobileVetCenters: entity.field_nearby_mobile_vet_centers.map(
+    nearbyMobileVetCenters: entity.field_nearby_mobile_vet_centers.map(
       formatVetCenterVariant
     ) as MobileVetCenterLocationInfo[],
+    mobileVetCenters: mobileVetCenters.map(
+      formatVetCenterVariant
+    ) as MobileVetCenterLocationInfo[],
+    satelliteLocations: satelliteLocations.map(
+      formatVetCenterVariant
+    ) as (VetCenterCapLocationInfo | VetCenterOutstationLocationInfo)[],
   }
 }

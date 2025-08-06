@@ -6,8 +6,14 @@ import { VetCenterLocationInfo } from './VetCenterLocationInfo'
 export function VetCenterLocationListing({
   title,
   fieldOffice,
-  fieldNearbyMobileVetCenters,
+  nearbyMobileVetCenters,
+  satelliteLocations,
+  mobileVetCenters,
 }: FormattedVetCenterLocationListing) {
+  console.log('satelliteLocations', satelliteLocations)
+  console.log('nearbyMobileVetCenters', nearbyMobileVetCenters)
+  console.log('mobileVetCenters', mobileVetCenters)
+  const showSatelliteLocations = satelliteLocations.length > 0 || nearbyMobileVetCenters.length > 0 || mobileVetCenters.length > 0
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -21,19 +27,36 @@ export function VetCenterLocationListing({
             >
               Main location
             </h2>
+            <VetCenterLocationInfo
+              vetCenter={fieldOffice}
+              isMainOffice={true}
+            />
 
-            {fieldOffice && (
-              <VetCenterLocationInfo
-                vetCenter={fieldOffice}
-                isMainOffice={true}
-              />
+            {showSatelliteLocations && (
+              <>
+                <h2
+                  className="vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--4"
+                  id="satellite-locations"
+                >
+                  Satellite locations
+                </h2>
+                <p
+                  className="vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--4"
+                >
+                  If you can’t make it to our {fieldOffice.title} we offer
+                  satellite locations that may be closer to you. These satellite
+                  facilities provide select services with the same community,
+                  care, and confidentiality in a non-medical setting. Call us
+                  for more information about these locations.
+                </p>
+                {satelliteLocations.map((location) => (
+                  <VetCenterLocationInfo
+                    key={location.id}
+                    vetCenter={location}
+                  />
+                ))}
+              </>
             )}
-
-            {/* TODO: Check if satellite locations exist */}
-            <div>TODO: Satellite locations section</div>
-
-            {/* TODO: Nearby vet centers component */}
-            <div>TODO: Nearby vet centers component</div>
 
             <h2
               className="vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
