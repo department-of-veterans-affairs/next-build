@@ -37,13 +37,13 @@ export function TextWithImage({
   textClassName = '',
   imageClassName = '',
   className,
-  gridGap = 'vads-grid-gap-5',
+  gridGap = 'vads-grid-gap-2',
   ...divProps
 }: TextWithImageProps) {
   return (
     <div
       className={clsx(
-        'vads-grid-row vads-u-display--flex vads-u-flex-wrap--nowrap vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row vads-u-margin-bottom--4 tablet:vads-u-margin-bottom--5',
+        'vads-grid-row vads-u-flex-wrap--nowrap vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row vads-u-margin-bottom--4 tablet:vads-u-margin-bottom--5',
         className,
         gridGap
       )}
@@ -51,7 +51,7 @@ export function TextWithImage({
     >
       <section
         className={clsx(
-          'mobile-lg:vads-grid-col-6 tablet:vads-grid-col-8',
+          'mobile-lg:vads-grid-col-6 tablet:vads-grid-col-7',
           textClassName
         )}
       >
@@ -60,7 +60,7 @@ export function TextWithImage({
 
       <div
         className={clsx(
-          'mobile-lg:vads-grid-col-6 tablet:vads-grid-col-4 vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2',
+          'mobile-lg:vads-grid-col-6 tablet:vads-grid-col-5 vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2',
           imageClassName
         )}
       >

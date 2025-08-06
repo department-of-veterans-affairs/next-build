@@ -34,17 +34,13 @@ export const TextWithImageAndMap = ({
   <TextWithImage
     image={
       <>
-        <MediaImage
-          {...imageProps}
-          imageStyle="3_2_medium_thumbnail"
-          className="facility-img"
-        />
+        <MediaImage {...imageProps} imageStyle="3_2_medium_thumbnail" />
         <div data-widget-type="facility-map" data-facility={facilityId}>
           {/* TODO: Create Facility Map component for display here */}
         </div>
       </>
     }
-    imageClassName={clsx(imageClassName, 'inline-table-helper')}
+    imageClassName={imageClassName}
     {...otherProps}
   >
     {children}
