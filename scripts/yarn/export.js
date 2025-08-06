@@ -15,3 +15,12 @@ if (process.env.BUILD_OPTION === 'static') {
 }
 
 await processEnv('next build', true)
+
+// Implement this AI!
+if (process.env.BUILD_OPTION === 'static') {
+  // Read each warning-*.md file in the `logs/` directory
+  // Parse each line into a `[timestamp, mesage]` tuple
+  //   Each line takes the following format `[unix_timestamp]:::[mesasge]`
+  // Sort the tuples by timestamp
+  // Write each message to `logs/warnings.md`
+}
