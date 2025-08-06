@@ -1,9 +1,9 @@
-import { HealthServicesListing as FormattedHealthServicesListing } from '@/types/formatted/healthServicesListing'
+import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
 
-export function HealthServicesListing({
+export function VamcHealthServicesListing({
   title,
   introText,
-}: FormattedHealthServicesListing) {
+}: FormattedVamcHealthServicesListing) {
   return (
     <main className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">

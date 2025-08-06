@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HealthServicesListing formatData outputs formatted data 1`] = `
+exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
 {
   "breadcrumbs": [
     {

@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeHealthServicesListing } from '@/types/drupal/node'
-import { HealthServicesListing } from '@/types/formatted/healthServicesListing'
+import { NodeVamcHealthServicesListing } from '@/types/drupal/node'
+import { VamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -15,29 +15,29 @@ export const params: QueryParams<null> = () => {
 }
 
 // Define the option types for the data loader.
-export type HealthServicesListingDataOpts = {
+export type VamcHealthServicesListingDataOpts = {
   id: string
   context?: ExpandedStaticPropsContext
 }
 
 // Implement the data loader.
 export const data: QueryData<
-  HealthServicesListingDataOpts,
-  NodeHealthServicesListing
-> = async (opts): Promise<NodeHealthServicesListing> => {
+  VamcHealthServicesListingDataOpts,
+  NodeVamcHealthServicesListing
+> = async (opts): Promise<NodeVamcHealthServicesListing> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    RESOURCE_TYPES.HEALTH_SERVICES_LISTING,
+    RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
     params
-  )) as NodeHealthServicesListing
+  )) as NodeVamcHealthServicesListing
 
   return entity
 }
 
 export const formatter: QueryFormatter<
-  NodeHealthServicesListing,
-  HealthServicesListing
-> = (entity: NodeHealthServicesListing) => {
+  NodeVamcHealthServicesListing,
+  VamcHealthServicesListing
+> = (entity: NodeVamcHealthServicesListing) => {
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,

@@ -58,7 +58,7 @@ export type NodeTypes =
   | NodeFaqMultipleQA
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
-  | NodeHealthServicesListing
+  | NodeVamcHealthServicesListing
   | NodeLandingPage
   | NodeLocationsListing
   | NodeNewsStory
@@ -462,7 +462,7 @@ export interface NodeVbaFacility extends DrupalNode {
   field_cc_vba_facility_overview: FieldCCText
 }
 
-export interface NodeHealthServicesListing extends DrupalNode {
+export interface NodeVamcHealthServicesListing extends DrupalNode {
   field_description: string
   field_intro_text: string
 }

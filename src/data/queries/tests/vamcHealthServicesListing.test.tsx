@@ -2,11 +2,11 @@
  * @jest-environment node
  */
 
-import { NodeHealthServicesListing } from '@/types/drupal/node'
+import { NodeVamcHealthServicesListing } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/healthServicesListing.mock.json'
+import mockData from '@/mocks/vamcHealthServicesListing.mock.json'
 
-const HealthServicesListingMock: NodeHealthServicesListing = mockData[0]
+const VamcHealthServicesListingMock: NodeVamcHealthServicesListing = mockData[0]
 
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {
@@ -15,19 +15,19 @@ describe('DrupalJsonApiParams configuration', () => {
   })
 })
 
-describe('HealthServicesListing formatData', () => {
+describe('VamcHealthServicesListing formatData', () => {
   test('outputs formatted data', () => {
     expect(
       queries.formatData(
         'node--health_services_listing',
-        HealthServicesListingMock
+        VamcHealthServicesListingMock
       )
     ).toMatchSnapshot()
   })
 
   test('handles empty description correctly', () => {
     const mockWithEmptyDescription = {
-      ...HealthServicesListingMock,
+      ...VamcHealthServicesListingMock,
       field_description: '',
       field_intro_text: '',
     }

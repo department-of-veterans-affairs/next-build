@@ -1,11 +1,11 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { HealthServicesListing } from './index'
+import { VamcHealthServicesListing } from './index'
 
-describe('HealthServicesListing with valid data', () => {
-  test('renders HealthServicesListing component', () => {
+describe('VamcHealthServicesListing with valid data', () => {
+  test('renders VamcHealthServicesListing component', () => {
     render(
-      <HealthServicesListing
+      <VamcHealthServicesListing
         title={'Health services'}
         introText={'Test intro'}
         id={'test-id'}
@@ -20,7 +20,7 @@ describe('HealthServicesListing with valid data', () => {
 
   test('renders intro text when provided', () => {
     render(
-      <HealthServicesListing
+      <VamcHealthServicesListing
         title={'Health Services'}
         introText={'This is intro text'}
         id={'test-id'}
@@ -35,7 +35,7 @@ describe('HealthServicesListing with valid data', () => {
 
   test('renders section headings correctly', () => {
     render(
-      <HealthServicesListing
+      <VamcHealthServicesListing
         title={'Health Services'}
         introText={'This is intro text'}
         id={'test-id'}

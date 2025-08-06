@@ -1,6 +1,6 @@
 import { PublishedEntity } from './publishedEntity'
 
-export type HealthServicesListing = PublishedEntity & {
+export type VamcHealthServicesListing = PublishedEntity & {
   title: string
   introText: string
 }
