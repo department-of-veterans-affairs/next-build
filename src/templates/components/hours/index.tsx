@@ -83,7 +83,7 @@ export const Hours = ({
         return (
           <>
             <h3
-              className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
+              className="vads-u-margin-top--2p5 vads-u-margin-bottom--1"
               id="hours-heading"
             >
               Office hours

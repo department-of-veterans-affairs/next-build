@@ -6,6 +6,8 @@ permissions:
 
 on:
   deployment_status:
+  workflow_call:
+
 jobs:
   # This is necessary to get credentials to use the private ECR image defined in the test job container.
   login-to-amazon-ecr:

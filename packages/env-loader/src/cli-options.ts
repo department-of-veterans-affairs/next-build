@@ -97,6 +97,7 @@ export const getCliOptionsAndArgs = (): CliOptionsAndArgs => {
       '--no-SSG',
       'Skip logic in getStaticPaths to generate all page URLs'
     )
+    .allowExcessArguments()
 
   const additionalHelpText = getAdditionalHelpText()
   program.addHelpText('beforeAll', additionalHelpText)
