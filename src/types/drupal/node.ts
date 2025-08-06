@@ -75,7 +75,9 @@ export type NodeTypes =
   | NodeEvent
   | NodeEventListing
   | NodeVetCenter
+  | NodeVetCenterCap
   | NodeVetCenterLocationListing
+  | NodeVetCenterMobileVetCenter
   | NodeVamcSystemVaPolice
   | NodeLeadershipListing
   | NodeVbaFacility
@@ -174,31 +176,6 @@ export interface NodeHealthCareLocalFacility extends DrupalNode {
   field_region_page: Omit<NodeHealthCareRegionPage, 'field_media'>
   field_telephone: ParagraphPhoneNumber
   field_location_services: ParagraphHealthCareLocalFacilityService[]
-}
-
-export interface NodeVetCenter extends DrupalNode {
-  field_address: FieldAddress
-  field_cc_non_traditional_hours: FieldCCText
-  field_cc_vet_center_call_center: FieldCCText
-  field_cc_vet_center_faqs: ParagraphCCVetCenterFaqs
-  field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
-  field_geolocation: FieldGeoLocation
-  field_intro_text: string
-  field_mission_explainer: FieldMissionExplainer | null
-  field_last_saved_by_an_editor?: string
-  field_office_hours: FieldOfficeHours[]
-  field_official_name: string
-  field_operating_status_facility: FacilityOperatingStatusFlags
-  field_operating_status_more_info?: string
-  field_phone_number: string
-  field_timezone: string
-  field_administration: FieldAdministration
-  field_health_services: VetCenterFieldHealthServicesArray
-  field_media: DrupalMediaImage
-  field_prepare_for_visit: ParagraphAccordion[]
-  field_vet_center_feature_content: ParagraphFeaturedContent[]
-  field_vet_center_banner_image: FieldVetCenterBannerImage
-  field_facility_locator_api_id: string
 }
 
 export interface NodeHealthCareLocalHealthService extends DrupalNode {
@@ -462,6 +439,37 @@ export interface NodeVbaFacility extends DrupalNode {
   field_cc_vba_facility_overview: FieldCCText
 }
 
+/**
+ * Common fields shared across all Vet Center variants.
+ */
+export interface CommonVetCenterFields {
+  field_address: FieldAddress
+  field_facility_locator_api_id: string
+  field_geolocation: FieldGeoLocation
+  field_last_saved_by_an_editor?: string
+  field_media: DrupalMediaImage
+  // field_administration: FieldAdministration
+}
+
+export interface NodeVetCenter extends CommonVetCenterFields, DrupalNode {
+  field_cc_non_traditional_hours: FieldCCText
+  field_cc_vet_center_call_center: FieldCCText
+  field_cc_vet_center_faqs: ParagraphCCVetCenterFaqs
+  field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
+  field_intro_text: string
+  field_mission_explainer: FieldMissionExplainer | null
+  field_office_hours: FieldOfficeHours[]
+  field_official_name: string
+  field_operating_status_facility: FacilityOperatingStatusFlags
+  field_operating_status_more_info?: string
+  field_phone_number: string
+  field_timezone: string
+  field_health_services: VetCenterFieldHealthServicesArray
+  field_prepare_for_visit: ParagraphAccordion[]
+  field_vet_center_feature_content: ParagraphFeaturedContent[]
+  field_vet_center_banner_image: FieldVetCenterBannerImage
+}
+
 export interface NodeVetCenterLocationListing extends DrupalNode {
   field_office: Omit<
     NodeVetCenter,
@@ -473,6 +481,27 @@ export interface NodeVetCenterLocationListing extends DrupalNode {
   field_nearby_mobile_vet_centers: NodeVetCenterMobileVetCenter[]
 }
 
-export interface NodeVetCenterMobileVetCenter extends DrupalNode {
+export interface NodeVetCenterMobileVetCenter
+  extends CommonVetCenterFields,
+    DrupalNode {
   field_phone_number: string
+  /** Reference to the parent Vet Center */
+  field_office:
+    | NodeVetCenter
+    | { type: string; id: string; resourceIdObjMeta: unknown }
+}
+
+export interface NodeVetCenterCap extends CommonVetCenterFields, DrupalNode {
+  /** Geographic identifier for the CAP location */
+  field_geographical_identifier: string
+  /** Whether the CAP location opts into hours display */
+  field_vetcenter_cap_hours_opt_in: boolean
+  /** Operating status of the facility */
+  field_operating_status_facility: FacilityOperatingStatusFlags
+  /** Additional information about operating status */
+  field_operating_status_more_info?: string
+  /** Reference to the parent Vet Center */
+  field_office:
+    | NodeVetCenter
+    | { type: string; id: string; resourceIdObjMeta: unknown }
 }
