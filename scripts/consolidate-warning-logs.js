@@ -13,10 +13,20 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const logsDir = path.resolve(__dirname, '../../logs')
 
+if (!fs.existsSync(logsDir)) {
+  exportLog(`No logs directory found at ${logsDir}`)
+  process.exit(0)
+}
+
 // Get all warning-*.md files
 const files = fs
   .readdirSync(logsDir)
   .filter((file) => file.startsWith('warning-') && file.endsWith('.md'))
+
+if (files.length === 0) {
+  exportLog(`No warning files found in ${logsDir}`)
+  process.exit(0)
+}
 
 exportLog(`Found ${files.length} warning files to process`)
 
