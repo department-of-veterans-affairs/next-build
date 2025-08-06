@@ -109,7 +109,7 @@ export const VetCenterLocationInfo = ({
 
         {address && (
           <>
-            <h4 className="force-small-header vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1">
+            <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
               Address
             </h4>
             <div className="vads-u-margin-bottom--3">
