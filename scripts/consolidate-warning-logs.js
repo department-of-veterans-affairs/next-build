@@ -11,7 +11,7 @@ const exportLog = Debug('next-build:export')
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const logsDir = path.resolve(__dirname, '../../logs')
+const logsDir = path.resolve(__dirname, '../logs')
 
 if (!fs.existsSync(logsDir)) {
   exportLog(`No logs directory found at ${logsDir}`)
@@ -21,7 +21,7 @@ if (!fs.existsSync(logsDir)) {
 // Get all warning-*.md files
 const files = fs
   .readdirSync(logsDir)
-  .filter((file) => file.startsWith('warning-') && file.endsWith('.md'))
+  .filter((file) => file.startsWith('warnings-') && file.endsWith('.md'))
 
 if (files.length === 0) {
   exportLog(`No warning files found in ${logsDir}`)
