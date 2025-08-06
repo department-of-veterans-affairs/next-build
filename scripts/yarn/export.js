@@ -54,7 +54,7 @@ if (process.env.BUILD_OPTION === 'static') {
       // Match lines that start with a timestamp
       // Alternatively, we could write JSON as log lines and parse them...if we
       // had more metadata. ¯\_(ツ)_/¯
-      const match = line.match(/^\(\d+)\:::(.*)$/)
+      const match = line.match(/^(\d+)\:::(.*)$/)
       if (match) {
         const timestamp = parseInt(match[1], 10)
         const message = match[2].trim()
