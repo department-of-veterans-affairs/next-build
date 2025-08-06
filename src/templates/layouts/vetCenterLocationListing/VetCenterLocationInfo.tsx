@@ -9,6 +9,7 @@ import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { Hours } from '@/templates/components/hours'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
+import { TextWithImage } from '@/templates/components/textWithImage'
 
 interface VetCenterLocationInfoProps {
   isMainOffice?: boolean
@@ -71,84 +72,82 @@ export const VetCenterLocationInfo = ({
   const displayPhoneNumber = mainVetCenterPhone || phoneNumber
 
   return (
-    <div
+    <TextWithImage
       data-template="includes/vet_center_address_phone_image"
-      className="region-list usa-width-one-whole vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4 medium-screen:vads-u-margin-bottom--1"
-    >
-      <section className="region-grid vads-u-margin-right--2">
-        {title && (
-          <>
-            <h3
-              className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md vads-u-font-size--lg"
-              aria-describedby={alsoCalled ? alsoCalledId : undefined}
-            >
-              {isMainOffice ? (
-                <va-link href={vetCenter.path} text={title}></va-link>
-              ) : (
-                <span>{title}</span>
-              )}
-            </h3>
-            {alsoCalled && (
-              <p
-                id={alsoCalledId}
-                className="vads-u-line-height--4 vads-u-font-family--sans vads-u-font-size--md vads-u-font-weight--bold vads-u-padding-bottom--0p5"
-              >
-                {alsoCalled}
-              </p>
-            )}
-          </>
-        )}
-
-        {operatingStatusFacility && (
-          <ExpandableOperatingStatus
-            operatingStatusFlag={operatingStatusFacility}
-            operatingStatusMoreInfo={operatingStatusMoreInfo}
+      image={
+        <>
+          {image && <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />}
+          <div
+            data-widget-type={
+              isMainOffice
+                ? 'facility-map-satellite-main-office'
+                : 'facility-map-satellite-locations'
+            }
+            data-facility={fieldFacilityLocatorApiId}
           />
-        )}
+        </>
+      }
+    >
+      {title && (
+        <>
+          <h3
+            className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md vads-u-font-size--lg"
+            aria-describedby={alsoCalled ? alsoCalledId : undefined}
+          >
+            {isMainOffice ? (
+              <va-link href={vetCenter.path} text={title}></va-link>
+            ) : (
+              <span>{title}</span>
+            )}
+          </h3>
+          {alsoCalled && (
+            <p
+              id={alsoCalledId}
+              className="vads-u-line-height--4 vads-u-font-family--sans vads-u-font-size--md vads-u-font-weight--bold vads-u-padding-bottom--0p5"
+            >
+              {alsoCalled}
+            </p>
+          )}
+        </>
+      )}
 
-        {address && (
-          <>
-            <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-              Address
-            </h4>
-            <div className="vads-u-margin-bottom--3">
-              <Address address={address} title={title} />
-            </div>
-          </>
-        )}
-
-        {displayPhoneNumber && (
-          <div className="vads-u-margin-bottom--3">
-            <PhoneNumber
-              className="vads-u-margin-top--0 vads-u-margin-bottom--0"
-              treatment="h4"
-              label="Phone"
-              number={displayPhoneNumber}
-            />
-          </div>
-        )}
-
-        {isMainOffice && officeHours && (
-          <div className="vads-u-margin-bottom--3">
-            <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-              Hours
-            </h4>
-            <Hours allHours={officeHours} />
-          </div>
-        )}
-      </section>
-
-      <section className="region-grid usa-width-one-half vads-u-order--first mobile-lg:vads-u-order--initial vads-u-margin-bottom--2">
-        {image && <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />}
-        <div
-          data-widget-type={
-            isMainOffice
-              ? 'facility-map-satellite-main-office'
-              : 'facility-map-satellite-locations'
-          }
-          data-facility={fieldFacilityLocatorApiId}
+      {operatingStatusFacility && (
+        <ExpandableOperatingStatus
+          operatingStatusFlag={operatingStatusFacility}
+          operatingStatusMoreInfo={operatingStatusMoreInfo}
         />
-      </section>
-    </div>
+      )}
+
+      {address && (
+        <>
+          <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+            Address
+          </h4>
+          <div className="vads-u-margin-bottom--3">
+            <Address address={address} title={title} />
+          </div>
+        </>
+      )}
+
+      {displayPhoneNumber && (
+        <div className="vads-u-margin-bottom--3">
+          <PhoneNumber
+            className="vads-u-margin-top--0 vads-u-margin-bottom--0"
+            treatment="h4"
+            label="Phone"
+            number={displayPhoneNumber}
+          />
+        </div>
+      )}
+
+      {isMainOffice && officeHours && (
+        <div className="vads-u-margin-bottom--3">
+          <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+            Hours
+          </h4>
+          <Hours allHours={officeHours} />
+        </div>
+      )}
+    </TextWithImage>
   )
 }
