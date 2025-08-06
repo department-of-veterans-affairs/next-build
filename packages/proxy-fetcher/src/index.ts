@@ -78,6 +78,8 @@ export const getFetcher = (
     // Wrap fetching in p-retry for resilience.
     const retryCount = 5
     const wrappedCrossFetch = async (attempt) => {
+      // 10% of the time, fail the request with a mocked 403 error AI!
+
       const response = await crossFetch(input, {
         ...options,
       })
