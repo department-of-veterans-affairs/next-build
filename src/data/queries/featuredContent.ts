@@ -2,7 +2,7 @@ import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ParagraphFeaturedContent } from '@/types/drupal/paragraph'
 import { FeaturedContent } from '@/types/formatted/featuredContent'
-import { queries } from '.'
+import { formatter as formatButton } from '@/data/queries/button'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 export const params: QueryParams<null> = () => {
@@ -20,8 +20,6 @@ export const formatter: QueryFormatter<
     entityId: entity.drupal_internal__id || null,
     title: entity.field_section_header,
     description: getHtmlFromField(entity.field_description) || null,
-    link: entity.field_cta
-      ? queries.formatData('paragraph--button', entity.field_cta)
-      : null,
+    link: entity.field_cta ? formatButton(entity.field_cta) : null,
   }
 }

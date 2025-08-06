@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { ExpandableOperatingStatus } from './ExpandableOperatingStatus'
+import { ExpandableOperatingStatus } from '.'
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 
 describe('ExpandableOperatingStatus', () => {
