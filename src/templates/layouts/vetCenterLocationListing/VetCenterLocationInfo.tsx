@@ -131,7 +131,10 @@ export const VetCenterLocationInfo = ({
 
         {isMainOffice && officeHours && (
           <div className="vads-u-margin-bottom--3">
-            <Hours allHours={officeHours} headerType="small" />
+            <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Hours
+            </h4>
+            <Hours allHours={officeHours} />
           </div>
         )}
       </section>
