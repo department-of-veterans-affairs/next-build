@@ -8,7 +8,8 @@ export const TopNav = () => {
           <div className="usa-banner">
             <div className="usa-accordion">
               <div className="usa-banner-header">
-                <div className="usa-grid usa-banner-inner">
+              <div className="vads-grid-container usa-banner-inner">
+                <div className="vads-grid-row">
                   <Image
                     src="/img/tiny-usa-flag.png"
                     alt="U.S. flag"
@@ -26,14 +27,16 @@ export const TopNav = () => {
                       Here’s how you know
                     </span>
                   </button>
+                  </div>
                 </div>
-              </div>
+                </div>
               <div
-                className="usa-banner-content usa-grid usa-accordion-content"
+                className="usa-banner-content vads-grid-container usa-accordion-content"
                 id="gov-banner"
                 aria-hidden="true"
               >
-                <div className="usa-banner-guidance-gov usa-width-one-half usa-media-block">
+                <div className="vads-grid-row">
+                <div className="usa-banner-guidance-gov desktop-lg:vads-grid-col-6 usa-media-block">
                   <Image
                     className="usa-banner-icon usa-media-block__img"
                     src="/img/icon-dot-gov.svg"
@@ -51,7 +54,8 @@ export const TopNav = () => {
                     </p>
                   </div>
                 </div>
-                <div className="usa-banner-guidance-ssl usa-width-one-half usa-media-block">
+                </div>
+                <div className="usa-banner-guidance-ssl desktop-lg:vads-grid-col-6 usa-media-block">
                   <Image
                     className="usa-banner-icon usa-media-block__img"
                     src="/img/icon-https.svg"
