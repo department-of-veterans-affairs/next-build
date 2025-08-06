@@ -36,7 +36,6 @@ dump.rdb
 /public/img
 
 # static output for production
-/storybook-static
 /out/
 
 # misc
