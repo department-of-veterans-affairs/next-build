@@ -61,30 +61,28 @@ export const data: QueryData<
     params
   )) as NodeVetCenterLocationListing
 
+  const relatedParams = new DrupalJsonApiParams()
+    .addInclude(['field_media.image'])
+    .addFilter('field_office.id', entity.id)
+
   const { data: caps } =
     await fetchAndConcatAllResourceCollectionPages<NodeVetCenterCap>(
       RESOURCE_TYPES.VET_CENTER_CAP,
-      new DrupalJsonApiParams()
-        .addInclude(['field_media.image'])
-        .addFilter('field_office.id', entity.id),
+      relatedParams,
       PAGE_SIZES.MAX
     )
 
   const { data: outstations } =
     await fetchAndConcatAllResourceCollectionPages<NodeVetCenterOutstation>(
       RESOURCE_TYPES.VET_CENTER_OUTSTATION,
-      new DrupalJsonApiParams()
-        .addInclude(['field_media.image'])
-        .addFilter('field_office.id', entity.id),
+      relatedParams,
       PAGE_SIZES.MAX
     )
 
   const { data: mobileVetCenters } =
     await fetchAndConcatAllResourceCollectionPages<NodeVetCenterMobileVetCenter>(
       RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER,
-      new DrupalJsonApiParams()
-        .addInclude(['field_media.image'])
-        .addFilter('field_office.id', entity.id),
+      relatedParams,
       PAGE_SIZES.MAX
     )
 
@@ -104,7 +102,7 @@ const formatVetCenterVariant = (
     title: entity.title,
     path: entity.path?.alias || '',
     address: entity.field_address,
-    geolocation: entity.field_geolocation,
+    geolocation: entity.field_geolocation ?? null,
     lastSavedByAnEditor: entity.field_last_saved_by_an_editor || null,
     image: entity.field_media ? formatImage(entity.field_media) : null,
     fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
