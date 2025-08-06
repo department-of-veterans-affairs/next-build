@@ -17,7 +17,7 @@ export type CommonVetCenterFields = {
   address: FieldAddress
   geolocation: FieldGeoLocation
   lastSavedByAnEditor: string | null
-  image: FormattedMediaImage
+  image: FormattedMediaImage | null
   fieldFacilityLocatorApiId: string
 }
 

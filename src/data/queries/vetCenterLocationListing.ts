@@ -20,7 +20,7 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
-  fetchAndConcatAllResourceCollectionPages
+  fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
@@ -61,26 +61,32 @@ export const data: QueryData<
     params
   )) as NodeVetCenterLocationListing
 
-  const { data: caps } = await fetchAndConcatAllResourceCollectionPages<NodeVetCenterCap>(
-    RESOURCE_TYPES.VET_CENTER_CAP,
-    new DrupalJsonApiParams()
-      .addFilter('field_office.id', entity.id),
-    PAGE_SIZES.MAX
-  )
+  const { data: caps } =
+    await fetchAndConcatAllResourceCollectionPages<NodeVetCenterCap>(
+      RESOURCE_TYPES.VET_CENTER_CAP,
+      new DrupalJsonApiParams()
+        .addInclude(['field_media.image'])
+        .addFilter('field_office.id', entity.id),
+      PAGE_SIZES.MAX
+    )
 
-  const { data: outstations } = await fetchAndConcatAllResourceCollectionPages<NodeVetCenterOutstation>(  
-    RESOURCE_TYPES.VET_CENTER_OUTSTATION,
-    new DrupalJsonApiParams()
-      .addFilter('field_office.id', entity.id),
-    PAGE_SIZES.MAX
-  ) 
+  const { data: outstations } =
+    await fetchAndConcatAllResourceCollectionPages<NodeVetCenterOutstation>(
+      RESOURCE_TYPES.VET_CENTER_OUTSTATION,
+      new DrupalJsonApiParams()
+        .addInclude(['field_media.image'])
+        .addFilter('field_office.id', entity.id),
+      PAGE_SIZES.MAX
+    )
 
-  const { data: mobileVetCenters } = await fetchAndConcatAllResourceCollectionPages<NodeVetCenterMobileVetCenter>(
-    RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER,
-    new DrupalJsonApiParams()
-      .addFilter('field_office.id', entity.id),
-    PAGE_SIZES.MAX
-  )
+  const { data: mobileVetCenters } =
+    await fetchAndConcatAllResourceCollectionPages<NodeVetCenterMobileVetCenter>(
+      RESOURCE_TYPES.VET_CENTER_MOBILE_VET_CENTER,
+      new DrupalJsonApiParams()
+        .addInclude(['field_media.image'])
+        .addFilter('field_office.id', entity.id),
+      PAGE_SIZES.MAX
+    )
 
   return {
     entity,
@@ -100,7 +106,7 @@ const formatVetCenterVariant = (
     address: entity.field_address,
     geolocation: entity.field_geolocation,
     lastSavedByAnEditor: entity.field_last_saved_by_an_editor || null,
-    image: formatImage(entity.field_media),
+    image: entity.field_media ? formatImage(entity.field_media) : null,
     fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
   }
 
@@ -151,9 +157,13 @@ const formatVetCenterVariant = (
 }
 
 export const formatter: QueryFormatter<
-VetCenterLocationListingData,
+  VetCenterLocationListingData,
   VetCenterLocationListing
-> = ({entity, satelliteLocations, mobileVetCenters}: VetCenterLocationListingData) => {
+> = ({
+  entity,
+  satelliteLocations,
+  mobileVetCenters,
+}: VetCenterLocationListingData) => {
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -166,8 +176,9 @@ VetCenterLocationListingData,
     mobileVetCenters: mobileVetCenters.map(
       formatVetCenterVariant
     ) as MobileVetCenterLocationInfo[],
-    satelliteLocations: satelliteLocations.map(
-      formatVetCenterVariant
-    ) as (VetCenterCapLocationInfo | VetCenterOutstationLocationInfo)[],
+    satelliteLocations: satelliteLocations.map(formatVetCenterVariant) as (
+      | VetCenterCapLocationInfo
+      | VetCenterOutstationLocationInfo
+    )[],
   }
 }
