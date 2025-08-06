@@ -122,6 +122,7 @@ jobs:
       SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
       SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
       YARN_OUTPUT: ${{ steps.export-yarn-output.outputs.YARN_OUTPUT }}
+      EXPORT_WARNINGS: ${{ steps.export-warnings.outputs.EXPORT_WARNINGS }}
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-22.16.0-bullseye:latest
       credentials:
@@ -213,6 +214,12 @@ jobs:
             cd out
             ls -l
           fi
+
+    - name: Check for warnings during build
+      id: export-warnings
+      run: |
+        cd main
+        echo EXPORT_WARNINGS=$([ -f logs/warnings.md ] && cat logs/warnings.md || echo '') >> $GITHUB_OUTPUT
 
     - name: Build sitemap
       run: |
@@ -326,6 +333,16 @@ jobs:
         continue-on-error: true
         with:
           payload: '{"attachments": [{"color": "#07711E","blocks": [{"type": "section","text": {"type": "mrkdwn","text": "Successfully released content to S3 with next-build release: ${{ needs.validate-build-status.outputs.TAG }}"}}]}]}'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Notify Slack of warnings
+        if: ${{ needs.build.outputs.EXPORT_WARNINGS != '' }}
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{ "attachments": [ { "color": "#FFBE2E", "blocks": [ { "type": "section", "text": { "type": "mrkdwn", "text": "Warnings for next-build release: ${{ needs.validate-build-status.outputs.TAG }}" } }, { "type": "divider" }, { "type": "section", "text": { "type": "mrkdwn", "text": "${{ needs.build.outputs.EXPORT_WARNINGS }}" } } ] } ] }'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
