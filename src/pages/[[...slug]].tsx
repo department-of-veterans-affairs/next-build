@@ -399,7 +399,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     // NOTE: The cause is added to the AbortError message in proxy-fetcher
     if (err.cause?.status === 403) {
       log('getStaticProps: 403 received; returning notFound')
-      writeWarningToFile(`403 received from Drupal for ${context.params?.slug}`)
+      writeWarningToFile(
+        `- **\`403\` status code received** from Drupal for \`${err.cause?.url}\``
+      )
       return {
         notFound: true,
       }
