@@ -5,7 +5,7 @@ services:
     build: .
     ports:
       - '8089:8089'
-    command: -f /locust/locustfile.py --master --class-picker -H http://host.docker.internal:3000
+    command: -f /locust/locustfile.py --master --class-picker -H https://the-internet.herokuapp.com
     volumes:
       - ./:/locust
 
