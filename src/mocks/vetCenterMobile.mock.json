@@ -1,0 +1,167 @@
+{
+  "type": "node--vet_center_mobile_vet_center",
+  "id": "badf6919-0b52-4aa8-82ed-8d4930f85f0d",
+  "drupal_internal__nid": 17488,
+  "drupal_internal__vid": 897968,
+  "langcode": "en",
+  "revision_timestamp": "2024-06-13T12:52:15+00:00",
+  "revision_log": "Update of Facility API data by migration.",
+  "status": true,
+  "title": "White River Junction Mobile Vet Center",
+  "created": "2021-03-26T20:08:41+00:00",
+  "changed": "2024-06-13T12:52:15+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": null,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/white-river-junction-vet-center",
+      "title": "White River Junction Vet Center",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/white-river-junction-vet-center/white-river-junction-mobile-vet-center",
+      "title": "White River Junction Mobile Vet Center",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/white-river-junction-vet-center/white-river-junction-mobile-vet-center",
+    "pid": 21295,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_address": {
+    "langcode": null,
+    "country_code": "US",
+    "administrative_area": "VT",
+    "locality": "White River Junction",
+    "dependent_locality": null,
+    "postal_code": "05001",
+    "sorting_code": null,
+    "address_line1": "118 Prospect Street",
+    "address_line2": "Suite 100"
+  },
+  "field_facility_locator_api_id": "vc_0803MVC",
+  "field_last_saved_by_an_editor": "2022-01-06T18:06:51+00:00",
+  "field_office_hours": [
+    {
+      "day": 1,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 2,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 3,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 4,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 5,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 6,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 0,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    }
+  ],
+  "field_phone_number": "802-295-2908",
+  "field_table_of_contents": null,
+  "field_timezone": "America/New_York",
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vet_center_mobile_vet_center/badf6919-0b52-4aa8-82ed-8d4930f85f0d?resourceVersion=id%3A897968"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "f3f405ce-0fe5-4021-bac1-595b053af366",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vet_center_mobile_vet_center"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "98b6a871-652e-4fc4-8f1a-d2ca234624b7",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 803
+    }
+  },
+  "field_media": {
+    "type": "media--image",
+    "id": "28d90595-e8dc-4037-8639-3231dc4401d4",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 8614
+    }
+  },
+  "field_office": {
+    "type": "node--vet_center",
+    "id": "2dd2ffc4-7b89-410a-af14-4fb128338ce5",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3618
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_media",
+    "field_office"
+  ]
+}

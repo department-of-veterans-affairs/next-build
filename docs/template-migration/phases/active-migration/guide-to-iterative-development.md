@@ -86,3 +86,33 @@ Each of the following steps can be done in a separate PR:
 > Said another way: Only pass it the information it needs as top-level
 > props, not the entire entity. It'll be more reusable that way later if we
 > need it.
+
+## Common pitfalls and lessons learned
+
+### Type definition issues
+
+- **Entity Relationships**: Complex templates often reference multiple entity types. You may need to define additional node types (like `NodeVetCenterMobileVetCenter`) for related entities.
+- **PublishedEntity Base**: Many formatted types should extend `PublishedEntity` to get common fields like `entityId`, `entityPath`, `breadcrumbs`, etc.
+
+### Data query complexity
+
+- **Reverse relationships**: Some templates use reverse entity relationships (like `reverseFieldOfficeNode`). These may require additional query logic or separate data fetching.
+- **Conditional includes**: Be selective about what you include in your initial query. Start with the basics and add more includes as needed for specific components.
+- **Reusable data transformation**: Complex templates often have nested entities that already have formatting functions defined. Consider reusing those when possible.
+
+### Template structure
+
+- **Common components**: Look for existing components you can reuse (like `ContentFooter`, `va-link`, `va-back-to-top`) before creating new ones.
+- **CSS classes**: Preserve the original CSS classes from the liquid template to maintain styling consistency. In the case of v3 grid migration, get to parity with production first and then work on migrating from there.
+- **Accessibility**: Ensure your placeholders and final components maintain accessibility features from the original template.
+
+### Resource type naming
+
+- **Consistent naming**: Use consistent naming conventions for resource types. The generator may create camelCase names, but you should use SCREAMING_SNAKE_CASE for constants.
+- **Content type matching**: Ensure the resource type string matches the actual Drupal content type (e.g., `node--vet_center_locations_list`).
+
+### Testing sStrategy
+
+- **Snapshot tests**: Use snapshot tests for data formatting to catch unexpected changes.
+- **Component tests**: Write tests for individual components as you build them.
+- **E2E tests**: Update the generated Playwright tests with actual URLs and test scenarios.

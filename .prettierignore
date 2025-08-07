@@ -13,7 +13,6 @@ coverage
 public
 .next
 out
-storybook-static
 packages/*/dist
 packages/*/node_modules
 

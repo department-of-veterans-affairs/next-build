@@ -1,9 +1,6 @@
 # Jest snapshots
 *.snap
 
-# Storybook stories
-*.stories.*
-
 # Mock data
 *.mock.*
 src/products/**/mock.js*
