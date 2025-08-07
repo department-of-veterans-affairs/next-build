@@ -54,23 +54,23 @@ export const TopNav = () => {
                       </p>
                     </div>
                   </div>
-                </div>
-                <div className="usa-banner-guidance-ssl desktop-lg:vads-grid-col-6 usa-media-block">
-                  <Image
-                    className="usa-banner-icon usa-media-block__img"
-                    src="/img/icon-https.svg"
-                    alt="SSL"
-                    height={'38'}
-                    width="38"
-                  />
-                  <div className="usa-media-block__body">
-                    <p>
-                      <strong>The site is secure.</strong>
-                      <br /> The <strong>https://</strong> ensures that
-                      you&apos;re connecting to the official website and that
-                      any information you provide is encrypted and sent
-                      securely.
-                    </p>
+                  <div className="usa-banner-guidance-ssl desktop-lg:vads-grid-col-6 usa-media-block">
+                    <Image
+                      className="usa-banner-icon usa-media-block__img"
+                      src="/img/icon-https.svg"
+                      alt="SSL"
+                      height={'38'}
+                      width="38"
+                    />
+                    <div className="usa-media-block__body">
+                      <p>
+                        <strong>The site is secure.</strong>
+                        <br /> The <strong>https://</strong> ensures that
+                        you&apos;re connecting to the official website and that
+                        any information you provide is encrypted and sent
+                        securely.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
