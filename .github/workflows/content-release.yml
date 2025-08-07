@@ -231,7 +231,7 @@ jobs:
         #     output; two for the normal escape, and a third because we're putting
         #     it in a double-quote string.
         # 2b. If no, set the output to an empty string.
-        echo "EXPORT_WARNINGS=$( [ -f logs/warnings.md ] && sed 's/$/\\\n/' logs/warnings.md | tr -d '\n' || echo '' )" >> "$GITHUB_OUTPUT"
+        echo "EXPORT_WARNINGS=$( [ -f logs/warnings.md ] && sed 's/$/\\\\n/' logs/warnings.md | tr -d '\n' || echo '' )" >> "$GITHUB_OUTPUT"
 
     - name: Build sitemap
       run: |
