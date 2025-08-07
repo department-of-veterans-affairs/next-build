@@ -354,7 +354,7 @@ jobs:
         uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
         continue-on-error: true
         with:
-          payload: '{ "attachments": [ { "color": "#FFBE2E", "blocks": [ { "type": "section", "text": { "type": "mrkdwn", "text": "Warnings for next-build release: ${{ needs.validate-build-status.outputs.TAG }}" } }, { "type": "divider" }, { "type": "section", "text": { "type": "mrkdwn", "text": "@cms-troubleshooting\n${{ needs.build.outputs.EXPORT_WARNINGS }}" } } ] } ] }'
+          payload: '{ "attachments": [ { "color": "#FFBE2E", "blocks": [ { "type": "section", "text": { "type": "mrkdwn", "text": "@cms-troubleshooting\nWarnings for next-build release: ${{ needs.validate-build-status.outputs.TAG }}" } }, { "type": "divider" }, { "type": "section", "text": { "type": "mrkdwn", "text": "${{ needs.build.outputs.EXPORT_WARNINGS }}" } } ] } ] }'
           channel_id: ${{ env.SLACK_CHANNEL }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
