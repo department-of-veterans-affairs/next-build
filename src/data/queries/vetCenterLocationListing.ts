@@ -14,6 +14,7 @@ import {
   VetCenterLocationInfo,
   VetCenterCapLocationInfo,
   VetCenterOutstationLocationInfo,
+  CommonVetCenterFields,
 } from '@/types/formatted/vetCenterLocationListing'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
@@ -46,7 +47,8 @@ export type VetCenterLocationListingDataOpts = {
 
 type VetCenterLocationListingData = {
   entity: NodeVetCenterLocationListing
-  satelliteLocations: Array<NodeVetCenterCap | NodeVetCenterOutstation>
+  caps: Array<NodeVetCenterCap>
+  outstations: Array<NodeVetCenterOutstation>
   mobileVetCenters: Array<NodeVetCenterMobileVetCenter>
 }
 
@@ -88,17 +90,21 @@ export const data: QueryData<
 
   return {
     entity,
-    satelliteLocations: [...caps, ...outstations],
+    caps,
+    outstations,
     mobileVetCenters,
   }
 }
 
-// Single formatter function that handles all Vet Center variants
-const formatVetCenterVariant = (
-  entity: NodeVetCenter | NodeVetCenterMobileVetCenter | NodeVetCenterCap
-): VetCenterInfoVariant => {
-  const baseFields = {
-    ...entityBaseFields(entity),
+// Common fields formatter for all Vet Center types
+const formatCommonVetCenterFields = (
+  entity:
+    | NodeVetCenter
+    | NodeVetCenterMobileVetCenter
+    | NodeVetCenterCap
+    | NodeVetCenterOutstation
+): CommonVetCenterFields => {
+  return {
     title: entity.title,
     path: entity.path?.alias || '',
     address: entity.field_address,
@@ -107,50 +113,84 @@ const formatVetCenterVariant = (
     image: entity.field_media ? formatImage(entity.field_media) : null,
     fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
   }
+}
 
-  // Determine the type from the entity
-  const entityType = entity.type
+// Formatter for VetCenter entities
+const formatVetCenterLocationInfo = (
+  entity: NodeVetCenter
+): VetCenterLocationInfo => {
+  const baseFields = formatCommonVetCenterFields(entity)
 
-  switch (entityType) {
-    case 'node--vet_center':
-      return {
-        ...baseFields,
-        type: 'node--vet_center',
-        officialName: entity.field_official_name,
-        phoneNumber: entity.field_phone_number,
-        officeHours: entity.field_office_hours || [],
-        operatingStatusFacility: entity.field_operating_status_facility,
-        operatingStatusMoreInfo: entity.field_operating_status_more_info
-          ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
-              convertNewlines: true,
-            })
-          : null,
-      }
+  return {
+    ...entityBaseFields(entity),
+    ...baseFields,
+    type: 'node--vet_center',
+    officialName: entity.field_official_name,
+    phoneNumber: entity.field_phone_number,
+    officeHours: entity.field_office_hours || [],
+    operatingStatusFacility: entity.field_operating_status_facility,
+    operatingStatusMoreInfo: entity.field_operating_status_more_info
+      ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
+          convertNewlines: true,
+        })
+      : null,
+  }
+}
 
-    case 'node--vet_center_cap':
-      return {
-        ...baseFields,
-        type: 'node--vet_center_cap',
-        geographicalIdentifier: entity.field_geographical_identifier,
-        vetcenterCapHoursOptIn:
-          entity.field_vetcenter_cap_hours_opt_in || false,
-        operatingStatusFacility: entity.field_operating_status_facility,
-        operatingStatusMoreInfo: entity.field_operating_status_more_info
-          ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
-              convertNewlines: true,
-            })
-          : null,
-      }
+// Formatter for VetCenterCap entities
+const formatVetCenterCapLocationInfo = (
+  entity: NodeVetCenterCap
+): VetCenterCapLocationInfo => {
+  const baseFields = formatCommonVetCenterFields(entity)
 
-    case 'node--vet_center_mobile_vet_center':
-      return {
-        ...baseFields,
-        type: 'node--vet_center_mobile_vet_center',
-        phoneNumber: entity.field_phone_number,
-      }
+  return {
+    ...entityBaseFields(entity),
+    ...baseFields,
+    type: 'node--vet_center_cap',
+    geographicalIdentifier: entity.field_geographical_identifier,
+    vetcenterCapHoursOptIn: entity.field_vetcenter_cap_hours_opt_in || false,
+    operatingStatusFacility: entity.field_operating_status_facility,
+    operatingStatusMoreInfo: entity.field_operating_status_more_info
+      ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
+          convertNewlines: true,
+        })
+      : null,
+  }
+}
 
-    default:
-      throw new Error(`Unknown Vet Center entity type: ${entityType}`)
+// Formatter for VetCenterOutstation entities
+const formatVetCenterOutstationLocationInfo = (
+  entity: NodeVetCenterOutstation
+): VetCenterOutstationLocationInfo => {
+  const baseFields = formatCommonVetCenterFields(entity)
+
+  return {
+    ...entityBaseFields(entity),
+    ...baseFields,
+    type: 'node--vet_center_outstation',
+    operatingStatusFacility: entity.field_operating_status_facility,
+    operatingStatusMoreInfo: entity.field_operating_status_more_info
+      ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {
+          convertNewlines: true,
+        })
+      : null,
+    phoneNumber: entity.field_phone_number,
+    officeHours: entity.field_office_hours || [],
+    officialName: entity.field_official_name,
+  }
+}
+
+// Formatter for MobileVetCenter entities
+const formatMobileVetCenterLocationInfo = (
+  entity: NodeVetCenterMobileVetCenter
+): MobileVetCenterLocationInfo => {
+  const baseFields = formatCommonVetCenterFields(entity)
+
+  return {
+    ...entityBaseFields(entity),
+    ...baseFields,
+    type: 'node--vet_center_mobile_vet_center',
+    phoneNumber: entity.field_phone_number,
   }
 }
 
@@ -159,24 +199,23 @@ export const formatter: QueryFormatter<
   VetCenterLocationListing
 > = ({
   entity,
-  satelliteLocations,
+  caps,
+  outstations,
   mobileVetCenters,
 }: VetCenterLocationListingData) => {
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    fieldOffice: formatVetCenterVariant(
+    fieldOffice: formatVetCenterLocationInfo(
       entity.field_office as NodeVetCenter
-    ) as VetCenterLocationInfo,
+    ),
     nearbyMobileVetCenters: entity.field_nearby_mobile_vet_centers.map(
-      formatVetCenterVariant
-    ) as MobileVetCenterLocationInfo[],
-    mobileVetCenters: mobileVetCenters.map(
-      formatVetCenterVariant
-    ) as MobileVetCenterLocationInfo[],
-    satelliteLocations: satelliteLocations.map(formatVetCenterVariant) as (
-      | VetCenterCapLocationInfo
-      | VetCenterOutstationLocationInfo
-    )[],
+      formatMobileVetCenterLocationInfo
+    ),
+    mobileVetCenters: mobileVetCenters.map(formatMobileVetCenterLocationInfo),
+    satelliteLocations: [
+      ...caps.map(formatVetCenterCapLocationInfo),
+      ...outstations.map(formatVetCenterOutstationLocationInfo),
+    ],
   }
 }
