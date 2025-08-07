@@ -55,7 +55,8 @@ export function VetCenterLocationListing({
                   />
                 ))}
 
-                {mobileVetCenters.map((location) => (
+                {/* Rendering these causes a strange Next.js error that seems to have to do with some other widget */}
+                {/* {mobileVetCenters.map((location) => (
                   <VetCenterLocationInfo
                     key={location.id}
                     vetCenter={location}
@@ -67,7 +68,7 @@ export function VetCenterLocationListing({
                     key={location.id}
                     vetCenter={location}
                   />
-                ))}
+                ))} */}
               </>
             )}
 
