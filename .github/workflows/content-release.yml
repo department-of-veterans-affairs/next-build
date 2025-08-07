@@ -224,7 +224,7 @@ jobs:
           {
             echo "EXPORT_WARNINGS<<EOF"
             cat logs/warnings.md
-            echo "EOF"
+            echo "\nEOF"
           } >> "$GITHUB_OUTPUT"
         else
           echo "EXPORT_WARNINGS=" >> "$GITHUB_OUTPUT"
