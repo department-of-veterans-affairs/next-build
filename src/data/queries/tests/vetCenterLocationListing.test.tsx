@@ -63,8 +63,8 @@ describe('VetCenterLocationListing query', () => {
 
     expect(result).toBeDefined()
     expect(result.title).toBe(mockVetCenterLocationListing.title)
-    expect(result.fieldOffice).toBeDefined()
-    expect(result.fieldOffice.title).toBe(
+    expect(result.mainOffice).toBeDefined()
+    expect(result.mainOffice.title).toBe(
       mockVetCenterLocationListing.field_office.title
     )
     expect(result.nearbyMobileVetCenters).toBeDefined()
@@ -75,23 +75,23 @@ describe('VetCenterLocationListing query', () => {
     expect(Array.isArray(result.satelliteLocations)).toBe(true)
   })
 
-  describe('fieldOffice functionality', () => {
-    test('formats fieldOffice correctly when data is present', async () => {
+  describe('mainOffice functionality', () => {
+    test('formats mainOffice correctly when data is present', async () => {
       const result = await getData()
 
-      expect(result.fieldOffice).toBeDefined()
-      expect(result.fieldOffice.title).toBe(
+      expect(result.mainOffice).toBeDefined()
+      expect(result.mainOffice.title).toBe(
         mockVetCenterLocationListing.field_office.title
       )
-      expect(result.fieldOffice.officialName).toBe(
+      expect(result.mainOffice.officialName).toBe(
         mockVetCenterLocationListing.field_office.field_official_name
       )
-      expect(result.fieldOffice.phoneNumber).toBe(
+      expect(result.mainOffice.phoneNumber).toBe(
         mockVetCenterLocationListing.field_office.field_phone_number
       )
-      expect(result.fieldOffice.address).toBeDefined()
-      expect(result.fieldOffice.officeHours).toBeDefined()
-      expect(Array.isArray(result.fieldOffice.officeHours)).toBe(true)
+      expect(result.mainOffice.address).toBeDefined()
+      expect(result.mainOffice.officeHours).toBeDefined()
+      expect(Array.isArray(result.mainOffice.officeHours)).toBe(true)
     })
   })
 

@@ -25,44 +25,48 @@ export type CommonVetCenterFields = {
  * Main Vet Center info type for location listings.
  * This is a simplified version of VetCenter for listing purposes.
  */
-export type VetCenterLocationInfo = PublishedEntity & CommonVetCenterFields & {
-  type: 'node--vet_center'
-  officialName: string
-  phoneNumber: string
-  officeHours: FieldOfficeHours[]
-  operatingStatusFacility: FacilityOperatingStatusFlags
-  operatingStatusMoreInfo: string | null
-}
+export type VetCenterLocationInfo = PublishedEntity &
+  CommonVetCenterFields & {
+    type: 'node--vet_center'
+    officialName: string
+    phoneNumber: string
+    officeHours: FieldOfficeHours[]
+    operatingStatusFacility: FacilityOperatingStatusFlags
+    operatingStatusMoreInfo: string | null
+  }
 
 /**
  * Vet Center CAP info type for location listings.
  * This is a simplified version of VetCenterCap for listing purposes.
  */
-export type VetCenterCapLocationInfo = PublishedEntity & CommonVetCenterFields & {
-  type: 'node--vet_center_cap'
-  geographicalIdentifier: string
-  vetcenterCapHoursOptIn: boolean
-  operatingStatusFacility: FacilityOperatingStatusFlags
-  operatingStatusMoreInfo: string | null
-}
+export type VetCenterCapLocationInfo = PublishedEntity &
+  CommonVetCenterFields & {
+    type: 'node--vet_center_cap'
+    geographicalIdentifier: string
+    vetcenterCapHoursOptIn: boolean
+    operatingStatusFacility: FacilityOperatingStatusFlags
+    operatingStatusMoreInfo: string | null
+  }
 
-export type VetCenterOutstationLocationInfo = PublishedEntity & CommonVetCenterFields & {
-  type: 'node--vet_center_outstation'
-  operatingStatusFacility: FacilityOperatingStatusFlags
-  operatingStatusMoreInfo: string | null
-  phoneNumber: string
-  officeHours: FieldOfficeHours[]
-  officialName: string
-}
+export type VetCenterOutstationLocationInfo = PublishedEntity &
+  CommonVetCenterFields & {
+    type: 'node--vet_center_outstation'
+    operatingStatusFacility: FacilityOperatingStatusFlags
+    operatingStatusMoreInfo: string | null
+    phoneNumber: string
+    officeHours: FieldOfficeHours[]
+    officialName: string
+  }
 
 /**
  * Vet Center Mobile Vet Center info type for location listings.
  * This is a simplified version of VetCenterMobileVetCenter for listing purposes.
  */
-export type MobileVetCenterLocationInfo = PublishedEntity & CommonVetCenterFields & {
-  type: 'node--vet_center_mobile_vet_center'
-  phoneNumber: string
-}
+export type MobileVetCenterLocationInfo = PublishedEntity &
+  CommonVetCenterFields & {
+    type: 'node--vet_center_mobile_vet_center'
+    phoneNumber: string
+  }
 
 /**
  * Union type for all Vet Center info types used in location listings.
@@ -75,8 +79,11 @@ export type VetCenterInfoVariant =
 
 export type VetCenterLocationListing = PublishedEntity & {
   title: string
-  fieldOffice: VetCenterLocationInfo
+  mainOffice: VetCenterLocationInfo
   nearbyMobileVetCenters: MobileVetCenterLocationInfo[]
   mobileVetCenters: MobileVetCenterLocationInfo[]
-  satelliteLocations: (VetCenterCapLocationInfo | VetCenterOutstationLocationInfo)[]
+  satelliteLocations: (
+    | VetCenterCapLocationInfo
+    | VetCenterOutstationLocationInfo
+  )[]
 }

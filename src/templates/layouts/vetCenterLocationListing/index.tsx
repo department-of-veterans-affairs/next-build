@@ -5,7 +5,7 @@ import { VetCenterLocationInfo } from './VetCenterLocationInfo'
 
 export function VetCenterLocationListing({
   title,
-  fieldOffice,
+  mainOffice,
   nearbyMobileVetCenters,
   satelliteLocations,
   mobileVetCenters,
@@ -30,10 +30,7 @@ export function VetCenterLocationListing({
             >
               Main location
             </h2>
-            <VetCenterLocationInfo
-              vetCenter={fieldOffice}
-              isMainOffice={true}
-            />
+            <VetCenterLocationInfo vetCenter={mainOffice} isMainOffice={true} />
 
             {showSatelliteLocations && (
               <>
@@ -44,7 +41,7 @@ export function VetCenterLocationListing({
                   Satellite locations
                 </h2>
                 <p className="vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--4">
-                  If you can’t make it to our {fieldOffice.title} we offer
+                  If you can’t make it to our {mainOffice.title} we offer
                   satellite locations that may be closer to you. These satellite
                   facilities provide select services with the same community,
                   care, and confidentiality in a non-medical setting. Call us
@@ -54,7 +51,7 @@ export function VetCenterLocationListing({
                   <VetCenterLocationInfo
                     key={location.id}
                     vetCenter={location}
-                    mainVetCenterPhone={fieldOffice.phoneNumber}
+                    mainVetCenterPhone={mainOffice.phoneNumber}
                   />
                 ))}
 

@@ -206,7 +206,7 @@ export const formatter: QueryFormatter<
   return {
     ...entityBaseFields(entity),
     title: entity.title,
-    fieldOffice: formatVetCenterLocationInfo(
+    mainOffice: formatVetCenterLocationInfo(
       entity.field_office as NodeVetCenter
     ),
     nearbyMobileVetCenters: entity.field_nearby_mobile_vet_centers.map(
