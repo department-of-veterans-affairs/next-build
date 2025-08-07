@@ -220,15 +220,18 @@ jobs:
       run: |
         cd main
         node scripts/consolidate-warning-logs.js
-        if [ -f logs/warnings.md ]; then
-          {
-            echo "EXPORT_WARNINGS<<EOF"
-            cat logs/warnings.md
-            echo "\nEOF"
-          } >> "$GITHUB_OUTPUT"
-        else
-          echo "EXPORT_WARNINGS=" >> "$GITHUB_OUTPUT"
-        fi
+        # This bit is a little complicated, so some explanation:
+        #
+        # 1. Check to see if the warnings file exists.
+        # 2a. If yes, add a "\n" to the end of the file and remove all newlines; set
+        #   the output to this squashed string. It needs to be a single line
+        #   because we'll be adding it to the JSON payload for sending to Slack
+        #   later.
+        #     NOTE: The three backslashes are needed to escape the newline for the
+        #     output; two for the normal escape, and a third because we're putting
+        #     it in a double-quote string.
+        # 2b. If no, set the output to an empty string.
+        echo "EXPORT_WARNINGS=\"$( [ -f logs/warnings.md ] && sed 's/$/\\\n/' logs/warnings.md | tr -d '\n' || echo '' )\"" >> "$GITHUB_OUTPUT"
 
     - name: Build sitemap
       run: |
