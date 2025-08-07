@@ -13,7 +13,7 @@ on:
 
   # Runs on API call. Used for CMS-driven build triggers.
   repository_dispatch:
-    types: [content-release]
+    types: [content-release-prod]
 
 concurrency: next-build-content-release-prod
 
@@ -23,6 +23,3 @@ jobs:
     with:
       build_type: "prod"
     secrets: inherit
-
-
-
