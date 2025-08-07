@@ -18,7 +18,7 @@ interface VetCenterLocationInfoProps {
 }
 
 // Type guards to check Vet Center variant types
-const isMainVetCenter = (
+const isVetCenter = (
   vetCenter: VetCenterInfoVariant
 ): vetCenter is VetCenterLocationInfoType => {
   return vetCenter.type === 'node--vet_center'
@@ -30,7 +30,7 @@ const isVetCenterCap = (
   return vetCenter.type === 'node--vet_center_cap'
 }
 
-const isVetCenterMobile = (
+const isMobileVetCenter = (
   vetCenter: VetCenterInfoVariant
 ): vetCenter is MobileVetCenterLocationInfo => {
   return vetCenter.type === 'node--vet_center_mobile_vet_center'
@@ -43,33 +43,26 @@ export const VetCenterLocationInfo = ({
 }: VetCenterLocationInfoProps) => {
   const { title, address, image, fieldFacilityLocatorApiId } = vetCenter
 
-  // Extract variant-specific fields
-  const officialName = isMainVetCenter(vetCenter)
-    ? vetCenter.officialName
-    : undefined
-  const phoneNumber =
-    isMainVetCenter(vetCenter) || isVetCenterMobile(vetCenter)
-      ? vetCenter.phoneNumber
-      : undefined
-  const officeHours = isMainVetCenter(vetCenter)
-    ? vetCenter.officeHours
-    : undefined
-  const operatingStatusFacility =
-    isMainVetCenter(vetCenter) || isVetCenterCap(vetCenter)
-      ? vetCenter.operatingStatusFacility
-      : undefined
-  const operatingStatusMoreInfo =
-    isMainVetCenter(vetCenter) || isVetCenterCap(vetCenter)
-      ? vetCenter.operatingStatusMoreInfo
-      : undefined
+  let alsoCalled: string | undefined
+  let alsoCalledId: string | undefined
+  if (isVetCenter(vetCenter)) {
+    const { officialName } = vetCenter
+    if (officialName && title !== officialName) {
+      alsoCalled = `Also called the ${officialName}`
+      alsoCalledId = 'vet-center-title'
+    }
+  }
 
-  const alsoCalled =
-    officialName && title !== officialName
-      ? `Also called the ${officialName}`
-      : null
-  const alsoCalledId = 'vet-center-title'
+  const { operatingStatusFacility, operatingStatusMoreInfo } = vetCenter as
+    | VetCenterLocationInfoType
+    | VetCenterCapLocationInfo
 
-  const displayPhoneNumber = mainVetCenterPhone || phoneNumber
+  const phoneNumber = isVetCenterCap(vetCenter)
+    ? mainVetCenterPhone
+    : vetCenter.phoneNumber
+
+  const officeHours =
+    isVetCenter(vetCenter) && isMainOffice ? vetCenter.officeHours : undefined
 
   return (
     <TextWithImage
@@ -92,7 +85,7 @@ export const VetCenterLocationInfo = ({
         <>
           <h3
             className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md vads-u-font-size--lg"
-            aria-describedby={alsoCalled ? alsoCalledId : undefined}
+            aria-describedby={alsoCalledId}
           >
             {isMainOffice ? (
               <va-link href={vetCenter.path} text={title}></va-link>
@@ -129,18 +122,18 @@ export const VetCenterLocationInfo = ({
         </>
       )}
 
-      {displayPhoneNumber && (
+      {phoneNumber && (
         <div className="vads-u-margin-bottom--3">
           <PhoneNumber
             className="vads-u-margin-top--0 vads-u-margin-bottom--0"
             treatment="h4"
             label="Phone"
-            number={displayPhoneNumber}
+            number={phoneNumber}
           />
         </div>
       )}
 
-      {isMainOffice && officeHours && (
+      {officeHours && (
         <div className="vads-u-margin-bottom--3">
           <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
             Hours
