@@ -220,7 +220,10 @@ jobs:
       run: |
         cd main
         node scripts/consolidate-warning-logs.js
-        echo EXPORT_WARNINGS="\"$([ -f logs/warnings.md ] && cat logs/warnings.md || echo '')\"" >> $GITHUB_OUTPUT
+        # echo EXPORT_WARNINGS="\"$([ -f logs/warnings.md ] && cat logs/warnings.md || echo '')\"" >> $GITHUB_OUTPUT
+        echo 'EXPORT_WARNINGS<<EOF' >> "$GITHUB_OUTPUT"
+        [ -f logs/warnings.md ] && cat logs/warnings.md >> "$GITHUB_OUTPUT"
+        echo 'EOF' >> "$GITHUB_OUTPUT"
 
     - name: Build sitemap
       run: |
