@@ -190,9 +190,27 @@ export function VbaFacility({
             )}
             <div>TODO: Add conditional get updates links</div>
 
-            <div>TODO: Add conditional get updates links</div>ccGetUpdates
-            { ccGetUpdates && (
-              
+            {ccGetUpdates && (
+              <section className="vads-u-background-color--gray-lightest vads-u-margin-top--4 mobile-lg:vads-u-margin-top--6 vads-u-padding-x--3 vads-u-padding-y--2p5">
+                <h2 className="vads-u-margin-bottom--2 vads-u-margin-top--0">
+                  {ccGetUpdates.heading}
+                </h2>
+                <div className="vads-grid-row vads-u-flex-wrap--wrap">
+                  {ccGetUpdates.links.map((link, index) => (
+                    <p
+                      key={index}
+                      className="medium-screen:vads-grid-col-6 vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2 vads-u-margin-top--0"
+                    >
+                      <va-icon
+                        icon={link.type}
+                        size="3"
+                        class="vads-u-color--link-default vads-u-margin-right--1"
+                      ></va-icon>
+                      <va-link href={link.url} text={link.label}></va-link>
+                    </p>
+                  ))}
+                </div>
+              </section>
             )}
             <h2
               id="other-nearby-va-locations"

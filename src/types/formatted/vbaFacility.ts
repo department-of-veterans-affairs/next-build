@@ -15,12 +15,21 @@ type CantFindBenefits = {
     url: string | null
   }
 }
+type VbaSocialLinksProps = {
+  links: {
+    label: string
+    url: string
+    type: string
+  }[]
+  heading: string
+}
 
 export type VbaFacility = PublishedEntity & {
   title: string
   ccBenefitsHotline: FormattedPhoneContact
   ccVBAFacilityOverview: FormattedWysiwyg
   facilityLocatorApiId: string
+  ccGetUpdates: VbaSocialLinksProps
   featuredContent: FormattedFeaturedContent[]
   image: FormattedMediaImage
   officeHours: FieldOfficeHours[]
