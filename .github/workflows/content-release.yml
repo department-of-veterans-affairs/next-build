@@ -227,9 +227,9 @@ jobs:
         #   the output to this squashed string. It needs to be a single line
         #   because we'll be adding it to the JSON payload for sending to Slack
         #   later.
-        #     NOTE: The three backslashes are needed to escape the newline for the
-        #     output; two for the normal escape, and a third because we're putting
-        #     it in a double-quote string.
+        #     NOTE: The four backslashes are needed to escape the newline for the
+        #     output; we need `sed` to output "\\n", so then the double-quote
+        #     string we're echoing will contain the literal string "\n".
         # 2b. If no, set the output to an empty string.
         echo "EXPORT_WARNINGS=$( [ -f logs/warnings.md ] && sed 's/$/\\\\n/' logs/warnings.md | tr -d '\n' || echo '' )" >> "$GITHUB_OUTPUT"
 
