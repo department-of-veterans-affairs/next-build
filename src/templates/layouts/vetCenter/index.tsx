@@ -1,6 +1,5 @@
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
 import { Hours } from '@/templates/components/hours'
-import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { AlertBlock } from '@/templates/components/alertBlock'
 import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
@@ -12,6 +11,7 @@ import { SchemaScript } from './SchemaScript'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
+import { TextWithImage } from '@/templates/components/textWithImage'
 
 export function VetCenter(vetCenterProps: FormattedVetCenter) {
   const {
@@ -51,7 +51,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
   const alsoCalledId = 'vet-center-title'
 
   return (
-    <div className="usa-grid usa-grid-full">
+    <div className="vads-grid-container">
       <div className="usa-width-three-fourths">
         <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
           {title && (
@@ -83,7 +83,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           )}
           {missionExplainer && (
             <va-summary-box
-              class="vads-u-margin-bottom--4 medium-screen:vads-u-margin-bottom--0"
+              class="vads-u-margin-bottom--4 tablet:vads-u-margin-bottom--0"
               data-header-id-excluded="true"
             >
               <h2 slot="headline">{missionExplainer.heading}</h2>
@@ -100,48 +100,43 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           <h2 id="locations-and-contact-information">
             Location and contact information
           </h2>
-          <div
-            className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column
-          mobile-lg:vads-u-flex-direction--row facility"
+          <TextWithImage
+            image={
+              <>
+                <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
+                <div
+                  data-widget-type="facility-map"
+                  data-facility={fieldFacilityLocatorApiId}
+                />
+              </>
+            }
           >
-            <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
-              <div className="vads-c-facility-detail">
-                <section className="vads-facility-detail">
-                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                    Address
-                  </h3>
-
-                  <ExpandableOperatingStatus
-                    operatingStatusFlag={operatingStatusFacility}
-                    operatingStatusMoreInfo={operatingStatusMoreInfo}
-                  />
-
-                  <div className="vads-u-margin--0 vads-u-margin-bottom--3">
-                    <Address address={address} title={title} />
-                  </div>
-
-                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                    Phone number
-                  </h3>
-                  <PhoneNumber
-                    className="vads-u-margin-top--0 vads-u-margin-bottom--3"
-                    label="Main phone"
-                    number={phoneNumber}
-                  />
-
-                  <Hours
-                    headerType="standard"
-                    allHours={officeHours}
-                    nonTraditionalMessage={ccNonTraditionalHours}
-                  />
-                </section>
-              </div>
-            </div>
-            <ImageAndStaticMap
-              image={image}
-              facilityId={fieldFacilityLocatorApiId}
+            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Address
+            </h3>
+            <ExpandableOperatingStatus
+              operatingStatusFlag={operatingStatusFacility}
+              operatingStatusMoreInfo={operatingStatusMoreInfo}
             />
-          </div>
+            <div className="vads-u-margin--0 vads-u-margin-bottom--3">
+              <Address address={address} title={title} />
+            </div>
+
+            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Phone number
+            </h3>
+            <PhoneNumber
+              className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+              label="Main phone"
+              number={phoneNumber}
+            />
+
+            <Hours
+              headerType="standard"
+              allHours={officeHours}
+              nonTraditionalMessage={ccNonTraditionalHours}
+            />
+          </TextWithImage>
 
           {/* Call Center Information */}
           {ccVetCenterCallCenter && (
@@ -186,7 +181,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
           </h2>
           <div
             id="field-vet-center-feature-content"
-            className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4 "
+            className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-flex-direction--row vads-u-margin-bottom--4 "
           >
             {featuredContent &&
               featuredContent.map((content, index) => (

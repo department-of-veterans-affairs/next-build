@@ -79,4 +79,22 @@ describe('VbaFacility with valid data', () => {
       screen.queryByTestId('cant-find-benefits-alert')
     ).not.toBeInTheDocument()
   })
+  test('sets required facility data to window object', () => {
+    render(<VbaFacility {...formattedMockData} />)
+    // @ts-expect-error - window.mainVBAPhone is not a default window property, but we're adding it
+    expect(window.mainVBAPhone).toBe(formattedMockData.phoneNumber)
+    // @ts-expect-error - window.mainVBAAddress is not a default window property, but we're adding it
+    expect(window.mainVBAAddress).toEqual({
+      addressLine1: formattedMockData.address.address_line1,
+      addressLine2: formattedMockData.address.address_line2 || null,
+      administrativeArea: formattedMockData.address.administrative_area,
+      countryCode: formattedMockData.address.country_code,
+      locality: formattedMockData.address.locality,
+      postalCode: formattedMockData.address.postal_code,
+    })
+    // @ts-expect-error - window.mainVBAFacilityApiId is not a default window property, but we're adding it
+    expect(window.mainVBAFacilityApiId).toBe(
+      formattedMockData.facilityLocatorApiId
+    )
+  })
 })

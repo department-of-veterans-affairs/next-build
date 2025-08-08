@@ -13,11 +13,12 @@ import { OperatingStatusFlags } from './OperatingStatus'
 import { Address } from './Address'
 import { Phone } from './Phone'
 import { Hours } from '@/templates/components/hours'
-import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import FacilitySocialLinks from './FacilitySocialLinks'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { MediaImage } from '@/templates/common/mediaImage'
+import { TextWithImage } from '@/templates/components/textWithImage'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -130,54 +131,58 @@ export function HealthCareLocalFacility({
               >
                 Location and contact information
               </h2>
-              <div className="region-list vads-u-display--flex vads-u-flex-direction--column mobile-lg:vads-u-flex-direction--row facility vads-u-margin-bottom--4">
-                <div className="mobile-lg:vads-grid-col-8 vads-u-padding-right--0p5">
-                  <div>
-                    <OperatingStatusFlags
-                      operatingStatusFacility={operatingStatusFacility}
-                      basePath={menu.data.links[0].url.path}
+              <TextWithImage
+                image={
+                  <>
+                    <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
+                    <div
+                      data-widget-type="facility-map"
+                      data-facility={facilityLocatorApiId}
                     />
-                    <section>
-                      {/* Embedding structured data scripts for schema.org */}
-                      <script
-                        type="application/ld+json"
-                        dangerouslySetInnerHTML={{
-                          __html: JSON.stringify(structuredSchemaData),
-                        }}
-                      />
+                  </>
+                }
+              >
+                <div>
+                  <OperatingStatusFlags
+                    operatingStatusFacility={operatingStatusFacility}
+                    basePath={menu.data.links[0].url.path}
+                  />
+                  <section>
+                    {/* Embedding structured data scripts for schema.org */}
+                    <script
+                      type="application/ld+json"
+                      dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(structuredSchemaData),
+                      }}
+                    />
 
-                      <h3
-                        className="vads-u-margin-top--0 vads-u-margin-bottom--1"
-                        id="address-heading"
-                      >
-                        Address
-                      </h3>
-                      <div className="vads-u-margin-bottom--3">
-                        <Address address={address} title={title} />
-                      </div>
+                    <h3
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                      id="address-heading"
+                    >
+                      Address
+                    </h3>
+                    <div className="vads-u-margin-bottom--3">
+                      <Address address={address} title={title} />
+                    </div>
 
-                      <h3
-                        className="vads-u-margin-top--0 vads-u-margin-bottom--1"
-                        id="phone-numbers"
-                      >
-                        Phone numbers
-                      </h3>
-                      <Phone
-                        mainPhoneString={mainPhoneString}
-                        vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
-                        mentalHealthPhoneNumber={fieldTelephone}
-                      />
-                      <div data-testid="facility-hours">
-                        <Hours allHours={officeHours} headerType="clinical" />
-                      </div>
-                    </section>
-                  </div>
+                    <h3
+                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                      id="phone-numbers"
+                    >
+                      Phone numbers
+                    </h3>
+                    <Phone
+                      mainPhoneString={mainPhoneString}
+                      vaHealthConnectPhoneNumber={vaHealthConnectPhoneNumber}
+                      mentalHealthPhoneNumber={fieldTelephone}
+                    />
+                    <div data-testid="facility-hours">
+                      <Hours allHours={officeHours} headerType="clinical" />
+                    </div>
+                  </section>
                 </div>
-                <ImageAndStaticMap
-                  image={image}
-                  facilityId={facilityLocatorApiId}
-                />
-              </div>
+              </TextWithImage>
               <LocationServices items={locationServices} />
               <RelatedLinks
                 sectionTitle={relatedLinks.sectionTitle}
