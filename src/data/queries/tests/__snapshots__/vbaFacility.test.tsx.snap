@@ -53,6 +53,7 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
   },
   "entityId": 4030,
   "entityPath": "/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
+  "facilityLocatorApiId": "vba_317a",
   "featuredContent": [
     {
       "description": "<p>VA-accredited representatives can help you file a claim or request a decision review. </p>
@@ -72,7 +73,6 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
       "type": "paragraph--featured_content",
     },
   ],
-  "fieldFacilityLocatorApiId": "vba_317a",
   "id": "a08da437-55a4-451c-8f90-af498f38a297",
   "image": null,
   "lastUpdated": "2023-09-19T13:13:04+00:00",

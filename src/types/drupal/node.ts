@@ -58,6 +58,7 @@ export type NodeTypes =
   | NodeFaqMultipleQA
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
+  | NodeVamcHealthServicesListing
   | NodeLandingPage
   | NodeLocationsListing
   | NodeNewsStory
@@ -504,4 +505,9 @@ export interface NodeVetCenterCap extends CommonVetCenterFields, DrupalNode {
   field_office:
     | NodeVetCenter
     | { type: string; id: string; resourceIdObjMeta: unknown }
+}
+
+export interface NodeVamcHealthServicesListing extends DrupalNode {
+  field_description: string
+  field_intro_text: string
 }

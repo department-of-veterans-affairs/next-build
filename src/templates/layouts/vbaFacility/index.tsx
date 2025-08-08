@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VbaFacility as FormattedVBAFacility } from '@/types/formatted/vbaFacility'
 import { Wysiwyg } from '@/templates/components/wysiwyg'
@@ -6,8 +7,24 @@ import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { Hours } from '@/templates/components/hours'
-import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
+import { MediaImage } from '@/templates/common/mediaImage'
+import { TextWithImage } from '@/templates/components/textWithImage'
+
+type facilityApiAddress = {
+  addressLine1: string
+  addressLine2?: string | null
+  administrativeArea: string
+  countryCode: string
+  locality: string
+  postalCode: string
+}
+interface customWindow extends Window {
+  mainVBAPhone?: string
+  mainVBAAddress?: facilityApiAddress
+  mainVBAFacilityApiId?: string
+}
+declare const window: customWindow
 
 export function VbaFacility({
   title,
@@ -16,7 +33,7 @@ export function VbaFacility({
   ccCantFindBenefits,
   ccVBAFacilityOverview,
   featuredContent,
-  fieldFacilityLocatorApiId,
+  facilityLocatorApiId,
   image,
   officeHours,
   operatingStatusFacility,
@@ -25,6 +42,18 @@ export function VbaFacility({
   phoneNumber,
   address,
 }: FormattedVBAFacility) {
+  useEffect(() => {
+    window.mainVBAPhone = phoneNumber
+    window.mainVBAAddress = {
+      addressLine1: address.address_line1,
+      addressLine2: address.address_line2 || null,
+      administrativeArea: address.administrative_area,
+      countryCode: address.country_code,
+      locality: address.locality,
+      postalCode: address.postal_code,
+    }
+    window.mainVBAFacilityApiId = facilityLocatorApiId
+  }, [phoneNumber, address, facilityLocatorApiId])
   return (
     <div className="interior">
       <main className="va-l-detail-page va-facility-page">
@@ -67,47 +96,45 @@ export function VbaFacility({
             >
               Location and contact information
             </h2>
-            <div
-              className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column
-            mobile-lg:vads-u-flex-direction--row facility"
+            <TextWithImage
+              image={
+                <>
+                  <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
+                  <div
+                    data-widget-type="facility-map"
+                    data-facility={facilityLocatorApiId}
+                  />
+                </>
+              }
             >
-              <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
-                <div className="vads-c-facility-detail">
-                  <section className="vads-facility-detail">
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                      Address
-                    </h3>
+              <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                Address
+              </h3>
 
-                    <ExpandableOperatingStatus
-                      operatingStatusFlag={operatingStatusFacility}
-                      operatingStatusMoreInfo={operatingStatusMoreInfo}
-                    />
-
-                    <div className="vads-u-margin--0 vads-u-margin-bottom--3">
-                      <Address address={address} title={title} />
-                    </div>
-
-                    <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                      Phone numbers
-                    </h3>
-                    <PhoneNumber
-                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
-                      label="Main phone"
-                      number={phoneNumber}
-                    />
-                    <PhoneNumber
-                      className="vads-u-margin-top--0 vads-u-margin-bottom--1"
-                      {...ccBenefitsHotline}
-                    />
-                    <Hours headerType="office" allHours={officeHours} />
-                  </section>
-                </div>
-              </div>
-              <ImageAndStaticMap
-                image={image}
-                facilityId={fieldFacilityLocatorApiId}
+              <ExpandableOperatingStatus
+                operatingStatusFlag={operatingStatusFacility}
+                operatingStatusMoreInfo={operatingStatusMoreInfo}
               />
-            </div>
+
+              <div className="vads-u-margin--0 vads-u-margin-bottom--3">
+                <Address address={address} title={title} />
+              </div>
+
+              <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                Phone numbers
+              </h3>
+              <PhoneNumber
+                className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                label="Main phone"
+                number={phoneNumber}
+              />
+              <PhoneNumber
+                className="vads-u-margin-top--0 vads-u-margin-bottom--1"
+                {...ccBenefitsHotline}
+              />
+              <Hours headerType="office" allHours={officeHours} />
+            </TextWithImage>
+
             {/* Prepare for Your Visit */}
             {prepareForVisit && prepareForVisit.length > 0 && (
               <PrepareForVisitAccordions
@@ -167,7 +194,7 @@ export function VbaFacility({
             >
               Other nearby VA locations
             </h2>
-            <div>TODO: Add Other nearby VA locations</div>
+            <div data-widget-type="va-location-nearby"></div>
 
             <h2
               id="va-locations-in-other-areas"
