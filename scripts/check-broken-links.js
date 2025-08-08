@@ -53,8 +53,8 @@ const LINKS_TO_SKIP = [
   'www.choicehotels.com',
   'www.googletagmanager.com',
   /visn\d+.*?\.va\.gov/,
-  /^.*fb\.(com|me|watch).*/,
-  /^.*www.facebook.com.*/,
+  /fb\.(com|me|watch)/,
+  /www\.facebook\.com/,
   // process.env.SKIP_IMAGES ? '' : null
 ]
 
