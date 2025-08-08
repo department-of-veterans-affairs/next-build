@@ -52,9 +52,12 @@ const LINKS_TO_SKIP = [
   'womenshealth.va.gov',
   'www.choicehotels.com',
   'www.googletagmanager.com',
-  /^.*fb\..*/,
   /visn\d+.*?\.va\.gov/,
+  /^.*fb\.com.*/,
+  /^.*fb\.me.*/,
+  /^.*fb\.watch.*/,
   /^.*www.facebook.com.*/,
+
   // process.env.SKIP_IMAGES ? '' : null
 ]
 
