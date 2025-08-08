@@ -19,7 +19,7 @@ type VbaSocialLinksProps = {
   links: {
     label: string
     url: string
-    type: string
+    type: string | null
   }[]
   heading: string
 }
