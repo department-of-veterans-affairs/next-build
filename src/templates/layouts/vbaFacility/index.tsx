@@ -10,6 +10,7 @@ import { Hours } from '@/templates/components/hours'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { TextWithImage } from '@/templates/components/textWithImage'
+import { GetUpdatesSection } from '@/templates/components/getUpdatesSection'
 
 type facilityApiAddress = {
   addressLine1: string
@@ -31,6 +32,7 @@ export function VbaFacility({
   lastUpdated,
   ccBenefitsHotline,
   ccCantFindBenefits,
+  ccGetUpdates,
   ccVBAFacilityOverview,
   featuredContent,
   facilityLocatorApiId,
@@ -187,7 +189,13 @@ export function VbaFacility({
                   )}
               </va-alert>
             )}
-            <div>TODO: Add conditional get updates links</div>
+            {ccGetUpdates && (
+              <GetUpdatesSection
+                heading={ccGetUpdates.heading}
+                links={ccGetUpdates.links}
+                sectionId="get-updates-from-the-veteran-b"
+              />
+            )}
             <h2
               id="other-nearby-va-locations"
               className="vads-u-margin-bottom--3"
