@@ -10,6 +10,7 @@ import { Hours } from '@/templates/components/hours'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { TextWithImage } from '@/templates/components/textWithImage'
+import { GetUpdatesSection } from '@/templates/components/getUpdatesSection'
 
 type facilityApiAddress = {
   addressLine1: string
@@ -189,31 +190,11 @@ export function VbaFacility({
               </va-alert>
             )}
             {ccGetUpdates && (
-              <section className="vads-u-background-color--gray-lightest vads-u-margin-top--4 mobile-lg:vads-u-margin-top--6 vads-u-padding-x--3 vads-u-padding-y--2p5">
-                <h2
-                  id="get-updates-from-the-veteran-b"
-                  className="vads-u-margin-bottom--2 vads-u-margin-top--0"
-                >
-                  {ccGetUpdates.heading}
-                </h2>
-                <div className="vads-grid-row vads-u-flex-wrap--wrap">
-                  {ccGetUpdates.links.map((link, index) => (
-                    <p
-                      key={index}
-                      className="tablet:vads-grid-col-6 vads-u-display--flex vads-u-align-items--flex-start vads-u-margin-bottom--2 vads-u-margin-top--0"
-                    >
-                      {link.type && (
-                        <va-icon
-                          icon={link.type}
-                          size="3"
-                          class="vads-u-color--link-default vads-u-margin-right--1"
-                        />
-                      )}
-                      <va-link href={link.url} text={link.label} />
-                    </p>
-                  ))}
-                </div>
-              </section>
+              <GetUpdatesSection
+                heading={ccGetUpdates.heading}
+                links={ccGetUpdates.links}
+                sectionId="get-updates-from-the-veteran-b"
+              />
             )}
             <h2
               id="other-nearby-va-locations"
