@@ -203,19 +203,32 @@ export const formatter: QueryFormatter<
   outstations,
   mobileVetCenters,
 }: VetCenterLocationListingData) => {
+  const formattedOutstations = outstations.map(
+    formatVetCenterOutstationLocationInfo
+  )
+  const formattedCaps = caps.map(formatVetCenterCapLocationInfo)
+  const formattedMVCs = mobileVetCenters.map(formatMobileVetCenterLocationInfo)
+  const formattedNearbyMVCs = entity.field_nearby_mobile_vet_centers.map(
+    formatMobileVetCenterLocationInfo
+  )
+
+  const sortByTitle = (a: CommonVetCenterFields, b: CommonVetCenterFields) =>
+    a.title.localeCompare(b.title)
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
     mainOffice: formatVetCenterLocationInfo(
       entity.field_office as NodeVetCenter
     ),
-    nearbyMobileVetCenters: entity.field_nearby_mobile_vet_centers.map(
-      formatMobileVetCenterLocationInfo
-    ),
-    mobileVetCenters: mobileVetCenters.map(formatMobileVetCenterLocationInfo),
+    // Sort the nearby mobile vet centers by title
+    nearbyMobileVetCenters: formattedNearbyMVCs.sort(sortByTitle),
+    // Sort the mobile vet centers by title
+    mobileVetCenters: formattedMVCs.sort(sortByTitle),
+    // Sort the satellite locations by title but with all the outstations first
     satelliteLocations: [
-      ...caps.map(formatVetCenterCapLocationInfo),
-      ...outstations.map(formatVetCenterOutstationLocationInfo),
+      ...formattedOutstations.sort(sortByTitle),
+      ...formattedCaps.sort(sortByTitle),
     ],
   }
 }
