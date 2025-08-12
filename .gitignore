@@ -69,3 +69,6 @@ exit_code
 
 # repomix
 *repomix-output.txt
+
+# logs
+logs/

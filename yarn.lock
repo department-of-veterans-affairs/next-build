@@ -12103,7 +12103,7 @@ __metadata:
     cross-fetch: ^4.0.0
     debug: ^4.3.4
     p-retry: ^6.2.0
-    socks-proxy-agent: ^8.0.3
+    socks-proxy-agent: ^8.0.5
     syswide-cas: ^5.3.0
   languageName: unknown
   linkType: soft

@@ -58,6 +58,7 @@ export type NodeTypes =
   | NodeFaqMultipleQA
   | NodeHealthCareRegionPage
   | NodeHealthCareLocalFacility
+  | NodeVamcHealthServicesListing
   | NodeLandingPage
   | NodeLocationsListing
   | NodeNewsStory
@@ -471,7 +472,9 @@ export interface NodeVetCenter extends CommonVetCenterFields, DrupalNode {
   field_vet_center_banner_image: FieldVetCenterBannerImage
 }
 
-type VetCenterFieldOffice = NodeVetCenter | { type: string; id: string; resourceIdObjMeta: unknown }
+type VetCenterFieldOffice =
+  | NodeVetCenter
+  | { type: string; id: string; resourceIdObjMeta: unknown }
 
 export interface NodeVetCenterLocationListing extends DrupalNode {
   field_office: VetCenterFieldOffice
@@ -493,7 +496,9 @@ export interface NodeVetCenterCap extends CommonVetCenterFields, DrupalNode {
   field_office: VetCenterFieldOffice
 }
 
-export interface NodeVetCenterOutstation extends CommonVetCenterFields, DrupalNode {
+export interface NodeVetCenterOutstation
+  extends CommonVetCenterFields,
+    DrupalNode {
   field_office: VetCenterFieldOffice
   field_office_hours: FieldOfficeHours[]
   field_official_name: string
@@ -502,4 +507,9 @@ export interface NodeVetCenterOutstation extends CommonVetCenterFields, DrupalNo
   field_phone_number: string
   field_timezone: string
   field_health_services: VetCenterFieldHealthServicesArray
+}
+
+export interface NodeVamcHealthServicesListing extends DrupalNode {
+  field_description: string
+  field_intro_text: string
 }
