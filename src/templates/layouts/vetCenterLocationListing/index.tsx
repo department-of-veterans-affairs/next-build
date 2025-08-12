@@ -2,6 +2,7 @@ import React from 'react'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VetCenterLocationInfo } from './VetCenterLocationInfo'
+import { NearbyVetCenters } from './NearbyVetCenters'
 
 export function VetCenterLocationListing({
   title,
@@ -67,6 +68,11 @@ export function VetCenterLocationListing({
                 ))}
               </>
             )}
+
+            <NearbyVetCenters
+              mainOffice={mainOffice}
+              satelliteLocations={satelliteLocations}
+            />
 
             <h2
               className="vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
