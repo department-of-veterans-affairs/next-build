@@ -52,173 +52,171 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
 
   return (
     <div className="vads-grid-container">
-      <div className="usa-width-three-fourths">
-        <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
-          {title && (
+      <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
+        {title && (
+          <>
+            <h1 aria-describedby={alsoCalled ? alsoCalledId : undefined}>
+              {title}
+            </h1>
+            {alsoCalled && (
+              <p
+                id={alsoCalledId}
+                className="vads-u-font-family--serif vads-u-font-size--lg vads-u-font-weight--bold"
+              >
+                {alsoCalled}
+              </p>
+            )}
+          </>
+        )}
+        {bannerImage && (
+          <MediaImage
+            {...bannerImage}
+            imageStyle="7_2_medium_thumbnail"
+            className="vads-u-padding-y--1p5"
+          />
+        )}
+        {introText && (
+          <div className="va-introtext">
+            <p>{introText}</p>
+          </div>
+        )}
+        {missionExplainer && (
+          <va-summary-box
+            class="vads-u-margin-bottom--4 desktop:vads-u-margin-bottom--0"
+            data-header-id-excluded="true"
+          >
+            <h2 slot="headline">{missionExplainer.heading}</h2>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: missionExplainer.body,
+              }}
+            />
+          </va-summary-box>
+        )}
+        <va-on-this-page></va-on-this-page>
+
+        {/* Locations and contact */}
+        <h2 id="locations-and-contact-information">
+          Location and contact information
+        </h2>
+        <TextWithImage
+          image={
             <>
-              <h1 aria-describedby={alsoCalled ? alsoCalledId : undefined}>
-                {title}
-              </h1>
-              {alsoCalled && (
-                <p
-                  id={alsoCalledId}
-                  className="vads-u-font-family--serif vads-u-font-size--lg vads-u-font-weight--bold"
-                >
-                  {alsoCalled}
-                </p>
-              )}
-            </>
-          )}
-          {bannerImage && (
-            <MediaImage
-              {...bannerImage}
-              imageStyle="7_2_medium_thumbnail"
-              className="vads-u-padding-y--1p5"
-            />
-          )}
-          {introText && (
-            <div className="va-introtext">
-              <p>{introText}</p>
-            </div>
-          )}
-          {missionExplainer && (
-            <va-summary-box
-              class="vads-u-margin-bottom--4 tablet:vads-u-margin-bottom--0"
-              data-header-id-excluded="true"
-            >
-              <h2 slot="headline">{missionExplainer.heading}</h2>
+              <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
               <div
-                dangerouslySetInnerHTML={{
-                  __html: missionExplainer.body,
-                }}
+                data-widget-type="facility-map"
+                data-facility={fieldFacilityLocatorApiId}
               />
-            </va-summary-box>
-          )}
-          <va-on-this-page></va-on-this-page>
-
-          {/* Locations and contact */}
-          <h2 id="locations-and-contact-information">
-            Location and contact information
-          </h2>
-          <TextWithImage
-            image={
-              <>
-                <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
-                <div
-                  data-widget-type="facility-map"
-                  data-facility={fieldFacilityLocatorApiId}
-                />
-              </>
-            }
-          >
-            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-              Address
-            </h3>
-            <ExpandableOperatingStatus
-              operatingStatusFlag={operatingStatusFacility}
-              operatingStatusMoreInfo={operatingStatusMoreInfo}
-            />
-            <div className="vads-u-margin--0 vads-u-margin-bottom--3">
-              <Address address={address} title={title} />
-            </div>
-
-            <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-              Phone number
-            </h3>
-            <PhoneNumber
-              className="vads-u-margin-top--0 vads-u-margin-bottom--3"
-              label="Main phone"
-              number={phoneNumber}
-            />
-
-            <Hours
-              headerType="standard"
-              allHours={officeHours}
-              nonTraditionalMessage={ccNonTraditionalHours}
-            />
-          </TextWithImage>
-
-          {/* Call Center Information */}
-          {ccVetCenterCallCenter && (
-            <div className="vads-u-margin-bottom--2">
-              <AlertBlock
-                alertType="info"
-                id="field-cc-vet-call-center"
-                title="Need help after hours?"
-                content={ccVetCenterCallCenter}
-              />
-            </div>
-          )}
-
-          {/* Other locations */}
-          <div className="vads-u-margin-bottom--3">
-            <h2 id="other-locations">Other locations</h2>
-            <p>
-              Vet Centers are community based to be more accessible in areas
-              where you live.
-            </p>
-            <p>
-              <va-link
-                active
-                href={`${path}/locations`}
-                text={`View more ${title} locations`}
-              ></va-link>
-            </p>
+            </>
+          }
+        >
+          <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+            Address
+          </h3>
+          <ExpandableOperatingStatus
+            operatingStatusFlag={operatingStatusFacility}
+            operatingStatusMoreInfo={operatingStatusMoreInfo}
+          />
+          <div className="vads-u-margin--0 vads-u-margin-bottom--3">
+            <Address address={address} title={title} />
           </div>
 
-          {/* Prepare for Your Visit */}
-          {prepareForVisit && prepareForVisit.length > 0 && (
-            <PrepareForVisitAccordions visitItems={prepareForVisit} />
-          )}
+          <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+            Phone number
+          </h3>
+          <PhoneNumber
+            className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+            label="Main phone"
+            number={phoneNumber}
+          />
 
-          {/* Featured Content */}
-          <h2
-            id="in-the-spot-light"
-            className="vads-u-margin-top--0 vads-u-font-size--lg
+          <Hours
+            headerType="standard"
+            allHours={officeHours}
+            nonTraditionalMessage={ccNonTraditionalHours}
+          />
+        </TextWithImage>
+
+        {/* Call Center Information */}
+        {ccVetCenterCallCenter && (
+          <div className="vads-u-margin-bottom--2">
+            <AlertBlock
+              alertType="info"
+              id="field-cc-vet-call-center"
+              title="Need help after hours?"
+              content={ccVetCenterCallCenter}
+            />
+          </div>
+        )}
+
+        {/* Other locations */}
+        <div className="vads-u-margin-bottom--3">
+          <h2 id="other-locations">Other locations</h2>
+          <p>
+            Vet Centers are community based to be more accessible in areas where
+            you live.
+          </p>
+          <p>
+            <va-link
+              active
+              href={`${path}/locations`}
+              text={`View more ${title} locations`}
+            ></va-link>
+          </p>
+        </div>
+
+        {/* Prepare for Your Visit */}
+        {prepareForVisit && prepareForVisit.length > 0 && (
+          <PrepareForVisitAccordions visitItems={prepareForVisit} />
+        )}
+
+        {/* Featured Content */}
+        <h2
+          id="in-the-spot-light"
+          className="vads-u-margin-top--0 vads-u-font-size--lg
           mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
-          >
-            In the spotlight
-          </h2>
-          <div
-            id="field-vet-center-feature-content"
-            className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-flex-direction--row vads-u-margin-bottom--4 "
-          >
-            {featuredContent &&
-              featuredContent.map((content, index) => (
-                <FeaturedContent
-                  key={index}
-                  title={content.title}
-                  description={content.description}
-                  link={content.link}
-                  id={content.id || ''}
-                />
-              ))}
-          </div>
+        >
+          In the spotlight
+        </h2>
+        <div
+          id="field-vet-center-feature-content"
+          className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-flex-direction--row vads-u-margin-bottom--4 "
+        >
+          {featuredContent &&
+            featuredContent.map((content, index) => (
+              <FeaturedContent
+                key={index}
+                title={content.title}
+                description={content.description}
+                link={content.link}
+                id={content.id || ''}
+              />
+            ))}
+        </div>
 
-          {/* Health Services */}
-          <VetCenterHealthServices
-            services={counselingHealthServices}
-            typeOfCare={'counseling'}
-          />
-          <VetCenterHealthServices
-            services={referralHealthServices}
-            typeOfCare={'referral'}
-          />
-          <VetCenterHealthServices
-            services={otherHealthServices}
-            typeOfCare={'other'}
-          />
+        {/* Health Services */}
+        <VetCenterHealthServices
+          services={counselingHealthServices}
+          typeOfCare={'counseling'}
+        />
+        <VetCenterHealthServices
+          services={referralHealthServices}
+          typeOfCare={'referral'}
+        />
+        <VetCenterHealthServices
+          services={otherHealthServices}
+          typeOfCare={'other'}
+        />
 
-          {/* FAQs */}
-          {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
+        {/* FAQs */}
+        {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
 
-          <va-back-to-top></va-back-to-top>
+        <va-back-to-top></va-back-to-top>
 
-          <ContentFooter />
+        <ContentFooter />
 
-          <SchemaScript vetCenter={vetCenterProps} />
-        </article>
-      </div>
+        <SchemaScript vetCenter={vetCenterProps} />
+      </article>
     </div>
   )
 }
