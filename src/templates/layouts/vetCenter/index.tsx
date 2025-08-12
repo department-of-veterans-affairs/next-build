@@ -82,7 +82,7 @@ export function VetCenter(vetCenterProps: FormattedVetCenter) {
         )}
         {missionExplainer && (
           <va-summary-box
-            class="vads-u-margin-bottom--4 tablet:vads-u-margin-bottom--0"
+            class="vads-u-margin-bottom--4 desktop:vads-u-margin-bottom--0"
             data-header-id-excluded="true"
           >
             <h2 slot="headline">{missionExplainer.heading}</h2>
