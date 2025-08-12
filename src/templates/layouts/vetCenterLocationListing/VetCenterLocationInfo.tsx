@@ -70,14 +70,20 @@ export const VetCenterLocationInfo = ({
       image={
         <>
           {image && <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />}
-          <div
+          {/* <div
             data-widget-type={
               isMainOffice
                 ? 'facility-map-satellite-main-office'
                 : 'facility-map-satellite-locations'
             }
             data-facility={fieldFacilityLocatorApiId}
-          />
+          /> */}
+          {isMainOffice && (
+            <div
+              data-widget-type="facility-map-satellite-main-office"
+              data-facility={fieldFacilityLocatorApiId}
+            />
+          )}
         </>
       }
     >
