@@ -23,7 +23,6 @@ export function NearbyVetCenters({
 }: NearbyVetCentersProps) {
   useEffect(() => {
     // Set up the JavaScript variables that the nearby vet centers widget needs
-    // This replicates the functionality from the nearby.liquid file
     if (typeof window !== 'undefined') {
       window.mainVetCenterPhone = mainOffice.phoneNumber
       window.mainVetCenterAddress = mainOffice.address
