@@ -109,7 +109,7 @@ class TestUser(HttpUser):
 
 class NextBuildUser(HttpUser):
     """User behavior for Next Build application"""
-    wait_time = between(1, 5)
+    wait_time = between(5, 15)
     weight = 1
 
     def on_start(self):
@@ -124,8 +124,8 @@ class NextBuildUser(HttpUser):
 
 class ContentBuildUser(HttpUser):
     """User behavior for Content Build application"""
-    wait_time = between(1, 5)
-    weight = 1
+    wait_time = between(5, 15)
+    weight = 2
 
     def on_start(self):
         """Called when a user starts"""
@@ -139,8 +139,8 @@ class ContentBuildUser(HttpUser):
 
 class ReactRouterUser(HttpUser):
     """User behavior for React Router application"""
-    wait_time = between(1, 5)
-    weight = 1
+    wait_time = between(5, 15)
+    weight = 5
 
     def on_start(self):
         """Called when a user starts"""
@@ -151,6 +151,33 @@ class ReactRouterUser(HttpUser):
         category = random.choice(list(REACTROUTES_URLS.keys()))
         page = random.choice(REACTROUTES_URLS[category])
         self.client.get(page['url'])
+
+class NormalPeakShape(LoadTestShape):
+    
+    stages = [
+        # Progressive load increase
+        {"duration": 120, "users": 50, "spawn_rate": 5, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]},
+        {"duration": 240, "users": 500, "spawn_rate": 5, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]},
+        {"duration": 360, "users": 1200, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]},
+        {"duration": 960, "users": 2000, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]}, # Normal Max Users (Run for 10 mins)
+        {"duration": 1080, "users": 2800, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]}, # Start Increasing to Peak
+        {"duration": 1200, "users": 3600, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]},
+        {"duration": 1800, "users": 4400, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]}, # Peak (run for 10 mins)
+        {"duration": 1920, "users": 3600, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]}, # begin cooldowm
+        {"duration": 2040, "users": 2800, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]},
+        {"duration": 2160, "users": 1500, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]},
+        {"duration": 2280, "users": 500, "spawn_rate": 10, "user_classes": [NextBuildUser, ContentBuildUser, ReactRouterUser]},
+    ]
+    
+    def tick(self):
+        run_time = self.get_run_time()
+        
+        for stage in self.stages:
+            if run_time < stage["duration"]:
+                return (stage["users"], stage["spawn_rate"])
+        
+        return None
+
 
 class CustomLoadTestShape(LoadTestShape):
     """
