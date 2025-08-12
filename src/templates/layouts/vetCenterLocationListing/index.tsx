@@ -10,9 +10,6 @@ export function VetCenterLocationListing({
   satelliteLocations,
   mobileVetCenters,
 }: FormattedVetCenterLocationListing) {
-  // console.log('satelliteLocations', satelliteLocations)
-  // console.log('nearbyMobileVetCenters', nearbyMobileVetCenters)
-  // console.log('mobileVetCenters', mobileVetCenters)
   const showSatelliteLocations =
     satelliteLocations.length > 0 ||
     nearbyMobileVetCenters.length > 0 ||
