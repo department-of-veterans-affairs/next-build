@@ -2,7 +2,7 @@ import {
   VetCenterInfoVariant,
   VetCenterLocationInfo as VetCenterLocationInfoType,
   VetCenterCapLocationInfo,
-  MobileVetCenterLocationInfo,
+  VetCenterOutstationLocationInfo,
 } from '@/types/formatted/vetCenterLocationListing'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
@@ -10,11 +10,19 @@ import { Hours } from '@/templates/components/hours'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { TextWithImage } from '@/templates/components/textWithImage'
+import { ReactNode } from 'react'
+import { FieldOfficeHours } from '@/types/drupal/field_type'
 
-interface VetCenterLocationInfoProps {
-  isMainOffice?: boolean
-  mainVetCenterPhone?: string
+interface VetCenterLocationInfoMainOfficeProps {
+  isMainOffice: true
   vetCenter: VetCenterInfoVariant
+  mainOffice?: undefined
+}
+
+interface VetCenterLocationInfoSatelliteProps {
+  isMainOffice?: false | undefined
+  vetCenter: VetCenterInfoVariant
+  mainOffice: VetCenterLocationInfoType
 }
 
 // Type guards to check Vet Center variant types
@@ -30,10 +38,10 @@ const isVetCenterCap = (
   return vetCenter.type === 'node--vet_center_cap'
 }
 
-const isMobileVetCenter = (
+const isVetCenterOutstation = (
   vetCenter: VetCenterInfoVariant
-): vetCenter is MobileVetCenterLocationInfo => {
-  return vetCenter.type === 'node--vet_center_mobile_vet_center'
+): vetCenter is VetCenterOutstationLocationInfo => {
+  return vetCenter.type === 'node--vet_center_outstation'
 }
 
 /**
@@ -43,8 +51,10 @@ const isMobileVetCenter = (
 export const VetCenterLocationInfo = ({
   vetCenter,
   isMainOffice = false,
-  mainVetCenterPhone,
-}: VetCenterLocationInfoProps) => {
+  mainOffice,
+}:
+  | VetCenterLocationInfoMainOfficeProps
+  | VetCenterLocationInfoSatelliteProps) => {
   const { title, address, image, fieldFacilityLocatorApiId } = vetCenter
 
   let alsoCalled: string | undefined
@@ -62,11 +72,20 @@ export const VetCenterLocationInfo = ({
     | VetCenterCapLocationInfo
 
   const phoneNumber = isVetCenterCap(vetCenter)
-    ? mainVetCenterPhone
+    ? mainOffice.phoneNumber
     : vetCenter.phoneNumber
 
-  const officeHours =
-    isVetCenter(vetCenter) && isMainOffice ? vetCenter.officeHours : undefined
+  let officeHours: FieldOfficeHours[] | undefined
+  let officeHoursAlternative: ReactNode | undefined
+  if (isVetCenter(vetCenter) || isVetCenterOutstation(vetCenter)) {
+    officeHours = vetCenter.officeHours
+  } else if (isVetCenterCap(vetCenter) && vetCenter.vetCenterCapHoursOptIn) {
+    officeHours = mainOffice.officeHours
+  } else if (isVetCenterCap(vetCenter)) {
+    officeHoursAlternative = (
+      <p>Veterans should call main Vet Center for hours</p>
+    )
+  }
 
   return (
     <TextWithImage
@@ -145,6 +164,7 @@ export const VetCenterLocationInfo = ({
           <Hours allHours={officeHours} />
         </div>
       )}
+      {officeHoursAlternative}
     </TextWithImage>
   )
 }

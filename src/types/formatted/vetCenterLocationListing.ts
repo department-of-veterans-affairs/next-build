@@ -43,7 +43,7 @@ export type VetCenterCapLocationInfo = PublishedEntity &
   CommonVetCenterFields & {
     type: 'node--vet_center_cap'
     geographicalIdentifier: string
-    vetcenterCapHoursOptIn: boolean
+    vetCenterCapHoursOptIn: boolean
     operatingStatusFacility: FacilityOperatingStatusFlags
     operatingStatusMoreInfo: string | null
   }

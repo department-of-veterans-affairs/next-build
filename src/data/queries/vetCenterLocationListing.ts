@@ -149,7 +149,7 @@ const formatVetCenterCapLocationInfo = (
     ...baseFields,
     type: 'node--vet_center_cap',
     geographicalIdentifier: entity.field_geographical_identifier,
-    vetcenterCapHoursOptIn: entity.field_vetcenter_cap_hours_opt_in || false,
+    vetCenterCapHoursOptIn: entity.field_vetcenter_cap_hours_opt_in || false,
     operatingStatusFacility: entity.field_operating_status_facility,
     operatingStatusMoreInfo: entity.field_operating_status_more_info
       ? getHtmlFromDrupalContent(entity.field_operating_status_more_info, {

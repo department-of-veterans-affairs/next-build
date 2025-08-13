@@ -64,7 +64,7 @@ export function VetCenterLocationListing({
                   <VetCenterLocationInfo
                     key={location.id}
                     vetCenter={location}
-                    mainVetCenterPhone={mainOffice.phoneNumber}
+                    mainOffice={mainOffice}
                   />
                 ))}
 
@@ -72,6 +72,7 @@ export function VetCenterLocationListing({
                   <VetCenterLocationInfo
                     key={location.id}
                     vetCenter={location}
+                    mainOffice={mainOffice}
                   />
                 ))}
 
@@ -79,6 +80,7 @@ export function VetCenterLocationListing({
                   <VetCenterLocationInfo
                     key={location.id}
                     vetCenter={location}
+                    mainOffice={mainOffice}
                   />
                 ))}
               </>
