@@ -10,13 +10,13 @@ After the next-build template has been running in Production without issue, the 
 
 - Use the [move product script](https://github.com/department-of-veterans-affairs/next-build/blob/main/scripts/move-product.sh) to move all files pertaining to the product into a single product folder
 - Within the [CODEOWNERS](https://github.com/department-of-veterans-affairs/next-build/blob/main/.github/CODEOWNERS) file, add a separate line item for the new product folder:
-   - Determine code ownership - should if remain with the CMS team or be transferred to another team?
+  - Determine code ownership - should if remain with the CMS team or be transferred to another team?
 - Within GraphQL, stop content-build from building the pages for this template by removing the necessary queries from the:
-   - `get individual` and `get all pages` queries
-   - `count` query
+  - `get individual` and `get all pages` queries
+  - `count` query
 - Create API Tests for the content type
 - Add a comment at the top of the content-build layout to indicate that the layout has been migrated to next-build:
-   - Comment to be added:
+  - Comment to be added:
 ```
 {% comment %}
 This template is no longer used to build production content.
