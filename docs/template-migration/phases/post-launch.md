@@ -17,13 +17,13 @@ After the next-build template has been running in Production without issue, the 
 - Create API Tests for the content type
 - Add a comment at the top of the content-build layout to indicate that the layout has been migrated to next-build:
   - Comment to be added:
+
 ```
 {% comment %}
 This template is no longer used to build production content.
 Please make any changes you need in Next Build.
 {% endcomment %}
 ```
-
 
 ## RACI
 
