@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VetCenterLocationInfo } from './VetCenterLocationInfo'
-import { NearbyVetCenters } from './NearbyVetCenters'
 
 export function VetCenterLocationListing({
   title,
@@ -11,10 +10,26 @@ export function VetCenterLocationListing({
   satelliteLocations,
   mobileVetCenters,
 }: FormattedVetCenterLocationListing) {
+  // Set up the global variables needed by widgets on this page
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Needed by the nearby vet centers widget
+      window.mainVetCenterPhone = mainOffice.phoneNumber
+      window.mainVetCenterAddress = mainOffice.address
+      window.mainVetCenterId = mainOffice.fieldFacilityLocatorApiId
+
+      // Needed by both the facility map widgets and the nearby vet centers widget
+      window.satteliteVetCenters = satelliteLocations.map(
+        (location) => location.fieldFacilityLocatorApiId
+      )
+    }
+  }, [mainOffice, satelliteLocations])
+
   const showSatelliteLocations =
     satelliteLocations.length > 0 ||
     nearbyMobileVetCenters.length > 0 ||
     mobileVetCenters.length > 0
+
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -69,10 +84,7 @@ export function VetCenterLocationListing({
               </>
             )}
 
-            <NearbyVetCenters
-              mainOffice={mainOffice}
-              satelliteLocations={satelliteLocations}
-            />
+            <div data-widget-type="vet-center-nearby" />
 
             <h2
               className="vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"

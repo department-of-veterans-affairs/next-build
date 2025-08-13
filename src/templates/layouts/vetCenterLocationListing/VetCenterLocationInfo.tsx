@@ -36,6 +36,10 @@ const isMobileVetCenter = (
   return vetCenter.type === 'node--vet_center_mobile_vet_center'
 }
 
+/**
+ * For the map widgets to work, certain global variables need to be set, which is
+ * currently being done in the parent VetCenterLocationListing component.
+ */
 export const VetCenterLocationInfo = ({
   vetCenter,
   isMainOffice = false,

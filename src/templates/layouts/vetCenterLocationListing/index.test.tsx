@@ -7,6 +7,17 @@ import mockCap from '@/mocks/vetCenterCap.mock.json'
 import mockOutstation from '@/mocks/vetCenterOutstation.mock.json'
 import { NodeVetCenterCap } from '@/types/drupal/node'
 import { NodeVetCenterOutstation } from '@/types/drupal/node'
+import { FieldAddress } from '@/types/drupal/field_type'
+
+// Extend the Window interface to include the properties needed for the nearby vet centers widget
+declare global {
+  interface Window {
+    mainVetCenterPhone?: string
+    mainVetCenterAddress?: FieldAddress
+    mainVetCenterId?: string
+    satteliteVetCenters?: string[]
+  }
+}
 
 // Restructure mock data to match expected format
 const mockData = formatter({
@@ -20,6 +31,24 @@ const mockData = formatter({
   // https://github.com/chapter-three/next-drupal/issues/686#issuecomment-2083175598
   outstations: [mockOutstation as NodeVetCenterOutstation],
   mobileVetCenters: [],
+})
+
+// Mock window object
+Object.defineProperty(window, 'mainVetCenterPhone', {
+  value: '',
+  writable: true,
+})
+Object.defineProperty(window, 'mainVetCenterAddress', {
+  value: {},
+  writable: true,
+})
+Object.defineProperty(window, 'mainVetCenterId', {
+  value: '',
+  writable: true,
+})
+Object.defineProperty(window, 'satteliteVetCenters', {
+  value: [],
+  writable: true,
 })
 
 describe('VetCenterLocationListing with valid data', () => {
@@ -153,6 +182,31 @@ describe('VetCenterLocationListing with valid data', () => {
       )
       expect(linkElement).toBeInTheDocument()
       expect(linkElement).toHaveAttribute('href', '/find-locations')
+    })
+  })
+
+  describe('Global variables for nearby vet centers widget', () => {
+    beforeEach(() => {
+      // Reset window properties before each test to undefined (more accurate initial state)
+      window.mainVetCenterPhone = undefined
+      window.mainVetCenterAddress = undefined
+      window.mainVetCenterId = undefined
+      window.satteliteVetCenters = undefined
+    })
+
+    test('sets up window variables with the provided props', () => {
+      render(<VetCenterLocationListing {...mockData} />)
+
+      expect(window.mainVetCenterPhone).toBe(mockData.mainOffice.phoneNumber)
+      expect(window.mainVetCenterAddress).toEqual(mockData.mainOffice.address)
+      expect(window.mainVetCenterId).toBe(
+        mockData.mainOffice.fieldFacilityLocatorApiId
+      )
+      expect(window.satteliteVetCenters).toEqual(
+        mockData.satelliteLocations.map(
+          (location) => location.fieldFacilityLocatorApiId
+        )
+      )
     })
   })
 })
