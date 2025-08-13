@@ -8,6 +8,10 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import {
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
@@ -20,26 +24,41 @@ export type VamcHealthServicesListingDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+type VamcHealthServicesListingData = {
+  entity: NodeVamcHealthServicesListing
+  lovell?: ExpandedStaticPropsContext['lovell']
+}
+
 // Implement the data loader.
 export const data: QueryData<
   VamcHealthServicesListingDataOpts,
-  NodeVamcHealthServicesListing
-> = async (opts): Promise<NodeVamcHealthServicesListing> => {
+  VamcHealthServicesListingData
+> = async (opts): Promise<VamcHealthServicesListingData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
     params
   )) as NodeVamcHealthServicesListing
 
-  return entity
+  return {
+    entity,
+    lovell: opts.context?.lovell,
+  }
 }
 
 export const formatter: QueryFormatter<
-  NodeVamcHealthServicesListing,
+  VamcHealthServicesListingData,
   VamcHealthServicesListing
-> = (entity: NodeVamcHealthServicesListing) => {
+> = ({ entity, lovell }) => {
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
+    lovellVariant: lovell?.variant ?? null,
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path?.alias || '',
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : null,
   }
 }
