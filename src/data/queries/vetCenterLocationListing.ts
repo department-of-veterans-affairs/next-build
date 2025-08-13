@@ -66,6 +66,7 @@ export const data: QueryData<
   const relatedParams = new DrupalJsonApiParams()
     .addInclude(['field_media.image'])
     .addFilter('field_office.id', entity.field_office.id)
+    .addFilter('status', '1')
 
   const { data: caps } =
     await fetchAndConcatAllResourceCollectionPages<NodeVetCenterCap>(
