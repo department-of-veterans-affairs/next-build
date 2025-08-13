@@ -194,6 +194,18 @@ const formatMobileVetCenterLocationInfo = (
   }
 }
 
+/**
+ * For some reason archived content is not fetched and rehydrated by the Drupal API. When
+ * we come across one of these entities, we need to be able to ignore it.
+ */
+const isHydrated = (
+  entity:
+    | NodeVetCenter
+    | NodeVetCenterMobileVetCenter
+    | NodeVetCenterCap
+    | NodeVetCenterOutstation
+) => entity.status !== undefined
+
 export const formatter: QueryFormatter<
   VetCenterLocationListingData,
   VetCenterLocationListing
@@ -208,9 +220,9 @@ export const formatter: QueryFormatter<
   )
   const formattedCaps = caps.map(formatVetCenterCapLocationInfo)
   const formattedMVCs = mobileVetCenters.map(formatMobileVetCenterLocationInfo)
-  const formattedNearbyMVCs = entity.field_nearby_mobile_vet_centers.map(
-    formatMobileVetCenterLocationInfo
-  )
+  const formattedNearbyMVCs = entity.field_nearby_mobile_vet_centers
+    .filter(isHydrated)
+    .map(formatMobileVetCenterLocationInfo)
 
   const sortByTitle = (a: CommonVetCenterFields, b: CommonVetCenterFields) =>
     a.title.localeCompare(b.title)
