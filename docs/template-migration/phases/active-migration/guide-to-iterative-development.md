@@ -56,7 +56,7 @@ Each of the following steps can be done in a separate PR:
      discretion for if you want to include them as well; the general rule here is
      that if there's any logic to figure out _what_ or _how_ to display the
      information, or if it'll require any entity hydration, don't include it yet
-1.  Add the Feature toggle for Tugboat
+1. Add the Feature toggle for Tugboat
    - In the [Tugboat .env file](https://github.com/department-of-veterans-affairs/next-build/blob/main/envs/.env.tugboat), add the correct feature toggle so that the new template will build and be able to be QA’ed on tugboat.
    - If you need to find the exact name of the feature toggle, they can be found within Drupal admin: /admin/config/system/feature_toggle
 1. For each of the placeholders in the scaffold, there should already be tickets written as subissues of the larger, parent migration ticket
