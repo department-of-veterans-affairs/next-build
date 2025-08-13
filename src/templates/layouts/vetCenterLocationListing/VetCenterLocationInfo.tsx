@@ -82,12 +82,6 @@ export const VetCenterLocationInfo = ({
             }
             data-facility={fieldFacilityLocatorApiId}
           />
-          {/* {isMainOffice && (
-            <div
-              data-widget-type="facility-map-satellite-main-office"
-              data-facility={fieldFacilityLocatorApiId}
-            />
-          )} */}
         </>
       }
     >
