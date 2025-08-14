@@ -11,7 +11,6 @@ import { MediaImage } from '@/templates/common/mediaImage'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { TextWithImage } from '@/templates/components/textWithImage'
 import { ReactNode } from 'react'
-import { FieldOfficeHours } from '@/types/drupal/field_type'
 
 interface VetCenterLocationInfoMainOfficeProps {
   isMainOffice: true
@@ -36,12 +35,6 @@ const isVetCenterCap = (
   vetCenter: VetCenterInfoVariant
 ): vetCenter is VetCenterCapLocationInfo => {
   return vetCenter.type === 'node--vet_center_cap'
-}
-
-const isVetCenterOutstation = (
-  vetCenter: VetCenterInfoVariant
-): vetCenter is VetCenterOutstationLocationInfo => {
-  return vetCenter.type === 'node--vet_center_outstation'
 }
 
 /**
@@ -75,13 +68,14 @@ export const VetCenterLocationInfo = ({
     ? mainOffice.phoneNumber
     : vetCenter.phoneNumber
 
-  let officeHours: FieldOfficeHours[] | undefined
+  // Define office hours if they exist or the alternative text for CAPs that opt out of
+  // showing hours
+  const { officeHours } = vetCenter as
+    | VetCenterLocationInfoType
+    | VetCenterCapLocationInfo
+    | VetCenterOutstationLocationInfo
   let officeHoursAlternative: ReactNode | undefined
-  if (isVetCenter(vetCenter) || isVetCenterOutstation(vetCenter)) {
-    officeHours = vetCenter.officeHours
-  } else if (isVetCenterCap(vetCenter) && vetCenter.vetCenterCapHoursOptIn) {
-    officeHours = mainOffice.officeHours
-  } else if (isVetCenterCap(vetCenter)) {
+  if (isVetCenterCap(vetCenter) && !vetCenter.vetCenterCapHoursOptIn) {
     officeHoursAlternative = (
       <p>Veterans should call main Vet Center for hours</p>
     )
@@ -156,15 +150,16 @@ export const VetCenterLocationInfo = ({
         </div>
       )}
 
-      {officeHours && (
-        <div className="vads-u-margin-bottom--3">
-          <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-            Hours
-          </h4>
-          <Hours allHours={officeHours} />
-        </div>
-      )}
-      {officeHoursAlternative}
+      {officeHoursAlternative
+        ? officeHoursAlternative
+        : officeHours && (
+            <div className="vads-u-margin-bottom--3">
+              <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+                Hours
+              </h4>
+              <Hours allHours={officeHours} />
+            </div>
+          )}
     </TextWithImage>
   )
 }

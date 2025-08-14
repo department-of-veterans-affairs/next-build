@@ -156,6 +156,7 @@ const formatVetCenterCapLocationInfo = (
           convertNewlines: true,
         })
       : null,
+    officeHours: entity.field_office_hours || [],
   }
 }
 

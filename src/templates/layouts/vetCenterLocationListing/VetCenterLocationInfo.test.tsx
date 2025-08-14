@@ -91,11 +91,13 @@ const mockVetCenterCap: VetCenterCapLocationInfo = {
   vetCenterCapHoursOptIn: false,
   operatingStatusFacility: 'normal',
   operatingStatusMoreInfo: null,
+  officeHours: mockOfficeHours,
 }
 
 const mockVetCenterCapWithOptIn: VetCenterCapLocationInfo = {
   ...mockVetCenterCap,
   vetCenterCapHoursOptIn: true,
+  officeHours: mockOfficeHours,
 }
 
 const mockVetCenterOutstation: VetCenterOutstationLocationInfo = {
@@ -186,7 +188,7 @@ describe('VetCenterLocationInfo', () => {
     })
 
     describe('VetCenterCap with vetCenterCapHoursOptIn=true', () => {
-      it('renders main office hours when CAP opts in to show hours', () => {
+      it('renders CAP office hours when CAP opts in to show hours', () => {
         render(
           <VetCenterLocationInfo
             vetCenter={mockVetCenterCapWithOptIn}
@@ -200,7 +202,7 @@ describe('VetCenterLocationInfo', () => {
     })
 
     describe('VetCenterCap with vetCenterCapHoursOptIn=false', () => {
-      it('shows alternative message when CAP does not opt in to show hours', () => {
+      it('shows alternative message when CAP opts out of showing hours', () => {
         render(
           <VetCenterLocationInfo
             vetCenter={mockVetCenterCap}

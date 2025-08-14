@@ -46,6 +46,7 @@ export type VetCenterCapLocationInfo = PublishedEntity &
     vetCenterCapHoursOptIn: boolean
     operatingStatusFacility: FacilityOperatingStatusFlags
     operatingStatusMoreInfo: string | null
+    officeHours: FieldOfficeHours[]
   }
 
 export type VetCenterOutstationLocationInfo = PublishedEntity &
