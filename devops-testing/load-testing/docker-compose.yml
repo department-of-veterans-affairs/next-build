@@ -5,7 +5,7 @@ services:
     build: .
     ports:
       - '8089:8089'
-    command: -f /locust/locustfile.py --master --class-picker -H https://127.0.0.1
+    command: -f /locust/locustfile.py --master --class-picker -H https://dev.va.gov
     volumes:
       - ./:/locust
 

@@ -247,7 +247,7 @@ class SitemapLoader:
             
             # Skip empty paths
             if not path or path == '/':
-                categories["homepage"].append(url_entry)
+                # categories["homepage"].append(url_entry)
                 continue
                 
             path_lower = path.lower()

@@ -56,26 +56,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/disability-benefits/track-claims</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/disability-benefits/526/apply-for-increase</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/disability-benefits/apply/dependents</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/disability-benefits/apply/form-526-disability-claim</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/disability/file-disability-claim-form-21-526ez</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -181,11 +161,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/facilities</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/family-and-caregiver-benefits/health-and-disability/comprehensive-assistance-for-family-caregivers/apply-form-10-10cg/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -206,11 +181,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/education/gi-bill-comparison-tool-sandbox</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/health-care/apply-for-health-care-form-10-10ez</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -226,34 +196,14 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/health-care/health-records</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/health-care/income-limits</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/health-care/messaging</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/health-care/prescriptions</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/mock-form-minimal-header</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/my-education-benefits</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.va.gov/my-health</loc>
@@ -361,11 +311,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/veteran-id-card/apply</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/health-care/my-health-account-validation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -376,17 +321,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/hearing-aid-batteries-and-accessories</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/view-change-dependents/add-remove-form-21-686c</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/view-change-dependents/add-remove-form-21-686c-v2</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -436,16 +371,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/health-care/health-questionnaires/questionnaires/answer-questions</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/health-care/health-questionnaires/questionnaires</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/decision-reviews/board-appeal/request-board-appeal-form-10182</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -493,11 +418,6 @@
   <url>
     <loc>https://www.va.gov/my-health/appointment-travel-claim</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/view-change-representative/search</loc>
-    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
@@ -601,11 +521,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.va.gov/authorization-to-disclose-alternate</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.va.gov/find-forms/upload</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -654,11 +569,6 @@
     <loc>https://www.va.gov/get-help-from-accredited-representative/appoint-rep</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.va.gov/income-and-asset-statement-form-21p-0969</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.va.gov/mock-form-ae-design-patterns</loc>

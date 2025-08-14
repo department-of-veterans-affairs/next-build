@@ -86,7 +86,7 @@ def filter_by_source(data, target_source):
 
 # Load URLs at module level with sitemap support
 URLS = load_urls_with_sitemap()
-TEST_URLS = filter_by_source(URLS, 'sitemap-test.xml')
+# TEST_URLS = filter_by_source(URLS, 'sitemap-test.xml')
 NEXTBUILD_URLS = filter_by_source(URLS, 'sitemap-nb.xml')
 CONTENTBUILD_URLS = filter_by_source(URLS, 'sitemap-cb.xml')
 REACTROUTES_URLS = filter_by_source(URLS, 'sitemap-reactroutes.xml')
