@@ -143,6 +143,12 @@ describe('VetCenterLocationListing with valid data', () => {
         screen.getByText(/Little Rock Vet Center - Mountain Home/)
       ).toBeInTheDocument()
 
+      // Check for CAP address with organization (when organization exists)
+      expect(
+        screen.getByText(/St. Peter the Fisherman Church/)
+      ).toBeInTheDocument()
+      expect(screen.getByText(/249 Dyer St/)).toBeInTheDocument()
+
       // Check for CAP-specific operating status info
       expect(
         screen.getByText(/Counseling services, including a PTSD support group/)

@@ -141,7 +141,7 @@ export const VetCenterLocationInfo = ({
             Address
           </h4>
           <div className="vads-u-margin-bottom--3">
-            <Address address={address} title={title} />
+            <Address address={address} title={title} showOrganization />
           </div>
         </>
       )}

@@ -16,6 +16,7 @@ const mockBaseFields = {
   address: {
     langcode: 'en',
     country_code: 'US',
+    organization: 'Test Vet Center Organization',
     address_line1: '123 Test St',
     address_line2: 'Suite 100',
     locality: 'Test City',
@@ -147,15 +148,23 @@ describe('VetCenterLocationInfo', () => {
   })
 
   describe('Address Display Logic', () => {
-    it('renders address for VetCenter', () => {
+    it('renders complete address information for VetCenter', () => {
       render(
         <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={true} />
       )
 
       expect(screen.getByText('Address')).toBeInTheDocument()
+      // Check for organization (should show with showOrganization=true)
+      expect(
+        screen.getByText(/Test Vet Center Organization/)
+      ).toBeInTheDocument()
+      // Check for address components
+      expect(screen.getByText(/123 Test St/)).toBeInTheDocument()
+      expect(screen.getByText(/Suite 100/)).toBeInTheDocument()
+      expect(screen.getByText(/Test City, TS 12345/)).toBeInTheDocument()
     })
 
-    it('renders address for VetCenterCap', () => {
+    it('renders complete address information for VetCenterCap', () => {
       render(
         <VetCenterLocationInfo
           vetCenter={mockVetCenterCap}
@@ -165,9 +174,16 @@ describe('VetCenterLocationInfo', () => {
       )
 
       expect(screen.getByText('Address')).toBeInTheDocument()
+      // Check for organization (should show with showOrganization=true)
+      expect(
+        screen.getByText(/Test Vet Center Organization/)
+      ).toBeInTheDocument()
+      // Check for address components
+      expect(screen.getByText(/123 Test St/)).toBeInTheDocument()
+      expect(screen.getByText(/Test City, TS 12345/)).toBeInTheDocument()
     })
 
-    it('renders address for VetCenterOutstation', () => {
+    it('renders complete address information for VetCenterOutstation', () => {
       render(
         <VetCenterLocationInfo
           vetCenter={mockVetCenterOutstation}
@@ -177,6 +193,13 @@ describe('VetCenterLocationInfo', () => {
       )
 
       expect(screen.getByText('Address')).toBeInTheDocument()
+      // Check for organization (should show with showOrganization=true)
+      expect(
+        screen.getByText(/Test Vet Center Organization/)
+      ).toBeInTheDocument()
+      // Check for address components
+      expect(screen.getByText(/123 Test St/)).toBeInTheDocument()
+      expect(screen.getByText(/Test City, TS 12345/)).toBeInTheDocument()
     })
 
     it('does not render address for MobileVetCenter', () => {
@@ -189,6 +212,12 @@ describe('VetCenterLocationInfo', () => {
       )
 
       expect(screen.queryByText('Address')).not.toBeInTheDocument()
+      // Ensure no address components are displayed
+      expect(
+        screen.queryByText(/Test Vet Center Organization/)
+      ).not.toBeInTheDocument()
+      expect(screen.queryByText(/123 Test St/)).not.toBeInTheDocument()
+      expect(screen.queryByText(/Test City, TS 12345/)).not.toBeInTheDocument()
     })
   })
 
