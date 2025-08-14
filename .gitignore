@@ -38,6 +38,9 @@ dump.rdb
 # static output for production
 /out/
 
+# Python bytecode cache
+__pycache__/
+
 # misc
 .DS_Store
 .idea/

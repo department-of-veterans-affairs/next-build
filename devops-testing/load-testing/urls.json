@@ -1,0 +1,40 @@
+{
+  "homepage": [
+    "/",
+    "/index.html",
+    "/home"
+  ],
+  "pages": [
+    "/page1.html",
+    "/page2.html",
+    "/page3.html",
+    "/about.html",
+    "/services.html",
+    "/contact.html",
+    "/help.html",
+    "/faq.html"
+  ],
+  "search": [
+    "/search?q=veterans",
+    "/search?q=benefits",
+    "/search?q=healthcare",
+    "/search?q=disability",
+    "/search?q=education",
+    "/search?q=mental+health",
+    "/search?q=compensation"
+  ],
+  "api_endpoints": [
+    "/api/health",
+    "/api/status",
+    "/api/metrics",
+    "/api/data/summary",
+    "/api/user/profile",
+    "/api/notifications"
+  ],
+  "heavy_endpoints": [
+    "/reports/monthly",
+    "/data/export/csv",
+    "/analytics/dashboard",
+    "/api/data/live"
+  ]
+}
