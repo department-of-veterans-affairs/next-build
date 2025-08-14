@@ -2,34 +2,69 @@
   "url_groups": {
     "homepage": {
       "urls": [
-        {"url": "/", "weight": 5, "method": "GET"},
-        {"url": "/index.html", "weight": 2, "method": "GET"},
-        {"url": "/home", "weight": 1, "method": "GET"}
+        { "url": "/", "weight": 5, "method": "GET" },
+        { "url": "/index.html", "weight": 2, "method": "GET" },
+        { "url": "/home", "weight": 1, "method": "GET" }
       ]
     },
     "pages": {
       "urls": [
-        {"url": "/page1.html", "weight": 3, "method": "GET"},
-        {"url": "/page2.html", "weight": 3, "method": "GET"},
-        {"url": "/page3.html", "weight": 2, "method": "GET"},
-        {"url": "/about.html", "weight": 2, "method": "GET"},
-        {"url": "/services.html", "weight": 2, "method": "GET"},
-        {"url": "/contact.html", "weight": 1, "method": "GET"}
+        { "url": "/page1.html", "weight": 3, "method": "GET" },
+        { "url": "/page2.html", "weight": 3, "method": "GET" },
+        { "url": "/page3.html", "weight": 2, "method": "GET" },
+        { "url": "/about.html", "weight": 2, "method": "GET" },
+        { "url": "/services.html", "weight": 2, "method": "GET" },
+        { "url": "/contact.html", "weight": 1, "method": "GET" }
       ]
     },
     "search": {
       "urls": [
-        {"url": "/search", "weight": 1, "method": "GET", "params": {"q": "veterans"}},
-        {"url": "/search", "weight": 1, "method": "GET", "params": {"q": "benefits"}},
-        {"url": "/search", "weight": 1, "method": "GET", "params": {"q": "healthcare"}},
-        {"url": "/search", "weight": 1, "method": "GET", "params": {"q": "disability"}}
+        {
+          "url": "/search",
+          "weight": 1,
+          "method": "GET",
+          "params": { "q": "veterans" }
+        },
+        {
+          "url": "/search",
+          "weight": 1,
+          "method": "GET",
+          "params": { "q": "benefits" }
+        },
+        {
+          "url": "/search",
+          "weight": 1,
+          "method": "GET",
+          "params": { "q": "healthcare" }
+        },
+        {
+          "url": "/search",
+          "weight": 1,
+          "method": "GET",
+          "params": { "q": "disability" }
+        }
       ]
     },
     "api_endpoints": {
       "urls": [
-        {"url": "/api/health", "weight": 3, "method": "GET", "expected_status": 200},
-        {"url": "/api/status", "weight": 2, "method": "GET", "expected_status": 200},
-        {"url": "/api/metrics", "weight": 1, "method": "GET", "expected_status": 200}
+        {
+          "url": "/api/health",
+          "weight": 3,
+          "method": "GET",
+          "expected_status": 200
+        },
+        {
+          "url": "/api/status",
+          "weight": 2,
+          "method": "GET",
+          "expected_status": 200
+        },
+        {
+          "url": "/api/metrics",
+          "weight": 1,
+          "method": "GET",
+          "expected_status": 200
+        }
       ]
     }
   },

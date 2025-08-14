@@ -1,22 +1,8 @@
 {
-  "homepage": [
-    "/"
-  ],
-  "pages": [
-    "/about",
-    "/services"
-  ],
-  "search": [
-    "/search"
-  ],
-  "api_endpoints": [
-    "/api/health"
-  ],
-  "heavy_endpoints": [
-    "/reports/monthly"
-  ],
-  "forms": [
-    "/contact",
-    "/contact/submit"
-  ]
+  "homepage": ["/"],
+  "pages": ["/about", "/services"],
+  "search": ["/search"],
+  "api_endpoints": ["/api/health"],
+  "heavy_endpoints": ["/reports/monthly"],
+  "forms": ["/contact", "/contact/submit"]
 }

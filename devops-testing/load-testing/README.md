@@ -29,12 +29,14 @@ The load testing system tries to load URLs in this order:
 Load URLs automatically from your website's sitemap:
 
 **From URL:**
+
 ```bash
 export SITEMAP_URL="http://localhost:8080/sitemap.xml"
 locust -f locustfile.py --host=http://localhost:8080
 ```
 
 **From local file:**
+
 ```bash
 # Place sitemap.xml in the same directory as locustfile.py
 curl http://localhost:8080/sitemap.xml > sitemap.xml
@@ -42,11 +44,13 @@ locust -f locustfile.py --host=http://localhost:8080
 ```
 
 **Dependencies for sitemap loading:**
+
 ```bash
 pip install requests
 ```
 
 **Sitemap features:**
+
 - Automatically categorizes URLs based on patterns
 - Supports standard sitemap.xml format
 - Handles sitemap index files (sitemaps containing other sitemaps)
@@ -54,6 +58,7 @@ pip install requests
 - Falls back gracefully if sitemap is unavailable
 
 **URL categorization from sitemap:**
+
 - `homepage`: Root paths (/, /index.html, /home)
 - `pages`: General content pages
 - `search`: URLs containing 'search', 'find', 'query'
@@ -87,17 +92,17 @@ The advanced configuration includes weights, HTTP methods, parameters, and expec
   "url_groups": {
     "homepage": {
       "urls": [
-        {"url": "/", "weight": 5, "method": "GET"},
-        {"url": "/index.html", "weight": 2, "method": "GET"}
+        { "url": "/", "weight": 5, "method": "GET" },
+        { "url": "/index.html", "weight": 2, "method": "GET" }
       ]
     },
     "forms": {
       "urls": [
         {
-          "url": "/contact/submit", 
-          "weight": 2, 
+          "url": "/contact/submit",
+          "weight": 2,
           "method": "POST",
-          "data": {"name": "Test User", "email": "test@example.com"},
+          "data": { "name": "Test User", "email": "test@example.com" },
           "expected_status": [200, 201]
         }
       ]
@@ -133,7 +138,7 @@ locust -f locustfile_enhanced.py --host=http://localhost:8080
 # Normal Load Only
 locust -f load_scenarios.py --tags normal --host=http://localhost:8080
 
-# Peak Load Only  
+# Peak Load Only
 locust -f load_scenarios.py --tags peak --host=http://localhost:8080
 
 # Spike Load Only
@@ -171,7 +176,7 @@ Create separate JSON files for different environments:
 locust -f locustfile.py --host=http://localhost:3000
 # (uses urls.json)
 
-# Staging URLs  
+# Staging URLs
 cp urls.json urls_staging.json
 # Edit urls_staging.json for staging endpoints
 # Modify locustfile.py to load 'urls_staging.json'
@@ -180,16 +185,19 @@ cp urls.json urls_staging.json
 ## Load Test Parameters
 
 ### Normal Load
+
 - **Users**: 10-50 concurrent users
 - **Wait Time**: 2-8 seconds between requests
 - **Pattern**: Steady browsing, search, page views
 
-### Peak Load  
+### Peak Load
+
 - **Users**: 50-150 concurrent users
 - **Wait Time**: 1-3 seconds between requests
 - **Pattern**: Rapid browsing, API calls, form submissions
 
 ### Spike Load
+
 - **Users**: 150-300+ concurrent users
 - **Wait Time**: 0.5-2 seconds between requests
 - **Pattern**: Intensive requests, concurrent operations
@@ -197,6 +205,7 @@ cp urls.json urls_staging.json
 ## Monitoring
 
 Monitor these key metrics during tests:
+
 - Response Time (average, 95th percentile)
 - Throughput (requests per second)
 - Error Rate (% of failed requests)

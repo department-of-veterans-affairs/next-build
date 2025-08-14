@@ -1,9 +1,5 @@
 {
-  "homepage": [
-    "/",
-    "/index.html",
-    "/home"
-  ],
+  "homepage": ["/", "/index.html", "/home"],
   "pages": [
     "/page1.html",
     "/page2.html",
