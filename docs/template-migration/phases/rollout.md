@@ -11,7 +11,7 @@ The tasks within this phase are owned by the CMS team, regardless of which team 
 - Prelaunch prep:
   - Confirm all defects found during QA have been resolved and closed
   - Determine launch date
-  - Confirmation of launch with stakeholders: 
+  - Confirmation of launch with stakeholders:
     - Erika Washburn
     - Sitewide Team Product
 - Communication
