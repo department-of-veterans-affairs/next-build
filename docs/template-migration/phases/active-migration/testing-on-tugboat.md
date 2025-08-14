@@ -19,19 +19,17 @@ Note that there are a few limitations to the next-build tugboat instances:
 If you need to test Next Build code with test CMS content, this is done through the CMS interface:
 
 1. Set up a CMS Tugboat instance; either a [demo instance](https://tugboat.vfs.va.gov/5ffe2f4dfa1ca136135134f6), or by creating a CMS PR as you would normally do for CMS changes.
-2. Within your CMS instance, create your test content.
-3. In the Main nav, under Content, go to "Deploy Next Content"
-
-  - Select the next-build branch with your code that you need to test
-  - You will most likely keep the "Use default" option selected for vets-website (unless you are needing to test with a specific branch of vets-website, then select the branch you need here)
-  - Select "Restart Next Build Server”
-
-4. It will only take 5-10 mins for the server to restart. When it does, your next build changes with your test CMS content will be viewable on the Next Build Tugboat instance.
+1. Within your CMS instance, create your test content.
+1. In the Main nav, under Content, go to "Deploy Next Content"
+   - Select the next-build branch with your code that you need to test
+   - You will most likely keep the "Use default" option selected for vets-website (unless you are needing to test with a specific branch of vets-website, then select the branch you need here)
+   - Select "Restart Next Build Server”
+1. It will only take 5-10 mins for the server to restart. When it does, your next build changes with your test CMS content will be viewable on the Next Build Tugboat instance.
 
 Note that there are some limitations to the next-build CMS tugboat instances:
 
-  - There are images in the header that currently do not load (Gov banner and VA Logo)
-  - `<va-icon>` component does not display
+- There are images in the header that currently do not load (Gov banner and VA Logo)
+- `<va-icon>` component does not display
 
 ## To test templates in dev.va.gov
 
