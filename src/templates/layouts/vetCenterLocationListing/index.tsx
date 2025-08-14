@@ -8,9 +8,7 @@ const widgetAddress = (address: FieldAddress) => ({
   addressLine1: address.address_line1,
   addressLine2: address.address_line2,
   administrativeArea: address.administrative_area,
-  countryCode: address.country_code,
   locality: address.locality,
-  organization: address.organization,
   postalCode: address.postal_code,
 })
 

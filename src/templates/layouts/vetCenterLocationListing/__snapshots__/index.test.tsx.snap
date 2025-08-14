@@ -5,9 +5,7 @@ exports[`VetCenterLocationListing with valid data Global variables for nearby ve
   "addressLine1": "3920 North Union Blvd",
   "addressLine2": "Suite 310",
   "administrativeArea": "CO",
-  "countryCode": "US",
   "locality": "Colorado Springs",
-  "organization": undefined,
   "postalCode": "80907",
 }
 `;
