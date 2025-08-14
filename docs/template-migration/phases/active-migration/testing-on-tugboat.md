@@ -6,6 +6,7 @@
 > On a next-build tugboat, only next-build pages will be visible. You will not be able to access content-build pages; these pages will result in a 404. Therefore, you will not be able to navigate the tugboat in the way you would a typical website, you must go directly to the URL you want to test.
 
 ### Next-build Tugboat
+
 Every Next Build PR creates a Tugboat environment using that PR code and runs a static (content release) build on that Tugboat environment. When the static build is complete, you can see what Next Build will look like with your changed code. This Tugboat environment is linked from your Next Build PR, the same way that a CMS Tugboat environment is linked from a va.gov-cms PR.
 
 Note that there are a few limitations to the next-build tugboat instances:
@@ -31,6 +32,7 @@ Note that there are some limitations to the next-build CMS tugboat instances:
   - `<va-icon>` component does not display
 
 ## To test templates in dev.va.gov
+
 This is used when there are limitations in Tugboat and the content you are testing cannot be shown but the work still needs to be fully QA’ed before going live:
 
 - In Drupal CMS, identify the feature toggle that relates to the content type you want to test. (Toggles are found at `/admin/config/system/feature_toggle` in Drupal CMS)
