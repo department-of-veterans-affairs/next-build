@@ -44,6 +44,7 @@ type PhoneNumberProps = Omit<
   extension?: string
   phoneType?: string
   className?: string
+  labelClassName?: string
   testId?: string
 } & {
   /**
@@ -63,6 +64,7 @@ type PhoneNumberProps = Omit<
  */
 export const PhoneNumber = ({
   className,
+  labelClassName,
   extension,
   label,
   number,
@@ -111,7 +113,7 @@ export const PhoneNumber = ({
   if (treatment === 'h4') {
     return (
       <div className={className || undefined} data-testid="phone">
-        <h4>{labelToDisplay}</h4>
+        <h4 className={labelClassName}>{labelToDisplay}</h4>
         {phoneComponent}
       </div>
     )
@@ -119,7 +121,7 @@ export const PhoneNumber = ({
 
   return (
     <p className={className || undefined} data-testid="phone">
-      <strong>{`${labelToDisplay}: `}</strong>
+      <strong className={labelClassName}>{`${labelToDisplay}: `}</strong>
       {phoneComponent}
     </p>
   )

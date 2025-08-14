@@ -137,24 +137,23 @@ export const VetCenterLocationInfo = ({
 
       {address && !isMobileVetCenter(vetCenter) && (
         <>
-          <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-            Address
-          </h4>
           <div className="vads-u-margin-bottom--3">
+            <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+              Address
+            </h4>
             <Address address={address} title={title} showOrganization />
           </div>
         </>
       )}
 
       {phoneNumber && (
-        <div className="vads-u-margin-bottom--3">
-          <PhoneNumber
-            className="vads-u-margin-top--0 vads-u-margin-bottom--0"
-            treatment="h4"
-            label="Phone"
-            number={phoneNumber}
-          />
-        </div>
+        <PhoneNumber
+          className="vads-u-margin-bottom--3"
+          labelClassName="vads-u-margin-top--0 vads-u-margin-bottom--1"
+          treatment="h4"
+          label="Phone"
+          number={phoneNumber}
+        />
       )}
 
       {officeHoursAlternative
