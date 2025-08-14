@@ -7,17 +7,6 @@ import mockCap from '@/mocks/vetCenterCap.mock.json'
 import mockOutstation from '@/mocks/vetCenterOutstation.mock.json'
 import { NodeVetCenterCap } from '@/types/drupal/node'
 import { NodeVetCenterOutstation } from '@/types/drupal/node'
-import { FieldAddress } from '@/types/drupal/field_type'
-
-// Extend the Window interface to include the properties needed for the nearby vet centers widget
-declare global {
-  interface Window {
-    mainVetCenterPhone?: string
-    mainVetCenterAddress?: FieldAddress
-    mainVetCenterId?: string
-    satteliteVetCenters?: string[]
-  }
-}
 
 // Restructure mock data to match expected format
 const mockData = formatter({
@@ -206,7 +195,7 @@ describe('VetCenterLocationListing with valid data', () => {
       render(<VetCenterLocationListing {...mockData} />)
 
       expect(window.mainVetCenterPhone).toBe(mockData.mainOffice.phoneNumber)
-      expect(window.mainVetCenterAddress).toEqual(mockData.mainOffice.address)
+      expect(window.mainVetCenterAddress).toMatchSnapshot()
       expect(window.mainVetCenterId).toBe(
         mockData.mainOffice.fieldFacilityLocatorApiId
       )

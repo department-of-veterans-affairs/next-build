@@ -2,6 +2,27 @@ import React, { useEffect } from 'react'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VetCenterLocationInfo } from './VetCenterLocationInfo'
+import { FieldAddress } from '@/types/drupal/field_type'
+
+const widgetAddress = (address: FieldAddress) => ({
+  addressLine1: address.address_line1,
+  addressLine2: address.address_line2,
+  administrativeArea: address.administrative_area,
+  countryCode: address.country_code,
+  locality: address.locality,
+  organization: address.organization,
+  postalCode: address.postal_code,
+})
+
+// Extend the Window interface to include the properties needed for the nearby vet centers widget
+declare global {
+  interface Window {
+    mainVetCenterPhone?: string
+    mainVetCenterAddress?: ReturnType<typeof widgetAddress>
+    mainVetCenterId?: string
+    satteliteVetCenters?: string[]
+  }
+}
 
 export function VetCenterLocationListing({
   title,
@@ -15,7 +36,7 @@ export function VetCenterLocationListing({
     if (typeof window !== 'undefined') {
       // Needed by the nearby vet centers widget
       window.mainVetCenterPhone = mainOffice.phoneNumber
-      window.mainVetCenterAddress = mainOffice.address
+      window.mainVetCenterAddress = widgetAddress(mainOffice.address)
       window.mainVetCenterId = mainOffice.fieldFacilityLocatorApiId
 
       // Needed by both the facility map widgets and the nearby vet centers widget

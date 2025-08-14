@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VetCenterLocationListing with valid data Global variables for nearby vet centers widget sets up window variables with the provided props 1`] = `
+{
+  "addressLine1": "3920 North Union Blvd",
+  "addressLine2": "Suite 310",
+  "administrativeArea": "CO",
+  "countryCode": "US",
+  "locality": "Colorado Springs",
+  "organization": undefined,
+  "postalCode": "80907",
+}
+`;
