@@ -167,8 +167,10 @@ describe('VetCenterLocationListing with valid data', () => {
       // Check for nearby mobile vet center title
       expect(screen.getByText(/Pueblo Mobile Vet Center/)).toBeInTheDocument()
 
-      // Check for mobile vet center address
-      expect(screen.getByText(/1515 Fortino Boulevard/)).toBeInTheDocument()
+      // Mobile vet centers should not display addresses
+      expect(
+        screen.queryByText(/1515 Fortino Boulevard/)
+      ).not.toBeInTheDocument()
     })
   })
 

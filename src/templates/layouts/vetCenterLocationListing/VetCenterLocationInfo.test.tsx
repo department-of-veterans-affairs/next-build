@@ -127,13 +127,12 @@ describe('VetCenterLocationInfo', () => {
       expect(link).toBeInTheDocument()
     })
 
-    it.skip('renders the address when provided', () => {
+    it('renders the address when provided for non-mobile vet centers', () => {
       render(
         <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={true} />
       )
 
-      expect(screen.getByText('123 Test St')).toBeInTheDocument()
-      expect(screen.getByText('Test City, TS 12345')).toBeInTheDocument()
+      expect(screen.getByText('Address')).toBeInTheDocument()
     })
 
     it('renders the phone number when provided', () => {
@@ -144,6 +143,52 @@ describe('VetCenterLocationInfo', () => {
       // The phone number is rendered in a va-telephone element, so we check for the contact attribute
       const phoneElement = screen.getByTestId('phone')
       expect(phoneElement).toBeInTheDocument()
+    })
+  })
+
+  describe('Address Display Logic', () => {
+    it('renders address for VetCenter', () => {
+      render(
+        <VetCenterLocationInfo vetCenter={mockVetCenter} isMainOffice={true} />
+      )
+
+      expect(screen.getByText('Address')).toBeInTheDocument()
+    })
+
+    it('renders address for VetCenterCap', () => {
+      render(
+        <VetCenterLocationInfo
+          vetCenter={mockVetCenterCap}
+          isMainOffice={false}
+          mainOffice={mockMainOffice}
+        />
+      )
+
+      expect(screen.getByText('Address')).toBeInTheDocument()
+    })
+
+    it('renders address for VetCenterOutstation', () => {
+      render(
+        <VetCenterLocationInfo
+          vetCenter={mockVetCenterOutstation}
+          isMainOffice={false}
+          mainOffice={mockMainOffice}
+        />
+      )
+
+      expect(screen.getByText('Address')).toBeInTheDocument()
+    })
+
+    it('does not render address for MobileVetCenter', () => {
+      render(
+        <VetCenterLocationInfo
+          vetCenter={mockMobileVetCenter}
+          isMainOffice={false}
+          mainOffice={mockMainOffice}
+        />
+      )
+
+      expect(screen.queryByText('Address')).not.toBeInTheDocument()
     })
   })
 

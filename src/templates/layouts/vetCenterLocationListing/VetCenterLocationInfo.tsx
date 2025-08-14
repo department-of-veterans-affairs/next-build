@@ -3,6 +3,7 @@ import {
   VetCenterLocationInfo as VetCenterLocationInfoType,
   VetCenterCapLocationInfo,
   VetCenterOutstationLocationInfo,
+  MobileVetCenterLocationInfo,
 } from '@/types/formatted/vetCenterLocationListing'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
@@ -35,6 +36,12 @@ const isVetCenterCap = (
   vetCenter: VetCenterInfoVariant
 ): vetCenter is VetCenterCapLocationInfo => {
   return vetCenter.type === 'node--vet_center_cap'
+}
+
+const isMobileVetCenter = (
+  vetCenter: VetCenterInfoVariant
+): vetCenter is MobileVetCenterLocationInfo => {
+  return vetCenter.type === 'node--vet_center_mobile_vet_center'
 }
 
 /**
@@ -128,7 +135,7 @@ export const VetCenterLocationInfo = ({
         />
       )}
 
-      {address && (
+      {address && !isMobileVetCenter(vetCenter) && (
         <>
           <h4 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
             Address
