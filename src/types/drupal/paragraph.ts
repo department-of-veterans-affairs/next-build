@@ -121,7 +121,7 @@ export interface ParagraphCCFeaturedContent {
   }
 }
 
-export interface ParagraphCCVetCenterFaqs {
+export interface ParagraphCCQaSection {
   target_type: string
   fetched_bundle: string
   fetched: {
