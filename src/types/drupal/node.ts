@@ -82,6 +82,7 @@ export type NodeTypes =
   | NodeVamcSystemVaPolice
   | NodeLeadershipListing
   | NodeVbaFacility
+  | NodeVbaService
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -438,6 +439,11 @@ export interface NodeLocationsListing extends DrupalNode {
 export interface NodeVbaFacility extends DrupalNode {
   title: string
   field_cc_vba_facility_overview: FieldCCText
+}
+
+export interface NodeVbaService extends DrupalNode {
+  title: string
+  field_office: NodeVbaFacility
 }
 
 /**

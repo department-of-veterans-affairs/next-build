@@ -1,6 +1,6 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeVbaFacility } from '@/types/drupal/node'
+import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
 import { VbaFacility } from '@/types/formatted/vbaFacility'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
@@ -18,6 +18,7 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { PhoneContact } from '@/types/formatted/contactInfo'
 
@@ -33,25 +34,42 @@ export const params: QueryParams<null> = () => {
     ),
   ])
 }
-
+export const serviceParams: QueryParams<string> = (facilityId: string) => {
+  return new DrupalJsonApiParams()
+    .addInclude(['field_office', 'field_service_name_and_descripti'])
+    .addFilter('field_office.id', facilityId)
+}
 // Define the option types for the data loader.
 export type VbaFacilityDataOpts = {
   id: string
   context?: ExpandedStaticPropsContext
 }
-
+type VbaFacilityData = {
+  entity: NodeVbaFacility
+  services: NodeVbaService[]
+}
 // Implement the data loader.
-export const data: QueryData<VbaFacilityDataOpts, NodeVbaFacility> = async (
+export const data: QueryData<VbaFacilityDataOpts, VbaFacilityData> = async (
   opts
-): Promise<NodeVbaFacility> => {
+): Promise<VbaFacilityData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VBA_FACILITY,
     params
   )) as NodeVbaFacility
+  const { data: services } = (await fetchAndConcatAllResourceCollectionPages<
+    NodeVbaService
+  >(
+    RESOURCE_TYPES.VBA_SERVICE,
+    serviceParams(entity.id),
+    100
+  ))
 
-  return entity
-}
+    return {
+      entity,
+      services,
+    }
+  }
 const getLinkType = (uri: string) => {
   const types = [
     { match: 'facebook.com', type: 'facebook' },
@@ -65,8 +83,9 @@ const getLinkType = (uri: string) => {
   const found = types.find(({ match }) => uri.includes(match))
   return found ? found.type : null
 }
-export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
-  entity: NodeVbaFacility
+
+export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = (
+  { entity, services }
 ) => {
   const featuredContent = [
     formatFeaturedContent({
@@ -107,7 +126,6 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
       return formatFeaturedContent(feature)
     }),
   ]
-
   return {
     ...entityBaseFields(entity),
     address: entity.field_address,
@@ -175,5 +193,16 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
       : null,
     prepareForVisit: entity.field_prepare_for_visit.map(formatAccordionItem),
     phoneNumber: entity.field_phone_number,
+    allServices: services.map((service) => ({
+      type: service.field_service_name_and_descripti?.field_vba_type_of_care,
+      name: service.field_service_name_and_descripti?.name,
+      facilityHeader: service.field_service_name_and_descripti?.field_facility_service_header,
+      facilityDescription: service.field_service_name_and_descripti?.field_facility_service_descripti,
+      onlineSelfService: service.field_service_name_and_descripti?.field_online_self_service ? {
+        title: service.field_service_name_and_descripti.field_online_self_service.title,
+        url: service.field_service_name_and_descripti.field_online_self_service.url,
+      } : null,
+      serviceDescription: service.field_service_name_and_descripti?.field_vba_service_descrip,
+    })),
   }
 }
