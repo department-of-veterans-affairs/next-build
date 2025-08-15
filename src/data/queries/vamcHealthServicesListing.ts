@@ -11,7 +11,7 @@ import {
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
+  return new DrupalJsonApiParams().addInclude(['field_administration'])
 }
 
 // Define the option types for the data loader.
@@ -40,6 +40,10 @@ export const formatter: QueryFormatter<
 > = (entity: NodeVamcHealthServicesListing) => {
   return {
     ...entityBaseFields(entity),
+    title: entity.title,
     introText: entity.field_intro_text,
+    path: entity.path?.alias || null,
+    administration: entity.field_administration || null,
+    vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
   }
 }

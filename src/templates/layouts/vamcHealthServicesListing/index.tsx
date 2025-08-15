@@ -1,8 +1,12 @@
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
+import { RegionalTopTasks } from '@/templates/components/topTasks'
 
 export function VamcHealthServicesListing({
   title,
   introText,
+  path,
+  administration,
+  vamcEhrSystem,
 }: FormattedVamcHealthServicesListing) {
   return (
     <main className="va-l-detail-page va-facility-page">
@@ -28,6 +32,15 @@ export function VamcHealthServicesListing({
             <div className="va-introtext">
               {introText && <p id="office-events-description">{introText}</p>}
             </div>
+
+            {/* Top Task links */}
+            {path && (
+              <RegionalTopTasks
+                path={path}
+                administration={administration}
+                vamcEhrSystem={vamcEhrSystem}
+              />
+            )}
 
             <div className="usa-grid usa-grid-full vads-u-margin-top--0p5 vads-u-margin-bottom--4">
               <div className="usa-grid usa-grid-full vads-u-margin-y--0 vads-u-margin-bottom--0">

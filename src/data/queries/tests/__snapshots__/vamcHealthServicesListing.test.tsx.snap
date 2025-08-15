@@ -2,6 +2,13 @@
 
 exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
 {
+  "administration": {
+    "id": "33af76cc-fe8f-467b-bde0-c294e5326592",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 364,
+    },
+    "type": "taxonomy_term--administration",
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -130,8 +137,10 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "published",
+  "path": "/north-texas-health-care/health-services",
   "published": true,
   "title": "Health services",
   "type": "node--health_services_listing",
+  "vamcEhrSystem": null,
 }
 `;
