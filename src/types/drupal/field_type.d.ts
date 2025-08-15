@@ -10,6 +10,7 @@ export interface FieldAddress {
   sorting_code?: string
   address_line1?: string
   address_line2?: string
+  organization?: string
 }
 
 export interface FieldFormattedText {
