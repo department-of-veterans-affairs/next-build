@@ -11,6 +11,7 @@ import {
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
+  getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--health_services_listing.
@@ -50,6 +51,11 @@ export const formatter: QueryFormatter<
   VamcHealthServicesListingData,
   VamcHealthServicesListing
 > = ({ entity, lovell }) => {
+  let { breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
+
   return {
     ...entityBaseFields(entity),
     introText: entity.field_intro_text,
@@ -60,5 +66,6 @@ export const formatter: QueryFormatter<
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
+    breadcrumbs,
   }
 }
