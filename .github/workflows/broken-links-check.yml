@@ -92,7 +92,7 @@ jobs:
 
       # This grabs all currently created artifacts i.e. individual json reports.
       - name: Download link reports
-        uses: actions/download-artifact@c850b930e6ba138125429b7e5c93fc707a7f8427
+        uses: actions/download-artifact@de96f4613b77ec03b5cf633e7c350c32bd3c5660
         with:
           merge-multiple: true
 
