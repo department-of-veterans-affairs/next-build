@@ -2,32 +2,33 @@
 
 ## What is the Post-Launch phase?
 
-The Post-Launch phase is the final phase of the template migration process. At this point, the template is used in production. Herein are the last few steps before the Product-owning Team takes over ownership of the template from the CMS Team.
+The Post-Launch phase is the final phase of the template migration process. At this point, the template is used in production. These are the last few steps before the Product-owning Team takes over ownership of the template.
 
 ## What do we do here?
 
-- Removal of the old content-build templates 1 full sprint after a successful launch to production
-  - When: 1 full sprint after a successful launch to production
-  - Who: Owned exclusively by the CMS team, regardless of which team did the migration of the template
-  - What:
-    - Clear list of all content-build templates being replaced including all layouts and shared components
-    - Determine what the “content-build removal” entails:
-      - Query removal?
-      - CSS removal?
-      - Full Template/layout removal? Or just adding a comment at the top indicating that the layout should not be used and has been migrated to next-build?
-- Verification of prod behavior after content-build template removal
-  - Owned by the team migrating the template
-- Final handoff to the Product-owning Team
+After the next-build template has been running in Production without issue, the post-launch ticket can be completed. This ticket contains the following tasks that need to be done:
 
-## How do we do it?
+- Use the [move product script](https://github.com/department-of-veterans-affairs/next-build/blob/main/scripts/move-product.sh) to move all files pertaining to the product into a single product folder
+- Within the [CODEOWNERS](https://github.com/department-of-veterans-affairs/next-build/blob/main/.github/CODEOWNERS) file, add a separate line item for the new product folder:
+  - Determine code ownership - should if remain with the CMS team or be transferred to another team?
+- Within GraphQL, stop content-build from building the pages for this template by removing the necessary queries from the:
+  - `get individual` and `get all pages` queries
+  - `count` query
+- Create API Tests for the content type
+- Add a comment at the top of the content-build layout to indicate that the layout has been migrated to next-build:
+  - Comment to be added:
 
-1. Verify the behavior of the template in production
-1. Create a PR to update the CODEOWNERS file, formalizing the handoff of accountability from the CMS Team to the Product-owning Team
+```
+{% comment %}
+This template is no longer used to build production content.
+Please make any changes you need in Next Build.
+{% endcomment %}
+```
 
 ## RACI
 
-- **Responsible:** The CMS team & the team doing the migration
-- **Accountable:** Chris Valarida _(CMS Team)_
+- **Responsible:** The CMS team
+- **Accountable:** Chris Valarida & Laura Flannery (CMS Team)
 - **Consulted:** Product-owning Team
 - **Informed:** Product-owning Team
 
