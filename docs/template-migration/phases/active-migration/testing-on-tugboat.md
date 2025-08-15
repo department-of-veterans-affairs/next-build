@@ -9,10 +9,13 @@
 
 Every Next Build PR creates a Tugboat environment using that PR code and runs a static (content release) build on that Tugboat environment. When the static build is complete, you can see what Next Build will look like with your changed code. This Tugboat environment is linked from your Next Build PR, the same way that a CMS Tugboat environment is linked from a va.gov-cms PR.
 
-Note that there are a few limitations to the next-build tugboat instances:
+Note that there are some limitations to the next-build tugboat instances:
 
-- There are currently CORS errors so they will not show VAMC Facility Real Time Banners
-- The Tugboat also does not show content that relies on the facilities API (e.g. Nearby Vet Center content, Static maps from MapBox, Patient wait times)
+- There are currently CORS errors so content that relies on vets-api will not display. For example:
+  - VAMC Facility real time banners
+  - Nearby locations
+  - Static maps from Mapbox
+  - Patient wait times
 
 ### Next-build changes using CMS Tugboat
 
