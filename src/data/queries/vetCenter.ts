@@ -24,7 +24,7 @@ import {
   formatParagraph,
 } from '@/lib/drupal/paragraphs'
 import {
-  ParagraphCCVetCenterFaqs,
+  ParagraphCCQaSection,
   ParagraphQaSection,
 } from '@/types/drupal/paragraph'
 import { QaSection } from '@/types/formatted/qaSection'
@@ -146,7 +146,7 @@ export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = ({
     return formattedFeaturedContentArray
   }
   // Similarly, this formats centralized content FAQs to match what our QA components are expecting
-  const formatFaq = (faqs: ParagraphCCVetCenterFaqs) => {
+  const formatFaq = (faqs: ParagraphCCQaSection) => {
     const normalizedQaSection = entityFetchedParagraphsToNormalParagraphs({
       type: faqs.target_type,
       bundle: faqs.fetched_bundle,

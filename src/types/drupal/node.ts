@@ -40,7 +40,7 @@ import {
   ParagraphTable,
   ParagraphWysiwyg,
   ParagraphCCFeaturedContent,
-  ParagraphCCVetCenterFaqs,
+  ParagraphCCQaSection,
   ParagraphFeaturedContent,
   ParagraphListOfLinkTeasers,
 } from './paragraph'
@@ -421,7 +421,7 @@ export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_administration: FieldAdministration
   field_cc_va_police_overview: FieldCCText
   field_phone_numbers_paragraph: ParagraphPhoneNumber[]
-  field_cc_faq: ParagraphCCVetCenterFaqs
+  field_cc_faq: ParagraphCCQaSection
 }
 
 export interface NodeLeadershipListing extends DrupalNode {
@@ -455,7 +455,7 @@ export interface CommonVetCenterFields {
 export interface NodeVetCenter extends CommonVetCenterFields, DrupalNode {
   field_cc_non_traditional_hours: FieldCCText
   field_cc_vet_center_call_center: FieldCCText
-  field_cc_vet_center_faqs: ParagraphCCVetCenterFaqs
+  field_cc_vet_center_faqs: ParagraphCCQaSection
   field_cc_vet_center_featured_con: ParagraphCCFeaturedContent
   field_intro_text: string
   field_mission_explainer: FieldMissionExplainer | null
