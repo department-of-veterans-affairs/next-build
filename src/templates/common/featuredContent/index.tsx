@@ -7,7 +7,7 @@ export function FeaturedContent({
   link,
 }: ParagraphComponent<FormattedFeaturedContent>) {
   return (
-    <va-card class="vads-u-flex--fill vads-u-margin-bottom--2 vads-u-margin-right--0 medium-screen:vads-u-margin-x--0p5 spotlight-card">
+    <va-card class="vads-u-flex--fill vads-u-margin-bottom--2 vads-u-margin-right--0 tablet:vads-u-margin-x--0p5 spotlight-card">
       {title && (
         <>
           <h3 className="vads-u-margin-top--0">{title}</h3>

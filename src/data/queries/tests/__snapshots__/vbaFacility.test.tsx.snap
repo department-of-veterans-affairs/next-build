@@ -45,6 +45,31 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
       "url": "https://www.va.gov/find-locations/?facilityType=benefits",
     },
   },
+  "ccGetUpdates": {
+    "heading": "Get updates from the Veterans Benefits Administration",
+    "links": [
+      {
+        "label": "Subscribe to our newsletter about VA benefits",
+        "type": "mail",
+        "url": "https://public.govdelivery.com/accounts/USVAVBA/subscribers/new",
+      },
+      {
+        "label": "Get updates about VA benefits on Facebook",
+        "type": "facebook",
+        "url": "https://www.facebook.com/VeteransAffairs",
+      },
+      {
+        "label": "Get updates about VA benefits on X",
+        "type": "x",
+        "url": "https://twitter.com/DeptVetAffairs/",
+      },
+      {
+        "label": "Get updates about VA benefits on Instagram",
+        "type": "instagram",
+        "url": "https://www.instagram.com/deptvetaffairs/",
+      },
+    ],
+  },
   "ccVBAFacilityOverview": {
     "html": "<p>We help Veterans, service members, and their families access VA benefits and services. Benefits we can help with include disability compensation, education benefits, life insurance, pensions, and home loans.</p>
 ",
@@ -53,6 +78,7 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
   },
   "entityId": 4030,
   "entityPath": "/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
+  "facilityLocatorApiId": "vba_317a",
   "featuredContent": [
     {
       "description": "<p>VA-accredited representatives can help you file a claim or request a decision review. </p>
@@ -72,7 +98,6 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
       "type": "paragraph--featured_content",
     },
   ],
-  "fieldFacilityLocatorApiId": "vba_317a",
   "id": "a08da437-55a4-451c-8f90-af498f38a297",
   "image": null,
   "lastUpdated": "2023-09-19T13:13:04+00:00",

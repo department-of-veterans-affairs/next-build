@@ -20,6 +20,10 @@ A number of different options can be passed as environment variables to change t
 Example with additional option usage:
 `TOTAL_INSTANCES=64 INSTANCE_NUMBER=15 NODE_EXTRA_CA_CERTS=./certs/VA-mozilla-combined.pem SITE_URL="https://va.gov" BATCH_SIZE=15 VERBOSE=true node scripts/check-broken-links.js`
 
+# Excluded links
+
+The `LINKS_TO_SKIP` const of the `scripts/check-broken-links.js` script lists the domains and individual urls to skip to prevent false positives. For instance, Facebook urls always return a `400` error, even when correct. Each domain or URL is added as an element to the `LINKS_TO_SKIP` array. They are listed in descending alphabetical order for ease of scanning.
+
 # Reporting
 
 The full report metrics & list of broken links are written to a file `broken-links-report.json` upon completion.
@@ -28,7 +32,7 @@ Additionally, if the `VERBOSE` flag is true, this script will output results to 
 
 # Github Action
 
-This script is run against va.gov via a [Broken Links Check Github Action](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/broken-links-check.yml). Each individual run spreads the page scans across 64 instances. Once those are complete, the 64 reports are combined into a single report, and saved as files attached to the workflow run in json, markdown, and csv formats. Slack is informed after a workflow run with statistics on the scan and links to the full reports.
+This script is run against va.gov via a [Broken Links Check Github Action](https://github.com/department-of-veterans-affairs/next-build/actions/workflows/broken-links-check.yml). Each individual run spreads the page scans across 64 instances. Once those are complete, the 64 reports are combined into a single report, and saved as files attached to the workflow run in json and csv formats. Slack is informed after a workflow run with statistics on the scan and links to the full reports.
 
 Currently the scan runs nightly and can be run manually as well.
 

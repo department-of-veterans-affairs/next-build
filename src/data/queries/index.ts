@@ -54,6 +54,7 @@ import * as VetCenterLocationListing from '@/data/queries/vetCenterLocationListi
 import * as Wysiwyg from '@/data/queries/wysiwyg'
 import * as LeadershipListing from '@/products/leadershipListing/query'
 import * as VbaFacility from '@/data/queries/vbaFacility'
+import * as HealthServicesListing from '@/data/queries/vamcHealthServicesListing'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -89,6 +90,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING]: VetCenterLocationListing,
   [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
   [RESOURCE_TYPES.VBA_FACILITY]: VbaFacility,
+  [RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING]: HealthServicesListing,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

@@ -26,7 +26,6 @@
       "@/lib/*": ["./src/lib/*"],
       "@/mocks/*": ["./src/mocks/*"],
       "@/pages/*": ["./src/pages/*"],
-      "@/stories/*": ["./src/stories/*"],
       "@/templates/*": ["./src/templates/*"],
       "@/types/*": ["./src/types/*"],
       "@/products/*": ["./src/products/*"],
@@ -43,7 +42,6 @@
     "scripts/*",
     "test/*",
     "example_tests/*",
-    ".storybook/*",
     "playwright/**/*"
   ],
   "exclude": ["node_modules", "src/__tests__", "public/generated"]
