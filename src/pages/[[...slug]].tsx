@@ -15,6 +15,7 @@ import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
+import { writeWarningToFile } from '@/lib/utils/writeWarningToFile'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
 import {
   RESOURCE_TYPES,
@@ -383,6 +384,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     // NOTE: The cause is added to the AbortError message in proxy-fetcher
     if (err.cause?.status === 403) {
       log('getStaticProps: 403 received; returning notFound')
+      writeWarningToFile(
+        `- **\`403\` status code received** from Drupal for \`${err.cause?.url}\``
+      )
       return {
         notFound: true,
       }

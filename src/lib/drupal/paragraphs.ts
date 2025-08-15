@@ -125,7 +125,7 @@ export function entityFetchedParagraphsToNormalParagraphs<T>(
   const { type, bundle, target_id, ...properties } = paragraph
   return {
     type: `${type}--${bundle}`,
-    entityId: target_id,
+    id: target_id,
     ...Object.fromEntries(Object.entries(properties).map(convertProperty)),
   } as DrupalParagraph
 }

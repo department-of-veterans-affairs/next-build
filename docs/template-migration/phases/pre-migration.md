@@ -2,9 +2,9 @@
 
 ## What is the Pre-Migration phase?
 
-A template is in the Pre-Migration phase when it either doesn’t exist in `next-build` or is stale.
+A template is in the Pre-Migration phase when it doesn’t exist in `next-build`.
 
-_Nothing fancy here._
+A template is ready and can be picked up from the Pre-migration column and moved into the Development column if the “Needs refining” label has been removed from the Migration ticket.
 
 ## Transitioning to Active Migration
 
