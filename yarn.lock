@@ -3227,12 +3227,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.18":
-  version: 18.3.0
-  resolution: "@types/react-dom@npm:18.3.0"
-  dependencies:
-    "@types/react": "*"
-  checksum: a0cd9b1b815a6abd2a367a9eabdd8df8dd8f13f95897b2f9e1359ea3ac6619f957c1432ece004af7d95e2a7caddbba19faa045f831f32d6263483fc5404a7596
+"@types/react-dom@npm:^19.1.7":
+  version: 19.1.7
+  resolution: "@types/react-dom@npm:19.1.7"
+  peerDependencies:
+    "@types/react": ^19.0.0
+  checksum: a99465e5a17d40725dedb3708357f8998c57caab768cee0992b4bb7822ce7ed2ec697a5f426cb98d3397b020756a6e4b0986dc5f6f4254e13b3536afb38538e6
   languageName: node
   linkType: hard
 
@@ -10444,7 +10444,7 @@ __metadata:
     "@types/lodash": ^4.17.19
     "@types/node": 22.13.11
     "@types/react": ^18.3.1
-    "@types/react-dom": ^18.2.18
+    "@types/react-dom": ^19.1.7
     "@types/react-gtm-module": ^2.0.4
     "@types/uuid": ^9.0.7
     "@typescript-eslint/eslint-plugin": ^8.32.0
@@ -10498,7 +10498,7 @@ __metadata:
     prettier-eslint: ^16.3.0
     proxy-fetcher: 0.1.0
     react: ^18.3.1
-    react-dom: ^18.2.0
+    react-dom: ^19.1.1
     react-gtm-module: ^2.0.11
     react-json-view: ^1.21.3
     redis: ^5.5.6
@@ -12186,7 +12186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2 || ^18, react-dom@npm:^18, react-dom@npm:^18.2.0":
+"react-dom@npm:^17.0.2 || ^18, react-dom@npm:^18":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -12195,6 +12195,17 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
   checksum: 298954ecd8f78288dcaece05e88b570014d8f6dce5db6f66e6ee91448debeb59dcd31561dddb354eee47e6c1bb234669459060deb238ed0213497146e555a0b9
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:^19.1.1":
+  version: 19.1.1
+  resolution: "react-dom@npm:19.1.1"
+  dependencies:
+    scheduler: ^0.26.0
+  peerDependencies:
+    react: ^19.1.1
+  checksum: 71d63df955e99bb58470c6ae12ebb82fa80e2a73147c387b73a31c17bcff803ce8aded52ae0c4391c9b413be0aa449249d8be7d063136826d1f0caba9720a907
   languageName: node
   linkType: hard
 
@@ -12834,6 +12845,13 @@ __metadata:
   dependencies:
     loose-envify: ^1.1.0
   checksum: 3e82d1f419e240ef6219d794ff29c7ee415fbdc19e038f680a10c067108e06284f1847450a210b29bbaf97b9d8a97ced5f624c31c681248ac84c80d56ad5a2c4
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "scheduler@npm:0.26.0"
+  checksum: c63a9f1c0e5089b537231cff6c11f75455b5c8625ae09535c1d7cd0a1b0c77ceecdd9f1074e5e063da5d8dc11e73e8033dcac3361791088be08a6e60c0283ed9
   languageName: node
   linkType: hard
 
