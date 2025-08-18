@@ -9,6 +9,9 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { formatter as formatFeaturedContent } from '@/data/queries/featuredContent'
 import { formatter as formatAccordionItem } from '@/data/queries/accordion'
+import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+import { formatter as formatEmail } from '@/data/queries/emailContact'
+import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
 
 import {
   PARAGRAPH_RESOURCE_TYPES,
@@ -21,6 +24,8 @@ import {
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { PhoneContact } from '@/types/formatted/contactInfo'
+
+const isPublished = (entity: { status: boolean }) => entity.status === true
 
 // Define the query params for fetching node--vba_facility.
 export const params: QueryParams<null> = () => {
@@ -36,7 +41,15 @@ export const params: QueryParams<null> = () => {
 }
 export const serviceParams: QueryParams<string> = (facilityId: string) => {
   return new DrupalJsonApiParams()
-    .addInclude(['field_office', 'field_service_name_and_descripti'])
+    .addInclude([
+      'field_office',
+      'field_service_name_and_descripti',
+      'field_service_location',
+      'field_service_location.field_service_location_address',
+      'field_service_location.field_other_phone_numbers',
+      'field_service_location.field_phone',
+      'field_service_location.field_email_contacts',
+    ])
     .addFilter('field_office.id', facilityId)
 }
 // Define the option types for the data loader.
@@ -57,19 +70,18 @@ export const data: QueryData<VbaFacilityDataOpts, VbaFacilityData> = async (
     RESOURCE_TYPES.VBA_FACILITY,
     params
   )) as NodeVbaFacility
-  const { data: services } = (await fetchAndConcatAllResourceCollectionPages<
-    NodeVbaService
-  >(
-    RESOURCE_TYPES.VBA_SERVICE,
-    serviceParams(entity.id),
-    100
-  ))
+  const { data: services } =
+    await fetchAndConcatAllResourceCollectionPages<NodeVbaService>(
+      RESOURCE_TYPES.VBA_SERVICE,
+      serviceParams(entity.id),
+      100
+    )
 
-    return {
-      entity,
-      services,
-    }
+  return {
+    entity,
+    services,
   }
+}
 const getLinkType = (uri: string) => {
   const types = [
     { match: 'facebook.com', type: 'facebook' },
@@ -84,9 +96,10 @@ const getLinkType = (uri: string) => {
   return found ? found.type : null
 }
 
-export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = (
-  { entity, services }
-) => {
+export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
+  entity,
+  services,
+}) => {
   const featuredContent = [
     formatFeaturedContent({
       type: 'paragraph--featured_content',
@@ -196,13 +209,47 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = (
     allServices: services.map((service) => ({
       type: service.field_service_name_and_descripti?.field_vba_type_of_care,
       name: service.field_service_name_and_descripti?.name,
-      facilityHeader: service.field_service_name_and_descripti?.field_facility_service_header,
-      facilityDescription: service.field_service_name_and_descripti?.field_facility_service_descripti,
-      onlineSelfService: service.field_service_name_and_descripti?.field_online_self_service ? {
-        title: service.field_service_name_and_descripti.field_online_self_service.title,
-        url: service.field_service_name_and_descripti.field_online_self_service.url,
-      } : null,
-      serviceDescription: service.field_service_name_and_descripti?.field_vba_service_descrip,
+      facilityHeader:
+        service.field_service_name_and_descripti?.field_facility_service_header,
+      facilityDescription:
+        service.field_service_name_and_descripti
+          ?.field_facility_service_descripti,
+      onlineSelfService: service.field_service_name_and_descripti
+        ?.field_online_self_service
+        ? {
+            title:
+              service.field_service_name_and_descripti.field_online_self_service
+                .title,
+            url: service.field_service_name_and_descripti
+              .field_online_self_service.url,
+          }
+        : null,
+      serviceDescription:
+        service.field_service_name_and_descripti?.field_vba_service_descrip,
+      serviceLocations: service.field_service_location.map((location) => ({
+        fieldOfficeVisits: location.field_office_visits,
+        fieldVirtualSupport: location.field_virtual_support,
+        fieldApptIntroTextType: location.field_appt_intro_text_type,
+        fieldApptIntroTextCustom: createPhoneLinks(
+          location.field_appt_intro_text_custom
+        ),
+        appointmentPhoneNumbers: location.field_other_phone_numbers
+          .filter(isPublished)
+          .map(formatPhone),
+        fieldOnlineSchedulingAvail: location.field_online_scheduling_avail,
+        contactInfoPhoneNumbers: location.field_phone
+          .filter(isPublished)
+          .map(formatPhone),
+        fieldEmailContacts: location.field_email_contacts
+          .filter(isPublished)
+          .map(formatEmail),
+        fieldHours: location.field_hours,
+        fieldOfficeHours: location.field_office_hours,
+        fieldAdditionalHoursInfo: location.field_additional_hours_info,
+        fieldUseMainFacilityPhone: location.field_use_main_facility_phone,
+        fieldUseFacilityPhoneNumber: location.field_use_facility_phone_number,
+        fieldServiceLocationAddress: location.field_service_location_address,
+      })),
     })),
   }
 }

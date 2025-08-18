@@ -11,6 +11,7 @@ import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisi
 import { MediaImage } from '@/templates/common/mediaImage'
 import { TextWithImage } from '@/templates/components/textWithImage'
 import { GetUpdatesSection } from '@/templates/components/getUpdatesSection'
+import { VbaFacilityServiceGroup } from './vbaServiceGroup'
 
 type facilityApiAddress = {
   addressLine1: string
@@ -43,6 +44,7 @@ export function VbaFacility({
   prepareForVisit,
   phoneNumber,
   address,
+  allServices,
 }: FormattedVBAFacility) {
   useEffect(() => {
     window.mainVBAPhone = phoneNumber
@@ -56,6 +58,25 @@ export function VbaFacility({
     }
     window.mainVBAFacilityApiId = facilityLocatorApiId
   }, [phoneNumber, address, facilityLocatorApiId])
+  // Alpha sort all services
+  allServices.sort((a, b) => {
+    if (a.name < b.name) return -1
+    if (a.name > b.name) return 1
+    return 0
+  })
+  // Split up by service categories
+  const veteranBenefitsServices = allServices.filter(
+    (service) => service.type === 'vba_veteran_benefits'
+  )
+  const familyMemberCaregiverBenefits = allServices.filter(
+    (service) => service.type === 'vba_family_member_caregiver_benefits'
+  )
+  const serviceMemberBenefits = allServices.filter(
+    (service) => service.type === 'vba_service_member_benefits'
+  )
+  const otherServices = allServices.filter(
+    (service) => service.type === 'vba_other_services'
+  )
   return (
     <div className="interior">
       <main className="va-l-detail-page va-facility-page">
@@ -164,8 +185,38 @@ export function VbaFacility({
                   />
                 ))}
             </div>
-
-            <div>TODO: Add services/benefits</div>
+            {veteranBenefitsServices && (
+              <VbaFacilityServiceGroup
+                heading={'Veteran benefits'}
+                headingId="veteran-benefits"
+                services={veteranBenefitsServices}
+                mainPhone={phoneNumber}
+              />
+            )}
+            {familyMemberCaregiverBenefits && (
+              <VbaFacilityServiceGroup
+                heading={'Family member and caregiver benefits'}
+                headingId="family-member-and-caregiver-be"
+                services={familyMemberCaregiverBenefits}
+                mainPhone={phoneNumber}
+              />
+            )}
+            {serviceMemberBenefits && (
+              <VbaFacilityServiceGroup
+                heading={'Service member benefits'}
+                headingId="service-member-benefits"
+                services={serviceMemberBenefits}
+                mainPhone={phoneNumber}
+              />
+            )}
+            {otherServices && (
+              <VbaFacilityServiceGroup
+                heading={'Other services'}
+                headingId="other-services"
+                services={otherServices}
+                mainPhone={phoneNumber}
+              />
+            )}
             {ccCantFindBenefits && (
               <va-alert
                 status="info"
