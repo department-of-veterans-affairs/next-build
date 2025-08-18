@@ -12,6 +12,6 @@ export const formatter: QueryFormatter<ParagraphQA, QaParagraph> = (
     answers: entity.field_answer
       ? entity.field_answer.map(formatParagraph)
       : [],
-    id: entity.id,
+    id: entity.id ?? null,
   }
 }

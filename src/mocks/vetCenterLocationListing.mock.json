@@ -1,0 +1,706 @@
+{
+  "type": "node--vet_center_locations_list",
+  "id": "93fde050-0972-447f-89ac-8f2298c97386",
+  "drupal_internal__nid": 17943,
+  "drupal_internal__vid": 472476,
+  "langcode": "en",
+  "revision_timestamp": "2021-07-14T14:25:22+00:00",
+  "revision_log": "Bulk operation publish revision",
+  "status": true,
+  "title": "Locations",
+  "created": "2021-04-06T19:49:44+00:00",
+  "changed": "2021-07-14T14:25:22+00:00",
+  "promote": true,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/colorado-springs-vet-center",
+      "title": "Colorado Springs Vet Center",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/colorado-springs-vet-center/locations",
+      "title": "Locations",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/colorado-springs-vet-center/locations",
+    "pid": 21903,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_enforce_unique_combo": false,
+  "field_intro_text": "We provide all of our counseling, outreach, and support services at our main location.",
+  "field_last_saved_by_an_editor": "2021-07-14T14:25:21+00:00",
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vet_center_locations_list/93fde050-0972-447f-89ac-8f2298c97386?resourceVersion=id%3A472476"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "419ef255-138b-4c47-91e4-bb035c968544",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vet_center_locations_list"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "153d1d9f-4f9e-4107-9f63-bc7c25fb71ac",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1203
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 197
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "01c7b569-23ab-444c-85df-022373ec93f2",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 394
+    }
+  },
+  "field_nearby_mobile_vet_centers": [
+    {
+      "type": "node--vet_center_mobile_vet_center",
+      "id": "48ad986e-5756-46db-b175-f45bb2d30b7a",
+      "drupal_internal__nid": 17472,
+      "drupal_internal__vid": 898001,
+      "langcode": "en",
+      "revision_timestamp": "2024-06-13T12:54:38+00:00",
+      "revision_log": "Update of Facility API data by migration.",
+      "status": true,
+      "title": "Pueblo Mobile Vet Center",
+      "created": "2021-03-26T20:06:00+00:00",
+      "changed": "2024-06-13T12:54:38+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": null,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/pueblo-vet-center",
+          "title": "Pueblo Vet Center",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/pueblo-vet-center/pueblo-mobile-vet-center",
+          "title": "Pueblo Mobile Vet Center",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [],
+      "path": {
+        "alias": "/pueblo-vet-center/pueblo-mobile-vet-center",
+        "pid": 21279,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_address": {
+        "langcode": null,
+        "country_code": "US",
+        "administrative_area": "CO",
+        "locality": "Pueblo",
+        "dependent_locality": null,
+        "postal_code": "81008",
+        "sorting_code": null,
+        "address_line1": "1515 Fortino Boulevard",
+        "address_line2": "Suite 130"
+      },
+      "field_facility_locator_api_id": "vc_0836MVC",
+      "field_geolocation": {
+        "value": "POINT(-104.609 38.254)",
+        "geo_type": "Point",
+        "lat": 38.254,
+        "lon": -104.609,
+        "left": -104.609,
+        "top": 38.254,
+        "right": -104.609,
+        "bottom": 38.254,
+        "geohash": "9xj8kq8xq",
+        "latlon": "38.254,-104.609"
+      },
+      "field_last_saved_by_an_editor": "2023-11-01T14:46:43+00:00",
+      "field_office_hours": [
+        {
+          "day": 1,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        },
+        {
+          "day": 2,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        },
+        {
+          "day": 3,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        },
+        {
+          "day": 4,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        },
+        {
+          "day": 5,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        },
+        {
+          "day": 6,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        },
+        {
+          "day": 0,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        }
+      ],
+      "field_phone_number": "719-583-4058",
+      "field_table_of_contents": null,
+      "field_timezone": "America/Denver",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vet_center_mobile_vet_center/48ad986e-5756-46db-b175-f45bb2d30b7a?resourceVersion=id%3A898001"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 17472
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "f3f405ce-0fe5-4021-bac1-595b053af366",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "vet_center_mobile_vet_center"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "6eaa8ccb-0d9e-41a6-93a1-e5ca181f02cd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 750
+        }
+      },
+      "field_media": {
+        "type": "media--image",
+        "id": "6982c62d-26f7-41bf-a4ed-3ec4e6e9f198",
+        "drupal_internal__mid": "4125",
+        "drupal_internal__vid": "4373",
+        "status": true,
+        "langcode": "en",
+        "name": "spfld vet center photo.jpg",
+        "created": "2021-06-03T20:06:55+00:00",
+        "changed": "2021-06-03T20:06:55+00:00",
+        "path": {
+          "alias": null,
+          "pid": null,
+          "langcode": "en"
+        },
+        "field_description": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/6982c62d-26f7-41bf-a4ed-3ec4e6e9f198?resourceVersion=id%3A4373"
+          }
+        },
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4125
+        },
+        "bundle": {
+          "type": "media_type--media_type",
+          "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "image"
+          }
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2014
+          }
+        },
+        "thumbnail": {
+          "type": "file--file",
+          "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+          "drupal_internal__fid": 4537,
+          "langcode": "en",
+          "filename": "spfld vet center photo.jpg",
+          "uri": {
+            "value": "public://2021-06/spfld vet center photo_4.jpg",
+            "url": "/sites/default/files/2021-06/spfld%20vet%20center%20photo_4.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 1848144,
+          "status": true,
+          "created": "2021-06-03T20:06:55+00:00",
+          "changed": "2021-06-03T20:09:06+00:00",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Springfield MA Vet Center",
+            "title": null,
+            "width": 4032,
+            "height": 3024,
+            "drupal_internal__target_id": 4537
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2014
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "image": {
+          "type": "file--file",
+          "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+          "drupal_internal__fid": "4537",
+          "langcode": "en",
+          "filename": "spfld vet center photo.jpg",
+          "uri": {
+            "value": "public://2021-06/spfld vet center photo_4.jpg",
+            "url": "/sites/default/files/2021-06/spfld%20vet%20center%20photo_4.jpg"
+          },
+          "filemime": "image/jpeg",
+          "filesize": 1848144,
+          "status": true,
+          "created": "2021-06-03T20:06:55+00:00",
+          "changed": "2021-06-03T20:09:06+00:00",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7"
+            }
+          },
+          "resourceIdObjMeta": {
+            "alt": "Springfield MA Vet Center",
+            "title": "",
+            "width": 4032,
+            "height": 3024,
+            "drupal_internal__target_id": 4537
+          },
+          "uid": {
+            "type": "user--user",
+            "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 2014
+            }
+          },
+          "relationshipNames": ["uid"]
+        },
+        "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
+      },
+      "field_office": {
+        "type": "node--vet_center",
+        "id": "2556c116-9ccb-461f-b2c3-7bee0e6f372a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3809
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_media",
+        "field_office"
+      ]
+    }
+  ],
+  "field_office": {
+    "type": "node--vet_center",
+    "id": "9aac2fe2-c237-4e5f-8ce1-275b546629d5",
+    "drupal_internal__nid": 3792,
+    "drupal_internal__vid": 945440,
+    "langcode": "en",
+    "revision_timestamp": "2024-12-11T19:41:41+00:00",
+    "revision_log": "Spotlight update",
+    "status": true,
+    "title": "Colorado Springs Vet Center",
+    "created": "2020-04-06T21:28:39+00:00",
+    "changed": "2024-12-11T19:41:41+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/colorado-springs-vet-center",
+        "title": "Colorado Springs Vet Center",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [],
+    "path": {
+      "alias": "/colorado-springs-vet-center",
+      "pid": 4676,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_address": {
+      "langcode": "en",
+      "country_code": "US",
+      "administrative_area": "CO",
+      "locality": "Colorado Springs",
+      "dependent_locality": null,
+      "postal_code": "80907",
+      "sorting_code": null,
+      "address_line1": "3920 North Union Blvd",
+      "address_line2": "Suite 310"
+    },
+    "field_cc_non_traditional_hours": {
+      "target_type": "paragraph",
+      "target_id": "da491d60-a25f-4f08-b9de-db8b5ba42e0d",
+      "target_field": null,
+      "fetched_bundle": "wysiwyg",
+      "fetched": {
+        "field_wysiwyg": [
+          {
+            "value": "<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>",
+            "format": "rich_text",
+            "processed": "<p>We also have non-traditional hours that change periodically given our community’s needs. Please call us to find out more.</p>"
+          }
+        ]
+      }
+    },
+    "field_cc_vet_center_call_center": {
+      "target_type": "paragraph",
+      "target_id": "27feaa0b-6aff-4db8-bdbd-2a8c7ed8f91f",
+      "target_field": null,
+      "fetched_bundle": "wysiwyg",
+      "fetched": {
+        "field_wysiwyg": [
+          {
+            "value": "<p>Our call center is available 24/7. Call us anytime at <a href=\"tel:+18779278387\" aria-label=\"8 7 7. 9 2 7. 8 3 8 7.\">877-927-8387</a>.</p>",
+            "format": "rich_text",
+            "processed": "<p>Our call center is available 24/7. Call us anytime at <a href=\"tel:+18779278387\" aria-label=\"8 7 7. 9 2 7. 8 3 8 7.\">877-927-8387</a>.</p>"
+          }
+        ]
+      }
+    },
+    "field_cc_vet_center_faqs": null,
+    "field_cc_vet_center_featured_con": null,
+    "field_facility_locator_api_id": "vc_0525V",
+    "field_geolocation": null,
+    "field_intro_text": "We offer confidential help for Veterans, service members, and their families at no cost in a non-medical setting. Our services include counseling for needs such as depression, posttraumatic stress disorder (PTSD), and the psychological effects of military sexual trauma (MST). We can also connect you with more support in VA and your community.",
+    "field_mission_explainer": null,
+    "field_office_hours": [
+      {
+        "day": 0,
+        "all_day": false,
+        "starthours": null,
+        "endhours": null,
+        "comment": "Closed"
+      },
+      {
+        "day": 1,
+        "all_day": false,
+        "starthours": 800,
+        "endhours": 1830,
+        "comment": ""
+      },
+      {
+        "day": 2,
+        "all_day": false,
+        "starthours": 800,
+        "endhours": 1830,
+        "comment": ""
+      },
+      {
+        "day": 3,
+        "all_day": false,
+        "starthours": 800,
+        "endhours": 1630,
+        "comment": ""
+      },
+      {
+        "day": 4,
+        "all_day": false,
+        "starthours": 800,
+        "endhours": 1630,
+        "comment": ""
+      },
+      {
+        "day": 5,
+        "all_day": false,
+        "starthours": 800,
+        "endhours": 1630,
+        "comment": ""
+      },
+      {
+        "day": 6,
+        "all_day": false,
+        "starthours": null,
+        "endhours": null,
+        "comment": "Closed"
+      }
+    ],
+    "field_official_name": "Colorado Springs Vet Center",
+    "field_operating_status_facility": "normal",
+    "field_operating_status_more_info": null,
+    "field_phone_number": "719-471-9992",
+    "field_table_of_contents": null,
+    "field_timezone": "America/Denver",
+    "field_vet_center_banner_image": {
+      "target_type": "paragraph",
+      "target_id": "158541",
+      "target_field": null,
+      "fetched_bundle": "media",
+      "fetched": {
+        "field_allow_clicks_on_this_image": [
+          {
+            "value": "0"
+          }
+        ],
+        "field_markup": [
+          {
+            "markup": null
+          }
+        ],
+        "field_media": [
+          {
+            "target_id": "36006"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vet_center/9aac2fe2-c237-4e5f-8ce1-275b546629d5?resourceVersion=id%3A945440"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3792
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "43c12b6b-5a35-47c7-9453-41aeb4287bb7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "vet_center"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "c1199ad7-bab3-4a87-ae25-d33f13d391e1",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2017
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1317
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "01c7b569-23ab-444c-85df-022373ec93f2",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 394
+      }
+    },
+    "field_health_services": null,
+    "field_media": {
+      "type": "media--image",
+      "id": "6982c62d-26f7-41bf-a4ed-3ec4e6e9f198",
+      "drupal_internal__mid": "4125",
+      "drupal_internal__vid": "4373",
+      "status": true,
+      "langcode": "en",
+      "name": "spfld vet center photo.jpg",
+      "created": "2021-06-03T20:06:55+00:00",
+      "changed": "2021-06-03T20:06:55+00:00",
+      "path": {
+        "alias": null,
+        "pid": null,
+        "langcode": "en"
+      },
+      "field_description": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/6982c62d-26f7-41bf-a4ed-3ec4e6e9f198?resourceVersion=id%3A4373"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4125
+      },
+      "bundle": {
+        "type": "media_type--media_type",
+        "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "image"
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2014
+        }
+      },
+      "thumbnail": {
+        "type": "file--file",
+        "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+        "drupal_internal__fid": 4537,
+        "langcode": "en",
+        "filename": "spfld vet center photo.jpg",
+        "uri": {
+          "value": "public://2021-06/spfld vet center photo_4.jpg",
+          "url": "/sites/default/files/2021-06/spfld%20vet%20center%20photo_4.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 1848144,
+        "status": true,
+        "created": "2021-06-03T20:06:55+00:00",
+        "changed": "2021-06-03T20:09:06+00:00",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7"
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Springfield MA Vet Center",
+          "title": null,
+          "width": 4032,
+          "height": 3024,
+          "drupal_internal__target_id": 4537
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2014
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "image": {
+        "type": "file--file",
+        "id": "93b4a8e3-a636-4bae-9486-1d49a51d22b7",
+        "drupal_internal__fid": "4537",
+        "langcode": "en",
+        "filename": "spfld vet center photo.jpg",
+        "uri": {
+          "value": "public://2021-06/spfld vet center photo_4.jpg",
+          "url": "/sites/default/files/2021-06/spfld%20vet%20center%20photo_4.jpg"
+        },
+        "filemime": "image/jpeg",
+        "filesize": 1848144,
+        "status": true,
+        "created": "2021-06-03T20:06:55+00:00",
+        "changed": "2021-06-03T20:09:06+00:00",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/93b4a8e3-a636-4bae-9486-1d49a51d22b7"
+          }
+        },
+        "resourceIdObjMeta": {
+          "alt": "Springfield MA Vet Center",
+          "title": "",
+          "width": 4032,
+          "height": 3024,
+          "drupal_internal__target_id": 4537
+        },
+        "uid": {
+          "type": "user--user",
+          "id": "1aa1050d-903b-45b2-9afc-2fad6cc6f6b0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 2014
+          }
+        },
+        "relationshipNames": ["uid"]
+      },
+      "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
+    },
+    "field_prepare_for_visit": null,
+    "field_vet_center_feature_content": null,
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_health_services",
+      "field_media",
+      "field_prepare_for_visit",
+      "field_vet_center_feature_content"
+    ]
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_nearby_mobile_vet_centers",
+    "field_office"
+  ]
+}

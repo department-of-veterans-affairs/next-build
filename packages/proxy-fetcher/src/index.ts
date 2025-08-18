@@ -1,5 +1,10 @@
 import crossFetch from 'cross-fetch'
+import Debug from 'debug'
 import { SocksProxyAgent } from 'socks-proxy-agent'
+
+const logger = Debug('proxy-fetcher')
+const log = logger.extend('log')
+const error = logger.extend('error')
 
 /**
  * Creates a custom fetcher function with support for SOCKS proxying,
@@ -18,7 +23,7 @@ import { SocksProxyAgent } from 'socks-proxy-agent'
  *
  * Example Usage:
  * ```ts
- * const fetcher = getFetcher('https://va-gov-cms.ddev.site', true);
+ * const fetcher = getFetcher('https://va-gov-cms.ddev.site');
  * const response = await fetcher('https://example.com/flags_list', { method: 'GET' });
  * const data = await response.json();
  * ```
@@ -27,12 +32,7 @@ export const getFetcher = (
   /**
    * The base URL for the Drupal instance. (e.g. https://va-gov-cms.ddev.site)
    */
-  baseUrl: string,
-  /**
-   * Whether to enable debug mode, which logs detailed request failure
-   * information.
-   */
-  debug: boolean = false
+  baseUrl: string
 ) =>
   /**
    * Fetches the resource at `input`, using the SOCKS proxy and managing
@@ -82,34 +82,27 @@ export const getFetcher = (
         ...options,
       })
 
-      // Log request failures:
-      //  In debug mode: always
-      //  In non-debug mode: only on final attempt
-      const logFailedRequest = debug ? true : attempt === retryCount + 1
-
       if (!response.ok) {
-        if (logFailedRequest) {
-          console.error(
-            `Failed request (Attempt ${attempt} of ${retryCount + 1}): ${JSON.stringify(
-              {
-                url: response.url,
-                status: response.status,
-                statusText: response.statusText,
-              },
-              null,
-              2
-            )}`
-          )
-        }
-        throw new Error(
-          `Failed request to ${response.url}: ${response.status} ${response.statusText}`
+        const logOrError = attempt <= retryCount ? log : error
+        logOrError(
+          `Failed request (Attempt ${attempt} of ${retryCount + 1}): %o`,
+          {
+            url: response.url,
+            status: response.status,
+            statusText: response.statusText,
+          }
         )
-      }
 
-      // Don't retry if we shouldn't
-      if ([404, 403].includes(response.status)) {
-        const { AbortError } = await import('p-retry')
-        throw new AbortError(response.statusText)
+        const errorMessage = `Failed request to ${response.url}: ${response.status} ${response.statusText}`
+
+        // Don't retry if we shouldn't
+        if ([404, 403].includes(response.status)) {
+          log(`Aborting retry: ${response.status} received`)
+          const { AbortError } = await import('p-retry')
+          throw new AbortError(new Error(errorMessage, { cause: response }))
+        }
+
+        throw new Error(errorMessage, { cause: response })
       }
 
       return response

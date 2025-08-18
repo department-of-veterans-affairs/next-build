@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
+      uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -122,6 +122,7 @@ jobs:
       SETUP_START_TIME: ${{ steps.export-setup-start-time.outputs.SETUP_START_TIME }}
       SETUP_END_TIME: ${{ steps.export-setup-end-time.outputs.SETUP_END_TIME }}
       YARN_OUTPUT: ${{ steps.export-yarn-output.outputs.YARN_OUTPUT }}
+      EXPORT_WARNINGS: ${{ steps.export-warnings.outputs.EXPORT_WARNINGS }}
     container:
       image: 008577686731.dkr.ecr.us-gov-west-1.amazonaws.com/node-22.16.0-bullseye:latest
       credentials:
@@ -214,6 +215,24 @@ jobs:
             ls -l
           fi
 
+    - name: Check for warnings during build
+      id: export-warnings
+      run: |
+        cd main
+        node scripts/consolidate-warning-logs.js
+        # This bit is a little complicated, so some explanation:
+        #
+        # 1. Check to see if the warnings file exists.
+        # 2a. If yes, add a "\n" to the end of the file and remove all newlines; set
+        #   the output to this squashed string. It needs to be a single line
+        #   because we'll be adding it to the JSON payload for sending to Slack
+        #   later.
+        #     NOTE: The four backslashes are needed to escape the newline for the
+        #     output; we need `sed` to output "\\n", so then the double-quote
+        #     string we're echoing will contain the literal string "\n".
+        # 2b. If no, set the output to an empty string.
+        echo "EXPORT_WARNINGS=$( [ -f logs/warnings.md ] && sed 's/$/\\\\n/' logs/warnings.md | tr -d '\n' || echo '' )" >> "$GITHUB_OUTPUT"
+
     - name: Build sitemap
       run: |
         cd main && yarn build:sitemap
@@ -262,7 +281,7 @@ jobs:
 
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
+      uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -330,8 +349,18 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+      - name: Notify Slack of warnings
+        if: ${{ needs.build.outputs.EXPORT_WARNINGS != '' }}
+        uses: department-of-veterans-affairs/platform-release-tools-actions/slack-notify@8c496a4b0c9158d18edcd9be8722ed0f79e8c5b4 # main
+        continue-on-error: true
+        with:
+          payload: '{ "attachments": [ { "color": "#FFBE2E", "blocks": [ { "type": "section", "text": { "type": "mrkdwn", "text": "@cms-troubleshooting\nWarnings for next-build release: ${{ needs.validate-build-status.outputs.TAG }}" } }, { "type": "divider" }, { "type": "section", "text": { "type": "mrkdwn", "text": "${{ needs.build.outputs.EXPORT_WARNINGS }}" } } ] } ] }'
+          channel_id: ${{ env.SLACK_CHANNEL }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -385,7 +414,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}
@@ -470,7 +499,7 @@ jobs:
             jq '.series[].tags[3] = "trigger:${{env.BUILD_TRIGGER}}"' > metrics.json
 
         - name: Configure AWS credentials
-          uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
+          uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

@@ -1,165 +1,48 @@
 import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
-import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
-import { ImageAndStaticMap } from '@/templates/components/imageAndStaticMap'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { AlertBlock } from '@/templates/components/alertBlock'
 import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
-import { Accordion } from '@/templates/components/accordion'
-import { ExpandableOperatingStatus } from './ExpandableOperatingStatus'
+import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { SchemaScript } from './SchemaScript'
+import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
+import { ContentFooter } from '@/templates/common/contentFooter'
+import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
+import { TextWithImage } from '@/templates/components/textWithImage'
 
-export function VetCenter({
-  address,
-  ccNonTraditionalHours,
-  ccVetCenterCallCenter,
-  ccVetCenterFaqs,
-  geolocation,
-  featuredContent,
-  introText,
-  missionExplainer,
-  officeHours,
-  officialName,
-  operatingStatusFacility,
-  operatingStatusMoreInfo,
-  phoneNumber,
-  healthServices,
-  counselingHealthServices,
-  referralHealthServices,
-  otherHealthServices,
-  image,
-  bannerImage,
-  prepareForVisit,
-  title,
-  fieldFacilityLocatorApiId,
-  path,
-}: FormattedVetCenter) {
+export function VetCenter(vetCenterProps: FormattedVetCenter) {
+  const {
+    address,
+    ccNonTraditionalHours,
+    ccVetCenterCallCenter,
+    ccVetCenterFaqs,
+    featuredContent,
+    introText,
+    missionExplainer,
+    officeHours,
+    officialName,
+    operatingStatusFacility,
+    operatingStatusMoreInfo,
+    phoneNumber,
+    counselingHealthServices,
+    referralHealthServices,
+    otherHealthServices,
+    image,
+    bannerImage,
+    prepareForVisit,
+    title,
+    fieldFacilityLocatorApiId,
+    path,
+  } = vetCenterProps
+
   const directionsString = [
     address?.address_line1,
     address?.locality,
     address?.administrative_area,
   ]
-
-  const structuredSchemaData = {
-    '@context': 'https://schema.org',
-    '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: `${address.address_line1}${
-        address.address_line2 ? `, ${address.address_line2}` : ''
-      }`,
-      addressLocality: address.locality,
-      addressRegion: address.administrative_area,
-      postalCode: address.postal_code,
-    },
-    name: title,
-    telephone: phoneNumber,
-    openingHoursSpecification: officeHours.map((hours) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: `https://schema.org/${hours.day}`,
-      opens: hours.starthours,
-      closes: hours.endhours,
-    })),
-    hasMap: `https://maps.google.com?saddr=Current+Location&daddr=${encodeURIComponent(
-      `${address.address_line1}, ${address.locality}, ${address.postal_code}`
-    )}`,
-    image: image?.links?.['2_1_large']?.href,
-    branchCode: fieldFacilityLocatorApiId,
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: geolocation.lat.toString(),
-      longitude: geolocation.lon.toString(),
-    },
-  }
-
-  const generateStructuredDataForHealthServices = (
-    healthServices,
-    title,
-    fieldAddress
-  ) => {
-    return healthServices.map((service) => ({
-      '@context': 'https://schema.org',
-      '@type': 'GovernmentService',
-      name: title,
-      alternateName: service?.fieldVetCenterFriendlyName || null,
-      serviceType: service?.vetCenterTypeOfCare || null,
-      serviceOperator: {
-        '@type': 'GovernmentOrganization',
-        name: 'US Department of Veterans Affairs',
-      },
-      areaServed: {
-        '@type': 'AdministrativeArea',
-        name: fieldAddress?.administrative_area || null,
-      },
-      audience: {
-        '@type': 'Audience',
-        audienceType: 'Veteran',
-      },
-      availableChannel: {
-        '@type': 'ServiceChannel',
-        serviceUrl: 'https://www.va.gov',
-        servicePhone: {
-          '@type': 'ContactPoint',
-          telephone: service?.phoneNumber || null,
-        },
-      },
-      provider: {
-        '@type': 'GovernmentOrganization',
-        name: 'Veterans Affairs',
-        url: 'https://www.va.gov',
-      },
-      serviceLocation: {
-        '@type': 'Place',
-        name: title,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress:
-            fieldAddress.address_line1 +
-            (address.address_line2
-              ? `${address.address_line1}${address.address_line2}`
-              : address.address_line1),
-          addressLocality: fieldAddress?.locality,
-          addressRegion: fieldAddress?.administrative_area,
-          postalCode: fieldAddress?.postal_code,
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: geolocation.lat.toString(),
-          longitude: geolocation.lon.toString(),
-        },
-      },
-    }))
-  }
-
-  const structuredDataHealthServices = generateStructuredDataForHealthServices(
-    healthServices,
-    title,
-    address
-  )
-
-  const PrepareForVisitComponent = ({ visitItems }) => {
-    if (visitItems.length === 0) return null
-    return (
-      <>
-        <h2
-          id="prepare-for-your-visit"
-          className="vads-u-margin-top--0 vads-u-font-size--lg mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
-        >
-          Prepare for your visit
-        </h2>
-        <p>Select a topic to learn more.</p>
-        <div className="vads-u-margin-bottom--3">
-          <Accordion
-            id={'prepare-for-your-visit'}
-            bordered
-            items={prepareForVisit}
-          />
-        </div>
-      </>
-    )
-  }
 
   const alsoCalled =
     officialName && title !== officialName
@@ -168,200 +51,172 @@ export function VetCenter({
   const alsoCalledId = 'vet-center-title'
 
   return (
-    <div className="usa-grid usa-grid-full">
-      <div className="usa-width-three-fourths">
-        <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
-          {title && (
+    <div className="vads-grid-container">
+      <article className="usa-content va-l-facility-detail vads-u-padding-bottom--0">
+        {title && (
+          <>
+            <h1 aria-describedby={alsoCalled ? alsoCalledId : undefined}>
+              {title}
+            </h1>
+            {alsoCalled && (
+              <p
+                id={alsoCalledId}
+                className="vads-u-font-family--serif vads-u-font-size--lg vads-u-font-weight--bold"
+              >
+                {alsoCalled}
+              </p>
+            )}
+          </>
+        )}
+        {bannerImage && (
+          <MediaImage
+            {...bannerImage}
+            imageStyle="7_2_medium_thumbnail"
+            className="vads-u-padding-y--1p5"
+          />
+        )}
+        {introText && (
+          <div className="va-introtext">
+            <p>{introText}</p>
+          </div>
+        )}
+        {missionExplainer && (
+          <va-summary-box
+            class="vads-u-margin-bottom--4 desktop:vads-u-margin-bottom--0"
+            data-header-id-excluded="true"
+          >
+            <h2 slot="headline">{missionExplainer.heading}</h2>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: missionExplainer.body,
+              }}
+            />
+          </va-summary-box>
+        )}
+        <va-on-this-page></va-on-this-page>
+
+        {/* Locations and contact */}
+        <h2 id="locations-and-contact-information">
+          Location and contact information
+        </h2>
+        <TextWithImage
+          image={
             <>
-              <h1 aria-describedby={alsoCalled ? alsoCalledId : undefined}>
-                {title}
-              </h1>
-              {alsoCalled && (
-                <p
-                  id={alsoCalledId}
-                  className="vads-u-font-family--serif vads-u-font-size--lg vads-u-font-weight--bold"
-                >
-                  {alsoCalled}
-                </p>
-              )}
-            </>
-          )}
-          {bannerImage && (
-            <MediaImage
-              {...bannerImage}
-              imageStyle="7_2_medium_thumbnail"
-              className="vads-u-padding-y--1p5"
-            />
-          )}
-          {introText && (
-            <div className="va-introtext">
-              <p>{introText}</p>
-            </div>
-          )}
-          {missionExplainer && (
-            <va-summary-box
-              class="vads-u-margin-bottom--4 medium-screen:vads-u-margin-bottom--0"
-              data-header-id-excluded="true"
-            >
-              <h2 slot="headline">{missionExplainer.heading}</h2>
+              <MediaImage {...image} imageStyle="3_2_medium_thumbnail" />
               <div
-                dangerouslySetInnerHTML={{
-                  __html: missionExplainer.body,
-                }}
+                data-widget-type="facility-map"
+                data-facility={fieldFacilityLocatorApiId}
               />
-            </va-summary-box>
-          )}
-          <va-on-this-page></va-on-this-page>
+            </>
+          }
+        >
+          <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+            Address
+          </h3>
+          <ExpandableOperatingStatus
+            operatingStatusFlag={operatingStatusFacility}
+            operatingStatusMoreInfo={operatingStatusMoreInfo}
+          />
+          <div className="vads-u-margin--0 vads-u-margin-bottom--3">
+            <Address address={address} title={title} />
+          </div>
 
-          {/* Locations and contact */}
-          <h2 id="locations-and-contact-information">
-            Location and contact information
-          </h2>
-          <div
-            className="region-list usa-grid usa-grid-full vads-u-display--flex vads-u-flex-direction--column
-          mobile-lg:vads-u-flex-direction--row facility"
-          >
-            <div className="usa-width-two-thirds vads-u-display--block vads-u-width--full">
-              <div className="vads-c-facility-detail">
-                <section className="vads-facility-detail">
-                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                    Address
-                  </h3>
+          <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
+            Phone number
+          </h3>
+          <PhoneNumber
+            className="vads-u-margin-top--0 vads-u-margin-bottom--3"
+            label="Main phone"
+            number={phoneNumber}
+          />
 
-                  <ExpandableOperatingStatus
-                    operatingStatusFlag={operatingStatusFacility}
-                    operatingStatusMoreInfo={operatingStatusMoreInfo}
-                  />
+          <Hours
+            headerType="standard"
+            allHours={officeHours}
+            nonTraditionalMessage={ccNonTraditionalHours}
+          />
+        </TextWithImage>
 
-                  <p className="vads-u-margin--0 vads-u-margin-bottom--3">
-                    <address>
-                      <div>{address.address_line1}</div>
-                      {address.address_line2 && (
-                        <div>{address.address_line2}</div>
-                      )}
-                      <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
-                    </address>
-                    <GoogleMapsDirections
-                      address={directionsString}
-                      location={title}
-                    />
-                  </p>
-
-                  <h3 className="vads-u-margin-top--0 vads-u-margin-bottom--1">
-                    Phone number
-                  </h3>
-                  <PhoneNumber
-                    className="vads-u-margin-top--0 vads-u-margin-bottom--3"
-                    label="Main phone"
-                    number={phoneNumber}
-                  />
-
-                  <Hours
-                    headerType="standard"
-                    allHours={officeHours}
-                    nonTraditionalMessage={ccNonTraditionalHours}
-                  />
-                </section>
-              </div>
-            </div>
-            <ImageAndStaticMap
-              image={image}
-              facilityId={fieldFacilityLocatorApiId}
+        {/* Call Center Information */}
+        {ccVetCenterCallCenter && (
+          <div className="vads-u-margin-bottom--2">
+            <AlertBlock
+              alertType="info"
+              id="field-cc-vet-call-center"
+              title="Need help after hours?"
+              content={ccVetCenterCallCenter}
             />
           </div>
+        )}
 
-          {/* Call Center Information */}
-          {ccVetCenterCallCenter && (
-            <div className="vads-u-margin-bottom--2">
-              <AlertBlock
-                alertType="info"
-                id="field-cc-vet-call-center"
-                title="Need help after hours?"
-                content={ccVetCenterCallCenter}
-              />
-            </div>
-          )}
+        {/* Other locations */}
+        <div className="vads-u-margin-bottom--3">
+          <h2 id="other-locations">Other locations</h2>
+          <p>
+            Vet Centers are community based to be more accessible in areas where
+            you live.
+          </p>
+          <p>
+            <va-link
+              active
+              href={`${path}/locations`}
+              text={`View more ${title} locations`}
+            ></va-link>
+          </p>
+        </div>
 
-          {/* Other locations */}
-          <div className="vads-u-margin-bottom--3">
-            <h2 id="other-locations">Other locations</h2>
-            <p>
-              Vet Centers are community based to be more accessible in areas
-              where you live.
-            </p>
-            <p>
-              <va-link
-                active
-                href={`${path}/locations`}
-                text={`View more ${title} locations`}
-              ></va-link>
-            </p>
-          </div>
+        {/* Prepare for Your Visit */}
+        {prepareForVisit && prepareForVisit.length > 0 && (
+          <PrepareForVisitAccordions visitItems={prepareForVisit} />
+        )}
 
-          {/* Prepare for Your Visit */}
-          {prepareForVisit && prepareForVisit.length > 0 && (
-            <PrepareForVisitComponent visitItems={prepareForVisit} />
-          )}
-
-          {/* Featured Content */}
-          <h2
-            id="in-the-spot-light"
-            className="vads-u-margin-top--0 vads-u-font-size--lg
+        {/* Featured Content */}
+        <h2
+          id="in-the-spot-light"
+          className="vads-u-margin-top--0 vads-u-font-size--lg
           mobile-lg:vads-u-font-size--xl vads-u-margin-bottom--2"
-          >
-            In the spotlight
-          </h2>
-          <div
-            id="field-vet-center-feature-content"
-            className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4 "
-          >
-            {featuredContent &&
-              featuredContent.map((content, index) => (
-                <FeaturedContent
-                  key={index}
-                  title={content.title}
-                  description={content.description}
-                  link={content.link}
-                  id={content.id || ''}
-                />
-              ))}
-          </div>
+        >
+          In the spotlight
+        </h2>
+        <div
+          id="field-vet-center-feature-content"
+          className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-flex-direction--row vads-u-margin-bottom--4 "
+        >
+          {featuredContent &&
+            featuredContent.map((content, index) => (
+              <FeaturedContent
+                key={index}
+                title={content.title}
+                description={content.description}
+                link={content.link}
+                id={content.id || ''}
+              />
+            ))}
+        </div>
 
-          {/* Health Services */}
-          <VetCenterHealthServices
-            services={counselingHealthServices}
-            typeOfCare={'counseling'}
-          />
-          <VetCenterHealthServices
-            services={referralHealthServices}
-            typeOfCare={'referral'}
-          />
-          <VetCenterHealthServices
-            services={otherHealthServices}
-            typeOfCare={'other'}
-          />
+        {/* Health Services */}
+        <VetCenterHealthServices
+          services={counselingHealthServices}
+          typeOfCare={'counseling'}
+        />
+        <VetCenterHealthServices
+          services={referralHealthServices}
+          typeOfCare={'referral'}
+        />
+        <VetCenterHealthServices
+          services={otherHealthServices}
+          typeOfCare={'other'}
+        />
 
-          {/* FAQs */}
-          {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
+        {/* FAQs */}
+        {ccVetCenterFaqs && <QaSection {...ccVetCenterFaqs} />}
 
-          <va-back-to-top></va-back-to-top>
+        <va-back-to-top></va-back-to-top>
 
-          {/* Embedding structured data scripts for schema.org */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(structuredSchemaData),
-            }}
-          />
-          {structuredDataHealthServices.map((service, index) => (
-            <script
-              key={index}
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }}
-            />
-          ))}
-        </article>
-      </div>
+        <ContentFooter />
+
+        <SchemaScript vetCenter={vetCenterProps} />
+      </article>
     </div>
   )
 }

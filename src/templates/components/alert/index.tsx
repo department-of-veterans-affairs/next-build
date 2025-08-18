@@ -22,15 +22,14 @@ export function Alert(alert: ParagraphComponent<FormattedAlert>) {
       data-entity-id={entityId}
       status={alertType}
       class="vads-u-margin-top--3"
-      role="alert"
-      uswds="false"
+      uswds
     >
       <h2 slot="headline" className="vads-u-font-size--h3">
         {heading}
       </h2>
 
       {paragraphs?.map((paragraph) => (
-        <Paragraph key={paragraph.id} {...paragraph} />
+        <Paragraph key={paragraph.id || paragraph.entityId} {...paragraph} />
       ))}
     </va-alert>
   )

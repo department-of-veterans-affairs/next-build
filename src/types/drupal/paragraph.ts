@@ -121,7 +121,8 @@ export interface ParagraphCCFeaturedContent {
   }
 }
 
-export interface ParagraphCCVetCenterFaqs {
+export interface ParagraphCCQaSection {
+  target_type: string
   fetched_bundle: string
   fetched: {
     field_accordion_display: Array<{ value: string }>
@@ -194,7 +195,7 @@ export interface ParagraphQaSection extends DrupalParagraph {
   field_section_header: string
   field_accordion_display: boolean
   field_section_intro: string
-  field_questions: DrupalParagraph[]
+  field_questions: ParagraphQA[]
 }
 
 export interface ParagraphReactWidget extends DrupalParagraph {

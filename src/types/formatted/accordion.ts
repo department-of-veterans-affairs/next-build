@@ -4,6 +4,7 @@ export type AccordionItem = PublishedParagraph & {
   type: 'paragraph--basic_accordion'
   header: string
   html: string
+  itemLevel?: number
 }
 
 export type Accordion = {

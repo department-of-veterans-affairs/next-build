@@ -5,7 +5,7 @@ import { HoursItem } from './HoursItem'
 
 type HoursProps = {
   allHours: FieldOfficeHours[]
-  headerType?: 'small' | 'standard' | 'clinical' | 'office'
+  headerType?: 'standard' | 'clinical' | 'office'
   nonTraditionalMessage?: Wysiwyg
 }
 
@@ -39,15 +39,6 @@ export const Hours = ({
 }: HoursProps) => {
   const renderHeader = () => {
     switch (headerType) {
-      case 'small':
-        return (
-          <h3
-            className="force-small-header vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
-            id="hours-heading"
-          >
-            Hours
-          </h3>
-        )
       case 'standard':
         return (
           <>
@@ -83,7 +74,7 @@ export const Hours = ({
         return (
           <>
             <h3
-              className="vads-u-font-size--lg vads-u-margin-top--0 vads-u-line-height--1 vads-u-margin-bottom--1"
+              className="vads-u-margin-top--2p5 vads-u-margin-bottom--1"
               id="hours-heading"
             >
               Office hours

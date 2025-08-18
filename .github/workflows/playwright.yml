@@ -6,6 +6,8 @@ permissions:
 
 on:
   deployment_status:
+  workflow_call:
+
 jobs:
   # This is necessary to get credentials to use the private ECR image defined in the test job container.
   login-to-amazon-ecr:
@@ -13,7 +15,7 @@ jobs:
     if: github.event.deployment_status.state == 'success'
     steps:
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4.2.1
+      uses: aws-actions/configure-aws-credentials@v4.3.1
       with:
         aws-region: us-gov-west-1
         role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}

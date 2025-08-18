@@ -11,8 +11,10 @@ describe('ExpandableText with valid data', () => {
   test('renders ExpandableText component', () => {
     render(<ExpandableText {...expandableTextProps} />)
 
-    const vaAlertExpandable = document.querySelector('va-alert-expandable')
-    expect(vaAlertExpandable).toHaveAttribute('trigger', 'Show more')
+    const vaAdditionalInfo = document.querySelector('va-additional-info')
+    expect(vaAdditionalInfo).toHaveAttribute('trigger', 'Show more')
+    expect(vaAdditionalInfo).toHaveAttribute('disable-border')
+    expect(vaAdditionalInfo).toHaveAttribute('uswds')
   })
 })
 
@@ -21,7 +23,7 @@ describe('ExpandableText with invalid data', () => {
     expandableTextProps.header = null
     render(<ExpandableText {...expandableTextProps} />)
 
-    const vaAlertExpandable = document.querySelector('va-alert-expandable')
-    expect(vaAlertExpandable).toBeFalsy()
+    const vaAdditionalInfo = document.querySelector('va-additional-info')
+    expect(vaAdditionalInfo).toBeFalsy()
   })
 })

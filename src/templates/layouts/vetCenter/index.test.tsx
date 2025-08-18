@@ -243,6 +243,26 @@ describe('VetCenter with valid data', () => {
     expect(screen.queryByText(/In the spotlight/)).toBeInTheDocument()
   })
 
+  test('renders schema.org structured data scripts correctly', () => {
+    const { container } = render(<VetCenter {...mockData} />)
+
+    // Get all script tags with type="application/ld+json"
+    const scriptTags = container.querySelectorAll(
+      'script[type="application/ld+json"]'
+    )
+
+    // Should have at least 2 script tags (main place data + health services)
+    expect(scriptTags.length).toBeGreaterThan(1)
+
+    // Extract and parse the JSON from each script tag
+    const scriptContents = Array.from(scriptTags).map((script) => {
+      return JSON.parse((script as HTMLScriptElement).innerHTML)
+    })
+
+    // Take snapshot of the structured data to ensure consistency
+    expect(scriptContents).toMatchSnapshot()
+  })
+
   describe('Also called functionality', () => {
     test('renders "Also called" text when officialName is different from title', () => {
       const dataWithDifferentOfficialName = {
@@ -367,6 +387,15 @@ describe('VetCenter with valid data', () => {
 
     // Verify the contact attribute contains the phone number without dashes
     expect(vaTelephoneElement?.getAttribute('contact')).toBe('1234567890')
+  })
+
+  test('renders feedback button in ContentFooter component', () => {
+    const { container } = render(<VetCenter {...mockData} />)
+
+    // Check that the feedback button is present from the va-button component
+    expect(
+      container.querySelector('va-button[id="mdFormButton"]')
+    ).toBeInTheDocument()
   })
 
   describe('Mission Explainer functionality', () => {

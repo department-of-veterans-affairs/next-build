@@ -57,3 +57,17 @@ va-button#mdFormButton::part(button) {
   width: 45px;
   padding: 0;
 }
+.spotlight-card {
+  min-width: 30%;
+  word-wrap: break-word;
+}
+
+/* Override the `facility-img` class rules used in a widget so we don't have to apply
+   hacky fixes to the column layouts that contain it. If the "facility-map" widget is
+   ever replaced or updated so that `facility-img` isn't used, this can be removed. */
+.facility-img {
+  width: auto !important;
+  height: auto !important;
+  min-width: initial !important;
+  min-height: initial !important;
+}

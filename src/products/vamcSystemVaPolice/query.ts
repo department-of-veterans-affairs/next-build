@@ -12,8 +12,16 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { buildFaqs } from '@/data/utils/ccFaqs'
 import { getLovellVariantOfBreadcrumbs } from '@/lib/drupal/lovell/utils'
+import {
+  ParagraphCCQaSection,
+  ParagraphQaSection,
+} from '@/types/drupal/paragraph'
+import {
+  entityFetchedParagraphsToNormalParagraphs,
+  formatParagraph,
+} from '@/lib/drupal/paragraphs'
+import { QaSection } from '@/types/formatted/qaSection'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {
@@ -62,6 +70,16 @@ export const data: QueryData<
     : null
 
   return { entity, menu, lovell: opts.context?.lovell }
+}
+
+// Similarly, this formats centralized content FAQs to match what our QA components are expecting
+const formatFaq = (faqs: ParagraphCCQaSection) => {
+  const normalizedQaSection = entityFetchedParagraphsToNormalParagraphs({
+    type: faqs.target_type,
+    bundle: faqs.fetched_bundle,
+    ...faqs.fetched,
+  }) as ParagraphQaSection
+  return formatParagraph(normalizedQaSection) as QaSection
 }
 
 export const formatter: QueryFormatter<
@@ -120,6 +138,12 @@ export const formatter: QueryFormatter<
             ?.field_button_link?.[0]?.uri || '',
       },
     },
-    faqs: buildFaqs(entity.field_cc_faq),
+    faqs: Array.isArray(entity.field_cc_faq)
+      ? entity.field_cc_faq.length > 0
+        ? formatFaq(entity.field_cc_faq[0])
+        : null
+      : entity.field_cc_faq
+        ? formatFaq(entity.field_cc_faq)
+        : null,
   }
 }
