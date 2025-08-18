@@ -10,12 +10,20 @@ export const ServiceLocation = ({
   mainPhoneString,
   isMentalHealthService,
   location,
+  serviceDescription,
+  serviceHeader,
+  isVba = false,
 }: {
   fieldReferralRequired?: string
   mentalHealthPhoneNumber?: PhoneNumberType
   mainPhoneString?: string
   isMentalHealthService?: boolean
   location: VamcFacilityServiceLocation
+  intoTextType?: string
+  introTextCustom?: string
+  serviceDescription?: string
+  serviceHeader?:string
+  isVba?: boolean
 }) => {
   // Determine service main phone
   // Determine main phone number
@@ -53,6 +61,14 @@ export const ServiceLocation = ({
 
   return (
     <va-card class="vads-u-margin-y--2 break-word-wrap">
+      {serviceHeader && (
+        <h4 className='vads-u-margin-y--0'>{serviceHeader}</h4>
+      )}
+      {serviceDescription && (
+        <p className='vads-u-margin-top--2 vads-u-margin-bottom--0'>
+          {serviceDescription}
+        </p>
+      )}
       {/* Office visits and virtual support */}
       {(hasOfficeVisits || hasVirtualSupport || showReferralRequirement) && (
         <div className="vads-u-padding-top--1">
@@ -138,8 +154,8 @@ export const ServiceLocation = ({
                 className="vads-u-margin-bottom--0"
               >
                 Contact us to schedule, reschedule, or cancel your appointment.
-                If a referral is required, you’ll need to contact your primary
-                care provider first.
+                {!isVba && (<> If a referral is required, you’ll need to contact your primary
+                care provider first.</>)}
               </p>
             )}
           </div>
