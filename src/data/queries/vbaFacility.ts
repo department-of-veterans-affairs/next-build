@@ -52,19 +52,6 @@ export const data: QueryData<VbaFacilityDataOpts, NodeVbaFacility> = async (
 
   return entity
 }
-const getLinkType = (uri: string) => {
-  const types = [
-    { match: 'facebook.com', type: 'facebook' },
-    { match: 'twitter.com', type: 'x' },
-    { match: 'x.com', type: 'x' },
-    { match: 'instagram.com', type: 'instagram' },
-    { match: 'govdelivery.com', type: 'mail' },
-    { match: 'flickr.com', type: 'flickr' },
-    { match: 'youtube.com', type: 'youtube' },
-  ]
-  const found = types.find(({ match }) => uri.includes(match))
-  return found ? found.type : null
-}
 export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
   entity: NodeVbaFacility
 ) => {
@@ -149,9 +136,8 @@ export const formatter: QueryFormatter<NodeVbaFacility, VbaFacility> = (
               .value || null,
           links: entity.field_cc_get_updates_from_vba.fetched.field_links.map(
             (link) => ({
-              label: link.title,
-              url: link.uri,
-              type: getLinkType(link.uri),
+              text: link.title,
+              href: link.uri,
             })
           ),
         }
