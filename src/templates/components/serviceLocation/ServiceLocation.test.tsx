@@ -232,7 +232,11 @@ describe('ServiceLocation', () => {
 
     render(<ServiceLocation {...props} />)
 
-    expect(screen.getByText(/If a referral is required, you’ll need to contact your primary care provider first./)).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        /If a referral is required, you’ll need to contact your primary care provider first./
+      )
+    ).toBeInTheDocument()
   })
   test('does not show referral sentence if VBA', () => {
     const props = { ...getBaseProps() }
@@ -240,7 +244,11 @@ describe('ServiceLocation', () => {
 
     render(<ServiceLocation {...props} />)
 
-    expect(screen.queryByText(/If a referral is required, you’ll need to contact your primary care provider first./)).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(
+        /If a referral is required, you’ll need to contact your primary care provider first./
+      )
+    ).not.toBeInTheDocument()
   })
   test('shows email contacts', () => {
     const props = { ...getBaseProps() }

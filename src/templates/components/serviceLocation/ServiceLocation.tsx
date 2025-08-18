@@ -22,7 +22,7 @@ export const ServiceLocation = ({
   intoTextType?: string
   introTextCustom?: string
   serviceDescription?: string
-  serviceHeader?:string
+  serviceHeader?: string
   isVba?: boolean
 }) => {
   // Determine service main phone
@@ -61,11 +61,9 @@ export const ServiceLocation = ({
 
   return (
     <va-card class="vads-u-margin-y--2 break-word-wrap">
-      {serviceHeader && (
-        <h4 className='vads-u-margin-y--0'>{serviceHeader}</h4>
-      )}
+      {serviceHeader && <h4 className="vads-u-margin-y--0">{serviceHeader}</h4>}
       {serviceDescription && (
-        <p className='vads-u-margin-top--2 vads-u-margin-bottom--0'>
+        <p className="vads-u-margin-top--2 vads-u-margin-bottom--0">
           {serviceDescription}
         </p>
       )}
@@ -154,8 +152,13 @@ export const ServiceLocation = ({
                 className="vads-u-margin-bottom--0"
               >
                 Contact us to schedule, reschedule, or cancel your appointment.
-                {!isVba && (<> If a referral is required, you’ll need to contact your primary
-                care provider first.</>)}
+                {!isVba && (
+                  <>
+                    {' '}
+                    If a referral is required, you’ll need to contact your
+                    primary care provider first.
+                  </>
+                )}
               </p>
             )}
           </div>
