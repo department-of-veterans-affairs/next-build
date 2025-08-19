@@ -201,7 +201,7 @@ export function VbaFacility({
                 mainPhone={phoneNumber}
               />
             )}
-            {serviceMemberBenefits && (
+            {serviceMemberBenefits && serviceMemberBenefits.length > 0 && (
               <VbaFacilityServiceGroup
                 heading={'Service member benefits'}
                 headingId="service-member-benefits"
