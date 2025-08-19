@@ -172,7 +172,7 @@ export function VbaFacility({
             </h2>
             <div
               id="field-vet-center-feature-content"
-              className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4"
+              className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-flex-direction--row vads-u-margin-bottom--4"
             >
               {featuredContent &&
                 featuredContent.map((content, index) => (
