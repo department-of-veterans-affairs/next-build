@@ -193,14 +193,15 @@ export function VbaFacility({
                 mainPhone={phoneNumber}
               />
             )}
-            {familyMemberCaregiverBenefits && familyMemberCaregiverBenefits.length > 0 && (
-              <VbaFacilityServiceGroup
-                heading={'Family member and caregiver benefits'}
-                headingId="family-member-and-caregiver-be"
-                services={familyMemberCaregiverBenefits}
-                mainPhone={phoneNumber}
-              />
-            )}
+            {familyMemberCaregiverBenefits &&
+              familyMemberCaregiverBenefits.length > 0 && (
+                <VbaFacilityServiceGroup
+                  heading={'Family member and caregiver benefits'}
+                  headingId="family-member-and-caregiver-be"
+                  services={familyMemberCaregiverBenefits}
+                  mainPhone={phoneNumber}
+                />
+              )}
             {serviceMemberBenefits && serviceMemberBenefits.length > 0 && (
               <VbaFacilityServiceGroup
                 heading={'Service member benefits'}
