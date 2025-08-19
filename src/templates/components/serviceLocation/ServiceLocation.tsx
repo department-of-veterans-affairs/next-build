@@ -271,7 +271,11 @@ export const ServiceLocation = ({
       {location.fieldEmailContacts?.map((email, i) => (
         <div key={i} data-testid="service-location-email-contact">
           {email.label && <VariableHeading>{email.label}</VariableHeading>}
-          <a href={`mailto:${email.address}`}>{email.address}</a>
+          <va-link
+            href={`mailto:${email.address}`}
+            text={email.address}
+            data-testid={`service-location-email-contact-${i}`}
+          />
         </div>
       ))}
 

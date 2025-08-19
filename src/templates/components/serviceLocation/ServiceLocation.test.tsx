@@ -283,7 +283,9 @@ describe('ServiceLocation', () => {
     render(<ServiceLocation {...props} />)
 
     expect(screen.getByText('General Inquiries')).toBeInTheDocument()
-    expect(screen.getByText('contact@example.com')).toBeInTheDocument()
+    expect(
+      screen.getByTestId('service-location-email-contact-0')
+    ).toHaveAttribute('href', 'mailto:contact@example.com')
   })
   test('renders all h4s with no service header', () => {
     render(<ServiceLocation {...getBaseProps()} />)
