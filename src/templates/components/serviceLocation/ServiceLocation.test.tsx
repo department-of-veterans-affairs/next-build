@@ -266,4 +266,15 @@ describe('ServiceLocation', () => {
     expect(screen.getByText('General Inquiries')).toBeInTheDocument()
     expect(screen.getByText('contact@example.com')).toBeInTheDocument()
   })
+  test('renders all h4s with no service header', () => {
+    render(<ServiceLocation {...getBaseProps()} />)
+    expect(screen.queryAllByRole('heading', { level: 4 })).toHaveLength(8)
+  })
+  test('renders service heading and other headings as h5 if service header', () => {
+    const props = { ...getBaseProps() }
+    props.serviceHeader = 'test header'
+    render(<ServiceLocation {...props} />)
+    expect(screen.queryAllByRole('heading', { level: 4 })).toHaveLength(1)
+    expect(screen.queryAllByRole('heading', { level: 5 })).toHaveLength(8)
+  })
 })
