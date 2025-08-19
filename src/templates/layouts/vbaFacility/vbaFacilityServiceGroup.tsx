@@ -43,18 +43,18 @@ export const VbaFacilityServiceGroup = ({
                       text={service.onlineSelfService.title}
                     ></va-link>
                   </p>
-                  {service.serviceLocations.map((serviceLocation, i) => (
-                    <ServiceLocation
-                      location={serviceLocation}
-                      key={i}
-                      mainPhoneString={mainPhone}
-                      serviceDescription={service.facilityDescription}
-                      serviceHeader={service.facilityHeader}
-                      isVba={true}
-                    />
-                  ))}
                 </>
               )}
+              {service.serviceLocations.map((serviceLocation, i) => (
+                <ServiceLocation
+                  location={serviceLocation}
+                  key={i}
+                  mainPhoneString={mainPhone}
+                  serviceDescription={service.facilityDescription}
+                  serviceHeader={service.facilityHeader}
+                  isVba={true}
+                />
+              ))}
             </va-accordion-item>
           ))}
         </va-accordion>
