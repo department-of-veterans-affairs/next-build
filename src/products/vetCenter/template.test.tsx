@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { VetCenter } from './index'
+import { VetCenter } from './template'
 import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
 import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
 import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'

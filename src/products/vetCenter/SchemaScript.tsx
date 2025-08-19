@@ -1,4 +1,4 @@
-import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
+import { VetCenter as FormattedVetCenter } from '@/products/vetCenter/formatted-type'
 
 interface SchemaScriptProps {
   vetCenter: FormattedVetCenter

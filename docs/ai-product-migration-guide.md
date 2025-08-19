@@ -139,6 +139,7 @@ The `move-product.sh` script performs these actions:
 - [x] staffProfile
 - [x] vamcSystemVaPolice
 - [x] leadershipListing
+- [x] vetCenter
 
 ### 🔄 Pending Migration
 
@@ -151,32 +152,31 @@ The `move-product.sh` script performs these actions:
 - [ ] **vamcHealthServicesListing** - Has template layout and query file
 - [ ] **vamcSystem** - Has template layout and query file
 - [ ] **vbaFacility** - Has template layout and query file
-- [ ] **vetCenter** - Has template layout and query file
+
 - [ ] **vetCenterLocationListing** - Has template layout and query file
 - [ ] **vetCenterOutstation** - Has template layout and query file
 
 #### Priority Order Recommendation
 
-1. **vetCenter** - Core veteran center functionality
-2. **vetCenterLocationListing** - Related to vetCenter
-3. **vetCenterOutstation** - Related to vetCenter
-4. **vamcSystem** - Core VAMC functionality
-5. **healthCareLocalFacility** - Healthcare facility core
-6. **vamcHealthServicesListing** - Related to VAMC
-7. **locationsListing** - General locations
-8. **vbaFacility** - VBA facilities
-9. **resourcesSupport** - Support resources
-10. **questionAnswer** - Q&A functionality
+1. **vetCenterLocationListing** - Related to vetCenter
+2. **vetCenterOutstation** - Related to vetCenter
+3. **vamcSystem** - Core VAMC functionality
+4. **healthCareLocalFacility** - Healthcare facility core
+5. **vamcHealthServicesListing** - Related to VAMC
+6. **locationsListing** - General locations
+7. **vbaFacility** - VBA facilities
+8. **resourcesSupport** - Support resources
+9. **questionAnswer** - Q&A functionality
 
 ### 📝 Migration Progress Tracking
 
-**Current Product**: _[Update this as you work]_
+**Current Product**: vetCenterLocationListing _(next up)_
 
-**Status**: _[Update with current status]_
+**Status**: Ready for next migration
 
-**Last Completed**: _[Update when product migration is verified and committed]_
+**Last Completed**: vetCenter - Successfully migrated with all tests passing
 
-**Notes**: _[Add any specific notes about encountered issues or solutions]_
+**Notes**: vetCenter migration completed successfully. Fixed import paths in formatted-type.ts, query.ts, and template.test.tsx. All TypeScript errors resolved and all tests passing.
 
 ---
 

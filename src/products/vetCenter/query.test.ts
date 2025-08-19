@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { mockResponse as mockVetCenter } from '@/mocks/vetCenter.mock'
+import { mockResponse as mockVetCenter } from '@/products/vetCenter/mock'
 import mockBannerMedia from '@/mocks/mediaImage.mock.json'
 import { queries } from '@/data/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'

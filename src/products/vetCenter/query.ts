@@ -1,8 +1,8 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { queries } from '.'
+import { queries } from '@/data/queries'
 import { NodeVetCenter } from '@/types/drupal/node'
-import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
+import { VetCenter as FormattedVetCenter } from '@/products/vetCenter/formatted-type'
 import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,

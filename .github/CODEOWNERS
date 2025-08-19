@@ -21,3 +21,4 @@ src/products/pressRelease/ @department-of-veterans-affairs/ap-team
 src/products/pressReleaseListing/ @department-of-veterans-affairs/ap-team
 src/products/leadershipListing/ @department-of-veterans-affairs/ap-team
 src/products/vamcSystemVaPolice/ @department-of-veterans-affairs/ap-team
+src/products/vetCenter/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend

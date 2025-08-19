@@ -4,7 +4,7 @@
 
 import { NodeVetCenter } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/vetCenter.mock'
+import { mockResponse } from '@/products/vetCenter/mock'
 import { params } from '../vetCenterOutstation'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 

@@ -1,4 +1,4 @@
-import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
+import { VetCenter as FormattedVetCenter } from '@/products/vetCenter/formatted-type'
 import { Hours } from '@/templates/components/hours'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { AlertBlock } from '@/templates/components/alertBlock'
