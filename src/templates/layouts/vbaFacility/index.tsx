@@ -185,7 +185,7 @@ export function VbaFacility({
                   />
                 ))}
             </div>
-            {veteranBenefitsServices && (
+            {veteranBenefitsServices && veteranBenefitsServices.length > 0 && (
               <VbaFacilityServiceGroup
                 heading={'Veteran benefits'}
                 headingId="veteran-benefits"
