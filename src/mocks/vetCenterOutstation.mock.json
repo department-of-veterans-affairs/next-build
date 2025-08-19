@@ -1,0 +1,671 @@
+{
+  "type": "node--vet_center_outstation",
+  "id": "3d0c47fc-5f12-4597-968c-0c020674da51",
+  "drupal_internal__nid": 17539,
+  "drupal_internal__vid": 787033,
+  "langcode": "en",
+  "revision_timestamp": "2023-07-05T12:00:54+00:00",
+  "revision_log": "Archived due to removal from Facility API. - In a separate action, the current facility name was copied from the node title to the \"Name of Vet Center - Outstation\" field.",
+  "status": false,
+  "title": "Sepulveda Vet Center Outstation",
+  "created": "2021-03-26T20:13:40+00:00",
+  "changed": "2023-10-25T14:30:04+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/chatsworth-vet-center",
+      "title": "Chatsworth Vet Center",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/chatsworth-vet-center/sepulveda-outstation",
+      "title": "Sepulveda Vet Center Outstation",
+      "options": []
+    }
+  ],
+  "moderation_state": "archived",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "Sepulveda Vet Center Outstation | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "link",
+      "attributes": {
+        "rel": "image_src",
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "Sepulveda Vet Center Outstation | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "Sepulveda Vet Center Outstation | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image",
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/chatsworth-vet-center/sepulveda-outstation",
+    "pid": 21346,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_address": {
+    "langcode": "en",
+    "country_code": "US",
+    "administrative_area": "CA",
+    "locality": "Sepulveda",
+    "dependent_locality": null,
+    "postal_code": "91343",
+    "sorting_code": null,
+    "address_line1": "9737 Haskell Ave",
+    "address_line2": ""
+  },
+  "field_cc_non_traditional_hours": null,
+  "field_cc_vet_center_call_center": null,
+  "field_cc_vet_center_faqs": null,
+  "field_cc_vet_center_featured_con": null,
+  "field_facility_locator_api_id": "vc_6051OS",
+  "field_geolocation": {
+    "value": "POINT (-118.4762463 34.2477033)",
+    "geo_type": "Point",
+    "lat": 34.2477033,
+    "lon": -118.4762463,
+    "left": -118.4762463,
+    "top": 34.2477033,
+    "right": -118.4762463,
+    "bottom": 34.2477033,
+    "geohash": "9q5fb485r6egb",
+    "latlon": "34.2477033,-118.4762463"
+  },
+  "field_intro_text": null,
+  "field_last_saved_by_an_editor": "2023-04-20T17:00:23+00:00",
+  "field_mission_explainer": null,
+  "field_office_hours": [
+    {
+      "day": 1,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 2,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 3,
+      "all_day": false,
+      "starthours": 1000,
+      "endhours": 1800,
+      "comment": ""
+    },
+    {
+      "day": 4,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 5,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 6,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    },
+    {
+      "day": 0,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "Closed"
+    }
+  ],
+  "field_official_name": "Sepulveda Vet Center Outstation",
+  "field_operating_status_facility": "closed",
+  "field_operating_status_more_info": null,
+  "field_phone_number": "818-892-9227",
+  "field_table_of_contents": null,
+  "field_timezone": null,
+  "field_vet_center_banner_image": null,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vet_center_outstation/3d0c47fc-5f12-4597-968c-0c020674da51?resourceVersion=id%3A787033"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "5da5ee25-12f4-4c7f-b53d-7abfc51d916d",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vet_center_outstation"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "b273feae-cbc9-4fe9-a433-600621a7eca5",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 871
+    }
+  },
+  "field_health_services": [],
+  "field_media": {
+    "type": "media--image",
+    "id": "1c269d59-682b-4f9f-ac23-c15bb20320db",
+    "drupal_internal__mid": 6092,
+    "drupal_internal__vid": 6440,
+    "status": true,
+    "name": "Sepulveda Outstation Picture new.jpg",
+    "created": "2021-09-15T22:51:42+00:00",
+    "changed": "2021-09-15T22:51:42+00:00",
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/media/6092",
+        "title": "Sepulveda Outstation Picture New.jpg",
+        "options": []
+      }
+    ],
+    "path": {
+      "alias": null,
+      "pid": null,
+      "langcode": "en"
+    },
+    "field_description": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/1c269d59-682b-4f9f-ac23-c15bb20320db?resourceVersion=id%3A6440"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 6092
+    },
+    "bundle": {
+      "type": "media_type--media_type",
+      "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "image"
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "c19fe4aa-afc2-4ed8-8eb6-8b33cc065f92",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2339
+      }
+    },
+    "thumbnail": {
+      "type": "file--file",
+      "id": "51797795-a466-4535-b527-924b507a7b84",
+      "drupal_internal__fid": 6764,
+      "langcode": "en",
+      "filename": "Sepulveda Outstation Picture new.jpg",
+      "uri": {
+        "value": "public://2021-09/Sepulveda Outstation Picture new.jpg",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 3984159,
+      "status": true,
+      "created": "2021-09-15T22:51:42+00:00",
+      "changed": "2021-09-15T22:52:21+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "967",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "331",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "2783",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/51797795-a466-4535-b527-924b507a7b84"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "1726",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Sepulveda Outstation",
+        "title": null,
+        "width": 4031,
+        "height": 2783,
+        "drupal_internal__target_id": 6764
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c19fe4aa-afc2-4ed8-8eb6-8b33cc065f92",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2339
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "image": {
+      "type": "file--file",
+      "id": "51797795-a466-4535-b527-924b507a7b84",
+      "drupal_internal__fid": 6764,
+      "langcode": "en",
+      "filename": "Sepulveda Outstation Picture new.jpg",
+      "uri": {
+        "value": "public://2021-09/Sepulveda Outstation Picture new.jpg",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 3984159,
+      "status": true,
+      "created": "2021-09-15T22:51:42+00:00",
+      "changed": "2021-09-15T22:52:21+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "967",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "331",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "2783",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/51797795-a466-4535-b527-924b507a7b84"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-09/Sepulveda%20Outstation%20Picture%20new.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "1726",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Sepulveda Outstation",
+        "title": "",
+        "width": 4031,
+        "height": 2783,
+        "drupal_internal__target_id": 6764
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c19fe4aa-afc2-4ed8-8eb6-8b33cc065f92",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2339
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
+  },
+  "field_office": {
+    "type": "node--vet_center",
+    "id": "b2f0bd66-ded8-4190-99e0-0c00b3f8e468",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3815
+    }
+  },
+  "field_prepare_for_visit": [],
+  "field_vet_center_feature_content": [],
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_health_services",
+    "field_media",
+    "field_office",
+    "field_prepare_for_visit",
+    "field_vet_center_feature_content"
+  ]
+}
