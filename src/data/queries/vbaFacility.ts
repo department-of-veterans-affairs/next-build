@@ -12,7 +12,7 @@ import { formatter as formatAccordionItem } from '@/data/queries/accordion'
 import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 import { formatter as formatEmail } from '@/data/queries/emailContact'
 import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
-
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,
@@ -74,7 +74,7 @@ export const data: QueryData<VbaFacilityDataOpts, VbaFacilityData> = async (
     await fetchAndConcatAllResourceCollectionPages<NodeVbaService>(
       RESOURCE_TYPES.VBA_SERVICE,
       serviceParams(entity.id),
-      100
+      PAGE_SIZES.MAX
     )
 
   return {
