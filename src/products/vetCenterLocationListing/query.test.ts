@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import mockVetCenterLocationListing from '@/mocks/vetCenterLocationListing.mock.json'
+import mockVetCenterLocationListing from '@/products/vetCenterLocationListing/mock.json'
 import mockCap from '@/mocks/vetCenterCap.mock.json'
 import mockOutstation from '@/mocks/vetCenterOutstation.mock.json'
 import { queries } from '@/data/queries'

@@ -140,6 +140,7 @@ The `move-product.sh` script performs these actions:
 - [x] vamcSystemVaPolice
 - [x] leadershipListing
 - [x] vetCenter
+- [x] vetCenterLocationListing
 
 ### 🔄 Pending Migration
 
@@ -153,30 +154,28 @@ The `move-product.sh` script performs these actions:
 - [ ] **vamcSystem** - Has template layout and query file
 - [ ] **vbaFacility** - Has template layout and query file
 
-- [ ] **vetCenterLocationListing** - Has template layout and query file
 - [ ] **vetCenterOutstation** - Has template layout and query file
 
 #### Priority Order Recommendation
 
-1. **vetCenterLocationListing** - Related to vetCenter
-2. **vetCenterOutstation** - Related to vetCenter
-3. **vamcSystem** - Core VAMC functionality
-4. **healthCareLocalFacility** - Healthcare facility core
-5. **vamcHealthServicesListing** - Related to VAMC
-6. **locationsListing** - General locations
-7. **vbaFacility** - VBA facilities
-8. **resourcesSupport** - Support resources
-9. **questionAnswer** - Q&A functionality
+1. **vetCenterOutstation** - Related to vetCenter
+2. **vamcSystem** - Core VAMC functionality
+3. **healthCareLocalFacility** - Healthcare facility core
+4. **vamcHealthServicesListing** - Related to VAMC
+5. **locationsListing** - General locations
+6. **vbaFacility** - VBA facilities
+7. **resourcesSupport** - Support resources
+8. **questionAnswer** - Q&A functionality
 
 ### 📝 Migration Progress Tracking
 
-**Current Product**: vetCenterLocationListing _(next up)_
+**Current Product**: vetCenterOutstation _(next up)_
 
 **Status**: Ready for next migration
 
-**Last Completed**: vetCenter - Successfully migrated with all tests passing
+**Last Completed**: vetCenterLocationListing - Successfully migrated with all tests passing
 
-**Notes**: vetCenter migration completed successfully. Fixed import paths in formatted-type.ts, query.ts, and template.test.tsx. All TypeScript errors resolved and all tests passing.
+**Notes**: vetCenterLocationListing migration completed successfully. Fixed import paths in formatted-type.ts and template.test.tsx. All TypeScript errors resolved and all tests passing (7 query tests + 12 template tests + 17 component tests).
 
 ---
 

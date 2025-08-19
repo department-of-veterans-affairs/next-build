@@ -1,11 +1,11 @@
-import { PublishedEntity } from './publishedEntity'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import {
   FieldAddress,
   FieldGeoLocation,
   FieldOfficeHours,
-} from '../drupal/field_type'
-import { FacilityOperatingStatusFlags } from '../drupal/node'
-import { MediaImage as FormattedMediaImage } from './media'
+} from '@/types/drupal/field_type'
+import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
+import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
 
 /**
  * Common fields shared across all Vet Center types (both full and listing versions).

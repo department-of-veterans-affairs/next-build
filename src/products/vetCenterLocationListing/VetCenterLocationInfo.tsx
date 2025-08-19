@@ -4,7 +4,7 @@ import {
   VetCenterCapLocationInfo,
   VetCenterOutstationLocationInfo,
   MobileVetCenterLocationInfo,
-} from '@/types/formatted/vetCenterLocationListing'
+} from '@/products/vetCenterLocationListing/formatted-type'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { Hours } from '@/templates/components/hours'

@@ -56,7 +56,7 @@ import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/t
 import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
-import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
+import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/products/vetCenterLocationListing/formatted-type'
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
 import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
 // Templates
@@ -81,7 +81,7 @@ import { VamcSystem } from '@/templates/layouts/vamcSystem'
 import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
 import { LeadershipListing } from '@/products/leadershipListing/template'
 import { VbaFacility } from '@/templates/layouts/vbaFacility'
-import { VetCenterLocationListing } from '@/templates/layouts/vetCenterLocationListing'
+import { VetCenterLocationListing } from '@/products/vetCenterLocationListing/template'
 import { VamcHealthServicesListing } from '@/templates/layouts/vamcHealthServicesListing'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate

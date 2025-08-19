@@ -5,7 +5,7 @@ import {
   VetCenterCapLocationInfo,
   VetCenterOutstationLocationInfo,
   MobileVetCenterLocationInfo,
-} from '@/types/formatted/vetCenterLocationListing'
+} from '@/products/vetCenterLocationListing/formatted-type'
 
 const mockBaseFields = {
   id: 'test-id',

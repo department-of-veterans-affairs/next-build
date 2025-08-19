@@ -15,7 +15,7 @@ import {
   VetCenterCapLocationInfo,
   VetCenterOutstationLocationInfo,
   CommonVetCenterFields,
-} from '@/types/formatted/vetCenterLocationListing'
+} from '@/products/vetCenterLocationListing/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
