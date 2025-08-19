@@ -5,7 +5,7 @@
 import { NodeVetCenter } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import { mockResponse } from '@/products/vetCenter/mock'
-import { params } from '../vetCenterOutstation'
+import { params } from './query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const VetCenterMock: NodeVetCenter = mockResponse

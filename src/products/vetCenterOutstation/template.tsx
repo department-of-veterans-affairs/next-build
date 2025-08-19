@@ -1,4 +1,4 @@
-import { VetCenterOutstation as FormattedVetCenterOutstation } from '@/types/formatted/vetCenterOutstation'
+import { VetCenterOutstation as FormattedVetCenterOutstation } from '@/products/vetCenterOutstation/formatted-type'
 import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
 import { Hours } from '@/templates/components/hours'
 import { FeaturedContent } from '@/templates/common/featuredContent'

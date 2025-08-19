@@ -4,7 +4,7 @@ import { VetCenterLocationListing } from './template'
 import { formatter } from '@/products/vetCenterLocationListing/query'
 import drupalMockData from '@/products/vetCenterLocationListing/mock.json'
 import mockCap from '@/mocks/vetCenterCap.mock.json'
-import mockOutstation from '@/mocks/vetCenterOutstation.mock.json'
+import mockOutstation from '@/products/vetCenterOutstation/mock.json'
 import { NodeVetCenterCap } from '@/types/drupal/node'
 import { NodeVetCenterOutstation } from '@/types/drupal/node'
 

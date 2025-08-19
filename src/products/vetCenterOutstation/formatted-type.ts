@@ -3,14 +3,14 @@ import {
   FieldOfficeHours,
   FieldAdministration,
   FieldAddress,
-} from '../drupal/field_type'
-import { PublishedEntity } from './publishedEntity'
-import { VetCenterHealthServices as FormattedHealthServices } from './vetCenterHealthServices'
-import { FeaturedContent as FormattedFeaturedContent } from './featuredContent'
-import { MediaImage as FormattedMediaImage } from './media'
-import { AccordionItem as FormattedAccordionItem } from './accordion'
-import { Wysiwyg as FormattedWysiwyg } from './wysiwyg'
-import { QaSection as PublishedQaSection } from './qaSection'
+} from '@/types/drupal/field_type'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
+import { VetCenterHealthServices as FormattedHealthServices } from '@/types/formatted/vetCenterHealthServices'
+import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
+import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
+import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
+import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
+import { QaSection as PublishedQaSection } from '@/types/formatted/qaSection'
 
 export type VetCenterOutstation = PublishedEntity & {
   address: FieldAddress

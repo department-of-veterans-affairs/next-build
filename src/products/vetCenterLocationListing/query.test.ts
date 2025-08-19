@@ -4,7 +4,7 @@
 
 import mockVetCenterLocationListing from '@/products/vetCenterLocationListing/mock.json'
 import mockCap from '@/mocks/vetCenterCap.mock.json'
-import mockOutstation from '@/mocks/vetCenterOutstation.mock.json'
+import mockOutstation from '@/products/vetCenterOutstation/mock.json'
 import { queries } from '@/data/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
