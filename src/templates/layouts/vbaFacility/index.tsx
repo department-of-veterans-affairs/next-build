@@ -209,7 +209,7 @@ export function VbaFacility({
                 mainPhone={phoneNumber}
               />
             )}
-            {otherServices && (
+            {otherServices && otherServices.length > 0 && (
               <VbaFacilityServiceGroup
                 heading={'Other services'}
                 headingId="other-services"
