@@ -193,7 +193,7 @@ export function VbaFacility({
                 mainPhone={phoneNumber}
               />
             )}
-            {familyMemberCaregiverBenefits && (
+            {familyMemberCaregiverBenefits && familyMemberCaregiverBenefits.length > 0 && (
               <VbaFacilityServiceGroup
                 heading={'Family member and caregiver benefits'}
                 headingId="family-member-and-caregiver-be"
