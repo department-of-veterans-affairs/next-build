@@ -11,7 +11,7 @@ export const GetUpdatesSection = ({
   links,
   sectionId,
 }: GetUpdatesSectionProps) => (
-  <section className="vads-u-background-color--gray-lightest vads-u-margin-top--4 mobile-lg:vads-u-margin-top--6 vads-u-padding-x--3 vads-u-padding-y--2p5">
+  <section className="vads-u-background-color--gray-lightest vads-u-margin-top--4 mobile-lg:vads-u-margin-top--6 vads-u-padding-x--3 vads-u-padding-top--2p5 vads-u-padding-bottom--0p5">
     <h2 id={sectionId} className="vads-u-margin-bottom--2 vads-u-margin-top--0">
       {heading}
     </h2>
