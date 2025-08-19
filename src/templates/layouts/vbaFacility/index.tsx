@@ -11,7 +11,7 @@ import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisi
 import { MediaImage } from '@/templates/common/mediaImage'
 import { TextWithImage } from '@/templates/components/textWithImage'
 import { GetUpdatesSection } from '@/templates/components/getUpdatesSection'
-import { VbaFacilityServiceGroup } from './vbaServiceGroup'
+import { VbaFacilityServiceGroup } from './vbaFacilityServiceGroup'
 
 type facilityApiAddress = {
   addressLine1: string

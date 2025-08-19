@@ -17,13 +17,14 @@ export const VbaFacilityServiceGroup = ({
       <h2 id={headingId}>{heading}</h2>
       <p>Select a topic to learn more.</p>
       <div className="vads-u-margin-bottom--3">
-        <va-accordion>
+        <va-accordion data-testid="service-accordion">
           {services.map((service, index) => (
             <va-accordion-item
               header={service.name}
               key={index}
               level={3}
               bordered
+              data-testid="service-accordion-item"
             >
               <p>{service.serviceDescription}</p>
               {service.onlineSelfService && (
