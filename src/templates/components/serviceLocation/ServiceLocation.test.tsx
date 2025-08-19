@@ -148,6 +148,25 @@ describe('ServiceLocation', () => {
       .getByTestId('service-location-action-link-online')
       .querySelector('va-link-action')
     expect(linkAction).toHaveAttribute('text', 'Schedule an appointment online')
+    expect(linkAction).toHaveAttribute(
+      'href',
+      '/health-care/schedule-view-va-appointments'
+    )
+  })
+
+  test('shows correct online scheduling link when VBA', () => {
+    const props = { ...getBaseProps() }
+    props.isVba = true
+    render(<ServiceLocation {...props} />)
+
+    const linkAction = screen
+      .getByTestId('service-location-action-link-online')
+      .querySelector('va-link-action')
+    expect(linkAction).toHaveAttribute('text', 'Schedule an appointment online')
+    expect(linkAction).toHaveAttribute(
+      'href',
+      'https://va.my.site.com/VAVERA/s/'
+    )
   })
 
   test('shows service hours when available', () => {

@@ -220,7 +220,11 @@ export const ServiceLocation = ({
         >
           <va-link-action
             class="vads-u-display--block"
-            href="/health-care/schedule-view-va-appointments"
+            href={
+              isVba
+                ? 'https://va.my.site.com/VAVERA/s/'
+                : '/health-care/schedule-view-va-appointments'
+            }
             text="Schedule an appointment online"
             type="secondary"
           ></va-link-action>
