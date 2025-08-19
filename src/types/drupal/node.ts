@@ -79,6 +79,7 @@ export type NodeTypes =
   | NodeVetCenterCap
   | NodeVetCenterLocationListing
   | NodeVetCenterMobileVetCenter
+  | NodeVetCenterOutstation
   | NodeVamcSystemVaPolice
   | NodeLeadershipListing
   | NodeVbaFacility
@@ -471,14 +472,12 @@ export interface NodeVetCenter extends CommonVetCenterFields, DrupalNode {
   field_vet_center_banner_image: FieldVetCenterBannerImage
 }
 
+type VetCenterFieldOffice =
+  | NodeVetCenter
+  | { type: string; id: string; resourceIdObjMeta: unknown }
+
 export interface NodeVetCenterLocationListing extends DrupalNode {
-  field_office: Omit<
-    NodeVetCenter,
-    | 'field_administration'
-    | 'field_prepare_for_visit'
-    | 'field_vet_center_feature_content'
-    | 'field_health_services'
-  >
+  field_office: VetCenterFieldOffice
   field_nearby_mobile_vet_centers: NodeVetCenterMobileVetCenter[]
 }
 
@@ -486,25 +485,28 @@ export interface NodeVetCenterMobileVetCenter
   extends CommonVetCenterFields,
     DrupalNode {
   field_phone_number: string
-  /** Reference to the parent Vet Center */
-  field_office:
-    | NodeVetCenter
-    | { type: string; id: string; resourceIdObjMeta: unknown }
+  field_office: VetCenterFieldOffice
 }
 
 export interface NodeVetCenterCap extends CommonVetCenterFields, DrupalNode {
-  /** Geographic identifier for the CAP location */
   field_geographical_identifier: string
-  /** Whether the CAP location opts into hours display */
   field_vetcenter_cap_hours_opt_in: boolean
-  /** Operating status of the facility */
   field_operating_status_facility: FacilityOperatingStatusFlags
-  /** Additional information about operating status */
   field_operating_status_more_info?: string
-  /** Reference to the parent Vet Center */
-  field_office:
-    | NodeVetCenter
-    | { type: string; id: string; resourceIdObjMeta: unknown }
+  field_office: VetCenterFieldOffice
+}
+
+export interface NodeVetCenterOutstation
+  extends CommonVetCenterFields,
+    DrupalNode {
+  field_office: VetCenterFieldOffice
+  field_office_hours: FieldOfficeHours[]
+  field_official_name: string
+  field_operating_status_facility: FacilityOperatingStatusFlags
+  field_operating_status_more_info?: string
+  field_phone_number: string
+  field_timezone: string
+  field_health_services: VetCenterFieldHealthServicesArray
 }
 
 export interface NodeVamcHealthServicesListing extends DrupalNode {

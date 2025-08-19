@@ -1,13 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { VetCenterLocationInfo } from './VetCenterLocationInfo'
+import { FieldAddress } from '@/types/drupal/field_type'
+
+const widgetAddress = (address: FieldAddress) => ({
+  addressLine1: address.address_line1,
+  addressLine2: address.address_line2,
+  administrativeArea: address.administrative_area,
+  locality: address.locality,
+  postalCode: address.postal_code,
+})
+
+// Extend the Window interface to include the properties needed for the nearby vet centers widget
+declare global {
+  interface Window {
+    mainVetCenterPhone?: string
+    mainVetCenterAddress?: ReturnType<typeof widgetAddress>
+    mainVetCenterId?: string
+    satteliteVetCenters?: string[]
+  }
+}
 
 export function VetCenterLocationListing({
   title,
-  fieldOffice,
-  fieldNearbyMobileVetCenters,
+  mainOffice,
+  nearbyMobileVetCenters,
+  satelliteLocations,
+  mobileVetCenters,
 }: FormattedVetCenterLocationListing) {
+  // Set up the global variables needed by widgets on this page
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Needed by the nearby vet centers widget
+      window.mainVetCenterPhone = mainOffice.phoneNumber
+      window.mainVetCenterAddress = widgetAddress(mainOffice.address)
+      window.mainVetCenterId = mainOffice.fieldFacilityLocatorApiId
+
+      // Needed by both the facility map widgets and the nearby vet centers widget
+      window.satteliteVetCenters = satelliteLocations.map(
+        (location) => location.fieldFacilityLocatorApiId
+      )
+    }
+  }, [mainOffice, satelliteLocations])
+
+  const showSatelliteLocations =
+    satelliteLocations.length > 0 ||
+    nearbyMobileVetCenters.length > 0 ||
+    mobileVetCenters.length > 0
+
   return (
     <div className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -21,19 +62,50 @@ export function VetCenterLocationListing({
             >
               Main location
             </h2>
+            <VetCenterLocationInfo vetCenter={mainOffice} isMainOffice={true} />
 
-            {fieldOffice && (
-              <VetCenterLocationInfo
-                vetCenter={fieldOffice}
-                isMainOffice={true}
-              />
+            {showSatelliteLocations && (
+              <>
+                <h2
+                  className="vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--4"
+                  id="satellite-locations"
+                >
+                  Satellite locations
+                </h2>
+                <p className="vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--4">
+                  If you can’t make it to our {mainOffice.title} we offer
+                  satellite locations that may be closer to you. These satellite
+                  facilities provide select services with the same community,
+                  care, and confidentiality in a non-medical setting. Call us
+                  for more information about these locations.
+                </p>
+                {satelliteLocations.map((location) => (
+                  <VetCenterLocationInfo
+                    key={location.id}
+                    vetCenter={location}
+                    mainOffice={mainOffice}
+                  />
+                ))}
+
+                {mobileVetCenters.map((location) => (
+                  <VetCenterLocationInfo
+                    key={location.id}
+                    vetCenter={location}
+                    mainOffice={mainOffice}
+                  />
+                ))}
+
+                {nearbyMobileVetCenters.map((location) => (
+                  <VetCenterLocationInfo
+                    key={location.id}
+                    vetCenter={location}
+                    mainOffice={mainOffice}
+                  />
+                ))}
+              </>
             )}
 
-            {/* TODO: Check if satellite locations exist */}
-            <div>TODO: Satellite locations section</div>
-
-            {/* TODO: Nearby vet centers component */}
-            <div>TODO: Nearby vet centers component</div>
+            <div data-widget-type="vet-center-nearby" />
 
             <h2
               className="vads-u-margin-top--3 medium-screen:vads-u-margin-top--5 vads-u-margin-bottom--2p5 medium-screen:vads-u-margin-bottom--3"
