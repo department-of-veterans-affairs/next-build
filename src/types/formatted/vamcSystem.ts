@@ -7,8 +7,8 @@ import { FormattedRelatedLinks } from './relatedLinks'
 import { NodeHealthCareRegionPage } from '../drupal/node'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { NewsStoryTeaser } from '@/products/newsStory/formatted-type'
-import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
 import { EventWidgetTeaser } from '@/products/event/formatted-type'
+import { SocialLink } from '@/lib/utils/social'
 
 export type MinimalLocalFacility = Pick<
   HealthCareLocalFacility,
@@ -21,6 +21,11 @@ export type MinimalLocalFacility = Pick<
   | 'vaHealthConnectPhoneNumber'
   | 'image'
 >
+
+export type VamcSystemSocialLinks = {
+  regionNickname: string
+  links: SocialLink[]
+}
 
 export type VamcSystem = PublishedEntity & {
   title: string
@@ -37,5 +42,5 @@ export type VamcSystem = PublishedEntity & {
   vamcEhrSystem: NodeHealthCareRegionPage['field_vamc_ehr_system']
   lovellVariant?: LovellChildVariant | null
   lovellSwitchPath?: string | null
-  socialLinks: FacilitySocialLinksProps
+  socialLinks: VamcSystemSocialLinks
 }
