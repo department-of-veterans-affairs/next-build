@@ -54,7 +54,7 @@ import * as VetCenterLocationListing from '@/products/vetCenterLocationListing/q
 import * as Wysiwyg from '@/data/queries/wysiwyg'
 import * as LeadershipListing from '@/products/leadershipListing/query'
 import * as VbaFacility from '@/data/queries/vbaFacility'
-import * as HealthServicesListing from '@/data/queries/vamcHealthServicesListing'
+import * as HealthServicesListing from '@/products/vamcHealthServicesListing/query'
 import {
   ResourceType,
   ParagraphResourceType,

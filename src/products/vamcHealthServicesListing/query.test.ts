@@ -4,7 +4,7 @@
 
 import { NodeVamcHealthServicesListing } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/vamcHealthServicesListing.mock.json'
+import mockData from '@/products/vamcHealthServicesListing/mock.json'
 
 const VamcHealthServicesListingMock: NodeVamcHealthServicesListing = mockData[0]
 

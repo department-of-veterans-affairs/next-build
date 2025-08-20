@@ -1,4 +1,4 @@
-import { PublishedEntity } from './publishedEntity'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
 
 export type VamcHealthServicesListing = PublishedEntity & {
   title: string

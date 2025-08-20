@@ -1,4 +1,4 @@
-import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
+import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/products/vamcHealthServicesListing/formatted-type'
 
 export function VamcHealthServicesListing({
   title,

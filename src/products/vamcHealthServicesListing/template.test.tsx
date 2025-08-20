@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { VamcHealthServicesListing } from './index'
+import { VamcHealthServicesListing } from './template'
 
 describe('VamcHealthServicesListing with valid data', () => {
   test('renders VamcHealthServicesListing component', () => {

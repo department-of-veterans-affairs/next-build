@@ -57,7 +57,7 @@ import { VamcSystem as FormattedVamcSystem } from '@/products/vamcSystem/formatt
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/products/vetCenterLocationListing/formatted-type'
-import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
+import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/products/vamcHealthServicesListing/formatted-type'
 import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
@@ -82,7 +82,7 @@ import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
 import { LeadershipListing } from '@/products/leadershipListing/template'
 import { VbaFacility } from '@/templates/layouts/vbaFacility'
 import { VetCenterLocationListing } from '@/products/vetCenterLocationListing/template'
-import { VamcHealthServicesListing } from '@/templates/layouts/vamcHealthServicesListing'
+import { VamcHealthServicesListing } from '@/products/vamcHealthServicesListing/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
