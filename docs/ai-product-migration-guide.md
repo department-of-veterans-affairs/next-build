@@ -146,31 +146,30 @@ The `move-product.sh` script performs these actions:
 - [x] healthCareLocalFacility
 - [x] vamcHealthServicesListing
 - [x] locationsListing
+- [x] resourcesSupport
 
 ### 🔄 Pending Migration
 
 #### Products with Templates & Queries
 
 - [ ] **questionAnswer** - Has template layout and query file
-- [ ] **resourcesSupport** - Has template layout and query file
 
 - [ ] **vbaFacility** - Has template layout and query file
 
 #### Priority Order Recommendation
 
-1. **vbaFacility** - VBA facilities
-2. **resourcesSupport** - Support resources
-3. **questionAnswer** - Q&A functionality
+1. **questionAnswer** - Q&A functionality
+2. **vbaFacility** - VBA facilities _(postponed)_
 
 ### 📝 Migration Progress Tracking
 
-**Current Product**: vbaFacility _(next up)_
+**Current Product**: questionAnswer _(next up)_
 
 **Status**: Ready for next migration
 
-**Last Completed**: locationsListing - Successfully migrated with all tests passing
+**Last Completed**: resourcesSupport - Successfully migrated with all tests passing
 
-**Notes**: locationsListing migration completed successfully. This migration included complex facility categorization logic with main, mobile, and health clinic facilities. Fixed import paths in formatted-type.ts, query.ts, template.test.tsx, and query.test.ts. All TypeScript errors resolved and all tests passing (9 query tests + 17 template tests). Browser verification successful with locations listing pages loading correctly.
+**Notes**: resourcesSupport migration completed successfully. This migration included content support functionality with alerts, buttons, contact information, and main content blocks. Fixed import paths in formatted-type.ts, query.ts, template.test.tsx, and query.test.ts. All TypeScript errors resolved and all tests passing (3 query tests + 1 template test). Browser verification successful with resources and support pages loading correctly.
 
 ---
 

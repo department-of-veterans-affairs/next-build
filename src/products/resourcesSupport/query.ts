@@ -1,5 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { queries } from '.'
+import { queries } from '@/data/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -7,7 +7,7 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 import { NodeSupportResourcesDetailPage } from '@/types/drupal/node'
-import { ResourcesSupport } from '@/types/formatted/resourcesSupport'
+import { ResourcesSupport } from '@/products/resourcesSupport/formatted-type'
 import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,

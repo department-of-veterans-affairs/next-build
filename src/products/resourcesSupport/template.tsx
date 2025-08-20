@@ -1,4 +1,4 @@
-import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
+import { ResourcesSupport as FormattedResourcesSupport } from '@/products/resourcesSupport/formatted-type'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import AlertSingle from '@/templates/components/alertSingle'
 import { Button as FormattedButton } from '@/types/formatted/button'

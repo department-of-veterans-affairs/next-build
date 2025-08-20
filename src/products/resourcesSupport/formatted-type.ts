@@ -1,10 +1,10 @@
 import { FormattedParagraph } from '@/data/queries'
-import { PublishedEntity } from './publishedEntity'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { AlertSingle } from '@/types/formatted/alert'
 import { ContactInfo } from '@/types/formatted/contactInfo'
 import { Button } from '@/types/formatted/button'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
-import { BenefitsHubLink } from './benefitsHub'
+import { BenefitsHubLink } from '@/types/formatted/benefitsHub'
 
 export type ResourcesSupport = PublishedEntity & {
   title: string

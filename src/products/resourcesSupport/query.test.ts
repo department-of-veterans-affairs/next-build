@@ -4,8 +4,8 @@
 
 import { NodeSupportResourcesDetailPage } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/resourcesSupport.mock'
-import { params } from '../resourcesSupport'
+import { mockResponse } from '@/products/resourcesSupport/mock'
+import { params } from './query'
 
 //eslint-disable-next-line
 const MockSupportResources: NodeSupportResourcesDetailPage | any = mockResponse

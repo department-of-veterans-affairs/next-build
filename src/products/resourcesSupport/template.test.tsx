@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { ResourcesSupport } from './'
+import { ResourcesSupport } from './template'
 import { Button } from '@/types/formatted/button'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
