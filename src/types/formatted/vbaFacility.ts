@@ -6,6 +6,7 @@ import { PhoneContact as FormattedPhoneContact } from '@/types/formatted/contact
 import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
 import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
 import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
+import { VamcFacilityServiceLocation } from '@/products/healthCareLocalFacility/formatted-type'
 
 type CantFindBenefits = {
   header: string | null
@@ -23,6 +24,18 @@ type VbaSocialLinksProps = {
   }[]
   heading: string
 }
+export type VbaFacilityService = {
+  type: string
+  name: string
+  facilityHeader: string
+  facilityDescription: string
+  onlineSelfService: {
+    title: string
+    url: string
+  } | null
+  serviceDescription: string
+  serviceLocations: VamcFacilityServiceLocation[]
+}
 
 export type VbaFacility = PublishedEntity & {
   title: string
@@ -39,4 +52,5 @@ export type VbaFacility = PublishedEntity & {
   phoneNumber: string
   address: FieldAddress
   ccCantFindBenefits: CantFindBenefits | null
+  allServices: VbaFacilityService[]
 }

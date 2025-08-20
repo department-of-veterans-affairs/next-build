@@ -61,7 +61,11 @@ export interface VamcFacilityServiceLocation {
   /** Type of virtual support available (e.g., "yes_veterans_can_call"). */
   fieldVirtualSupport?: string
   /** Appointment intro text type ("remove_text", "customize_text", "use_default_text"). */
-  fieldApptIntroTextType?: 'remove_text' | 'customize_text' | 'use_default_text'
+  fieldApptIntroTextType?:
+    | 'remove_text'
+    | 'customize_text'
+    | 'use_default_text'
+    | string
   /** Custom appointment intro text (if applicable). */
   fieldApptIntroTextCustom?: string
   /**

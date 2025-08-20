@@ -1,14 +1,14 @@
 {
   "type": "node--vba_facility",
-  "id": "a08da437-55a4-451c-8f90-af498f38a297",
-  "drupal_internal__nid": 4030,
-  "drupal_internal__vid": 814843,
+  "id": "86ea47bd-9e5a-4584-ae22-ad032d648192",
+  "drupal_internal__nid": 4328,
+  "drupal_internal__vid": 990978,
   "langcode": "en",
-  "revision_timestamp": "2023-10-10T19:55:05+00:00",
-  "status": false,
-  "title": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center",
-  "created": "2020-04-06T21:38:32+00:00",
-  "changed": "2023-10-10T19:55:00+00:00",
+  "revision_timestamp": "2025-07-10T17:49:18+00:00",
+  "status": true,
+  "title": "Togus VA Regional Benefit Office at Togus VA Medical Center",
+  "created": "2020-04-06T21:40:03+00:00",
+  "changed": "2025-07-10T17:49:18+00:00",
   "promote": false,
   "sticky": false,
   "default_langcode": true,
@@ -20,17 +20,12 @@
       "options": []
     },
     {
-      "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office",
-      "title": "St. Petersburg VA Regional Benefit Office",
-      "options": []
-    },
-    {
-      "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
-      "title": "Veteran Readiness and Employment Office At West Palm Beach VA Medical Center",
+      "uri": "https://va-gov-cms.ddev.site/togus-va-regional-benefit-office-at-togus-va-medical-center",
+      "title": "Togus VA Regional Benefit Office At Togus VA Medical Center",
       "options": []
     }
   ],
-  "moderation_state": "archived",
+  "moderation_state": "published",
   "expiration_date": null,
   "warning_date": null,
   "metatag": [
@@ -38,7 +33,7 @@
       "tag": "meta",
       "attributes": {
         "name": "title",
-        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs"
+        "content": "Togus VA Regional Benefit Office at Togus VA Medical Center | Veterans Affairs"
       }
     },
     {
@@ -66,7 +61,7 @@
       "tag": "meta",
       "attributes": {
         "property": "og:title",
-        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs"
+        "content": "Togus VA Regional Benefit Office at Togus VA Medical Center | Veterans Affairs"
       }
     },
     {
@@ -108,7 +103,7 @@
       "tag": "meta",
       "attributes": {
         "name": "twitter:title",
-        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs"
+        "content": "Togus VA Regional Benefit Office at Togus VA Medical Center | Veterans Affairs"
       }
     },
     {
@@ -127,8 +122,8 @@
     }
   ],
   "path": {
-    "alias": "/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
-    "pid": 4914,
+    "alias": "/togus-va-regional-benefit-office-at-togus-va-medical-center",
+    "pid": 5212,
     "langcode": "en"
   },
   "content_translation_source": "und",
@@ -136,16 +131,20 @@
   "field_address": {
     "langcode": "en",
     "country_code": "US",
-    "administrative_area": "FL",
-    "locality": "West Palm Beach",
+    "administrative_area": "ME",
+    "locality": "Augusta",
     "dependent_locality": null,
-    "postal_code": "33410",
-    "address_line1": "7305 N. Military Trail, Bldg 10",
+    "postal_code": "04330",
+    "address_line1": "1 VA Center, Bldg. 248",
     "additional_name": null
   },
-  "field_alert_type": null,
-  "field_banner_content": null,
-  "field_banner_title": null,
+  "field_alert_type": "information",
+  "field_banner_content": {
+    "value": "<p>Togus Campus - the North Entrance and roadway in front of Building 205 is closed to repair windows and doors May 27 through October 1, 2025. Walking traffic will be redirected to the South Entrance of Building 205. </p>",
+    "format": "rich_text_limited",
+    "processed": "<p>Togus Campus - the North Entrance and roadway in front of Building 205 is closed to repair windows and doors May 27 through October 1, 2025. Walking traffic will be redirected to the South Entrance of Building 205. </p>\n"
+  },
+  "field_banner_title": "Office Entryway Closure",
   "field_banner_types_description": null,
   "field_cc_benefits_hotline": {
     "target_type": "paragraph",
@@ -370,59 +369,59 @@
       ]
     }
   },
-  "field_dismissible_option": null,
-  "field_facility_locator_api_id": "vba_317a",
-  "field_facility_vba_classificatio": "6",
+  "field_dismissible_option": "perm",
+  "field_facility_locator_api_id": "vba_402",
+  "field_facility_vba_classificatio": "3",
   "field_geolocation": {
-    "value": "POINT (-80.1117675 26.786079)",
+    "value": "POINT (-69.70422198 44.28015112)",
     "geo_type": "Point",
-    "lat": 26.786079,
-    "lon": -80.1117675,
-    "left": -80.1117675,
-    "top": 26.786079,
-    "right": -80.1117675,
-    "bottom": 26.786079,
-    "geohash": "dhz03h22hx091",
-    "latlon": "26.786079,-80.1117675"
+    "lat": 44.28015112,
+    "lon": -69.70422198,
+    "left": -69.70422198,
+    "top": 44.28015112,
+    "right": -69.70422198,
+    "bottom": 44.28015112,
+    "geohash": "dry7vufytfkynv",
+    "latlon": "44.28015112,-69.70422198"
   },
   "field_intro_text": null,
-  "field_last_saved_by_an_editor": "2023-09-19T13:13:04+00:00",
+  "field_last_saved_by_an_editor": "2025-07-10T17:49:19+00:00",
   "field_non_va_location_url": null,
   "field_non_va_official_name": null,
   "field_office_hours": [
     {
       "day": 1,
       "all_day": false,
-      "starthours": 800,
-      "endhours": 1630,
+      "starthours": 830,
+      "endhours": 1600,
       "comment": ""
     },
     {
       "day": 2,
       "all_day": false,
-      "starthours": 800,
-      "endhours": 1630,
+      "starthours": 830,
+      "endhours": 1600,
       "comment": ""
     },
     {
       "day": 3,
       "all_day": false,
-      "starthours": 800,
-      "endhours": 1630,
+      "starthours": 830,
+      "endhours": 1600,
       "comment": ""
     },
     {
       "day": 4,
       "all_day": false,
-      "starthours": 800,
-      "endhours": 1630,
+      "starthours": 830,
+      "endhours": 1600,
       "comment": ""
     },
     {
       "day": 5,
       "all_day": false,
-      "starthours": 800,
-      "endhours": 1630,
+      "starthours": 830,
+      "endhours": 1600,
       "comment": ""
     },
     {
@@ -442,13 +441,13 @@
   ],
   "field_operating_status_facility": "normal",
   "field_operating_status_more_info": null,
-  "field_phone_number": "800-827-1000",
-  "field_show_banner": null,
+  "field_phone_number": "207-621-6938",
+  "field_show_banner": true,
   "field_table_of_contents": null,
   "field_timezone": "America/New_York",
   "links": {
     "self": {
-      "href": "https://va-gov-cms.ddev.site/jsonapi/node/vba_facility/a08da437-55a4-451c-8f90-af498f38a297?resourceVersion=id%3A814843"
+      "href": "https://va-gov-cms.ddev.site/jsonapi/node/vba_facility/86ea47bd-9e5a-4584-ae22-ad032d648192?resourceVersion=id%3A990978"
     }
   },
   "node_type": {
@@ -460,9 +459,9 @@
   },
   "revision_uid": {
     "type": "user--user",
-    "id": "5ef9cdd2-2d6e-4412-939f-d1a076df73bd",
+    "id": "712fd36d-fe2d-49c8-aa87-54bd32622e0f",
     "resourceIdObjMeta": {
-      "drupal_internal__target_id": 4073
+      "drupal_internal__target_id": 2967
     }
   },
   "uid": {
@@ -474,26 +473,490 @@
   },
   "field_administration": {
     "type": "taxonomy_term--administration",
-    "id": "dfcd9f10-2641-4cb8-93d1-b2b929c008ed",
+    "id": "2f18e468-05d3-4472-8687-d658f412f6b3",
     "resourceIdObjMeta": {
-      "drupal_internal__target_id": 1063
+      "drupal_internal__target_id": 1099
     }
   },
-  "field_local_spotlight": [],
-  "field_media": null,
-  "field_office": {
-    "type": "node--vba_facility",
-    "id": "be192005-0a06-4fb7-8082-3660e83072c1",
-    "resourceIdObjMeta": {
-      "drupal_internal__target_id": 4029
+  "field_local_spotlight": [
+    {
+      "type": "paragraph--featured_content",
+      "id": "926c168b-89e1-4f94-8592-12652cdcbf7d",
+      "drupal_internal__id": 157427,
+      "drupal_internal__revision_id": 1807364,
+      "langcode": "en",
+      "status": true,
+      "created": "2024-07-17T20:12:59+00:00",
+      "parent_id": "4328",
+      "parent_type": "node",
+      "parent_field_name": "field_local_spotlight",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-06-06T21:08:51+00:00",
+      "field_description": {
+        "value": "<p>VA transitioned to only two sign-in account options: <strong>Login.gov</strong> and <strong>ID.me </strong>accounts. Veterans can use either of these two options to sign in to VA.gov, VA mobile applications, or other VA online services.</p>",
+        "format": "rich_text_limited",
+        "processed": "<p>VA transitioned to only two sign-in account options: <strong>Login.gov</strong> and <strong>ID.me </strong>accounts. Veterans can use either of these two options to sign in to VA.gov, VA mobile applications, or other VA online services.</p>\n"
+      },
+      "field_section_header": "VA's secure sign-in changes",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/featured_content/926c168b-89e1-4f94-8592-12652cdcbf7d?resourceVersion=id%3A1807364"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1807364,
+        "drupal_internal__target_id": 157427
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "b155f453-d9f4-463a-b875-88d9683088e2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "featured_content"
+        }
+      },
+      "field_cta": {
+        "type": "paragraph--button",
+        "id": "fbe1c8bb-1840-4111-a409-b403cdc449e0",
+        "drupal_internal__id": 157426,
+        "drupal_internal__revision_id": 1807363,
+        "langcode": "en",
+        "status": true,
+        "created": "2024-07-17T20:16:18+00:00",
+        "parent_id": "157427",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_cta",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": "2024-07-17T20:19:29+00:00",
+        "field_button_label": "Visit for secure sign-in changes",
+        "field_button_link": {
+          "uri": "https://www.va.gov/initiatives/prepare-for-vas-secure-sign-in-changes/",
+          "title": "",
+          "options": {
+            "href": "https://www.va.gov/initiatives/prepare-for-vas-secure-sign-in-changes/",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "data-entity-substitution": ""
+          },
+          "url": "https://www.va.gov/initiatives/prepare-for-vas-secure-sign-in-changes/"
+        },
+        "links": {
+          "self": {
+            "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/button/fbe1c8bb-1840-4111-a409-b403cdc449e0?resourceVersion=id%3A1807363"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 1807363,
+          "drupal_internal__target_id": 157426
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "f2ea2f57-89da-43d4-be22-ba46d728a286",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "button"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      },
+      "relationshipNames": ["paragraph_type", "field_cta"]
+    },
+    {
+      "type": "paragraph--featured_content",
+      "id": "fe0866d9-ad0e-43b5-8df7-1ccd46e13ee5",
+      "drupal_internal__id": 176414,
+      "drupal_internal__revision_id": 1807365,
+      "langcode": "en",
+      "status": true,
+      "created": "2025-04-23T12:20:01+00:00",
+      "parent_id": "4328",
+      "parent_type": "node",
+      "parent_field_name": "field_local_spotlight",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-06-05T19:23:10+00:00",
+      "field_description": {
+        "value": "<p>This is a great opportunity for Veterans, service members, families, caregivers, and survivors to connect with valuable resources. More information will be coming out soon!</p>",
+        "format": "rich_text_limited",
+        "processed": "<p>This is a great opportunity for Veterans, service members, families, caregivers, and survivors to connect with valuable resources. More information will be coming out soon!</p>\n"
+      },
+      "field_section_header": "Veterans Community and Connection Expo - Coming Soon!",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/featured_content/fe0866d9-ad0e-43b5-8df7-1ccd46e13ee5?resourceVersion=id%3A1807365"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1807365,
+        "drupal_internal__target_id": 176414
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "b155f453-d9f4-463a-b875-88d9683088e2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "featured_content"
+        }
+      },
+      "field_cta": null,
+      "relationshipNames": ["paragraph_type", "field_cta"]
     }
+  ],
+  "field_media": {
+    "langcode": "en",
+    "type": "media--image",
+    "id": "e0f52385-84ed-4a45-8626-2894e1ce8a59",
+    "drupal_internal__mid": "34371",
+    "drupal_internal__vid": "36013",
+    "status": true,
+    "name": "Togus Regional Office",
+    "created": "2024-07-05T14:49:23+00:00",
+    "changed": "2024-07-05T15:03:47+00:00",
+    "breadcrumbs": [
+      {
+        "uri": "https://va-gov-cms.ddev.site/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://va-gov-cms.ddev.site/media/image/34371",
+        "title": "Togus Regional Office",
+        "options": []
+      }
+    ],
+    "path": {
+      "alias": "/media/image/34371",
+      "pid": 107951,
+      "langcode": "en"
+    },
+    "field_description": null,
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/media/image/e0f52385-84ed-4a45-8626-2894e1ce8a59?resourceVersion=id%3A36013"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 34371
+    },
+    "bundle": {
+      "type": "media_type--media_type",
+      "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "image"
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "bcf2642e-7be1-4ce2-9346-bdcffa7ff3f9",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5084
+      }
+    },
+    "thumbnail": {
+      "type": "file--file",
+      "id": "eedd9e27-d488-4b5d-ba16-20d03ece9de2",
+      "drupal_internal__fid": "39452",
+      "langcode": "en",
+      "filename": "Togus RO2.jpg",
+      "uri": {
+        "value": "public://2024-07/Togus RO2.jpg",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2024-07/Togus%20RO2.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 16410,
+      "status": true,
+      "created": "2024-07-05T14:49:23+00:00",
+      "changed": "2024-07-05T15:03:47+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/eedd9e27-d488-4b5d-ba16-20d03ece9de2"
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Front view of the 2-story, brick Togus Regional Office. Building 248 is seen on the grey, cement near the top of the building.",
+        "title": null,
+        "width": 256,
+        "height": 192,
+        "drupal_internal__target_id": 39452
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "bcf2642e-7be1-4ce2-9346-bdcffa7ff3f9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 5084
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "image": {
+      "type": "file--file",
+      "id": "eedd9e27-d488-4b5d-ba16-20d03ece9de2",
+      "drupal_internal__fid": "39452",
+      "langcode": "en",
+      "filename": "Togus RO2.jpg",
+      "uri": {
+        "value": "public://2024-07/Togus RO2.jpg",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2024-07/Togus%20RO2.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 16410,
+      "status": true,
+      "created": "2024-07-05T14:49:23+00:00",
+      "changed": "2024-07-05T15:03:47+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/eedd9e27-d488-4b5d-ba16-20d03ece9de2"
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Front view of the 2-story, brick Togus Regional Office. Building 248 is seen on the grey, cement near the top of the building.",
+        "title": "",
+        "width": 256,
+        "height": 192,
+        "drupal_internal__target_id": 39452
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "bcf2642e-7be1-4ce2-9346-bdcffa7ff3f9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 5084
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
   },
-  "field_prepare_for_visit": [],
+  "field_office": null,
+  "field_prepare_for_visit": [
+    {
+      "type": "paragraph--basic_accordion",
+      "id": "dfe5a09f-2fad-42bb-9f9b-aeba1c195a7d",
+      "drupal_internal__id": 157076,
+      "drupal_internal__revision_id": 1807366,
+      "langcode": "en",
+      "status": true,
+      "created": "2024-07-09T13:17:55+00:00",
+      "parent_id": "4328",
+      "parent_type": "node",
+      "parent_field_name": "field_prepare_for_visit",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-07-10T17:21:19+00:00",
+      "field_header": "Togus Regional Office Appointments",
+      "field_rich_wysiwyg": {
+        "value": "<p>Public Contact and Veterans Readiness & Employment (VRE) services are available in Building 248, second floor.</p><p>Visitors seeking assistance from the Regional Office Public Contact Team are available to be seen on a walk-in or appointment basis  at the Togus RO in Augusta ONLY. All others require appointments. (see \"Off-Site Appointments\" section below)</p><p>Visitors seeking assistance from the Public Contact Team at the Togus Regional Office are encouraged to schedule a virtual or in-person appointment on the Visitor Engagement Reporting Application (VERA). VERA is a self-service portal which allows visitors to schedule, reschedule, and cancel appointments.</p><p>Please follow this <a href=\"/admin/content/linky/13890\"><strong>link</strong></a> to schedule the appointment. You will receive email confirmation of your appointment.</p><p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at 207-621-6938, Monday through Friday from 8:30 a.m. to 4 p.m.</p><p> </p>",
+        "format": "rich_text_limited",
+        "processed": "<p>Public Contact and Veterans Readiness & Employment (VRE) services are available in Building 248, second floor.</p>\n<p>Visitors seeking assistance from the Regional Office Public Contact Team are available to be seen on a walk-in or appointment basis  at the Togus RO in Augusta ONLY. All others require appointments. (see \"Off-Site Appointments\" section below)</p>\n<p>Visitors seeking assistance from the Public Contact Team at the Togus Regional Office are encouraged to schedule a virtual or in-person appointment on the Visitor Engagement Reporting Application (VERA). VERA is a self-service portal which allows visitors to schedule, reschedule, and cancel appointments.</p>\n<p>Please follow this <a href=\"https://va.my.site.com/VAVERA/s/\"><strong>link</strong></a> to schedule the appointment. You will receive email confirmation of your appointment.</p>\n<p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at 207-621-6938, Monday through Friday from 8:30 a.m. to 4 p.m.</p>\n<p> </p>\n"
+      },
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/basic_accordion/dfe5a09f-2fad-42bb-9f9b-aeba1c195a7d?resourceVersion=id%3A1807366"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1807366,
+        "drupal_internal__target_id": 157076
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "basic_accordion"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    {
+      "type": "paragraph--basic_accordion",
+      "id": "8fe7bd80-43c2-41ff-a199-84da7743faf9",
+      "drupal_internal__id": 157078,
+      "drupal_internal__revision_id": 1807367,
+      "langcode": "en",
+      "status": true,
+      "created": "2024-07-09T16:26:46+00:00",
+      "parent_id": "4328",
+      "parent_type": "node",
+      "parent_field_name": "field_prepare_for_visit",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-07-10T17:21:19+00:00",
+      "field_header": "Off-site Appointments",
+      "field_rich_wysiwyg": {
+        "value": "<p>Visitors seeking assistance from the Public Contact Team from the Togus Regional Office are encouraged to schedule an in-person appointment on the Visitor Engagement Reporting Application (VERA). VERA is a self-service portal which allows visitors to schedule, reschedule, and cancel appointments.</p><p>Please follow this <a href=\"/admin/content/linky/13890\"><strong>link</strong></a> to schedule the appointment. You will receive email confirmation of your appointment.</p><p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at 207-621-6938, Monday through Friday from 8:30 a.m. to 4 p.m.</p><p><strong>Claims Clinics</strong></p><p>o   Bangor CBOC- Second Thursday and Third Tuesday each month  </p><p>o   Bangor Vet Center- Third Thursday each month </p><p>o  Caribou Vet Center- Second Friday each month </p><p>o   Lewiston/Auburn Community-Based Outpatient Clinic (CBOC)- First Tuesday each month </p><p>o   Mid-Coast Veterans Resource Center, Brunswick- Fourth Friday each Month </p><p>o   Portland CBOC- Second and fourth Tuesday each month </p><p>o   Rumford CBOC- First Thursday each month </p><p>o   Sanford Vet Center- Temporary closure</p><p> </p><p> </p>",
+        "format": "rich_text_limited",
+        "processed": "<p>Visitors seeking assistance from the Public Contact Team from the Togus Regional Office are encouraged to schedule an in-person appointment on the Visitor Engagement Reporting Application (VERA). VERA is a self-service portal which allows visitors to schedule, reschedule, and cancel appointments.</p>\n<p>Please follow this <a href=\"https://va.my.site.com/VAVERA/s/\"><strong>link</strong></a> to schedule the appointment. You will receive email confirmation of your appointment.</p>\n<p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at 207-621-6938, Monday through Friday from 8:30 a.m. to 4 p.m.</p>\n<p><strong>Claims Clinics</strong></p>\n<p>o   Bangor CBOC- Second Thursday and Third Tuesday each month  </p>\n<p>o   Bangor Vet Center- Third Thursday each month </p>\n<p>o  Caribou Vet Center- Second Friday each month </p>\n<p>o   Lewiston/Auburn Community-Based Outpatient Clinic (CBOC)- First Tuesday each month </p>\n<p>o   Mid-Coast Veterans Resource Center, Brunswick- Fourth Friday each Month </p>\n<p>o   Portland CBOC- Second and fourth Tuesday each month </p>\n<p>o   Rumford CBOC- First Thursday each month </p>\n<p>o   Sanford Vet Center- Temporary closure</p>\n<p> </p>\n<p> </p>\n"
+      },
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/basic_accordion/8fe7bd80-43c2-41ff-a199-84da7743faf9?resourceVersion=id%3A1807367"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1807367,
+        "drupal_internal__target_id": 157078
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "basic_accordion"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    {
+      "type": "paragraph--basic_accordion",
+      "id": "5fc62490-c1d2-4781-aaa3-e758f5b875a4",
+      "drupal_internal__id": 157077,
+      "drupal_internal__revision_id": 1807368,
+      "langcode": "en",
+      "status": true,
+      "created": "2024-07-09T13:21:32+00:00",
+      "parent_id": "4328",
+      "parent_type": "node",
+      "parent_field_name": "field_prepare_for_visit",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": null,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2024-07-09T13:21:32+00:00",
+      "field_header": "What to bring",
+      "field_rich_wysiwyg": {
+        "value": "<p>When you visit, please bring a current, unexpired photo ID.    </p><p>Depending on the reason for your visit, you may need to bring additional documents and information about you and your dependents, including</p><p><strong>Documents</strong></p><ul><li>A copy of your discharge or separation papers (DD214)</li><li>Copies of relevant medical records</li></ul><p><strong>Personal information</strong></p><ul><li>Your Social Security number </li><li>Direct deposit information</li></ul><p><strong>Information about your dependents</strong></p><ul><li>Dates of birth </li><li>Social Security numbers</li></ul><p>We can help you find out what documents to bring to your visit. We can also request documents for you. Call the office for more information.</p>",
+        "format": "rich_text_limited",
+        "processed": "<p>When you visit, please bring a current, unexpired photo ID.    </p>\n<p>Depending on the reason for your visit, you may need to bring additional documents and information about you and your dependents, including</p>\n<p><strong>Documents</strong></p>\n<ul>\n<li>A copy of your discharge or separation papers (DD214)</li>\n<li>Copies of relevant medical records</li>\n</ul>\n<p><strong>Personal information</strong></p>\n<ul>\n<li>Your Social Security number </li>\n<li>Direct deposit information</li>\n</ul>\n<p><strong>Information about your dependents</strong></p>\n<ul>\n<li>Dates of birth </li>\n<li>Social Security numbers</li>\n</ul>\n<p>We can help you find out what documents to bring to your visit. We can also request documents for you. Call the office for more information.</p>\n"
+      },
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/basic_accordion/5fc62490-c1d2-4781-aaa3-e758f5b875a4?resourceVersion=id%3A1807368"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1807368,
+        "drupal_internal__target_id": 157077
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "basic_accordion"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    {
+      "type": "paragraph--basic_accordion",
+      "id": "8db1a2a3-e0a6-4ef6-b17a-d3f17bc71ed0",
+      "drupal_internal__id": 157080,
+      "drupal_internal__revision_id": 1807369,
+      "langcode": "en",
+      "status": true,
+      "created": "2024-07-09T16:34:48+00:00",
+      "parent_id": "4328",
+      "parent_type": "node",
+      "parent_field_name": "field_prepare_for_visit",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": null,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2024-07-17T19:10:19+00:00",
+      "field_header": "Parking and Entrance",
+      "field_rich_wysiwyg": {
+        "value": "<ul><li>Parking is free. </li><li>The entrance to the closest parking lot is directly across from building 205 on North Gate Road. </li><li><p>You will need to enter through building 205, and follow the signage for building 248.</p><p> </p></li></ul>",
+        "format": "rich_text_limited",
+        "processed": "<ul>\n<li>Parking is free. </li>\n<li>The entrance to the closest parking lot is directly across from building 205 on North Gate Road. </li>\n<li>\n<p>You will need to enter through building 205, and follow the signage for building 248.</p>\n<p> </p>\n</li>\n</ul>\n"
+      },
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/basic_accordion/8db1a2a3-e0a6-4ef6-b17a-d3f17bc71ed0?resourceVersion=id%3A1807369"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1807369,
+        "drupal_internal__target_id": 157080
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "basic_accordion"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    },
+    {
+      "type": "paragraph--basic_accordion",
+      "id": "25562834-3f1d-4338-9c28-1018a7bcef1d",
+      "drupal_internal__id": 175512,
+      "drupal_internal__revision_id": 1807370,
+      "langcode": "en",
+      "status": true,
+      "created": "2025-03-27T14:13:20+00:00",
+      "parent_id": "4328",
+      "parent_type": "node",
+      "parent_field_name": "field_prepare_for_visit",
+      "behavior_settings": [],
+      "default_langcode": true,
+      "revision_translation_affected": null,
+      "breadcrumbs": [],
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_changed": "2025-03-27T14:13:20+00:00",
+      "field_header": "Portland Vet Center Appointments",
+      "field_rich_wysiwyg": {
+        "value": "<p>Appointments are also available to be scheduled for in-person on:</p><p><a href=\"/admin/content/linky/13890\">Visitor Engagement Reporting Application-VERA </a></p><p>You'll receive an email confirmation of your appointment.</p><p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at 207-621-6938, Monday through Friday from 8:30 a.m. to 4 p.m.</p>",
+        "format": "rich_text_limited",
+        "processed": "<p>Appointments are also available to be scheduled for in-person on:</p>\n<p><a href=\"https://va.my.site.com/VAVERA/s/\">Visitor Engagement Reporting Application-VERA </a></p>\n<p>You'll receive an email confirmation of your appointment.</p>\n<p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at 207-621-6938, Monday through Friday from 8:30 a.m. to 4 p.m.</p>\n"
+      },
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/basic_accordion/25562834-3f1d-4338-9c28-1018a7bcef1d?resourceVersion=id%3A1807370"
+        }
+      },
+      "resourceIdObjMeta": {
+        "target_revision_id": 1807370,
+        "drupal_internal__target_id": 175512
+      },
+      "paragraph_type": {
+        "type": "paragraphs_type--paragraphs_type",
+        "id": "5f3ba120-da59-4c9a-b7d8-5fd72bf3eecd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "basic_accordion"
+        }
+      },
+      "relationshipNames": ["paragraph_type"]
+    }
+  ],
   "field_shared_vha_location": {
     "type": "node--health_care_local_facility",
-    "id": "a9120249-2599-4890-8306-0c5fa07621d3",
+    "id": "4f6a8a01-3272-43a3-8089-b410e7b5333c",
     "resourceIdObjMeta": {
-      "drupal_internal__target_id": 1423
+      "drupal_internal__target_id": 1060
     }
   },
   "relationshipNames": [

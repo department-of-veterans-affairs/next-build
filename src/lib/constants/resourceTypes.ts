@@ -17,6 +17,7 @@ export const RESOURCE_TYPES = {
   VAMC_SYSTEM_VA_POLICE: 'node--vamc_system_va_police',
   VAMC_SYSTEM: 'node--health_care_region_page',
   VBA_FACILITY: 'node--vba_facility',
+  VBA_SERVICE: 'node--vba_facility_service',
   VET_CENTER_HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
   VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
   VET_CENTER: 'node--vet_center',
