@@ -1,6 +1,6 @@
 import { render, screen } from 'test-utils'
 import '@testing-library/jest-dom'
-import { Wrapper, formatBannerType } from './index'
+import { PageLayout, formatBannerType } from './index'
 import { PromoBanner } from '@/templates/common/banners/promoBanner'
 import { Banner } from '@/templates/common/banners/banner'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
@@ -19,13 +19,13 @@ const banners = [
 ]
 const props = { bannerData: [], headerFooterData: {} }
 
-describe('<Wrapper> renders', () => {
+describe('<PageLayout> renders', () => {
   test('body', () => {
     render(
       <>
-        <Wrapper {...props}>
+        <PageLayout {...props}>
           <div>This is the layout</div>
-        </Wrapper>
+        </PageLayout>
       </>
     )
 
@@ -34,15 +34,15 @@ describe('<Wrapper> renders', () => {
 
   test('<Banner> when bannerData exists', () => {
     render(
-      <Wrapper {...props} bannerData={banners}>
+      <PageLayout {...props} bannerData={banners}>
         {children}
-      </Wrapper>
+      </PageLayout>
     )
     expect(screen.queryByText(/This is the banner body/)).toBeInTheDocument()
   })
 
   test('<Banner> when bannerData does not exist', () => {
-    render(<Wrapper {...props}>{children}</Wrapper>)
+    render(<PageLayout {...props}>{children}</PageLayout>)
     expect(
       screen.queryByText(/This is the banner body/)
     ).not.toBeInTheDocument()
@@ -50,9 +50,9 @@ describe('<Wrapper> renders', () => {
 
   test('Header and Footer are present', () => {
     render(
-      <Wrapper {...props} bannerData={banners}>
+      <PageLayout {...props} bannerData={banners}>
         {children}
-      </Wrapper>
+      </PageLayout>
     )
 
     expect(screen.getByRole('banner')).toHaveClass('header')

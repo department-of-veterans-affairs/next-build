@@ -19,7 +19,7 @@ interface customWindow extends Window {
 }
 declare const window: customWindow
 
-export interface LayoutProps {
+export interface PageLayoutProps {
   bannerData: BannersData
   headerFooterData: HeaderFooterData
   children?: React.ReactNode
@@ -38,13 +38,13 @@ export const formatBannerType = (bannerData) => {
   }
 }
 
-export function Wrapper({
+export function PageLayout({
   bannerData,
   headerFooterData,
   preview,
   resource,
   children,
-}: LayoutProps) {
+}: PageLayoutProps) {
   useEffect(() => {
     // Place header & footer data on window object for vets-website widgets
     window.VetsGov = {}

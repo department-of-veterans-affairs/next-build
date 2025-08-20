@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { Wrapper } from '@/templates/layouts/wrapper'
+import { PageLayout } from '@/templates/common/pageLayout'
 import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
 import { CommonAndPopular } from '@/templates/common/commonAndPopular'
 import Head from 'next/head'
@@ -15,7 +15,7 @@ const Error404Page = ({ headerFooterData }) => {
       <Head>
         <title>VA.gov | Veterans Affairs</title>
       </Head>
-      <Wrapper bannerData={[]} headerFooterData={headerFooterData}>
+      <PageLayout bannerData={[]} headerFooterData={headerFooterData}>
         <div
           className="main maintenance-page vads-u-padding-top--4"
           role="main"
@@ -69,7 +69,7 @@ const Error404Page = ({ headerFooterData }) => {
           strategy="afterInteractive"
           src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
         />
-      </Wrapper>
+      </PageLayout>
     </>
   )
 }

@@ -63,7 +63,6 @@ import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacili
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
 import { EventListing } from '@/products/eventListing/template'
-import { LayoutProps } from '@/templates/layouts/wrapper'
 import { LocationsListing } from '@/products/locationsListing/template'
 import { Meta } from '@/templates/common/meta'
 import { NewsStory } from '@/products/newsStory/template'
@@ -74,7 +73,7 @@ import { ResourcesSupport } from '@/products/resourcesSupport/template'
 import { StaffProfile } from '@/products/staffProfile/template'
 import { StoryListing } from '@/products/storyListing/template'
 import { VetCenter } from '@/products/vetCenter/template'
-import { Wrapper } from '@/templates/layouts/wrapper'
+import { PageLayout, PageLayoutProps } from '@/templates/common/pageLayout'
 import { HealthCareLocalFacility } from '@/products/healthCareLocalFacility/template'
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '@/products/vamcSystem/template'
@@ -123,8 +122,8 @@ export default function ResourcePage({
   preview,
 }: {
   serializedResource: FlattenedGraph<StaticPropsResource<FormattedPageResource>>
-  bannerData: LayoutProps['bannerData']
-  headerFooterData: LayoutProps['headerFooterData']
+  bannerData: PageLayoutProps['bannerData']
+  headerFooterData: PageLayoutProps['headerFooterData']
   preview: boolean
 }) {
   if (!serializedResource) return null
@@ -141,7 +140,7 @@ export default function ResourcePage({
     `
 
   return (
-    <Wrapper
+    <PageLayout
       bannerData={bannerData}
       headerFooterData={headerFooterData}
       preview={preview}
@@ -233,7 +232,7 @@ export default function ResourcePage({
         strategy="afterInteractive"
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
       />
-    </Wrapper>
+    </PageLayout>
   )
 }
 
