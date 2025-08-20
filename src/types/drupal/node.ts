@@ -13,6 +13,9 @@ import {
   FieldDateTimeRange,
   FieldNestedLink,
   FieldCCText,
+  FieldCCPhone,
+  FieldCCFeaturedContent,
+  FieldCCListOfLinks,
   FieldGeoLocation,
   VetCenterFieldHealthServicesArray,
   BreadcrumbItem,
@@ -83,6 +86,7 @@ export type NodeTypes =
   | NodeVamcSystemVaPolice
   | NodeLeadershipListing
   | NodeVbaFacility
+  | NodeVbaService
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -439,6 +443,24 @@ export interface NodeLocationsListing extends DrupalNode {
 export interface NodeVbaFacility extends DrupalNode {
   title: string
   field_cc_vba_facility_overview: FieldCCText
+  field_cc_national_spotlight_1: FieldCCFeaturedContent
+  field_cc_benefits_hotline: FieldCCPhone
+  field_cc_cant_find_benefits: FieldCCFeaturedContent
+  field_cc_get_updates_from_vba: FieldCCListOfLinks
+  field_address: FieldAddress
+  field_facility_locator_api_id: string
+  field_media?: DrupalMediaImage
+  field_office_hours: FieldOfficeHours[]
+  field_operating_status_facility: FacilityOperatingStatusFlags
+  field_operating_status_more_info?: string
+  field_prepare_for_visit: ParagraphAccordion[]
+  field_phone_number: string
+}
+
+export interface NodeVbaService extends DrupalNode {
+  title: string
+  field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
+  field_service_location: ParagraphServiceLocation[]
 }
 
 /**

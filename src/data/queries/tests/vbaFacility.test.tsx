@@ -2,12 +2,15 @@
  * @jest-environment node
  */
 
-import { NodeVbaFacility } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/vbaFacility.mock.json'
+import mockServicesData from '@/mocks/vbaFacilityService.mock.json'
 import { params } from '../vbaFacility'
 
-const VbaFacilityMock: NodeVbaFacility = mockData
+const VbaFacilityMock = {
+  entity: mockData,
+  services: [{ ...mockServicesData, field_office: mockData }],
+}
 
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {
@@ -30,39 +33,45 @@ describe('VbaFacility formatData', () => {
   test('formats social link types', () => {
     const allSocialLinkMock = {
       ...VbaFacilityMock,
-      field_cc_get_updates_from_vba: {
-        fetched: {
-          field_section_header: [{ value: 'Get updates from VBA' }],
-          field_links: [
-            {
-              title: 'Facebook',
-              uri: 'https://www.facebook.com/veteransbenefits',
-            },
-            {
-              title: 'Twitter',
-              uri: 'https://twitter.com/VeteransBenefits',
-            },
-            {
-              title: 'X',
-              uri: 'https://x.com/VeteransBenefits',
-            },
-            {
-              title: 'Instagram',
-              uri: 'https://instagram.com/VeteransBenefits',
-            },
-            {
-              title: 'Mailing List',
-              uri: 'https://www.govdelivery.com/veteransbenefits',
-            },
-            {
-              title: 'Flickr',
-              uri: 'https://www.flickr.com/photos/veteransbenefits',
-            },
-            {
-              title: 'YouTube',
-              uri: 'https://www.youtube.com/veteransbenefits',
-            },
-          ],
+      entity: {
+        ...VbaFacilityMock.entity,
+        field_cc_get_updates_from_vba: {
+          target_type: '',
+          fetched_bundle: '',
+          fetched: {
+            field_section_header: [{ value: 'Get updates from VBA' }],
+            field_link: [],
+            field_links: [
+              {
+                title: 'Facebook',
+                uri: 'https://www.facebook.com/veteransbenefits',
+              },
+              {
+                title: 'Twitter',
+                uri: 'https://twitter.com/VeteransBenefits',
+              },
+              {
+                title: 'X',
+                uri: 'https://x.com/VeteransBenefits',
+              },
+              {
+                title: 'Instagram',
+                uri: 'https://instagram.com/VeteransBenefits',
+              },
+              {
+                title: 'Mailing List',
+                uri: 'https://www.govdelivery.com/veteransbenefits',
+              },
+              {
+                title: 'Flickr',
+                uri: 'https://www.flickr.com/photos/veteransbenefits',
+              },
+              {
+                title: 'YouTube',
+                uri: 'https://www.youtube.com/veteransbenefits',
+              },
+            ],
+          },
         },
       },
     }

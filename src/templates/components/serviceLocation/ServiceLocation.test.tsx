@@ -148,6 +148,25 @@ describe('ServiceLocation', () => {
       .getByTestId('service-location-action-link-online')
       .querySelector('va-link-action')
     expect(linkAction).toHaveAttribute('text', 'Schedule an appointment online')
+    expect(linkAction).toHaveAttribute(
+      'href',
+      '/health-care/schedule-view-va-appointments'
+    )
+  })
+
+  test('shows correct online scheduling link when VBA', () => {
+    const props = { ...getBaseProps() }
+    props.isVba = true
+    render(<ServiceLocation {...props} />)
+
+    const linkAction = screen
+      .getByTestId('service-location-action-link-online')
+      .querySelector('va-link-action')
+    expect(linkAction).toHaveAttribute('text', 'Schedule an appointment online')
+    expect(linkAction).toHaveAttribute(
+      'href',
+      'https://va.my.site.com/VAVERA/s/'
+    )
   })
 
   test('shows service hours when available', () => {
@@ -227,7 +246,29 @@ describe('ServiceLocation', () => {
       screen.getByText('Custom appointment instructions')
     ).toBeInTheDocument()
   })
+  test('does referral sentence if not VBA', () => {
+    const props = { ...getBaseProps() }
 
+    render(<ServiceLocation {...props} />)
+
+    expect(
+      screen.getByText(
+        /If a referral is required, you’ll need to contact your primary care provider first./
+      )
+    ).toBeInTheDocument()
+  })
+  test('does not show referral sentence if VBA', () => {
+    const props = { ...getBaseProps() }
+    props.isVba = true
+
+    render(<ServiceLocation {...props} />)
+
+    expect(
+      screen.queryByText(
+        /If a referral is required, you’ll need to contact your primary care provider first./
+      )
+    ).not.toBeInTheDocument()
+  })
   test('shows email contacts', () => {
     const props = { ...getBaseProps() }
     props.location.fieldEmailContacts = [
@@ -242,6 +283,19 @@ describe('ServiceLocation', () => {
     render(<ServiceLocation {...props} />)
 
     expect(screen.getByText('General Inquiries')).toBeInTheDocument()
-    expect(screen.getByText('contact@example.com')).toBeInTheDocument()
+    expect(
+      screen.getByTestId('service-location-email-contact-0')
+    ).toHaveAttribute('href', 'mailto:contact@example.com')
+  })
+  test('renders all h4s with no service header', () => {
+    render(<ServiceLocation {...getBaseProps()} />)
+    expect(screen.queryAllByRole('heading', { level: 4 })).toHaveLength(8)
+  })
+  test('renders service heading and other headings as h5 if service header', () => {
+    const props = { ...getBaseProps() }
+    props.serviceHeader = 'test header'
+    render(<ServiceLocation {...props} />)
+    expect(screen.queryAllByRole('heading', { level: 4 })).toHaveLength(1)
+    expect(screen.queryAllByRole('heading', { level: 5 })).toHaveLength(8)
   })
 })
