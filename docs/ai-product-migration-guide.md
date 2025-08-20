@@ -141,7 +141,8 @@ The `move-product.sh` script performs these actions:
 - [x] leadershipListing
 - [x] vetCenter
 - [x] vetCenterLocationListing
-- [x] vetCenterOutstation ⚠️
+- [x] vetCenterOutstation ⚠️ - the template was never wired up in `[[...slug]].tsx` routing
+- [x] vamcSystem
 
 ### 🔄 Pending Migration
 
@@ -152,30 +153,27 @@ The `move-product.sh` script performs these actions:
 - [ ] **questionAnswer** - Has template layout and query file
 - [ ] **resourcesSupport** - Has template layout and query file
 - [ ] **vamcHealthServicesListing** - Has template layout and query file
-- [ ] **vamcSystem** - Has template layout and query file
+
 - [ ] **vbaFacility** - Has template layout and query file
 
 #### Priority Order Recommendation
 
-1. **vamcSystem** - Core VAMC functionality
-2. **healthCareLocalFacility** - Healthcare facility core
-3. **vamcHealthServicesListing** - Related to VAMC
-4. **locationsListing** - General locations
-5. **vbaFacility** - VBA facilities
-6. **resourcesSupport** - Support resources
-7. **questionAnswer** - Q&A functionality
+1. **healthCareLocalFacility** - Healthcare facility core
+2. **vamcHealthServicesListing** - Related to VAMC
+3. **locationsListing** - General locations
+4. **vbaFacility** - VBA facilities
+5. **resourcesSupport** - Support resources
+6. **questionAnswer** - Q&A functionality
 
 ### 📝 Migration Progress Tracking
 
-**Current Product**: vamcSystem _(next up)_
+**Current Product**: healthCareLocalFacility _(next up)_
 
 **Status**: Ready for next migration
 
-**Last Completed**: vetCenterOutstation - Successfully migrated with all tests passing ⚠️
+**Last Completed**: vamcSystem - Successfully migrated with all tests passing
 
-**Notes**: vetCenterOutstation migration completed successfully. Fixed import paths in formatted-type.ts, query.ts, template.test.tsx, and query.test.ts. Manually moved test files and mock files that weren't caught by script. All TypeScript errors resolved and all tests passing (3 query tests + 1 template test).
-
-⚠️ **IMPORTANT**: vetCenterOutstation template is not yet wired up in [[...slug]].tsx routing - the template exists but has no route. This is expected as the template was never completed. Migration successful but pages cannot be accessed via browser until routing is implemented.
+**Notes**: vamcSystem migration completed successfully. Fixed import paths in formatted-type.ts, query.ts, template.test.tsx, template.tsx, and query.test.ts. Moved component files (ManageYourHealthLinks, StoryTeaser) and updated all imports. All TypeScript errors resolved and all tests passing (7 query tests + 30 template tests + 4 ManageYourHealthLinks tests + 12 StoryTeaser tests). Browser verification successful with multiple VAMC system pages loading correctly.
 
 ---
 
