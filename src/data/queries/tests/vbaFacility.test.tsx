@@ -7,7 +7,10 @@ import mockData from '@/mocks/vbaFacility.mock.json'
 import mockServicesData from '@/mocks/vbaFacilityService.mock.json'
 import { params } from '../vbaFacility'
 
-const VbaFacilityMock = { entity: mockData, services: [mockServicesData] }
+const VbaFacilityMock = {
+  entity: mockData,
+  services: [{ ...mockServicesData, field_office: mockData }],
+}
 
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {
@@ -33,8 +36,11 @@ describe('VbaFacility formatData', () => {
       entity: {
         ...VbaFacilityMock.entity,
         field_cc_get_updates_from_vba: {
+          target_type: '',
+          fetched_bundle: '',
           fetched: {
             field_section_header: [{ value: 'Get updates from VBA' }],
+            field_link: [],
             field_links: [
               {
                 title: 'Facebook',

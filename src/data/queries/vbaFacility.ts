@@ -122,12 +122,15 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
         field_button_link: {
           ...entity.field_cc_national_spotlight_1.fetched.field_cta[0]
             .field_button_link[0],
+          options: [],
         },
-        drupal_internal__id:
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0].target_id,
-        drupal_internal__revision_id:
+        drupal_internal__id: parseInt(
+          entity.field_cc_national_spotlight_1.fetched.field_cta[0].target_id
+        ),
+        drupal_internal__revision_id: parseInt(
           entity.field_cc_national_spotlight_1.fetched.field_cta[0]
-            .target_revision_id,
+            .target_revision_id
+        ),
         langcode:
           entity.field_cc_national_spotlight_1.fetched.field_cta[0].langcode,
         status:
