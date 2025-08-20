@@ -3,9 +3,9 @@
  */
 
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/locationsListing.mock.json'
+import mockData from '@/products/locationsListing/mock.json'
 import { NodeLocationsListing } from '@/types/drupal/node'
-import { params } from '../locationsListing'
+import { params } from './query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const LocationsListingMock: NodeLocationsListing = mockData[0]

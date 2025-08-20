@@ -27,3 +27,4 @@ src/products/vetCenterOutstation/ @department-of-veterans-affairs/ap-team @depar
 src/products/vamcSystem/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
 src/products/healthCareLocalFacility/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
 src/products/vamcHealthServicesListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+src/products/locationsListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend

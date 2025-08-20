@@ -4,7 +4,7 @@ import {
   NodeHealthCareLocalFacility,
   NodeLocationsListing,
 } from '@/types/drupal/node'
-import { LocationsListing } from '@/types/formatted/locationsListing'
+import { LocationsListing } from '@/products/locationsListing/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
@@ -15,11 +15,11 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
-import { formatter as formatAdministration } from './administration'
+import { formatter as formatAdministration } from '@/data/queries/administration'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
-import { queries } from '.'
+import { queries } from '@/data/queries'
 import {
   getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,

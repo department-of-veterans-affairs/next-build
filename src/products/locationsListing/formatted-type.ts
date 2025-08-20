@@ -1,6 +1,6 @@
-import { PublishedEntity } from './publishedEntity'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { NodeHealthCareRegionPage } from '../drupal/node'
+import { NodeHealthCareRegionPage } from '@/types/drupal/node'
 import { Administration } from '@/types/formatted/administration'
 import { HealthCareLocalFacility } from '@/products/healthCareLocalFacility/formatted-type'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'

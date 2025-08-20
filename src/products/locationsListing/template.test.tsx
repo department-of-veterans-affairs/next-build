@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { LocationsListing } from './index'
+import { LocationsListing } from './template'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
-import { MinimalLocalFacility } from '@/types/formatted/locationsListing'
+import { MinimalLocalFacility } from '@/products/locationsListing/formatted-type'
 
 // Mock menu data for testing
 const mockMenu = {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { RegionalTopTasks } from '@/templates/components/topTasks'
-import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
+import { LocationsListing as FormattedLocationsListing } from '@/products/locationsListing/formatted-type'
 import { FacilityListing } from '@/templates/components/facilityListing'
 import { ContentFooter } from '@/templates/common/contentFooter'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
