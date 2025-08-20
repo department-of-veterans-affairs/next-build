@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import drupalMockData from '@/mocks/healthCareLocalFacility.mock'
-import { HealthCareLocalFacility } from './index'
-import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
-import { formatter } from '@/data/queries/healthCareLocalFacility'
+import drupalMockData from '@/products/healthCareLocalFacility/mock'
+import { HealthCareLocalFacility } from './template'
+import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/products/healthCareLocalFacility/formatted-type'
+import { formatter } from '@/products/healthCareLocalFacility/query'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { within } from '@testing-library/react'
 

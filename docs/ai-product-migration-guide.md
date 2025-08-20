@@ -143,12 +143,12 @@ The `move-product.sh` script performs these actions:
 - [x] vetCenterLocationListing
 - [x] vetCenterOutstation ⚠️ - the template was never wired up in `[[...slug]].tsx` routing
 - [x] vamcSystem
+- [x] healthCareLocalFacility
 
 ### 🔄 Pending Migration
 
 #### Products with Templates & Queries
 
-- [ ] **healthCareLocalFacility** - Has template layout and query file
 - [ ] **locationsListing** - Has template layout and query file
 - [ ] **questionAnswer** - Has template layout and query file
 - [ ] **resourcesSupport** - Has template layout and query file
@@ -158,22 +158,21 @@ The `move-product.sh` script performs these actions:
 
 #### Priority Order Recommendation
 
-1. **healthCareLocalFacility** - Healthcare facility core
-2. **vamcHealthServicesListing** - Related to VAMC
-3. **locationsListing** - General locations
-4. **vbaFacility** - VBA facilities
-5. **resourcesSupport** - Support resources
-6. **questionAnswer** - Q&A functionality
+1. **vamcHealthServicesListing** - Related to VAMC
+2. **locationsListing** - General locations
+3. **vbaFacility** - VBA facilities
+4. **resourcesSupport** - Support resources
+5. **questionAnswer** - Q&A functionality
 
 ### 📝 Migration Progress Tracking
 
-**Current Product**: healthCareLocalFacility _(next up)_
+**Current Product**: vamcHealthServicesListing _(next up)_
 
 **Status**: Ready for next migration
 
-**Last Completed**: vamcSystem - Successfully migrated with all tests passing
+**Last Completed**: healthCareLocalFacility - Successfully migrated with all tests passing
 
-**Notes**: vamcSystem migration completed successfully. Fixed import paths in formatted-type.ts, query.ts, template.test.tsx, template.tsx, and query.test.ts. Moved component files (ManageYourHealthLinks, StoryTeaser) and updated all imports. All TypeScript errors resolved and all tests passing (7 query tests + 30 template tests + 4 ManageYourHealthLinks tests + 12 StoryTeaser tests). Browser verification successful with multiple VAMC system pages loading correctly.
+**Notes**: healthCareLocalFacility migration completed successfully. This was a complex migration with extensive component structure including Address, Phone, OperatingStatus, LocationServices, FacilitySocialLinks, and HealthServices subdirectory. Fixed import paths across multiple files and updated cross-references from other migrated products. All TypeScript errors resolved and all tests passing (16 query tests + 19 template tests + numerous component tests). Browser verification successful with multiple facility pages loading correctly.
 
 ---
 

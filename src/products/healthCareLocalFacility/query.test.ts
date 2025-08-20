@@ -3,13 +3,9 @@
  */
 
 import { queries } from '@/data/queries'
-import mockFacilityData from '@/mocks/healthCareLocalFacility.mock'
+import mockFacilityData from '@/products/healthCareLocalFacility/mock'
 import { DrupalMenuLinkContent } from 'next-drupal'
-import {
-  formatter,
-  LocalFacilityData,
-  params,
-} from '../healthCareLocalFacility'
+import { formatter, LocalFacilityData, params } from './query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { deflateObjectGraph } from '@/lib/utils/object-graph'
 

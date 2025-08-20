@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
 import { HealthServices } from './HealthServices'
-import { FormattedVAMCFacilityHealthService } from '@/types/formatted/healthCareLocalFacility'
+import { FormattedVAMCFacilityHealthService } from '@/products/healthCareLocalFacility/formatted-type'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 

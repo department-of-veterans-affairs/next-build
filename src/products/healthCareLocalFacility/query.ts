@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
-import { HealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
+import { HealthCareLocalFacility } from '@/products/healthCareLocalFacility/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -22,7 +22,7 @@ import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 import { formatter as formatEmail } from '@/data/queries/emailContact'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { formatter as formatAdministration } from './administration'
+import { formatter as formatAdministration } from '@/data/queries/administration'
 import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true

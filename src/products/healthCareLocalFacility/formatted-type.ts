@@ -1,5 +1,5 @@
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
-import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
+import { FacilitySocialLinksProps } from './FacilitySocialLinks'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { Administration } from '@/types/formatted/administration'
 import { MediaImage } from '@/types/formatted/media'
@@ -9,13 +9,13 @@ import {
   FieldAddress,
   FieldGeoLocation,
   FieldOfficeHours,
-} from '../drupal/field_type'
-import { FacilityOperatingStatusFlags } from '../drupal/node'
-import { VamcEhr } from '../drupal/vamcEhr'
-import { PublishedEntity } from './publishedEntity'
-import { FormattedRelatedLinks } from './relatedLinks'
-import { SideNavMenu } from './sideNav'
-import { EmailContact } from './contactInfo'
+} from '@/types/drupal/field_type'
+import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
+import { VamcEhr } from '@/types/drupal/vamcEhr'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
+import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
+import { SideNavMenu } from '@/types/formatted/sideNav'
+import { EmailContact } from '@/types/formatted/contactInfo'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null

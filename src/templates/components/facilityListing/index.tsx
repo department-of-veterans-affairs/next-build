@@ -1,8 +1,8 @@
 import { MediaImage } from '@/templates/common/mediaImage'
-import { OperatingStatusFlags } from '@/templates/layouts/healthCareLocalFacility/OperatingStatus'
-import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
+import { OperatingStatusFlags } from '@/products/healthCareLocalFacility/OperatingStatus'
+import { Address } from '@/products/healthCareLocalFacility/Address'
 import { MinimalLocalFacility } from '@/products/vamcSystem/formatted-type'
-import { Phone } from '@/templates/layouts/healthCareLocalFacility/Phone'
+import { Phone } from '@/products/healthCareLocalFacility/Phone'
 import { TextWithImage } from '@/templates/components/textWithImage'
 
 type FacilityListingProps = {

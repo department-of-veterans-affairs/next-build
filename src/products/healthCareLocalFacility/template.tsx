@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
+import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/products/healthCareLocalFacility/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
 import { FacilityTopTasks } from '@/templates/components/topTasks'
