@@ -4,6 +4,7 @@ import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 interface ServiceAddressProps {
   serviceLocationAddress: ParagraphServiceLocationAddress
   facilityAddress?: FieldAddress
+  useH5?: boolean
 }
 
 /**
@@ -16,6 +17,7 @@ interface ServiceAddressProps {
 export const ServiceAddress = ({
   serviceLocationAddress,
   facilityAddress,
+  useH5 = false,
 }: ServiceAddressProps) => {
   // TODO: When refactoring this, we won't ever need the `facilityAddress`, so
   // we can remove it. If `field_use_facility_address` is true, we show no
@@ -44,16 +46,22 @@ export const ServiceAddress = ({
   if (!showSection) {
     return null
   }
-
+  const getHeading = () => {
+    if (serviceLocationAddress.field_clinic_name) {
+      return serviceLocationAddress.field_clinic_name
+    } else if (
+      serviceLocationAddress.field_building_name_number ||
+      serviceLocationAddress.field_wing_floor_or_room_number
+    ) {
+      return 'Location'
+    }
+    return null
+  }
   return (
     <div className="vads-u-display--flex vads-u-flex-direction--column">
-      {serviceLocationAddress.field_clinic_name ? (
-        <h4>{serviceLocationAddress.field_clinic_name}</h4>
-      ) : serviceLocationAddress.field_building_name_number ||
-        serviceLocationAddress.field_wing_floor_or_room_number ? (
-        <h4>Location</h4>
-      ) : null}
-
+      {getHeading() && (
+        <>{useH5 ? <h5>{getHeading()}</h5> : <h4>{getHeading()}</h4>}</>
+      )}
       {hasAddress && !serviceLocationAddress.field_use_facility_address && (
         <>
           {addressData?.address_line1 && (

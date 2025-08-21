@@ -222,6 +222,7 @@ export interface ParagraphServiceLocation extends DrupalParagraph {
     | 'remove_text'
     | 'customize_text'
     | 'use_default_text'
+    | string
   /** Custom appointment intro text (if applicable). */
   fieldApptIntro_text_custom?: string
   /** Array of additional phone numbers for appointments or contact. */

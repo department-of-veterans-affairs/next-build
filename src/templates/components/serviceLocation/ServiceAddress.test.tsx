@@ -146,4 +146,19 @@ describe('ServiceAddress', () => {
     expect(screen.getByText('Tower B')).toBeInTheDocument()
     expect(screen.getByText('Floor 3, Suite 301')).toBeInTheDocument()
   })
+  it('uses an h5 if useH5 true', () => {
+    render(
+      <ServiceAddress
+        useH5={true}
+        serviceLocationAddress={{
+          ...mockServiceLocationAddress,
+          field_clinic_name: 'Orthopedics Clinic',
+        }}
+      />
+    )
+
+    expect(
+      screen.getByRole('heading', { name: 'Orthopedics Clinic', level: 5 })
+    ).toBeInTheDocument()
+  })
 })
