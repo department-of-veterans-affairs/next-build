@@ -8,10 +8,13 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { formatter as formatAdministration } from '@/data/queries/administration'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams().addInclude(['field_administration'])
+  return new DrupalJsonApiParams()
+    .addInclude(['field_administration', 'field_office'])
+    .addFields('node--health_care_region_page', ['field_vamc_ehr_system'])
 }
 
 // Define the option types for the data loader.
@@ -43,7 +46,7 @@ export const formatter: QueryFormatter<
     title: entity.title,
     introText: entity.field_intro_text,
     path: entity.path?.alias || null,
-    administration: entity.field_administration || null,
+    administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
   }
 }

@@ -59,18 +59,18 @@ describe('VamcHealthServicesListing with valid data', () => {
       (_: string, el: Element | null) =>
         el?.getAttribute('text') === 'Make an appointment'
     )
-    const healthServicesLink = screen.getByText(
-      (_: string, el: Element | null) =>
-        el?.getAttribute('text') === 'View all health services'
-    )
     const registerLink = screen.getByText(
       (_: string, el: Element | null) =>
         el?.getAttribute('text') === 'Register for care'
     )
+    const pharmacyLink = screen.getByText(
+      (_: string, el: Element | null) =>
+        el?.getAttribute('text') === 'Learn about pharmacy services'
+    )
 
     expect(makeAppointmentLink).toBeInTheDocument()
-    expect(healthServicesLink).toBeInTheDocument()
     expect(registerLink).toBeInTheDocument()
+    expect(pharmacyLink).toBeInTheDocument()
   })
 
   test('renders section headings correctly', () => {

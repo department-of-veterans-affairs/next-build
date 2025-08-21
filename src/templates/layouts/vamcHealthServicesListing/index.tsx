@@ -1,5 +1,5 @@
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
-import { RegionalTopTasks } from '@/templates/components/topTasks'
+import { FacilityTopTasks } from '@/templates/components/topTasks'
 
 export function VamcHealthServicesListing({
   title,
@@ -8,6 +8,9 @@ export function VamcHealthServicesListing({
   administration,
   vamcEhrSystem,
 }: FormattedVamcHealthServicesListing) {
+  // Extract the region base path from the full path (same as healthCareLocalFacility)
+  const regionBasePath = path ? path.split('/')[1] : ''
+
   return (
     <main className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -35,11 +38,13 @@ export function VamcHealthServicesListing({
 
             {/* Top Task links */}
             {path && (
-              <RegionalTopTasks
-                path={path}
-                administration={administration}
-                vamcEhrSystem={vamcEhrSystem}
-              />
+              <div>
+                <FacilityTopTasks
+                  path={regionBasePath}
+                  administration={administration}
+                  vamcEhrSystem={vamcEhrSystem}
+                />
+              </div>
             )}
 
             <div className="usa-grid usa-grid-full vads-u-margin-top--0p5 vads-u-margin-bottom--4">
