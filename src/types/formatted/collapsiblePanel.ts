@@ -1,5 +1,5 @@
 import { FormattedParagraph } from '@/data/queries'
-import { HeadingLevel } from '@/types/formatted/headingElement'
+import { HeadingLevel } from '@/components/heading/formatted-type'
 import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 
 export type CollapsiblePanelItem = PublishedParagraph & {

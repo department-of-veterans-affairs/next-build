@@ -1,4 +1,4 @@
-import { HeadingElement as FormattedHeadingElement } from '@/types/formatted/headingElement'
+import { HeadingElement as FormattedHeadingElement } from './formatted-type'
 
 export const HeadingElement = ({
   headingLevel,
