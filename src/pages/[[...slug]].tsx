@@ -110,7 +110,7 @@ if (process.env.FEATURE_NEXT_BUILD_CONTENT_ALL === 'true') {
 }
 
 export const DynamicBreadcrumbs = dynamic(
-  () => import('@/templates/common/breadcrumbs'),
+  () => import('@/components/breadcrumbs/template'),
   { ssr: false }
 )
 
