@@ -768,24 +768,20 @@ If you need help with the IDES process, we may refer you to your Physical Evalua
     "heading": "Get updates from the Veterans Benefits Administration",
     "links": [
       {
-        "label": "Subscribe to our newsletter about VA benefits",
-        "type": "mail",
-        "url": "https://public.govdelivery.com/accounts/USVAVBA/subscribers/new",
+        "href": "https://public.govdelivery.com/accounts/USVAVBA/subscribers/new",
+        "text": "Subscribe to our newsletter about VA benefits",
       },
       {
-        "label": "Get updates about VA benefits on Facebook",
-        "type": "facebook",
-        "url": "https://www.facebook.com/VeteransAffairs",
+        "href": "https://www.facebook.com/VeteransAffairs",
+        "text": "Get updates about VA benefits on Facebook",
       },
       {
-        "label": "Get updates about VA benefits on X",
-        "type": "x",
-        "url": "https://twitter.com/DeptVetAffairs/",
+        "href": "https://twitter.com/DeptVetAffairs/",
+        "text": "Get updates about VA benefits on X",
       },
       {
-        "label": "Get updates about VA benefits on Instagram",
-        "type": "instagram",
-        "url": "https://www.instagram.com/deptvetaffairs/",
+        "href": "https://www.instagram.com/deptvetaffairs/",
+        "text": "Get updates about VA benefits on Instagram",
       },
     ],
   },
