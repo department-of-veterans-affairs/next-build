@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import { QuestionAnswer } from './index'
-import { QuestionAnswer as FormattedQuestionAnswer } from '@/types/formatted/questionAnswer'
+import { QuestionAnswer } from './template'
+import { QuestionAnswer as FormattedQuestionAnswer } from '@/products/questionAnswer/formatted-type'
 
 describe('<QuestionAnswerData> component renders with data', () => {
   const QuestionAnswerData: FormattedQuestionAnswer = {

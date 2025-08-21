@@ -4,9 +4,9 @@
 
 import { queries } from '@/data/queries'
 import { NodeQA } from '@/types/drupal/node'
-import mockData from '@/mocks/questionAnswer.mock.json'
+import mockData from '@/products/questionAnswer/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { params } from '../questionAnswer'
+import { params } from './query'
 
 // Adding this because next-drupal has some bad type definitions.
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

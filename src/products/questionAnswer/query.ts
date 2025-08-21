@@ -5,10 +5,10 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '.'
+import { queries } from '@/data/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeQA } from '@/types/drupal/node'
-import { QuestionAnswer } from '@/types/formatted/questionAnswer'
+import { QuestionAnswer } from '@/products/questionAnswer/formatted-type'
 import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,

@@ -30,3 +30,4 @@ src/products/vamcHealthServicesListing/ @department-of-veterans-affairs/ap-team 
 src/products/locationsListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
 src/products/resourcesSupport/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
 src/products/vbaFacility/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+src/products/questionAnswer/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
