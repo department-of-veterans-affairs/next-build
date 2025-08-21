@@ -8,6 +8,11 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import {
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+  getLovellVariantOfBreadcrumbs,
+} from '@/lib/drupal/lovell/utils'
 import { formatter as formatAdministration } from '@/data/queries/administration'
 
 // Define the query params for fetching node--health_services_listing.
@@ -23,28 +28,49 @@ export type VamcHealthServicesListingDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+type VamcHealthServicesListingData = {
+  entity: NodeVamcHealthServicesListing
+  lovell?: ExpandedStaticPropsContext['lovell']
+}
+
 // Implement the data loader.
 export const data: QueryData<
   VamcHealthServicesListingDataOpts,
-  NodeVamcHealthServicesListing
-> = async (opts): Promise<NodeVamcHealthServicesListing> => {
+  VamcHealthServicesListingData
+> = async (opts): Promise<VamcHealthServicesListingData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
     params
   )) as NodeVamcHealthServicesListing
 
-  return entity
+  return {
+    entity,
+    lovell: opts.context?.lovell,
+  }
 }
 
 export const formatter: QueryFormatter<
-  NodeVamcHealthServicesListing,
+  VamcHealthServicesListingData,
   VamcHealthServicesListing
-> = (entity: NodeVamcHealthServicesListing) => {
+> = ({ entity, lovell }) => {
+  let { breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
     introText: entity.field_intro_text,
+    lovellVariant: lovell?.variant ?? null,
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path?.alias || '',
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : null,
+    breadcrumbs,
     path: entity.path?.alias || null,
     administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,

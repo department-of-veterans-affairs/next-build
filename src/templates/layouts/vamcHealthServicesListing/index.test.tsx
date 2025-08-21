@@ -95,4 +95,22 @@ describe('VamcHealthServicesListing with valid data', () => {
     expect(screen.getByText('Social programs and services')).toBeInTheDocument()
     expect(screen.getByText('Other services')).toBeInTheDocument()
   })
+
+  test('renders lovell switcher when lovell props are provided', () => {
+    render(
+      <VamcHealthServicesListing
+        title={'Health Services'}
+        introText={'This is intro text'}
+        id={'test-id'}
+        type={'node--health_services_listing'}
+        published={true}
+        lastUpdated={'2023-01-01'}
+        lovellVariant={'va'}
+        lovellSwitchPath={'/lovell-facility/health-services'}
+      />
+    )
+    expect(
+      screen.getByText('You are viewing this page as a VA beneficiary.')
+    ).toBeInTheDocument()
+  })
 })
