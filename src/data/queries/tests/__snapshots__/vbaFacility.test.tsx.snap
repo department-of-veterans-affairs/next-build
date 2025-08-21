@@ -4,14 +4,738 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
 {
   "address": {
     "additional_name": null,
-    "address_line1": "7305 N. Military Trail, Bldg 10",
-    "administrative_area": "FL",
+    "address_line1": "1 VA Center, Bldg. 248",
+    "administrative_area": "ME",
     "country_code": "US",
     "dependent_locality": null,
     "langcode": "en",
-    "locality": "West Palm Beach",
-    "postal_code": "33410",
+    "locality": "Augusta",
+    "postal_code": "04330",
   },
+  "allServices": [
+    {
+      "facilityDescription": "Our benefit counselors can help you understand eligibility, gather required documents, fill out paperwork, check claim status, update direct deposit, and more.",
+      "facilityHeader": "Get help applying for benefits",
+      "name": "Pre-discharge claims",
+      "onlineSelfService": {
+        "title": "Learn how to file a pre-discharge claim online",
+        "url": "/disability/how-to-file-claim/when-to-file/pre-discharge-claim",
+      },
+      "serviceDescription": "If you have a service-connected condition, you can file a claim for disability benefits 180 to 90 days before you leave the military. We can guide you through the disability compensation process. If you've already filed a claim, we can help you check the status. 
+
+If you need help with the IDES process, we may refer you to your Physical Evaluation Board Liaison Officer (PEBLO) and a VA Military Services Coordinator (MSC) to assist and advise.",
+      "serviceLocations": [
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": "Appointments may be available outside these hours, please call.",
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "0",
+          "fieldOfficeHours": [],
+          "fieldOfficeVisits": "yes_with_or_without_appointment",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:00:18+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158010,
+            "drupal_internal__revision_id": 1416396,
+            "field_address": {
+              "address_line1": "",
+              "address_line2": "",
+              "administrative_area": "",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "",
+              "postal_code": "",
+              "sorting_code": null,
+            },
+            "field_building_name_number": "248",
+            "field_clinic_name": "Togus Regional Office",
+            "field_use_facility_address": true,
+            "field_wing_floor_or_room_number": "2nd Floor",
+            "id": "ecc58da6-af34-4163-be31-6df6813cbc7b",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/ecc58da6-af34-4163-be31-6df6813cbc7b?resourceVersion=id%3A1416396",
+              },
+              "working-copy": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/ecc58da6-af34-4163-be31-6df6813cbc7b?resourceVersion=rel%3Aworking-copy",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158011",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158010,
+              "target_revision_id": 1416396,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": null,
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "2",
+          "fieldOfficeHours": [
+            {
+              "all_day": false,
+              "comment": "2nd Tuesday every month",
+              "day": 2,
+              "endhours": 1430,
+              "starthours": 1000,
+            },
+            {
+              "all_day": false,
+              "comment": "3rd Thursday every month",
+              "day": 4,
+              "endhours": 1430,
+              "starthours": 1000,
+            },
+          ],
+          "fieldOfficeVisits": "yes_appointment_only",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:00:18+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158012,
+            "drupal_internal__revision_id": 1416398,
+            "field_address": {
+              "address_line1": "35 State Hospital Street",
+              "address_line2": "",
+              "administrative_area": "ME",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "Bangor",
+              "postal_code": "04401",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Bangor Community Based Outpatient Clinic (CBOC)",
+            "field_use_facility_address": false,
+            "field_wing_floor_or_room_number": null,
+            "id": "30e87518-af79-483e-9e3d-f6cd241ca080",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/30e87518-af79-483e-9e3d-f6cd241ca080?resourceVersion=id%3A1416398",
+              },
+              "working-copy": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/30e87518-af79-483e-9e3d-f6cd241ca080?resourceVersion=rel%3Aworking-copy",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158013",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158012,
+              "target_revision_id": 1416398,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": null,
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "2",
+          "fieldOfficeHours": [
+            {
+              "all_day": false,
+              "comment": "3rd Thursday every month",
+              "day": 4,
+              "endhours": 1400,
+              "starthours": 1000,
+            },
+          ],
+          "fieldOfficeVisits": "yes_appointment_only",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:01:10+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158014,
+            "drupal_internal__revision_id": 1416400,
+            "field_address": {
+              "address_line1": "615 Odlin Road",
+              "address_line2": "Suite 3",
+              "administrative_area": "ME",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "Bangor",
+              "postal_code": "04401",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Bangor Vet Center",
+            "field_use_facility_address": false,
+            "field_wing_floor_or_room_number": null,
+            "id": "aa058e5f-91ae-4b1b-bf04-1f36642b1f53",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/aa058e5f-91ae-4b1b-bf04-1f36642b1f53?resourceVersion=id%3A1416400",
+              },
+              "working-copy": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/aa058e5f-91ae-4b1b-bf04-1f36642b1f53?resourceVersion=rel%3Aworking-copy",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158015",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158014,
+              "target_revision_id": 1416400,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": null,
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "2",
+          "fieldOfficeHours": [
+            {
+              "all_day": false,
+              "comment": "2nd Friday every month",
+              "day": 5,
+              "endhours": 1130,
+              "starthours": 800,
+            },
+          ],
+          "fieldOfficeVisits": "yes_appointment_only",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:01:52+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158016,
+            "drupal_internal__revision_id": 1416402,
+            "field_address": {
+              "address_line1": "456 York Street",
+              "address_line2": "",
+              "administrative_area": "ME",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "Caribou",
+              "postal_code": "04736",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Caribou Vet Center",
+            "field_use_facility_address": false,
+            "field_wing_floor_or_room_number": null,
+            "id": "437e6b8c-bff7-4631-8ecc-d3b0f181ac09",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/437e6b8c-bff7-4631-8ecc-d3b0f181ac09?resourceVersion=id%3A1416402",
+              },
+              "working-copy": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/437e6b8c-bff7-4631-8ecc-d3b0f181ac09?resourceVersion=rel%3Aworking-copy",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158017",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158016,
+              "target_revision_id": 1416402,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": null,
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "2",
+          "fieldOfficeHours": [
+            {
+              "all_day": false,
+              "comment": "1st Tuesday of every month",
+              "day": 2,
+              "endhours": 1430,
+              "starthours": 930,
+            },
+          ],
+          "fieldOfficeVisits": "yes_appointment_only",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:02:41+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158018,
+            "drupal_internal__revision_id": 1416404,
+            "field_address": {
+              "address_line1": "15 Challenger Drive",
+              "address_line2": "",
+              "administrative_area": "ME",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "Lewiston",
+              "postal_code": "04240",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Lewiston Community Based Outpatient Clinic (CBOC)",
+            "field_use_facility_address": false,
+            "field_wing_floor_or_room_number": null,
+            "id": "e3d5ff87-f4bb-430a-a1b5-d57ce4f2ca6e",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/e3d5ff87-f4bb-430a-a1b5-d57ce4f2ca6e?resourceVersion=id%3A1416404",
+              },
+              "working-copy": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/e3d5ff87-f4bb-430a-a1b5-d57ce4f2ca6e?resourceVersion=rel%3Aworking-copy",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158019",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158018,
+              "target_revision_id": 1416404,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": null,
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "2",
+          "fieldOfficeHours": [
+            {
+              "all_day": false,
+              "comment": "4th Friday every month",
+              "day": 5,
+              "endhours": 1430,
+              "starthours": 930,
+            },
+          ],
+          "fieldOfficeVisits": "yes_appointment_only",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:03:20+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158020,
+            "drupal_internal__revision_id": 1416406,
+            "field_address": {
+              "address_line1": "62 Pegasus Street",
+              "address_line2": "Brunswick Landing, Suite 101",
+              "administrative_area": "ME",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "Brunswick",
+              "postal_code": "04011",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Mid-Coast Veterans Resource Center",
+            "field_use_facility_address": false,
+            "field_wing_floor_or_room_number": null,
+            "id": "aed80f11-3cdb-4176-9c01-51b433899c49",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/aed80f11-3cdb-4176-9c01-51b433899c49?resourceVersion=id%3A1416406",
+              },
+              "working-copy": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/aed80f11-3cdb-4176-9c01-51b433899c49?resourceVersion=rel%3Aworking-copy",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158021",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158020,
+              "target_revision_id": 1416406,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": null,
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "2",
+          "fieldOfficeHours": [
+            {
+              "all_day": false,
+              "comment": "2nd and 4th Tuesday every month",
+              "day": 2,
+              "endhours": 1400,
+              "starthours": 1000,
+            },
+          ],
+          "fieldOfficeVisits": "yes_appointment_only",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:04:36+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158022,
+            "drupal_internal__revision_id": 1416408,
+            "field_address": {
+              "address_line1": "141 West Commercial Street",
+              "address_line2": "",
+              "administrative_area": "ME",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "Portland",
+              "postal_code": "04102",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Portland Community Outpatient Clinic (CBOC)",
+            "field_use_facility_address": false,
+            "field_wing_floor_or_room_number": null,
+            "id": "9757cca0-e46d-4e6c-9068-d2ae7f1cf409",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/9757cca0-e46d-4e6c-9068-d2ae7f1cf409?resourceVersion=id%3A1416408",
+              },
+              "working-copy": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/9757cca0-e46d-4e6c-9068-d2ae7f1cf409?resourceVersion=rel%3Aworking-copy",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158023",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158022,
+              "target_revision_id": 1416408,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": null,
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "2",
+          "fieldOfficeHours": [
+            {
+              "all_day": false,
+              "comment": "1st Thursday every month",
+              "day": 4,
+              "endhours": 1400,
+              "starthours": 1000,
+            },
+          ],
+          "fieldOfficeVisits": "yes_appointment_only",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:05:26+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158024,
+            "drupal_internal__revision_id": 1416410,
+            "field_address": {
+              "address_line1": "431 Franklin Street",
+              "address_line2": "",
+              "administrative_area": "ME",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "Rumford",
+              "postal_code": "04276",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Rumford Community Based Outpatient Clinic (CBOC)",
+            "field_use_facility_address": false,
+            "field_wing_floor_or_room_number": null,
+            "id": "14e28abf-f9bd-4f18-ac28-fd86f7abc778",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/14e28abf-f9bd-4f18-ac28-fd86f7abc778?resourceVersion=id%3A1416410",
+              },
+              "working-copy": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/14e28abf-f9bd-4f18-ac28-fd86f7abc778?resourceVersion=rel%3Aworking-copy",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158025",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158024,
+              "target_revision_id": 1416410,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+        {
+          "appointmentPhoneNumbers": [],
+          "contactInfoPhoneNumbers": [],
+          "fieldAdditionalHoursInfo": null,
+          "fieldApptIntroTextCustom": null,
+          "fieldApptIntroTextType": "use_default_text",
+          "fieldEmailContacts": [],
+          "fieldHours": "2",
+          "fieldOfficeHours": [
+            {
+              "all_day": false,
+              "comment": "4th Thursday every month",
+              "day": 4,
+              "endhours": 1400,
+              "starthours": 1000,
+            },
+          ],
+          "fieldOfficeVisits": "yes_appointment_only",
+          "fieldOnlineSchedulingAvail": "yes",
+          "fieldServiceLocationAddress": {
+            "behavior_settings": [],
+            "breadcrumbs": [],
+            "content_translation_changed": "2024-07-24T20:07:07+00:00",
+            "content_translation_outdated": false,
+            "content_translation_source": "und",
+            "created": "2024-07-24T20:06:09+00:00",
+            "default_langcode": true,
+            "drupal_internal__id": 158026,
+            "drupal_internal__revision_id": 1416412,
+            "field_address": {
+              "address_line1": "628 Main Street",
+              "address_line2": "",
+              "administrative_area": "ME",
+              "country_code": "US",
+              "dependent_locality": null,
+              "langcode": "en",
+              "locality": "Springvale",
+              "postal_code": "04083",
+              "sorting_code": null,
+            },
+            "field_building_name_number": null,
+            "field_clinic_name": "Sanford Vet Center",
+            "field_use_facility_address": false,
+            "field_wing_floor_or_room_number": null,
+            "id": "c007847f-3a2b-47d3-a129-06eb10fff5a8",
+            "langcode": "en",
+            "links": {
+              "self": {
+                "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/service_location_address/c007847f-3a2b-47d3-a129-06eb10fff5a8?resourceVersion=id%3A1416412",
+              },
+            },
+            "paragraph_type": {
+              "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "service_location_address",
+              },
+              "type": "paragraphs_type--paragraphs_type",
+            },
+            "parent_field_name": "field_service_location_address",
+            "parent_id": "158027",
+            "parent_type": "paragraph",
+            "relationshipNames": [
+              "paragraph_type",
+            ],
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": 158026,
+              "target_revision_id": 1416412,
+            },
+            "revision_translation_affected": null,
+            "status": true,
+            "type": "paragraph--service_location_address",
+          },
+          "fieldUseFacilityPhoneNumber": true,
+          "fieldUseMainFacilityPhone": true,
+          "fieldVirtualSupport": "yes_appointment_only",
+        },
+      ],
+      "type": "vba_service_member_benefits",
+    },
+  ],
   "breadcrumbs": [
     {
       "options": [],
@@ -20,13 +744,8 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
     },
     {
       "options": [],
-      "title": "St. Petersburg VA Regional Benefit Office",
-      "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office",
-    },
-    {
-      "options": [],
-      "title": "Veteran Readiness and Employment Office At West Palm Beach VA Medical Center",
-      "uri": "https://va-gov-cms.ddev.site/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
+      "title": "Togus VA Regional Benefit Office At Togus VA Medical Center",
+      "uri": "https://va-gov-cms.ddev.site/togus-va-regional-benefit-office-at-togus-va-medical-center",
     },
   ],
   "ccBenefitsHotline": {
@@ -72,9 +791,9 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
     "id": "eecd106d-261c-4496-b449-8ce405945f2f",
     "type": "paragraph--wysiwyg",
   },
-  "entityId": 4030,
-  "entityPath": "/st-petersburg-va-regional-benefit-office/locations/veteran-readiness-and-employment-office-at-west-palm-beach-va-medical-center",
-  "facilityLocatorApiId": "vba_317a",
+  "entityId": 4328,
+  "entityPath": "/togus-va-regional-benefit-office-at-togus-va-medical-center",
+  "facilityLocatorApiId": "vba_402",
   "featuredContent": [
     {
       "description": "<p>VA-accredited representatives can help you file a claim or request a decision review. </p>
@@ -84,7 +803,7 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
       "entityId": null,
       "id": "5d084f72-5c30-46ec-8da9-8b436cf7c5c5",
       "link": {
-        "entityId": "139794",
+        "entityId": 139794,
         "id": null,
         "label": "Learn about accredited representatives",
         "type": "paragraph--button",
@@ -93,14 +812,50 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
       "title": "VA accredited representatives",
       "type": "paragraph--featured_content",
     },
+    {
+      "description": "<p>VA transitioned to only two sign-in account options: <strong>Login.gov</strong> and <strong>ID.me </strong>accounts. Veterans can use either of these two options to sign in to VA.gov, VA mobile applications, or other VA online services.</p>
+",
+      "entityId": 157427,
+      "id": "926c168b-89e1-4f94-8592-12652cdcbf7d",
+      "link": {
+        "entityId": 157426,
+        "id": "fbe1c8bb-1840-4111-a409-b403cdc449e0",
+        "label": "Visit for secure sign-in changes",
+        "type": "paragraph--button",
+        "url": "https://www.va.gov/initiatives/prepare-for-vas-secure-sign-in-changes/",
+      },
+      "title": "VA's secure sign-in changes",
+      "type": "paragraph--featured_content",
+    },
+    {
+      "description": "<p>This is a great opportunity for Veterans, service members, families, caregivers, and survivors to connect with valuable resources. More information will be coming out soon!</p>
+",
+      "entityId": 176414,
+      "id": "fe0866d9-ad0e-43b5-8df7-1ccd46e13ee5",
+      "link": null,
+      "title": "Veterans Community and Connection Expo - Coming Soon!",
+      "type": "paragraph--featured_content",
+    },
   ],
-  "id": "a08da437-55a4-451c-8f90-af498f38a297",
-  "image": null,
-  "lastUpdated": "2023-09-19T13:13:04+00:00",
+  "id": "86ea47bd-9e5a-4584-ae22-ad032d648192",
+  "image": {
+    "alt": "Front view of the 2-story, brick Togus Regional Office. Building 248 is seen on the grey, cement near the top of the building.",
+    "height": 192,
+    "id": "eedd9e27-d488-4b5d-ba16-20d03ece9de2",
+    "links": {
+      "self": {
+        "href": "https://va-gov-cms.ddev.site/jsonapi/file/file/eedd9e27-d488-4b5d-ba16-20d03ece9de2",
+      },
+    },
+    "title": "",
+    "type": "media--image",
+    "width": 256,
+  },
+  "lastUpdated": "2025-07-10T17:49:19+00:00",
   "metatags": [
     {
       "attributes": {
-        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs",
+        "content": "Togus VA Regional Benefit Office at Togus VA Medical Center | Veterans Affairs",
         "name": "title",
       },
       "tag": "meta",
@@ -128,7 +883,7 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs",
+        "content": "Togus VA Regional Benefit Office at Togus VA Medical Center | Veterans Affairs",
         "property": "og:title",
       },
       "tag": "meta",
@@ -170,7 +925,7 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
     },
     {
       "attributes": {
-        "content": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center | Veterans Affairs",
+        "content": "Togus VA Regional Benefit Office at Togus VA Medical Center | Veterans Affairs",
         "name": "twitter:title",
       },
       "tag": "meta",
@@ -190,42 +945,42 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
       "tag": "meta",
     },
   ],
-  "moderationState": "archived",
+  "moderationState": "published",
   "officeHours": [
     {
       "all_day": false,
       "comment": "",
       "day": 1,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": 1600,
+      "starthours": 830,
     },
     {
       "all_day": false,
       "comment": "",
       "day": 2,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": 1600,
+      "starthours": 830,
     },
     {
       "all_day": false,
       "comment": "",
       "day": 3,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": 1600,
+      "starthours": 830,
     },
     {
       "all_day": false,
       "comment": "",
       "day": 4,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": 1600,
+      "starthours": 830,
     },
     {
       "all_day": false,
       "comment": "",
       "day": 5,
-      "endhours": 1630,
-      "starthours": 800,
+      "endhours": 1600,
+      "starthours": 830,
     },
     {
       "all_day": false,
@@ -244,10 +999,96 @@ exports[`VbaFacility formatData outputs formatted data 1`] = `
   ],
   "operatingStatusFacility": "normal",
   "operatingStatusMoreInfo": null,
-  "phoneNumber": "800-827-1000",
-  "prepareForVisit": [],
-  "published": false,
-  "title": "Veteran Readiness and Employment Office at West Palm Beach VA Medical Center",
+  "phoneNumber": "207-621-6938",
+  "prepareForVisit": [
+    {
+      "entityId": 157076,
+      "header": "Togus Regional Office Appointments",
+      "html": "<p>Public Contact and Veterans Readiness & Employment (VRE) services are available in Building 248, second floor.</p>
+<p>Visitors seeking assistance from the Regional Office Public Contact Team are available to be seen on a walk-in or appointment basis  at the Togus RO in Augusta ONLY. All others require appointments. (see "Off-Site Appointments" section below)</p>
+<p>Visitors seeking assistance from the Public Contact Team at the Togus Regional Office are encouraged to schedule a virtual or in-person appointment on the Visitor Engagement Reporting Application (VERA). VERA is a self-service portal which allows visitors to schedule, reschedule, and cancel appointments.</p>
+<p>Please follow this <a href="https://va.my.site.com/VAVERA/s/"><strong>link</strong></a> to schedule the appointment. You will receive email confirmation of your appointment.</p>
+<p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at <va-telephone contact="207-621-6938" extension=""></va-telephone> Monday through Friday from 8:30 a.m. to 4 p.m.</p>
+<p> </p>
+",
+      "id": "dfe5a09f-2fad-42bb-9f9b-aeba1c195a7d",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 157078,
+      "header": "Off-site Appointments",
+      "html": "<p>Visitors seeking assistance from the Public Contact Team from the Togus Regional Office are encouraged to schedule an in-person appointment on the Visitor Engagement Reporting Application (VERA). VERA is a self-service portal which allows visitors to schedule, reschedule, and cancel appointments.</p>
+<p>Please follow this <a href="https://va.my.site.com/VAVERA/s/"><strong>link</strong></a> to schedule the appointment. You will receive email confirmation of your appointment.</p>
+<p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at <va-telephone contact="207-621-6938" extension=""></va-telephone> Monday through Friday from 8:30 a.m. to 4 p.m.</p>
+<p><strong>Claims Clinics</strong></p>
+<p>o   Bangor CBOC- Second Thursday and Third Tuesday each month  </p>
+<p>o   Bangor Vet Center- Third Thursday each month </p>
+<p>o  Caribou Vet Center- Second Friday each month </p>
+<p>o   Lewiston/Auburn Community-Based Outpatient Clinic (CBOC)- First Tuesday each month </p>
+<p>o   Mid-Coast Veterans Resource Center, Brunswick- Fourth Friday each Month </p>
+<p>o   Portland CBOC- Second and fourth Tuesday each month </p>
+<p>o   Rumford CBOC- First Thursday each month </p>
+<p>o   Sanford Vet Center- Temporary closure</p>
+<p> </p>
+<p> </p>
+",
+      "id": "8fe7bd80-43c2-41ff-a199-84da7743faf9",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 157077,
+      "header": "What to bring",
+      "html": "<p>When you visit, please bring a current, unexpired photo ID.    </p>
+<p>Depending on the reason for your visit, you may need to bring additional documents and information about you and your dependents, including</p>
+<p><strong>Documents</strong></p>
+<ul>
+<li>A copy of your discharge or separation papers (DD214)</li>
+<li>Copies of relevant medical records</li>
+</ul>
+<p><strong>Personal information</strong></p>
+<ul>
+<li>Your Social Security number </li>
+<li>Direct deposit information</li>
+</ul>
+<p><strong>Information about your dependents</strong></p>
+<ul>
+<li>Dates of birth </li>
+<li>Social Security numbers</li>
+</ul>
+<p>We can help you find out what documents to bring to your visit. We can also request documents for you. Call the office for more information.</p>
+",
+      "id": "5fc62490-c1d2-4781-aaa3-e758f5b875a4",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 157080,
+      "header": "Parking and Entrance",
+      "html": "<ul>
+<li>Parking is free. </li>
+<li>The entrance to the closest parking lot is directly across from building 205 on North Gate Road. </li>
+<li>
+<p>You will need to enter through building 205, and follow the signage for building 248.</p>
+<p> </p>
+</li>
+</ul>
+",
+      "id": "8db1a2a3-e0a6-4ef6-b17a-d3f17bc71ed0",
+      "type": "paragraph--basic_accordion",
+    },
+    {
+      "entityId": 175512,
+      "header": "Portland Vet Center Appointments",
+      "html": "<p>Appointments are also available to be scheduled for in-person on:</p>
+<p><a href="https://va.my.site.com/VAVERA/s/">Visitor Engagement Reporting Application-VERA </a></p>
+<p>You'll receive an email confirmation of your appointment.</p>
+<p>If you're having difficulty using the VERA application or want to speak to a local representative directly to ask a benefits related question, please contact us at <va-telephone contact="207-621-6938" extension=""></va-telephone> Monday through Friday from 8:30 a.m. to 4 p.m.</p>
+",
+      "id": "25562834-3f1d-4338-9c28-1018a7bcef1d",
+      "type": "paragraph--basic_accordion",
+    },
+  ],
+  "published": true,
+  "title": "Togus VA Regional Benefit Office at Togus VA Medical Center",
   "type": "node--vba_facility",
 }
 `;

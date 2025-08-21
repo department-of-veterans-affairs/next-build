@@ -55,7 +55,7 @@ type PhoneNumberProps = Omit<
    *
    * @default 'inline'
    */
-  treatment?: 'inline' | 'h4'
+  treatment?: 'inline' | 'h4' | 'h5'
 }
 
 /**
@@ -114,6 +114,15 @@ export const PhoneNumber = ({
     return (
       <div className={className || undefined} data-testid="phone">
         <h4 className={labelClassName}>{labelToDisplay}</h4>
+        {phoneComponent}
+      </div>
+    )
+  }
+
+  if (treatment === 'h5') {
+    return (
+      <div className={className || undefined} data-testid="phone">
+        <h5 className={labelClassName}>{labelToDisplay}</h5>
         {phoneComponent}
       </div>
     )

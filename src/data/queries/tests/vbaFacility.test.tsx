@@ -2,12 +2,15 @@
  * @jest-environment node
  */
 
-import { NodeVbaFacility } from '@/types/drupal/node'
 import { queries } from '@/data/queries'
 import mockData from '@/mocks/vbaFacility.mock.json'
+import mockServicesData from '@/mocks/vbaFacilityService.mock.json'
 import { params } from '../vbaFacility'
 
-const VbaFacilityMock: NodeVbaFacility = mockData
+const VbaFacilityMock = {
+  entity: mockData,
+  services: [{ ...mockServicesData, field_office: mockData }],
+}
 
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {
