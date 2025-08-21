@@ -1,7 +1,7 @@
 import { MediaImage } from '@/templates/common/mediaImage'
 import { StaffNewsProfile } from '@/templates/components/staffNewsProfile'
 import { formatDate } from '@/lib/utils/helpers'
-import { SocialLinks } from '@/templates/common/socialLinks'
+import { SocialLinks } from './SocialLinks'
 import { StoryListingLink } from '@/templates/components/storyListingLink'
 import { NewsStory as FormattedNewsStory } from '@/products/newsStory/formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'

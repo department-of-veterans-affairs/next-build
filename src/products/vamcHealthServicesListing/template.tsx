@@ -1,8 +1,11 @@
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/products/vamcHealthServicesListing/formatted-type'
+import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
 export function VamcHealthServicesListing({
   title,
   introText,
+  lovellVariant,
+  lovellSwitchPath,
 }: FormattedVamcHealthServicesListing) {
   return (
     <main className="va-l-detail-page va-facility-page">
@@ -16,10 +19,10 @@ export function VamcHealthServicesListing({
 
         <div className="usa-width-three-fourths">
           <article className="usa-content">
-            {/* TODO: Replace with actual LovellSwitchLink component */}
-            <div className="lovell-switch-link">
-              <va-link href="#TODO" text="TODO: Lovell switch link text" />
-            </div>
+            <LovellSwitcher
+              currentVariant={lovellVariant}
+              switchPath={lovellSwitchPath}
+            />
 
             <h1 className="vads-u-margin-bottom--1 medium-screen:vads-u-margin-bottom--2">
               {title}

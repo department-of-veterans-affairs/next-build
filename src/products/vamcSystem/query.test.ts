@@ -8,10 +8,11 @@ import mockFacilityData from '@/products/healthCareLocalFacility/mock'
 import mockStoryData from '@/products/newsStory/mock.json'
 import mockEventData from '@/products/event/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { params } from './query'
+import { params, getVamcSystemSocialLinks } from './query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
+import { NodeHealthCareRegionPage } from '@/types/drupal/node'
 
 const mockFeaturedEventData = {
   ...mockEventData,
@@ -365,6 +366,247 @@ describe('VamcSystem formatData', () => {
 
       expect(result.featuredEvents).toHaveLength(0)
       expect(result.fallbackEvent).toBeNull()
+    })
+  })
+})
+
+describe('getVamcSystemSocialLinks', () => {
+  const baseRegionData = {
+    title: 'Test VA Medical Center',
+    field_facebook: null,
+    field_twitter: null,
+    field_flickr: null,
+    field_instagram: null,
+    field_youtube: null,
+    field_govdelivery_id_news: null,
+    field_govdelivery_id_emerg: null,
+    field_operating_status: null,
+  } as unknown as NodeHealthCareRegionPage
+
+  test('returns correct regionNickname from title', () => {
+    const result = getVamcSystemSocialLinks(baseRegionData)
+    expect(result.regionNickname).toBe('Test VA Medical Center')
+  })
+
+  test('returns empty links array when no social fields are provided', () => {
+    const result = getVamcSystemSocialLinks(baseRegionData)
+    expect(result.links).toEqual([])
+  })
+
+  test('generates news subscription link when field_govdelivery_id_news is provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_govdelivery_id_news: 'NEWS123',
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toContainEqual({
+      icon: 'mail',
+      href: 'https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=NEWS123',
+      text: 'Subscribe to Test VA Medical Center news and announcements',
+    })
+  })
+
+  test('generates emergency subscription link when field_govdelivery_id_emerg is provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_govdelivery_id_emerg: 'EMERG456',
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toContainEqual({
+      icon: 'mail',
+      href: 'https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=EMERG456',
+      text: 'Subscribe to Test VA Medical Center emergency notifications',
+    })
+  })
+
+  test('generates operating status link when field_operating_status is provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_operating_status: { url: '/operating-status' },
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toContainEqual({
+      icon: 'adjust',
+      href: '/operating-status',
+      text: 'Test VA Medical Center operating status',
+    })
+  })
+
+  test('generates Facebook link when field_facebook is provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_facebook: {
+        uri: 'https://facebook.com/testvamc',
+        title: 'Follow us on Facebook',
+      },
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toContainEqual({
+      icon: 'facebook',
+      href: 'https://facebook.com/testvamc',
+      text: 'Follow us on Facebook',
+    })
+  })
+
+  test('generates Twitter link when field_twitter is provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_twitter: {
+        uri: 'https://twitter.com/testvamc',
+        title: 'Follow us on X',
+      },
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toContainEqual({
+      icon: 'x',
+      href: 'https://twitter.com/testvamc',
+      text: 'Follow us on X',
+    })
+  })
+
+  test('generates Flickr link when field_flickr is provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_flickr: {
+        uri: 'https://flickr.com/testvamc',
+        title: 'View our photos on Flickr',
+      },
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toContainEqual({
+      icon: 'flickr',
+      href: 'https://flickr.com/testvamc',
+      text: 'View our photos on Flickr',
+    })
+  })
+
+  test('generates Instagram link when field_instagram is provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_instagram: {
+        uri: 'https://instagram.com/testvamc',
+        title: 'Follow us on Instagram',
+      },
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toContainEqual({
+      icon: 'instagram',
+      href: 'https://instagram.com/testvamc',
+      text: 'Follow us on Instagram',
+    })
+  })
+
+  test('generates YouTube link when field_youtube is provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_youtube: {
+        uri: 'https://youtube.com/testvamc',
+        title: 'Watch our videos on YouTube',
+      },
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toContainEqual({
+      icon: 'youtube',
+      href: 'https://youtube.com/testvamc',
+      text: 'Watch our videos on YouTube',
+    })
+  })
+
+  test('generates all links when all fields are provided', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_govdelivery_id_news: 'NEWS123',
+      field_govdelivery_id_emerg: 'EMERG456',
+      field_operating_status: { url: '/status' },
+      field_facebook: { uri: 'https://facebook.com/test', title: 'Facebook' },
+      field_twitter: { uri: 'https://twitter.com/test', title: 'Twitter' },
+      field_flickr: { uri: 'https://flickr.com/test', title: 'Flickr' },
+      field_instagram: {
+        uri: 'https://instagram.com/test',
+        title: 'Instagram',
+      },
+      field_youtube: { uri: 'https://youtube.com/test', title: 'YouTube' },
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toHaveLength(8)
+    expect(
+      result.links.some(
+        (link) => link.icon === 'mail' && link.text.includes('news')
+      )
+    ).toBe(true)
+    expect(
+      result.links.some(
+        (link) => link.icon === 'mail' && link.text.includes('emergency')
+      )
+    ).toBe(true)
+    expect(result.links.some((link) => link.icon === 'adjust')).toBe(true)
+    expect(result.links.some((link) => link.icon === 'facebook')).toBe(true)
+    expect(result.links.some((link) => link.icon === 'x')).toBe(true)
+    expect(result.links.some((link) => link.icon === 'flickr')).toBe(true)
+    expect(result.links.some((link) => link.icon === 'instagram')).toBe(true)
+    expect(result.links.some((link) => link.icon === 'youtube')).toBe(true)
+  })
+
+  test('filters out falsy values correctly', () => {
+    const regionData = {
+      ...baseRegionData,
+      field_govdelivery_id_news: 'NEWS123',
+      field_facebook: null, // This should be filtered out
+      field_twitter: {
+        uri: 'https://twitter.com/test',
+        title: 'Twitter',
+      },
+    }
+
+    const result = getVamcSystemSocialLinks(regionData)
+
+    expect(result.links).toHaveLength(2)
+    expect(result.links.some((link) => link.icon === 'facebook')).toBe(false)
+    expect(result.links.some((link) => link.icon === 'mail')).toBe(true)
+    expect(result.links.some((link) => link.icon === 'x')).toBe(true)
+  })
+
+  test('works with Omit type from NodeHealthCareLocalFacility', () => {
+    const omitRegionData: Omit<NodeHealthCareRegionPage, 'field_media'> = {
+      ...baseRegionData,
+      field_appointments_online: true,
+      field_related_links: null,
+      field_vamc_ehr_system: 'vista',
+      field_description: 'Test description',
+      field_other_va_locations: 'Other locations',
+      field_intro_text: 'Intro text',
+      field_clinical_health_services: [],
+      field_va_health_connect_phone: '1-800-123-4567',
+      field_vamc_system_official_name: 'Official Name',
+      field_govdelivery_id_news: 'NEWS123',
+    }
+
+    const result = getVamcSystemSocialLinks(omitRegionData)
+
+    expect(result.regionNickname).toBe('Test VA Medical Center')
+    expect(result.links).toHaveLength(1)
+    expect(result.links[0]).toEqual({
+      icon: 'mail',
+      href: 'https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=NEWS123',
+      text: 'Subscribe to Test VA Medical Center news and announcements',
     })
   })
 })

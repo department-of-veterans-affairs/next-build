@@ -1,5 +1,4 @@
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
-import { FacilitySocialLinksProps } from './FacilitySocialLinks'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { Administration } from '@/types/formatted/administration'
 import { MediaImage } from '@/types/formatted/media'
@@ -16,6 +15,7 @@ import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { EmailContact } from '@/types/formatted/contactInfo'
+import { VamcSystemSocialLinks } from '@/products/vamcSystem/formatted-type'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null
@@ -48,7 +48,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
      */
     wysiwigContents: string
   }>
-  socialLinks: FacilitySocialLinksProps
+  socialLinks: VamcSystemSocialLinks
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
   healthServices: FormattedVAMCFacilityHealthService[]

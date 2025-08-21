@@ -6,7 +6,10 @@ import {
   NodeNewsStory,
   NodeEvent,
 } from '@/types/drupal/node'
-import { VamcSystem } from '@/products/vamcSystem/formatted-type'
+import {
+  VamcSystem,
+  VamcSystemSocialLinks,
+} from '@/products/vamcSystem/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -236,6 +239,57 @@ async function fetchSystemEvents(
   }
 }
 
+export const getVamcSystemSocialLinks = (
+  // region: Pick<NodeHealthCareRegionPage, 'title' | 'field_facebook' | 'field_twitter' | 'field_flickr' | 'field_instagram' | 'field_youtube' | 'field_govdelivery_id_news' | 'field_govdelivery_id_emerg' | 'field_operating_status'> | Omit<NodeHealthCareRegionPage, 'field_media'>
+  region:
+    | NodeHealthCareRegionPage
+    | Omit<NodeHealthCareRegionPage, 'field_media'>
+): VamcSystemSocialLinks => ({
+  regionNickname: region.title,
+  links: [
+    region.field_govdelivery_id_news && {
+      icon: 'mail',
+      href: `https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=${region.field_govdelivery_id_news}`,
+      text: `Subscribe to ${region.title} news and announcements`,
+    },
+    region.field_govdelivery_id_emerg && {
+      icon: 'mail',
+      href: `https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=${region.field_govdelivery_id_emerg}`,
+      text: `Subscribe to ${region.title} emergency notifications`,
+    },
+    region.field_operating_status && {
+      icon: 'adjust',
+      href: region.field_operating_status.url,
+      text: `${region.title} operating status`,
+    },
+    region.field_facebook && {
+      icon: 'facebook',
+      href: region.field_facebook.uri,
+      text: region.field_facebook.title,
+    },
+    region.field_twitter && {
+      icon: 'x',
+      href: region.field_twitter.uri,
+      text: region.field_twitter.title,
+    },
+    region.field_flickr && {
+      icon: 'flickr',
+      href: region.field_flickr.uri,
+      text: region.field_flickr.title,
+    },
+    region.field_instagram && {
+      icon: 'instagram',
+      href: region.field_instagram.uri,
+      text: region.field_instagram.title,
+    },
+    region.field_youtube && {
+      icon: 'youtube',
+      href: region.field_youtube.uri,
+      text: region.field_youtube.title,
+    },
+  ].filter(Boolean),
+})
+
 export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
   entity,
   menu,
@@ -277,16 +331,6 @@ export const formatter: QueryFormatter<VamcSystemData, VamcSystem> = ({
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
-    socialLinks: {
-      regionNickname: entity.title,
-      fieldGovdeliveryIdEmerg: entity.field_govdelivery_id_emerg ?? null,
-      fieldGovdeliveryIdNews: entity.field_govdelivery_id_news ?? null,
-      fieldOperatingStatus: entity.field_operating_status ?? null,
-      fieldFacebook: entity.field_facebook ?? null,
-      fieldTwitter: entity.field_twitter ?? null,
-      fieldFlickr: entity.field_flickr ?? null,
-      fieldInstagram: entity.field_instagram ?? null,
-      fieldYoutube: entity.field_youtube ?? null,
-    },
+    socialLinks: getVamcSystemSocialLinks(entity),
   }
 }
