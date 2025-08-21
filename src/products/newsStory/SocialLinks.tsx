@@ -14,7 +14,7 @@ export const SocialLinks = ({ path, title }: SocialLinksProps) => {
       id="va-c-social-share"
       className="vads-u-display--flex tablet:vads-u-margin-bottom--2"
     >
-      <p className="vads-u-margin-right--2p5">
+      <p className="vads-u-margin-y--0 vads-u-margin-right--2p5">
         <va-icon
           class="va-c-social-icon vads-u-margin-right--0p5"
           icon={facebookLink.icon}
@@ -22,7 +22,7 @@ export const SocialLinks = ({ path, title }: SocialLinksProps) => {
         />
         <va-link href={facebookLink.href} text={facebookLink.text} />
       </p>
-      <p>
+      <p className="vads-u-margin-y--0">
         <va-icon
           class="va-c-social-icon vads-u-margin-right--0p5"
           icon={xLink.icon}
