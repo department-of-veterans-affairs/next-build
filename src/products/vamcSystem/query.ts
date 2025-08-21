@@ -6,7 +6,7 @@ import {
   NodeNewsStory,
   NodeEvent,
 } from '@/types/drupal/node'
-import { VamcSystem } from '@/types/formatted/vamcSystem'
+import { VamcSystem } from '@/products/vamcSystem/formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -20,7 +20,7 @@ import { formatter as formatRelatedLinks } from '@/data/queries/relatedLinks'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
-import { queries } from '.'
+import { queries } from '@/data/queries'
 import { formatter as formatAdministration } from '@/data/queries/administration'
 import { formatter as formatNewsStoryTeaser } from '@/data/queries/newsStoryTeaser'
 import { formatter as formatEventTeaser } from '@/data/queries/eventTeaser'

@@ -3,12 +3,12 @@
  */
 
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/vamcSystem.mock.json'
+import mockData from '@/products/vamcSystem/mock.json'
 import mockFacilityData from '@/mocks/healthCareLocalFacility.mock'
 import mockStoryData from '@/products/newsStory/mock.json'
 import mockEventData from '@/products/event/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { params } from '../vamcSystem'
+import { params } from '@/products/vamcSystem/query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'

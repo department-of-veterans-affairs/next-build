@@ -1,7 +1,7 @@
 import { MediaImage } from '@/templates/common/mediaImage'
 import { OperatingStatusFlags } from '@/templates/layouts/healthCareLocalFacility/OperatingStatus'
 import { Address } from '@/templates/layouts/healthCareLocalFacility/Address'
-import { MinimalLocalFacility } from '@/types/formatted/vamcSystem'
+import { MinimalLocalFacility } from '@/products/vamcSystem/formatted-type'
 import { Phone } from '@/templates/layouts/healthCareLocalFacility/Phone'
 import { TextWithImage } from '@/templates/components/textWithImage'
 
