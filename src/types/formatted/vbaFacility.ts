@@ -6,6 +6,7 @@ import { PhoneContact as FormattedPhoneContact } from '@/types/formatted/contact
 import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
 import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
 import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
+import { SocialLink } from '@/lib/utils/social'
 import { VamcFacilityServiceLocation } from './healthCareLocalFacility'
 
 type CantFindBenefits = {
@@ -17,11 +18,7 @@ type CantFindBenefits = {
   }
 }
 type VbaSocialLinksProps = {
-  links: {
-    label: string
-    url: string
-    type: string | null
-  }[]
+  links: SocialLink[]
   heading: string
 }
 export type VbaFacilityService = {
