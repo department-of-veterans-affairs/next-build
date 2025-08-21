@@ -534,4 +534,5 @@ export interface NodeVetCenterOutstation
 export interface NodeVamcHealthServicesListing extends DrupalNode {
   field_description: string
   field_intro_text: string
+  breadcrumbs: BreadcrumbItem[]
 }
