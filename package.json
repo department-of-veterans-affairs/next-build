@@ -109,7 +109,7 @@
     "debug": "^4.3.4",
     "eslint": "8.57.0",
     "eslint-config-next": "^14.2.5",
-    "eslint-config-prettier": "^10.1.2",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jest": "^28.8.0",
     "eslint-plugin-jest-dom": "^5.5.0",
     "eslint-plugin-jsx-a11y": "^6.9.0",
