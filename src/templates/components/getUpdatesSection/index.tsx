@@ -15,7 +15,7 @@ export const GetUpdatesSection = ({
     <h2 id={sectionId} className="vads-u-margin-bottom--2 vads-u-margin-top--0">
       {heading}
     </h2>
-    <div className="vads-grid-row vads-u-flex-wrap--wrap">
+    <div className="vads-grid-row vads-u-flex-wrap--wrap vads-grid-gap-md">
       {links.map((link, index) => {
         const icon = link.icon || iconNameFromUrl(link.href)
         return (
