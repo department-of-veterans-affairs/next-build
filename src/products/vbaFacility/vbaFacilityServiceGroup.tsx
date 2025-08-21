@@ -1,5 +1,5 @@
 import { ServiceLocation } from '@/templates/components/serviceLocation/ServiceLocation'
-import { VbaFacilityService } from '@/types/formatted/vbaFacility'
+import { VbaFacilityService } from '@/products/vbaFacility/formatted-type'
 
 export const VbaFacilityServiceGroup = ({
   heading,

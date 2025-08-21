@@ -53,7 +53,7 @@ import * as VetCenterOutstation from '@/products/vetCenterOutstation/query'
 import * as VetCenterLocationListing from '@/products/vetCenterLocationListing/query'
 import * as Wysiwyg from '@/data/queries/wysiwyg'
 import * as LeadershipListing from '@/products/leadershipListing/query'
-import * as VbaFacility from '@/data/queries/vbaFacility'
+import * as VbaFacility from '@/products/vbaFacility/query'
 import * as HealthServicesListing from '@/products/vamcHealthServicesListing/query'
 import {
   ResourceType,

@@ -58,7 +58,7 @@ import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/va
 import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/products/vetCenterLocationListing/formatted-type'
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/products/vamcHealthServicesListing/formatted-type'
-import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
+import { VbaFacility as FormattedVbaFacility } from '@/products/vbaFacility/formatted-type'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
@@ -79,7 +79,7 @@ import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '@/products/vamcSystem/template'
 import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
 import { LeadershipListing } from '@/products/leadershipListing/template'
-import { VbaFacility } from '@/templates/layouts/vbaFacility'
+import { VbaFacility } from '@/products/vbaFacility/template'
 import { VetCenterLocationListing } from '@/products/vetCenterLocationListing/template'
 import { VamcHealthServicesListing } from '@/products/vamcHealthServicesListing/template'
 

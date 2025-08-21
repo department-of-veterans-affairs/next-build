@@ -2,8 +2,8 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VbaFacilityServiceGroup } from './vbaFacilityServiceGroup'
 import mockService from '@/mocks/vbaFacilityService.mock.json'
-import mockVbaFacility from '@/mocks/vbaFacility.mock.json'
-import { formatter as formatVbaData } from '@/data/queries/vbaFacility'
+import mockVbaFacility from '@/products/vbaFacility/mock.json'
+import { formatter as formatVbaData } from '@/products/vbaFacility/query'
 
 const formattedMock = formatVbaData({
   entity: mockVbaFacility,

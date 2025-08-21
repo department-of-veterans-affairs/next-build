@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { ContentFooter } from '@/templates/common/contentFooter'
-import { VbaFacility as FormattedVBAFacility } from '@/types/formatted/vbaFacility'
+import { VbaFacility as FormattedVBAFacility } from '@/products/vbaFacility/formatted-type'
 import { Wysiwyg } from '@/templates/components/wysiwyg'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
 import { Address } from '@/products/healthCareLocalFacility/Address'

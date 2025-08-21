@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
-import { VbaFacility } from '@/types/formatted/vbaFacility'
+import { VbaFacility } from '@/products/vbaFacility/formatted-type'
 import { Wysiwyg } from '@/types/formatted/wysiwyg'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'

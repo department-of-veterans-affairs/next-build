@@ -3,9 +3,9 @@
  */
 
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/vbaFacility.mock.json'
+import mockData from '@/products/vbaFacility/mock.json'
 import mockServicesData from '@/mocks/vbaFacilityService.mock.json'
-import { params } from '../vbaFacility'
+import { params } from './query'
 
 const VbaFacilityMock = {
   entity: mockData,

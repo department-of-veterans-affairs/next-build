@@ -147,6 +147,7 @@ The `move-product.sh` script performs these actions:
 - [x] vamcHealthServicesListing
 - [x] locationsListing
 - [x] resourcesSupport
+- [x] vbaFacility
 
 ### 🔄 Pending Migration
 
@@ -154,12 +155,9 @@ The `move-product.sh` script performs these actions:
 
 - [ ] **questionAnswer** - Has template layout and query file
 
-- [ ] **vbaFacility** - Has template layout and query file
-
 #### Priority Order Recommendation
 
 1. **questionAnswer** - Q&A functionality
-2. **vbaFacility** - VBA facilities _(postponed)_
 
 ### 📝 Migration Progress Tracking
 
@@ -167,9 +165,9 @@ The `move-product.sh` script performs these actions:
 
 **Status**: Ready for next migration
 
-**Last Completed**: resourcesSupport - Successfully migrated with all tests passing
+**Last Completed**: vbaFacility - Successfully migrated with all tests passing
 
-**Notes**: resourcesSupport migration completed successfully. This migration included content support functionality with alerts, buttons, contact information, and main content blocks. Fixed import paths in formatted-type.ts, query.ts, template.test.tsx, and query.test.ts. All TypeScript errors resolved and all tests passing (3 query tests + 1 template test). Browser verification successful with resources and support pages loading correctly.
+**Notes**: vbaFacility migration completed successfully. This migration included VBA facility functionality with service groups, contact information, operating status, and featured content. Migrated additional component files (vbaFacilityServiceGroup). Fixed import paths in template.test.tsx and query.test.ts. All TypeScript errors resolved and all tests passing (3 query tests + 5 template tests + 1 component test = 9 total tests). Browser verification successful with VBA facility pages loading correctly.
 
 ---
 
