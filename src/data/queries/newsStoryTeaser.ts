@@ -1,7 +1,7 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory } from '@/types/drupal/node'
-import { NewsStoryTeaser } from '@/products/newsStory/formatted-type'
+import { NewsStoryTeaser } from '../../components/newsStory/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatImage } from '@/data/queries/mediaImage'
 

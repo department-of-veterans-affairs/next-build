@@ -1,5 +1,5 @@
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
-import { EventWidgetTeaser } from '@/products/event/formatted-type'
+import { EventWidgetTeaser } from '../../../components/event/formatted-type'
 import { deriveMostRecentDate, formatEventDateTime } from '@/lib/utils/date'
 import clsx from 'clsx'
 

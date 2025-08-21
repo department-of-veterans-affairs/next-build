@@ -81,7 +81,7 @@ Once all errors are resolved and verification is complete:
 ### Import Path Errors
 
 - **Problem**: `Cannot find module '@/templates/layouts/{product}'`
-- **Solution**: Update imports to use `@/products/{product}/template`
+- **Solution**: Update imports to use `@/components/{product}/template`
 
 ### Missing Exports
 
@@ -91,7 +91,7 @@ Once all errors are resolved and verification is complete:
 ### Type Import Issues
 
 - **Problem**: Type imports failing after migration
-- **Solution**: Update type imports to use `@/products/{product}/formatted-type`
+- **Solution**: Update type imports to use `@/components/{product}/formatted-type`
 
 ### Circular Dependencies
 
@@ -115,9 +115,9 @@ Once all errors are resolved and verification is complete:
 
 The `move-product.sh` script performs these actions:
 
-1. **Directory Creation**: Creates `src/products/{productName}/` directory
+1. **Directory Creation**: Creates `src/components/{productName}/` directory
 2. **Template Migration**: Moves layout files from `src/templates/layouts/{productName}/` and renames `index.*` to `template.*`
-3. **Query Migration**: Moves `src/data/queries/{productName}.ts` to `src/products/{productName}/query.ts`
+3. **Query Migration**: Moves `src/data/queries/{productName}.ts` to `src/components/{productName}/query.ts`
 4. **Test Migration**: Moves query test files and renames to `query.test.ts`
 5. **Type Migration**: Moves formatted type file and renames to `formatted-type.ts`
 6. **Mock Migration**: Moves mock files and renames to `mock.{ext}`
