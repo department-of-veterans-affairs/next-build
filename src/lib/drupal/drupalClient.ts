@@ -18,7 +18,6 @@ export const drupalClient = new DrupalClient(baseUrl, {
     process.env.USE_REDIS === 'true'
       ? redisCache(createRedisClient(process.env.REDIS_URL))
       : null,
-  previewSecret: process.env.DRUPAL_PREVIEW_SECRET,
   // Add request header to tell the CMS to return public-facing URLs for files.
   headers: {
     'Content-Type': 'application/vnd.api+json',
