@@ -49,7 +49,7 @@ export const SocialLinks = ({
         />
         <va-link href={facebookLink.href} text={facebookLink.text} />
       </p>
-      <p>
+      <p className="vads-u-margin-y--0">
         <va-icon
           class="va-c-social-icon vads-u-margin-right--0p5"
           icon={xLink.icon}
