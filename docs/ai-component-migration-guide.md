@@ -383,37 +383,93 @@ The manual migration process involves these key actions:
 
 #### Priority Order Recommendation
 
-**Phase 1: Simple Template Components (no queries/types)**
+**Phase 1: Common Template Components (from `src/templates/common/`)**
 
-1. ✅ **breadcrumbs** - Common reusable component
-2. ✅ **heading** - Common reusable component
-3. **meta** - Common utility component
-4. **util** (HTMLComment) - Simple utility component
-5. **paragraph** - Simple template component
-6. **commonAndPopular** - Simple template component
+- [x] **breadcrumbs** - Common reusable component
+- [x] **heading** - Common reusable component
+- [ ] **meta** - Common utility component
+- [ ] **util** (HTMLComment) - Simple utility component
+- [ ] **banner** - Sub-component of banners, has query
+- [ ] **maintenanceBanner** - Sub-component of banners
+- [ ] **promoBanner** - Sub-component of banners
+- [ ] **benefitsHubLinks** - Has query, types, likely has mocks
+- [ ] **button** - Has query, types, likely has mocks
+- [ ] **commonAndPopular** - Standalone template component
+- [ ] **contentFooter** - Standalone template component
+- [ ] **featuredContent** - Has query, types, likely has mocks
+- [ ] **footer** - Standalone template component
+- [ ] **googleMapsDirections** - Standalone template component
+- [ ] **header** - Standalone template component (with TopNav sub-component)
+- [ ] **medallia** - Standalone template component
+- [ ] **mediaImage** - Has query, types, likely has mocks (includes customLoader)
+- [ ] **pageLayout** - Standalone template component
+- [ ] **phoneNumber** - Has query, types, likely has mocks
+- [ ] **preview** - Standalone template component
+- [ ] **relatedLinks** - Has query, types, likely has mocks
+- [ ] **secondaryButtonGroup** - Standalone template component
 
-**Phase 2: Template Components with Queries/Types**
+**Phase 2: Paragraph System Components**
 
-1. **button** - Fundamental component with query/types
-2. **phoneNumber** - Commonly used component with query/types
-3. **mediaImage** - Critical media component with query/types
-4. **accordion** - Common component with query/types
-5. **alert** - Important component with query/types
+This phase handles the complex Drupal paragraph system which includes many subtypes, queries, formatters, and templates. The paragraph system is foundational to how content is structured in Drupal.
 
-**Phase 3: Complex Components**
+_Note: This phase will require careful coordination as paragraphs have complex interdependencies and formatting logic._
 
-1. **pageLayout** - Core layout component
-2. **header** - Core layout component (with TopNav sub-component)
-3. **footer** - Core layout component
-4. **hours** - Component with sub-components (HoursItem)
-5. **serviceLocation** - Component with sub-components (ServiceAddress)
+**Phase 3: Template Components (from `src/templates/components/`)**
 
-**Phase 4: Specialized Components**
+- [ ] **accordion** - Has query, types, likely has mocks
+- [ ] **alert** - Has query, types, likely has mocks
+- [ ] **alertBlock** - Has query, types, likely has mocks
+- [ ] **alertNonReusable** - Has query, types, likely has mocks
+- [ ] **alertSingle** - Has query, types, likely has mocks
+- [ ] **audienceTopics** - Has query, types, likely has mocks
+- [ ] **collapsiblePanel** - Has query, types, likely has mocks
+- [ ] **contactInfo** - Has query, types, likely has mocks
+- [ ] **eventTeaser** - Has query, types, likely has mocks
+- [ ] **expandableOperatingStatus** - Standalone template component
+- [ ] **expandableText** - Has query, types, likely has mocks
+- [ ] **facilityListing** - Standalone template component
+- [ ] **getUpdatesSection** - Standalone template component
+- [ ] **hours** - Standalone template component (with HoursItem sub-component)
+- [ ] **linkTeaser** - Has query, types, likely has mocks
+- [ ] **lovellSwitcher** - Standalone template component
+- [ ] **newsStoryTeaser** - Has query, types, likely has mocks
+- [ ] **numberCallout** - Has query, types, likely has mocks
+- [ ] **prepareForVisitAccordions** - Standalone template component
+- [ ] **pressReleaseTeaser** - Has query, types, likely has mocks
+- [ ] **processList** - Has query, types, likely has mocks
+- [ ] **qaCollapsiblePanel** - Standalone template component
+- [ ] **qaParagraph** - Has query, types, likely has mocks
+- [ ] **qaSection** - Has query, types, likely has mocks
+- [ ] **rateYourExperience** - Standalone template component
+- [ ] **reactWidget** - Has query, types, likely has mocks
+- [ ] **serviceLocation** - Standalone template component (with ServiceAddress sub-component)
+- [ ] **staffNewsProfile** - Standalone template component
+- [ ] **staffProfileSideBarNav** - Standalone template component
+- [ ] **staffProfileTeaser** - Standalone template component
+- [ ] **storyListingLink** - Standalone template component
+- [ ] **table** - Has query, types, likely has mocks
+- [ ] **textWithImage** - Standalone template component
+- [ ] **topTasks** - Standalone template component
+- [ ] **vamcSystemSocialLinks** - Standalone template component
+- [ ] **vetCenterAddressPhoneImage** - Standalone template component
+- [ ] **vetCenterHealthServices** - Has query, types, likely has mocks
+- [ ] **vetCenterHealthServicesList** - Standalone template component
+- [ ] **wysiwyg** - Has query, types, likely has mocks
 
-1. **expandableOperatingStatus** - Specialized functionality
-2. **lovellSwitcher** - Specialized functionality
-3. **rateYourExperience** - Specialized functionality
-4. **medallia** - External integration component
+**Phase 4: Standalone Queries**
+
+- [ ] **administration** - Query-only module
+- [ ] **banners** - Has query but banner components are in common/
+- [ ] **collapsiblePanelItem** - Has query, may need template creation
+- [ ] **emailContact** - Has query, may need template creation
+- [ ] **headerFooter** - Special query for header/footer data
+- [ ] **mediaDocument** - Has query, may need template creation
+- [ ] **mediaVideo** - Has query, may need template creation
+- [ ] **promoBlock** - Has query, may need template creation
+- [ ] **qaGroup** - Has query, may need template creation
+- [ ] **staticPathResources** - Special static path generation query
+- [ ] **supportServices** - Has query, may need template creation
+- [ ] **vamcEhr** - Has query, may need template creation
 
 ### 📝 Migration Progress Tracking
 
