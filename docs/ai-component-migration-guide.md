@@ -142,11 +142,9 @@ Use search and replace tools to update all import paths across the codebase:
 - Find: `@/mocks/{componentName}.mock`
 - Replace: `@/components/{componentName}/mock`
 
-#### Step 2.10: Update CODEOWNERS
+#### Step 2.10: Skip CODEOWNERS Update
 
-```bash
-echo "src/components/{componentName}/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend" >> .github/CODEOWNERS
-```
+**Note**: CODEOWNERS updates are not required for component migrations. Skip this step.
 
 ### 3. Post-Migration Error Resolution
 
@@ -226,8 +224,7 @@ git commit -m "migrate: move {componentName} to components directory
 - Updated all import statements across the codebase
 - Fixed import paths in migrated files
 - All TypeScript errors resolved
-- All tests passing
-- Added CODEOWNERS entry for new component directory"
+- All tests passing"
 ```
 
 3. **Request Verification**: Ask for human verification before proceeding to the next component
@@ -292,7 +289,6 @@ The manual migration process involves these key actions:
 5. **Type Migration**: Moves formatted type file and renames to `formatted-type.ts` (if exists)
 6. **Mock Migration**: Moves mock files and renames to `mock.{ext}` (if exists)
 7. **Import Updates**: Updates import paths throughout the codebase using search/replace operations
-8. **CODEOWNERS**: Adds appropriate CODEOWNERS entry
 
 ---
 
