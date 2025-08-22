@@ -1,6 +1,14 @@
 import { PublishedEntity } from './publishedEntity'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+import { Administration } from './administration'
+import { VamcEhrSystem } from '@/types/drupal/vamcEhr'
 
 export type VamcHealthServicesListing = PublishedEntity & {
   title: string
   introText: string
+  lovellVariant?: LovellChildVariant | null
+  lovellSwitchPath?: string | null
+  path: string
+  administration?: Administration
+  vamcEhrSystem: VamcEhrSystem
 }

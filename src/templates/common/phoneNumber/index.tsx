@@ -44,6 +44,7 @@ type PhoneNumberProps = Omit<
   extension?: string
   phoneType?: string
   className?: string
+  labelClassName?: string
   testId?: string
 } & {
   /**
@@ -54,7 +55,7 @@ type PhoneNumberProps = Omit<
    *
    * @default 'inline'
    */
-  treatment?: 'inline' | 'h4'
+  treatment?: 'inline' | 'h4' | 'h5'
 }
 
 /**
@@ -63,6 +64,7 @@ type PhoneNumberProps = Omit<
  */
 export const PhoneNumber = ({
   className,
+  labelClassName,
   extension,
   label,
   number,
@@ -111,7 +113,16 @@ export const PhoneNumber = ({
   if (treatment === 'h4') {
     return (
       <div className={className || undefined} data-testid="phone">
-        <h4>{labelToDisplay}</h4>
+        <h4 className={labelClassName}>{labelToDisplay}</h4>
+        {phoneComponent}
+      </div>
+    )
+  }
+
+  if (treatment === 'h5') {
+    return (
+      <div className={className || undefined} data-testid="phone">
+        <h5 className={labelClassName}>{labelToDisplay}</h5>
         {phoneComponent}
       </div>
     )
@@ -119,7 +130,7 @@ export const PhoneNumber = ({
 
   return (
     <p className={className || undefined} data-testid="phone">
-      <strong>{`${labelToDisplay}: `}</strong>
+      <strong className={labelClassName}>{`${labelToDisplay}: `}</strong>
       {phoneComponent}
     </p>
   )
