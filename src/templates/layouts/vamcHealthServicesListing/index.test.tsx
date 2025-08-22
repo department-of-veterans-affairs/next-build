@@ -2,6 +2,16 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VamcHealthServicesListing } from './index'
 
+// Mock menu data for testing
+const mockMenu = {
+  rootPath: '/test-facility/',
+  data: {
+    name: 'Test Facility',
+    description: '',
+    links: [],
+  },
+}
+
 describe('VamcHealthServicesListing with valid data', () => {
   test('renders VamcHealthServicesListing component', () => {
     render(
@@ -11,6 +21,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         path={'/test-facility/health-services'}
         administration={null}
         vamcEhrSystem={null}
+        menu={mockMenu}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -29,6 +40,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         path={'/test-facility/health-services'}
         administration={null}
         vamcEhrSystem={null}
+        menu={mockMenu}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -47,6 +59,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         path={'/boston-health-care/health-services'}
         administration={null}
         vamcEhrSystem={null}
+        menu={mockMenu}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -81,6 +94,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         path={'/test-facility/health-services'}
         administration={null}
         vamcEhrSystem={null}
+        menu={mockMenu}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -104,6 +118,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         path={'/test-facility/health-services'}
         administration={null}
         vamcEhrSystem={null}
+        menu={mockMenu}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -115,5 +130,25 @@ describe('VamcHealthServicesListing with valid data', () => {
     expect(
       screen.getByText('You are viewing this page as a VA beneficiary.')
     ).toBeInTheDocument()
+  })
+
+  test('renders the sidebar nav with correct attributes', () => {
+    render(
+      <VamcHealthServicesListing
+        title={'Health Services'}
+        introText={'This is intro text'}
+        path={'/test-facility/health-services'}
+        administration={null}
+        vamcEhrSystem={null}
+        menu={mockMenu}
+        id={'test-id'}
+        type={'node--health_services_listing'}
+        published={true}
+        lastUpdated={'2023-01-01'}
+      />
+    )
+    const nav = screen.getByLabelText('secondary')
+    expect(nav).toBeInTheDocument()
+    expect(nav).toHaveAttribute('data-widget-type', 'side-nav')
   })
 })

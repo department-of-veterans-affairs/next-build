@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_office&fields[node--health_care_region_page]=field_vamc_ehr_system,field_system_menu"`;
+
 exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
 {
   "administration": {
@@ -35,6 +37,10 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
   "lastUpdated": "2022-02-09T19:01:21+00:00",
   "lovellSwitchPath": null,
   "lovellVariant": null,
+  "menu": {
+    "data": null,
+    "rootPath": "/north-texas-health-care/health-services/",
+  },
   "metatags": [
     {
       "attributes": {

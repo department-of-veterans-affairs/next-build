@@ -2,6 +2,7 @@ import { PublishedEntity } from './publishedEntity'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { Administration } from './administration'
 import { VamcEhrSystem } from '@/types/drupal/vamcEhr'
+import { SideNavMenu } from '@/types/formatted/sideNav'
 
 export type VamcHealthServicesListing = PublishedEntity & {
   title: string
@@ -11,4 +12,5 @@ export type VamcHealthServicesListing = PublishedEntity & {
   path: string
   administration?: Administration
   vamcEhrSystem: VamcEhrSystem
+  menu: SideNavMenu | null
 }
