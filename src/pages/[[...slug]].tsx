@@ -13,7 +13,7 @@ import {
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
+import { queries } from '@/data/queries'
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import { writeWarningToFile } from '@/lib/utils/writeWarningToFile'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
@@ -118,12 +118,14 @@ export const DynamicBreadcrumbs = dynamic(
 export default function ResourcePage({
   serializedResource,
   bannerData,
-  headerFooterData,
+  footerData,
+  megaMenuData,
   preview,
 }: {
   serializedResource: FlattenedGraph<StaticPropsResource<FormattedPageResource>>
   bannerData: PageLayoutProps['bannerData']
-  headerFooterData: PageLayoutProps['headerFooterData']
+  footerData: PageLayoutProps['footerData']
+  megaMenuData: PageLayoutProps['megaMenuData']
   preview: boolean
 }) {
   if (!serializedResource) return null
@@ -142,7 +144,8 @@ export default function ResourcePage({
   return (
     <PageLayout
       bannerData={bannerData}
-      headerFooterData={headerFooterData}
+      footerData={footerData}
+      megaMenuData={megaMenuData}
       preview={preview}
       resource={resource}
     >
@@ -351,17 +354,22 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       }
 
       // If resource is good, gather additional data for global elements.
-      // The headerFooter data is cached, banner content is requested per page
-      const { bannerData, headerFooterData } = await getGlobalElements(
-        expandedContext.drupalPath
-      )
+      // Fetch header, footer, and banner data separately
+      const [footerData, megaMenuData, bannerData] = await Promise.all([
+        queries.getData('footer-data'),
+        queries.getData('header-data'),
+        queries.getData('banner-data', {
+          itemPath: expandedContext.drupalPath,
+        }),
+      ])
 
       return {
         props: {
           preview: expandedContext.preview || false,
           serializedResource: deflateObjectGraph(resource),
           bannerData,
-          headerFooterData,
+          footerData,
+          megaMenuData,
         },
         revalidate: isExport ? false : 20, // revalidation, false for static export or 20 seconds for runtime
       }

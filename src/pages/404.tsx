@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { PageLayout } from '@/templates/common/pageLayout'
-import { getGlobalElements } from '@/lib/drupal/getGlobalElements'
+import { queries } from '@/data/queries'
 import { CommonAndPopular } from '@/templates/common/commonAndPopular'
 import Head from 'next/head'
 import Script from 'next/script'
 
-const Error404Page = ({ headerFooterData }) => {
+const Error404Page = ({ footerData, megaMenuData, bannerData }) => {
   useEffect(() => {
     recordEvent({ event: 'nav-404-error' })
   })
@@ -15,7 +15,11 @@ const Error404Page = ({ headerFooterData }) => {
       <Head>
         <title>VA.gov | Veterans Affairs</title>
       </Head>
-      <PageLayout bannerData={[]} headerFooterData={headerFooterData}>
+      <PageLayout
+        bannerData={bannerData}
+        footerData={footerData}
+        megaMenuData={megaMenuData}
+      >
         <div
           className="main maintenance-page vads-u-padding-top--4"
           role="main"
@@ -76,13 +80,17 @@ const Error404Page = ({ headerFooterData }) => {
 
 export async function getStaticProps() {
   try {
-    const { headerFooterData } = await getGlobalElements(
-      undefined, // no banners on 404
-      true // header only
-    )
+    // Fetch header and footer data directly (no banners on 404)
+    const [footerData, megaMenuData] = await Promise.all([
+      queries.getData('footer-data'),
+      queries.getData('header-data'),
+    ])
+
     return {
       props: {
-        headerFooterData,
+        footerData,
+        megaMenuData,
+        bannerData: [], // no banners on 404
       },
     }
   } catch (error) {
