@@ -4,9 +4,11 @@ import { FieldAddress } from '@/types/drupal/field_type'
 export const Address = ({
   address,
   title,
+  showOrganization = false,
 }: {
   address: FieldAddress
   title: string
+  showOrganization?: boolean
 }) => {
   const directionsString = [
     address.address_line1,
@@ -18,6 +20,12 @@ export const Address = ({
     <>
       <address>
         <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
+          {showOrganization && address.organization && (
+            <>
+              {address.organization}
+              <br />
+            </>
+          )}
           {address.address_line1}
           {address.address_line2 && (
             <>

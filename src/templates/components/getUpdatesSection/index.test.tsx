@@ -4,8 +4,8 @@ import { GetUpdatesSection } from './index'
 
 describe('GetUpdatesSection', () => {
   const links = [
-    { label: 'Facebook', url: 'https://facebook.com', type: 'facebook' },
-    { label: 'Email', url: 'mailto:test@example.com', type: null },
+    { text: 'Facebook', href: 'https://facebook.com', type: 'facebook' },
+    { text: 'Email', href: 'mailto:test@example.com', type: null },
   ]
 
   it('renders heading and section id', () => {
@@ -22,26 +22,30 @@ describe('GetUpdatesSection', () => {
   })
 
   it('renders all links with correct labels and urls', () => {
-    render(
+    const { container } = render(
       <GetUpdatesSection heading="Updates" links={links} sectionId="updates" />
     )
-    expect(screen.getByTestId('link-facebook')).toHaveAttribute(
+    expect(container.querySelector('va-link[text="Facebook"]')).toHaveAttribute(
       'href',
       'https://facebook.com'
     )
-    expect(screen.getByTestId('link-email')).toHaveAttribute(
+    expect(container.querySelector('va-link[text="Email"]')).toHaveAttribute(
       'href',
       'mailto:test@example.com'
     )
   })
 
   it('renders va-icon only when type is present', () => {
-    render(
+    const { container } = render(
       <GetUpdatesSection heading="Updates" links={links} sectionId="updates" />
     )
     // Facebook link should have an icon
-    expect(screen.getByTestId('icon-facebook')).toBeInTheDocument()
+    expect(
+      container.querySelector('va-icon[icon="facebook"]')
+    ).toBeInTheDocument()
     // Email link should NOT have an icon
-    expect(screen.queryByTestId('icon-email')).not.toBeInTheDocument()
+    expect(
+      container.querySelector('va-icon[icon="email"]')
+    ).not.toBeInTheDocument()
   })
 })

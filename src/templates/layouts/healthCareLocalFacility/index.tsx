@@ -15,10 +15,10 @@ import { Phone } from './Phone'
 import { Hours } from '@/templates/components/hours'
 import { RelatedLinks } from '@/templates/common/relatedLinks'
 import { ContentFooter } from '@/templates/common/contentFooter'
-import FacilitySocialLinks from './FacilitySocialLinks'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { MediaImage } from '@/templates/common/mediaImage'
 import { TextWithImage } from '@/templates/components/textWithImage'
+import { VamcSystemSocialLinks } from '@/templates/components/vamcSystemSocialLinks'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -200,7 +200,7 @@ export function HealthCareLocalFacility({
                   data-facility={`"vha_${facilityLocatorApiId.split('_')[1].toUpperCase()}"`}
                 />
               )}
-              <FacilitySocialLinks {...socialLinks} />
+              <VamcSystemSocialLinks {...socialLinks} />
               <va-back-to-top></va-back-to-top>
               <ContentFooter lastUpdated={lastUpdated} />
             </article>

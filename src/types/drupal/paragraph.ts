@@ -121,7 +121,7 @@ export interface ParagraphCCFeaturedContent {
   }
 }
 
-export interface ParagraphCCVetCenterFaqs {
+export interface ParagraphCCQaSection {
   target_type: string
   fetched_bundle: string
   fetched: {
@@ -195,7 +195,7 @@ export interface ParagraphQaSection extends DrupalParagraph {
   field_section_header: string
   field_accordion_display: boolean
   field_section_intro: string
-  field_questions: DrupalParagraph[]
+  field_questions: ParagraphQA[]
 }
 
 export interface ParagraphReactWidget extends DrupalParagraph {
@@ -222,6 +222,7 @@ export interface ParagraphServiceLocation extends DrupalParagraph {
     | 'remove_text'
     | 'customize_text'
     | 'use_default_text'
+    | string
   /** Custom appointment intro text (if applicable). */
   fieldApptIntro_text_custom?: string
   /** Array of additional phone numbers for appointments or contact. */

@@ -853,44 +853,33 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
       "sectionTitle": "Other services at VA Boston health care",
     },
     "socialLinks": {
-      "fieldFacebook": {
-        "options": {
-          "data-entity-substitution": "",
-          "data-entity-type": "",
-          "data-entity-uuid": "",
+      "links": [
+        {
+          "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_111",
+          "icon": "mail",
+          "text": "Subscribe to VA Boston health care news and announcements",
+        },
+        {
+          "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_374",
+          "icon": "mail",
+          "text": "Subscribe to VA Boston health care emergency notifications",
+        },
+        {
+          "href": "/boston-health-care/operating-status",
+          "icon": "adjust",
+          "text": "VA Boston health care operating status",
+        },
+        {
           "href": "https://www.facebook.com/VABoston",
+          "icon": "facebook",
+          "text": "VA Boston Healthcare System Facebook",
         },
-        "title": "VA Boston Healthcare System Facebook",
-        "uri": "https://www.facebook.com/VABoston",
-        "url": "https://www.facebook.com/VABoston",
-      },
-      "fieldFlickr": null,
-      "fieldGovdeliveryIdEmerg": "USVHA_374",
-      "fieldGovdeliveryIdNews": "USVHA_111",
-      "fieldInstagram": null,
-      "fieldOperatingStatus": {
-        "options": {
-          "data-entity-substitution": "canonical",
-          "data-entity-type": "node",
-          "data-entity-uuid": "c88aa8c1-a5e9-48da-ba6b-4d585a713a8a",
-          "href": "entity:node/27318",
-        },
-        "title": "Operating status | VA Boston health care",
-        "uri": "entity:node/27318",
-        "url": "/boston-health-care/operating-status",
-      },
-      "fieldTwitter": {
-        "options": {
-          "data-entity-substitution": "",
-          "data-entity-type": "",
-          "data-entity-uuid": "",
+        {
           "href": "https://twitter.com/VABostonHC",
+          "icon": "x",
+          "text": "VA Boston Healthcare System",
         },
-        "title": "VA Boston Healthcare System",
-        "uri": "https://twitter.com/VABostonHC",
-        "url": "https://twitter.com/VABostonHC",
-      },
-      "fieldYoutube": null,
+      ],
       "regionNickname": "VA Boston health care",
     },
     "title": "Framingham VA Clinic",
@@ -1766,44 +1755,33 @@ exports[`HealthCareLocalFacility query should output formatted data 1`] = `
       "sectionTitle": "Other services at VA Boston health care",
     },
     "socialLinks": {
-      "fieldFacebook": {
-        "options": {
-          "data-entity-substitution": "",
-          "data-entity-type": "",
-          "data-entity-uuid": "",
+      "links": [
+        {
+          "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_111",
+          "icon": "mail",
+          "text": "Subscribe to VA Boston health care news and announcements",
+        },
+        {
+          "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_374",
+          "icon": "mail",
+          "text": "Subscribe to VA Boston health care emergency notifications",
+        },
+        {
+          "href": "/boston-health-care/operating-status",
+          "icon": "adjust",
+          "text": "VA Boston health care operating status",
+        },
+        {
           "href": "https://www.facebook.com/VABoston",
+          "icon": "facebook",
+          "text": "VA Boston Healthcare System Facebook",
         },
-        "title": "VA Boston Healthcare System Facebook",
-        "uri": "https://www.facebook.com/VABoston",
-        "url": "https://www.facebook.com/VABoston",
-      },
-      "fieldFlickr": null,
-      "fieldGovdeliveryIdEmerg": "USVHA_374",
-      "fieldGovdeliveryIdNews": "USVHA_111",
-      "fieldInstagram": null,
-      "fieldOperatingStatus": {
-        "options": {
-          "data-entity-substitution": "canonical",
-          "data-entity-type": "node",
-          "data-entity-uuid": "c88aa8c1-a5e9-48da-ba6b-4d585a713a8a",
-          "href": "entity:node/27318",
-        },
-        "title": "Operating status | VA Boston health care",
-        "uri": "entity:node/27318",
-        "url": "/boston-health-care/operating-status",
-      },
-      "fieldTwitter": {
-        "options": {
-          "data-entity-substitution": "",
-          "data-entity-type": "",
-          "data-entity-uuid": "",
+        {
           "href": "https://twitter.com/VABostonHC",
+          "icon": "x",
+          "text": "VA Boston Healthcare System",
         },
-        "title": "VA Boston Healthcare System",
-        "uri": "https://twitter.com/VABostonHC",
-        "url": "https://twitter.com/VABostonHC",
-      },
-      "fieldYoutube": null,
+      ],
       "regionNickname": "VA Boston health care",
     },
     "title": "Framingham VA Clinic",

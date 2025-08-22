@@ -14,7 +14,7 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { getLovellVariantOfBreadcrumbs } from '@/lib/drupal/lovell/utils'
 import {
-  ParagraphCCVetCenterFaqs,
+  ParagraphCCQaSection,
   ParagraphQaSection,
 } from '@/types/drupal/paragraph'
 import {
@@ -73,7 +73,7 @@ export const data: QueryData<
 }
 
 // Similarly, this formats centralized content FAQs to match what our QA components are expecting
-const formatFaq = (faqs: ParagraphCCVetCenterFaqs) => {
+const formatFaq = (faqs: ParagraphCCQaSection) => {
   const normalizedQaSection = entityFetchedParagraphsToNormalParagraphs({
     type: faqs.target_type,
     bundle: faqs.fetched_bundle,

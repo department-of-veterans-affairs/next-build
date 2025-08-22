@@ -6,7 +6,7 @@ import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 // Mock ServiceLocation to simplify tests
-jest.mock('./ServiceLocation', () => ({
+jest.mock('@/templates/components/serviceLocation/ServiceLocation', () => ({
   ServiceLocation: jest.fn(() => <div>Mock ServiceLocation</div>),
 }))
 

@@ -11,7 +11,7 @@ import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { ManageYourHealthLinks } from '@/templates/layouts/vamcSystem/ManageYourHealthLinks'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { StoryTeaser } from './StoryTeaser'
-import FacilitySocialLinks from '../healthCareLocalFacility/FacilitySocialLinks'
+import { VamcSystemSocialLinks } from '@/templates/components/vamcSystemSocialLinks'
 // import { ListOfLinkTeasers } from '@/templates/components/listOfLinkTeasers'
 import { EventTeaser } from '@/templates/components/eventTeaser'
 // import { SocialLinks } from '@/templates/common/socialLinks'
@@ -164,7 +164,7 @@ export function VamcSystem({
                 </section>
               )}
               {/* Social Links */}
-              <FacilitySocialLinks {...socialLinks} />
+              <VamcSystemSocialLinks {...socialLinks} />
               <va-back-to-top></va-back-to-top>
               <ContentFooter />
             </article>

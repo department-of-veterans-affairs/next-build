@@ -2,16 +2,21 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VbaFacility } from './index'
 import mockData from '@/mocks/vbaFacility.mock.json'
+import mockServiceData from '@/mocks/vbaFacilityService.mock.json'
 import { formatter } from '@/data/queries/vbaFacility'
 
 describe('VbaFacility with valid data', () => {
-  const formattedMockData = formatter(mockData)
+  const mockWithService = {
+    entity: { ...mockData },
+    services: [{ ...mockServiceData, field_office: mockData }],
+  }
+  const formattedMockData = formatter(mockWithService)
   test('renders VbaFacility component', () => {
     render(<VbaFacility {...formattedMockData} />)
 
     expect(
       screen.queryByText(
-        /Veteran Readiness and Employment Office at West Palm Beach VA Medical Center/
+        /Togus VA Regional Benefit Office at Togus VA Medical Center/
       )
     ).toBeInTheDocument()
     expect(
@@ -19,9 +24,7 @@ describe('VbaFacility with valid data', () => {
         /We help Veterans, service members, and their families access VA benefits and services./
       )
     ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/7305 N. Military Trail, Bldg 10/)
-    ).toBeInTheDocument()
+    expect(screen.queryByText(/1 VA Center, Bldg. 248/)).toBeInTheDocument()
     expect(screen.getByTestId('make-appointment-link')).toHaveAttribute(
       'text',
       'Make an appointment'

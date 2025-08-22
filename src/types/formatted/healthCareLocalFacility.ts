@@ -1,5 +1,4 @@
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
-import { FacilitySocialLinksProps } from '@/templates/layouts/healthCareLocalFacility/FacilitySocialLinks'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { Administration } from '@/types/formatted/administration'
 import { MediaImage } from '@/types/formatted/media'
@@ -16,6 +15,7 @@ import { PublishedEntity } from './publishedEntity'
 import { FormattedRelatedLinks } from './relatedLinks'
 import { SideNavMenu } from './sideNav'
 import { EmailContact } from './contactInfo'
+import { VamcSystemSocialLinks } from './vamcSystem'
 
 export type HealthCareLocalFacility = PublishedEntity & {
   introText: string | null
@@ -48,7 +48,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
      */
     wysiwigContents: string
   }>
-  socialLinks: FacilitySocialLinksProps
+  socialLinks: VamcSystemSocialLinks
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
   healthServices: FormattedVAMCFacilityHealthService[]
@@ -61,7 +61,11 @@ export interface VamcFacilityServiceLocation {
   /** Type of virtual support available (e.g., "yes_veterans_can_call"). */
   fieldVirtualSupport?: string
   /** Appointment intro text type ("remove_text", "customize_text", "use_default_text"). */
-  fieldApptIntroTextType?: 'remove_text' | 'customize_text' | 'use_default_text'
+  fieldApptIntroTextType?:
+    | 'remove_text'
+    | 'customize_text'
+    | 'use_default_text'
+    | string
   /** Custom appointment intro text (if applicable). */
   fieldApptIntroTextCustom?: string
   /**

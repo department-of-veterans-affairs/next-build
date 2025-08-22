@@ -130,6 +130,13 @@ describe('PhoneNumber Component', () => {
 
       expect(screen.getByRole('heading', { level: 4 })).toBeInTheDocument()
     })
+
+    it('renders as h5 when treatment is set to h5', () => {
+      const phone = createPhoneData('', 'Phone', '123-456-7890', 'phone')
+      render(<PhoneNumber {...phone} treatment="h5" />)
+
+      expect(screen.getByRole('heading', { level: 5 })).toBeInTheDocument()
+    })
   })
 })
 

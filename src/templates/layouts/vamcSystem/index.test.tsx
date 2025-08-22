@@ -519,20 +519,35 @@ describe('VamcSystem with valid data', () => {
     test('renders the social links section when social links data is provided', () => {
       const { container } = render(<VamcSystem {...mockData} />)
 
-      // Check that the social links section is rendered
+      // Check that the social links section is rendered with the region nickname
       expect(
-        screen.getByRole('heading', { name: 'VA New York Harbor health care' })
+        screen.getByRole('heading', { name: /get updates from/i })
       ).toBeInTheDocument()
 
-      // Check that Facebook link is rendered with correct attributes
-      const facebookLink = container.querySelector(
-        `va-link[text="${mockData.socialLinks.fieldFacebook.title}"]`
+      // Find the first link and verify it's rendered
+      const firstLink = mockData.socialLinks.links[0]
+      const linkElement = container.querySelector(
+        `va-link[text="${firstLink.text}"]`
       )
-      expect(facebookLink).toBeInTheDocument()
-      expect(facebookLink).toHaveAttribute(
-        'href',
-        mockData.socialLinks.fieldFacebook.uri
-      )
+      expect(linkElement).toBeInTheDocument()
+      expect(linkElement).toHaveAttribute('href', firstLink.href)
+    })
+
+    test('renders nothing when no social links are provided', () => {
+      const dataWithoutSocialLinks = {
+        ...mockData,
+        socialLinks: {
+          regionNickname: 'Test Region',
+          links: [],
+        },
+      }
+
+      render(<VamcSystem {...dataWithoutSocialLinks} />)
+
+      // Should still render the heading but no links
+      expect(
+        screen.getByRole('heading', { name: /get updates from test region/i })
+      ).toBeInTheDocument()
     })
   })
 })

@@ -746,34 +746,38 @@ exports[`VamcSystem formatData outputs formatted data 1`] = `
     "sectionTitle": "Other services at VA New York Harbor health care",
   },
   "socialLinks": {
-    "fieldFacebook": {
-      "options": [],
-      "title": "The New York Harbor Healthcare System Facebook page",
-      "uri": "https://www.facebook.com/VANYHarbor",
-      "url": "https://www.facebook.com/VANYHarbor",
-    },
-    "fieldFlickr": {
-      "options": [],
-      "title": "The New York Harbor Healthcare System",
-      "uri": "https://www.flickr.com/photos/144760790@N02/albums",
-      "url": "https://www.flickr.com/photos/144760790@N02/albums",
-    },
-    "fieldGovdeliveryIdEmerg": "USVHA_387",
-    "fieldGovdeliveryIdNews": "USVHA_145",
-    "fieldInstagram": null,
-    "fieldOperatingStatus": {
-      "options": [],
-      "title": "Operating status - VA New York Harbor health care",
-      "uri": "entity:node/8526",
-      "url": "/new-york-harbor-health-care/operating-status",
-    },
-    "fieldTwitter": {
-      "options": [],
-      "title": "The New York Harbor Healthcare System",
-      "uri": "https://twitter.com/VANYHarbor",
-      "url": "https://twitter.com/VANYHarbor",
-    },
-    "fieldYoutube": null,
+    "links": [
+      {
+        "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_145",
+        "icon": "mail",
+        "text": "Subscribe to VA New York Harbor health care news and announcements",
+      },
+      {
+        "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_387",
+        "icon": "mail",
+        "text": "Subscribe to VA New York Harbor health care emergency notifications",
+      },
+      {
+        "href": "/new-york-harbor-health-care/operating-status",
+        "icon": "adjust",
+        "text": "VA New York Harbor health care operating status",
+      },
+      {
+        "href": "https://www.facebook.com/VANYHarbor",
+        "icon": "facebook",
+        "text": "The New York Harbor Healthcare System Facebook page",
+      },
+      {
+        "href": "https://twitter.com/VANYHarbor",
+        "icon": "x",
+        "text": "The New York Harbor Healthcare System",
+      },
+      {
+        "href": "https://www.flickr.com/photos/144760790@N02/albums",
+        "icon": "flickr",
+        "text": "The New York Harbor Healthcare System",
+      },
+    ],
     "regionNickname": "VA New York Harbor health care",
   },
   "title": "VA New York Harbor health care",
