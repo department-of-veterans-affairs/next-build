@@ -101,6 +101,9 @@ describe('VamcHealthServicesListing with valid data', () => {
       <VamcHealthServicesListing
         title={'Health Services'}
         introText={'This is intro text'}
+        path={'/test-facility/health-services'}
+        administration={null}
+        vamcEhrSystem={null}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
