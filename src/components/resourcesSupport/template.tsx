@@ -1,7 +1,7 @@
 import { ResourcesSupport as FormattedResourcesSupport } from './formatted-type'
 import { ContentFooter } from '@/components/contentFooter/template'
 import AlertSingle from '@/components/alertSingle/template'
-import { Button as FormattedButton } from '@/types/formatted/button'
+import { Button as FormattedButton } from '@/components/button/formatted-type'
 import { Paragraph } from '@/components/paragraph/template'
 import { AudienceTopics } from '@/components/audienceTopics/template'
 import { Button } from '@/components/button/template'

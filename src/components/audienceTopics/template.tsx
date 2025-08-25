@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { isEmpty } from 'lodash'
-import { AudienceTopics as FormattedAudienceTopics } from '@/types/formatted/audienceTopics'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { AudienceTopics as FormattedAudienceTopics } from '@/components/audienceTopics/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 export function AudienceTopics({
   tags,

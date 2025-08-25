@@ -1,6 +1,6 @@
 import React from 'react'
-import { Alert as FormattedAlert } from '@/types/formatted/alert'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { Alert as FormattedAlert } from '@/components/alert/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { AlertBlock } from '@/components/alertBlock/template'
 import { Paragraph } from '@/components/paragraph/template'
 

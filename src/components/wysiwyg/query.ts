@@ -3,7 +3,7 @@ import {
   ParagraphRichTextCharLimit1000,
 } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 // Define the formatter for returning paragraph--wysiwyg & paragraph--rich_text_char_limit_1000 data.

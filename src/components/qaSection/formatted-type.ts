@@ -1,5 +1,5 @@
 import { FormattedParagraph } from '@/data/queries'
-import { PublishedParagraph } from './publishedEntity'
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 
 export type QaSection = PublishedParagraph & {
   type: 'paragraph--q_a_section'

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { CollapsiblePanel } from './template'
-import { CollapsiblePanel as FormattedCollapsiblePanel } from '@/types/formatted/collapsiblePanel'
+import { CollapsiblePanel as FormattedCollapsiblePanel } from '@/components/collapsiblePanel/formatted-type'
 
 const data: FormattedCollapsiblePanel = {
   type: 'paragraph--collapsible_panel',

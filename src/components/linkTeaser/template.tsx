@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { get } from 'lodash'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { LinkTeaser as FormattedLinkTeaser } from '@/types/formatted/linkTeaser'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 export const LinkTeaser = ({
   id,

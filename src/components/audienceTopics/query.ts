@@ -1,7 +1,10 @@
 // Define the query params for fetching node--news_story.
 import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
-import { AudienceTopic, AudienceTopics } from '@/types/formatted/audienceTopics'
+import {
+  AudienceTopic,
+  AudienceTopics,
+} from '@/components/audienceTopics/formatted-type'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 export const params: QueryParams<null> = () => {

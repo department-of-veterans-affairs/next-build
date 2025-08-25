@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Accordion } from './template'
-import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
+import { AccordionItem as FormattedAccordionItem } from '@/components/accordion/formatted-type'
 
 const accordionData: FormattedAccordionItem[] = [
   {

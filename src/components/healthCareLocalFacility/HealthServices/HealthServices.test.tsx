@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { HealthServices } from './HealthServices'
 import { FormattedVAMCFacilityHealthService } from '../formatted-type'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
-import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
+import { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 
 // Mock ServiceLocation to simplify tests
 jest.mock('@/templates/components/serviceLocation/ServiceLocation', () => ({

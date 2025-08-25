@@ -1,7 +1,7 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ParagraphFeaturedContent } from '@/types/drupal/paragraph'
-import { FeaturedContent } from '@/types/formatted/featuredContent'
+import { FeaturedContent } from '@/components/featuredContent/formatted-type'
 import { formatter as formatButton } from '@/components/button/query'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 

@@ -1,6 +1,6 @@
 import { ParagraphCollapsiblePanelItem } from '@/types/drupal/paragraph'
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
-import { CollapsiblePanelItem } from '@/types/formatted/collapsiblePanel'
+import { CollapsiblePanelItem } from '@/components/collapsiblePanel/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 

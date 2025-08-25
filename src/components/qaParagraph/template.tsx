@@ -1,4 +1,4 @@
-import { QaParagraph as FormattedQaParagraph } from '@/types/formatted/qaParagraph'
+import { QaParagraph as FormattedQaParagraph } from '@/components/qaParagraph/formatted-type'
 import { Paragraph } from '@/components/paragraph/template'
 
 export function QaParagraph({

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { QaSection } from './template'
-import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
+import { QaSection as FormattedQaSection } from '@/components/qaSection/formatted-type'
 
 const QaSectionAccordionProps: FormattedQaSection = {
   header: 'Accordion test header',

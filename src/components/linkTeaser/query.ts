@@ -1,6 +1,6 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
-import { LinkTeaser } from '@/types/formatted/linkTeaser'
+import { LinkTeaser } from '@/components/linkTeaser/formatted-type'
 
 export const formatter: QueryFormatter<ParagraphLinkTeaser, LinkTeaser> = (
   entity: ParagraphLinkTeaser

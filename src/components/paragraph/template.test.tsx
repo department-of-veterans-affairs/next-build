@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react'
 import { Wysiwyg } from '@/components/wysiwyg/template'
-import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
+import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
 import { FeaturedContent } from '@/components/featuredContent/template'
-import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
+import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
 import { Button } from '@/components/button/template'
-import { Button as FormattedButton } from '@/types/formatted/button'
+import { Button as FormattedButton } from '@/components/button/formatted-type'
 import { Alert } from '@/components/alert/template'
-import { Alert as FormattedAlert } from '@/types/formatted/alert'
-import { AlertBlock } from '@/types/formatted/alert'
+import { Alert as FormattedAlert } from '@/components/alert/formatted-type'
+import { AlertBlock } from '@/components/alert/formatted-type'
 
 describe('Wysiwyg Component', () => {
   const formattedWysiwygData: FormattedWysiwyg = {

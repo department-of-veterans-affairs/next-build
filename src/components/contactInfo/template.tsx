@@ -2,9 +2,9 @@ import {
   ContactInfo as FormattedContactInfo,
   EmailContact as FormattedEmailContact,
   PhoneContact as FormattedPhoneContact,
-} from '@/types/formatted/contactInfo'
+} from '@/components/contactInfo/formatted-type'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 const canUseWebComponent = (telephone) => {
   if (!telephone || /[a-zA-Z+]/.test(telephone)) {

@@ -2,7 +2,7 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
 import { VbaFacility } from './formatted-type'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getNestedIncludes } from '@/lib/utils/queries'
@@ -23,7 +23,7 @@ import {
   fetchSingleEntityOrPreview,
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
-import { PhoneContact } from '@/types/formatted/contactInfo'
+import { PhoneContact } from '@/components/contactInfo/formatted-type'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 

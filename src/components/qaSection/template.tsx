@@ -1,6 +1,6 @@
-import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
+import { QaSection as FormattedQaSection } from '@/components/qaSection/formatted-type'
 import { QaCollapsiblePanel } from '@/components/qaSection/QaCollapsiblePanel'
-import { QaGroup as FormattedQaGroup } from '@/types/formatted/qaGroup'
+import { QaGroup as FormattedQaGroup } from '@/components/qaGroup/formatted-type'
 import { Paragraph } from '@/components/paragraph/template'
 import { FormattedParagraph } from '@/data/queries'
 import { slugifyString } from '@/lib/utils/slug'

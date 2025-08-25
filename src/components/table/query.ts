@@ -1,6 +1,6 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphTable } from '@/types/drupal/paragraph'
-import { Table } from '@/types/formatted/table'
+import { Table } from '@/components/table/formatted-type'
 
 export const formatter: QueryFormatter<ParagraphTable, Table> = (
   entity: ParagraphTable

@@ -1,7 +1,7 @@
 import { FormattedParagraph } from '@/data/queries'
 import { PublishedParagraph } from '@/types/formatted/publishedEntity'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
-import { ExpandableText } from '@/types/formatted/expandableText'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
+import { ExpandableText } from '@/components/expandableText/formatted-type'
 
 export type AlertType = 'info' | 'warning'
 

@@ -1,6 +1,6 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphQA } from '@/types/drupal/paragraph'
-import { QaParagraph } from '@/types/formatted/qaParagraph'
+import { QaParagraph } from '@/components/qaParagraph/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 
 export const formatter: QueryFormatter<ParagraphQA, QaParagraph> = (

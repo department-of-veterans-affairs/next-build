@@ -1,4 +1,4 @@
-import { NumberCallout as FormattedNumberCallout } from '@/types/formatted/numberCallout'
+import { NumberCallout as FormattedNumberCallout } from '@/components/numberCallout/formatted-type'
 
 export function NumberCallout({
   numberPhrase,

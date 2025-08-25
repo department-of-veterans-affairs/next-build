@@ -3,8 +3,8 @@ import { fireEvent } from '@testing-library/dom'
 jest.mock('@/lib/analytics/recordEvent')
 import * as recordEvent from '@/lib/analytics/recordEvent'
 import { LinkTeaser } from './template'
-import { LinkTeaser as FormattedLinkTeaser } from '@/types/formatted/linkTeaser'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 describe('<LinkTeaser> component renders without field_spokes', () => {
   const linkTeaserCollectionProps: ParagraphComponent<FormattedLinkTeaser> = {

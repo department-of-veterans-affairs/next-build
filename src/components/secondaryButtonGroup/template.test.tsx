@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { SecondaryButtonGroup } from './template'
-import { Button as FormattedButton } from '@/types/formatted/button'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { Button as FormattedButton } from '@/components/button/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 describe('SecondaryButtonGroup Component', () => {
   test('renders action links correctly when there are multiple', () => {

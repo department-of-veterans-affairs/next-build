@@ -429,27 +429,6 @@ _Note: This phase will require careful coordination as paragraphs have complex i
 - [x] **qaGroup** - Has query, types, mocks (rendered through qaSection template)
   - _Grouped Q&A sections with accordion display settings_
 
-### Special Paragraph Types (Referenced but need investigation)
-
-- [ ] **serviceLocation** - Template exists but needs paragraph integration check
-  - _Service location information with addresses, hours, phone numbers_
-  - _Complex: Contains nested ServiceLocationAddress paragraphs_
-- [ ] **staffProfile** - Investigate if this needs paragraph system integration
-- [ ] **step** & **stepByStep** - Investigate if these have corresponding queries/templates
-  - _Step-by-step instructions with media and alert integration_
-
-### Notes on Paragraph System Migration:
-
-1. **High Interdependency**: Many paragraph components reference each other (alerts contain wysiwyg/expandableText, collapsiblePanel contains collapsiblePanelItem, etc.)
-
-2. **Central Paragraph Component**: The `paragraph` component in `src/templates/components/paragraph/` serves as the central dispatcher and must be migrated last after all individual components.
-
-3. **Formatter Integration**: All paragraph components use `FormattedParagraph` types and are integrated into the central formatting system.
-
-4. **Overlap with Other Phases**: Some components (`button`, `featuredContent`, `phoneNumber`) appear in Phase 1 but are also part of the paragraph system - they should be migrated in Phase 2 to maintain paragraph system integrity.
-
-5. **Template vs Query-Only**: Some paragraph types only have queries/formatters but use existing templates (like `qaGroup` using `qaSection` template).
-
 ---
 
 ## Phase 3: Non-Paragraph Template Components (from `src/templates/components/`)
@@ -515,6 +494,11 @@ _Note: Paragraph-related components have been moved to Phase 2. This phase conta
   - _Vet center health services listings_
 - [ ] **vetCenterHealthServicesList** - Standalone template component
   - _Vet center health services list display_
+
+### Other stuff
+
+- [ ] **serviceLocation**
+- [ ] **staffProfile**
 
 ## Phase 4: Standalone Queries (Non-Paragraph)
 

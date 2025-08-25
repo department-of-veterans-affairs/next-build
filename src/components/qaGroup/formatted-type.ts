@@ -1,4 +1,4 @@
-import { PublishedParagraph } from './publishedEntity'
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 import { FormattedParagraph } from '@/data/queries'
 
 //Todo, this should be removed when the question_answer formatter is complete

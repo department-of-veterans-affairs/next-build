@@ -1,4 +1,4 @@
-import { ProcessList as FormattedProcessList } from '@/types/formatted/processList'
+import { ProcessList as FormattedProcessList } from '@/components/processList/formatted-type'
 import { numToWord } from '@/lib/utils/helpers'
 export function ProcessList({ steps, entityId }: FormattedProcessList) {
   if (!steps) return

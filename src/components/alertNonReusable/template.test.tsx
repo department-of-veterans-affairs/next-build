@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { AlertNonReusable } from './template'
-import { AlertType } from '@/types/formatted/alert'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { AlertType } from '@/components/alert/formatted-type'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 
 const wysiwyg: Wysiwyg = {
   id: 'wysiwyg-1',

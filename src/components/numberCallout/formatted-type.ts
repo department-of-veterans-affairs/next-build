@@ -1,4 +1,4 @@
-import { PublishedParagraph } from './publishedEntity'
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 
 export type NumberCallout = PublishedParagraph & {
   type: 'paragraph--number_callout'

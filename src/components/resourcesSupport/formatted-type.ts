@@ -1,9 +1,9 @@
 import { FormattedParagraph } from '@/data/queries'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
-import { AlertSingle } from '@/types/formatted/alert'
-import { ContactInfo } from '@/types/formatted/contactInfo'
-import { Button } from '@/types/formatted/button'
-import { AudienceTopics } from '@/types/formatted/audienceTopics'
+import { AlertSingle } from '@/components/alert/formatted-type'
+import { ContactInfo } from '@/components/contactInfo/formatted-type'
+import { Button } from '@/components/button/formatted-type'
+import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
 import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
 
 export type ResourcesSupport = PublishedEntity & {

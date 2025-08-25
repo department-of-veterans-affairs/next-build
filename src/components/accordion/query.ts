@@ -1,6 +1,6 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphAccordion } from '@/types/drupal/paragraph'
-import { AccordionItem } from '@/types/formatted/accordion'
+import { AccordionItem } from '@/components/accordion/formatted-type'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 
 export const formatter: QueryFormatter<ParagraphAccordion, AccordionItem> = (

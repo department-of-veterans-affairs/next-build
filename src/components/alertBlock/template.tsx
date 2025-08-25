@@ -2,7 +2,7 @@ import {
   VaAlert,
   VaAlertExpandable,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { AlertBlock as FormattedAlertBlock } from '@/types/formatted/alert'
+import { AlertBlock as FormattedAlertBlock } from '@/components/alert/formatted-type'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { Wysiwyg } from '@/components/wysiwyg/template'
 

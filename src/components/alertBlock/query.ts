@@ -1,10 +1,10 @@
 // Define the query params for fetching block--alert.
 import { BlockAlert } from '@/types/drupal/block'
 import { QueryFormatter } from 'next-drupal-query'
-import { AlertBlock, AlertType } from '@/types/formatted/alert'
+import { AlertBlock, AlertType } from '@/components/alert/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
-import { ExpandableText } from '@/types/formatted/expandableText'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
+import { ExpandableText } from '@/components/expandableText/formatted-type'
 
 export const formatter: QueryFormatter<BlockAlert, AlertBlock> = (
   entity: BlockAlert

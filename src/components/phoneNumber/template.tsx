@@ -1,4 +1,4 @@
-import { PhoneNumber as FormattedPhoneNumber } from '@/types/formatted/phoneNumber'
+import { PhoneNumber as FormattedPhoneNumber } from '@/components/phoneNumber/formatted-type'
 
 export interface SeparatedPhoneNumber {
   phoneNumber: string

@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 jest.mock('@/lib/analytics/recordEvent')
 import { ContactInfo } from './template'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
-import { ContactInfo as FormattedContactInfo } from '@/types/formatted/contactInfo'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
+import { ContactInfo as FormattedContactInfo } from '@/components/contactInfo/formatted-type'
 
 describe('ContactInfo with valid data', () => {
   const data: ParagraphComponent<FormattedContactInfo> = {

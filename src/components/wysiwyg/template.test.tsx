@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { Wysiwyg, WysiwygField } from './template'
-import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
+import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
 import { drupalToVaPath } from '@/lib/utils/helpers'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 const wysiwygProps: ParagraphComponent<FormattedWysiwyg> = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',

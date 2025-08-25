@@ -1,6 +1,6 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphNumberCallout } from '@/types/drupal/paragraph'
-import { NumberCallout } from '@/types/formatted/numberCallout'
+import { NumberCallout } from '@/components/numberCallout/formatted-type'
 
 export const formatter: QueryFormatter<
   ParagraphNumberCallout,

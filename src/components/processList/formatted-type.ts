@@ -1,4 +1,4 @@
-import { PublishedParagraph } from './publishedEntity'
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 
 export type ProcessList = PublishedParagraph & {
   type: 'paragraph--process'

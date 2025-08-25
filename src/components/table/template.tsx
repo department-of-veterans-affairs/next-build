@@ -4,7 +4,7 @@ import {
   VaTable,
   VaTableRow,
 } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { Table as FormattedTable } from '@/types/formatted/table'
+import { Table as FormattedTable } from '@/components/table/formatted-type'
 
 export function Table({
   data,

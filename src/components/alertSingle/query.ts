@@ -5,7 +5,7 @@ import {
   AlertSingle,
   AlertBlock,
   AlertNonReusable,
-} from '@/types/formatted/alert'
+} from '@/components/alert/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { queries } from '@/data/queries'
 

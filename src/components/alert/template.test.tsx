@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { Alert } from './template'
 import { FormattedParagraph } from '@/data/queries'
-import { Alert as FormattedAlert } from '@/types/formatted/alert'
-import { AlertType } from '@/types/formatted/alert'
-import { AccordionItem as FormattedAccordion } from '@/types/formatted/accordion'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { Alert as FormattedAlert } from '@/components/alert/formatted-type'
+import { AlertType } from '@/components/alert/formatted-type'
+import { AccordionItem as FormattedAccordion } from '@/components/accordion/formatted-type'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 
 const mockParagraphs: FormattedParagraph[] = [
   {

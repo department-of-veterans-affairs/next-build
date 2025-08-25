@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { VetCenter } from './template'
-import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
-import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
-import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
+import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
+import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
+import { QaSection as FormattedQaSection } from '@/components/qaSection/formatted-type'
 
 describe('VetCenter with valid data', () => {
   const mockData = {

@@ -1,5 +1,5 @@
-import { Button as FormattedButton } from '@/types/formatted/button'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { Button as FormattedButton } from '@/components/button/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 // Used for R&S pages; either a single blue CTA link or multiple
 export const SecondaryButtonGroup = ({

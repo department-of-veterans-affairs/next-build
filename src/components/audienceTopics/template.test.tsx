@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { AudienceTopics } from './template'
-import { AudienceTopics as FormattedAudienceTopics } from '@/types/formatted/audienceTopics'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { AudienceTopics as FormattedAudienceTopics } from '@/components/audienceTopics/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 describe('AudienceTopics with valid data', () => {
   const audienceTopicProps: ParagraphComponent<FormattedAudienceTopics> = {

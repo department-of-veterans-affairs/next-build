@@ -1,7 +1,10 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { ParagraphContactInformation } from '@/types/drupal/paragraph'
-import { ContactInfo, AdditionalContact } from '@/types/formatted/contactInfo'
+import {
+  ContactInfo,
+  AdditionalContact,
+} from '@/components/contactInfo/formatted-type'
 import { queries } from '@/data/queries'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'

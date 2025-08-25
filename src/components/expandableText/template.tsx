@@ -1,6 +1,6 @@
 import { isEmpty } from 'lodash'
-import { ExpandableText as FormattedExpandableText } from '@/types/formatted/expandableText'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { ExpandableText as FormattedExpandableText } from '@/components/expandableText/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 export function ExpandableText({
   id,

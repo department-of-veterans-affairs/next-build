@@ -1,13 +1,13 @@
 import {
   CollapsiblePanel as FormattedCollapsiblePanel,
   CollapsiblePanelItem as FormattedCollapsiblePanelItem,
-} from '@/types/formatted/collapsiblePanel'
+} from '@/components/collapsiblePanel/formatted-type'
 import { HeadingElement } from '@/components/heading/template'
 import { WysiwygField } from '@/components/wysiwyg/template'
 import { Paragraph } from '@/components/paragraph/template'
 import { escape } from '@/lib/utils/helpers'
 import { slugifyString } from '@/lib/utils/slug'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 import { conditionalAttr } from '@/lib/utils/helpers'
 
 export const CollapsiblePanelItem = ({

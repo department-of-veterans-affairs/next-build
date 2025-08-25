@@ -1,7 +1,7 @@
 // Define the query params for fetching node--news_story.
 import { ParagraphExpandableText } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
-import { ExpandableText } from '@/types/formatted/expandableText'
+import { ExpandableText } from '@/components/expandableText/formatted-type'
 
 export const formatter: QueryFormatter<
   ParagraphExpandableText,

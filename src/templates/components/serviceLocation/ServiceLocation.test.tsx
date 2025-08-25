@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
 import { ServiceLocation } from './ServiceLocation'
-import type { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
+import type { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 
 // Mock data for different test scenarios
 const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({

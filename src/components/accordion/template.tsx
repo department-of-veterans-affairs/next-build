@@ -1,9 +1,9 @@
 import {
   Accordion as FormattedAccordion,
   AccordionItem as FormattedAccordionItem,
-} from '@/types/formatted/accordion'
+} from '@/components/accordion/formatted-type'
 import { slugifyString } from '@/lib/utils/slug'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 export function AccordionItem({
   id,

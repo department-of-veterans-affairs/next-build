@@ -2,9 +2,9 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { AlertSingle } from './template'
-import { AlertBlock, AlertNonReusable } from '@/types/formatted/alert'
-import { AlertSingle as FormattedAlertSingle } from '@/types/formatted/alert'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { AlertBlock, AlertNonReusable } from '@/components/alert/formatted-type'
+import { AlertSingle as FormattedAlertSingle } from '@/components/alert/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 describe('AlertSingle Component', () => {
   const blockReference: AlertBlock = {

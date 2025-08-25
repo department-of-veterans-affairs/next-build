@@ -2,7 +2,7 @@ import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { Administration } from '@/types/formatted/administration'
 import { MediaImage } from '@/types/formatted/media'
-import { PhoneNumber } from '@/types/formatted/phoneNumber'
+import { PhoneNumber } from '@/components/phoneNumber/formatted-type'
 
 import {
   FieldAddress,
@@ -14,7 +14,7 @@ import { VamcEhr } from '@/types/drupal/vamcEhr'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { EmailContact } from '@/types/formatted/contactInfo'
+import { EmailContact } from '@/components/contactInfo/formatted-type'
 import { VamcSystemSocialLinks } from '../vamcSystem/formatted-type'
 
 export type HealthCareLocalFacility = PublishedEntity & {

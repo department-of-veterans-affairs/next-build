@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { QaParagraph } from './template'
-import { QaParagraph as FormattedQaParagraph } from '@/types/formatted/qaParagraph'
+import { QaParagraph as FormattedQaParagraph } from '@/components/qaParagraph/formatted-type'
 
 const qaParagraphProps: FormattedQaParagraph = {
   question: 'Sample Question',

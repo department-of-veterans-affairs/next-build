@@ -1,6 +1,6 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { NodeSupportService } from '@/types/drupal/node'
-import { Contact } from '@/types/formatted/contactInfo'
+import { Contact } from '@/components/contactInfo/formatted-type'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 // Define the query params for fetching node--support_service.

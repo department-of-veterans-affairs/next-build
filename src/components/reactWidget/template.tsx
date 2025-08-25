@@ -1,5 +1,5 @@
-import { ReactWidget as FormattedReactWidget } from '@/types/formatted/reactWidget'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { ReactWidget as FormattedReactWidget } from '@/components/reactWidget/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 const CtaWidget = ({ entityId, widgetType }) => {
   return (

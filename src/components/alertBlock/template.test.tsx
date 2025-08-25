@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { AlertBlock } from './template'
-import { AlertBlock as FormattedAlertBlock } from '@/types/formatted/alert'
-import { ExpandableText } from '@/types/formatted/expandableText'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { AlertBlock as FormattedAlertBlock } from '@/components/alert/formatted-type'
+import { ExpandableText } from '@/components/expandableText/formatted-type'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 
 const expandableText: ExpandableText = {
   id: 'et-1',

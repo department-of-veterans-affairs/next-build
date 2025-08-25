@@ -3,8 +3,8 @@ import { Html } from '@/types/formatted/html'
 import {
   Wysiwyg as FormattedWysiwyg,
   WysiwygField as FormattedWysiwygField,
-} from '@/types/formatted/wysiwyg'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+} from '@/components/wysiwyg/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 function createMarkup(html): Html {
   return {

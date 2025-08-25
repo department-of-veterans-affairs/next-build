@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { Button } from './template'
-import { Button as FormattedButton } from '@/types/formatted/button'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { Button as FormattedButton } from '@/components/button/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 const buttonProps: ParagraphComponent<FormattedButton> = {
   id: 'f421578b-0add-405c-ac0c-1b1d146a360f',

@@ -1,5 +1,5 @@
-import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
-import { ParagraphComponent } from '@/types/formatted/paragraph'
+import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
+import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
 export function FeaturedContent({
   title,

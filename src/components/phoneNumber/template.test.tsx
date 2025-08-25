@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { PhoneNumber, separateExtension } from './template'
-import { PhoneNumber as FormattedPhoneNumber } from '@/types/formatted/phoneNumber'
+import { PhoneNumber as FormattedPhoneNumber } from '@/components/phoneNumber/formatted-type'
 
 describe('PhoneNumber Component', () => {
   const createPhoneData = (
