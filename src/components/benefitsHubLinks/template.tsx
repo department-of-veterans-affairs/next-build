@@ -1,5 +1,5 @@
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { BenefitsHubLinks as FormattedBenefitsHubLinks } from '@/types/formatted/benefitsHub'
+import { BenefitsHubLinks as FormattedBenefitsHubLinks } from './formatted-type'
 
 export function BenefitsHubLinks({
   title,

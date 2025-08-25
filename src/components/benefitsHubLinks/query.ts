@@ -1,6 +1,6 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { NodeLandingPage } from '@/types/drupal/node'
-import { BenefitsHubLink } from '@/types/formatted/benefitsHub'
+import { BenefitsHubLink } from './formatted-type'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 
 // Define the query params for fetching node--landing_page.

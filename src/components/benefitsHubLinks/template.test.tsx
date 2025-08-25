@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { BenefitsHubLinks } from './index'
+import { BenefitsHubLinks } from './template'
 
 const data = {
   title: 'Deciding how much life insurance to get',
