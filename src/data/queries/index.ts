@@ -55,6 +55,7 @@ import * as Wysiwyg from '@/data/queries/wysiwyg'
 import * as LeadershipListing from '@/products/leadershipListing/query'
 import * as VbaFacility from '@/data/queries/vbaFacility'
 import * as HealthServicesListing from '@/data/queries/vamcHealthServicesListing'
+import * as VamcOperatingStatusAndAlerts from '@/data/queries/vamcOperatingStatusAndAlerts'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -91,6 +92,8 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
   [RESOURCE_TYPES.VBA_FACILITY]: VbaFacility,
   [RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING]: HealthServicesListing,
+  [RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS]:
+    VamcOperatingStatusAndAlerts,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

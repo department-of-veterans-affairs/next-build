@@ -59,6 +59,7 @@ import { LeadershipListing as FormattedLeadershipListing } from '@/products/lead
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
 import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
+import { VamcOperatingStatusAndAlerts as FormattedVamcOperatingStatusAndAlerts } from '@/types/formatted/vamcOperatingStatusAndAlerts'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
 import { Event } from '@/products/event/template'
@@ -83,6 +84,7 @@ import { LeadershipListing } from '@/products/leadershipListing/template'
 import { VbaFacility } from '@/templates/layouts/vbaFacility'
 import { VetCenterLocationListing } from '@/templates/layouts/vetCenterLocationListing'
 import { VamcHealthServicesListing } from '@/templates/layouts/vamcHealthServicesListing'
+import { VamcOperatingStatusAndAlerts } from '@/templates/layouts/vamcOperatingStatusAndAlerts'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -222,6 +224,12 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING && (
             <VamcHealthServicesListing
               {...(resource as FormattedVamcHealthServicesListing)}
+            />
+          )}
+          {resource.type ===
+            RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS && (
+            <VamcOperatingStatusAndAlerts
+              {...(resource as FormattedVamcOperatingStatusAndAlerts)}
             />
           )}
         </div>
