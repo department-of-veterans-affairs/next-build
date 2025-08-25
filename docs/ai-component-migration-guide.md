@@ -227,7 +227,13 @@ git commit -m "migrate: move {componentName} to components directory
 - All tests passing"
 ```
 
-3. **Request Verification**: Ask for human verification before proceeding to the next component
+3. **Update Migration Guide**: **IMMEDIATELY** after successful commit, update this guide:
+
+   - Mark component as [x] completed in the task list
+   - Update "Migration Progress Tracking" section with new count and commit hash
+   - Update "Current Component" to next component
+
+4. **Request Verification**: Ask for human verification before proceeding to the next component
 
 ## Common Error Patterns and Solutions
 
@@ -277,6 +283,10 @@ git commit -m "migrate: move {componentName} to components directory
 3. **Incremental Commits**: Commit each successful migration separately
 4. **Error Documentation**: Document any unique errors encountered in this migration guide for future reference
 5. **Import Verification**: Double-check all import path updates were successful
+6. **Update Migration Guide**: **CRITICAL** - After each successful migration, update this guide to:
+   - Mark the component as completed with [x] in the task list
+   - Update the "Migration Progress Tracking" section with new status and commit hash
+   - Update the "Current Component" to indicate the next component to migrate
 
 ## Manual Migration Process Summary
 
@@ -298,9 +308,9 @@ The manual migration process involves these key actions:
 
 - [x] **breadcrumbs** - Common reusable component
 - [x] **heading** - Common reusable component
-- [ ] **meta** - Common utility component
-- [ ] **util** (HTMLComment) - Simple utility component
-- [ ] **banner** - Sub-component of banners, has query
+- [x] **meta** - Common utility component
+- [x] **util** (HTMLComment) - Simple utility component
+- [x] **banner** - Sub-component of banners, has query
 - [ ] **maintenanceBanner** - Sub-component of banners
 - [ ] **promoBanner** - Sub-component of banners
 - [ ] **benefitsHubLinks** - Has query, types, likely has mocks
@@ -550,11 +560,11 @@ _Note: Paragraph-related queries have been moved to Phase 2. This phase contains
 
 ### 📝 Migration Progress Tracking
 
-**Current Component**: Ready for next migration (meta component)
+**Current Component**: Ready for next migration (maintenanceBanner component)
 
-**Status**: 2 components successfully migrated
+**Status**: 5 components successfully migrated
 
-**Last Completed**: header and footer (commit: 666dff982062812e116ecc9e2d12b6109d607402)
+**Last Completed**: meta, util (HTMLComment), banner (commits: 9d84ab8c, dbd6bafe, 421d67fe)
 
 **Notes**: This component migration builds on the successful product migration. All products have been moved to `src/components/` (renamed from `src/products/`). Now we need to consolidate the remaining template components and queries into the same unified structure.
 
