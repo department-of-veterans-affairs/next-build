@@ -397,9 +397,9 @@ The manual migration process involves these key actions:
 - [ ] **commonAndPopular** - Standalone template component
 - [ ] **contentFooter** - Standalone template component
 - [ ] **featuredContent** - Has query, types, likely has mocks
-- [ ] **footer** - Standalone template component
+- [x] **footer** - Standalone template component
 - [ ] **googleMapsDirections** - Standalone template component
-- [ ] **header** - Standalone template component (with TopNav sub-component)
+- [x] **header** - Standalone template component (with TopNav sub-component)
 - [ ] **medallia** - Standalone template component
 - [ ] **mediaImage** - Has query, types, likely has mocks (includes customLoader)
 - [ ] **pageLayout** - Standalone template component
