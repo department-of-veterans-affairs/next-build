@@ -1,5 +1,5 @@
 import { GetUpdatesSection } from '@/templates/components/getUpdatesSection'
-import { VamcSystemSocialLinks as VamcSystemSocialLinksProps } from '@/types/formatted/vamcSystem'
+import { VamcSystemSocialLinks as VamcSystemSocialLinksProps } from '../../../components/vamcSystem/formatted-type'
 
 export const VamcSystemSocialLinks = ({
   regionNickname,

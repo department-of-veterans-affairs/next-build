@@ -42,47 +42,46 @@ const error = slugLogger.extend('error')
 const isExport = process.env.BUILD_OPTION === 'static'
 
 // Types
-import { Event as FormattedEvent } from '@/products/event/formatted-type'
-import { EventListing as FormattedEventListing } from '@/products/eventListing/formatted-type'
-import { LocationsListing as FormattedLocationsListing } from '@/types/formatted/locationsListing'
-import { NewsStory as FormattedNewsStory } from '@/products/newsStory/formatted-type'
-import { PressRelease as FormattedPressRelease } from '@/products/pressRelease/formatted-type'
-import { PressReleaseListing as FormattedPressReleaseListing } from '@/products/pressReleaseListing/formatted-type'
-import { ResourcesSupport as FormattedResourcesSupport } from '@/types/formatted/resourcesSupport'
-import { StaffProfile as FormattedStaffProfile } from '@/products/staffProfile/formatted-type'
-import { StoryListing as FormattedStoryListing } from '@/products/storyListing/formatted-type'
-import { VetCenter as FormattedVetCenter } from '@/types/formatted/vetCenter'
-import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '@/types/formatted/healthCareLocalFacility'
-import { VamcSystem as FormattedVamcSystem } from '@/types/formatted/vamcSystem'
-import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '@/products/vamcSystemVaPolice/formatted-type'
-import { LeadershipListing as FormattedLeadershipListing } from '@/products/leadershipListing/formatted-type'
-import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '@/types/formatted/vetCenterLocationListing'
-import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '@/types/formatted/vamcHealthServicesListing'
-import { VbaFacility as FormattedVbaFacility } from '@/types/formatted/vbaFacility'
+import { Event as FormattedEvent } from '../components/event/formatted-type'
+import { EventListing as FormattedEventListing } from '../components/eventListing/formatted-type'
+import { LocationsListing as FormattedLocationsListing } from '../components/locationsListing/formatted-type'
+import { NewsStory as FormattedNewsStory } from '../components/newsStory/formatted-type'
+import { PressRelease as FormattedPressRelease } from '../components/pressRelease/formatted-type'
+import { PressReleaseListing as FormattedPressReleaseListing } from '../components/pressReleaseListing/formatted-type'
+import { ResourcesSupport as FormattedResourcesSupport } from '../components/resourcesSupport/formatted-type'
+import { StaffProfile as FormattedStaffProfile } from '../components/staffProfile/formatted-type'
+import { StoryListing as FormattedStoryListing } from '../components/storyListing/formatted-type'
+import { VetCenter as FormattedVetCenter } from '../components/vetCenter/formatted-type'
+import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '../components/healthCareLocalFacility/formatted-type'
+import { VamcSystem as FormattedVamcSystem } from '../components/vamcSystem/formatted-type'
+import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '../components/vamcSystemVaPolice/formatted-type'
+import { LeadershipListing as FormattedLeadershipListing } from '../components/leadershipListing/formatted-type'
+import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '../components/vetCenterLocationListing/formatted-type'
+import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '../components/vamcHealthServicesListing/formatted-type'
+import { VbaFacility as FormattedVbaFacility } from '../components/vbaFacility/formatted-type'
 // Templates
 import HTMLComment from '@/templates/common/util/HTMLComment'
-import { Event } from '@/products/event/template'
-import { EventListing } from '@/products/eventListing/template'
-import { LayoutProps } from '@/templates/layouts/wrapper'
-import { LocationsListing } from '@/templates/layouts/locationsListing'
+import { Event } from '../components/event/template'
+import { EventListing } from '../components/eventListing/template'
+import { LocationsListing } from '../components/locationsListing/template'
 import { Meta } from '@/templates/common/meta'
-import { NewsStory } from '@/products/newsStory/template'
-import { PressRelease } from '@/products/pressRelease/template'
-import { PressReleaseListing } from '@/products/pressReleaseListing/template'
+import { NewsStory } from '../components/newsStory/template'
+import { PressRelease } from '../components/pressRelease/template'
+import { PressReleaseListing } from '../components/pressReleaseListing/template'
 import { PreviewCrumb } from '@/templates/common/preview'
-import { ResourcesSupport } from '@/templates/layouts/resourcesSupport'
-import { StaffProfile } from '@/products/staffProfile/template'
-import { StoryListing } from '@/products/storyListing/template'
-import { VetCenter } from '@/templates/layouts/vetCenter'
-import { Wrapper } from '@/templates/layouts/wrapper'
-import { HealthCareLocalFacility } from '@/templates/layouts/healthCareLocalFacility'
+import { ResourcesSupport } from '../components/resourcesSupport/template'
+import { StaffProfile } from '../components/staffProfile/template'
+import { StoryListing } from '../components/storyListing/template'
+import { VetCenter } from '../components/vetCenter/template'
+import { PageLayout, PageLayoutProps } from '@/templates/common/pageLayout'
+import { HealthCareLocalFacility } from '../components/healthCareLocalFacility/template'
 import { DoNotPublishError } from '@/lib/drupal/query'
-import { VamcSystem } from '@/templates/layouts/vamcSystem'
-import { VamcSystemVaPolice } from '@/products/vamcSystemVaPolice/template'
-import { LeadershipListing } from '@/products/leadershipListing/template'
-import { VbaFacility } from '@/templates/layouts/vbaFacility'
-import { VetCenterLocationListing } from '@/templates/layouts/vetCenterLocationListing'
-import { VamcHealthServicesListing } from '@/templates/layouts/vamcHealthServicesListing'
+import { VamcSystem } from '../components/vamcSystem/template'
+import { VamcSystemVaPolice } from '../components/vamcSystemVaPolice/template'
+import { LeadershipListing } from '../components/leadershipListing/template'
+import { VbaFacility } from '../components/vbaFacility/template'
+import { VetCenterLocationListing } from '../components/vetCenterLocationListing/template'
+import { VamcHealthServicesListing } from '../components/vamcHealthServicesListing/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -123,8 +122,8 @@ export default function ResourcePage({
   preview,
 }: {
   serializedResource: FlattenedGraph<StaticPropsResource<FormattedPageResource>>
-  bannerData: LayoutProps['bannerData']
-  headerFooterData: LayoutProps['headerFooterData']
+  bannerData: PageLayoutProps['bannerData']
+  headerFooterData: PageLayoutProps['headerFooterData']
   preview: boolean
 }) {
   if (!serializedResource) return null
@@ -141,7 +140,7 @@ export default function ResourcePage({
     `
 
   return (
-    <Wrapper
+    <PageLayout
       bannerData={bannerData}
       headerFooterData={headerFooterData}
       preview={preview}
@@ -233,7 +232,7 @@ export default function ResourcePage({
         strategy="afterInteractive"
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}static-pages.entry.js`}
       />
-    </Wrapper>
+    </PageLayout>
   )
 }
 

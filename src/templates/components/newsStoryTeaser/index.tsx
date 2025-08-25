@@ -1,6 +1,6 @@
 import { MediaImage } from '@/templates/common/mediaImage'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
-import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '@/products/newsStory/formatted-type'
+import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '../../../components/newsStory/formatted-type'
 
 /** Teaser news story. */
 export const NewsStoryTeaser = ({
