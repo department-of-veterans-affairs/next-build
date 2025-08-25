@@ -311,7 +311,7 @@ The manual migration process involves these key actions:
 - [x] **meta** - Common utility component
 - [x] **util** (HTMLComment) - Simple utility component
 - [x] **banner** - Sub-component of banners, has query
-- [ ] **maintenanceBanner** - Sub-component of banners
+- [x] **maintenanceBanner** - Sub-component of banners
 - [ ] **promoBanner** - Sub-component of banners
 - [ ] **benefitsHubLinks** - Has query, types, likely has mocks
 - [ ] **commonAndPopular** - Standalone template component
@@ -560,11 +560,11 @@ _Note: Paragraph-related queries have been moved to Phase 2. This phase contains
 
 ### 📝 Migration Progress Tracking
 
-**Current Component**: Ready for next migration (maintenanceBanner component)
+**Current Component**: Ready for next migration (promoBanner component)
 
-**Status**: 5 components successfully migrated
+**Status**: 6 components successfully migrated
 
-**Last Completed**: meta, util (HTMLComment), banner (commits: 9d84ab8c, dbd6bafe, 421d67fe)
+**Last Completed**: meta, util (HTMLComment), banner, maintenanceBanner (commits: 9d84ab8c, dbd6bafe, 421d67fe, 6c978688)
 
 **Notes**: This component migration builds on the successful product migration. All products have been moved to `src/components/` (renamed from `src/products/`). Now we need to consolidate the remaining template components and queries into the same unified structure.
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Banner } from '@/components/banner/template'
-import { PromoBanner } from '@/templates/common/banners/promoBanner'
+import { PromoBanner } from '@/components/promoBanner/template'
 import { FooterLink } from '@/components/footer/formatted-type'
 import { MegaMenuSection } from '@/components/header/formatted-type'
 import { BannersData } from '@/components/banner/formatted-type'
