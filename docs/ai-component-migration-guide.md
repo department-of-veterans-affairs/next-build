@@ -287,6 +287,7 @@ git commit -m "migrate: move {componentName} to components directory
    - Mark the component as completed with [x] in the task list
    - Update the "Migration Progress Tracking" section with new status and commit hash
    - Update the "Current Component" to indicate the next component to migrate
+   - Do this before committing so the change is part of the commit
 
 ## Manual Migration Process Summary
 
@@ -313,18 +314,18 @@ The manual migration process involves these key actions:
 - [x] **banner** - Sub-component of banners, has query
 - [x] **maintenanceBanner** - Sub-component of banners
 - [x] **promoBanner** - Sub-component of banners
-- [ ] **benefitsHubLinks** - Has query, types, likely has mocks
-- [ ] **commonAndPopular** - Standalone template component
-- [ ] **contentFooter** - Standalone template component
+- [x] **benefitsHubLinks** - Has query, types, likely has mocks
+- [x] **commonAndPopular** - Standalone template component
+- [x] **contentFooter** - Standalone template component
 - [x] **footer** - Standalone template component
-- [ ] **googleMapsDirections** - Standalone template component
+- [x] **googleMapsDirections** - Standalone template component
 - [x] **header** - Standalone template component (with TopNav sub-component)
-- [ ] **medallia** - Standalone template component
-- [ ] **mediaImage** - Has query, types, likely has mocks (includes customLoader)
-- [ ] **pageLayout** - Standalone template component
-- [ ] **preview** - Standalone template component
-- [ ] **relatedLinks** - Has query, types, likely has mocks
-- [ ] **secondaryButtonGroup** - Standalone template component
+- [x] **medallia** - Standalone template component
+- [x] **mediaImage** - Has query, types, likely has mocks (includes customLoader)
+- [x] **pageLayout** - Standalone template component
+- [x] **preview** - Standalone template component
+- [x] **relatedLinks** - Has query, types, likely has mocks
+- [x] **secondaryButtonGroup** - Standalone template component
 
 _Note: `button`, `featuredContent`, and `phoneNumber` have been moved to Phase 2 as they are part of the paragraph system._
 
@@ -560,11 +561,11 @@ _Note: Paragraph-related queries have been moved to Phase 2. This phase contains
 
 ### 📝 Migration Progress Tracking
 
-**Current Component**: Ready for next migration (benefitsHubLinks component)
+**Current Component**: All Phase 1 components completed, ready for Phase 2
 
-**Status**: 7 components successfully migrated
+**Status**: 17 components successfully migrated
 
-**Last Completed**: meta, util, banner, maintenanceBanner, promoBanner (commits: 9d84ab8c, dbd6bafe, 421d67fe, 6c978688, 5b4d4ced)
+**Last Completed**: commonAndPopular, contentFooter, googleMapsDirections, medallia, mediaImage, pageLayout, preview, relatedLinks, secondaryButtonGroup
 
 **Notes**: This component migration builds on the successful product migration. All products have been moved to `src/components/` (renamed from `src/products/`). Now we need to consolidate the remaining template components and queries into the same unified structure.
 

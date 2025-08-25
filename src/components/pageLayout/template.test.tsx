@@ -1,6 +1,6 @@
 import { render, screen } from 'test-utils'
 import '@testing-library/jest-dom'
-import { PageLayout, formatBannerType } from './index'
+import { PageLayout, formatBannerType } from './template'
 import { PromoBanner } from '@/components/promoBanner/template'
 import { Banner } from '@/components/banner/template'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { GoogleMapsDirections } from './'
+import { GoogleMapsDirections } from './template'
 
 describe('GoogleMapsDirections Component', () => {
   test('renders anchor element with correct href attribute and label', () => {

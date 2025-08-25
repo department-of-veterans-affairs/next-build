@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { PageLayout } from '@/templates/common/pageLayout'
+import { PageLayout } from '@/components/pageLayout/template'
 import { queries } from '@/data/queries'
-import { CommonAndPopular } from '@/templates/common/commonAndPopular'
+import { CommonAndPopular } from '@/components/commonAndPopular/template'
 import Head from 'next/head'
 import Script from 'next/script'
 

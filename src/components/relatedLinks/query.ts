@@ -1,7 +1,7 @@
 import { QueryFormatter } from 'next-drupal-query'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { NodeHealthCareRegionPage } from '@/types/drupal/node'
-import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
+import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 
 export const formatter: QueryFormatter<
   NodeHealthCareRegionPage,

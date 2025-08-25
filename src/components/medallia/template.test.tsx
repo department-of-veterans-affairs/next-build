@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { MedalliaAssets } from './'
+import { MedalliaAssets } from './template'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 
 // Mock Script

@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { ContentFooter } from './'
+import { ContentFooter } from './template'
 
 // Mocked dependencies
-jest.mock('@/templates/common/medallia', () => ({
+jest.mock('@/components/medallia/template', () => ({
   MedalliaAssets: jest.fn().mockReturnValue(null),
 }))
 jest.mock('@/lib/utils/medallia', () => ({

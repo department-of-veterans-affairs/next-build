@@ -23,6 +23,7 @@ const customJestConfig: Config = {
     '^@/mocks/(.*)$': '<rootDir>/src/mocks/$1',
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/templates/(.*)$': '<rootDir>/src/templates/$1',
+    '^@/components/(.*)$': '<rootDir>/src/components/$1',
     '^@/types/(.*)$': '<rootDir>/src/types/$1',
     '^axios$': require.resolve('axios'),
   },

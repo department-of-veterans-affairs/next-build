@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { SecondaryButtonGroup } from './'
+import { SecondaryButtonGroup } from './template'
 import { Button as FormattedButton } from '@/types/formatted/button'
 import { ParagraphComponent } from '@/types/formatted/paragraph'
 

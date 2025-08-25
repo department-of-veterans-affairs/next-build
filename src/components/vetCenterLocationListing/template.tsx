@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from './formatted-type'
-import { ContentFooter } from '@/templates/common/contentFooter'
+import { ContentFooter } from '@/components/contentFooter/template'
 import { VetCenterLocationInfo } from './VetCenterLocationInfo'
 import { FieldAddress } from '@/types/drupal/field_type'
 

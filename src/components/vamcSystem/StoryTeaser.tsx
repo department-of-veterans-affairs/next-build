@@ -1,4 +1,4 @@
-import { MediaImage } from '@/templates/common/mediaImage'
+import { MediaImage } from '@/components/mediaImage/template'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '../newsStory/formatted-type'
 import { TextWithImage } from '@/templates/components/textWithImage'

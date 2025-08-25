@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { CommonAndPopular } from './'
+import { CommonAndPopular } from './template'
 
 describe('CommonAndPopular Component', () => {
   test('renders common and popular links correctly', () => {

@@ -6,9 +6,9 @@ import {
   isEventInPast,
   filterPastEvents,
 } from '@/lib/utils/date'
-import { ContentFooter } from '@/templates/common/contentFooter'
-import { MediaImage } from '@/templates/common/mediaImage'
-import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
+import { ContentFooter } from '@/components/contentFooter/template'
+import { MediaImage } from '@/components/mediaImage/template'
+import { GoogleMapsDirections } from '@/components/googleMapsDirections/template'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { Event as FormattedEvent } from './formatted-type'
 import { SocialLinks } from './SocialLinks'

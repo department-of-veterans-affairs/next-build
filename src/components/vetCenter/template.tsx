@@ -1,6 +1,6 @@
 import { VetCenter as FormattedVetCenter } from './formatted-type'
 import { Hours } from '@/templates/components/hours'
-import { MediaImage } from '@/templates/common/mediaImage'
+import { MediaImage } from '@/components/mediaImage/template'
 import { AlertBlock } from '@/templates/components/alertBlock'
 import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
 import { FeaturedContent } from '@/templates/common/featuredContent'
@@ -9,7 +9,7 @@ import { ExpandableOperatingStatus } from '@/templates/components/expandableOper
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { SchemaScript } from './SchemaScript'
 import { Address } from '../healthCareLocalFacility/Address'
-import { ContentFooter } from '@/templates/common/contentFooter'
+import { ContentFooter } from '@/components/contentFooter/template'
 import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
 import { TextWithImage } from '@/templates/components/textWithImage'
 

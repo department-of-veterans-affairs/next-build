@@ -4,7 +4,7 @@
 
 import { DrupalMediaVideo } from '@/types/drupal/media'
 import { queries } from '@/data/queries/'
-import mockData from '@/mocks/mediaImage.mock.json'
+import mockData from '@/components/mediaImage/mock.json'
 
 //eslint-disable-next-line
 const mediaVideoMock: DrupalMediaVideo | any = mockData

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { fireEvent } from '@testing-library/dom'
-import { RelatedLinks } from '.'
-import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
+import { RelatedLinks } from './template'
+import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 
 // Mock recordEvent

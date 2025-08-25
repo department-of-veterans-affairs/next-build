@@ -15,8 +15,8 @@ import {
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
-import { formatter as formatImage } from '@/data/queries/mediaImage'
-import { formatter as formatRelatedLinks } from '@/data/queries/relatedLinks'
+import { formatter as formatImage } from '@/components/mediaImage/query'
+import { formatter as formatRelatedLinks } from '@/components/relatedLinks/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'

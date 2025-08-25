@@ -1,4 +1,4 @@
-import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
+import { GoogleMapsDirections } from '@/components/googleMapsDirections/template'
 import { FieldAddress } from '@/types/drupal/field_type'
 
 export const Address = ({

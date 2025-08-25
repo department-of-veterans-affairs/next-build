@@ -3,7 +3,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeNewsStory } from '@/types/drupal/node'
 import { NewsStoryTeaser } from '../../components/newsStory/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
-import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatImage } from '@/components/mediaImage/query'
 
 // Define the query params for fetching node--news_story.
 export const params: QueryParams<null> = () => {

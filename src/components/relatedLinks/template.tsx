@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash'
-import { FormattedRelatedLinks } from '@/types/formatted/relatedLinks'
+import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 
 export const RelatedLinks = ({

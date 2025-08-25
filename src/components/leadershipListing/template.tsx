@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { LeadershipListing as FormattedLeadershipListing } from './formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { ContentFooter } from '@/templates/common/contentFooter'
+import { ContentFooter } from '@/components/contentFooter/template'
 import { StaffProfileTeaser } from '@/templates/components/staffProfileTeaser'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'

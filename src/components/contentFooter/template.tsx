@@ -1,5 +1,5 @@
 import React from 'react'
-import { MedalliaAssets } from '@/templates/common/medallia'
+import { MedalliaAssets } from '@/components/medallia/template'
 import { getSurveyNumber, showForm } from '@/lib/utils/medallia'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 import { format } from 'date-fns'

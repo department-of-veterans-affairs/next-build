@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { PreviewCrumb, UnpublishedBanner } from './index'
+import { PreviewCrumb, UnpublishedBanner } from './template'
 
 const resource = {
   published: false,
