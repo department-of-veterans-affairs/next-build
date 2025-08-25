@@ -2,7 +2,7 @@ import {
   CollapsiblePanel as FormattedCollapsiblePanel,
   CollapsiblePanelItem as FormattedCollapsiblePanelItem,
 } from '@/types/formatted/collapsiblePanel'
-import { HeadingElement } from '@/templates/common/heading'
+import { HeadingElement } from '@/components/heading/template'
 import { WysiwygField } from '@/templates/components/wysiwyg'
 import { Paragraph } from '@/templates/components/paragraph'
 import { escape } from '@/lib/utils/helpers'

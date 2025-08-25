@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { HeadingElement } from './'
+import { HeadingElement } from './template'
 
 describe('<HeadingElement />', () => {
   test.each`
