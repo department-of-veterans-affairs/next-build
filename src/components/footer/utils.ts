@@ -1,7 +1,7 @@
-import { convertLinkToAbsolute, formatHeaderData } from '@/lib/utils/header'
-import { FOOTER_LINKS } from '../constants/footer-links'
-import { RawHeaderFooterData } from '@/data/queries/headerFooter'
-import { FooterLink, HeaderFooterData } from '@/types/formatted/headerFooter'
+import { convertLinkToAbsolute } from '@/lib/utils/header'
+import { FOOTER_LINKS } from '@/lib/constants/footer-links'
+import { FooterLink } from './formatted-type'
+import { RawFooterData } from './query'
 
 // Helper functions to format footer menu items
 const formatLink = (link, linkIndex, columnId, hostUrl): FooterLink => {
@@ -28,13 +28,11 @@ const formatFooterColumns = (data, hostUrl): FooterLink[] => {
   return columns.flat()
 }
 
-// This function assembles the header and footer data from drupal menus into the shape vets-website component expects
-// see @content-build/src/site/stages/build/plugins/create-header-footer.js
-export const buildHeaderFooterData = ({
+// This function assembles footer data from drupal menus into the shape vets-website component expects
+export const buildFooterData = ({
   footerBottomRail,
   footerColumns,
-  headerMegaMenu,
-}: RawHeaderFooterData): HeaderFooterData => {
+}: RawFooterData): FooterLink[] => {
   // Use the SITE_URL with a fallback in the event it is missing.
   const hostUrl = 'https://www.va.gov/'
 
@@ -49,12 +47,5 @@ export const buildHeaderFooterData = ({
     ...FOOTER_LINKS,
   ]
 
-  // Assemble header megamenu data from Drupal
-  const megaMenuData = formatHeaderData(headerMegaMenu, hostUrl)
-
-  // Data shaped into what front-end widgets expect
-  return {
-    footerData,
-    megaMenuData,
-  }
+  return footerData
 }

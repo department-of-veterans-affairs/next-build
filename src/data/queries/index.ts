@@ -17,7 +17,8 @@ import * as EventListing from '../../components/eventListing/query'
 import * as EventTeaser from '@/data/queries/eventTeaser'
 import * as ExpandableText from '@/data/queries/expandableText'
 import * as FeaturedContent from '@/data/queries/featuredContent'
-import * as HeaderFooter from '@/data/queries/headerFooter'
+import * as Footer from '@/components/footer/query'
+import * as Header from '@/components/header/query'
 import * as HealthCareLocalFacility from '../../components/healthCareLocalFacility/query'
 import * as LinkTeaser from '@/data/queries/linkTeaser'
 import * as LocationsListing from '../../components/locationsListing/query'
@@ -128,7 +129,8 @@ export const QUERIES_MAP = {
 
   // Custom queries
   'banner-data': Banners,
-  'header-footer-data': HeaderFooter,
+  'header-data': Header,
+  'footer-data': Footer,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,

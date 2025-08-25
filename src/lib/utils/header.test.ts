@@ -153,6 +153,8 @@ it('creates columns with titles and links correctly', () => {
   const result = makeColumns(hostUrl, linkData, arrayDepth, null)
   expect(result).toHaveProperty('mainColumn')
   expect(result.mainColumn.title).toBe('Main Column')
-  //@ts-expect-error for testing
-  expect(result.mainColumn.links.length).toBeGreaterThan(0)
+
+  expect(result.mainColumn.links).toBeDefined()
+  expect(Array.isArray(result.mainColumn.links)).toBe(true)
+  expect((result.mainColumn.links as unknown[]).length).toBeGreaterThan(0)
 })

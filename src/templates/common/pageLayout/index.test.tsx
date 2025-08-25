@@ -17,7 +17,7 @@ const banners = [
     type: 'banner',
   },
 ]
-const props = { bannerData: [], headerFooterData: {} }
+const props = { bannerData: [], footerData: [], megaMenuData: [] }
 
 describe('<PageLayout> renders', () => {
   test('body', () => {

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { Header } from './'
+import { Header } from './template'
 
 describe('Header Component', () => {
   test('renders TopNav component within the Header', () => {
