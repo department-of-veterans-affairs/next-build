@@ -2,6 +2,10 @@
 
 exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
 {
+  "administration": {
+    "entityId": null,
+    "name": null,
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -132,8 +136,10 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "published",
+  "path": "/north-texas-health-care/health-services",
   "published": true,
   "title": "Health services",
   "type": "node--health_services_listing",
+  "vamcEhrSystem": null,
 }
 `;

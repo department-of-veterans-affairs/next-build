@@ -1,12 +1,19 @@
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from './formatted-type'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { FacilityTopTasks } from '@/templates/components/topTasks'
 
 export function VamcHealthServicesListing({
   title,
   introText,
   lovellVariant,
   lovellSwitchPath,
+  path,
+  administration,
+  vamcEhrSystem,
 }: FormattedVamcHealthServicesListing) {
+  // Extract the region base path from the full path (same as healthCareLocalFacility)
+  const regionBasePath = path ? path.split('/')[1] : ''
+
   return (
     <main className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
@@ -31,6 +38,17 @@ export function VamcHealthServicesListing({
             <div className="va-introtext">
               {introText && <p id="office-events-description">{introText}</p>}
             </div>
+
+            {/* Top Task links */}
+            {path && (
+              <div>
+                <FacilityTopTasks
+                  path={regionBasePath}
+                  administration={administration}
+                  vamcEhrSystem={vamcEhrSystem}
+                />
+              </div>
+            )}
 
             <div className="usa-grid usa-grid-full vads-u-margin-top--0p5 vads-u-margin-bottom--4">
               <div className="usa-grid usa-grid-full vads-u-margin-y--0 vads-u-margin-bottom--0">

@@ -3,8 +3,9 @@
  */
 
 import { NodeVamcHealthServicesListing } from '@/types/drupal/node'
+import { formatter } from './query'
 import { queries } from '@/data/queries'
-import mockData from '@/components/vamcHealthServicesListing/mock.json'
+import mockData from './mock.json'
 
 const VamcHealthServicesListingMock: NodeVamcHealthServicesListing = mockData[0]
 
@@ -45,5 +46,12 @@ describe('VamcHealthServicesListing formatData', () => {
     )
 
     expect(result.introText).toBe('')
+  })
+
+  test('includes path, administration, and vamcEhrSystem fields', () => {
+    const result = formatter({ entity: VamcHealthServicesListingMock })
+    expect(result.path).toBeDefined()
+    expect(result.administration).toBeDefined()
+    expect(result.vamcEhrSystem).toBeDefined()
   })
 })
