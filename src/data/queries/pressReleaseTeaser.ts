@@ -1,7 +1,7 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePressRelease } from '@/types/drupal/node'
-import { PressReleaseTeaser } from '@/products/pressRelease/formatted-type'
+import { PressReleaseTeaser } from '../../components/pressRelease/formatted-type'
 
 // Define the query params for fetching node--press_release_teaser.
 export const params: QueryParams<null> = () => {

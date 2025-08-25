@@ -1,5 +1,5 @@
 import { recordEvent } from '@/lib/analytics/recordEvent'
-import { StoryListingLink as FormattedStoryListingLink } from '@/products/storyListing/formatted-type'
+import { StoryListingLink as FormattedStoryListingLink } from '../../../components/storyListing/formatted-type'
 
 export const StoryListingLink = ({ path }: FormattedStoryListingLink) => {
   return (

@@ -7,7 +7,7 @@ import {
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { BlockPromo } from '@/types/drupal/block'
-import { MegaMenuPromoColumn } from '@/types/formatted/headerFooter'
+import { MegaMenuPromoColumn } from '@/components/header/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching block_content--promo.

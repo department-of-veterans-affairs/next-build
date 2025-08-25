@@ -2,9 +2,9 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { EventTeaser } from './index'
-import { EventWidgetTeaser } from '@/products/event/formatted-type'
+import { EventWidgetTeaser } from '../../../components/event/formatted-type'
 import { formatter } from '@/data/queries/eventTeaser'
-import mockEventData from '@/products/event/mock.json'
+import mockEventData from '@/components/event/mock.json'
 import { NodeEvent } from '@/types/drupal/node'
 
 // Format the mock data using the real formatter
