@@ -20,7 +20,7 @@
     "redis:cli": "docker exec -it next-redis redis-cli",
     "redis:stop": "docker stop next-redis && docker rm next-redis",
     "format": "prettier --write .",
-    "lint": "next lint",
+    "lint": "eslint ./src",
     "plop": "plop",
     "postinstall": "yarn certs && husky install",
     "lighthouse": "npx run ./lighthouse/lighthouse.js ",
@@ -90,6 +90,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.8.2",
+    "@eslint/eslintrc": "^3",
     "@faker-js/faker": "^9.7.0",
     "@next/env": "15.5.0",
     "@playwright/test": "^1.46.1",
