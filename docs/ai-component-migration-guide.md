@@ -294,96 +294,7 @@ The manual migration process involves these key actions:
 
 ## Migration Task List
 
-### 🔄 Pending Migration
-
-#### Template Components (with potential queries/types/mocks)
-
-##### From `src/templates/components/`
-
-- [ ] **accordion** - Has query, types, likely has mocks
-- [ ] **alert** - Has query, types, likely has mocks
-- [ ] **alertBlock** - Has query, types, likely has mocks
-- [ ] **alertNonReusable** - Has query, types, likely has mocks
-- [ ] **alertSingle** - Has query, types, likely has mocks
-- [ ] **audienceTopics** - Has query, types, likely has mocks
-- [ ] **collapsiblePanel** - Has query, types, likely has mocks
-- [ ] **contactInfo** - Has query, types, likely has mocks
-- [ ] **eventTeaser** - Has query, types, likely has mocks
-- [ ] **expandableOperatingStatus** - Standalone template component
-- [ ] **expandableText** - Has query, types, likely has mocks
-- [ ] **facilityListing** - Standalone template component
-- [ ] **getUpdatesSection** - Standalone template component
-- [ ] **hours** - Standalone template component (with HoursItem sub-component)
-- [ ] **linkTeaser** - Has query, types, likely has mocks
-- [ ] **lovellSwitcher** - Standalone template component
-- [ ] **newsStoryTeaser** - Has query, types, likely has mocks
-- [ ] **numberCallout** - Has query, types, likely has mocks
-- [ ] **paragraph** - Standalone template component
-- [ ] **prepareForVisitAccordions** - Standalone template component
-- [ ] **pressReleaseTeaser** - Has query, types, likely has mocks
-- [ ] **processList** - Has query, types, likely has mocks
-- [ ] **qaCollapsiblePanel** - Standalone template component
-- [ ] **qaParagraph** - Has query, types, likely has mocks
-- [ ] **qaSection** - Has query, types, likely has mocks
-- [ ] **rateYourExperience** - Standalone template component
-- [ ] **reactWidget** - Has query, types, likely has mocks
-- [ ] **serviceLocation** - Standalone template component (with ServiceAddress sub-component)
-- [ ] **staffNewsProfile** - Standalone template component
-- [ ] **staffProfileSideBarNav** - Standalone template component
-- [ ] **staffProfileTeaser** - Standalone template component
-- [ ] **storyListingLink** - Standalone template component
-- [ ] **table** - Has query, types, likely has mocks
-- [ ] **textWithImage** - Standalone template component
-- [ ] **topTasks** - Standalone template component
-- [ ] **vamcSystemSocialLinks** - Standalone template component
-- [ ] **vetCenterAddressPhoneImage** - Standalone template component
-- [ ] **vetCenterHealthServices** - Has query, types, likely has mocks
-- [ ] **vetCenterHealthServicesList** - Standalone template component
-- [ ] **wysiwyg** - Has query, types, likely has mocks
-
-##### From `src/templates/common/`
-
-- [ ] **banner** - Sub-component of banners, has query
-- [ ] **maintenanceBanner** - Sub-component of banners
-- [ ] **promoBanner** - Sub-component of banners
-- [ ] **benefitsHubLinks** - Has query, types, likely has mocks
-- [ ] **breadcrumbs** - Standalone template component
-- [ ] **button** - Has query, types, likely has mocks
-- [ ] **commonAndPopular** - Standalone template component
-- [ ] **contentFooter** - Standalone template component
-- [ ] **featuredContent** - Has query, types, likely has mocks
-- [ ] **footer** - Standalone template component
-- [ ] **googleMapsDirections** - Standalone template component
-- [ ] **header** - Standalone template component (with TopNav sub-component)
-- [ ] **heading** - Standalone template component
-- [ ] **medallia** - Standalone template component
-- [ ] **mediaImage** - Has query, types, likely has mocks (includes customLoader)
-- [ ] **meta** - Standalone template component
-- [ ] **pageLayout** - Standalone template component
-- [ ] **phoneNumber** - Has query, types, likely has mocks
-- [ ] **preview** - Standalone template component
-- [ ] **relatedLinks** - Has query, types, likely has mocks
-- [ ] **secondaryButtonGroup** - Standalone template component
-- [ ] **util** (HTMLComment) - Standalone utility component
-
-#### Standalone Queries (without current templates)
-
-- [ ] **administration** - Query-only module
-- [ ] **banners** - Has query but banner components are in common/
-- [ ] **collapsiblePanelItem** - Has query, may need template creation
-- [ ] **emailContact** - Has query, may need template creation
-- [ ] **headerFooter** - Special query for header/footer data
-- [ ] **mediaDocument** - Has query, may need template creation
-- [ ] **mediaVideo** - Has query, may need template creation
-- [ ] **promoBlock** - Has query, may need template creation
-- [ ] **qaGroup** - Has query, may need template creation
-- [ ] **staticPathResources** - Special static path generation query
-- [ ] **supportServices** - Has query, may need template creation
-- [ ] **vamcEhr** - Has query, may need template creation
-
-#### Priority Order Recommendation
-
-**Phase 1: Common Template Components (from `src/templates/common/`)**
+### Phase 1: Common Template Components (from `src/templates/common/`)
 
 - [x] **breadcrumbs** - Common reusable component
 - [x] **heading** - Common reusable component
@@ -408,13 +319,13 @@ The manual migration process involves these key actions:
 - [ ] **relatedLinks** - Has query, types, likely has mocks
 - [ ] **secondaryButtonGroup** - Standalone template component
 
-**Phase 2: Paragraph System Components**
+## Phase 2: Paragraph System Components
 
 This phase handles the complex Drupal paragraph system which includes many subtypes, queries, formatters, and templates. The paragraph system is foundational to how content is structured in Drupal.
 
 _Note: This phase will require careful coordination as paragraphs have complex interdependencies and formatting logic._
 
-**Phase 3: Template Components (from `src/templates/components/`)**
+## Phase 3: Template Components (from `src/templates/components/`)
 
 - [ ] **accordion** - Has query, types, likely has mocks
 - [ ] **alert** - Has query, types, likely has mocks
@@ -456,7 +367,7 @@ _Note: This phase will require careful coordination as paragraphs have complex i
 - [ ] **vetCenterHealthServicesList** - Standalone template component
 - [ ] **wysiwyg** - Has query, types, likely has mocks
 
-**Phase 4: Standalone Queries**
+## Phase 4: Standalone Queries
 
 - [ ] **administration** - Query-only module
 - [ ] **banners** - Has query but banner components are in common/
@@ -477,12 +388,7 @@ _Note: This phase will require careful coordination as paragraphs have complex i
 
 **Status**: 2 components successfully migrated
 
-**Last Completed**: heading (commit: 29c45743)
-
-**Completed Migrations:**
-
-1. ✅ **breadcrumbs** (commit: b5ecd979) - Simple template component
-2. ✅ **heading** (commit: 29c45743) - Template component with formatted types
+**Last Completed**: header and footer (commit: 666dff982062812e116ecc9e2d12b6109d607402)
 
 **Notes**: This component migration builds on the successful product migration. All products have been moved to `src/components/` (renamed from `src/products/`). Now we need to consolidate the remaining template components and queries into the same unified structure.
 
