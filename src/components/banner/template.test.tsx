@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Banner } from './'
+import { Banner } from './template'
 
 const getMockBannerData = () => ({
   id: 'ccd9d30f-78f9-4358-80d7-191f99b18d43',

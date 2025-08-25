@@ -1,6 +1,6 @@
 import { QueryData, QueryFormatter } from 'next-drupal-query'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { BannersData } from '@/types/formatted/banners'
+import { BannersData } from './formatted-type'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 
 export type BannerDataOpts = {

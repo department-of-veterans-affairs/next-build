@@ -3,9 +3,9 @@
  */
 
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/banners.mock.json'
+import mockData from './mock.json'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { data } from '../banners'
+import { data } from './query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 
 const nodeBannerMock = mockData
