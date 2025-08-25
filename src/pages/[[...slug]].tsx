@@ -60,7 +60,7 @@ import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '.
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '../components/vamcHealthServicesListing/formatted-type'
 import { VbaFacility as FormattedVbaFacility } from '../components/vbaFacility/formatted-type'
 // Templates
-import HTMLComment from '@/components/util/template'
+import HTMLComment from '@/components/htmlComment/template'
 import { Event } from '../components/event/template'
 import { EventListing } from '../components/eventListing/template'
 import { LocationsListing } from '../components/locationsListing/template'
