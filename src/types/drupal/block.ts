@@ -55,7 +55,7 @@ export interface BlockContentMetaInfo {
   /** Identifier for a Drupal data object. These are of the form `entity_type--entity_bundle`, for example `block_content--alert`. */
   resource: string
   /** The component responsible for rendering or delegating rendering this data object. */
-  component: ({ blockContent, ...props }: BlockContentProps) => JSX.Element
+  component: ({ blockContent, ...props }: BlockContentProps) => React.JSX.Element
   /** A DrupalJsonApiParams object containing information necessary for the API query for this data object. */
   params?: DrupalJsonApiParams
 }
@@ -66,7 +66,7 @@ export interface BlockContentMetaOut {
     component: ({
       blockContent,
       componentParams,
-    }: BlockContentProps) => JSX.Element
+    }: BlockContentProps) => React.JSX.Element
     params?: DrupalJsonApiParams
   }
 }

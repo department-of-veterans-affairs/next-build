@@ -5,7 +5,7 @@ import { recordEvent } from '@/lib/analytics/recordEvent'
 export const RelatedLinks = ({
   links,
   sectionTitle,
-}: FormattedRelatedLinks): JSX.Element => {
+}: FormattedRelatedLinks): React.JSX.Element => {
   if (isEmpty(links)) {
     return null
   }

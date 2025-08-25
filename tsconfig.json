@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -13,24 +17,52 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
-    "typeRoots": ["node_modules/@types"],
-    "types": ["node", "jest"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "jest"
+    ],
     "paths": {
-      "@/datadogConnector/*": ["./src/datadogConnector/*"],
-      "@/assets/*": ["./src/assets/*"],
-      "@/api/*": ["./src/pages/api/*"],
-      "@/data/*": ["./src/data/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/lib/*": ["./src/lib/*"],
-      "@/mocks/*": ["./src/mocks/*"],
-      "@/pages/*": ["./src/pages/*"],
-      "@/templates/*": ["./src/templates/*"],
-      "@/types/*": ["./src/types/*"],
-      "@/products/*": ["./src/products/*"],
-      "@/playwright/*": ["./playwright/*"],
-      "react": ["./node_modules/@types/react"]
+      "@/datadogConnector/*": [
+        "./src/datadogConnector/*"
+      ],
+      "@/assets/*": [
+        "./src/assets/*"
+      ],
+      "@/api/*": [
+        "./src/pages/api/*"
+      ],
+      "@/data/*": [
+        "./src/data/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/lib/*": [
+        "./src/lib/*"
+      ],
+      "@/mocks/*": [
+        "./src/mocks/*"
+      ],
+      "@/pages/*": [
+        "./src/pages/*"
+      ],
+      "@/templates/*": [
+        "./src/templates/*"
+      ],
+      "@/types/*": [
+        "./src/types/*"
+      ],
+      "@/products/*": [
+        "./src/products/*"
+      ],
+      "@/playwright/*": [
+        "./playwright/*"
+      ]
     }
   },
   "include": [
@@ -44,5 +76,10 @@
     "example_tests/*",
     "playwright/**/*"
   ],
-  "exclude": ["node_modules", "src/__tests__", "public/generated"]
+  "exclude": [
+    "node_modules",
+    "src/__tests__",
+    "public/generated",
+    "**/node_modules/@department-of-veterans-affairs/component-library/**"
+  ]
 }

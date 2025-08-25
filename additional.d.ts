@@ -20,22 +20,22 @@ declare module 'mq-polyfill'
 declare module 'nock'
 declare module 'test-utils'
 
-declare namespace JSX {
+declare namespace React.JSX {
   interface IntrinsicElements {
-    'va-accordion'
-    'va-accordion-item'
-    'va-additional-info'
-    'va-alert'
-    'va-alert-expandable'
-    'va-back-to-top'
-    'va-breadcrumbs'
-    'va-button'
-    'va-card'
-    'va-icon'
-    'va-link'
-    'va-link-action'
-    'va-on-this-page'
-    'va-summary-box'
-    'va-telephone'
+    'va-accordion': any
+    'va-accordion-item': any
+    'va-additional-info': any
+    'va-alert': any
+    'va-alert-expandable': any
+    'va-back-to-top': any
+    'va-breadcrumbs': any
+    'va-button': any
+    'va-card': any
+    'va-icon': any
+    'va-link': any
+    'va-link-action': any
+    'va-on-this-page': any
+    'va-summary-box': any
+    'va-telephone': any
   }
 }

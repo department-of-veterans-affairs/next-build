@@ -5,7 +5,7 @@ import { Administration } from '@/types/formatted/administration'
 import { PressContact } from '@/types/formatted/contactInfo'
 
 export type PressReleaseTeaser = PublishedEntity & {
-  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
+  headingLevel?: ComponentType | keyof React.JSX.IntrinsicElements
   link: string
   introText: string
   releaseDate: string
