@@ -30,8 +30,9 @@
       "@/types/*": ["./src/types/*"],
       "@/products/*": ["./src/products/*"],
       "@/playwright/*": ["./playwright/*"],
+      // Import the JS instead of the TS to avoid React 19 compatibility issues
       "@department-of-veterans-affairs/component-library/dist/react-bindings": [
-        "./src/types/va-component-library-stub"
+        "./node_modules/@department-of-veterans-affairs/component-library/dist/react-bindings/index.js"
       ]
     }
   },
