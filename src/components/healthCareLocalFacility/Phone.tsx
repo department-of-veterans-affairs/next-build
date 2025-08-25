@@ -1,4 +1,4 @@
-import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { PhoneNumber } from '@/components/phoneNumber/template'
 import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 
 export interface PhoneProps {

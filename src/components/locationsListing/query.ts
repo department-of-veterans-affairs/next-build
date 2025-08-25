@@ -17,7 +17,7 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { formatter as formatAdministration } from '@/data/queries/administration'
 import { formatter as formatImage } from '@/components/mediaImage/query'
-import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+import { formatter as formatPhone } from '@/components/phoneNumber/query'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '@/data/queries'
 import {

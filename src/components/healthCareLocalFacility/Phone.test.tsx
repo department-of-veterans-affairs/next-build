@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Phone } from './Phone'
-import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+import { formatter as formatPhone } from '@/components/phoneNumber/query'
 
 describe('Phone', () => {
   it('renders nothing when no props are provided', () => {

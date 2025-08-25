@@ -1,5 +1,5 @@
 import { ServiceAddress } from './ServiceAddress'
-import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { PhoneNumber } from '@/components/phoneNumber/template'
 import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
 import { Hours } from '@/templates/components/hours'
 import { VamcFacilityServiceLocation } from '../../../components/healthCareLocalFacility/formatted-type'

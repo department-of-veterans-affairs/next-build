@@ -1,12 +1,12 @@
 import { ResourcesSupport as FormattedResourcesSupport } from './formatted-type'
 import { ContentFooter } from '@/components/contentFooter/template'
-import AlertSingle from '@/templates/components/alertSingle'
+import AlertSingle from '@/components/alertSingle/template'
 import { Button as FormattedButton } from '@/types/formatted/button'
-import { Paragraph } from '@/templates/components/paragraph'
-import { AudienceTopics } from '@/templates/components/audienceTopics'
-import { Button } from '@/templates/common/button'
+import { Paragraph } from '@/components/paragraph/template'
+import { AudienceTopics } from '@/components/audienceTopics/template'
+import { Button } from '@/components/button/template'
 import { BenefitsHubLinks } from '@/components/benefitsHubLinks/template'
-import { ContactInfo } from '@/templates/components/contactInfo'
+import { ContactInfo } from '@/components/contactInfo/template'
 import { RateYourExperience } from '@/templates/components/rateYourExperience'
 
 const Buttons = ({

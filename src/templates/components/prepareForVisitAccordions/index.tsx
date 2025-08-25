@@ -1,4 +1,4 @@
-import { Accordion } from '@/templates/components/accordion'
+import { Accordion } from '@/components/accordion/template'
 import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
 
 type PrepareForVisitAccordions = {

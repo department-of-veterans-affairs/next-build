@@ -1,4 +1,4 @@
-import { Paragraph } from '@/templates/components/paragraph'
+import { Paragraph } from '@/components/paragraph/template'
 
 export const QaCollapsiblePanel = ({ questions }) => {
   return (

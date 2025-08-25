@@ -6,7 +6,7 @@ import {
   MobileVetCenterLocationInfo,
 } from './formatted-type'
 import { Address } from '../healthCareLocalFacility/Address'
-import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { PhoneNumber } from '@/components/phoneNumber/template'
 import { Hours } from '@/templates/components/hours'
 import { MediaImage } from '@/components/mediaImage/template'
 import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
