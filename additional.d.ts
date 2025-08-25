@@ -19,5 +19,3 @@ declare module 'debug'
 declare module 'mq-polyfill'
 declare module 'nock'
 declare module 'test-utils'
-
-
