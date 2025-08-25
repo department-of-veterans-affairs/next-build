@@ -29,7 +29,10 @@
       "@/templates/*": ["./src/templates/*"],
       "@/types/*": ["./src/types/*"],
       "@/products/*": ["./src/products/*"],
-      "@/playwright/*": ["./playwright/*"]
+      "@/playwright/*": ["./playwright/*"],
+      "@department-of-veterans-affairs/component-library/dist/react-bindings": [
+        "./src/types/va-component-library-stub"
+      ]
     }
   },
   "include": [
