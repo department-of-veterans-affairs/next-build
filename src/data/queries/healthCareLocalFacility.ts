@@ -24,6 +24,7 @@ import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from './administration'
 import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
+import { getVamcSystemSocialLinks } from './vamcSystem'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 
@@ -151,20 +152,7 @@ export const formatter: QueryFormatter<
       title: service.field_title,
       wysiwigContents: getHtmlFromField(service.field_wysiwyg),
     })),
-    socialLinks: {
-      regionNickname: entity.field_region_page.title,
-      fieldGovdeliveryIdEmerg:
-        entity.field_region_page.field_govdelivery_id_emerg ?? null,
-      fieldGovdeliveryIdNews:
-        entity.field_region_page.field_govdelivery_id_news ?? null,
-      fieldOperatingStatus:
-        entity.field_region_page.field_operating_status ?? null,
-      fieldFacebook: entity.field_region_page.field_facebook ?? null,
-      fieldTwitter: entity.field_region_page.field_twitter ?? null,
-      fieldFlickr: entity.field_region_page.field_flickr ?? null,
-      fieldInstagram: entity.field_region_page.field_instagram ?? null,
-      fieldYoutube: entity.field_region_page.field_youtube ?? null,
-    },
+    socialLinks: getVamcSystemSocialLinks(entity.field_region_page),
     lovellVariant: lovell?.variant,
     lovellSwitchPath:
       entity.field_main_location && lovell?.variant
