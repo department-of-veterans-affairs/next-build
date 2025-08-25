@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import HTMLComment from './HTMLComment'
+import HTMLComment from './template'
 
 describe('HTMLComment Component', () => {
   test('renders comment in head position', () => {
