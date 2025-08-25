@@ -1,5 +1,5 @@
 import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
-import { QaCollapsiblePanel } from '@/templates/components/qaCollapsiblePanel'
+import { QaCollapsiblePanel } from '@/components/qaSection/QaCollapsiblePanel'
 import { QaGroup as FormattedQaGroup } from '@/types/formatted/qaGroup'
 import { Paragraph } from '@/components/paragraph/template'
 import { FormattedParagraph } from '@/data/queries'

@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
-import { QaCollapsiblePanel } from './index'
+import { render } from '@testing-library/react'
+import { QaCollapsiblePanel } from './QaCollapsiblePanel'
 const questionsData = [
   {
     id: '1111-1111-1111',
