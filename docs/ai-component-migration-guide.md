@@ -304,83 +304,249 @@ The manual migration process involves these key actions:
 - [ ] **maintenanceBanner** - Sub-component of banners
 - [ ] **promoBanner** - Sub-component of banners
 - [ ] **benefitsHubLinks** - Has query, types, likely has mocks
-- [ ] **button** - Has query, types, likely has mocks
 - [ ] **commonAndPopular** - Standalone template component
 - [ ] **contentFooter** - Standalone template component
-- [ ] **featuredContent** - Has query, types, likely has mocks
 - [x] **footer** - Standalone template component
 - [ ] **googleMapsDirections** - Standalone template component
 - [x] **header** - Standalone template component (with TopNav sub-component)
 - [ ] **medallia** - Standalone template component
 - [ ] **mediaImage** - Has query, types, likely has mocks (includes customLoader)
 - [ ] **pageLayout** - Standalone template component
-- [ ] **phoneNumber** - Has query, types, likely has mocks
 - [ ] **preview** - Standalone template component
 - [ ] **relatedLinks** - Has query, types, likely has mocks
 - [ ] **secondaryButtonGroup** - Standalone template component
 
+_Note: `button`, `featuredContent`, and `phoneNumber` have been moved to Phase 2 as they are part of the paragraph system._
+
 ## Phase 2: Paragraph System Components
 
-This phase handles the complex Drupal paragraph system which includes many subtypes, queries, formatters, and templates. The paragraph system is foundational to how content is structured in Drupal.
+This phase handles the complex Drupal paragraph system which includes many subtypes, queries, formatters, and templates. The paragraph system is foundational to how content is structured in Drupal. These components all extend `DrupalParagraph` or `PublishedParagraph` and work together through the central `Paragraph` component.
 
 _Note: This phase will require careful coordination as paragraphs have complex interdependencies and formatting logic._
 
-## Phase 3: Template Components (from `src/templates/components/`)
+### Core Paragraph Infrastructure
 
-- [ ] **accordion** - Has query, types, likely has mocks
-- [ ] **alert** - Has query, types, likely has mocks
-- [ ] **alertBlock** - Has query, types, likely has mocks
-- [ ] **alertNonReusable** - Has query, types, likely has mocks
-- [ ] **alertSingle** - Has query, types, likely has mocks
-- [ ] **audienceTopics** - Has query, types, likely has mocks
-- [ ] **collapsiblePanel** - Has query, types, likely has mocks
-- [ ] **contactInfo** - Has query, types, likely has mocks
+- [ ] **paragraph** - Central paragraph component router/dispatcher (in `src/templates/components/paragraph/`)
+  - _Critical component that routes all paragraph types to their specific implementations_
+  - _Has complex imports from both common and component templates_
+  - _Must be migrated after all individual paragraph components_
+
+### Paragraph Components from Templates (`src/templates/components/`)
+
+#### Alert System Components
+
+- [ ] **alert** - Has query, types, mocks, template
+  - _Base alert paragraph with reusable alert blocks and embedded paragraphs_
+  - _Complex: Contains nested paragraphs (ExpandableText, Wysiwyg)_
+- [ ] **alertSingle** - Has query, types, mocks, template
+  - _Single alert instance with non-reusable alert reference_
+- [ ] **alertNonReusable** - Has query, types, mocks, template
+  - _Non-reusable alert paragraphs with embedded content_
+- [ ] **alertBlock** - Has query, types, mocks, template
+  - _Block-level alert components_
+
+#### Interactive Content Components
+
+- [ ] **accordion** - Has query, types, mocks, template
+  - _Collapsible accordion items with header and rich content_
+- [ ] **collapsiblePanel** - Has query, types, mocks, template
+  - _Complex: Contains nested CollapsiblePanelItem paragraphs_
+  - _Has bordered, expandable, and multi-panel configurations_
+- [ ] **expandableText** - Has query, types, mocks, template
+  - _Text content with expand/collapse functionality_
+
+#### Content Display Components
+
+- [ ] **wysiwyg** - Has query, types, mocks, template
+  - _Rich text content with WYSIWYG formatting_
+  - _Handles both standard and character-limited (1000) variants_
+- [ ] **table** - Has query, types, mocks, template
+  - _Structured table data display_
+- [ ] **numberCallout** - Has query, types, mocks, template
+  - _Highlighted numeric content with descriptive text_
+- [ ] **linkTeaser** - Has query, types, mocks, template
+  - _Link preview with summary content_
+- [ ] **processList** - Has query, types, mocks, template
+  - _Step-by-step process instructions_
+
+#### Interactive Elements
+
+- [ ] **reactWidget** - Has query, types, mocks, template
+  - _Dynamic React widgets with CTA, error handling, and loading states_
+  - _Configurable timeout and widget type selection_
+
+#### Q&A System Components
+
+- [ ] **qaSection** - Has query, types, mocks, template
+  - _Section-based Q&A with accordion display options_
+  - _Complex: Contains nested FormattedParagraph arrays for questions_
+- [ ] **qaParagraph** - Has query, types, mocks, template
+  - _Individual Q&A pairs with formatted answers_
+  - _Complex: Contains nested FormattedParagraph arrays for answers_
+
+#### Audience & Topic Components
+
+- [ ] **audienceTopics** - Has query, types, mocks, template
+  - _Audience targeting with beneficiaries and topic selection_
+  - _Supports both beneficiaries and non-beneficiaries taxonomy terms_
+
+#### Contact & Communication
+
+- [ ] **contactInfo** - Has query, types, mocks, template
+  - _Contact information with multiple contact types_
+  - _Complex: Supports phone, email, benefit hub, and support service contacts_
+
+### Paragraph Components from Common Templates (`src/templates/common/`)
+
+- [ ] **button** - Has query, types, mocks, template (from common)
+  - _Standard button components with label and link configuration_
+  - _Note: This overlaps with Phase 1 but is part of paragraph system_
+- [ ] **featuredContent** - Has query, types, mocks, template (from common)
+  - _Featured content sections with optional CTA buttons_
+  - _Note: This overlaps with Phase 1 but is part of paragraph system_
+- [ ] **phoneNumber** - Has query, types, mocks, template (from common)
+  - _Phone number display with extension, label, and type (SMS, TTY, FAX)_
+  - _Note: This overlaps with Phase 1 but is part of paragraph system_
+
+### Query-Only Paragraph Components
+
+- [ ] **collapsiblePanelItem** - Has query, types, mocks (no template - used within collapsiblePanel)
+  - _Individual items within collapsible panels_
+  - _Contains title, wysiwyg content, and nested table paragraphs_
+- [ ] **emailContact** - Has query, types, mocks (no standalone template - used within contactInfo)
+  - _Email contact information with address and label_
+- [ ] **qaGroup** - Has query, types, mocks (rendered through qaSection template)
+  - _Grouped Q&A sections with accordion display settings_
+
+### Special Paragraph Types (Referenced but need investigation)
+
+- [ ] **serviceLocation** - Template exists but needs paragraph integration check
+  - _Service location information with addresses, hours, phone numbers_
+  - _Complex: Contains nested ServiceLocationAddress paragraphs_
+- [ ] **staffProfile** - Investigate if this needs paragraph system integration
+- [ ] **step** & **stepByStep** - Investigate if these have corresponding queries/templates
+  - _Step-by-step instructions with media and alert integration_
+
+### Notes on Paragraph System Migration:
+
+1. **High Interdependency**: Many paragraph components reference each other (alerts contain wysiwyg/expandableText, collapsiblePanel contains collapsiblePanelItem, etc.)
+
+2. **Central Paragraph Component**: The `paragraph` component in `src/templates/components/paragraph/` serves as the central dispatcher and must be migrated last after all individual components.
+
+3. **Formatter Integration**: All paragraph components use `FormattedParagraph` types and are integrated into the central formatting system.
+
+4. **Overlap with Other Phases**: Some components (`button`, `featuredContent`, `phoneNumber`) appear in Phase 1 but are also part of the paragraph system - they should be migrated in Phase 2 to maintain paragraph system integrity.
+
+5. **Template vs Query-Only**: Some paragraph types only have queries/formatters but use existing templates (like `qaGroup` using `qaSection` template).
+
+---
+
+## Phase 3: Non-Paragraph Template Components (from `src/templates/components/`)
+
+_Note: Paragraph-related components have been moved to Phase 2. This phase contains standalone template components that are not part of the paragraph system._
+
+### Event & News Components
+
 - [ ] **eventTeaser** - Has query, types, likely has mocks
-- [ ] **expandableOperatingStatus** - Standalone template component
-- [ ] **expandableText** - Has query, types, likely has mocks
-- [ ] **facilityListing** - Standalone template component
-- [ ] **getUpdatesSection** - Standalone template component
-- [ ] **hours** - Standalone template component (with HoursItem sub-component)
-- [ ] **linkTeaser** - Has query, types, likely has mocks
-- [ ] **lovellSwitcher** - Standalone template component
+  - _Event preview components for listings and cards_
 - [ ] **newsStoryTeaser** - Has query, types, likely has mocks
-- [ ] **numberCallout** - Has query, types, likely has mocks
-- [ ] **prepareForVisitAccordions** - Standalone template component
+  - _News story preview components_
 - [ ] **pressReleaseTeaser** - Has query, types, likely has mocks
-- [ ] **processList** - Has query, types, likely has mocks
-- [ ] **qaCollapsiblePanel** - Standalone template component
-- [ ] **qaParagraph** - Has query, types, likely has mocks
-- [ ] **qaSection** - Has query, types, likely has mocks
-- [ ] **rateYourExperience** - Standalone template component
-- [ ] **reactWidget** - Has query, types, likely has mocks
-- [ ] **serviceLocation** - Standalone template component (with ServiceAddress sub-component)
+  - _Press release preview components_
 - [ ] **staffNewsProfile** - Standalone template component
-- [ ] **staffProfileSideBarNav** - Standalone template component
-- [ ] **staffProfileTeaser** - Standalone template component
-- [ ] **storyListingLink** - Standalone template component
-- [ ] **table** - Has query, types, likely has mocks
-- [ ] **textWithImage** - Standalone template component
-- [ ] **topTasks** - Standalone template component
-- [ ] **vamcSystemSocialLinks** - Standalone template component
-- [ ] **vetCenterAddressPhoneImage** - Standalone template component
-- [ ] **vetCenterHealthServices** - Has query, types, likely has mocks
-- [ ] **vetCenterHealthServicesList** - Standalone template component
-- [ ] **wysiwyg** - Has query, types, likely has mocks
+  - _Staff profile for news stories_
 
-## Phase 4: Standalone Queries
+### Facility & Location Components
+
+- [ ] **expandableOperatingStatus** - Standalone template component
+  - _Collapsible facility operating status display_
+- [ ] **facilityListing** - Standalone template component
+  - _Facility listing and directory components_
+- [ ] **hours** - Standalone template component (with HoursItem sub-component)
+  - _Business hours display with individual hour items_
+- [ ] **serviceLocation** - Standalone template component (with ServiceAddress sub-component)
+  - _Service location information display_
+  - _Note: While this has paragraph types, the template is standalone_
+
+### Navigation & UI Components
+
+- [ ] **lovellSwitcher** - Standalone template component
+  - _Lovell Federal facility switching interface_
+- [ ] **prepareForVisitAccordions** - Standalone template component
+  - _Visit preparation accordion interfaces_
+- [ ] **qaCollapsiblePanel** - Standalone template component
+  - _Q&A collapsible panel (different from paragraph qaSection)_
+- [ ] **staffProfileSideBarNav** - Standalone template component
+  - _Staff profile sidebar navigation_
+- [ ] **topTasks** - Standalone template component
+  - _Top tasks quick access interface_
+
+### Content Display Components
+
+- [ ] **getUpdatesSection** - Standalone template component
+  - _Update subscription sections_
+- [ ] **rateYourExperience** - Standalone template component
+  - _User experience rating interface_
+- [ ] **storyListingLink** - Standalone template component
+  - _Story listing navigation links_
+- [ ] **textWithImage** - Standalone template component
+  - _Text content with accompanying images_
+- [ ] **staffProfileTeaser** - Standalone template component
+  - _Staff profile preview components_
+
+### VA-Specific Components
+
+- [ ] **vamcSystemSocialLinks** - Standalone template component
+  - _VAMC system social media links_
+- [ ] **vetCenterAddressPhoneImage** - Standalone template component
+  - _Vet center contact information display_
+- [ ] **vetCenterHealthServices** - Has query, types, likely has mocks
+  - _Vet center health services listings_
+- [ ] **vetCenterHealthServicesList** - Standalone template component
+  - _Vet center health services list display_
+
+## Phase 4: Standalone Queries (Non-Paragraph)
+
+_Note: Paragraph-related queries have been moved to Phase 2. This phase contains standalone query modules that are not part of the paragraph system._
+
+### Infrastructure Queries
 
 - [ ] **administration** - Query-only module
-- [ ] **banners** - Has query but banner components are in common/
-- [ ] **collapsiblePanelItem** - Has query, may need template creation
-- [ ] **emailContact** - Has query, may need template creation
-- [ ] **headerFooter** - Special query for header/footer data
-- [ ] **mediaDocument** - Has query, may need template creation
-- [ ] **mediaVideo** - Has query, may need template creation
-- [ ] **promoBlock** - Has query, may need template creation
-- [ ] **qaGroup** - Has query, may need template creation
+  - _Administrative data and configuration queries_
 - [ ] **staticPathResources** - Special static path generation query
+  - _Static site generation path resolution_
+
+### Banner System Queries
+
+- [ ] **banners** - Has query but banner components are in common/
+  - _Banner content queries (components in Phase 1 common templates)_
+
+### Media Queries
+
+- [ ] **mediaDocument** - Has query, may need template creation
+  - _Document media handling and formatting_
+- [ ] **mediaVideo** - Has query, may need template creation
+  - _Video media handling and formatting_
+
+### Content Block Queries
+
+- [ ] **promoBlock** - Has query, may need template creation
+  - _Promotional content block formatting_
 - [ ] **supportServices** - Has query, may need template creation
+  - _Support services data formatting_
+
+### Healthcare System Queries
+
 - [ ] **vamcEhr** - Has query, may need template creation
+  - _VAMC Electronic Health Record integration queries_
+
+### Notes on Standalone Queries:
+
+1. **Template Creation**: Some queries may need corresponding template components created during migration.
+
+2. **Integration Points**: These queries may be used by components in other phases and should be migrated after the dependent components.
+
+3. **Infrastructure Dependencies**: Some queries (like `headerFooter`, `staticPathResources`) are foundational and used across the application.
 
 ### 📝 Migration Progress Tracking
 
