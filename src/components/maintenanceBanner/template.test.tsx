@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { MaintenanceBanner } from './'
+import { MaintenanceBanner } from './template'
 
 describe('<MaintenanceBanner> component renders', () => {
   test('with valid data', () => {
