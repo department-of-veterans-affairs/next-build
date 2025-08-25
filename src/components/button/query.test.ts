@@ -4,7 +4,7 @@
 
 import { queries } from '@/data/queries'
 import { ParagraphButton } from '@/types/drupal/paragraph'
-import mockData from '@/mocks/button.mock.json'
+import mockData from '@/components/button/mock.json'
 
 const buttonMock: ParagraphButton[] = mockData
 

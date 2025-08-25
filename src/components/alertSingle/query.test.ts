@@ -4,7 +4,7 @@
 
 import { ParagraphAlertSingle } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/alertSingle.mock'
+import { mockResponse } from '@/components/alertSingle/mock'
 import { params } from './query'
 
 const AlertSingle: ParagraphAlertSingle = mockResponse

@@ -4,7 +4,7 @@
 
 import { ParagraphAlert } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/alert.mock.js'
+import { mockResponse } from '@/components/alert/mock.js'
 
 const AlertMock: ParagraphAlert = mockResponse
 

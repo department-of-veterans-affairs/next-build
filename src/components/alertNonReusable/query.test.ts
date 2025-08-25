@@ -4,7 +4,7 @@
 
 import { ParagraphNonReusableAlert } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/alertNonReusable.mock'
+import { mockResponse } from '@/components/alertNonReusable/mock'
 
 const AlertNonResuableMock: ParagraphNonReusableAlert = mockResponse
 

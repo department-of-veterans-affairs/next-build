@@ -4,7 +4,7 @@
 
 import { ParagraphTable } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/table.mock'
+import { mockResponse } from '@/components/table/mock'
 
 const TableMock: ParagraphTable = mockResponse
 

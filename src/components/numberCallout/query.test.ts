@@ -4,7 +4,7 @@
 
 import { ParagraphNumberCallout } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/numberCallout.mock'
+import { mockResponse } from '@/components/numberCallout/mock'
 
 const NumberCalloutMock: ParagraphNumberCallout = mockResponse
 

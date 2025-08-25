@@ -4,7 +4,7 @@
 
 import { ParagraphQaGroup } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/qaGroup.mock.json'
+import mockData from '@/components/qaGroup/mock.json'
 import { params } from './query'
 
 const QaGroupMock: ParagraphQaGroup = mockData

@@ -3,7 +3,7 @@
  */
 
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/linkTeaser.mock.json'
+import mockData from '@/components/linkTeaser/mock.json'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 
 const linkTeaserMock: ParagraphLinkTeaser[] = mockData

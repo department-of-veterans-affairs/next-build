@@ -4,7 +4,7 @@
 
 import { ParagraphContactInformation } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/contactInfo.mock.json'
+import mockData from '@/components/contactInfo/mock.json'
 import { params } from './query'
 
 const ContactInfoMock: ParagraphContactInformation = mockData

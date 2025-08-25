@@ -4,7 +4,7 @@
 
 import { ParagraphFeaturedContent } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import mockData from '@/mocks/featuredContent.mock.json'
+import mockData from '@/components/featuredContent/mock.json'
 import { params } from './query'
 
 const FeaturedContentMock: ParagraphFeaturedContent = mockData

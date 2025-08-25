@@ -4,7 +4,7 @@
 
 import { queries } from '@/data/queries'
 import { ParagraphExpandableText } from '@/types/drupal/paragraph'
-import mockData from '@/mocks/expandableText.mock.json'
+import mockData from '@/components/expandableText/mock.json'
 
 const expandableTextMock: ParagraphExpandableText = mockData
 

@@ -4,7 +4,7 @@
 
 import { ParagraphProcessList } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/processList.mock'
+import { mockResponse } from '@/components/processList/mock'
 
 const ProcessListMock: ParagraphProcessList = mockResponse
 

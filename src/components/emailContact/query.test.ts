@@ -4,7 +4,7 @@
 
 import { queries } from '@/data/queries'
 import { ParagraphEmailContact } from '@/types/drupal/paragraph'
-import mockData from '@/mocks/emailContact.mock.json'
+import mockData from '@/components/emailContact/mock.json'
 
 const emailMock: ParagraphEmailContact = mockData
 

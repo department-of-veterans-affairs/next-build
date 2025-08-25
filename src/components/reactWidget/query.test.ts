@@ -4,7 +4,7 @@
 
 import { ParagraphReactWidget } from '@/types/drupal/paragraph'
 import { queries } from '@/data/queries'
-import { mockResponse } from '@/mocks/reactWidget.mock'
+import { mockResponse } from '@/components/reactWidget/mock'
 
 const ReactWidgetMock: ParagraphReactWidget = mockResponse
 

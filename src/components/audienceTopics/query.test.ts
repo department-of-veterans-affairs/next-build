@@ -4,7 +4,7 @@
 
 import { queries } from '@/data/queries'
 import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
-import mockData from '@/mocks/audienceTopics.mock.json'
+import mockData from '@/components/audienceTopics/mock.json'
 import { params, getTagsList } from './query'
 
 // Adding this because next-drupal has some bad type definitions.
