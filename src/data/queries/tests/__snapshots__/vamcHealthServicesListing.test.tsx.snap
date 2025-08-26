@@ -38,7 +38,22 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
   "lovellSwitchPath": null,
   "lovellVariant": null,
   "menu": {
-    "data": null,
+    "data": {
+      "description": "Test description",
+      "links": [
+        {
+          "description": "Test description",
+          "expanded": false,
+          "label": "Test Menu Item",
+          "links": [],
+          "lovellSection": null,
+          "url": {
+            "path": "/test-facility/test-service",
+          },
+        },
+      ],
+      "name": "Test Menu Item",
+    },
     "rootPath": "/north-texas-health-care/health-services/",
   },
   "metatags": [
