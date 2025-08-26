@@ -1,5 +1,4 @@
 const isProd = process.env.APP_ENV === 'prod'
-const isDev = process.env.NODE_ENV === 'development'
 const isExport = process.env.BUILD_OPTION === 'static'
 
 /**
@@ -47,22 +46,7 @@ const nextConfig = {
       optimization: {
         ...webpackConfig.optimization,
         minimize: isProd,
-        // Speed up development builds
-        ...(isDev && {
-          removeAvailableModules: false,
-          removeEmptyChunks: false,
-          splitChunks: false,
-        }),
       },
-      // Development-specific optimizations
-      ...(isDev && {
-        cache: {
-          type: 'filesystem',
-          buildDependencies: {
-            config: [__filename],
-          },
-        },
-      }),
     }
   },
 
