@@ -32,9 +32,6 @@ const nextConfig = {
 
     // Enable React 19 optimizations
     reactCompiler: true,
-
-    // Enable faster refresh
-    optimizeServerReact: true,
   },
 
   // This ensures the generated files use a consistent hash inside of the generated `.next/` directory.
