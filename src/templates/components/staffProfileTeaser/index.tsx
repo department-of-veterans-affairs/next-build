@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaffProfileTeaser as FormattedStaffProfileTeaser } from '../../../components/staffProfile/formatted-type'
-import { MediaImage } from '@/templates/common/mediaImage'
+import { MediaImage } from '@/components/mediaImage/template'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 
 export const StaffProfileTeaser = ({

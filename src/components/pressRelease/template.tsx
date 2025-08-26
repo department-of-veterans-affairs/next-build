@@ -2,7 +2,7 @@ import { PressRelease as FormattedPressRelease } from './formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { formatDate } from '@/lib/utils/helpers'
-import { ContentFooter } from '@/templates/common/contentFooter'
+import { ContentFooter } from '@/components/contentFooter/template'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 
 export const PressRelease = ({

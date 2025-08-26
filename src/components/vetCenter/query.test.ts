@@ -3,7 +3,7 @@
  */
 
 import { mockResponse as mockVetCenter } from './mock'
-import mockBannerMedia from '@/mocks/mediaImage.mock.json'
+import mockBannerMedia from '@/components/mediaImage/mock.json'
 import { queries } from '@/data/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 

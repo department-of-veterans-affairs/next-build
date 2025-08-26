@@ -1,11 +1,11 @@
 import { ResourcesSupport as FormattedResourcesSupport } from './formatted-type'
-import { ContentFooter } from '@/templates/common/contentFooter'
+import { ContentFooter } from '@/components/contentFooter/template'
 import AlertSingle from '@/templates/components/alertSingle'
 import { Button as FormattedButton } from '@/types/formatted/button'
 import { Paragraph } from '@/templates/components/paragraph'
 import { AudienceTopics } from '@/templates/components/audienceTopics'
 import { Button } from '@/templates/common/button'
-import { BenefitsHubLinks } from '@/templates/common/benefitsHubLinks'
+import { BenefitsHubLinks } from '@/components/benefitsHubLinks/template'
 import { ContactInfo } from '@/templates/components/contactInfo'
 import { RateYourExperience } from '@/templates/components/rateYourExperience'
 

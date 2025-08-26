@@ -24,7 +24,7 @@ import {
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
-import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatImage } from '@/components/mediaImage/query'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 
 // Define the query params for fetching node--vet_center_locations_list.

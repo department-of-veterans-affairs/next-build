@@ -17,7 +17,7 @@ import {
   getLovellVariantOfTitle,
   getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
-import { formatter as formatImage } from '@/data/queries/mediaImage'
+import { formatter as formatImage } from '@/components/mediaImage/query'
 import { formatter as formatPhone } from '@/data/queries/phoneNumber'
 import { formatter as formatEmail } from '@/data/queries/emailContact'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'

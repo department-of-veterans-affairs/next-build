@@ -1,11 +1,11 @@
-import { MediaImage } from '@/templates/common/mediaImage'
+import { MediaImage } from '@/components/mediaImage/template'
 import { StaffNewsProfile } from '@/templates/components/staffNewsProfile'
 import { formatDate } from '@/lib/utils/helpers'
 import { SocialLinks } from './SocialLinks'
 import { StoryListingLink } from '@/templates/components/storyListingLink'
 import { NewsStory as FormattedNewsStory } from './formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import { ContentFooter } from '@/templates/common/contentFooter'
+import { ContentFooter } from '@/components/contentFooter/template'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 
 export const NewsStory = ({

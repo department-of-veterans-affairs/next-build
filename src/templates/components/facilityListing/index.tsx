@@ -1,4 +1,4 @@
-import { MediaImage } from '@/templates/common/mediaImage'
+import { MediaImage } from '@/components/mediaImage/template'
 import { OperatingStatusFlags } from '../../../components/healthCareLocalFacility/OperatingStatus'
 import { Address } from '../../../components/healthCareLocalFacility/Address'
 import { MinimalLocalFacility } from '../../../components/vamcSystem/formatted-type'

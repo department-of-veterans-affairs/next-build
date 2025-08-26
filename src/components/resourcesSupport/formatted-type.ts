@@ -4,7 +4,7 @@ import { AlertSingle } from '@/types/formatted/alert'
 import { ContactInfo } from '@/types/formatted/contactInfo'
 import { Button } from '@/types/formatted/button'
 import { AudienceTopics } from '@/types/formatted/audienceTopics'
-import { BenefitsHubLink } from '@/types/formatted/benefitsHub'
+import { BenefitsHubLink } from '@/components/benefitsHubLinks/formatted-type'
 
 export type ResourcesSupport = PublishedEntity & {
   title: string

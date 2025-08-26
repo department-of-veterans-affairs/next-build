@@ -1,4 +1,4 @@
-import { MaintenanceBanner } from '@/templates/common/banners/maintenanceBanner'
+import { MaintenanceBanner } from '@/components/maintenanceBanner/template'
 import { TopNav } from './TopNav'
 
 export const Header = () => {

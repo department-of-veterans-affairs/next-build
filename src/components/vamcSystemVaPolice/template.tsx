@@ -1,5 +1,5 @@
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from './formatted-type'
-import { ContentFooter } from '@/templates/common/contentFooter'
+import { ContentFooter } from '@/components/contentFooter/template'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { QaSection } from '@/templates/components/qaSection'

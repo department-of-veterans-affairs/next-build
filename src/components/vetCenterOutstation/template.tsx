@@ -1,12 +1,12 @@
 import { VetCenterOutstation as FormattedVetCenterOutstation } from './formatted-type'
-import { GoogleMapsDirections } from '@/templates/common/googleMapsDirections'
+import { GoogleMapsDirections } from '@/components/googleMapsDirections/template'
 import { Hours } from '@/templates/components/hours'
 import { FeaturedContent } from '@/templates/common/featuredContent'
 import { QaSection } from '@/templates/components/qaSection'
 import { Accordion } from '@/templates/components/accordion'
 import { PhoneNumber } from '@/templates/common/phoneNumber'
 import { TextWithImage } from '@/templates/components/textWithImage'
-import { MediaImage } from '@/templates/common/mediaImage'
+import { MediaImage } from '@/components/mediaImage/template'
 
 export function VetCenterOutstation({
   address,

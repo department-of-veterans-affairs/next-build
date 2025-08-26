@@ -1,4 +1,4 @@
-import HTMLComment from '@/templates/common/util/HTMLComment'
+import HTMLComment from '@/components/htmlComment/template'
 
 export const Footer = () => {
   const content = `VA's mission: To fulfill President Lincoln's promise to care for those who have served in our nation's military and for their families, caregivers, and survivors.`
