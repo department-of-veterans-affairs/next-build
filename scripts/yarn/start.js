@@ -1,3 +1,3 @@
 import { processEnv } from 'env-loader'
 
-processEnv('next start')
+processEnv('next start --turbopack')
