@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { PressReleaseListing } from './template'
 import { PressReleaseListing as FormattedPressReleaseListing } from './formatted-type'
-import { formattedPressReleases } from '@/mocks/formattedPressReleases.mock'
+import { formattedPressReleases } from './mock.formattedPressReleases'
 
 describe('PressReleaseListing component renders', () => {
   let pressReleaseListingProps: FormattedPressReleaseListing

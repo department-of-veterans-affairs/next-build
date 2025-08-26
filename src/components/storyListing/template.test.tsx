@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { StoryListing } from './template'
 import { StoryListing as FormattedStoryListing } from './formatted-type'
-import { formattedStories } from '@/mocks/formattedNewsStories.mock'
+import { formattedStories } from './mock.formattedNewsStories'
 
 describe('<StoryListing> component renders', () => {
   let storyListingProps: FormattedStoryListing
