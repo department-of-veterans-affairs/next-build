@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VbaFacilityServiceGroup } from './vbaFacilityServiceGroup'
-import mockService from '@/mocks/vbaFacilityService.mock.json'
+import mockService from './vbaFacilityService.mock.json'
 import mockVbaFacility from '@/components/vbaFacility/mock.json'
 import { formatter as formatVbaData } from './query'
 
