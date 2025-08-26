@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { RegionalTopTasks } from '@/templates/components/topTasks'
+import { RegionalTopTasks } from '@/components/topTasks/template'
 import { LocationsListing as FormattedLocationsListing } from './formatted-type'
-import { FacilityListing } from '@/templates/components/facilityListing'
+import { FacilityListing } from '@/components/facilityListing/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 
 interface customWindow extends Window {
   sideNav?: SideNavMenu

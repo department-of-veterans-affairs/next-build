@@ -7,7 +7,7 @@ import { AudienceTopics } from '@/components/audienceTopics/template'
 import { Button } from '@/components/button/template'
 import { BenefitsHubLinks } from '@/components/benefitsHubLinks/template'
 import { ContactInfo } from '@/components/contactInfo/template'
-import { RateYourExperience } from '@/templates/components/rateYourExperience'
+import { RateYourExperience } from '@/components/rateYourExperience/template'
 
 const Buttons = ({
   buttons,

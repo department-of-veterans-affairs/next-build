@@ -14,7 +14,7 @@ import { Event as FormattedEvent } from './formatted-type'
 import { SocialLinks } from './SocialLinks'
 import { formatEventCTA, createMailToLink } from '@/lib/utils/events'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 
 export const Event = ({
   title,

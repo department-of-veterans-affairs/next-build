@@ -1,5 +1,5 @@
 import { FormattedVAMCFacilityHealthService } from '../formatted-type'
-import { ServiceLocation } from '@/templates/components/serviceLocation/ServiceLocation'
+import { ServiceLocation } from '@/components/serviceLocation/template'
 import { hashReference } from '@/lib/utils/hashReference'
 import { PhoneNumber } from '@/components/phoneNumber/formatted-type'
 

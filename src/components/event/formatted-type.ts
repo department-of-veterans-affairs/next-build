@@ -2,7 +2,7 @@ import {
   NodeEventListing,
   NodeHealthCareLocalFacility,
 } from '@/types/drupal/node'
-import { MediaImage } from '@/types/formatted/media'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import {
   FieldAddress,
@@ -10,7 +10,7 @@ import {
   SocialLinksProps,
   FieldLink,
 } from '@/types/drupal/field_type'
-import { Administration } from '@/types/formatted/administration'
+import { Administration } from '@/components/administration/formatted-type'
 
 interface DateTimeRangeItem {
   value: string

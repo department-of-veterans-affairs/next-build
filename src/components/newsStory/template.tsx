@@ -1,12 +1,12 @@
 import { MediaImage } from '@/components/mediaImage/template'
-import { StaffNewsProfile } from '@/templates/components/staffNewsProfile'
+import { StaffNewsProfile } from '@/components/staffNewsProfile/template'
 import { formatDate } from '@/lib/utils/helpers'
 import { SocialLinks } from './SocialLinks'
-import { StoryListingLink } from '@/templates/components/storyListingLink'
+import { StoryListingLink } from '@/components/storyListingLink/template'
 import { NewsStory as FormattedNewsStory } from './formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { ContentFooter } from '@/components/contentFooter/template'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 
 export const NewsStory = ({
   title,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { MediaImage } from '@/types/formatted/media'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { StaffProfile } from './template'
 import { StaffProfile as FormattedStaffProfile } from './formatted-type'
 

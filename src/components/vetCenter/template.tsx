@@ -1,17 +1,17 @@
 import { VetCenter as FormattedVetCenter } from './formatted-type'
-import { Hours } from '@/templates/components/hours'
+import { Hours } from '@/components/hours/template'
 import { MediaImage } from '@/components/mediaImage/template'
 import { AlertBlock } from '@/components/alertBlock/template'
-import VetCenterHealthServices from '@/templates/components/vetCenterHealthServices'
+import VetCenterHealthServices from '@/components/vetCenterHealthServices/template'
 import { FeaturedContent } from '@/components/featuredContent/template'
 import { QaSection } from '@/components/qaSection/template'
-import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
+import { ExpandableOperatingStatus } from '@/components/expandableOperatingStatus/template'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { SchemaScript } from './SchemaScript'
 import { Address } from '../healthCareLocalFacility/Address'
 import { ContentFooter } from '@/components/contentFooter/template'
-import { PrepareForVisitAccordions } from '@/templates/components/prepareForVisitAccordions'
-import { TextWithImage } from '@/templates/components/textWithImage'
+import { PrepareForVisitAccordions } from '@/components/prepareForVisitAccordions/template'
+import { TextWithImage } from '@/components/textWithImage/template'
 
 export function VetCenter(vetCenterProps: FormattedVetCenter) {
   const {

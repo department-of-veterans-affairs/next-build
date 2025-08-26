@@ -22,7 +22,7 @@ import { formatter as formatPhone } from '@/components/phoneNumber/query'
 import { formatter as formatEmail } from '@/components/emailContact/query'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
-import { formatter as formatAdministration } from '@/data/queries/administration'
+import { formatter as formatAdministration } from '@/components/administration/query'
 import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
 import { getVamcSystemSocialLinks } from '../vamcSystem/query'
 

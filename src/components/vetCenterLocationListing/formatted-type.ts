@@ -5,7 +5,7 @@ import {
   FieldOfficeHours,
 } from '@/types/drupal/field_type'
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
-import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
+import { MediaImage as FormattedMediaImage } from '@/components/mediaDocument/formatted-type'
 
 /**
  * Common fields shared across all Vet Center types (both full and listing versions).

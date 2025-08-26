@@ -1,9 +1,9 @@
 import { ComponentType } from 'react'
-import { PersonProfileTeaserProps } from '@/templates/components/staffNewsProfile'
+import { PersonProfileTeaserProps } from '@/components/staffNewsProfile/template'
 import { SocialLinksProps } from '@/types/drupal/field_type'
-import { Administration } from '@/types/formatted/administration'
+import { Administration } from '@/components/administration/formatted-type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
-import { MediaImage } from '@/types/formatted/media'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
 
 export type NewsStoryTeaser = PublishedEntity & {
   headingLevel?: ComponentType | keyof JSX.IntrinsicElements

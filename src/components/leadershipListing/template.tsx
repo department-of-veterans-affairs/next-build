@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { LeadershipListing as FormattedLeadershipListing } from './formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/components/contentFooter/template'
-import { StaffProfileTeaser } from '@/templates/components/staffProfileTeaser'
+import { StaffProfileTeaser } from '@/components/staffProfileTeaser/template'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }

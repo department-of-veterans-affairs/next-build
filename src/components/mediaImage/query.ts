@@ -7,7 +7,7 @@ import {
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { DrupalMediaImage } from '@/types/drupal/media'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { MediaImage } from '@/types/formatted/media'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
 
 // Define query params for queryData.
 export const params: QueryParams<null> = () => {

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from './formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
-import { FacilityTopTasks } from '@/templates/components/topTasks'
+import { FacilityTopTasks } from '@/components/topTasks/template'
 import { numberToTimeString } from '@/lib/utils/numberToTimeString'
 import { dayOfWeek } from '@/lib/utils/dayOfWeek'
 
@@ -12,13 +12,13 @@ import { HealthServices } from './HealthServices'
 import { OperatingStatusFlags } from './OperatingStatus'
 import { Address } from './Address'
 import { Phone } from './Phone'
-import { Hours } from '@/templates/components/hours'
+import { Hours } from '@/components/hours/template'
 import { RelatedLinks } from '@/components/relatedLinks/template'
 import { ContentFooter } from '@/components/contentFooter/template'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { MediaImage } from '@/components/mediaImage/template'
-import { TextWithImage } from '@/templates/components/textWithImage'
-import { VamcSystemSocialLinks } from '@/templates/components/vamcSystemSocialLinks'
+import { TextWithImage } from '@/components/textWithImage/template'
+import { VamcSystemSocialLinks } from '@/components/vamcSystemSocialLinks/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {

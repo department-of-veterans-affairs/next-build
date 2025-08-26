@@ -7,10 +7,10 @@ import {
 } from './formatted-type'
 import { Address } from '../healthCareLocalFacility/Address'
 import { PhoneNumber } from '@/components/phoneNumber/template'
-import { Hours } from '@/templates/components/hours'
+import { Hours } from '@/components/hours/template'
 import { MediaImage } from '@/components/mediaImage/template'
-import { ExpandableOperatingStatus } from '@/templates/components/expandableOperatingStatus'
-import { TextWithImage } from '@/templates/components/textWithImage'
+import { ExpandableOperatingStatus } from '@/components/expandableOperatingStatus/template'
+import { TextWithImage } from '@/components/textWithImage/template'
 import { ReactNode } from 'react'
 
 interface VetCenterLocationInfoMainOfficeProps {

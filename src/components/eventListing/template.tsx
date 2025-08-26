@@ -14,7 +14,7 @@ import { EventWidgetTeaser } from '../event/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { getLovellVariantOfUrl } from '@/lib/drupal/lovell/utils'
 
 // Allows additions to window object without overwriting global type
