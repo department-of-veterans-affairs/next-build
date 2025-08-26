@@ -1,4 +1,5 @@
 const isProd = process.env.APP_ENV === 'prod'
+const isDev = process.env.NODE_ENV === 'development'
 const isExport = process.env.BUILD_OPTION === 'static'
 
 /**
@@ -22,6 +23,19 @@ const nextConfig = {
   staticPageGenerationTimeout: 180, //arbitrary; 60 is default but it's too small
   experimental: {
     largePageDataBytes: 512 * 1000, // 512kb, is 128kb by default
+    // Enable Turbopack for faster dev builds in Next.js 15
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
+    // Enable React 19 optimizations
+    reactCompiler: true,
+    // Enable faster refresh
+    optimizeServerReact: true,
   },
   // This ensures the generated files use a consistent hash inside of the generated `.next/` directory.
   // Necessary in order for correct asset references in various locations (S3 static files, cms preview server, etc)
@@ -35,7 +49,22 @@ const nextConfig = {
       optimization: {
         ...webpackConfig.optimization,
         minimize: isProd,
+        // Speed up development builds
+        ...(isDev && {
+          removeAvailableModules: false,
+          removeEmptyChunks: false,
+          splitChunks: false,
+        }),
       },
+      // Development-specific optimizations
+      ...(isDev && {
+        cache: {
+          type: 'filesystem',
+          buildDependencies: {
+            config: [__filename],
+          },
+        },
+      }),
     }
   },
 }
