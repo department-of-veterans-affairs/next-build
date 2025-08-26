@@ -12,6 +12,27 @@ const mockMenu = {
   },
 }
 
+// Mock featured content data for testing
+const mockFeaturedContent = [
+  {
+    id: 'test-1',
+    type: 'paragraph--link_teaser',
+    title: 'Mental health at VA Black Hills health care',
+    summary: 'Learn about our leading clinical mental health work',
+    uri: '/mental-health',
+    parentField: 'field_featured_content_healthser',
+  },
+  {
+    id: 'test-2',
+    type: 'paragraph--link_teaser',
+    title: 'Health care for LGBTQ+ Veterans',
+    summary:
+      'VA Black Hills health care provides compassionate care for LGBTQ+ Veterans',
+    uri: '/lgbtq-care',
+    parentField: 'field_featured_content_healthser',
+  },
+]
+
 describe('VamcHealthServicesListing with valid data', () => {
   test('renders VamcHealthServicesListing component', () => {
     render(
@@ -22,6 +43,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         administration={null}
         vamcEhrSystem={null}
         menu={mockMenu}
+        featuredContent={mockFeaturedContent}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -41,6 +63,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         administration={null}
         vamcEhrSystem={null}
         menu={mockMenu}
+        featuredContent={mockFeaturedContent}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -95,6 +118,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         administration={null}
         vamcEhrSystem={null}
         menu={mockMenu}
+        featuredContent={mockFeaturedContent}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -150,5 +174,26 @@ describe('VamcHealthServicesListing with valid data', () => {
     const nav = screen.getByLabelText('secondary')
     expect(nav).toBeInTheDocument()
     expect(nav).toHaveAttribute('data-widget-type', 'side-nav')
+  })
+
+  test('renders featured content when provided', () => {
+    render(
+      <VamcHealthServicesListing
+        title={'Health Services'}
+        introText={'This is intro text'}
+        path={'/test-facility/health-services'}
+        administration={null}
+        vamcEhrSystem={null}
+        menu={mockMenu}
+        featuredContent={mockFeaturedContent}
+        id={'test-id'}
+        type={'node--health_services_listing'}
+        published={true}
+        lastUpdated={'2023-01-01'}
+      />
+    )
+
+    // Check that the featured content section is rendered
+    expect(screen.getByText('In the spotlight')).toBeInTheDocument()
   })
 })

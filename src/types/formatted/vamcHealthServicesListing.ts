@@ -13,4 +13,12 @@ export type VamcHealthServicesListing = PublishedEntity & {
   administration?: Administration
   vamcEhrSystem: VamcEhrSystem
   menu: SideNavMenu | null
+  featuredContent?: Array<{
+    id: string
+    type: string
+    title: string
+    summary: string
+    uri: string
+    parentField: string
+  }>
 }

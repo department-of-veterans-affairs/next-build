@@ -21,11 +21,16 @@ import { Menu } from '@/types/drupal/menu'
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-    .addInclude(['field_administration', 'field_office'])
+    .addInclude([
+      'field_administration',
+      'field_office',
+      'field_featured_content_healthser',
+    ])
     .addFields('node--health_care_region_page', [
       'field_vamc_ehr_system',
       'field_system_menu',
     ])
+    .addFields('paragraph--link_teaser', ['field_link', 'field_link_summary'])
 }
 
 // Define the option types for the data loader.
@@ -94,5 +99,14 @@ export const formatter: QueryFormatter<
     administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
     menu: formattedMenu,
+    featuredContent:
+      entity.field_featured_content_healthser?.map((item) => ({
+        id: item.id,
+        type: item.type,
+        title: item.field_link?.title || '',
+        summary: item.field_link_summary || '',
+        uri: item.field_link?.uri || '',
+        parentField: item.parent_field_name || '',
+      })) || [],
   }
 }

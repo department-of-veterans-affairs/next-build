@@ -7,7 +7,8 @@ import { queries } from '@/data/queries'
 import { formatter, params } from '@/data/queries/vamcHealthServicesListing'
 import mockData from '@/mocks/vamcHealthServicesListing.mock.json'
 
-const VamcHealthServicesListingMock: NodeVamcHealthServicesListing = mockData[0]
+const VamcHealthServicesListingMock =
+  mockData[0] as NodeVamcHealthServicesListing
 
 // Mock menu data for testing
 const mockMenu = {

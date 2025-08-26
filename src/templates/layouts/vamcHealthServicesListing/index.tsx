@@ -3,6 +3,7 @@ import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { FacilityTopTasks } from '@/templates/components/topTasks'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
+import { FeaturedContent } from '@/templates/common/featuredContent'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -19,6 +20,7 @@ export function VamcHealthServicesListing({
   administration,
   vamcEhrSystem,
   menu,
+  featuredContent,
 }: FormattedVamcHealthServicesListing) {
   // Extract the region base path from the full path (same as healthCareLocalFacility)
   const regionBasePath = path ? path.split('/')[1] : ''
@@ -67,14 +69,27 @@ export function VamcHealthServicesListing({
 
             <va-on-this-page />
 
-            {/* TODO: Featured Content Section - conditional on fieldFeaturedContentHealthser */}
-            <section id="featured-services">
-              <h2 id="in-the-spotlight">In the spotlight</h2>
-              <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4">
-                {/* TODO: Replace with actual LinkTeaser components from fieldFeaturedContentHealthser */}
-                <p> TODO: Add LinkTeaser components here </p>
-              </div>
-            </section>
+            {/* Featured Content Section - conditional on fieldFeaturedContentHealthser */}
+            {featuredContent && featuredContent.length > 0 && (
+              <section id="featured-services">
+                <h2 id="in-the-spotlight">In the spotlight</h2>
+                <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4">
+                  {featuredContent.map((item) => (
+                    <FeaturedContent
+                      key={item.id}
+                      title={item.title}
+                      description={item.summary}
+                      link={{
+                        id: item.id,
+                        url: item.uri,
+                        label: 'Read more',
+                      }}
+                      id={item.id}
+                    />
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* TODO: Health Services Listing by type - using health_services_listing_services.liquid includes */}
             {[
