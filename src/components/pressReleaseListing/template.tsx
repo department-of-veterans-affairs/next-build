@@ -19,7 +19,7 @@ import { ContentFooter } from '@/components/contentFooter/template'
 import { useEffect } from 'react'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
-import { DEFAULT_PAGE_LIST_LENGTH } from '../../constants/pagination'
+import { DEFAULT_PAGE_LIST_LENGTH } from '../../lib/constants/pagination'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
