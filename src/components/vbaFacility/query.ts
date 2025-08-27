@@ -2,15 +2,15 @@ import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
 import { VbaFacility } from './formatted-type'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatImage } from '@/components/mediaImage/query'
-import { formatter as formatFeaturedContent } from '@/data/queries/featuredContent'
-import { formatter as formatAccordionItem } from '@/data/queries/accordion'
-import { formatter as formatPhone } from '@/data/queries/phoneNumber'
-import { formatter as formatEmail } from '@/data/queries/emailContact'
+import { formatter as formatFeaturedContent } from '@/components/featuredContent/query'
+import { formatter as formatAccordionItem } from '@/components/accordion/query'
+import { formatter as formatPhone } from '@/components/phoneNumber/query'
+import { formatter as formatEmail } from '@/components/emailContact/query'
 import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import {
@@ -23,7 +23,7 @@ import {
   fetchSingleEntityOrPreview,
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
-import { PhoneContact } from '@/types/formatted/contactInfo'
+import { PhoneContact } from '@/components/contactInfo/formatted-type'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 

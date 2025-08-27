@@ -1,5 +1,5 @@
-import { PhoneNumber } from '@/templates/common/phoneNumber'
-import { PhoneNumber as PhoneNumberType } from '@/types/formatted/phoneNumber'
+import { PhoneNumber } from '@/components/phoneNumber/template'
+import { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 
 export interface PhoneProps {
   mainPhoneString?: string

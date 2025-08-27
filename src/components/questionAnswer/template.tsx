@@ -12,10 +12,10 @@
  *
  */
 import map from 'lodash/map'
-import { Button } from '@/templates/common/button'
+import { Button } from '@/components/button/template'
 import { QuestionAnswer as FormattedQuestionAnswer } from './formatted-type'
-import { AudienceTopics } from '@/templates/components/audienceTopics'
-import { LinkTeaser } from '@/templates/components/linkTeaser'
+import { AudienceTopics } from '@/components/audienceTopics/template'
+import { LinkTeaser } from '@/components/linkTeaser/template'
 
 export interface HtmlProps {
   __html: string

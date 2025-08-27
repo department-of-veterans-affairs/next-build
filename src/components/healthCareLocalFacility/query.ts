@@ -18,8 +18,8 @@ import {
   getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/components/mediaImage/query'
-import { formatter as formatPhone } from '@/data/queries/phoneNumber'
-import { formatter as formatEmail } from '@/data/queries/emailContact'
+import { formatter as formatPhone } from '@/components/phoneNumber/query'
+import { formatter as formatEmail } from '@/components/emailContact/query'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from '@/data/queries/administration'

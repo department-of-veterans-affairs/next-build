@@ -1,5 +1,5 @@
-import { Accordion } from '@/templates/components/accordion'
-import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
+import { Accordion } from '@/components/accordion/template'
+import { AccordionItem as FormattedAccordionItem } from '@/components/accordion/formatted-type'
 
 type PrepareForVisitAccordions = {
   visitItems: FormattedAccordionItem[]

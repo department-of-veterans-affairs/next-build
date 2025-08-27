@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { FacilityListing } from './index'
 import { MinimalLocalFacility } from '../../../components/vamcSystem/formatted-type'
-import { formatter as formatPhone } from '@/data/queries/phoneNumber'
+import { formatter as formatPhone } from '@/components/phoneNumber/query'
 
 const mockFacility: MinimalLocalFacility = {
   title: 'Test Facility',

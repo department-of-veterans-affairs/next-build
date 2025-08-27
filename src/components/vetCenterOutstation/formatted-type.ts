@@ -6,11 +6,11 @@ import {
 } from '@/types/drupal/field_type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { VetCenterHealthServices as FormattedHealthServices } from '@/types/formatted/vetCenterHealthServices'
-import { FeaturedContent as FormattedFeaturedContent } from '@/types/formatted/featuredContent'
+import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
 import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
-import { AccordionItem as FormattedAccordionItem } from '@/types/formatted/accordion'
-import { Wysiwyg as FormattedWysiwyg } from '@/types/formatted/wysiwyg'
-import { QaSection as PublishedQaSection } from '@/types/formatted/qaSection'
+import { AccordionItem as FormattedAccordionItem } from '@/components/accordion/formatted-type'
+import { Wysiwyg as FormattedWysiwyg } from '@/components/wysiwyg/formatted-type'
+import { QaSection as PublishedQaSection } from '@/components/qaSection/formatted-type'
 
 export type VetCenterOutstation = PublishedEntity & {
   address: FieldAddress

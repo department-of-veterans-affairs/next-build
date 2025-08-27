@@ -1,6 +1,6 @@
 import { FieldOfficeHours } from '@/types/drupal/field_type'
-import { WysiwygField } from '@/templates/components/wysiwyg'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { WysiwygField } from '@/components/wysiwyg/template'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 import { HoursItem } from './HoursItem'
 
 type HoursProps = {

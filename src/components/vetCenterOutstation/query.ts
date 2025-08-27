@@ -8,14 +8,14 @@ import {
   RESOURCE_TYPES,
 } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
-import { QaSection as FormattedQaSection } from '@/types/formatted/qaSection'
+import { QaSection as FormattedQaSection } from '@/components/qaSection/formatted-type'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
-import { FeaturedContent } from '@/types/formatted/featuredContent'
-import { Button } from '@/types/formatted/button'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
+import { FeaturedContent } from '@/components/featuredContent/formatted-type'
+import { Button } from '@/components/button/formatted-type'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--vet_center.

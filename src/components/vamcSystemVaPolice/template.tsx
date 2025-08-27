@@ -2,7 +2,7 @@ import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from './formatted-t
 import { ContentFooter } from '@/components/contentFooter/template'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { QaSection } from '@/templates/components/qaSection'
+import { QaSection } from '@/components/qaSection/template'
 
 type VamcSystemVaPoliceProps = {
   title: string

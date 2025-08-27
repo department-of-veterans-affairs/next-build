@@ -3,7 +3,7 @@ import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
 import { formatDate } from '@/lib/utils/helpers'
 import { ContentFooter } from '@/components/contentFooter/template'
-import { PhoneNumber } from '@/templates/common/phoneNumber'
+import { PhoneNumber } from '@/components/phoneNumber/template'
 
 export const PressRelease = ({
   title,

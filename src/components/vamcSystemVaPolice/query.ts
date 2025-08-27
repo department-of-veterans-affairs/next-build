@@ -21,7 +21,7 @@ import {
   entityFetchedParagraphsToNormalParagraphs,
   formatParagraph,
 } from '@/lib/drupal/paragraphs'
-import { QaSection } from '@/types/formatted/qaSection'
+import { QaSection } from '@/components/qaSection/formatted-type'
 
 // Define the query params for fetching node--vamc_system_va_police.
 export const params: QueryParams<null> = () => {

@@ -1,10 +1,10 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { ResourcesSupport } from './template'
-import { Button } from '@/types/formatted/button'
-import { Wysiwyg } from '@/types/formatted/wysiwyg'
-import { AudienceTopics } from '@/types/formatted/audienceTopics'
-import { ContactInfo } from '@/types/formatted/contactInfo'
+import { Button } from '@/components/button/formatted-type'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
+import { AudienceTopics } from '@/components/audienceTopics/formatted-type'
+import { ContactInfo } from '@/components/contactInfo/formatted-type'
 
 describe('<ResourcesSupport /> Component', () => {
   const resourcesSupportProps = {

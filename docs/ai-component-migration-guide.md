@@ -337,7 +337,7 @@ _Note: This phase will require careful coordination as paragraphs have complex i
 
 ### Core Paragraph Infrastructure
 
-- [ ] **paragraph** - Central paragraph component router/dispatcher (in `src/templates/components/paragraph/`)
+- [x] **paragraph** - Central paragraph component router/dispatcher (in `src/templates/components/paragraph/`)
   - _Critical component that routes all paragraph types to their specific implementations_
   - _Has complex imports from both common and component templates_
   - _Must be migrated after all individual paragraph components_
@@ -346,109 +346,88 @@ _Note: This phase will require careful coordination as paragraphs have complex i
 
 #### Alert System Components
 
-- [ ] **alert** - Has query, types, mocks, template
+- [x] **alert** - Has query, types, mocks, template
   - _Base alert paragraph with reusable alert blocks and embedded paragraphs_
   - _Complex: Contains nested paragraphs (ExpandableText, Wysiwyg)_
-- [ ] **alertSingle** - Has query, types, mocks, template
+- [x] **alertSingle** - Has query, types, mocks, template
   - _Single alert instance with non-reusable alert reference_
-- [ ] **alertNonReusable** - Has query, types, mocks, template
+- [x] **alertNonReusable** - Has query, types, mocks, template
   - _Non-reusable alert paragraphs with embedded content_
-- [ ] **alertBlock** - Has query, types, mocks, template
+- [x] **alertBlock** - Has query, types, mocks, template
   - _Block-level alert components_
 
 #### Interactive Content Components
 
-- [ ] **accordion** - Has query, types, mocks, template
+- [x] **accordion** - Has query, types, mocks, template
   - _Collapsible accordion items with header and rich content_
-- [ ] **collapsiblePanel** - Has query, types, mocks, template
+- [x] **collapsiblePanel** - Has query, types, mocks, template
   - _Complex: Contains nested CollapsiblePanelItem paragraphs_
   - _Has bordered, expandable, and multi-panel configurations_
-- [ ] **expandableText** - Has query, types, mocks, template
+- [x] **expandableText** - Has query, types, mocks, template
   - _Text content with expand/collapse functionality_
 
 #### Content Display Components
 
-- [ ] **wysiwyg** - Has query, types, mocks, template
+- [x] **wysiwyg** - Has query, types, mocks, template
   - _Rich text content with WYSIWYG formatting_
   - _Handles both standard and character-limited (1000) variants_
-- [ ] **table** - Has query, types, mocks, template
+- [x] **table** - Has query, types, mocks, template
   - _Structured table data display_
-- [ ] **numberCallout** - Has query, types, mocks, template
+- [x] **numberCallout** - Has query, types, mocks, template
   - _Highlighted numeric content with descriptive text_
-- [ ] **linkTeaser** - Has query, types, mocks, template
+- [x] **linkTeaser** - Has query, types, mocks, template
   - _Link preview with summary content_
-- [ ] **processList** - Has query, types, mocks, template
+- [x] **processList** - Has query, types, mocks, template
   - _Step-by-step process instructions_
 
 #### Interactive Elements
 
-- [ ] **reactWidget** - Has query, types, mocks, template
+- [x] **reactWidget** - Has query, types, mocks, template
   - _Dynamic React widgets with CTA, error handling, and loading states_
   - _Configurable timeout and widget type selection_
 
 #### Q&A System Components
 
-- [ ] **qaSection** - Has query, types, mocks, template
+- [x] **qaSection** - Has query, types, mocks, template
   - _Section-based Q&A with accordion display options_
   - _Complex: Contains nested FormattedParagraph arrays for questions_
-- [ ] **qaParagraph** - Has query, types, mocks, template
+- [x] **qaParagraph** - Has query, types, mocks, template
   - _Individual Q&A pairs with formatted answers_
   - _Complex: Contains nested FormattedParagraph arrays for answers_
 
 #### Audience & Topic Components
 
-- [ ] **audienceTopics** - Has query, types, mocks, template
+- [x] **audienceTopics** - Has query, types, mocks, template
   - _Audience targeting with beneficiaries and topic selection_
   - _Supports both beneficiaries and non-beneficiaries taxonomy terms_
 
 #### Contact & Communication
 
-- [ ] **contactInfo** - Has query, types, mocks, template
+- [x] **contactInfo** - Has query, types, mocks, template
   - _Contact information with multiple contact types_
   - _Complex: Supports phone, email, benefit hub, and support service contacts_
 
 ### Paragraph Components from Common Templates (`src/templates/common/`)
 
-- [ ] **button** - Has query, types, mocks, template (from common)
+- [x] **button** - Has query, types, mocks, template (from common)
   - _Standard button components with label and link configuration_
   - _Note: This overlaps with Phase 1 but is part of paragraph system_
-- [ ] **featuredContent** - Has query, types, mocks, template (from common)
+- [x] **featuredContent** - Has query, types, mocks, template (from common)
   - _Featured content sections with optional CTA buttons_
   - _Note: This overlaps with Phase 1 but is part of paragraph system_
-- [ ] **phoneNumber** - Has query, types, mocks, template (from common)
+- [x] **phoneNumber** - Has query, types, mocks, template (from common)
   - _Phone number display with extension, label, and type (SMS, TTY, FAX)_
   - _Note: This overlaps with Phase 1 but is part of paragraph system_
 
 ### Query-Only Paragraph Components
 
-- [ ] **collapsiblePanelItem** - Has query, types, mocks (no template - used within collapsiblePanel)
+- [x] **collapsiblePanelItem** - Has query, types, mocks (no template - used within collapsiblePanel)
   - _Individual items within collapsible panels_
   - _Contains title, wysiwyg content, and nested table paragraphs_
-- [ ] **emailContact** - Has query, types, mocks (no standalone template - used within contactInfo)
+- [x] **emailContact** - Has query, types, mocks (no standalone template - used within contactInfo)
   - _Email contact information with address and label_
-- [ ] **qaGroup** - Has query, types, mocks (rendered through qaSection template)
+- [x] **qaGroup** - Has query, types, mocks (rendered through qaSection template)
   - _Grouped Q&A sections with accordion display settings_
-
-### Special Paragraph Types (Referenced but need investigation)
-
-- [ ] **serviceLocation** - Template exists but needs paragraph integration check
-  - _Service location information with addresses, hours, phone numbers_
-  - _Complex: Contains nested ServiceLocationAddress paragraphs_
-- [ ] **staffProfile** - Investigate if this needs paragraph system integration
-- [ ] **step** & **stepByStep** - Investigate if these have corresponding queries/templates
-  - _Step-by-step instructions with media and alert integration_
-
-### Notes on Paragraph System Migration:
-
-1. **High Interdependency**: Many paragraph components reference each other (alerts contain wysiwyg/expandableText, collapsiblePanel contains collapsiblePanelItem, etc.)
-
-2. **Central Paragraph Component**: The `paragraph` component in `src/templates/components/paragraph/` serves as the central dispatcher and must be migrated last after all individual components.
-
-3. **Formatter Integration**: All paragraph components use `FormattedParagraph` types and are integrated into the central formatting system.
-
-4. **Overlap with Other Phases**: Some components (`button`, `featuredContent`, `phoneNumber`) appear in Phase 1 but are also part of the paragraph system - they should be migrated in Phase 2 to maintain paragraph system integrity.
-
-5. **Template vs Query-Only**: Some paragraph types only have queries/formatters but use existing templates (like `qaGroup` using `qaSection` template).
 
 ---
 
@@ -515,6 +494,11 @@ _Note: Paragraph-related components have been moved to Phase 2. This phase conta
   - _Vet center health services listings_
 - [ ] **vetCenterHealthServicesList** - Standalone template component
   - _Vet center health services list display_
+
+### Other stuff
+
+- [ ] **serviceLocation**
+- [ ] **staffProfile**
 
 ## Phase 4: Standalone Queries (Non-Paragraph)
 
