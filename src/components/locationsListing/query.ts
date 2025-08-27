@@ -19,7 +19,7 @@ import { formatter as formatAdministration } from '@/components/administration/q
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { formatter as formatPhone } from '@/components/phoneNumber/query'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import {
   getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,

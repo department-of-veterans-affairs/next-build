@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 import { NodeLeadershipListing } from '@/types/drupal/node'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/leadershipListing/mock.json'
 import { params } from './query'
 

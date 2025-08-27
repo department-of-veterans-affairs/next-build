@@ -1,4 +1,4 @@
-import { FormattedParagraph } from '@/data/queries'
+import { FormattedParagraph } from '@/lib/drupal/queries'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { AccordionItem } from '@/components/accordion/template'
 import { AccordionItem as FormattedAccordionItem } from '@/components/accordion/formatted-type'

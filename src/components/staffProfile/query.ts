@@ -1,5 +1,5 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodePersonProfile } from '@/types/drupal/node'
 import { StaffProfile } from './formatted-type'

@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { ParagraphExpandableText } from '@/types/drupal/paragraph'
 import mockData from '@/components/expandableText/mock.json'
 

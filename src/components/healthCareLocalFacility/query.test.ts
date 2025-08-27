@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockFacilityData from './mock'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { formatter, LocalFacilityData, params } from './query'

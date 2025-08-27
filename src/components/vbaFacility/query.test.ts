@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/vbaFacility/mock.json'
 import mockServicesData from './vbaFacilityService.mock.json'
 import { params } from './query'

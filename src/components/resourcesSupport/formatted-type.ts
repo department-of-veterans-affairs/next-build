@@ -1,4 +1,4 @@
-import { FormattedParagraph } from '@/data/queries'
+import { FormattedParagraph } from '@/lib/drupal/queries'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { AlertSingle } from '@/components/alert/formatted-type'
 import { ContactInfo } from '@/components/contactInfo/formatted-type'

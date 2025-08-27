@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from './mock.json'
 import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { data } from './query'

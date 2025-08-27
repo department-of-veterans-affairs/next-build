@@ -1,5 +1,5 @@
 import { PublishedParagraph } from '@/types/formatted/publishedEntity'
-import { FormattedParagraph } from '@/data/queries'
+import { FormattedParagraph } from '@/lib/drupal/queries'
 
 //Todo, this should be removed when the question_answer formatter is complete
 export type QaGroupQa = {

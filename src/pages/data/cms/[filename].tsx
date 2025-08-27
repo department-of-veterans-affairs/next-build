@@ -5,7 +5,7 @@ import {
 } from 'next'
 import fs from 'fs'
 import path from 'path'
-import { QueryDataOptsMap, queries } from '@/data/queries'
+import { QueryDataOptsMap, queries } from '@/lib/drupal/queries'
 
 type StaticJsonFile<T extends keyof QueryDataOptsMap> = {
   filename: string

@@ -3,7 +3,7 @@
  */
 
 import { ParagraphCollapsiblePanelItem } from '@/types/drupal/paragraph'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '@/components/collapsiblePanelItem/mock'
 
 const CollapsiblePanelItem: ParagraphCollapsiblePanelItem = mockResponse

@@ -41,7 +41,7 @@ jest.mock('@/lib/drupal/query', () => {
 })
 
 // mocking the queries object to return a mock params object
-jest.mock('@/data/queries', () => {
+jest.mock('@/lib/drupal/queries', () => {
   const mockParams = {
     addFilter: jest.fn().mockReturnThis(),
     addSort: jest.fn().mockReturnThis(),

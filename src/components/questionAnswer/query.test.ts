@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { NodeQA } from '@/types/drupal/node'
 import mockData from '@/components/questionAnswer/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'

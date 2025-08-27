@@ -4,7 +4,7 @@ import {
   QueryOpts,
   QueryParams,
 } from 'next-drupal-query'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeEvent } from '@/types/drupal/node'
 import { Event } from './formatted-type'

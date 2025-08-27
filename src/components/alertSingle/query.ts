@@ -7,7 +7,7 @@ import {
   AlertNonReusable,
 } from '@/components/alert/formatted-type'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([

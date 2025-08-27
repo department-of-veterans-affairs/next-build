@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { ParagraphAudienceTopics } from '@/types/drupal/paragraph'
 import mockData from '@/components/audienceTopics/mock.json'
 import { params, getTagsList } from './query'

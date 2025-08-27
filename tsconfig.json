@@ -20,7 +20,6 @@
     "paths": {
       "@/assets/*": ["./src/assets/*"],
       "@/api/*": ["./src/pages/api/*"],
-      "@/data/*": ["./src/data/*"],
       "@/datadogConnector/*": ["./src/datadogConnector/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/pages/*": ["./src/pages/*"],

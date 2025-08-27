@@ -3,7 +3,7 @@
  */
 
 import { BlockPromo } from '@/types/drupal/block'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '@/components/promoBlock/mock'
 import { params } from './query'
 //eslint-disable-next-line

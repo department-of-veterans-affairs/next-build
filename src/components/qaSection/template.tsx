@@ -2,7 +2,7 @@ import { QaSection as FormattedQaSection } from '@/components/qaSection/formatte
 import { QaCollapsiblePanel } from '@/components/qaSection/QaCollapsiblePanel'
 import { QaGroup as FormattedQaGroup } from '@/components/qaGroup/formatted-type'
 import { Paragraph } from '@/components/paragraph/template'
-import { FormattedParagraph } from '@/data/queries'
+import { FormattedParagraph } from '@/lib/drupal/queries'
 import { slugifyString } from '@/lib/utils/slug'
 
 export function QaSection({

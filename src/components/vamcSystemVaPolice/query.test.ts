@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/vamcSystemVaPolice/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes' // Import RESOURCE_TYPES
 

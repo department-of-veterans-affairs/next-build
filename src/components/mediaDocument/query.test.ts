@@ -3,7 +3,7 @@
  */
 
 import { DrupalMediaDocument } from '@/types/drupal/media'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/mediaDocument/mock.json'
 
 //eslint-disable-next-line

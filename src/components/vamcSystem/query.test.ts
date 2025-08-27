@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/vamcSystem/mock.json'
 import mockFacilityData from '../healthCareLocalFacility/mock'
 import mockStoryData from '@/components/newsStory/mock.json'

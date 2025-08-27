@@ -1,5 +1,5 @@
 import { NodePressRelease } from '@/types/drupal/node'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/pressRelease/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params, formatter } from './query'

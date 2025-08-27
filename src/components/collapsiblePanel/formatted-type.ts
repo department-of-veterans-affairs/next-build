@@ -1,4 +1,4 @@
-import { FormattedParagraph } from '@/data/queries'
+import { FormattedParagraph } from '@/lib/drupal/queries'
 import { HeadingLevel } from '@/components/heading/formatted-type'
 import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 

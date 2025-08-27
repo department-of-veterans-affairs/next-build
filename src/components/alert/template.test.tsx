@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Alert } from './template'
-import { FormattedParagraph } from '@/data/queries'
+import { FormattedParagraph } from '@/lib/drupal/queries'
 import { Alert as FormattedAlert } from '@/components/alert/formatted-type'
 import { AlertType } from '@/components/alert/formatted-type'
 import { AccordionItem as FormattedAccordion } from '@/components/accordion/formatted-type'
