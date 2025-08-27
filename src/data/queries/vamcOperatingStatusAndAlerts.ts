@@ -7,17 +7,18 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  getMenu,
 } from '@/lib/drupal/query'
+import { Menu } from '@/types/drupal/menu'
+import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-  // uncomment to add referenced entity data to the response
-  // .addInclude([
-  //  'field_media',
-  //  'field_media.image',
-  //  'field_administration',
-  // ])
+  .addInclude([
+   'field_office',
+   'field_office.field_system_menu'
+  ])
 }
 
 // Define the option types for the data loader.
@@ -26,25 +27,42 @@ export type VamcOperatingStatusAndAlertsDataOpts = {
   context?: ExpandedStaticPropsContext
 }
 
+export type VamcOperatingStatusAndAlertsData = {
+  entity: NodeVamcOperatingStatusAndAlerts
+  menu: Menu | null
+}
+
 // Implement the data loader.
 export const data: QueryData<
   VamcOperatingStatusAndAlertsDataOpts,
-  NodeVamcOperatingStatusAndAlerts
-> = async (opts): Promise<NodeVamcOperatingStatusAndAlerts> => {
+  VamcOperatingStatusAndAlertsData
+> = async (opts) => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS,
     params
   )) as NodeVamcOperatingStatusAndAlerts
 
-  return entity
+  const menu = entity.field_office
+    ? await getMenu(
+        entity.field_office.field_system_menu.resourceIdObjMeta
+          .drupal_internal__target_id
+      )
+    : null
+
+  return { entity, menu }
 }
 
 export const formatter: QueryFormatter<
-  NodeVamcOperatingStatusAndAlerts,
+  VamcOperatingStatusAndAlertsData,
   VamcOperatingStatusAndAlerts
-> = (entity: NodeVamcOperatingStatusAndAlerts) => {
+> = ({ entity, menu }) => {
+
+  const formattedMenu =
+    menu !== null ? buildSideNavDataFromMenu(entity?.path.alias, menu) : null
   return {
     ...entityBaseFields(entity),
+    facilityName: entity?.field_office.field_system_menu.label,
+    menu: formattedMenu,
   }
 }
