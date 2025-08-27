@@ -14,10 +14,9 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-  .addInclude([
-   'field_office',
-   'field_office.field_system_menu'
+  return new DrupalJsonApiParams().addInclude([
+    'field_office',
+    'field_office.field_system_menu',
   ])
 }
 
@@ -57,12 +56,11 @@ export const formatter: QueryFormatter<
   VamcOperatingStatusAndAlertsData,
   VamcOperatingStatusAndAlerts
 > = ({ entity, menu }) => {
-
   const formattedMenu =
-    menu !== null ? buildSideNavDataFromMenu(entity?.path.alias, menu) : null
+    menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
   return {
     ...entityBaseFields(entity),
-    facilityName: entity?.field_office.field_system_menu.label,
+    facilityName: entity.field_office.field_system_menu.label,
     menu: formattedMenu,
   }
 }

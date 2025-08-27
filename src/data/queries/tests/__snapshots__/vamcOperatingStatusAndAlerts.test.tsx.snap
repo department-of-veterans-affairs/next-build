@@ -21,8 +21,10 @@ exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
   ],
   "entityId": 6834,
   "entityPath": "/oklahoma-city-health-care/operating-status",
+  "facilityName": "VA Oklahoma City health care",
   "id": "9167ccca-96f2-4809-b93e-d72414bfbbbf",
   "lastUpdated": "2024-02-20T19:58:39+00:00",
+  "menu": null,
   "metatags": [
     {
       "attributes": {
