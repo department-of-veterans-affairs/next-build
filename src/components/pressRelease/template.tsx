@@ -1,6 +1,6 @@
 import { PressRelease as FormattedPressRelease } from './formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { formatDate } from '@/lib/utils/helpers'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { PhoneNumber } from '@/components/phoneNumber/template'

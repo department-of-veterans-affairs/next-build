@@ -9,7 +9,7 @@ import {
   LOVELL_RESOURCE_TYPES,
   LOVELL_BIFURCATED_RESOURCE_TYPES,
 } from './constants'
-import { StaticPathResource } from '@/types/formatted/staticPathResource'
+import { StaticPathResource } from '@/components/staticPathResources/formatted-type'
 import { FormattedPageResource } from '@/data/queries'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'

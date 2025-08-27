@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { MediaImage } from '@/types/formatted/media'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { StoryTeaser } from './StoryTeaser'
 
 const mockMediaImage: MediaImage = {

@@ -1,7 +1,7 @@
 import { MediaImage } from '@/components/mediaImage/template'
 import { truncateWordsOrChar } from '@/lib/utils/helpers'
 import { NewsStoryTeaser as FormattedNewsStoryTeaser } from '../newsStory/formatted-type'
-import { TextWithImage } from '@/templates/components/textWithImage'
+import { TextWithImage } from '@/components/textWithImage/template'
 
 /** Story teaser component converted from news_story.drupal.liquid */
 export const StoryTeaser = ({

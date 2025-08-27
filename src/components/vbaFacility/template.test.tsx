@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VbaFacility } from './template'
 import mockData from '@/components/vbaFacility/mock.json'
-import mockServiceData from '@/mocks/vbaFacilityService.mock.json'
+import mockServiceData from './vbaFacilityService.mock.json'
 import { formatter } from './query'
 
 describe('VbaFacility with valid data', () => {

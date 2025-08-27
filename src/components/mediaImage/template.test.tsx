@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
+import { MediaImage as FormattedMediaImage } from '@/components/mediaDocument/formatted-type'
 import { MediaImage } from '@/components/mediaImage/template'
 
 const mediaImage: FormattedMediaImage = {

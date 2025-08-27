@@ -1,4 +1,4 @@
-import { MediaImage as FormattedMediaImage } from '@/types/formatted/media'
+import { MediaImage as FormattedMediaImage } from '@/components/mediaDocument/formatted-type'
 import Image from 'next/image'
 
 const IMAGE_STYLE_DIMENSIONS = {

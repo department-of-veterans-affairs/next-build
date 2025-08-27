@@ -1,9 +1,9 @@
-import StaffProfileSideBarNav from '@/templates/components/staffProfileSideBarNav'
+import StaffProfileSideBarNav from '@/components/staffProfileSideBarNav/template'
 import { StaffProfile as FormattedStaffProfile } from './formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { MediaImage } from '@/components/mediaImage/template'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 
 export type PersonProfileTeaserProps = {

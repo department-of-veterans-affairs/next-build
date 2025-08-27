@@ -7,7 +7,7 @@ import {
 } from '@/lib/drupal/listingPages'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { queries } from '@/data/queries'
-import { StaticPathResource } from '@/types/formatted/staticPathResource'
+import { StaticPathResource } from '@/components/staticPathResources/formatted-type'
 import {
   bifurcateLovellFederalPathResources,
   removeLovellFederalPathResources,

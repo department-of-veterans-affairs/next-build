@@ -4,7 +4,7 @@
 
 import { queries } from '@/data/queries'
 import mockData from '@/components/vbaFacility/mock.json'
-import mockServicesData from '@/mocks/vbaFacilityService.mock.json'
+import mockServicesData from './vbaFacilityService.mock.json'
 import { params } from './query'
 
 const VbaFacilityMock = {

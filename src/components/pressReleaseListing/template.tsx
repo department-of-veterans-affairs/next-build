@@ -14,11 +14,11 @@ import { VaPagination } from '@department-of-veterans-affairs/component-library/
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PressReleaseListing as FormattedPressReleaseListing } from './formatted-type'
 import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '../pressRelease/formatted-type'
-import { PressReleaseTeaser } from '@/templates/components/pressReleaseTeaser'
+import { PressReleaseTeaser } from '@/components/pressReleaseTeaser/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { useEffect } from 'react'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { DEFAULT_PAGE_LIST_LENGTH } from '../../constants/pagination'
 
 // Allows additions to window object without overwriting global type

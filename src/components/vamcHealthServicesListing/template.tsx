@@ -1,6 +1,6 @@
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from './formatted-type'
-import { LovellSwitcher } from '@/templates/components/lovellSwitcher'
-import { FacilityTopTasks } from '@/templates/components/topTasks'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
+import { FacilityTopTasks } from '@/components/topTasks/template'
 
 export function VamcHealthServicesListing({
   title,

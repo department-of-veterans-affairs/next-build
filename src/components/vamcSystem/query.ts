@@ -21,9 +21,9 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { queries } from '@/data/queries'
-import { formatter as formatAdministration } from '@/data/queries/administration'
-import { formatter as formatNewsStoryTeaser } from '@/data/queries/newsStoryTeaser'
-import { formatter as formatEventTeaser } from '@/data/queries/eventTeaser'
+import { formatter as formatAdministration } from '@/components/administration/query'
+import { formatter as formatNewsStoryTeaser } from '@/components/newsStoryTeaser/query'
+import { formatter as formatEventTeaser } from '@/components/eventTeaser/query'
 import { formatter as formatPhone } from '@/components/phoneNumber/query'
 import {
   getLovellVariantOfUrl,

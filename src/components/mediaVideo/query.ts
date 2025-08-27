@@ -1,6 +1,6 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { MediaVideo } from '@/types/formatted/media'
+import { MediaVideo } from '@/components/mediaDocument/formatted-type'
 import { DrupalMediaVideo } from '@/types/drupal/media'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 

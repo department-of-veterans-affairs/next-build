@@ -1,7 +1,7 @@
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
-import { Administration } from '@/types/formatted/administration'
-import { MediaImage } from '@/types/formatted/media'
+import { Administration } from '@/components/administration/formatted-type'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { PhoneNumber } from '@/components/phoneNumber/formatted-type'
 
 import {

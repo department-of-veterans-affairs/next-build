@@ -13,7 +13,7 @@ import {
   getOppositeChildVariant,
   getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
-import { formatter as formatAdministration } from '@/data/queries/administration'
+import { formatter as formatAdministration } from '@/components/administration/query'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {

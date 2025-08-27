@@ -1,5 +1,5 @@
-import { MediaImage } from '@/types/formatted/media'
-import { Administration } from '@/types/formatted/administration'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
+import { Administration } from '@/components/administration/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { HealthCareLocalFacility } from '../healthCareLocalFacility/formatted-type'

@@ -1,4 +1,4 @@
-import { MediaImage } from '@/types/formatted/media'
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { PhoneNumber as FormattedPhoneNumber } from '@/components/phoneNumber/formatted-type'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'

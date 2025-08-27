@@ -4,7 +4,7 @@
 
 import { NodePersonProfile } from '@/types/drupal/node'
 import { queries } from '@/data/queries/'
-import mockData from '@/mocks/personProfile.mock.json'
+import mockData from './mock.personProfile.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 //eslint-disable-next-line
