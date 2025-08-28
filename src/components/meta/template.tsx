@@ -3,7 +3,7 @@ import { MetaTag } from '@/types/formatted/metatags'
 import { parseDate, getDateParts } from '@/lib/utils/date'
 import { capitalizeWords } from '@/lib/utils/capitalizeWords'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
-import { FormattedPageResource } from '@/data/queries'
+import { FormattedPageResource } from '@/lib/drupal/queries'
 import { generateAbsoluteUrlFromEnv } from '@/lib/utils/environment'
 import { BUILD_TYPES } from '@/lib/constants/environment'
 

@@ -3,7 +3,7 @@
  */
 
 import { NodeEvent } from '@/types/drupal/node'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/event/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from './query'

@@ -1,8 +1,8 @@
 import { getStaticPathsByResourceType } from './staticPaths'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { pathToSlug } from '@/lib/utils/slug'
 
-jest.mock('@/data/queries')
+jest.mock('@/lib/drupal/queries')
 
 describe('getStaticPathsByResourceType', () => {
   afterEach(() => {

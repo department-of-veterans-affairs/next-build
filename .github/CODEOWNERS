@@ -5,29 +5,10 @@
 # https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/engineering/codeowners.md
 
 # General ownership: Next Build Team (ap-team)
-*       @department-of-veterans-affairs/ap-team
+* @department-of-veterans-affairs/ap-team
 
 # Front-end template work should be verified by product owners.
-src/templates @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team
-src/components/*/template.tsx @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team
+src/components/**/*.tsx @department-of-veterans-affairs/next-build-product @department-of-veterans-affairs/ap-team
 
 # Code ownership of individual components/products
-src/components/event/ @department-of-veterans-affairs/ap-team
-src/components/eventListing/ @department-of-veterans-affairs/ap-team
-src/components/staffProfile/ @department-of-veterans-affairs/ap-team
-src/components/newsStory/ @department-of-veterans-affairs/ap-team
-src/components/storyListing/ @department-of-veterans-affairs/ap-team
-src/components/pressRelease/ @department-of-veterans-affairs/ap-team
-src/components/pressReleaseListing/ @department-of-veterans-affairs/ap-team
-src/components/leadershipListing/ @department-of-veterans-affairs/ap-team
-src/components/vamcSystemVaPolice/ @department-of-veterans-affairs/ap-team
-src/components/vetCenter/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/vetCenterLocationListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/vetCenterOutstation/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/vamcSystem/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/healthCareLocalFacility/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/vamcHealthServicesListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/locationsListing/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/resourcesSupport/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/vbaFacility/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
-src/components/questionAnswer/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend
+# Example: src/components/event/ @department-of-veterans-affairs/ap-team

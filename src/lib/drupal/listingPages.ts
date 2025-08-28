@@ -1,5 +1,5 @@
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { QUERIES_MAP, queries } from '@/data/queries'
+import { QUERIES_MAP, queries } from '@/lib/drupal/queries'
 import { RESOURCE_TYPES, ResourceType } from '@/lib/constants/resourceTypes'
 import { StaticPathResource } from '@/components/staticPathResources/formatted-type'
 import { GetStaticPropsContext } from 'next'

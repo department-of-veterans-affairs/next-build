@@ -13,7 +13,7 @@ import {
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { shouldHideHomeBreadcrumb } from '@/lib/utils/breadcrumbs'
 import { writeWarningToFile } from '@/lib/utils/writeWarningToFile'
 import { getStaticPathsByResourceType } from '@/lib/drupal/staticPaths'
@@ -26,7 +26,7 @@ import {
   getStaticPropsResource,
 } from '@/lib/drupal/staticProps'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
-import { FormattedPageResource } from '@/data/queries'
+import { FormattedPageResource } from '@/lib/drupal/queries'
 import {
   deflateObjectGraph,
   inflateObjectGraph,

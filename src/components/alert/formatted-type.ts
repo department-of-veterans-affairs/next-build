@@ -1,4 +1,4 @@
-import { FormattedParagraph } from '@/data/queries'
+import { FormattedParagraph } from '@/lib/drupal/queries'
 import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 import { ExpandableText } from '@/components/expandableText/formatted-type'

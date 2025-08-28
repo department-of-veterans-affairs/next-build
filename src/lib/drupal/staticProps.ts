@@ -6,7 +6,7 @@ import {
   QueryablePageResourceType,
   queries,
   QUERIES_MAP,
-} from '@/data/queries'
+} from '@/lib/drupal/queries'
 import {
   ListingPageStaticPropsContextProps,
   getListingPageStaticPropsContext,

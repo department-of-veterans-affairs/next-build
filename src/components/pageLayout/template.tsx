@@ -8,7 +8,7 @@ import { BANNER_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { handleSkipLink } from '@/lib/utils/handleSkipLink'
 import { UnpublishedBanner } from '@/components/preview/template'
 import { StaticPropsResource } from '@/lib/drupal/staticProps'
-import { FormattedPageResource } from '@/data/queries'
+import { FormattedPageResource } from '@/lib/drupal/queries'
 import { Footer } from '@/components/footer/template'
 import { Header } from '@/components/header/template'
 

@@ -3,7 +3,7 @@
  */
 
 import { ParagraphQaGroup } from '@/types/drupal/paragraph'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/qaGroup/mock.json'
 import { params } from './query'
 

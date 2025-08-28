@@ -3,7 +3,7 @@
  */
 
 import { NodeSupportResourcesDetailPage } from '@/types/drupal/node'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from './mock'
 import { params } from './query'
 

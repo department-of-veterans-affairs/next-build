@@ -4,7 +4,7 @@
 
 import { NodeVamcHealthServicesListing } from '@/types/drupal/node'
 import { formatter } from './query'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from './mock.json'
 
 const VamcHealthServicesListingMock: NodeVamcHealthServicesListing = mockData[0]

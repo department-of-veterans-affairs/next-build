@@ -1,4 +1,4 @@
-import { queries, ParamsType } from '@/data/queries'
+import { queries, ParamsType } from '@/lib/drupal/queries'
 
 export const getNestedIncludes = (
   fieldName: string,

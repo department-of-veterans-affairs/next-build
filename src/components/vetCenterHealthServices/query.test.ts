@@ -3,7 +3,7 @@
  */
 
 import { VetCenterFieldHealthServicesArray } from '@/types/drupal/field_type'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockResponse from '@/components/vetCenterHealthServices/mock.json'
 import { params } from './query'
 

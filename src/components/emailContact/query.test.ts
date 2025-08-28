@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { ParagraphEmailContact } from '@/types/drupal/paragraph'
 import mockData from '@/components/emailContact/mock.json'
 

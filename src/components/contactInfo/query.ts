@@ -5,7 +5,7 @@ import {
   ContactInfo,
   AdditionalContact,
 } from '@/components/contactInfo/formatted-type'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'

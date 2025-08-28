@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import {
   MegaMenuColumn,
   MegaMenuLink,

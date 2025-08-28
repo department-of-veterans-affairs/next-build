@@ -5,7 +5,7 @@ import {
   QueryParams,
 } from 'next-drupal-query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeQA } from '@/types/drupal/node'
 import { QuestionAnswer } from './formatted-type'

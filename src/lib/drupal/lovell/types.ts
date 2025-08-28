@@ -4,7 +4,7 @@ import {
   LOVELL_RESOURCE_TYPES,
   LOVELL_BIFURCATED_RESOURCE_TYPES,
 } from './constants'
-import { QUERIES_MAP } from '@/data/queries'
+import { QUERIES_MAP } from '@/lib/drupal/queries'
 
 export type LovellResourceType = (typeof LOVELL_RESOURCE_TYPES)[number]
 

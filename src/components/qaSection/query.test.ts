@@ -3,7 +3,7 @@
  */
 
 import { ParagraphQaSection } from '@/types/drupal/paragraph'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/qaSection/mock.json'
 
 const QaSectionMock: ParagraphQaSection = mockData

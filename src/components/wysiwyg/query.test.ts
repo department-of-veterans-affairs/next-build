@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { ParagraphWysiwyg } from '@/types/drupal/paragraph'
 import { ParagraphRichTextCharLimit1000 } from '@/types/drupal/paragraph'
 import wysiwygMockData from './mock.json'

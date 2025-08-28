@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/locationsListing/mock.json'
 import { NodeLocationsListing } from '@/types/drupal/node'
 import { params } from './query'

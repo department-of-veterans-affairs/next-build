@@ -4,7 +4,7 @@
 
 import { mockResponse as mockVetCenter } from './mock'
 import mockBannerMedia from '@/components/mediaImage/mock.json'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const mockBannerMediaQuery = jest.fn()

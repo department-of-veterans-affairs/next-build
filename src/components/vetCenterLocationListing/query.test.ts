@@ -5,7 +5,7 @@
 import mockVetCenterLocationListing from './mock.json'
 import mockCap from './mock.vetCenterCap.json'
 import mockOutstation from '@/components/vetCenterOutstation/mock.json'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 const mockVetCenterLocationListingQuery = jest.fn()

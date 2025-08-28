@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { recordEvent } from '@/lib/analytics/recordEvent'
 import { PageLayout } from '@/components/pageLayout/template'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { CommonAndPopular } from '@/components/commonAndPopular/template'
 import Head from 'next/head'
 import Script from 'next/script'

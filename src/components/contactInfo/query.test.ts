@@ -3,7 +3,7 @@
  */
 
 import { ParagraphContactInformation } from '@/types/drupal/paragraph'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/contactInfo/mock.json'
 import { params } from './query'
 

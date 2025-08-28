@@ -20,7 +20,7 @@ import { formatter as formatRelatedLinks } from '@/components/relatedLinks/query
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { formatter as formatNewsStoryTeaser } from '@/components/newsStoryTeaser/query'
 import { formatter as formatEventTeaser } from '@/components/eventTeaser/query'
