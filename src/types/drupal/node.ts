@@ -538,5 +538,5 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
   breadcrumbs: BreadcrumbItem[]
 }
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
-  title: string
+  field_office: DrupalNode
 }
