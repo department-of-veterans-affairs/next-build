@@ -215,7 +215,7 @@ export type FormattedResourceByType<
 //  of the key's value.
 // This type is used, for example, to ensure that StaticJsonFile configurations define an acceptable
 //  value for `queryOpts`.
-// E.g. `node--news_story` => NewsStoryDataOpts because the `data` function in src/data/queries/newsStory.ts
+// E.g. `node--news_story` => NewsStoryDataOpts because the `data` function in src/components/newsStory/query.ts
 //  is typed QueryData<NewsStoryDataOpts, NodeNewsStory> (note first parameter)
 /*eslint-disable @typescript-eslint/no-explicit-any*/
 type AllQueryDataOptsMap = {

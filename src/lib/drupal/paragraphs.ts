@@ -29,7 +29,7 @@ import { queries, FormattableParagraphResourceType } from '@/lib/drupal/queries'
  *
  * Note: FormattableParagraphResourceType indicates that the passed-in
  * paragraph must be one that has a `formatter` (defined in
- * `src/data/queries/index.ts`)
+ * `src/lib/drupal/queries.ts`)
  *
  *
  * @param paragraph

@@ -36,7 +36,7 @@ const customJestConfig: Config = {
     '!src/lib/drupal/staticProps.ts',
     '!src/lib/drupal/staticPaths.ts',
     '!src/lib/drupal/query.ts',
-    '!src/templates/common/meta/index.tsx',
+    '!src/components/meta/template.tsx',
     '!src/pages/**',
     '!src/types/**/*.{js,jsx,ts,tsx}',
   ],
