@@ -1,12 +1,12 @@
 /* eslint-disable no-param-reassign */
 
-import { queries } from '@/data/queries'
+import { queries } from '@/lib/drupal/queries'
 import {
   MegaMenuColumn,
   MegaMenuLink,
   MegaMenuLinkObject,
   MegaMenuSection,
-} from '@/types/formatted/headerFooter'
+} from '@/components/header/formatted-type'
 
 /**
  * Most of this file is to massage the data for the menu links

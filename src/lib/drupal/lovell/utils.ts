@@ -9,8 +9,8 @@ import {
   LOVELL_RESOURCE_TYPES,
   LOVELL_BIFURCATED_RESOURCE_TYPES,
 } from './constants'
-import { StaticPathResource } from '@/types/formatted/staticPathResource'
-import { FormattedPageResource } from '@/data/queries'
+import { StaticPathResource } from '@/components/staticPathResources/formatted-type'
+import { FormattedPageResource } from '@/lib/drupal/queries'
 import { ResourceType } from '@/lib/constants/resourceTypes'
 import { slugToPath } from '@/lib/utils/slug'
 import { SideNavItem, SideNavMenu } from '@/types/formatted/sideNav'

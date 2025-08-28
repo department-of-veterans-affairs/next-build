@@ -1,5 +1,5 @@
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { Administration } from '@/types/formatted/administration'
+import { Administration } from '@/components/administration/formatted-type'
 
 export const LOVELL = {
   /**
