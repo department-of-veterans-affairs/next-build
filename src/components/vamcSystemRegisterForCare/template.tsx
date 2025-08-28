@@ -1,5 +1,6 @@
 import React from 'react'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from './formatted-type'
+import { ContentFooter } from '../contentFooter/template'
 
 export const VamcSystemRegisterForCare = ({
   title,
@@ -51,11 +52,9 @@ export const VamcSystemRegisterForCare = ({
                 <div>TODO: Related links</div>
               </div>
 
-              {/* TODO: Back to top */}
-              <div>TODO: Back to top</div>
+              <va-back-to-top></va-back-to-top>
 
-              {/* TODO: Last updated & feedback button */}
-              <div>TODO: Last updated & feedback button</div>
+              <ContentFooter />
             </article>
           </div>
         </div>
