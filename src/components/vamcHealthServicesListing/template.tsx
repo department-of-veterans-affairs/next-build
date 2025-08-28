@@ -3,7 +3,7 @@ import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { FacilityTopTasks } from '@/components/topTasks/template'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { FeaturedContent } from '@/templates/common/featuredContent'
+import { FeaturedContent } from '@/components/featuredContent/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
