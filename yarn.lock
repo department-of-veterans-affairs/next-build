@@ -3509,12 +3509,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.18":
-  version: 18.3.0
-  resolution: "@types/react-dom@npm:18.3.0"
-  dependencies:
-    "@types/react": "*"
-  checksum: a0cd9b1b815a6abd2a367a9eabdd8df8dd8f13f95897b2f9e1359ea3ac6619f957c1432ece004af7d95e2a7caddbba19faa045f831f32d6263483fc5404a7596
+"@types/react-dom@npm:^19.1.9":
+  version: 19.1.9
+  resolution: "@types/react-dom@npm:19.1.9"
+  peerDependencies:
+    "@types/react": ^19.0.0
+  checksum: 207acb79f6c3c9704938138960e21429efdf2db2184f17c166e8ec3f3180dfe6445b282c5302f559a71b2d09ab2fafef7735f3d24fd01cda4e5c7bf0cea1d5b9
   languageName: node
   linkType: hard
 
@@ -10760,7 +10760,7 @@ __metadata:
     "@types/lodash": ^4.17.19
     "@types/node": 22.13.11
     "@types/react": ^18.3.1
-    "@types/react-dom": ^18.2.18
+    "@types/react-dom": ^19.1.9
     "@types/react-gtm-module": ^2.0.4
     "@types/uuid": ^9.0.7
     "@typescript-eslint/eslint-plugin": ^8.32.0
@@ -10814,7 +10814,7 @@ __metadata:
     prettier-eslint: ^16.3.0
     proxy-fetcher: 0.1.0
     react: ^18.3.1
-    react-dom: ^18.2.0
+    react-dom: ^19.1.1
     react-gtm-module: ^2.0.11
     react-json-view: ^1.21.3
     redis: ^5.5.6
@@ -12561,7 +12561,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18, react-dom@npm:^18.2.0":
+"react-dom@npm:^18":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -12581,6 +12581,17 @@ __metadata:
   peerDependencies:
     react: ^19.1.0
   checksum: 1d154b6543467095ac269e61ca59db546f34ef76bcdeb90f2dad41d682cd210aae492e70c85010ed5d0a2caea225e9a55139ebc1a615ee85bf197d7f99678cdf
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:^19.1.1":
+  version: 19.1.1
+  resolution: "react-dom@npm:19.1.1"
+  dependencies:
+    scheduler: ^0.26.0
+  peerDependencies:
+    react: ^19.1.1
+  checksum: 71d63df955e99bb58470c6ae12ebb82fa80e2a73147c387b73a31c17bcff803ce8aded52ae0c4391c9b413be0aa449249d8be7d063136826d1f0caba9720a907
   languageName: node
   linkType: hard
 
