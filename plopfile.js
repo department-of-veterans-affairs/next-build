@@ -19,12 +19,12 @@ export default function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'src/templates/components/{{camelCase name}}/index.tsx',
+        path: 'src/components/{{camelCase name}}/template.tsx',
         templateFile: 'generator-templates/component/index.hbs',
       },
       {
         type: 'add',
-        path: 'src/templates/components/{{camelCase name}}/index.test.tsx',
+        path: 'src/components/{{camelCase name}}/template.test.tsx',
         templateFile: 'generator-templates/component/test.hbs',
       },
     ],
@@ -44,22 +44,22 @@ export default function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'src/data/queries/{{camelCase name}}.ts',
+        path: 'src/components/{{camelCase name}}/query.ts',
         templateFile: 'generator-templates/query/query.hbs',
       },
       {
         type: 'add',
-        path: 'src/data/queries/tests/{{camelCase name}}.test.tsx',
+        path: 'src/components/{{camelCase name}}/query.test.ts',
         templateFile: 'generator-templates/query/test.hbs',
       },
       {
         type: 'add',
-        path: 'src/mocks/{{camelCase name}}.mock.json',
+        path: 'src/components/{{camelCase name}}/mock.json',
         templateFile: 'generator-templates/query/mock.hbs',
       },
       {
         type: 'add',
-        path: 'src/types/formatted/{{camelCase name}}.ts',
+        path: 'src/components/{{camelCase name}}/formatted-type.ts',
         templateFile: 'generator-templates/type/formatted.hbs',
       },
       {
@@ -88,22 +88,22 @@ export default function (plop) {
       // Create query files for new Page type.
       {
         type: 'add',
-        path: 'src/data/queries/{{camelCase name}}.ts',
+        path: 'src/components/{{camelCase name}}/query.ts',
         templateFile: 'generator-templates/query/query.hbs',
       },
       {
         type: 'add',
-        path: 'src/data/queries/tests/{{camelCase name}}.test.tsx',
+        path: 'src/components/{{camelCase name}}/query.test.ts',
         templateFile: 'generator-templates/query/test.hbs',
       },
       {
         type: 'add',
-        path: 'src/mocks/{{camelCase name}}.mock.json',
+        path: 'src/components/{{camelCase name}}/mock.json',
         templateFile: 'generator-templates/query/mock.hbs',
       },
       {
         type: 'add',
-        path: 'src/types/formatted/{{camelCase name}}.ts',
+        path: 'src/components/{{camelCase name}}/formatted-type.ts',
         templateFile: 'generator-templates/type/formatted.hbs',
       },
       {
@@ -116,12 +116,12 @@ export default function (plop) {
       // Create react component + test files for new Page type.
       {
         type: 'add',
-        path: 'src/templates/layouts/{{camelCase name}}/index.tsx',
+        path: 'src/components/{{camelCase name}}/template.tsx',
         templateFile: 'generator-templates/component/index.hbs',
       },
       {
         type: 'add',
-        path: 'src/templates/layouts/{{camelCase name}}/index.test.tsx',
+        path: 'src/components/{{camelCase name}}/template.test.tsx',
         templateFile: 'generator-templates/component/test.hbs',
       },
       {
