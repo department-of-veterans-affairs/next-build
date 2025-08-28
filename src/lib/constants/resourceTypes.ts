@@ -25,7 +25,6 @@ export const RESOURCE_TYPES = {
   VET_CENTER_CAP: 'node--vet_center_cap',
   VET_CENTER_MOBILE_VET_CENTER: 'node--vet_center_mobile_vet_center',
   VAMC_HEALTH_SERVICES_LISTING: 'node--health_services_listing',
-  BOBBIN: 'node--bobbin',
 } as const
 
 // (Node) resources that generate full pages.
