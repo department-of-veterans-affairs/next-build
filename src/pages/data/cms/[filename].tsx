@@ -22,7 +22,7 @@ const STATIC_JSON_FILES: Array<StaticJsonFile<keyof QueryDataOptsMap>> = [
   // Another example:
   // {
   //   filename: 'hypothetical-banner-data-static-json-file',
-  //   query: 'banner-data', //must be defined in QUERIES_MAP in src/data/queries/index.ts
+  //   query: 'banner-data', //must be defined in QUERIES_MAP in src/lib/drupal/queries.ts
   //   queryOpts: {
   //     itemPath: 'path/to/item',
   //   },
