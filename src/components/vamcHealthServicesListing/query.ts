@@ -7,6 +7,7 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  getMenu,
 } from '@/lib/drupal/query'
 import {
   getLovellVariantOfUrl,
@@ -14,12 +15,17 @@ import {
   getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatAdministration } from '@/components/administration/query'
+import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import { Menu } from '@/types/drupal/menu'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addInclude(['field_administration', 'field_office'])
-    .addFields('node--health_care_region_page', ['field_vamc_ehr_system'])
+    .addFields('node--health_care_region_page', [
+      'field_vamc_ehr_system',
+      'field_system_menu',
+    ])
 }
 
 // Define the option types for the data loader.
@@ -30,6 +36,7 @@ export type VamcHealthServicesListingDataOpts = {
 
 type VamcHealthServicesListingData = {
   entity: NodeVamcHealthServicesListing
+  menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
 }
 
@@ -43,9 +50,16 @@ export const data: QueryData<
     RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
     params
   )) as NodeVamcHealthServicesListing
+  const menu = entity.field_office?.field_system_menu
+    ? await getMenu(
+        entity.field_office.field_system_menu.resourceIdObjMeta
+          .drupal_internal__target_id
+      )
+    : null
 
   return {
     entity,
+    menu,
     lovell: opts.context?.lovell,
   }
 }
@@ -53,11 +67,16 @@ export const data: QueryData<
 export const formatter: QueryFormatter<
   VamcHealthServicesListingData,
   VamcHealthServicesListing
-> = ({ entity, lovell }) => {
+> = ({ entity, menu, lovell }) => {
   let { breadcrumbs } = entity
   if (lovell?.isLovellVariantPage) {
     breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
   }
+
+  const formattedMenu =
+    menu !== null
+      ? buildSideNavDataFromMenu(entity.path?.alias || '', menu)
+      : null
 
   return {
     ...entityBaseFields(entity),
@@ -74,5 +93,6 @@ export const formatter: QueryFormatter<
     path: entity.path?.alias || null,
     administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
+    menu: formattedMenu,
   }
 }

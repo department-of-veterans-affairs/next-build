@@ -1,6 +1,14 @@
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from './formatted-type'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { FacilityTopTasks } from '@/components/topTasks/template'
+import { useEffect } from 'react'
+import { SideNavMenu } from '@/types/formatted/sideNav'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  sideNav?: SideNavMenu
+}
+declare const window: customWindow
 
 export function VamcHealthServicesListing({
   title,
@@ -10,20 +18,20 @@ export function VamcHealthServicesListing({
   path,
   administration,
   vamcEhrSystem,
+  menu,
 }: FormattedVamcHealthServicesListing) {
   // Extract the region base path from the full path (same as healthCareLocalFacility)
   const regionBasePath = path ? path.split('/')[1] : ''
+  // Note: The side nav widget is in a vets-website
+  useEffect(() => {
+    window.sideNav = menu
+  }, [menu])
 
   return (
     <main className="va-l-detail-page va-facility-page">
       <div className="usa-grid usa-grid-full">
-        {/* TODO: Replace with actual FacilitySidebarNav component */}
-        <div className="usa-width-one-fourth">
-          <div className="facility-sidebar-nav">
-            <p>TODO: Add Sidebar </p>
-          </div>
-        </div>
-
+        {/* Nav data filled in by a separate script from `window.sideNav` */}
+        <nav aria-label="secondary" data-widget-type="side-nav" />
         <div className="usa-width-three-fourths">
           <article className="usa-content">
             <LovellSwitcher
