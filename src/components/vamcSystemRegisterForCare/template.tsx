@@ -5,6 +5,7 @@ import { ContentFooter } from '../contentFooter/template'
 export const VamcSystemRegisterForCare = ({
   title,
   vamcSystem,
+  lastUpdated,
 }: FormattedVamcSystemRegisterForCare) => {
   return (
     <div
@@ -54,7 +55,7 @@ export const VamcSystemRegisterForCare = ({
 
               <va-back-to-top></va-back-to-top>
 
-              <ContentFooter />
+              <ContentFooter lastUpdated={lastUpdated} />
             </article>
           </div>
         </div>
