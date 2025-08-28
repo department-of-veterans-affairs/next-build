@@ -108,7 +108,7 @@ export const VetCenterLocationInfo = ({
       {title && (
         <>
           <h3
-            className="vads-u-margin-bottom--1 vads-u-margin-top--0 vads-u-font-size--md vads-u-font-size--lg"
+            className="vads-u-margin-bottom--1 vads-u-margin-top--0"
             aria-describedby={alsoCalledId}
           >
             {isMainOffice ? (
