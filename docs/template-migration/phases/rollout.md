@@ -55,7 +55,7 @@ The tasks within this phase are owned by the CMS team, regardless of which team 
 
 - Make sure that your new page type is built by next-build and deployed on https://dev.va.gov/ but is still being built by content-build on prod
 - Find example pages of the content type you are rolling out. You can use the [content page in drupal](https://prod.cms.va.gov/admin/content) to do that
-- Pull up one of the pages on https://va.gov in an incognito chrome tab
+- Pull up one of the pages on https://va.gov in an incognito Chrome tab
 - Right click on the page and select "inspect"
 - Click the Lighthouse tab in the inspector
 - Use Navigation (Default) mode, uncheck Best practices & SEO, and choose Desktop as Device
