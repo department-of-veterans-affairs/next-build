@@ -18,17 +18,13 @@
     "typeRoots": ["node_modules/@types"],
     "types": ["node", "jest"],
     "paths": {
-      "@/datadogConnector/*": ["./src/datadogConnector/*"],
       "@/assets/*": ["./src/assets/*"],
       "@/api/*": ["./src/pages/api/*"],
-      "@/data/*": ["./src/data/*"],
-      "@/hooks/*": ["./src/hooks/*"],
+      "@/datadogConnector/*": ["./src/datadogConnector/*"],
       "@/lib/*": ["./src/lib/*"],
-      "@/mocks/*": ["./src/mocks/*"],
       "@/pages/*": ["./src/pages/*"],
-      "@/templates/*": ["./src/templates/*"],
       "@/types/*": ["./src/types/*"],
-      "@/products/*": ["./src/products/*"],
+      "@/components/*": ["./src/components/*"],
       "@/playwright/*": ["./playwright/*"],
       "react": ["./node_modules/@types/react"]
     }
