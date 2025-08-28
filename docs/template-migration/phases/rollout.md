@@ -58,7 +58,7 @@ The tasks within this phase are owned by the CMS team, regardless of which team 
 - Pull up one of the pages on https://va.gov in an incognito chrome tab
 - Right click on the page and select "inspect"
 - Click the Lighthouse tab in the inspector
-- Use Navigation (Default) mode, un-check Best practices & SEO, and choose Desktop as Device
+- Use Navigation (Default) mode, uncheck Best practices & SEO, and choose Desktop as Device
 - Click Analyze page load
 - In a new incognito tab, pull up the same page on https://dev.va.gov/
 - Follow the same steps to run a Lighthouse test for the page on dev
