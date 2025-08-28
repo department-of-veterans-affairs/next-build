@@ -1,21 +1,23 @@
 # Templates
 
-Front end templates are stored at `src/templates`. Templates are divided into the following subdirectories:
+Front end templates are organized in a co-located structure under `src/components`. Each component folder contains all related files for that feature, including the main React component (template), types, queries, mocks, and tests.
 
-- `src/templates/common`: reusable UI elements, i.e. pagers, links, images, or components that are used site-wide (breadcrumbs). Generally smaller components, but not always (header, footer)
-- `src/templates/components`: small units with specific content functions. In Drupal these would correspond to Paragraphs and to smaller representations of content, i.e. a News Story Teaser that would be repeated on a Listing Page.
-- `src/templates/layouts`: full page displays or page wrappers.
+## Component Organization
 
-No matter the template category, it should have at least 2 files:
+Components are now organized as follows:
 
-1. `index.tsx`: The main component for a template
-2. `index.test.tsx`: Jest test file for a template
-
-With these three files, we can ensure that a given template has adequate test coverage
+- `src/components/<component-name>/`: Each component has its own folder containing all related files
+  - `template.tsx`: The main component for a template
+  - `template.test.tsx`: Jest test file for a template
+  - `query.ts`: Data query logic for fetching and formatting data
+  - `query.test.ts`: Test file for the query logic
+  - `formatted-type.ts`: Type definitions for the component's data structure
+  - `mock.json`: Mock data for testing
+  - Additional component-specific files as needed
 
 ## Template Structure & Types
 
-The templates in next-build are functional React components. The types or interfaces for a component will likely come from the `@/types/formatted/` directory. This helps ensure that data formatted by a query matches the shape the front end component expects.
+The templates in next-build are functional React components. The types or interfaces for a component are now co-located in the same folder as the component (`formatted-type.ts`). This helps ensure that data formatted by a query matches the shape the front end component expects, and keeps all related code together for easier maintenance.
 
 ## Template List
 

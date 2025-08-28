@@ -44,7 +44,7 @@ Each of the following steps can be done in a separate PR:
    - Use that mock data to define the static types (ignore entity references for
      now)
      - The input (Drupal) type goes in [`src/types/drupal/node.ts`](../../../../src/types/drupal/node.ts)
-     - The output (formatted) type goes in [`src/types/types/formatted/`](../../../../src/types/formatted/)
+     - The output (formatted) type goes in the component folder as `formatted-type.ts`
 1. Scaffold the structure of the template
    - Find the template in `content-build` and copy over the tags that won't
      change (e.g. the `<div>`s, `<h1>`, etc.)
@@ -67,16 +67,15 @@ Each of the following steps can be done in a separate PR:
 
 ## How to fill in the placeholders
 
-1. Create a component in a module sibling to the template file
+1. Create a component in the same component folder as the template file
 1. Write tests for the component
 1. Pull in any extra data you may need for the feature
    - If it requires a hydrated entity:
      1. Add the hydrated entity type to the property for the entity's static
         type in [`src/types/drupal/node.ts`](../../../../src/types/drupal/node.ts)
      1. Add the formatted property type to the static property in its module
-        in [`src/types/types/formatted/`](../../../../src/types/formatted/)
-     1. Add the property to its `formatter` function in
-        [`src/data/queries/`](../../../../src/data/queries/)
+        in the component folder as `formatted-type.ts`
+     1. Add the property to its `formatter` function in the component folder as `query.ts`
 1. Use it in the template
 1. Write a smoke test for it in the template (mostly to make sure that we're
    passing the correct data to it)

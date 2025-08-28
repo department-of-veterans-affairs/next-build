@@ -1,7 +1,7 @@
-import { ParamsType } from '@/data/queries'
+import { ParamsType } from '@/lib/drupal/queries'
 import { getNestedIncludes } from './queries'
 
-jest.mock('@/data/queries', () => ({
+jest.mock('@/lib/drupal/queries', () => ({
   queries: {
     getParams: jest.fn().mockReturnValue({
       getQueryObject: () => ({

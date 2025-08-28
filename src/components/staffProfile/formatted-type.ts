@@ -1,0 +1,47 @@
+import { MediaImage } from '@/components/mediaDocument/formatted-type'
+import { PhoneNumber as FormattedPhoneNumber } from '@/components/phoneNumber/formatted-type'
+import { PublishedEntity } from '@/types/formatted/publishedEntity'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+
+export type Link = {
+  url: { path: string }
+  label: string
+  links?: Link[]
+}
+
+export type SidebarData = {
+  depth: number
+  link: { label: string; url: { path: string }; links: Link[] }
+  parent: { label: string; url: { path: string }; links: Link[] }
+}
+
+export type StaffProfileTeaser = {
+  media?: MediaImage
+  firstName: string
+  lastName: string
+  suffix?: string
+  description?: string
+  vamcTitle?: string
+  phoneNumber?: FormattedPhoneNumber
+  link: string
+  id: string
+}
+
+export type StaffProfile = PublishedEntity & {
+  firstName: string
+  lastName: string
+  suffix?: string
+  emailAddress?: string
+  phoneNumber?: FormattedPhoneNumber
+  description?: string
+  introText: string
+  body: string
+  media?: MediaImage
+  menu?: SidebarData
+  completeBiography?: { url: string }
+  completeBiographyCreate?: boolean
+  photoAllowHiresDownload?: boolean
+  vamcTitle: string
+  lovellVariant?: LovellChildVariant
+  lovellSwitchPath?: string
+}

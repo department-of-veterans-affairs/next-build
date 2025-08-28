@@ -50,7 +50,7 @@ export function ExpandableText({
 
 It's not always the case, though, that we know definitively what type of paragraph a certain field contains. In many cases, an editor can attach many different types of paragraphs to a certain field. As a result, we often can't explicitly call `<ExpandableText>`, as in the example above, because the field that it might be attached to could hold paragraphs of many types.
 
-So, enter the `<Paragraph>` component. This component is located at [src/templates/components/paragraph/index.tsx](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/templates/components/paragraph/index.tsx) with corresponding tests located at [src/templates/components/paragraph/index.test.tsx](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/templates/components/paragraph/index.test.tsx). The primary purpose of this component is to create an abstraction for paragraphs that can cleanly render paragraphs when it isn't necessarily specified what kind of paragraph structure can be expected.
+So, enter the `<Paragraph>` component. This component is located at [src/components/paragraph/template.tsx](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/components/paragraph/template.tsx) with corresponding tests located at [src/components/paragraph/template.test.tsx](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/components/paragraph/template.test.tsx). The primary purpose of this component is to create an abstraction for paragraphs that can cleanly render paragraphs when it isn't necessarily specified what kind of paragraph structure can be expected.
 
 ### Paragraph Component Functionality
 
@@ -110,7 +110,7 @@ Let's take a look at an example to see this piece of the puzzle in action. Here,
 
 If we examine the Q&A paragraph type in Drupal - [https://staging.cms.va.gov/admin/structure/paragraphs_type/q_a/fields](https://staging.cms.va.gov/admin/structure/paragraphs_type/q_a/fields) - we see that the `field_answer` field can hold a number of different paragraph types (Rich text, Accordion group, Process list, Number callout, Alert, React Widget, or Table, as of this writing, and could potentially hold additional types in the future).
 
-As such, in [src/types/formatted/qaParagraph.ts](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/types/formatted/qaParagraph.ts) we define the type of our `answers` property to be a collection of generic paragraphs, rather than a specific paragraph:
+As such, in [src/components/qaParagraph/formatted-type.ts](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/components/qaParagraph/formatted-type.ts) we define the type of our `answers` property to be a collection of generic paragraphs, rather than a specific paragraph:
 
 ```
 export type QaParagraph = PublishedParagraph & {
@@ -121,7 +121,7 @@ export type QaParagraph = PublishedParagraph & {
 }
 ```
 
-Then, in [src/data/queries/qaParagraph.ts](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/data/queries/qaParagraph.ts), in our `qaParagraph` formatter, we format the `answers` property by passing `field_answers` through the `formatParagraph` function we saw above:
+Then, in [src/components/qaParagraph/query.ts](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/components/qaParagraph/query.ts), in our `qaParagraph` formatter, we format the `answers` property by passing `field_answers` through the `formatParagraph` function we saw above:
 
 ```
 export const formatter: QueryFormatter<ParagraphQA, QaParagraph> = (
@@ -138,7 +138,7 @@ export const formatter: QueryFormatter<ParagraphQA, QaParagraph> = (
 }
 ```
 
-Finally, this data is then able to be used in the [`qaParagraph` component](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/templates/components/qaParagraph/index.tsx) by mapping over the array of formatted paragraphs and calling the paragraph component for each:
+Finally, this data is then able to be used in the [`qaParagraph` component](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/components/qaParagraph/template.tsx) by mapping over the array of formatted paragraphs and calling the paragraph component for each:
 
 ```jsx
 <div>
@@ -148,7 +148,7 @@ Finally, this data is then able to be used in the [`qaParagraph` component](http
 </div>
 ```
 
-We can examine one last piece of this by looking at our unit tests. In [our mock data for `qaParagraph`](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/mocks/qaParagraph.mock.json), observe that the `field_answer` field has a `paragraph--wysiwyg` reference in it:
+We can examine one last piece of this by looking at our unit tests. In [our mock data for `qaParagraph`](https://github.com/department-of-veterans-affairs/next-build/blob/main/src/components/qaParagraph/mock.json), observe that the `field_answer` field has a `paragraph--wysiwyg` reference in it:
 
 ```
 "field_answer": [
