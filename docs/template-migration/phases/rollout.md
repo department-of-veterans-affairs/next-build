@@ -11,6 +11,7 @@ The tasks within this phase are owned by the CMS team, regardless of which team 
 - Prelaunch prep:
   - Confirm all defects found during QA have been resolved and closed
   - Determine launch date
+  - [Check for degraded page performance with a lighthouse scan](#how-to-check-for-degraded-page-performance)
   - Confirmation of launch with stakeholders:
     - Erika Washburn
     - Sitewide Team Product
@@ -49,6 +50,22 @@ The tasks within this phase are owned by the CMS team, regardless of which team 
       - If it says “Processed by @content location” you may need to wait for the next content release. If it still isn’t loading through next, confirm that the correct feature toggle was set
   - Perform QA of template pages
   - Perform QA of key VA.gov pages (e.g. homepage)
+
+### How to check for degraded page performance
+
+- Make sure that your new page type is built by next-build and deployed on https://dev.va.gov/ but is still being built by content-build on prod
+- Find example pages of the content type you are rolling out. You can use the [content page in drupal](https://prod.cms.va.gov/admin/content) to do that
+- Pull up one of the pages on https://va.gov in an incognito chrome tab
+- Right click on the page and select "inspect"
+- Click the Lighthouse tab in the inspector
+- Use Navigation (Default) mode, un-check Best practices & SEO, and choose Desktop as Device
+- Click Analyze page load
+- In a new incognito tab, pull up the same page on https://dev.va.gov/
+- Follow the same steps to run a Lighthouse test for the page on dev
+- Compare the results of the two and if they are off by more than a couple points, run it again without doing other tasks (the results can vary)
+- If the page is consistently off from the prod baseline, create a ticket to investigate
+- Check several different pages of the new type
+- Attach results to the ticket
 
 ## RACI
 
