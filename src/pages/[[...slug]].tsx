@@ -54,6 +54,7 @@ import { StoryListing as FormattedStoryListing } from '../components/storyListin
 import { VetCenter as FormattedVetCenter } from '../components/vetCenter/formatted-type'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '../components/healthCareLocalFacility/formatted-type'
 import { VamcSystem as FormattedVamcSystem } from '../components/vamcSystem/formatted-type'
+import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/formatted-type'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '../components/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '../components/leadershipListing/formatted-type'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '../components/vetCenterLocationListing/formatted-type'
@@ -77,6 +78,7 @@ import { PageLayout, PageLayoutProps } from '@/components/pageLayout/template'
 import { HealthCareLocalFacility } from '../components/healthCareLocalFacility/template'
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '../components/vamcSystem/template'
+import { VamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/template'
 import { VamcSystemVaPolice } from '../components/vamcSystemVaPolice/template'
 import { LeadershipListing } from '../components/leadershipListing/template'
 import { VbaFacility } from '../components/vbaFacility/template'
@@ -204,6 +206,11 @@ export default function ResourcePage({
           )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM && (
             <VamcSystem {...(resource as FormattedVamcSystem)} />
+          )}
+          {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE && (
+            <VamcSystemRegisterForCare
+              {...(resource as FormattedVamcSystemRegisterForCare)}
+            />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE && (
             <VamcSystemVaPolice

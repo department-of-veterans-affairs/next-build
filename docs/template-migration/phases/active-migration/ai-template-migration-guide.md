@@ -18,6 +18,8 @@ Before beginning migration:
    - CSS classes and styling
    - Accessibility features
 
+Ask clarifying questions if neccessary.
+
 ### 2. Create Component Directory Structure
 
 ```bash
