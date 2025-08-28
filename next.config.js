@@ -7,7 +7,7 @@ const isExport = process.env.BUILD_OPTION === 'static'
 const nextConfig = {
   compress: false,
   images: {
-    loaderFile: './src/templates/common/mediaImage/customLoader.js',
+    loaderFile: './src/components/mediaImage/customLoader.js',
     loader: 'custom',
     unoptimized: true,
   },

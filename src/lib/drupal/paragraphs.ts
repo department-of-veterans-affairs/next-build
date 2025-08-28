@@ -1,6 +1,9 @@
 import { ParagraphTypes as DrupalParagraph } from '@/types/drupal/paragraph'
-import { DrupalResourceByType, FormattedResourceByType } from '@/data/queries'
-import { queries, FormattableParagraphResourceType } from '@/data/queries'
+import {
+  DrupalResourceByType,
+  FormattedResourceByType,
+} from '@/lib/drupal/queries'
+import { queries, FormattableParagraphResourceType } from '@/lib/drupal/queries'
 
 /**
  * An abstraction for calling `queries.formatData` that removes

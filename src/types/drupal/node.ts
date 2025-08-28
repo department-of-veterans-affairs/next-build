@@ -52,7 +52,7 @@ import {
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 import { VamcEhrSystem } from './vamcEhr'
-import { QaSection } from '../formatted/qaSection'
+
 /** Union of all node types.  */
 export type NodeTypes =
   | NodeBanner

@@ -1,0 +1,20 @@
+import { VaPromoBanner } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
+import { PromoBanner as FormattedPromoBanner } from '@/components/banner/formatted-type'
+
+export const PromoBanner = ({
+  id,
+  href,
+  title,
+  alertType,
+}: FormattedPromoBanner): JSX.Element => {
+  return (
+    <VaPromoBanner
+      id={id}
+      href={href}
+      type={alertType}
+      data-testid="promo-banner"
+    >
+      {title}
+    </VaPromoBanner>
+  )
+}
