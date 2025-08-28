@@ -1,12 +1,26 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from './formatted-type'
 import { ContentFooter } from '../contentFooter/template'
+import { SideNavMenu } from '@/types/formatted/sideNav'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  sideNav?: SideNavMenu
+}
+declare const window: customWindow
 
 export const VamcSystemRegisterForCare = ({
   title,
   vamcSystem,
   lastUpdated,
+  menu,
 }: FormattedVamcSystemRegisterForCare) => {
+  // Populate the side nav data for the side nav widget to fill in
+  // Note: The side nav widget is in a separate app in the static-pages bundle
+  useEffect(() => {
+    window.sideNav = menu
+  }, [menu])
+
   return (
     <div
       className="interior"
@@ -15,7 +29,8 @@ export const VamcSystemRegisterForCare = ({
     >
       <main className="va-l-detail-page va-facility-page">
         <div className="usa-grid usa-grid-full">
-          {/* TODO: Facility sidebar navigation */}
+          {/* Nav data filled in by a separate script from `window.sideNav` */}
+          <nav aria-label="secondary" data-widget-type="side-nav" />
           <div className="usa-width-three-fourths">
             <article
               aria-labelledby="article-heading"
