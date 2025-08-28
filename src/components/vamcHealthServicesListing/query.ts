@@ -17,6 +17,8 @@ import {
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { Menu } from '@/types/drupal/menu'
+import { queries } from '@/lib/drupal/queries'
+import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
@@ -100,13 +102,24 @@ export const formatter: QueryFormatter<
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
     menu: formattedMenu,
     featuredContent:
-      entity.field_featured_content_healthser?.map((item) => ({
-        id: item.id,
-        type: item.type,
-        title: item.field_link?.title || '',
-        summary: item.field_link_summary || '',
-        uri: item.field_link?.uri || '',
-        parentField: item.parent_field_name || '',
-      })) || [],
+      entity.field_featured_content_healthser?.map((item) => {
+        const formattedItem = queries.formatData(
+          PARAGRAPH_RESOURCE_TYPES.LINK_TEASER,
+          item
+        )
+        return {
+          id: formattedItem.id,
+          type: formattedItem.type,
+          title: formattedItem.title,
+          summary: formattedItem.summary,
+          uri: item.field_link?.url || formattedItem.uri,
+          parentField: item.parent_field_name || '',
+          link: {
+            id: formattedItem.id,
+            url: item.field_link?.url || formattedItem.uri,
+            label: 'Read more',
+          },
+        }
+      }) || [],
   }
 }

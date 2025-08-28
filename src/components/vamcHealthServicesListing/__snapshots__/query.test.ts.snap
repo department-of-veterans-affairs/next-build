@@ -35,6 +35,11 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
   "featuredContent": [
     {
       "id": "06516c6b-01ad-475d-a7d6-cd717c60c500",
+      "link": {
+        "id": "06516c6b-01ad-475d-a7d6-cd717c60c500",
+        "label": "Read more",
+        "url": "/mental-health",
+      },
       "parentField": "field_featured_content_healthser",
       "summary": "Learn about our leading clinical mental health work",
       "title": "Mental health at VA Black Hills health care",
@@ -43,6 +48,11 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
     },
     {
       "id": "baabc376-7875-4db5-a448-d040b46c21c1",
+      "link": {
+        "id": "baabc376-7875-4db5-a448-d040b46c21c1",
+        "label": "Read more",
+        "url": "/lgbtq-care",
+      },
       "parentField": "field_featured_content_healthser",
       "summary": "VA Black Hills health care provides compassionate care for LGBTQ+ Veterans",
       "title": "Health care for LGBTQ+ Veterans",
@@ -51,6 +61,11 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
     },
     {
       "id": "befe7796-274b-4758-bc34-0e0bb4fc56a0",
+      "link": {
+        "id": "befe7796-274b-4758-bc34-0e0bb4fc56a0",
+        "label": "Read more",
+        "url": "/covid-19",
+      },
       "parentField": "field_featured_content_healthser",
       "summary": "VA Boston provides COVID-19 testing and vaccination",
       "title": "COVID-19 testing and vaccination",

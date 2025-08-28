@@ -41,7 +41,7 @@ export function VamcHealthServicesListing({
               switchPath={lovellSwitchPath}
             />
 
-            <h1 className="vads-u-margin-bottom--1 medium-screen:vads-u-margin-bottom--2">
+            <h1 className="vads-u-margin-bottom--1 tablet:vads-u-margin-bottom--2">
               {title}
             </h1>
 
@@ -73,7 +73,7 @@ export function VamcHealthServicesListing({
             {featuredContent && featuredContent.length > 0 && (
               <section id="featured-services">
                 <h2 id="in-the-spotlight">In the spotlight</h2>
-                <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between medium-screen:vads-u-flex-direction--row vads-u-margin-bottom--4">
+                <div className="vads-u-display--flex vads-u-flex-direction--column vads-u-justify-content--space-between tablet:vads-u-flex-direction--row vads-u-margin-bottom--4">
                   {featuredContent.map((item) => (
                     <FeaturedContent
                       key={item.id}
