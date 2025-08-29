@@ -64,7 +64,7 @@ color() {
 }
 
 # === Paths & Helpers ===
-PRODUCT_DIR="src/products/${PRODUCT_NAME}"
+PRODUCT_DIR="src/components/${PRODUCT_NAME}"
 LAYOUT_DIR="src/templates/layouts/${PRODUCT_NAME}"
 QUERY_FILE="src/data/queries/${PRODUCT_NAME}.ts"
 FORMATTED_TYPE_FILE="src/types/formatted/${PRODUCT_NAME}.ts"
@@ -107,11 +107,11 @@ update_all_imports() {
   )
 
   replacements=(
-    "@/products/${PRODUCT_NAME}/template"
-    "@/products/${PRODUCT_NAME}/query"
-    "@/products/${PRODUCT_NAME}/query.test"
-    "@/products/${PRODUCT_NAME}/formatted-type"
-    "@/products/${PRODUCT_NAME}/mock"
+    "@/components/${PRODUCT_NAME}/template"
+    "@/components/${PRODUCT_NAME}/query"
+    "@/components/${PRODUCT_NAME}/query.test"
+    "@/components/${PRODUCT_NAME}/formatted-type"
+    "@/components/${PRODUCT_NAME}/mock"
   )
 
   # Loop through both arrays by index
@@ -196,7 +196,7 @@ log "Running $(color 'npx tsc --noEmit' blue)"
 run_or_echo "npx tsc --noEmit"
 
 if [ -f "$CODEOWNERS_FILE" ]; then
-  CODEOWNERS_LINE="src/products/${PRODUCT_NAME}/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend"
+  CODEOWNERS_LINE="src/components/${PRODUCT_NAME}/ @department-of-veterans-affairs/ap-team @department-of-veterans-affairs/va-platform-cop-frontend"
   log "Adding CODEOWNERS entry: $(color "$CODEOWNERS_LINE" green)"
   run_or_echo "echo \"$CODEOWNERS_LINE\" >> '$CODEOWNERS_FILE'"
   $DRY_RUN || success "CODEOWNERS updated."

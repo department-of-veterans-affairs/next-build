@@ -72,33 +72,31 @@ When creating a new layout, create a new feature branch from main and use `yarn 
   <img width="501" alt="Screenshot 2024-09-19 at 11 40 53 AM" src="https://github.com/user-attachments/assets/ca808770-50d7-4407-a236-07c45b58d83c">
 
   - **Content Type** generate these files
-    - Path `src/templates/layouts/`
+    - Path `src/components/<folder layout name>/`
       - Within `<folder layout name>`
-        - `index.ts`
+        - `template.tsx`
           - Define component and component rendering
-        - `index.test.tsx`
-          - Test suite for index.ts to pass Jest test and coverage
-        - `<layout name>.stories.ts`
-          - Help develop component isolation and visually tests its behavior with various input
-    - Path `src/types/formatted/<layout name.ts>`
-      - Define the object and its properties
-    - Path `src/data/queries/<layout name.ts>`
-      - Interact with Drupal backend to fetch, format, and handle the data
-    - Path `src/data/queries/tests/<layout name.test.tsx>`
-      - Jest test file for `<layout name>.tsx` module
-    - Path `src/data/queries/tests/snapshots/<layout name.test.tsx.snap>`
-      - Automatically generated jest snapshot
-      - Compares current output of `formatData` to the snapshot
-        - Snapshot may not update immediately and would require to run a manual `yarn test -- -u`. Details from [testing.md](testing.md)
-    - Path `src/mocks/<layout name.mock.json>`
-      - Copy and paste one JSON object from Drupal API to be used in Jest tests
+        - `template.test.tsx`
+          - Test suite for template.tsx to pass Jest test and coverage
+        - `query.ts`
+          - Interact with Drupal backend to fetch, format, and handle the data
+        - `query.test.ts`
+          - Jest test file for query.ts module
+        - `formatted-type.ts`
+          - Define the object and its properties
+        - `mock.json`
+          - Copy and paste one JSON object from Drupal API to be used in Jest tests
     - Path `playwright/tests/<layout name.spec.js>`
-      - Test Suite for playwright
+    - Test Suite for playwright
 
 - Yarn Plop > Select **Component**
-  - This will only generate the component folder `<layout name>` and the relating three files ` index.ts, index.tsx, and <layout name>.stories.ts` under the `component` folder
+  - This will only generate the component folder `<layout name>` and the relating two files `template.tsx` and `template.test.tsx` under the `src/components` folder
 - Yarn Plop > Select **Query**
-  - This will generate query file under the data/queries folder relating test
+  - This will generate a component folder `<query name>` with the following files:
+    - `query.ts` - Data query logic
+    - `query.test.ts` - Test file for the query
+    - `formatted-type.ts` - Type definitions
+    - `mock.json` - Mock data for testing
 
 ## Development breakdown
 
@@ -219,22 +217,22 @@ You won’t be able to commit unless:
   - Check that quota limit has been reached and then merge the dependabots to make room
   - Check tugboat logs
     - Data may be null for specific fields
-      - Update field in your formatter (data/queries/<name>.ts)
+      - Update field in your formatter (src/components/<name>/query.ts)
 - Getting TypeError … null… static-pages.entry.js
-  - Check if you are calling a null property in your index.tsx
+  - Check if you are calling a null property in your template.tsx
 - If you see /bin/sh: <text>: No such file or directory
   - You might be using < > in your test title and should remove them
 - If you get this error `if (typeof window !== "undefined") {throw new Error("You should not call getQueryParams on the client. This is a server-only call.");}`
   - Then check if you have /_\*\* @jest-environment node_/ placed on your test file; otherwise your window will return defined rather than undefined
 
-[^1]: Refers to this file `src/data/queries/<layout name.ts>`
+[^1]: Refers to this file `src/components/<layout name>/query.ts`
 
-[^2]: Refers to this file `src/data/queries/<layout name.ts>`
+[^2]: Refers to this file `src/components/<layout name>/query.ts`
 
-[^3]: Refers to this file `src/types/formatted/<layout name.ts>`
+[^3]: Refers to this file `src/components/<layout name>/formatted-type.ts`
 
-[^4]: Refers to this file `src/data/queries/<layout name.ts>`
+[^4]: Refers to this file `src/components/<layout name>/query.ts`
 
-[^5]: Refers to this file `src/data/queries/<layout name.ts>`
+[^5]: Refers to this file `src/components/<layout name>/query.ts`
 
-[^6]: Refers to files in this folder `src/templates/layouts/<folder layout name>`
+[^6]: Refers to files in this folder `src/components/<layout name>`

@@ -1,6 +1,9 @@
 import { ParagraphTypes as DrupalParagraph } from '@/types/drupal/paragraph'
-import { DrupalResourceByType, FormattedResourceByType } from '@/data/queries'
-import { queries, FormattableParagraphResourceType } from '@/data/queries'
+import {
+  DrupalResourceByType,
+  FormattedResourceByType,
+} from '@/lib/drupal/queries'
+import { queries, FormattableParagraphResourceType } from '@/lib/drupal/queries'
 
 /**
  * An abstraction for calling `queries.formatData` that removes
@@ -26,7 +29,7 @@ import { queries, FormattableParagraphResourceType } from '@/data/queries'
  *
  * Note: FormattableParagraphResourceType indicates that the passed-in
  * paragraph must be one that has a `formatter` (defined in
- * `src/data/queries/index.ts`)
+ * `src/lib/drupal/queries.ts`)
  *
  *
  * @param paragraph

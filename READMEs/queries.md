@@ -48,9 +48,9 @@ When querying resources via drupalClient, the data will be serialized appropriat
 
 ## How Queries work
 
-Now that we have an idea of what JSON:API provides, how do we use that data in next-build? With a little help from [next-drupal](https://next-drupal.org/) and other open source libraries, of course! The structure of our queries is largely dictated by what the next-drupal provided [drupalClient](/src/lib/drupal/drupalClient.ts) is expecting: a resource type and a parameter object.
+Now that we have an idea of what JSON:API provides, how do we use that data in next-build? With a little help from [next-drupal](https://next-drupal.org/) and other open source libraries, of course! The structure of our queries is largely dictated by what the next-drupal provided [drupalClient](../src/lib/drupal/drupalClient.ts) is expecting: a resource type and a parameter object.
 
-There is a master list of all queries available in `src/data/queries/index.ts`. This file contains reference to all configured queries in the repo as well as a number of helper types for our build processes. All we really need to know is that the queries defined in `QUERIES_MAP` are made up of the functions previously mentioned: **params**, **data** and **formatter**.
+There is a master list of all queries available in [src/lib/drupal/queries.ts](../src/lib/drupal/queries.ts). This file contains reference to all configured queries in the repo as well as a number of helper types for our build processes. All we really need to know is that the queries defined in `QUERIES_MAP` are made up of the functions previously mentioned: **params**, **data** and **formatter**.
 
 Following this structure allows us to treat queries as a sort of interface, and functions with these exact names allow
 us to leverage `next-drupal-query`'s plumbing for some convenience methods when calling specific query functions in isolation. These convenience methods allow us to do things like:
@@ -84,7 +84,7 @@ named `field_media`, but you will always want to include the `.image` reference 
 
 The returned object will be used in the data function as the `params` object for drupalClient's resource requests.
 
-**Note:** The `params` object can get more complex if needed. For example, listing pages may want to limit results to a specific VAMC System, or use different fields for sorting. See the [Story Listing query file](/src/data/queries/storyListing.ts) for more examples.
+**Note:** The `params` object can get more complex if needed. For example, listing pages may want to limit results to a specific VAMC System, or use different fields for sorting. See the [Story Listing query file](/src/components/storyListing/query.ts) for more examples.
 
 ### Data
 
@@ -175,7 +175,7 @@ export const entityBaseFields = (entity: NodeTypes): PublishedEntity => {
 }
 ```
 
-Ultimately, the normalized `NewsStory` object returned by the formatter is the `resource` used by [\[\[...slug\]\]](/src/pages/[[...slug]].tsx). That resource then gets passed to the [\<NewsStory\> template](/src/templates/layouts/newsStory/index.tsx), **so the formatter's object keys and the prop names should almost always match**! There may be slight differences, say if a component also depends on a parent template's state, but this is largely one-way differences. If a template doesn't need the formatted data... why include it?
+Ultimately, the normalized `NewsStory` object returned by the formatter is the `resource` used by [\[\[...slug\]\]](/src/pages/[[...slug]].tsx). That resource then gets passed to the [\<NewsStory\> template](/src/components/newsStory/index.tsx), **so the formatter's object keys and the prop names should almost always match**! There may be slight differences, say if a component also depends on a parent template's state, but this is largely one-way differences. If a template doesn't need the formatted data... why include it?
 
 ### Skipping publishing
 
