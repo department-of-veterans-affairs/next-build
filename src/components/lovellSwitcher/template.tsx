@@ -31,7 +31,7 @@ export function LovellSwitcher({
         <p className="vads-u-margin-y--0">
           <>
             <va-link
-              active="true"
+              active
               href={switchPath}
               text={`View this page as a ${switchVariant.toUpperCase()} beneficiary`}
             />
