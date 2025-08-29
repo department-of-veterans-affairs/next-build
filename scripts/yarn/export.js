@@ -28,4 +28,4 @@ if (process.env.BUILD_OPTION === 'static') {
   }
 }
 
-await processEnv('next build', true)
+await processEnv('next build --turbopack', true)

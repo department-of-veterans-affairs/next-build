@@ -196,7 +196,7 @@ describe('VamcSystem with valid data', () => {
       expect(vaLink).toBeInTheDocument()
       expect(vaLink).toHaveAttribute('href', `${mockData.path}/locations`)
       expect(vaLink).toHaveAttribute('text', 'See all locations')
-      expect(vaLink).toHaveAttribute('active', 'true')
+      expect(vaLink).toHaveAttribute('active', '')
     })
 
     test('renders facility details including address and phone numbers', () => {
@@ -352,7 +352,7 @@ describe('VamcSystem with valid data', () => {
       expect(seeAllLink).toBeInTheDocument()
       expect(seeAllLink).toHaveAttribute('href', `${mockData.path}/stories`)
       expect(seeAllLink).toHaveAttribute('text', 'See all stories')
-      expect(seeAllLink).toHaveAttribute('active', 'true')
+      expect(seeAllLink).toHaveAttribute('active', '')
     })
 
     test('does not render the stories section when no featured stories exist', () => {
@@ -474,7 +474,7 @@ describe('VamcSystem with valid data', () => {
       expect(seeAllLink).toBeInTheDocument()
       expect(seeAllLink).toHaveAttribute('href', `${mockData.path}/events`)
       expect(seeAllLink).toHaveAttribute('text', 'See all events')
-      expect(seeAllLink).toHaveAttribute('active', 'true')
+      expect(seeAllLink).toHaveAttribute('active', '')
     })
 
     test('does not render the events section when no events exist', () => {

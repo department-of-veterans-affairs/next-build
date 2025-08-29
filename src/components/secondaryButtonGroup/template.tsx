@@ -6,7 +6,7 @@ export const SecondaryButtonGroup = ({
   buttons,
 }: {
   buttons: ParagraphComponent<FormattedButton>[]
-}): JSX.Element => {
+}): React.JSX.Element => {
   if (buttons.length > 1) {
     return (
       <ul className="vads-u-margin-y--3 usa-unstyled-list">

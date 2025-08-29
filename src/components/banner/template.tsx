@@ -7,7 +7,7 @@ export const Banner = ({
   body,
   alertType,
   dismiss,
-}: FormattedBanner): JSX.Element => {
+}: FormattedBanner): React.JSX.Element => {
   return (
     <VaBanner
       id={id}

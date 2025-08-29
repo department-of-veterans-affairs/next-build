@@ -12,7 +12,7 @@ export function PressReleaseTeaser({
   releaseDate,
 }: FormattedPressReleaseTeaser) {
   const TitleTag = ({ children, className }) => {
-    const Heading = headingLevel ? headingLevel : 'h2'
+    const Heading = (headingLevel ? headingLevel : 'h2') as React.ElementType
     return <Heading className={className}>{children}</Heading>
   }
 
