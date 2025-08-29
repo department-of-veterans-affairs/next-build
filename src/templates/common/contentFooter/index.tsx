@@ -45,7 +45,6 @@ export function ContentFooter({
         <div className="vads-u-flex--1 vads-u-text-align--right">
           <MedalliaAssets />
           <va-button
-            label="Give feedback"
             id="mdFormButton"
             disable-analytics
             secondary
