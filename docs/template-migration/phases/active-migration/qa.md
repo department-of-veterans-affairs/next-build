@@ -8,6 +8,7 @@ The QA ticket contains the specific items that must be reviewed and tested durin
 - Functionality
 - Design
 - Accessibility
+- [Check for degraded page performance with a lighthouse scan](#how-to-check-for-degraded-page-performance)
 
 For each item within the ticket, you will:
 
@@ -36,3 +37,20 @@ Each QA defect ticket should be created as a subissue of the main QA ticket and 
 Each defect should (ideally) be assigned to the engineer who did the original migration and then retested by the team member who did the QA and found the defect.
 
 Once all defects have been resolved, the QA ticket can be closed and the template is ready for [Rollout](https://github.com/department-of-veterans-affairs/next-build/blob/main/docs/template-migration/phases/rollout.md).
+
+## How to check for degraded page performance
+
+- Make sure that your new page type is built by next-build and deployed on https://dev.va.gov/ but is still being built by content-build on prod
+- Find example pages of the content type you are rolling out. You can use the [content page in drupal](https://prod.cms.va.gov/admin/content) to do that
+- Pull up one of the pages on https://va.gov in an incognito chrome tab
+- Right click on the page and select "inspect"
+- Click the Lighthouse tab in the inspector
+- Use Navigation (Default) mode, un-check Accessibility, Best practices & SEO, and choose Desktop
+- Click Analyze page load
+- In a new incognito tab, pull up the same page on https://dev.va.gov/
+- Follow the same steps to run a Lighthouse test for the page on dev
+- Compare the results of the two and if they are off by more than a couple points, run it again without doing other tasks (the results can vary)
+- If the page is consistently off from the prod baseline, create a ticket to investigate
+- Repeat the steps but choose Mobile as the device
+- Check several different pages of the new type
+- Attach results to the ticket
