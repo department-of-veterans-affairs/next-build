@@ -21,6 +21,7 @@ import {
   BreadcrumbItem,
   FieldMissionExplainer,
   FieldVetCenterBannerImage,
+  FieldCCListOfLinkTeasers,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -84,6 +85,7 @@ export type NodeTypes =
   | NodeVetCenterMobileVetCenter
   | NodeVetCenterOutstation
   | NodeVamcSystemVaPolice
+  | NodeVamcSystemRegisterForCare
   | NodeLeadershipListing
   | NodeVbaFacility
   | NodeVbaService
@@ -427,6 +429,14 @@ export interface NodeVamcSystemVaPolice extends DrupalNode {
   field_cc_va_police_overview: FieldCCText
   field_phone_numbers_paragraph: ParagraphPhoneNumber[]
   field_cc_faq: ParagraphCCQaSection
+}
+
+export interface NodeVamcSystemRegisterForCare extends DrupalNode {
+  title: string
+  field_office: Pick<NodeHealthCareRegionPage, 'id' | 'title'>
+  field_cc_top_of_page_content?: FieldCCText
+  field_cc_bottom_of_page_content?: FieldCCText
+  field_cc_related_links?: FieldCCListOfLinkTeasers
 }
 
 export interface NodeLeadershipListing extends DrupalNode {

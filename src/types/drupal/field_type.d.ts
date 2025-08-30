@@ -102,6 +102,20 @@ export interface FieldCCNestedLink {
     'data-entity-substitution'?: string
   }
 }
+
+export interface FieldCCNestedLinkTeaser {
+  target_id: string
+  target_revision_id: string
+  type: string
+  bundle: string
+  pid: string
+  label: string
+  status: boolean
+  langcode: string
+  field_link: FieldLink[]
+  field_link_summary: FieldNestedText[]
+}
+
 export interface FieldDateTimeRange {
   value: string
   end_value: string
@@ -196,6 +210,17 @@ export interface FieldCCListOfLinks {
     field_link: Unknown[]
     field_links: FieldCCNestedLink[]
     field_section_header: FieldNestedText[]
+  }
+}
+
+export interface FieldCCListOfLinkTeasers {
+  target_type: string
+  target_id?: string
+  target_field?: string
+  fetched_bundle: string
+  fetched: {
+    field_title: FieldNestedText[]
+    field_va_paragraphs: FieldCCNestedLinkTeaser[]
   }
 }
 
