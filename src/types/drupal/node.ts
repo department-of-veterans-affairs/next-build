@@ -433,7 +433,10 @@ export interface NodeVamcSystemVaPolice extends DrupalNode {
 
 export interface NodeVamcSystemRegisterForCare extends DrupalNode {
   title: string
-  field_office: Pick<NodeHealthCareRegionPage, 'id' | 'title'>
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu'
+  >
   field_cc_top_of_page_content?: FieldCCText
   field_cc_bottom_of_page_content?: FieldCCText
   field_cc_related_links?: FieldCCListOfLinkTeasers

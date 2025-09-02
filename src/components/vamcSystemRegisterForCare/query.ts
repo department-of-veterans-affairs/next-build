@@ -7,7 +7,10 @@ import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
+  getMenu,
 } from '@/lib/drupal/query'
+import { Menu } from '@/types/drupal/menu'
+import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
@@ -28,6 +31,7 @@ export type VamcSystemRegisterForCareDataOpts = {
 // Define the data structure returned from the query.
 type VamcSystemRegisterForCareData = {
   entity: NodeVamcSystemRegisterForCare
+  menu: Menu | null
 }
 
 // Implement the data loader.
@@ -47,14 +51,20 @@ export const data: QueryData<
     )
   }
 
-  return { entity }
+  // Fetch the menu name dynamically off of the field_region_page reference if available.
+  const menu = await getMenu(
+    entity.field_office.field_system_menu.resourceIdObjMeta
+      .drupal_internal__target_id
+  )
+
+  return { entity, menu }
 }
 
 // Implement the formatter.
 export const formatter: QueryFormatter<
   VamcSystemRegisterForCareData,
   VamcSystemRegisterForCare
-> = ({ entity }): VamcSystemRegisterForCare => {
+> = ({ entity, menu }): VamcSystemRegisterForCare => {
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -62,5 +72,6 @@ export const formatter: QueryFormatter<
       id: entity.field_office.id,
       title: entity.field_office.title,
     },
+    menu: buildSideNavDataFromMenu(entity.path.alias, menu),
   }
 }
