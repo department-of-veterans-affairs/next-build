@@ -89,6 +89,7 @@ export type NodeTypes =
   | NodeLeadershipListing
   | NodeVbaFacility
   | NodeVbaService
+  | NodeVamcOperatingStatusAndAlerts
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -548,4 +549,8 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
   field_description: string
   field_intro_text: string
   breadcrumbs: BreadcrumbItem[]
+}
+
+export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
+  field_office: DrupalNode
 }
