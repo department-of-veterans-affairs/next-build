@@ -1,16 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import VamcSystemRegisterForCare from './template'
-// import mockDrupalData from './mock.json'
-import { formatter } from './query'
-// import mockMenu from './mock.menu.json'
-import { Menu } from '@/types/drupal/menu'
 import mockData from './mock.formatted'
-
-// const mockData = formatter({
-//   entity: mockDrupalData,
-//   menu: mockMenu as unknown as Menu,
-// })
 
 describe('VamcSystemRegisterForCare', () => {
   it('renders the title', () => {
