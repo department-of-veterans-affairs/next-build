@@ -54,11 +54,14 @@ import { StoryListing as FormattedStoryListing } from '../components/storyListin
 import { VetCenter as FormattedVetCenter } from '../components/vetCenter/formatted-type'
 import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '../components/healthCareLocalFacility/formatted-type'
 import { VamcSystem as FormattedVamcSystem } from '../components/vamcSystem/formatted-type'
+import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/formatted-type'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '../components/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '../components/leadershipListing/formatted-type'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '../components/vetCenterLocationListing/formatted-type'
 import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from '../components/vamcHealthServicesListing/formatted-type'
 import { VbaFacility as FormattedVbaFacility } from '../components/vbaFacility/formatted-type'
+import { VamcOperatingStatusAndAlerts as FormattedVamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/formatted-type'
+
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
 import { Event } from '../components/event/template'
@@ -77,11 +80,13 @@ import { PageLayout, PageLayoutProps } from '@/components/pageLayout/template'
 import { HealthCareLocalFacility } from '../components/healthCareLocalFacility/template'
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '../components/vamcSystem/template'
+import { VamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/template'
 import { VamcSystemVaPolice } from '../components/vamcSystemVaPolice/template'
 import { LeadershipListing } from '../components/leadershipListing/template'
 import { VbaFacility } from '../components/vbaFacility/template'
 import { VetCenterLocationListing } from '../components/vetCenterLocationListing/template'
 import { VamcHealthServicesListing } from '../components/vamcHealthServicesListing/template'
+import { VamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -205,6 +210,11 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM && (
             <VamcSystem {...(resource as FormattedVamcSystem)} />
           )}
+          {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE && (
+            <VamcSystemRegisterForCare
+              {...(resource as FormattedVamcSystemRegisterForCare)}
+            />
+          )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE && (
             <VamcSystemVaPolice
               {...(resource as FormattedVamcSystemVaPolice)}
@@ -224,6 +234,12 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING && (
             <VamcHealthServicesListing
               {...(resource as FormattedVamcHealthServicesListing)}
+            />
+          )}
+          {resource.type ===
+            RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS && (
+            <VamcOperatingStatusAndAlerts
+              {...(resource as FormattedVamcOperatingStatusAndAlerts)}
             />
           )}
         </div>

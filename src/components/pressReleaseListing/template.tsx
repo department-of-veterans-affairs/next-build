@@ -54,7 +54,7 @@ export function PressReleaseListing(
         </li>
       ))
     ) : (
-      <div className="clearfix-text">No stories at this time.</div>
+      <div className="clearfix-text">No news releases at this time.</div>
     )
 
   return (

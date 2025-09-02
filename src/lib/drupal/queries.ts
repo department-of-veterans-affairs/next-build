@@ -47,6 +47,7 @@ import * as SupportServices from '@/components/supportServices/query'
 import * as Table from '@/components/table/query'
 import * as VamcEhr from '@/components/vamcEhr/query'
 import * as VamcSystem from '../../components/vamcSystem/query'
+import * as VamcSystemRegisterForCare from '../../components/vamcSystemRegisterForCare/query'
 import * as VamcSystemVaPolice from '../../components/vamcSystemVaPolice/query'
 import * as VetCenter from '../../components/vetCenter/query'
 import * as VetCenterHealthServices from '@/components/vetCenterHealthServices/query'
@@ -56,6 +57,7 @@ import * as Wysiwyg from '@/components/wysiwyg/query'
 import * as LeadershipListing from '../../components/leadershipListing/query'
 import * as VbaFacility from '../../components/vbaFacility/query'
 import * as HealthServicesListing from '../../components/vamcHealthServicesListing/query'
+import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingStatusAndAlerts/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -85,6 +87,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.SUPPORT_SERVICES]: SupportServices,
   [RESOURCE_TYPES.VAMC_FACILITY]: HealthCareLocalFacility,
   [RESOURCE_TYPES.VAMC_SYSTEM]: VamcSystem,
+  [RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE]: VamcSystemRegisterForCare,
   [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
@@ -92,6 +95,8 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.LEADERSHIP_LISTING]: LeadershipListing,
   [RESOURCE_TYPES.VBA_FACILITY]: VbaFacility,
   [RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING]: HealthServicesListing,
+  [RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS]:
+    VamcOperatingStatusAndAlerts,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
