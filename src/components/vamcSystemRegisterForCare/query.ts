@@ -17,6 +17,7 @@ import {
 } from '@/lib/drupal/paragraphs'
 import { ParagraphWysiwyg } from '@/types/drupal/paragraph'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
+import { FieldCCText } from '@/types/drupal/field_type'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
@@ -71,6 +72,16 @@ export const formatter: QueryFormatter<
   VamcSystemRegisterForCareData,
   VamcSystemRegisterForCare
 > = ({ entity, menu }): VamcSystemRegisterForCare => {
+  const formatCcWysiwyg = (field: FieldCCText) => {
+    return formatParagraph(
+      entityFetchedParagraphsToNormalParagraphs({
+        type: field.target_type,
+        bundle: field.fetched_bundle,
+        ...field.fetched,
+      }) as ParagraphWysiwyg
+    ) as Wysiwyg
+  }
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -79,12 +90,9 @@ export const formatter: QueryFormatter<
       title: entity.field_office.title,
     },
     menu: buildSideNavDataFromMenu(entity.path.alias, menu),
-    topOfPageContent: formatParagraph(
-      entityFetchedParagraphsToNormalParagraphs({
-        type: entity.field_cc_top_of_page_content.target_type,
-        bundle: entity.field_cc_top_of_page_content.fetched_bundle,
-        ...entity.field_cc_top_of_page_content.fetched,
-      }) as ParagraphWysiwyg
-    ) as Wysiwyg,
+    topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),
+    bottomOfPageContent: formatCcWysiwyg(
+      entity.field_cc_bottom_of_page_content
+    ),
   }
 }

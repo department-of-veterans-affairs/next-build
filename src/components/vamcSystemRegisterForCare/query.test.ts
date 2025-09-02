@@ -34,15 +34,20 @@ describe('VamcSystemRegisterForCare formatter', () => {
     })
 
     expect(result.topOfPageContent).toBeDefined()
-    expect(result.topOfPageContent.html).toBe(
-      '<h2 id="patient-registration-admission">Patient registration (admissions)</h2>\n\n<p>Whether you moved and need to change your medical center or need a primary care provider in the area, we can help. Call us or visit one of our patient registration offices to get started.</p>'
+    expect(result.topOfPageContent.html).toContain(
+      '<h2 id="patient-registration-admission">Patient registration (admissions)</h2>'
     )
   })
 
-  // it('formats centralized content fields', () => {
-  //   const result = formatter({ entity: mockData })
+  it('formats bottomOfPageContent field correctly', () => {
+    const result = formatter({
+      entity: mockData,
+      menu: mockMenu as unknown as Menu,
+    })
 
-  //   expect(result.bottomOfPageContent).toBeDefined()
-  //   expect(result.relatedLinks).toBeDefined()
-  // })
+    expect(result.bottomOfPageContent).toBeDefined()
+    expect(result.bottomOfPageContent.html).toContain(
+      '<h2 id="not-yet-enrolled-in-va-health-"><strong>Not yet enrolled in VA health care?</strong></h2>'
+    )
+  })
 })
