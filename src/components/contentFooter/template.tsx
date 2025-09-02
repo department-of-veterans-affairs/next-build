@@ -45,9 +45,10 @@ export function ContentFooter({
         <div className="vads-u-flex--1 vads-u-text-align--right">
           <MedalliaAssets />
           <va-button
-            label="Give feedback"
             id="mdFormButton"
             disable-analytics
+            secondary
+            className="vads-u-background-color--white"
             onClick={() => {
               const isProduction =
                 process.env.NEXT_PUBLIC_BUILD_TYPE === BUILD_TYPES.PROD
