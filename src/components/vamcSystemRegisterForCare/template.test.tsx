@@ -1,15 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import VamcSystemRegisterForCare from './template'
-import mockDrupalData from './mock.json'
-import { formatter } from './query'
-import mockMenu from './mock.menu.json'
-import { Menu } from '@/types/drupal/menu'
-
-const mockData = formatter({
-  entity: mockDrupalData,
-  menu: mockMenu as unknown as Menu,
-})
+import mockData from './mock.formatted'
 
 describe('VamcSystemRegisterForCare', () => {
   it('renders the title', () => {
@@ -36,5 +28,24 @@ describe('VamcSystemRegisterForCare', () => {
     // @ts-expect-error - window.sideNav is not a default window property, but
     // we're adding it
     expect(window.sideNav).toEqual(mockData.menu)
+  })
+
+  it('renders topOfPageContent in the correct location', () => {
+    render(<VamcSystemRegisterForCare {...mockData} />)
+
+    // Check that the topOfPageContent HTML is rendered
+    const contentSection = screen.getByText('Patient registration (admissions)')
+    expect(contentSection).toBeInTheDocument()
+    expect(contentSection.tagName).toBe('H2')
+    expect(contentSection).toHaveAttribute(
+      'id',
+      'patient-registration-admission'
+    )
+
+    // Check that the paragraph content is also rendered
+    const paragraphContent = screen.getByText(
+      /Whether you moved and need to change your medical center/
+    )
+    expect(paragraphContent).toBeInTheDocument()
   })
 })

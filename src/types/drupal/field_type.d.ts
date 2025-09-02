@@ -170,6 +170,7 @@ export type FieldNestedButton = {
   field_button_link: FieldCCNestedLink[]
 }
 export interface FieldCCText {
+  target_type: string
   target_id?: string
   fetched_bundle: string
   fetched: {
