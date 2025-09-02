@@ -48,4 +48,37 @@ describe('VamcSystemRegisterForCare', () => {
     )
     expect(paragraphContent).toBeInTheDocument()
   })
+
+  it('renders bottomOfPageContent in the correct location', () => {
+    render(<VamcSystemRegisterForCare {...mockData} />)
+
+    // Check that the main heading is rendered
+    const mainHeading = screen.getByRole('heading', {
+      level: 2,
+      name: 'Not yet enrolled in VA health care?',
+    })
+    expect(mainHeading).toBeInTheDocument()
+
+    // Check that the "Apply online, by phone, or by mail" section is rendered
+    const applyOnlineHeading = screen.getByRole('heading', {
+      level: 3,
+      name: 'Apply online, by phone, or by mail',
+    })
+    expect(applyOnlineHeading).toBeInTheDocument()
+    expect(applyOnlineHeading).toHaveAttribute(
+      'id',
+      'apply-online-by-phone-or-by-ma'
+    )
+
+    // Check that some of the required documents are listed
+    const dd214Text = screen.getByRole('link', {
+      name: /DD214 or other discharge documents/,
+    })
+    expect(dd214Text).toBeInTheDocument()
+
+    const disabilityLettersText = screen.getByRole('link', {
+      name: /VA disability award letters/,
+    })
+    expect(disabilityLettersText).toBeInTheDocument()
+  })
 })

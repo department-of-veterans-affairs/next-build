@@ -16,6 +16,7 @@ export const VamcSystemRegisterForCare = ({
   lastUpdated,
   menu,
   topOfPageContent,
+  bottomOfPageContent,
 }: FormattedVamcSystemRegisterForCare) => {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -60,8 +61,7 @@ export const VamcSystemRegisterForCare = ({
               {/* TODO: Facilities offering non-clinical service */}
               <div>TODO: Facilities offering non-clinical service</div>
 
-              {/* TODO: Centralized content - bottom of page */}
-              <div>TODO: Centralized content - bottom of page</div>
+              <Wysiwyg {...bottomOfPageContent} />
 
               {/* TODO: Related links */}
               <div className="va-nav-linkslist va-nav-linkslist--related">

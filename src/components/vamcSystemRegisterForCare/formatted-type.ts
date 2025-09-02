@@ -8,4 +8,5 @@ export interface VamcSystemRegisterForCare extends PublishedEntity {
   vamcSystem: Pick<VamcSystem, 'id' | 'title'>
   menu: SideNavMenu
   topOfPageContent: Wysiwyg
+  bottomOfPageContent: Wysiwyg
 }
