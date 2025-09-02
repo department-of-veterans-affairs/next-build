@@ -69,7 +69,7 @@ describe('PressReleaseListing component renders', () => {
       <PressReleaseListing {...pressReleaseListingProps} news-releases={[]} />
     )
     expect(screen.queryByText(/News releases/)).toBeInTheDocument()
-    const element = screen.getByText('No stories at this time.')
+    const element = screen.getByText('No news releases at this time.')
     expect(element).toBeInTheDocument()
   })
 })
