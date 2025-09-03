@@ -6,7 +6,7 @@ import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { MediaImage } from '@/components/mediaDocument/formatted-type'
 
 export type NewsStoryTeaser = PublishedEntity & {
-  headingLevel?: ComponentType | keyof JSX.IntrinsicElements
+  headingLevel?: ComponentType | keyof React.JSX.IntrinsicElements
   link: string
   image: MediaImage
   introText: string

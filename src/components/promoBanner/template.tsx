@@ -6,7 +6,7 @@ export const PromoBanner = ({
   href,
   title,
   alertType,
-}: FormattedPromoBanner): JSX.Element => {
+}: FormattedPromoBanner): React.JSX.Element => {
   return (
     <VaPromoBanner
       id={id}

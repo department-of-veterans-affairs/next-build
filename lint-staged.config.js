@@ -6,9 +6,9 @@ const lintStaged = {
   // Lint and format TypeScript and JavaScript files
   '*.(ts|tsx|js|jsx|mjs)': (filenames) => [
     // some extra handling to use next's eslint https://github.com/vercel/next.js/issues/27997#issuecomment-900554790
-    `yarn lint --fix --file ${filenames
-      .map((file) => file.split(process.cwd())[1])
-      .join(' --file ')}`,
+    `yarn lint:files --fix ${filenames
+      .map((file) => file.split(`${process.cwd()}/`)[1])
+      .join(' ')}`,
     `yarn prettier ${filenames.join(' ')} --write`,
   ],
 

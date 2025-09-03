@@ -1,3 +1,3 @@
 import { processEnv } from 'env-loader'
 
-processEnv('next build')
+processEnv('next build --turbopack')

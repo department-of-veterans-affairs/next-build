@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Install jq
         run: |
@@ -92,7 +92,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
       - name: Install dependencies
         run: yarn install
 
@@ -131,7 +131,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
       - name: Install dependencies
         run: yarn install
 
@@ -140,7 +140,7 @@ jobs:
         with:
           pattern: failed-pages-segment-*
           merge-multiple: true
-      
+
       - name: Get current timestamp
         run: echo "NOW=$(date +"%s")" >> $GITHUB_ENV
 
@@ -153,14 +153,14 @@ jobs:
           fi
           jq -s '.' failed-pages-segment-*.json | jq 'flatten' > all-failed-pages.json
           echo FAILED_PAGES=$(jq length ./all-failed-pages.json) >> $GITHUB_ENV
-      
+
       - name: Build json for failed pages when there are pages captured
         if: ${{env.FAILED_PAGES != ''}}
         run: |
             jq --null-input '{}' | \
             jq '.series[0].metric = "${{env.METRIC_NAMESPACE}}.page.errors"' | \
             jq '.series[0].points[0] = [${{env.NOW}}, ${{env.FAILED_PAGES}}]' > metrics.json
-            
+
       - name: Build json for failed pages when no pages captured
         if: ${{env.FAILED_PAGES == ''}}
         run: |

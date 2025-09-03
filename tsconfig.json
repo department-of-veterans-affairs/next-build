@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -27,7 +27,11 @@
       "@/components/*": ["./src/components/*"],
       "@/playwright/*": ["./playwright/*"],
       "@/test-utils": ["./test/test-utils"],
-      "react": ["./node_modules/@types/react"]
+      "react": ["./node_modules/@types/react"],
+      // Import the JS instead of the TS to avoid React 19 compatibility issues
+      "@department-of-veterans-affairs/component-library/dist/react-bindings": [
+        "./node_modules/@department-of-veterans-affairs/component-library/dist/react-bindings/index.js"
+      ]
     }
   },
   "include": [
