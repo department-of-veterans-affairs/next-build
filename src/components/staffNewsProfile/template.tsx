@@ -8,7 +8,7 @@ export const StaffNewsProfile = ({
   field_name_first,
   field_last_name,
   field_description,
-}: PersonProfileTeaserProps): JSX.Element | null => {
+}: PersonProfileTeaserProps): React.JSX.Element | null => {
   const name = `${field_name_first || ''} ${field_last_name || ''}`.trim()
   if (!name) return null
 

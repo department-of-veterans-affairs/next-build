@@ -19,23 +19,3 @@ declare module 'debug'
 declare module 'mq-polyfill'
 declare module 'nock'
 declare module 'test-utils'
-
-declare namespace JSX {
-  interface IntrinsicElements {
-    'va-accordion'
-    'va-accordion-item'
-    'va-additional-info'
-    'va-alert'
-    'va-alert-expandable'
-    'va-back-to-top'
-    'va-breadcrumbs'
-    'va-button'
-    'va-card'
-    'va-icon'
-    'va-link'
-    'va-link-action'
-    'va-on-this-page'
-    'va-summary-box'
-    'va-telephone'
-  }
-}
