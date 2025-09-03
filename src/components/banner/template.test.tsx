@@ -27,11 +27,7 @@ describe('<Banner> component renders', () => {
   test('with dismiss permanently', () => {
     const mockBannerData = getMockBannerData()
     render(<Banner {...mockBannerData} dismiss={true} />)
-    expect(
-      screen.getByText(
-        /The banner component is part of the VSP Design System Storybook/
-      )
-    ).toBeInTheDocument()
+    expect(screen.getByTestId('banner')).toHaveAttribute('show-close', 'true')
   })
 
   test('with dismiss as false', () => {
@@ -39,11 +35,10 @@ describe('<Banner> component renders', () => {
     mockBannerData.dismiss = false
     render(<Banner {...mockBannerData} />)
 
-    expect(
-      screen.getByText(
-        /The banner component is part of the VSP Design System Storybook/
-      )
-    ).toBeInTheDocument()
+    expect(screen.getByTestId('banner')).not.toHaveAttribute(
+      'show-close',
+      'true'
+    )
   })
 })
 
