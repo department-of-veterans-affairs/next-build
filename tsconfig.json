@@ -26,6 +26,7 @@
       "@/types/*": ["./src/types/*"],
       "@/components/*": ["./src/components/*"],
       "@/playwright/*": ["./playwright/*"],
+      "@/test-utils": ["./test/test-utils"],
       "react": ["./node_modules/@types/react"]
     }
   },
