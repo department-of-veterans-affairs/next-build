@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HealthCareLocalFacility query should handle the Lovell variant page menu 1`] = `
+exports[`VamcFacility query should handle the Lovell variant page menu 1`] = `
 {
   "data": {
     "address": {
@@ -891,7 +891,7 @@ exports[`HealthCareLocalFacility query should handle the Lovell variant page men
 }
 `;
 
-exports[`HealthCareLocalFacility query should output formatted data 1`] = `
+exports[`VamcFacility query should output formatted data 1`] = `
 {
   "data": {
     "address": {

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import drupalMockData from './mock'
-import { HealthCareLocalFacility } from './template'
-import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from './formatted-type'
+import { VamcFacility } from './template'
+import { VamcFacility as FormattedHealthCareLocalFacility } from './formatted-type'
 import { formatter } from './query'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { within } from '@testing-library/react'
@@ -36,7 +36,7 @@ const mockData = formatter({
 
 describe('HealthCareLocalFacility with valid data', () => {
   test('renders HealthCareLocalFacility component with basic data', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
     expect(screen.getByText(mockData.title.trim())).toBeInTheDocument()
     expect(screen.getByText(mockData.introText.trim())).toBeInTheDocument()
   })
@@ -46,7 +46,7 @@ describe('HealthCareLocalFacility with valid data', () => {
   // render would require side-loading that app bundle, which is outside the
   // scope of this unit test
   test('adds the sideNav to window.sideNav', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
 
     // @ts-expect-error window.sideNav is not a default window property, but
     // we're adding it
@@ -54,7 +54,7 @@ describe('HealthCareLocalFacility with valid data', () => {
   })
 
   test('renders the address', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
 
     const addressFields: Array<
       keyof FormattedHealthCareLocalFacility['address']
@@ -78,7 +78,7 @@ describe('HealthCareLocalFacility with valid data', () => {
   })
 
   test('renders the phone numbers', () => {
-    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+    const { container } = render(<VamcFacility {...mockData} />)
 
     expect(
       container.querySelector(
@@ -98,7 +98,7 @@ describe('HealthCareLocalFacility with valid data', () => {
   })
 
   test('renders the hours', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
 
     const facilityHoursSection = screen.getByTestId('facility-hours')
 
@@ -114,7 +114,7 @@ describe('HealthCareLocalFacility with valid data', () => {
   })
 
   test('renders the related links', () => {
-    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+    const { container } = render(<VamcFacility {...mockData} />)
 
     expect(
       screen.getByRole('heading', {
@@ -125,7 +125,7 @@ describe('HealthCareLocalFacility with valid data', () => {
   })
 
   test('renders the location services', () => {
-    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+    const { container } = render(<VamcFacility {...mockData} />)
     expect(screen.getByText(/Prepare for your visit/i)).toBeInTheDocument()
     expect(
       container.querySelector(
@@ -137,7 +137,7 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('does not render location services if empty', () => {
     const { container } = render(
-      <HealthCareLocalFacility {...mockData} locationServices={[]} />
+      <VamcFacility {...mockData} locationServices={[]} />
     )
     expect(
       screen.queryByText(/Prepare for your visit/i)
@@ -151,12 +151,7 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('renders LovellSwitcher when lovellVariant and lovellSwitchPath are provided', () => {
     // lovellVariant is set to 'va' in the mock data already
-    render(
-      <HealthCareLocalFacility
-        {...mockData}
-        lovellSwitchPath="/the/other/path"
-      />
-    )
+    render(<VamcFacility {...mockData} lovellSwitchPath="/the/other/path" />)
     expect(
       screen.getByRole('heading', {
         name: 'You are viewing this page as a VA beneficiary.',
@@ -166,14 +161,14 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('does not render LovellSwitcher when lovellVariant is undefined', () => {
     const dataWithoutLovell = { ...mockData, lovellVariant: undefined }
-    render(<HealthCareLocalFacility {...dataWithoutLovell} />)
+    render(<VamcFacility {...dataWithoutLovell} />)
     expect(
       screen.queryByText('Switch to Lovell Federal health care')
     ).not.toBeInTheDocument()
   })
 
   test('generates the schema.org JSON-LD script with correct data', () => {
-    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+    const { container } = render(<VamcFacility {...mockData} />)
 
     // Find the JSON-LD script
     const jsonLdScript = container.querySelector(
@@ -222,12 +217,12 @@ describe('HealthCareLocalFacility with valid data', () => {
   })
 
   test('renders FacilityTopTasks component', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
     expect(screen.getByTestId('facility-top-tasks')).toBeInTheDocument()
   })
 
   test('renders HealthServices when healthServices are provided', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
     expect(
       screen.getByRole('heading', {
         name: 'Health services offered here',
@@ -238,14 +233,14 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('does not render HealthServices when healthServices are empty', () => {
     const dataWithoutServices = { ...mockData, healthServices: [] }
-    render(<HealthCareLocalFacility {...dataWithoutServices} />)
+    render(<VamcFacility {...dataWithoutServices} />)
     expect(
       screen.queryByText('Health services offered at this facility')
     ).not.toBeInTheDocument()
   })
 
   test('renders patient satisfaction widget for VHA facilities', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
     expect(
       screen.getByTestId('patient-satisfaction-widget')
     ).toBeInTheDocument()
@@ -253,14 +248,14 @@ describe('HealthCareLocalFacility with valid data', () => {
 
   test('does not render patient satisfaction widget for non-VHA facilities', () => {
     const nonVhaData = { ...mockData, facilityLocatorApiId: 'vc_123' }
-    render(<HealthCareLocalFacility {...nonVhaData} />)
+    render(<VamcFacility {...nonVhaData} />)
     expect(
       screen.queryByTestId('patient-satisfaction-widget')
     ).not.toBeInTheDocument()
   })
 
   test('renders FacilitySocialLinks when socialLinks are provided', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
     expect(
       screen.getByRole('heading', {
         name: 'Get updates from VA Boston health care',
@@ -270,12 +265,12 @@ describe('HealthCareLocalFacility with valid data', () => {
   })
 
   test('renders ContentFooter with lastUpdated date', () => {
-    render(<HealthCareLocalFacility {...mockData} />)
+    render(<VamcFacility {...mockData} />)
     expect(screen.getByTestId('content-footer')).toBeInTheDocument()
   })
 
   test('renders va-back-to-top component', () => {
-    const { container } = render(<HealthCareLocalFacility {...mockData} />)
+    const { container } = render(<VamcFacility {...mockData} />)
     expect(container.querySelector('va-back-to-top')).toBeInTheDocument()
   })
 })
