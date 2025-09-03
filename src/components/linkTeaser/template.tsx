@@ -66,13 +66,12 @@ export const LinkTeaser = ({
     <li key={id} onClick={() => recordEvent(analytic)}>
       {title !== '' && (
         <h3 className="va-nav-linkslist-title vads-u-font-size--h4">
-          <a
+          <va-link
             href={uri}
             className="vads-u-text-decoration--underline"
             target={fieldLinkOption}
-          >
-            {title}
-          </a>
+            text={title}
+          ></va-link>
         </h3>
       )}
       <p className="va-nav-linkslist-description">{summary}</p>

@@ -54,11 +54,10 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
     const h3El = container.getElementsByClassName(
       'va-nav-linkslist-title vads-u-font-size--h4'
     )
+    const vaLink = container.querySelector('va-link')
 
     expect(h3El.length).toBe(1)
-    expect(
-      screen.queryByText(/Health Care Benefits Eligibility/)
-    ).toBeInTheDocument()
+    expect(vaLink).toHaveAttribute('text', 'Health Care Benefits Eligibility')
     expect(
       screen.queryByText(/Find out if you can get VA health care benefits./)
     ).toBeInTheDocument()
