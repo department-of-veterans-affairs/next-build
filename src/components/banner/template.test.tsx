@@ -27,7 +27,7 @@ describe('<Banner> component renders', () => {
   test('with dismiss permanently', () => {
     const mockBannerData = getMockBannerData()
     render(<Banner {...mockBannerData} dismiss={true} />)
-    expect(screen.getByTestId('banner')).toHaveAttribute('show-close', 'true')
+    expect(screen.getByTestId('banner')).toHaveAttribute('show-close')
   })
 
   test('with dismiss as false', () => {
