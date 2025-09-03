@@ -12,7 +12,7 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
-  entityFetchedParagraphsToNormalParagraphs,
+  normalizeEntityFetchedParagraphs,
   formatParagraph,
 } from '@/lib/drupal/paragraphs'
 import { ParagraphWysiwyg } from '@/types/drupal/paragraph'
@@ -72,15 +72,8 @@ export const formatter: QueryFormatter<
   VamcSystemRegisterForCareData,
   VamcSystemRegisterForCare
 > = ({ entity, menu }): VamcSystemRegisterForCare => {
-  const formatCcWysiwyg = (field: FieldCCText) => {
-    return formatParagraph(
-      entityFetchedParagraphsToNormalParagraphs({
-        type: field.target_type,
-        bundle: field.fetched_bundle,
-        ...field.fetched,
-      }) as ParagraphWysiwyg
-    ) as Wysiwyg
-  }
+  const formatCcWysiwyg = (field: FieldCCText) =>
+    formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
   return {
     ...entityBaseFields(entity),
