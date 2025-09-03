@@ -198,10 +198,10 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
       showBanner: entity.field_show_banner,
       alertType: entity.field_alert_type,
       title: entity.field_banner_title,
-      content: entity.field_banner_content
+      body: entity.field_banner_content
         ? getHtmlFromField(entity.field_banner_content)
         : null,
-      dismissible: entity.field_dismissible_option,
+      dismiss: entity.field_dismissible_option,
     },
     allServices: services.map((service) => ({
       type: service.field_service_name_and_descripti?.field_vba_type_of_care,

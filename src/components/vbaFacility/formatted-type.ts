@@ -25,8 +25,8 @@ type VbaBanner = {
   showBanner: boolean | null
   alertType: 'information' | 'warning' | null
   title: string | null
-  content: string | null
-  dismissible: 'perm' | 'dismiss' | null
+  body: string | null
+  dismiss: 'perm' | 'dismiss' | null
 }
 export type VbaFacilityService = {
   type: string
