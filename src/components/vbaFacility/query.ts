@@ -201,7 +201,8 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
       body: entity.field_banner_content
         ? getHtmlFromField(entity.field_banner_content)
         : null,
-      dismiss: entity.field_dismissible_option,
+      // Converting to bool like banner query does
+      dismiss: entity.field_dismissible_option === 'dismiss',
     },
     allServices: services.map((service) => ({
       type: service.field_service_name_and_descripti?.field_vba_type_of_care,
