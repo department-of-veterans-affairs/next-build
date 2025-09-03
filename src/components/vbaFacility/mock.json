@@ -138,7 +138,7 @@
     "address_line1": "1 VA Center, Bldg. 248",
     "additional_name": null
   },
-  "field_alert_type": "information",
+  "field_alert_type": null,
   "field_banner_content": {
     "value": "<p>Togus Campus - the North Entrance and roadway in front of Building 205 is closed to repair windows and doors May 27 through October 1, 2025. Walking traffic will be redirected to the South Entrance of Building 205. </p>",
     "format": "rich_text_limited",
@@ -369,7 +369,7 @@
       ]
     }
   },
-  "field_dismissible_option": "perm",
+  "field_dismissible_option": null,
   "field_facility_locator_api_id": "vba_402",
   "field_facility_vba_classificatio": "3",
   "field_geolocation": {

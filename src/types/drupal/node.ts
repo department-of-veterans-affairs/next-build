@@ -469,6 +469,11 @@ export interface NodeVbaFacility extends DrupalNode {
   field_operating_status_more_info?: string
   field_prepare_for_visit: ParagraphAccordion[]
   field_phone_number: string
+  field_show_banner: boolean
+  field_alert_type: 'information' | 'warning' | null
+  field_banner_title?: string
+  field_banner_content?: FieldFormattedText
+  field_dismissible_option: 'perm' | 'dismiss' | null
 }
 
 export interface NodeVbaService extends DrupalNode {
