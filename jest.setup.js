@@ -3,9 +3,6 @@ import 'jest-axe/extend-expect'
 import { back as nockBack } from 'nock'
 import { loadEnvConfig } from '@next/env'
 
-const matchers = require('jest-extended')
-expect.extend(matchers)
-
 nockBack.setMode('record')
 global.setImmediate = jest.useRealTimers
 

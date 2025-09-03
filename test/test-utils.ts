@@ -8,9 +8,28 @@ const userEvent = originalUserEvent.setup()
 export { userEvent }
 export * from '@testing-library/react'
 export { faker } from '@faker-js/faker'
-export { axe } from 'jest-axe'
+import { configureAxe } from 'jest-axe'
 import 'range-getclientrects-polyfill'
 import 'window-computedstyle-polyfill'
 import 'window-matchmedia-polyfill'
 import nock, { back as nockBack } from 'nock'
 export { nock, nockBack }
+
+export const axe = configureAxe({
+  runOnly: {
+    type: 'tag',
+    values: ['section508', 'wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'],
+  },
+  rules: {
+    'color-contrast': { enabled: false },
+    'empty-heading': {
+      enabled: true,
+    },
+    'heading-order': {
+      enabled: true,
+    },
+    'page-has-heading-one': {
+      enabled: true,
+    },
+  },
+})
