@@ -208,7 +208,6 @@ export interface FieldCCListOfLinks {
   target_field?: string
   fetched_bundle: string
   fetched: {
-    field_link: Unknown[]
     field_links: FieldCCNestedLink[]
     field_section_header: FieldNestedText[]
   }

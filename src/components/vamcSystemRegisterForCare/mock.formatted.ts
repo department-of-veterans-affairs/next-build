@@ -91,5 +91,37 @@ const mockData: VamcSystemRegisterForCare = {
     id: '9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6',
     title: 'VA Richmond health care',
   },
+  relatedLinks: {
+    type: 'paragraph--list_of_link_teasers',
+    id: '77159',
+    entityId: null,
+    title: 'More information',
+    linkTeasers: [
+      {
+        type: 'paragraph--link_teaser',
+        id: '77155',
+        entityId: null,
+        uri: 'entity:node/703',
+        title: 'VA health care copay rates',
+        options: [],
+        summary:
+          'Review copay rates for outpatient care, hospital stays, medications, and other health services.',
+        parentField: null,
+        componentParams: { boldTitle: false, sectionHeader: '' },
+      },
+      {
+        type: 'paragraph--link_teaser',
+        id: '77156',
+        entityId: null,
+        uri: 'entity:node/706',
+        title: 'Financial hardship assistance',
+        options: [],
+        summary:
+          'If you’re struggling to pay your copays, learn how to request a repayment plan, debt relief, or copay exemption.',
+        parentField: null,
+        componentParams: { boldTitle: false, sectionHeader: '' },
+      },
+    ],
+  },
 }
 export default mockData

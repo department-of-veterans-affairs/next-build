@@ -18,6 +18,7 @@ import {
 import { ParagraphWysiwyg } from '@/types/drupal/paragraph'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { FieldCCText } from '@/types/drupal/field_type'
+import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
@@ -86,6 +87,9 @@ export const formatter: QueryFormatter<
     topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),
     bottomOfPageContent: formatCcWysiwyg(
       entity.field_cc_bottom_of_page_content
+    ),
+    relatedLinks: formatListOfLinkTeasers(
+      normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
   }
 }

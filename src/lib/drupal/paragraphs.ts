@@ -4,6 +4,7 @@ import {
   FormattedResourceByType,
 } from '@/lib/drupal/queries'
 import { queries, FormattableParagraphResourceType } from '@/lib/drupal/queries'
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 
 /**
  * An abstraction for calling `queries.formatData` that removes
