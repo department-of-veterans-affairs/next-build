@@ -16,20 +16,32 @@ const mockMenu = {
 const mockFeaturedContent = [
   {
     id: 'test-1',
-    type: 'paragraph--link_teaser',
+    type: 'paragraph--link_teaser' as const,
     title: 'Mental health at VA Black Hills health care',
     summary: 'Learn about our leading clinical mental health work',
     uri: '/mental-health',
     parentField: 'field_featured_content_healthser',
+    entityId: 1,
+    options: [],
+    componentParams: {
+      boldTitle: false,
+      sectionHeader: '',
+    },
   },
   {
     id: 'test-2',
-    type: 'paragraph--link_teaser',
+    type: 'paragraph--link_teaser' as const,
     title: 'Health care for LGBTQ+ Veterans',
     summary:
       'VA Black Hills health care provides compassionate care for LGBTQ+ Veterans',
     uri: '/lgbtq-care',
     parentField: 'field_featured_content_healthser',
+    entityId: 2,
+    options: [],
+    componentParams: {
+      boldTitle: false,
+      sectionHeader: '',
+    },
   },
 ]
 

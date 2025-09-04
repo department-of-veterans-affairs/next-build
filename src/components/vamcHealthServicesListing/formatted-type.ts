@@ -3,6 +3,7 @@ import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 import { Administration } from '@/components/administration/formatted-type'
 import { VamcEhrSystem } from '@/types/drupal/vamcEhr'
 import { SideNavMenu } from '@/types/formatted/sideNav'
+import { LinkTeaser } from '@/components/linkTeaser/formatted-type'
 
 export type VamcHealthServicesListing = PublishedEntity & {
   title: string
@@ -13,12 +14,5 @@ export type VamcHealthServicesListing = PublishedEntity & {
   administration?: Administration
   vamcEhrSystem: VamcEhrSystem
   menu: SideNavMenu | null
-  featuredContent?: Array<{
-    id: string
-    type: string
-    title: string
-    summary: string
-    uri: string
-    parentField: string
-  }>
+  featuredContent?: LinkTeaser[]
 }

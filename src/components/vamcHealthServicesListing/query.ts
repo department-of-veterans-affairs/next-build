@@ -107,18 +107,14 @@ export const formatter: QueryFormatter<
           PARAGRAPH_RESOURCE_TYPES.LINK_TEASER,
           item
         )
+
+        // to accomodate undefined values that cause serialization issues
+        // AND preserve the URL preference logic
         return {
-          id: formattedItem.id,
-          type: formattedItem.type,
-          title: formattedItem.title,
-          summary: formattedItem.summary,
+          ...formattedItem,
+          entityId: formattedItem.entityId || null,
+          parentField: formattedItem.parentField || '',
           uri: item.field_link?.url || formattedItem.uri,
-          parentField: item.parent_field_name || '',
-          link: {
-            id: formattedItem.id,
-            url: item.field_link?.url || formattedItem.uri,
-            label: 'Read more',
-          },
         }
       }) || [],
   }
