@@ -736,6 +736,14 @@ If you need help with the IDES process, we may refer you to your Physical Evalua
       "type": "vba_service_member_benefits",
     },
   ],
+  "banner": {
+    "alertType": null,
+    "body": "<p>Togus Campus - the North Entrance and roadway in front of Building 205 is closed to repair windows and doors May 27 through October 1, 2025. Walking traffic will be redirected to the South Entrance of Building 205. </p>
+",
+    "dismiss": false,
+    "showBanner": true,
+    "title": "Office Entryway Closure",
+  },
   "breadcrumbs": [
     {
       "options": [],

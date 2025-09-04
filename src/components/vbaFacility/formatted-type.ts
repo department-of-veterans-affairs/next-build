@@ -21,6 +21,13 @@ type VbaSocialLinksProps = {
   links: SocialLink[]
   heading: string
 }
+type VbaBanner = {
+  showBanner: boolean
+  alertType: 'information' | 'warning' | null
+  title: string | null
+  body: string | null
+  dismiss: boolean | null
+}
 export type VbaFacilityService = {
   type: string
   name: string
@@ -49,5 +56,6 @@ export type VbaFacility = PublishedEntity & {
   phoneNumber: string
   address: FieldAddress
   ccCantFindBenefits: CantFindBenefits | null
+  banner: VbaBanner
   allServices: VbaFacilityService[]
 }
