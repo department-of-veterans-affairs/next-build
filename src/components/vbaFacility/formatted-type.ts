@@ -22,7 +22,7 @@ type VbaSocialLinksProps = {
   heading: string
 }
 type VbaBanner = {
-  showBanner: boolean | null
+  showBanner: boolean
   alertType: 'information' | 'warning' | null
   title: string | null
   body: string | null

@@ -195,7 +195,7 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
     prepareForVisit: entity.field_prepare_for_visit.map(formatAccordionItem),
     phoneNumber: entity.field_phone_number,
     banner: {
-      showBanner: entity.field_show_banner,
+      showBanner: entity.field_show_banner || false,
       alertType: entity.field_alert_type,
       title: entity.field_banner_title,
       body: entity.field_banner_content

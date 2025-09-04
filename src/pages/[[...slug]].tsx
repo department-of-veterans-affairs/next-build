@@ -145,17 +145,19 @@ export default function ResourcePage({
       | entityId: ${resource?.entityId || 'N/A'}
       |
     `
-  let contentBanner
+  let contentBanner = []
   if ('banner' in resource && resource.banner && resource.banner.showBanner) {
-    contentBanner = {
-      ...resource.banner,
-      id: 'contentBanner',
-      type: 'banner',
-    }
+    contentBanner = [
+      {
+        ...resource.banner,
+        id: 'contentBanner',
+        type: 'banner',
+      },
+    ]
   }
   return (
     <PageLayout
-      bannerData={[...bannerData, contentBanner]}
+      bannerData={[...bannerData, ...contentBanner]}
       footerData={footerData}
       megaMenuData={megaMenuData}
       preview={preview}
