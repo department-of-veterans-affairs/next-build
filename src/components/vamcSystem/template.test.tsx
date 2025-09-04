@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import drupalMockData from '@/components/vamcSystem/mock.json'
-import drupalMockFacilityData from '../healthCareLocalFacility/mock'
+import drupalMockFacilityData from '../vamcFacility/mock'
 import drupalMockStoryData from '@/components/newsStory/mock.json'
 import { VamcSystem } from './template'
 import { VamcSystem as FormattedVamcSystem } from './formatted-type'

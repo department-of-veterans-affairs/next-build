@@ -5,7 +5,7 @@
 import { queries } from '@/lib/drupal/queries'
 import mockFacilityData from './mock'
 import { DrupalMenuLinkContent } from 'next-drupal'
-import { formatter, LocalFacilityData, params } from './query'
+import { formatter, VamcFacilityData, params } from './query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { deflateObjectGraph } from '@/lib/utils/object-graph'
 
@@ -58,7 +58,7 @@ describe('DrupalJsonApiParams configuration', () => {
   })
 })
 
-describe('HealthCareLocalFacility query', () => {
+describe('VamcFacility query', () => {
   it('should output formatted data', async () => {
     const data = await queries.getData(RESOURCE_TYPES.VAMC_FACILITY, {
       id: mockFacilityData.id,
@@ -84,7 +84,7 @@ describe('HealthCareLocalFacility query', () => {
 })
 
 describe('formatter', () => {
-  const formatterParams: LocalFacilityData = {
+  const formatterParams: VamcFacilityData = {
     menu: mockMenu,
     entity: mockFacilityData,
     lovell: {

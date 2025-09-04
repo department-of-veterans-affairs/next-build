@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from './formatted-type'
+import { VamcFacility as FormattedVamcFacility } from './formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 
 import { FacilityTopTasks } from '@/components/topTasks/template'
@@ -26,7 +26,7 @@ interface customWindow extends Window {
 }
 declare const window: customWindow
 
-export function HealthCareLocalFacility({
+export function VamcFacility({
   title,
   introText,
   lastUpdated,
@@ -49,7 +49,7 @@ export function HealthCareLocalFacility({
   lovellVariant,
   lovellSwitchPath,
   healthServices,
-}: FormattedHealthCareLocalFacility) {
+}: FormattedVamcFacility) {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
   useEffect(() => {
