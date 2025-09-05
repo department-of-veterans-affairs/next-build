@@ -8,13 +8,13 @@ export const ListOfLinkTeasers = ({
   title,
   linkTeasers,
 }: ParagraphComponent<FormattedListOfLinkTeasers>) => (
-  <section data-template="paragraphs/list_of_link_teasers" data-entity-id={id}>
+  <section
+    data-template="paragraphs/list_of_link_teasers"
+    data-entity-id={id}
+    className="vads-u-padding-bottom--2"
+  >
     {title && (
-      <h2
-        id={hashReference(title)}
-        className="va-nav-linkslist-heading"
-        tabIndex={-1}
-      >
+      <h2 id={hashReference(title)} className="va-nav-linkslist-heading">
         {title}
       </h2>
     )}
