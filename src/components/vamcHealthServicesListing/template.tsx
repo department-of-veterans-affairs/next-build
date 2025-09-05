@@ -4,6 +4,7 @@ import { FacilityTopTasks } from '@/components/topTasks/template'
 import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { FeaturedContent } from '@/components/featuredContent/template'
+import { ContentFooter } from '../contentFooter/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -120,7 +121,7 @@ export function VamcHealthServicesListing({
             {/* TODO: Add above footer elements here */}
             <p>TODO: Add above footer elements here</p>
           </article>
-          {/* TODO: Last updated & feedback button */}
+          <ContentFooter />
         </div>
       </div>
     </main>
