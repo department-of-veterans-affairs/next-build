@@ -71,9 +71,11 @@ export const data: QueryData<
     entity.field_cc_related_links.fetched.field_va_paragraphs.map(
       async (linkTeaser) => {
         for (const link of linkTeaser.field_link) {
-          const uri = link.uri.replace(/^entity:/, '')
-          const pathInfo = await drupalClient.translatePath(uri)
-          link.uri = pathInfo.entity.path
+          if (link.uri.startsWith('entity:')) {
+            const uri = link.uri.replace('entity:', '')
+            const pathInfo = await drupalClient.translatePath(uri)
+            link.uri = pathInfo.entity.path
+          }
         }
       }
     )
