@@ -15,10 +15,10 @@ import {
   normalizeEntityFetchedParagraphs,
   formatParagraph,
 } from '@/lib/drupal/paragraphs'
-import { ParagraphWysiwyg } from '@/types/drupal/paragraph'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { FieldCCText } from '@/types/drupal/field_type'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
@@ -65,6 +65,20 @@ export const data: QueryData<
       .drupal_internal__target_id
   )
 
+  // The URIs for the link teasers (fetched via entity_field_fetch) are not true URL paths,
+  // so we need to translate them from Drupal entity paths.
+  await Promise.all(
+    entity.field_cc_related_links.fetched.field_va_paragraphs.map(
+      async (linkTeaser) => {
+        for (const link of linkTeaser.field_link) {
+          const uri = link.uri.replace(/^entity:/, '')
+          const pathInfo = await drupalClient.translatePath(uri)
+          link.uri = pathInfo.entity.path
+        }
+      }
+    )
+  )
+
   return { entity, menu }
 }
 
@@ -72,7 +86,7 @@ export const data: QueryData<
 export const formatter: QueryFormatter<
   VamcSystemRegisterForCareData,
   VamcSystemRegisterForCare
-> = ({ entity, menu }): VamcSystemRegisterForCare => {
+> = ({ entity, menu }) => {
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
