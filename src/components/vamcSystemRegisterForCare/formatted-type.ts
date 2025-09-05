@@ -2,6 +2,7 @@ import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { VamcSystem } from '../vamcSystem/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
+import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
 
 export interface VamcSystemRegisterForCare extends PublishedEntity {
   title: string
@@ -9,4 +10,5 @@ export interface VamcSystemRegisterForCare extends PublishedEntity {
   menu: SideNavMenu
   topOfPageContent: Wysiwyg
   bottomOfPageContent: Wysiwyg
+  relatedLinks: ListOfLinkTeasers
 }

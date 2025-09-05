@@ -20,13 +20,10 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import {
-  entityFetchedParagraphsToNormalParagraphs,
+  normalizeEntityFetchedParagraphs,
   formatParagraph,
 } from '@/lib/drupal/paragraphs'
-import {
-  ParagraphCCQaSection,
-  ParagraphQaSection,
-} from '@/types/drupal/paragraph'
+import { ParagraphCCQaSection } from '@/types/drupal/paragraph'
 import { QaSection } from '@/components/qaSection/formatted-type'
 import { DrupalMediaImage } from '@/types/drupal/media'
 
@@ -146,14 +143,8 @@ export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = ({
     return formattedFeaturedContentArray
   }
   // Similarly, this formats centralized content FAQs to match what our QA components are expecting
-  const formatFaq = (faqs: ParagraphCCQaSection) => {
-    const normalizedQaSection = entityFetchedParagraphsToNormalParagraphs({
-      type: faqs.target_type,
-      bundle: faqs.fetched_bundle,
-      ...faqs.fetched,
-    }) as ParagraphQaSection
-    return formatParagraph(normalizedQaSection) as QaSection
-  }
+  const formatFaq = (faqs: ParagraphCCQaSection) =>
+    formatParagraph(normalizeEntityFetchedParagraphs(faqs)) as QaSection
 
   const missionExplainer = {
     heading:

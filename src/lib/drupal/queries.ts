@@ -21,6 +21,7 @@ import * as Footer from '@/components/footer/query'
 import * as Header from '@/components/header/query'
 import * as HealthCareLocalFacility from '../../components/vamcFacility/query'
 import * as LinkTeaser from '@/components/linkTeaser/query'
+import * as ListOfLinkTeasers from '@/components/listOfLinkTeasers/query'
 import * as LocationsListing from '../../components/locationsListing/query'
 import * as MediaDocument from '@/components/mediaDocument/query'
 import * as MediaImage from '@/components/mediaImage/query'
@@ -112,6 +113,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT]: ExpandableText,
   [PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT]: FeaturedContent,
   [PARAGRAPH_RESOURCE_TYPES.LINK_TEASER]: LinkTeaser,
+  [PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS]: ListOfLinkTeasers,
   [PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT]: NumberCallout,
   [PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT]: PhoneNumber,
   [PARAGRAPH_RESOURCE_TYPES.PROCESS_LIST]: ProcessList,

@@ -13,12 +13,9 @@ import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { getLovellVariantOfBreadcrumbs } from '@/lib/drupal/lovell/utils'
+import { ParagraphCCQaSection } from '@/types/drupal/paragraph'
 import {
-  ParagraphCCQaSection,
-  ParagraphQaSection,
-} from '@/types/drupal/paragraph'
-import {
-  entityFetchedParagraphsToNormalParagraphs,
+  normalizeEntityFetchedParagraphs,
   formatParagraph,
 } from '@/lib/drupal/paragraphs'
 import { QaSection } from '@/components/qaSection/formatted-type'
@@ -73,14 +70,8 @@ export const data: QueryData<
 }
 
 // Similarly, this formats centralized content FAQs to match what our QA components are expecting
-const formatFaq = (faqs: ParagraphCCQaSection) => {
-  const normalizedQaSection = entityFetchedParagraphsToNormalParagraphs({
-    type: faqs.target_type,
-    bundle: faqs.fetched_bundle,
-    ...faqs.fetched,
-  }) as ParagraphQaSection
-  return formatParagraph(normalizedQaSection) as QaSection
-}
+const formatFaq = (faqs: ParagraphCCQaSection) =>
+  formatParagraph(normalizeEntityFetchedParagraphs(faqs)) as QaSection
 
 export const formatter: QueryFormatter<
   VamcSystemVaPoliceData,

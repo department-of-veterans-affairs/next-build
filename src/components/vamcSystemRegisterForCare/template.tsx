@@ -3,6 +3,7 @@ import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from 
 import { ContentFooter } from '../contentFooter/template'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '../wysiwyg/template'
+import { ListOfLinkTeasers } from '../listOfLinkTeasers/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -17,6 +18,7 @@ export const VamcSystemRegisterForCare = ({
   menu,
   topOfPageContent,
   bottomOfPageContent,
+  relatedLinks,
 }: FormattedVamcSystemRegisterForCare) => {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -65,7 +67,7 @@ export const VamcSystemRegisterForCare = ({
 
               {/* TODO: Related links */}
               <div className="va-nav-linkslist va-nav-linkslist--related">
-                <div>TODO: Related links</div>
+                <ListOfLinkTeasers {...relatedLinks} />
               </div>
 
               <va-back-to-top></va-back-to-top>

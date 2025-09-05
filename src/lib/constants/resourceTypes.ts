@@ -70,6 +70,7 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   EXPANDABLE_TEXT: 'paragraph--expandable_text',
   FEATURED_CONTENT: 'paragraph--featured_content',
   LINK_TEASER: 'paragraph--link_teaser',
+  LIST_OF_LINK_TEASERS: 'paragraph--list_of_link_teasers',
   NUMBER_CALLOUT: 'paragraph--number_callout',
   PHONE_CONTACT: 'paragraph--phone_number',
   PROCESS_LIST: 'paragraph--process',

@@ -113,10 +113,11 @@ describe('<QuestionAnswerData> component renders with data', () => {
   })
 
   test('<Teaser /> data to be in the document', () => {
-    render(<QuestionAnswer {...QuestionAnswerData} />)
-    expect(
-      screen.queryByText(/Request your military service records/)
-    ).toBeInTheDocument()
+    const { container } = render(<QuestionAnswer {...QuestionAnswerData} />)
+    const vaLink = container.querySelector(
+      'va-link[text="Request your military service records (including DD214)"]'
+    )
+    expect(vaLink).toBeInTheDocument()
   })
 
   test('<Button /> data to be in the document', () => {
