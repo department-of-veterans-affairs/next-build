@@ -1,0 +1,983 @@
+{
+  "type": "node--vamc_system_register_for_care",
+  "id": "116e00eb-8208-4bdc-8952-e3c9bc509327",
+  "drupal_internal__nid": 44606,
+  "drupal_internal__vid": 646989,
+  "langcode": "en",
+  "revision_timestamp": "2022-05-06T15:10:16+00:00",
+  "revision_log": "Updated phone numbers",
+  "status": true,
+  "title": "Register for care",
+  "created": "2022-03-25T18:46:48+00:00",
+  "changed": "2022-05-06T15:10:16+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care",
+      "title": "VA Richmond health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "Register for care",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "title",
+        "content": "Register for care | VA Richmond health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "description",
+        "content": "You can pay your VA Richmond health care bill online, by phone, mail, or in person."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:site_name",
+        "content": "Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:title",
+        "content": "Register for care | VA Richmond health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:description",
+        "content": "You can pay your VA Richmond health care bill online, by phone, mail, or in person."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "property": "og:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:title",
+        "content": "Register for care | VA Richmond health care | Veterans Affairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:description",
+        "content": "You can pay your VA Richmond health care bill online, by phone, mail, or in person."
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:site",
+        "content": "@DeptVetAffairs"
+      }
+    },
+    {
+      "tag": "meta",
+      "attributes": {
+        "name": "twitter:image:alt",
+        "content": "U.S. Department of Veterans Affairs"
+      }
+    }
+  ],
+  "path": {
+    "alias": "/richmond-health-care/register-for-care",
+    "pid": 58412,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_cc_bottom_of_page_content": {
+    "target_type": "paragraph",
+    "target_id": "82283",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<h2 id=\"not-yet-enrolled-in-va-health-\"><strong>Not yet enrolled in VA health care?</strong></h2>\r\n\r\n<p>You need to be enrolled in VA health care before you can make appointments and receive care with us.</p>\r\n\r\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"588aa250-35b3-4d1d-99e6-d152bbae0775\" href=\"https://www.va.gov/health-care/about-va-health-benefits\" hreflang=\"en\" title=\"About VA health benefits\">Learn about VA health care benefits and eligibility </a></p>\r\n\r\n<h3 id=\"apply-online-by-phone-or-by-ma\"><strong>Apply online, by phone, or by mail</strong></h3>\r\n\r\n<p>We’ll walk you through how to get started. You can apply at your own pace, and save your application and go back to it when it’s convenient for you.</p>\r\n\r\n<p><strong><a class=\"vads-c-action-link--blue\" href=\"https://www.va.gov/health-care/how-to-apply/\" hreflang=\"en\">Apply online, by phone, or by mail</a></strong></p>\r\n\r\n<h3 id=\"apply-in-person\"><strong>Apply in person</strong></h3>\r\n\r\n<p>We can help answer any questions you may have. We can also accept your completed application at our patient registration office for processing.</p>\r\n\r\n<p>Fill out an <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"4d264d1d-71e2-4e0f-933d-7a97480c56bb\" href=\"/node/5776\">Application for Health Care Benefits (VA Form 10-10EZ)</a>. Bring your completed application to one of our patient registration offices.</p>\r\n\r\n<p><strong>What to bring with your health care application </strong><br />\r\nTo get a faster decision on your application, bring these documents and information with you:</p>\r\n\r\n<ul dir=\"ltr\">\r\n\t<li>Copies of your <a href=\"https://www.va.gov/records/get-military-service-records/\" hreflang=\"en\">DD214 or other discharge documents</a></li>\r\n\t<li>Copies of any <a href=\"https://www.va.gov/records/download-va-letters/\" hreflang=\"en\">VA disability award letters</a> you may have</li>\r\n\t<li>Your income information from the previous calendar year, if you have a 0% VA disability rating or if you’re a non-service-connected Veteran</li>\r\n\t<li>Copies of your current ID cards for any other types of health coverage you may have (like Medicare, Medicaid, Tricare, or private health insurance)</li>\r\n</ul>\r\n\r\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"4d264d1d-71e2-4e0f-933d-7a97480c56bb\" href=\"/node/5776\" hreflang=\"en\">Download VA Form 10-10 EZ</a></p>\r\n",
+          "format": "rich_text",
+          "processed": "<h2 id=\"not-yet-enrolled-in-va-health-\"><strong>Not yet enrolled in VA health care?</strong></h2>\n\n<p>You need to be enrolled in VA health care before you can make appointments and receive care with us.</p>\n\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"588aa250-35b3-4d1d-99e6-d152bbae0775\" href=\"/health-care/about-va-health-benefits\" hreflang=\"en\" title=\"About VA health benefits\">Learn about VA health care benefits and eligibility </a></p>\n\n<h3 id=\"apply-online-by-phone-or-by-ma\"><strong>Apply online, by phone, or by mail</strong></h3>\n\n<p>We’ll walk you through how to get started. You can apply at your own pace, and save your application and go back to it when it’s convenient for you.</p>\n\n<p><strong><a class=\"vads-c-action-link--blue\" href=\"https://www.va.gov/health-care/how-to-apply/\" hreflang=\"en\">Apply online, by phone, or by mail</a></strong></p>\n\n<h3 id=\"apply-in-person\"><strong>Apply in person</strong></h3>\n\n<p>We can help answer any questions you may have. We can also accept your completed application at our patient registration office for processing.</p>\n\n<p>Fill out an <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"4d264d1d-71e2-4e0f-933d-7a97480c56bb\" href=\"/find-forms/about-form-10-10ez\" title=\"About VA Form 10-10EZ\">Application for Health Care Benefits (VA Form 10-10EZ)</a>. Bring your completed application to one of our patient registration offices.</p>\n\n<p><strong>What to bring with your health care application </strong><br>\nTo get a faster decision on your application, bring these documents and information with you:</p>\n\n<ul dir=\"ltr\">\n\t<li>Copies of your <a href=\"https://www.va.gov/records/get-military-service-records/\" hreflang=\"en\">DD214 or other discharge documents</a></li>\n\t<li>Copies of any <a href=\"https://www.va.gov/records/download-va-letters/\" hreflang=\"en\">VA disability award letters</a> you may have</li>\n\t<li>Your income information from the previous calendar year, if you have a 0% VA disability rating or if you’re a non-service-connected Veteran</li>\n\t<li>Copies of your current ID cards for any other types of health coverage you may have (like Medicare, Medicaid, Tricare, or private health insurance)</li>\n</ul>\n\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"4d264d1d-71e2-4e0f-933d-7a97480c56bb\" href=\"/find-forms/about-form-10-10ez\" hreflang=\"en\" title=\"About VA Form 10-10EZ\">Download VA Form 10-10 EZ</a></p>"
+        }
+      ]
+    }
+  },
+  "field_cc_related_links": {
+    "target_type": "paragraph",
+    "target_id": "77159",
+    "target_field": null,
+    "fetched_bundle": "list_of_link_teasers",
+    "fetched": {
+      "field_title": [
+        {
+          "value": "More information"
+        }
+      ],
+      "field_va_paragraphs": [
+        {
+          "target_id": "77155",
+          "target_revision_id": "617867",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "77155",
+          "label": "VAMC System - \"Register for care\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/703",
+              "title": "VA health care copay rates",
+              "options": []
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Review copay rates for outpatient care, hospital stays, medications, and other health services."
+            }
+          ]
+        },
+        {
+          "target_id": "77156",
+          "target_revision_id": "617868",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "77156",
+          "label": "VAMC System - \"Register for care\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/706",
+              "title": "Financial hardship assistance",
+              "options": []
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "If you’re struggling to pay your copays, learn how to request a repayment plan, debt relief, or copay exemption."
+            }
+          ]
+        },
+        {
+          "target_id": "77157",
+          "target_revision_id": "617869",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "77157",
+          "label": "VAMC System - \"Register for care\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/705",
+              "title": "Dispute your VA copay charges",
+              "options": []
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Find out how to file a dispute If you disagree with the charges or amounts on your bill. Find out how to file a dispute If you disagree with the charges or amounts on your bill."
+            }
+          ]
+        },
+        {
+          "target_id": "77158",
+          "target_revision_id": "393056",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "77158",
+          "label": "VAMC System - \"Register for care\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/709",
+              "title": "Change your address on file with VA",
+              "options": []
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Update your address and other information in your VA.gov profile. This will update your information across several VA benefits and services."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "field_cc_top_of_page_content": {
+    "target_type": "paragraph",
+    "target_id": "82286",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<h2 id=\"patient-registration-admission\">Patient registration (admissions)</h2>\r\n\r\n<p>Whether you moved and need to change your medical center or need a primary care provider in the area, we can help. Call us or visit one of our patient registration offices to get started.</p>\r\n",
+          "format": "rich_text",
+          "processed": "<h2 id=\"patient-registration-admission\">Patient registration (admissions)</h2>\n\n<p>Whether you moved and need to change your medical center or need a primary care provider in the area, we can help. Call us or visit one of our patient registration offices to get started.</p>"
+        }
+      ]
+    }
+  },
+  "field_enforce_unique_combo": false,
+  "field_enforce_unique_combo_offic": false,
+  "field_last_saved_by_an_editor": "2022-05-06T15:10:15+00:00",
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vamc_system_register_for_care/116e00eb-8208-4bdc-8952-e3c9bc509327?resourceVersion=id%3A646989"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "41e73b50-6d9d-4de1-980e-90db8636a2a8",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vamc_system_register_for_care"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "6eb7cb03-f112-4b20-9e62-c6e04b0f5789",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1499
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "e8b4e502-6afc-42a8-813f-6f2aee6208fe",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 2939
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "faa562e5-c603-4674-aec8-49e376ae1de1",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 221
+    }
+  },
+  "field_non_clinical_services": {
+    "type": "view--view",
+    "id": "a9e07b4c-6178-43d4-a7e3-57d67e85dbd6",
+    "resourceIdObjMeta": {
+      "display_id": "admissions_offices",
+      "arguments": "[node:field_office:target_id]/[node:field_administration:target_id]",
+      "items_to_display": "",
+      "drupal_internal__target_id": "non_clinical_services"
+    }
+  },
+  "field_office": {
+    "type": "node--health_care_region_page",
+    "id": "9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6",
+    "drupal_internal__nid": 6931,
+    "drupal_internal__vid": 987673,
+    "langcode": "en",
+    "revision_timestamp": "2025-04-21T14:36:12+00:00",
+    "revision_log": "1",
+    "status": true,
+    "title": "VA Richmond health care",
+    "created": "2020-08-28T05:02:50+00:00",
+    "changed": "2025-06-20T14:26:33+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "VA Richmond health care",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "VA Richmond health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "At Central Virginia VA Health Care System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "image_src",
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:site_name",
+          "content": "Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:title",
+          "content": "VA Richmond health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:description",
+          "content": "At Central Virginia VA Health Care System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-09/facilitypic.PNG"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:alt",
+          "content": "Richmond VA Medical Center"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:card",
+          "content": "summary_large_image"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:title",
+          "content": "VA Richmond health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:description",
+          "content": "At Central Virginia VA Health Care System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:site",
+          "content": "@DeptVetAffairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image:alt",
+          "content": "Richmond VA Medical Center"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-09/facilitypic.PNG"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/richmond-health-care",
+      "pid": 8247,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_appointments_online": false,
+    "field_description": "At Central Virginia VA Health Care System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+    "field_facebook": {
+      "uri": "https://www.facebook.com/RichmondVAMC",
+      "title": " Central Virginia VA Health Care System Facebook",
+      "options": {
+        "href": "https://www.facebook.com/RichmondVAMC",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://www.facebook.com/RichmondVAMC"
+    },
+    "field_flickr": null,
+    "field_govdelivery_id_emerg": "USVHA_407",
+    "field_govdelivery_id_news": "USVHA_191",
+    "field_instagram": {
+      "uri": "https://www.instagram.com/richmondvamc/",
+      "title": " Central Virginia VA Health Care System Instagram",
+      "options": {
+        "href": "https://www.instagram.com/richmondvamc/",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://www.instagram.com/richmondvamc/"
+    },
+    "field_intro_text": "At Central Virginia VA Health Care System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.\r\n",
+    "field_last_saved_by_an_editor": "2025-04-21T14:36:18+00:00",
+    "field_meta_tags": null,
+    "field_operating_status": {
+      "uri": "entity:node/16283",
+      "title": "Operating status |  Central Virginia VA Health Care System",
+      "options": {
+        "href": "entity:node/16283",
+        "data-entity-type": "node",
+        "data-entity-uuid": "685038d7-0085-4694-9f28-fbddace33e17",
+        "data-entity-substitution": "canonical"
+      },
+      "url": "/richmond-health-care/operating-status"
+    },
+    "field_other_va_locations": ["vba_314", "vc_0217V"],
+    "field_twitter": {
+      "uri": "https://twitter.com/RichmondVAMC",
+      "title": " Central Virginia VA Health Care System Twitter",
+      "options": {
+        "href": "https://twitter.com/RichmondVAMC",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://twitter.com/RichmondVAMC"
+    },
+    "field_vamc_ehr_system": "vista",
+    "field_vamc_system_official_name": "Central Virginia VA Health Care System",
+    "field_va_health_connect_phone": "855-679-0074",
+    "field_youtube": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6?resourceVersion=id%3A987673"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 6931
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "health_care_region_page"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "c2a8d1b6-94af-40c1-8d46-9145f901c63c",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4625
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1270
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "faa562e5-c603-4674-aec8-49e376ae1de1",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 221
+      }
+    },
+    "field_clinical_health_services": [
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "e4661e02-e172-407b-b409-e12ae0d0a3f6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10145
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "6034a0aa-9977-49e1-b62b-d4c997426f06",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10146
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5f97cef9-4be4-41b2-be4f-727e5edfcd16",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10147
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d53cf5b8-72f7-412d-bdca-6f1bb2bf9a77",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10148
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "79f7dd5f-5bbd-4811-a0b2-69c1a52c6372",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10149
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "3734d1c7-55bf-4db7-b7a5-9ba4f053b8bb",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10150
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "707ef50b-15be-4853-bf89-b3cfbb04fcce",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10151
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "55a4d2df-8899-4e75-bb8e-72f0f544fa06",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10152
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8fc34df6-40b7-4563-a153-cd0933db1cb2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10153
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "4a6906e8-7bcd-48de-b97d-6cbad43aed45",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10154
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8c8fa715-e4f3-451b-bb38-1d81f6ead61a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10155
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a674be82-57f4-459a-82c4-1f2eeba92b1b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10156
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ce0baaeb-3f4f-4b2a-96e3-ccee5e2ea80c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10157
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b5fa75a3-f476-4ebe-941b-f6a20b2aa05f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10158
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "22ee6d72-3c5a-4223-a4cf-47cfdb0a1156",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10159
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "595695c7-4547-49c8-9c74-784ff816a0b5",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10160
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c2178270-44a5-48a5-971c-5b0e5f1a19d8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10161
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "dd96ab92-8c3e-4bc6-8c36-8ef9d0fc39c6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10162
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ad42ec48-2d15-4987-bb2e-14a48a83836b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10163
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b598b294-3042-4139-8876-3cd54825a211",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10164
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "bcb25ade-f350-4a47-93c5-29f1cb783526",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10165
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "3b9567c7-6a96-4c68-a6ae-f3bddc9234cd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10166
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "cdaba1bd-4bde-4748-b240-d1899dd564d1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10167
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "497cf3d4-c148-4272-96de-657dcf3578d5",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10168
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ef3fbd21-8314-4642-82df-18084e290edd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10169
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c22afa8f-ec44-445f-b682-310811f4994b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10170
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "27d36359-e0ff-4ce3-a9dd-5fee0573cb0c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10171
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a5a784aa-a67f-41a5-99d1-598cbe4358f0",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10172
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "07f81d79-0b8a-4019-aedd-b217d5af1f18",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10173
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "397f1d4d-f9bf-47aa-a28b-30188e27b712",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10174
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c7d24cef-290b-4aa6-ae91-aac3aac82af7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10175
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "aacb2cce-85d8-4e03-bd0d-051f82282288",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10176
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "7f18d636-db45-4283-a4f7-091a6a0a47b8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10177
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "4ed4958a-6181-4afe-b6ac-e42d17f2ce2d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10178
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "dc20fe4c-a59b-4706-a0e4-9c7571e71d7b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10179
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "e53890b9-63a4-4cd3-be09-21523c9ffc2e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10180
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "fc41af9f-9878-4d12-8d76-a5ca7d3e93df",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10181
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "dc06238d-d7ff-488d-86f6-87f07742e882",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10182
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "2006f70c-8337-4953-ab8a-53399610ddad",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10183
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "84cedea9-468b-4ae9-90f0-a78480877b4a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10184
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "68d0d62e-3f56-4eae-acae-9395d6290d02",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10185
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "76ffa6b2-f50b-45a7-939b-6b673512f14d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10186
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5a362ca9-e393-4f88-8609-b0e9907f8450",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10187
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "e1234099-9ba3-43b9-b0e7-d10d2db3abcb",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10188
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a1dfa904-c2a0-41bd-8144-dff167f265a7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10189
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d74cc3aa-e20e-4a83-b73a-3c8f5661a249",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10190
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "395f0365-b260-468a-a80e-ffa58fc30a5b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10191
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "051a1df5-4315-4178-8b78-da970c7e5488",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10192
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "cf96fc68-685b-4b8b-bb6c-8315468d3b96",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 10193
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f80eef37-fe36-4f33-96c4-08f0a4194385",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 15279
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "97de8288-1b3d-4d9e-bf3c-efa6498b1679",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 17198
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "1a1b8872-03db-4d3a-a810-8d8a14cdddc8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 17200
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "2e885208-9f80-44a6-87c1-149e79294bd0",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 17202
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "fc2db393-8212-4133-b56d-fc5cae113026",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 17212
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "3411b386-734f-46ee-8a02-9f3f767d8f4f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 17214
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "430e0cf6-c7e9-4d5c-a92a-4ae1afafc233",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 53332
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "3604fbc1-2b08-45aa-a3fc-e1e200fe1c16",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 80665
+        }
+      }
+    ],
+    "field_media": {
+      "type": "media--image",
+      "id": "3675d0d4-2a03-4117-8416-cc4f7ff8bab6",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 6107
+      }
+    },
+    "field_related_links": {
+      "type": "paragraph--list_of_link_teasers",
+      "id": "831c1254-2c36-4a19-b3b7-7a4fca432cc1",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1719934,
+        "drupal_internal__target_id": 12867
+      }
+    },
+    "field_system_menu": {
+      "type": "menu--menu",
+      "id": "9f4a8efc-82d2-497d-a8bd-c7bf3bf6143e",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "va-richmond-health-care"
+      }
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_clinical_health_services",
+      "field_media",
+      "field_related_links",
+      "field_system_menu"
+    ]
+  },
+  "field_service_name_and_descripti": {
+    "type": "taxonomy_term--health_care_service_taxonomy",
+    "id": "5532cc2b-323b-423d-8ae3-e8a34663ad60",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1025
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_non_clinical_services",
+    "field_office",
+    "field_service_name_and_descripti"
+  ]
+}

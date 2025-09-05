@@ -1,0 +1,1794 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VamcFacility query should handle the Lovell variant page menu 1`] = `
+{
+  "data": {
+    "address": {
+      "additional_name": null,
+      "address_line1": "61 Lincoln Street, Suite 112",
+      "administrative_area": "MA",
+      "country_code": "US",
+      "dependent_locality": null,
+      "langcode": null,
+      "locality": "Framingham",
+      "postal_code": "01702-8264",
+    },
+    "administration": {
+      "entityId": 205,
+      "name": "VA Boston health care",
+    },
+    "breadcrumbs": [
+      {
+        "options": [],
+        "title": "Home",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      },
+      {
+        "options": [],
+        "title": "VA Boston health care",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
+      },
+      {
+        "options": [],
+        "title": "SERVICES AND LOCATIONS",
+        "uri": "internal:#",
+      },
+      {
+        "options": [],
+        "title": "Locations",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
+      },
+      {
+        "options": [],
+        "title": "Framingham VA Clinic",
+        "uri": "internal:#",
+      },
+    ],
+    "entityId": 1273,
+    "entityPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
+    "facilityLocatorApiId": "vha_523GA",
+    "geoLocation": {
+      "bottom": 42.28301175,
+      "geo_type": "Point",
+      "geohash": "drt0wc7hmhxmu1",
+      "lat": 42.28301175,
+      "latlon": "42.28301175,-71.41777479",
+      "left": -71.41777479,
+      "lon": -71.41777479,
+      "right": -71.41777479,
+      "top": 42.28301175,
+      "value": "POINT (-71.41777479 42.28301175)",
+    },
+    "healthServices": [
+      {
+        "description": "Our nutrition experts work closely with you and your care team to help make sure you’re getting the nutrition you need to get and stay as healthy as possible.",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "747057bc-2203-4100-ae67-9de02cdeac94",
+        "fieldAlsoKnownAs": "",
+        "fieldBody": "<p>Our registered dietitians can help you maintain or improve your health with good nutrition tailored to your needs. Through group, individual and telehealth sessions, we provide nutrition education and counseling in areas such as:</p>
+<ul>
+<li>Cardiovascular and heart health</li>
+<li>Chronic kidney disease</li>
+<li>Diabetes (including gestational diabetes)</li>
+<li>Eating disorders and digestive health</li>
+<li>Pregnancy and postpartum nutrition</li>
+<li>Weight management</li>
+</ul>
+<p>To access care, ask your Primary Care team for a consult or call the Nutrition Scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.</p>
+<p><a href="https://www.va.gov/boston-health-care/programs/nutrition-food-and-dietary-care/">Learn more about VA Boston's Nutrition and Food Service</a>.</p>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "nutrition",
+        "fieldReferralRequired": "0",
+        "fieldTricareDescription": null,
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "2",
+            "fieldOfficeHours": [
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 1,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 2,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 3,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 4,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 5,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "Closed",
+                "day": 6,
+                "endhours": null,
+                "starthours": null,
+              },
+              {
+                "all_day": false,
+                "comment": "Closed",
+                "day": 0,
+                "endhours": null,
+                "starthours": null,
+              },
+            ],
+            "fieldOfficeVisits": "yes_with_or_without_appointment",
+            "fieldOnlineSchedulingAvail": "yes",
+            "fieldServiceLocationAddress": {
+              "id": "cfe515fb-e4bf-468b-a7df-a8eb1d26e6e7",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 142234,
+                "target_revision_id": 1345640,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": false,
+            "fieldUseMainFacilityPhone": false,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Nutrition, food, and dietary care",
+      },
+      {
+        "description": "<p>Your VA primary care provider will work closely with you to plan for all the care you need to stay healthy and well throughout your life, including immunizations and vaccinations. They will also work with&nbsp;family members or caregivers who support you.</p>",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "d5e740d1-3549-4d5f-a036-deaa54bb5aaa",
+        "fieldAlsoKnownAs": "Family and internal medicine",
+        "fieldBody": "<p>Primary Care provides ongoing, routine medical care for patients, such as:</p>
+<ul>
+<li>Annual exams</li>
+<li>Initial diagnoses</li>
+<li>Preventive care</li>
+<li>Patient and family health education</li>
+</ul>
+<p>Your primary care team also coordinates many other care and services you may receive, including:</p>
+<ul>
+<li>Labs and blood work</li>
+<li>Mental health care</li>
+<li>Women's health care</li>
+<li>Radiology and other diagnostic imagery</li>
+<li>Social services</li>
+<li>Telehealth</li>
+<li>Other specialty care and services</li>
+</ul>
+<p>Except for medical emergencies, primary care is provided only through scheduled appointments.</p>
+<p>Emergency Services are provided only by the Emergency Department on the West Roxbury campus. However, for urgent conditions that are appropriate to be treated on an outpatient basis in a primary care clinical setting, same-day or next-day appointments in primary care are available.</p>
+<p><strong>Patient Call Center</strong></p>
+<p>The Patient Call Center is a very important part of primary care, providing ready access to the primary care team. Patients may use this system to communicate with the team, receive clinical advice or answers to questions, request renewal of medications, and to make or change a clinic appointment. All patients enrolled in primary care have access to this service.</p>
+<p>To reach the Patient Call Center, dial&nbsp;<strong>1-<va-telephone contact="800-865-3384" extension=""></va-telephone> --</strong>&nbsp;available 24 hours per day.</p>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "primaryCare",
+        "fieldReferralRequired": "0",
+        "fieldTricareDescription": null,
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Please contact us to schedule, reschedule or cancel your appointment.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "0",
+            "fieldOfficeHours": [],
+            "fieldOfficeVisits": "yes_appointment_only",
+            "fieldOnlineSchedulingAvail": "yes",
+            "fieldServiceLocationAddress": {
+              "id": "0a509a8a-78ca-4972-b788-7ec377976c32",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 70129,
+                "target_revision_id": 1615845,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": true,
+            "fieldUseMainFacilityPhone": false,
+            "fieldVirtualSupport": "yes_appointment_only",
+          },
+        ],
+        "name": "Primary care",
+      },
+      {
+        "description": "Call our Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "87529073-31f6-43cd-9527-b34bf63ab640",
+        "fieldAlsoKnownAs": "Veterans Crisis Line",
+        "fieldBody": "<p>We work with behavioral health providers and community organizations to help you and your family during times of crisis. We offer:</p>
+<ul>
+<li>Suicide prevention care coordinators</li>
+<li>Suicide prevention case managers</li>
+<li>Gun safety locks</li>
+</ul>
+<p>Mental health services at VA Boston offer same-day access to mental health care for Veterans who need it. Our emergency department on the West Roxbury campus is also open 24/7 for Veterans with urgent mental health care needs outside of regular business hours.</p>
+<p>Additionally, VA offers mobile apps that support many aspects of mental health and wellness. Visit&nbsp;<a href="https://mobile.va.gov/appstore/mental-health">https://mobile.va.gov/appstore/mental-health</a> to learn more.&nbsp;</p>
+<p>Veterans and their loved ones can always call VA’s Veterans Crisis Line by dialing 988 and pressing 1, chat at <a href="https://www.veteranscrisisline.net/">www.veteranscrisisline.net</a>, or text 838255, 24 hours a day, 7 days a week, 365 days a year.</p>
+<p><a href="/boston-health-care/health-services/suicide-prevention" data-entity-type="node" data-entity-uuid="29cf4fb7-7075-46a3-8db2-433f1608d91e" data-entity-substitution="canonical" title="Suicide prevention">Learn more and connect with a care coordinator</a></p>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "suicidePrevention",
+        "fieldReferralRequired": "0",
+        "fieldTricareDescription": "Call the Military and Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at <va-telephone contact="800-273-8255" extension=""></va-telephone> and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "0",
+            "fieldOfficeHours": [],
+            "fieldOfficeVisits": "yes_with_or_without_appointment",
+            "fieldOnlineSchedulingAvail": "yes",
+            "fieldServiceLocationAddress": {
+              "id": "19e9127d-20bc-49c7-a8bf-65d5262ddbe6",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 93820,
+                "target_revision_id": 1338147,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": true,
+            "fieldUseMainFacilityPhone": true,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Suicide prevention",
+      },
+      {
+        "description": "With VA telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care&nbsp;and more—from home or elsewhere.",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "c6670e19-6527-4cd5-9fb5-6f6cc62abd71",
+        "fieldAlsoKnownAs": "Video visits, remote care, care by telephone",
+        "fieldBody": "<p>Telehealth is just one of the virtual care technologies we offer. <a href="https://www.va.gov/boston-health-care/programs/connected-care/">Click here&nbsp; to learn more about Connected Care&nbsp;resources</a>, which offer greater convenience and empower you to take charge of your health care from the comfort of your home.&nbsp;</p>
+<p>We use the latest in secure digital technology to set up remote visits with our health care providers. We offer video conferencing, home telehealth services, and store-and-forward telehealth that lets you securely send your health information to experts at VA facilities. We offer telehealth visits with providers in specialties such as:</p>
+<ul>
+<li>Mental health</li>
+<li>Retinal care (eye)</li>
+<li>Bariatric surgery (visit remotely with your weight-loss surgery team before and after your operation)</li>
+<li>Dermatology</li>
+<li>Rehabilitation</li>
+<li>Primary care</li>
+</ul>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "telehealth",
+        "fieldReferralRequired": "1",
+        "fieldTricareDescription": "With TRICARE telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care and more—from home or elsewhere.",
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Contact your primary care provider for a telehealth referral.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "0",
+            "fieldOfficeHours": [],
+            "fieldOfficeVisits": "yes_appointment_only",
+            "fieldOnlineSchedulingAvail": "no",
+            "fieldServiceLocationAddress": {
+              "id": "a917bc36-f392-4609-b6d7-0e3032ae5313",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 93929,
+                "target_revision_id": 1338191,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": true,
+            "fieldUseMainFacilityPhone": true,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Telehealth",
+      },
+      {
+        "description": "Whole health puts you at the center of care, rather than your illnesses or conditions. We work with you to develop a personalized health plan based on your values, needs,&nbsp;and goals.",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "85017bea-1358-4fdd-998f-af6f331556b2",
+        "fieldAlsoKnownAs": "Patient-centered care",
+        "fieldBody": "<p>Partner with your healthcare team to explore what matters most to you and develop a personalized health plan based on your values, needs and goals.&nbsp;</p>
+<p>Explore the services offered by the Whole Health Team:</p>
+<ul>
+<li>Attend a Veteran-led “Introduction to Whole Health” class to learn how Whole Health can support your health goals</li>
+<li>Participate in a “Taking Charge of Your Life &amp; Health” group to explore the areas of life where you can set goals</li>
+<li>Explore “what matters most to you” with a Whole Health peer partner</li>
+<li>Partner with a Whole Health coach to explore different aspects of your life that can affect health and well-being</li>
+<li><a href="https://www.va.gov/files/2024-10/Ompractice-Flyer-8-14-2024_0.pdf">Join Ompractice</a> for live virtual Tai Chi, Yoga and other wellness classes</li>
+</ul>
+<p><a href="https://www.va.gov/boston-health-care/programs/whole-health/">Learn more about whole health at VA Boston HCS</a>.</p>
+<p><a href="https://www.va.gov/files/2024-09/Whole-Health-Flyer-for-Consult-20240924.pdf">VA Boston Whole Health Flyer</a></p>
+<p><a href="https://www.va.gov/wholehealth/">Additional resources about Whole Health</a></p>
+<p>Ask your healthcare team for a referral or call&nbsp;<a href="tel:+18572034876">857-203-4876</a>.</p>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "wholeHealth",
+        "fieldReferralRequired": "not_applicable",
+        "fieldTricareDescription": null,
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Contact us to schedule, reschedule or cancel your appointment.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "2",
+            "fieldOfficeHours": [
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 1,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 2,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 3,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 4,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 5,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "Closed",
+                "day": 6,
+                "endhours": null,
+                "starthours": null,
+              },
+              {
+                "all_day": false,
+                "comment": "Closed",
+                "day": 0,
+                "endhours": null,
+                "starthours": null,
+              },
+            ],
+            "fieldOfficeVisits": null,
+            "fieldOnlineSchedulingAvail": null,
+            "fieldServiceLocationAddress": {
+              "id": "5c51213b-0ac4-48e0-a839-fdc10e572778",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 108021,
+                "target_revision_id": 1339551,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": false,
+            "fieldUseMainFacilityPhone": true,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Whole health",
+      },
+      {
+        "description": "<p>We offer women’s health services to meet your specific needs&nbsp;such as&nbsp;disease screenings, mental health treatment, recovery from military sexual trauma, maternity care&nbsp;and female-specific medical equipment.</p>",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "75dfb7cb-4a00-47d3-b06e-b5275da3e56a",
+        "fieldAlsoKnownAs": "",
+        "fieldBody": "<p>Our women's health program offers complete health care for women Veterans of all ages. Our primary care providers specialize in women’s health and work closely with specialists in gynecology, obstetrics, female urology, oncology, medicine, radiology, surgery and breast illness. Our services for women Veterans include:</p>
+<ul>
+<li>Ultrasounds, mammograms, Pap and HPV tests</li>
+<li>Mental health care and counseling</li>
+<li>Lifestyle wellness services</li>
+<li>Menopause treatment, including hormonal therapy</li>
+<li>Family planning, contraceptive care and infertility evaluation</li>
+</ul>
+<p><a href="/boston-health-care/health-services/women-veteran-care" data-entity-type="node" data-entity-uuid="465d7e8f-b8e0-4bf2-b5a9-625690c02eaa" data-entity-substitution="canonical" title="Women Veteran care">Learn more and connect with&nbsp;the Women Veterans Program Manager</a>.&nbsp;</p>
+<p><strong>Women Veterans Call Center</strong></p>
+<p>The Women Veterans Call Center provides women Veterans information about VA services and resources, benefits and eligibility. The toll-free line is available Monday through Friday, 8:00 a.m. – 10:00 p.m. Eastern Time and on Saturdays, 8:00 a.m. – 6:30 p.m. Please see the <a href="https://www.womenshealth.va.gov/programoverview/wvcc.asp">Women Veterans Call Center website </a>or call 855-VA-WOMEN -- <va-telephone contact="855-829-6636" extension=""></va-telephone>. Call, chat or text are all available.</p>
+",
+        "fieldCommonlyTreatedCondition": "women's primary care, mental health, obstetrics, gynecology, pap smear, mammogram",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "womensHealth",
+        "fieldReferralRequired": "0",
+        "fieldTricareDescription": null,
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Contact us to schedule, reschedule or cancel your appointment.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "0",
+            "fieldOfficeHours": [],
+            "fieldOfficeVisits": "yes_appointment_only",
+            "fieldOnlineSchedulingAvail": "yes",
+            "fieldServiceLocationAddress": {
+              "id": "3ba1d19d-6233-4735-8de8-44b6166c76ca",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 93326,
+                "target_revision_id": 1338068,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": true,
+            "fieldUseMainFacilityPhone": true,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Women Veteran care",
+      },
+    ],
+    "id": "9759def1-4e36-4ec5-b741-6cc8b40884c5",
+    "image": {
+      "alt": "Framingham VA Clinic",
+      "height": 125,
+      "id": "4d616a7e-b550-4dea-9a3f-b9e94af41d87",
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "240",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "512",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "240",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "480",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "320",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "300",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "125",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "125",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "125",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/4d616a7e-b550-4dea-9a3f-b9e94af41d87",
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "125",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+      },
+      "title": "",
+      "type": "media--image",
+      "width": 180,
+    },
+    "introText": "The Framingham VA Clinic provides primary care and specialty services, including mental health, laboratory services and more. The primary care team at the clinic manages most health issues and provides Veterans with access to a wide range of inpatient and outpatient specialty care through the VA Boston Healthcare System. With free on-site parking, the clinic provides an attractive option for area Veterans who don't want to travel to one of the three main campuses in Boston and Brockton for primary care. ",
+    "lastUpdated": "2024-10-01T15:11:12+00:00",
+    "locationServices": [
+      {
+        "title": "Parking",
+        "wysiwigContents": "<p><strong>Cost:</strong> Free</p>
+
+<p><strong>Wheelchair availability:</strong>&nbsp; Wheelchairs are available upon arrival for patients who need them to access the building.</p>",
+      },
+      {
+        "title": "Get your flu shot!",
+        "wysiwigContents": "<p>The influenza vaccine can reduce your risk of associated illness and hospitalization, as well as minimize the spread of flu to others who may be at high risk for severe illness from respiratory infections. Flu shots and COVID boosters are available, just ask your primary care team, or visit one of our walk-in clinics. <a href="https://www.va.gov/boston-health-care/programs/flu-vaccinations/" hreflang="en">Learn more about walk-in flu and COVID vaccination clinics, and see the clinic schedules</a>.</p>",
+      },
+    ],
+    "lovellSwitchPath": null,
+    "lovellVariant": "tricare",
+    "mainPhoneString": "800-865-3384",
+    "mentalHealthPhoneNumber": {
+      "entityId": 169967,
+      "extension": null,
+      "id": "3997e698-ea95-4155-8bb6-7aa268dd1b45",
+      "label": null,
+      "number": "800-865-3384",
+      "phoneType": "phone",
+      "type": "paragraph--phone_number",
+    },
+    "menu": {
+      "data": {
+        "description": "bar",
+        "links": [],
+        "name": "Foo",
+      },
+      "rootPath": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic/",
+    },
+    "metatags": [
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic | VA Boston health care | Veterans Affairs",
+          "name": "title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Get address and hours, parking and transportation information, and health services offered at Framingham VA Clinic",
+          "name": "description",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+          "rel": "image_src",
+        },
+        "tag": "link",
+      },
+      {
+        "attributes": {
+          "content": "Veterans Affairs",
+          "property": "og:site_name",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic | VA Boston health care | Veterans Affairs",
+          "property": "og:title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Get address and hours, parking and transportation information, and health services offered at Framingham VA Clinic",
+          "property": "og:description",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/framingham.jpg",
+          "property": "og:image",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic",
+          "property": "og:image:alt",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "summary_large_image",
+          "name": "twitter:card",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic | VA Boston health care | Veterans Affairs",
+          "name": "twitter:title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Get address and hours, parking and transportation information, and health services offered at Framingham VA Clinic",
+          "name": "twitter:description",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "@DeptVetAffairs",
+          "name": "twitter:site",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic",
+          "name": "twitter:image:alt",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/framingham.jpg",
+          "name": "twitter:image",
+        },
+        "tag": "meta",
+      },
+    ],
+    "moderationState": "published",
+    "officeHours": [
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 1,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 2,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 3,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 4,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 5,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "Closed",
+        "day": 6,
+        "endhours": null,
+        "starthours": null,
+      },
+      {
+        "all_day": false,
+        "comment": "Closed",
+        "day": 0,
+        "endhours": null,
+        "starthours": null,
+      },
+    ],
+    "operatingStatusFacility": "normal",
+    "path": "/lovell-federal-health-care-tricare/locations/causeway-va-clinic",
+    "published": true,
+    "relatedLinks": {
+      "links": [
+        {
+          "title": "Get help from a patient advocate",
+          "uri": "/boston-health-care/health-services/patient-advocates",
+        },
+        {
+          "title": "Find a phone number",
+          "uri": "/boston-health-care/contact-us",
+        },
+        {
+          "title": "Interactive facility maps",
+          "uri": "https://www.va.gov/boston-health-care/programs/interactive-facility-maps",
+        },
+        {
+          "title": "Check your billing, insurance and payment options",
+          "uri": "/boston-health-care/billing-and-insurance",
+        },
+        {
+          "title": "Access your health records",
+          "uri": "/boston-health-care/medical-records-office",
+        },
+        {
+          "title": "Compare our performance with non-VA facilities",
+          "uri": "/boston-health-care/about-us/performance",
+        },
+        {
+          "title": "Learn about virtual care and service options",
+          "uri": "https://www.va.gov/boston-health-care/programs/connected-care/",
+        },
+        {
+          "title": "Volunteer or donate",
+          "uri": "/boston-health-care/work-with-us/volunteer-or-donate",
+        },
+      ],
+      "sectionTitle": "Other services at VA Boston health care",
+    },
+    "socialLinks": {
+      "links": [
+        {
+          "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_111",
+          "icon": "mail",
+          "text": "Subscribe to VA Boston health care news and announcements",
+        },
+        {
+          "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_374",
+          "icon": "mail",
+          "text": "Subscribe to VA Boston health care emergency notifications",
+        },
+        {
+          "href": "/boston-health-care/operating-status",
+          "icon": "adjust",
+          "text": "VA Boston health care operating status",
+        },
+        {
+          "href": "https://www.facebook.com/VABoston",
+          "icon": "facebook",
+          "text": "VA Boston Healthcare System Facebook",
+        },
+        {
+          "href": "https://twitter.com/VABostonHC",
+          "icon": "x",
+          "text": "VA Boston Healthcare System",
+        },
+      ],
+      "regionNickname": "VA Boston health care",
+    },
+    "title": "Framingham VA Clinic",
+    "type": "node--health_care_local_facility",
+    "vaHealthConnectPhoneNumber": "833-933-1106",
+    "vamcEhrSystem": "vista",
+  },
+  "include": {},
+}
+`;
+
+exports[`VamcFacility query should output formatted data 1`] = `
+{
+  "data": {
+    "address": {
+      "additional_name": null,
+      "address_line1": "61 Lincoln Street, Suite 112",
+      "administrative_area": "MA",
+      "country_code": "US",
+      "dependent_locality": null,
+      "langcode": null,
+      "locality": "Framingham",
+      "postal_code": "01702-8264",
+    },
+    "administration": {
+      "entityId": 205,
+      "name": "VA Boston health care",
+    },
+    "breadcrumbs": [
+      {
+        "options": [],
+        "title": "Home",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      },
+      {
+        "options": [],
+        "title": "VA Boston health care",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care",
+      },
+      {
+        "options": [],
+        "title": "SERVICES AND LOCATIONS",
+        "uri": "internal:#",
+      },
+      {
+        "options": [],
+        "title": "Locations",
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/boston-health-care/locations",
+      },
+      {
+        "options": [],
+        "title": "Framingham VA Clinic",
+        "uri": "internal:#",
+      },
+    ],
+    "entityId": 1273,
+    "entityPath": "/boston-health-care/locations/framingham-va-clinic",
+    "facilityLocatorApiId": "vha_523GA",
+    "geoLocation": {
+      "bottom": 42.28301175,
+      "geo_type": "Point",
+      "geohash": "drt0wc7hmhxmu1",
+      "lat": 42.28301175,
+      "latlon": "42.28301175,-71.41777479",
+      "left": -71.41777479,
+      "lon": -71.41777479,
+      "right": -71.41777479,
+      "top": 42.28301175,
+      "value": "POINT (-71.41777479 42.28301175)",
+    },
+    "healthServices": [
+      {
+        "description": "Our nutrition experts work closely with you and your care team to help make sure you’re getting the nutrition you need to get and stay as healthy as possible.",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "747057bc-2203-4100-ae67-9de02cdeac94",
+        "fieldAlsoKnownAs": "",
+        "fieldBody": "<p>Our registered dietitians can help you maintain or improve your health with good nutrition tailored to your needs. Through group, individual and telehealth sessions, we provide nutrition education and counseling in areas such as:</p>
+<ul>
+<li>Cardiovascular and heart health</li>
+<li>Chronic kidney disease</li>
+<li>Diabetes (including gestational diabetes)</li>
+<li>Eating disorders and digestive health</li>
+<li>Pregnancy and postpartum nutrition</li>
+<li>Weight management</li>
+</ul>
+<p>To access care, ask your Primary Care team for a consult or call the Nutrition Scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.</p>
+<p><a href="https://www.va.gov/boston-health-care/programs/nutrition-food-and-dietary-care/">Learn more about VA Boston's Nutrition and Food Service</a>.</p>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "nutrition",
+        "fieldReferralRequired": "0",
+        "fieldTricareDescription": null,
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "To access care, ask your Primary Care team for a consult or call the Nutrition scheduler at <va-telephone contact="774-826-2870" extension=""></va-telephone>.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "2",
+            "fieldOfficeHours": [
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 1,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 2,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 3,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 4,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 5,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "Closed",
+                "day": 6,
+                "endhours": null,
+                "starthours": null,
+              },
+              {
+                "all_day": false,
+                "comment": "Closed",
+                "day": 0,
+                "endhours": null,
+                "starthours": null,
+              },
+            ],
+            "fieldOfficeVisits": "yes_with_or_without_appointment",
+            "fieldOnlineSchedulingAvail": "yes",
+            "fieldServiceLocationAddress": {
+              "id": "cfe515fb-e4bf-468b-a7df-a8eb1d26e6e7",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 142234,
+                "target_revision_id": 1345640,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": false,
+            "fieldUseMainFacilityPhone": false,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Nutrition, food, and dietary care",
+      },
+      {
+        "description": "<p>Your VA primary care provider will work closely with you to plan for all the care you need to stay healthy and well throughout your life, including immunizations and vaccinations. They will also work with&nbsp;family members or caregivers who support you.</p>",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "d5e740d1-3549-4d5f-a036-deaa54bb5aaa",
+        "fieldAlsoKnownAs": "Family and internal medicine",
+        "fieldBody": "<p>Primary Care provides ongoing, routine medical care for patients, such as:</p>
+<ul>
+<li>Annual exams</li>
+<li>Initial diagnoses</li>
+<li>Preventive care</li>
+<li>Patient and family health education</li>
+</ul>
+<p>Your primary care team also coordinates many other care and services you may receive, including:</p>
+<ul>
+<li>Labs and blood work</li>
+<li>Mental health care</li>
+<li>Women's health care</li>
+<li>Radiology and other diagnostic imagery</li>
+<li>Social services</li>
+<li>Telehealth</li>
+<li>Other specialty care and services</li>
+</ul>
+<p>Except for medical emergencies, primary care is provided only through scheduled appointments.</p>
+<p>Emergency Services are provided only by the Emergency Department on the West Roxbury campus. However, for urgent conditions that are appropriate to be treated on an outpatient basis in a primary care clinical setting, same-day or next-day appointments in primary care are available.</p>
+<p><strong>Patient Call Center</strong></p>
+<p>The Patient Call Center is a very important part of primary care, providing ready access to the primary care team. Patients may use this system to communicate with the team, receive clinical advice or answers to questions, request renewal of medications, and to make or change a clinic appointment. All patients enrolled in primary care have access to this service.</p>
+<p>To reach the Patient Call Center, dial&nbsp;<strong>1-<va-telephone contact="800-865-3384" extension=""></va-telephone> --</strong>&nbsp;available 24 hours per day.</p>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "primaryCare",
+        "fieldReferralRequired": "0",
+        "fieldTricareDescription": null,
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Please contact us to schedule, reschedule or cancel your appointment.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "0",
+            "fieldOfficeHours": [],
+            "fieldOfficeVisits": "yes_appointment_only",
+            "fieldOnlineSchedulingAvail": "yes",
+            "fieldServiceLocationAddress": {
+              "id": "0a509a8a-78ca-4972-b788-7ec377976c32",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 70129,
+                "target_revision_id": 1615845,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": true,
+            "fieldUseMainFacilityPhone": false,
+            "fieldVirtualSupport": "yes_appointment_only",
+          },
+        ],
+        "name": "Primary care",
+      },
+      {
+        "description": "Call our Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "87529073-31f6-43cd-9527-b34bf63ab640",
+        "fieldAlsoKnownAs": "Veterans Crisis Line",
+        "fieldBody": "<p>We work with behavioral health providers and community organizations to help you and your family during times of crisis. We offer:</p>
+<ul>
+<li>Suicide prevention care coordinators</li>
+<li>Suicide prevention case managers</li>
+<li>Gun safety locks</li>
+</ul>
+<p>Mental health services at VA Boston offer same-day access to mental health care for Veterans who need it. Our emergency department on the West Roxbury campus is also open 24/7 for Veterans with urgent mental health care needs outside of regular business hours.</p>
+<p>Additionally, VA offers mobile apps that support many aspects of mental health and wellness. Visit&nbsp;<a href="https://mobile.va.gov/appstore/mental-health">https://mobile.va.gov/appstore/mental-health</a> to learn more.&nbsp;</p>
+<p>Veterans and their loved ones can always call VA’s Veterans Crisis Line by dialing 988 and pressing 1, chat at <a href="https://www.veteranscrisisline.net/">www.veteranscrisisline.net</a>, or text 838255, 24 hours a day, 7 days a week, 365 days a year.</p>
+<p><a href="/boston-health-care/health-services/suicide-prevention" data-entity-type="node" data-entity-uuid="29cf4fb7-7075-46a3-8db2-433f1608d91e" data-entity-substitution="canonical" title="Suicide prevention">Learn more and connect with a care coordinator</a></p>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "suicidePrevention",
+        "fieldReferralRequired": "0",
+        "fieldTricareDescription": "Call the Military and Veterans Crisis Line at <a href="tel:988">988</a> and press 1 for free, private help anytime 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Call our Veterans Crisis Line at <va-telephone contact="800-273-8255" extension=""></va-telephone> and press 1 for help anytime, 24/7. Our local suicide prevention coordinators can also connect you with ongoing counseling and services.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "0",
+            "fieldOfficeHours": [],
+            "fieldOfficeVisits": "yes_with_or_without_appointment",
+            "fieldOnlineSchedulingAvail": "yes",
+            "fieldServiceLocationAddress": {
+              "id": "19e9127d-20bc-49c7-a8bf-65d5262ddbe6",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 93820,
+                "target_revision_id": 1338147,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": true,
+            "fieldUseMainFacilityPhone": true,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Suicide prevention",
+      },
+      {
+        "description": "With VA telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care&nbsp;and more—from home or elsewhere.",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "c6670e19-6527-4cd5-9fb5-6f6cc62abd71",
+        "fieldAlsoKnownAs": "Video visits, remote care, care by telephone",
+        "fieldBody": "<p>Telehealth is just one of the virtual care technologies we offer. <a href="https://www.va.gov/boston-health-care/programs/connected-care/">Click here&nbsp; to learn more about Connected Care&nbsp;resources</a>, which offer greater convenience and empower you to take charge of your health care from the comfort of your home.&nbsp;</p>
+<p>We use the latest in secure digital technology to set up remote visits with our health care providers. We offer video conferencing, home telehealth services, and store-and-forward telehealth that lets you securely send your health information to experts at VA facilities. We offer telehealth visits with providers in specialties such as:</p>
+<ul>
+<li>Mental health</li>
+<li>Retinal care (eye)</li>
+<li>Bariatric surgery (visit remotely with your weight-loss surgery team before and after your operation)</li>
+<li>Dermatology</li>
+<li>Rehabilitation</li>
+<li>Primary care</li>
+</ul>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "telehealth",
+        "fieldReferralRequired": "1",
+        "fieldTricareDescription": "With TRICARE telehealth, you can get care from your health providers without having to travel. Get checkups and treatment, talk about your care and more—from home or elsewhere.",
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Contact your primary care provider for a telehealth referral.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "0",
+            "fieldOfficeHours": [],
+            "fieldOfficeVisits": "yes_appointment_only",
+            "fieldOnlineSchedulingAvail": "no",
+            "fieldServiceLocationAddress": {
+              "id": "a917bc36-f392-4609-b6d7-0e3032ae5313",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 93929,
+                "target_revision_id": 1338191,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": true,
+            "fieldUseMainFacilityPhone": true,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Telehealth",
+      },
+      {
+        "description": "Whole health puts you at the center of care, rather than your illnesses or conditions. We work with you to develop a personalized health plan based on your values, needs,&nbsp;and goals.",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "85017bea-1358-4fdd-998f-af6f331556b2",
+        "fieldAlsoKnownAs": "Patient-centered care",
+        "fieldBody": "<p>Partner with your healthcare team to explore what matters most to you and develop a personalized health plan based on your values, needs and goals.&nbsp;</p>
+<p>Explore the services offered by the Whole Health Team:</p>
+<ul>
+<li>Attend a Veteran-led “Introduction to Whole Health” class to learn how Whole Health can support your health goals</li>
+<li>Participate in a “Taking Charge of Your Life &amp; Health” group to explore the areas of life where you can set goals</li>
+<li>Explore “what matters most to you” with a Whole Health peer partner</li>
+<li>Partner with a Whole Health coach to explore different aspects of your life that can affect health and well-being</li>
+<li><a href="https://www.va.gov/files/2024-10/Ompractice-Flyer-8-14-2024_0.pdf">Join Ompractice</a> for live virtual Tai Chi, Yoga and other wellness classes</li>
+</ul>
+<p><a href="https://www.va.gov/boston-health-care/programs/whole-health/">Learn more about whole health at VA Boston HCS</a>.</p>
+<p><a href="https://www.va.gov/files/2024-09/Whole-Health-Flyer-for-Consult-20240924.pdf">VA Boston Whole Health Flyer</a></p>
+<p><a href="https://www.va.gov/wholehealth/">Additional resources about Whole Health</a></p>
+<p>Ask your healthcare team for a referral or call&nbsp;<a href="tel:+18572034876">857-203-4876</a>.</p>
+",
+        "fieldCommonlyTreatedCondition": "",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "wholeHealth",
+        "fieldReferralRequired": "not_applicable",
+        "fieldTricareDescription": null,
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Contact us to schedule, reschedule or cancel your appointment.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "2",
+            "fieldOfficeHours": [
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 1,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 2,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 3,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 4,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "",
+                "day": 5,
+                "endhours": 1600,
+                "starthours": 730,
+              },
+              {
+                "all_day": false,
+                "comment": "Closed",
+                "day": 6,
+                "endhours": null,
+                "starthours": null,
+              },
+              {
+                "all_day": false,
+                "comment": "Closed",
+                "day": 0,
+                "endhours": null,
+                "starthours": null,
+              },
+            ],
+            "fieldOfficeVisits": null,
+            "fieldOnlineSchedulingAvail": null,
+            "fieldServiceLocationAddress": {
+              "id": "5c51213b-0ac4-48e0-a839-fdc10e572778",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 108021,
+                "target_revision_id": 1339551,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": false,
+            "fieldUseMainFacilityPhone": true,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Whole health",
+      },
+      {
+        "description": "<p>We offer women’s health services to meet your specific needs&nbsp;such as&nbsp;disease screenings, mental health treatment, recovery from military sexual trauma, maternity care&nbsp;and female-specific medical equipment.</p>",
+        "entityBundle": "health_care_local_health_service",
+        "entityId": "75dfb7cb-4a00-47d3-b06e-b5275da3e56a",
+        "fieldAlsoKnownAs": "",
+        "fieldBody": "<p>Our women's health program offers complete health care for women Veterans of all ages. Our primary care providers specialize in women’s health and work closely with specialists in gynecology, obstetrics, female urology, oncology, medicine, radiology, surgery and breast illness. Our services for women Veterans include:</p>
+<ul>
+<li>Ultrasounds, mammograms, Pap and HPV tests</li>
+<li>Mental health care and counseling</li>
+<li>Lifestyle wellness services</li>
+<li>Menopause treatment, including hormonal therapy</li>
+<li>Family planning, contraceptive care and infertility evaluation</li>
+</ul>
+<p><a href="/boston-health-care/health-services/women-veteran-care" data-entity-type="node" data-entity-uuid="465d7e8f-b8e0-4bf2-b5a9-625690c02eaa" data-entity-substitution="canonical" title="Women Veteran care">Learn more and connect with&nbsp;the Women Veterans Program Manager</a>.&nbsp;</p>
+<p><strong>Women Veterans Call Center</strong></p>
+<p>The Women Veterans Call Center provides women Veterans information about VA services and resources, benefits and eligibility. The toll-free line is available Monday through Friday, 8:00 a.m. – 10:00 p.m. Eastern Time and on Saturdays, 8:00 a.m. – 6:30 p.m. Please see the <a href="https://www.womenshealth.va.gov/programoverview/wvcc.asp">Women Veterans Call Center website </a>or call 855-VA-WOMEN -- <va-telephone contact="855-829-6636" extension=""></va-telephone>. Call, chat or text are all available.</p>
+",
+        "fieldCommonlyTreatedCondition": "women's primary care, mental health, obstetrics, gynecology, pap smear, mammogram",
+        "fieldFacilityLocatorApiId": "vha_523GA",
+        "fieldHealthServiceApiId": "womensHealth",
+        "fieldReferralRequired": "0",
+        "fieldTricareDescription": null,
+        "isMentalHealthService": false,
+        "locations": [
+          {
+            "appointmentPhoneNumbers": [],
+            "contactInfoPhoneNumbers": [],
+            "fieldAdditionalHoursInfo": null,
+            "fieldApptIntroTextCustom": "Contact us to schedule, reschedule or cancel your appointment.",
+            "fieldApptIntroTextType": "customize_text",
+            "fieldEmailContacts": [],
+            "fieldHours": "0",
+            "fieldOfficeHours": [],
+            "fieldOfficeVisits": "yes_appointment_only",
+            "fieldOnlineSchedulingAvail": "yes",
+            "fieldServiceLocationAddress": {
+              "id": "3ba1d19d-6233-4735-8de8-44b6166c76ca",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": 93326,
+                "target_revision_id": 1338068,
+              },
+              "type": "paragraph--service_location_address",
+            },
+            "fieldUseFacilityPhoneNumber": true,
+            "fieldUseMainFacilityPhone": true,
+            "fieldVirtualSupport": null,
+          },
+        ],
+        "name": "Women Veteran care",
+      },
+    ],
+    "id": "9759def1-4e36-4ec5-b741-6cc8b40884c5",
+    "image": {
+      "alt": "Framingham VA Clinic",
+      "height": 125,
+      "id": "4d616a7e-b550-4dea-9a3f-b9e94af41d87",
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "240",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "512",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "240",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "480",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "320",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "300",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "125",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "125",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "125",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/4d616a7e-b550-4dea-9a3f-b9e94af41d87",
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/framingham.jpg",
+          "meta": {
+            "linkParams": {
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+              "width": "125",
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+          },
+        },
+      },
+      "title": "",
+      "type": "media--image",
+      "width": 180,
+    },
+    "introText": "The Framingham VA Clinic provides primary care and specialty services, including mental health, laboratory services and more. The primary care team at the clinic manages most health issues and provides Veterans with access to a wide range of inpatient and outpatient specialty care through the VA Boston Healthcare System. With free on-site parking, the clinic provides an attractive option for area Veterans who don't want to travel to one of the three main campuses in Boston and Brockton for primary care. ",
+    "lastUpdated": "2024-10-01T15:11:12+00:00",
+    "locationServices": [
+      {
+        "title": "Parking",
+        "wysiwigContents": "<p><strong>Cost:</strong> Free</p>
+
+<p><strong>Wheelchair availability:</strong>&nbsp; Wheelchairs are available upon arrival for patients who need them to access the building.</p>",
+      },
+      {
+        "title": "Get your flu shot!",
+        "wysiwigContents": "<p>The influenza vaccine can reduce your risk of associated illness and hospitalization, as well as minimize the spread of flu to others who may be at high risk for severe illness from respiratory infections. Flu shots and COVID boosters are available, just ask your primary care team, or visit one of our walk-in clinics. <a href="https://www.va.gov/boston-health-care/programs/flu-vaccinations/" hreflang="en">Learn more about walk-in flu and COVID vaccination clinics, and see the clinic schedules</a>.</p>",
+      },
+    ],
+    "lovellSwitchPath": null,
+    "lovellVariant": undefined,
+    "mainPhoneString": "800-865-3384",
+    "mentalHealthPhoneNumber": {
+      "entityId": 169967,
+      "extension": null,
+      "id": "3997e698-ea95-4155-8bb6-7aa268dd1b45",
+      "label": null,
+      "number": "800-865-3384",
+      "phoneType": "phone",
+      "type": "paragraph--phone_number",
+    },
+    "menu": {
+      "data": {
+        "description": "bar",
+        "links": [
+          {
+            "description": "bar",
+            "expanded": true,
+            "label": "Foo",
+            "links": [],
+            "lovellSection": null,
+            "url": {
+              "path": "/nowhere/in-particular",
+            },
+          },
+        ],
+        "name": "Foo",
+      },
+      "rootPath": "/boston-health-care/locations/framingham-va-clinic/",
+    },
+    "metatags": [
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic | VA Boston health care | Veterans Affairs",
+          "name": "title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Get address and hours, parking and transportation information, and health services offered at Framingham VA Clinic",
+          "name": "description",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+          "rel": "image_src",
+        },
+        "tag": "link",
+      },
+      {
+        "attributes": {
+          "content": "Veterans Affairs",
+          "property": "og:site_name",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic | VA Boston health care | Veterans Affairs",
+          "property": "og:title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Get address and hours, parking and transportation information, and health services offered at Framingham VA Clinic",
+          "property": "og:description",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/framingham.jpg",
+          "property": "og:image",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic",
+          "property": "og:image:alt",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "summary_large_image",
+          "name": "twitter:card",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic | VA Boston health care | Veterans Affairs",
+          "name": "twitter:title",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Get address and hours, parking and transportation information, and health services offered at Framingham VA Clinic",
+          "name": "twitter:description",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "@DeptVetAffairs",
+          "name": "twitter:site",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "Framingham VA Clinic",
+          "name": "twitter:image:alt",
+        },
+        "tag": "meta",
+      },
+      {
+        "attributes": {
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/framingham.jpg",
+          "name": "twitter:image",
+        },
+        "tag": "meta",
+      },
+    ],
+    "moderationState": "published",
+    "officeHours": [
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 1,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 2,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 3,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 4,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "",
+        "day": 5,
+        "endhours": 1600,
+        "starthours": 730,
+      },
+      {
+        "all_day": false,
+        "comment": "Closed",
+        "day": 6,
+        "endhours": null,
+        "starthours": null,
+      },
+      {
+        "all_day": false,
+        "comment": "Closed",
+        "day": 0,
+        "endhours": null,
+        "starthours": null,
+      },
+    ],
+    "operatingStatusFacility": "normal",
+    "path": "/boston-health-care/locations/framingham-va-clinic",
+    "published": true,
+    "relatedLinks": {
+      "links": [
+        {
+          "title": "Get help from a patient advocate",
+          "uri": "/boston-health-care/health-services/patient-advocates",
+        },
+        {
+          "title": "Find a phone number",
+          "uri": "/boston-health-care/contact-us",
+        },
+        {
+          "title": "Interactive facility maps",
+          "uri": "https://www.va.gov/boston-health-care/programs/interactive-facility-maps",
+        },
+        {
+          "title": "Check your billing, insurance and payment options",
+          "uri": "/boston-health-care/billing-and-insurance",
+        },
+        {
+          "title": "Access your health records",
+          "uri": "/boston-health-care/medical-records-office",
+        },
+        {
+          "title": "Compare our performance with non-VA facilities",
+          "uri": "/boston-health-care/about-us/performance",
+        },
+        {
+          "title": "Learn about virtual care and service options",
+          "uri": "https://www.va.gov/boston-health-care/programs/connected-care/",
+        },
+        {
+          "title": "Volunteer or donate",
+          "uri": "/boston-health-care/work-with-us/volunteer-or-donate",
+        },
+      ],
+      "sectionTitle": "Other services at VA Boston health care",
+    },
+    "socialLinks": {
+      "links": [
+        {
+          "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_111",
+          "icon": "mail",
+          "text": "Subscribe to VA Boston health care news and announcements",
+        },
+        {
+          "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_374",
+          "icon": "mail",
+          "text": "Subscribe to VA Boston health care emergency notifications",
+        },
+        {
+          "href": "/boston-health-care/operating-status",
+          "icon": "adjust",
+          "text": "VA Boston health care operating status",
+        },
+        {
+          "href": "https://www.facebook.com/VABoston",
+          "icon": "facebook",
+          "text": "VA Boston Healthcare System Facebook",
+        },
+        {
+          "href": "https://twitter.com/VABostonHC",
+          "icon": "x",
+          "text": "VA Boston Healthcare System",
+        },
+      ],
+      "regionNickname": "VA Boston health care",
+    },
+    "title": "Framingham VA Clinic",
+    "type": "node--health_care_local_facility",
+    "vaHealthConnectPhoneNumber": "833-933-1106",
+    "vamcEhrSystem": "vista",
+  },
+  "include": {},
+}
+`;

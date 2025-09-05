@@ -1,0 +1,531 @@
+{
+  "type": "node--vet_center_cap",
+  "id": "8a11fc42-179a-4d63-941c-20d9d0c1c194",
+  "drupal_internal__nid": 43427,
+  "drupal_internal__vid": 661343,
+  "langcode": "en",
+  "revision_timestamp": "2022-05-19T17:33:34+00:00",
+  "revision_log": "Bulk operation publish revision",
+  "status": true,
+  "title": "Little Rock Vet Center - Mountain Home",
+  "created": "2022-02-02T19:59:06+00:00",
+  "changed": "2022-05-19T17:33:34+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/little-rock-vet-center",
+      "title": "Little Rock Vet Center",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/little-rock-vet-center/community-access-point/little-rock-vet-center-mountain-home",
+      "title": "Little Rock Vet Center - Mountain Home",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/little-rock-vet-center/community-access-point/little-rock-vet-center-mountain-home",
+    "pid": 55894,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_address": {
+    "langcode": null,
+    "country_code": "US",
+    "administrative_area": "AR",
+    "locality": "Mountain Home",
+    "dependent_locality": null,
+    "postal_code": "72653",
+    "address_line1": "249 Dyer St. ",
+    "address_line2": "",
+    "organization": "St. Peter the Fisherman Church ",
+    "additional_name": null
+  },
+  "field_facility_locator_api_id": "vc_0713CAP10",
+  "field_geographical_identifier": "Mountain Home ",
+  "field_geolocation": {
+    "value": "POINT(-92.388760 36.338670)",
+    "geo_type": "Point",
+    "lat": 36.33867,
+    "lon": -92.38876,
+    "left": -92.38876,
+    "top": 36.33867,
+    "right": -92.38876,
+    "bottom": 36.33867,
+    "geohash": "9yqq9xk81g",
+    "latlon": "36.33867,-92.38876"
+  },
+  "field_last_saved_by_an_editor": "2022-05-19T17:33:33+00:00",
+  "field_office_hours": [],
+  "field_operating_status_facility": "limited",
+  "field_operating_status_more_info": "Counseling services, including a PTSD support group, are available at this location on the first and third Wednesday of each month. Please call the main Vet Center location at 501-918-1800 for additional information.",
+  "field_table_of_contents": null,
+  "field_timezone": null,
+  "field_vetcenter_cap_hours_opt_in": false,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vet_center_cap/8a11fc42-179a-4d63-941c-20d9d0c1c194?resourceVersion=id%3A661343"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "e22a2786-d15e-40aa-b17b-c97b707af6fd",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vet_center_cap"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "38daa8d4-3d05-48a3-bb95-a9c75988e382",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 295
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "a98968df-0845-4a46-883b-ddb9b4480648",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3521
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "dda44c72-d1f6-47b7-ac72-4a9ee8cd08b0",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 789
+    }
+  },
+  "field_media": {
+    "type": "media--image",
+    "id": "2b3371d8-0547-4dc2-8871-167f653f251c",
+    "drupal_internal__mid": 11648,
+    "drupal_internal__vid": 12355,
+    "status": true,
+    "name": "Mountain Home CAP Site.jpg",
+    "created": "2022-02-02T20:00:47+00:00",
+    "changed": "2022-02-02T20:00:47+00:00",
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/media/11648",
+        "title": "Mountain Home CAP Site.jpg",
+        "options": []
+      }
+    ],
+    "path": {
+      "alias": null,
+      "pid": null,
+      "langcode": "en"
+    },
+    "field_description": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/media/image/2b3371d8-0547-4dc2-8871-167f653f251c?resourceVersion=id%3A12355"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 11648
+    },
+    "bundle": {
+      "type": "media_type--media_type",
+      "id": "92f64a34-81e5-4094-82a9-4fe61d7f2227",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "image"
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "a98968df-0845-4a46-883b-ddb9b4480648",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 3521
+      }
+    },
+    "thumbnail": {
+      "type": "file--file",
+      "id": "bb70e4c5-c6dd-4e85-a60d-fe4a27745cd7",
+      "drupal_internal__fid": 13148,
+      "langcode": "en",
+      "filename": "Mountain Home CAP Site.jpg",
+      "uri": {
+        "value": "public://2022-02/Mountain Home CAP Site_0.jpg",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2022-02/Mountain%20Home%20CAP%20Site_0.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 163646,
+      "status": true,
+      "created": "2022-02-02T20:00:47+00:00",
+      "changed": "2022-02-02T20:01:50+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg?h=197649f6",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg?h=197649f6",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "484",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "227",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg?h=20c5f790",
+          "meta": {
+            "linkParams": {
+              "width": "484",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/bb70e4c5-c6dd-4e85-a60d-fe4a27745cd7"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "484",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Little Rock Vet Center - Mountain Home ",
+        "title": null,
+        "width": 1024,
+        "height": 484,
+        "drupal_internal__target_id": 13148
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "a98968df-0845-4a46-883b-ddb9b4480648",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3521
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "image": {
+      "type": "file--file",
+      "id": "bb70e4c5-c6dd-4e85-a60d-fe4a27745cd7",
+      "drupal_internal__fid": 13148,
+      "langcode": "en",
+      "filename": "Mountain Home CAP Site.jpg",
+      "uri": {
+        "value": "public://2022-02/Mountain Home CAP Site_0.jpg",
+        "url": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/2022-02/Mountain%20Home%20CAP%20Site_0.jpg"
+      },
+      "filemime": "image/jpeg",
+      "filesize": 163646,
+      "status": true,
+      "created": "2022-02-02T20:00:47+00:00",
+      "changed": "2022-02-02T20:01:50+00:00",
+      "breadcrumbs": [],
+      "links": {
+        "1_1_square_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg?h=197649f6",
+          "meta": {
+            "linkParams": {
+              "width": "512",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_1_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg?h=197649f6",
+          "meta": {
+            "linkParams": {
+              "width": "240",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "2_3_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "480",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "3_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "320",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "7_2_medium_thumbnail": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "300",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "full_content_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "484",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "large": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "227",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "original": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg?h=20c5f790",
+          "meta": {
+            "linkParams": {
+              "width": "484",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        },
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/bb70e4c5-c6dd-4e85-a60d-fe4a27745cd7"
+        },
+        "viewport_width": {
+          "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2022-02/Mountain%20Home%20CAP%20Site_0.jpg",
+          "meta": {
+            "linkParams": {
+              "width": "484",
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+              ]
+            },
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative"
+            ]
+          }
+        }
+      },
+      "resourceIdObjMeta": {
+        "alt": "Little Rock Vet Center - Mountain Home ",
+        "title": "",
+        "width": 1024,
+        "height": 484,
+        "drupal_internal__target_id": 13148
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "a98968df-0845-4a46-883b-ddb9b4480648",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 3521
+        }
+      },
+      "relationshipNames": ["uid"]
+    },
+    "relationshipNames": ["bundle", "uid", "thumbnail", "image"]
+  },
+  "field_office": {
+    "type": "node--vet_center",
+    "id": "e3d72f23-cf8e-4fda-9b3b-84b7970a3c12",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3866
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_media",
+    "field_office"
+  ]
+}

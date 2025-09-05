@@ -1,5 +1,5 @@
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
-import { Administration } from '@/types/formatted/administration'
+import { Administration } from '@/components/administration/formatted-type'
 
 export const LOVELL = {
   /**
@@ -48,6 +48,7 @@ export const LOVELL_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_SYSTEM,
   RESOURCE_TYPES.LEADERSHIP_LISTING,
   RESOURCE_TYPES.LOCATIONS_LISTING,
+  RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
 ]
 
 export const LOVELL_BIFURCATED_RESOURCE_TYPES = [
@@ -56,4 +57,5 @@ export const LOVELL_BIFURCATED_RESOURCE_TYPES = [
   RESOURCE_TYPES.STAFF_PROFILE,
   RESOURCE_TYPES.PRESS_RELEASE,
   RESOURCE_TYPES.LOCATIONS_LISTING,
+  RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
 ]

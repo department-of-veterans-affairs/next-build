@@ -25,7 +25,7 @@ va-button#mdFormButton::part(button) {
 }
 
 .feedback-button {
-  background-color: var(color-primary);
+  background-color: var(--color-primary);
   font-size: 1rem;
   font-weight: 700;
   line-height: 1;

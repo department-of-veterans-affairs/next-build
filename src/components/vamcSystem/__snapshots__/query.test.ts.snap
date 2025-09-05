@@ -1,0 +1,787 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_media,field_media.image,field_administration,field_related_links,field_related_links.field_va_paragraphs"`;
+
+exports[`VamcSystem formatData outputs formatted data 1`] = `
+{
+  "administration": {
+    "entityId": 254,
+    "name": "VA New York Harbor health care",
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA New York Harbor health care",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 8525,
+  "entityPath": "/new-york-harbor-health-care",
+  "fallbackEvent": null,
+  "featuredEvents": [
+    {
+      "changed": "2023-08-16T15:20:30+00:00",
+      "entityBundle": "node--event",
+      "entityId": "16349f16-be65-46e3-9660-1d3d598a4a0b",
+      "entityPublished": true,
+      "entityUrl": {
+        "path": "/central-iowa-health-care/events/52265",
+      },
+      "fieldAdditionalInformationAbo": null,
+      "fieldAdditionalListings": null,
+      "fieldAddress": {
+        "addressLine1": "9000 Douglas Ave",
+        "addressLine2": null,
+        "administrativeArea": "IA",
+        "countryCode": "US",
+        "locality": "Urbandale",
+        "postalCode": null,
+      },
+      "fieldAdministration": {
+        "entity": {
+          "entityId": "3a530a55-e922-48de-b18c-9c9f92a9ae98",
+        },
+      },
+      "fieldBody": {
+        "format": "rich_text",
+        "processed": "<p>Pickleball Club</p>
+
+<p>Meets Thursdays from 9 to 11 a.m. </p>
+
+<p>Contact Kay Queck (515) 214-4578</p>",
+        "value": "<p>Pickleball Club</p>
+
+<p>Meets Thursdays from 9 to 11 a.m.&nbsp;</p>
+
+<p>Contact Kay Queck (515) 214-4578</p>
+",
+      },
+      "fieldCtaEmail": "test@va.gov",
+      "fieldDatetimeRangeTimezone": [
+        {
+          "duration": 120,
+          "endTime": "2023-09-07T16:00:00+00:00",
+          "endValue": 1694102400,
+          "end_value": "2023-09-07T16:00:00+00:00",
+          "rrule": 180,
+          "rrule_index": 1,
+          "startTime": "2023-09-07T14:00:00+00:00",
+          "timezone": "America/Chicago",
+          "value": 1694095200,
+        },
+        {
+          "duration": 120,
+          "endTime": "2023-09-14T16:00:00+00:00",
+          "endValue": 1694707200,
+          "end_value": "2023-09-14T16:00:00+00:00",
+          "rrule": 180,
+          "rrule_index": 2,
+          "startTime": "2023-09-14T14:00:00+00:00",
+          "timezone": "America/Chicago",
+          "value": 1694700000,
+        },
+      ],
+      "fieldDescription": "Pickleball ",
+      "fieldEventCost": "Free",
+      "fieldEventCta": null,
+      "fieldEventRegistrationrequired": false,
+      "fieldFacilityLocation": null,
+      "fieldFeatured": true,
+      "fieldHowToSignUp": "email",
+      "fieldLink": null,
+      "fieldListing": {
+        "entity": {
+          "entityId": "55cb823c-df6d-4f77-814d-6024e08cd4f6",
+        },
+      },
+      "fieldLocationHumanreadable": "Walker Johnston Park",
+      "fieldLocationType": "non_facility",
+      "fieldOrder": null,
+      "fieldUrlOfAnOnlineEvent": null,
+      "title": "Dodgeball Club",
+    },
+  ],
+  "featuredStories": [
+    {
+      "headingLevel": "h2",
+      "id": "bb4dcfc1-736b-4a9e-aa48-23c2dd4a4980",
+      "image": {
+        "alt": null,
+        "height": 304,
+        "id": "c85b7882-f035-4b55-8b71-fcf81fade350",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/1_1_square_medium_thumbnail/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_large/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "512",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "1024",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_1_medium_thumbnail/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "240",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "480",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_3_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/2_3_medium_thumbnail/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "480",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "320",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "3_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/3_2_medium_thumbnail/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "320",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "480",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "7_2_medium_thumbnail": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/7_2_medium_thumbnail/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "300",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "1050",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "full_content_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/full_content_width/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "304",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "456",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "large": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/large/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "304",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "456",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/e638fd17-9090-442b-a724-5113133b4d0f",
+          },
+          "viewport_width": {
+            "href": "http://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/sites/default/files/styles/viewport_width/public/hub_promos/health-care.png",
+            "meta": {
+              "linkParams": {
+                "height": "304",
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "456",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+        },
+        "title": null,
+        "type": "media--image",
+        "width": 456,
+      },
+      "introText": "When a hospital has a host of great doctors, honoring just two every year is challenging. ",
+      "lastUpdated": "2019-05-14T15:35:12+00:00",
+      "link": "/pittsburgh-health-care/stories/we-honor-outstanding-doctors",
+      "published": true,
+      "title": "We honor outstanding doctors",
+      "type": "node--news_story",
+    },
+  ],
+  "id": "17bfe247-9df5-4217-a48a-973f8676d6e4",
+  "image": {
+    "alt": "Manhattan Veterans Administration Medical Center",
+    "height": 180,
+    "id": "23564949-4f47-42fc-8e0f-92b4cd84578e",
+    "links": {
+      "1_1_square_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "512",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_1_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "240",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "2_3_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "480",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "3_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "320",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "7_2_medium_thumbnail": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "300",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "full_content_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "180",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "large": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "180",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "original": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "180",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/23564949-4f47-42fc-8e0f-92b4cd84578e",
+      },
+      "viewport_width": {
+        "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2020-10/manhattanCampus1024x960.jpg",
+        "meta": {
+          "linkParams": {
+            "rel": [
+              "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+            ],
+            "width": "180",
+          },
+          "rel": [
+            "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+          ],
+        },
+      },
+    },
+    "title": "",
+    "type": "media--image",
+    "width": 259,
+  },
+  "introText": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+  "lastUpdated": "2023-04-13T18:17:37+00:00",
+  "lovellSwitchPath": null,
+  "lovellVariant": null,
+  "mainFacilities": [
+    {
+      "address": {
+        "additional_name": null,
+        "address_line1": "61 Lincoln Street, Suite 112",
+        "administrative_area": "MA",
+        "country_code": "US",
+        "dependent_locality": null,
+        "langcode": null,
+        "locality": "Framingham",
+        "postal_code": "01702-8264",
+      },
+      "image": {
+        "alt": "Framingham VA Clinic",
+        "height": 125,
+        "id": "4d616a7e-b550-4dea-9a3f-b9e94af41d87",
+        "links": {
+          "1_1_square_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/1_1_square_medium_thumbnail/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_large/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "512",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_1_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_1_medium_thumbnail/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "240",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "2_3_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/2_3_medium_thumbnail/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "480",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "3_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "320",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "7_2_medium_thumbnail": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/7_2_medium_thumbnail/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "300",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "full_content_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/full_content_width/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "125",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "large": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/large/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "125",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "original": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/original/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "125",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/file/file/4d616a7e-b550-4dea-9a3f-b9e94af41d87",
+          },
+          "viewport_width": {
+            "href": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/viewport_width/public/2021-07/framingham.jpg",
+            "meta": {
+              "linkParams": {
+                "rel": [
+                  "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+                ],
+                "width": "125",
+              },
+              "rel": [
+                "drupal://jsonapi/extensions/consumer_image_styles/links/relation-types/#derivative",
+              ],
+            },
+          },
+        },
+        "title": "",
+        "type": "media--image",
+        "width": 180,
+      },
+      "mainPhoneString": "800-865-3384",
+      "mentalHealthPhoneNumber": {
+        "entityId": 169967,
+        "extension": null,
+        "id": "3997e698-ea95-4155-8bb6-7aa268dd1b45",
+        "label": null,
+        "number": "800-865-3384",
+        "phoneType": "phone",
+        "type": "paragraph--phone_number",
+      },
+      "operatingStatusFacility": "normal",
+      "path": "/boston-health-care/locations/framingham-va-clinic",
+      "title": "Framingham VA Clinic",
+      "vaHealthConnectPhoneNumber": "800-877-6976",
+    },
+  ],
+  "menu": {
+    "data": null,
+    "rootPath": "/new-york-harbor-health-care/",
+  },
+  "metatags": [
+    {
+      "attributes": {
+        "content": "VA New York Harbor health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA New York Harbor health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Manhattan Veterans Administration Medical Center",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA New York Harbor health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "At VA New York Harbor Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Manhattan Veterans Administration Medical Center",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-10/manhattanCampus1024x960.jpg",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "path": "/new-york-harbor-health-care",
+  "published": true,
+  "relatedLinks": {
+    "links": [
+      {
+        "title": "Get help from a patient advocate",
+        "uri": "/new-york-harbor-health-care/health-services/patient-advocates",
+      },
+      {
+        "title": "Access your health records",
+        "uri": "/new-york-harbor-health-care/medical-records-office",
+      },
+      {
+        "title": "Find a phone number",
+        "uri": "/new-york-harbor-health-care/contact-us",
+      },
+      {
+        "title": "Check your billing, insurance, and payment options",
+        "uri": "/new-york-harbor-health-care/billing-and-insurance",
+      },
+      {
+        "title": "Volunteer or donate",
+        "uri": "/new-york-harbor-health-care/work-with-us/volunteer-or-donate",
+      },
+      {
+        "title": "Read our annual reports and newsletters",
+        "uri": "https://www.visn2.va.gov/VISN2/index.asp",
+      },
+      {
+        "title": "Compare our performance with non-VA facilities.",
+        "uri": "/new-york-harbor-health-care/about-us/performance",
+      },
+    ],
+    "sectionTitle": "Other services at VA New York Harbor health care",
+  },
+  "socialLinks": {
+    "links": [
+      {
+        "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_145",
+        "icon": "mail",
+        "text": "Subscribe to VA New York Harbor health care news and announcements",
+      },
+      {
+        "href": "https://public.govdelivery.com/accounts/USVHA/subscriber/new?topic_id=USVHA_387",
+        "icon": "mail",
+        "text": "Subscribe to VA New York Harbor health care emergency notifications",
+      },
+      {
+        "href": "/new-york-harbor-health-care/operating-status",
+        "icon": "adjust",
+        "text": "VA New York Harbor health care operating status",
+      },
+      {
+        "href": "https://www.facebook.com/VANYHarbor",
+        "icon": "facebook",
+        "text": "The New York Harbor Healthcare System Facebook page",
+      },
+      {
+        "href": "https://twitter.com/VANYHarbor",
+        "icon": "x",
+        "text": "The New York Harbor Healthcare System",
+      },
+      {
+        "href": "https://www.flickr.com/photos/144760790@N02/albums",
+        "icon": "flickr",
+        "text": "The New York Harbor Healthcare System",
+      },
+    ],
+    "regionNickname": "VA New York Harbor health care",
+  },
+  "title": "VA New York Harbor health care",
+  "type": "node--health_care_region_page",
+  "vamcEhrSystem": "vista",
+}
+`;

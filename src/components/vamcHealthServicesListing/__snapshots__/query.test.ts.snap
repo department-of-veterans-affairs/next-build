@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_office,field_featured_content_healthser&fields[node--health_care_region_page]=field_vamc_ehr_system,field_system_menu&fields[paragraph--link_teaser]=field_link,field_link_summary"`;
+
+exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
+{
+  "administration": {
+    "entityId": null,
+    "name": null,
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA North Texas health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/north-texas-health-care",
+    },
+    {
+      "options": [],
+      "title": "SERVICES AND LOCATIONS",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "Health services",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 18495,
+  "entityPath": "/north-texas-health-care/health-services",
+  "featuredContent": [
+    {
+      "componentParams": {
+        "boldTitle": false,
+        "sectionHeader": "",
+      },
+      "entityId": 63601,
+      "id": "06516c6b-01ad-475d-a7d6-cd717c60c500",
+      "options": [],
+      "parentField": "field_featured_content_healthser",
+      "summary": "Learn about our leading clinical mental health work",
+      "title": "Mental health at VA Black Hills health care",
+      "type": "paragraph--link_teaser",
+      "uri": "/mental-health",
+    },
+    {
+      "componentParams": {
+        "boldTitle": false,
+        "sectionHeader": "",
+      },
+      "entityId": 63602,
+      "id": "baabc376-7875-4db5-a448-d040b46c21c1",
+      "options": [],
+      "parentField": "field_featured_content_healthser",
+      "summary": "VA Black Hills health care provides compassionate care for LGBTQ+ Veterans",
+      "title": "Health care for LGBTQ+ Veterans",
+      "type": "paragraph--link_teaser",
+      "uri": "/lgbtq-care",
+    },
+    {
+      "componentParams": {
+        "boldTitle": false,
+        "sectionHeader": "",
+      },
+      "entityId": 103807,
+      "id": "befe7796-274b-4758-bc34-0e0bb4fc56a0",
+      "options": [],
+      "parentField": "field_featured_content_healthser",
+      "summary": "VA Boston provides COVID-19 testing and vaccination",
+      "title": "COVID-19 testing and vaccination",
+      "type": "paragraph--link_teaser",
+      "uri": "/covid-19",
+    },
+  ],
+  "id": "86576faa-1cdd-43a7-8abf-5cab98d7c388",
+  "introText": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
+  "lastUpdated": "2022-02-09T19:01:21+00:00",
+  "lovellSwitchPath": null,
+  "lovellVariant": null,
+  "menu": {
+    "data": {
+      "description": "Test description",
+      "links": [
+        {
+          "description": "Test description",
+          "expanded": false,
+          "label": "Test Menu Item",
+          "links": [],
+          "lovellSection": null,
+          "url": {
+            "path": "/test-facility/test-service",
+          },
+        },
+      ],
+      "name": "Test Menu Item",
+    },
+    "rootPath": "/north-texas-health-care/health-services/",
+  },
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Health services | VA North Texas health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Health services | VA North Texas health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Health services | VA North Texas health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
+        "name": "twitter:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "path": "/north-texas-health-care/health-services",
+  "published": true,
+  "title": "Health services",
+  "type": "node--health_services_listing",
+  "vamcEhrSystem": null,
+}
+`;

@@ -26,11 +26,11 @@ jobs:
     if: ${{ !(github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure') }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           path: next-build
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           repository: department-of-veterans-affairs/vets-website
           path: vets-website
@@ -67,7 +67,7 @@ jobs:
           echo "IMAGE_TAG=$(cat tag.txt)" >> $GITHUB_ENV
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4.2.1
+        uses: aws-actions/configure-aws-credentials@v4.3.1
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}

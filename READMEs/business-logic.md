@@ -85,7 +85,7 @@ Next has a condition that detects whether an event has passed. If the event has 
 
 ## Implementation
 
-The business logic can be found in the [event index.ts](../src/templates/layouts/event/index.tsx) file line 224.
+The business logic can be found in the [event template.ts](../src/component/event/template.tsx) file, specifically in the call to `isEventInPast`.
 
 ## Contact/Owner
 

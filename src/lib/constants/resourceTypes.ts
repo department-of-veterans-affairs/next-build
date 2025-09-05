@@ -16,7 +16,9 @@ export const RESOURCE_TYPES = {
   VAMC_FACILITY: 'node--health_care_local_facility',
   VAMC_SYSTEM_VA_POLICE: 'node--vamc_system_va_police',
   VAMC_SYSTEM: 'node--health_care_region_page',
+  VAMC_SYSTEM_REGISTER_FOR_CARE: 'node--vamc_system_register_for_care',
   VBA_FACILITY: 'node--vba_facility',
+  VBA_SERVICE: 'node--vba_facility_service',
   VET_CENTER_HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
   VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
   VET_CENTER: 'node--vet_center',
@@ -24,6 +26,7 @@ export const RESOURCE_TYPES = {
   VET_CENTER_CAP: 'node--vet_center_cap',
   VET_CENTER_MOBILE_VET_CENTER: 'node--vet_center_mobile_vet_center',
   VAMC_HEALTH_SERVICES_LISTING: 'node--health_services_listing',
+  VAMC_OPERATING_STATUS_AND_ALERTS: 'node--vamc_operating_status_and_alerts',
 } as const
 
 // (Node) resources that generate full pages.
@@ -45,10 +48,12 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VAMC_FACILITY,
   RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE,
   RESOURCE_TYPES.VAMC_SYSTEM,
+  RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE,
   RESOURCE_TYPES.VBA_FACILITY,
   RESOURCE_TYPES.LEADERSHIP_LISTING,
   RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING,
   RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
+  RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {
