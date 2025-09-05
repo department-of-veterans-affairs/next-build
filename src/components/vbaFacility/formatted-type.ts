@@ -6,7 +6,7 @@ import { PhoneContact as FormattedPhoneContact } from '@/components/contactInfo/
 import { MediaImage as FormattedMediaImage } from '@/components/mediaDocument/formatted-type'
 import { AccordionItem as FormattedAccordionItem } from '@/components/accordion/formatted-type'
 import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
-import { VamcFacilityServiceLocation } from '../healthCareLocalFacility/formatted-type'
+import { VamcFacilityServiceLocation } from '../vamcFacility/formatted-type'
 import { SocialLink } from '@/lib/utils/social'
 
 type CantFindBenefits = {
@@ -20,6 +20,13 @@ type CantFindBenefits = {
 type VbaSocialLinksProps = {
   links: SocialLink[]
   heading: string
+}
+type VbaBanner = {
+  showBanner: boolean
+  alertType: 'information' | 'warning' | null
+  title: string | null
+  body: string | null
+  dismiss: boolean | null
 }
 export type VbaFacilityService = {
   type: string
@@ -49,5 +56,6 @@ export type VbaFacility = PublishedEntity & {
   phoneNumber: string
   address: FieldAddress
   ccCantFindBenefits: CantFindBenefits | null
+  banner: VbaBanner
   allServices: VbaFacilityService[]
 }

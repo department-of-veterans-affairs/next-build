@@ -2,7 +2,7 @@ import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { Administration } from '@/components/administration/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
-import { HealthCareLocalFacility } from '../healthCareLocalFacility/formatted-type'
+import { VamcFacility } from '../vamcFacility/formatted-type'
 import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 import { NodeHealthCareRegionPage } from '@/types/drupal/node'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
@@ -11,7 +11,7 @@ import { EventWidgetTeaser } from '../event/formatted-type'
 import { SocialLink } from '@/lib/utils/social'
 
 export type MinimalLocalFacility = Pick<
-  HealthCareLocalFacility,
+  VamcFacility,
   | 'title'
   | 'path'
   | 'operatingStatusFacility'

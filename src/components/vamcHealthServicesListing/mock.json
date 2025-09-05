@@ -188,26 +188,86 @@
       {
         "type": "paragraph--link_teaser",
         "id": "06516c6b-01ad-475d-a7d6-cd717c60c500",
-        "resourceIdObjMeta": {
-          "target_revision_id": 588947,
-          "drupal_internal__target_id": 63601
-        }
+        "drupal_internal__id": 63601,
+        "drupal_internal__revision_id": 588947,
+        "langcode": "en",
+        "status": true,
+        "created": "2023-01-01T00:00:00+00:00",
+        "changed": "2023-01-01T00:00:00+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "content_translation_uid": null,
+        "revision_uid": null,
+        "revision_created": null,
+        "revision_log_message": null,
+        "revision_default": true,
+        "relationshipNames": [],
+        "field_link": {
+          "title": "Mental health at VA Black Hills health care",
+          "uri": "/mental-health",
+          "options": []
+        },
+        "field_link_summary": "Learn about our leading clinical mental health work",
+        "parent_field_name": "field_featured_content_healthser"
       },
       {
         "type": "paragraph--link_teaser",
         "id": "baabc376-7875-4db5-a448-d040b46c21c1",
-        "resourceIdObjMeta": {
-          "target_revision_id": 588948,
-          "drupal_internal__target_id": 63602
-        }
+        "drupal_internal__id": 63602,
+        "drupal_internal__revision_id": 588948,
+        "langcode": "en",
+        "status": true,
+        "created": "2023-01-01T00:00:00+00:00",
+        "changed": "2023-01-01T00:00:00+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "content_translation_uid": null,
+        "revision_uid": null,
+        "revision_created": null,
+        "revision_log_message": null,
+        "revision_default": true,
+        "relationshipNames": [],
+        "field_link": {
+          "title": "Health care for LGBTQ+ Veterans",
+          "uri": "/lgbtq-care",
+          "options": []
+        },
+        "field_link_summary": "VA Black Hills health care provides compassionate care for LGBTQ+ Veterans",
+        "parent_field_name": "field_featured_content_healthser"
       },
       {
         "type": "paragraph--link_teaser",
         "id": "befe7796-274b-4758-bc34-0e0bb4fc56a0",
-        "resourceIdObjMeta": {
-          "target_revision_id": 588949,
-          "drupal_internal__target_id": 103807
-        }
+        "drupal_internal__id": 103807,
+        "drupal_internal__revision_id": 588949,
+        "langcode": "en",
+        "status": true,
+        "created": "2023-01-01T00:00:00+00:00",
+        "changed": "2023-01-01T00:00:00+00:00",
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_created": null,
+        "content_translation_uid": null,
+        "revision_uid": null,
+        "revision_created": null,
+        "revision_log_message": null,
+        "revision_default": true,
+        "relationshipNames": [],
+        "field_link": {
+          "title": "COVID-19 testing and vaccination",
+          "uri": "/covid-19",
+          "options": []
+        },
+        "field_link_summary": "VA Boston provides COVID-19 testing and vaccination",
+        "parent_field_name": "field_featured_content_healthser"
       }
     ],
     "field_office": {

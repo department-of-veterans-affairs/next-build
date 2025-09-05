@@ -1,7 +1,7 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { NodeHealthCareLocalFacility } from '@/types/drupal/node'
-import { HealthCareLocalFacility } from './formatted-type'
+import { VamcFacility } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
@@ -47,7 +47,7 @@ export const params: QueryParams<null> = () => {
 }
 
 // Define the option types for the data loader.
-export type HealthCareLocalFacilityDataOpts = {
+export type VamcFacilityDataOpts = {
   id: string
   context?: ExpandedStaticPropsContext
 }
@@ -57,17 +57,16 @@ export type HealthCareLocalFacilityDataOpts = {
  * We're adding `lovell` from the context here to conditionally re-shape
  * the menu for Lovell facilities.
  */
-export type LocalFacilityData = {
+export type VamcFacilityData = {
   entity: NodeHealthCareLocalFacility
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
-export const data: QueryData<
-  HealthCareLocalFacilityDataOpts,
-  LocalFacilityData
-> = async (opts) => {
+export const data: QueryData<VamcFacilityDataOpts, VamcFacilityData> = async (
+  opts
+) => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
     RESOURCE_TYPES.VAMC_FACILITY,
@@ -87,10 +86,11 @@ export const data: QueryData<
   return { entity, menu, lovell: opts.context?.lovell }
 }
 
-export const formatter: QueryFormatter<
-  LocalFacilityData,
-  HealthCareLocalFacility
-> = ({ entity, menu, lovell }) => {
+export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
+  entity,
+  menu,
+  lovell,
+}) => {
   let { title, breadcrumbs } = entity
   if (lovell?.isLovellVariantPage) {
     title = getLovellVariantOfTitle(title, lovell.variant)
@@ -114,7 +114,7 @@ export const formatter: QueryFormatter<
     return nameA.localeCompare(nameB)
   })
 
-  const formattedFacilityData: HealthCareLocalFacility = {
+  const formattedFacilityData: VamcFacility = {
     ...entityBaseFields(entity),
     title,
     breadcrumbs,

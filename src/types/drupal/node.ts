@@ -469,6 +469,11 @@ export interface NodeVbaFacility extends DrupalNode {
   field_operating_status_more_info?: string
   field_prepare_for_visit: ParagraphAccordion[]
   field_phone_number: string
+  field_show_banner: boolean
+  field_alert_type: 'information' | 'warning' | null
+  field_banner_title?: string
+  field_banner_content?: FieldFormattedText
+  field_dismissible_option: 'perm' | 'dismiss' | null
 }
 
 export interface NodeVbaService extends DrupalNode {
@@ -548,6 +553,7 @@ export interface NodeVetCenterOutstation
 export interface NodeVamcHealthServicesListing extends DrupalNode {
   field_description: string
   field_intro_text: string
+  field_featured_content_healthser?: ParagraphLinkTeaser[]
   breadcrumbs: BreadcrumbItem[]
 }
 
