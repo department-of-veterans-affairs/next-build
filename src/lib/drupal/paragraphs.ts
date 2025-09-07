@@ -105,11 +105,6 @@ export function normalizeEntityFetchedParagraphs<T extends DrupalParagraph>(
     paragraph = {
       type: paragraph.target_type,
       bundle: paragraph.fetched_bundle,
-      // Note, I think if this value is actually undefined, it will break the static build
-      // because it will try to serialize undefined, which is not allowed. I actually want
-      // to find out whether target_id can actually be undefined, however, so I want to
-      // keep this in. If we don't have any issues, we might be able to update all the
-      // individual CC types to make it a required field.
       target_id: paragraph.target_id,
       ...paragraph.fetched,
     }

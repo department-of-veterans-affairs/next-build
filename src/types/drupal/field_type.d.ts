@@ -171,7 +171,7 @@ export type FieldNestedButton = {
 }
 export interface FieldCCText {
   target_type: string
-  target_id?: string
+  target_id: string
   fetched_bundle: string
   fetched: {
     field_wysiwyg: FieldFormattedText[]
@@ -179,7 +179,7 @@ export interface FieldCCText {
 }
 export interface FieldCCPhone {
   target_type: string
-  target_id?: string
+  target_id: string
   target_field?: string
   fetched_bundle: string
   fetched: {
@@ -192,7 +192,7 @@ export interface FieldCCPhone {
 
 export interface FieldCCFeaturedContent {
   target_type: string
-  target_id?: string
+  target_id: string
   target_field?: string
   fetched_bundle: string
   fetched: {
@@ -204,7 +204,7 @@ export interface FieldCCFeaturedContent {
 
 export interface FieldCCListOfLinks {
   target_type: string
-  target_id?: string
+  target_id: string
   target_field?: string
   fetched_bundle: string
   fetched: {
@@ -215,7 +215,7 @@ export interface FieldCCListOfLinks {
 
 export interface FieldCCListOfLinkTeasers {
   target_type: string
-  target_id?: string
+  target_id: string
   target_field?: string
   fetched_bundle: string
   fetched: {
@@ -225,7 +225,7 @@ export interface FieldCCListOfLinkTeasers {
 }
 
 export interface FieldMissionExplainer {
-  target_id?: string
+  target_id: string
   fetched_bundle: string
   fetched: {
     field_magichead_body: FieldFormattedText[]
@@ -234,7 +234,7 @@ export interface FieldMissionExplainer {
 }
 
 export interface FieldVetCenterBannerImage {
-  target_id?: string
+  target_id: string
   fetched_bundle: string
   fetched: {
     field_media: {
