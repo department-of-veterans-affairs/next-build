@@ -1,0 +1,2533 @@
+[
+  {
+    "type": "node--vha_facility_nonclinical_service",
+    "id": "9f0e0f21-41e1-493c-8bc1-f6e1854d1270",
+    "drupal_internal__nid": 44735,
+    "drupal_internal__vid": 759557,
+    "langcode": "en",
+    "revision_timestamp": "2023-03-27T19:33:58+00:00",
+    "revision_log": "Edited location and hours",
+    "status": true,
+    "title": "Register for care - Richmond VA Medical Center",
+    "created": "2022-03-30T19:55:31+00:00",
+    "changed": "2023-03-27T19:33:58+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care",
+        "title": "VA Richmond Health Care",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations",
+        "title": "Locations",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations/richmond-va-medical-center",
+        "title": "Richmond VA Medical Center",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations/hunter-holmes-mcguire-hospital/register-for-care",
+        "title": "Register For Care - Richmond VA Medical Center",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [],
+    "path": {
+      "alias": "/richmond-health-care/locations/hunter-holmes-mcguire-hospital/register-for-care",
+      "pid": 58656,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_last_saved_by_an_editor": "2023-03-27T19:34:01+00:00",
+    "field_vamc_nonclin_appt_default": null,
+    "field_enforce_unique_combo_offic": false,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vha_facility_nonclinical_service/9f0e0f21-41e1-493c-8bc1-f6e1854d1270?resourceVersion=id%3A759557"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "d9783f56-2ebf-4885-8deb-69bb0ff2b2e7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "vha_facility_nonclinical_service"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "b45734ea-0581-4a32-b9ce-aa90223a989e",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4377
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "6eb7cb03-f112-4b20-9e62-c6e04b0f5789",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1499
+      }
+    },
+    "field_service_name_and_descripti": {
+      "type": "taxonomy_term--health_care_service_taxonomy",
+      "id": "5532cc2b-323b-423d-8ae3-e8a34663ad60",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1025
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "faa562e5-c603-4674-aec8-49e376ae1de1",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 221
+      }
+    },
+    "field_facility_location": {
+      "type": "node--health_care_local_facility",
+      "id": "c83f30b8-9887-454c-b5d8-66cb865e5549",
+      "drupal_internal__nid": 2030,
+      "drupal_internal__vid": 987678,
+      "langcode": "en",
+      "revision_timestamp": "2025-02-20T12:12:59+00:00",
+      "revision_log": "Changed back to regular hours.",
+      "status": true,
+      "title": "Richmond VA Medical Center",
+      "created": "2019-10-31T19:56:02+00:00",
+      "changed": "2025-06-20T14:37:02+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care",
+          "title": "VA Richmond health care",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "SERVICES AND LOCATIONS",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations",
+          "title": "Locations",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Richmond VA Medical Center",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Richmond VA Medical Center | VA Richmond health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Richmond VA Medical Center, formerly known as Hunter Holmes McGuire Hospital."
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "Richmond VA Medical Center | VA Richmond health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Richmond VA Medical Center, formerly known as Hunter Holmes McGuire Hospital."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-03/Hunter%20Holmes%20McGuire%20Hospital.jpg"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image:alt",
+            "content": "Richmond VA Medical Center"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "Richmond VA Medical Center | VA Richmond health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Richmond VA Medical Center, formerly known as Hunter Holmes McGuire Hospital."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image:alt",
+            "content": "Richmond VA Medical Center"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-03/Hunter%20Holmes%20McGuire%20Hospital.jpg"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/richmond-health-care/locations/richmond-va-medical-center",
+        "pid": 2757,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_address": {
+        "langcode": "en",
+        "country_code": "US",
+        "administrative_area": "VA",
+        "locality": "Richmond",
+        "dependent_locality": null,
+        "postal_code": "23249-4915",
+        "address_line1": "1201 Broad Rock Boulevard",
+        "additional_name": null
+      },
+      "field_description": "Get address and hours, parking and transportation information, and health services offered at Richmond VA Medical Center, formerly known as Hunter Holmes McGuire Hospital.",
+      "field_facility_classification": "1",
+      "field_facility_locator_api_id": "vha_652",
+      "field_geolocation": {
+        "value": "POINT (-77.47035097 37.49792643)",
+        "geo_type": "Point",
+        "lat": 37.49792643,
+        "lon": -77.47035097,
+        "left": -77.47035097,
+        "top": 37.49792643,
+        "right": -77.47035097,
+        "bottom": 37.49792643,
+        "geohash": "dq8vm47c3bpkp0",
+        "latlon": "37.49792643,-77.47035097"
+      },
+      "field_intro_text": null,
+      "field_last_saved_by_an_editor": "2025-02-20T12:13:05+00:00",
+      "field_main_location": true,
+      "field_meta_tags": null,
+      "field_mobile": false,
+      "field_office_hours": [
+        {
+          "day": 1,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 2,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 3,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 4,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 5,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 6,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 0,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        }
+      ],
+      "field_operating_status_facility": "normal",
+      "field_operating_status_more_info": null,
+      "field_phone_number": "804-675-5000",
+      "field_supplemental_status_more_i": null,
+      "field_timezone": "America/New_York",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_facility/c83f30b8-9887-454c-b5d8-66cb865e5549?resourceVersion=id%3A987678"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2030
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "5ecbcf0c-b701-49d5-a47e-08803d42dd80",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_local_facility"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "3270285a-cc94-4cf9-bc6c-a36f3d8104c3",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 5038
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "faa562e5-c603-4674-aec8-49e376ae1de1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 221
+        }
+      },
+      "field_local_health_care_service_": [
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e96e29cb-4067-4536-9cc9-a30cbb1c7464",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14776
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "d6ac0fa3-062c-47bb-afad-cfa5eae6c2a0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14777
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "f2723694-28cb-4204-8289-ad1ce97e0e64",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14778
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ae94ddea-4420-416d-a893-f6ffe5f78a03",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14779
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "eb6ef36e-f5ef-4fc5-9937-0caab1719be2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14780
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "07e6f41e-fe05-4219-9a8e-80283a6a9686",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14781
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "2841d583-a323-4067-8cd0-f92f8330d909",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14782
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "0812ac0b-ccfb-46b1-81df-0b499e2686aa",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14783
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "564eeb2a-ad2f-4c1f-918b-e683ad014fa7",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14784
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "98a004e1-2087-4a7c-bff6-d1c0f81f1934",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14785
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7eff89db-002b-4de9-9f68-993fa1034937",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14786
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e3691b5b-5771-4313-859c-3503b5545fa9",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14787
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "73938335-84b6-485f-9e1b-ecdec46f9cce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14788
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "a8b96b6e-be39-46af-a03d-7a5f830a4a12",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14789
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "dca87e85-5102-459d-812c-7437ec37df14",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14790
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "824de134-e386-4297-a1f7-f03fcab729ec",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14791
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "980a8c89-65d2-4612-9c23-46c68237edec",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14792
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6b6867ba-9318-4571-9632-7b09b9038780",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14793
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "50f1171e-317a-49ad-a1a7-a66675c640c8",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14794
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "aa4c29e8-fa6b-4996-b968-9492fc928637",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14795
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "4c3bf11a-25bd-4a7c-ae70-8c91bb9a7d48",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14796
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "893a4990-c338-4c0d-88e1-d785cdace277",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14797
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "0b523f2a-7e56-44c8-bbb5-ece93becbb2d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14798
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ee42660c-23e7-43b9-8a0e-247bc3808f52",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14799
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "99f4984e-3a17-4528-bec3-552352ab8be6",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14800
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7725e2ae-9638-45ed-b235-2d81c10f9c11",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14801
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "f5aea802-8c31-4278-82e8-267c5cefcec1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14802
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5ae30a18-d61f-4c39-ab70-fed6a2498409",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14803
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "21ab50f4-37c9-498a-9e67-25534170c993",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14804
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "99cf0d17-83a6-499d-be8a-c40caa2ed34a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14805
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "62bdba87-cc8a-4d4e-9d84-7f23bdb65ffc",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14806
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "fbf5a3e1-3580-4923-87ed-0a5b76979a00",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14807
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ba25e1b8-7d8e-444d-836b-fa9dde4b6091",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14808
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c3ce2a2a-decf-4957-b8ce-de936b78a64a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14809
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "2ce48e04-c8be-4b2c-973c-6da24764b983",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14810
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c3033a9f-826f-4bd1-926c-0344f6594938",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14811
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "9ab53958-627e-49f4-8e0f-0932971edfc5",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14812
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7010f785-f738-4050-8b83-5c1e119a030e",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14813
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "3f64ac25-9878-4869-bc5b-913c9c12d238",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14814
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e13c400d-d876-4eb5-b67a-526bb1920ecb",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14815
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "a9f6a228-2491-4b5e-956e-eac42fe5d315",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14816
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "098bacfa-cddf-4e86-81be-b8aef77b8583",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14817
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "fbab07e5-80fc-4743-8d72-536bf2021cfc",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14818
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "b9803cbc-1588-4f70-abac-81c323296628",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14819
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "65f54412-efc1-4f45-a95d-3925bb24f355",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14820
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6b6e5dab-47f8-4022-b125-ea06782886e1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14821
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "743e3870-af36-4a15-ab57-9f517af785ea",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14822
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6d1e3dd6-2ac6-4884-954b-5b6cad768eca",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 15430
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c7d29537-20b8-4519-bc16-618f464cdde2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17199
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c8806696-388c-4e6d-b5b1-51eb3d28288b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17201
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ebbb16cb-3132-491d-842c-79da12e21f39",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17203
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6fa0b203-0130-4c49-8137-5c5ba7bcbc35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17213
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "45aa3ed0-2487-4367-85d8-147cc7aeb353",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17215
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5fc285bb-068b-4503-9f2e-b2b81e7299ce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 80666
+          }
+        }
+      ],
+      "field_location_services": [
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "4c64b358-fded-4b3f-a0bb-eb5edb43f860",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659204,
+            "drupal_internal__target_id": 28200
+          }
+        },
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "c91d4448-9be3-4e96-8fed-b82b09ef507e",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659205,
+            "drupal_internal__target_id": 28201
+          }
+        },
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "f77dd980-c8d6-439d-9acb-93c2d0be28c3",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659206,
+            "drupal_internal__target_id": 84861
+          }
+        }
+      ],
+      "field_media": {
+        "type": "media--image",
+        "id": "4373d6bf-2ca1-42f9-8ace-ecf200142380",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2907
+        }
+      },
+      "field_region_page": {
+        "type": "node--health_care_region_page",
+        "id": "9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 6931
+        }
+      },
+      "field_supplemental_status": null,
+      "field_telephone": {
+        "type": "paragraph--phone_number",
+        "id": "fea26756-5a0a-4d10-8289-e1c0a683da82",
+        "resourceIdObjMeta": {
+          "target_revision_id": 1659207,
+          "drupal_internal__target_id": 170554
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_local_health_care_service_",
+        "field_location_services",
+        "field_media",
+        "field_region_page",
+        "field_supplemental_status",
+        "field_telephone"
+      ]
+    },
+    "field_service_location": [
+      {
+        "type": "paragraph--service_location",
+        "id": "ae725e0b-72e8-406f-abf1-cab9daad44a1",
+        "drupal_internal__id": 106752,
+        "drupal_internal__revision_id": 906428,
+        "langcode": "en",
+        "status": true,
+        "created": "2022-03-30T19:55:31+00:00",
+        "parent_id": "44735",
+        "parent_type": "node",
+        "parent_field_name": "field_service_location",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_additional_hours_info": "Hours: Monday through Friday, 8:00 a.m. to 4:30 p.m. ET",
+        "field_appt_intro_text_custom": null,
+        "field_appt_intro_text_type": null,
+        "field_hours": "1",
+        "field_office_hours": [],
+        "field_office_visits": null,
+        "field_online_scheduling_avail": null,
+        "field_use_facility_phone_number": null,
+        "field_use_main_facility_phone": false,
+        "field_virtual_support": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/ae725e0b-72e8-406f-abf1-cab9daad44a1?resourceVersion=id%3A906428"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 906428,
+          "drupal_internal__target_id": 106752
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "service_location"
+          }
+        },
+        "field_email_contacts": [],
+        "field_other_phone_numbers": [],
+        "field_phone": [
+          {
+            "type": "paragraph--phone_number",
+            "id": "9102d29f-926f-4ade-bb13-9eca1615ce3d",
+            "resourceIdObjMeta": {
+              "target_revision_id": 906425,
+              "drupal_internal__target_id": 108509
+            }
+          },
+          {
+            "type": "paragraph--phone_number",
+            "id": "84b44558-78dc-46ce-8ec9-8fd4cc1b54c9",
+            "resourceIdObjMeta": {
+              "target_revision_id": 906426,
+              "drupal_internal__target_id": 108510
+            }
+          }
+        ],
+        "field_service_location_address": {
+          "type": "paragraph--service_location_address",
+          "id": "3e16185d-d015-4b60-a3a5-4b5138102179",
+          "resourceIdObjMeta": {
+            "target_revision_id": 906427,
+            "drupal_internal__target_id": 106751
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type",
+          "field_email_contacts",
+          "field_other_phone_numbers",
+          "field_phone",
+          "field_service_location_address"
+        ]
+      }
+    ],
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_service_name_and_descripti",
+      "field_administration",
+      "field_facility_location",
+      "field_service_location"
+    ]
+  },
+  {
+    "type": "node--vha_facility_nonclinical_service",
+    "id": "b7e4895a-22fc-4008-8f95-4777dc2ac0d5",
+    "drupal_internal__nid": 54675,
+    "drupal_internal__vid": 762233,
+    "langcode": "en",
+    "revision_timestamp": "2023-04-10T14:51:35+00:00",
+    "revision_log": "updated hours",
+    "status": true,
+    "title": "Medical records - Richmond VA Medical Center",
+    "created": "2023-03-27T20:06:23+00:00",
+    "changed": "2023-04-10T14:51:35+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care",
+        "title": "VA Richmond Health Care",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations",
+        "title": "Locations",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations/richmond-va-medical-center",
+        "title": "Richmond VA Medical Center",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations/hunter-holmes-mcguire-hospital/medical-records",
+        "title": "Medical Records - Richmond VA Medical Center",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [],
+    "path": {
+      "alias": "/richmond-health-care/locations/hunter-holmes-mcguire-hospital/medical-records",
+      "pid": 79234,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_last_saved_by_an_editor": "2023-04-10T14:51:48+00:00",
+    "field_vamc_nonclin_appt_default": null,
+    "field_enforce_unique_combo_offic": false,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vha_facility_nonclinical_service/b7e4895a-22fc-4008-8f95-4777dc2ac0d5?resourceVersion=id%3A762233"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "d9783f56-2ebf-4885-8deb-69bb0ff2b2e7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "vha_facility_nonclinical_service"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "8f0c4870-6fd6-4823-863d-99f200114f39",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1595
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "b45734ea-0581-4a32-b9ce-aa90223a989e",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4377
+      }
+    },
+    "field_service_name_and_descripti": {
+      "type": "taxonomy_term--health_care_service_taxonomy",
+      "id": "8e336e3c-0b74-45a0-b1e8-4971a543bf58",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1026
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "faa562e5-c603-4674-aec8-49e376ae1de1",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 221
+      }
+    },
+    "field_facility_location": {
+      "type": "node--health_care_local_facility",
+      "id": "c83f30b8-9887-454c-b5d8-66cb865e5549",
+      "drupal_internal__nid": 2030,
+      "drupal_internal__vid": 987678,
+      "langcode": "en",
+      "revision_timestamp": "2025-02-20T12:12:59+00:00",
+      "revision_log": "Changed back to regular hours.",
+      "status": true,
+      "title": "Richmond VA Medical Center",
+      "created": "2019-10-31T19:56:02+00:00",
+      "changed": "2025-06-20T14:37:02+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care",
+          "title": "VA Richmond health care",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "SERVICES AND LOCATIONS",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations",
+          "title": "Locations",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Richmond VA Medical Center",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [],
+      "path": {
+        "alias": "/richmond-health-care/locations/richmond-va-medical-center",
+        "pid": 2757,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_address": {
+        "langcode": "en",
+        "country_code": "US",
+        "administrative_area": "VA",
+        "locality": "Richmond",
+        "dependent_locality": null,
+        "postal_code": "23249-4915",
+        "address_line1": "1201 Broad Rock Boulevard",
+        "additional_name": null
+      },
+      "field_description": "Get address and hours, parking and transportation information, and health services offered at Richmond VA Medical Center, formerly known as Hunter Holmes McGuire Hospital.",
+      "field_facility_classification": "1",
+      "field_facility_locator_api_id": "vha_652",
+      "field_geolocation": {
+        "value": "POINT (-77.47035097 37.49792643)",
+        "geo_type": "Point",
+        "lat": 37.49792643,
+        "lon": -77.47035097,
+        "left": -77.47035097,
+        "top": 37.49792643,
+        "right": -77.47035097,
+        "bottom": 37.49792643,
+        "geohash": "dq8vm47c3bpkp0",
+        "latlon": "37.49792643,-77.47035097"
+      },
+      "field_intro_text": null,
+      "field_last_saved_by_an_editor": "2025-02-20T12:13:05+00:00",
+      "field_main_location": true,
+      "field_meta_tags": null,
+      "field_mobile": false,
+      "field_office_hours": [
+        {
+          "day": 1,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 2,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 3,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 4,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 5,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 6,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 0,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        }
+      ],
+      "field_operating_status_facility": "normal",
+      "field_operating_status_more_info": null,
+      "field_phone_number": "804-675-5000",
+      "field_supplemental_status_more_i": null,
+      "field_timezone": "America/New_York",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_facility/c83f30b8-9887-454c-b5d8-66cb865e5549?resourceVersion=id%3A987678"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2030
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "5ecbcf0c-b701-49d5-a47e-08803d42dd80",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_local_facility"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "3270285a-cc94-4cf9-bc6c-a36f3d8104c3",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 5038
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "faa562e5-c603-4674-aec8-49e376ae1de1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 221
+        }
+      },
+      "field_local_health_care_service_": [
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e96e29cb-4067-4536-9cc9-a30cbb1c7464",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14776
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "d6ac0fa3-062c-47bb-afad-cfa5eae6c2a0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14777
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "f2723694-28cb-4204-8289-ad1ce97e0e64",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14778
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ae94ddea-4420-416d-a893-f6ffe5f78a03",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14779
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "eb6ef36e-f5ef-4fc5-9937-0caab1719be2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14780
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "07e6f41e-fe05-4219-9a8e-80283a6a9686",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14781
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "2841d583-a323-4067-8cd0-f92f8330d909",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14782
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "0812ac0b-ccfb-46b1-81df-0b499e2686aa",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14783
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "564eeb2a-ad2f-4c1f-918b-e683ad014fa7",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14784
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "98a004e1-2087-4a7c-bff6-d1c0f81f1934",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14785
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7eff89db-002b-4de9-9f68-993fa1034937",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14786
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e3691b5b-5771-4313-859c-3503b5545fa9",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14787
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "73938335-84b6-485f-9e1b-ecdec46f9cce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14788
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "a8b96b6e-be39-46af-a03d-7a5f830a4a12",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14789
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "dca87e85-5102-459d-812c-7437ec37df14",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14790
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "824de134-e386-4297-a1f7-f03fcab729ec",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14791
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "980a8c89-65d2-4612-9c23-46c68237edec",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14792
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6b6867ba-9318-4571-9632-7b09b9038780",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14793
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "50f1171e-317a-49ad-a1a7-a66675c640c8",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14794
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "aa4c29e8-fa6b-4996-b968-9492fc928637",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14795
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "4c3bf11a-25bd-4a7c-ae70-8c91bb9a7d48",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14796
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "893a4990-c338-4c0d-88e1-d785cdace277",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14797
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "0b523f2a-7e56-44c8-bbb5-ece93becbb2d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14798
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ee42660c-23e7-43b9-8a0e-247bc3808f52",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14799
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "99f4984e-3a17-4528-bec3-552352ab8be6",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14800
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7725e2ae-9638-45ed-b235-2d81c10f9c11",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14801
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "f5aea802-8c31-4278-82e8-267c5cefcec1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14802
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5ae30a18-d61f-4c39-ab70-fed6a2498409",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14803
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "21ab50f4-37c9-498a-9e67-25534170c993",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14804
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "99cf0d17-83a6-499d-be8a-c40caa2ed34a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14805
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "62bdba87-cc8a-4d4e-9d84-7f23bdb65ffc",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14806
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "fbf5a3e1-3580-4923-87ed-0a5b76979a00",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14807
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ba25e1b8-7d8e-444d-836b-fa9dde4b6091",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14808
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c3ce2a2a-decf-4957-b8ce-de936b78a64a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14809
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "2ce48e04-c8be-4b2c-973c-6da24764b983",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14810
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c3033a9f-826f-4bd1-926c-0344f6594938",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14811
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "9ab53958-627e-49f4-8e0f-0932971edfc5",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14812
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7010f785-f738-4050-8b83-5c1e119a030e",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14813
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "3f64ac25-9878-4869-bc5b-913c9c12d238",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14814
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e13c400d-d876-4eb5-b67a-526bb1920ecb",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14815
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "a9f6a228-2491-4b5e-956e-eac42fe5d315",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14816
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "098bacfa-cddf-4e86-81be-b8aef77b8583",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14817
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "fbab07e5-80fc-4743-8d72-536bf2021cfc",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14818
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "b9803cbc-1588-4f70-abac-81c323296628",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14819
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "65f54412-efc1-4f45-a95d-3925bb24f355",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14820
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6b6e5dab-47f8-4022-b125-ea06782886e1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14821
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "743e3870-af36-4a15-ab57-9f517af785ea",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14822
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6d1e3dd6-2ac6-4884-954b-5b6cad768eca",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 15430
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c7d29537-20b8-4519-bc16-618f464cdde2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17199
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c8806696-388c-4e6d-b5b1-51eb3d28288b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17201
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ebbb16cb-3132-491d-842c-79da12e21f39",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17203
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6fa0b203-0130-4c49-8137-5c5ba7bcbc35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17213
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "45aa3ed0-2487-4367-85d8-147cc7aeb353",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17215
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5fc285bb-068b-4503-9f2e-b2b81e7299ce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 80666
+          }
+        }
+      ],
+      "field_location_services": [
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "4c64b358-fded-4b3f-a0bb-eb5edb43f860",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659204,
+            "drupal_internal__target_id": 28200
+          }
+        },
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "c91d4448-9be3-4e96-8fed-b82b09ef507e",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659205,
+            "drupal_internal__target_id": 28201
+          }
+        },
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "f77dd980-c8d6-439d-9acb-93c2d0be28c3",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659206,
+            "drupal_internal__target_id": 84861
+          }
+        }
+      ],
+      "field_media": {
+        "type": "media--image",
+        "id": "4373d6bf-2ca1-42f9-8ace-ecf200142380",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2907
+        }
+      },
+      "field_region_page": {
+        "type": "node--health_care_region_page",
+        "id": "9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 6931
+        }
+      },
+      "field_supplemental_status": null,
+      "field_telephone": {
+        "type": "paragraph--phone_number",
+        "id": "fea26756-5a0a-4d10-8289-e1c0a683da82",
+        "resourceIdObjMeta": {
+          "target_revision_id": 1659207,
+          "drupal_internal__target_id": 170554
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_local_health_care_service_",
+        "field_location_services",
+        "field_media",
+        "field_region_page",
+        "field_supplemental_status",
+        "field_telephone"
+      ]
+    },
+    "field_service_location": [
+      {
+        "type": "paragraph--service_location",
+        "id": "4f27004a-748f-4684-aeca-66b544be6440",
+        "drupal_internal__id": 129386,
+        "drupal_internal__revision_id": 918480,
+        "langcode": "en",
+        "status": true,
+        "created": "2023-03-27T20:06:23+00:00",
+        "parent_id": "54675",
+        "parent_type": "node",
+        "parent_field_name": "field_service_location",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": "2023-04-10T14:51:35+00:00",
+        "field_additional_hours_info": null,
+        "field_appt_intro_text_custom": null,
+        "field_appt_intro_text_type": null,
+        "field_hours": "2",
+        "field_office_hours": [
+          {
+            "day": 1,
+            "all_day": false,
+            "starthours": 900,
+            "endhours": 1530,
+            "comment": ""
+          },
+          {
+            "day": 2,
+            "all_day": false,
+            "starthours": 900,
+            "endhours": 1530,
+            "comment": ""
+          },
+          {
+            "day": 3,
+            "all_day": false,
+            "starthours": 900,
+            "endhours": 1530,
+            "comment": ""
+          },
+          {
+            "day": 4,
+            "all_day": false,
+            "starthours": 900,
+            "endhours": 1530,
+            "comment": ""
+          },
+          {
+            "day": 5,
+            "all_day": false,
+            "starthours": 900,
+            "endhours": 1530,
+            "comment": ""
+          }
+        ],
+        "field_office_visits": null,
+        "field_online_scheduling_avail": null,
+        "field_use_facility_phone_number": null,
+        "field_use_main_facility_phone": false,
+        "field_virtual_support": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/4f27004a-748f-4684-aeca-66b544be6440?resourceVersion=id%3A918480"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 918480,
+          "drupal_internal__target_id": 129386
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "service_location"
+          }
+        },
+        "field_email_contacts": [],
+        "field_other_phone_numbers": [],
+        "field_phone": [
+          {
+            "type": "paragraph--phone_number",
+            "id": "fcb69b45-2870-4d8d-89b3-a74613e7007f",
+            "resourceIdObjMeta": {
+              "target_revision_id": 918478,
+              "drupal_internal__target_id": 130372
+            }
+          }
+        ],
+        "field_service_location_address": {
+          "type": "paragraph--service_location_address",
+          "id": "6f8372fa-b54f-4057-a4e8-390cf899135a",
+          "resourceIdObjMeta": {
+            "target_revision_id": 918479,
+            "drupal_internal__target_id": 129385
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type",
+          "field_email_contacts",
+          "field_other_phone_numbers",
+          "field_phone",
+          "field_service_location_address"
+        ]
+      }
+    ],
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_service_name_and_descripti",
+      "field_administration",
+      "field_facility_location",
+      "field_service_location"
+    ]
+  },
+  {
+    "type": "node--vha_facility_nonclinical_service",
+    "id": "f774375b-fef1-4fe3-8650-55a0433809e9",
+    "drupal_internal__nid": 44734,
+    "drupal_internal__vid": 765875,
+    "langcode": "en",
+    "revision_timestamp": "2022-03-30T19:36:00+00:00",
+    "revision_log": "Updated location and hours",
+    "status": false,
+    "title": "Billing and insurance - Richmond VA Medical Center",
+    "created": "2022-03-30T19:34:02+00:00",
+    "changed": "2023-04-21T16:05:25+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care",
+        "title": "VA Richmond Health Care",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations",
+        "title": "Locations",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations/richmond-va-medical-center",
+        "title": "Richmond VA Medical Center",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations/richmond-va-medical-center/billing-and-insurance",
+        "title": "Billing and Insurance - Richmond VA Medical Center",
+        "options": []
+      }
+    ],
+    "moderation_state": "draft",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [],
+    "path": {
+      "alias": "/richmond-health-care/locations/richmond-va-medical-center/billing-and-insurance",
+      "pid": 58655,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_last_saved_by_an_editor": null,
+    "field_vamc_nonclin_appt_default": null,
+    "field_enforce_unique_combo_offic": false,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vha_facility_nonclinical_service/f774375b-fef1-4fe3-8650-55a0433809e9?resourceVersion=id%3A765875"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "d9783f56-2ebf-4885-8deb-69bb0ff2b2e7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "vha_facility_nonclinical_service"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "6eb7cb03-f112-4b20-9e62-c6e04b0f5789",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1499
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "6eb7cb03-f112-4b20-9e62-c6e04b0f5789",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1499
+      }
+    },
+    "field_service_name_and_descripti": {
+      "type": "taxonomy_term--health_care_service_taxonomy",
+      "id": "2fce5b8a-1f61-4964-83d4-987e9458c2a8",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1027
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "faa562e5-c603-4674-aec8-49e376ae1de1",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 221
+      }
+    },
+    "field_facility_location": {
+      "type": "node--health_care_local_facility",
+      "id": "c83f30b8-9887-454c-b5d8-66cb865e5549",
+      "drupal_internal__nid": 2030,
+      "drupal_internal__vid": 987678,
+      "langcode": "en",
+      "revision_timestamp": "2025-02-20T12:12:59+00:00",
+      "revision_log": "Changed back to regular hours.",
+      "status": true,
+      "title": "Richmond VA Medical Center",
+      "created": "2019-10-31T19:56:02+00:00",
+      "changed": "2025-06-20T14:37:02+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care",
+          "title": "VA Richmond health care",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "SERVICES AND LOCATIONS",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care/locations",
+          "title": "Locations",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Richmond VA Medical Center",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [],
+      "path": {
+        "alias": "/richmond-health-care/locations/richmond-va-medical-center",
+        "pid": 2757,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_address": {
+        "langcode": "en",
+        "country_code": "US",
+        "administrative_area": "VA",
+        "locality": "Richmond",
+        "dependent_locality": null,
+        "postal_code": "23249-4915",
+        "address_line1": "1201 Broad Rock Boulevard",
+        "additional_name": null
+      },
+      "field_description": "Get address and hours, parking and transportation information, and health services offered at Richmond VA Medical Center, formerly known as Hunter Holmes McGuire Hospital.",
+      "field_facility_classification": "1",
+      "field_facility_locator_api_id": "vha_652",
+      "field_geolocation": {
+        "value": "POINT (-77.47035097 37.49792643)",
+        "geo_type": "Point",
+        "lat": 37.49792643,
+        "lon": -77.47035097,
+        "left": -77.47035097,
+        "top": 37.49792643,
+        "right": -77.47035097,
+        "bottom": 37.49792643,
+        "geohash": "dq8vm47c3bpkp0",
+        "latlon": "37.49792643,-77.47035097"
+      },
+      "field_intro_text": null,
+      "field_last_saved_by_an_editor": "2025-02-20T12:13:05+00:00",
+      "field_main_location": true,
+      "field_meta_tags": null,
+      "field_mobile": false,
+      "field_office_hours": [
+        {
+          "day": 1,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 2,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 3,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 4,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 5,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 6,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        },
+        {
+          "day": 0,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "24/7"
+        }
+      ],
+      "field_operating_status_facility": "normal",
+      "field_operating_status_more_info": null,
+      "field_phone_number": "804-675-5000",
+      "field_supplemental_status_more_i": null,
+      "field_timezone": "America/New_York",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_facility/c83f30b8-9887-454c-b5d8-66cb865e5549?resourceVersion=id%3A987678"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2030
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "5ecbcf0c-b701-49d5-a47e-08803d42dd80",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_local_facility"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "3270285a-cc94-4cf9-bc6c-a36f3d8104c3",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 5038
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "faa562e5-c603-4674-aec8-49e376ae1de1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 221
+        }
+      },
+      "field_local_health_care_service_": [
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e96e29cb-4067-4536-9cc9-a30cbb1c7464",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14776
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "d6ac0fa3-062c-47bb-afad-cfa5eae6c2a0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14777
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "f2723694-28cb-4204-8289-ad1ce97e0e64",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14778
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ae94ddea-4420-416d-a893-f6ffe5f78a03",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14779
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "eb6ef36e-f5ef-4fc5-9937-0caab1719be2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14780
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "07e6f41e-fe05-4219-9a8e-80283a6a9686",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14781
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "2841d583-a323-4067-8cd0-f92f8330d909",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14782
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "0812ac0b-ccfb-46b1-81df-0b499e2686aa",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14783
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "564eeb2a-ad2f-4c1f-918b-e683ad014fa7",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14784
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "98a004e1-2087-4a7c-bff6-d1c0f81f1934",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14785
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7eff89db-002b-4de9-9f68-993fa1034937",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14786
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e3691b5b-5771-4313-859c-3503b5545fa9",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14787
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "73938335-84b6-485f-9e1b-ecdec46f9cce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14788
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "a8b96b6e-be39-46af-a03d-7a5f830a4a12",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14789
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "dca87e85-5102-459d-812c-7437ec37df14",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14790
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "824de134-e386-4297-a1f7-f03fcab729ec",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14791
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "980a8c89-65d2-4612-9c23-46c68237edec",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14792
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6b6867ba-9318-4571-9632-7b09b9038780",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14793
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "50f1171e-317a-49ad-a1a7-a66675c640c8",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14794
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "aa4c29e8-fa6b-4996-b968-9492fc928637",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14795
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "4c3bf11a-25bd-4a7c-ae70-8c91bb9a7d48",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14796
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "893a4990-c338-4c0d-88e1-d785cdace277",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14797
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "0b523f2a-7e56-44c8-bbb5-ece93becbb2d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14798
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ee42660c-23e7-43b9-8a0e-247bc3808f52",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14799
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "99f4984e-3a17-4528-bec3-552352ab8be6",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14800
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7725e2ae-9638-45ed-b235-2d81c10f9c11",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14801
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "f5aea802-8c31-4278-82e8-267c5cefcec1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14802
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5ae30a18-d61f-4c39-ab70-fed6a2498409",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14803
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "21ab50f4-37c9-498a-9e67-25534170c993",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14804
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "99cf0d17-83a6-499d-be8a-c40caa2ed34a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14805
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "62bdba87-cc8a-4d4e-9d84-7f23bdb65ffc",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14806
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "fbf5a3e1-3580-4923-87ed-0a5b76979a00",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14807
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ba25e1b8-7d8e-444d-836b-fa9dde4b6091",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14808
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c3ce2a2a-decf-4957-b8ce-de936b78a64a",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14809
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "2ce48e04-c8be-4b2c-973c-6da24764b983",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14810
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c3033a9f-826f-4bd1-926c-0344f6594938",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14811
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "9ab53958-627e-49f4-8e0f-0932971edfc5",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14812
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "7010f785-f738-4050-8b83-5c1e119a030e",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14813
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "3f64ac25-9878-4869-bc5b-913c9c12d238",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14814
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e13c400d-d876-4eb5-b67a-526bb1920ecb",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14815
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "a9f6a228-2491-4b5e-956e-eac42fe5d315",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14816
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "098bacfa-cddf-4e86-81be-b8aef77b8583",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14817
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "fbab07e5-80fc-4743-8d72-536bf2021cfc",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14818
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "b9803cbc-1588-4f70-abac-81c323296628",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14819
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "65f54412-efc1-4f45-a95d-3925bb24f355",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14820
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6b6e5dab-47f8-4022-b125-ea06782886e1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14821
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "743e3870-af36-4a15-ab57-9f517af785ea",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 14822
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6d1e3dd6-2ac6-4884-954b-5b6cad768eca",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 15430
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c7d29537-20b8-4519-bc16-618f464cdde2",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17199
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c8806696-388c-4e6d-b5b1-51eb3d28288b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17201
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "ebbb16cb-3132-491d-842c-79da12e21f39",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17203
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6fa0b203-0130-4c49-8137-5c5ba7bcbc35",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17213
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "45aa3ed0-2487-4367-85d8-147cc7aeb353",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 17215
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5fc285bb-068b-4503-9f2e-b2b81e7299ce",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 80666
+          }
+        }
+      ],
+      "field_location_services": [
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "4c64b358-fded-4b3f-a0bb-eb5edb43f860",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659204,
+            "drupal_internal__target_id": 28200
+          }
+        },
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "c91d4448-9be3-4e96-8fed-b82b09ef507e",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659205,
+            "drupal_internal__target_id": 28201
+          }
+        },
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "f77dd980-c8d6-439d-9acb-93c2d0be28c3",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1659206,
+            "drupal_internal__target_id": 84861
+          }
+        }
+      ],
+      "field_media": {
+        "type": "media--image",
+        "id": "4373d6bf-2ca1-42f9-8ace-ecf200142380",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 2907
+        }
+      },
+      "field_region_page": {
+        "type": "node--health_care_region_page",
+        "id": "9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 6931
+        }
+      },
+      "field_supplemental_status": null,
+      "field_telephone": {
+        "type": "paragraph--phone_number",
+        "id": "fea26756-5a0a-4d10-8289-e1c0a683da82",
+        "resourceIdObjMeta": {
+          "target_revision_id": 1659207,
+          "drupal_internal__target_id": 170554
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_local_health_care_service_",
+        "field_location_services",
+        "field_media",
+        "field_region_page",
+        "field_supplemental_status",
+        "field_telephone"
+      ]
+    },
+    "field_service_location": [
+      {
+        "type": "paragraph--service_location",
+        "id": "2ffa58b4-01ef-4ac7-9830-7b870168a3dd",
+        "drupal_internal__id": 106750,
+        "drupal_internal__revision_id": 621933,
+        "langcode": "en",
+        "status": true,
+        "created": "2022-03-30T19:34:02+00:00",
+        "parent_id": "44734",
+        "parent_type": "node",
+        "parent_field_name": "field_service_location",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_additional_hours_info": "Hours: Monday through Friday, 8:00 a.m. to 4:30 p.m. ET",
+        "field_appt_intro_text_custom": null,
+        "field_appt_intro_text_type": null,
+        "field_hours": "1",
+        "field_office_hours": [],
+        "field_office_visits": null,
+        "field_online_scheduling_avail": null,
+        "field_use_facility_phone_number": null,
+        "field_use_main_facility_phone": true,
+        "field_virtual_support": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/2ffa58b4-01ef-4ac7-9830-7b870168a3dd?resourceVersion=id%3A621933"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 621933,
+          "drupal_internal__target_id": 106750
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "service_location"
+          }
+        },
+        "field_email_contacts": [],
+        "field_other_phone_numbers": [],
+        "field_phone": [],
+        "field_service_location_address": {
+          "type": "paragraph--service_location_address",
+          "id": "c8536cbf-9632-4796-a76f-42fa2f2d7401",
+          "resourceIdObjMeta": {
+            "target_revision_id": 621932,
+            "drupal_internal__target_id": 106749
+          }
+        },
+        "relationshipNames": [
+          "paragraph_type",
+          "field_email_contacts",
+          "field_other_phone_numbers",
+          "field_phone",
+          "field_service_location_address"
+        ]
+      }
+    ],
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_service_name_and_descripti",
+      "field_administration",
+      "field_facility_location",
+      "field_service_location"
+    ]
+  }
+]
