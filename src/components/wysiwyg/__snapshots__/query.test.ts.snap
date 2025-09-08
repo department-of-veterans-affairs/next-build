@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`paragraph--rich_text_char_limit_1000 formatData outputs formatted data 1`] = `
 [

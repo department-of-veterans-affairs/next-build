@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_office,field_featured_content_healthser&fields[node--health_care_region_page]=field_vamc_ehr_system,field_system_menu&fields[paragraph--link_teaser]=field_link,field_link_summary"`;
 

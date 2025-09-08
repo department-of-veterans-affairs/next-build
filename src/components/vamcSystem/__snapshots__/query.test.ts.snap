@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_media,field_media.image,field_administration,field_related_links,field_related_links.field_va_paragraphs"`;
 
