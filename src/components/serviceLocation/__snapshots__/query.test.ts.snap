@@ -6,7 +6,17 @@ exports[`paragraph--link_teaser formatData outputs formatted data 1`] = `
   "appointmentPhoneNumbers": [],
   "apptIntroTextCustom": null,
   "apptIntroTextType": null,
-  "contactInfoPhoneNumbers": [],
+  "contactInfoPhoneNumbers": [
+    {
+      "entityId": 108757,
+      "extension": "33323590",
+      "id": "db51eda3-8e6d-4db6-b37a-42df708aee0f",
+      "label": "Enrollment and Eligibility Office",
+      "number": "304-623-3461",
+      "phoneType": "tel",
+      "type": "paragraph--phone_number",
+    },
+  ],
   "emailContacts": [],
   "hours": "2",
   "id": "db17ae15-110c-4fa7-a1ba-d27680eb2c23",

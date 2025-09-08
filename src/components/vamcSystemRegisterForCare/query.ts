@@ -1,8 +1,14 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeVamcSystemRegisterForCare, NodeVhaFacilityNonclinicalService } from '@/types/drupal/node'
+import {
+  NodeVamcSystemRegisterForCare,
+  NodeVhaFacilityNonclinicalService,
+} from '@/types/drupal/node'
 import { VamcSystemRegisterForCare } from './formatted-type'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
@@ -21,6 +27,7 @@ import { FieldCCText } from '@/types/drupal/field_type'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { getNestedIncludes } from '@/lib/utils/queries'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
@@ -28,7 +35,10 @@ export const params: QueryParams<null> = () => {
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE)
     .addInclude([
       'field_office',
-      // TODO: Add more includes as needed
+      ...getNestedIncludes(
+        'field_service_location',
+        PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION
+      ),
     ])
 }
 
@@ -119,7 +129,7 @@ export const formatter: QueryFormatter<
     title: service.field_facility_location.title,
     path: service.field_service_location[0],
   }))
-  console.log('formattedServices', formattedServices)
+  // console.log('formattedServices', formattedServices)
 
   return {
     ...entityBaseFields(entity),
