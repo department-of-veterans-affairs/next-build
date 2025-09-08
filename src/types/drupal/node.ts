@@ -484,7 +484,10 @@ export interface NodeVbaService extends DrupalNode {
 
 export interface NodeVhaFacilityNonclinicalService extends DrupalNode {
   status: boolean
-  field_facility_location: Pick<NodeHealthCareLocalFacility, 'id' | 'title'>
+  field_facility_location: Pick<
+    NodeHealthCareLocalFacility,
+    'id' | 'title' | 'path'
+  >
   field_service_location: ParagraphServiceLocation[]
 }
 

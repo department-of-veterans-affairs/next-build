@@ -15,28 +15,7 @@
     "sticky": false,
     "default_langcode": true,
     "revision_translation_affected": true,
-    "breadcrumbs": [
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-        "title": "Home",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/chillicothe-health-care",
-        "title": "VA Chillicothe Health Care",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/chillicothe-health-care/locations",
-        "title": "Locations",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/chillicothe-health-care/locations/chillicothe-va-medical-center-0",
-        "title": "- Chillicothe VA Medical Center",
-        "options": []
-      }
-    ],
+    "breadcrumbs": [],
     "moderation_state": "draft",
     "expiration_date": null,
     "warning_date": null,
@@ -100,136 +79,11 @@
       "sticky": false,
       "default_langcode": true,
       "revision_translation_affected": true,
-      "breadcrumbs": [
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-          "title": "Home",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/chillicothe-health-care",
-          "title": "VA Chillicothe health care",
-          "options": []
-        },
-        {
-          "uri": "internal:#",
-          "title": "SERVICES AND LOCATIONS",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/chillicothe-health-care/locations",
-          "title": "Locations",
-          "options": []
-        },
-        {
-          "uri": "internal:#",
-          "title": "Chillicothe VA Medical Center",
-          "options": []
-        }
-      ],
+      "breadcrumbs": [],
       "moderation_state": "published",
       "expiration_date": null,
       "warning_date": null,
-      "metatag": [
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "title",
-            "content": "Chillicothe VA Medical Center | VA Chillicothe health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Chillicothe VA Medical Center."
-          }
-        },
-        {
-          "tag": "link",
-          "attributes": {
-            "rel": "image_src",
-            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:site_name",
-            "content": "Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:title",
-            "content": "Chillicothe VA Medical Center | VA Chillicothe health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Chillicothe VA Medical Center."
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:image",
-            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2023-02/B31%20Aerial_2022.png"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:image:alt",
-            "content": "Chillicothe VA campus"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:card",
-            "content": "summary_large_image"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:title",
-            "content": "Chillicothe VA Medical Center | VA Chillicothe health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Chillicothe VA Medical Center."
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:site",
-            "content": "@DeptVetAffairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:image:alt",
-            "content": "Chillicothe VA campus"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:image",
-            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2023-02/B31%20Aerial_2022.png"
-          }
-        }
-      ],
+      "metatag": [],
       "path": {
         "alias": "/chillicothe-health-care/locations/chillicothe-va-medical-center",
         "pid": 2082,
@@ -726,33 +580,7 @@
     "sticky": false,
     "default_langcode": true,
     "revision_translation_affected": true,
-    "breadcrumbs": [
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-        "title": "Home",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/albany-health-care",
-        "title": "VA Albany Health Care",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/albany-health-care/locations",
-        "title": "Locations",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/albany-health-care/locations/samuel-s-stratton-department-of-veterans-affairs-medical-center",
-        "title": "Samuel S. Stratton Department of Veterans Affairs Medical Center",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/albany-health-care/locations/samuel-s-stratton-department-of-veterans-affairs-medical-center/billing-and-insurance",
-        "title": "Billing and Insurance - Samuel S. Stratton Department of Veterans Affairs Medical Center",
-        "options": []
-      }
-    ],
+    "breadcrumbs": [],
     "moderation_state": "draft",
     "expiration_date": null,
     "warning_date": null,
@@ -816,136 +644,11 @@
       "sticky": false,
       "default_langcode": true,
       "revision_translation_affected": true,
-      "breadcrumbs": [
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-          "title": "Home",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/albany-health-care",
-          "title": "VA Albany health care",
-          "options": []
-        },
-        {
-          "uri": "internal:#",
-          "title": "SERVICES AND LOCATIONS",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/albany-health-care/locations",
-          "title": "Locations",
-          "options": []
-        },
-        {
-          "uri": "internal:#",
-          "title": "Samuel S. Stratton Department of Veterans Affairs Medical Center",
-          "options": []
-        }
-      ],
+      "breadcrumbs": [],
       "moderation_state": "published",
       "expiration_date": null,
       "warning_date": null,
-      "metatag": [
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "title",
-            "content": "Samuel S. Stratton Department of Veterans Affairs Medical Center | VA Albany health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Samuel S. Stratton VA Medical Center."
-          }
-        },
-        {
-          "tag": "link",
-          "attributes": {
-            "rel": "image_src",
-            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:site_name",
-            "content": "Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:title",
-            "content": "Samuel S. Stratton Department of Veterans Affairs Medical Center | VA Albany health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Samuel S. Stratton VA Medical Center."
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:image",
-            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-02/Samuel%20S.%20Stratton%20Department%20of%20Veterans%20Affairs%20Medical%20Center.jpg"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:image:alt",
-            "content": "Samuel S. Stratton Department of Veterans Affairs Medical Center"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:card",
-            "content": "summary_large_image"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:title",
-            "content": "Samuel S. Stratton Department of Veterans Affairs Medical Center | VA Albany health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Samuel S. Stratton VA Medical Center."
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:site",
-            "content": "@DeptVetAffairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:image:alt",
-            "content": "Samuel S. Stratton Department of Veterans Affairs Medical Center"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:image",
-            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-02/Samuel%20S.%20Stratton%20Department%20of%20Veterans%20Affairs%20Medical%20Center.jpg"
-          }
-        }
-      ],
+      "metatag": [],
       "path": {
         "alias": "/albany-health-care/locations/samuel-s-stratton-department-of-veterans-affairs-medical-center",
         "pid": 2013,
@@ -1623,33 +1326,7 @@
     "sticky": false,
     "default_langcode": true,
     "revision_translation_affected": true,
-    "breadcrumbs": [
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-        "title": "Home",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/clarksburg-health-care",
-        "title": "VA Clarksburg Health Care",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/clarksburg-health-care/locations",
-        "title": "Locations",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/clarksburg-health-care/locations/louis-a-johnson-veterans-administration-medical-center",
-        "title": "Louis A. Johnson Veterans' Administration Medical Center",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/clarksburg-health-care/locations/louis-a-johnson-veterans-administration-medical-center/register-for-care",
-        "title": "Register For Care - Louis A. Johnson Veterans' Administration Medical Center",
-        "options": []
-      }
-    ],
+    "breadcrumbs": [],
     "moderation_state": "draft",
     "expiration_date": null,
     "warning_date": null,
@@ -1713,136 +1390,11 @@
       "sticky": false,
       "default_langcode": true,
       "revision_translation_affected": true,
-      "breadcrumbs": [
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-          "title": "Home",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/clarksburg-health-care",
-          "title": "VA Clarksburg health care",
-          "options": []
-        },
-        {
-          "uri": "internal:#",
-          "title": "SERVICES AND LOCATIONS",
-          "options": []
-        },
-        {
-          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/clarksburg-health-care/locations",
-          "title": "Locations",
-          "options": []
-        },
-        {
-          "uri": "internal:#",
-          "title": "Louis A. Johnson Veterans' Administration Medical Center",
-          "options": []
-        }
-      ],
+      "breadcrumbs": [],
       "moderation_state": "published",
       "expiration_date": null,
       "warning_date": null,
-      "metatag": [
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "title",
-            "content": "Louis A. Johnson Veterans' Administration Medical Center | VA Clarksburg health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Louis A. Johnson Veterans' Administration Medical Center"
-          }
-        },
-        {
-          "tag": "link",
-          "attributes": {
-            "rel": "image_src",
-            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:site_name",
-            "content": "Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:title",
-            "content": "Louis A. Johnson Veterans' Administration Medical Center | VA Clarksburg health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Louis A. Johnson Veterans' Administration Medical Center"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:image",
-            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-09/Ariel%20view%202022%20-%20closer96.1.jpg"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "property": "og:image:alt",
-            "content": "Louis A. Johnson Veterans Affairs Medical Center - front of building and parking area"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:card",
-            "content": "summary_large_image"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:title",
-            "content": "Louis A. Johnson Veterans' Administration Medical Center | VA Clarksburg health care | Veterans Affairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:description",
-            "content": "Get address and hours, parking and transportation information, and health services offered at Louis A. Johnson Veterans' Administration Medical Center"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:site",
-            "content": "@DeptVetAffairs"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:image:alt",
-            "content": "Louis A. Johnson Veterans Affairs Medical Center - front of building and parking area"
-          }
-        },
-        {
-          "tag": "meta",
-          "attributes": {
-            "name": "twitter:image",
-            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2024-09/Ariel%20view%202022%20-%20closer96.1.jpg"
-          }
-        }
-      ],
+      "metatag": [],
       "path": {
         "alias": "/clarksburg-health-care/locations/louis-a-johnson-veterans-administration-medical-center",
         "pid": 2102,

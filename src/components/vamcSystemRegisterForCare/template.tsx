@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from './formatted-type'
 import { ContentFooter } from '../contentFooter/template'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '../wysiwyg/template'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/template'
+import { ServiceLocation } from '../serviceLocation/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -19,6 +20,7 @@ export const VamcSystemRegisterForCare = ({
   topOfPageContent,
   bottomOfPageContent,
   relatedLinks,
+  services,
 }: FormattedVamcSystemRegisterForCare) => {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -60,8 +62,19 @@ export const VamcSystemRegisterForCare = ({
                 <Wysiwyg {...topOfPageContent} />
               </div>
 
-              {/* TODO: Facilities offering non-clinical service */}
-              <div>TODO: Facilities offering non-clinical service</div>
+              {services.map((service) => (
+                <Fragment key={service.id}>
+                  <h2>
+                    <va-link href={service.path} text={service.title}></va-link>
+                  </h2>
+                  {service.serviceLocations.map((serviceLocation) => (
+                    <ServiceLocation
+                      key={serviceLocation.id}
+                      location={serviceLocation}
+                    />
+                  ))}
+                </Fragment>
+              ))}
 
               <Wysiwyg {...bottomOfPageContent} />
 

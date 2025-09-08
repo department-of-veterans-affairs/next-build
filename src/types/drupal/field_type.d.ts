@@ -48,6 +48,8 @@ export interface FieldOfficeHours {
   starthours?: number
   /** End time in military format (0–2359) or undefined; special values (0=midnight, 1200=noon). */
   endhours?: number
+  /** Indicates if the office is open all day. */
+  all_day?: boolean
   /** Optional comment about the day's hours (e.g., "Closed for lunch"). */
   comment?: string
 }

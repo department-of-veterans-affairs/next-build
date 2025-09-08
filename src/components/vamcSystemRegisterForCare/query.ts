@@ -28,29 +28,23 @@ import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTea
 import { drupalClient } from '@/lib/drupal/drupalClient'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE)
-    .addInclude([
-      'field_office',
-      ...getNestedIncludes(
-        'field_service_location',
-        PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION
-      ),
-    ])
+    .addInclude(['field_office'])
 }
 
 export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
   return new DrupalJsonApiParams()
     .addInclude([
       'field_facility_location',
-      'field_service_location',
-      'field_service_location.field_service_location_address',
-      'field_service_location.field_other_phone_numbers',
-      'field_service_location.field_phone',
-      'field_service_location.field_email_contacts',
+      ...getNestedIncludes(
+        'field_service_location',
+        PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION
+      ),
     ])
     .addFilter('field_facility_location.field_region_page.id', vamcSystemId)
 }
@@ -126,10 +120,11 @@ export const formatter: QueryFormatter<
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
   const formattedServices = services.map((service) => ({
+    id: service.id,
     title: service.field_facility_location.title,
-    path: service.field_service_location[0],
+    path: service.field_facility_location.path.alias,
+    serviceLocations: service.field_service_location.map(formatServiceLocation),
   }))
-  // console.log('formattedServices', formattedServices)
 
   return {
     ...entityBaseFields(entity),
@@ -146,5 +141,6 @@ export const formatter: QueryFormatter<
     relatedLinks: formatListOfLinkTeasers(
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
+    services: formattedServices,
   }
 }
