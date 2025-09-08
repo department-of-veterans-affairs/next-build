@@ -117,11 +117,8 @@ export function VamcHealthServicesListing({
             </div>
 
             <va-back-to-top />
-
-            {/* TODO: Add above footer elements here */}
-            <p>TODO: Add above footer elements here</p>
+            <ContentFooter />
           </article>
-          <ContentFooter />
         </div>
       </div>
     </main>
