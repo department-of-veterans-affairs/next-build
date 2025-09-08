@@ -2,7 +2,7 @@ import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 import { Hours } from '@/components/hours/template'
-import { VamcFacilityServiceLocation } from '@/components/healthCareLocalFacility/formatted-type'
+import { VamcFacilityServiceLocation } from '@/components/vamcFacility/formatted-type'
 
 export const ServiceLocation = ({
   fieldReferralRequired,

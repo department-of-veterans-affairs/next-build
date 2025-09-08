@@ -1,5 +1,6 @@
 import { ServiceLocation } from '@/components/serviceLocation/template'
 import { VbaFacilityService } from './formatted-type'
+import { slugifyString } from '@/lib/utils/slug'
 
 export const VbaFacilityServiceGroup = ({
   heading,
@@ -25,6 +26,7 @@ export const VbaFacilityServiceGroup = ({
               level={3}
               bordered
               data-testid="service-accordion-item"
+              id={slugifyString(service.name)}
             >
               <p>{service.serviceDescription}</p>
               {service.onlineSelfService && (

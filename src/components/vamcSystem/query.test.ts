@@ -4,7 +4,7 @@
 
 import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/vamcSystem/mock.json'
-import mockFacilityData from '../healthCareLocalFacility/mock'
+import mockFacilityData from '../vamcFacility/mock'
 import mockStoryData from '@/components/newsStory/mock.json'
 import mockEventData from '@/components/event/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'

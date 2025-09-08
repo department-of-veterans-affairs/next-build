@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
 import { HealthServices } from './HealthServices'
-import { FormattedVAMCFacilityHealthService } from '../formatted-type'
+import { VamcFacilityHealthService } from '../formatted-type'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 
@@ -11,7 +11,7 @@ jest.mock('@/components/serviceLocation/template', () => ({
 }))
 
 describe('HealthServices', () => {
-  const mockHealthServices: FormattedVAMCFacilityHealthService[] = [
+  const mockHealthServices: VamcFacilityHealthService[] = [
     {
       name: 'Primary Care',
       fieldAlsoKnownAs: 'General Medicine',
@@ -115,7 +115,7 @@ describe('HealthServices', () => {
   })
 
   it('does not render common conditions when they are not present', () => {
-    const mockServiceWithoutConditions: FormattedVAMCFacilityHealthService[] = [
+    const mockServiceWithoutConditions: VamcFacilityHealthService[] = [
       {
         name: 'Dental',
         entityId: 3,

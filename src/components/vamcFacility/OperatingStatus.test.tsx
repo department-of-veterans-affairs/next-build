@@ -7,7 +7,7 @@ const mockData: ComponentProps<typeof OperatingStatusFlags> = {
   basePath: '/test-nav-path',
 }
 
-describe('HealthCareLocalFacility OperatingStatusFlags', () => {
+describe('VamcFacility OperatingStatusFlags', () => {
   test('Renders null for normal status', () => {
     const { container } = render(<OperatingStatusFlags {...mockData} />)
     expect(container).toBeEmptyDOMElement()

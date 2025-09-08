@@ -17,7 +17,7 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 import { EmailContact } from '@/components/contactInfo/formatted-type'
 import { VamcSystemSocialLinks } from '../vamcSystem/formatted-type'
 
-export type HealthCareLocalFacility = PublishedEntity & {
+export type VamcFacility = PublishedEntity & {
   introText: string | null
   operatingStatusFacility: FacilityOperatingStatusFlags
   menu: SideNavMenu | null
@@ -51,7 +51,7 @@ export type HealthCareLocalFacility = PublishedEntity & {
   socialLinks: VamcSystemSocialLinks
   lovellVariant?: LovellChildVariant
   lovellSwitchPath?: string
-  healthServices: FormattedVAMCFacilityHealthService[]
+  healthServices: VamcFacilityHealthService[]
 }
 
 /** Represents the "single" object containing service-related fields. */
@@ -104,7 +104,7 @@ export interface VamcFacilityServiceLocation {
   fieldServiceLocationAddress?: ParagraphServiceLocationAddress
 }
 
-export interface FormattedVAMCFacilityHealthService {
+export interface VamcFacilityHealthService {
   /** Name of the service taxonomy for the regional health service. */
   name: string
   /** Comes from the service taxonomy of the regional health service. */

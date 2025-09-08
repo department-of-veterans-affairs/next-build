@@ -2,11 +2,11 @@ import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { NodeHealthCareRegionPage } from '@/types/drupal/node'
 import { Administration } from '@/components/administration/formatted-type'
-import { HealthCareLocalFacility } from '../healthCareLocalFacility/formatted-type'
+import { VamcFacility } from '../vamcFacility/formatted-type'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 export type MinimalLocalFacility = Pick<
-  HealthCareLocalFacility,
+  VamcFacility,
   | 'title'
   | 'path'
   | 'operatingStatusFacility'

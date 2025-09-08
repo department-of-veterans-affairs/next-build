@@ -52,7 +52,7 @@ import { ResourcesSupport as FormattedResourcesSupport } from '../components/res
 import { StaffProfile as FormattedStaffProfile } from '../components/staffProfile/formatted-type'
 import { StoryListing as FormattedStoryListing } from '../components/storyListing/formatted-type'
 import { VetCenter as FormattedVetCenter } from '../components/vetCenter/formatted-type'
-import { HealthCareLocalFacility as FormattedHealthCareLocalFacility } from '../components/healthCareLocalFacility/formatted-type'
+import { VamcFacility as FormattedVamcFacility } from '../components/vamcFacility/formatted-type'
 import { VamcSystem as FormattedVamcSystem } from '../components/vamcSystem/formatted-type'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/formatted-type'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '../components/vamcSystemVaPolice/formatted-type'
@@ -77,7 +77,7 @@ import { StaffProfile } from '../components/staffProfile/template'
 import { StoryListing } from '../components/storyListing/template'
 import { VetCenter } from '../components/vetCenter/template'
 import { PageLayout, PageLayoutProps } from '@/components/pageLayout/template'
-import { HealthCareLocalFacility } from '../components/healthCareLocalFacility/template'
+import { VamcFacility } from '../components/vamcFacility/template'
 import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '../components/vamcSystem/template'
 import { VamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/template'
@@ -145,10 +145,19 @@ export default function ResourcePage({
       | entityId: ${resource?.entityId || 'N/A'}
       |
     `
-
+  let contentBanner = []
+  if ('banner' in resource && resource.banner && resource.banner.showBanner) {
+    contentBanner = [
+      {
+        ...resource.banner,
+        id: 'contentBanner',
+        type: 'banner',
+      },
+    ]
+  }
   return (
     <PageLayout
-      bannerData={bannerData}
+      bannerData={[...bannerData, ...contentBanner]}
       footerData={footerData}
       megaMenuData={megaMenuData}
       preview={preview}
@@ -203,9 +212,7 @@ export default function ResourcePage({
             <VetCenter {...(resource as FormattedVetCenter)} />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_FACILITY && (
-            <HealthCareLocalFacility
-              {...(resource as FormattedHealthCareLocalFacility)}
-            />
+            <VamcFacility {...(resource as FormattedVamcFacility)} />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM && (
             <VamcSystem {...(resource as FormattedVamcSystem)} />

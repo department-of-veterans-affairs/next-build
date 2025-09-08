@@ -1,4 +1,4 @@
-import { FormattedVAMCFacilityHealthService } from '../formatted-type'
+import { VamcFacilityHealthService } from '../formatted-type'
 import { ServiceLocation } from '@/components/serviceLocation/template'
 import { hashReference } from '@/lib/utils/hashReference'
 import { PhoneNumber } from '@/components/phoneNumber/formatted-type'
@@ -8,7 +8,7 @@ export const HealthServices = ({
   mentalHealthPhoneNumber,
   mainPhoneString,
 }: {
-  healthServices: FormattedVAMCFacilityHealthService[]
+  healthServices: VamcFacilityHealthService[]
   mentalHealthPhoneNumber: PhoneNumber
   mainPhoneString: string
 }) => {

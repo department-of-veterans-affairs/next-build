@@ -194,6 +194,16 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
       : null,
     prepareForVisit: entity.field_prepare_for_visit.map(formatAccordionItem),
     phoneNumber: entity.field_phone_number,
+    banner: {
+      showBanner: entity.field_show_banner || false,
+      alertType: entity.field_alert_type,
+      title: entity.field_banner_title,
+      body: entity.field_banner_content
+        ? getHtmlFromField(entity.field_banner_content)
+        : null,
+      // Converting to bool like banner query does
+      dismiss: entity.field_dismissible_option === 'dismiss',
+    },
     allServices: services.map((service) => ({
       type: service.field_service_name_and_descripti?.field_vba_type_of_care,
       name: service.field_service_name_and_descripti?.name,

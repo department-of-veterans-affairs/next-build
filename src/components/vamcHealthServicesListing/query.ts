@@ -17,15 +17,22 @@ import {
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { Menu } from '@/types/drupal/menu'
+import { queries } from '@/lib/drupal/queries'
+import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-    .addInclude(['field_administration', 'field_office'])
+    .addInclude([
+      'field_administration',
+      'field_office',
+      'field_featured_content_healthser',
+    ])
     .addFields('node--health_care_region_page', [
       'field_vamc_ehr_system',
       'field_system_menu',
     ])
+    .addFields('paragraph--link_teaser', ['field_link', 'field_link_summary'])
 }
 
 // Define the option types for the data loader.
@@ -94,5 +101,21 @@ export const formatter: QueryFormatter<
     administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
     menu: formattedMenu,
+    featuredContent:
+      entity.field_featured_content_healthser?.map((item) => {
+        const formattedItem = queries.formatData(
+          PARAGRAPH_RESOURCE_TYPES.LINK_TEASER,
+          item
+        )
+
+        // to accomodate undefined values that cause serialization issues
+        // AND preserve the URL preference logic
+        return {
+          ...formattedItem,
+          entityId: formattedItem.entityId || null,
+          parentField: formattedItem.parentField || '',
+          uri: item.field_link?.url || formattedItem.uri,
+        }
+      }) || [],
   }
 }
