@@ -129,7 +129,7 @@
     "msw": "^2.4.9",
     "nock": "^13.5.4",
     "node_extra_ca_certs_mozilla_bundle": "^1.0.7",
-    "npm": "^11.4.2",
+    "npm": "^11.6.0",
     "prettier": "^3.2.5",
     "prettier-eslint": "^16.4.2",
     "ts-morph": "^26.0.0",
