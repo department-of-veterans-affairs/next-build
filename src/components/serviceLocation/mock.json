@@ -1,0 +1,160 @@
+{
+  "type": "paragraph--service_location",
+  "id": "db17ae15-110c-4fa7-a1ba-d27680eb2c23",
+  "drupal_internal__id": 22066,
+  "drupal_internal__revision_id": 180631,
+  "langcode": "en",
+  "status": true,
+  "created": "2020-11-24T18:02:21+00:00",
+  "parent_id": "1033",
+  "parent_type": "node",
+  "parent_field_name": "field_service_location",
+  "behavior_settings": [],
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [],
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "content_translation_changed": null,
+  "field_additional_hours_info": null,
+  "field_appt_intro_text_custom": null,
+  "field_appt_intro_text_type": null,
+  "field_hours": "2",
+  "field_office_hours": [
+    {
+      "day": 1,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "24/7"
+    },
+    {
+      "day": 2,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "24/7"
+    },
+    {
+      "day": 3,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "24/7"
+    },
+    {
+      "day": 4,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "24/7"
+    },
+    {
+      "day": 5,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "24/7"
+    },
+    {
+      "day": 6,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "24/7"
+    },
+    {
+      "day": 0,
+      "all_day": false,
+      "starthours": null,
+      "endhours": null,
+      "comment": "24/7"
+    }
+  ],
+  "field_office_visits": null,
+  "field_online_scheduling_avail": null,
+  "field_use_facility_phone_number": null,
+  "field_use_main_facility_phone": true,
+  "field_virtual_support": null,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/db17ae15-110c-4fa7-a1ba-d27680eb2c23?resourceVersion=id%3A180631"
+    },
+    "working-copy": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/db17ae15-110c-4fa7-a1ba-d27680eb2c23?resourceVersion=rel%3Aworking-copy"
+    }
+  },
+  "paragraph_type": {
+    "type": "paragraphs_type--paragraphs_type",
+    "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "service_location"
+    }
+  },
+  "field_email_contacts": [],
+  "field_other_phone_numbers": [],
+  "field_phone": [],
+  "field_service_location_address": {
+    "type": "paragraph--service_location_address",
+    "id": "e953d9fd-edbf-4b38-9122-6332ab1282ca",
+    "drupal_internal__id": 22065,
+    "drupal_internal__revision_id": 180630,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-11-24T18:02:21+00:00",
+    "parent_id": "22066",
+    "parent_type": "paragraph",
+    "parent_field_name": "field_service_location_address",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": null,
+    "field_clinic_name": null,
+    "field_use_facility_address": true,
+    "field_wing_floor_or_room_number": null,
+    "field_building_name_number": null,
+    "field_address": {
+      "langcode": null,
+      "country_code": "US",
+      "administrative_area": "",
+      "locality": "",
+      "dependent_locality": null,
+      "postal_code": "",
+      "sorting_code": null,
+      "address_line1": "",
+      "address_line2": null
+    },
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location_address/e953d9fd-edbf-4b38-9122-6332ab1282ca?resourceVersion=id%3A180630"
+      },
+      "working-copy": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location_address/e953d9fd-edbf-4b38-9122-6332ab1282ca?resourceVersion=rel%3Aworking-copy"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 180630,
+      "drupal_internal__target_id": 22065
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "service_location_address"
+      }
+    },
+    "relationshipNames": [
+      "paragraph_type"
+    ]
+  },
+  "relationshipNames": [
+    "paragraph_type",
+    "field_email_contacts",
+    "field_other_phone_numbers",
+    "field_phone",
+    "field_service_location_address"
+  ]
+}
