@@ -41,6 +41,17 @@ const nextConfig = {
   },
 
   webpack(webpackConfig) {
+    const externals = [
+      // required if you use native metrics
+      '@datadog/native-metrics',
+      // required if you use profiling
+      '@datadog/pprof',
+      // required if you use Datadog security features
+      '@datadog/native-appsec',
+      '@datadog/native-iast-taint-tracking',
+      '@datadog/native-iast-rewriter',
+    ]
+    webpackConfig.externals.push(...externals)
     return {
       ...webpackConfig,
       optimization: {
