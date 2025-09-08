@@ -59,6 +59,7 @@ import * as LeadershipListing from '../../components/leadershipListing/query'
 import * as VbaFacility from '../../components/vbaFacility/query'
 import * as HealthServicesListing from '../../components/vamcHealthServicesListing/query'
 import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingStatusAndAlerts/query'
+import * as ServiceLocation from '@/components/serviceLocation/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -122,6 +123,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.QA_GROUP]: QaGroup,
   [PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET]: ReactWidget,
   [PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000]: Wysiwyg,
+  [PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION]: ServiceLocation,
   [PARAGRAPH_RESOURCE_TYPES.TABLE]: Table,
   [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
 
