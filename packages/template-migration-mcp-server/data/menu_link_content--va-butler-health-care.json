@@ -1,0 +1,345 @@
+{
+  "title": "menu_link_content:va-butler-health-care Schema",
+  "description": "Describes the payload for 'menu_link_content' entities of the 'va-butler-health-care' bundle.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["menu_link_content--va-butler-health-care"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__id": {
+              "type": "integer",
+              "title": "Entity ID",
+              "description": "The entity ID for this menu link content entity.",
+              "x-nullable": true
+            },
+            "drupal_internal__revision_id": {
+              "type": "integer",
+              "title": "Revision ID",
+              "x-nullable": true
+            },
+            "langcode": {
+              "type": "object",
+              "title": "Language",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The menu link language code.",
+              "x-nullable": true
+            },
+            "revision_created": {
+              "type": "number",
+              "title": "Revision create time",
+              "format": "utc-millisec",
+              "description": "The time that the current revision was created.",
+              "x-nullable": true
+            },
+            "revision_log_message": {
+              "type": "string",
+              "title": "Revision log message",
+              "description": "Briefly describe the changes you have made.",
+              "default": "",
+              "x-nullable": true
+            },
+            "enabled": {
+              "type": "boolean",
+              "title": "Enabled",
+              "description": "A flag for whether the link should be enabled in menus or hidden.",
+              "default": true,
+              "x-nullable": true
+            },
+            "title": {
+              "type": "string",
+              "title": "Menu link title",
+              "maxLength": 255,
+              "description": "The text to be used for this link in the menu."
+            },
+            "description": {
+              "type": "string",
+              "title": "Description",
+              "maxLength": 255,
+              "description": "Shown when hovering over the menu link.",
+              "x-nullable": true
+            },
+            "menu_name": {
+              "type": "string",
+              "title": "Menu name",
+              "maxLength": 255,
+              "description": "The menu name. All links with the same menu name (such as \\\"tools\\\") are part of the same menu.",
+              "default": "tools",
+              "x-nullable": true
+            },
+            "link": {
+              "type": "object",
+              "title": "Link",
+              "properties": {
+                "uri": {
+                  "type": "uri",
+                  "title": "URI"
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Link text"
+                }
+              },
+              "description": "The location this menu link points to."
+            },
+            "external": {
+              "type": "boolean",
+              "title": "External",
+              "description": "A flag to indicate if the link points to a full URL starting with a protocol, like http:// (1 = external, 0 = internal).",
+              "default": false,
+              "x-nullable": true
+            },
+            "rediscover": {
+              "type": "boolean",
+              "title": "Indicates whether the menu link should be rediscovered",
+              "default": false,
+              "x-nullable": true
+            },
+            "weight": {
+              "type": "integer",
+              "title": "Weight",
+              "description": "Link weight among links in the same menu at the same depth. In the menu, the links with high weight will sink and links with a low weight will be positioned nearer the top.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "expanded": {
+              "type": "boolean",
+              "title": "Show as expanded",
+              "description": "If selected and this menu link has children, the menu will always appear expanded. This option may be overridden for the entire menu tree when placing a menu block.",
+              "default": false,
+              "x-nullable": true
+            },
+            "parent": {
+              "type": "string",
+              "title": "Parent plugin ID",
+              "maxLength": 255,
+              "description": "The ID of the parent menu link plugin, or empty string when at the top level of the hierarchy.",
+              "x-nullable": true
+            },
+            "changed": {
+              "type": "number",
+              "title": "Changed",
+              "format": "utc-millisec",
+              "description": "The time that the menu link was last edited.",
+              "x-nullable": true
+            },
+            "default_langcode": {
+              "type": "boolean",
+              "title": "Default translation",
+              "description": "A flag indicating whether this is the default translation.",
+              "default": true,
+              "x-nullable": true
+            },
+            "revision_default": {
+              "type": "boolean",
+              "title": "Default revision",
+              "description": "A flag indicating whether this was a default revision when it was saved.",
+              "x-nullable": true
+            },
+            "revision_translation_affected": {
+              "type": "boolean",
+              "title": "Revision translation affected",
+              "description": "Indicates if the last edit of a translation belongs to current revision.",
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "view_mode": {
+              "type": "string",
+              "title": "View mode",
+              "maxLength": 255,
+              "description": "Per item view mode selector.",
+              "x-nullable": true
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            }
+          },
+          "required": ["title", "link"]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "bundle": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["menu--menu"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Menu"
+            },
+            "revision_user": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Revision user"
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,335 @@
+{
+  "title": "linky Schema",
+  "description": "Describes the payload for 'linky' entities.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["linky--linky"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__id": {
+              "type": "integer",
+              "title": "ID",
+              "description": "The ID of the Managed Link entity.",
+              "x-nullable": true
+            },
+            "drupal_internal__revision_id": {
+              "type": "integer",
+              "title": "Revision ID",
+              "x-nullable": true
+            },
+            "langcode": {
+              "type": "object",
+              "title": "Language",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "x-nullable": true
+            },
+            "revision_created": {
+              "type": "number",
+              "title": "Revision create time",
+              "format": "utc-millisec",
+              "description": "The time that the current revision was created.",
+              "x-nullable": true
+            },
+            "revision_log": {
+              "type": "string",
+              "title": "Revision log message",
+              "description": "Briefly describe the changes you have made.",
+              "default": "",
+              "x-nullable": true
+            },
+            "link": {
+              "type": "object",
+              "title": "Link",
+              "properties": {
+                "uri": {
+                  "type": "uri",
+                  "title": "URI"
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Link text"
+                }
+              },
+              "description": "The location this managed link points to."
+            },
+            "created": {
+              "type": "number",
+              "title": "Created",
+              "format": "utc-millisec",
+              "description": "The time that the entity was created.",
+              "x-nullable": true
+            },
+            "changed": {
+              "type": "number",
+              "title": "Changed",
+              "format": "utc-millisec",
+              "description": "The time that the entity was last edited.",
+              "x-nullable": true
+            },
+            "checked": {
+              "type": "number",
+              "title": "Last checked",
+              "format": "utc-millisec",
+              "description": "The time that the link was last checked.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "revision_default": {
+              "type": "boolean",
+              "title": "Default revision",
+              "description": "A flag indicating whether this was a default revision when it was saved.",
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "internal": {
+              "type": "boolean",
+              "title": "Internal",
+              "description": "Whether the link is internal.",
+              "x-nullable": true
+            },
+            "http_method": {
+              "type": "string",
+              "title": "HTTP Method",
+              "maxLength": 16,
+              "description": "HTTP method used to for the request."
+            },
+            "http_status": {
+              "type": "integer",
+              "title": "HTTP Status",
+              "description": "HTTP status used to for the response."
+            },
+            "message": {
+              "type": "string",
+              "title": "Error message",
+              "x-nullable": true
+            },
+            "destination": {
+              "type": "uri",
+              "title": "Redirect destination",
+              "maxLength": 2048,
+              "description": "If the link redirects, this is the final destination. NULL if link does not redirect.",
+              "x-nullable": true
+            },
+            "excluded": {
+              "type": "boolean",
+              "title": "Exclude from Link checking",
+              "description": "Whether the link is excluded from the link checking.",
+              "default": false
+            },
+            "reason": {
+              "type": "string",
+              "title": "Reason for exclusion from the link checking",
+              "x-nullable": true
+            },
+            "error": {
+              "type": "boolean",
+              "title": "Error",
+              "description": "Whether the response is considered an error.",
+              "default": false
+            },
+            "error_count": {
+              "type": "integer",
+              "title": "Consecutive error count",
+              "default": 0
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The computed meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            }
+          },
+          "required": [
+            "link",
+            "http_method",
+            "http_status",
+            "excluded",
+            "error",
+            "error_count"
+          ]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "user_id": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Authored by"
+            },
+            "revision_uid": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Revision user"
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,376 @@
+{
+  "title": "user_history Schema",
+  "description": "Describes the payload for 'user_history' entities.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["user_history--user_history"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__id": {
+              "type": "integer",
+              "title": "ID",
+              "x-nullable": true
+            },
+            "label": {
+              "type": "string",
+              "title": "Label",
+              "maxLength": 255,
+              "description": "Auto-create label for the user_history entity"
+            },
+            "created": {
+              "type": "number",
+              "title": "Modified on",
+              "format": "utc-millisec",
+              "description": "The time that the user_history entity was created.",
+              "x-nullable": true
+            },
+            "action": {
+              "type": "string",
+              "title": "Action",
+              "maxLength": 255,
+              "description": "The action used to modify the user entity.",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_deleted": {
+              "type": "boolean",
+              "title": "User deleted",
+              "description": "A boolean indicating whether the user entity was deleted.",
+              "x-nullable": true
+            },
+            "user_name": {
+              "type": "string",
+              "title": "Name",
+              "maxLength": 255,
+              "description": "The name of the modified account.",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_pass": {
+              "type": "string",
+              "title": "Password",
+              "maxLength": 255,
+              "description": "The password of this user (hashed).",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_mail": {
+              "type": "string",
+              "title": "Email",
+              "format": "email",
+              "description": "The email of the modified account.",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_timezone": {
+              "type": "string",
+              "title": "Timezone",
+              "maxLength": 32,
+              "description": "The timezone of the modified account.",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_status": {
+              "type": "boolean",
+              "title": "User status",
+              "description": "Whether the user is active or blocked.",
+              "default": false,
+              "x-nullable": true
+            },
+            "user_roles": {
+              "type": "string",
+              "title": "User roles",
+              "maxLength": 255,
+              "description": "The roles the user has.",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_created": {
+              "type": "number",
+              "title": "User created",
+              "format": "utc-millisec",
+              "description": "The time that the modified account was created.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "user_changed": {
+              "type": "number",
+              "title": "User changed",
+              "format": "utc-millisec",
+              "description": "The time that the modified account was last edited.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "user_access": {
+              "type": "number",
+              "title": "Last access",
+              "format": "utc-millisec",
+              "description": "The time that the modified account last accessed the site.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "user_login": {
+              "type": "number",
+              "title": "Last login",
+              "format": "utc-millisec",
+              "description": "The time that the modified account last logged in.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "user_init": {
+              "type": "string",
+              "title": "Initial email",
+              "format": "email",
+              "description": "The email address used for initial account creation.",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_langcode": {
+              "type": "object",
+              "title": "Language code",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The modified account language code.",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_preferred_langcode": {
+              "type": "object",
+              "title": "Preferred language code",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The modified account\\'s preferred language code for receiving emails and viewing the site.",
+              "default": "",
+              "x-nullable": true
+            },
+            "user_preferred_admin_langcode": {
+              "type": "object",
+              "title": "Preferred admin language code",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The modified account\\'s preferred language code for viewing administration pages.",
+              "default": "",
+              "x-nullable": true
+            },
+            "difference": {
+              "type": "string",
+              "title": "Difference",
+              "maxLength": 255,
+              "description": "The difference between this user_history record and the previous one for same user account",
+              "default": "",
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The computed meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            }
+          },
+          "required": ["label"]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "modified_by": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Modified by"
+            },
+            "user_id": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "User ID"
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

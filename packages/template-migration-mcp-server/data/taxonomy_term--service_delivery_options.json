@@ -1,0 +1,407 @@
+{
+  "title": "taxonomy_term:service_delivery_options Schema",
+  "description": "Describes the payload for 'taxonomy_term' entities of the 'service_delivery_options' bundle.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["taxonomy_term--service_delivery_options"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__tid": {
+              "type": "integer",
+              "title": "Term ID",
+              "description": "The term ID.",
+              "x-nullable": true
+            },
+            "drupal_internal__revision_id": {
+              "type": "integer",
+              "title": "Revision ID",
+              "x-nullable": true
+            },
+            "langcode": {
+              "type": "object",
+              "title": "Language",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The term language code.",
+              "x-nullable": true
+            },
+            "revision_created": {
+              "type": "number",
+              "title": "Revision create time",
+              "format": "utc-millisec",
+              "description": "The time that the current revision was created.",
+              "x-nullable": true
+            },
+            "revision_log_message": {
+              "type": "string",
+              "title": "Revision log message",
+              "description": "Briefly describe the changes you have made.",
+              "default": ""
+            },
+            "status": {
+              "type": "boolean",
+              "title": "Published",
+              "default": true,
+              "x-nullable": true
+            },
+            "name": {
+              "type": "string",
+              "title": "Name",
+              "maxLength": 255
+            },
+            "description": {
+              "type": "object",
+              "title": "Description",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Text"
+                },
+                "format": {
+                  "type": "string",
+                  "title": "Text format"
+                }
+              },
+              "required": ["value"],
+              "x-nullable": true
+            },
+            "weight": {
+              "type": "integer",
+              "title": "Weight",
+              "description": "The weight of this term in relation to other terms.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "changed": {
+              "type": "number",
+              "title": "Changed",
+              "format": "utc-millisec",
+              "description": "The time that the term was last edited.",
+              "x-nullable": true
+            },
+            "default_langcode": {
+              "type": "boolean",
+              "title": "Default translation",
+              "description": "A flag indicating whether this is the default translation.",
+              "default": true,
+              "x-nullable": true
+            },
+            "revision_default": {
+              "type": "boolean",
+              "title": "Default revision",
+              "description": "A flag indicating whether this was a default revision when it was saved.",
+              "x-nullable": true
+            },
+            "revision_translation_affected": {
+              "type": "boolean",
+              "title": "Revision translation affected",
+              "description": "Indicates if the last edit of a translation belongs to current revision.",
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "moderation_state": {
+              "type": "string",
+              "title": "Moderation state",
+              "maxLength": 255,
+              "description": "The moderation state of this piece of content.",
+              "x-nullable": true
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The computed meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            },
+            "path": {
+              "type": "object",
+              "title": "URL alias",
+              "properties": {
+                "alias": {
+                  "type": "string",
+                  "title": "Path alias"
+                },
+                "pid": {
+                  "type": "integer",
+                  "title": "Path id"
+                },
+                "langcode": {
+                  "type": "string",
+                  "title": "Language Code"
+                },
+                "pathauto": {
+                  "type": "integer",
+                  "title": "Pathauto state",
+                  "description": "Whether an automated alias should be created or not."
+                }
+              },
+              "x-nullable": true
+            },
+            "content_translation_source": {
+              "type": "object",
+              "title": "Translation source",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The source language from which this translation was created.",
+              "default": "und",
+              "x-nullable": true
+            },
+            "content_translation_outdated": {
+              "type": "boolean",
+              "title": "Translation outdated",
+              "description": "A boolean indicating whether this translation needs to be updated.",
+              "default": false,
+              "x-nullable": true
+            },
+            "content_translation_created": {
+              "type": "number",
+              "title": "Translation created time",
+              "format": "utc-millisec",
+              "description": "The Unix timestamp when the translation was created.",
+              "x-nullable": true
+            }
+          },
+          "required": ["revision_log_message", "name"]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "vid": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["taxonomy_vocabulary--taxonomy_vocabulary"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Vocabulary"
+            },
+            "revision_user": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Revision user"
+            },
+            "parent": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["type", "id"],
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "title": "Referenced resource",
+                        "enum": ["taxonomy_term--service_delivery_options"]
+                      },
+                      "id": {
+                        "type": "string",
+                        "title": "Resource ID",
+                        "format": "uuid",
+                        "maxLength": 128
+                      }
+                    }
+                  }
+                }
+              },
+              "title": "Term Parents"
+            },
+            "content_translation_uid": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Translation author"
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

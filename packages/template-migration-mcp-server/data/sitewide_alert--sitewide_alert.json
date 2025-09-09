@@ -1,0 +1,355 @@
+{
+  "title": "sitewide_alert Schema",
+  "description": "Describes the payload for 'sitewide_alert' entities.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["sitewide_alert--sitewide_alert"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__id": {
+              "type": "integer",
+              "title": "ID",
+              "x-nullable": true
+            },
+            "drupal_internal__vid": {
+              "type": "integer",
+              "title": "Revision ID",
+              "x-nullable": true
+            },
+            "langcode": {
+              "type": "object",
+              "title": "Language",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "x-nullable": true
+            },
+            "revision_created": {
+              "type": "number",
+              "title": "Revision create time",
+              "format": "utc-millisec",
+              "description": "The time that the current revision was created.",
+              "x-nullable": true
+            },
+            "revision_log_message": {
+              "type": "string",
+              "title": "Revision log message",
+              "description": "Briefly describe the changes you have made.",
+              "default": "",
+              "x-nullable": true
+            },
+            "status": {
+              "type": "boolean",
+              "title": "Active",
+              "description": "If selected this Sitewide Alert will be active and will show if all other conditions are met.",
+              "default": true,
+              "x-nullable": true
+            },
+            "name": {
+              "type": "string",
+              "title": "Name",
+              "maxLength": 50,
+              "description": "A brief description of this Sitewide Alert. Used for administrative reference only.",
+              "default": ""
+            },
+            "style": {
+              "type": "string",
+              "title": "Alert Style",
+              "description": "The style of this alert. This mainly can be used to change the color of the alert."
+            },
+            "dismissible": {
+              "type": "boolean",
+              "title": "Dismissible",
+              "description": "If selected, visitors will be able to dismiss the alert so it will not be seen again. This is per browser, and does not require the visitor to be logged in.",
+              "x-nullable": true
+            },
+            "dismissible_ignore_before_time": {
+              "type": "number",
+              "title": "Ignore Dismissals Before",
+              "format": "utc-millisec",
+              "description": "Ignore any dismissals made before this date. If you are editing an existing alert, and this is a major change to the content, you may want to ignore the fact that this alert was dismissed.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "limit_to_pages": {
+              "type": "string",
+              "title": "Pages",
+              "description": "Specify pages by using their paths. Enter one path per line. The \\'*\\' character is a wildcard. An example path is /user/* for every user page. / is the front page.",
+              "default": "",
+              "x-nullable": true
+            },
+            "limit_to_pages_negate": {
+              "type": "boolean",
+              "title": "Negate for listed pages",
+              "description": "If selected, this Sitewide Alert will show on all paths except the above paths.",
+              "default": false,
+              "x-nullable": true
+            },
+            "message": {
+              "type": "object",
+              "title": "Alert Message",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Text"
+                },
+                "format": {
+                  "type": "string",
+                  "title": "Text format"
+                }
+              },
+              "required": ["value"],
+              "default": "",
+              "x-nullable": true
+            },
+            "scheduled_alert": {
+              "type": "boolean",
+              "title": "Schedule Alert",
+              "description": "Schedule this alert to start and stop showing at a particular date/time.",
+              "x-nullable": true
+            },
+            "scheduled_date": {
+              "type": "object",
+              "title": "Scheduled Date",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Start date value",
+                  "format": "date"
+                },
+                "end_value": {
+                  "type": "string",
+                  "title": "End date value",
+                  "format": "date"
+                }
+              },
+              "required": ["value", "end_value"],
+              "description": "This defines when this Sitewide Alert be scheduled to show.",
+              "x-nullable": true
+            },
+            "created": {
+              "type": "number",
+              "title": "Created",
+              "format": "utc-millisec",
+              "description": "The time that the entity was created.",
+              "x-nullable": true
+            },
+            "changed": {
+              "type": "number",
+              "title": "Changed",
+              "format": "utc-millisec",
+              "description": "The time that the entity was last edited.",
+              "x-nullable": true
+            },
+            "revision_translation_affected": {
+              "type": "boolean",
+              "title": "Revision translation affected",
+              "description": "Indicates if the last edit of a translation belongs to current revision.",
+              "x-nullable": true
+            },
+            "default_langcode": {
+              "type": "boolean",
+              "title": "Default translation",
+              "description": "A flag indicating whether this is the default translation.",
+              "default": true,
+              "x-nullable": true
+            },
+            "revision_default": {
+              "type": "boolean",
+              "title": "Default revision",
+              "description": "A flag indicating whether this was a default revision when it was saved.",
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The computed meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            }
+          },
+          "required": ["name", "style"]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "revision_user": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Revision user"
+            },
+            "user_id": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Authored by"
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}
