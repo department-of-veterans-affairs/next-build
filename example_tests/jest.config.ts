@@ -1,6 +1,10 @@
 import type { Config } from 'jest'
 import nextJest from 'next/jest.js'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const parentDir = path.dirname(__dirname)
 
@@ -14,4 +18,4 @@ const customJestConfig: Config = {
   testEnvironment: 'jest-environment-jsdom',
 }
 
-module.exports = createJestConfig(customJestConfig)
+export default createJestConfig(customJestConfig)
