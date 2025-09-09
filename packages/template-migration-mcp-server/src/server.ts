@@ -19,8 +19,36 @@ server.registerTool(
     description: 'Add two numbers',
     inputSchema: { a: z.number(), b: z.number() },
   },
+  async ({ a, b }) => {
+    return {
+      content: [{ type: 'text', text: String(a + b) }],
+    }
+  }
+)
+
+// Add a subtraction tool
+server.registerTool(
+  'subtract',
+  {
+    title: 'Subtraction Tool',
+    description: 'Subtract two numbers',
+    inputSchema: { a: z.number(), b: z.number() },
+  },
   async ({ a, b }) => ({
-    content: [{ type: 'text', text: String(a + b) }],
+    content: [{ type: 'text', text: String(a - b) }],
+  })
+)
+
+// Add a multiplication tool
+server.registerTool(
+  'multiply',
+  {
+    title: 'Multiplication Tool',
+    description: 'Multiply two numbers',
+    inputSchema: { a: z.number(), b: z.number() },
+  },
+  async ({ a, b }) => ({
+    content: [{ type: 'text', text: String(a * b) }],
   })
 )
 
