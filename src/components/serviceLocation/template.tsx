@@ -2,7 +2,29 @@ import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 import { Hours } from '@/components/hours/template'
-import { ServiceLocation as ServiceLocationType } from './formatted-type'
+import { ServiceLocation as FormattedServiceLocation } from './formatted-type'
+
+type HeadingTagString = 'h2' | 'h3' | 'h4' | 'h5'
+type SubheadingTagString = 'h3' | 'h4' | 'h5' | 'h6'
+
+export enum ServiceLocationType {
+  NON_CLINICAL = 'nonclinical',
+  VBA = 'vba',
+}
+
+export interface ServiceLocationProps {
+  fieldReferralRequired?: string
+  mentalHealthPhoneNumber?: PhoneNumberType
+  mainPhoneString?: string
+  isMentalHealthService?: boolean
+  location: FormattedServiceLocation
+  locationType?: ServiceLocationType
+  intoTextType?: string
+  introTextCustom?: string
+  serviceDescription?: string
+  serviceHeader?: string
+  headingLevel?: 1 | 2 | 3 | 4 | 5
+}
 
 export const ServiceLocation = ({
   fieldReferralRequired,
@@ -10,21 +32,19 @@ export const ServiceLocation = ({
   mainPhoneString,
   isMentalHealthService,
   location,
+  locationType,
   serviceDescription,
   serviceHeader,
-  isVba = false,
-}: {
-  fieldReferralRequired?: string
-  mentalHealthPhoneNumber?: PhoneNumberType
-  mainPhoneString?: string
-  isMentalHealthService?: boolean
-  location: ServiceLocationType
-  intoTextType?: string
-  introTextCustom?: string
-  serviceDescription?: string
-  serviceHeader?: string
-  isVba?: boolean
-}) => {
+  headingLevel = 4,
+}: ServiceLocationProps) => {
+  const subHeadingLevel = serviceHeader ? headingLevel + 1 : headingLevel
+  const ServiceHeaderTag = `h${headingLevel}` as HeadingTagString
+  const SubHeadingTag = `h${subHeadingLevel}` as SubheadingTagString
+
+  const showIntroText =
+    Boolean(location.apptIntroTextType || location.apptIntroTextCustom) &&
+    location.apptIntroTextType !== 'remove_text'
+
   // Determine service main phone
   // Determine main phone number
   const mainPhone =
@@ -58,31 +78,14 @@ export const ServiceLocation = ({
   const showReferralRequirement =
     fieldReferralRequired &&
     !['not_applicable', 'unknown', '2'].includes(fieldReferralRequired)
-  function VariableHeading({
-    testId,
-    className,
-    children,
-  }: {
-    testId?: string
-    className?: string
-    children: React.ReactNode
-  }) {
-    if (serviceHeader) {
-      return (
-        <h5 data-testid={testId} className={className}>
-          {children}
-        </h5>
-      )
-    }
-    return (
-      <h4 data-testid={testId} className={className}>
-        {children}
-      </h4>
-    )
-  }
-  return (
-    <va-card class="vads-u-margin-y--2 break-word-wrap">
-      {serviceHeader && <h4 className="vads-u-margin-y--0">{serviceHeader}</h4>}
+
+  const content = (
+    <>
+      {serviceHeader && (
+        <ServiceHeaderTag className="vads-u-margin-y--0">
+          {serviceHeader}
+        </ServiceHeaderTag>
+      )}
       {serviceDescription && (
         <p className="vads-u-margin-top--2 vads-u-margin-bottom--0">
           {serviceDescription}
@@ -147,12 +150,12 @@ export const ServiceLocation = ({
         hasAppointmentPhoneNumbers ||
         showMainNumberForAppointments ||
         showOnlineScheduleLink) && (
-        <VariableHeading
+        <SubHeadingTag
           className="vads-u-margin-top--2 vads-u-line-height--1"
-          testId="service-location-appoinments-header"
+          data-testid="service-location-appoinments-header"
         >
           Appointments
-        </VariableHeading>
+        </SubHeadingTag>
       )}
 
       {/* Appointment intro text */}
@@ -173,7 +176,7 @@ export const ServiceLocation = ({
                 className="vads-u-margin-bottom--0"
               >
                 Contact us to schedule, reschedule, or cancel your appointment.
-                {!isVba && (
+                {locationType !== ServiceLocationType.VBA && (
                   <>
                     {' '}
                     If a referral is required, you’ll need to contact your
@@ -189,7 +192,7 @@ export const ServiceLocation = ({
       {showMainNumberForAppointments && (
         <div data-testid="service-location-main-facility-phone">
           <PhoneNumber
-            treatment={serviceHeader ? 'h5' : 'h4'}
+            treatment={SubHeadingTag}
             number={mainPhone.number}
             extension={mainPhone.extension}
             phoneType={mainPhone.phoneType}
@@ -203,11 +206,7 @@ export const ServiceLocation = ({
       {hasAppointmentPhoneNumbers && (
         <div data-testid="service-location-show-other-phone-numbers">
           {location.appointmentPhoneNumbers?.map((num, idx) => (
-            <PhoneNumber
-              key={idx}
-              treatment={serviceHeader ? 'h5' : 'h4'}
-              {...num}
-            />
+            <PhoneNumber key={idx} treatment={SubHeadingTag} {...num} />
           ))}
         </div>
       )}
@@ -221,7 +220,7 @@ export const ServiceLocation = ({
           <va-link-action
             class="vads-u-display--block"
             href={
-              isVba
+              locationType === ServiceLocationType.VBA
                 ? 'https://va.my.site.com/VAVERA/s/'
                 : '/health-care/schedule-view-va-appointments'
             }
@@ -244,7 +243,7 @@ export const ServiceLocation = ({
       {location.useMainFacilityPhone && mainPhone && (
         <div data-testid="service-location-main-facility-phone-for-contact">
           <PhoneNumber
-            treatment={serviceHeader ? 'h5' : 'h4'}
+            treatment={SubHeadingTag}
             number={mainPhone.number}
             extension={mainPhone.extension}
             phoneType={mainPhone.phoneType}
@@ -258,11 +257,7 @@ export const ServiceLocation = ({
       {hasOtherContactPhoneNumbers && (
         <div data-testid="service-location-show-contact-phone-numbers">
           {location.contactInfoPhoneNumbers?.map((num, idx) => (
-            <PhoneNumber
-              treatment={serviceHeader ? 'h5' : 'h4'}
-              key={idx}
-              {...num}
-            />
+            <PhoneNumber treatment={SubHeadingTag} key={idx} {...num} />
           ))}
         </div>
       )}
@@ -270,7 +265,7 @@ export const ServiceLocation = ({
       {/* Email contacts */}
       {location.emailContacts?.map((email, i) => (
         <div key={i} data-testid="service-location-email-contact">
-          {email.label && <VariableHeading>{email.label}</VariableHeading>}
+          {email.label && <SubHeadingTag>{email.label}</SubHeadingTag>}
           <va-link
             href={`mailto:${email.address}`}
             text={email.address}
@@ -282,9 +277,9 @@ export const ServiceLocation = ({
       {/* Service hours */}
       {location.hours === '2' && location.officeHours && (
         <>
-          <VariableHeading testId="service-location-field-hours">
+          <SubHeadingTag data-testid="service-location-field-hours">
             Service Hours
-          </VariableHeading>
+          </SubHeadingTag>
           <div>
             <Hours allHours={location.officeHours} />
           </div>
@@ -292,9 +287,9 @@ export const ServiceLocation = ({
       )}
       {location.hours === '0' && (
         <>
-          <VariableHeading testId="service-location-field-hours">
+          <SubHeadingTag data-testid="service-location-field-hours">
             Service Hours
-          </VariableHeading>
+          </SubHeadingTag>
           <div>
             <p
               className="vads-u-margin-y--0"
@@ -311,6 +306,14 @@ export const ServiceLocation = ({
           {location.additionalHoursInfo}
         </p>
       )}
-    </va-card>
+    </>
   )
+
+  if (locationType === ServiceLocationType.NON_CLINICAL) {
+    return <div className="break-word-wrap">{content}</div>
+  } else {
+    return (
+      <va-card class="vads-u-margin-y--2 break-word-wrap">{content}</va-card>
+    )
+  }
 }

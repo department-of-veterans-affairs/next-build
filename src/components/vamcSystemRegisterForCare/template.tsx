@@ -4,7 +4,10 @@ import { ContentFooter } from '../contentFooter/template'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '../wysiwyg/template'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/template'
-import { ServiceLocation } from '../serviceLocation/template'
+import {
+  ServiceLocation,
+  ServiceLocationType,
+} from '../serviceLocation/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -64,13 +67,15 @@ export const VamcSystemRegisterForCare = ({
 
               {services.map((service) => (
                 <Fragment key={service.id}>
-                  <h2>
+                  <h3>
                     <va-link href={service.path} text={service.title}></va-link>
-                  </h2>
+                  </h3>
                   {service.serviceLocations.map((serviceLocation) => (
                     <ServiceLocation
                       key={serviceLocation.id}
                       location={serviceLocation}
+                      locationType={ServiceLocationType.NON_CLINICAL}
+                      headingLevel={4}
                     />
                   ))}
                 </Fragment>
