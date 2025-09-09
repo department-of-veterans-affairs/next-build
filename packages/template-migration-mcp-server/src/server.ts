@@ -1,9 +1,14 @@
+import fs from 'fs'
+import path from 'path'
 import {
   McpServer,
   ResourceTemplate,
 } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod'
+import resourceTypes from '../data/resourceTypes.json' with { type: 'json' }
+
+const __dirname = new URL('.', import.meta.url).pathname
 
 // Create an MCP server
 const server = new McpServer({
@@ -11,46 +16,50 @@ const server = new McpServer({
   version: '1.0.0',
 })
 
-// Add an addition tool
+// Resource type list
 server.registerTool(
-  'add',
+  'list-resource-types',
   {
-    title: 'Addition Tool',
-    description: 'Add two numbers',
-    inputSchema: { a: z.number(), b: z.number() },
+    title: 'List Resource Types',
+    description: 'List all resource types',
   },
-  async ({ a, b }) => {
+  async () => {
     return {
-      content: [{ type: 'text', text: String(a + b) }],
+      content: [
+        {
+          type: 'text',
+          text: 'Resource types: ' + JSON.stringify(resourceTypes),
+        },
+      ],
     }
   }
 )
 
-// Add a subtraction tool
+// This may be better off as a resource, but 🤷
 server.registerTool(
-  'subtract',
+  'fetch-schema',
   {
-    title: 'Subtraction Tool',
-    description: 'Subtract two numbers',
-    inputSchema: { a: z.number(), b: z.number() },
+    title: 'Fetch Schema',
+    description: 'Fetch the schema for a resource type',
+    inputSchema: { resourceType: z.string() },
   },
-  async ({ a, b }) => ({
-    content: [{ type: 'text', text: String(a - b) }],
-  })
+  async ({ resourceType }) => {
+    return {
+      content: [
+        {
+          type: 'text',
+          text: fs.readFileSync(
+            path.join(__dirname, `../data/schemas/${resourceType}.json`),
+            'utf8'
+          ),
+        },
+      ],
+    }
+  }
 )
 
-// Add a multiplication tool
-server.registerTool(
-  'multiply',
-  {
-    title: 'Multiplication Tool',
-    description: 'Multiply two numbers',
-    inputSchema: { a: z.number(), b: z.number() },
-  },
-  async ({ a, b }) => ({
-    content: [{ type: 'text', text: String(a * b) }],
-  })
-)
+// TODO: Register a tool to fetch an example entity of a resource type, which is
+// the only way we can see what resource type the relationships are
 
 // Add a dynamic greeting resource
 server.registerResource(
