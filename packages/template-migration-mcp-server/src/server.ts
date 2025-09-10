@@ -7,6 +7,7 @@ import {
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod'
 import resourceTypes from '../data/resourceTypes.json' with { type: 'json' }
+import { fetchEntity } from './fetchEntity.ts'
 
 const __dirname = new URL('.', import.meta.url).pathname
 
@@ -58,8 +59,40 @@ server.registerTool(
   }
 )
 
-// TODO: Register a tool to fetch an example entity of a resource type, which is
-// the only way we can see what resource type the relationships are
+// Register a tool to fetch an example entity of a resource type, which helps
+// reveal the actual structure of relationships in the data
+server.registerTool(
+  'fetch-entity',
+  {
+    title: 'Fetch Entity',
+    description:
+      'Fetch an entity of a specified resource type. If no UUID is provided, fetches from a collection.',
+    inputSchema: {
+      resourceType: z
+        .string()
+        .describe(
+          'The Drupal resource type (e.g., node--health_care_local_facility)'
+        ),
+      uuid: z
+        .string()
+        .optional()
+        .describe('The UUID of a specific entity to fetch'),
+      limit: z
+        .number()
+        .optional()
+        .describe(
+          'Number of entities to fetch when getting from collection (default: 1)'
+        ),
+      includes: z
+        .array(z.string())
+        .optional()
+        .describe('Related fields to include in the response'),
+    },
+  },
+  async ({ resourceType, uuid, limit = 1, includes = [] }) => {
+    return fetchEntity({ resourceType, uuid, limit, includes })
+  }
+)
 
 // Add a dynamic greeting resource
 server.registerResource(
