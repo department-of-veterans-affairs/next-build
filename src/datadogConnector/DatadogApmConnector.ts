@@ -2,7 +2,7 @@ import tracer from 'dd-trace'
 
 tracer.init({
   service: process.env.DD_SERVICE || 'vagov-next-build',
-  env: process.env.DD_ENV || process.env.NODE_ENV || 'development',
+  env: process.env.DD_ENV || process.env.NODE_ENV || 'vagov-dev',
   version: process.env.DD_VERSION || '1.0.0',
 
   // EKS agent configuration
