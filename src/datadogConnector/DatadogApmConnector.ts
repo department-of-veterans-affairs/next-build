@@ -1,4 +1,3 @@
-import { tr } from '@faker-js/faker/.'
 import tracer from 'dd-trace'
 
 const DatadogApmConnector = () => {

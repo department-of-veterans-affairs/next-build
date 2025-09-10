@@ -30,7 +30,7 @@ describe('canInitDatadogApm', () => {
     expect(canInitDatadogApm()).toBe(false)
   })
 
-  it('returns true when DD_TRACE_ENABLED is undefined', () => {
+  it('returns false when DD_TRACE_ENABLED is undefined', () => {
     process.env.NEXT_RUNTIME = 'nodejs'
     delete process.env.DD_TRACE_ENABLED
     expect(canInitDatadogApm()).toBe(false)
