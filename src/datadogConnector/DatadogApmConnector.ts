@@ -1,3 +1,4 @@
+import { tr } from '@faker-js/faker/.'
 import tracer from 'dd-trace'
 
 const DatadogApmConnector = () => {
@@ -11,7 +12,7 @@ const DatadogApmConnector = () => {
     port: process.env.DD_TRACE_AGENT_PORT || 8126,
 
     runtimeMetrics: true,
-    profiling: process.env.NODE_ENV === 'production',
+    profiling: true,
     logInjection: true,
 
     tags: {
