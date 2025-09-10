@@ -2,6 +2,7 @@
 
 exports[`VamcSystemPoliciesPage formatData outputs formatted data 1`] = `
 {
+  "bottomOfPageContent": "<h2>Advance directives</h2><p>When faced with difficult decisions about health care,&nbsp;you may struggle with the question of "what should be done?" These resources can help you deal with tough decisions about health care and how to plan for it.</p><p><a href="https://www.ethics.va.gov/for_veterans.asp">Health Care Ethics Resources for Veterans, Patients, and Families</a></p><p><a href="/find-forms/about-form-10-0137" data-entity-type="node" data-entity-uuid="9d99f11d-981a-4dc3-b7bf-a8995ed52428" data-entity-substitution="canonical" title="About VA Form 10-0137">VA Form 10-0137 -&nbsp;VA Advance Directive: Durable Power of Attorney for Health Care and Living Will</a></p><p><a href="/find-forms/about-form-10-0137a" data-entity-type="node" data-entity-uuid="3795b66f-f712-49c1-a04c-17d470d224b9" data-entity-substitution="canonical" title="About VA Form 10-0137A">What You Should Know about Advance Directives</a></p><h2>Report patient quality of care concerns</h2><p><a href="https://www.jointcommission.org/en-us/contact-us/report-a-patient-safety-event">Visit the Joint Commission page</a> to report concerns you have about the quality of patient care.</p>",
   "breadcrumbs": [
     {
       "options": [],
@@ -26,7 +27,9 @@ exports[`VamcSystemPoliciesPage formatData outputs formatted data 1`] = `
   ],
   "entityId": 23212,
   "entityPath": "/augusta-health-care/policies",
+  "generalVisitationPolicy": "<h3>VA general visitation policy</h3><p>The medical center respects the patient's right to make decisions about his or her care, treatment and services, and to involve the patient's family in care, treatment, and services decisions to the extent permitted by the patient or surrogate decision-maker.&nbsp;</p><p>"Family" is defined as a group of two or more persons united by blood, or adoptive, marital, domestic partnership, or other legal ties. The family may also be a person or persons not legally related to the individual (such as significant other, friend or caregiver) whom the individual considers to be family. A family member may be the surrogate decision-maker, as defined in VHA Handbook 1004.02, if authorized to make care decisions for the individual, should he or she lose decision-making capacity or choose to delegate decision making to another.&nbsp;</p><p>The medical center allows a family member, friend or other individual to be present with the patient for emotional support during the course of their stay. The medical center allows for the presence of a support individual of the patient's choice, unless the individual's presence infringes on others’ rights or safety, or is medically or therapeutically contraindicated. The individual may or may not be the patient's surrogate decision-maker or legally authorized representative.&nbsp;</p><p>The hospital prohibits discrimination based on age, race, ethnicity, religion, culture, language, physical or mental disability, socioeconomic status, sex, sexual orientation, and gender identity or expression.</p>",
   "id": "f96d7422-3742-40bc-aa88-c90f509bf511",
+  "introText": "<p>Find VA policies on privacy and patient rights, family rights, visitation, and more.</p>",
   "lastUpdated": "2022-09-29T20:06:10+00:00",
   "metatags": [
     {
@@ -108,8 +111,85 @@ exports[`VamcSystemPoliciesPage formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "published",
+  "otherPolicies": "<p>a.&nbsp;&nbsp; &nbsp;All visitors will be screened by medical center staff upon initial entry to each neighborhood and each time they re-enter the medical center.<br>
+b.&nbsp;&nbsp; &nbsp;Only visitors without symptoms will be permitted to enter. Visitors who screen positive will not be granted access but will be advised to seek medical care with their healthcare provider.</p>",
   "published": true,
   "title": "Policies",
+  "topOfPageContent": "<h2>Privacy and patient rights</h2><p><a href="https://www.va.gov/health/rights/patientrights.asp">Read VA's national privacy and patient rights policies</a></p><h2>Family rights</h2><p><a href="https://www.va.gov/health/rights/familyrights.asp">Read VA's national family rights policy</a></p><h2>Visitation policy</h2>",
   "type": "node--vamc_system_policies_page",
+  "visitationPolicy": "<p>Before visiting a patient at a VA facility, review these guidelines:　</p>
+
+<h3><strong>Visitation Policy</strong></h3>
+
+<p>Call the medical center&nbsp;for specific ward visiting hours and information.<br>
+<strong>Augusta VA Downtown campus: </strong><a href="tel:+17067330188">706-733-0188</a><br>
+<strong>Augusta VA Uptown campus: </strong><a href="tel:+17067330188">706-733-0188</a></p>
+
+<p>Visitors will be allowed in the acute care service areas from 11 a.m. – 7 p.m.</p>
+
+<p>The following guidelines shall be observed for all visitors for acute care services:</p>
+
+<p>a.&nbsp; Visitors should remain the same individuals to the greatest extent possible.</p>
+
+<p>b.&nbsp; No overnight visitors remaining at Veteran's bedside, unless directed by the attending physician and concurrence by the Chief of Staff.</p>
+
+<p>c.&nbsp; Visitors must comply with facility infection and source control guidelines, including mask wearing; hand washing; and to the greatest extent possible, not eating and drinking, unless in designated areas.</p>
+
+<p>d.&nbsp; Two visitors at one time may be permitted for inpatients in acute medical/surgical units. An additional visitor may be permitted with approval of the clinical care team for end-of-life hospice situations.</p>
+
+<p>Based on the above information, Charlie Norwood VA Medical Center (CNVAMC) may resume visitations for all non-Covid Areas (6A, 4A, CCU and SCI).</p>
+
+<p><strong>Community Living Center</strong></p>
+
+<p>a.&nbsp;&nbsp; &nbsp;There will be no unit visitation except for those Veterans in hospice and palliative care or for those residents who have been identified for compassionate care visits or any visits under the federal disability rights law.</p>
+
+<p>b.&nbsp;&nbsp; &nbsp;In the event of more than two visitors for an individual resident, only two visitors will be allowed per Veteran at a time. Additional visitors will be instructed to report to a designated waiting area and visitors will be rotated in one-hour increments.</p>
+
+<p>c.&nbsp;&nbsp; &nbsp;Access will be reviewed on a case-by-case basis where the visitor is critical to the care of the Veteran or in the event of a resident's demise. Please be advised, the decision to grant visitor access shall not be made solely by any individual, but shall be determined collaboratively amongst nursing management, medical and regarding input from the interdisciplinary team.</p>
+
+<p>d.&nbsp;&nbsp; &nbsp;No exceptions will be made to unit visitation policy without prior approval from nursing management.</p>
+
+<p>Augusta VA Health Care System will continue to follow COVID-19 precautions in accordance with CDC guidance: All visitors shall wear a face mask after entry into the CNVAMC and will be screened for Covid-19 symptoms. Physical distancing will be maintained within common waiting areas (minimum six feet). Veterans and their visitors do not need to physically distance from one another.</p>
+
+<p>The visitation policy will be reassessed every week and updates will be provided should any changes be made.</p>
+
+<p><strong>Visiting church members</strong><br>
+If you’re a member of the religious community, we encourage you to visit patients who belong to your church or religious group. However, you’re <strong>not </strong>allowed to do general visitation by going from bed to bed, ward to ward, or unit to unit.　</p>
+
+<p><strong>Bringing food</strong><br>
+You may bring small amounts of candy, fruit, and other food items if the nursing staff says they are appropriate for a patient's diet. You may not bring fresh fruit and flowers to patients who are receiving critical care, and you can’t eat or drink in those units.</p>
+
+<p><strong>Washing hands</strong><br>
+You must follow hand-hygiene policy guidelines, which require you to practice good hand hygiene when you enter and exit patient rooms, and at other times as directed by staff.</p>
+
+<p><strong>Following infection-control guidelines</strong><br>
+You must follow guidelines on infection-control signs and report to the nurses' station for instructions before you enter a patient's room.</p>
+
+<p><strong>Staying home if you are ill</strong><br>
+If you have a communicable disease, you won't be allowed to visit patients inside the medical center.</p>
+
+<p><strong>Prohibited items</strong><br>
+You're not allowed to bring weapons, cameras, or other prohibited items into the medical center, except when you're&nbsp;conducting official business authorized by the Director or their designee. If you have questions about what qualifies as official business, please contact the facility's Director.　</p>
+
+<p><strong>Giving privacy</strong><br>
+Our staff may ask you to leave the room when they’re caring for patients. If a staff member asks you to leave a patient's room, you may continue your visit in the day room, waiting area, or any other public area of the facility.</p>
+
+<p><strong>Visiting seriously ill patients</strong><br>
+Relatives and friends may visit patients who are seriously ill or in hospice care at any time of day, unless the staff doctor says no.</p>
+
+<p><strong>Visiting patients in restraints</strong><br>
+In general, you won't be allowed to visit patients who are in restraints. If the treatment team decides that your visit could have a positive effect on the patient, then you may have a supervised visit with the patient when a staff member removes the restraints. Our staff will document how the patient responds to you and other visitors.　</p>
+
+<p><strong>Bringing children to visit</strong><br>
+Children of all ages can visit patients at our medical center. For infection-control and safety reasons, however, children under the age of 16 are not allowed to visit certain specialty-care units. . All children under the age of 16 must be directly supervised by an adult. Children's bedside visits are limited to 15 minutes.</p>
+
+<p><strong>Visiting psychiatric units with children</strong><br>
+Children under the age of 16 may visit patients in psychiatric units with the doctor’s permission.</p>
+
+<p><strong>Limiting your visit</strong><br>
+Our doctors may&nbsp;limit, restrict, or deny visits&nbsp;for the medical&nbsp;well-being of a patient.&nbsp; We apologize for any inconvenience and appreciate your understanding.&nbsp;</p>
+
+<p><strong>Prohibited items</strong><br>
+You can't&nbsp;bring weapons, alcohol, or illegal drugs into the building.&nbsp; Because the VA medical center is federal property, all visitors and bags may be searched.&nbsp;&nbsp;</p>",
 }
 `;

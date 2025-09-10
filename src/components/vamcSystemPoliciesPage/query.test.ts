@@ -2,11 +2,12 @@
  * @jest-environment node
  */
 
-import { VamcSystemPoliciesPage } from '@/types/drupal/node'
+import { NodeVamcSystemPoliciesPage } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
 import mockData from './mock.json'
 
-const VamcSystemPoliciesPageMock: VamcSystemPoliciesPage = mockData
+const vamcSystemPoliciesPageMock =
+  mockData as unknown as NodeVamcSystemPoliciesPage
 
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {
@@ -18,7 +19,10 @@ describe('DrupalJsonApiParams configuration', () => {
 describe('VamcSystemPoliciesPage formatData', () => {
   test('outputs formatted data', () => {
     expect(
-      queries.formatData('node--vamc_system_policies_page', VamcSystemPoliciesPageMock)
+      queries.formatData(
+        'node--vamc_system_policies_page',
+        vamcSystemPoliciesPageMock
+      )
     ).toMatchSnapshot()
   })
 
