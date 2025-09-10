@@ -7,13 +7,7 @@ const isExport = process.env.BUILD_OPTION === 'static'
 const nextConfig = {
   compress: false,
 
-  serverExternalPackages: [
-    '@datadog/native-metrics',
-    '@datadog/pprof',
-    '@datadog/native-appsec',
-    '@datadog/native-iast',
-    '@datadog/native-iast-rewriter',
-  ],
+  serverExternalPackages: ['dd-trace'],
 
   images: {
     loaderFile: './src/components/mediaImage/customLoader.js',
@@ -48,7 +42,13 @@ const nextConfig = {
     return process.env.GIT_HASH ?? 'vagovprod'
   },
 
-  webpack(webpackConfig) {
+  // Add custom webpack config to include the `dd-trace` package on the server side
+  webpack(webpackConfig, { isServer }) {
+    if (isServer) {
+      webpackConfig.externals = webpackConfig.externals || []
+      webpackConfig.externals.push('dd-trace')
+    }
+
     return {
       ...webpackConfig,
       optimization: {
@@ -59,6 +59,9 @@ const nextConfig = {
   },
 
   turbopack: {
+    resolveAlias: {
+      'dd-trace': 'dd-trace',
+    },
     rules: {
       '*.svg': {
         loaders: ['@svgr/webpack'],
@@ -66,6 +69,8 @@ const nextConfig = {
       },
     },
   },
+
+  instrumentationHook: true,
 }
 
 export default nextConfig
