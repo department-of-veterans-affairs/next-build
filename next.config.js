@@ -7,6 +7,14 @@ const isExport = process.env.BUILD_OPTION === 'static'
 const nextConfig = {
   compress: false,
 
+  serverExternalPackages: [
+    '@datadog/native-metrics',
+    '@datadog/pprof',
+    '@datadog/native-appsec',
+    '@datadog/native-iast',
+    '@datadog/native-iast-rewriter',
+  ],
+
   images: {
     loaderFile: './src/components/mediaImage/customLoader.js',
     loader: 'custom',
