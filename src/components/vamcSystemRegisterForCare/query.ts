@@ -12,12 +12,13 @@ import {
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
-  entityFetchedParagraphsToNormalParagraphs,
+  normalizeEntityFetchedParagraphs,
   formatParagraph,
 } from '@/lib/drupal/paragraphs'
-import { ParagraphWysiwyg } from '@/types/drupal/paragraph'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { FieldCCText } from '@/types/drupal/field_type'
+import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
@@ -64,6 +65,22 @@ export const data: QueryData<
       .drupal_internal__target_id
   )
 
+  // The URIs for the link teasers (fetched via entity_field_fetch) are not true URL paths,
+  // so we need to translate them from Drupal entity paths.
+  await Promise.all(
+    entity.field_cc_related_links.fetched.field_va_paragraphs.map(
+      async (linkTeaser) => {
+        for (const link of linkTeaser.field_link) {
+          if (link.uri.startsWith('entity:')) {
+            const uri = link.uri.replace('entity:', '')
+            const pathInfo = await drupalClient.translatePath(uri)
+            link.uri = pathInfo.entity.path
+          }
+        }
+      }
+    )
+  )
+
   return { entity, menu }
 }
 
@@ -71,16 +88,9 @@ export const data: QueryData<
 export const formatter: QueryFormatter<
   VamcSystemRegisterForCareData,
   VamcSystemRegisterForCare
-> = ({ entity, menu }): VamcSystemRegisterForCare => {
-  const formatCcWysiwyg = (field: FieldCCText) => {
-    return formatParagraph(
-      entityFetchedParagraphsToNormalParagraphs({
-        type: field.target_type,
-        bundle: field.fetched_bundle,
-        ...field.fetched,
-      }) as ParagraphWysiwyg
-    ) as Wysiwyg
-  }
+> = ({ entity, menu }) => {
+  const formatCcWysiwyg = (field: FieldCCText) =>
+    formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
   return {
     ...entityBaseFields(entity),
@@ -93,6 +103,9 @@ export const formatter: QueryFormatter<
     topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),
     bottomOfPageContent: formatCcWysiwyg(
       entity.field_cc_bottom_of_page_content
+    ),
+    relatedLinks: formatListOfLinkTeasers(
+      normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
   }
 }

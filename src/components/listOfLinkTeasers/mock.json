@@ -1,0 +1,67 @@
+{
+  "type": "paragraph--list_of_link_teasers",
+  "id": "77159",
+  "field_title": "More information",
+  "field_va_paragraphs": [
+    {
+      "type": "paragraph--link_teaser",
+      "id": "77155",
+      "target_revision_id": "617867",
+      "pid": "77155",
+      "label": "VAMC System - \"Register for care\" page content > Content > Link teasers",
+      "status": true,
+      "langcode": "en",
+      "field_link": {
+        "uri": "entity:node/703",
+        "title": "VA health care copay rates",
+        "options": []
+      },
+      "field_link_summary": "Review copay rates for outpatient care, hospital stays, medications, and other health services."
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "77156",
+      "target_revision_id": "617868",
+      "pid": "77156",
+      "label": "VAMC System - \"Register for care\" page content > Content > Link teasers",
+      "status": true,
+      "langcode": "en",
+      "field_link": {
+        "uri": "entity:node/706",
+        "title": "Financial hardship assistance",
+        "options": []
+      },
+      "field_link_summary": "If you’re struggling to pay your copays, learn how to request a repayment plan, debt relief, or copay exemption."
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "77157",
+      "target_revision_id": "617869",
+      "pid": "77157",
+      "label": "VAMC System - \"Register for care\" page content > Content > Link teasers",
+      "status": true,
+      "langcode": "en",
+      "field_link": {
+        "uri": "entity:node/705",
+        "title": "Dispute your VA copay charges",
+        "options": []
+      },
+      "field_link_summary": "Find out how to file a dispute If you disagree with the charges or amounts on your bill. Find out how to file a dispute If you disagree with the charges or amounts on your bill."
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "77158",
+      "target_revision_id": "393056",
+      "pid": "77158",
+      "label": "VAMC System - \"Register for care\" page content > Content > Link teasers",
+      "status": true,
+      "langcode": "en",
+      "field_link": {
+        "uri": "entity:node/709",
+        "title": "Change your address on file with VA",
+        "options": []
+      },
+      "field_link_summary": "Update your address and other information in your VA.gov profile. This will update your information across several VA benefits and services."
+    }
+  ]
+}
