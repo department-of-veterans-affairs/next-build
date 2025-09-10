@@ -40,13 +40,17 @@ export const params: QueryParams<null> = () => {
 export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
   return new DrupalJsonApiParams()
     .addInclude([
+      'field_service_name_and_descripti',
       'field_facility_location',
       ...getNestedIncludes(
         'field_service_location',
         PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION
       ),
     ])
+    .addFilter('status', '1')
+    .addFilter('field_service_name_and_descripti.name', 'Register for care')
     .addFilter('field_facility_location.field_region_page.id', vamcSystemId)
+    .addFilter('field_facility_location.status', '1')
 }
 
 // Define the option types for the data loader.
