@@ -1,5 +1,10 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 
-export type VamcSystemPoliciesPage = PublishedEntity & {
-  title: string
+export interface VamcSystemPoliciesPage extends PublishedEntity {
+  introText?: string
+  topOfPageContent?: string
+  generalVisitationPolicy?: string
+  visitationPolicy?: string
+  otherPolicies?: string
+  bottomOfPageContent?: string
 }
