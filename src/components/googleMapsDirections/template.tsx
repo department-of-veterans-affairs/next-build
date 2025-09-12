@@ -1,7 +1,17 @@
-export const GoogleMapsDirections = ({ address, location = null }) => {
-  const googleMapsUrl = `https://maps.google.com/?saddr=Current+Location&daddr=${encodeURIComponent(
-    address
-  )}`
+import { FieldAddress } from '@/types/drupal/field_type'
+import { addressToString } from './addressToString'
+
+interface GoogleMapsDirectionsProps {
+  address: FieldAddress
+  location?: string | null
+}
+
+export const GoogleMapsDirections = ({
+  address,
+  location = null,
+}: GoogleMapsDirectionsProps) => {
+  const dest = encodeURIComponent(addressToString(address))
+  const googleMapsUrl = `https://maps.google.com/?saddr=Current+Location&daddr=${dest}`
 
   return (
     <va-link

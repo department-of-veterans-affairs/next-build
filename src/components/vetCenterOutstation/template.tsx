@@ -26,11 +26,6 @@ export function VetCenterOutstation({
   fieldFacilityLocatorApiId,
   path,
 }: FormattedVetCenterOutstation) {
-  const directionsString = [
-    address?.address_line1,
-    address?.locality,
-    address?.administrative_area,
-  ]
 
   const structuredSchemaData = {
     '@context': 'https://schema.org',
@@ -203,7 +198,7 @@ export function VetCenterOutstation({
                 <div>{`${address.locality}, ${address.administrative_area} ${address.postal_code}`}</div>
               </address>
               <GoogleMapsDirections
-                address={directionsString}
+                address={address}
                 location={title}
               />
             </div>
