@@ -2,7 +2,7 @@ import { ServiceAddress } from './ServiceAddress'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 import { Hours } from '@/components/hours/template'
-import { VamcFacilityServiceLocation } from '@/components/vamcFacility/formatted-type'
+import { ServiceLocation as ServiceLocationType } from './formatted-type'
 
 export const ServiceLocation = ({
   fieldReferralRequired,
@@ -18,7 +18,7 @@ export const ServiceLocation = ({
   mentalHealthPhoneNumber?: PhoneNumberType
   mainPhoneString?: string
   isMentalHealthService?: boolean
-  location: VamcFacilityServiceLocation
+  location: ServiceLocationType
   intoTextType?: string
   introTextCustom?: string
   serviceDescription?: string
@@ -39,21 +39,21 @@ export const ServiceLocation = ({
         : null
 
   const showMainNumberForAppointments =
-    mainPhone && location.fieldUseFacilityPhoneNumber
+    mainPhone && location.useFacilityPhoneNumber
   const hasAppointmentPhoneNumbers =
     (location.appointmentPhoneNumbers?.length || 0) > 0
   const hasOtherContactPhoneNumbers =
     (location.contactInfoPhoneNumbers?.length ?? 0) > 0
 
   const hasOfficeVisits =
-    location.fieldOfficeVisits &&
-    location.fieldOfficeVisits !== 'no' &&
-    location.fieldOfficeVisits !== 'null'
+    location.officeVisits &&
+    location.officeVisits !== 'no' &&
+    location.officeVisits !== 'null'
   const hasVirtualSupport =
-    location.fieldVirtualSupport &&
-    location.fieldVirtualSupport !== 'no' &&
-    location.fieldVirtualSupport !== 'null'
-  const showOnlineScheduleLink = location.fieldOnlineSchedulingAvail === 'yes'
+    location.virtualSupport &&
+    location.virtualSupport !== 'no' &&
+    location.virtualSupport !== 'null'
+  const showOnlineScheduleLink = location.onlineSchedulingAvail === 'yes'
 
   const showReferralRequirement =
     fieldReferralRequired &&
@@ -104,7 +104,7 @@ export const ServiceLocation = ({
                   'Visit our office, walk-in visits only',
                 yes_with_or_without_appointment:
                   'Visit our office, with or without an appointment',
-              }[location.fieldOfficeVisits as string] || ''}
+              }[location.officeVisits as string] || ''}
             </p>
           )}
           {hasVirtualSupport && (
@@ -112,7 +112,7 @@ export const ServiceLocation = ({
               <va-icon
                 class="vads-u-margin-right--0p5"
                 icon={
-                  location.fieldVirtualSupport === 'yes_veterans_can_call'
+                  location.virtualSupport === 'yes_veterans_can_call'
                     ? 'phone'
                     : 'calendar_today'
                 }
@@ -123,7 +123,7 @@ export const ServiceLocation = ({
                 yes_veterans_can_call: 'Call at your convenience',
                 virtual_visits_may_be_available:
                   'Virtual visits may be available',
-              }[location.fieldVirtualSupport as string] || ''}
+              }[location.virtualSupport as string] || ''}
             </p>
           )}
           {showReferralRequirement && (
@@ -143,7 +143,7 @@ export const ServiceLocation = ({
       )}
 
       {/* Appointments header */}
-      {(location.fieldApptIntroTextType !== 'remove_text' ||
+      {(location.apptIntroTextType !== 'remove_text' ||
         hasAppointmentPhoneNumbers ||
         showMainNumberForAppointments ||
         showOnlineScheduleLink) && (
@@ -156,15 +156,15 @@ export const ServiceLocation = ({
       )}
 
       {/* Appointment intro text */}
-      {location.fieldApptIntroTextType &&
-        location.fieldApptIntroTextType !== 'remove_text' && (
+      {location.apptIntroTextType &&
+        location.apptIntroTextType !== 'remove_text' && (
           <div>
-            {location.fieldApptIntroTextType === 'customize_text' ? (
+            {location.apptIntroTextType === 'customize_text' ? (
               <p
                 data-testid="service-location-custom-text"
                 className="vads-u-margin-bottom--0"
                 dangerouslySetInnerHTML={{
-                  __html: location.fieldApptIntroTextCustom,
+                  __html: location.apptIntroTextCustom,
                 }}
               />
             ) : (
@@ -232,16 +232,16 @@ export const ServiceLocation = ({
       )}
 
       {/* Service location address */}
-      {location.fieldServiceLocationAddress && (
+      {location.serviceLocationAddress && (
         <ServiceAddress
           useH5={serviceHeader && serviceHeader.length > 0}
-          serviceLocationAddress={location.fieldServiceLocationAddress}
+          serviceLocationAddress={location.serviceLocationAddress}
         />
       )}
 
       {/* Main facility phone for contact */}
 
-      {location.fieldUseMainFacilityPhone && mainPhone && (
+      {location.useMainFacilityPhone && mainPhone && (
         <div data-testid="service-location-main-facility-phone-for-contact">
           <PhoneNumber
             treatment={serviceHeader ? 'h5' : 'h4'}
@@ -268,7 +268,7 @@ export const ServiceLocation = ({
       )}
 
       {/* Email contacts */}
-      {location.fieldEmailContacts?.map((email, i) => (
+      {location.emailContacts?.map((email, i) => (
         <div key={i} data-testid="service-location-email-contact">
           {email.label && <VariableHeading>{email.label}</VariableHeading>}
           <va-link
@@ -280,17 +280,17 @@ export const ServiceLocation = ({
       ))}
 
       {/* Service hours */}
-      {location.fieldHours === '2' && location.fieldOfficeHours && (
+      {location.hours === '2' && location.officeHours && (
         <>
           <VariableHeading testId="service-location-field-hours">
             Service Hours
           </VariableHeading>
           <div>
-            <Hours allHours={location.fieldOfficeHours} />
+            <Hours allHours={location.officeHours} />
           </div>
         </>
       )}
-      {location.fieldHours === '0' && (
+      {location.hours === '0' && (
         <>
           <VariableHeading testId="service-location-field-hours">
             Service Hours
@@ -306,9 +306,9 @@ export const ServiceLocation = ({
         </>
       )}
 
-      {location.fieldAdditionalHoursInfo && (
+      {location.additionalHoursInfo && (
         <p className="vads-u-margin-bottom--0">
-          {location.fieldAdditionalHoursInfo}
+          {location.additionalHoursInfo}
         </p>
       )}
     </va-card>

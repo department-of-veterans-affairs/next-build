@@ -76,6 +76,7 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   PROCESS_LIST: 'paragraph--process',
   REACT_WIDGET: 'paragraph--react_widget',
   RICH_TEXT_CHAR_LIMIT_1000: 'paragraph--rich_text_char_limit_1000',
+  SERVICE_LOCATION: 'paragraph--service_location',
   TABLE: 'paragraph--table',
   WYSIWYG: 'paragraph--wysiwyg',
   QA: 'paragraph--q_a',
