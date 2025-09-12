@@ -4,6 +4,7 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
 import { ServiceLocation } from '../serviceLocation/formatted-type'
+import { FieldAddress } from '@/types/drupal/field_type'
 
 export interface VamcSystemRegisterForCare extends PublishedEntity {
   title: string
@@ -17,5 +18,6 @@ export interface VamcSystemRegisterForCare extends PublishedEntity {
     title: string
     path: string
     serviceLocations: ServiceLocation[]
+    address: FieldAddress
   }>
 }

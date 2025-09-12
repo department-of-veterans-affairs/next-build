@@ -128,6 +128,7 @@ export const formatter: QueryFormatter<
     title: service.field_facility_location.title,
     path: service.field_facility_location.path.alias,
     serviceLocations: service.field_service_location.map(formatServiceLocation),
+    address: service.field_facility_location.field_address,
   }))
 
   return {

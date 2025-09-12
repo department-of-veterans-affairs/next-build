@@ -8,6 +8,7 @@ import {
   ServiceLocation,
   ServiceLocationType,
 } from '../serviceLocation/template'
+import { Address } from '@/components/address/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -70,6 +71,9 @@ export const VamcSystemRegisterForCare = ({
                   <h3>
                     <va-link href={service.path} text={service.title}></va-link>
                   </h3>
+                  {service.address && (
+                    <Address address={service.address} showDirections={false} />
+                  )}
                   {service.serviceLocations.map((serviceLocation) => (
                     <ServiceLocation
                       key={serviceLocation.id}

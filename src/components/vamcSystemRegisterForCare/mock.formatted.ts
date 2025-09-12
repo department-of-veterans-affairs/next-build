@@ -742,6 +742,15 @@ const mockData: VamcSystemRegisterForCare = {
           },
         },
       ],
+      address: {
+        langcode: 'en',
+        country_code: 'US',
+        administrative_area: 'OH',
+        locality: 'Chillicothe',
+        dependent_locality: null,
+        postal_code: '45601-9718',
+        address_line1: '17273 State Route 104',
+      },
     },
     {
       id: 'b7e4895a-22fc-4008-8f95-4777dc2ac0d5',
@@ -863,6 +872,15 @@ const mockData: VamcSystemRegisterForCare = {
           },
         },
       ],
+      address: {
+        langcode: null,
+        country_code: 'US',
+        administrative_area: 'NY',
+        locality: 'Albany',
+        dependent_locality: null,
+        postal_code: '12208-3410',
+        address_line1: '113 Holland Avenue',
+      },
     },
   ],
 }
