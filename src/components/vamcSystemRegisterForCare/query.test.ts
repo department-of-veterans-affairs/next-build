@@ -8,6 +8,7 @@
 import { formatter } from './query'
 import mockData from './mock.json'
 import mockMenu from './mock.menu.json'
+import mockServices from './mock.services.json'
 import { Menu } from '@/types/drupal/menu'
 
 describe('VamcSystemRegisterForCare formatter', () => {
@@ -15,6 +16,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
     const result = formatter({
       entity: mockData,
       menu: mockMenu as unknown as Menu,
+      services: mockServices,
     })
 
     expect(result.title).toBe('Register for care')
@@ -31,6 +33,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
     const result = formatter({
       entity: mockData,
       menu: mockMenu as unknown as Menu,
+      services: mockServices,
     })
 
     expect(result.topOfPageContent).toBeDefined()
@@ -43,6 +46,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
     const result = formatter({
       entity: mockData,
       menu: mockMenu as unknown as Menu,
+      services: mockServices,
     })
 
     expect(result.bottomOfPageContent).toBeDefined()

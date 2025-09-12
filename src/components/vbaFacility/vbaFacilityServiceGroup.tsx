@@ -1,4 +1,7 @@
-import { ServiceLocation } from '@/components/serviceLocation/template'
+import {
+  ServiceLocation,
+  ServiceLocationType,
+} from '@/components/serviceLocation/template'
 import { VbaFacilityService } from './formatted-type'
 import { slugifyString } from '@/lib/utils/slug'
 
@@ -54,7 +57,7 @@ export const VbaFacilityServiceGroup = ({
                   mainPhoneString={mainPhone}
                   serviceDescription={service.facilityDescription}
                   serviceHeader={service.facilityHeader}
-                  isVba={true}
+                  locationType={ServiceLocationType.VBA}
                 />
               ))}
             </va-accordion-item>

@@ -26,8 +26,7 @@ export const HealthServices = ({
         {healthServices.map((service) => {
           // Will this always be true for VAMC facilities?
           const isVha = service.fieldFacilityLocatorApiId?.startsWith('vha_')
-          const hasLocationData =
-            service.locations?.[0]?.fieldServiceLocationAddress
+          const hasLocationData = service.locations?.[0]?.serviceLocationAddress
 
           return (
             <va-accordion-item

@@ -1,11 +1,18 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeVamcSystemRegisterForCare } from '@/types/drupal/node'
+import {
+  NodeVamcSystemRegisterForCare,
+  NodeVhaFacilityNonclinicalService,
+} from '@/types/drupal/node'
 import { VamcSystemRegisterForCare } from './formatted-type'
-import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
+import {
+  PARAGRAPH_RESOURCE_TYPES,
+  RESOURCE_TYPES,
+} from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
+  fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
@@ -19,15 +26,31 @@ import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { FieldCCText } from '@/types/drupal/field_type'
 import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE)
+    .addInclude(['field_office'])
+}
+
+export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
+  return new DrupalJsonApiParams()
     .addInclude([
-      'field_office',
-      // TODO: Add more includes as needed
+      'field_service_name_and_descripti',
+      'field_facility_location',
+      ...getNestedIncludes(
+        'field_service_location',
+        PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION
+      ),
     ])
+    .addFilter('status', '1')
+    .addFilter('field_service_name_and_descripti.name', 'Register for care')
+    .addFilter('field_facility_location.field_region_page.id', vamcSystemId)
+    .addFilter('field_facility_location.status', '1')
 }
 
 // Define the option types for the data loader.
@@ -40,6 +63,7 @@ export type VamcSystemRegisterForCareDataOpts = {
 type VamcSystemRegisterForCareData = {
   entity: NodeVamcSystemRegisterForCare
   menu: Menu | null
+  services: NodeVhaFacilityNonclinicalService[]
 }
 
 // Implement the data loader.
@@ -81,16 +105,31 @@ export const data: QueryData<
     )
   )
 
-  return { entity, menu }
+  const { data: services } =
+    await fetchAndConcatAllResourceCollectionPages<NodeVhaFacilityNonclinicalService>(
+      RESOURCE_TYPES.VHA_FACILITY_NONCLINICAL_SERVICE,
+      serviceParams(entity.field_office.id),
+      PAGE_SIZES.MAX
+    )
+
+  return { entity, menu, services }
 }
 
 // Implement the formatter.
 export const formatter: QueryFormatter<
   VamcSystemRegisterForCareData,
   VamcSystemRegisterForCare
-> = ({ entity, menu }) => {
+> = ({ entity, menu, services }) => {
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
+
+  const formattedServices = services.map((service) => ({
+    id: service.id,
+    title: service.field_facility_location.title,
+    path: service.field_facility_location.path.alias,
+    serviceLocations: service.field_service_location.map(formatServiceLocation),
+    address: service.field_facility_location.field_address,
+  }))
 
   return {
     ...entityBaseFields(entity),
@@ -107,5 +146,6 @@ export const formatter: QueryFormatter<
     relatedLinks: formatListOfLinkTeasers(
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
+    services: formattedServices,
   }
 }

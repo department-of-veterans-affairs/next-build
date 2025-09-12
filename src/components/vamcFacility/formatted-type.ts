@@ -1,5 +1,4 @@
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
-import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { Administration } from '@/components/administration/formatted-type'
 import { MediaImage } from '@/components/mediaDocument/formatted-type'
 import { PhoneNumber } from '@/components/phoneNumber/formatted-type'
@@ -14,8 +13,8 @@ import { VamcEhr } from '@/types/drupal/vamcEhr'
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { FormattedRelatedLinks } from '@/components/relatedLinks/formatted-type'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { EmailContact } from '@/components/contactInfo/formatted-type'
 import { VamcSystemSocialLinks } from '../vamcSystem/formatted-type'
+import { ServiceLocation } from '@/components/serviceLocation/formatted-type'
 
 export type VamcFacility = PublishedEntity & {
   introText: string | null
@@ -54,56 +53,6 @@ export type VamcFacility = PublishedEntity & {
   healthServices: VamcFacilityHealthService[]
 }
 
-/** Represents the "single" object containing service-related fields. */
-export interface VamcFacilityServiceLocation {
-  /** Type of office visits supported (e.g., "no", "yes_appointment_only"). */
-  fieldOfficeVisits?: string
-  /** Type of virtual support available (e.g., "yes_veterans_can_call"). */
-  fieldVirtualSupport?: string
-  /** Appointment intro text type ("remove_text", "customize_text", "use_default_text"). */
-  fieldApptIntroTextType?:
-    | 'remove_text'
-    | 'customize_text'
-    | 'use_default_text'
-    | string
-  /** Custom appointment intro text (if applicable). */
-  fieldApptIntroTextCustom?: string
-  /**
-   * Array of additional phone numbers for appointments or contact.
-   *
-   * Comes from `location.field_other_phone_numbers`
-   */
-  appointmentPhoneNumbers?: PhoneNumber[]
-  /**
-   * Array of additional contact phone numbers.
-   *
-   * Comes from `location.field_phone`
-   */
-  contactInfoPhoneNumbers?: PhoneNumber[]
-  /** Indicates if online scheduling is available ("yes" or others). */
-  fieldOnlineSchedulingAvail?: 'yes' | string
-  /** Array of email contact objects. */
-  fieldEmailContacts?: EmailContact[]
-  /**
-   * Service hours configuration
-   *
-   * "0" to show facility hours
-   * "1" to show no service hours
-   * "2" to show specific hours defined in `fieldOfficeHours`
-   * */
-  fieldHours?: '0' | '1' | '2' | string
-  /** Specific service office hours. */
-  fieldOfficeHours?: FieldOfficeHours[]
-  /** Additional information about service hours. */
-  fieldAdditionalHoursInfo?: string
-  /** Indicates if the main facility phone number should be used (true/false). */
-  fieldUseMainFacilityPhone?: boolean
-  /** Indicates if the facility phone number should be used for appointments (true/false). */
-  fieldUseFacilityPhoneNumber?: boolean
-  /** Optional service location address entity. */
-  fieldServiceLocationAddress?: ParagraphServiceLocationAddress
-}
-
 export interface VamcFacilityHealthService {
   /** Name of the service taxonomy for the regional health service. */
   name: string
@@ -140,7 +89,7 @@ export interface VamcFacilityHealthService {
   /** Flag indicating if this is a mental health service */
   isMentalHealthService?: boolean
   /** Locations associated with this service */
-  locations: VamcFacilityServiceLocation[]
+  locations: ServiceLocation[]
   fieldFacilityLocatorApiId?: string
   fieldHealthServiceApiId?: string
   /** Fallback content */
