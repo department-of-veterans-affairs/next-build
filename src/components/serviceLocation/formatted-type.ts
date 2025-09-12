@@ -2,9 +2,7 @@ import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { PhoneNumber } from '@/components/phoneNumber/formatted-type'
 import { EmailContact } from '@/components/contactInfo/formatted-type'
-import {
-  FieldOfficeHours,
-} from '@/types/drupal/field_type'
+import { FieldOfficeHours } from '@/types/drupal/field_type'
 
 export type ServiceLocation = PublishedParagraph & {
   type: 'paragraph--service_location'
