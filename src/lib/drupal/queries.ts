@@ -49,6 +49,7 @@ import * as Table from '@/components/table/query'
 import * as VamcEhr from '@/components/vamcEhr/query'
 import * as VamcSystem from '../../components/vamcSystem/query'
 import * as VamcSystemRegisterForCare from '../../components/vamcSystemRegisterForCare/query'
+import * as VamcSystemBillingAndInsurance from '../../components/vamcSystemBillingAndInsurance/query'
 import * as VamcSystemVaPolice from '../../components/vamcSystemVaPolice/query'
 import * as VetCenter from '../../components/vetCenter/query'
 import * as VetCenterHealthServices from '@/components/vetCenterHealthServices/query'
@@ -91,6 +92,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_FACILITY]: HealthCareLocalFacility,
   [RESOURCE_TYPES.VAMC_SYSTEM]: VamcSystem,
   [RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE]: VamcSystemRegisterForCare,
+  [RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE]: VamcSystemBillingAndInsurance,
   [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
