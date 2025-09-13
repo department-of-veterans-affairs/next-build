@@ -1,0 +1,863 @@
+{
+  "type": "node--vamc_system_billing_insurance",
+  "id": "cc1f662c-44bf-4cf2-b331-1d96a36baa7e",
+  "drupal_internal__nid": 45617,
+  "drupal_internal__vid": 853016,
+  "langcode": "en",
+  "revision_timestamp": "2024-03-25T18:05:57+00:00",
+  "revision_log": "reviewed. ",
+  "status": true,
+  "title": "Billing and insurance",
+  "created": "2022-05-04T19:41:16+00:00",
+  "changed": "2024-03-25T18:05:57+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/louisville-health-care",
+      "title": "VA Louisville health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "Billing and insurance",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/louisville-health-care/billing-and-insurance",
+    "pid": 60569,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_cc_above_top_of_page": {
+    "target_type": "paragraph",
+    "target_id": "109546",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<h2>Questions about copay balance</h2><p>For questions about the copay balance of your VA health care bill, call us toll free at the number below. You won't need to pay any copays for X-rays, lab tests, preventative tests, and services like health screenings or immunizations.</p>",
+          "format": "rich_text",
+          "processed": "<h2>Questions about copay balance</h2><p>For questions about the copay balance of your VA health care bill, call us toll free at the number below. You won't need to pay any copays for X-rays, lab tests, preventative tests, and services like health screenings or immunizations.</p>"
+        }
+      ]
+    }
+  },
+  "field_cc_bottom_of_page_content": {
+    "target_type": "paragraph",
+    "target_id": "82295",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<h2 id=\"private-and-other-health-insur\">Private and other health insurance</h2><p dir=\"ltr\">If you have another form of health coverage—like Medicare, Medicaid, TRICARE, or a private insurance plan through your spouse’s employer—please bring your insurance card with you to your health care appointment.</p><p><a href=\"/admin/content/linky/29734\" hreflang=\"en\">Learn how VA health care works with other health insurance</a></p>",
+          "format": "rich_text",
+          "processed": "<h2 id=\"private-and-other-health-insur\">Private and other health insurance</h2><p dir=\"ltr\">If you have another form of health coverage—like Medicare, Medicaid, TRICARE, or a private insurance plan through your spouse’s employer—please bring your insurance card with you to your health care appointment.</p><p><a href=\"https://www.va.gov/resources/va-health-care-and-other-insurance/\" hreflang=\"en\">Learn how VA health care works with other health insurance</a></p>"
+        }
+      ]
+    }
+  },
+  "field_cc_related_links": {
+    "target_type": "paragraph",
+    "target_id": "82301",
+    "target_field": null,
+    "fetched_bundle": "list_of_link_teasers",
+    "fetched": {
+      "field_title": [
+        {
+          "value": "More information"
+        }
+      ],
+      "field_va_paragraphs": [
+        {
+          "target_id": "82297",
+          "target_revision_id": "1813960",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "82297",
+          "label": "VAMC System - \"Billing and insurance\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/703",
+              "title": "VA health care copay rates",
+              "options": {
+                "href": "entity:node/703",
+                "data-entity-type": "node",
+                "data-entity-uuid": "cf3a3b43-36f3-43c4-8b27-5c1f4a580b55",
+                "data-entity-substitution": "canonical"
+              }
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Review copay rates for outpatient care, hospital stays, medications, and other health services."
+            }
+          ]
+        },
+        {
+          "target_id": "82298",
+          "target_revision_id": "1813961",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "82298",
+          "label": "VAMC System - \"Billing and insurance\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/706",
+              "title": "VA financial hardship assistance",
+              "options": {
+                "href": "entity:node/706",
+                "data-entity-type": "node",
+                "data-entity-uuid": "a8a5bfeb-9940-4ed8-80ae-9c2858a7b3d1",
+                "data-entity-substitution": "canonical"
+              }
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "If you’re struggling to pay your copays, learn how to request a repayment plan, debt relief, or copay exemption."
+            }
+          ]
+        },
+        {
+          "target_id": "82299",
+          "target_revision_id": "1813962",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "82299",
+          "label": "VAMC System - \"Billing and insurance\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/705",
+              "title": "Dispute your VA copay charges",
+              "options": {
+                "href": "entity:node/705",
+                "data-entity-type": "node",
+                "data-entity-uuid": "560295f1-240b-4b34-87ee-ccba6f4bbe6c",
+                "data-entity-substitution": "canonical"
+              }
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Find out how to file a dispute If you disagree with the charges or amounts on your bill."
+            }
+          ]
+        },
+        {
+          "target_id": "82300",
+          "target_revision_id": "1813963",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "82300",
+          "label": "VAMC System - \"Billing and insurance\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/8473",
+              "title": "Change your address on file with VA",
+              "options": {
+                "href": "entity:node/8473",
+                "data-entity-type": "node",
+                "data-entity-uuid": "5f539c97-cfe7-4496-9dd5-a9b4d01f592d",
+                "data-entity-substitution": "canonical"
+              }
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Update your address and other information in your VA.gov profile. This will update your information across several VA benefits and services."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "field_cc_top_of_page_content": {
+    "target_type": "paragraph",
+    "target_id": "82293",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<h2 id=\"pay-online-by-phoneor-mail\">Pay online, by phone, or mail</h2><p>Find out how to make a payment—and what to do if you're having trouble making payments or you disagree with your bill.</p><p><a class=\"vads-c-action-link--blue\" href=\"/admin/content/linky/11628\" hreflang=\"en\">Pay online, by phone, or by mail</a></p><h2 id=\"pay-in-person\">Pay in person</h2><p>To pay your copay bill in person, visit the agent cashier's office.</p><p>Please bring your payment stub, along with a check or money order made payable to \"VA.\" Be sure to include your VA account number on the check or money order.</p>",
+          "format": "rich_text",
+          "processed": "<h2 id=\"pay-online-by-phoneor-mail\">Pay online, by phone, or mail</h2><p>Find out how to make a payment—and what to do if you're having trouble making payments or you disagree with your bill.</p><p><a class=\"vads-c-action-link--blue\" href=\"https://www.va.gov/health-care/pay-copay-bill/\" hreflang=\"en\">Pay online, by phone, or by mail</a></p><h2 id=\"pay-in-person\">Pay in person</h2><p>To pay your copay bill in person, visit the agent cashier's office.</p><p>Please bring your payment stub, along with a check or money order made payable to \"VA.\" Be sure to include your VA account number on the check or money order.</p>"
+        }
+      ]
+    }
+  },
+  "field_enforce_unique_combo": false,
+  "field_enforce_unique_combo_offic": false,
+  "field_last_saved_by_an_editor": "2024-03-25T18:06:03+00:00",
+  "field_office_hours": [
+    {
+      "day": 1,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 2,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 3,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 4,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    },
+    {
+      "day": 5,
+      "all_day": false,
+      "starthours": 800,
+      "endhours": 1630,
+      "comment": ""
+    }
+  ],
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vamc_system_billing_insurance/cc1f662c-44bf-4cf2-b331-1d96a36baa7e?resourceVersion=id%3A853016"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "4ae6834c-1451-4771-b5a3-203f44d42e45",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vamc_system_billing_insurance"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "4c1333c0-710a-4d7d-a994-bdf0b4b2b6de",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 4842
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "10fa0b09-2c55-4585-892f-8545ad90a496",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 331
+    }
+  },
+  "field_non_clinical_services": {
+    "type": "view--view",
+    "id": "a9e07b4c-6178-43d4-a7e3-57d67e85dbd6",
+    "resourceIdObjMeta": {
+      "display_id": "billing_and_insurance",
+      "arguments": "[node:field_office:target_id]/[node:field_administration:target_id]",
+      "items_to_display": "",
+      "drupal_internal__target_id": "non_clinical_services"
+    }
+  },
+  "field_office": {
+    "type": "node--health_care_region_page",
+    "id": "40bc0017-13cb-4e52-859f-f815fbb5a547",
+    "drupal_internal__nid": 14991,
+    "drupal_internal__vid": 972800,
+    "langcode": "en",
+    "revision_timestamp": "2024-09-16T21:02:58+00:00",
+    "revision_log": "Added Health Connect phone number",
+    "status": true,
+    "title": "VA Louisville health care",
+    "created": "2020-12-15T22:12:05+00:00",
+    "changed": "2025-04-17T12:47:27+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "VA Louisville health care",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [],
+    "path": {
+      "alias": "/louisville-health-care",
+      "pid": 17219,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_appointments_online": false,
+    "field_description": "Find a health facility near you at VA Louisville Healthcare System, and manage your health online. Our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers.",
+    "field_facebook": {
+      "uri": "https://www.facebook.com/VALouisville",
+      "title": "VA Louisville Healthcare System Facebook page",
+      "options": {
+        "href": "https://www.facebook.com/VALouisville",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://www.facebook.com/VALouisville"
+    },
+    "field_flickr": {
+      "uri": "https://www.flickr.com/photos/louisvillevamc/albums/",
+      "title": "VA Louisville Healthcare System at Flickr",
+      "options": {
+        "href": "https://www.flickr.com/photos/louisvillevamc/albums/",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://www.flickr.com/photos/louisvillevamc/albums/"
+    },
+    "field_govdelivery_id_emerg": "USVHA_419",
+    "field_govdelivery_id_news": "USVHA_232",
+    "field_instagram": null,
+    "field_intro_text": "At VA Louisville Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+    "field_last_saved_by_an_editor": "2024-09-16T21:03:01+00:00",
+    "field_meta_tags": null,
+    "field_operating_status": {
+      "uri": "entity:node/23274",
+      "title": "Operating status | VA Louisville health care",
+      "options": {
+        "href": "entity:node/23274",
+        "data-entity-type": "node",
+        "data-entity-uuid": "57119d1e-366f-4426-b9f2-24ba952e3a42",
+        "data-entity-substitution": "canonical"
+      },
+      "url": "/louisville-health-care/operating-status"
+    },
+    "field_other_va_locations": ["vc_0202V"],
+    "field_twitter": null,
+    "field_vamc_ehr_system": "vista",
+    "field_vamc_system_official_name": "VA Louisville Healthcare System",
+    "field_va_health_connect_phone": "833-940-1625",
+    "field_youtube": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/40bc0017-13cb-4e52-859f-f815fbb5a547?resourceVersion=id%3A972800"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 14991
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "health_care_region_page"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "75a67a30-cd28-45b6-8c99-ca1071f9f940",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5043
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1317
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "10fa0b09-2c55-4585-892f-8545ad90a496",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 331
+      }
+    },
+    "field_clinical_health_services": [
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "dba6717a-f7bb-45db-9cf2-98522b1117d2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 15245
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "cd805aed-2544-4eff-b2f4-82d98691386d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29040
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "e7101cee-be2c-41e5-abcf-006adb14a0ec",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29041
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "4d38efd6-6089-45d2-ab3f-671cd514a197",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29042
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "0534730d-6454-4f27-81eb-2e57c39aa275",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29043
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "98e5f4b6-b14e-42c2-bf4a-8b836e9eda64",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29044
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f803d078-3c93-45fe-b0e2-6db3a10bde3a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29045
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "51403e73-004b-46c1-b317-b4b2a345ee21",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29046
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "fcd5ac26-fe92-4f4d-846a-562903ae2563",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29047
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "4425de8f-5127-44ea-9c9f-0aa4dec1c386",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29048
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "40327772-e8ee-4668-a911-62d3f24e4612",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29049
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "20857259-3dd3-440a-ad0f-01051b1d0e35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29050
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a9caefea-64f6-4aaa-be26-9b89cee62e8a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29051
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a77cfceb-bb10-4fea-9e96-9902569b4cf3",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29052
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "0c00d3a1-4d82-487e-bfaa-a74c23a10535",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29053
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "834b1175-9c95-4de4-b32d-d78f2d90eadc",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29054
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "dc949a90-942f-4838-8e5f-10fcc11e2771",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29055
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "6275fc62-ce27-44ea-9048-6e9ebcd8c8c5",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29056
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "2af07b2a-29f2-48a6-bc29-753ebce975b3",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29057
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5b2ec0b0-7f0d-4d21-b85c-f01331434ad8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29058
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "bd3566d7-abc1-44a1-b22c-651fc325e40e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29059
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b0688d36-4b96-4233-bcef-05f232e70d55",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29060
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a4f177a3-99d9-4900-8eb1-1f11f5da46d2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29061
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "90959737-d665-44fb-8770-146a66393a62",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29062
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a5bc1a39-1cbc-4641-8540-eab0ca9f0b73",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29063
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b54d326d-2496-494b-81d7-c97973c3325d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29064
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "6a9bed50-800a-4815-ade7-5a49ad4de59c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29065
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f91d2b0f-7c4b-43cc-ab05-c785f7e1700d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29066
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "21458db4-21d6-47ce-be3d-b93abb174922",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29067
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f25ae2c0-4882-43bf-9a07-9c4c42c78529",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29068
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8d7bed36-f574-41ad-a121-bcaecba6e07a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29069
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "bda48729-3e90-4a41-bf96-2e44c0abdefc",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29071
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ec5e61f1-521b-46ca-93ae-1b74a0864300",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29072
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "9f470bfb-5121-4fec-889f-caa6c075fe44",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29073
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "2f899a13-4f6f-4117-8004-f5e88e005264",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29074
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "0fee4480-0e6c-40d1-8e21-eb5bedb553a1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29075
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5cd4665b-4f85-4024-bbad-0e380d541bbb",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29076
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "26b2a0ca-9e82-468c-b68b-ce8e042c80ad",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29077
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8089371d-4347-43e3-9b9a-b93c5404fa14",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29078
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "29ed0449-af33-4918-b826-ea5cfbc11d08",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29079
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "401601f4-58b4-43d8-a38d-0a00c3bac95b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29080
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5a2b45d2-84f6-4a4b-9ac4-5c35de2c8cd2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29081
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "9bc0eb24-f506-471d-9d2e-3509fbf3fa39",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29082
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d6d78651-a0a0-4617-af42-f42e54c1dee0",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29083
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "6a865676-d963-453d-a830-bb135f2d481e",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29084
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "08ec93ad-dbe3-4fdf-ab21-3bf403b6de74",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29085
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d4e4023c-3a28-477c-8029-3063e0ca3069",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29086
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "fb61bed9-4028-419c-bb42-5f9f60295e99",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29087
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c2a91344-2138-4c30-8505-c3f9c67a5ae4",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29088
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "19aa4bc4-d19a-457c-bd21-983478367dc8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29089
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f9f4c0bf-bcb1-4d9f-9719-6f63ab12b2d7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29090
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "9bcc9ed3-1ab9-4309-952b-e382f5c530b6",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 29091
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "148d7574-e991-464f-93c3-47b3b0a16c42",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 66821
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "86a6c67c-43d1-4521-bc2a-41101929abcc",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 70861
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "c3140a83-9af4-4d73-acad-3861f9ac6dc2",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 72846
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "24ee1cb1-1136-44b1-84ab-da50334997f4",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 78907
+        }
+      }
+    ],
+    "field_media": {
+      "type": "media--image",
+      "id": "3823911a-9fa1-4576-92c9-6d5a974f9b4a",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4307
+      }
+    },
+    "field_related_links": {
+      "type": "paragraph--list_of_link_teasers",
+      "id": "1d7fac3a-07cc-4401-9857-fb0be92e2401",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1479148,
+        "drupal_internal__target_id": 49817
+      }
+    },
+    "field_system_menu": {
+      "type": "menu--menu",
+      "id": "9930dfc2-3aba-4574-9910-88420071d9a5",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "va-louisville-health-care"
+      }
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_clinical_health_services",
+      "field_media",
+      "field_related_links",
+      "field_system_menu"
+    ]
+  },
+  "field_service_name_and_descripti": {
+    "type": "taxonomy_term--health_care_service_taxonomy",
+    "id": "2fce5b8a-1f61-4964-83d4-987e9458c2a8",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1027
+    }
+  },
+  "field_telephone": null,
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_non_clinical_services",
+    "field_office",
+    "field_service_name_and_descripti",
+    "field_telephone"
+  ]
+}
