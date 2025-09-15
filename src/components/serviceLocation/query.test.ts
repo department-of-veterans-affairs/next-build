@@ -7,6 +7,8 @@ import mockData from './mock.json'
 
 describe('paragraph--link_teaser formatData', () => {
   test('outputs formatted data', () => {
-    expect(queries.formatData('paragraph--service_location', mockData)).toMatchSnapshot()
+    expect(
+      queries.formatData('paragraph--service_location', mockData)
+    ).toMatchSnapshot()
   })
 })
