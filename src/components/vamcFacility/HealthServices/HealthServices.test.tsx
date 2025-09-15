@@ -4,6 +4,7 @@ import { HealthServices } from './HealthServices'
 import { VamcFacilityHealthService } from '../formatted-type'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
 import { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
+import { ServiceLocation } from '@/components/serviceLocation/formatted-type'
 
 // Mock ServiceLocation to simplify tests
 jest.mock('@/components/serviceLocation/template', () => ({
@@ -25,8 +26,8 @@ describe('HealthServices', () => {
           // need to provide a full address object.
           // NOTE: This is relying on static typing to test for the proper
           // integration.
-          fieldServiceLocationAddress: {} as ParagraphServiceLocationAddress,
-        },
+          serviceLocationAddress: {} as ParagraphServiceLocationAddress,
+        } as ServiceLocation,
       ],
       fieldFacilityLocatorApiId: 'vha_123',
       fieldHealthServiceApiId: 'primary_care',
@@ -39,8 +40,8 @@ describe('HealthServices', () => {
       entityBundle: 'health_care_service',
       locations: [
         {
-          fieldServiceLocationAddress: null,
-        },
+          serviceLocationAddress: null,
+        } as ServiceLocation,
       ],
       fieldBody: '<p>Specialized mental health services</p>',
       localServiceDescription: 'Local mental health description',

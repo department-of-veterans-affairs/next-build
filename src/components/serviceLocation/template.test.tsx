@@ -14,7 +14,9 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
   mainPhoneString: '555-5678',
   isMentalHealthService: true,
   location: {
-    fieldUseFacilityPhoneNumber: true,
+    id: 'test-location-1',
+    type: 'paragraph--service_location',
+    useFacilityPhoneNumber: true,
     appointmentPhoneNumbers: [
       {
         id: '1',
@@ -43,10 +45,10 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
         label: 'Main contact',
       },
     ],
-    fieldOfficeVisits: 'yes_appointment_only',
-    fieldVirtualSupport: 'yes_veterans_can_call',
-    fieldOnlineSchedulingAvail: 'yes',
-    fieldServiceLocationAddress: {
+    officeVisits: 'yes_appointment_only',
+    virtualSupport: 'yes_veterans_can_call',
+    onlineSchedulingAvail: 'yes',
+    serviceLocationAddress: {
       drupal_internal__id: 1,
       drupal_internal__revision_id: 1,
       type: '',
@@ -67,8 +69,8 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
       },
       field_use_facility_address: false,
     },
-    fieldHours: '2',
-    fieldOfficeHours: [
+    hours: '2',
+    officeHours: [
       {
         day: 1,
         starthours: 800,
@@ -82,9 +84,9 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
         comment: 'Open',
       },
     ],
-    fieldAdditionalHoursInfo: 'Closed on holidays',
-    fieldUseMainFacilityPhone: true,
-    fieldApptIntroTextType: 'use_default_text',
+    additionalHoursInfo: 'Closed on holidays',
+    useMainFacilityPhone: true,
+    apptIntroTextType: 'use_default_text',
   },
 })
 
@@ -187,8 +189,8 @@ describe('ServiceLocation', () => {
 
   test('shows same-as-facility hours message', () => {
     const props = { ...getBaseProps() }
-    props.location.fieldHours = '0'
-    delete props.location.fieldOfficeHours
+    props.location.hours = '0'
+    delete props.location.officeHours
 
     render(<ServiceLocation {...props} />)
 
@@ -237,8 +239,8 @@ describe('ServiceLocation', () => {
 
   test('shows custom appointment text', () => {
     const props = { ...getBaseProps() }
-    props.location.fieldApptIntroTextType = 'customize_text'
-    props.location.fieldApptIntroTextCustom = 'Custom appointment instructions'
+    props.location.apptIntroTextType = 'customize_text'
+    props.location.apptIntroTextCustom = 'Custom appointment instructions'
 
     render(<ServiceLocation {...props} />)
 
@@ -271,7 +273,7 @@ describe('ServiceLocation', () => {
   })
   test('shows email contacts', () => {
     const props = { ...getBaseProps() }
-    props.location.fieldEmailContacts = [
+    props.location.emailContacts = [
       {
         address: 'contact@example.com',
         label: 'General Inquiries',
