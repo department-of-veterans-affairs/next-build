@@ -24,6 +24,7 @@ import {
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { PhoneContact } from '@/components/contactInfo/formatted-type'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 
@@ -76,6 +77,26 @@ export const data: QueryData<VbaFacilityDataOpts, VbaFacilityData> = async (
       serviceParams(entity.id),
       PAGE_SIZES.MAX
     )
+  // Fix CTA link for national spotlight if it's an entity: URI
+  const fixCta = async (link?: { uri?: string }) => {
+    if (link?.uri?.startsWith('entity:')) {
+      const internal = link.uri.replace('entity:', '')
+      const pathInfo = await drupalClient.translatePath(internal)
+      link.uri = pathInfo?.entity?.path ?? link.uri
+    }
+  }
+  const nationalCta =
+    entity.field_cc_national_spotlight_1?.fetched?.field_cta?.[0]
+      ?.field_button_link?.[0]
+  await fixCta(nationalCta)
+  if (Array.isArray(entity.field_local_spotlight)) {
+    await Promise.all(
+      entity.field_local_spotlight.map(async (spot) => {
+        const localCta = spot?.field_cta?.[0]?.field_button_link?.[0]
+        await fixCta(localCta)
+      })
+    )
+  }
 
   return {
     entity,
