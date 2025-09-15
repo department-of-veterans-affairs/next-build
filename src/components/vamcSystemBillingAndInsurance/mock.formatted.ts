@@ -884,6 +884,7 @@ const mockData: VamcSystemBillingAndInsurance = {
         postal_code: '40206-1433',
         address_line1: '800 Zorn Avenue',
       },
+      phoneNumber: '502-287-4000',
     },
   ],
 }

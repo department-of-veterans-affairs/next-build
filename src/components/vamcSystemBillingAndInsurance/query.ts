@@ -129,7 +129,11 @@ export const formatter: QueryFormatter<
     path: service.field_facility_location.path.alias,
     serviceLocations: service.field_service_location.map(formatServiceLocation),
     address: service.field_facility_location.field_address,
+    phoneNumber: service.field_facility_location.field_phone_number,
   }))
+
+  // The old page didn't sort them, but we want the order to be predictable
+  formattedServices.sort((a, b) => a.title.localeCompare(b.title))
 
   return {
     ...entityBaseFields(entity),

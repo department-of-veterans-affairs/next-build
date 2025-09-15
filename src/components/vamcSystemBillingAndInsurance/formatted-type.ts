@@ -20,5 +20,6 @@ export interface VamcSystemBillingAndInsurance extends PublishedEntity {
     path: string
     serviceLocations: ServiceLocation[]
     address: FieldAddress
+    phoneNumber: string
   }>
 }
