@@ -132,6 +132,9 @@ export const formatter: QueryFormatter<
     phoneNumber: service.field_facility_location.field_phone_number,
   }))
 
+  // The old page didn't sort them, but we want the order to be predictable
+  formattedServices.sort((a, b) => a.title.localeCompare(b.title))
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
