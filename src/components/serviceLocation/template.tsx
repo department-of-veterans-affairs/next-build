@@ -76,40 +76,37 @@ export const ServiceLocation = ({
     !['not_applicable', 'unknown', '2'].includes(fieldReferralRequired)
 
   let appointmentIntroContent
+  // We could also check that `location.apptIntroTextType !== 'remove_text'` but we're
+  // already checking for specific text types, so that would be redundant.
   if (
-    location.apptIntroTextType &&
-    location.apptIntroTextType !== 'remove_text'
+    location.apptIntroTextType === 'customize_text' &&
+    location.apptIntroTextCustom
   ) {
-    if (
-      location.apptIntroTextType === 'customize_text' &&
-      location.apptIntroTextCustom
-    ) {
-      appointmentIntroContent = (
-        <p
-          data-testid="service-location-custom-text"
-          className="vads-u-margin-bottom--0"
-          dangerouslySetInnerHTML={{
-            __html: location.apptIntroTextCustom,
-          }}
-        />
-      )
-    } else {
-      appointmentIntroContent = (
-        <p
-          data-testid="service-location-default-text"
-          className="vads-u-margin-bottom--0"
-        >
-          Contact us to schedule, reschedule, or cancel your appointment.
-          {locationType !== ServiceLocationType.VBA && (
-            <>
-              {' '}
-              If a referral is required, you’ll need to contact your primary
-              care provider first.
-            </>
-          )}
-        </p>
-      )
-    }
+    appointmentIntroContent = (
+      <p
+        data-testid="service-location-custom-text"
+        className="vads-u-margin-bottom--0"
+        dangerouslySetInnerHTML={{
+          __html: location.apptIntroTextCustom,
+        }}
+      />
+    )
+  } else if (location.apptIntroTextType === 'use_default_text') {
+    appointmentIntroContent = (
+      <p
+        data-testid="service-location-default-text"
+        className="vads-u-margin-bottom--0"
+      >
+        Contact us to schedule, reschedule, or cancel your appointment.
+        {locationType !== ServiceLocationType.VBA && (
+          <>
+            {' '}
+            If a referral is required, you’ll need to contact your primary care
+            provider first.
+          </>
+        )}
+      </p>
+    )
   }
   const showAppointmentsHeader = Boolean(
     appointmentIntroContent ||
@@ -275,11 +272,13 @@ export const ServiceLocation = ({
       {location.emailContacts?.map((email, i) => (
         <div key={i} data-testid="service-location-email-contact">
           {email.label && <SubHeadingTag>{email.label}</SubHeadingTag>}
-          <va-link
-            href={`mailto:${email.address}`}
-            text={email.address}
-            data-testid={`service-location-email-contact-${i}`}
-          />
+          <p className="vads-u-margin-y--0">
+            <va-link
+              href={`mailto:${email.address}`}
+              text={email.address}
+              data-testid={`service-location-email-contact-${i}`}
+            />
+          </p>
         </div>
       ))}
 
