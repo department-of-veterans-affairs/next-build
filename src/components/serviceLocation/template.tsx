@@ -79,6 +79,49 @@ export const ServiceLocation = ({
     fieldReferralRequired &&
     !['not_applicable', 'unknown', '2'].includes(fieldReferralRequired)
 
+  let appointmentIntroContent
+  if (
+    location.apptIntroTextType &&
+    location.apptIntroTextType !== 'remove_text'
+  ) {
+    if (
+      location.apptIntroTextType === 'customize_text' &&
+      location.apptIntroTextCustom
+    ) {
+      appointmentIntroContent = (
+        <p
+          data-testid="service-location-custom-text"
+          className="vads-u-margin-bottom--0"
+          dangerouslySetInnerHTML={{
+            __html: location.apptIntroTextCustom,
+          }}
+        />
+      )
+    } else {
+      appointmentIntroContent = (
+        <p
+          data-testid="service-location-default-text"
+          className="vads-u-margin-bottom--0"
+        >
+          Contact us to schedule, reschedule, or cancel your appointment.
+          {locationType !== ServiceLocationType.VBA && (
+            <>
+              {' '}
+              If a referral is required, you’ll need to contact your primary
+              care provider first.
+            </>
+          )}
+        </p>
+      )
+    }
+  }
+  const showAppointmentsHeader = Boolean(
+    appointmentIntroContent ||
+      hasAppointmentPhoneNumbers ||
+      showMainNumberForAppointments ||
+      showOnlineScheduleLink
+  )
+
   const content = (
     <>
       {serviceHeader && (
@@ -146,10 +189,7 @@ export const ServiceLocation = ({
       )}
 
       {/* Appointments header */}
-      {(location.apptIntroTextType !== 'remove_text' ||
-        hasAppointmentPhoneNumbers ||
-        showMainNumberForAppointments ||
-        showOnlineScheduleLink) && (
+      {showAppointmentsHeader && (
         <SubHeadingTag
           className="vads-u-margin-top--2 vads-u-line-height--1"
           data-testid="service-location-appoinments-header"
@@ -159,34 +199,7 @@ export const ServiceLocation = ({
       )}
 
       {/* Appointment intro text */}
-      {location.apptIntroTextType &&
-        location.apptIntroTextType !== 'remove_text' && (
-          <div>
-            {location.apptIntroTextType === 'customize_text' ? (
-              <p
-                data-testid="service-location-custom-text"
-                className="vads-u-margin-bottom--0"
-                dangerouslySetInnerHTML={{
-                  __html: location.apptIntroTextCustom,
-                }}
-              />
-            ) : (
-              <p
-                data-testid="service-location-default-text"
-                className="vads-u-margin-bottom--0"
-              >
-                Contact us to schedule, reschedule, or cancel your appointment.
-                {locationType !== ServiceLocationType.VBA && (
-                  <>
-                    {' '}
-                    If a referral is required, you’ll need to contact your
-                    primary care provider first.
-                  </>
-                )}
-              </p>
-            )}
-          </div>
-        )}
+      {appointmentIntroContent && <div>{appointmentIntroContent}</div>}
 
       {/* Main phone number */}
       {showMainNumberForAppointments && (
