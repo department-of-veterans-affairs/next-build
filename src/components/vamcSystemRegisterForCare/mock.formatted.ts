@@ -751,6 +751,7 @@ const mockData: VamcSystemRegisterForCare = {
         postal_code: '45601-9718',
         address_line1: '17273 State Route 104',
       },
+      phoneNumber: '304-623-3461',
     },
     {
       id: 'b7e4895a-22fc-4008-8f95-4777dc2ac0d5',
@@ -881,6 +882,7 @@ const mockData: VamcSystemRegisterForCare = {
         postal_code: '12208-3410',
         address_line1: '113 Holland Avenue',
       },
+      phoneNumber: '304-623-3461',
     },
   ],
 }

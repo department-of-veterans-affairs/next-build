@@ -486,7 +486,7 @@ export interface NodeVhaFacilityNonclinicalService extends DrupalNode {
   status: boolean
   field_facility_location: Pick<
     NodeHealthCareLocalFacility,
-    'id' | 'title' | 'path' | 'field_address'
+    'id' | 'title' | 'path' | 'field_address' | 'field_phone_number'
   >
   field_service_location: ParagraphServiceLocation[]
 }

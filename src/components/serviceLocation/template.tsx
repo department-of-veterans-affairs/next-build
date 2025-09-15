@@ -41,10 +41,6 @@ export const ServiceLocation = ({
   const ServiceHeaderTag = `h${headingLevel}` as HeadingTagString
   const SubHeadingTag = `h${subHeadingLevel}` as SubheadingTagString
 
-  const showIntroText =
-    Boolean(location.apptIntroTextType || location.apptIntroTextCustom) &&
-    location.apptIntroTextType !== 'remove_text'
-
   // Determine service main phone
   // Determine main phone number
   const mainPhone =

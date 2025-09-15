@@ -79,6 +79,7 @@ export const VamcSystemRegisterForCare = ({
                       key={serviceLocation.id}
                       location={serviceLocation}
                       locationType={ServiceLocationType.NON_CLINICAL}
+                      mainPhoneString={service.phoneNumber}
                       headingLevel={4}
                     />
                   ))}

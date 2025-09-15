@@ -19,5 +19,6 @@ export interface VamcSystemRegisterForCare extends PublishedEntity {
     path: string
     serviceLocations: ServiceLocation[]
     address: FieldAddress
+    phoneNumber: string
   }>
 }
