@@ -29,6 +29,8 @@ import { FeaturedContent } from '@/components/featuredContent/template'
 import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
 import { LinkTeaser } from '@/components/linkTeaser/template'
 import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/formatted-type'
+import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
+import { ListOfLinkTeasers as FormattedListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
 import { NumberCallout } from '@/components/numberCallout/template'
 import { NumberCallout as FormattedNumberCallout } from '@/components/numberCallout/formatted-type'
 import { PhoneContact } from '@/components/contactInfo/template'
@@ -86,6 +88,11 @@ export const Paragraph = (paragraph: FormattedParagraph) => {
 
     case PARAGRAPH_RESOURCE_TYPES.LINK_TEASER:
       return <LinkTeaser {...(paragraph as FormattedLinkTeaser)} />
+
+    case PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS:
+      return (
+        <ListOfLinkTeasers {...(paragraph as FormattedListOfLinkTeasers)} />
+      )
 
     case PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT:
       return <NumberCallout {...(paragraph as FormattedNumberCallout)} />

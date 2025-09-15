@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Address } from './Address'
+import { Address } from './template'
 import { FieldAddress } from '@/types/drupal/field_type'
 
 const baseAddress: FieldAddress = {
@@ -48,7 +48,7 @@ describe('<Address />', () => {
 
     expect(link).toHaveAttribute(
       'href',
-      'https://maps.google.com/?saddr=Current+Location&daddr=123%20Main%20St%2CSpringfield%2CIL'
+      'https://maps.google.com/?saddr=Current+Location&daddr=123%20Main%20St%2C%20Springfield%2C%20IL'
     )
     expect(link).toHaveAttribute('text', 'Get directions on Google Maps')
     expect(link).toHaveAttribute(
