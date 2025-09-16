@@ -57,4 +57,33 @@ describe('VamcSystemBillingAndInsurance', () => {
       )
     ).toBeInTheDocument()
   })
+
+  it('renders PhoneNumber component with correct props', () => {
+    render(<VamcSystemBillingAndInsurance {...mockData} />)
+    const copaySection = screen.getByTestId('copay-section')
+    // Check that the va-telephone component is rendered with correct contact
+    const phoneElement = copaySection.querySelector(
+      'va-telephone[contact="8666016286"]'
+    )
+    expect(phoneElement).toBeInTheDocument()
+  })
+
+  it('handles null phoneNumber gracefully', () => {
+    const mockDataWithoutPhone = {
+      ...mockData,
+      phoneNumber: null,
+    }
+    render(<VamcSystemBillingAndInsurance {...mockDataWithoutPhone} />)
+    const copaySection = screen.getByTestId('copay-section')
+    const phoneElement = copaySection.querySelector('va-telephone')
+    expect(phoneElement).not.toBeInTheDocument()
+  })
+
+  it('renders Hours component with officeHours data', () => {
+    render(<VamcSystemBillingAndInsurance {...mockData} />)
+    const copaySection = screen.getByTestId('copay-section')
+    expect(
+      copaySection.querySelector('[data-template="hours"]')
+    ).toBeInTheDocument()
+  })
 })

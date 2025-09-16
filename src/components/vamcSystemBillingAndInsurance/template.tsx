@@ -69,7 +69,7 @@ export const VamcSystemBillingAndInsurance = ({
 
             <va-on-this-page></va-on-this-page>
 
-            <div className="usa-content">
+            <div className="usa-content" data-testid="copay-section">
               {aboveTopOfPageContent ? (
                 <Wysiwyg {...aboveTopOfPageContent} />
               ) : (
