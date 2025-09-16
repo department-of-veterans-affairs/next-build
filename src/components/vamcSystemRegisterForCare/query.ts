@@ -29,6 +29,11 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
+import {
+  getLovellVariantOfBreadcrumbs,
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--vamc_system_register_for_care.
 export const params: QueryParams<null> = () => {
@@ -64,6 +69,7 @@ type VamcSystemRegisterForCareData = {
   entity: NodeVamcSystemRegisterForCare
   menu: Menu | null
   services: NodeVhaFacilityNonclinicalService[]
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
@@ -112,14 +118,14 @@ export const data: QueryData<
       PAGE_SIZES.MAX
     )
 
-  return { entity, menu, services }
+  return { entity, menu, services, lovell: opts.context?.lovell }
 }
 
 // Implement the formatter.
 export const formatter: QueryFormatter<
   VamcSystemRegisterForCareData,
   VamcSystemRegisterForCare
-> = ({ entity, menu, services }) => {
+> = ({ entity, menu, services, lovell }) => {
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
@@ -137,6 +143,9 @@ export const formatter: QueryFormatter<
 
   return {
     ...entityBaseFields(entity),
+    breadcrumbs: lovell?.isLovellVariantPage
+      ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
+      : entity.breadcrumbs,
     title: entity.title,
     vamcSystem: {
       id: entity.field_office.id,
@@ -151,5 +160,12 @@ export const formatter: QueryFormatter<
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
     services: formattedServices,
+    lovellVariant: lovell?.variant ?? null,
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path.alias,
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : null,
   }
 }
