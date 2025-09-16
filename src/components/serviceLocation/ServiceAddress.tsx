@@ -69,15 +69,15 @@ export const ServiceAddress = ({
       )}
 
       {serviceLocationAddress.field_building_name_number && (
-        <span className="vads-u-margin-bottom--0">
+        <p className="vads-u-margin-y--0">
           {serviceLocationAddress.field_building_name_number}
-        </span>
+        </p>
       )}
 
       {serviceLocationAddress.field_wing_floor_or_room_number && (
-        <span className="vads-u-margin-bottom--0">
+        <p className="vads-u-margin-y--0">
           {serviceLocationAddress.field_wing_floor_or_room_number}
-        </span>
+        </p>
       )}
     </div>
   )
