@@ -885,6 +885,8 @@ const mockData: VamcSystemRegisterForCare = {
       phoneNumber: '304-623-3461',
     },
   ],
+  lovellVariant: null,
+  lovellSwitchPath: null,
 }
 
 export default mockData
