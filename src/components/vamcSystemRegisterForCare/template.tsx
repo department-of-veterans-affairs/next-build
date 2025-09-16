@@ -9,7 +9,6 @@ import {
   ServiceLocationType,
 } from '../serviceLocation/template'
 import { Address } from '@/components/address/template'
-import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -26,8 +25,6 @@ export const VamcSystemRegisterForCare = ({
   bottomOfPageContent,
   relatedLinks,
   services,
-  lovellVariant,
-  lovellSwitchPath,
 }: FormattedVamcSystemRegisterForCare) => {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
@@ -51,10 +48,8 @@ export const VamcSystemRegisterForCare = ({
               role="region"
               className="usa-content"
             >
-              <LovellSwitcher
-                currentVariant={lovellVariant}
-                switchPath={lovellSwitchPath}
-              />
+              {/* TODO: Lovell switch link */}
+              <div>TODO: Lovell switch link</div>
 
               <h1 id="article-heading">{title}</h1>
               <div className="va-introtext">
