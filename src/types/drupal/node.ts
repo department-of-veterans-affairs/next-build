@@ -86,6 +86,7 @@ export type NodeTypes =
   | NodeVetCenterOutstation
   | NodeVamcSystemVaPolice
   | NodeVamcSystemRegisterForCare
+  | NodeVamcSystemBillingAndInsurance
   | NodeVamcSystemPoliciesPage
   | NodeLeadershipListing
   | NodeVbaFacility
@@ -439,6 +440,18 @@ export interface NodeVamcSystemRegisterForCare extends DrupalNode {
     NodeHealthCareRegionPage,
     'id' | 'title' | 'field_system_menu'
   >
+  field_cc_top_of_page_content?: FieldCCText
+  field_cc_bottom_of_page_content?: FieldCCText
+  field_cc_related_links?: FieldCCListOfLinkTeasers
+}
+
+export interface NodeVamcSystemBillingAndInsurance extends DrupalNode {
+  title: string
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu'
+  >
+  field_cc_above_top_of_page?: FieldCCText
   field_cc_top_of_page_content?: FieldCCText
   field_cc_bottom_of_page_content?: FieldCCText
   field_cc_related_links?: FieldCCListOfLinkTeasers
