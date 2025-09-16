@@ -28,6 +28,7 @@ export const RESOURCE_TYPES = {
   VET_CENTER_MOBILE_VET_CENTER: 'node--vet_center_mobile_vet_center',
   VAMC_HEALTH_SERVICES_LISTING: 'node--health_services_listing',
   VAMC_OPERATING_STATUS_AND_ALERTS: 'node--vamc_operating_status_and_alerts',
+  VAMC_SYSTEM_POLICIES_PAGE: 'node--vamc_system_policies_page',
 } as const
 
 // (Node) resources that generate full pages.
@@ -55,6 +56,7 @@ export const PAGE_RESOURCE_TYPES = [
   RESOURCE_TYPES.VET_CENTER_LOCATION_LISTING,
   RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
   RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS,
+  RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE,
 ]
 
 export const PARAGRAPH_RESOURCE_TYPES = {

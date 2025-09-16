@@ -86,6 +86,7 @@ export type NodeTypes =
   | NodeVetCenterOutstation
   | NodeVamcSystemVaPolice
   | NodeVamcSystemRegisterForCare
+  | NodeVamcSystemPoliciesPage
   | NodeLeadershipListing
   | NodeVbaFacility
   | NodeVbaService
@@ -441,6 +442,22 @@ export interface NodeVamcSystemRegisterForCare extends DrupalNode {
   field_cc_top_of_page_content?: FieldCCText
   field_cc_bottom_of_page_content?: FieldCCText
   field_cc_related_links?: FieldCCListOfLinkTeasers
+}
+
+export interface NodeVamcSystemPoliciesPage extends DrupalNode {
+  breadcrumbs: BreadcrumbItem[]
+  field_administration: FieldAdministration
+  // TODO: Hydrate this entity reference
+  field_office: Pick<NodeHealthCareRegionPage, 'id' | 'type'>
+  field_cc_intro_text?: FieldCCText
+  field_cc_top_of_page_content?: FieldCCText
+  field_cc_gen_visitation_policy?: FieldCCText
+  field_cc_bottom_of_page_content?: FieldCCText
+  field_vamc_visitation_policy?: FieldFormattedText
+  field_vamc_other_policies?: FieldFormattedText
+  field_enforce_unique_combo?: boolean
+  field_fieldset_markup?: string | null
+  field_last_saved_by_an_editor?: string | null
 }
 
 export interface NodeLeadershipListing extends DrupalNode {
