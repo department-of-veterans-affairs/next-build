@@ -10,6 +10,8 @@ import {
 } from '../serviceLocation/template'
 import { Address } from '@/components/address/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
+import { PhoneNumber } from '@/components/phoneNumber/template'
+import { Hours } from '../hours/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -27,6 +29,8 @@ export const VamcSystemBillingAndInsurance = ({
   bottomOfPageContent,
   relatedLinks,
   services,
+  officeHours,
+  phoneNumber,
   lovellVariant,
   lovellSwitchPath,
 }: FormattedVamcSystemBillingAndInsurance) => {
@@ -80,6 +84,12 @@ export const VamcSystemBillingAndInsurance = ({
                   </p>
                 </>
               )}
+              <PhoneNumber
+                {...phoneNumber}
+                treatment="h3"
+                className="vads-u-margin-bottom--2"
+              />
+              <Hours allHours={officeHours} headerType="standard" />
             </div>
 
             <div className="usa-content">
