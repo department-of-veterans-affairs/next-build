@@ -887,6 +887,8 @@ const mockData: VamcSystemBillingAndInsurance = {
       phoneNumber: '502-287-4000',
     },
   ],
+  lovellVariant: null,
+  lovellSwitchPath: null,
 }
 
 export default mockData
