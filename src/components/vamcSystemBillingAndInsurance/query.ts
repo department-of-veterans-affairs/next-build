@@ -29,6 +29,7 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
+import { formatter as formatPhoneNumber } from '@/components/phoneNumber/query'
 import {
   getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
@@ -39,7 +40,7 @@ import {
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE)
-    .addInclude(['field_office'])
+    .addInclude(['field_office', 'field_telephone'])
 }
 
 export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
@@ -163,6 +164,8 @@ export const formatter: QueryFormatter<
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
     services: formattedServices,
+    officeHours: entity.field_office_hours,
+    phoneNumber: formatPhoneNumber(entity.field_telephone),
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(
