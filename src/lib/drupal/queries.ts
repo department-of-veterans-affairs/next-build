@@ -21,6 +21,7 @@ import * as Footer from '@/components/footer/query'
 import * as Header from '@/components/header/query'
 import * as HealthCareLocalFacility from '../../components/vamcFacility/query'
 import * as LinkTeaser from '@/components/linkTeaser/query'
+import * as ListOfLinkTeasers from '@/components/listOfLinkTeasers/query'
 import * as LocationsListing from '../../components/locationsListing/query'
 import * as MediaDocument from '@/components/mediaDocument/query'
 import * as MediaImage from '@/components/mediaImage/query'
@@ -59,6 +60,7 @@ import * as VbaFacility from '../../components/vbaFacility/query'
 import * as HealthServicesListing from '../../components/vamcHealthServicesListing/query'
 import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingStatusAndAlerts/query'
 import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
+import * as ServiceLocation from '@/components/serviceLocation/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -114,6 +116,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT]: ExpandableText,
   [PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT]: FeaturedContent,
   [PARAGRAPH_RESOURCE_TYPES.LINK_TEASER]: LinkTeaser,
+  [PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS]: ListOfLinkTeasers,
   [PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT]: NumberCallout,
   [PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT]: PhoneNumber,
   [PARAGRAPH_RESOURCE_TYPES.PROCESS_LIST]: ProcessList,
@@ -122,6 +125,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.QA_GROUP]: QaGroup,
   [PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET]: ReactWidget,
   [PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000]: Wysiwyg,
+  [PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION]: ServiceLocation,
   [PARAGRAPH_RESOURCE_TYPES.TABLE]: Table,
   [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
 

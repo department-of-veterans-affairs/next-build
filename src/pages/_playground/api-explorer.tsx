@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { useState } from 'react'
-import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
+import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import {
   RESOURCE_TYPES,
@@ -95,6 +94,66 @@ const AVAILABLE_RESOURCE_TYPES = {
   ...PARAGRAPH_RESOURCE_TYPES,
 }
 
+// Helper functions for URL state management
+const serializeFilters = (filters: Filter[]): string => {
+  return encodeURIComponent(JSON.stringify(filters))
+}
+
+const deserializeFilters = (filtersString: string): Filter[] => {
+  try {
+    return JSON.parse(decodeURIComponent(filtersString))
+  } catch {
+    return []
+  }
+}
+
+const serializeIncludes = (includes: string[]): string => {
+  return includes.join(',')
+}
+
+const deserializeIncludes = (includesString: string): string[] => {
+  return includesString ? includesString.split(',').filter(Boolean) : []
+}
+
+// Helper function to parse URL parameters
+const getUrlParams = () => {
+  if (typeof window === 'undefined') return {}
+
+  const urlParams = new URLSearchParams(window.location.search)
+  return {
+    resourceType: urlParams.get('resourceType'),
+    includes: urlParams.get('includes'),
+    pageLimit: urlParams.get('pageLimit'),
+    filters: urlParams.get('filters'),
+    viewMode: urlParams.get('viewMode'),
+  }
+}
+
+const setUrlParams = (queryState: QueryState) => {
+  // Update URL with current state when form is submitted
+  const urlParams = new URLSearchParams()
+
+  if (queryState.resourceType !== 'node--health_care_local_facility') {
+    urlParams.set('resourceType', queryState.resourceType)
+  }
+  if (queryState.includes.length > 0) {
+    urlParams.set('includes', serializeIncludes(queryState.includes))
+  }
+  if (queryState.pageLimit !== 1) {
+    urlParams.set('pageLimit', queryState.pageLimit.toString())
+  }
+  if (queryState.filters.length > 0) {
+    urlParams.set('filters', serializeFilters(queryState.filters))
+  }
+  if (queryState.viewMode !== 'tree') {
+    urlParams.set('viewMode', queryState.viewMode)
+  }
+
+  // Update URL without page reload
+  const newUrl = `${window.location.pathname}${urlParams.toString() ? '?' + urlParams.toString() : ''}`
+  window.history.pushState({}, '', newUrl)
+}
+
 export default function ApiExplorer() {
   const [queryState, setQueryState] = useState<QueryState>({
     resourceType: 'node--health_care_local_facility',
@@ -108,6 +167,23 @@ export default function ApiExplorer() {
     viewMode: 'tree',
     filters: [],
   })
+
+  // Initialize state from URL parameters on first render
+  useEffect(() => {
+    const urlParams = getUrlParams()
+
+    setQueryState((prev) => ({
+      ...prev,
+      resourceType:
+        urlParams.resourceType || 'node--health_care_local_facility',
+      includes: urlParams.includes
+        ? deserializeIncludes(urlParams.includes)
+        : [],
+      pageLimit: urlParams.pageLimit ? parseInt(urlParams.pageLimit) : 1,
+      filters: urlParams.filters ? deserializeFilters(urlParams.filters) : [],
+      viewMode: (urlParams.viewMode as 'tree' | 'raw') || 'tree',
+    }))
+  }, []) // Only run once on mount
 
   const handleResourceTypeChange = (
     e: React.ChangeEvent<HTMLSelectElement>
@@ -157,15 +233,21 @@ export default function ApiExplorer() {
   }
 
   const executeQuery = async () => {
-    setQueryState((prev) => ({ ...prev, loading: true, error: null }))
-    try {
-      const params = {
-        resourceType: queryState.resourceType,
-        includes: queryState.includes.filter((i) => i.trim()),
-        pageLimit: queryState.pageLimit,
-        filters: queryState.filters,
-      }
+    // Save our params to the URL query string for sharing and persistence
+    setUrlParams(queryState)
 
+    // Set loading state
+    setQueryState((prev) => ({ ...prev, loading: true, error: null }))
+
+    // Execute API call with current state values
+    const params = {
+      resourceType: queryState.resourceType,
+      includes: queryState.includes.filter((i) => i.trim()),
+      pageLimit: queryState.pageLimit,
+      filters: queryState.filters,
+    }
+
+    try {
       // Store the request info for debugging
       const debugInfo = {
         requestUrl: '/api/drupal-query',
