@@ -219,7 +219,7 @@ export const ServiceLocation = ({
 
       {/* Online scheduling link */}
       {showOnlineScheduleLink && (
-        <div
+        <p
           data-testid="service-location-action-link-online"
           className="vads-u-margin-top--2 vads-u-margin-bottom--1"
         >
@@ -233,7 +233,7 @@ export const ServiceLocation = ({
             text="Schedule an appointment online"
             type="secondary"
           ></va-link-action>
-        </div>
+        </p>
       )}
 
       {/* Service location address */}

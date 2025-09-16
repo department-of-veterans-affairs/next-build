@@ -137,10 +137,10 @@ describe('ServiceLocation', () => {
   test('shows service location address', () => {
     render(<ServiceLocation {...getBaseProps()} />)
 
-    expect(screen.getByText('Building 1')).toBeInTheDocument()
-    expect(screen.getByText('Room 101')).toBeInTheDocument()
-    expect(screen.getByText('123 Main St')).toBeInTheDocument()
-    expect(screen.getByText('Anytown, CA 12345')).toBeInTheDocument()
+    expect(screen.getByText(/Building 1/)).toBeInTheDocument()
+    expect(screen.getByText(/Room 101/)).toBeInTheDocument()
+    expect(screen.getByText(/123 Main St/)).toBeInTheDocument()
+    expect(screen.getByText(/Anytown, CA 12345/)).toBeInTheDocument()
   })
 
   test('shows online scheduling when available', () => {
