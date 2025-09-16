@@ -35,88 +35,85 @@ export const VamcSystemBillingAndInsurance = ({
 
   return (
     <div
-      className="interior"
-      id="content"
+      className="vads-grid-container"
       data-template="vamc_system_billing_insurance"
     >
-      <main className="va-l-detail-page va-facility-page">
-        <div className="usa-grid usa-grid-full">
-          {/* Nav data filled in by a separate script from `window.sideNav` */}
-          <nav aria-label="secondary" data-widget-type="side-nav" />
-          <div className="usa-width-three-fourths">
-            <article
-              aria-labelledby="article-heading"
-              role="region"
-              className="usa-content"
-            >
-              {/* TODO: Lovell switch link */}
-              <div>TODO: Lovell switch link</div>
+      {/* Nav data filled in by a separate script from `window.sideNav` */}
+      <nav aria-label="secondary" data-widget-type="side-nav" />
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-12">
+          <article
+            aria-labelledby="article-heading"
+            role="region"
+            className="usa-content"
+          >
+            {/* TODO: Lovell switch link */}
+            <div>TODO: Lovell switch link</div>
 
-              <h1 id="article-heading">{title}</h1>
-              <div className="va-introtext">
-                <p>
-                  You can pay your {vamcSystem.title} bill online, by phone,
-                  mail, or in person.
-                </p>
-              </div>
+            <h1 id="article-heading">{title}</h1>
+            <div className="va-introtext">
+              <p>
+                You can pay your {vamcSystem.title} bill online, by phone, mail,
+                or in person.
+              </p>
+            </div>
 
-              <va-on-this-page></va-on-this-page>
+            <va-on-this-page></va-on-this-page>
 
-              <div className="usa-content">
-                {aboveTopOfPageContent ? (
-                  <Wysiwyg {...aboveTopOfPageContent} />
-                ) : (
-                  <>
-                    <h2>Questions about copay balance</h2>
-                    <p>
-                      For questions about the copay balance of your{' '}
-                      {vamcSystem?.title} bill, call us toll free at the number
-                      below. You won&apos;t need to pay any copays for X-rays,
-                      lab tests, preventative tests, and services like health
-                      screenings or immunizations.
-                    </p>
-                  </>
+            <div className="usa-content">
+              {aboveTopOfPageContent ? (
+                <Wysiwyg {...aboveTopOfPageContent} />
+              ) : (
+                <>
+                  <h2>Questions about copay balance</h2>
+                  <p>
+                    For questions about the copay balance of your{' '}
+                    {vamcSystem?.title} bill, call us toll free at the number
+                    below. You won&apos;t need to pay any copays for X-rays, lab
+                    tests, preventative tests, and services like health
+                    screenings or immunizations.
+                  </p>
+                </>
+              )}
+            </div>
+
+            <div className="usa-content">
+              <Wysiwyg {...topOfPageContent} />
+            </div>
+
+            {services.map((service) => (
+              <Fragment key={service.id}>
+                <h3>
+                  <va-link href={service.path} text={service.title}></va-link>
+                </h3>
+                {service.address && (
+                  <Address address={service.address} showDirections={false} />
                 )}
-              </div>
+                {service.serviceLocations.map((serviceLocation) => (
+                  <ServiceLocation
+                    key={serviceLocation.id}
+                    location={serviceLocation}
+                    locationType={ServiceLocationType.NON_CLINICAL}
+                    mainPhoneString={service.phoneNumber}
+                    headingLevel={4}
+                  />
+                ))}
+              </Fragment>
+            ))}
 
-              <div className="usa-content">
-                <Wysiwyg {...topOfPageContent} />
-              </div>
+            <Wysiwyg {...bottomOfPageContent} />
 
-              {services.map((service) => (
-                <Fragment key={service.id}>
-                  <h3>
-                    <va-link href={service.path} text={service.title}></va-link>
-                  </h3>
-                  {service.address && (
-                    <Address address={service.address} showDirections={false} />
-                  )}
-                  {service.serviceLocations.map((serviceLocation) => (
-                    <ServiceLocation
-                      key={serviceLocation.id}
-                      location={serviceLocation}
-                      locationType={ServiceLocationType.NON_CLINICAL}
-                      mainPhoneString={service.phoneNumber}
-                      headingLevel={4}
-                    />
-                  ))}
-                </Fragment>
-              ))}
+            {/* TODO: Related links */}
+            <div className="va-nav-linkslist va-nav-linkslist--related">
+              <ListOfLinkTeasers {...relatedLinks} />
+            </div>
 
-              <Wysiwyg {...bottomOfPageContent} />
+            <va-back-to-top></va-back-to-top>
 
-              {/* TODO: Related links */}
-              <div className="va-nav-linkslist va-nav-linkslist--related">
-                <ListOfLinkTeasers {...relatedLinks} />
-              </div>
-
-              <va-back-to-top></va-back-to-top>
-
-              <ContentFooter lastUpdated={lastUpdated} />
-            </article>
-          </div>
+            <ContentFooter lastUpdated={lastUpdated} />
+          </article>
         </div>
-      </main>
+      </div>
     </div>
   )
 }
