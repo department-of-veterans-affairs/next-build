@@ -499,6 +499,15 @@ export interface NodeVbaService extends DrupalNode {
   field_service_location: ParagraphServiceLocation[]
 }
 
+export interface NodeVhaFacilityNonclinicalService extends DrupalNode {
+  status: boolean
+  field_facility_location: Pick<
+    NodeHealthCareLocalFacility,
+    'id' | 'title' | 'path' | 'field_address' | 'field_phone_number'
+  >
+  field_service_location: ParagraphServiceLocation[]
+}
+
 /**
  * Common fields shared across all Vet Center variants.
  */

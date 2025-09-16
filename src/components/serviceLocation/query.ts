@@ -1,7 +1,7 @@
 import { QueryFormatter, QueryParams } from 'next-drupal-query'
 import { ParagraphServiceLocation } from '@/types/drupal/paragraph'
 import { ServiceLocation } from './formatted-type'
-import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
+import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { formatter as formatPhone } from '@/components/phoneNumber/query'
 import { formatter as formatEmail } from '@/components/emailContact/query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
@@ -26,7 +26,9 @@ export const formatter: QueryFormatter<
   officeVisits: entity.field_office_visits,
   virtualSupport: entity.field_virtual_support,
   apptIntroTextType: entity.field_appt_intro_text_type,
-  apptIntroTextCustom: createPhoneLinks(entity.field_appt_intro_text_custom),
+  apptIntroTextCustom: getHtmlFromDrupalContent(
+    entity.field_appt_intro_text_custom
+  ),
   appointmentPhoneNumbers: entity.field_other_phone_numbers
     .filter(isPublished)
     .map(formatPhone),

@@ -19,6 +19,7 @@ export const RESOURCE_TYPES = {
   VAMC_SYSTEM_REGISTER_FOR_CARE: 'node--vamc_system_register_for_care',
   VBA_FACILITY: 'node--vba_facility',
   VBA_SERVICE: 'node--vba_facility_service',
+  VHA_FACILITY_NONCLINICAL_SERVICE: 'node--vha_facility_nonclinical_service',
   VET_CENTER_HEALTH_SERVICES: 'node--vet_center_facility_health_servi',
   VET_CENTER_OUTSTATION: 'node--vet_center_outstation',
   VET_CENTER: 'node--vet_center',

@@ -8,6 +8,7 @@
 import { formatter } from './query'
 import mockData from './mock.json'
 import mockMenu from './mock.menu.json'
+import mockServices from './mock.services.json'
 import { Menu } from '@/types/drupal/menu'
 
 describe('VamcSystemRegisterForCare formatter', () => {
@@ -15,6 +16,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
     const result = formatter({
       entity: mockData,
       menu: mockMenu as unknown as Menu,
+      services: mockServices,
     })
 
     expect(result.title).toBe('Register for care')
@@ -31,6 +33,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
     const result = formatter({
       entity: mockData,
       menu: mockMenu as unknown as Menu,
+      services: mockServices,
     })
 
     expect(result.topOfPageContent).toBeDefined()
@@ -43,11 +46,114 @@ describe('VamcSystemRegisterForCare formatter', () => {
     const result = formatter({
       entity: mockData,
       menu: mockMenu as unknown as Menu,
+      services: mockServices,
     })
 
     expect(result.bottomOfPageContent).toBeDefined()
     expect(result.bottomOfPageContent.html).toContain(
       '<h2 id="not-yet-enrolled-in-va-health-"><strong>Not yet enrolled in VA health care?</strong></h2>'
     )
+  })
+
+  describe('Lovell variant handling', () => {
+    const lovellPath = {
+      alias: '/lovell-federal-health-care-va/register-for-care',
+      pid: 79642,
+      langcode: 'en',
+    }
+    const lovellBreadcrumbs = [
+      {
+        uri: 'https://va-gov-cms.ddev.site/',
+        title: 'Home',
+        options: [],
+      },
+      {
+        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care',
+        title: 'Lovell Federal health care',
+        options: [],
+      },
+      {
+        uri: 'internal:#',
+        title: 'Register for care',
+        options: [],
+      },
+    ]
+
+    it('outputs formatted data with Lovell variant', () => {
+      const result = formatter({
+        entity: {
+          ...mockData,
+          path: lovellPath,
+        },
+        menu: mockMenu as unknown as Menu,
+        services: mockServices,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
+        },
+      })
+
+      expect(result.lovellVariant).toBe('tricare')
+      expect(result.lovellSwitchPath).toBe(
+        '/lovell-federal-health-care-va/register-for-care'
+      )
+    })
+
+    it('updates the breadcrumbs for Lovell variant', () => {
+      const result = formatter({
+        entity: {
+          ...mockData,
+          path: lovellPath,
+          breadcrumbs: lovellBreadcrumbs,
+        },
+        menu: mockMenu as unknown as Menu,
+        services: mockServices,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
+        },
+      })
+
+      expect(result.breadcrumbs[1]).toEqual({
+        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-tricare',
+        title: 'Lovell Federal health care - TRICARE',
+        options: [],
+      })
+    })
+
+    it('does not modify breadcrumbs when not a Lovell variant page', () => {
+      const result = formatter({
+        entity: {
+          ...mockData,
+          path: lovellPath,
+          breadcrumbs: lovellBreadcrumbs,
+        },
+        menu: mockMenu as unknown as Menu,
+        services: mockServices,
+        lovell: {
+          isLovellVariantPage: false,
+          variant: 'va',
+        },
+      })
+
+      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+    })
+
+    it('handles null lovell context', () => {
+      const result = formatter({
+        entity: {
+          ...mockData,
+          path: lovellPath,
+          breadcrumbs: lovellBreadcrumbs,
+        },
+        menu: mockMenu as unknown as Menu,
+        services: mockServices,
+        lovell: null,
+      })
+
+      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+      expect(result.lovellVariant).toBeNull()
+      expect(result.lovellSwitchPath).toBeNull()
+    })
   })
 })

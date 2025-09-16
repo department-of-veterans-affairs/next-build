@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
-import { ServiceLocation } from './template'
+import { ServiceLocation, ServiceLocationType } from './template'
 import type { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 
 // Mock data for different test scenarios
@@ -137,10 +137,10 @@ describe('ServiceLocation', () => {
   test('shows service location address', () => {
     render(<ServiceLocation {...getBaseProps()} />)
 
-    expect(screen.getByText('Building 1')).toBeInTheDocument()
-    expect(screen.getByText('Room 101')).toBeInTheDocument()
-    expect(screen.getByText('123 Main St')).toBeInTheDocument()
-    expect(screen.getByText('Anytown, CA 12345')).toBeInTheDocument()
+    expect(screen.getByText(/Building 1/)).toBeInTheDocument()
+    expect(screen.getByText(/Room 101/)).toBeInTheDocument()
+    expect(screen.getByText(/123 Main St/)).toBeInTheDocument()
+    expect(screen.getByText(/Anytown, CA 12345/)).toBeInTheDocument()
   })
 
   test('shows online scheduling when available', () => {
@@ -158,7 +158,7 @@ describe('ServiceLocation', () => {
 
   test('shows correct online scheduling link when VBA', () => {
     const props = { ...getBaseProps() }
-    props.isVba = true
+    props.locationType = ServiceLocationType.VBA
     render(<ServiceLocation {...props} />)
 
     const linkAction = screen
@@ -261,7 +261,7 @@ describe('ServiceLocation', () => {
   })
   test('does not show referral sentence if VBA', () => {
     const props = { ...getBaseProps() }
-    props.isVba = true
+    props.locationType = ServiceLocationType.VBA
 
     render(<ServiceLocation {...props} />)
 
