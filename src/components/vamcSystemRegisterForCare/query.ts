@@ -30,6 +30,7 @@ import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 import {
+  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
@@ -142,6 +143,9 @@ export const formatter: QueryFormatter<
 
   return {
     ...entityBaseFields(entity),
+    breadcrumbs: lovell?.isLovellVariantPage
+      ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
+      : entity.breadcrumbs,
     title: entity.title,
     vamcSystem: {
       id: entity.field_office.id,
