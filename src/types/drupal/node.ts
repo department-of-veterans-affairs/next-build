@@ -451,6 +451,8 @@ export interface NodeVamcSystemBillingAndInsurance extends DrupalNode {
     NodeHealthCareRegionPage,
     'id' | 'title' | 'field_system_menu'
   >
+  field_office_hours: FieldOfficeHours[]
+  field_telephone: ParagraphPhoneNumber
   field_cc_above_top_of_page?: FieldCCText
   field_cc_top_of_page_content?: FieldCCText
   field_cc_bottom_of_page_content?: FieldCCText

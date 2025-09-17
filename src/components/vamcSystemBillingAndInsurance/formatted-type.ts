@@ -4,8 +4,9 @@ import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
 import { ServiceLocation } from '../serviceLocation/formatted-type'
-import { FieldAddress } from '@/types/drupal/field_type'
+import { FieldAddress, FieldOfficeHours } from '@/types/drupal/field_type'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+import { PhoneNumber } from '../phoneNumber/formatted-type'
 
 export interface VamcSystemBillingAndInsurance extends PublishedEntity {
   title: string
@@ -23,6 +24,8 @@ export interface VamcSystemBillingAndInsurance extends PublishedEntity {
     address: FieldAddress
     phoneNumber: string
   }>
+  officeHours: FieldOfficeHours[]
+  phoneNumber: PhoneNumber
   lovellVariant?: LovellChildVariant | null
   lovellSwitchPath?: string | null
 }
