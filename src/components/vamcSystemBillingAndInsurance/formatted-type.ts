@@ -5,6 +5,7 @@ import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
 import { ServiceLocation } from '../serviceLocation/formatted-type'
 import { FieldAddress } from '@/types/drupal/field_type'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 export interface VamcSystemBillingAndInsurance extends PublishedEntity {
   title: string
@@ -22,4 +23,6 @@ export interface VamcSystemBillingAndInsurance extends PublishedEntity {
     address: FieldAddress
     phoneNumber: string
   }>
+  lovellVariant?: LovellChildVariant | null
+  lovellSwitchPath?: string | null
 }

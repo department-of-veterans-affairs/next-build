@@ -56,4 +56,106 @@ describe('VamcSystemBillingAndInsurance formatter', () => {
       '<h2 id="private-and-other-health-insur">Private and other health insurance</h2>'
     )
   })
+
+  describe('Lovell variant handling', () => {
+    const lovellPath = {
+      alias: '/lovell-federal-health-care-va/billing-and-insurance',
+      pid: 79642,
+      langcode: 'en',
+    }
+    const lovellBreadcrumbs = [
+      {
+        uri: 'https://va-gov-cms.ddev.site/',
+        title: 'Home',
+        options: [],
+      },
+      {
+        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care',
+        title: 'Lovell Federal health care',
+        options: [],
+      },
+      {
+        uri: 'internal:#',
+        title: 'Billing and insurance',
+        options: [],
+      },
+    ]
+
+    it('outputs formatted data with Lovell variant', () => {
+      const result = formatter({
+        entity: {
+          ...mockData,
+          path: lovellPath,
+        },
+        menu: mockMenu as unknown as Menu,
+        services: mockServices,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
+        },
+      })
+
+      expect(result.lovellVariant).toBe('tricare')
+      expect(result.lovellSwitchPath).toBe(
+        '/lovell-federal-health-care-va/billing-and-insurance'
+      )
+    })
+
+    it('updates the breadcrumbs for Lovell variant', () => {
+      const result = formatter({
+        entity: {
+          ...mockData,
+          path: lovellPath,
+          breadcrumbs: lovellBreadcrumbs,
+        },
+        menu: mockMenu as unknown as Menu,
+        services: mockServices,
+        lovell: {
+          isLovellVariantPage: true,
+          variant: 'tricare',
+        },
+      })
+
+      expect(result.breadcrumbs[1]).toEqual({
+        uri: 'https://va-gov-cms.ddev.site/lovell-federal-health-care-tricare',
+        title: 'Lovell Federal health care - TRICARE',
+        options: [],
+      })
+    })
+
+    it('does not modify breadcrumbs when not a Lovell variant page', () => {
+      const result = formatter({
+        entity: {
+          ...mockData,
+          path: lovellPath,
+          breadcrumbs: lovellBreadcrumbs,
+        },
+        menu: mockMenu as unknown as Menu,
+        services: mockServices,
+        lovell: {
+          isLovellVariantPage: false,
+          variant: 'va',
+        },
+      })
+
+      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+    })
+
+    it('handles null lovell context', () => {
+      const result = formatter({
+        entity: {
+          ...mockData,
+          path: lovellPath,
+          breadcrumbs: lovellBreadcrumbs,
+        },
+        menu: mockMenu as unknown as Menu,
+        services: mockServices,
+        lovell: null,
+      })
+
+      expect(result.breadcrumbs).toEqual(lovellBreadcrumbs)
+      expect(result.lovellVariant).toBeNull()
+      expect(result.lovellSwitchPath).toBeNull()
+    })
+  })
 })
