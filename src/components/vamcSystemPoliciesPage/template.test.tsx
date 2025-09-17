@@ -1,12 +1,30 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VamcSystemPoliciesPage } from './template'
-import { formatter } from './query'
+import { formatter, VamcSystemPoliciesPageData } from './query'
 import { NodeVamcSystemPoliciesPage } from '@/types/drupal/node'
-import mockData from './mock.json'
+import { SideNavMenu } from '@/types/formatted/sideNav'
+import mockData from './mock'
+import { Menu } from '@/types/drupal/menu'
+
+// Extend window type for testing
+declare global {
+  interface Window {
+    sideNav?: SideNavMenu
+  }
+}
 
 const mockEntity = mockData as unknown as NodeVamcSystemPoliciesPage
-const formattedData = formatter(mockEntity)
+const mockMenu: Menu = {
+  items: [],
+  tree: [],
+}
+const mockDataStructure: VamcSystemPoliciesPageData = {
+  entity: mockEntity,
+  menu: mockMenu,
+  lovell: undefined,
+}
+const formattedData = formatter(mockDataStructure)
 
 /**
  * Most of these tests are just making sure that the data is rendered correctly.
@@ -199,5 +217,25 @@ describe('VamcSystemPoliciesPage with valid data', () => {
 
     // Check for content footer
     expect(screen.getByTestId('content-footer')).toBeInTheDocument()
+
+    // Check for sidebar nav placeholder
+    const sideNav = document.querySelector(
+      'nav[aria-label="secondary"][data-widget-type="side-nav"]'
+    )
+    expect(sideNav).toBeInTheDocument()
+  })
+
+  test('sets up window.sideNav for navigation widget', () => {
+    // Mock window.sideNav
+    Object.defineProperty(window, 'sideNav', {
+      writable: true,
+      value: undefined,
+    })
+
+    render(<VamcSystemPoliciesPage {...formattedData} />)
+
+    // The useEffect should have set window.sideNav
+    expect(window.sideNav).toBeDefined()
+    expect(window.sideNav).toEqual(formattedData.menu)
   })
 })
