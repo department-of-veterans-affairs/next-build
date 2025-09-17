@@ -4,8 +4,51 @@ type VamcSystemPoliciesPageProps = {
 
 export function VamcSystemPoliciesPage({ title }: VamcSystemPoliciesPageProps) {
   return (
-    <div>
-      <p>{title}</p>
+<div class="interior" id="content" data-template="vamc_system_policies_page.drupal.liquid">
+  <main class="va-l-detail-page va-facility-page">
+    <div class="usa-grid usa-grid-full">
+      {% include 'src/site/navigation/facility_sidebar_nav.drupal.liquid' with sidebarData = facilitySidebar %}
+      <div class="usa-width-three-fourths">
+        <article aria-labelledby="article-heading" role="region" class="usa-content">
+          {% include "src/site/includes/lovell-switch-link.drupal.liquid" with
+            entityUrl = entityUrl
+          %}
+
+          <h1 id="article-heading">{{ title }}</h1>
+          <div class="va-introtext">
+            {% include "src/site/includes/centralized-content.drupal.liquid" with
+              entity = fieldCcIntroText.fetched
+              contentType = fieldCcIntroText.fetchedBundle
+            %}
+          </div>
+
+          <va-on-this-page></va-on-this-page>
+
+          {% include "src/site/includes/centralized-content.drupal.liquid" with
+            entity = fieldCcTopOfPageContent.fetched
+            contentType = fieldCcTopOfPageContent.fetchedBundle
+          %}
+
+          {{ fieldVamcVisitationPolicy.processed | phoneLinks }}
+
+          {{ fieldVamcOtherPolicies.processed | phoneLinks }}
+
+          {% include "src/site/includes/centralized-content.drupal.liquid" with
+            entity = fieldCcGenVisitationPolicy.fetched
+            contentType = fieldCcGenVisitationPolicy.fetchedBundle
+          %}
+
+          {% include "src/site/includes/centralized-content.drupal.liquid" with
+            entity = fieldCcBottomOfPageContent.fetched
+            contentType = fieldCcBottomOfPageContent.fetchedBundle
+          %}
+          <va-back-to-top></va-back-to-top>
+        </article>
+        <!-- Last updated & feedback button-->
+        {% include "src/site/includes/above-footer-elements.drupal.liquid" %}
+      </div>
     </div>
+  </main>
+</div>
   )
 }
