@@ -37,74 +37,71 @@ export const VamcSystemRegisterForCare = ({
 
   return (
     <div
-      className="interior"
-      id="content"
+      className="vads-grid-container"
       data-template="vamc_system_register_for_care"
     >
-      <main className="va-l-detail-page va-facility-page">
-        <div className="usa-grid usa-grid-full">
-          {/* Nav data filled in by a separate script from `window.sideNav` */}
-          <nav aria-label="secondary" data-widget-type="side-nav" />
-          <div className="usa-width-three-fourths">
-            <article
-              aria-labelledby="article-heading"
-              role="region"
-              className="usa-content"
-            >
-              <LovellSwitcher
-                currentVariant={lovellVariant}
-                switchPath={lovellSwitchPath}
-              />
+      {/* Nav data filled in by a separate script from `window.sideNav` */}
+      <nav aria-label="secondary" data-widget-type="side-nav" />
+      <div className="vads-grid-row">
+        <div className="vads-grid-col-12">
+          <article
+            aria-labelledby="article-heading"
+            role="region"
+            className="usa-content"
+          >
+            <LovellSwitcher
+              currentVariant={lovellVariant}
+              switchPath={lovellSwitchPath}
+            />
 
-              <h1 id="article-heading">{title}</h1>
-              <div className="va-introtext">
-                <p>
-                  Register to get care at one of our {vamcSystem?.title}{' '}
-                  facilities. Not yet enrolled in VA health care? We can help
-                  you apply in person or get started online.
-                </p>
-              </div>
+            <h1 id="article-heading">{title}</h1>
+            <div className="va-introtext">
+              <p>
+                Register to get care at one of our {vamcSystem?.title}{' '}
+                facilities. Not yet enrolled in VA health care? We can help you
+                apply in person or get started online.
+              </p>
+            </div>
 
-              <va-on-this-page></va-on-this-page>
+            <va-on-this-page></va-on-this-page>
 
-              <div className="usa-content">
-                <Wysiwyg {...topOfPageContent} />
-              </div>
+            <div className="usa-content">
+              <Wysiwyg {...topOfPageContent} />
+            </div>
 
-              {services.map((service) => (
-                <Fragment key={service.id}>
-                  <h3>
-                    <va-link href={service.path} text={service.title}></va-link>
-                  </h3>
-                  {service.address && (
-                    <Address address={service.address} showDirections={false} />
-                  )}
-                  {service.serviceLocations.map((serviceLocation) => (
-                    <ServiceLocation
-                      key={serviceLocation.id}
-                      location={serviceLocation}
-                      locationType={ServiceLocationType.NON_CLINICAL}
-                      mainPhoneString={service.phoneNumber}
-                      headingLevel={4}
-                    />
-                  ))}
-                </Fragment>
-              ))}
+            {services.map((service) => (
+              <Fragment key={service.id}>
+                <h3>
+                  <va-link href={service.path} text={service.title}></va-link>
+                </h3>
+                {service.address && (
+                  <Address address={service.address} showDirections={false} />
+                )}
+                {service.serviceLocations.map((serviceLocation) => (
+                  <ServiceLocation
+                    key={serviceLocation.id}
+                    location={serviceLocation}
+                    locationType={ServiceLocationType.NON_CLINICAL}
+                    mainPhoneString={service.phoneNumber}
+                    headingLevel={4}
+                  />
+                ))}
+              </Fragment>
+            ))}
 
-              <Wysiwyg {...bottomOfPageContent} />
+            <Wysiwyg {...bottomOfPageContent} />
 
-              {/* TODO: Related links */}
-              <div className="va-nav-linkslist va-nav-linkslist--related">
-                <ListOfLinkTeasers {...relatedLinks} />
-              </div>
+            {/* TODO: Related links */}
+            <div className="va-nav-linkslist va-nav-linkslist--related">
+              <ListOfLinkTeasers {...relatedLinks} />
+            </div>
 
-              <va-back-to-top></va-back-to-top>
+            <va-back-to-top></va-back-to-top>
 
-              <ContentFooter lastUpdated={lastUpdated} />
-            </article>
-          </div>
+            <ContentFooter lastUpdated={lastUpdated} />
+          </article>
         </div>
-      </main>
+      </div>
     </div>
   )
 }
