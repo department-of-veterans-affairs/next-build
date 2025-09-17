@@ -1,54 +1,119 @@
-type VamcSystemPoliciesPageProps = {
-  title: string
+'use client'
+import React, { useEffect } from 'react'
+import { VamcSystemPoliciesPage as FormattedVamcSystemPoliciesPage } from './formatted-type'
+import { ContentFooter } from '@/components/contentFooter/template'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
+import { SideNavMenu } from '@/types/formatted/sideNav'
+
+// Allows additions to window object without overwriting global type
+interface customWindow extends Window {
+  sideNav?: SideNavMenu
 }
+declare const window: customWindow
 
-export function VamcSystemPoliciesPage({ title }: VamcSystemPoliciesPageProps) {
+export function VamcSystemPoliciesPage({
+  title,
+  introText,
+  topOfPageContent,
+  visitationPolicy,
+  otherPolicies,
+  generalVisitationPolicy,
+  bottomOfPageContent,
+  lastUpdated,
+  // TODO: Add these props when we have the data from the formatter
+  // menu,
+  // lovellVariant,
+  // lovellSwitchPath,
+}: FormattedVamcSystemPoliciesPage) {
+  // TODO: Populate the side nav data when we add menu to formatter
+  // useEffect(() => {
+  //   window.sideNav = menu
+  // }, [menu])
+
   return (
-<div class="interior" id="content" data-template="vamc_system_policies_page.drupal.liquid">
-  <main class="va-l-detail-page va-facility-page">
-    <div class="usa-grid usa-grid-full">
-      {% include 'src/site/navigation/facility_sidebar_nav.drupal.liquid' with sidebarData = facilitySidebar %}
-      <div class="usa-width-three-fourths">
-        <article aria-labelledby="article-heading" role="region" class="usa-content">
-          {% include "src/site/includes/lovell-switch-link.drupal.liquid" with
-            entityUrl = entityUrl
-          %}
+    <div
+      className="interior"
+      id="content"
+      data-template="vamc_system_policies_page.drupal.liquid"
+    >
+      <main className="va-l-detail-page va-facility-page">
+        <div className="vads-grid-container">
+          {/* TODO: Implement facility sidebar nav component */}
+          {/* <nav aria-label="secondary" data-widget-type="side-nav" /> */}
 
-          <h1 id="article-heading">{{ title }}</h1>
-          <div class="va-introtext">
-            {% include "src/site/includes/centralized-content.drupal.liquid" with
-              entity = fieldCcIntroText.fetched
-              contentType = fieldCcIntroText.fetchedBundle
-            %}
+          <div className="vads-grid-row">
+            <div className="vads-grid-col-12">
+              <article
+                aria-labelledby="article-heading"
+                role="region"
+                className="usa-content"
+              >
+                {/* TODO: Add Lovell Switcher when we have the data */}
+                {/* <LovellSwitcher
+                  currentVariant={lovellVariant}
+                  switchPath={lovellSwitchPath}
+                /> */}
+
+                <h1 id="article-heading">{title}</h1>
+
+                {/* Intro text */}
+                {introText && (
+                  <div
+                    className="va-introtext"
+                    dangerouslySetInnerHTML={{ __html: introText }}
+                  />
+                )}
+
+                <va-on-this-page></va-on-this-page>
+
+                {/* Top of page content (national policies) */}
+                {topOfPageContent && (
+                  <div dangerouslySetInnerHTML={{ __html: topOfPageContent }} />
+                )}
+
+                {/* Local visitation policy */}
+                {visitationPolicy && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: visitationPolicy,
+                    }}
+                  />
+                )}
+
+                {/* Other local policies */}
+                {otherPolicies && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: otherPolicies,
+                    }}
+                  />
+                )}
+
+                {/* General visitation policy (national) */}
+                {generalVisitationPolicy && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: generalVisitationPolicy,
+                    }}
+                  />
+                )}
+
+                {/* Bottom of page content (national) */}
+                {bottomOfPageContent && (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: bottomOfPageContent }}
+                  />
+                )}
+
+                <va-back-to-top></va-back-to-top>
+
+                {/* Last updated & feedback button */}
+                <ContentFooter lastUpdated={lastUpdated} />
+              </article>
+            </div>
           </div>
-
-          <va-on-this-page></va-on-this-page>
-
-          {% include "src/site/includes/centralized-content.drupal.liquid" with
-            entity = fieldCcTopOfPageContent.fetched
-            contentType = fieldCcTopOfPageContent.fetchedBundle
-          %}
-
-          {{ fieldVamcVisitationPolicy.processed | phoneLinks }}
-
-          {{ fieldVamcOtherPolicies.processed | phoneLinks }}
-
-          {% include "src/site/includes/centralized-content.drupal.liquid" with
-            entity = fieldCcGenVisitationPolicy.fetched
-            contentType = fieldCcGenVisitationPolicy.fetchedBundle
-          %}
-
-          {% include "src/site/includes/centralized-content.drupal.liquid" with
-            entity = fieldCcBottomOfPageContent.fetched
-            contentType = fieldCcBottomOfPageContent.fetchedBundle
-          %}
-          <va-back-to-top></va-back-to-top>
-        </article>
-        <!-- Last updated & feedback button-->
-        {% include "src/site/includes/above-footer-elements.drupal.liquid" %}
-      </div>
+        </div>
+      </main>
     </div>
-  </main>
-</div>
   )
 }
