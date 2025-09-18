@@ -30,7 +30,7 @@ export const LinkTeaser = ({
     <li
       key={id}
       className={clsx(
-        'vads-u-margin--2',
+        'vads-u-margin-y--2',
         isFieldSpokes && 'hub-page-link-list__item'
       )}
       onClick={handleItemClick}
