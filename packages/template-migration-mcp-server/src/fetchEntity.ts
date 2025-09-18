@@ -108,7 +108,7 @@ export async function fetchEntity(
       content: [
         {
           type: 'text',
-          text: `Error fetching entity: ${error.message}`,
+          text: `Error fetching entity: ${error instanceof Error ? error.message : String(error)}`,
         },
       ],
     }
