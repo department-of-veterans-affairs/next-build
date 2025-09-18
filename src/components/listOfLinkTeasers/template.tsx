@@ -21,14 +21,13 @@ export const ListOfLinkTeasers = ({
         {title}
       </h2>
     )}
-    <ul className="va-nav-linkslist-list">
+    <ul className="usa-unstyled-list">
       {linkTeasers.map((linkTeaser) => (
         <LinkTeaser
           key={linkTeaser.id}
           {...linkTeaser}
           componentParams={{
             sectionHeader: title,
-            boldTitle: false,
           }}
         />
       ))}

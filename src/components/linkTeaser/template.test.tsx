@@ -6,8 +6,8 @@ import { LinkTeaser } from './template'
 import { LinkTeaser as FormattedLinkTeaser } from '@/components/linkTeaser/formatted-type'
 import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 
-describe('<LinkTeaser> component renders without field_spokes', () => {
-  const linkTeaserCollectionProps: ParagraphComponent<FormattedLinkTeaser> = {
+describe('<LinkTeaser> component', () => {
+  const baseProps: ParagraphComponent<FormattedLinkTeaser> = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
@@ -16,222 +16,150 @@ describe('<LinkTeaser> component renders without field_spokes', () => {
       'Not sure if you qualify? Find out if you can get VA health care benefits.',
     parentField: 'field_va_paragraphs',
     componentParams: {
-      boldTitle: false,
-      sectionHeader: '',
+      sectionHeader: 'Test Section Header',
     },
   }
 
-  let linkTeaserParams = {
-    boldTitle: false,
-    sectionHeader: 'This is the section header',
-  }
-
-  test('and click event sends correct params to recordEvent', () => {
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
-    const liEl = container.querySelector('li')
-
-    fireEvent.click(liEl)
-    expect(recordEvent.recordEvent).toHaveBeenCalledWith({
-      event: 'nav-linkslist',
-      'links-list-header': 'Health%20Care%20Benefits%20Eligibility',
-      'links-list-section-header': 'This%20is%20the%20section%20header',
-    })
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
-  test('and without boldTitle', () => {
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
+  test('renders va-link with correct attributes', () => {
+    const { container } = render(<LinkTeaser {...baseProps} />)
 
-    const h3El = container.getElementsByClassName(
-      'va-nav-linkslist-title vads-u-font-size--h4'
-    )
     const vaLink = container.querySelector('va-link')
-
-    expect(h3El.length).toBe(1)
+    expect(vaLink).toHaveAttribute('href', '/health-care/eligibility/')
     expect(vaLink).toHaveAttribute('text', 'Health Care Benefits Eligibility')
+    expect(vaLink).toHaveAttribute('target', '')
+    expect(vaLink).not.toHaveAttribute('active')
+  })
+
+  test('renders summary text', () => {
+    render(<LinkTeaser {...baseProps} />)
+
     expect(
-      screen.queryByText(/Find out if you can get VA health care benefits./)
+      screen.getByText(
+        'Not sure if you qualify? Find out if you can get VA health care benefits.'
+      )
     ).toBeInTheDocument()
   })
 
-  test('and with boldTitle and title', () => {
-    linkTeaserParams = {
-      boldTitle: true,
-      sectionHeader: 'Health Care Benefits Eligibility',
-    }
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
-    const aEl = container.querySelector('a')
+  test('applies correct CSS classes to li element for field_va_paragraphs', () => {
+    const { container } = render(<LinkTeaser {...baseProps} />)
 
-    expect(aEl).toHaveAttribute('href', '/health-care/eligibility/')
-    expect(
-      screen.queryByText(/Health Care Benefits Eligibility/)
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/Find out if you can get VA health care benefits./)
-    ).toBeInTheDocument()
-  })
-
-  test('and with boldTitle and without title', () => {
-    linkTeaserCollectionProps.title = ''
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
-    const aEl = container.querySelector('a')
-
-    expect(aEl).toHaveAttribute('href', '/health-care/eligibility/')
-    expect(
-      screen.queryByText(/Health Care Benefits Eligibility/)
-    ).not.toBeInTheDocument()
-    expect(
-      screen.queryByText(/Find out if you can get VA health care benefits./)
-    ).toBeInTheDocument()
-  })
-})
-
-describe('<LinkTeaser> component renders with field_spokes', () => {
-  const linkTeaserCollectionProps: ParagraphComponent<FormattedLinkTeaser> = {
-    id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
-    uri: '/health-care/eligibility/',
-    title: 'Health Care Benefits Eligibility',
-    options: null,
-    summary:
-      'Not sure if you qualify? Find out if you can get VA health care benefits.',
-    parentField: 'field_spokes',
-    componentParams: {
-      boldTitle: false,
-      sectionHeader: '',
-    },
-  }
-  let linkTeaserParams = { boldTitle: false, sectionHeader: '' }
-
-  test('and click event sends correct params to recordEvent', () => {
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
     const liEl = container.querySelector('li')
+    expect(liEl).not.toHaveClass('hub-page-link-list__item')
+  })
+
+  test('applies correct CSS classes to li element for field_spokes', () => {
+    const propsWithFieldSpokes = {
+      ...baseProps,
+      parentField: 'field_spokes',
+    }
+    const { container } = render(<LinkTeaser {...propsWithFieldSpokes} />)
+
+    const liEl = container.querySelector('li')
+    expect(liEl).toHaveClass('hub-page-link-list__item')
+  })
+
+  test('sets active attribute to true for field_spokes', () => {
+    const propsWithFieldSpokes = {
+      ...baseProps,
+      parentField: 'field_spokes',
+    }
+    const { container } = render(<LinkTeaser {...propsWithFieldSpokes} />)
+
+    const vaLink = container.querySelector('va-link')
+    expect(vaLink).toHaveAttribute('active', '')
+  })
+
+  test('handles target option correctly', () => {
+    const propsWithTarget = {
+      ...baseProps,
+      options: { target: '_blank' },
+    }
+    const { container } = render(<LinkTeaser {...propsWithTarget} />)
+
+    const vaLink = container.querySelector('va-link')
+    expect(vaLink).toHaveAttribute('target', '_blank')
+  })
+
+  test('handles missing target option', () => {
+    const { container } = render(<LinkTeaser {...baseProps} />)
+
+    const vaLink = container.querySelector('va-link')
+    expect(vaLink).toHaveAttribute('target', '')
+  })
+
+  test('handles null options', () => {
+    const propsWithNullOptions = {
+      ...baseProps,
+      options: null,
+    }
+    const { container } = render(<LinkTeaser {...propsWithNullOptions} />)
+
+    const vaLink = container.querySelector('va-link')
+    expect(vaLink).toHaveAttribute('target', '')
+  })
+
+  test('calls recordEvent with correct parameters on click', () => {
+    const { container } = render(<LinkTeaser {...baseProps} />)
+    const liEl = container.querySelector('li')
+
     fireEvent.click(liEl)
+
     expect(recordEvent.recordEvent).toHaveBeenCalledWith({
       event: 'nav-linkslist',
       'links-list-header': 'Health%20Care%20Benefits%20Eligibility',
-      'links-list-section-header': 'This%20is%20the%20section%20header',
+      'links-list-section-header': 'Test%20Section%20Header',
     })
   })
 
-  test('and without boldTitle', () => {
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
-    const aEl = container.querySelector('a')
-    const spanEl = container.querySelector('span')
-    const imageEl = container.querySelector('img')
-
-    expect(aEl).toHaveAttribute('href', '/health-care/eligibility/')
-    expect(spanEl).toHaveAttribute('class', 'hub-page-link-list__header')
-    expect(imageEl).toHaveAttribute('src', '/img/arrow-right-blue.svg')
-    expect(
-      screen.queryByText(/Health Care Benefits Eligibility/)
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/Find out if you can get VA health care benefits./)
-    ).toBeInTheDocument()
-  })
-
-  test('and with boldTitle', () => {
-    linkTeaserParams = { boldTitle: true, sectionHeader: '' }
-
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
-    const aEl = container.querySelector('a')
-    const spanEl = container.querySelector('span')
-    const imageEl = container.querySelector('img')
-
-    expect(aEl).toHaveAttribute('href', '/health-care/eligibility/')
-    expect(spanEl).toHaveAttribute('class', 'hub-page-link-list__header')
-    expect(imageEl).toHaveAttribute('src', '/img/arrow-right-blue.svg')
-    expect(
-      screen.queryByText(/Health Care Benefits Eligibility/)
-    ).toBeInTheDocument()
-    expect(
-      screen.queryByText(/Find out if you can get VA health care benefits./)
-    ).toBeInTheDocument()
-  })
-
-  test('and without boldTitle and without title', () => {
-    linkTeaserCollectionProps.title = ''
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
-    const aEl = container.querySelector('a')
-    const spanEl = container.querySelector('span')
-    const imageEl = container.querySelector('img')
-
-    expect(aEl).toHaveAttribute('href', '/health-care/eligibility/')
-    expect(spanEl).not.toBeInTheDocument()
-    expect(imageEl).not.toBeInTheDocument()
-    expect(
-      screen.queryByText(/Health Care Benefits Eligibility/)
-    ).not.toBeInTheDocument()
-    expect(
-      screen.queryByText(/Find out if you can get VA health care benefits./)
-    ).toBeInTheDocument()
-  })
-  jest.restoreAllMocks()
-})
-
-describe('LinkTeaser with invalid data', () => {
-  test('does render <LinkTeaser> component when uri is not present', () => {
-    const linkTeaserCollectionProps: ParagraphComponent<FormattedLinkTeaser> = {
-      id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
-      uri: '/health-care/eligibility/',
-      title: 'Health Care Benefits Eligibility',
-      options: null,
-      summary:
-        'Not sure if you qualify? Find out if you can get VA health care benefits.',
-      parentField: 'field_va_paragraphs',
-      componentParams: {
-        boldTitle: false,
-        sectionHeader: '',
-      },
+  test('handles empty title', () => {
+    const propsWithEmptyTitle = {
+      ...baseProps,
+      title: '',
     }
-    const linkTeaserParams = { boldTitle: false, sectionHeader: '' }
-    linkTeaserCollectionProps.uri = null
-    const { container } = render(
-      <LinkTeaser
-        {...linkTeaserCollectionProps}
-        componentParams={linkTeaserParams}
-      />
-    )
-    const liEl = container.querySelector('li')
-    expect(liEl).toBeInTheDocument()
+    const { container } = render(<LinkTeaser {...propsWithEmptyTitle} />)
+
+    const vaLink = container.querySelector('va-link')
+    expect(vaLink).toHaveAttribute('text', '')
+  })
+
+  test('handles empty summary', () => {
+    const propsWithEmptySummary = {
+      ...baseProps,
+      summary: '',
+    }
+    const { container } = render(<LinkTeaser {...propsWithEmptySummary} />)
+
+    const summaryEl = container.querySelector('.va-nav-linkslist-description')
+    expect(summaryEl).toBeInTheDocument()
+    expect(summaryEl).toHaveTextContent('')
+  })
+
+  test('handles null uri', () => {
+    const propsWithNullUri = {
+      ...baseProps,
+      uri: null,
+    }
+    const { container } = render(<LinkTeaser {...propsWithNullUri} />)
+
+    const vaLink = container.querySelector('va-link')
+    expect(vaLink).not.toHaveAttribute('href')
+  })
+
+  test('renders with correct paragraph structure', () => {
+    const { container } = render(<LinkTeaser {...baseProps} />)
+
+    const paragraphs = container.querySelectorAll('p')
+    expect(paragraphs).toHaveLength(2)
+
+    const firstParagraph = paragraphs[0]
+    expect(firstParagraph).toHaveClass('va-u-margin--0')
+    expect(firstParagraph.querySelector('va-link')).toBeInTheDocument()
+
+    const secondParagraph = paragraphs[1]
+    expect(secondParagraph).toHaveClass('va-nav-linkslist-description')
   })
 })

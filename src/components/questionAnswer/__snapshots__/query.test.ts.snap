@@ -43,7 +43,6 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "teasers": [
       {
         "componentParams": {
-          "boldTitle": false,
           "sectionHeader": "",
         },
         "entityId": 13774,
@@ -57,7 +56,6 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
       },
       {
         "componentParams": {
-          "boldTitle": false,
           "sectionHeader": "",
         },
         "entityId": 13778,
@@ -71,7 +69,6 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
       },
       {
         "componentParams": {
-          "boldTitle": false,
           "sectionHeader": "",
         },
         "entityId": 14131,
@@ -131,7 +128,6 @@ exports[`node--q_a formatData outputs formatted data 1`] = `
     "teasers": [
       {
         "componentParams": {
-          "boldTitle": false,
           "sectionHeader": "",
         },
         "entityId": 14153,
