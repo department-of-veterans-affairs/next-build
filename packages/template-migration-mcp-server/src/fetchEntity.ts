@@ -22,6 +22,7 @@ export interface FetchEntityOptions {
 }
 
 export interface FetchEntityResult {
+  [x: string]: unknown
   content: Array<{
     type: 'text'
     text: string
