@@ -10,7 +10,7 @@ const __dirname = new URL('.', import.meta.url).pathname
 
 // Create an MCP server
 const server = new McpServer({
-  name: 'demo-server',
+  name: 'template-migration-mcp-server',
   version: '1.0.0',
 })
 
