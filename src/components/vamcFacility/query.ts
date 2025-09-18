@@ -19,12 +19,11 @@ import {
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { formatter as formatPhone } from '@/components/phoneNumber/query'
-import { formatter as formatEmail } from '@/components/emailContact/query'
 import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { formatter as formatAdministration } from '@/components/administration/query'
-import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
 import { getVamcSystemSocialLinks } from '../vamcSystem/query'
+import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 
 const isPublished = (entity: { status: boolean }) => entity.status === true
 
@@ -200,32 +199,9 @@ export const formatter: QueryFormatter<VamcFacilityData, VamcFacility> = ({
           isMentalHealthService: serviceTaxonomy.name
             .toLowerCase()
             .includes('mental health'),
-          locations: healthService.field_service_location.map((location) => ({
-            fieldOfficeVisits: location.field_office_visits,
-            fieldVirtualSupport: location.field_virtual_support,
-            fieldApptIntroTextType: location.field_appt_intro_text_type,
-            fieldApptIntroTextCustom: createPhoneLinks(
-              location.field_appt_intro_text_custom
-            ),
-            appointmentPhoneNumbers: location.field_other_phone_numbers
-              .filter(isPublished)
-              .map(formatPhone),
-            fieldOnlineSchedulingAvail: location.field_online_scheduling_avail,
-            contactInfoPhoneNumbers: location.field_phone
-              .filter(isPublished)
-              .map(formatPhone),
-            fieldEmailContacts: location.field_email_contacts
-              .filter(isPublished)
-              .map(formatEmail),
-            fieldHours: location.field_hours,
-            fieldOfficeHours: location.field_office_hours,
-            fieldAdditionalHoursInfo: location.field_additional_hours_info,
-            fieldUseMainFacilityPhone: location.field_use_main_facility_phone,
-            fieldUseFacilityPhoneNumber:
-              location.field_use_facility_phone_number,
-            fieldServiceLocationAddress:
-              location.field_service_location_address,
-          })),
+          locations: healthService.field_service_location.map(
+            formatServiceLocation
+          ),
           fieldFacilityLocatorApiId: entity.field_facility_locator_api_id,
           fieldHealthServiceApiId: serviceTaxonomy.field_health_service_api_id,
         }
