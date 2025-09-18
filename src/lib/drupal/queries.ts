@@ -21,6 +21,7 @@ import * as Footer from '@/components/footer/query'
 import * as Header from '@/components/header/query'
 import * as HealthCareLocalFacility from '../../components/vamcFacility/query'
 import * as LinkTeaser from '@/components/linkTeaser/query'
+import * as ListOfLinkTeasers from '@/components/listOfLinkTeasers/query'
 import * as LocationsListing from '../../components/locationsListing/query'
 import * as MediaDocument from '@/components/mediaDocument/query'
 import * as MediaImage from '@/components/mediaImage/query'
@@ -48,6 +49,7 @@ import * as Table from '@/components/table/query'
 import * as VamcEhr from '@/components/vamcEhr/query'
 import * as VamcSystem from '../../components/vamcSystem/query'
 import * as VamcSystemRegisterForCare from '../../components/vamcSystemRegisterForCare/query'
+import * as VamcSystemBillingAndInsurance from '../../components/vamcSystemBillingAndInsurance/query'
 import * as VamcSystemVaPolice from '../../components/vamcSystemVaPolice/query'
 import * as VetCenter from '../../components/vetCenter/query'
 import * as VetCenterHealthServices from '@/components/vetCenterHealthServices/query'
@@ -58,6 +60,8 @@ import * as LeadershipListing from '../../components/leadershipListing/query'
 import * as VbaFacility from '../../components/vbaFacility/query'
 import * as HealthServicesListing from '../../components/vamcHealthServicesListing/query'
 import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingStatusAndAlerts/query'
+import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
+import * as ServiceLocation from '@/components/serviceLocation/query'
 import {
   ResourceType,
   ParagraphResourceType,
@@ -88,6 +92,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_FACILITY]: HealthCareLocalFacility,
   [RESOURCE_TYPES.VAMC_SYSTEM]: VamcSystem,
   [RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE]: VamcSystemRegisterForCare,
+  [RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE]: VamcSystemBillingAndInsurance,
   [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
@@ -97,6 +102,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING]: HealthServicesListing,
   [RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS]:
     VamcOperatingStatusAndAlerts,
+  [RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE]: VamcSystemPoliciesPage,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
@@ -112,6 +118,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.EXPANDABLE_TEXT]: ExpandableText,
   [PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT]: FeaturedContent,
   [PARAGRAPH_RESOURCE_TYPES.LINK_TEASER]: LinkTeaser,
+  [PARAGRAPH_RESOURCE_TYPES.LIST_OF_LINK_TEASERS]: ListOfLinkTeasers,
   [PARAGRAPH_RESOURCE_TYPES.NUMBER_CALLOUT]: NumberCallout,
   [PARAGRAPH_RESOURCE_TYPES.PHONE_CONTACT]: PhoneNumber,
   [PARAGRAPH_RESOURCE_TYPES.PROCESS_LIST]: ProcessList,
@@ -120,6 +127,7 @@ export const QUERIES_MAP = {
   [PARAGRAPH_RESOURCE_TYPES.QA_GROUP]: QaGroup,
   [PARAGRAPH_RESOURCE_TYPES.REACT_WIDGET]: ReactWidget,
   [PARAGRAPH_RESOURCE_TYPES.RICH_TEXT_CHAR_LIMIT_1000]: Wysiwyg,
+  [PARAGRAPH_RESOURCE_TYPES.SERVICE_LOCATION]: ServiceLocation,
   [PARAGRAPH_RESOURCE_TYPES.TABLE]: Table,
   [PARAGRAPH_RESOURCE_TYPES.WYSIWYG]: Wysiwyg,
 

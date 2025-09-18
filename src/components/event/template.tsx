@@ -15,6 +15,7 @@ import { SocialLinks } from './SocialLinks'
 import { formatEventCTA, createMailToLink } from '@/lib/utils/events'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
+import { addressToString } from '../googleMapsDirections/addressToString'
 
 export const Event = ({
   title,
@@ -74,13 +75,7 @@ export const Event = ({
   const formattedDateTime = formatEventDateTime(mostRecentDate)
 
   const addressObj = facilityLocation?.field_address || address
-  const directionsString = [
-    addressObj?.address_line1,
-    addressObj?.locality,
-    addressObj?.administrative_area,
-  ]
-    .filter(Boolean)
-    .join(', ')
+  const directionsString = addressToString(addressObj)
 
   let eventCTAText = null
 
@@ -163,7 +158,7 @@ export const Event = ({
                 )}
                 <p className="vads-u-margin--0">
                   <GoogleMapsDirections
-                    address={directionsString}
+                    address={addressObj}
                     location={facilityLocation?.title}
                   />
                 </p>
@@ -200,7 +195,7 @@ export const Event = ({
                 <p className="vads-u-margin--0">
                   <GoogleMapsDirections
                     location={locationHumanReadable}
-                    address={directionsString}
+                    address={addressObj}
                   />
                 </p>
               </div>

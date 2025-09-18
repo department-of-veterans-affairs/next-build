@@ -42,7 +42,6 @@
     "*.{ts|tsx|js|jsx}",
     "scripts/*",
     "test/*",
-    "example_tests/*",
     "playwright/**/*"
   ],
   "exclude": ["node_modules", "src/__tests__", "public/generated"]

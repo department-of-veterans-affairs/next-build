@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
 {
@@ -29,7 +29,7 @@ exports[`VamcSystemVaPolice formatData outputs formatted data 1`] = `
   "faqs": {
     "displayAccordion": "1",
     "header": "Other questions you may have about VA police",
-    "id": null,
+    "id": "141575",
     "intro": [],
     "questions": [
       {
