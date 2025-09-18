@@ -3,16 +3,8 @@ import { render, screen } from '@testing-library/react'
 import { VamcSystemPoliciesPage } from './template'
 import { formatter, VamcSystemPoliciesPageData } from './query'
 import { NodeVamcSystemPoliciesPage } from '@/types/drupal/node'
-import { SideNavMenu } from '@/types/formatted/sideNav'
 import mockData from './mock'
 import { Menu } from '@/types/drupal/menu'
-
-// Extend window type for testing
-declare global {
-  interface Window {
-    sideNav?: SideNavMenu
-  }
-}
 
 const mockEntity = mockData as unknown as NodeVamcSystemPoliciesPage
 const mockMenu: Menu = {
