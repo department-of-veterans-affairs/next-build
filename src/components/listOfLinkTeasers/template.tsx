@@ -14,7 +14,10 @@ export const ListOfLinkTeasers = ({
     className="vads-u-padding-bottom--2"
   >
     {title && (
-      <h2 id={hashReference(title)} className="va-nav-linkslist-heading">
+      <h2
+        id={hashReference(title)}
+        className="vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5"
+      >
         {title}
       </h2>
     )}
