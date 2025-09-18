@@ -45,8 +45,6 @@ describe('LeadershipListing with valid data', () => {
       />
     )
 
-    // @ts-expect-error window.sideNav is not a default window property, but
-    // we're adding it
     expect(window.sideNav).toEqual(mockMenu)
   })
   test('renders LeadershipListing component with profiles', () => {
