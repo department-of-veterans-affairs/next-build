@@ -14,6 +14,6 @@ export const formatter: QueryFormatter<ParagraphLinkTeaser, LinkTeaser> = (
     options: entity.field_link?.options,
     summary: entity.field_link_summary,
     parentField: entity.parent_field_name ?? null,
-    componentParams: { boldTitle: false, sectionHeader: '' },
+    componentParams: { sectionHeader: '' },
   }
 }

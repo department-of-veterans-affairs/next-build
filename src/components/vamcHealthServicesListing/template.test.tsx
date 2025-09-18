@@ -24,7 +24,6 @@ const mockFeaturedContent = [
     entityId: 1,
     options: [],
     componentParams: {
-      boldTitle: false,
       sectionHeader: '',
     },
   },
@@ -39,7 +38,6 @@ const mockFeaturedContent = [
     entityId: 2,
     options: [],
     componentParams: {
-      boldTitle: false,
       sectionHeader: '',
     },
   },

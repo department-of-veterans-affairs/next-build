@@ -666,7 +666,6 @@ const mockData: VamcSystemBillingAndInsurance = {
           'Review copay rates for outpatient care, hospital stays, medications, and other health services.',
         parentField: null,
         componentParams: {
-          boldTitle: false,
           sectionHeader: '',
         },
       },
@@ -686,7 +685,6 @@ const mockData: VamcSystemBillingAndInsurance = {
           'If you’re struggling to pay your copays, learn how to request a repayment plan, debt relief, or copay exemption.',
         parentField: null,
         componentParams: {
-          boldTitle: false,
           sectionHeader: '',
         },
       },
@@ -706,7 +704,6 @@ const mockData: VamcSystemBillingAndInsurance = {
           'Find out how to file a dispute If you disagree with the charges or amounts on your bill.',
         parentField: null,
         componentParams: {
-          boldTitle: false,
           sectionHeader: '',
         },
       },
@@ -726,7 +723,6 @@ const mockData: VamcSystemBillingAndInsurance = {
           'Update your address and other information in your VA.gov profile. This will update your information across several VA benefits and services.',
         parentField: null,
         componentParams: {
-          boldTitle: false,
           sectionHeader: '',
         },
       },

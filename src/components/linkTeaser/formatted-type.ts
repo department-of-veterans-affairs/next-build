@@ -9,7 +9,6 @@ export type LinkTeaser = PublishedParagraph & {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options: { [key: string]: any }
   componentParams: {
-    boldTitle: boolean
     sectionHeader: string
   }
 }

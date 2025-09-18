@@ -8,24 +8,22 @@ export const ListOfLinkTeasers = ({
   title,
   linkTeasers,
 }: ParagraphComponent<FormattedListOfLinkTeasers>) => (
-  <section
-    data-template="paragraphs/list_of_link_teasers"
-    data-entity-id={id}
-    className="vads-u-padding-bottom--2"
-  >
+  <section data-template="paragraphs/list_of_link_teasers" data-entity-id={id}>
     {title && (
-      <h2 id={hashReference(title)} className="va-nav-linkslist-heading">
+      <h2
+        id={hashReference(title)}
+        className="vads-u-border-bottom--1px vads-u-border-color--base-light vads-u-margin--0 vads-u-padding-top--2 vads-u-padding-bottom--0p5"
+      >
         {title}
       </h2>
     )}
-    <ul className="va-nav-linkslist-list">
+    <ul className="usa-unstyled-list">
       {linkTeasers.map((linkTeaser) => (
         <LinkTeaser
           key={linkTeaser.id}
           {...linkTeaser}
           componentParams={{
             sectionHeader: title,
-            boldTitle: false,
           }}
         />
       ))}
