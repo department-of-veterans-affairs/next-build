@@ -1,16 +1,28 @@
 import { GoogleMapsDirections } from '@/components/googleMapsDirections/template'
 import { FieldAddress } from '@/types/drupal/field_type'
 
-interface AddressProps {
+interface AddressBaseProps {
   address: FieldAddress
-  title: string
   showOrganization?: boolean
 }
+
+interface AddressPropsWithDirections extends AddressBaseProps {
+  title: string
+  showDirections?: true
+}
+
+interface AddressPropsWithoutDirections extends AddressBaseProps {
+  title?: undefined
+  showDirections: false
+}
+
+type AddressProps = AddressPropsWithDirections | AddressPropsWithoutDirections
 
 export const Address = ({
   address,
   title,
   showOrganization = false,
+  showDirections = true,
 }: AddressProps) => {
   return (
     <>
@@ -33,9 +45,11 @@ export const Address = ({
           {`${address.locality}, ${address.administrative_area} ${address.postal_code}`}
         </p>
       </address>
-      <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
-        <GoogleMapsDirections address={address} location={title} />
-      </p>
+      {showDirections && (
+        <p className="vads-u-margin-bottom--0 vads-u-margin-top--0">
+          <GoogleMapsDirections address={address} location={title} />
+        </p>
+      )}
     </>
   )
 }

@@ -37,6 +37,8 @@ export const separateExtension = (
   }
 }
 
+type HeadingLevel = 'h3' | 'h4' | 'h5' | 'h6'
+
 type PhoneNumberProps = Omit<
   FormattedPhoneNumber,
   'phoneType' | 'extension' | 'id' | 'type'
@@ -55,7 +57,7 @@ type PhoneNumberProps = Omit<
    *
    * @default 'inline'
    */
-  treatment?: 'inline' | 'h4' | 'h5'
+  treatment?: 'inline' | HeadingLevel
 }
 
 /**
@@ -110,19 +112,16 @@ export const PhoneNumber = ({
     ></va-telephone>
   )
 
-  if (treatment === 'h4') {
+  if (
+    treatment === 'h3' ||
+    treatment === 'h4' ||
+    treatment === 'h5' ||
+    treatment === 'h6'
+  ) {
+    const HeadingTag = treatment as HeadingLevel
     return (
       <div className={className || undefined} data-testid="phone">
-        <h4 className={labelClassName}>{labelToDisplay}</h4>
-        {phoneComponent}
-      </div>
-    )
-  }
-
-  if (treatment === 'h5') {
-    return (
-      <div className={className || undefined} data-testid="phone">
-        <h5 className={labelClassName}>{labelToDisplay}</h5>
+        <HeadingTag className={labelClassName}>{labelToDisplay}</HeadingTag>
         {phoneComponent}
       </div>
     )
