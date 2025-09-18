@@ -29,10 +29,13 @@ export const LinkTeaser = ({
   return (
     <li
       key={id}
-      className={clsx(isFieldSpokes && 'hub-page-link-list__item')}
+      className={clsx(
+        'vads-u-margin--2',
+        isFieldSpokes && 'hub-page-link-list__item'
+      )}
       onClick={handleItemClick}
     >
-      <p className="va-u-margin--0 vads-u-font-weight--bold">
+      <p className="vads-u-margin--0 vads-u-font-weight--bold">
         <va-link
           href={uri}
           target={target}
@@ -40,7 +43,7 @@ export const LinkTeaser = ({
           active={isFieldSpokes}
         ></va-link>
       </p>
-      <p className="va-nav-linkslist-description">{summary}</p>
+      <p className="vads-u-margin--0">{summary}</p>
     </li>
   )
 }

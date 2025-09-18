@@ -11,7 +11,7 @@ export const ListOfLinkTeasers = ({
   <section
     data-template="paragraphs/list_of_link_teasers"
     data-entity-id={id}
-    className="vads-u-padding-bottom--2"
+    className="vads-u-padding-bottom--1p5"
   >
     {title && (
       <h2
