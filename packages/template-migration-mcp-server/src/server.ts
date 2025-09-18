@@ -4,7 +4,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod'
 import resourceTypes from '../data/resourceTypes.json' with { type: 'json' }
-import { fetchEntity } from './fetchEntity'
+import { fetchEntity } from './fetchEntity.ts'
 
 const __dirname = new URL('.', import.meta.url).pathname
 
