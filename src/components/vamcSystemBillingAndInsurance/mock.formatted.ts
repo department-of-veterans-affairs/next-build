@@ -1,20 +1,20 @@
-import { VamcSystemRegisterForCare } from './formatted-type'
+import { VamcSystemBillingAndInsurance } from './formatted-type'
 
-const mockData: VamcSystemRegisterForCare = {
-  id: '116e00eb-8208-4bdc-8952-e3c9bc509327',
-  entityId: 44606,
-  entityPath: '/richmond-health-care/register-for-care',
-  type: 'node--vamc_system_register_for_care',
+const mockData: VamcSystemBillingAndInsurance = {
+  id: 'cc1f662c-44bf-4cf2-b331-1d96a36baa7e',
+  entityId: 45617,
+  entityPath: '/louisville-health-care/billing-and-insurance',
+  type: 'node--vamc_system_billing_insurance',
   published: true,
   moderationState: 'published',
-  title: 'Register for care',
+  title: 'Billing and insurance',
   metatags: [
     {
       tag: 'meta',
       attributes: {
         name: 'title',
         content:
-          'Register for care | VA Richmond health care | Veterans Affairs',
+          'Billing and insurance | VA Louisville health care | Veterans Affairs',
       },
     },
     {
@@ -22,7 +22,7 @@ const mockData: VamcSystemRegisterForCare = {
       attributes: {
         name: 'description',
         content:
-          'You can pay your VA Richmond health care bill online, by phone, mail, or in person.',
+          'You can pay your VA Louisville health care bill online, by phone, mail, or in person.',
       },
     },
     {
@@ -37,7 +37,7 @@ const mockData: VamcSystemRegisterForCare = {
       attributes: {
         property: 'og:title',
         content:
-          'Register for care | VA Richmond health care | Veterans Affairs',
+          'Billing and insurance | VA Louisville health care | Veterans Affairs',
       },
     },
     {
@@ -45,7 +45,7 @@ const mockData: VamcSystemRegisterForCare = {
       attributes: {
         property: 'og:description',
         content:
-          'You can pay your VA Richmond health care bill online, by phone, mail, or in person.',
+          'You can pay your VA Louisville health care bill online, by phone, mail, or in person.',
       },
     },
     {
@@ -67,7 +67,7 @@ const mockData: VamcSystemRegisterForCare = {
       attributes: {
         name: 'twitter:title',
         content:
-          'Register for care | VA Richmond health care | Veterans Affairs',
+          'Billing and insurance | VA Louisville health care | Veterans Affairs',
       },
     },
     {
@@ -75,7 +75,7 @@ const mockData: VamcSystemRegisterForCare = {
       attributes: {
         name: 'twitter:description',
         content:
-          'You can pay your VA Richmond health care bill online, by phone, mail, or in person.',
+          'You can pay your VA Louisville health care bill online, by phone, mail, or in person.',
       },
     },
     {
@@ -100,31 +100,31 @@ const mockData: VamcSystemRegisterForCare = {
       options: [],
     },
     {
-      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/richmond-health-care',
-      title: 'VA Richmond health care',
+      uri: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/louisville-health-care',
+      title: 'VA Louisville health care',
       options: [],
     },
     {
       uri: 'internal:#',
-      title: 'Register for care',
+      title: 'Billing and insurance',
       options: [],
     },
   ],
-  lastUpdated: '2022-05-06T15:10:15+00:00',
+  lastUpdated: '2024-03-25T18:06:03+00:00',
   vamcSystem: {
-    id: '9aafd9b9-3676-4167-aeb7-0bde3c1ec1d6',
-    title: 'VA Richmond health care',
+    id: '40bc0017-13cb-4e52-859f-f815fbb5a547',
+    title: 'VA Louisville health care',
   },
   menu: {
-    rootPath: '/richmond-health-care/register-for-care/',
+    rootPath: '/louisville-health-care/billing-and-insurance/',
     data: {
-      name: 'VA Richmond health care',
+      name: 'VA Louisville health care',
       description: null,
       links: [
         {
           description: null,
           expanded: false,
-          label: 'VA Richmond health care',
+          label: 'VA Louisville health care',
           links: [
             {
               description: null,
@@ -137,7 +137,7 @@ const mockData: VamcSystemRegisterForCare = {
                   label: 'Health services',
                   links: [],
                   url: {
-                    path: '/richmond-health-care/health-services',
+                    path: '/louisville-health-care/health-services',
                   },
                   lovellSection: null,
                 },
@@ -149,86 +149,97 @@ const mockData: VamcSystemRegisterForCare = {
                     {
                       description: null,
                       expanded: false,
-                      label: 'Charlottesville VA Clinic',
+                      label:
+                        'Robley Rex Department of Veterans Affairs Medical Center',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/locations/charlottesville-va-clinic',
+                        path: '/louisville-health-care/locations/robley-rex-department-of-veterans-affairs-medical-center',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'Emporia VA Clinic',
+                      label: 'Carrollton VA Clinic',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/locations/emporia-va-clinic',
+                        path: '/louisville-health-care/locations/carrollton-va-clinic',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'Fredericksburg VA Clinic',
+                      label: 'Fort Knox VA Clinic',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/locations/fredericksburg-va-clinic',
+                        path: '/louisville-health-care/locations/fort-knox-va-clinic',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'Fredericksburg 2 VA Clinic',
+                      label: 'Grayson County VA Clinic',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/locations/fredericksburg-2-va-clinic',
+                        path: '/louisville-health-care/locations/grayson-county-va-clinic',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'Fredericksburg 3 VA Clinic',
+                      label: 'Greenwood VA Clinic',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/locations/fredericksburg-3-va-clinic',
+                        path: '/louisville-health-care/locations/greenwood-va-clinic',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'Henrico County VA Clinic',
+                      label: 'New Albany VA Clinic',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/locations/henrico-county-va-clinic',
+                        path: '/louisville-health-care/locations/new-albany-va-clinic',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'Massaponax VA Clinic',
+                      label: 'Newburg VA Clinic',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/locations/massaponax-va-clinic',
+                        path: '/louisville-health-care/locations/newburg-va-clinic',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'Richmond VA Medical Center',
+                      label: 'Scott County VA Clinic',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/locations/richmond-va-medical-center',
+                        path: '/louisville-health-care/locations/scott-county-va-clinic',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'Stonybrook VA Clinic',
+                      links: [],
+                      url: {
+                        path: '/louisville-health-care/locations/stonybrook-va-clinic',
                       },
                       lovellSection: null,
                     },
                   ],
                   url: {
-                    path: '/richmond-health-care/locations',
+                    path: '/louisville-health-care/locations',
                   },
                   lovellSection: null,
                 },
@@ -249,17 +260,17 @@ const mockData: VamcSystemRegisterForCare = {
                   label: 'Events',
                   links: [],
                   url: {
-                    path: '/richmond-health-care/events',
+                    path: '/louisville-health-care/events',
                   },
                   lovellSection: null,
                 },
                 {
                   description: null,
                   expanded: false,
-                  label: 'News releases',
+                  label: 'News Releases',
                   links: [],
                   url: {
-                    path: '/richmond-health-care/news-releases',
+                    path: '/louisville-health-care/news-releases',
                   },
                   lovellSection: null,
                 },
@@ -269,7 +280,7 @@ const mockData: VamcSystemRegisterForCare = {
                   label: 'Stories',
                   links: [],
                   url: {
-                    path: '/richmond-health-care/stories',
+                    path: '/louisville-health-care/stories',
                   },
                   lovellSection: null,
                 },
@@ -282,7 +293,7 @@ const mockData: VamcSystemRegisterForCare = {
             {
               description: null,
               expanded: false,
-              label: 'ABOUT VA RICHMOND',
+              label: 'ABOUT VA LOUISVILLE',
               links: [
                 {
                   description: null,
@@ -292,20 +303,20 @@ const mockData: VamcSystemRegisterForCare = {
                     {
                       description: null,
                       expanded: false,
-                      label: 'Mission and vision',
+                      label: 'History',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/about-us/mission-and-vision',
+                        path: '/louisville-health-care/about-us/history',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'History',
+                      label: 'Mission and vision',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/about-us/history',
+                        path: '/louisville-health-care/about-us/mission-and-vision',
                       },
                       lovellSection: null,
                     },
@@ -315,7 +326,7 @@ const mockData: VamcSystemRegisterForCare = {
                       label: 'Performance',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/about-us/performance',
+                        path: '/louisville-health-care/about-us/performance',
                       },
                       lovellSection: null,
                     },
@@ -325,13 +336,13 @@ const mockData: VamcSystemRegisterForCare = {
                       label: 'Leadership',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/about-us/leadership',
+                        path: '/louisville-health-care/about-us/leadership',
                       },
                       lovellSection: null,
                     },
                   ],
                   url: {
-                    path: '/richmond-health-care/about-us',
+                    path: '/louisville-health-care/about-us',
                   },
                   lovellSection: null,
                 },
@@ -343,10 +354,111 @@ const mockData: VamcSystemRegisterForCare = {
                     {
                       description: null,
                       expanded: false,
-                      label: 'Facility Operations and Status',
+                      label: 'Active Management of Pain (AMP)',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/programs/facility-operations-and-status',
+                        path: '/louisville-health-care/programs/get-relief-with-active-management-of-pain-amp',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'Compensation and Pension',
+                      links: [],
+                      url: {
+                        path: '/louisville-health-care/programs/compensation-and-pension',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'Enrollment and Eligibility',
+                      links: [],
+                      url: {
+                        path: '/louisville-health-care/programs/enrollment-and-eligibility',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'Lung Nodule Evaluation Team (LNET)',
+                      links: [],
+                      url: {
+                        path: '/louisville-health-care/programs/lung-nodule-evaluation-team-lnet',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'Volunteer Services',
+                      links: [],
+                      url: {
+                        path: '/louisville-health-care/programs/volunteer-services',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'Whole Health',
+                      links: [],
+                      url: {
+                        path: '/louisville-health-care/programs/whole-health',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'New Robley Rex VA Medical Center',
+                      links: [
+                        {
+                          description: null,
+                          expanded: false,
+                          label: 'Activations Team - Staff Spotlight',
+                          links: [],
+                          url: {
+                            path: '/louisville-health-care/programs/new-robley-rex-va-medical-center/new-hospital-activations-team',
+                          },
+                          lovellSection: null,
+                        },
+                        {
+                          description: null,
+                          expanded: false,
+                          label: 'New VA Hospital Construction Updates',
+                          links: [],
+                          url: {
+                            path: '/louisville-health-care/programs/new-robley-rex-va-medical-center/new-va-hospital-construction-updates',
+                          },
+                          lovellSection: null,
+                        },
+                      ],
+                      url: {
+                        path: '/louisville-health-care/programs/new-robley-rex-va-medical-center',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'Chaplain Service',
+                      links: [],
+                      url: {
+                        path: '/louisville-health-care/programs/chaplain-service',
+                      },
+                      lovellSection: null,
+                    },
+                    {
+                      description: null,
+                      expanded: false,
+                      label: 'Oncology and Hematology',
+                      links: [],
+                      url: {
+                        path: '/louisville-health-care/programs/oncology-and-hematology',
                       },
                       lovellSection: null,
                     },
@@ -354,78 +466,26 @@ const mockData: VamcSystemRegisterForCare = {
                       description: null,
                       expanded: false,
                       label:
-                        'Whole Health at Central Virginia VA Health Care System',
+                        'Clinical Research Foundation (NPC Affiliate of Robley Rex VAMC)',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/programs/whole-health-at-central-virginia-va-health-care-system',
+                        path: '/louisville-health-care/research/clinical-research-foundation-npc-affiliate-of-robley-rex-vamc',
                       },
                       lovellSection: null,
                     },
                     {
                       description: null,
                       expanded: false,
-                      label: 'Cardiac Surgery',
+                      label: 'Prosthetic & Sensory Aids Service (PSAS)',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/programs/cardiac-surgery',
-                      },
-                      lovellSection: null,
-                    },
-                    {
-                      description: null,
-                      expanded: false,
-                      label: 'Assistive Technology Program',
-                      links: [],
-                      url: {
-                        path: '/richmond-health-care/programs/assistive-technology-program',
-                      },
-                      lovellSection: null,
-                    },
-                    {
-                      description: null,
-                      expanded: false,
-                      label:
-                        'Servicemember Transitional Advanced Rehabilitation (STAR) Program',
-                      links: [],
-                      url: {
-                        path: '/richmond-health-care/programs/servicemember-transitional-advanced-rehabilitation-star-program',
-                      },
-                      lovellSection: null,
-                    },
-                    {
-                      description: null,
-                      expanded: false,
-                      label: 'The National Veterans Creative Arts Competition',
-                      links: [],
-                      url: {
-                        path: '/richmond-health-care/programs/the-national-veterans-creative-arts-competition',
-                      },
-                      lovellSection: null,
-                    },
-                    {
-                      description: null,
-                      expanded: false,
-                      label:
-                        'Polytrauma Transitional Rehabilitation Program (PTRP)',
-                      links: [],
-                      url: {
-                        path: '/richmond-health-care/programs/polytrauma-transitional-rehabilitation-program-ptrp',
-                      },
-                      lovellSection: null,
-                    },
-                    {
-                      description: null,
-                      expanded: false,
-                      label: 'Polytrauma Network Site (PNS)',
-                      links: [],
-                      url: {
-                        path: '/richmond-health-care/programs/polytrauma-network-site-pns',
+                        path: '/louisville-health-care/programs/prosthetic-sensory-aids-service-psas',
                       },
                       lovellSection: null,
                     },
                   ],
                   url: {
-                    path: '/richmond-health-care/programs',
+                    path: '/louisville-health-care/programs',
                   },
                   lovellSection: null,
                 },
@@ -435,7 +495,7 @@ const mockData: VamcSystemRegisterForCare = {
                   label: 'Policies',
                   links: [],
                   url: {
-                    path: '/richmond-health-care/policies',
+                    path: '/louisville-health-care/policies',
                   },
                   lovellSection: null,
                 },
@@ -445,7 +505,7 @@ const mockData: VamcSystemRegisterForCare = {
                   label: 'VA police',
                   links: [],
                   url: {
-                    path: '/richmond-health-care/va-police',
+                    path: '/louisville-health-care/va-police',
                   },
                   lovellSection: null,
                 },
@@ -458,9 +518,31 @@ const mockData: VamcSystemRegisterForCare = {
                       description: null,
                       expanded: false,
                       label: 'Jobs and careers',
-                      links: [],
+                      links: [
+                        {
+                          description: null,
+                          expanded: false,
+                          label: 'Nursing Careers',
+                          links: [],
+                          url: {
+                            path: '/louisville-health-care/work-with-us/jobs-and-careers/nursing-careers',
+                          },
+                          lovellSection: null,
+                        },
+                        {
+                          description: null,
+                          expanded: false,
+                          label:
+                            'Post-Baccalaureate Registered Nurse Residency Program',
+                          links: [],
+                          url: {
+                            path: '/louisville-health-care/work-with-us/jobs-and-careers/post-baccalaureate-registered-nurse-residency-program',
+                          },
+                          lovellSection: null,
+                        },
+                      ],
                       url: {
-                        path: '/richmond-health-care/work-with-us/jobs-and-careers',
+                        path: '/louisville-health-care/work-with-us/jobs-and-careers',
                       },
                       lovellSection: null,
                     },
@@ -472,10 +554,20 @@ const mockData: VamcSystemRegisterForCare = {
                         {
                           description: null,
                           expanded: false,
-                          label: 'Psychology Services',
+                          label: 'Pharmacy Residency Program',
                           links: [],
                           url: {
-                            path: '/richmond-health-care/work-with-us/internships-and-fellowships/psychology-services',
+                            path: '/louisville-health-care/work-with-us/internships-and-fellowships/pharmacy-residency-program',
+                          },
+                          lovellSection: null,
+                        },
+                        {
+                          description: null,
+                          expanded: false,
+                          label: 'Psychology Training Internship Program',
+                          links: [],
+                          url: {
+                            path: '/louisville-health-care/work-with-us/internships-and-fellowships/psychology-training-internship-program',
                           },
                           lovellSection: null,
                         },
@@ -483,47 +575,16 @@ const mockData: VamcSystemRegisterForCare = {
                           description: null,
                           expanded: false,
                           label:
-                            'Neurologic Physical Therapy Residency Program',
+                            'Psychiatric/Mental Health (PMHNP) Nurse Practitioner Residency Program (MH-NPR)',
                           links: [],
                           url: {
-                            path: '/richmond-health-care/work-with-us/internships-and-fellowships/neurologic-physical-therapy-residency-program',
-                          },
-                          lovellSection: null,
-                        },
-                        {
-                          description: null,
-                          expanded: false,
-                          label: 'Occupational Therapy Fellowship Program',
-                          links: [],
-                          url: {
-                            path: '/richmond-health-care/work-with-us/internships-and-fellowships/occupational-therapy-fellowship-program',
-                          },
-                          lovellSection: null,
-                        },
-                        {
-                          description: null,
-                          expanded: false,
-                          label: 'Pharmacy Residency Programs',
-                          links: [],
-                          url: {
-                            path: '/richmond-health-care/work-with-us/internships-and-fellowships/pharmacy-residency-programs',
-                          },
-                          lovellSection: null,
-                        },
-                        {
-                          description: null,
-                          expanded: false,
-                          label:
-                            'General Practice Residency in Dental Medicine',
-                          links: [],
-                          url: {
-                            path: '/richmond-health-care/work-with-us/internships-and-fellowships/general-practice-residency-in-dental-medicine',
+                            path: '/louisville-health-care/work-with-us/internships-and-fellowships/psychiatricmental-health-pmhnp-nurse-practitioner-residency-program-mh-npr',
                           },
                           lovellSection: null,
                         },
                       ],
                       url: {
-                        path: '/richmond-health-care/work-with-us/internships-and-fellowships',
+                        path: '/louisville-health-care/work-with-us/internships-and-fellowships',
                       },
                       lovellSection: null,
                     },
@@ -533,13 +594,13 @@ const mockData: VamcSystemRegisterForCare = {
                       label: 'Volunteer or donate',
                       links: [],
                       url: {
-                        path: '/richmond-health-care/work-with-us/volunteer-or-donate',
+                        path: '/louisville-health-care/work-with-us/volunteer-or-donate',
                       },
                       lovellSection: null,
                     },
                   ],
                   url: {
-                    path: '/richmond-health-care/work-with-us',
+                    path: '/louisville-health-care/work-with-us',
                   },
                   lovellSection: null,
                 },
@@ -549,7 +610,7 @@ const mockData: VamcSystemRegisterForCare = {
                   label: 'Contact us',
                   links: [],
                   url: {
-                    path: '/richmond-health-care/contact-us',
+                    path: '/louisville-health-care/contact-us',
                   },
                   lovellSection: null,
                 },
@@ -561,36 +622,46 @@ const mockData: VamcSystemRegisterForCare = {
             },
           ],
           url: {
-            path: '/richmond-health-care',
+            path: '/louisville-health-care',
           },
           lovellSection: null,
         },
       ],
     },
   },
+  aboveTopOfPageContent: {
+    type: 'paragraph--wysiwyg',
+    id: '109546',
+    html: "<h2>Questions about copay balance</h2><p>For questions about the copay balance of your VA health care bill, call us toll free at the number below. You won't need to pay any copays for X-rays, lab tests, preventative tests, and services like health screenings or immunizations.</p>",
+  },
   topOfPageContent: {
     type: 'paragraph--wysiwyg',
-    id: '82286',
-    html: '<h2 id="patient-registration-admission">Patient registration (admissions)</h2>\n\n<p>Whether you moved and need to change your medical center or need a primary care provider in the area, we can help. Call us or visit one of our patient registration offices to get started.</p>',
+    id: '82293',
+    html: '<h2 id="pay-online-by-phoneor-mail">Pay online, by phone,&nbsp;or mail</h2><p>Find out how to make a payment—and what to do if you\'re having trouble making payments or you disagree with your bill.</p><p><a class="vads-c-action-link--blue" href="https://www.va.gov/health-care/pay-copay-bill/" hreflang="en">Pay online, by phone, or by mail</a></p><h2 id="pay-in-person">Pay in person</h2><p>To pay your copay bill in person, visit the agent cashier\'s office.</p><p>Please bring your payment stub, along with a check or money order made payable to "VA." Be sure to include your VA account number on the check or money order.</p>',
   },
   bottomOfPageContent: {
     type: 'paragraph--wysiwyg',
-    id: '82283',
-    html: '<h2 id="not-yet-enrolled-in-va-health-"><strong>Not yet enrolled in VA health care?</strong></h2>\n\n<p>You need to be enrolled in VA health care before you can make appointments and receive care with us.</p>\n\n<p><a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="588aa250-35b3-4d1d-99e6-d152bbae0775" href="/health-care/about-va-health-benefits" hreflang="en" title="About VA health benefits">Learn about VA health care benefits and eligibility&nbsp;</a></p>\n\n<h3 id="apply-online-by-phone-or-by-ma"><strong>Apply online, by phone, or by mail</strong></h3>\n\n<p>We’ll walk you through how to get started. You can apply at your own pace, and save your application and go back to it when it’s convenient for you.</p>\n\n<p><strong><a class="vads-c-action-link--blue" href="https://www.va.gov/health-care/how-to-apply/" hreflang="en">Apply online, by phone, or by mail</a></strong></p>\n\n<h3 id="apply-in-person"><strong>Apply in person</strong></h3>\n\n<p>We can help answer any questions you may have. We can also&nbsp;accept your completed application at our patient registration&nbsp;office&nbsp;for processing.</p>\n\n<p>Fill out an <a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="4d264d1d-71e2-4e0f-933d-7a97480c56bb" href="/find-forms/about-form-10-10ez" title="About VA Form 10-10EZ">Application for Health Care Benefits (VA Form 10-10EZ)</a>. Bring your completed application to one of our patient registration offices.</p>\n\n<p><strong>What to bring with your health care application&nbsp;</strong><br>\nTo get a faster decision on your application, bring these documents and information with you:</p>\n\n<ul dir="ltr">\n\t<li>Copies of your&nbsp;<a href="https://www.va.gov/records/get-military-service-records/" hreflang="en">DD214 or other discharge documents</a></li>\n\t<li>Copies of any&nbsp;<a href="https://www.va.gov/records/download-va-letters/" hreflang="en">VA disability award letters</a>&nbsp;you may have</li>\n\t<li>Your income information from the previous calendar year, if you have a 0% VA disability rating or if you’re a non-service-connected Veteran</li>\n\t<li>Copies of your current ID cards for any other types of health coverage you may have (like Medicare, Medicaid, Tricare, or private health insurance)</li>\n</ul>\n\n<p><a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="4d264d1d-71e2-4e0f-933d-7a97480c56bb" href="/find-forms/about-form-10-10ez" hreflang="en" title="About VA Form 10-10EZ">Download VA Form 10-10 EZ</a></p>',
+    id: '82295',
+    html: '<h2 id="private-and-other-health-insur">Private and other health insurance</h2><p dir="ltr">If you have another form of health coverage—like Medicare, Medicaid, TRICARE, or a private insurance plan through your&nbsp;spouse’s employer—please bring your insurance card with you to your health care appointment.</p><p><a href="https://www.va.gov/resources/va-health-care-and-other-insurance/" hreflang="en">Learn how VA health care works with other health insurance</a></p>',
   },
   relatedLinks: {
     type: 'paragraph--list_of_link_teasers',
-    id: '77159',
+    id: '82301',
     entityId: null,
     title: 'More information',
     linkTeasers: [
       {
         type: 'paragraph--link_teaser',
-        id: '77155',
+        id: '82297',
         entityId: null,
         uri: '/health-care/copay-rates',
         title: 'VA health care copay rates',
-        options: [],
+        options: {
+          href: 'entity:node/703',
+          'data-entity-type': 'node',
+          'data-entity-uuid': 'cf3a3b43-36f3-43c4-8b27-5c1f4a580b55',
+          'data-entity-substitution': 'canonical',
+        },
         summary:
           'Review copay rates for outpatient care, hospital stays, medications, and other health services.',
         parentField: null,
@@ -601,11 +672,16 @@ const mockData: VamcSystemRegisterForCare = {
       },
       {
         type: 'paragraph--link_teaser',
-        id: '77156',
+        id: '82298',
         entityId: null,
         uri: '/health-care/pay-copay-bill/financial-hardship',
-        title: 'Financial hardship assistance',
-        options: [],
+        title: 'VA financial hardship assistance',
+        options: {
+          href: 'entity:node/706',
+          'data-entity-type': 'node',
+          'data-entity-uuid': 'a8a5bfeb-9940-4ed8-80ae-9c2858a7b3d1',
+          'data-entity-substitution': 'canonical',
+        },
         summary:
           'If you’re struggling to pay your copays, learn how to request a repayment plan, debt relief, or copay exemption.',
         parentField: null,
@@ -616,13 +692,18 @@ const mockData: VamcSystemRegisterForCare = {
       },
       {
         type: 'paragraph--link_teaser',
-        id: '77157',
+        id: '82299',
         entityId: null,
         uri: '/health-care/pay-copay-bill/dispute-charges',
         title: 'Dispute your VA copay charges',
-        options: [],
+        options: {
+          href: 'entity:node/705',
+          'data-entity-type': 'node',
+          'data-entity-uuid': '560295f1-240b-4b34-87ee-ccba6f4bbe6c',
+          'data-entity-substitution': 'canonical',
+        },
         summary:
-          'Find out how to file a dispute If you disagree with the charges or amounts on your bill. Find out how to file a dispute If you disagree with the charges or amounts on your bill.',
+          'Find out how to file a dispute If you disagree with the charges or amounts on your bill.',
         parentField: null,
         componentParams: {
           boldTitle: false,
@@ -631,11 +712,16 @@ const mockData: VamcSystemRegisterForCare = {
       },
       {
         type: 'paragraph--link_teaser',
-        id: '77158',
+        id: '82300',
         entityId: null,
-        uri: '/change-address',
+        uri: '/resources/change-your-address-on-file-with-va',
         title: 'Change your address on file with VA',
-        options: [],
+        options: {
+          href: 'entity:node/8473',
+          'data-entity-type': 'node',
+          'data-entity-uuid': '5f539c97-cfe7-4496-9dd5-a9b4d01f592d',
+          'data-entity-substitution': 'canonical',
+        },
         summary:
           'Update your address and other information in your VA.gov profile. This will update your information across several VA benefits and services.',
         parentField: null,
@@ -648,13 +734,13 @@ const mockData: VamcSystemRegisterForCare = {
   },
   services: [
     {
-      id: '9f0e0f21-41e1-493c-8bc1-f6e1854d1270',
-      title: 'Richmond VA Medical Center',
-      path: '/richmond-health-care/locations/richmond-va-medical-center',
+      id: 'e70218ef-b442-4ad7-b42e-80db394724ac',
+      title: 'Robley Rex Department of Veterans Affairs Medical Center',
+      path: '/louisville-health-care/locations/robley-rex-department-of-veterans-affairs-medical-center',
       serviceLocations: [
         {
           type: 'paragraph--service_location',
-          id: 'ae725e0b-72e8-406f-abf1-cab9daad44a1',
+          id: '248b3c1b-c49c-4889-8483-a6f7622177e0',
           officeVisits: null,
           virtualSupport: null,
           apptIntroTextType: null,
@@ -664,39 +750,87 @@ const mockData: VamcSystemRegisterForCare = {
           contactInfoPhoneNumbers: [
             {
               type: 'paragraph--phone_number',
-              id: '9102d29f-926f-4ade-bb13-9eca1615ce3d',
-              entityId: 108509,
-              label: 'Eligibility main number',
-              number: '804-675-5611',
+              id: '11e17716-b282-4252-94c4-2263385a3576',
+              entityId: 117385,
+              label: 'Billing ',
+              number: '502-287-4000',
               extension: null,
               phoneType: 'tel',
             },
+          ],
+          emailContacts: [
             {
-              type: 'paragraph--phone_number',
-              id: '84b44558-78dc-46ce-8ec9-8fd4cc1b54c9',
-              entityId: 108510,
-              label: 'Enrollment phone number',
-              number: '804-675-5000',
-              extension: '6660',
-              phoneType: 'tel',
+              type: 'paragraph--email_contact',
+              id: '6b7e2810-b1f7-4cf6-8b5d-207ca18275f2',
+              entityId: 117386,
+              label: 'Billing',
+              address: 'keya.parson@va.gov',
             },
           ],
-          emailContacts: [],
-          hours: '1',
-          officeHours: [],
-          additionalHoursInfo:
-            'Hours: Monday through Friday, 8:00 a.m. to 4:30 p.m. ET',
-          useMainFacilityPhone: false,
+          hours: '2',
+          officeHours: [
+            {
+              day: 1,
+              all_day: false,
+              starthours: 800,
+              endhours: 1630,
+              comment: '',
+            },
+            {
+              day: 2,
+              all_day: false,
+              starthours: 800,
+              endhours: 1630,
+              comment: '',
+            },
+            {
+              day: 3,
+              all_day: false,
+              starthours: 800,
+              endhours: 1630,
+              comment: '',
+            },
+            {
+              day: 4,
+              all_day: false,
+              starthours: 800,
+              endhours: 1630,
+              comment: '',
+            },
+            {
+              day: 5,
+              all_day: false,
+              starthours: 800,
+              endhours: 1630,
+              comment: '',
+            },
+            {
+              day: 6,
+              all_day: false,
+              starthours: 800,
+              endhours: 1630,
+              comment: '',
+            },
+            {
+              day: 0,
+              all_day: false,
+              starthours: 800,
+              endhours: 1630,
+              comment: '',
+            },
+          ],
+          additionalHoursInfo: null,
+          useMainFacilityPhone: true,
           useFacilityPhoneNumber: null,
           serviceLocationAddress: {
             type: 'paragraph--service_location_address',
-            id: '3e16185d-d015-4b60-a3a5-4b5138102179',
-            drupal_internal__id: 106751,
-            drupal_internal__revision_id: 906427,
+            id: '83739b53-23b6-4824-837b-012701f3e8a1',
+            drupal_internal__id: 110014,
+            drupal_internal__revision_id: 1238511,
             langcode: 'en',
             status: true,
-            created: '2022-03-30T19:55:31+00:00',
-            parent_id: '106752',
+            created: '2022-06-02T16:53:13+00:00',
+            parent_id: '110015',
             parent_type: 'paragraph',
             parent_field_name: 'field_service_location_address',
             behavior_settings: [],
@@ -717,150 +851,18 @@ const mockData: VamcSystemRegisterForCare = {
               address_line1: '',
               address_line2: '',
             },
-            field_building_name_number: 'Building 500',
-            field_clinic_name: 'Eligibility Office',
-            field_use_facility_address: true,
-            field_wing_floor_or_room_number:
-              'First Floor, near Main Entrance welcome desk',
-            links: {
-              self: {
-                href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location_address/3e16185d-d015-4b60-a3a5-4b5138102179?resourceVersion=id%3A906427',
-              },
-            },
-            resourceIdObjMeta: {
-              target_revision_id: 906427,
-              drupal_internal__target_id: 106751,
-            },
-            paragraph_type: {
-              type: 'paragraphs_type--paragraphs_type',
-              id: 'bd794386-a382-48d0-84fb-47290c3c1176',
-              resourceIdObjMeta: {
-                drupal_internal__target_id: 'service_location_address',
-              },
-            },
-            relationshipNames: ['paragraph_type'],
-          },
-        },
-      ],
-      address: {
-        langcode: 'en',
-        country_code: 'US',
-        administrative_area: 'OH',
-        locality: 'Chillicothe',
-        dependent_locality: null,
-        postal_code: '45601-9718',
-        address_line1: '17273 State Route 104',
-      },
-      phoneNumber: '304-623-3461',
-    },
-    {
-      id: 'b7e4895a-22fc-4008-8f95-4777dc2ac0d5',
-      title: 'Richmond VA Medical Center',
-      path: '/richmond-health-care/locations/richmond-va-medical-center',
-      serviceLocations: [
-        {
-          type: 'paragraph--service_location',
-          id: '4f27004a-748f-4684-aeca-66b544be6440',
-          officeVisits: null,
-          virtualSupport: null,
-          apptIntroTextType: null,
-          apptIntroTextCustom: null,
-          appointmentPhoneNumbers: [],
-          onlineSchedulingAvail: null,
-          contactInfoPhoneNumbers: [
-            {
-              type: 'paragraph--phone_number',
-              id: 'fcb69b45-2870-4d8d-89b3-a74613e7007f',
-              entityId: 130372,
-              label: 'Release of Information',
-              number: '804-675-5606',
-              extension: null,
-              phoneType: 'tel',
-            },
-          ],
-          emailContacts: [],
-          hours: '2',
-          officeHours: [
-            {
-              day: 1,
-              all_day: false,
-              starthours: 900,
-              endhours: 1530,
-              comment: '',
-            },
-            {
-              day: 2,
-              all_day: false,
-              starthours: 900,
-              endhours: 1530,
-              comment: '',
-            },
-            {
-              day: 3,
-              all_day: false,
-              starthours: 900,
-              endhours: 1530,
-              comment: '',
-            },
-            {
-              day: 4,
-              all_day: false,
-              starthours: 900,
-              endhours: 1530,
-              comment: '',
-            },
-            {
-              day: 5,
-              all_day: false,
-              starthours: 900,
-              endhours: 1530,
-              comment: '',
-            },
-          ],
-          additionalHoursInfo: null,
-          useMainFacilityPhone: false,
-          useFacilityPhoneNumber: null,
-          serviceLocationAddress: {
-            type: 'paragraph--service_location_address',
-            id: '6f8372fa-b54f-4057-a4e8-390cf899135a',
-            drupal_internal__id: 129385,
-            drupal_internal__revision_id: 918479,
-            langcode: 'en',
-            status: true,
-            created: '2023-03-27T20:06:23+00:00',
-            parent_id: '129386',
-            parent_type: 'paragraph',
-            parent_field_name: 'field_service_location_address',
-            behavior_settings: [],
-            default_langcode: true,
-            revision_translation_affected: true,
-            breadcrumbs: [],
-            content_translation_source: 'und',
-            content_translation_outdated: false,
-            content_translation_changed: '2023-03-27T20:06:23+00:00',
-            field_address: {
-              langcode: 'en',
-              country_code: 'US',
-              administrative_area: '',
-              locality: '',
-              dependent_locality: null,
-              postal_code: '',
-              sorting_code: null,
-              address_line1: '',
-              address_line2: '',
-            },
-            field_building_name_number: null,
-            field_clinic_name: null,
+            field_building_name_number: 'Robley Rex VAMC',
+            field_clinic_name: '800 Zorn Avenue ',
             field_use_facility_address: true,
             field_wing_floor_or_room_number: null,
             links: {
               self: {
-                href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location_address/6f8372fa-b54f-4057-a4e8-390cf899135a?resourceVersion=id%3A918479',
+                href: 'https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location_address/83739b53-23b6-4824-837b-012701f3e8a1?resourceVersion=id%3A1238511',
               },
             },
             resourceIdObjMeta: {
-              target_revision_id: 918479,
-              drupal_internal__target_id: 129385,
+              target_revision_id: 1238511,
+              drupal_internal__target_id: 110014,
             },
             paragraph_type: {
               type: 'paragraphs_type--paragraphs_type',
@@ -876,15 +878,61 @@ const mockData: VamcSystemRegisterForCare = {
       address: {
         langcode: null,
         country_code: 'US',
-        administrative_area: 'NY',
-        locality: 'Albany',
+        administrative_area: 'KY',
+        locality: 'Louisville',
         dependent_locality: null,
-        postal_code: '12208-3410',
-        address_line1: '113 Holland Avenue',
+        postal_code: '40206-1433',
+        address_line1: '800 Zorn Avenue',
       },
-      phoneNumber: '304-623-3461',
+      phoneNumber: '502-287-4000',
     },
   ],
+  officeHours: [
+    {
+      day: 1,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+    {
+      day: 2,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+    {
+      day: 3,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+    {
+      day: 4,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+    {
+      day: 5,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+  ],
+  phoneNumber: {
+    type: 'paragraph--phone_number',
+    id: '352d2d33-01ea-4c60-9ceb-775e263f1b17',
+    entityId: 169703,
+    label: null,
+    number: '866-601-6286',
+    extension: null,
+    phoneType: 'phone',
+  },
   lovellVariant: null,
   lovellSwitchPath: null,
 }

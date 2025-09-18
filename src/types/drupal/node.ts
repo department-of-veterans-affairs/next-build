@@ -86,6 +86,8 @@ export type NodeTypes =
   | NodeVetCenterOutstation
   | NodeVamcSystemVaPolice
   | NodeVamcSystemRegisterForCare
+  | NodeVamcSystemBillingAndInsurance
+  | NodeVamcSystemPoliciesPage
   | NodeLeadershipListing
   | NodeVbaFacility
   | NodeVbaService
@@ -443,6 +445,36 @@ export interface NodeVamcSystemRegisterForCare extends DrupalNode {
   field_cc_related_links?: FieldCCListOfLinkTeasers
 }
 
+export interface NodeVamcSystemBillingAndInsurance extends DrupalNode {
+  title: string
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu'
+  >
+  field_office_hours: FieldOfficeHours[]
+  field_telephone: ParagraphPhoneNumber
+  field_cc_above_top_of_page?: FieldCCText
+  field_cc_top_of_page_content?: FieldCCText
+  field_cc_bottom_of_page_content?: FieldCCText
+  field_cc_related_links?: FieldCCListOfLinkTeasers
+}
+
+export interface NodeVamcSystemPoliciesPage extends DrupalNode {
+  breadcrumbs: BreadcrumbItem[]
+  field_administration: FieldAdministration
+  // TODO: Hydrate this entity reference
+  field_office: Pick<NodeHealthCareRegionPage, 'id' | 'type'>
+  field_cc_intro_text?: FieldCCText
+  field_cc_top_of_page_content?: FieldCCText
+  field_cc_gen_visitation_policy?: FieldCCText
+  field_cc_bottom_of_page_content?: FieldCCText
+  field_vamc_visitation_policy?: FieldFormattedText
+  field_vamc_other_policies?: FieldFormattedText
+  field_enforce_unique_combo?: boolean
+  field_fieldset_markup?: string | null
+  field_last_saved_by_an_editor?: string | null
+}
+
 export interface NodeLeadershipListing extends DrupalNode {
   field_description: string
   field_intro_text: string
@@ -479,6 +511,15 @@ export interface NodeVbaFacility extends DrupalNode {
 export interface NodeVbaService extends DrupalNode {
   title: string
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
+  field_service_location: ParagraphServiceLocation[]
+}
+
+export interface NodeVhaFacilityNonclinicalService extends DrupalNode {
+  status: boolean
+  field_facility_location: Pick<
+    NodeHealthCareLocalFacility,
+    'id' | 'title' | 'path' | 'field_address' | 'field_phone_number'
+  >
   field_service_location: ParagraphServiceLocation[]
 }
 

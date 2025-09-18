@@ -1,10 +1,10 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import {
-  NodeVamcSystemRegisterForCare,
+  NodeVamcSystemBillingAndInsurance,
   NodeVhaFacilityNonclinicalService,
 } from '@/types/drupal/node'
-import { VamcSystemRegisterForCare } from './formatted-type'
+import { VamcSystemBillingAndInsurance } from './formatted-type'
 import {
   PARAGRAPH_RESOURCE_TYPES,
   RESOURCE_TYPES,
@@ -29,17 +29,18 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
+import { formatter as formatPhoneNumber } from '@/components/phoneNumber/query'
 import {
   getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 
-// Define the query params for fetching node--vamc_system_register_for_care.
+// Define the query params for fetching node--vamc_system_billing_and_insurance.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
-    .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE)
-    .addInclude(['field_office'])
+    .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE)
+    .addInclude(['field_office', 'field_telephone'])
 }
 
 export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
@@ -53,20 +54,20 @@ export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
       ),
     ])
     .addFilter('status', '1')
-    .addFilter('field_service_name_and_descripti.name', 'Register for care')
+    .addFilter('field_service_name_and_descripti.name', 'Billing and insurance')
     .addFilter('field_facility_location.field_region_page.id', vamcSystemId)
     .addFilter('field_facility_location.status', '1')
 }
 
 // Define the option types for the data loader.
-export type VamcSystemRegisterForCareDataOpts = {
+export type VamcSystemBillingAndInsuranceDataOpts = {
   id: string
   context?: ExpandedStaticPropsContext
 }
 
 // Define the data structure returned from the query.
-type VamcSystemRegisterForCareData = {
-  entity: NodeVamcSystemRegisterForCare
+type VamcSystemBillingAndInsuranceData = {
+  entity: NodeVamcSystemBillingAndInsurance
   menu: Menu | null
   services: NodeVhaFacilityNonclinicalService[]
   lovell?: ExpandedStaticPropsContext['lovell']
@@ -74,18 +75,18 @@ type VamcSystemRegisterForCareData = {
 
 // Implement the data loader.
 export const data: QueryData<
-  VamcSystemRegisterForCareDataOpts,
-  VamcSystemRegisterForCareData
-> = async (opts): Promise<VamcSystemRegisterForCareData> => {
+  VamcSystemBillingAndInsuranceDataOpts,
+  VamcSystemBillingAndInsuranceData
+> = async (opts): Promise<VamcSystemBillingAndInsuranceData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE,
+    RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE,
     params
-  )) as NodeVamcSystemRegisterForCare
+  )) as NodeVamcSystemBillingAndInsurance
 
   if (!entity) {
     throw new Error(
-      `NodeVamcSystemRegisterForCare entity not found for id: ${opts.id}`
+      `NodeVamcSystemBillingAndInsurance entity not found for id: ${opts.id}`
     )
   }
 
@@ -123,8 +124,8 @@ export const data: QueryData<
 
 // Implement the formatter.
 export const formatter: QueryFormatter<
-  VamcSystemRegisterForCareData,
-  VamcSystemRegisterForCare
+  VamcSystemBillingAndInsuranceData,
+  VamcSystemBillingAndInsurance
 > = ({ entity, menu, services, lovell }) => {
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
@@ -152,6 +153,9 @@ export const formatter: QueryFormatter<
       title: entity.field_office.title,
     },
     menu: buildSideNavDataFromMenu(entity.path.alias, menu),
+    aboveTopOfPageContent: entity.field_cc_above_top_of_page
+      ? formatCcWysiwyg(entity.field_cc_above_top_of_page)
+      : undefined,
     topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),
     bottomOfPageContent: formatCcWysiwyg(
       entity.field_cc_bottom_of_page_content
@@ -160,6 +164,8 @@ export const formatter: QueryFormatter<
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
     services: formattedServices,
+    officeHours: entity.field_office_hours,
+    phoneNumber: formatPhoneNumber(entity.field_telephone),
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(

@@ -6,8 +6,8 @@ import { PhoneContact as FormattedPhoneContact } from '@/components/contactInfo/
 import { MediaImage as FormattedMediaImage } from '@/components/mediaDocument/formatted-type'
 import { AccordionItem as FormattedAccordionItem } from '@/components/accordion/formatted-type'
 import { FeaturedContent as FormattedFeaturedContent } from '@/components/featuredContent/formatted-type'
-import { VamcFacilityServiceLocation } from '../vamcFacility/formatted-type'
 import { SocialLink } from '@/lib/utils/social'
+import { ServiceLocation } from '@/components/serviceLocation/formatted-type'
 
 type CantFindBenefits = {
   header: string | null
@@ -38,7 +38,7 @@ export type VbaFacilityService = {
     url: string
   } | null
   serviceDescription: string
-  serviceLocations: VamcFacilityServiceLocation[]
+  serviceLocations: ServiceLocation[]
 }
 
 export type VbaFacility = PublishedEntity & {

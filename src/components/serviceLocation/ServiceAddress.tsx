@@ -1,5 +1,6 @@
 import { FieldAddress } from '@/types/drupal/field_type'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
+import { Address } from '../address/template'
 
 interface ServiceAddressProps {
   serviceLocationAddress: ParagraphServiceLocationAddress
@@ -62,39 +63,21 @@ export const ServiceAddress = ({
       {getHeading() && (
         <>{useH5 ? <h5>{getHeading()}</h5> : <h4>{getHeading()}</h4>}</>
       )}
+
       {hasAddress && !serviceLocationAddress.field_use_facility_address && (
-        <>
-          {addressData?.address_line1 && (
-            <span className="vads-u-margin-bottom--0">
-              {addressData.address_line1}
-            </span>
-          )}
-          {addressData?.address_line2 && (
-            <span className="vads-u-margin-bottom--0">
-              {addressData.address_line2}
-            </span>
-          )}
-          {addressData?.locality &&
-            addressData?.administrative_area &&
-            addressData?.postal_code && (
-              <span className="vads-u-margin-bottom--0">
-                {addressData.locality}, {addressData.administrative_area}{' '}
-                {addressData.postal_code}
-              </span>
-            )}
-        </>
+        <Address address={addressData} showDirections={false} />
       )}
 
       {serviceLocationAddress.field_building_name_number && (
-        <span className="vads-u-margin-bottom--0">
+        <p className="vads-u-margin-y--0">
           {serviceLocationAddress.field_building_name_number}
-        </span>
+        </p>
       )}
 
       {serviceLocationAddress.field_wing_floor_or_room_number && (
-        <span className="vads-u-margin-bottom--0">
+        <p className="vads-u-margin-y--0">
           {serviceLocationAddress.field_wing_floor_or_room_number}
-        </span>
+        </p>
       )}
     </div>
   )

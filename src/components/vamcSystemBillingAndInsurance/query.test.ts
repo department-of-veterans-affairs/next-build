@@ -11,7 +11,7 @@ import mockMenu from './mock.menu.json'
 import mockServices from './mock.services.json'
 import { Menu } from '@/types/drupal/menu'
 
-describe('VamcSystemRegisterForCare formatter', () => {
+describe('VamcSystemBillingAndInsurance formatter', () => {
   it('formats basic fields correctly', () => {
     const result = formatter({
       entity: mockData,
@@ -19,13 +19,15 @@ describe('VamcSystemRegisterForCare formatter', () => {
       services: mockServices,
     })
 
-    expect(result.title).toBe('Register for care')
-    expect(result.entityId).toBe(44606)
-    expect(result.entityPath).toBe('/richmond-health-care/register-for-care')
-    expect(result.vamcSystem.title).toBe('VA Richmond health care')
+    expect(result.title).toBe('Billing and insurance')
+    expect(result.entityId).toBe(45617)
+    expect(result.entityPath).toBe(
+      '/louisville-health-care/billing-and-insurance'
+    )
+    expect(result.vamcSystem.title).toBe('VA Louisville health care')
     expect(result.menu).toBeDefined()
     expect(result.menu.rootPath).toBe(
-      '/richmond-health-care/register-for-care/'
+      '/louisville-health-care/billing-and-insurance/'
     )
   })
 
@@ -38,7 +40,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
 
     expect(result.topOfPageContent).toBeDefined()
     expect(result.topOfPageContent.html).toContain(
-      '<h2 id="patient-registration-admission">Patient registration (admissions)</h2>'
+      '<h2 id="pay-online-by-phoneor-mail">Pay online, by phone, or mail</h2>'
     )
   })
 
@@ -51,7 +53,23 @@ describe('VamcSystemRegisterForCare formatter', () => {
 
     expect(result.bottomOfPageContent).toBeDefined()
     expect(result.bottomOfPageContent.html).toContain(
-      '<h2 id="not-yet-enrolled-in-va-health-"><strong>Not yet enrolled in VA health care?</strong></h2>'
+      '<h2 id="private-and-other-health-insur">Private and other health insurance</h2>'
+    )
+  })
+
+  it('formats aboveTopOfPageContent field correctly', () => {
+    const result = formatter({
+      entity: mockData,
+      menu: mockMenu as unknown as Menu,
+      services: mockServices,
+    })
+
+    expect(result.aboveTopOfPageContent).toBeDefined()
+    expect(result.aboveTopOfPageContent?.html).toContain(
+      '<h2>Questions about copay balance</h2>'
+    )
+    expect(result.aboveTopOfPageContent?.html).toContain(
+      'For questions about the copay balance of your VA health care bill'
     )
   })
 
@@ -106,6 +124,42 @@ describe('VamcSystemRegisterForCare formatter', () => {
     expect(service.serviceLocations[0]).toBeDefined()
   })
 
+  it('formats officeHours field correctly', () => {
+    const result = formatter({
+      entity: mockData,
+      menu: mockMenu as unknown as Menu,
+      services: mockServices,
+    })
+
+    expect(result.officeHours).toBeDefined()
+    expect(result.officeHours).toHaveLength(5)
+    expect(result.officeHours[0]).toEqual({
+      day: 1,
+      all_day: false,
+      starthours: 800,
+      endhours: 1630,
+      comment: '',
+    })
+    expect(result.officeHours[4]).toEqual({
+      day: 5,
+      all_day: false,
+      starthours: 800,
+      endhours: 1630,
+      comment: '',
+    })
+  })
+
+  it('formats phoneNumber field correctly', () => {
+    const result = formatter({
+      entity: mockData,
+      menu: mockMenu as unknown as Menu,
+      services: mockServices,
+    })
+
+    expect(result.phoneNumber).toBeDefined()
+    expect(result.phoneNumber).toBeNull() // field_telephone is null in mock data
+  })
+
   it('sorts services alphabetically by title', () => {
     const unsortedServices = [
       {
@@ -137,7 +191,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
 
   describe('Lovell variant handling', () => {
     const lovellPath = {
-      alias: '/lovell-federal-health-care-va/register-for-care',
+      alias: '/lovell-federal-health-care-va/billing-and-insurance',
       pid: 79642,
       langcode: 'en',
     }
@@ -154,7 +208,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
       },
       {
         uri: 'internal:#',
-        title: 'Register for care',
+        title: 'Billing and insurance',
         options: [],
       },
     ]
@@ -175,7 +229,7 @@ describe('VamcSystemRegisterForCare formatter', () => {
 
       expect(result.lovellVariant).toBe('tricare')
       expect(result.lovellSwitchPath).toBe(
-        '/lovell-federal-health-care-va/register-for-care'
+        '/lovell-federal-health-care-va/billing-and-insurance'
       )
     })
 

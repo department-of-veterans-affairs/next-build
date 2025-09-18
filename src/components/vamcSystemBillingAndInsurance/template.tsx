@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from 'react'
-import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from './formatted-type'
+import { VamcSystemBillingAndInsurance as FormattedVamcSystemBillingAndInsurance } from './formatted-type'
 import { ContentFooter } from '../contentFooter/template'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { Wysiwyg } from '../wysiwyg/template'
@@ -10,6 +10,8 @@ import {
 } from '../serviceLocation/template'
 import { Address } from '@/components/address/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
+import { PhoneNumber } from '@/components/phoneNumber/template'
+import { Hours } from '../hours/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -17,18 +19,21 @@ interface customWindow extends Window {
 }
 declare const window: customWindow
 
-export const VamcSystemRegisterForCare = ({
+export const VamcSystemBillingAndInsurance = ({
   title,
   vamcSystem,
   lastUpdated,
   menu,
+  aboveTopOfPageContent,
   topOfPageContent,
   bottomOfPageContent,
   relatedLinks,
   services,
+  officeHours,
+  phoneNumber,
   lovellVariant,
   lovellSwitchPath,
-}: FormattedVamcSystemRegisterForCare) => {
+}: FormattedVamcSystemBillingAndInsurance) => {
   // Populate the side nav data for the side nav widget to fill in
   // Note: The side nav widget is in a separate app in the static-pages bundle
   useEffect(() => {
@@ -38,7 +43,7 @@ export const VamcSystemRegisterForCare = ({
   return (
     <div
       className="vads-grid-container"
-      data-template="vamc_system_register_for_care"
+      data-template="vamc_system_billing_insurance"
     >
       {/* Nav data filled in by a separate script from `window.sideNav` */}
       <nav aria-label="secondary" data-widget-type="side-nav" />
@@ -57,13 +62,35 @@ export const VamcSystemRegisterForCare = ({
             <h1 id="article-heading">{title}</h1>
             <div className="va-introtext">
               <p>
-                Register to get care at one of our {vamcSystem?.title}{' '}
-                facilities. Not yet enrolled in VA health care? We can help you
-                apply in person or get started online.
+                You can pay your {vamcSystem.title} bill online, by phone, mail,
+                or in person.
               </p>
             </div>
 
             <va-on-this-page></va-on-this-page>
+
+            <div className="usa-content" data-testid="copay-section">
+              {aboveTopOfPageContent ? (
+                <Wysiwyg {...aboveTopOfPageContent} />
+              ) : (
+                <>
+                  <h2>Questions about copay balance</h2>
+                  <p>
+                    For questions about the copay balance of your{' '}
+                    {vamcSystem?.title} bill, call us toll free at the number
+                    below. You won&apos;t need to pay any copays for X-rays, lab
+                    tests, preventative tests, and services like health
+                    screenings or immunizations.
+                  </p>
+                </>
+              )}
+              <PhoneNumber
+                {...phoneNumber}
+                treatment="h3"
+                className="vads-u-margin-bottom--2"
+              />
+              <Hours allHours={officeHours} headerType="standard" />
+            </div>
 
             <div className="usa-content">
               <Wysiwyg {...topOfPageContent} />
@@ -106,4 +133,4 @@ export const VamcSystemRegisterForCare = ({
   )
 }
 
-export default VamcSystemRegisterForCare
+export default VamcSystemBillingAndInsurance
