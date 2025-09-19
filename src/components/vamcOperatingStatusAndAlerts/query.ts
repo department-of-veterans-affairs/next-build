@@ -11,12 +11,14 @@ import {
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
-
+import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
+import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
     'field_office',
     'field_office.field_system_menu',
+    'field_banner_alert.field_situation_updates',
   ])
 }
 
@@ -48,7 +50,6 @@ export const data: QueryData<
           .drupal_internal__target_id
       )
     : null
-
   return { entity, menu }
 }
 
@@ -58,9 +59,40 @@ export const formatter: QueryFormatter<
 > = ({ entity, menu }) => {
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
+  const buildSituationUpdates = (bannerAlerts) => {
+    if (!bannerAlerts) return null
+
+    return bannerAlerts
+      .map((bannerAlert) => {
+        const updates = bannerAlert.field_situation_updates
+        if (!updates || updates.length === 0) return null
+
+        const sortedUpdates = updates
+          .slice()
+          .sort(
+            (a, b) =>
+              new Date(b.field_datetime_range_timezone.value).getTime() -
+              new Date(a.field_datetime_range_timezone.value).getTime()
+          )
+          .map((update) => ({
+            dateTime: update.field_datetime_range_timezone.value,
+            timezone: update.field_datetime_range_timezone.timezone,
+            updateText: getHtmlFromField(update.field_wysiwyg),
+          }))
+
+        return {
+          updates: sortedUpdates,
+          info: getHtmlFromDrupalContent(
+            bannerAlert.field_banner_alert_situationinfo
+          ),
+        }
+      })
+      .filter(Boolean)
+  }
   return {
     ...entityBaseFields(entity),
     facilityName: entity.field_office.field_system_menu.label,
+    situationUpdates: buildSituationUpdates(entity.field_banner_alert),
     menu: formattedMenu,
   }
 }
