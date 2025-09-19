@@ -33,6 +33,7 @@ const nextConfig = {
 
     // Enable React 19 optimizations
     reactCompiler: true,
+    instrumentationHook: true,
   },
 
   // This ensures the generated files use a consistent hash inside of the generated `.next/` directory.
@@ -70,9 +71,6 @@ const nextConfig = {
     },
   },
 
-  experimental: {
-    instrumentationHook: true,
-  },
 }
 
 export default nextConfig
