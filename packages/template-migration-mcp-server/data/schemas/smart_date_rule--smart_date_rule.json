@@ -1,0 +1,204 @@
+{
+  "title": "smart_date_rule Schema",
+  "description": "Describes the payload for 'smart_date_rule' entities.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["smart_date_rule--smart_date_rule"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__rid": {
+              "type": "integer",
+              "title": "ID",
+              "x-nullable": true
+            },
+            "rule": {
+              "type": "string",
+              "title": "Rule",
+              "maxLength": 256,
+              "description": "The Rule that will be used to generate instances.",
+              "default": "",
+              "x-nullable": true
+            },
+            "freq": {
+              "type": "string",
+              "title": "Frequency",
+              "maxLength": 8,
+              "description": "How often the date recurs."
+            },
+            "limit": {
+              "type": "string",
+              "title": "Limit",
+              "maxLength": 25,
+              "description": "A constraint on how long to recur.",
+              "x-nullable": true
+            },
+            "parameters": {
+              "type": "string",
+              "title": "Parameters",
+              "maxLength": 255,
+              "description": "Additional parameters to define the recurrence.",
+              "x-nullable": true
+            },
+            "unlimited": {
+              "type": "boolean",
+              "title": "Unlimited",
+              "description": "Whether or not the rule has a limit or end.",
+              "default": true,
+              "x-nullable": true
+            },
+            "entity_type": {
+              "type": "string",
+              "title": "Entity type",
+              "maxLength": 32,
+              "description": "The entity type on which the date is set.",
+              "x-nullable": true
+            },
+            "bundle": {
+              "type": "string",
+              "title": "Bundle",
+              "maxLength": 32,
+              "description": "The bundle on which the date is set.",
+              "x-nullable": true
+            },
+            "field_name": {
+              "type": "string",
+              "title": "Smart Date field name",
+              "maxLength": 32,
+              "description": "The field name on which the date is set.",
+              "x-nullable": true
+            },
+            "start": {
+              "type": "number",
+              "title": "Start timestamp value",
+              "format": "utc-millisec"
+            },
+            "end": {
+              "type": "number",
+              "title": "End timestamp value",
+              "format": "utc-millisec"
+            },
+            "instances": {
+              "type": "object",
+              "title": "Instances",
+              "description": "A serialized array of the instances.",
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            }
+          },
+          "required": ["freq", "start", "end"]
+        },
+        "relationships": {
+          "description": "Members of the relationships object('relationships\\\") represent references from the resource object in which it's defined to other resource objects . ",
+          "type": "object",
+          "additionalProperties": false,
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,378 @@
+{
+  "title": "user Schema",
+  "description": "Describes the payload for 'user' entities.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["user--user"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__uid": {
+              "type": "integer",
+              "title": "User ID",
+              "description": "The user ID.",
+              "x-nullable": true
+            },
+            "langcode": {
+              "type": "object",
+              "title": "Language code",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The user language code.",
+              "x-nullable": true
+            },
+            "preferred_langcode": {
+              "type": "object",
+              "title": "Preferred language code",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The user\\'s preferred language code for receiving emails and viewing the site.",
+              "x-nullable": true
+            },
+            "preferred_admin_langcode": {
+              "type": "object",
+              "title": "Preferred admin language code",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "description": "The user\\'s preferred language code for viewing administration pages.",
+              "default": "",
+              "x-nullable": true
+            },
+            "name": {
+              "type": "string",
+              "title": "Name",
+              "maxLength": 255,
+              "description": "The name of this user."
+            },
+            "pass": {
+              "type": "object",
+              "title": "Password",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "The hashed password",
+                  "maxLength": 255
+                },
+                "existing": {
+                  "type": "string",
+                  "title": "Existing password"
+                },
+                "pre_hashed": {
+                  "type": "boolean",
+                  "title": "Determines if a password needs hashing"
+                }
+              },
+              "description": "The password of this user (hashed).",
+              "x-nullable": true
+            },
+            "mail": {
+              "type": "string",
+              "title": "Email",
+              "format": "email",
+              "description": "The email of this user.",
+              "default": "",
+              "x-nullable": true
+            },
+            "timezone": {
+              "type": "string",
+              "title": "Timezone",
+              "maxLength": 32,
+              "description": "The timezone of this user.",
+              "x-nullable": true
+            },
+            "status": {
+              "type": "boolean",
+              "title": "User status",
+              "description": "Whether the user is active or blocked.",
+              "default": false,
+              "x-nullable": true
+            },
+            "created": {
+              "type": "number",
+              "title": "Created",
+              "format": "utc-millisec",
+              "description": "The time that the user was created.",
+              "x-nullable": true
+            },
+            "changed": {
+              "type": "number",
+              "title": "Changed",
+              "format": "utc-millisec",
+              "description": "The time that the user was last edited.",
+              "x-nullable": true
+            },
+            "access": {
+              "type": "number",
+              "title": "Last access",
+              "format": "utc-millisec",
+              "description": "The time that the user last accessed the site.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "login": {
+              "type": "number",
+              "title": "Last login",
+              "format": "utc-millisec",
+              "description": "The time that the user last logged in.",
+              "default": 0,
+              "x-nullable": true
+            },
+            "init": {
+              "type": "string",
+              "title": "Initial email",
+              "format": "email",
+              "description": "The email address used for initial account creation.",
+              "default": "",
+              "x-nullable": true
+            },
+            "default_langcode": {
+              "type": "boolean",
+              "title": "Default translation",
+              "description": "A flag indicating whether this is the default translation.",
+              "default": true,
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The computed meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            },
+            "path": {
+              "type": "object",
+              "title": "URL alias",
+              "properties": {
+                "alias": {
+                  "type": "string",
+                  "title": "Path alias"
+                },
+                "pid": {
+                  "type": "integer",
+                  "title": "Path id"
+                },
+                "langcode": {
+                  "type": "string",
+                  "title": "Language Code"
+                },
+                "pathauto": {
+                  "type": "integer",
+                  "title": "Pathauto state",
+                  "description": "Whether an automated alias should be created or not."
+                }
+              },
+              "x-nullable": true
+            }
+          },
+          "required": ["name"]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "roles": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["type", "id"],
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "title": "Referenced resource",
+                        "enum": ["user_role--user_role"]
+                      },
+                      "id": {
+                        "type": "string",
+                        "title": "Resource ID",
+                        "format": "uuid",
+                        "maxLength": 128
+                      }
+                    }
+                  }
+                }
+              },
+              "title": "Roles"
+            },
+            "role_change": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["type", "id"],
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "title": "Referenced resource",
+                        "enum": ["user_role--user_role"]
+                      },
+                      "id": {
+                        "type": "string",
+                        "title": "Resource ID",
+                        "format": "uuid",
+                        "maxLength": 128
+                      }
+                    }
+                  }
+                }
+              },
+              "title": "Roles",
+              "default": ["__role_delegation_empty_field_value__"]
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

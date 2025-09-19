@@ -1,0 +1,400 @@
+{
+  "title": "consumer Schema",
+  "description": "Describes the payload for 'consumer' entities.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["consumer--consumer"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__id": {
+              "type": "integer",
+              "title": "ID",
+              "x-nullable": true
+            },
+            "langcode": {
+              "type": "object",
+              "title": "Language",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "x-nullable": true
+            },
+            "client_id": {
+              "type": "string",
+              "title": "Client ID",
+              "maxLength": 255,
+              "description": "The client ID associated with this consumer. This is an arbitrary unique field, like a machine name."
+            },
+            "label": {
+              "type": "string",
+              "title": "Label",
+              "maxLength": 255,
+              "description": "The consumer label."
+            },
+            "description": {
+              "type": "string",
+              "title": "Description",
+              "description": "A description of the consumer. This text will be shown to the users to authorize sharing their data to create an access token.",
+              "x-nullable": true
+            },
+            "third_party": {
+              "type": "boolean",
+              "title": "Is this consumer 3rd party?",
+              "description": "Mark this if the organization behind this consumer is not the same as the one behind the Drupal API.",
+              "default": true,
+              "x-nullable": true
+            },
+            "is_default": {
+              "type": "boolean",
+              "title": "Is this the default consumer?",
+              "description": "There can only be one default consumer. Mark this to use this consumer when none other applies.",
+              "default": false,
+              "x-nullable": true
+            },
+            "default_langcode": {
+              "type": "boolean",
+              "title": "Default translation",
+              "description": "A flag indicating whether this is the default translation.",
+              "default": true,
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The computed meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            },
+            "secret": {
+              "type": "object",
+              "title": "Secret",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "The hashed password",
+                  "maxLength": 255
+                },
+                "existing": {
+                  "type": "string",
+                  "title": "Existing password"
+                },
+                "pre_hashed": {
+                  "type": "boolean",
+                  "title": "Determines if a password needs hashing"
+                }
+              },
+              "description": "The secret key of this client (hashed).",
+              "x-nullable": true
+            },
+            "grant_types": {
+              "type": "array",
+              "title": "Grant types",
+              "description": "Enabled grant types.",
+              "items": {
+                "type": "string",
+                "title": "Text value"
+              },
+              "minItems": 1
+            },
+            "confidential": {
+              "type": "boolean",
+              "title": "Is Confidential?",
+              "description": "A boolean indicating whether the client is confidential or public.",
+              "default": true,
+              "x-nullable": true
+            },
+            "scopes": {
+              "type": "array",
+              "title": "Scopes",
+              "description": "Selecting scopes here will be set as default when authorizing (so no need to specify the scope parameter on the token request), also the selection of scopes will limit the allowed scopes on the consumer/client.",
+              "items": {
+                "type": "string",
+                "title": "Scope ID"
+              },
+              "x-nullable": true
+            },
+            "redirect": {
+              "type": "array",
+              "title": "Redirect URIs",
+              "description": "The absolute URIs to validate against.",
+              "items": {
+                "type": "string",
+                "title": "Text value",
+                "maxLength": 255
+              },
+              "x-nullable": true
+            },
+            "access_token_expiration": {
+              "type": "integer",
+              "title": "Access token expiration time",
+              "description": "The number of seconds that the access token will be valid.",
+              "default": 300
+            },
+            "refresh_token_expiration": {
+              "type": "integer",
+              "title": "Refresh token expiration time",
+              "description": "The number of seconds that the refresh token will be valid.",
+              "default": 1209600,
+              "x-nullable": true
+            },
+            "pkce": {
+              "type": "boolean",
+              "title": "Use PKCE?",
+              "description": "A boolean indicating whether the client uses @pkce (e.g., a native client or SPA)",
+              "default": false,
+              "x-nullable": true
+            },
+            "automatic_authorization": {
+              "type": "boolean",
+              "title": "Automatic authorization",
+              "description": "This will cause the authorization form to be skipped.",
+              "default": false,
+              "x-nullable": true
+            },
+            "remember_approval": {
+              "type": "boolean",
+              "title": "Remember previous approval",
+              "description": "When enabled, if previous authorization request with the same scopes got approved, authorization will be automatically accepted.",
+              "default": true,
+              "x-nullable": true
+            }
+          },
+          "required": [
+            "client_id",
+            "label",
+            "grant_types",
+            "access_token_expiration"
+          ]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "owner_id": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "User ID"
+            },
+            "image": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["file--file"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Logo"
+            },
+            "image_styles": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["type", "id"],
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "title": "Referenced resource",
+                        "enum": ["image_style--image_style"]
+                      },
+                      "id": {
+                        "type": "string",
+                        "title": "Resource ID",
+                        "format": "uuid",
+                        "maxLength": 128
+                      }
+                    }
+                  }
+                }
+              },
+              "title": "Image Styles"
+            },
+            "user_id": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "User"
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,248 @@
+{
+  "title": "batch_op_log Schema",
+  "description": "Describes the payload for 'batch_op_log' entities.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["batch_op_log--batch_op_log"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__id": {
+              "type": "integer",
+              "title": "ID",
+              "description": "The ID of the BatchOpLog entity.",
+              "x-nullable": true
+            },
+            "name": {
+              "type": "string",
+              "title": "Script",
+              "maxLength": 300,
+              "description": "The script that created this log.",
+              "default": ""
+            },
+            "executor": {
+              "type": "string",
+              "title": "Executor",
+              "enum": ["ui", "drush", "hook_update", "post_update", "deploy"],
+              "description": "What method ran the script.",
+              "x-nullable": true
+            },
+            "created": {
+              "type": "number",
+              "title": "Started",
+              "format": "utc-millisec",
+              "description": "The time that the Batch Ops Log was created / started.",
+              "default": 1754510802,
+              "x-nullable": true
+            },
+            "last": {
+              "type": "number",
+              "title": "Last iteration",
+              "format": "utc-millisec",
+              "description": "The time of the last log entry for the iteration, or the time the script completed.",
+              "x-nullable": true
+            },
+            "completed": {
+              "type": "boolean",
+              "title": "Completed",
+              "description": "If the script was run completely.",
+              "x-nullable": true
+            },
+            "total_items": {
+              "type": "integer",
+              "title": "Total number of items to be processed",
+              "description": "The total number of items intended to be processed when this log was created.",
+              "x-nullable": true
+            },
+            "last_item_processed": {
+              "type": "integer",
+              "title": "The number of items processed.",
+              "description": "The count of items processed.",
+              "x-nullable": true
+            },
+            "memory_use": {
+              "type": "integer",
+              "title": "Most recent entry for memory used",
+              "description": "The most recent entry for memory used by the operation.",
+              "x-nullable": true
+            },
+            "max_memory": {
+              "type": "integer",
+              "title": "Max Memory Used",
+              "description": "The most amount of memory used by the operation.",
+              "x-nullable": true
+            },
+            "log": {
+              "type": "string",
+              "title": "Log",
+              "description": "The log of the script run.",
+              "default": "",
+              "x-nullable": true
+            },
+            "errors": {
+              "type": "string",
+              "title": "Errors",
+              "description": "Any caught errors.",
+              "default": "",
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The computed meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            }
+          },
+          "required": ["name"]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "user_id": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Run by"
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}
