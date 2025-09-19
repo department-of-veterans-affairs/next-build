@@ -1,6 +1,8 @@
 import path from 'path'
 import { spawn } from 'child_process'
 
+const __dirname = new URL('.', import.meta.url).pathname
+
 export interface FetchEntityOptions {
   /**
    * Resource type to fetch.
