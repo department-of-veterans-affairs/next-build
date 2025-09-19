@@ -4,6 +4,7 @@ import {
   FormattedResourceByType,
 } from '@/lib/drupal/queries'
 import { queries, FormattableParagraphResourceType } from '@/lib/drupal/queries'
+import { PublishedParagraph } from '@/types/formatted/publishedEntity'
 
 /**
  * An abstraction for calling `queries.formatData` that removes
@@ -55,7 +56,7 @@ export const formatParagraph = <T extends FormattableParagraphResourceType>(
 type EntityFetchedParagraph = {
   type: string
   bundle: string
-  target_id: string
+  target_id?: string
 }
 function isEntityFetchedParagraph(
   paragraph: unknown
@@ -65,6 +66,22 @@ function isEntityFetchedParagraph(
     typeof paragraph === 'object' &&
     (paragraph as EntityFetchedParagraph).type === 'paragraph' &&
     'bundle' in paragraph
+  )
+}
+
+type EntityFetchedRoot = {
+  target_type: string
+  target_id?: string
+  fetched_bundle: string
+  fetched: Record<string, unknown>
+}
+function isEntityFetchedRoot(root: unknown): root is EntityFetchedRoot {
+  return (
+    root != null &&
+    typeof root === 'object' &&
+    'target_type' in root &&
+    'fetched_bundle' in root &&
+    'fetched' in root
   )
 }
 
@@ -81,10 +98,17 @@ const POSSIBLY_EMPTY_FIELDS = ['field_alert_block_reference']
  * Recursively converts a paragraph that was fetched using [entity_field_fetch](https://www.drupal.org/project/entity_field_fetch)
  * to a normal paragraph that we'd expect from the base Drupal API.
  */
-export function entityFetchedParagraphsToNormalParagraphs<T>(
-  paragraph: T
-): T | DrupalParagraph {
-  if (!isEntityFetchedParagraph(paragraph)) {
+export function normalizeEntityFetchedParagraphs<T extends DrupalParagraph>(
+  paragraph: EntityFetchedRoot | EntityFetchedParagraph
+): T {
+  if (isEntityFetchedRoot(paragraph)) {
+    paragraph = {
+      type: paragraph.target_type,
+      bundle: paragraph.fetched_bundle,
+      target_id: paragraph.target_id,
+      ...paragraph.fetched,
+    }
+  } else if (!isEntityFetchedParagraph(paragraph)) {
     return paragraph
   }
 
@@ -95,7 +119,7 @@ export function entityFetchedParagraphsToNormalParagraphs<T>(
       // Peak at the first value to see if this is an array of entity_field_fetch
       // paragraphs. If so, recursively convert them to normal paragraphs.
       if (isEntityFetchedParagraph(firstItem)) {
-        return [key, value.map(entityFetchedParagraphsToNormalParagraphs)]
+        return [key, value.map(normalizeEntityFetchedParagraphs)]
       }
 
       // It's most likely one of the messed-up entity_field_fetch fields that we're
@@ -130,5 +154,5 @@ export function entityFetchedParagraphsToNormalParagraphs<T>(
     type: `${type}--${bundle}`,
     id: target_id,
     ...Object.fromEntries(Object.entries(properties).map(convertProperty)),
-  } as DrupalParagraph
+  }
 }

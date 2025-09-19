@@ -1,6 +1,6 @@
 import { MediaImage } from '@/components/mediaImage/template'
 import { OperatingStatusFlags } from '@/components/vamcFacility/OperatingStatus'
-import { Address } from '@/components/vamcFacility/Address'
+import { Address } from '@/components/address/template'
 import { MinimalLocalFacility } from '@/components/vamcSystem/formatted-type'
 import { Phone } from '@/components/vamcFacility/Phone'
 import { TextWithImage } from '@/components/textWithImage/template'

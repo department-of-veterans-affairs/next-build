@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: 'Download tag artifact'
         if: ${{ github.event_name == 'workflow_run' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
@@ -66,7 +66,7 @@ jobs:
           echo "IMAGE_TAG=$(cat tag.txt)" >> $GITHUB_ENV
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4.3.1
+        uses: aws-actions/configure-aws-credentials@v5.0.0
         with:
           aws-region: us-gov-west-1
           role-to-assume: ${{ vars.AWS_ASSUME_ROLE }}

@@ -1,15 +1,17 @@
 import type { Config } from 'jest'
 import nextJest from 'next/jest.js'
 import path from 'path'
+import { fileURLToPath } from 'url'
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: './',
 })
-
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 // Add any custom config to be passed to Jest
 const customJestConfig: Config = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js', 'jest-extended/all'],
   moduleDirectories: [
     'node_modules',
     '<rootDir>/',
@@ -21,14 +23,13 @@ const customJestConfig: Config = {
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
     '^@/types/(.*)$': '<rootDir>/src/types/$1',
-    '^axios$': require.resolve('axios'),
+    '^axios$': 'axios',
   },
 
   testEnvironment: 'jest-environment-jsdom',
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!**/__tests__/**.test.{js,jsx,ts,tsx}',
-    '!example_tests/**/*.{js,jsx,ts,tsx}',
     '!playwright/**/*.{js,jsx,ts,tsx}',
     // Some files excluded from unit test coverage reporting in favor of e2e tests
     '!src/lib/utils/redisCache.ts',
@@ -54,7 +55,6 @@ const customJestConfig: Config = {
   ],
   testPathIgnorePatterns: [
     '/node_modules/',
-    '<rootDir>/example_tests',
     '<rootDir>/playwright',
     '<rootDir>/scripts',
   ],

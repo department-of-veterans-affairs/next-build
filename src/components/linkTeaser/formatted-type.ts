@@ -5,9 +5,9 @@ export type LinkTeaser = PublishedParagraph & {
   title: string
   summary: string
   uri: string
-  parentField: string
+  parentField: string | null
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  options: any[]
+  options: { [key: string]: any }
   componentParams: {
     boldTitle: boolean
     sectionHeader: string

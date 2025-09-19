@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`VetCenterLocationListing with valid data Global variables for nearby vet centers widget sets up window variables with the provided props 1`] = `
 {

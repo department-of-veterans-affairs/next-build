@@ -5,6 +5,7 @@ import { VamcFacility as FormattedHealthCareLocalFacility } from './formatted-ty
 import { formatter } from './query'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { within } from '@testing-library/react'
+import { axe } from '@/test-utils'
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -35,10 +36,12 @@ const mockData = formatter({
 })
 
 describe('HealthCareLocalFacility with valid data', () => {
-  test('renders HealthCareLocalFacility component with basic data', () => {
-    render(<VamcFacility {...mockData} />)
+  test('renders HealthCareLocalFacility component with basic data', async () => {
+    const { container } = render(<VamcFacility {...mockData} />)
     expect(screen.getByText(mockData.title.trim())).toBeInTheDocument()
     expect(screen.getByText(mockData.introText.trim())).toBeInTheDocument()
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
 
   // Once window.sideNav is populated, the static-pages app will render the menu
