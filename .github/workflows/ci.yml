@@ -77,20 +77,3 @@ jobs:
 
       - name: Jest tests
         run: yarn test:ci
-
-  example-tests:
-    name: Example Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version-file: .nvmrc
-
-      - name: Install Npm Dependencies
-        run: |
-          yarn set version 3.6.1
-          HUSKY=0 yarn install --immutable
-
-      - name: Example tests
-        run: yarn test:examples

@@ -849,34 +849,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@datadog/browser-core@npm:6.13.0":
-  version: 6.13.0
-  resolution: "@datadog/browser-core@npm:6.13.0"
-  checksum: acad5884ff9d4052dccb73ca624996ba0e1b4964e653c3a6a732fcd29607f62e321378b5d7995eb043bba07f31310f7f75525477d046817b82f50dea76f63492
+"@datadog/browser-core@npm:6.19.0":
+  version: 6.19.0
+  resolution: "@datadog/browser-core@npm:6.19.0"
+  checksum: 2af731336adb62f25406733a2e88da10ac2b5238c33b52d13452cf9acdc55e44f336c115c2838035fef9edab23466ae62a9bf83757cbe2b78153e062dc9b9a7d
   languageName: node
   linkType: hard
 
-"@datadog/browser-rum-core@npm:6.13.0":
-  version: 6.13.0
-  resolution: "@datadog/browser-rum-core@npm:6.13.0"
+"@datadog/browser-rum-core@npm:6.19.0":
+  version: 6.19.0
+  resolution: "@datadog/browser-rum-core@npm:6.19.0"
   dependencies:
-    "@datadog/browser-core": 6.13.0
-  checksum: a71516ebf4f94846574967296eee3424c8e0d9a508f9db68ed085e6af363d19be3121e9f23bcb48ec4d5e525115c0363b3ed578c154ceb3987c5e39bc35f4d21
+    "@datadog/browser-core": 6.19.0
+  checksum: 69444f0fe96a3222de5508bdcf2c08488bf27dc7130204847a78e7d3ea9bf0b31cde21d2aaef7fc7e3b3e65296ae14726587f8d412c12e2029ab69e2af7cc684
   languageName: node
   linkType: hard
 
-"@datadog/browser-rum@npm:^6.13.0":
-  version: 6.13.0
-  resolution: "@datadog/browser-rum@npm:6.13.0"
+"@datadog/browser-rum@npm:^6.19.0":
+  version: 6.19.0
+  resolution: "@datadog/browser-rum@npm:6.19.0"
   dependencies:
-    "@datadog/browser-core": 6.13.0
-    "@datadog/browser-rum-core": 6.13.0
+    "@datadog/browser-core": 6.19.0
+    "@datadog/browser-rum-core": 6.19.0
   peerDependencies:
-    "@datadog/browser-logs": 6.13.0
+    "@datadog/browser-logs": 6.19.0
   peerDependenciesMeta:
     "@datadog/browser-logs":
       optional: true
-  checksum: 758b5eb4cbb2acc3d42ad3ca67b786ef78baf33fe78ba3334defc62224ef10985ffb144f12c6056fbb9fec144a317c9361276660dc33cc490340429f04322f66
+  checksum: f21ae043f81b57eae28de33e4e223e4f73e1fcb510617c8b0c46133d67d352f8841ebd480f37206557321157a0a5f47e201cd71e434c6b1d931c83dc1ecd19f5
   languageName: node
   linkType: hard
 
@@ -12235,7 +12235,7 @@ __metadata:
     "@actions/core": ^1.10.1
     "@actions/github": ^6.0.1
     "@axe-core/playwright": ^4.8.2
-    "@datadog/browser-rum": ^6.13.0
+    "@datadog/browser-rum": ^6.19.0
     "@department-of-veterans-affairs/component-library": 50.2.1
     "@department-of-veterans-affairs/formation": ^12.0.0
     "@department-of-veterans-affairs/web-components": 18.4.0
@@ -12320,7 +12320,7 @@ __metadata:
     ts-morph: ^26.0.0
     ts-node: ^10.9.2
     tsconfig-paths: ^4.2.0
-    typescript: ^5.6.2
+    typescript: ^5.9.2
     uswds: ^2.14.0
     uuid: ^9.0.1
     validator: ^13.15.0
@@ -16508,23 +16508,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.6.2":
-  version: 5.6.3
-  resolution: "typescript@npm:5.6.3"
+"typescript@npm:^5.9.2":
+  version: 5.9.2
+  resolution: "typescript@npm:5.9.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: ba302f8822777ebefb28b554105f3e074466b671e7444ec6b75dadc008a62f46f373d9e57ceced1c433756d06c8b7dc569a7eefdf3a9573122a49205ff99021a
+  checksum: f619cf6773cfe31409279711afd68cdf0859780006c50bc2a7a0c3227f85dea89a3b97248846326f3a17dad72ea90ec27cf61a8387772c680b2252fd02d8497b
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^5.6.2#~builtin<compat/typescript>":
-  version: 5.6.3
-  resolution: "typescript@patch:typescript@npm%3A5.6.3#~builtin<compat/typescript>::version=5.6.3&hash=14eedb"
+"typescript@patch:typescript@^5.9.2#~builtin<compat/typescript>":
+  version: 5.9.2
+  resolution: "typescript@patch:typescript@npm%3A5.9.2#~builtin<compat/typescript>::version=5.9.2&hash=14eedb"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: ade87bce2363ee963eed0e4ca8a312ea02c81873ebd53609bc3f6dc0a57f6e61ad7e3fb8cbb7f7ab8b5081cbee801b023f7c4823ee70b1c447eae050e6c7622b
+  checksum: e42a701947325500008334622321a6ad073f842f5e7d5e7b588a6346b31fdf51d56082b9ce5cef24312ecd3e48d6c0d4d44da7555f65e2feec18cf62ec540385
   languageName: node
   linkType: hard
 
