@@ -1,22 +1,19 @@
+import { VamcOperatingStatusAndAlerts as FormattedVamcOperatingStatusAndAlerts } from './formatted-type'
 import { useEffect } from 'react'
 import { ContentFooter } from '../contentFooter/template'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-
+import { format, toZonedTime } from 'date-fns-tz'
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
   sideNav?: SideNavMenu
 }
 declare const window: customWindow
 
-type VamcOperatingStatusAndAlertsProps = {
-  facilityName: string
-  menu?: SideNavMenu
-}
-
 export function VamcOperatingStatusAndAlerts({
   facilityName,
   menu,
-}: VamcOperatingStatusAndAlertsProps) {
+  situationUpdates,
+}: FormattedVamcOperatingStatusAndAlerts) {
   useEffect(() => {
     window.sideNav = menu
   }, [menu])
@@ -41,7 +38,53 @@ export function VamcOperatingStatusAndAlerts({
                 </section>
 
                 <div>TODO: add fieldSituationUpdates</div>
-
+                {situationUpdates && (
+                  <section id="situation-updates">
+                    <h2 id="situation-updates-and-information">
+                      Situation updates and information
+                    </h2>
+                    {situationUpdates.map((situationUpdate, index) => (
+                      <div key={index}>
+                        {situationUpdate.updates.map((update, index) => (
+                          <va-card
+                            background
+                            key={index}
+                            class="vads-u-padding-y--1p5 vads-u-margin-top--1p5"
+                          >
+                            <h3 className="vads-u-margin-top--0">
+                              Situation update
+                            </h3>
+                            <h4>
+                              {format(
+                                toZonedTime(update.dateTime, update.timezone),
+                                'EEEE, MMM d, h:mm aaaa zzz',
+                                { timeZone: update.timezone }
+                              )}
+                            </h4>
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: update.updateText,
+                              }}
+                            />
+                          </va-card>
+                        ))}
+                        {situationUpdate.info && (
+                          <>
+                            <h3 className="vads-u-margin-top--3">
+                              Situation info
+                            </h3>
+                            <div
+                              className="vads-u-margin-bottom--0"
+                              dangerouslySetInnerHTML={{
+                                __html: situationUpdate.info,
+                              }}
+                            />
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </section>
+                )}
                 <div>TODO: add fieldFacilityOperatingStatus</div>
                 <div>TODO: add fieldLink or fieldOperatingStatusEmergInf</div>
                 <ContentFooter />
