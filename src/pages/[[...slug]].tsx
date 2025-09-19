@@ -56,6 +56,7 @@ import { VamcFacility as FormattedVamcFacility } from '../components/vamcFacilit
 import { VamcSystem as FormattedVamcSystem } from '../components/vamcSystem/formatted-type'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/formatted-type'
 import { VamcSystemBillingAndInsurance as FormattedVamcSystemBillingAndInsurance } from '../components/vamcSystemBillingAndInsurance/formatted-type'
+import { VamcSystemMedicalRecordsOffice as FormattedVamcSystemMedicalRecordsOffice } from '../components/vamcSystemMedicalRecordsOffice/formatted-type'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '../components/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '../components/leadershipListing/formatted-type'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '../components/vetCenterLocationListing/formatted-type'
@@ -84,6 +85,7 @@ import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '../components/vamcSystem/template'
 import { VamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/template'
 import { VamcSystemBillingAndInsurance } from '../components/vamcSystemBillingAndInsurance/template'
+import { VamcSystemMedicalRecordsOffice } from '../components/vamcSystemMedicalRecordsOffice/template'
 import { VamcSystemVaPolice } from '../components/vamcSystemVaPolice/template'
 import { LeadershipListing } from '../components/leadershipListing/template'
 import { VbaFacility } from '../components/vbaFacility/template'
@@ -229,6 +231,12 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE && (
             <VamcSystemBillingAndInsurance
               {...(resource as FormattedVamcSystemBillingAndInsurance)}
+            />
+          )}
+          {resource.type ===
+            RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE && (
+            <VamcSystemMedicalRecordsOffice
+              {...(resource as FormattedVamcSystemMedicalRecordsOffice)}
             />
           )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE && (

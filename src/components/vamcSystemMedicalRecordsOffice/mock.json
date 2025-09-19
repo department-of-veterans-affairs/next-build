@@ -1,0 +1,1009 @@
+{
+  "type": "node--vamc_system_medical_records_offi",
+  "id": "a2123e95-9605-4988-af58-5946129b0e5d",
+  "drupal_internal__nid": 45806,
+  "drupal_internal__vid": 652853,
+  "langcode": "en",
+  "revision_timestamp": "2022-05-26T16:02:51+00:00",
+  "revision_log": null,
+  "status": true,
+  "title": "Medical records office",
+  "created": "2022-05-04T19:41:16+00:00",
+  "changed": "2022-05-26T16:02:51+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/beckley-health-care",
+      "title": "VA Beckley health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "Medical records office",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/beckley-health-care/medical-records-office",
+    "pid": 60758,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_action_link_used_on_cerner": {
+    "target_type": "paragraph",
+    "target_id": "100398",
+    "target_field": null,
+    "fetched_bundle": "button",
+    "fetched": {
+      "field_button_label": [
+        {
+          "value": "Get your records online"
+        }
+      ],
+      "field_button_link": [
+        {
+          "uri": "entity:node/33",
+          "title": "",
+          "options": {
+            "href": "entity:node/33",
+            "data-entity-type": "node",
+            "data-entity-uuid": "035d1986-fd09-4470-92ca-be2b2a17f857",
+            "data-entity-substitution": "canonical"
+          }
+        }
+      ]
+    }
+  },
+  "field_cc_faqs": {
+    "target_type": "paragraph",
+    "target_id": "82653",
+    "target_field": null,
+    "fetched_bundle": "q_a_section",
+    "fetched": {
+      "field_accordion_display": [
+        {
+          "value": "0"
+        }
+      ],
+      "field_questions": [
+        {
+          "target_id": "82644",
+          "target_revision_id": "1624246",
+          "type": "paragraph",
+          "bundle": "q_a",
+          "pid": "82644",
+          "label": "VAMC System - \"Medical records\" page content > Content > Questions",
+          "status": true,
+          "langcode": "en",
+          "field_answer": [
+            {
+              "target_id": "82643",
+              "target_revision_id": "1624245",
+              "type": "paragraph",
+              "bundle": "wysiwyg",
+              "pid": "82643",
+              "label": "VAMC System - \"Medical records\" page content > Content > Questions > Answer",
+              "status": true,
+              "langcode": "en",
+              "field_wysiwyg": [
+                {
+                  "value": "<p>You can get another person's medical records if you’re listed as having Power of Attorney (POA) or you’re the patient’s next of kin.</p>\r\n",
+                  "format": "rich_text",
+                  "processed": "<p>You can get another person's medical records if you’re listed as having Power of Attorney (POA) or you’re the patient’s next of kin.</p>"
+                }
+              ]
+            }
+          ],
+          "field_question": [
+            {
+              "value": "Can I get someone else's medical records?"
+            }
+          ]
+        },
+        {
+          "target_id": "82646",
+          "target_revision_id": "1624248",
+          "type": "paragraph",
+          "bundle": "q_a",
+          "pid": "82646",
+          "label": "VAMC System - \"Medical records\" page content > Content > Questions",
+          "status": true,
+          "langcode": "en",
+          "field_answer": [
+            {
+              "target_id": "82645",
+              "target_revision_id": "1624247",
+              "type": "paragraph",
+              "bundle": "wysiwyg",
+              "pid": "82645",
+              "label": "VAMC System - \"Medical records\" page content > Content > Questions > Answer",
+              "status": true,
+              "langcode": "en",
+              "field_wysiwyg": [
+                {
+                  "value": "<p>You can get the records of a deceased patient if you have:</p>\r\n\r\n<ul>\r\n\t<li>A copy of their death certificate</li>\r\n\t<li>A valid photo ID for yourself</li>\r\n\t<li>Any POA paperwork or will showing you have a legal right to their record</li>\r\n</ul>\r\n",
+                  "format": "rich_text",
+                  "processed": "<p>You can get the records of a deceased patient if you have:</p>\n\n<ul>\n\t<li>A copy of their death certificate</li>\n\t<li>A valid photo ID for yourself</li>\n\t<li>Any POA paperwork or will showing you have a legal right to their record</li>\n</ul>"
+                }
+              ]
+            }
+          ],
+          "field_question": [
+            {
+              "value": "Can I get records of a deceased patient?"
+            }
+          ]
+        },
+        {
+          "target_id": "82648",
+          "target_revision_id": "1624250",
+          "type": "paragraph",
+          "bundle": "q_a",
+          "pid": "82648",
+          "label": "VAMC System - \"Medical records\" page content > Content > Questions",
+          "status": true,
+          "langcode": "en",
+          "field_answer": [
+            {
+              "target_id": "82647",
+              "target_revision_id": "1624249",
+              "type": "paragraph",
+              "bundle": "wysiwyg",
+              "pid": "82647",
+              "label": "VAMC System - \"Medical records\" page content > Content > Questions > Answer",
+              "status": true,
+              "langcode": "en",
+              "field_wysiwyg": [
+                {
+                  "value": "<p>Yes. If you’re making the request in person, you can tell us what format you would like. If you’re using <a href=\"/admin/content/linky/10813\" hreflang=\"en\">VA Form 10-5345a</a>, check the “CD-ROM” or “Other” box (and write in DVD).</p>\n",
+                  "format": "rich_text",
+                  "processed": "<p>Yes. If you’re making the request in person, you can tell us what format you would like. If you’re using <a href=\"https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf\" hreflang=\"en\">VA Form 10-5345a</a>, check the “CD-ROM” or “Other” box (and write in DVD).</p>"
+                }
+              ]
+            }
+          ],
+          "field_question": [
+            {
+              "value": "Can I get records on a CD or DVD?"
+            }
+          ]
+        },
+        {
+          "target_id": "82650",
+          "target_revision_id": "1624252",
+          "type": "paragraph",
+          "bundle": "q_a",
+          "pid": "82650",
+          "label": "VAMC System - \"Medical records\" page content > Content > Questions",
+          "status": true,
+          "langcode": "en",
+          "field_answer": [
+            {
+              "target_id": "82649",
+              "target_revision_id": "1624251",
+              "type": "paragraph",
+              "bundle": "wysiwyg",
+              "pid": "82649",
+              "label": "VAMC System - \"Medical records\" page content > Content > Questions > Answer",
+              "status": true,
+              "langcode": "en",
+              "field_wysiwyg": [
+                {
+                  "value": "<p>Yes, we provide all available images on DVD.</p>\n\n<p>If you have a <a href=\"/admin/content/linky/153\" hreflang=\"en\" target=\"_blank\">My HealtheVet Premium account</a>, you can also view or download many kinds of radiology images online. A Premium account is one where you’ve gone through extra identity authentication. </p>\n",
+                  "format": "rich_text",
+                  "processed": "<p>Yes, we provide all available images on DVD.</p>\n\n<p>If you have a <a href=\"https://www.myhealth.va.gov/mhv-portal-web/web/myhealthevet/home\" hreflang=\"en\" target=\"_blank\">My HealtheVet Premium account</a>, you can also view or download many kinds of radiology images online. A Premium account is one where you’ve gone through extra identity authentication. </p>"
+                }
+              ]
+            }
+          ],
+          "field_question": [
+            {
+              "value": "Can I get radiology images and X-rays?"
+            }
+          ]
+        },
+        {
+          "target_id": "82652",
+          "target_revision_id": "1624254",
+          "type": "paragraph",
+          "bundle": "q_a",
+          "pid": "82652",
+          "label": "VAMC System - \"Medical records\" page content > Content > Questions",
+          "status": true,
+          "langcode": "en",
+          "field_answer": [
+            {
+              "target_id": "82651",
+              "target_revision_id": "1624253",
+              "type": "paragraph",
+              "bundle": "wysiwyg",
+              "pid": "82651",
+              "label": "VAMC System - \"Medical records\" page content > Content > Questions > Answer",
+              "status": true,
+              "langcode": "en",
+              "field_wysiwyg": [
+                {
+                  "value": "<p>Please ask at the Register for care office, and they will provide you documentation of your VA coverage.</p>",
+                  "format": "rich_text",
+                  "processed": "<p>Please ask at the Register for care office, and they will provide you documentation of your VA coverage.</p>"
+                }
+              ]
+            }
+          ],
+          "field_question": [
+            {
+              "value": "Can I get a proof of health insurance document?"
+            }
+          ]
+        }
+      ],
+      "field_section_header": [
+        {
+          "value": "Questions about medical records"
+        }
+      ],
+      "field_section_intro": []
+    }
+  },
+  "field_cc_get_records_in_person": {
+    "target_type": "paragraph",
+    "target_id": "82639",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<h2 id=\"get-your-records-in-person\">Get your records in person</h2><p>We can help you get copies of your VA medical records. We can also help you update your records. Call or visit one of our release of information offices.</p><p><strong>What to bring</strong></p><ul><li>A signed written request for a copy of your records to be provided to you. For your convenience you may download and complete the “Individuals’ Request For a Copy of Their Own Health Information” (VA Form 10-5345a).  <a href=\"/admin/content/linky/10813\" hreflang=\"en\">Download VA Form 10-5345a (PDF)</a></li><li>Your Veteran Health Identification Card (VHIC)</li></ul>",
+          "format": "rich_text",
+          "processed": "<h2 id=\"get-your-records-in-person\">Get your records in person</h2><p>We can help you get copies of your VA medical records. We can also help you update your records. Call or visit one of our release of information offices.</p><p><strong>What to bring</strong></p><ul><li>A signed written request for a copy of your records to be provided to you. For your convenience you may download and complete the “Individuals’ Request For a Copy of Their Own Health Information” (VA Form 10-5345a).  <a href=\"https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf\" hreflang=\"en\">Download VA Form 10-5345a (PDF)</a></li><li>Your Veteran Health Identification Card (VHIC)</li></ul>"
+        }
+      ]
+    }
+  },
+  "field_cc_get_records_mail_or_fax": {
+    "target_type": "paragraph",
+    "target_id": "82640",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<h2 id=\"get-your-records-by-mail-or-fa\">Get your records by mail or fax</h2><p>To request a copy of your VA medical records by mail or fax, send a signed and completed VA Form 10-5345a to our Release of Information office.</p><p><a href=\"/admin/content/linky/10813\" hreflang=\"en\">Download VA Form 10-5345a (PDF)</a></p>",
+          "format": "rich_text",
+          "processed": "<h2 id=\"get-your-records-by-mail-or-fa\">Get your records by mail or fax</h2><p>To request a copy of your VA medical records by mail or fax, send a signed and completed VA Form 10-5345a to our Release of Information office.</p><p><a href=\"https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf\" hreflang=\"en\">Download VA Form 10-5345a (PDF)</a></p>"
+        }
+      ]
+    }
+  },
+  "field_cc_how_we_share_records": {
+    "target_type": "paragraph",
+    "target_id": "82641",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<p>Per VHA Directives, we have 20 business days to process all requests. Requests are accepted in-person, through My HealtheVet, mail, and fax. Please contact the facility to verify if submission by email is available.</p><p> </p><h2 id=\"how-we-share-your-records-with\">How we share your records with providers outside VA</h2><p>The Veterans Health Information Exchange (VHIE) program lets us electronically share your health information with health care providers who treat you, including <a href=\"/admin/content/linky/146\" hreflang=\"en\">participating non-VA providers</a> if you receive care outside of VA.</p><p>This program is voluntary, and you can choose not to share your information (opt out of sharing).</p><p><a href=\"/admin/content/linky/147\">Learn more about VHIE</a></p><h3 id=\"to-opt-out-of-sharing\">To opt out of sharing</h3><p>Fill out, sign, and date VA Form 10-10164 (Opt Out of Sharing Protected Health Information).</p><p>Mail the signed, completed form to our ROI office. You can also bring it with you or ask for this form when you visit us.</p><p><a href=\"/admin/content/linky/148\" hreflang=\"en\">Download VA Form 10-10164 (PDF)</a></p><p><strong>Note: </strong>If you had revoked your permission to share, before September 30, 2019, your opt out status will stay active. You don’t need to submit form 10-10164.</p><h3 id=\"to-allow-sharing-after-opting-\">To allow sharing after opting out</h3><p>If you change your mind and want to share your health information, you’ll need to submit VA Form 10-10163 (Request for and Permission to Participate in Sharing Protected Health Information).</p><p>Mail the signed, completed form to our ROI office. You can also bring it with you or ask for this form when you visit us.</p><p><a href=\"/admin/content/linky/149\" hreflang=\"en\">Download VA Form 10-10163 (PDF)</a></p>",
+          "format": "rich_text",
+          "processed": "<p>Per VHA Directives, we have 20 business days to process all requests. Requests are accepted in-person, through My HealtheVet, mail, and fax. Please contact the facility to verify if submission by email is available.</p><p> </p><h2 id=\"how-we-share-your-records-with\">How we share your records with providers outside VA</h2><p>The Veterans Health Information Exchange (VHIE) program lets us electronically share your health information with health care providers who treat you, including <a href=\"https://www.va.gov/vhie/\" hreflang=\"en\">participating non-VA providers</a> if you receive care outside of VA.</p><p>This program is voluntary, and you can choose not to share your information (opt out of sharing).</p><p><a href=\"https://www.va.gov/health-care/get-medical-records/#the-veterans-health-informatio\">Learn more about VHIE</a></p><h3 id=\"to-opt-out-of-sharing\">To opt out of sharing</h3><p>Fill out, sign, and date VA Form 10-10164 (Opt Out of Sharing Protected Health Information).</p><p>Mail the signed, completed form to our ROI office. You can also bring it with you or ask for this form when you visit us.</p><p><a href=\"https://www.va.gov/vaforms/medical/pdf/10-10164-fill.pdf\" hreflang=\"en\">Download VA Form 10-10164 (PDF)</a></p><p><strong>Note: </strong>If you had revoked your permission to share, before September 30, 2019, your opt out status will stay active. You don’t need to submit form 10-10164.</p><h3 id=\"to-allow-sharing-after-opting-\">To allow sharing after opting out</h3><p>If you change your mind and want to share your health information, you’ll need to submit VA Form 10-10163 (Request for and Permission to Participate in Sharing Protected Health Information).</p><p>Mail the signed, completed form to our ROI office. You can also bring it with you or ask for this form when you visit us.</p><p><a href=\"https://www.va.gov/vaforms/medical/pdf/10-10163-fill.pdf\" hreflang=\"en\">Download VA Form 10-10163 (PDF)</a></p>"
+        }
+      ]
+    }
+  },
+  "field_cc_react_widget": {
+    "target_type": "paragraph",
+    "target_id": "82635",
+    "target_field": null,
+    "fetched_bundle": "react_widget",
+    "fetched": {
+      "field_button_format": [
+        {
+          "value": "0"
+        }
+      ],
+      "field_cta_widget": [
+        {
+          "value": "1"
+        }
+      ],
+      "field_default_link": [],
+      "field_error_message": [
+        {
+          "value": "<strong>We’re sorry. Something went wrong when we tried to load your saved application.</strong><br/>Please try refreshing your browser in a few minutes.",
+          "format": "rich_text",
+          "processed": "<strong>We’re sorry. Something went wrong when we tried to load your saved application.</strong><br>Please try refreshing your browser in a few minutes."
+        }
+      ],
+      "field_loading_message": [],
+      "field_timeout": [
+        {
+          "value": "20"
+        }
+      ],
+      "field_widget_type": [
+        {
+          "value": "modern-get-medical-records-page"
+        }
+      ]
+    }
+  },
+  "field_cc_related_links": {
+    "target_type": "paragraph",
+    "target_id": "82659",
+    "target_field": null,
+    "fetched_bundle": "list_of_link_teasers",
+    "fetched": {
+      "field_va_paragraphs": [
+        {
+          "target_id": "82655",
+          "target_revision_id": "1624257",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "82655",
+          "label": "VAMC System - \"Medical records\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/8473",
+              "title": "Change your address on file with VA",
+              "options": {
+                "href": "entity:node/8473",
+                "data-entity-type": "node",
+                "data-entity-uuid": "5f539c97-cfe7-4496-9dd5-a9b4d01f592d",
+                "data-entity-substitution": "canonical"
+              }
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Find out how to change your address and other information in your VA.gov profile. This will update your information across several VA benefits and services."
+            }
+          ]
+        },
+        {
+          "target_id": "82656",
+          "target_revision_id": "1624258",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "82656",
+          "label": "VAMC System - \"Medical records\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/39",
+              "title": "Update your VA health benefits information",
+              "options": {
+                "href": "entity:node/39",
+                "data-entity-type": "node",
+                "data-entity-uuid": "bcca7668-9a43-47ec-b029-e3563dc836f4",
+                "data-entity-substitution": "canonical"
+              }
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Update your personal, financial, or insurance information with VA Form 10-10EZR."
+            }
+          ]
+        },
+        {
+          "target_id": "82657",
+          "target_revision_id": "1624259",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "82657",
+          "label": "VAMC System - \"Medical records\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "entity:node/79",
+              "title": "Access and manage your records",
+              "options": {
+                "href": "entity:node/79",
+                "data-entity-type": "node",
+                "data-entity-uuid": "be5ce8bb-48af-4ac0-bf45-124081bb3dcb",
+                "data-entity-substitution": "canonical"
+              }
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Apply for a printed Veteran ID card, get your VA benefit letters and military service records, and learn how to apply for a discharge upgrade."
+            }
+          ]
+        },
+        {
+          "target_id": "82658",
+          "target_revision_id": "1624260",
+          "type": "paragraph",
+          "bundle": "link_teaser",
+          "pid": "82658",
+          "label": "VAMC System - \"Medical records\" page content > Content > Link teasers",
+          "status": true,
+          "langcode": "en",
+          "field_link": [
+            {
+              "uri": "https://www.choose.va.gov/",
+              "title": "MISSION Act and VA health care",
+              "options": {
+                "href": "https://www.choose.va.gov/",
+                "data-entity-type": "",
+                "data-entity-uuid": "",
+                "data-entity-substitution": ""
+              }
+            }
+          ],
+          "field_link_summary": [
+            {
+              "value": "Learn how we're making it easier for you to get health care through VA facilities, mobile health clinics, virtual telehealth, and community care providers."
+            }
+          ]
+        }
+      ],
+      "field_title": [
+        {
+          "value": "More information"
+        }
+      ]
+    }
+  },
+  "field_cc_top_of_page_content": {
+    "target_type": "paragraph",
+    "target_id": "82634",
+    "target_field": null,
+    "fetched_bundle": "wysiwyg",
+    "fetched": {
+      "field_wysiwyg": [
+        {
+          "value": "<h2 id=\"get-your-records-online\">Get your records online</h2><p>Access your VA medical records online. Sign in to view, organize, and share your VA medical records and other personal health information. We don't charge any fees to send copies directly to health care providers.</p>",
+          "format": "rich_text",
+          "processed": "<h2 id=\"get-your-records-online\">Get your records online</h2><p>Access your VA medical records online. Sign in to view, organize, and share your VA medical records and other personal health information. We don't charge any fees to send copies directly to health care providers.</p>"
+        }
+      ]
+    }
+  },
+  "field_enforce_unique_combo": false,
+  "field_enforce_unique_combo_offic": false,
+  "field_fax_number": null,
+  "field_last_saved_by_an_editor": "2022-05-26T16:02:50+00:00",
+  "field_vamc_med_records_mailing": {
+    "langcode": null,
+    "country_code": "US",
+    "administrative_area": "WV",
+    "locality": "Beckley ",
+    "postal_code": "25801",
+    "address_line1": "200 Veterans Avenue",
+    "address_line2": ""
+  },
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vamc_system_medical_records_offi/a2123e95-9605-4988-af58-5946129b0e5d?resourceVersion=id%3A652853"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "2cab703c-447e-4372-a5f7-597e7fd0d3bd",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "vamc_system_medical_records_offi"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "f5f39f7a-e7d5-4357-97db-c8342b90418a",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 2876
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "d63e8b9f-4004-4af0-b444-25d9fa5cdea0",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 215
+    }
+  },
+  "field_non_clinical_services": {
+    "type": "view--view",
+    "id": "a9e07b4c-6178-43d4-a7e3-57d67e85dbd6",
+    "resourceIdObjMeta": {
+      "display_id": "medical_records_offices",
+      "arguments": "[node:field_office:target_id]/[node:field_administration:target_id]",
+      "items_to_display": "",
+      "drupal_internal__target_id": "non_clinical_services"
+    }
+  },
+  "field_office": {
+    "type": "node--health_care_region_page",
+    "id": "6e35d07b-6b55-4f0c-b92d-bfc6e4f46528",
+    "drupal_internal__nid": 15083,
+    "drupal_internal__vid": 985513,
+    "langcode": "en",
+    "revision_timestamp": "2024-09-16T23:00:42+00:00",
+    "revision_log": "Added Health Connect phone number",
+    "status": true,
+    "title": "VA Beckley health care",
+    "created": "2020-12-22T21:24:47+00:00",
+    "changed": "2025-06-10T14:31:06+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "VA Beckley health care",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "VA Beckley health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "Find a health facility near you at Beckley VA Medical Center, and manage your health online. Our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers."
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "image_src",
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:site_name",
+          "content": "Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:title",
+          "content": "VA Beckley health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:description",
+          "content": "Find a health facility near you at Beckley VA Medical Center, and manage your health online. Our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-08/Beckley%20VA%20Medical%20Center.jpg?h=407af546"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:alt",
+          "content": "Beckley VA Medical Center"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:card",
+          "content": "summary_large_image"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:title",
+          "content": "VA Beckley health care | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:description",
+          "content": "Find a health facility near you at Beckley VA Medical Center, and manage your health online. Our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers."
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:site",
+          "content": "@DeptVetAffairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image:alt",
+          "content": "Beckley VA Medical Center"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image",
+          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-08/Beckley%20VA%20Medical%20Center.jpg?h=407af546"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/beckley-health-care",
+      "pid": 17378,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_description": "Find a health facility near you at Beckley VA Medical Center, and manage your health online. Our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers.",
+    "field_facebook": {
+      "uri": "https://www.facebook.com/VABeckley",
+      "title": "VA Beckley Healthcare System Facebook page",
+      "options": {
+        "href": "https://www.facebook.com/VABeckley",
+        "data-entity-type": "",
+        "data-entity-uuid": "",
+        "data-entity-substitution": ""
+      },
+      "url": "https://www.facebook.com/VABeckley"
+    },
+    "field_flickr": null,
+    "field_govdelivery_id_emerg": "USVHA_403",
+    "field_govdelivery_id_news": "USVHA_184",
+    "field_instagram": null,
+    "field_intro_text": "At VA Beckley Healthcare System, our health care teams are deeply experienced and guided by the needs of Veterans, their families, and caregivers. Find a health facility near you, and manage your health online. Sign up for community events and updates.",
+    "field_last_saved_by_an_editor": "2024-09-16T23:00:45+00:00",
+    "field_meta_tags": null,
+    "field_operating_status": {
+      "uri": "entity:node/33643",
+      "title": "Operating status | VA Beckley health care",
+      "options": {
+        "href": "entity:node/33643",
+        "data-entity-type": "node",
+        "data-entity-uuid": "5ceb00ea-5dfa-4859-aeaa-511316a7aff8",
+        "data-entity-substitution": "canonical"
+      },
+      "url": "/beckley-health-care/operating-status"
+    },
+    "field_other_va_locations": ["vc_0231V", "vc_0231V"],
+    "field_twitter": null,
+    "field_vamc_ehr_system": "vista",
+    "field_vamc_system_official_name": "VA Beckley Healthcare System",
+    "field_va_health_connect_phone": "855-679-0250",
+    "field_youtube": null,
+    "field_appointments_online": false,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_page/6e35d07b-6b55-4f0c-b92d-bfc6e4f46528?resourceVersion=id%3A985513"
+      }
+    },
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 15083
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "d611ade3-cc27-4359-8af1-6fba3384200f",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "health_care_region_page"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "75a67a30-cd28-45b6-8c99-ca1071f9f940",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5043
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1317
+      }
+    },
+    "field_media": {
+      "type": "media--image",
+      "id": "0624f123-2fea-4573-a85d-caea10d00389",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 5389
+      }
+    },
+    "field_related_links": {
+      "type": "paragraph--list_of_link_teasers",
+      "id": "8bf39337-101f-467a-9461-8390454ad3b4",
+      "resourceIdObjMeta": {
+        "target_revision_id": 1480175,
+        "drupal_internal__target_id": 78642
+      }
+    },
+    "field_system_menu": {
+      "type": "menu--menu",
+      "id": "978c0131-a0f1-497a-ae89-b6ad8d923af8",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "va-beckley-health-care"
+      }
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "d63e8b9f-4004-4af0-b444-25d9fa5cdea0",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 215
+      }
+    },
+    "field_clinical_health_services": [
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "4847029a-2ac0-4625-a8b0-80587c4c09db",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 15189
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "4cbe689e-0acd-4fff-b9ec-aa06bcf4718f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28403
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b1ee10e5-8ce0-41a3-8c26-4c45cb8b821b",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28404
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "181650f1-f8c6-4199-9cc0-b111f5f814a8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28405
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "85f67633-39b1-4d86-bec1-4c4d094112d1",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28406
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "a08bdb7e-71e3-46ef-bc64-ad91101f6836",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28407
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f362b478-a7af-4a7e-b837-2a0102b1acaf",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28408
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8c831c7e-06be-4b24-97c7-49d9a140d513",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28409
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "176a1fca-f434-4dc1-b547-fb41f7611e74",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28410
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8466fbb6-2be7-4466-91e4-3f5221221351",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28411
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "1b704dcd-7a27-432a-8fc8-35d63729fd7c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28412
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "335be0a9-619e-4674-b757-ee1f2bf8e3ae",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28413
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "e3c3305d-cb41-47f8-9c55-2e0f7c990c07",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28414
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "5ed73aee-58c8-4615-9145-13058e24f2fa",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28415
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "986935af-a6d8-4534-b213-63b846f41026",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28416
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "8639128f-8cb8-400f-8ec9-4a12bd517371",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28417
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "0bb3ca6e-f151-467d-8294-4e0191349980",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28418
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ae81bca1-7dc0-49cc-8604-855f60ead0ae",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28419
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ab3a0616-a828-44ea-a5fe-a5d5c2468f82",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28420
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "200649dc-c1f8-43e7-9484-6f39e90b8810",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28421
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "035851d4-5028-464a-adcb-8a2b0661ec34",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28422
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "4016e59e-510e-44e8-a911-545bfa9a65bc",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28423
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "fca783c9-34d4-4a2c-9e26-f02760424745",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28424
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "f7f2da98-c071-4427-b57b-cf3dcc555c92",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28425
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "1dcb0edd-65c7-4743-9efc-e6a5b0ba5628",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28426
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "d297fe64-91a6-4eb2-9812-605a097c12cd",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28427
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "ff9b6534-3912-4dd9-9c91-44d050e603b8",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 28428
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "16fb52f8-6eec-4096-a9b7-277e924affa0",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 48020
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "6687d146-c888-4526-9898-8759247e752c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 48021
+        }
+      },
+      {
+        "type": "node--regional_health_care_service_des",
+        "id": "b3e0f1b1-296c-41ec-85ad-3ac602b299a3",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 80401
+        }
+      }
+    ],
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_media",
+      "field_related_links",
+      "field_system_menu",
+      "field_administration",
+      "field_clinical_health_services"
+    ]
+  },
+  "field_service_name_and_descripti": {
+    "type": "taxonomy_term--health_care_service_taxonomy",
+    "id": "8e336e3c-0b74-45a0-b1e8-4971a543bf58",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1026
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_non_clinical_services",
+    "field_office",
+    "field_service_name_and_descripti"
+  ]
+}
