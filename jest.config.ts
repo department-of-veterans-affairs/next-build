@@ -11,6 +11,12 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 // Add any custom config to be passed to Jest
 const customJestConfig: Config = {
+  preset: 'ts-jest',
+  globals: {
+    'ts-jest': {
+      useESM: true,
+    },
+  },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js', 'jest-extended/all'],
   moduleDirectories: [
     'node_modules',
@@ -58,6 +64,14 @@ const customJestConfig: Config = {
     '<rootDir>/playwright',
     '<rootDir>/scripts',
   ],
+  transform: {
+    '^.+\\.(t|j)s$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.test.json',
+      },
+    ],
+  },
   transformIgnorePatterns: ['/dist/.+\\.js'],
 }
 

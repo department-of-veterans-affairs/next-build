@@ -91,7 +91,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.8.2",
     "@eslint/eslintrc": "^3",
-    "@faker-js/faker": "^10.0.0",
+    "@faker-js/faker": "^9.9.0",
     "@next/env": "15.5.0",
     "@playwright/test": "^1.55.0",
     "@testing-library/dom": "^10.0.0",
@@ -131,6 +131,7 @@
     "npm": "^11.6.0",
     "prettier": "^3.2.5",
     "prettier-eslint": "^16.4.2",
+    "ts-jest": "^29.1.0",
     "ts-morph": "^26.0.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
