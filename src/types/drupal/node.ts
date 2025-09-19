@@ -598,4 +598,5 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
+  field_banner_alert?: NodeFullWidthBannerAlert[]
 }

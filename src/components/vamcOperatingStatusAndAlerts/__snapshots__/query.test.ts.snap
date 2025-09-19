@@ -120,7 +120,7 @@ exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
   ],
   "moderationState": "published",
   "published": true,
-  "situationUpdates": [],
+  "situationUpdates": null,
   "title": "Operating status | VA Oklahoma City health care",
   "type": "node--vamc_operating_status_and_alerts",
 }

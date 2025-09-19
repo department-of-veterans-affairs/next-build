@@ -175,50 +175,7 @@
       "drupal_internal__target_id": 201
     }
   },
-  "field_banner_alert": [
-    {
-      "type": "node--full_width_banner_alert",
-      "id": "f3906bfe-5af7-4f8c-85f6-58d84b59f43f",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 28045
-      }
-    },
-    {
-      "type": "node--full_width_banner_alert",
-      "id": "7f8a311e-cff1-4d54-9d8a-76e1d447bea2",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 57470
-      }
-    },
-    {
-      "type": "node--full_width_banner_alert",
-      "id": "db481827-c5ed-4434-88c6-4f93d84d7a67",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 60091
-      }
-    },
-    {
-      "type": "node--full_width_banner_alert",
-      "id": "b23a8647-edb7-44b0-9ade-64947489f494",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 61835
-      }
-    },
-    {
-      "type": "node--full_width_banner_alert",
-      "id": "11d801a7-17be-4319-965b-66aefd922826",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 65971
-      }
-    },
-    {
-      "type": "node--full_width_banner_alert",
-      "id": "131b1acd-caad-4d70-bb63-a7f303eae730",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 72057
-      }
-    }
-  ],
+  "field_banner_alert": null,
   "field_facility_operating_status": [
     {
       "type": "node--health_care_local_facility",
