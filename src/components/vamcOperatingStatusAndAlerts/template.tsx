@@ -37,7 +37,6 @@ export function VamcOperatingStatusAndAlerts({
                   <va-on-this-page />
                 </section>
 
-                <div>TODO: add fieldSituationUpdates</div>
                 {situationUpdates && (
                   <section
                     id="situation-updates"
