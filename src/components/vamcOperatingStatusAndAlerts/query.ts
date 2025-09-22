@@ -59,36 +59,51 @@ export const formatter: QueryFormatter<
 > = ({ entity, menu }) => {
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
+
   const buildSituationUpdates = (bannerAlerts) => {
-    if (!bannerAlerts) return null
+    if (!Array.isArray(bannerAlerts) || bannerAlerts.length === 0) return null
 
-    return bannerAlerts
-      .map((bannerAlert) => {
-        const updates = bannerAlert.field_situation_updates
-        if (!updates || updates.length === 0) return null
+    const publishedBannerAlerts = bannerAlerts.filter((alert) => alert?.status)
+    if (publishedBannerAlerts.length === 0) return null
 
-        const sortedUpdates = updates
-          .slice()
-          .sort(
-            (a, b) =>
-              new Date(b.field_datetime_range_timezone.value).getTime() -
-              new Date(a.field_datetime_range_timezone.value).getTime()
-          )
-          .map((update) => ({
-            dateTime: update.field_datetime_range_timezone.value,
-            timezone: update.field_datetime_range_timezone.timezone,
-            updateText: getHtmlFromField(update.field_wysiwyg),
-          }))
+    const situationUpdates = publishedBannerAlerts
+      .map((alert) => {
+        const updates = alert.field_situation_updates ?? []
+        const hasUpdates = updates.length > 0
+        const hasInfo = !!alert.field_banner_alert_situationinfo
+
+        if (!hasUpdates && !hasInfo) return null
+
+        const sortedUpdates = hasUpdates
+          ? [...updates]
+              .sort(
+                (a, b) =>
+                  new Date(
+                    b.field_datetime_range_timezone?.value ?? 0
+                  ).getTime() -
+                  new Date(
+                    a.field_datetime_range_timezone?.value ?? 0
+                  ).getTime()
+              )
+              .map((update) => ({
+                dateTime: update.field_datetime_range_timezone?.value,
+                timezone: update.field_datetime_range_timezone?.timezone,
+                updateText: getHtmlFromField(update.field_wysiwyg),
+              }))
+          : []
 
         return {
           updates: sortedUpdates,
-          info: getHtmlFromDrupalContent(
-            bannerAlert.field_banner_alert_situationinfo
-          ),
+          info: hasInfo
+            ? getHtmlFromDrupalContent(alert.field_banner_alert_situationinfo)
+            : null,
         }
       })
       .filter(Boolean)
+
+    return situationUpdates.length > 0 ? situationUpdates : null
   }
+
   return {
     ...entityBaseFields(entity),
     facilityName: entity.field_office.field_system_menu.label,
