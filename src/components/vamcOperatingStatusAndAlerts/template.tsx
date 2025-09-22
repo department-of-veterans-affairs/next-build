@@ -59,6 +59,7 @@ export function VamcOperatingStatusAndAlerts({
                             </h3>
                             <h4
                               data-testid={`situation-update-${index + 1}-date`}
+                              className="vads-u-margin-top--1 vads-u-margin-bottom--2"
                             >
                               {format(
                                 toZonedTime(update.dateTime, update.timezone),
@@ -81,7 +82,6 @@ export function VamcOperatingStatusAndAlerts({
                             </h3>
                             <div
                               data-testid={`situation-update-${index + 1}-info`}
-                              className="vads-u-margin-bottom--0"
                               dangerouslySetInnerHTML={{
                                 __html: situationUpdate.info,
                               }}
