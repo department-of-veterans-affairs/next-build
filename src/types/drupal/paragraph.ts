@@ -199,7 +199,7 @@ export interface ParagraphProcessList extends DrupalParagraph {
 
 export interface ParagraphQA extends DrupalParagraph {
   type: 'paragraph--q_a'
-  field_answer: DrupalParagraph[]
+  field_answer: ParagraphTypes[]
   field_question: string
 }
 
