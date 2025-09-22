@@ -69,7 +69,7 @@ describe('VamcSystemBillingAndInsurance formatter', () => {
 
     expect(result.aboveTopOfPageContent).toBeDefined()
     expect(result.aboveTopOfPageContent?.html).toContain(
-      '<h2>Questions about copay balance</h2>'
+      '<h2 id="questions-about-copay-balance">Questions about copay balance</h2>'
     )
     expect(result.aboveTopOfPageContent?.html).toContain(
       'For questions about the copay balance of your VA health care bill'
