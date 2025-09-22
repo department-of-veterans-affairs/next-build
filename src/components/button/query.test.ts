@@ -6,7 +6,7 @@ import { queries } from '@/lib/drupal/queries'
 import { ParagraphButton } from '@/types/drupal/paragraph'
 import mockData from '@/components/button/mock.json'
 
-const buttonMock: ParagraphButton[] = mockData
+const buttonMock = mockData as ParagraphButton[]
 
 describe('paragraph--button formatData', () => {
   test('outputs formatted data', () => {

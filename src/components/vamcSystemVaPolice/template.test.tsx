@@ -5,6 +5,7 @@ import { VamcSystemVaPolice } from './template'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from './formatted-type'
 import { formatter } from './query'
 import { DrupalMenuLinkContent } from 'next-drupal'
+import { NodeVamcSystemVaPolice } from '@/types/drupal/node'
 
 const menuItem: DrupalMenuLinkContent = {
   title: 'Foo',
@@ -31,7 +32,7 @@ const mockMenu = {
 const mockData = formatter({
   // drupalMockData technically has numbers instead of strings
   // for some of the IDs, but this is a known problem.
-  entity: drupalMockData,
+  entity: drupalMockData as NodeVamcSystemVaPolice,
   menu: mockMenu,
 })
 

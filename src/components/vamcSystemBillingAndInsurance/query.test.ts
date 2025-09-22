@@ -8,8 +8,11 @@
 import { formatter } from './query'
 import mockData from './mock.json'
 import mockMenu from './mock.menu.json'
-import mockServices from './mock.services.json'
+import mockVhaServices from './mock.services.json'
 import { Menu } from '@/types/drupal/menu'
+import { NodeVhaFacilityNonclinicalService } from '@/types/drupal/node'
+
+const mockServices = mockVhaServices as NodeVhaFacilityNonclinicalService[]
 
 describe('VamcSystemBillingAndInsurance formatter', () => {
   it('formats basic fields correctly', () => {

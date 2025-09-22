@@ -17,6 +17,6 @@ export const formatter: QueryFormatter<ParagraphAlert, Alert> = (
       'block--alert',
       entity.field_alert_block_reference
     ) as AlertBlock,
-    paragraphs: entity.field_va_paragraphs.map(formatParagraph),
+    paragraphs: entity.field_va_paragraphs.map((paragraph) => formatParagraph(paragraph)),
   }
 }

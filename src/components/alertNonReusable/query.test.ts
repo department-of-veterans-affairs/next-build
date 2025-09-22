@@ -6,7 +6,7 @@ import { ParagraphNonReusableAlert } from '@/types/drupal/paragraph'
 import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '@/components/alertNonReusable/mock'
 
-const AlertNonResuableMock: ParagraphNonReusableAlert = mockResponse
+const AlertNonResuableMock = mockResponse as ParagraphNonReusableAlert
 
 describe('alert non reusable formatData', () => {
   test('outputs formatted data', () => {
