@@ -22,10 +22,10 @@ describe('VamcOperatingStatusAndAlerts with valid data', () => {
       <VamcOperatingStatusAndAlerts {...vamcOperatingStatusAndAlertsData} />
     )
     expect(screen.getByTestId('situation-updates-wrapper')).toBeInTheDocument()
-    expect(screen.getByTestId('situation-update-1-date')).toHaveTextContent(
+    expect(screen.getByTestId('situation-1-update-1-date')).toHaveTextContent(
       'Friday, Sep 19, 2:41 p.m. PDT'
     )
-    expect(screen.getByTestId('situation-update-1-update')).toHaveTextContent(
+    expect(screen.getByTestId('situation-1-update-1-update')).toHaveTextContent(
       'A new update'
     )
     expect(screen.getByTestId('situation-1-info')).toContainHTML(

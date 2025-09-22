@@ -45,20 +45,20 @@ export function VamcOperatingStatusAndAlerts({
                     <h2 id="situation-updates-and-information">
                       Situation updates and information
                     </h2>
-                    {situationUpdates.map((situationUpdate, index) => (
-                      <div key={index}>
-                        {situationUpdate.updates.map((update, index) => (
+                    {situationUpdates.map((situationUpdate, situationIndex) => (
+                      <div key={situationIndex}>
+                        {situationUpdate.updates.map((update, updateIndex) => (
                           <va-card
                             background
-                            key={index}
+                            key={updateIndex}
                             class="vads-u-padding-y--1p5 vads-u-margin-top--1p5"
-                            data-testid={`situation-update-${index + 1}`}
+                            data-testid={`situation-${situationIndex + 1}-update-${updateIndex + 1}`}
                           >
                             <h3 className="vads-u-margin-top--0">
                               Situation update
                             </h3>
                             <h4
-                              data-testid={`situation-update-${index + 1}-date`}
+                              data-testid={`situation-${situationIndex + 1}-update-${updateIndex + 1}-date`}
                               className="vads-u-margin-top--1 vads-u-margin-bottom--2"
                             >
                               {format(
@@ -68,7 +68,7 @@ export function VamcOperatingStatusAndAlerts({
                               )}
                             </h4>
                             <div
-                              data-testid={`situation-update-${index + 1}-update`}
+                              data-testid={`situation-${situationIndex + 1}-update-${updateIndex + 1}-update`}
                               dangerouslySetInnerHTML={{
                                 __html: update.updateText,
                               }}
@@ -81,7 +81,7 @@ export function VamcOperatingStatusAndAlerts({
                               Situation info
                             </h3>
                             <div
-                              data-testid={`situation-${index + 1}-info`}
+                              data-testid={`situation-${situationIndex + 1}-info`}
                               dangerouslySetInnerHTML={{
                                 __html: situationUpdate.info,
                               }}
