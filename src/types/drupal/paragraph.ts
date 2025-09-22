@@ -209,6 +209,7 @@ export interface ParagraphReactWidget extends DrupalParagraph {
 }
 
 export interface ParagraphRichTextCharLimit1000 extends DrupalParagraph {
+  type: 'paragraph--rich_text_char_limit_1000'
   field_wysiwyg: FieldFormattedText
 }
 
@@ -282,5 +283,6 @@ export interface ParagraphTable extends DrupalParagraph {
 }
 
 export interface ParagraphWysiwyg extends DrupalParagraph {
+  type: 'paragraph--wysiwyg'
   field_wysiwyg: FieldFormattedText
 }

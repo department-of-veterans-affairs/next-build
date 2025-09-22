@@ -4,7 +4,8 @@ import {
   FormattedResourceByType,
 } from '@/lib/drupal/queries'
 import { queries, FormattableParagraphResourceType } from '@/lib/drupal/queries'
-import { PublishedParagraph } from '@/types/formatted/publishedEntity'
+import { formatter as formatWysiwig } from '@/components/wysiwyg/query'
+import { GetHtmlFromDrupalContentOptions } from '../utils/getHtmlFromDrupalContent'
 
 /**
  * An abstraction for calling `queries.formatData` that removes
@@ -37,10 +38,15 @@ import { PublishedParagraph } from '@/types/formatted/publishedEntity'
  * @returns
  */
 export const formatParagraph = <T extends FormattableParagraphResourceType>(
-  paragraph: DrupalParagraph
+  paragraph: DrupalParagraph,
+  options?: GetHtmlFromDrupalContentOptions
 ): FormattedResourceByType<T> => {
   if (!paragraph) {
     return null
+  }
+
+  if (paragraph.type === 'paragraph--wysiwyg') {
+    return formatWysiwig(paragraph, options)
   }
 
   try {
