@@ -10,6 +10,7 @@ import {
   numToWord,
   formatDate,
   newlinesToBr,
+  addH2Ids,
 } from './helpers'
 
 describe('truncateWordsOrChar', () => {
@@ -353,5 +354,55 @@ describe('newlinesToBr', () => {
     const input = '\n\n\n'
     const result = newlinesToBr(input)
     expect(result).toBe('<br><br><br>')
+  })
+})
+
+describe('addH2Ids', () => {
+  test('should add ID to H2 element without ID', () => {
+    const input = '<h2>Hello World</h2>'
+    const result = addH2Ids(input)
+    expect(result).toBe('<h2 id="hello-world">Hello World</h2>')
+  })
+
+  test('should not modify H2 element that already has an ID', () => {
+    const input = '<h2 id="existing-id">Hello World</h2>'
+    const result = addH2Ids(input)
+    expect(result).toBe('<h2 id="existing-id">Hello World</h2>')
+  })
+
+  test('should preserve existing attributes when adding ID', () => {
+    const input = '<h2 class="heading" data-test="value">Hello World</h2>'
+    const result = addH2Ids(input)
+    expect(result).toBe('<h2 class="heading" data-test="value" id="hello-world">Hello World</h2>')
+  })
+
+  test('should handle multiple H2 elements', () => {
+    const input = '<h2>First Heading</h2><p>Some content</p><h2>Second Heading</h2>'
+    const result = addH2Ids(input)
+    expect(result).toBe('<h2 id="first-heading">First Heading</h2><p>Some content</p><h2 id="second-heading">Second Heading</h2>')
+  })
+
+  test('should handle H2 with special characters in text', () => {
+    const input = '<h2>Hello & World: A Guide!</h2>'
+    const result = addH2Ids(input)
+    expect(result).toBe('<h2 id="hello-world-a-guide">Hello & World: A Guide!</h2>')
+  })
+
+  test('should handle empty or whitespace-only content', () => {
+    const input = ''
+    const result = addH2Ids(input)
+    expect(result).toBe('')
+  })
+
+  test('should handle content without H2 elements', () => {
+    const input = '<p>No headings here</p><h1>This is H1</h1><h3>This is H3</h3>'
+    const result = addH2Ids(input)
+    expect(result).toBe('<p>No headings here</p><h1>This is H1</h1><h3>This is H3</h3>')
+  })
+
+  test('should handle mixed case H2 tags', () => {
+    const input = '<H2>Mixed Case Tag</H2>'
+    const result = addH2Ids(input)
+    expect(result).toBe('<H2 id="mixed-case-tag">Mixed Case Tag</H2>')
   })
 })
