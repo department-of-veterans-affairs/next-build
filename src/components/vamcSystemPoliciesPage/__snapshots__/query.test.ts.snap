@@ -2,7 +2,11 @@
 
 exports[`VamcSystemPoliciesPage formatData outputs formatted data 1`] = `
 {
-  "bottomOfPageContent": "<h2 id="advance-directives">Advance directives</h2><p>When faced with difficult decisions about health care,&nbsp;you may struggle with the question of "what should be done?" These resources can help you deal with tough decisions about health care and how to plan for it.</p><p><a href="https://www.ethics.va.gov/for_veterans.asp">Health Care Ethics Resources for Veterans, Patients, and Families</a></p><p><a href="/find-forms/about-form-10-0137" data-entity-type="node" data-entity-uuid="9d99f11d-981a-4dc3-b7bf-a8995ed52428" data-entity-substitution="canonical" title="About VA Form 10-0137">VA Form 10-0137 -&nbsp;VA Advance Directive: Durable Power of Attorney for Health Care and Living Will</a></p><p><a href="/find-forms/about-form-10-0137a" data-entity-type="node" data-entity-uuid="3795b66f-f712-49c1-a04c-17d470d224b9" data-entity-substitution="canonical" title="About VA Form 10-0137A">What You Should Know about Advance Directives</a></p><h2 id="report-patient-quality-of-care-concerns">Report patient quality of care concerns</h2><p><a href="https://www.jointcommission.org/en-us/contact-us/report-a-patient-safety-event">Visit the Joint Commission page</a> to report concerns you have about the quality of patient care.</p>",
+  "bottomOfPageContent": {
+    "html": "<h2 id="advance-directives">Advance directives</h2><p>When faced with difficult decisions about health care,&nbsp;you may struggle with the question of "what should be done?" These resources can help you deal with tough decisions about health care and how to plan for it.</p><p><a href="https://www.ethics.va.gov/for_veterans.asp">Health Care Ethics Resources for Veterans, Patients, and Families</a></p><p><a href="/find-forms/about-form-10-0137" data-entity-type="node" data-entity-uuid="9d99f11d-981a-4dc3-b7bf-a8995ed52428" data-entity-substitution="canonical" title="About VA Form 10-0137">VA Form 10-0137 -&nbsp;VA Advance Directive: Durable Power of Attorney for Health Care and Living Will</a></p><p><a href="/find-forms/about-form-10-0137a" data-entity-type="node" data-entity-uuid="3795b66f-f712-49c1-a04c-17d470d224b9" data-entity-substitution="canonical" title="About VA Form 10-0137A">What You Should Know about Advance Directives</a></p><h2 id="report-patient-quality-of-care-concerns">Report patient quality of care concerns</h2><p><a href="https://www.jointcommission.org/en-us/contact-us/report-a-patient-safety-event">Visit the Joint Commission page</a> to report concerns you have about the quality of patient care.</p>",
+    "id": "bdf77955-a825-4931-b9ee-cb0a067cf70d",
+    "type": "paragraph--wysiwyg",
+  },
   "breadcrumbs": [
     {
       "options": [],
@@ -27,9 +31,17 @@ exports[`VamcSystemPoliciesPage formatData outputs formatted data 1`] = `
   ],
   "entityId": 23212,
   "entityPath": "/augusta-health-care/policies",
-  "generalVisitationPolicy": "<h3>VA general visitation policy</h3><p>The medical center respects the patient's right to make decisions about his or her care, treatment and services, and to involve the patient's family in care, treatment, and services decisions to the extent permitted by the patient or surrogate decision-maker.&nbsp;</p><p>"Family" is defined as a group of two or more persons united by blood, or adoptive, marital, domestic partnership, or other legal ties. The family may also be a person or persons not legally related to the individual (such as significant other, friend or caregiver) whom the individual considers to be family. A family member may be the surrogate decision-maker, as defined in VHA Handbook 1004.02, if authorized to make care decisions for the individual, should he or she lose decision-making capacity or choose to delegate decision making to another.&nbsp;</p><p>The medical center allows a family member, friend or other individual to be present with the patient for emotional support during the course of their stay. The medical center allows for the presence of a support individual of the patient's choice, unless the individual's presence infringes on others’ rights or safety, or is medically or therapeutically contraindicated. The individual may or may not be the patient's surrogate decision-maker or legally authorized representative.&nbsp;</p><p>The hospital prohibits discrimination based on age, race, ethnicity, religion, culture, language, physical or mental disability, socioeconomic status, sex, sexual orientation, and gender identity or expression.</p>",
+  "generalVisitationPolicy": {
+    "html": "<h3>VA general visitation policy</h3><p>The medical center respects the patient's right to make decisions about his or her care, treatment and services, and to involve the patient's family in care, treatment, and services decisions to the extent permitted by the patient or surrogate decision-maker.&nbsp;</p><p>"Family" is defined as a group of two or more persons united by blood, or adoptive, marital, domestic partnership, or other legal ties. The family may also be a person or persons not legally related to the individual (such as significant other, friend or caregiver) whom the individual considers to be family. A family member may be the surrogate decision-maker, as defined in VHA Handbook 1004.02, if authorized to make care decisions for the individual, should he or she lose decision-making capacity or choose to delegate decision making to another.&nbsp;</p><p>The medical center allows a family member, friend or other individual to be present with the patient for emotional support during the course of their stay. The medical center allows for the presence of a support individual of the patient's choice, unless the individual's presence infringes on others’ rights or safety, or is medically or therapeutically contraindicated. The individual may or may not be the patient's surrogate decision-maker or legally authorized representative.&nbsp;</p><p>The hospital prohibits discrimination based on age, race, ethnicity, religion, culture, language, physical or mental disability, socioeconomic status, sex, sexual orientation, and gender identity or expression.</p>",
+    "id": "a3034cd5-6350-49ca-9a04-5b9b6c29110b",
+    "type": "paragraph--wysiwyg",
+  },
   "id": "f96d7422-3742-40bc-aa88-c90f509bf511",
-  "introText": "<p>Find VA policies on privacy and patient rights, family rights, visitation, and more.</p>",
+  "introText": {
+    "html": "<p>Find VA policies on privacy and patient rights, family rights, visitation, and more.</p>",
+    "id": "b02cd373-7926-4328-9c9f-a26f4d0ae87c",
+    "type": "paragraph--wysiwyg",
+  },
   "lastUpdated": "2022-09-29T20:06:10+00:00",
   "metatags": [
     {
@@ -115,7 +127,11 @@ exports[`VamcSystemPoliciesPage formatData outputs formatted data 1`] = `
 b.&nbsp;&nbsp; &nbsp;Only visitors without symptoms will be permitted to enter. Visitors who screen positive will not be granted access but will be advised to seek medical care with their healthcare provider.</p>",
   "published": true,
   "title": "Policies",
-  "topOfPageContent": "<h2 id="privacy-and-patient-rights">Privacy and patient rights</h2><p><a href="https://www.va.gov/health/rights/patientrights.asp">Read VA's national privacy and patient rights policies</a></p><h2 id="family-rights">Family rights</h2><p><a href="https://www.va.gov/health/rights/familyrights.asp">Read VA's national family rights policy</a></p><h2 id="visitation-policy">Visitation policy</h2>",
+  "topOfPageContent": {
+    "html": "<h2 id="privacy-and-patient-rights">Privacy and patient rights</h2><p><a href="https://www.va.gov/health/rights/patientrights.asp">Read VA's national privacy and patient rights policies</a></p><h2 id="family-rights">Family rights</h2><p><a href="https://www.va.gov/health/rights/familyrights.asp">Read VA's national family rights policy</a></p><h2 id="visitation-policy">Visitation policy</h2>",
+    "id": "7192f5fb-08dd-4401-a863-c5a09cc7de50",
+    "type": "paragraph--wysiwyg",
+  },
   "type": "node--vamc_system_policies_page",
   "visitationPolicy": "<p>Before visiting a patient at a VA facility, review these guidelines:　</p>
 
