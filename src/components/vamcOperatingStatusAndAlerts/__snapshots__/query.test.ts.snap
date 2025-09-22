@@ -122,7 +122,7 @@ exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
   "published": true,
   "situationUpdates": [
     {
-      "info": null,
+      "info": "<p>this is info</p>",
       "updates": [
         {
           "dateTime": "2025-09-19T21:41:00+00:00",

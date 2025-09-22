@@ -78,6 +78,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
           {
             ...VamcOperatingStatusAndAlertsMock.field_banner_alert[0],
             field_situation_updates: null,
+            field_banner_alert_situationinfo: null,
           },
         ],
       },
