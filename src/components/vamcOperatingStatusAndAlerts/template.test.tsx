@@ -28,7 +28,7 @@ describe('VamcOperatingStatusAndAlerts with valid data', () => {
     expect(screen.getByTestId('situation-update-1-update')).toHaveTextContent(
       'A new update'
     )
-    expect(screen.getByTestId('situation-update-1-info')).toContainHTML(
+    expect(screen.getByTestId('situation-1-info')).toContainHTML(
       '<p>this is info</p>'
     )
   })
