@@ -175,7 +175,182 @@
       "drupal_internal__target_id": 201
     }
   },
-  "field_banner_alert": null,
+  "field_banner_alert": [
+    {
+      "type": "node--full_width_banner_alert",
+      "id": "f3906bfe-5af7-4f8c-85f6-58d84b59f43f",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f?resourceVersion=id%3A797676"
+        }
+      },
+      "drupal_internal__vid": 28045,
+      "drupal_internal__nid": 28045,
+      "default_langcode": true,
+      "sticky": false,
+      "langcode": "en",
+      "status": true,
+      "title": "Alert - Prevent the spread of COVID-19",
+      "created": "2021-07-28T18:20:33+00:00",
+      "changed": "2023-07-26T20:18:17+00:00",
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/vamc-banner-alert/2021-07-28/alert-prevent-the-spread-of-covid-19",
+          "title": "Alert - Prevent The Spread of COVID-19",
+          "options": []
+        }
+      ],
+      "moderation_state": null,
+      "expiration_date": null,
+      "warning_date": null,
+      "path": {
+        "alias": "/vamc-banner-alert/2021-07-28/alert-prevent-the-spread-of-covid-19",
+        "pid": 33928,
+        "langcode": "en"
+      },
+      "field_alert_dismissable": true,
+      "field_alert_email_updates_button": true,
+      "field_alert_find_facilities_cta": false,
+      "field_alert_inheritance_subpages": false,
+      "field_alert_operating_status_cta": true,
+      "field_alert_type": "warning",
+      "field_banner_alert_situationinfo": null,
+      "field_body": null,
+      "field_enforce_unique_combo": null,
+      "field_situation_updates": [
+        {
+          "type": "paragraph--situation_update",
+          "id": "f0e23303-93a2-41cb-8a4a-ee6d9332b44b",
+          "links": {
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/situation_update/f0e23303-93a2-41cb-8a4a-ee6d9332b44b?resourceVersion=id%3A1871494"
+            }
+          },
+          "drupal_internal__id": 182048,
+          "drupal_internal__revision_id": 1871494,
+          "langcode": "en",
+          "status": true,
+          "created": "2025-09-19T21:41:39+00:00",
+          "parent_id": "72057",
+          "parent_type": "node",
+          "parent_field_name": "field_situation_updates",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": "2025-09-19T21:48:29+00:00",
+          "field_datetime_range_timezone": {
+            "value": "2025-09-19T21:41:00+00:00",
+            "end_value": "2025-09-19T22:41:00+00:00",
+            "duration": 60,
+            "rrule": null,
+            "rrule_index": null,
+            "timezone": "America/Los_Angeles"
+          },
+          "field_send_email_to_subscribers": false,
+          "field_wysiwyg": {
+            "value": "<p>A new update</p>",
+            "format": "rich_text",
+            "processed": "<p>A new update</p>"
+          },
+          "attributes": {},
+          "relationships": {
+            "paragraph_type": {
+              "data": {
+                "type": "paragraphs_type--paragraphs_type",
+                "id": "d9c8505a-6bc8-450d-9b62-be333a8bab34",
+                "meta": {
+                  "drupal_internal__target_id": "situation_update"
+                }
+              },
+              "links": {
+                "related": {
+                  "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/situation_update/f0e23303-93a2-41cb-8a4a-ee6d9332b44b/paragraph_type?resourceVersion=id%3A1871494"
+                },
+                "self": {
+                  "href": "https://va-gov-cms.ddev.site/jsonapi/paragraph/situation_update/f0e23303-93a2-41cb-8a4a-ee6d9332b44b/relationships/paragraph_type?resourceVersion=id%3A1871494"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "attributes": {},
+      "relationships": {
+        "node_type": {
+          "data": {
+            "type": "node_type--node_type",
+            "id": "88b5255c-ac5e-4922-8dee-a47b662414ec",
+            "meta": {
+              "drupal_internal__target_id": "full_width_banner_alert"
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f/node_type?resourceVersion=id%3A797676"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f/relationships/node_type?resourceVersion=id%3A797676"
+            }
+          }
+        },
+        "field_administration": {
+          "data": {
+            "type": "taxonomy_term--administration",
+            "id": "761ee5df-20e0-4512-9e99-6fb379fe2cc0",
+            "meta": {
+              "drupal_internal__target_id": 201
+            }
+          },
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f/field_administration?resourceVersion=id%3A797676"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f/relationships/field_administration?resourceVersion=id%3A797676"
+            }
+          }
+        },
+        "field_banner_alert_vamcs": {
+          "data": [
+            {
+              "type": "node--vamc_operating_status_and_alerts",
+              "id": "9167ccca-96f2-4809-b93e-d72414bfbbbf",
+              "meta": {
+                "drupal_internal__target_id": 6834
+              }
+            }
+          ],
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f/field_banner_alert_vamcs?resourceVersion=id%3A797676"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f/relationships/field_banner_alert_vamcs?resourceVersion=id%3A797676"
+            }
+          }
+        },
+        "field_situation_updates": {
+          "data": [],
+          "links": {
+            "related": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f/field_situation_updates?resourceVersion=id%3A797676"
+            },
+            "self": {
+              "href": "https://va-gov-cms.ddev.site/jsonapi/node/full_width_banner_alert/f3906bfe-5af7-4f8c-85f6-58d84b59f43f/relationships/field_situation_updates?resourceVersion=id%3A797676"
+            }
+          }
+        }
+      }
+    }
+  ],
   "field_facility_operating_status": [
     {
       "type": "node--health_care_local_facility",
