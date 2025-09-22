@@ -46,7 +46,9 @@ export const formatParagraph = <T extends FormattableParagraphResourceType>(
   }
 
   if (paragraph.type === 'paragraph--wysiwyg') {
-    return formatWysiwig(paragraph, options)
+    // No idea why TS doesn't think that the return type of this formatter
+    // doesn't fit in the FormattedResourceByType<T> type...
+    return formatWysiwig(paragraph, options) as FormattedResourceByType<T>
   }
 
   try {
