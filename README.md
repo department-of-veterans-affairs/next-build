@@ -24,7 +24,7 @@ You should set these up before attempting to install the repo.
 
 2. Clone the vets-website repo adjacent to next-build in the same parent directory. `git clone git@github.com:department-of-veterans-affairs/vets-website.git`. This is necessary to source some assets used by various FE widgets, like fonts and images.
 
-3. In the `next-build/` directory, `nvm use 22` && `yarn set version stable`
+3. In the `next-build/` directory, `nvm use`
 
 4. Run `yarn install`.
 
@@ -146,5 +146,4 @@ This container can be reached from your localhost (e.g. `redis://localhost:6379`
 - [Code Guidelines](READMEs/code-guidelines.md)
 - [Testing](READMEs/testing.md)
 - [TypeScript](READMEs/typescript.md)
-- [Example Tests](example_tests/README.md)
 - [Working with other repos](READMEs/next-build-and-other-repos.md)

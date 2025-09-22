@@ -887,6 +887,54 @@ const mockData: VamcSystemBillingAndInsurance = {
       phoneNumber: '502-287-4000',
     },
   ],
+  officeHours: [
+    {
+      day: 1,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+    {
+      day: 2,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+    {
+      day: 3,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+    {
+      day: 4,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+    {
+      day: 5,
+      all_day: false,
+      starthours: 800,
+      endhours: 1600,
+      comment: '',
+    },
+  ],
+  phoneNumber: {
+    type: 'paragraph--phone_number',
+    id: '352d2d33-01ea-4c60-9ceb-775e263f1b17',
+    entityId: 169703,
+    label: null,
+    number: '866-601-6286',
+    extension: null,
+    phoneType: 'phone',
+  },
+  lovellVariant: null,
+  lovellSwitchPath: null,
 }
 
 export default mockData
