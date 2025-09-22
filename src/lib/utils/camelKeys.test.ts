@@ -36,7 +36,7 @@ test('camelKeys() called with a function returns the function', () => {
 
 test('camelKeys() called with an array of strings returns the array', () => {
   const arr = Array(5)
-    .fill()
+    .fill(null)
     .map(() => faker.lorem.sentence())
   expect(camelKeys(arr)).toStrictEqual(arr)
 })
