@@ -39,7 +39,10 @@ export function VamcOperatingStatusAndAlerts({
 
                 <div>TODO: add fieldSituationUpdates</div>
                 {situationUpdates && (
-                  <section id="situation-updates">
+                  <section
+                    id="situation-updates"
+                    data-testid="situation-updates-wrapper"
+                  >
                     <h2 id="situation-updates-and-information">
                       Situation updates and information
                     </h2>
@@ -50,11 +53,14 @@ export function VamcOperatingStatusAndAlerts({
                             background
                             key={index}
                             class="vads-u-padding-y--1p5 vads-u-margin-top--1p5"
+                            data-testid={`situation-update-${index + 1}`}
                           >
                             <h3 className="vads-u-margin-top--0">
                               Situation update
                             </h3>
-                            <h4>
+                            <h4
+                              data-testid={`situation-update-${index + 1}-date`}
+                            >
                               {format(
                                 toZonedTime(update.dateTime, update.timezone),
                                 'EEEE, MMM d, h:mm aaaa zzz',
@@ -62,6 +68,7 @@ export function VamcOperatingStatusAndAlerts({
                               )}
                             </h4>
                             <div
+                              data-testid={`situation-update-${index + 1}-update`}
                               dangerouslySetInnerHTML={{
                                 __html: update.updateText,
                               }}
@@ -74,6 +81,7 @@ export function VamcOperatingStatusAndAlerts({
                               Situation info
                             </h3>
                             <div
+                              data-testid={`situation-update-${index + 1}-info`}
                               className="vads-u-margin-bottom--0"
                               dangerouslySetInnerHTML={{
                                 __html: situationUpdate.info,

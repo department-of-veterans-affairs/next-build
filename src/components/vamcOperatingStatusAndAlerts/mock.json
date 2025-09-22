@@ -219,7 +219,7 @@
       "field_alert_inheritance_subpages": false,
       "field_alert_operating_status_cta": true,
       "field_alert_type": "warning",
-      "field_banner_alert_situationinfo": null,
+      "field_banner_alert_situationinfo": "<p>this is info</p>",
       "field_body": null,
       "field_enforce_unique_combo": null,
       "field_situation_updates": [
