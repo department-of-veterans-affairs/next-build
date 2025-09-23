@@ -58,7 +58,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         summary: null,
         parentField: 'field_related_information',
         componentParams: {
-          boldTitle: false,
           sectionHeader: '',
         },
       },
@@ -71,7 +70,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         summary: null,
         parentField: 'field_related_information',
         componentParams: {
-          boldTitle: false,
           sectionHeader: '',
         },
       },
@@ -84,7 +82,6 @@ describe('<QuestionAnswerData> component renders with data', () => {
         summary: null,
         parentField: 'field_related_information',
         componentParams: {
-          boldTitle: false,
           sectionHeader: '',
         },
       },
