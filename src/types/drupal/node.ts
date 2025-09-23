@@ -216,7 +216,7 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_operating_status: FieldLink
   field_other_va_locations: string
   field_intro_text: string
-  field_clinical_health_services: NodeHealthCareLocalHealthService[]
+  field_clinical_health_services: NodeRegionalHealthCareServiceDes[]
   field_twitter: FieldLink
   field_va_health_connect_phone: string
   field_vamc_system_official_name: string
@@ -592,9 +592,11 @@ export interface NodeVetCenterOutstation
 }
 
 export interface NodeVamcHealthServicesListing extends DrupalNode {
+  field_office: NodeHealthCareRegionPage
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]
+  field_administration: FieldAdministration
   breadcrumbs: BreadcrumbItem[]
 }
 
