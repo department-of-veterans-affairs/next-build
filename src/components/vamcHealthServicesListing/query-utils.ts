@@ -79,7 +79,7 @@ export function formatHealthService(
 ): HealthService | null {
   const taxonomy = service.field_service_name_and_descripti
   if (!taxonomy) {
-    // Sometimes these are null, and I think it means it was archived. - PW
+    // If this is null, it means it was archived
     return null
   }
 
