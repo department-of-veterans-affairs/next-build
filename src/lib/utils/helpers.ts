@@ -171,15 +171,22 @@ export const addH2Ids = (content: string): string => {
   if (!content) return content
 
   return content.replace(
-    /(<h2)(?![^>]*\sid=)([^>]*>)([^<]+)(<\/h2>)/gi,
-    (match, openTag, attributes, headingText, closeTag) => {
-      // Generate kebab-case ID from heading text
-      const id = slugifyString(headingText.trim())
+    /(<h2)(?![^>]*\sid=)([^>]*>)(.*?)(<\/h2>)/gi,
+    (match, openTag, attributes, headingContent, closeTag) => {
+      // Extract text content from the heading, removing HTML tags and entities
+      const textContent = headingContent
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(/&\w+;/g, ' ') // Replace HTML entities with spaces
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim()
+
+      // Generate kebab-case ID from text content
+      const id = slugifyString(textContent)
 
       if (!id) return match // Return original if we can't generate an ID
 
       // Construct the new h2 tag with the ID, preserving original case and structure
-      return `${openTag}${attributes.replace('>', ` id="${id}">`)}${headingText}${closeTag}`
+      return `${openTag}${attributes.replace('>', ` id="${id}">`)}${headingContent}${closeTag}`
     }
   )
 }
