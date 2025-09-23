@@ -31,7 +31,6 @@ export const params: QueryParams<null> = () => {
       'field_office.field_clinical_health_services.field_service_name_and_descripti',
       'field_office.field_clinical_health_services.field_local_health_care_service_',
       'field_office.field_clinical_health_services.field_local_health_care_service_.field_facility_location',
-      'field_office.field_system_menu',
       'field_featured_content_healthser',
     ])
     // .addFields('node--health_care_region_page', [

@@ -1,5 +1,4 @@
-[
-  {
+{
     "type": "node--health_services_listing",
     "id": "86576faa-1cdd-43a7-8abf-5cab98d7c388",
     "drupal_internal__nid": 18495,
@@ -39,106 +38,7 @@
     "moderation_state": "published",
     "expiration_date": null,
     "warning_date": null,
-    "metatag": [
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "title",
-          "content": "Health services | VA North Texas health care | Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "description",
-          "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service."
-        }
-      },
-      {
-        "tag": "link",
-        "attributes": {
-          "rel": "image_src",
-          "href": "https://www.va.gov/img/design/logo/va-og-image.png"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:site_name",
-          "content": "Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:title",
-          "content": "Health services | VA North Texas health care | Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:description",
-          "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service."
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:image",
-          "content": "https://www.va.gov/img/design/logo/va-og-image.png"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:image:alt",
-          "content": "U.S. Department of Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:card",
-          "content": "summary_large_image"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:title",
-          "content": "Health services | VA North Texas health care | Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:description",
-          "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service."
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:site",
-          "content": "@DeptVetAffairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:image:alt",
-          "content": "U.S. Department of Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:image",
-          "content": "https://www.va.gov/img/design/logo/va-og-image.png"
-        }
-      }
-    ],
+    "metatag": [],
     "path": {
       "alias": "/north-texas-health-care/health-services",
       "pid": 22706,
@@ -179,10 +79,77 @@
     },
     "field_administration": {
       "type": "taxonomy_term--administration",
-      "id": "33af76cc-fe8f-467b-bde0-c294e5326592",
+      "id": "cc16b17f-593f-4cf7-abfe-4da5375af48c",
+      "drupal_internal__tid": 366,
+      "drupal_internal__revision_id": 2415,
+      "langcode": "en",
+      "revision_created": "2024-08-13T20:05:29+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "VA Texas Valley health care",
+      "description": null,
+      "weight": 5,
+      "changed": "2024-08-13T20:05:29+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [],
+      "moderation_state": null,
+      "metatag": [],
+      "path": {
+        "alias": "/section/vha/vamc-facilities/va-texas-valley-health-care",
+        "pid": 17288,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "field_description": null,
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/cc16b17f-593f-4cf7-abfe-4da5375af48c?resourceVersion=id%3A2415"
+        }
+      },
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 364
-      }
+        "drupal_internal__target_id": 366
+      },
+      "vid": {
+        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        "id": "645055c5-e567-4683-b6db-459ce04522ce",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "administration"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4942
+        }
+      },
+      "parent": [
+        {
+          "type": "taxonomy_term--administration",
+          "id": "595532fa-2412-40f7-88ab-107fd9fa8ebb",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 173
+          }
+        }
+      ],
+      "content_translation_uid": null,
+      "field_product": {
+        "type": "taxonomy_term--products",
+        "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 284
+        }
+      },
+      "relationshipNames": [
+        "vid",
+        "revision_user",
+        "parent",
+        "content_translation_uid",
+        "field_product"
+      ]
     },
     "field_featured_content_healthser": [
       {
@@ -286,4 +253,3 @@
       "field_office"
     ]
   }
-]
