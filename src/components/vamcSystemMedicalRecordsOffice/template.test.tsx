@@ -24,9 +24,6 @@ describe('VamcSystemMedicalRecordsOffice', () => {
 
   test('adds the sideNav to window.sideNav', () => {
     render(<VamcSystemMedicalRecordsOffice {...mockData} />)
-
-    // @ts-expect-error - window.sideNav is not a default window property, but
-    // we're adding it
     expect(window.sideNav).toEqual(mockData.menu)
   })
 

@@ -14,8 +14,8 @@ import { VamcSystemMedicalRecordsOfficeData } from './query'
 
 const defaultData: VamcSystemMedicalRecordsOfficeData = {
   entity: mockData,
-  // @ts-expect-error - the `options` type of this real data is not compatible with
-  // that of the `DrupalMenuLinkContent` definition from `next-drupal`
+  // @ts-expect-error - the `options` type of this real data is not compatible with that
+  // of the `DrupalMenuLinkContent` definition from `next-drupal`
   menu: mockMenu as Menu,
   services: mockServices,
 }
