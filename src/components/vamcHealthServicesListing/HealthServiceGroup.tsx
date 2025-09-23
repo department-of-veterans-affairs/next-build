@@ -1,3 +1,4 @@
+import { hashReference } from '@/lib/utils/hashReference'
 import { HealthServiceGroup as HealthServiceGroupType } from './formatted-type'
 import { HealthServiceAccordionItem } from './HealthServiceAccordionItem'
 
@@ -11,7 +12,7 @@ export const HealthServiceGroup = ({
   systemTitle,
 }: HealthServiceGroupProps) => (
   <section data-label={group.typeOfCare}>
-    <h2>{group.typeOfCare}</h2>
+    <h2 id={hashReference(group.typeOfCare)}>{group.typeOfCare}</h2>
     <p>Select a topic to learn more.</p>
     <div className="service-accordion-output">
       <va-accordion bordered uswds="true">
