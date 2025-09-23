@@ -7,6 +7,7 @@ import {
   FieldLink,
   FieldOfficeHours,
   FieldTable,
+  FieldDateTimeRange,
 } from './field_type'
 import { DrupalMediaImage } from './media'
 import { NodeLandingPage, NodePersonProfile, NodeSupportService } from './node'
@@ -40,6 +41,7 @@ export type ParagraphTypes =
   | ParagraphRichTextCharLimit1000
   | ParagraphServiceLocation
   | ParagraphServiceLocationAddress
+  | ParagraphSituationUpdate
   | ParagraphStaffProfile
   | ParagraphStep
   | ParagraphStepByStep
@@ -283,4 +285,10 @@ export interface ParagraphTable extends DrupalParagraph {
 
 export interface ParagraphWysiwyg extends DrupalParagraph {
   field_wysiwyg: FieldFormattedText
+}
+
+export interface ParagraphSituationUpdate extends DrupalParagraph {
+  field_datetime_range_timezone: FieldDateTimeRange
+  field_wysiwyg: FieldFormattedText
+  field_send_email_to_subscribers: boolean
 }
