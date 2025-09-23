@@ -5,24 +5,26 @@ import { FieldFormattedText } from '@/types/drupal/field_type'
  * Creates a minimal mock NodeRegionalHealthCareServiceDes object for unit testing.
  * Only includes the fields that are actually used by formatHealthService.
  */
-export function createMockServiceDes(overrides: {
-  id?: string
-  title?: string
-  typeOfCare?: string
-  alsoKnownAs?: string
-  commonlyTreatedCondition?: string
-  description?: string
-  tricareDescription?: string
-  bodyContent?: string
-  locations?: Array<{
-    id: string
-    title: string
-    path: string
-    isMainLocation?: boolean
-    facilityClassification?: string
-    isMobile?: boolean
-  }>
-} = {}): NodeRegionalHealthCareServiceDes {
+export function createMockServiceDes(
+  overrides: {
+    id?: string
+    title?: string
+    typeOfCare?: string
+    alsoKnownAs?: string
+    commonlyTreatedCondition?: string
+    description?: string
+    tricareDescription?: string
+    bodyContent?: string
+    locations?: Array<{
+      id: string
+      title: string
+      path: string
+      isMainLocation?: boolean
+      facilityClassification?: string
+      isMobile?: boolean
+    }>
+  } = {}
+): NodeRegionalHealthCareServiceDes {
   const {
     id = '12345',
     title = 'Test Health Service',
@@ -32,19 +34,19 @@ export function createMockServiceDes(overrides: {
     description = 'Test service description',
     tricareDescription = 'Test Tricare description',
     bodyContent = '<p>Test body content</p>',
-    locations = []
+    locations = [],
   } = overrides
 
   const mockDescription: FieldFormattedText = {
     value: description,
     format: 'rich_text',
-    processed: description
+    processed: description,
   }
 
   const mockBody: FieldFormattedText = {
     value: bodyContent,
     format: 'rich_text_limited',
-    processed: bodyContent
+    processed: bodyContent,
   }
 
   return {
@@ -70,7 +72,7 @@ export function createMockServiceDes(overrides: {
     path: {
       alias: `/test-service-${id}`,
       pid: 1,
-      langcode: 'en'
+      langcode: 'en',
     },
     content_translation_source: 'und',
     content_translation_outdated: false,
@@ -79,32 +81,32 @@ export function createMockServiceDes(overrides: {
     field_last_saved_by_an_editor: '2024-01-01T00:00:00+00:00',
     links: {
       self: {
-        href: `https://example.com/jsonapi/node/regional_health_care_service_des/test-${id}`
-      }
+        href: `https://example.com/jsonapi/node/regional_health_care_service_des/test-${id}`,
+      },
     },
     resourceIdObjMeta: {
-      drupal_internal__target_id: parseInt(id)
+      drupal_internal__target_id: parseInt(id),
     },
     node_type: {
       type: 'node_type--node_type',
       id: 'test-node-type',
       resourceIdObjMeta: {
-        drupal_internal__target_id: 'regional_health_care_service_des'
-      }
+        drupal_internal__target_id: 'regional_health_care_service_des',
+      },
     },
     revision_uid: {
       type: 'user--user',
       id: 'test-user',
       resourceIdObjMeta: {
-        drupal_internal__target_id: 1
-      }
+        drupal_internal__target_id: 1,
+      },
     },
     uid: {
       type: 'user--user',
       id: 'test-user',
       resourceIdObjMeta: {
-        drupal_internal__target_id: 1
-      }
+        drupal_internal__target_id: 1,
+      },
     },
     field_local_health_care_service_: locations.map((location, index) => ({
       type: 'node--health_care_local_health_service',
@@ -129,7 +131,7 @@ export function createMockServiceDes(overrides: {
       path: {
         alias: location.path,
         pid: 1,
-        langcode: 'en'
+        langcode: 'en',
       },
       content_translation_source: 'und',
       content_translation_outdated: false,
@@ -145,32 +147,32 @@ export function createMockServiceDes(overrides: {
       field_hservices_lead_in_default: null,
       links: {
         self: {
-          href: `https://example.com/jsonapi/node/health_care_local_health_service/local-${location.id}`
-        }
+          href: `https://example.com/jsonapi/node/health_care_local_health_service/local-${location.id}`,
+        },
       },
       resourceIdObjMeta: {
-        drupal_internal__target_id: parseInt(location.id)
+        drupal_internal__target_id: parseInt(location.id),
       },
       node_type: {
         type: 'node_type--node_type',
         id: 'test-local-service-type',
         resourceIdObjMeta: {
-          drupal_internal__target_id: 'health_care_local_health_service'
-        }
+          drupal_internal__target_id: 'health_care_local_health_service',
+        },
       },
       revision_uid: {
         type: 'user--user',
         id: 'test-user',
         resourceIdObjMeta: {
-          drupal_internal__target_id: 1
-        }
+          drupal_internal__target_id: 1,
+        },
       },
       uid: {
         type: 'user--user',
         id: 'test-user',
         resourceIdObjMeta: {
-          drupal_internal__target_id: 1
-        }
+          drupal_internal__target_id: 1,
+        },
       },
       field_administration: {
         type: 'taxonomy_term--administration',
@@ -192,7 +194,7 @@ export function createMockServiceDes(overrides: {
         path: {
           alias: '/test-admin',
           pid: 1,
-          langcode: 'en'
+          langcode: 'en',
         },
         content_translation_source: 'und',
         content_translation_outdated: false,
@@ -200,25 +202,25 @@ export function createMockServiceDes(overrides: {
         field_description: null,
         links: {
           self: {
-            href: 'https://example.com/jsonapi/taxonomy_term/administration/test-admin'
-          }
+            href: 'https://example.com/jsonapi/taxonomy_term/administration/test-admin',
+          },
         },
         resourceIdObjMeta: {
-          drupal_internal__target_id: 1
+          drupal_internal__target_id: 1,
         },
         vid: {
           type: 'taxonomy_vocabulary--taxonomy_vocabulary',
           id: 'test-vocab',
           resourceIdObjMeta: {
-            drupal_internal__target_id: 'administration'
-          }
+            drupal_internal__target_id: 'administration',
+          },
         },
         revision_user: {
           type: 'user--user',
           id: 'test-user',
           resourceIdObjMeta: {
-            drupal_internal__target_id: 1
-          }
+            drupal_internal__target_id: 1,
+          },
         },
         parent: [],
         content_translation_uid: null,
@@ -226,16 +228,31 @@ export function createMockServiceDes(overrides: {
           type: 'taxonomy_term--products',
           id: 'test-product',
           resourceIdObjMeta: {
-            drupal_internal__target_id: 1
-          }
+            drupal_internal__target_id: 1,
+          },
         },
-        relationshipNames: ['vid', 'revision_user', 'parent', 'content_translation_uid', 'field_product']
+        relationshipNames: [
+          'vid',
+          'revision_user',
+          'parent',
+          'content_translation_uid',
+          'field_product',
+        ],
       },
       field_facility_location: null,
       field_phone_numbers_paragraph: [],
       field_regional_health_service: null,
       field_service_location: [],
-      relationshipNames: ['node_type', 'revision_uid', 'uid', 'field_administration', 'field_facility_location', 'field_phone_numbers_paragraph', 'field_regional_health_service', 'field_service_location']
+      relationshipNames: [
+        'node_type',
+        'revision_uid',
+        'uid',
+        'field_administration',
+        'field_facility_location',
+        'field_phone_numbers_paragraph',
+        'field_regional_health_service',
+        'field_service_location',
+      ],
     })),
     field_region_page: null,
     field_other_categories: [],
@@ -245,7 +262,7 @@ export function createMockServiceDes(overrides: {
     field_intro_text_limited_html: {
       value: '',
       format: 'rich_text',
-      processed: ''
+      processed: '',
     },
     field_primary_category: null,
     field_related_information: [],
@@ -271,7 +288,7 @@ export function createMockServiceDes(overrides: {
       path: {
         alias: `/health-care/${title.toLowerCase().replace(/\s+/g, '-')}`,
         pid: 1,
-        langcode: 'en'
+        langcode: 'en',
       },
       content_translation_source: 'und',
       content_translation_outdated: false,
@@ -303,25 +320,25 @@ export function createMockServiceDes(overrides: {
       field_vha_healthservice_stopcode: null,
       links: {
         self: {
-          href: `https://example.com/jsonapi/taxonomy_term/health_care_service_taxonomy/taxonomy-${id}`
-        }
+          href: `https://example.com/jsonapi/taxonomy_term/health_care_service_taxonomy/taxonomy-${id}`,
+        },
       },
       resourceIdObjMeta: {
-        drupal_internal__target_id: parseInt(id)
+        drupal_internal__target_id: parseInt(id),
       },
       vid: {
         type: 'taxonomy_vocabulary--taxonomy_vocabulary',
         id: 'test-vocab',
         resourceIdObjMeta: {
-          drupal_internal__target_id: 'health_care_service_taxonomy'
-        }
+          drupal_internal__target_id: 'health_care_service_taxonomy',
+        },
       },
       revision_user: {
         type: 'user--user',
         id: 'test-user',
         resourceIdObjMeta: {
-          drupal_internal__target_id: 1
-        }
+          drupal_internal__target_id: 1,
+        },
       },
       parent: [],
       content_translation_uid: null,
@@ -329,13 +346,27 @@ export function createMockServiceDes(overrides: {
         type: 'taxonomy_term--administration',
         id: 'test-admin',
         resourceIdObjMeta: {
-          drupal_internal__target_id: 1
-        }
+          drupal_internal__target_id: 1,
+        },
       },
       field_vba_service_regions: [],
-      relationshipNames: ['vid', 'revision_user', 'parent', 'content_translation_uid', 'field_owner', 'field_vba_service_regions']
+      relationshipNames: [
+        'vid',
+        'revision_user',
+        'parent',
+        'content_translation_uid',
+        'field_owner',
+        'field_vba_service_regions',
+      ],
     },
-    relationshipNames: ['node_type', 'revision_uid', 'uid', 'field_local_health_care_service_', 'field_region_page', 'field_service_name_and_descripti']
+    relationshipNames: [
+      'node_type',
+      'revision_uid',
+      'uid',
+      'field_local_health_care_service_',
+      'field_region_page',
+      'field_service_name_and_descripti',
+    ],
   }
 }
 
@@ -348,31 +379,31 @@ export function createMockServicesForGrouping(): NodeRegionalHealthCareServiceDe
       id: '1',
       title: 'Primary Care Service',
       typeOfCare: 'Primary care',
-      description: 'Primary care description'
+      description: 'Primary care description',
     }),
     createMockServiceDes({
       id: '2',
       title: 'Mental Health Service',
       typeOfCare: 'Mental health care',
-      description: 'Mental health description'
+      description: 'Mental health description',
     }),
     createMockServiceDes({
       id: '3',
       title: 'Specialty Service',
       typeOfCare: 'Specialty care',
-      description: 'Specialty care description'
+      description: 'Specialty care description',
     }),
     createMockServiceDes({
       id: '4',
       title: 'Social Service',
       typeOfCare: 'Social programs and services',
-      description: 'Social service description'
+      description: 'Social service description',
     }),
     createMockServiceDes({
       id: '5',
       title: 'Other Service',
       typeOfCare: 'Other services',
-      description: 'Other service description'
-    })
+      description: 'Other service description',
+    }),
   ]
 }

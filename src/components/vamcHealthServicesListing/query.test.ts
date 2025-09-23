@@ -2,13 +2,19 @@
  * @jest-environment node
  */
 
-import { NodeVamcHealthServicesListing, NodeHealthCareRegionPage } from '@/types/drupal/node'
+import {
+  NodeVamcHealthServicesListing,
+  NodeHealthCareRegionPage,
+} from '@/types/drupal/node'
 import { formatter, params } from './query'
 import { queries } from '@/lib/drupal/queries'
 import mockServicesListingPartial from './mock.json'
 import mockSystem from '@/components/vamcSystem/mock.json'
 import { DrupalMenuLinkContent } from 'next-drupal'
-import { createMockServiceDes, createMockServicesForGrouping } from './mockServiceDes'
+import {
+  createMockServiceDes,
+  createMockServicesForGrouping,
+} from './mockServiceDes'
 
 // Use type assertion to bypass strict type checking for test data
 const mockServicesListing: NodeVamcHealthServicesListing = {
@@ -125,12 +131,16 @@ describe('VamcHealthServicesListing formatData', () => {
     expect(result.healthServiceGroups).toHaveLength(5) // 5 different types of care
 
     // Check that services are grouped correctly
-    const primaryCareGroup = result.healthServiceGroups.find(group => group.typeOfCare === 'Primary care')
+    const primaryCareGroup = result.healthServiceGroups.find(
+      (group) => group.typeOfCare === 'Primary care'
+    )
     expect(primaryCareGroup).toBeDefined()
     expect(primaryCareGroup?.services).toHaveLength(1)
     expect(primaryCareGroup?.services[0].title).toBe('Primary Care Service')
 
-    const mentalHealthGroup = result.healthServiceGroups.find(group => group.typeOfCare === 'Mental health care')
+    const mentalHealthGroup = result.healthServiceGroups.find(
+      (group) => group.typeOfCare === 'Mental health care'
+    )
     expect(mentalHealthGroup).toBeDefined()
     expect(mentalHealthGroup?.services).toHaveLength(1)
     expect(mentalHealthGroup?.services[0].title).toBe('Mental Health Service')

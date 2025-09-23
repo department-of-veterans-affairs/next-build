@@ -23,26 +23,28 @@ import { formatHealthService, groupHealthServicesByType } from './query-utils'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-    .addInclude([
-      'field_administration',
-      'field_office',
-      'field_office.field_clinical_health_services',
-      'field_office.field_clinical_health_services.field_service_name_and_descripti',
-      'field_office.field_clinical_health_services.field_local_health_care_service_',
-      'field_office.field_clinical_health_services.field_local_health_care_service_.field_facility_location',
-      'field_featured_content_healthser',
-    ])
-    // .addFields('node--health_care_region_page', [
-    //   'field_vamc_ehr_system',
-    //   'field_system_menu',
-    //   // 'field_clinical_health_services',
-    //   // 'field_clinical_health_services.field_service_name_and_descripti',
-    // ])
-    // .addFields('node--regional_health_care_service_des', [
-    //   'field_service_name_and_descripti',
-    // ])
-    .addFields('paragraph--link_teaser', ['field_link', 'field_link_summary'])
+  return (
+    new DrupalJsonApiParams()
+      .addInclude([
+        'field_administration',
+        'field_office',
+        'field_office.field_clinical_health_services',
+        'field_office.field_clinical_health_services.field_service_name_and_descripti',
+        'field_office.field_clinical_health_services.field_local_health_care_service_',
+        'field_office.field_clinical_health_services.field_local_health_care_service_.field_facility_location',
+        'field_featured_content_healthser',
+      ])
+      // .addFields('node--health_care_region_page', [
+      //   'field_vamc_ehr_system',
+      //   'field_system_menu',
+      //   // 'field_clinical_health_services',
+      //   // 'field_clinical_health_services.field_service_name_and_descripti',
+      // ])
+      // .addFields('node--regional_health_care_service_des', [
+      //   'field_service_name_and_descripti',
+      // ])
+      .addFields('paragraph--link_teaser', ['field_link', 'field_link_summary'])
+  )
 }
 
 // Define the option types for the data loader.
@@ -95,11 +97,14 @@ export const formatter: QueryFormatter<
       ? buildSideNavDataFromMenu(entity.path?.alias || '', menu)
       : null
 
+  const administration = formatAdministration(entity.field_administration)
+
   // Process health services - these come from the reverse relationship
   // In the GraphQL query, this is reverseFieldRegionPageNode
-  const healthServices = entity.field_office.field_clinical_health_services
-    ?.map((service) => formatHealthService(service, entity.field_administration))
-    .filter((service): service is HealthService => service !== null) || []
+  const healthServices =
+    entity.field_office.field_clinical_health_services
+      ?.map((service) => formatHealthService(service, administration))
+      .filter((service): service is HealthService => service !== null) || []
 
   const healthServiceGroups = groupHealthServicesByType(healthServices)
 
@@ -116,7 +121,7 @@ export const formatter: QueryFormatter<
       : null,
     breadcrumbs,
     path: entity.path?.alias || null,
-    administration: formatAdministration(entity.field_administration),
+    administration,
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
     menu: formattedMenu,
     featuredContent:

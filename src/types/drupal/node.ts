@@ -592,7 +592,14 @@ export interface NodeVetCenterOutstation
 }
 
 export interface NodeVamcHealthServicesListing extends DrupalNode {
-  field_office: Pick<NodeHealthCareRegionPage, 'id' | 'title' | 'field_system_menu' | 'field_clinical_health_services' | 'field_vamc_ehr_system'>
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    | 'id'
+    | 'title'
+    | 'field_system_menu'
+    | 'field_clinical_health_services'
+    | 'field_vamc_ehr_system'
+  >
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]

@@ -9,24 +9,27 @@ import {
 } from './formatted-type'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { Administration } from '@/components/administration/formatted-type'
 
 const formatHealthServiceLocations = (
   localHealthCareServices: NodeHealthCareLocalHealthService[]
 ): HealthServiceLocation[] => {
-  return localHealthCareServices
-    .filter((service) => service.status && service.field_facility_location)
-    .map((service) => ({
-      id: service.drupal_internal__nid?.toString() || '',
-      title: service.field_facility_location.title || '',
-      path: service.field_facility_location.path.alias || '',
-      isMainLocation:
-        service.field_facility_location.field_main_location || false,
-      facilityClassification:
-        service.field_facility_location.field_facility_classification || '',
-      isMobile: service.field_facility_location.field_mobile || false,
-    }))
-    // Use the more sophisticated sorting logic from the original Liquid filter
-    .sort(sortServiceLocations)
+  return (
+    localHealthCareServices
+      .filter((service) => service.status && service.field_facility_location)
+      .map((service) => ({
+        id: service.drupal_internal__nid?.toString() || '',
+        title: service.field_facility_location.title || '',
+        path: service.field_facility_location.path.alias || '',
+        isMainLocation:
+          service.field_facility_location.field_main_location || false,
+        facilityClassification:
+          service.field_facility_location.field_facility_classification || '',
+        isMobile: service.field_facility_location.field_mobile || false,
+      }))
+      // Use the more sophisticated sorting logic from the original Liquid filter
+      .sort(sortServiceLocations)
+  )
 }
 
 /**
@@ -36,12 +39,18 @@ const formatHealthServiceLocations = (
  * 3. CLCs and DOMs (Community Living Centers and Domiciliary Residential Rehabilitation Treatment Programs)
  * 4. Mobile clinics last
  */
-export function sortServiceLocations(a: HealthServiceLocation, b: HealthServiceLocation): number {
+export function sortServiceLocations(
+  a: HealthServiceLocation,
+  b: HealthServiceLocation
+): number {
   // Helper function to get the sort priority for a location
   const getSortPriority = (location: HealthServiceLocation): number => {
     if (location.isMainLocation) return 1 // Main clinics first
     if (location.isMobile) return 4 // Mobile clinics last
-    if (location.facilityClassification === '7' || location.facilityClassification === '8') {
+    if (
+      location.facilityClassification === '7' ||
+      location.facilityClassification === '8'
+    ) {
       return 3 // CLCs and DOMs
     }
     return 2 // Regular clinics
@@ -61,7 +70,7 @@ export function sortServiceLocations(a: HealthServiceLocation, b: HealthServiceL
 
 export function formatHealthService(
   service: NodeRegionalHealthCareServiceDes,
-  administration: any
+  administration: Administration
 ): HealthService | null {
   const taxonomy = service.field_service_name_and_descripti
   if (!taxonomy) {
@@ -73,7 +82,8 @@ export function formatHealthService(
     service.field_local_health_care_service_ || []
   )
 
-  const isLovellTricare = administration?.entityId === LOVELL.tricare.administration.entityId
+  const isLovellTricare =
+    administration?.entityId === LOVELL.tricare.administration.entityId
   const descriptionHtml =
     isLovellTricare && taxonomy.field_tricare_description
       ? taxonomy.field_tricare_description
@@ -83,8 +93,7 @@ export function formatHealthService(
     id: service.drupal_internal__nid?.toString() || '',
     title: taxonomy.name || '',
     alsoKnownAs: taxonomy.field_also_known_as || null,
-    commonlyTreatedCondition:
-      taxonomy.field_commonly_treated_condition || null,
+    commonlyTreatedCondition: taxonomy.field_commonly_treated_condition || null,
     descriptionHtml,
     bodyHtml: getHtmlFromField(service.field_body),
     typeOfCare: taxonomy.field_service_type_of_care || '',

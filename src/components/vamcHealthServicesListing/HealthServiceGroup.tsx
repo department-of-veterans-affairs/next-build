@@ -6,23 +6,23 @@ interface HealthServiceGroupProps {
   systemTitle: string
 }
 
-export const HealthServiceGroup = ({ 
+export const HealthServiceGroup = ({
   group,
-  systemTitle
+  systemTitle,
 }: HealthServiceGroupProps) => (
-    <section data-label={group.typeOfCare}>
-      <h2>{group.typeOfCare}</h2>
-      <p>Select a topic to learn more.</p>
-      <div className="service-accordion-output">
-        <va-accordion bordered uswds="true">
-          {group.services.map((service) => (
-            <HealthServiceAccordionItem
-              key={service.id}
-              service={service}
-              systemTitle={systemTitle}
-            />
-          ))}
-        </va-accordion>
-      </div>
-    </section>
-  )
+  <section data-label={group.typeOfCare}>
+    <h2>{group.typeOfCare}</h2>
+    <p>Select a topic to learn more.</p>
+    <div className="service-accordion-output">
+      <va-accordion bordered uswds="true">
+        {group.services.map((service) => (
+          <HealthServiceAccordionItem
+            key={service.id}
+            service={service}
+            systemTitle={systemTitle}
+          />
+        ))}
+      </va-accordion>
+    </div>
+  </section>
+)

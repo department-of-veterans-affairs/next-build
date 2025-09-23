@@ -1,255 +1,255 @@
 {
-    "type": "node--health_services_listing",
-    "id": "86576faa-1cdd-43a7-8abf-5cab98d7c388",
-    "drupal_internal__nid": 18495,
-    "drupal_internal__vid": 616526,
+  "type": "node--health_services_listing",
+  "id": "86576faa-1cdd-43a7-8abf-5cab98d7c388",
+  "drupal_internal__nid": 18495,
+  "drupal_internal__vid": 616526,
+  "langcode": "en",
+  "revision_timestamp": "2022-02-09T19:01:22+00:00",
+  "status": true,
+  "title": "Health services",
+  "created": "2020-03-02T21:15:31+00:00",
+  "changed": "2022-02-09T19:01:22+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/north-texas-health-care",
+      "title": "VA North Texas health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "SERVICES AND LOCATIONS",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "Health services",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/north-texas-health-care/health-services",
+    "pid": 22706,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_description": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
+  "field_enforce_unique_combo": false,
+  "field_intro_text": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
+  "field_last_saved_by_an_editor": "2022-02-09T19:01:21+00:00",
+  "field_meta_tags": null,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_services_listing/86576faa-1cdd-43a7-8abf-5cab98d7c388?resourceVersion=id%3A616526"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "21c730c4-3687-4aad-bcda-a2c5a99eaaaa",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "health_services_listing"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "b8e96048-0b71-4d54-906d-ecc6612290c9",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 3335
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 197
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "cc16b17f-593f-4cf7-abfe-4da5375af48c",
+    "drupal_internal__tid": 366,
+    "drupal_internal__revision_id": 2415,
     "langcode": "en",
-    "revision_timestamp": "2022-02-09T19:01:22+00:00",
+    "revision_created": "2024-08-13T20:05:29+00:00",
+    "revision_log_message": null,
     "status": true,
-    "title": "Health services",
-    "created": "2020-03-02T21:15:31+00:00",
-    "changed": "2022-02-09T19:01:22+00:00",
-    "promote": false,
-    "sticky": false,
+    "name": "VA Texas Valley health care",
+    "description": null,
+    "weight": 5,
+    "changed": "2024-08-13T20:05:29+00:00",
     "default_langcode": true,
     "revision_translation_affected": true,
-    "breadcrumbs": [
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
-        "title": "Home",
-        "options": []
-      },
-      {
-        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/north-texas-health-care",
-        "title": "VA North Texas health care",
-        "options": []
-      },
-      {
-        "uri": "internal:#",
-        "title": "SERVICES AND LOCATIONS",
-        "options": []
-      },
-      {
-        "uri": "internal:#",
-        "title": "Health services",
-        "options": []
-      }
-    ],
-    "moderation_state": "published",
-    "expiration_date": null,
-    "warning_date": null,
+    "breadcrumbs": [],
+    "moderation_state": null,
     "metatag": [],
     "path": {
-      "alias": "/north-texas-health-care/health-services",
-      "pid": 22706,
+      "alias": "/section/vha/vamc-facilities/va-texas-valley-health-care",
+      "pid": 17288,
       "langcode": "en"
     },
     "content_translation_source": "und",
     "content_translation_outdated": false,
-    "field_description": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
-    "field_enforce_unique_combo": false,
-    "field_intro_text": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
-    "field_last_saved_by_an_editor": "2022-02-09T19:01:21+00:00",
-    "field_meta_tags": null,
+    "content_translation_created": null,
+    "field_description": null,
     "links": {
       "self": {
-        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_services_listing/86576faa-1cdd-43a7-8abf-5cab98d7c388?resourceVersion=id%3A616526"
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/cc16b17f-593f-4cf7-abfe-4da5375af48c?resourceVersion=id%3A2415"
       }
     },
-    "node_type": {
-      "type": "node_type--node_type",
-      "id": "21c730c4-3687-4aad-bcda-a2c5a99eaaaa",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 366
+    },
+    "vid": {
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+      "id": "645055c5-e567-4683-b6db-459ce04522ce",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": "health_services_listing"
+        "drupal_internal__target_id": "administration"
       }
     },
-    "revision_uid": {
+    "revision_user": {
       "type": "user--user",
-      "id": "b8e96048-0b71-4d54-906d-ecc6612290c9",
+      "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 3335
+        "drupal_internal__target_id": 4942
       }
     },
-    "uid": {
-      "type": "user--user",
-      "id": "8bea8773-6a06-4afd-99b5-1dfa7a2192ea",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 197
-      }
-    },
-    "field_administration": {
-      "type": "taxonomy_term--administration",
-      "id": "cc16b17f-593f-4cf7-abfe-4da5375af48c",
-      "drupal_internal__tid": 366,
-      "drupal_internal__revision_id": 2415,
-      "langcode": "en",
-      "revision_created": "2024-08-13T20:05:29+00:00",
-      "revision_log_message": null,
-      "status": true,
-      "name": "VA Texas Valley health care",
-      "description": null,
-      "weight": 5,
-      "changed": "2024-08-13T20:05:29+00:00",
-      "default_langcode": true,
-      "revision_translation_affected": true,
-      "breadcrumbs": [],
-      "moderation_state": null,
-      "metatag": [],
-      "path": {
-        "alias": "/section/vha/vamc-facilities/va-texas-valley-health-care",
-        "pid": 17288,
-        "langcode": "en"
-      },
-      "content_translation_source": "und",
-      "content_translation_outdated": false,
-      "content_translation_created": null,
-      "field_description": null,
-      "links": {
-        "self": {
-          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/cc16b17f-593f-4cf7-abfe-4da5375af48c?resourceVersion=id%3A2415"
-        }
-      },
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 366
-      },
-      "vid": {
-        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
-        "id": "645055c5-e567-4683-b6db-459ce04522ce",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": "administration"
-        }
-      },
-      "revision_user": {
-        "type": "user--user",
-        "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 4942
-        }
-      },
-      "parent": [
-        {
-          "type": "taxonomy_term--administration",
-          "id": "595532fa-2412-40f7-88ab-107fd9fa8ebb",
-          "resourceIdObjMeta": {
-            "drupal_internal__target_id": 173
-          }
-        }
-      ],
-      "content_translation_uid": null,
-      "field_product": {
-        "type": "taxonomy_term--products",
-        "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
-        "resourceIdObjMeta": {
-          "drupal_internal__target_id": 284
-        }
-      },
-      "relationshipNames": [
-        "vid",
-        "revision_user",
-        "parent",
-        "content_translation_uid",
-        "field_product"
-      ]
-    },
-    "field_featured_content_healthser": [
+    "parent": [
       {
-        "type": "paragraph--link_teaser",
-        "id": "06516c6b-01ad-475d-a7d6-cd717c60c500",
-        "drupal_internal__id": 63601,
-        "drupal_internal__revision_id": 588947,
-        "langcode": "en",
-        "status": true,
-        "created": "2023-01-01T00:00:00+00:00",
-        "changed": "2023-01-01T00:00:00+00:00",
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "content_translation_source": "und",
-        "content_translation_outdated": false,
-        "content_translation_created": null,
-        "content_translation_uid": null,
-        "revision_uid": null,
-        "revision_created": null,
-        "revision_log_message": null,
-        "revision_default": true,
-        "relationshipNames": [],
-        "field_link": {
-          "title": "Mental health at VA Black Hills health care",
-          "uri": "/mental-health",
-          "options": []
-        },
-        "field_link_summary": "Learn about our leading clinical mental health work",
-        "parent_field_name": "field_featured_content_healthser"
-      },
-      {
-        "type": "paragraph--link_teaser",
-        "id": "baabc376-7875-4db5-a448-d040b46c21c1",
-        "drupal_internal__id": 63602,
-        "drupal_internal__revision_id": 588948,
-        "langcode": "en",
-        "status": true,
-        "created": "2023-01-01T00:00:00+00:00",
-        "changed": "2023-01-01T00:00:00+00:00",
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "content_translation_source": "und",
-        "content_translation_outdated": false,
-        "content_translation_created": null,
-        "content_translation_uid": null,
-        "revision_uid": null,
-        "revision_created": null,
-        "revision_log_message": null,
-        "revision_default": true,
-        "relationshipNames": [],
-        "field_link": {
-          "title": "Health care for LGBTQ+ Veterans",
-          "uri": "/lgbtq-care",
-          "options": []
-        },
-        "field_link_summary": "VA Black Hills health care provides compassionate care for LGBTQ+ Veterans",
-        "parent_field_name": "field_featured_content_healthser"
-      },
-      {
-        "type": "paragraph--link_teaser",
-        "id": "befe7796-274b-4758-bc34-0e0bb4fc56a0",
-        "drupal_internal__id": 103807,
-        "drupal_internal__revision_id": 588949,
-        "langcode": "en",
-        "status": true,
-        "created": "2023-01-01T00:00:00+00:00",
-        "changed": "2023-01-01T00:00:00+00:00",
-        "default_langcode": true,
-        "revision_translation_affected": true,
-        "content_translation_source": "und",
-        "content_translation_outdated": false,
-        "content_translation_created": null,
-        "content_translation_uid": null,
-        "revision_uid": null,
-        "revision_created": null,
-        "revision_log_message": null,
-        "revision_default": true,
-        "relationshipNames": [],
-        "field_link": {
-          "title": "COVID-19 testing and vaccination",
-          "uri": "/covid-19",
-          "options": []
-        },
-        "field_link_summary": "VA Boston provides COVID-19 testing and vaccination",
-        "parent_field_name": "field_featured_content_healthser"
+        "type": "taxonomy_term--administration",
+        "id": "595532fa-2412-40f7-88ab-107fd9fa8ebb",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 173
+        }
       }
     ],
-    "field_office": {
-      "type": "node--health_care_region_page",
-      "id": "b9b20c54-c90c-425f-9d53-25abf79c4325",
+    "content_translation_uid": null,
+    "field_product": {
+      "type": "taxonomy_term--products",
+      "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 15024
+        "drupal_internal__target_id": 284
       }
     },
     "relationshipNames": [
-      "node_type",
-      "revision_uid",
-      "uid",
-      "field_administration",
-      "field_featured_content_healthser",
-      "field_office"
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_product"
     ]
-  }
+  },
+  "field_featured_content_healthser": [
+    {
+      "type": "paragraph--link_teaser",
+      "id": "06516c6b-01ad-475d-a7d6-cd717c60c500",
+      "drupal_internal__id": 63601,
+      "drupal_internal__revision_id": 588947,
+      "langcode": "en",
+      "status": true,
+      "created": "2023-01-01T00:00:00+00:00",
+      "changed": "2023-01-01T00:00:00+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "content_translation_uid": null,
+      "revision_uid": null,
+      "revision_created": null,
+      "revision_log_message": null,
+      "revision_default": true,
+      "relationshipNames": [],
+      "field_link": {
+        "title": "Mental health at VA Black Hills health care",
+        "uri": "/mental-health",
+        "options": []
+      },
+      "field_link_summary": "Learn about our leading clinical mental health work",
+      "parent_field_name": "field_featured_content_healthser"
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "baabc376-7875-4db5-a448-d040b46c21c1",
+      "drupal_internal__id": 63602,
+      "drupal_internal__revision_id": 588948,
+      "langcode": "en",
+      "status": true,
+      "created": "2023-01-01T00:00:00+00:00",
+      "changed": "2023-01-01T00:00:00+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "content_translation_uid": null,
+      "revision_uid": null,
+      "revision_created": null,
+      "revision_log_message": null,
+      "revision_default": true,
+      "relationshipNames": [],
+      "field_link": {
+        "title": "Health care for LGBTQ+ Veterans",
+        "uri": "/lgbtq-care",
+        "options": []
+      },
+      "field_link_summary": "VA Black Hills health care provides compassionate care for LGBTQ+ Veterans",
+      "parent_field_name": "field_featured_content_healthser"
+    },
+    {
+      "type": "paragraph--link_teaser",
+      "id": "befe7796-274b-4758-bc34-0e0bb4fc56a0",
+      "drupal_internal__id": 103807,
+      "drupal_internal__revision_id": 588949,
+      "langcode": "en",
+      "status": true,
+      "created": "2023-01-01T00:00:00+00:00",
+      "changed": "2023-01-01T00:00:00+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "content_translation_uid": null,
+      "revision_uid": null,
+      "revision_created": null,
+      "revision_log_message": null,
+      "revision_default": true,
+      "relationshipNames": [],
+      "field_link": {
+        "title": "COVID-19 testing and vaccination",
+        "uri": "/covid-19",
+        "options": []
+      },
+      "field_link_summary": "VA Boston provides COVID-19 testing and vaccination",
+      "parent_field_name": "field_featured_content_healthser"
+    }
+  ],
+  "field_office": {
+    "type": "node--health_care_region_page",
+    "id": "b9b20c54-c90c-425f-9d53-25abf79c4325",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 15024
+    }
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_featured_content_healthser",
+    "field_office"
+  ]
+}
