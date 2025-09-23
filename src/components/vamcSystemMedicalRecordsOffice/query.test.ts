@@ -10,14 +10,19 @@ import mockData from './mock.json'
 import mockMenu from './mock.menu.json'
 import mockServices from './mock.services.json'
 import { Menu } from '@/types/drupal/menu'
+import { VamcSystemMedicalRecordsOfficeData } from './query'
+
+const defaultData: VamcSystemMedicalRecordsOfficeData = {
+  entity: mockData,
+  // @ts-expect-error - the `options` type of this real data is not compatible with
+  // that of the `DrupalMenuLinkContent` definition from `next-drupal`
+  menu: mockMenu as Menu,
+  services: mockServices,
+}
 
 describe('VamcSystemMedicalRecordsOffice formatter', () => {
   it('formats basic fields correctly', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
+    const result = formatter(defaultData)
 
     expect(result.title).toBe('Medical records office')
     expect(result.entityId).toBe(45806)
@@ -32,11 +37,7 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
   })
 
   it('formats topOfPageContent field correctly', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
+    const result = formatter(defaultData)
 
     expect(result.topOfPageContent).toBeDefined()
     expect(result.topOfPageContent.html).toContain(
@@ -45,21 +46,13 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
   })
 
   it('formats bottomOfPageContent field correctly', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
+    const result = formatter(defaultData)
 
     expect(result.bottomOfPageContent).toBeNull()
   })
 
   it('formats relatedLinks field correctly', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
+    const result = formatter(defaultData)
 
     expect(result.relatedLinks).toBeDefined()
     expect(result.relatedLinks.title).toBe('More information')
@@ -73,11 +66,7 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
   })
 
   it('formats services array correctly and sorts them alphabetically', () => {
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: mockServices,
-    })
+    const result = formatter(defaultData)
 
     expect(result.services).toBeDefined()
     expect(result.services).toHaveLength(1)
@@ -121,11 +110,7 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
       },
     ]
 
-    const result = formatter({
-      entity: mockData,
-      menu: mockMenu as unknown as Menu,
-      services: unsortedServices,
-    })
+    const result = formatter({ ...defaultData, services: unsortedServices })
 
     expect(result.services).toHaveLength(2)
     expect(result.services[0].title).toBe('Alpha Medical Center')
@@ -158,12 +143,11 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
 
     it('outputs formatted data with Lovell variant', () => {
       const result = formatter({
+        ...defaultData,
         entity: {
           ...mockData,
           path: lovellPath,
         },
-        menu: mockMenu as unknown as Menu,
-        services: mockServices,
         lovell: {
           isLovellVariantPage: true,
           variant: 'tricare',
@@ -178,13 +162,12 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
 
     it('updates the breadcrumbs for Lovell variant', () => {
       const result = formatter({
+        ...defaultData,
         entity: {
           ...mockData,
           path: lovellPath,
           breadcrumbs: lovellBreadcrumbs,
         },
-        menu: mockMenu as unknown as Menu,
-        services: mockServices,
         lovell: {
           isLovellVariantPage: true,
           variant: 'tricare',
@@ -200,13 +183,12 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
 
     it('does not modify breadcrumbs when not a Lovell variant page', () => {
       const result = formatter({
+        ...defaultData,
         entity: {
           ...mockData,
           path: lovellPath,
           breadcrumbs: lovellBreadcrumbs,
         },
-        menu: mockMenu as unknown as Menu,
-        services: mockServices,
         lovell: {
           isLovellVariantPage: false,
           variant: 'va',
@@ -218,13 +200,12 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
 
     it('handles null lovell context', () => {
       const result = formatter({
+        ...defaultData,
         entity: {
           ...mockData,
           path: lovellPath,
           breadcrumbs: lovellBreadcrumbs,
         },
-        menu: mockMenu as unknown as Menu,
-        services: mockServices,
         lovell: null,
       })
 

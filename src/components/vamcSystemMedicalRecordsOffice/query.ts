@@ -65,7 +65,7 @@ export type VamcSystemMedicalRecordsOfficeDataOpts = {
 }
 
 // Define the data structure returned from the query.
-type VamcSystemMedicalRecordsOfficeData = {
+export type VamcSystemMedicalRecordsOfficeData = {
   entity: NodeVamcSystemMedicalRecordsOffice
   menu: Menu | null
   services: NodeVhaFacilityNonclinicalService[]
