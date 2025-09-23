@@ -63,13 +63,6 @@ export function VamcHealthServicesListing({
               </div>
             )}
 
-            <div className="usa-grid usa-grid-full vads-u-margin-top--0p5 vads-u-margin-bottom--4">
-              <div className="usa-grid usa-grid-full vads-u-margin-y--0 vads-u-margin-bottom--0">
-                {/* TODO: Add health services buttons here */}
-                <p> TODO: Add health services buttons here </p>
-              </div>
-            </div>
-
             <va-on-this-page />
 
             {/* Featured Content Section - conditional on fieldFeaturedContentHealthser */}
