@@ -45,62 +45,113 @@ const mockFeaturedContent = [
   },
 ]
 
-describe('VamcHealthServicesListing with valid data', () => {
-  test('renders VamcHealthServicesListing component', () => {
-    render(
-      <VamcHealthServicesListing
-        title={'Health services'}
-        introText={'Test intro'}
-        path={'/test-facility/health-services'}
-        administration={null}
-        vamcEhrSystem={null}
-        menu={mockMenu}
-        featuredContent={mockFeaturedContent}
-        id={'test-id'}
-        type={'node--health_services_listing'}
-        published={true}
-        lastUpdated={'2023-01-01'}
-      />
-    )
+// Mock health service groups data for testing
+const mockHealthServiceGroups = [
+  {
+    typeOfCare: 'Primary care',
+    services: [
+      {
+        id: '1',
+        title: 'Primary Care Service',
+        alsoKnownAs: 'Test Service',
+        commonlyTreatedCondition: 'Test condition',
+        descriptionHtml: 'Primary care description',
+        bodyHtml: '<p>Test body content</p>',
+        typeOfCare: 'Primary care',
+        locations: [],
+      },
+    ],
+  },
+  {
+    typeOfCare: 'Mental health care',
+    services: [
+      {
+        id: '2',
+        title: 'Mental Health Service',
+        alsoKnownAs: 'Test Service',
+        commonlyTreatedCondition: 'Test condition',
+        descriptionHtml: 'Mental health description',
+        bodyHtml: '<p>Test body content</p>',
+        typeOfCare: 'Mental health care',
+        locations: [],
+      },
+    ],
+  },
+  {
+    typeOfCare: 'Specialty care',
+    services: [
+      {
+        id: '3',
+        title: 'Specialty Service',
+        alsoKnownAs: 'Test Service',
+        commonlyTreatedCondition: 'Test condition',
+        descriptionHtml: 'Specialty care description',
+        bodyHtml: '<p>Test body content</p>',
+        typeOfCare: 'Specialty care',
+        locations: [],
+      },
+    ],
+  },
+  {
+    typeOfCare: 'Social programs and services',
+    services: [
+      {
+        id: '4',
+        title: 'Social Service',
+        alsoKnownAs: 'Test Service',
+        commonlyTreatedCondition: 'Test condition',
+        descriptionHtml: 'Social service description',
+        bodyHtml: '<p>Test body content</p>',
+        typeOfCare: 'Social programs and services',
+        locations: [],
+      },
+    ],
+  },
+  {
+    typeOfCare: 'Other services',
+    services: [
+      {
+        id: '5',
+        title: 'Other Service',
+        alsoKnownAs: 'Test Service',
+        commonlyTreatedCondition: 'Test condition',
+        descriptionHtml: 'Other service description',
+        bodyHtml: '<p>Test body content</p>',
+        typeOfCare: 'Other services',
+        locations: [],
+      },
+    ],
+  },
+]
 
+const defaultProps = {
+  title: 'Health services',
+  introText: 'Test intro',
+  path: '/test-facility/health-services',
+  administration: null,
+  vamcEhrSystem: null,
+  menu: mockMenu,
+  featuredContent: mockFeaturedContent,
+  healthServiceGroups: mockHealthServiceGroups,
+  id: 'test-id',
+  type: 'node--health_services_listing',
+  published: true,
+  lastUpdated: '2023-01-01',
+}
+
+describe('VamcHealthServicesListing with valid data', () => {
+  test('renders title', () => {
+    render(<VamcHealthServicesListing {...defaultProps} />)
     expect(screen.getByText('Health services')).toBeInTheDocument()
   })
 
   test('renders intro text when provided', () => {
-    render(
-      <VamcHealthServicesListing
-        title={'Health Services'}
-        introText={'This is intro text'}
-        path={'/test-facility/health-services'}
-        administration={null}
-        vamcEhrSystem={null}
-        menu={mockMenu}
-        featuredContent={mockFeaturedContent}
-        id={'test-id'}
-        type={'node--health_services_listing'}
-        published={true}
-        lastUpdated={'2023-01-01'}
-      />
-    )
-
-    expect(screen.getByText('This is intro text')).toBeInTheDocument()
+    render(<VamcHealthServicesListing {...defaultProps} />)
+    expect(screen.getByText('Test intro')).toBeInTheDocument()
   })
 
   test('renders Top Task links when path is provided', () => {
-    render(
-      <VamcHealthServicesListing
-        title={'Health Services'}
-        introText={'This is intro text'}
-        path={'/boston-health-care/health-services'}
-        administration={null}
-        vamcEhrSystem={null}
-        menu={mockMenu}
-        id={'test-id'}
-        type={'node--health_services_listing'}
-        published={true}
-        lastUpdated={'2023-01-01'}
-      />
-    )
+    render(<VamcHealthServicesListing {...defaultProps} />)
 
     // Check that the Top Task links are visible using the same approach as locationsListing
     const makeAppointmentLink = screen.getByText(
@@ -122,21 +173,7 @@ describe('VamcHealthServicesListing with valid data', () => {
   })
 
   test('renders section headings correctly', () => {
-    render(
-      <VamcHealthServicesListing
-        title={'Health Services'}
-        introText={'This is intro text'}
-        path={'/test-facility/health-services'}
-        administration={null}
-        vamcEhrSystem={null}
-        menu={mockMenu}
-        featuredContent={mockFeaturedContent}
-        id={'test-id'}
-        type={'node--health_services_listing'}
-        published={true}
-        lastUpdated={'2023-01-01'}
-      />
-    )
+    render(<VamcHealthServicesListing {...defaultProps} />)
 
     expect(screen.getByText('In the spotlight')).toBeInTheDocument()
     expect(screen.getByText('Primary care')).toBeInTheDocument()
@@ -149,16 +186,7 @@ describe('VamcHealthServicesListing with valid data', () => {
   test('renders lovell switcher when lovell props are provided', () => {
     render(
       <VamcHealthServicesListing
-        title={'Health Services'}
-        introText={'This is intro text'}
-        path={'/test-facility/health-services'}
-        administration={null}
-        vamcEhrSystem={null}
-        menu={mockMenu}
-        id={'test-id'}
-        type={'node--health_services_listing'}
-        published={true}
-        lastUpdated={'2023-01-01'}
+        {...defaultProps}
         lovellVariant={'va'}
         lovellSwitchPath={'/lovell-facility/health-services'}
       />
@@ -169,20 +197,7 @@ describe('VamcHealthServicesListing with valid data', () => {
   })
 
   test('renders the sidebar nav with correct attributes', () => {
-    render(
-      <VamcHealthServicesListing
-        title={'Health Services'}
-        introText={'This is intro text'}
-        path={'/test-facility/health-services'}
-        administration={null}
-        vamcEhrSystem={null}
-        menu={mockMenu}
-        id={'test-id'}
-        type={'node--health_services_listing'}
-        published={true}
-        lastUpdated={'2023-01-01'}
-      />
-    )
+    render(<VamcHealthServicesListing {...defaultProps} />)
     const nav = screen.getByLabelText('secondary')
     expect(nav).toBeInTheDocument()
     expect(nav).toHaveAttribute('data-widget-type', 'side-nav')
@@ -198,6 +213,7 @@ describe('VamcHealthServicesListing with valid data', () => {
         vamcEhrSystem={null}
         menu={mockMenu}
         featuredContent={mockFeaturedContent}
+        healthServiceGroups={mockHealthServiceGroups}
         id={'test-id'}
         type={'node--health_services_listing'}
         published={true}
@@ -207,5 +223,52 @@ describe('VamcHealthServicesListing with valid data', () => {
 
     // Check that the featured content section is rendered
     expect(screen.getByText('In the spotlight')).toBeInTheDocument()
+  })
+
+  test('renders health service groups', () => {
+    render(<VamcHealthServicesListing {...defaultProps} />)
+
+    // Check that health service group headings are rendered
+    expect(screen.getByText('Primary care')).toBeInTheDocument()
+    expect(screen.getByText('Mental health care')).toBeInTheDocument()
+    expect(screen.getByText('Specialty care')).toBeInTheDocument()
+    expect(screen.getByText('Social programs and services')).toBeInTheDocument()
+    expect(screen.getByText('Other services')).toBeInTheDocument()
+
+    // Check that service titles are rendered
+    expect(screen.getByText('Primary Care Service')).toBeInTheDocument()
+    expect(screen.getByText('Mental Health Service')).toBeInTheDocument()
+    expect(screen.getByText('Specialty Service')).toBeInTheDocument()
+    expect(screen.getByText('Social Service')).toBeInTheDocument()
+    expect(screen.getByText('Other Service')).toBeInTheDocument()
+  })
+
+  test('renders empty state when no health service groups provided', () => {
+    render(
+      <VamcHealthServicesListing {...defaultProps} healthServiceGroups={[]} />
+    )
+
+    // Check that the empty state message is rendered
+    expect(
+      screen.getByText('No health services at this time.')
+    ).toBeInTheDocument()
+  })
+
+  test('renders health service items', () => {
+    render(<VamcHealthServicesListing {...defaultProps} />)
+
+    // Check that accordion headers are rendered
+    expect(screen.getByText('Primary Care Service')).toBeInTheDocument()
+    expect(screen.getByText('Mental Health Service')).toBeInTheDocument()
+    expect(screen.getByText('Specialty Service')).toBeInTheDocument()
+    expect(screen.getByText('Social Service')).toBeInTheDocument()
+    expect(screen.getByText('Other Service')).toBeInTheDocument()
+
+    // Check that accordion content is rendered
+    expect(screen.getByText('Primary care description')).toBeInTheDocument()
+    expect(screen.getByText('Mental health description')).toBeInTheDocument()
+    expect(screen.getByText('Specialty care description')).toBeInTheDocument()
+    expect(screen.getByText('Social service description')).toBeInTheDocument()
+    expect(screen.getByText('Other service description')).toBeInTheDocument()
   })
 })
