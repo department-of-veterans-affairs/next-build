@@ -30,7 +30,6 @@ const customJestConfig: Config = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!**/__tests__/**.test.{js,jsx,ts,tsx}',
-    '!example_tests/**/*.{js,jsx,ts,tsx}',
     '!playwright/**/*.{js,jsx,ts,tsx}',
     // Some files excluded from unit test coverage reporting in favor of e2e tests
     '!src/lib/utils/redisCache.ts',
@@ -56,7 +55,6 @@ const customJestConfig: Config = {
   ],
   testPathIgnorePatterns: [
     '/node_modules/',
-    '<rootDir>/example_tests',
     '<rootDir>/playwright',
     '<rootDir>/scripts',
   ],

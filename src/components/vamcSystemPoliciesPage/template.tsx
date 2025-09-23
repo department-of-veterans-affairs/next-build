@@ -1,10 +1,9 @@
-'use client'
 import React, { useEffect } from 'react'
 import { VamcSystemPoliciesPage as FormattedVamcSystemPoliciesPage } from './formatted-type'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { SideNavMenu } from '@/types/formatted/sideNav'
-import { Wysiwyg } from '@/components/wysiwyg/template'
+import { Wysiwyg } from '../wysiwyg/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -14,6 +13,7 @@ declare const window: customWindow
 
 export function VamcSystemPoliciesPage({
   title,
+  menu,
   introText,
   topOfPageContent,
   visitationPolicy,
@@ -22,14 +22,13 @@ export function VamcSystemPoliciesPage({
   bottomOfPageContent,
   lastUpdated,
   // TODO: Add these props when we have the data from the formatter
-  // menu,
   // lovellVariant,
   // lovellSwitchPath,
 }: FormattedVamcSystemPoliciesPage) {
-  // TODO: Populate the side nav data when we add menu to formatter
-  // useEffect(() => {
-  //   window.sideNav = menu
-  // }, [menu])
+  // Populate the side nav data for the side nav widget to fill in
+  useEffect(() => {
+    window.sideNav = menu
+  }, [menu])
 
   return (
     <div
@@ -39,8 +38,7 @@ export function VamcSystemPoliciesPage({
     >
       <main className="va-l-detail-page va-facility-page">
         <div className="vads-grid-container">
-          {/* TODO: Implement facility sidebar nav component */}
-          {/* <nav aria-label="secondary" data-widget-type="side-nav" /> */}
+          <nav aria-label="secondary" data-widget-type="side-nav" />
 
           <div className="vads-grid-row">
             <div className="vads-grid-col-12">
