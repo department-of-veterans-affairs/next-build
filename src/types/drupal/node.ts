@@ -463,9 +463,9 @@ export interface NodeVamcSystemBillingAndInsurance extends DrupalNode {
 
 export interface NodeVamcSystemPoliciesPage extends DrupalNode {
   breadcrumbs: BreadcrumbItem[]
-  field_administration: FieldAdministration
-  // TODO: Hydrate this entity reference
-  field_office: Pick<NodeHealthCareRegionPage, 'id' | 'type'>
+  // The field_administration is here, but we don't use it.
+  // field_administration: FieldAdministration
+  field_office: NodeHealthCareRegionPage
   field_cc_intro_text?: FieldCCText
   field_cc_top_of_page_content?: FieldCCText
   field_cc_gen_visitation_policy?: FieldCCText
