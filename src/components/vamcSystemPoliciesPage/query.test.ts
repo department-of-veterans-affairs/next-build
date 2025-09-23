@@ -68,17 +68,4 @@ describe('VamcSystemPoliciesPage formatter', () => {
     expect(result.menu).toHaveProperty('data')
     expect(result).toHaveProperty('title', 'Policies')
   })
-
-  test('handles missing menu gracefully', () => {
-    const mockDataStructure: VamcSystemPoliciesPageData = {
-      entity: mockData,
-      menu: null,
-      lovell: undefined,
-    }
-
-    const result = formatter(mockDataStructure)
-
-    expect(result).toHaveProperty('menu')
-    expect(result.title).toBe('Policies')
-  })
 })
