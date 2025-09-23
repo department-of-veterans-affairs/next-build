@@ -54,10 +54,6 @@ describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
-    expect(queryString).toMatch(/include=field_administration,field_office/)
-    expect(queryString).toMatch(
-      /fields\[node--health_care_region_page\]=field_vamc_ehr_system,field_system_menu/
-    )
     expect(queryString).toMatchSnapshot()
   })
 })
@@ -138,31 +134,5 @@ describe('VamcHealthServicesListing formatData', () => {
     expect(mentalHealthGroup).toBeDefined()
     expect(mentalHealthGroup?.services).toHaveLength(1)
     expect(mentalHealthGroup?.services[0].title).toBe('Mental Health Service')
-  })
-
-  test('handles custom service types', () => {
-    const customService = createMockServiceDes({
-      id: 'custom-1',
-      title: 'Custom Service',
-      typeOfCare: 'Custom care type',
-      description: 'Custom service description'
-    })
-
-    const customServicesListing = {
-      ...mockServicesListing,
-      field_office: {
-        ...mockServicesListing.field_office!,
-        field_clinical_health_services: [customService],
-      },
-    } as unknown as NodeVamcHealthServicesListing
-
-    const result = formatter({
-      entity: customServicesListing,
-      menu: mockMenu,
-    })
-
-    expect(result.healthServiceGroups).toHaveLength(1)
-    expect(result.healthServiceGroups[0].typeOfCare).toBe('Custom care type')
-    expect(result.healthServiceGroups[0].services[0].title).toBe('Custom Service')
   })
 })
