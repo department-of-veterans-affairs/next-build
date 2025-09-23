@@ -32,6 +32,11 @@ const formatHealthServiceLocations = (
   )
 }
 
+enum FacilityClassification {
+  CLC = '7', // Community Living Centers
+  DOM = '8', // Domiciliary Residential Rehabilitation Treatment Programs
+}
+
 /**
  * Sorts health service locations according to the original Liquid filter logic:
  * 1. Main clinics first
@@ -48,8 +53,8 @@ export function sortServiceLocations(
     if (location.isMainLocation) return 1 // Main clinics first
     if (location.isMobile) return 4 // Mobile clinics last
     if (
-      location.facilityClassification === '7' ||
-      location.facilityClassification === '8'
+      location.facilityClassification === FacilityClassification.CLC ||
+      location.facilityClassification === FacilityClassification.DOM
     ) {
       return 3 // CLCs and DOMs
     }
