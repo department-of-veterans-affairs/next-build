@@ -322,6 +322,7 @@ export interface ParagraphWysiwyg extends DrupalParagraph {
 }
 
 export interface ParagraphSituationUpdate extends DrupalParagraph {
+  type: 'paragraph--situation_update'
   field_datetime_range_timezone: FieldDateTimeRange
   field_wysiwyg: FieldFormattedText
   field_send_email_to_subscribers: boolean
