@@ -18,6 +18,7 @@ export function VamcOperatingStatusAndAlerts({
   useEffect(() => {
     window.sideNav = menu
   }, [menu])
+  const dateFormat = 'EEEE, MMM d, h:mm aaaa'
   return (
     <div className="interior" id="content">
       <main className="va-l-detail-page va-facility-page">
@@ -57,7 +58,7 @@ export function VamcOperatingStatusAndAlerts({
                             new Date(zonedDate),
                             'shortGeneric'
                           )
-                          const dateTimeString = `${format(zonedDate, 'EEEE, MMM d, h:mm aaaa', { timeZone: update.timezone })} ${formattedTimeZone}`
+                          const dateTimeString = `${format(zonedDate, dateFormat, { timeZone: update.timezone })} ${formattedTimeZone}`
                           return (
                             <va-card
                               background
