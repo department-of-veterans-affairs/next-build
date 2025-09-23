@@ -47,6 +47,7 @@ import {
   ParagraphCCQaSection,
   ParagraphFeaturedContent,
   ParagraphListOfLinkTeasers,
+  ParagraphSituationUpdate,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -117,13 +118,14 @@ export interface NodeFullWidthBannerAlert extends DrupalNode {
   field_body: FieldFormattedText
   field_alert_dismissable: boolean
   field_alert_type: string
-  field_banner_alert_situationinfo: FieldFormattedText
+  field_banner_alert_situationinfo: string
   field_alert_find_facilities_cta: boolean
   field_alert_operating_status_cta: boolean
   field_alert_email_updates_button: boolean
   field_alert_inheritance_subpages: boolean
-  field_operating_status_sendemail: boolean
-  field_banner_alert_vamcs: NodeBannerAlertVAMCS[]
+  field_operating_status_sendemail?: boolean
+  field_banner_alert_vamcs?: NodeBannerAlertVAMCS[]
+  field_situation_updates?: ParagraphSituationUpdate[]
 }
 
 export interface NodeBannerAlertVAMCS extends DrupalNode {
@@ -600,4 +602,5 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
+  field_banner_alert?: NodeFullWidthBannerAlert[]
 }
