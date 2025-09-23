@@ -25,13 +25,38 @@ const formatHealthServiceLocations = (
         service.field_facility_location.field_facility_classification || '',
       isMobile: service.field_facility_location.field_mobile || false,
     }))
-    // The original orderFieldLocalHealthCareServices is actually way more complicated
-    .sort((a, b) => {
-      // Sort by main location first, then by title
-      if (a.isMainLocation && !b.isMainLocation) return -1
-      if (!a.isMainLocation && b.isMainLocation) return 1
-      return a.title.localeCompare(b.title)
-    })
+    // Use the more sophisticated sorting logic from the original Liquid filter
+    .sort(sortServiceLocations)
+}
+
+/**
+ * Sorts health service locations according to the original Liquid filter logic:
+ * 1. Main clinics first
+ * 2. Regular clinics (alphabetically)
+ * 3. CLCs and DOMs (Community Living Centers and Domiciliary Residential Rehabilitation Treatment Programs)
+ * 4. Mobile clinics last
+ */
+export function sortServiceLocations(a: HealthServiceLocation, b: HealthServiceLocation): number {
+  // Helper function to get the sort priority for a location
+  const getSortPriority = (location: HealthServiceLocation): number => {
+    if (location.isMainLocation) return 1 // Main clinics first
+    if (location.isMobile) return 4 // Mobile clinics last
+    if (location.facilityClassification === '7' || location.facilityClassification === '8') {
+      return 3 // CLCs and DOMs
+    }
+    return 2 // Regular clinics
+  }
+
+  const priorityA = getSortPriority(a)
+  const priorityB = getSortPriority(b)
+
+  // If different priorities, sort by priority
+  if (priorityA !== priorityB) {
+    return priorityA - priorityB
+  }
+
+  // If same priority, sort alphabetically by title
+  return a.title.localeCompare(b.title)
 }
 
 export function formatHealthService(
