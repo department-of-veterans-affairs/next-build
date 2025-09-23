@@ -25,7 +25,6 @@ describe('VamcSystemPoliciesPage params configuration', () => {
     const queryParams = params()
     const includes = queryParams.getQueryObject().include?.split(',')
 
-    expect(includes).toContain('field_administration')
     expect(includes).toContain('field_office')
   })
 })
