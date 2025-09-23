@@ -153,6 +153,9 @@ export const formatter: QueryFormatter<
     },
     menu: buildSideNavDataFromMenu(entity.path.alias, menu),
     topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),
+    getRecordsInPersonContent: formatCcWysiwyg(
+      entity.field_cc_get_records_in_person
+    ),
     bottomOfPageContent: formatCcWysiwyg(
       entity.field_cc_bottom_of_page_content
     ),

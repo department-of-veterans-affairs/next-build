@@ -11,7 +11,9 @@ describe('VamcSystemMedicalRecordsOffice', () => {
 
   it('renders intro text with office entity label', () => {
     render(<VamcSystemMedicalRecordsOffice {...mockData} />)
-    const introText = screen.getByText(/Get copies of your VA medical records/i)
+    const introText = screen.getByText(
+      /Get copies of your VA medical records online, by mail or fax/i
+    )
     expect(introText).toBeInTheDocument()
     expect(introText.textContent).toContain('VA Beckley health care')
   })
@@ -39,6 +41,20 @@ describe('VamcSystemMedicalRecordsOffice', () => {
     // Check that the paragraph content is also rendered
     const paragraphContent = screen.getByText(
       /Access your VA medical records online/
+    )
+    expect(paragraphContent).toBeInTheDocument()
+  })
+
+  it('renders the get records in person content', () => {
+    render(<VamcSystemMedicalRecordsOffice {...mockData} />)
+    const contentSection = screen.getByText('Get your records in person')
+    expect(contentSection).toBeInTheDocument()
+    expect(contentSection.tagName).toBe('H2')
+    expect(contentSection).toHaveAttribute('id', 'get-your-records-in-person')
+
+    // Check that the paragraph content is also rendered
+    const paragraphContent = screen.getByText(
+      /We can help you get copies of your VA medical records/
     )
     expect(paragraphContent).toBeInTheDocument()
   })

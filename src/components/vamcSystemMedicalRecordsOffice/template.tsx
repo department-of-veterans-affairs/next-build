@@ -23,6 +23,7 @@ export const VamcSystemMedicalRecordsOffice = ({
   lastUpdated,
   menu,
   topOfPageContent,
+  getRecordsInPersonContent,
   bottomOfPageContent,
   relatedLinks,
   services,
@@ -69,10 +70,9 @@ export const VamcSystemMedicalRecordsOffice = ({
               <Wysiwyg {...topOfPageContent} />
             </div>
 
-            {/* TODO: Add centralized content sections from medical records template
-              - fieldCcReactWidget
-              - fieldCcGetRecordsInPerson
-            */}
+            <div className="usa-content">
+              <Wysiwyg {...getRecordsInPersonContent} />
+            </div>
 
             {services.length > 0 && (
               <>
