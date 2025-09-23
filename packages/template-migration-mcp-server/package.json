@@ -1,0 +1,13 @@
+{
+  "name": "template-migration-mcp-server",
+  "description": "An MCP server to help help speed up template migration",
+  "packageManager": "yarn@3.6.1",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "zod": "^3.23.8"
+  }
+}

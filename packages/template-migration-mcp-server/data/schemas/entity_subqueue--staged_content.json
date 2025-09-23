@@ -1,0 +1,331 @@
+{
+  "title": "entity_subqueue:staged_content Schema",
+  "description": "Describes the payload for 'entity_subqueue' entities of the 'staged_content' bundle.",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "description": "\\\"Resource objects\\\" appear in a JSON:API document to represent resources.",
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "title": "type",
+          "description": "Resource type",
+          "enum": ["entity_subqueue--staged_content"]
+        },
+        "id": {
+          "type": "string",
+          "title": "Resource ID",
+          "format": "uuid",
+          "maxLength": 128
+        },
+        "attributes": {
+          "description": "Entity attributes",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "drupal_internal__name": {
+              "type": "string",
+              "title": "Name",
+              "maxLength": 255,
+              "description": "The ID (machine name) of the subqueue.",
+              "x-nullable": true
+            },
+            "drupal_internal__revision_id": {
+              "type": "integer",
+              "title": "Revision ID",
+              "x-nullable": true
+            },
+            "langcode": {
+              "type": "object",
+              "title": "Language",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Language code"
+                },
+                "language": {
+                  "type": "language_reference",
+                  "title": "Language object",
+                  "description": "The referenced language"
+                }
+              },
+              "required": ["value"],
+              "x-nullable": true
+            },
+            "revision_created": {
+              "type": "number",
+              "title": "Revision create time",
+              "format": "utc-millisec",
+              "description": "The time that the current revision was created.",
+              "x-nullable": true
+            },
+            "revision_log_message": {
+              "type": "string",
+              "title": "Revision log message",
+              "description": "Briefly describe the changes you have made.",
+              "default": "",
+              "x-nullable": true
+            },
+            "status": {
+              "type": "boolean",
+              "title": "Published",
+              "default": true,
+              "x-nullable": true
+            },
+            "title": {
+              "type": "string",
+              "title": "Title",
+              "maxLength": 191
+            },
+            "created": {
+              "type": "number",
+              "title": "Authored on",
+              "format": "utc-millisec",
+              "description": "The time that the subqueue was created.",
+              "x-nullable": true
+            },
+            "changed": {
+              "type": "number",
+              "title": "Changed",
+              "format": "utc-millisec",
+              "description": "The time that the subqueue was last edited.",
+              "x-nullable": true
+            },
+            "default_langcode": {
+              "type": "boolean",
+              "title": "Default translation",
+              "description": "A flag indicating whether this is the default translation.",
+              "default": true,
+              "x-nullable": true
+            },
+            "revision_default": {
+              "type": "boolean",
+              "title": "Default revision",
+              "description": "A flag indicating whether this was a default revision when it was saved.",
+              "x-nullable": true
+            },
+            "revision_translation_affected": {
+              "type": "boolean",
+              "title": "Revision translation affected",
+              "description": "Indicates if the last edit of a translation belongs to current revision.",
+              "x-nullable": true
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "title": "Breadcrumbs",
+              "items": {
+                "type": "object",
+                "title": "Options",
+                "properties": {
+                  "uri": {
+                    "type": "uri",
+                    "title": "URI"
+                  },
+                  "title": {
+                    "type": "string",
+                    "title": "Link text"
+                  }
+                }
+              },
+              "x-nullable": true
+            },
+            "metatag": {
+              "type": "array",
+              "title": "Metatags (Hidden field for JSON support)",
+              "description": "The meta tags for the entity.",
+              "items": {
+                "type": "object",
+                "title": "Name",
+                "properties": {
+                  "tag": {
+                    "type": "string",
+                    "title": "Tag"
+                  }
+                },
+                "required": ["tag"]
+              },
+              "x-nullable": true
+            }
+          },
+          "required": ["title"]
+        },
+        "relationships": {
+          "description": "Entity relationships",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "queue": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["entity_queue--entity_queue"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Entity queue"
+            },
+            "revision_user": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "Revision user"
+            },
+            "uid": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "Referenced resource",
+                      "enum": ["user--user"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "title": "Resource ID",
+                      "format": "uuid",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              },
+              "title": "User ID"
+            },
+            "items": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["type", "id"],
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "title": "Referenced resource",
+                        "enum": [
+                          "node--page",
+                          "node--support_resources_detail_page"
+                        ]
+                      },
+                      "id": {
+                        "type": "string",
+                        "title": "Resource ID",
+                        "format": "uuid",
+                        "maxLength": 128
+                      }
+                    }
+                  }
+                }
+              },
+              "title": "Items"
+            }
+          },
+          "required": []
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+            "type": "object",
+            "required": ["href"],
+            "properties": {
+              "href": {
+                "description": "A string containing the link's URL . ",
+                "type": "string",
+                "format": "uri - reference"
+              },
+              "meta": {
+                "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "description": "A link **MUST** be represented as either: a string containing the link's URL or a link object . ",
+        "type": "object",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "description": "A string containing the link's URL . ",
+            "type": "string",
+            "format": "uri - reference"
+          },
+          "meta": {
+            "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "jsonapi": {
+      "description": "An object describing the server's implementation",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "meta": {
+          "description": "Non-standard meta-information that can not be represented as an attribute or relationship.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}
