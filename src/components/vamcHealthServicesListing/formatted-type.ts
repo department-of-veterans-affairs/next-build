@@ -40,5 +40,6 @@ export type VamcHealthServicesListing = PublishedEntity & {
   vamcEhrSystem: VamcEhrSystem
   menu: SideNavMenu | null
   featuredContent?: LinkTeaser[]
+  systemTitle: string
   healthServiceGroups: HealthServiceGroup[]
 }

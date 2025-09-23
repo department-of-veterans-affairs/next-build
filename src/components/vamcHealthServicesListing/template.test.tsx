@@ -125,6 +125,7 @@ const mockHealthServiceGroups = [
 const defaultProps = {
   title: 'Health services',
   introText: 'Test intro',
+  systemTitle: 'Test system title',
   path: '/test-facility/health-services',
   administration: null,
   vamcEhrSystem: null,
@@ -202,24 +203,7 @@ describe('VamcHealthServicesListing with valid data', () => {
   })
 
   test('renders featured content when provided', () => {
-    render(
-      <VamcHealthServicesListing
-        title={'Health Services'}
-        introText={'This is intro text'}
-        path={'/test-facility/health-services'}
-        administration={null}
-        vamcEhrSystem={null}
-        menu={mockMenu}
-        featuredContent={mockFeaturedContent}
-        healthServiceGroups={mockHealthServiceGroups}
-        id={'test-id'}
-        type={'node--health_services_listing'}
-        published={true}
-        lastUpdated={'2023-01-01'}
-      />
-    )
-
-    // Check that the featured content section is rendered
+    render(<VamcHealthServicesListing {...defaultProps} />)
     expect(screen.getByText('In the spotlight')).toBeInTheDocument()
   })
 
@@ -268,5 +252,14 @@ describe('VamcHealthServicesListing with valid data', () => {
     expect(screen.getByText('Specialty care description')).toBeInTheDocument()
     expect(screen.getByText('Social service description')).toBeInTheDocument()
     expect(screen.getByText('Other service description')).toBeInTheDocument()
+  })
+
+  test('renders the system title inside the service content', () => {
+    render(<VamcHealthServicesListing {...defaultProps} />)
+    expect(
+      screen.getAllByRole('heading', {
+        name: /Care we provide at.*Test system title/,
+      }).length
+    ).toBe(5)
   })
 })

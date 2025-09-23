@@ -140,6 +140,7 @@ export const formatter: QueryFormatter<
           uri: item.field_link?.url || formattedItem.uri,
         }
       }) || [],
+    systemTitle: entity.field_office.title,
     healthServiceGroups,
   }
 }

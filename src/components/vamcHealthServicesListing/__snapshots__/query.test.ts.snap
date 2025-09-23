@@ -178,6 +178,7 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
   "moderationState": "published",
   "path": "/north-texas-health-care/health-services",
   "published": true,
+  "systemTitle": "VA New York Harbor health care",
   "title": "Health services",
   "type": "node--health_services_listing",
   "vamcEhrSystem": "vista",

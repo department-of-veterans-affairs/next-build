@@ -23,6 +23,7 @@ export function VamcHealthServicesListing({
   vamcEhrSystem,
   menu,
   featuredContent,
+  systemTitle,
   healthServiceGroups,
 }: FormattedVamcHealthServicesListing) {
   // Extract the region base path from the full path (same as healthCareLocalFacility)
@@ -92,7 +93,7 @@ export function VamcHealthServicesListing({
               <HealthServiceGroup
                 key={group.typeOfCare}
                 group={group}
-                systemTitle={title}
+                systemTitle={systemTitle}
               />
             ))}
 

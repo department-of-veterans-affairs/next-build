@@ -11,10 +11,7 @@ import { queries } from '@/lib/drupal/queries'
 import mockServicesListingPartial from './mock.json'
 import mockSystem from '@/components/vamcSystem/mock.json'
 import { DrupalMenuLinkContent } from 'next-drupal'
-import {
-  createMockServiceDes,
-  createMockServicesForGrouping,
-} from './mockServiceDes'
+import { createMockServicesForGrouping } from './mockServiceDes'
 
 // Use type assertion to bypass strict type checking for test data
 const mockServicesListing: NodeVamcHealthServicesListing = {
