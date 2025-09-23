@@ -23,28 +23,17 @@ import { formatHealthService, groupHealthServicesByType } from './query-utils'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
-  return (
-    new DrupalJsonApiParams()
-      .addInclude([
-        'field_administration',
-        'field_office',
-        'field_office.field_clinical_health_services',
-        'field_office.field_clinical_health_services.field_service_name_and_descripti',
-        'field_office.field_clinical_health_services.field_local_health_care_service_',
-        'field_office.field_clinical_health_services.field_local_health_care_service_.field_facility_location',
-        'field_featured_content_healthser',
-      ])
-      // .addFields('node--health_care_region_page', [
-      //   'field_vamc_ehr_system',
-      //   'field_system_menu',
-      //   // 'field_clinical_health_services',
-      //   // 'field_clinical_health_services.field_service_name_and_descripti',
-      // ])
-      // .addFields('node--regional_health_care_service_des', [
-      //   'field_service_name_and_descripti',
-      // ])
-      .addFields('paragraph--link_teaser', ['field_link', 'field_link_summary'])
-  )
+  return new DrupalJsonApiParams()
+    .addInclude([
+      'field_administration',
+      'field_office',
+      'field_office.field_clinical_health_services',
+      'field_office.field_clinical_health_services.field_service_name_and_descripti',
+      'field_office.field_clinical_health_services.field_local_health_care_service_',
+      'field_office.field_clinical_health_services.field_local_health_care_service_.field_facility_location',
+      'field_featured_content_healthser',
+    ])
+    .addFields('paragraph--link_teaser', ['field_link', 'field_link_summary'])
 }
 
 // Define the option types for the data loader.
