@@ -20,6 +20,8 @@ export const formatter: QueryFormatter<
       ? 'info'
       : entity.field_alert_type) as AlertType,
     heading: entity.field_alert_heading,
-    paragraphs: entity.field_va_paragraphs.map((paragraph) => formatParagraph(paragraph)),
+    paragraphs: entity.field_va_paragraphs.map((paragraph) =>
+      formatParagraph(paragraph)
+    ),
   }
 }

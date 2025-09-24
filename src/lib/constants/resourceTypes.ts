@@ -80,7 +80,8 @@ export const PARAGRAPH_RESOURCE_TYPES = {
   EMBEDDED_VIDEO: 'paragraph--embedded_video',
   EXPANDABLE_TEXT: 'paragraph--expandable_text',
   FEATURED_CONTENT: 'paragraph--featured_content',
-  HEALTH_CARE_LOCAL_FACILITY_SERVICE: 'paragraph--health_care_local_facility_servi',
+  HEALTH_CARE_LOCAL_FACILITY_SERVICE:
+    'paragraph--health_care_local_facility_servi',
   LINK_TEASER: 'paragraph--link_teaser',
   LINK_TEASER_WITH_IMAGE: 'paragraph--link_teaser_with_image',
   LISTS_OF_LINKS: 'paragraph--lists_of_links',
