@@ -154,7 +154,6 @@ describe('data function for StoryListing', () => {
           field_govdelivery_id_emerg: null,
           field_govdelivery_id_news: null,
           field_other_va_locations: null,
-          field_clinical_health_services: [],
           field_mental_health_services: [],
           field_specialty_care_services: [],
           field_va_health_connect_phone: null,
