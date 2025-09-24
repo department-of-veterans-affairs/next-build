@@ -1,4 +1,7 @@
-import { fetchEntity as fetchEntityScript } from '../../../scripts/fetch-entity/src/fetchEntity.ts'
+import path from 'path'
+import { spawn } from 'child_process'
+
+const __dirname = new URL('.', import.meta.url).pathname
 
 export interface FetchEntityOptions {
   /**
@@ -29,37 +32,79 @@ export interface FetchEntityResult {
 }
 
 /**
- * Fetches an entity or collection of entities using the fetchEntityScript function.
+ * Fetches an entity or collection of entities using the fetch-entity shell script.
  *
  * @param options - Configuration options for fetching entities
  * @returns Promise resolving to formatted content for MCP response
  */
-export async function fetchEntity({
-  resourceType,
-  uuid,
-  limit = 1,
-  includes = [],
-}: FetchEntityOptions): Promise<FetchEntityResult> {
+export async function fetchEntity(
+  options: FetchEntityOptions
+): Promise<FetchEntityResult> {
+  const { resourceType, uuid, limit = 1, includes = [] } = options
+
   try {
-    // Call the fetchEntityScript function directly
-    const data = await fetchEntityScript(resourceType, uuid, {
-      include: includes,
-      deflate: true, // Always deflate to avoid circular references
-      collection: !uuid, // Use collection mode if no UUID is provided
-      limit: limit.toString(),
-    })
+    // Path to the fetch-entity script
+    const scriptPath = path.join(
+      __dirname,
+      '../../..',
+      'scripts/fetch-entity/fetch-entity.sh'
+    )
 
-    // Format the response as JSON string for MCP
-    const jsonString = JSON.stringify(data, null, 2)
-
-    return {
-      content: [
-        {
-          type: 'text',
-          text: jsonString,
-        },
-      ],
+    // Build command args
+    const args = [resourceType]
+    if (uuid) {
+      args.push(uuid)
     }
+
+    let command = `${scriptPath} ${args.join(' ')}`
+
+    // Add collection flag if no UUID is provided
+    if (!uuid) {
+      command += ' --collection'
+      command += ` --limit ${limit}`
+    }
+
+    // Add includes if specified
+    if (includes.length > 0) {
+      command += ` --include ${includes.join(' ')}`
+    }
+
+    // Always request JSON output and deflate to avoid circular references
+    command += ' --json --deflate'
+
+    // Execute the command using child_process
+    return new Promise((resolve, reject) => {
+      const child = spawn('bash', ['-c', command])
+      let stdout = ''
+      let stderr = ''
+
+      child.stdout.on('data', (data) => {
+        stdout += data.toString()
+      })
+
+      child.stderr.on('data', (data) => {
+        stderr += data.toString()
+      })
+
+      child.on('close', (code) => {
+        if (code !== 0 || stderr) {
+          reject(new Error(`Script failed with code ${code}: ${stderr}`))
+        } else {
+          resolve({
+            content: [
+              {
+                type: 'text',
+                text: stdout,
+              },
+            ],
+          })
+        }
+      })
+
+      child.on('error', (error) => {
+        reject(new Error(`Failed to execute script: ${error.message}`))
+      })
+    })
   } catch (error) {
     return {
       content: [
