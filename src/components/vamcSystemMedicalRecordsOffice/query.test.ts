@@ -11,13 +11,14 @@ import mockMenu from './mock.menu.json'
 import mockServices from './mock.services.json'
 import { Menu } from '@/types/drupal/menu'
 import { VamcSystemMedicalRecordsOfficeData } from './query'
+import { NodeVhaFacilityNonclinicalService } from '@/types/drupal/node'
 
 const defaultData: VamcSystemMedicalRecordsOfficeData = {
   entity: mockData,
   // @ts-expect-error - the `options` type of this real data is not compatible with that
   // of the `DrupalMenuLinkContent` definition from `next-drupal`
   menu: mockMenu as Menu,
-  services: mockServices,
+  services: mockServices as NodeVhaFacilityNonclinicalService[],
 }
 
 describe('VamcSystemMedicalRecordsOffice formatter', () => {
@@ -110,7 +111,10 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
       },
     ]
 
-    const result = formatter({ ...defaultData, services: unsortedServices })
+    const result = formatter({
+      ...defaultData,
+      services: unsortedServices as NodeVhaFacilityNonclinicalService[],
+    })
 
     expect(result.services).toHaveLength(2)
     expect(result.services[0].title).toBe('Alpha Medical Center')
