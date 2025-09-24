@@ -1,12 +1,13 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Event } from './template'
+import { Event as FormattedEvent } from './formatted-type'
 
 jest.mock('@/lib/analytics/recordEvent', () => ({
   recordEvent: jest.fn(),
 }))
 
-const data = {
+const data: FormattedEvent = {
   id: '',
   type: '',
   published: null,

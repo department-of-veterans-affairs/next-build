@@ -4,7 +4,6 @@ exports[`paragraph--link_teaser formatData outputs formatted data 1`] = `
 [
   {
     "componentParams": {
-      "boldTitle": false,
       "sectionHeader": "",
     },
     "entityId": 3,
@@ -18,7 +17,6 @@ exports[`paragraph--link_teaser formatData outputs formatted data 1`] = `
   },
   {
     "componentParams": {
-      "boldTitle": false,
       "sectionHeader": "",
     },
     "entityId": 4,
@@ -32,7 +30,6 @@ exports[`paragraph--link_teaser formatData outputs formatted data 1`] = `
   },
   {
     "componentParams": {
-      "boldTitle": false,
       "sectionHeader": "",
     },
     "entityId": 5,

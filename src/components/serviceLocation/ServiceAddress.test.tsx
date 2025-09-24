@@ -86,10 +86,10 @@ describe('ServiceAddress', () => {
     )
 
     expect(screen.getByText('Cardiology Clinic')).toBeInTheDocument()
-    expect(screen.getByText('456 Service Rd')).toBeInTheDocument()
-    expect(screen.getByText('San Francisco, CA 94101')).toBeInTheDocument()
-    expect(screen.getByText('Building 5')).toBeInTheDocument()
-    expect(screen.getByText('Room 203')).toBeInTheDocument()
+    expect(screen.getByText(/456 Service Rd/)).toBeInTheDocument()
+    expect(screen.getByText(/San Francisco, CA 94101/)).toBeInTheDocument()
+    expect(screen.getByText(/Building 5/)).toBeInTheDocument()
+    expect(screen.getByText(/Room 203/)).toBeInTheDocument()
   })
 
   it('displays clinic name without address data', () => {
@@ -103,8 +103,8 @@ describe('ServiceAddress', () => {
     )
 
     expect(screen.getByText('Cardiology Clinic')).toBeInTheDocument()
-    expect(screen.queryByText('123 Main St')).not.toBeInTheDocument()
-    expect(screen.queryByText('456 Service Rd')).not.toBeInTheDocument()
+    expect(screen.queryByText(/123 Main St/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/456 Service Rd/)).not.toBeInTheDocument()
   })
 
   it('displays building and room without clinic name', () => {
@@ -120,10 +120,10 @@ describe('ServiceAddress', () => {
     expect(
       screen.getByRole('heading', { name: 'Location', level: 4 })
     ).toBeInTheDocument()
-    expect(screen.getByText('Building 5')).toBeInTheDocument()
-    expect(screen.getByText('Room 203')).toBeInTheDocument()
-    expect(screen.getByText('456 Service Rd')).toBeInTheDocument()
-    expect(screen.getByText('San Francisco, CA 94101')).toBeInTheDocument()
+    expect(screen.getByText(/Building 5/)).toBeInTheDocument()
+    expect(screen.getByText(/Room 203/)).toBeInTheDocument()
+    expect(screen.getByText(/456 Service Rd/)).toBeInTheDocument()
+    expect(screen.getByText(/San Francisco, CA 94101/)).toBeInTheDocument()
   })
 
   it('combines different address parts correctly', () => {
@@ -141,15 +141,15 @@ describe('ServiceAddress', () => {
     expect(
       screen.getByRole('heading', { name: 'Orthopedics Clinic', level: 4 })
     ).toBeInTheDocument()
-    expect(screen.getByText('456 Service Rd')).toBeInTheDocument()
-    expect(screen.getByText('San Francisco, CA 94101')).toBeInTheDocument()
-    expect(screen.getByText('Tower B')).toBeInTheDocument()
-    expect(screen.getByText('Floor 3, Suite 301')).toBeInTheDocument()
+    expect(screen.getByText(/456 Service Rd/)).toBeInTheDocument()
+    expect(screen.getByText(/San Francisco, CA 94101/)).toBeInTheDocument()
+    expect(screen.getByText(/Tower B/)).toBeInTheDocument()
+    expect(screen.getByText(/Floor 3, Suite 301/)).toBeInTheDocument()
   })
   it('uses an h5 if useH5 true', () => {
     render(
       <ServiceAddress
-        useH5={true}
+        headingLevel={5}
         serviceLocationAddress={{
           ...mockServiceLocationAddress,
           field_clinic_name: 'Orthopedics Clinic',

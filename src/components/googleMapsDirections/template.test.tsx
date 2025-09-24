@@ -1,12 +1,20 @@
 import { render, screen } from '@testing-library/react'
 import { GoogleMapsDirections } from './template'
+import { FieldAddress } from '@/types/drupal/field_type'
 
 describe('GoogleMapsDirections Component', () => {
   test('renders anchor element with correct href attribute and label', () => {
     const location = 'Target Location'
-    const address = '123 Main St, City, Country'
+    const address: FieldAddress = {
+      langcode: 'en',
+      country_code: 'US',
+      administrative_area: 'CA',
+      locality: 'San Francisco',
+      address_line1: '123 Main St',
+      postal_code: '94102',
+    }
     const expectedUrl = `https://maps.google.com/?saddr=Current+Location&daddr=${encodeURIComponent(
-      address
+      '123 Main St, San Francisco, CA'
     )}`
     const expectedAriaLabel = `Get directions on Google Maps to ${location}`
 
@@ -24,7 +32,14 @@ describe('GoogleMapsDirections Component', () => {
     expect(anchorElement).toHaveAttribute('label', expectedAriaLabel)
   })
   test('excludes label from render if none given', () => {
-    const address = '123 Main St, City, Country'
+    const address: FieldAddress = {
+      langcode: 'en',
+      country_code: 'US',
+      administrative_area: 'CA',
+      locality: 'San Francisco',
+      address_line1: '123 Main St',
+      postal_code: '94102',
+    }
 
     render(<GoogleMapsDirections address={address} />)
 

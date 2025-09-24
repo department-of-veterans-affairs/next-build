@@ -9,9 +9,6 @@ import { getNestedIncludes } from '@/lib/utils/queries'
 import { formatter as formatImage } from '@/components/mediaImage/query'
 import { formatter as formatFeaturedContent } from '@/components/featuredContent/query'
 import { formatter as formatAccordionItem } from '@/components/accordion/query'
-import { formatter as formatPhone } from '@/components/phoneNumber/query'
-import { formatter as formatEmail } from '@/components/emailContact/query'
-import { createPhoneLinks } from '@/lib/utils/createPhoneLinks'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 import {
   PARAGRAPH_RESOURCE_TYPES,
@@ -24,9 +21,7 @@ import {
   fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { PhoneContact } from '@/components/contactInfo/formatted-type'
-import { drupalClient } from '@/lib/drupal/drupalClient'
-
-const isPublished = (entity: { status: boolean }) => entity.status === true
+import { formatter as formatServiceLocation } from '@/components/serviceLocation/query'
 
 // Define the query params for fetching node--vba_facility.
 export const params: QueryParams<null> = () => {
@@ -245,30 +240,9 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
         : null,
       serviceDescription:
         service.field_service_name_and_descripti?.field_vba_service_descrip,
-      serviceLocations: service.field_service_location.map((location) => ({
-        fieldOfficeVisits: location.field_office_visits,
-        fieldVirtualSupport: location.field_virtual_support,
-        fieldApptIntroTextType: location.field_appt_intro_text_type,
-        fieldApptIntroTextCustom: createPhoneLinks(
-          location.field_appt_intro_text_custom
-        ),
-        appointmentPhoneNumbers: location.field_other_phone_numbers
-          .filter(isPublished)
-          .map(formatPhone),
-        fieldOnlineSchedulingAvail: location.field_online_scheduling_avail,
-        contactInfoPhoneNumbers: location.field_phone
-          .filter(isPublished)
-          .map(formatPhone),
-        fieldEmailContacts: location.field_email_contacts
-          .filter(isPublished)
-          .map(formatEmail),
-        fieldHours: location.field_hours,
-        fieldOfficeHours: location.field_office_hours,
-        fieldAdditionalHoursInfo: location.field_additional_hours_info,
-        fieldUseMainFacilityPhone: location.field_use_main_facility_phone,
-        fieldUseFacilityPhoneNumber: location.field_use_facility_phone_number,
-        fieldServiceLocationAddress: location.field_service_location_address,
-      })),
+      serviceLocations: service.field_service_location.map((location) =>
+        formatServiceLocation(location)
+      ),
     })),
   }
 }

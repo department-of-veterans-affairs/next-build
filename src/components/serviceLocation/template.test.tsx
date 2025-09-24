@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
-import { ServiceLocation } from './template'
+import { ServiceLocation, ServiceLocationType } from './template'
 import type { PhoneNumber as PhoneNumberType } from '@/components/phoneNumber/formatted-type'
 
 // Mock data for different test scenarios
@@ -14,7 +14,9 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
   mainPhoneString: '555-5678',
   isMentalHealthService: true,
   location: {
-    fieldUseFacilityPhoneNumber: true,
+    id: 'test-location-1',
+    type: 'paragraph--service_location',
+    useFacilityPhoneNumber: true,
     appointmentPhoneNumbers: [
       {
         id: '1',
@@ -43,13 +45,13 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
         label: 'Main contact',
       },
     ],
-    fieldOfficeVisits: 'yes_appointment_only',
-    fieldVirtualSupport: 'yes_veterans_can_call',
-    fieldOnlineSchedulingAvail: 'yes',
-    fieldServiceLocationAddress: {
+    officeVisits: 'yes_appointment_only',
+    virtualSupport: 'yes_veterans_can_call',
+    onlineSchedulingAvail: 'yes',
+    serviceLocationAddress: {
       drupal_internal__id: 1,
       drupal_internal__revision_id: 1,
-      type: '',
+      type: 'paragraph--service_location_address',
       langcode: 'en',
       id: '1',
       status: true,
@@ -67,8 +69,8 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
       },
       field_use_facility_address: false,
     },
-    fieldHours: '2',
-    fieldOfficeHours: [
+    hours: '2',
+    officeHours: [
       {
         day: 1,
         starthours: 800,
@@ -82,9 +84,9 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
         comment: 'Open',
       },
     ],
-    fieldAdditionalHoursInfo: 'Closed on holidays',
-    fieldUseMainFacilityPhone: true,
-    fieldApptIntroTextType: 'use_default_text',
+    additionalHoursInfo: 'Closed on holidays',
+    useMainFacilityPhone: true,
+    apptIntroTextType: 'use_default_text',
   },
 })
 
@@ -135,10 +137,10 @@ describe('ServiceLocation', () => {
   test('shows service location address', () => {
     render(<ServiceLocation {...getBaseProps()} />)
 
-    expect(screen.getByText('Building 1')).toBeInTheDocument()
-    expect(screen.getByText('Room 101')).toBeInTheDocument()
-    expect(screen.getByText('123 Main St')).toBeInTheDocument()
-    expect(screen.getByText('Anytown, CA 12345')).toBeInTheDocument()
+    expect(screen.getByText(/Building 1/)).toBeInTheDocument()
+    expect(screen.getByText(/Room 101/)).toBeInTheDocument()
+    expect(screen.getByText(/123 Main St/)).toBeInTheDocument()
+    expect(screen.getByText(/Anytown, CA 12345/)).toBeInTheDocument()
   })
 
   test('shows online scheduling when available', () => {
@@ -156,7 +158,7 @@ describe('ServiceLocation', () => {
 
   test('shows correct online scheduling link when VBA', () => {
     const props = { ...getBaseProps() }
-    props.isVba = true
+    props.locationType = ServiceLocationType.VBA
     render(<ServiceLocation {...props} />)
 
     const linkAction = screen
@@ -187,8 +189,8 @@ describe('ServiceLocation', () => {
 
   test('shows same-as-facility hours message', () => {
     const props = { ...getBaseProps() }
-    props.location.fieldHours = '0'
-    delete props.location.fieldOfficeHours
+    props.location.hours = '0'
+    delete props.location.officeHours
 
     render(<ServiceLocation {...props} />)
 
@@ -237,8 +239,8 @@ describe('ServiceLocation', () => {
 
   test('shows custom appointment text', () => {
     const props = { ...getBaseProps() }
-    props.location.fieldApptIntroTextType = 'customize_text'
-    props.location.fieldApptIntroTextCustom = 'Custom appointment instructions'
+    props.location.apptIntroTextType = 'customize_text'
+    props.location.apptIntroTextCustom = 'Custom appointment instructions'
 
     render(<ServiceLocation {...props} />)
 
@@ -246,6 +248,7 @@ describe('ServiceLocation', () => {
       screen.getByText('Custom appointment instructions')
     ).toBeInTheDocument()
   })
+
   test('does referral sentence if not VBA', () => {
     const props = { ...getBaseProps() }
 
@@ -257,9 +260,10 @@ describe('ServiceLocation', () => {
       )
     ).toBeInTheDocument()
   })
+
   test('does not show referral sentence if VBA', () => {
     const props = { ...getBaseProps() }
-    props.isVba = true
+    props.locationType = ServiceLocationType.VBA
 
     render(<ServiceLocation {...props} />)
 
@@ -269,9 +273,10 @@ describe('ServiceLocation', () => {
       )
     ).not.toBeInTheDocument()
   })
+
   test('shows email contacts', () => {
     const props = { ...getBaseProps() }
-    props.location.fieldEmailContacts = [
+    props.location.emailContacts = [
       {
         address: 'contact@example.com',
         label: 'General Inquiries',
@@ -287,10 +292,17 @@ describe('ServiceLocation', () => {
       screen.getByTestId('service-location-email-contact-0')
     ).toHaveAttribute('href', 'mailto:contact@example.com')
   })
+
   test('renders all h4s with no service header', () => {
     render(<ServiceLocation {...getBaseProps()} />)
     expect(screen.queryAllByRole('heading', { level: 4 })).toHaveLength(8)
   })
+
+  test('renders all h5s with no service header if headingLevel is 5', () => {
+    render(<ServiceLocation {...getBaseProps()} headingLevel={5} />)
+    expect(screen.queryAllByRole('heading', { level: 5 })).toHaveLength(8)
+  })
+
   test('renders service heading and other headings as h5 if service header', () => {
     const props = { ...getBaseProps() }
     props.serviceHeader = 'test header'

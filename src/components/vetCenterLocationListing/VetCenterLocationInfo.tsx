@@ -5,7 +5,7 @@ import {
   VetCenterOutstationLocationInfo,
   MobileVetCenterLocationInfo,
 } from './formatted-type'
-import { Address } from '../vamcFacility/Address'
+import { Address } from '@/components/address/template'
 import { PhoneNumber } from '@/components/phoneNumber/template'
 import { Hours } from '@/components/hours/template'
 import { MediaImage } from '@/components/mediaImage/template'

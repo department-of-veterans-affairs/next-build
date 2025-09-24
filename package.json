@@ -31,8 +31,6 @@
     "test:coverage": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:coverage.js",
     "test:debug": "yarn build:env-loader && APP_ENV=test node ./scripts/yarn/test:debug.js",
     "test:watch": "yarn test -- --watch",
-    "test:examples": "APP_ENV=test jest --rootDir ./example_tests --config ./example_tests/jest.config.ts",
-    "test:example": "APP_ENV=test yarn test:examples example_tests/${1}/",
     "test:format": "APP_ENV=test prettier --check .",
     "test:playwright": "playwright test --project=main",
     "test:playwright:interactive": "playwright test --ui",
@@ -44,7 +42,8 @@
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.1",
-    "@datadog/browser-rum": "^6.13.0",
+    "@datadog/browser-rum": "^6.19.0",
+    "@date-fns/tz": "^1.4.1",
     "@department-of-veterans-affairs/component-library": "50.2.1",
     "@department-of-veterans-affairs/formation": "^12.0.0",
     "@department-of-veterans-affairs/web-components": "18.4.0",
@@ -65,7 +64,7 @@
     "fs-extra": "^11.2.0",
     "jest-axe": "^10.0.0",
     "jest-extended": "^6.0.0",
-    "jsdom": "^26.1.0",
+    "jsdom": "^27.0.0",
     "jsona": "^1.12.1",
     "lighthouse": "^12.8.0",
     "linkinator": "^6.0.3",
@@ -93,9 +92,9 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.8.2",
     "@eslint/eslintrc": "^3",
-    "@faker-js/faker": "^9.7.0",
+    "@faker-js/faker": "^9.9.0",
     "@next/env": "15.5.0",
-    "@playwright/test": "^1.46.1",
+    "@playwright/test": "^1.55.0",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.7.0",
     "@testing-library/react": "^16.3.0",
@@ -136,7 +135,7 @@
     "ts-morph": "^26.0.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.9.2"
   },
   "resolutions": {
     "drupal-jsonapi-params": "3.0.0",

@@ -1,10 +1,11 @@
 import { FieldAddress } from '@/types/drupal/field_type'
 import { ParagraphServiceLocationAddress } from '@/types/drupal/paragraph'
+import { Address } from '../address/template'
 
 interface ServiceAddressProps {
   serviceLocationAddress: ParagraphServiceLocationAddress
   facilityAddress?: FieldAddress
-  useH5?: boolean
+  headingLevel?: 4 | 5 | 6
 }
 
 /**
@@ -17,7 +18,7 @@ interface ServiceAddressProps {
 export const ServiceAddress = ({
   serviceLocationAddress,
   facilityAddress,
-  useH5 = false,
+  headingLevel = 4,
 }: ServiceAddressProps) => {
   // TODO: When refactoring this, we won't ever need the `facilityAddress`, so
   // we can remove it. If `field_use_facility_address` is true, we show no
@@ -46,55 +47,36 @@ export const ServiceAddress = ({
   if (!showSection) {
     return null
   }
-  const getHeading = () => {
-    if (serviceLocationAddress.field_clinic_name) {
-      return serviceLocationAddress.field_clinic_name
-    } else if (
-      serviceLocationAddress.field_building_name_number ||
-      serviceLocationAddress.field_wing_floor_or_room_number
-    ) {
-      return 'Location'
-    }
-    return null
+
+  let heading
+  if (serviceLocationAddress.field_clinic_name) {
+    heading = serviceLocationAddress.field_clinic_name
+  } else if (
+    serviceLocationAddress.field_building_name_number ||
+    serviceLocationAddress.field_wing_floor_or_room_number
+  ) {
+    heading = 'Location'
   }
+  const HeadingTag = `h${headingLevel}` as 'h4' | 'h5'
+
   return (
     <div className="vads-u-display--flex vads-u-flex-direction--column">
-      {getHeading() && (
-        <>{useH5 ? <h5>{getHeading()}</h5> : <h4>{getHeading()}</h4>}</>
-      )}
+      {heading && <HeadingTag>{heading}</HeadingTag>}
+
       {hasAddress && !serviceLocationAddress.field_use_facility_address && (
-        <>
-          {addressData?.address_line1 && (
-            <span className="vads-u-margin-bottom--0">
-              {addressData.address_line1}
-            </span>
-          )}
-          {addressData?.address_line2 && (
-            <span className="vads-u-margin-bottom--0">
-              {addressData.address_line2}
-            </span>
-          )}
-          {addressData?.locality &&
-            addressData?.administrative_area &&
-            addressData?.postal_code && (
-              <span className="vads-u-margin-bottom--0">
-                {addressData.locality}, {addressData.administrative_area}{' '}
-                {addressData.postal_code}
-              </span>
-            )}
-        </>
+        <Address address={addressData} showDirections={false} />
       )}
 
       {serviceLocationAddress.field_building_name_number && (
-        <span className="vads-u-margin-bottom--0">
+        <p className="vads-u-margin-y--0">
           {serviceLocationAddress.field_building_name_number}
-        </span>
+        </p>
       )}
 
       {serviceLocationAddress.field_wing_floor_or_room_number && (
-        <span className="vads-u-margin-bottom--0">
+        <p className="vads-u-margin-y--0">
           {serviceLocationAddress.field_wing_floor_or_room_number}
-        </span>
+        </p>
       )}
     </div>
   )

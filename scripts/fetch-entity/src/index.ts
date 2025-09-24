@@ -31,29 +31,76 @@ program
     'Fetch a resource from the Drupal JSON:API. Useful for grabbing mock data.'
   )
   .argument('<resource-type>', 'The resource type to fetch')
-  .argument('<uuid>', 'The ID of the resource to fetch')
+  .argument(
+    '[uuid]',
+    'The ID of the resource to fetch (optional if using --collection)'
+  )
   .option(
     '--include <includes...>',
     'Dot-notated, space-separated includes (e.g. field_telephone field_region_page.field_related_links.field_va_paragraphs)'
   )
   .option('--json', 'Output as JSON. Beware of circular references!')
   .option('--deflate', 'Deflate the output to remove circular references')
+  .option(
+    '--collection',
+    'Fetch a collection of resources instead of a single resource'
+  )
+  .option(
+    '--limit <limit>',
+    'Limit the number of resources to fetch (only with --collection)',
+    '1'
+  )
   .action(
     async (
       resourceType: string,
-      uuid: string,
-      options: { include?: string[]; json?: boolean; deflate?: boolean }
+      uuid?: string,
+      options: {
+        include?: string[]
+        json?: boolean
+        deflate?: boolean
+        collection?: boolean
+        limit?: string
+      }
     ) => {
+      // Validate arguments
+      if (!options.collection && !uuid) {
+        console.error(
+          'Error: UUID is required when not using --collection mode'
+        )
+        process.exit(1)
+      }
+
       const params = new DrupalJsonApiParams()
       if (options.include?.length) {
         params.addInclude(options.include)
       }
 
-      let data: unknown = await drupalClient.getResource(resourceType, uuid, {
-        params: params.getQueryObject(),
-        // @ts-expect-error It's possible for the env vars to not be set properly
-        withAuth,
-      })
+      let data: unknown
+
+      if (options.collection) {
+        // Fetch collection of resources
+        const limit = parseInt(options.limit || '1', 10)
+        params.addPageLimit(limit)
+
+        const collection = await drupalClient.getResourceCollection(
+          resourceType,
+          {
+            params: params.getQueryObject(),
+            // @ts-expect-error It's possible for the env vars to not be set properly
+            withAuth,
+          }
+        )
+
+        // If limit is 1, return just the first item, otherwise return the array
+        data = limit === 1 && collection.length > 0 ? collection[0] : collection
+      } else {
+        // Fetch single resource by UUID
+        data = await drupalClient.getResource(resourceType, uuid!, {
+          params: params.getQueryObject(),
+          // @ts-expect-error It's possible for the env vars to not be set properly
+          withAuth,
+        })
+      }
 
       if (options.deflate) {
         data = deflateObjectGraph(data)

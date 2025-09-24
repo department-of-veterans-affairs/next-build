@@ -72,7 +72,7 @@ a browser with a clean UI to monitor and iterate on different test cases.
 
 This project can be tested for a11y compliance in several ways:
 
-- Individual Jest unit tests using jest-axe (see: `example_tests/06_accessibility_tests/index.test.jsx`).
+- Individual Jest unit tests using jest-axe.
 - Individual Playwright tests using Playwright-axe. (see: `playwright/tests/newsStory.spec.js`).
 
   - Any individual test can call these commands to check a given page:
