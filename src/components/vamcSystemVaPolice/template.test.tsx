@@ -47,8 +47,6 @@ describe('VamcSystemVaPolice with valid data', () => {
   test('adds the sideNav to window.sideNav', () => {
     render(<VamcSystemVaPolice {...mockData} />)
 
-    // @ts-expect-error - window.sideNav is not a default window property, but
-    // we're adding it
     expect(window.sideNav).toEqual(mockData.menu)
   })
   test('renders the police overview', () => {

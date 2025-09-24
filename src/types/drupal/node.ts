@@ -47,6 +47,7 @@ import {
   ParagraphCCQaSection,
   ParagraphFeaturedContent,
   ParagraphListOfLinkTeasers,
+  ParagraphSituationUpdate,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -87,6 +88,7 @@ export type NodeTypes =
   | NodeVamcSystemVaPolice
   | NodeVamcSystemRegisterForCare
   | NodeVamcSystemBillingAndInsurance
+  | NodeVamcSystemMedicalRecordsOffice
   | NodeVamcSystemPoliciesPage
   | NodeLeadershipListing
   | NodeVbaFacility
@@ -117,13 +119,14 @@ export interface NodeFullWidthBannerAlert extends DrupalNode {
   field_body: FieldFormattedText
   field_alert_dismissable: boolean
   field_alert_type: string
-  field_banner_alert_situationinfo: FieldFormattedText
+  field_banner_alert_situationinfo: string
   field_alert_find_facilities_cta: boolean
   field_alert_operating_status_cta: boolean
   field_alert_email_updates_button: boolean
   field_alert_inheritance_subpages: boolean
-  field_operating_status_sendemail: boolean
-  field_banner_alert_vamcs: NodeBannerAlertVAMCS[]
+  field_operating_status_sendemail?: boolean
+  field_banner_alert_vamcs?: NodeBannerAlertVAMCS[]
+  field_situation_updates?: ParagraphSituationUpdate[]
 }
 
 export interface NodeBannerAlertVAMCS extends DrupalNode {
@@ -460,11 +463,31 @@ export interface NodeVamcSystemBillingAndInsurance extends DrupalNode {
   field_cc_related_links?: FieldCCListOfLinkTeasers
 }
 
+export interface NodeVamcSystemMedicalRecordsOffice extends DrupalNode {
+  title: string
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu'
+  >
+  field_cc_top_of_page_content?: FieldCCText
+  field_cc_bottom_of_page_content?: FieldCCText
+  field_cc_related_links?: FieldCCListOfLinkTeasers
+  // TODO: Add additional centralized content fields from medical records template
+  // field_cc_react_widget?: FieldCCText
+  // field_cc_get_records_in_person?: FieldCCText
+  // field_cc_get_records_mail_or_fax?: FieldCCText
+  // field_cc_how_we_share_records?: FieldCCText
+  // field_cc_faqs?: FieldCCText
+  // TODO: Add individual node fields from medical records template
+  // field_vamc_med_records_mailing?: FieldAddress
+  // field_fax_number?: string
+}
+
 export interface NodeVamcSystemPoliciesPage extends DrupalNode {
   breadcrumbs: BreadcrumbItem[]
-  field_administration: FieldAdministration
-  // TODO: Hydrate this entity reference
-  field_office: Pick<NodeHealthCareRegionPage, 'id' | 'type'>
+  // The field_administration is here, but we don't use it.
+  // field_administration: FieldAdministration
+  field_office: NodeHealthCareRegionPage
   field_cc_intro_text?: FieldCCText
   field_cc_top_of_page_content?: FieldCCText
   field_cc_gen_visitation_policy?: FieldCCText
@@ -606,4 +629,5 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
+  field_banner_alert?: NodeFullWidthBannerAlert[]
 }
