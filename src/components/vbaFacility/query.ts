@@ -83,45 +83,74 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
   services,
 }) => {
   const featuredContent = [
-    formatFeaturedContent({
-      type: 'paragraph--featured_content',
-      id: entity.field_cc_national_spotlight_1.target_id,
-      field_section_header:
-        entity.field_cc_national_spotlight_1.fetched.field_section_header[0]
-          .value,
-      field_description: {
-        ...entity.field_cc_national_spotlight_1.fetched.field_description[0],
-      },
-      drupal_internal__id: null,
-      drupal_internal__revision_id: null,
-      langcode: null,
-      status: true,
-      field_cta: {
-        type: 'paragraph--button',
-        field_button_label:
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0]
-            .field_button_label[0].value,
-        field_button_link: {
-          ...entity.field_cc_national_spotlight_1.fetched.field_cta[0]
-            .field_button_link[0],
-          options: [],
+    (() => {
+      const formattedItem = formatFeaturedContent({
+        type: 'paragraph--featured_content',
+        id: entity.field_cc_national_spotlight_1.target_id,
+        field_section_header:
+          entity.field_cc_national_spotlight_1.fetched.field_section_header[0]
+            .value,
+        field_description: {
+          ...entity.field_cc_national_spotlight_1.fetched.field_description[0],
         },
-        drupal_internal__id: parseInt(
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0].target_id
-        ),
-        drupal_internal__revision_id: parseInt(
+        drupal_internal__id: null,
+        drupal_internal__revision_id: null,
+        langcode: null,
+        status: true,
+        field_cta: {
+          type: 'paragraph--button',
+          field_button_label:
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+              .field_button_label[0].value,
+          field_button_link: {
+            ...entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+              .field_button_link[0],
+            options: [],
+          },
+          drupal_internal__id: parseInt(
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0].target_id
+          ),
+          drupal_internal__revision_id: parseInt(
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+              .target_revision_id
+          ),
+          langcode:
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0].langcode,
+          status:
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0].status,
+          id: null,
+        },
+      })
+      if (formattedItem?.link) {
+        const originalButtonLink =
           entity.field_cc_national_spotlight_1.fetched.field_cta[0]
-            .target_revision_id
-        ),
-        langcode:
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0].langcode,
-        status:
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0].status,
-        id: null,
-      },
-    }),
+            .field_button_link[0]
+        return {
+          ...formattedItem,
+          link: {
+            ...formattedItem.link,
+            url: originalButtonLink?.uri || formattedItem.link.url,
+          },
+        }
+      }
+
+      return formattedItem
+    })(),
     ...entity.field_local_spotlight.map((feature) => {
-      return formatFeaturedContent(feature)
+      const formattedItem = formatFeaturedContent(feature)
+      if (formattedItem?.link && feature.field_cta) {
+        return {
+          ...formattedItem,
+          link: {
+            ...formattedItem.link,
+            url:
+              feature.field_cta.field_button_link?.url ||
+              formattedItem.link.url,
+          },
+        }
+      }
+
+      return formattedItem
     }),
   ]
   return {
