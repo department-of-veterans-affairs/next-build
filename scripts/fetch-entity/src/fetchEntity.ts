@@ -1,15 +1,14 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import util from 'util'
-import { deflateObjectGraph } from '../../../src/lib/utils/object-graph'
+import { deflateObjectGraph } from '../../../src/lib/utils/object-graph.ts'
 
-import { getEnvFileVars } from './getEnvVars'
+import { getEnvFileVars } from './getEnvVars.ts'
 
 process.env = {
   ...process.env,
   ...getEnvFileVars(),
 }
 
-const { drupalClient } = await import('./drupalClient')
+const { drupalClient } = await import('./drupalClient.ts')
 
 // The username & password will let us apply filters, so prefer that
 // Fall back to the client ID and secret otherwise
@@ -28,7 +27,6 @@ export async function fetchEntity(
   uuid?: string,
   options: {
     include?: string[]
-    json?: boolean
     deflate?: boolean
     collection?: boolean
     limit?: string
@@ -73,19 +71,5 @@ export async function fetchEntity(
     data = deflateObjectGraph(data)
   }
 
-  // NOTE: There may be a thing we can do to just _check_ for circular
-  // references. console.log(util.format('%j', data)) will output just
-  // "[Circular]" if there are circular references.
-
-  if (options.json) {
-    // eslint-disable-next-line no-console
-    console.log(JSON.stringify(data, null, 2))
-  } else {
-    // If we're printing to the terminal, pretty print with colors.
-    // NOTE: This is not proper JSON. (No quotes around property names.)
-    // eslint-disable-next-line no-console
-    console.log(
-      util.inspect(data, { depth: null, colors: process.stdout.isTTY })
-    )
-  }
+  return data
 }

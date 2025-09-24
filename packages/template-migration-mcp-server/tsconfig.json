@@ -5,13 +5,12 @@
     "module": "esnext",
     "moduleResolution": "node",
     "outDir": "./build",
-    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowImportingTsExtensions": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../../../scripts/fetch-entity/src/**/*"],
   "exclude": ["node_modules"]
 }

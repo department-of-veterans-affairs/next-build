@@ -86,9 +86,7 @@ server.registerTool(
         .describe('Related fields to include in the response'),
     },
   },
-  async ({ resourceType, uuid, limit = 1, includes = [] }) => {
-    return fetchEntity({ resourceType, uuid, limit, includes })
-  }
+  fetchEntity
 )
 
 // Start receiving messages on stdin and sending messages on stdout
