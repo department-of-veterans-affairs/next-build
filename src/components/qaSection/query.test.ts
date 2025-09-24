@@ -6,7 +6,7 @@ import { ParagraphQaSection } from '@/types/drupal/paragraph'
 import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/qaSection/mock.json'
 
-const QaSectionMock: ParagraphQaSection = mockData
+const QaSectionMock = mockData as ParagraphQaSection
 
 describe('QaSection formatData', () => {
   test('outputs formatted data', () => {

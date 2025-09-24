@@ -10,6 +10,12 @@ import {
   getMenu,
 } from '@/lib/drupal/query'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import {
+  formatParagraph,
+  normalizeEntityFetchedParagraphs,
+} from '@/lib/drupal/paragraphs'
+import { FieldCCText } from '@/types/drupal/field_type'
+import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 
@@ -64,25 +70,26 @@ export const data: QueryData<
 export const formatter: QueryFormatter<
   VamcSystemPoliciesPageData,
   VamcSystemPoliciesPage
-> = ({ entity, menu, lovell }) => {
+> = ({ entity, menu }) => {
+  const formatCcWysiwyg = (field: FieldCCText) =>
+    formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
+
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
-  return {
+  const formattedEntity: VamcSystemPoliciesPage = {
     ...entityBaseFields(entity),
     menu: formattedMenu,
-    introText: getHtmlFromField(
-      entity.field_cc_intro_text?.fetched?.field_wysiwyg?.[0]
-    ),
-    topOfPageContent: getHtmlFromField(
-      entity.field_cc_top_of_page_content?.fetched?.field_wysiwyg?.[0]
-    ),
-    generalVisitationPolicy: getHtmlFromField(
-      entity.field_cc_gen_visitation_policy?.fetched?.field_wysiwyg?.[0]
+    introText: formatCcWysiwyg(entity.field_cc_intro_text),
+    topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),
+    generalVisitationPolicy: formatCcWysiwyg(
+      entity.field_cc_gen_visitation_policy
     ),
     visitationPolicy: getHtmlFromField(entity.field_vamc_visitation_policy),
     otherPolicies: getHtmlFromField(entity.field_vamc_other_policies),
-    bottomOfPageContent: getHtmlFromField(
-      entity.field_cc_bottom_of_page_content?.fetched?.field_wysiwyg?.[0]
+    bottomOfPageContent: formatCcWysiwyg(
+      entity.field_cc_bottom_of_page_content
     ),
   }
+
+  return formattedEntity
 }
