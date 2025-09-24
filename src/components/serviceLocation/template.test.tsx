@@ -248,6 +248,7 @@ describe('ServiceLocation', () => {
       screen.getByText('Custom appointment instructions')
     ).toBeInTheDocument()
   })
+
   test('does referral sentence if not VBA', () => {
     const props = { ...getBaseProps() }
 
@@ -259,6 +260,7 @@ describe('ServiceLocation', () => {
       )
     ).toBeInTheDocument()
   })
+
   test('does not show referral sentence if VBA', () => {
     const props = { ...getBaseProps() }
     props.locationType = ServiceLocationType.VBA
@@ -271,6 +273,7 @@ describe('ServiceLocation', () => {
       )
     ).not.toBeInTheDocument()
   })
+
   test('shows email contacts', () => {
     const props = { ...getBaseProps() }
     props.location.emailContacts = [
@@ -289,10 +292,17 @@ describe('ServiceLocation', () => {
       screen.getByTestId('service-location-email-contact-0')
     ).toHaveAttribute('href', 'mailto:contact@example.com')
   })
+
   test('renders all h4s with no service header', () => {
     render(<ServiceLocation {...getBaseProps()} />)
     expect(screen.queryAllByRole('heading', { level: 4 })).toHaveLength(8)
   })
+
+  test('renders all h5s with no service header if headingLevel is 5', () => {
+    render(<ServiceLocation {...getBaseProps()} headingLevel={5} />)
+    expect(screen.queryAllByRole('heading', { level: 5 })).toHaveLength(8)
+  })
+
   test('renders service heading and other headings as h5 if service header', () => {
     const props = { ...getBaseProps() }
     props.serviceHeader = 'test header'
