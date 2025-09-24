@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_office,field_office.field_clinical_health_services,field_office.field_clinical_health_services.field_service_name_and_descripti,field_office.field_clinical_health_services.field_local_health_care_service_,field_office.field_clinical_health_services.field_local_health_care_service_.field_facility_location,field_featured_content_healthser&fields[paragraph--link_teaser]=field_link,field_link_summary"`;
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_office,field_featured_content_healthser&fields[paragraph--link_teaser]=field_link,field_link_summary"`;
 
 exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
 {

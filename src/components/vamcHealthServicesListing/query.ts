@@ -1,11 +1,15 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeVamcHealthServicesListing } from '@/types/drupal/node'
+import {
+  NodeRegionalHealthCareServiceDes,
+  NodeVamcHealthServicesListing,
+} from '@/types/drupal/node'
 import { VamcHealthServicesListing, HealthService } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 import {
   entityBaseFields,
+  fetchAndConcatAllResourceCollectionPages,
   fetchSingleEntityOrPreview,
   getMenu,
 } from '@/lib/drupal/query'
@@ -20,6 +24,7 @@ import { Menu } from '@/types/drupal/menu'
 import { queries } from '@/lib/drupal/queries'
 import { PARAGRAPH_RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { formatHealthService, groupHealthServicesByType } from './query-utils'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 
 // Define the query params for fetching node--health_services_listing.
 export const params: QueryParams<null> = () => {
@@ -27,13 +32,20 @@ export const params: QueryParams<null> = () => {
     .addInclude([
       'field_administration',
       'field_office',
-      'field_office.field_clinical_health_services',
-      'field_office.field_clinical_health_services.field_service_name_and_descripti',
-      'field_office.field_clinical_health_services.field_local_health_care_service_',
-      'field_office.field_clinical_health_services.field_local_health_care_service_.field_facility_location',
       'field_featured_content_healthser',
     ])
     .addFields('paragraph--link_teaser', ['field_link', 'field_link_summary'])
+}
+
+export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
+  return new DrupalJsonApiParams()
+    .addInclude([
+      'field_service_name_and_descripti',
+      'field_local_health_care_service_',
+      'field_local_health_care_service_.field_facility_location',
+    ])
+    .addFilter('status', '1')
+    .addFilter('field_region_page.id', vamcSystemId)
 }
 
 // Define the option types for the data loader.
@@ -44,6 +56,7 @@ export type VamcHealthServicesListingDataOpts = {
 
 type VamcHealthServicesListingData = {
   entity: NodeVamcHealthServicesListing
+  services: NodeRegionalHealthCareServiceDes[]
   menu: Menu | null
   lovell?: ExpandedStaticPropsContext['lovell']
 }
@@ -58,6 +71,7 @@ export const data: QueryData<
     RESOURCE_TYPES.VAMC_HEALTH_SERVICES_LISTING,
     params
   )) as NodeVamcHealthServicesListing
+
   const menu = entity.field_office?.field_system_menu
     ? await getMenu(
         entity.field_office.field_system_menu.resourceIdObjMeta
@@ -65,8 +79,16 @@ export const data: QueryData<
       )
     : null
 
+  const { data: services } =
+    await fetchAndConcatAllResourceCollectionPages<NodeRegionalHealthCareServiceDes>(
+      RESOURCE_TYPES.VAMC_SYSTEM_SERVICE_DES,
+      serviceParams(entity.field_office.id),
+      PAGE_SIZES.MAX
+    )
+
   return {
     entity,
+    services,
     menu,
     lovell: opts.context?.lovell,
   }
@@ -75,7 +97,7 @@ export const data: QueryData<
 export const formatter: QueryFormatter<
   VamcHealthServicesListingData,
   VamcHealthServicesListing
-> = ({ entity, menu, lovell }) => {
+> = ({ entity, services, menu, lovell }) => {
   let { breadcrumbs } = entity
   if (lovell?.isLovellVariantPage) {
     breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
@@ -91,7 +113,7 @@ export const formatter: QueryFormatter<
   // Process health services - these come from the reverse relationship
   // In the GraphQL query, this is reverseFieldRegionPageNode
   const healthServices =
-    entity.field_office.field_clinical_health_services
+    services
       ?.map((service) => formatHealthService(service, administration))
       .filter((service): service is HealthService => service !== null) || []
 

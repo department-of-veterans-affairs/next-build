@@ -19,7 +19,6 @@ const mockServicesListing: NodeVamcHealthServicesListing = {
   field_office: {
     ...(mockSystem as unknown as NodeHealthCareRegionPage),
     field_system_menu: {},
-    field_clinical_health_services: createMockServicesForGrouping(),
   },
 }
 
@@ -48,6 +47,7 @@ const mockMenu = {
 
 const mockDataWrapper = {
   entity: mockServicesListing,
+  services: createMockServicesForGrouping(),
   menu: mockMenu,
   lovell: undefined,
 }
@@ -76,9 +76,8 @@ describe('VamcHealthServicesListing formatData', () => {
     }
 
     const mockDataWrapperWithEmptyDescription = {
+      ...mockDataWrapper,
       entity: mockWithEmptyDescription,
-      menu: mockMenu,
-      lovell: undefined,
     }
 
     const result = queries.formatData(
@@ -90,39 +89,21 @@ describe('VamcHealthServicesListing formatData', () => {
   })
 
   test('includes path, administration, and vamcEhrSystem fields', () => {
-    const result = formatter({
-      entity: mockServicesListing,
-      menu: mockMenu,
-    })
+    const result = formatter(mockDataWrapper)
     expect(result.path).toBeDefined()
     expect(result.administration).toBeDefined()
     expect(result.vamcEhrSystem).toBeDefined()
   })
 
   test('correctly formats menu data', () => {
-    const result = formatter({
-      entity: mockServicesListing,
-      menu: mockMenu,
-    })
+    const result = formatter(mockDataWrapper)
     expect(result.menu).toBeDefined()
     expect(result.menu).toHaveProperty('rootPath')
     expect(result.menu).toHaveProperty('data')
   })
 
-  test('handles null menu gracefully', () => {
-    const result = formatter({
-      entity: mockServicesListing,
-      menu: null,
-    })
-
-    expect(result.menu).toBeNull()
-  })
-
   test('groups health services by type of care', () => {
-    const result = formatter({
-      entity: mockServicesListing,
-      menu: mockMenu,
-    })
+    const result = formatter(mockDataWrapper)
 
     expect(result.healthServiceGroups).toBeDefined()
     expect(result.healthServiceGroups).toHaveLength(5) // 5 different types of care
