@@ -6,10 +6,13 @@ import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/vbaFacility/mock.json'
 import mockServicesData from './vbaFacilityService.mock.json'
 import { params } from './query'
+import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
 
 const VbaFacilityMock = {
-  entity: mockData,
-  services: [{ ...mockServicesData, field_office: mockData }],
+  entity: mockData as NodeVbaFacility,
+  services: [
+    { ...(mockServicesData as NodeVbaService), field_office: mockData },
+  ],
 }
 
 // remove if this component does not have a data fetch

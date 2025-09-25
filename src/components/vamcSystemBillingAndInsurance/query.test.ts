@@ -8,8 +8,11 @@
 import { formatter } from './query'
 import mockData from './mock.json'
 import mockMenu from './mock.menu.json'
-import mockServices from './mock.services.json'
+import mockVhaServices from './mock.services.json'
 import { Menu } from '@/types/drupal/menu'
+import { NodeVhaFacilityNonclinicalService } from '@/types/drupal/node'
+
+const mockServices = mockVhaServices as NodeVhaFacilityNonclinicalService[]
 
 describe('VamcSystemBillingAndInsurance formatter', () => {
   it('formats basic fields correctly', () => {
@@ -66,7 +69,7 @@ describe('VamcSystemBillingAndInsurance formatter', () => {
 
     expect(result.aboveTopOfPageContent).toBeDefined()
     expect(result.aboveTopOfPageContent?.html).toContain(
-      '<h2>Questions about copay balance</h2>'
+      '<h2 id="questions-about-copay-balance">Questions about copay balance</h2>'
     )
     expect(result.aboveTopOfPageContent?.html).toContain(
       'For questions about the copay balance of your VA health care bill'

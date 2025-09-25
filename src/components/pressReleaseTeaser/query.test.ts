@@ -1,11 +1,9 @@
 import { NodePressRelease } from '@/types/drupal/node'
-import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/pressRelease/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params, formatter } from './query'
-import { de } from '@faker-js/faker'
 
-const nodePressReleaseTeaserMock: NodePressRelease = {
+const nodePressReleaseTeaserMock = {
   ...mockData,
   field_pdf_version: {
     ...mockData.field_pdf_version,
@@ -14,7 +12,7 @@ const nodePressReleaseTeaserMock: NodePressRelease = {
     drupal_internal__vid:
       mockData.field_pdf_version.drupal_internal__vid.toString(),
   },
-}
+} as NodePressRelease
 
 describe(`${RESOURCE_TYPES.PRESS_RELEASE}Teaser formatData`, () => {
   test('outputs formatted data', () => {
