@@ -19,6 +19,7 @@ export const params: QueryParams<null> = () => {
     'field_office',
     'field_office.field_system_menu',
     'field_banner_alert.field_situation_updates',
+    'field_facility_operating_status',
   ])
 }
 
@@ -108,6 +109,17 @@ export const formatter: QueryFormatter<
     ...entityBaseFields(entity),
     facilityName: entity.field_office.field_system_menu.label,
     situationUpdates: buildSituationUpdates(entity.field_banner_alert),
+    operatingStatuses:
+      entity.field_facility_operating_status?.map((facilityEntity) => ({
+        title: facilityEntity?.title,
+        url: facilityEntity?.path?.alias,
+        status: facilityEntity?.field_operating_status_facility,
+        statusInfo: facilityEntity?.field_operating_status_more_info
+          ? getHtmlFromDrupalContent(
+              facilityEntity.field_operating_status_more_info
+            )
+          : null,
+      })) || null,
     menu: formattedMenu,
   }
 }
