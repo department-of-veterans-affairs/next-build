@@ -13,8 +13,9 @@ add the following to your MCP server settings in `.vscode/mcp.json`:
   "servers": {
     "template-migration-mcp-server": {
       "type": "stdio",
-      "command": "node",
+      "command": "npx",
       "args": [
+        "tsx",
         "${workspaceFolder}/packages/template-migration-mcp-server/src/server.ts"
       ],
       "envFile": "${workspaceFolder}/envs/.env.local"

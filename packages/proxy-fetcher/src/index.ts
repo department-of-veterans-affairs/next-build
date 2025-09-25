@@ -1,10 +1,24 @@
 import crossFetch from 'cross-fetch'
 import Debug from 'debug'
 import { SocksProxyAgent } from 'socks-proxy-agent'
+import path from 'path'
 
 const logger = Debug('proxy-fetcher')
 const log = logger.extend('log')
 const error = logger.extend('error')
+
+/**
+ * Resolves a certificate file path relative to the project root.
+ * This ensures the path works regardless of where the code is executed from.
+ */
+const getCertPath = (certFileName: string): string => {
+  // Get the directory of the current file
+  const currentDir = __dirname
+  // Navigate up to the project root (from packages/proxy-fetcher/dist to project root)
+  const projectRoot = path.resolve(currentDir, '../../../')
+  // Return the absolute path to the certificate file
+  return path.resolve(projectRoot, 'certs', certFileName)
+}
 
 /**
  * Creates a custom fetcher function with support for SOCKS proxying,
@@ -61,12 +75,12 @@ export const getFetcher = (
 
     // If using an internal VA server, add VA cert.
     if (useProxy) {
-      syswideCas.addCAs('certs/VA-Internal-S2-RCA-combined.pem')
+      syswideCas.addCAs(getCertPath('VA-Internal-S2-RCA-combined.pem'))
     }
 
     // If using local cms through ddev, add the cert for https.
     if (host.match('va-gov-cms.ddev.site')) {
-      syswideCas.addCAs('certs/rootCA.pem')
+      syswideCas.addCAs(getCertPath('rootCA.pem'))
     }
 
     const agent = new SocksProxyAgent('socks://127.0.0.1:2001')

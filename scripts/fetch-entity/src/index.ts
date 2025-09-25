@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import util from 'util'
 import { program } from 'commander'
-import { fetchEntity } from './fetchEntity'
+import { fetchEntity } from './fetchEntity.ts'
 
 program
   .description(
