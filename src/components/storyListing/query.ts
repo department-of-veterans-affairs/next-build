@@ -30,7 +30,7 @@ export const listingParams: QueryParams<string> = (listingEntityId: string) => {
     .addSort('-created')
 }
 
-type StoryListingData = {
+export type StoryListingData = {
   entity: NodeStoryListing
   stories: NodeNewsStory[]
   menu: Menu

@@ -1,8 +1,9 @@
-import { drupalToVaPath, newlinesToBr } from './helpers'
+import { drupalToVaPath, newlinesToBr, addH2Ids } from './helpers'
 import { createPhoneLinks } from './createPhoneLinks'
 
 export type GetHtmlFromDrupalContentOptions = {
   convertNewlines?: boolean
+  addH2Ids?: boolean
 }
 
 /**
@@ -12,12 +13,16 @@ export type GetHtmlFromDrupalContentOptions = {
  */
 export const getHtmlFromDrupalContent = (
   content: string,
-  options: GetHtmlFromDrupalContentOptions = {}
+  options: GetHtmlFromDrupalContentOptions = { addH2Ids: true }
 ): string => {
   const transformers = [createPhoneLinks, drupalToVaPath]
   if (options.convertNewlines) {
     transformers.push(newlinesToBr)
   }
+  if (options.addH2Ids) {
+    transformers.push(addH2Ids)
+  }
+
   return transformers.reduce(
     (contentToTransform, transformFn) => transformFn(contentToTransform),
     content

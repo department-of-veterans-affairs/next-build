@@ -4,11 +4,14 @@ import { VbaFacility } from './template'
 import mockData from '@/components/vbaFacility/mock.json'
 import mockServiceData from './vbaFacilityService.mock.json'
 import { formatter } from './query'
+import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
 
 describe('VbaFacility with valid data', () => {
   const mockWithService = {
-    entity: { ...mockData },
-    services: [{ ...mockServiceData, field_office: mockData }],
+    entity: mockData as NodeVbaFacility,
+    services: [
+      { ...(mockServiceData as NodeVbaService), field_office: mockData },
+    ],
   }
   const formattedMockData = formatter(mockWithService)
   test('renders VbaFacility component', () => {
