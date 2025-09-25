@@ -57,6 +57,8 @@ export const data: QueryData<
     )
   }
 
+  // TODO: There seems to be some difference between a "facilitySidebar" and "outreachSidebar" in the original template
+
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_office.field_system_menu.resourceIdObjMeta
