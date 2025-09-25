@@ -258,3 +258,11 @@ export type FieldGeoLocation = {
   geohash: string
   latlon: string
 } | null
+
+export type FieldContentBlock = (
+  | ParagraphWysiwyg
+  | ParagraphListOfLinks
+  | ParagraphTable
+  | ParagraphReactWidget
+  | ParagraphAlert
+)[]
