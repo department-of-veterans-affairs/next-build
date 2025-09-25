@@ -83,7 +83,9 @@ server.registerTool(
       includes: z
         .array(z.string())
         .optional()
-        .describe('Related fields to include in the response'),
+        .describe(
+          'Related fields to hydrate in the response. These should only be fields that are present in the `relationshipNames` property of the entity. Including them will fetch the full entity and hydrate its reference in the response. All other fields are included by default.'
+        ),
     },
   },
   async ({ resourceType, uuid, limit = 1, includes = [] }) => {
