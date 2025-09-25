@@ -32,58 +32,59 @@ export function VamcSystemDetailPage({
       {/* Nav data filled in by a separate script from `window.sideNav` */}
       <nav aria-label="secondary" data-widget-type="side-nav" />
       <div className="vads-grid-row">
-        <div className="vads-grid-col-12"></div>
-        <article
-          aria-labelledby="article-heading"
-          role="region"
-          className="usa-content"
-          data-template="vamc-system-detail-page"
-        >
-          <LovellSwitcher
-            currentVariant={lovellVariant}
-            switchPath={lovellSwitchPath}
-          />
+        <div className="vads-grid-col-12">
+          <article
+            aria-labelledby="article-heading"
+            role="region"
+            className="usa-content"
+            data-template="vamc-system-detail-page"
+          >
+            <LovellSwitcher
+              currentVariant={lovellVariant}
+              switchPath={lovellSwitchPath}
+            />
 
-          <h1 id="article-heading">{title}</h1>
+            <h1 id="article-heading">{title}</h1>
 
-          {introText && (
-            <div className="va-introtext">
-              <p>{introText}</p>
-            </div>
-          )}
+            {introText && (
+              <div className="va-introtext">
+                <p>{introText}</p>
+              </div>
+            )}
 
-          {/* Main action buttons for contact pages */}
-          {isContactPage && (
-            <div className="usa-grid usa-grid-full vads-u-margin-y--1p5">
-              <div>TODO: Main action buttons</div>
-            </div>
-          )}
+            {/* Main action buttons for contact pages */}
+            {isContactPage && (
+              <div className="usa-grid usa-grid-full vads-u-margin-y--1p5">
+                <div>TODO: Main action buttons</div>
+              </div>
+            )}
 
-          {/* Alerts */}
-          <div>TODO: Alerts component</div>
+            {/* Alerts */}
+            <div>TODO: Alerts component</div>
 
-          {/* Table of contents */}
-          {showTableOfContents && <va-on-this-page></va-on-this-page>}
+            {/* Table of contents */}
+            {showTableOfContents && <va-on-this-page></va-on-this-page>}
 
-          {/* Featured content */}
-          <div>TODO: Featured content component</div>
+            {/* Featured content */}
+            <div>TODO: Featured content component</div>
 
-          {/* Main content blocks */}
-          <div>TODO: Main content blocks component</div>
+            {/* Main content blocks */}
+            <div>TODO: Main content blocks component</div>
 
-          {/* Related links */}
-          {relatedLinks && (
-            <div className="va-nav-linkslist va-nav-linkslist--related">
-              <ListOfLinkTeasers {...relatedLinks} />
-            </div>
-          )}
+            {/* Related links */}
+            {relatedLinks && (
+              <div className="va-nav-linkslist va-nav-linkslist--related">
+                <ListOfLinkTeasers {...relatedLinks} />
+              </div>
+            )}
 
-          {/* Social links for contact pages */}
-          {isContactPage && <div>TODO: Social links component</div>}
+            {/* Social links for contact pages */}
+            {isContactPage && <div>TODO: Social links component</div>}
 
-          <va-back-to-top></va-back-to-top>
-          <ContentFooter lastUpdated={lastUpdated} />
-        </article>
+            <va-back-to-top></va-back-to-top>
+            <ContentFooter lastUpdated={lastUpdated} />
+          </article>
+        </div>
       </div>
     </div>
   )
