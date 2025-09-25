@@ -7,7 +7,7 @@ import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/qaGroup/mock.json'
 import { params } from './query'
 
-const QaGroupMock: ParagraphQaGroup = mockData
+const QaGroupMock = mockData as ParagraphQaGroup
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {

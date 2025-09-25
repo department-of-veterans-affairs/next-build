@@ -51,7 +51,7 @@ const getBaseProps = (): ComponentProps<typeof ServiceLocation> => ({
     serviceLocationAddress: {
       drupal_internal__id: 1,
       drupal_internal__revision_id: 1,
-      type: '',
+      type: 'paragraph--service_location_address',
       langcode: 'en',
       id: '1',
       status: true,

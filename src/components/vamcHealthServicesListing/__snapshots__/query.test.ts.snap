@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_office,field_featured_content_healthser&fields[node--health_care_region_page]=field_vamc_ehr_system,field_system_menu&fields[paragraph--link_teaser]=field_link,field_link_summary"`;
+exports[`DrupalJsonApiParams configuration params function sets the correct include fields 1`] = `"include=field_administration,field_office,field_featured_content_healthser&fields[paragraph--link_teaser]=field_link,field_link_summary"`;
 
 exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
 {
   "administration": {
-    "entityId": null,
-    "name": null,
+    "entityId": 366,
+    "name": "VA Texas Valley health care",
   },
   "breadcrumbs": [
     {
@@ -73,6 +73,83 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
       "uri": "/covid-19",
     },
   ],
+  "healthServiceGroups": [
+    {
+      "services": [
+        {
+          "alsoKnownAs": "Test Service",
+          "bodyHtml": "<p>Test body content</p>",
+          "commonlyTreatedCondition": "Test condition",
+          "descriptionHtml": "Primary care description",
+          "id": "1",
+          "locations": [],
+          "title": "Primary Care Service",
+          "typeOfCare": "Primary care",
+        },
+      ],
+      "typeOfCare": "Primary care",
+    },
+    {
+      "services": [
+        {
+          "alsoKnownAs": "Test Service",
+          "bodyHtml": "<p>Test body content</p>",
+          "commonlyTreatedCondition": "Test condition",
+          "descriptionHtml": "Mental health description",
+          "id": "2",
+          "locations": [],
+          "title": "Mental Health Service",
+          "typeOfCare": "Mental health care",
+        },
+      ],
+      "typeOfCare": "Mental health care",
+    },
+    {
+      "services": [
+        {
+          "alsoKnownAs": "Test Service",
+          "bodyHtml": "<p>Test body content</p>",
+          "commonlyTreatedCondition": "Test condition",
+          "descriptionHtml": "Specialty care description",
+          "id": "3",
+          "locations": [],
+          "title": "Specialty Service",
+          "typeOfCare": "Specialty care",
+        },
+      ],
+      "typeOfCare": "Specialty care",
+    },
+    {
+      "services": [
+        {
+          "alsoKnownAs": "Test Service",
+          "bodyHtml": "<p>Test body content</p>",
+          "commonlyTreatedCondition": "Test condition",
+          "descriptionHtml": "Social service description",
+          "id": "4",
+          "locations": [],
+          "title": "Social Service",
+          "typeOfCare": "Social programs and services",
+        },
+      ],
+      "typeOfCare": "Social programs and services",
+    },
+    {
+      "services": [
+        {
+          "alsoKnownAs": "Test Service",
+          "bodyHtml": "<p>Test body content</p>",
+          "commonlyTreatedCondition": "Test condition",
+          "descriptionHtml": "Other service description",
+          "id": "5",
+          "locations": [],
+          "title": "Other Service",
+          "typeOfCare": "Other services",
+        },
+      ],
+      "typeOfCare": "Other services",
+    },
+  ],
   "id": "86576faa-1cdd-43a7-8abf-5cab98d7c388",
   "introText": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
   "lastUpdated": "2022-02-09T19:01:21+00:00",
@@ -97,111 +174,13 @@ exports[`VamcHealthServicesListing formatData outputs formatted data 1`] = `
     },
     "rootPath": "/north-texas-health-care/health-services/",
   },
-  "metatags": [
-    {
-      "attributes": {
-        "content": "Health services | VA North Texas health care | Veterans Affairs",
-        "name": "title",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
-        "name": "description",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
-        "rel": "image_src",
-      },
-      "tag": "link",
-    },
-    {
-      "attributes": {
-        "content": "Veterans Affairs",
-        "property": "og:site_name",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "Health services | VA North Texas health care | Veterans Affairs",
-        "property": "og:title",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
-        "property": "og:description",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
-        "property": "og:image",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "U.S. Department of Veterans Affairs",
-        "property": "og:image:alt",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "summary_large_image",
-        "name": "twitter:card",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "Health services | VA North Texas health care | Veterans Affairs",
-        "name": "twitter:title",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "VA North Texas Health Care System offers a wide range of health, support, and facility services for Veterans in North Texas. Click on a service below for more details like which clinic or medical center offers that service.",
-        "name": "twitter:description",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "@DeptVetAffairs",
-        "name": "twitter:site",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "U.S. Department of Veterans Affairs",
-        "name": "twitter:image:alt",
-      },
-      "tag": "meta",
-    },
-    {
-      "attributes": {
-        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
-        "name": "twitter:image",
-      },
-      "tag": "meta",
-    },
-  ],
+  "metatags": [],
   "moderationState": "published",
   "path": "/north-texas-health-care/health-services",
   "published": true,
+  "systemTitle": "VA New York Harbor health care",
   "title": "Health services",
   "type": "node--health_services_listing",
-  "vamcEhrSystem": null,
+  "vamcEhrSystem": "vista",
 }
 `;

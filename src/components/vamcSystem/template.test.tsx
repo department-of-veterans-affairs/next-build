@@ -9,6 +9,7 @@ import { formatter } from './query'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { LOVELL } from '@/lib/drupal/lovell/constants'
 import mockEventData from '@/components/event/mock.json'
+import { NodeNewsStory } from '@/types/drupal/node'
 
 const mockFeaturedEventData = {
   ...mockEventData,
@@ -46,7 +47,7 @@ const mockData = formatter({
   menu: mockMenu,
   lovell: { isLovellVariantPage: false, variant: undefined },
   mainFacilities: [drupalMockFacilityData],
-  featuredStories: [drupalMockStoryData],
+  featuredStories: [drupalMockStoryData as NodeNewsStory],
   featuredEvents: [mockFeaturedEventData],
   fallbackEvent: mockEventData,
 })

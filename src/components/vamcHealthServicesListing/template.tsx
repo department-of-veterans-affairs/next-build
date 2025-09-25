@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { FeaturedContent } from '@/components/featuredContent/template'
 import { ContentFooter } from '../contentFooter/template'
+import { HealthServiceGroup } from './HealthServiceGroup'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -22,6 +23,8 @@ export function VamcHealthServicesListing({
   vamcEhrSystem,
   menu,
   featuredContent,
+  systemTitle,
+  healthServiceGroups,
 }: FormattedVamcHealthServicesListing) {
   // Extract the region base path from the full path (same as healthCareLocalFacility)
   const regionBasePath = path ? path.split('/')[1] : ''
@@ -61,13 +64,6 @@ export function VamcHealthServicesListing({
               </div>
             )}
 
-            <div className="usa-grid usa-grid-full vads-u-margin-top--0p5 vads-u-margin-bottom--4">
-              <div className="usa-grid usa-grid-full vads-u-margin-y--0 vads-u-margin-bottom--0">
-                {/* TODO: Add health services buttons here */}
-                <p> TODO: Add health services buttons here </p>
-              </div>
-            </div>
-
             <va-on-this-page />
 
             {/* Featured Content Section - conditional on fieldFeaturedContentHealthser */}
@@ -92,29 +88,21 @@ export function VamcHealthServicesListing({
               </section>
             )}
 
-            {/* TODO: Health Services Listing by type - using health_services_listing_services.liquid includes */}
-            {[
-              { id: 'primary-care', title: 'Primary care' },
-              { id: 'mental-health-care', title: 'Mental health care' },
-              { id: 'specialty-care', title: 'Specialty care' },
-              {
-                id: 'social-programs-and-services',
-                title: 'Social programs and services',
-              },
-              { id: 'other-services', title: 'Other services' },
-            ].map(({ id, title }) => (
-              <section key={id} id={id}>
-                <h2 id={`${id}-services`}>{title}</h2>
-                {/* TODO: Replace with actual ServiceGroupListing component from health_services_listing_services.liquid */}
-                {/* Example using existing HealthServices component: */}
-                <p> TODO: Add HealthServices component here </p>
-              </section>
+            {/* Health Services Listing by type */}
+            {healthServiceGroups.map((group) => (
+              <HealthServiceGroup
+                key={group.typeOfCare}
+                group={group}
+                systemTitle={systemTitle}
+              />
             ))}
 
-            {/* TODO: Fallback for empty service list - conditional on clinicalHealthServices.length == 0 */}
-            <div className="no-services-message">
-              <p>No health services at this time. (conditional)</p>
-            </div>
+            {/* Fallback for empty service list */}
+            {healthServiceGroups.length === 0 && (
+              <div className="no-services-message">
+                <p>No health services at this time.</p>
+              </div>
+            )}
 
             <va-back-to-top />
             <ContentFooter />

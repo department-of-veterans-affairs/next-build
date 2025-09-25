@@ -8,7 +8,7 @@ import mockData from '@/components/newsStory/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from './query'
 
-const nodeNewsStoryMock: NodeNewsStory = mockData
+const nodeNewsStoryMock = mockData as NodeNewsStory
 
 describe(`${RESOURCE_TYPES.STORY} formatData`, () => {
   test('outputs formatted data', () => {

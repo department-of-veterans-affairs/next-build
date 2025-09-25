@@ -1,4 +1,5 @@
 import isNil from 'lodash/isNil'
+import { slugifyString } from './slug'
 
 export function truncateWordsOrChar(
   str: string,
@@ -160,4 +161,32 @@ export const numToWord = (num) => {
  */
 export const newlinesToBr = (content: string): string => {
   return content.replace(/\n/g, '<br>')
+}
+
+/**
+ * Add IDs to all H2 elements in the provided HTML content if they don't have
+ * an ID already.
+ */
+export const addH2Ids = (content: string): string => {
+  if (!content) return content
+
+  return content.replace(
+    /(<h2)(?![^>]*\sid=)([^>]*>)(.*?)(<\/h2>)/gi,
+    (match, openTag, attributes, headingContent, closeTag) => {
+      // Extract text content from the heading, removing HTML tags and entities
+      const textContent = headingContent
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(/&\w+;/g, ' ') // Replace HTML entities with spaces
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim()
+
+      // Generate kebab-case ID from text content
+      const id = slugifyString(textContent)
+
+      if (!id) return match // Return original if we can't generate an ID
+
+      // Construct the new h2 tag with the ID, preserving original case and structure
+      return `${openTag}${attributes.replace('>', ` id="${id}">`)}${headingContent}${closeTag}`
+    }
+  )
 }

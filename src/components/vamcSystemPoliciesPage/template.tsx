@@ -3,6 +3,7 @@ import { VamcSystemPoliciesPage as FormattedVamcSystemPoliciesPage } from './for
 import { ContentFooter } from '@/components/contentFooter/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { SideNavMenu } from '@/types/formatted/sideNav'
+import { Wysiwyg } from '../wysiwyg/template'
 
 // Allows additions to window object without overwriting global type
 interface customWindow extends Window {
@@ -37,7 +38,6 @@ export function VamcSystemPoliciesPage({
     >
       <main className="va-l-detail-page va-facility-page">
         <div className="vads-grid-container">
-          {/* TODO: Implement facility sidebar nav component */}
           <nav aria-label="secondary" data-widget-type="side-nav" />
 
           <div className="vads-grid-row">
@@ -57,18 +57,13 @@ export function VamcSystemPoliciesPage({
 
                 {/* Intro text */}
                 {introText && (
-                  <div
-                    className="va-introtext"
-                    dangerouslySetInnerHTML={{ __html: introText }}
-                  />
+                  <Wysiwyg className="va-introtext" {...introText} />
                 )}
 
                 <va-on-this-page></va-on-this-page>
 
                 {/* Top of page content (national policies) */}
-                {topOfPageContent && (
-                  <div dangerouslySetInnerHTML={{ __html: topOfPageContent }} />
-                )}
+                {topOfPageContent && <Wysiwyg {...topOfPageContent} />}
 
                 {/* Local visitation policy */}
                 {visitationPolicy && (
@@ -90,19 +85,11 @@ export function VamcSystemPoliciesPage({
 
                 {/* General visitation policy (national) */}
                 {generalVisitationPolicy && (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: generalVisitationPolicy,
-                    }}
-                  />
+                  <Wysiwyg {...generalVisitationPolicy} />
                 )}
 
                 {/* Bottom of page content (national) */}
-                {bottomOfPageContent && (
-                  <div
-                    dangerouslySetInnerHTML={{ __html: bottomOfPageContent }}
-                  />
-                )}
+                {bottomOfPageContent && <Wysiwyg {...bottomOfPageContent} />}
 
                 <va-back-to-top></va-back-to-top>
 

@@ -6,7 +6,7 @@ import { NodeVamcSystemPoliciesPage } from '@/types/drupal/node'
 import mockData from './mock'
 import { Menu } from '@/types/drupal/menu'
 
-const mockEntity = mockData as unknown as NodeVamcSystemPoliciesPage
+const mockEntity = mockData
 const mockMenu: Menu = {
   items: [],
   tree: [],
