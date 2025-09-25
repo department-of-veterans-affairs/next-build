@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
+{
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA Bronx health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/bronx-health-care",
+    },
+    {
+      "options": [],
+      "title": "ABOUT VA BRONX",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "Research",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 19534,
+  "entityPath": "/bronx-health-care/research",
+  "id": "d95d8029-159b-49a1-ac16-0c124adff3ca",
+  "introText": "Explore VA Bronx's research initiatives with specialty programs in [List research here] . You can also volunteer to participate in a research study.",
+  "lastUpdated": "2021-05-18T14:39:29+00:00",
+  "lovellSwitchPath": null,
+  "lovellVariant": null,
+  "menu": {
+    "data": {
+      "description": null,
+      "links": [
+        {
+          "description": null,
+          "expanded": false,
+          "label": "VA Bronx health care",
+          "links": [
+            {
+              "description": null,
+              "expanded": false,
+              "label": "SERVICES AND LOCATIONS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "NEWS AND EVENTS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "ABOUT VA RICHMOND",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+          ],
+          "lovellSection": null,
+          "url": {
+            "path": "/louisville-health-care",
+          },
+        },
+      ],
+      "name": "VA Bronx health care",
+    },
+    "rootPath": "/bronx-health-care/research/",
+  },
+  "metatags": [],
+  "moderationState": "archived",
+  "path": "/bronx-health-care/research",
+  "published": false,
+  "relatedLinks": {
+    "entityId": 85075,
+    "id": "b644de63-a5f8-413a-80cc-c6d07edec719",
+    "linkTeasers": [
+      {
+        "componentParams": {
+          "sectionHeader": "",
+        },
+        "entityId": 85076,
+        "id": "87794538-07fc-462f-833a-6b837f546cff",
+        "options": {
+          "data-entity-substitution": "",
+          "data-entity-type": "",
+          "data-entity-uuid": "",
+          "href": "https://tricare.mil/records",
+        },
+        "parentField": "field_va_paragraphs",
+        "summary": "You should keep copies of your medical documentation, records, and health care history information for your own reference. Learn about how to get access to your military health records through MHS Genesis.",
+        "title": "My Military Health Records - TRICARE",
+        "type": "paragraph--link_teaser",
+        "uri": "https://tricare.mil/records",
+      },
+    ],
+    "title": "More information",
+    "type": "paragraph--list_of_link_teasers",
+  },
+  "showTableOfContents": false,
+  "title": "Research",
+  "type": "node--health_care_region_detail_page",
+}
+`;
