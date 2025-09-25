@@ -12,7 +12,6 @@ import {
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
-import { normalizeEntityFetchedParagraphs } from '@/lib/drupal/paragraphs'
 import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
@@ -21,7 +20,11 @@ import {
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE)
-    .addInclude([])
+    .addInclude([
+      'field_office',
+      'field_related_links',
+      'field_related_links. field_va_paragraphs',
+    ])
 }
 
 // Define the option types for the data loader.
@@ -74,7 +77,9 @@ export const formatter: QueryFormatter<
     introText: entity.field_intro_text,
     showTableOfContents: entity.field_table_of_contents_boolean,
     menu: buildSideNavDataFromMenu(entity.path.alias, menu),
-    relatedLinks: entity.field_related_links ? formatListOfLinkTeasers(entity.field_related_links) : null,
+    relatedLinks: entity.field_related_links
+      ? formatListOfLinkTeasers(entity.field_related_links)
+      : null,
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(
