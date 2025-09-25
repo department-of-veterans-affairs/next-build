@@ -13,6 +13,7 @@ import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import {
+  getLovellVariantOfBreadcrumbs,
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
@@ -74,6 +75,9 @@ export const formatter: QueryFormatter<
 > = ({ entity, menu, lovell }) => {
   return {
     ...entityBaseFields(entity),
+    breadcrumbs: lovell?.isLovellVariantPage
+      ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
+      : entity.breadcrumbs,
     title: entity.title,
     path: entity.path.alias,
     introText: entity.field_intro_text,
