@@ -35,6 +35,7 @@ export const params: QueryParams<null> = () => {
     ),
   ])
 }
+
 export const serviceParams: QueryParams<string> = (facilityId: string) => {
   return new DrupalJsonApiParams()
     .addInclude([
@@ -48,6 +49,7 @@ export const serviceParams: QueryParams<string> = (facilityId: string) => {
     ])
     .addFilter('field_office.id', facilityId)
 }
+
 // Define the option types for the data loader.
 export type VbaFacilityDataOpts = {
   id: string
@@ -57,6 +59,7 @@ type VbaFacilityData = {
   entity: NodeVbaFacility
   services: NodeVbaService[]
 }
+
 // Implement the data loader.
 export const data: QueryData<VbaFacilityDataOpts, VbaFacilityData> = async (
   opts
@@ -78,13 +81,31 @@ export const data: QueryData<VbaFacilityDataOpts, VbaFacilityData> = async (
     services,
   }
 }
+
 export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
   entity,
   services,
 }) => {
+  const withFallbackLink = (
+    content: ReturnType<typeof formatFeaturedContent>,
+    originalLink: string
+  ) => {
+    if (!content?.link) {
+      return content
+    }
+
+    return {
+      ...content,
+      link: {
+        ...content.link,
+        url: originalLink || content.link.url,
+      },
+    }
+  }
+
   const featuredContent = [
-    (() => {
-      const formattedItem = formatFeaturedContent({
+    withFallbackLink(
+      formatFeaturedContent({
         type: 'paragraph--featured_content',
         id: entity.field_cc_national_spotlight_1.target_id,
         field_section_header:
@@ -120,37 +141,15 @@ export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
             entity.field_cc_national_spotlight_1.fetched.field_cta[0].status,
           id: null,
         },
-      })
-      if (formattedItem?.link) {
-        const originalButtonLink =
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0]
-            .field_button_link[0]
-        return {
-          ...formattedItem,
-          link: {
-            ...formattedItem.link,
-            url: originalButtonLink?.uri || formattedItem.link.url,
-          },
-        }
-      }
-
-      return formattedItem
-    })(),
+      }),
+      entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+        .field_button_link[0].uri
+    ),
     ...entity.field_local_spotlight.map((feature) => {
-      const formattedItem = formatFeaturedContent(feature)
-      if (formattedItem?.link && feature.field_cta) {
-        return {
-          ...formattedItem,
-          link: {
-            ...formattedItem.link,
-            url:
-              feature.field_cta.field_button_link?.url ||
-              formattedItem.link.url,
-          },
-        }
-      }
-
-      return formattedItem
+      return withFallbackLink(
+        formatFeaturedContent(feature),
+        feature.field_cta?.field_button_link?.url
+      )
     }),
   ]
   return {
