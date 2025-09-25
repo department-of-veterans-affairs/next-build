@@ -16432,7 +16432,6 @@ __metadata:
   resolution: "template-migration-mcp-server@workspace:packages/template-migration-mcp-server"
   dependencies:
     "@modelcontextprotocol/sdk": ^1.17.5
-    tsx: ^4.20.5
     zod: ^3.23.8
   languageName: unknown
   linkType: soft
