@@ -14,13 +14,13 @@ import { DrupalMenuLinkContent } from 'next-drupal'
 import { createMockServicesForGrouping } from './mockServiceDes'
 
 // Use type assertion to bypass strict type checking for test data
-const mockServicesListing: NodeVamcHealthServicesListing = {
+const mockServicesListing = {
   ...mockServicesListingPartial,
   field_office: {
     ...(mockSystem as unknown as NodeHealthCareRegionPage),
     field_system_menu: {},
   },
-}
+} as NodeVamcHealthServicesListing
 
 // Mock menu data for testing - providing realistic structure
 const menuItem: DrupalMenuLinkContent = {
