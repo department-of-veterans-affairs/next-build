@@ -1,14 +1,14 @@
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { deflateObjectGraph } from '../../../src/lib/utils/object-graph.ts'
+import { deflateObjectGraph } from '../../../src/lib/utils/object-graph'
 
-import { getEnvFileVars } from './getEnvVars.ts'
+import { getEnvFileVars } from './getEnvVars'
 
 process.env = {
   ...process.env,
   ...getEnvFileVars(),
 }
 
-const { drupalClient } = await import('./drupalClient.ts')
+const { drupalClient } = await import('./drupalClient')
 
 // The username & password will let us apply filters, so prefer that
 // Fall back to the client ID and secret otherwise

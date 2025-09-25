@@ -2,8 +2,6 @@
   "extends": "../../tsconfig.json",
   "include": ["./src"],
   "compilerOptions": {
-    "strict": true,
-    "erasableSyntaxOnly": true,
-    "allowImportingTsExtensions": true
+    "strict": true
   }
 }
