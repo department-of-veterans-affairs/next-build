@@ -1,0 +1,137 @@
+{
+  "type": "node--health_care_region_detail_page",
+  "id": "d95d8029-159b-49a1-ac16-0c124adff3ca",
+  "drupal_internal__nid": 19534,
+  "drupal_internal__vid": 423628,
+  "langcode": "en",
+  "revision_timestamp": "2021-05-18T14:39:29+00:00",
+  "revision_log": null,
+  "status": false,
+  "title": "Research",
+  "created": "2021-05-10T16:35:12+00:00",
+  "changed": "2021-05-18T14:39:29+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/bronx-health-care",
+      "title": "VA Bronx health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "ABOUT VA BRONX",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "Research",
+      "options": []
+    }
+  ],
+  "moderation_state": "archived",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/bronx-health-care/research",
+    "pid": 24151,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_description": "Learn about our research initiatives in areas such as",
+  "field_intro_text": "Explore VA Bronx's research initiatives with specialty programs in [List research here] . You can also volunteer to participate in a research study.",
+  "field_last_saved_by_an_editor": null,
+  "field_meta_tags": null,
+  "field_table_of_contents_boolean": false,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_detail_page/d95d8029-159b-49a1-ac16-0c124adff3ca?resourceVersion=id%3A423628"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "093d91d4-a093-4c47-8f15-fcfed3138476",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "health_care_region_detail_page"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1270
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1270
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "c82fd93a-925b-4170-b8e6-97b0bdb65b9b",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 251
+    }
+  },
+  "field_alert": null,
+  "field_content_block": [
+    {
+      "type": "paragraph--wysiwyg",
+      "id": "b53460d0-b5ef-4bcc-9744-b81734e27731",
+      "resourceIdObjMeta": {
+        "target_revision_id": 300308,
+        "drupal_internal__target_id": 40153
+      }
+    }
+  ],
+  "field_featured_content": [],
+  "field_office": {
+      "type": "node--health_care_region_page",
+      "id": "683e09f7-ffa8-483f-a218-b8af11fe4ea5",
+      "title": "VA Bronx health care",
+      "drupal_internal__nid": 8508,
+      "drupal_internal__vid": 915208,
+      "langcode": "en",
+      "field_system_menu": {
+        "type": "menu--menu",
+        "id": "9e6ca422-1057-4414-874f-3100915e9993",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "va-bronx-health-care"
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_clinical_health_services",
+        "field_media",
+        "field_related_links",
+        "field_system_menu"
+      ]
+    },
+  "field_related_links": null,
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_alert",
+    "field_content_block",
+    "field_featured_content",
+    "field_office",
+    "field_related_links"
+  ]
+}
