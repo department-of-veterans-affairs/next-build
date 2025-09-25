@@ -951,6 +951,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@date-fns/tz@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@date-fns/tz@npm:1.4.1"
+  checksum: eceefcd68d3fc4f2fa07bdea5a22b05b0075850434cdcc765cea78995bb60cfe72d63c50e925188a1841af8d0a76a16d7d4f139d57d1c16ee03b30b2017a8d2d
+  languageName: node
+  linkType: hard
+
 "@department-of-veterans-affairs/component-library@npm:50.2.1":
   version: 50.2.1
   resolution: "@department-of-veterans-affairs/component-library@npm:50.2.1"
@@ -1155,10 +1162,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:^9.7.0":
-  version: 9.7.0
-  resolution: "@faker-js/faker@npm:9.7.0"
-  checksum: 3b452be4cc3227728947ca9b1d733a2b0b971ab68e7e92275aea6906ac2d3826bac2494b334ee65a19751ee9f0c0d210f8cbfb310d4cd586c3b5c5f327c3207c
+"@faker-js/faker@npm:^9.9.0":
+  version: 9.9.0
+  resolution: "@faker-js/faker@npm:9.9.0"
+  checksum: bbc5b57c3b0f480d26dea9fc8e40a5c1bd4d2b0ad8c9d7d22ac4650d0d9f959469af4f2c443c34ff64b7a7d3b9135ce525eae2a1e5822b9223257e184036efd0
   languageName: node
   linkType: hard
 
@@ -12391,11 +12398,12 @@ __metadata:
     "@actions/github": ^6.0.1
     "@axe-core/playwright": ^4.8.2
     "@datadog/browser-rum": ^6.19.0
+    "@date-fns/tz": ^1.4.1
     "@department-of-veterans-affairs/component-library": 50.2.1
     "@department-of-veterans-affairs/formation": ^12.0.0
     "@department-of-veterans-affairs/web-components": 18.4.0
     "@eslint/eslintrc": ^3
-    "@faker-js/faker": ^9.7.0
+    "@faker-js/faker": ^9.9.0
     "@fortawesome/fontawesome-free": ^5.15.4
     "@next/env": 15.5.0
     "@octokit/rest": ^21.0.1

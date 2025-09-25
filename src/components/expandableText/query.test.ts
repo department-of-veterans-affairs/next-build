@@ -6,7 +6,7 @@ import { queries } from '@/lib/drupal/queries'
 import { ParagraphExpandableText } from '@/types/drupal/paragraph'
 import mockData from '@/components/expandableText/mock.json'
 
-const expandableTextMock: ParagraphExpandableText = mockData
+const expandableTextMock = mockData as ParagraphExpandableText
 
 describe('paragraph--expandable_text formatData', () => {
   test('outputs formatted data', () => {
