@@ -1,0 +1,1020 @@
+[
+  {
+    "type": "node--vha_facility_nonclinical_service",
+    "id": "209b73cd-22e9-4cd4-901f-99e1b3c9fff0",
+    "drupal_internal__nid": 46331,
+    "drupal_internal__vid": 648938,
+    "langcode": "en",
+    "revision_timestamp": "2022-05-18T14:39:57+00:00",
+    "revision_log": "adding ROI office info",
+    "status": false,
+    "title": "Medical records - Toledo VA Clinic",
+    "created": "2022-05-18T14:35:53+00:00",
+    "changed": "2022-05-18T14:39:57+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/ann-arbor-health-care",
+        "title": "VA Ann Arbor Health Care",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/ann-arbor-health-care/locations",
+        "title": "Locations",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/ann-arbor-health-care/locations/toledo-va-clinic",
+        "title": "Toledo VA Clinic",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/ann-arbor-health-care/locations/toledo-va-clinic/medical-records",
+        "title": "Medical Records - Toledo VA Clinic",
+        "options": []
+      }
+    ],
+    "moderation_state": "draft",
+    "expiration_date": null,
+    "warning_date": null,
+    "metatag": [
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "title",
+          "content": "Medical records - Toledo VA Clinic | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "link",
+        "attributes": {
+          "rel": "image_src",
+          "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:site_name",
+          "content": "Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:title",
+          "content": "Medical records - Toledo VA Clinic | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:alt",
+          "content": "U.S. Department of Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:card",
+          "content": "summary_large_image"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:title",
+          "content": "Medical records - Toledo VA Clinic | Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:site",
+          "content": "@DeptVetAffairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image:alt",
+          "content": "U.S. Department of Veterans Affairs"
+        }
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image",
+          "content": "https://www.va.gov/img/design/logo/va-og-image.png"
+        }
+      }
+    ],
+    "path": {
+      "alias": "/ann-arbor-health-care/locations/toledo-va-clinic/medical-records",
+      "pid": 61582,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "field_enforce_unique_combo_offic": false,
+    "field_last_saved_by_an_editor": null,
+    "field_vamc_nonclin_appt_default": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/vha_facility_nonclinical_service/209b73cd-22e9-4cd4-901f-99e1b3c9fff0?resourceVersion=id%3A648938"
+      }
+    },
+    "node_type": {
+      "type": "node_type--node_type",
+      "id": "d9783f56-2ebf-4885-8deb-69bb0ff2b2e7",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "vha_facility_nonclinical_service"
+      }
+    },
+    "revision_uid": {
+      "type": "user--user",
+      "id": "c0bc56ee-3ea9-4ba0-950d-e9d60d089ec6",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2114
+      }
+    },
+    "uid": {
+      "type": "user--user",
+      "id": "c0bc56ee-3ea9-4ba0-950d-e9d60d089ec6",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 2114
+      }
+    },
+    "field_facility_location": {
+      "type": "node--health_care_local_facility",
+      "id": "27ba1b10-271e-470d-a4ac-3248bd03d22c",
+      "drupal_internal__nid": 1180,
+      "drupal_internal__vid": 941235,
+      "langcode": "en",
+      "revision_timestamp": "2024-11-25T18:41:03+00:00",
+      "revision_log": "Telephone migration complete for node 1180",
+      "status": true,
+      "title": "Toledo VA Clinic",
+      "created": "2019-10-31T19:52:30+00:00",
+      "changed": "2024-11-25T18:41:02+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/ann-arbor-health-care",
+          "title": "VA Ann Arbor health care",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "SERVICES AND LOCATIONS",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/ann-arbor-health-care/locations",
+          "title": "Locations",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Toledo VA Clinic",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Toledo VA Clinic | VA Ann Arbor health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Toledo VA Clinic"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "Toledo VA Clinic | VA Ann Arbor health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Toledo VA Clinic"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-05/Toledo_480x330.jpg"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image:alt",
+            "content": "Toledo_480x330"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "Toledo VA Clinic | VA Ann Arbor health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Toledo VA Clinic"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image:alt",
+            "content": "Toledo_480x330"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-05/Toledo_480x330.jpg"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/ann-arbor-health-care/locations/toledo-va-clinic",
+        "pid": 1907,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_facility_classification": "3",
+      "field_facility_locator_api_id": "vha_506GA",
+      "field_geolocation": {
+        "value": "POINT (-83.6033535 41.618907)",
+        "geo_type": "Point",
+        "lat": 41.618907,
+        "lon": -83.6033535,
+        "left": -83.6033535,
+        "top": 41.618907,
+        "right": -83.6033535,
+        "bottom": 41.618907,
+        "geohash": "dpksc83zswt6d",
+        "latlon": "41.618907,-83.6033535"
+      },
+      "field_intro_text": "Our outpatient clinic provides primary care and specialty health services, including mental health services, dental care, treatment for hearing loss (audiology), nutrition counseling, women’s health services, and more. Below, you’ll find our address and hours, parking and transportation information, and the other health services we offer at our Toledo VA Clinic in Ohio.",
+      "field_last_saved_by_an_editor": "2024-10-03T15:10:58+00:00",
+      "field_main_location": false,
+      "field_meta_tags": null,
+      "field_mobile": false,
+      "field_office_hours": [
+        {
+          "day": 1,
+          "all_day": false,
+          "starthours": 730,
+          "endhours": 1600,
+          "comment": ""
+        },
+        {
+          "day": 2,
+          "all_day": false,
+          "starthours": 730,
+          "endhours": 1600,
+          "comment": ""
+        },
+        {
+          "day": 3,
+          "all_day": false,
+          "starthours": 730,
+          "endhours": 1600,
+          "comment": ""
+        },
+        {
+          "day": 4,
+          "all_day": false,
+          "starthours": 730,
+          "endhours": 1600,
+          "comment": ""
+        },
+        {
+          "day": 5,
+          "all_day": false,
+          "starthours": 730,
+          "endhours": 1600,
+          "comment": ""
+        },
+        {
+          "day": 6,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        },
+        {
+          "day": 0,
+          "all_day": false,
+          "starthours": null,
+          "endhours": null,
+          "comment": "Closed"
+        }
+      ],
+      "field_operating_status_facility": "normal",
+      "field_operating_status_more_info": null,
+      "field_phone_number": "419-259-2000",
+      "field_supplemental_status_more_i": null,
+      "field_timezone": "America/New_York",
+      "field_address": {
+        "langcode": null,
+        "country_code": "US",
+        "administrative_area": "OH",
+        "locality": "Toledo",
+        "dependent_locality": null,
+        "postal_code": "43614-5903",
+        "address_line1": "1200 South Detroit Avenue",
+        "additional_name": null
+      },
+      "field_description": "Get address and hours, parking and transportation information, and health services offered at Toledo VA Clinic",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_local_facility/27ba1b10-271e-470d-a4ac-3248bd03d22c?resourceVersion=id%3A941235"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1180
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "5ecbcf0c-b701-49d5-a47e-08803d42dd80",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_local_facility"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "field_local_health_care_service_": [
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5b66279c-2b2d-42dc-8b3f-b4755db622f9",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 15471
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "1f0246a4-0c2e-4ad0-b9db-15928a618965",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25826
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5dd4cde9-6e4b-4537-a491-1e1ac1b36fc0",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25827
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "57bb9274-c300-4ca6-a34d-74d28b14c00d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25828
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "9ff99d8d-0d25-47a2-9fd3-a70985eb571d",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25829
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "5de7327b-fb64-417f-a3d6-4fa5e8f1b37f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25830
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "82ee11fd-0934-4572-a374-9ac0b5375196",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25831
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "6057696d-a83c-47a9-9f06-307a5dbb6663",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25832
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "b7b926cb-c607-4c08-a99c-fc4ac3c98c42",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25833
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "201768ef-c676-454b-abe5-9c181e2937c3",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25834
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "e157fd4d-7880-4924-8a8b-e417c7620452",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25835
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "0a398a6e-fc0f-45c3-9768-63fe672afbd4",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25836
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "c3137b8f-9a1c-4bc8-bb12-e1e4ed1ed837",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25837
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "27ddf13f-b972-4c4e-9d90-fe86a4502f1e",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25838
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "2f7a61bb-d21c-4ccb-b8ae-7d95957492d5",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25839
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "05f3023e-9aed-444a-abed-fbb24352c94f",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25840
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "053171ca-31ab-4b12-b79f-8ee36f4cf5ab",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25841
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "062b1861-8413-43f6-b0df-16577ad9eb55",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25842
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "9fbf475e-7b44-4e08-85c8-7264d2a9e744",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25843
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "78bc553c-b7c6-488f-8408-cfb3a605664b",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25844
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "75d8476d-459d-4a99-a691-cdffdcb443db",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25845
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "2c5be724-91c7-4a28-8ff5-dfc94ad96670",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 25846
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "34d1b157-9acf-4672-8e4c-744dd4a310ee",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 52523
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "b2855fa5-3fdc-440b-b89a-0d8999c2f7d7",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 52524
+          }
+        },
+        {
+          "type": "node--health_care_local_health_service",
+          "id": "1eaaf6c8-62a6-41cd-bab9-ec6f0af5c204",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": 52527
+          }
+        }
+      ],
+      "field_location_services": [
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "8d909d43-2954-42e8-9f87-441e36a2a5c9",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1574436,
+            "drupal_internal__target_id": 43239
+          }
+        },
+        {
+          "type": "paragraph--health_care_local_facility_servi",
+          "id": "4be206b9-34d9-4eba-8f01-fac36eb75ebc",
+          "resourceIdObjMeta": {
+            "target_revision_id": 1574437,
+            "drupal_internal__target_id": 43240
+          }
+        }
+      ],
+      "field_media": {
+        "type": "media--image",
+        "id": "63902992-40b9-4469-b4b5-98098df5eb5f",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4030
+        }
+      },
+      "field_region_page": {
+        "type": "node--health_care_region_page",
+        "id": "97058a53-0e24-4eae-927f-f92efb98322c",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 14995
+        }
+      },
+      "field_supplemental_status": null,
+      "field_telephone": {
+        "type": "paragraph--phone_number",
+        "id": "de6643e1-7c94-45a9-a6b0-378d7bc05350",
+        "resourceIdObjMeta": {
+          "target_revision_id": 1574438,
+          "drupal_internal__target_id": 169894
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "ae0fcb10-f7fa-4ffe-8f35-b631815301a9",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 335
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_local_health_care_service_",
+        "field_location_services",
+        "field_media",
+        "field_region_page",
+        "field_supplemental_status",
+        "field_telephone",
+        "field_administration"
+      ]
+    },
+    "field_service_location": [
+      {
+        "type": "paragraph--service_location",
+        "id": "034314d2-4ee2-4b7b-9dc6-7e309036b72a",
+        "drupal_internal__id": 109232,
+        "drupal_internal__revision_id": 648811,
+        "langcode": "en",
+        "status": true,
+        "created": "2022-05-18T14:35:53+00:00",
+        "parent_id": "46331",
+        "parent_type": "node",
+        "parent_field_name": "field_service_location",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_additional_hours_info": null,
+        "field_appt_intro_text_custom": null,
+        "field_appt_intro_text_type": null,
+        "field_hours": "0",
+        "field_office_hours": [],
+        "field_office_visits": null,
+        "field_online_scheduling_avail": null,
+        "field_use_facility_phone_number": null,
+        "field_use_main_facility_phone": false,
+        "field_virtual_support": null,
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location/034314d2-4ee2-4b7b-9dc6-7e309036b72a?resourceVersion=id%3A648811"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 648811,
+          "drupal_internal__target_id": 109232
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "7c877b85-ca43-4e9e-879c-42fd5e791ed1",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "service_location"
+          }
+        },
+        "field_email_contacts": [],
+        "field_other_phone_numbers": [],
+        "field_phone": [
+          {
+            "type": "paragraph--phone_number",
+            "id": "1adcb239-8634-45be-b7e5-15ca21c7a3f8",
+            "drupal_internal__id": 109229,
+            "drupal_internal__revision_id": 648808,
+            "langcode": "en",
+            "status": true,
+            "created": "2022-05-18T14:36:39+00:00",
+            "parent_id": "109232",
+            "parent_type": "paragraph",
+            "parent_field_name": "field_phone",
+            "behavior_settings": [],
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [],
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "content_translation_changed": null,
+            "field_phone_extension": "37523",
+            "field_phone_label": "Release of Information Office",
+            "field_phone_number": "419-259-2000",
+            "field_phone_number_type": "tel",
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/1adcb239-8634-45be-b7e5-15ca21c7a3f8?resourceVersion=id%3A648808"
+              }
+            },
+            "resourceIdObjMeta": {
+              "target_revision_id": 648808,
+              "drupal_internal__target_id": 109229
+            },
+            "paragraph_type": {
+              "type": "paragraphs_type--paragraphs_type",
+              "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "phone_number"
+              }
+            },
+            "relationshipNames": ["paragraph_type"]
+          },
+          {
+            "type": "paragraph--phone_number",
+            "id": "082bb7b8-cc39-4544-b5e1-495dc50a0a75",
+            "drupal_internal__id": 109230,
+            "drupal_internal__revision_id": 648809,
+            "langcode": "en",
+            "status": true,
+            "created": "2022-05-18T14:39:01+00:00",
+            "parent_id": "109232",
+            "parent_type": "paragraph",
+            "parent_field_name": "field_phone",
+            "behavior_settings": [],
+            "default_langcode": true,
+            "revision_translation_affected": true,
+            "breadcrumbs": [],
+            "content_translation_source": "und",
+            "content_translation_outdated": false,
+            "content_translation_changed": null,
+            "field_phone_extension": null,
+            "field_phone_label": "Release of Information",
+            "field_phone_number": "419-213-7635",
+            "field_phone_number_type": "fax",
+            "links": {
+              "self": {
+                "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/phone_number/082bb7b8-cc39-4544-b5e1-495dc50a0a75?resourceVersion=id%3A648809"
+              }
+            },
+            "resourceIdObjMeta": {
+              "target_revision_id": 648809,
+              "drupal_internal__target_id": 109230
+            },
+            "paragraph_type": {
+              "type": "paragraphs_type--paragraphs_type",
+              "id": "9c5d2698-f605-42f2-a516-15949b84d17f",
+              "resourceIdObjMeta": {
+                "drupal_internal__target_id": "phone_number"
+              }
+            },
+            "relationshipNames": ["paragraph_type"]
+          }
+        ],
+        "field_service_location_address": {
+          "type": "paragraph--service_location_address",
+          "id": "26310f89-4b9d-4de0-b063-8fd52fbdf8cb",
+          "drupal_internal__id": 109231,
+          "drupal_internal__revision_id": 648810,
+          "langcode": "en",
+          "status": true,
+          "created": "2022-05-18T14:35:53+00:00",
+          "parent_id": "109232",
+          "parent_type": "paragraph",
+          "parent_field_name": "field_service_location_address",
+          "behavior_settings": [],
+          "default_langcode": true,
+          "revision_translation_affected": true,
+          "breadcrumbs": [],
+          "content_translation_source": "und",
+          "content_translation_outdated": false,
+          "content_translation_changed": null,
+          "field_address": {
+            "langcode": null,
+            "country_code": "US",
+            "administrative_area": "",
+            "locality": "",
+            "dependent_locality": null,
+            "postal_code": "",
+            "sorting_code": null,
+            "address_line1": "",
+            "address_line2": ""
+          },
+          "field_building_name_number": null,
+          "field_clinic_name": "Release of Information Office",
+          "field_use_facility_address": true,
+          "field_wing_floor_or_room_number": "1st Floor - Room 1-006",
+          "links": {
+            "self": {
+              "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/service_location_address/26310f89-4b9d-4de0-b063-8fd52fbdf8cb?resourceVersion=id%3A648810"
+            }
+          },
+          "resourceIdObjMeta": {
+            "target_revision_id": 648810,
+            "drupal_internal__target_id": 109231
+          },
+          "paragraph_type": {
+            "type": "paragraphs_type--paragraphs_type",
+            "id": "bd794386-a382-48d0-84fb-47290c3c1176",
+            "resourceIdObjMeta": {
+              "drupal_internal__target_id": "service_location_address"
+            }
+          },
+          "relationshipNames": ["paragraph_type"]
+        },
+        "relationshipNames": [
+          "paragraph_type",
+          "field_email_contacts",
+          "field_other_phone_numbers",
+          "field_phone",
+          "field_service_location_address"
+        ]
+      }
+    ],
+    "field_service_name_and_descripti": {
+      "type": "taxonomy_term--health_care_service_taxonomy",
+      "id": "8e336e3c-0b74-45a0-b1e8-4971a543bf58",
+      "drupal_internal__tid": 1026,
+      "drupal_internal__revision_id": 1268,
+      "langcode": "en",
+      "revision_created": "2022-11-04T19:41:27+00:00",
+      "revision_log_message": null,
+      "status": true,
+      "name": "Medical records",
+      "description": null,
+      "weight": 0,
+      "changed": "2022-11-04T20:00:44+00:00",
+      "default_langcode": true,
+      "revision_translation_affected": null,
+      "breadcrumbs": [
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care",
+          "title": "VA Health Care",
+          "options": []
+        },
+        {
+          "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care/medical-records",
+          "title": "Medical Records",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Medical records | VA.gov CMS"
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/health-care/medical-records"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/health-care/medical-records",
+        "pid": 46657,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "content_translation_created": null,
+      "field_show_for_vamc_facilities": true,
+      "field_show_for_vba_facilities": null,
+      "field_show_for_vet_centers": null,
+      "field_tricare_description": null,
+      "field_tricare_specific_service": null,
+      "field_vba_com_conditions": null,
+      "field_vba_friendly_name": null,
+      "field_vba_service_descrip": null,
+      "field_vba_type_of_care": null,
+      "field_vet_center_com_conditions": null,
+      "field_vet_center_friendly_name": null,
+      "field_vet_center_required_servic": false,
+      "field_vet_center_service_descrip": null,
+      "field_vet_center_type_of_care": null,
+      "field_vha_healthservice_stopcode": null,
+      "field_also_known_as": null,
+      "field_commonly_treated_condition": null,
+      "field_enforce_unique_combo_servi": null,
+      "field_facility_service_descripti": null,
+      "field_facility_service_header": null,
+      "field_health_service_api_id": "medicalRecords",
+      "field_online_self_service": null,
+      "field_regional_service_descripti": null,
+      "field_regional_service_header": null,
+      "field_service_type_of_care": "Non-clinical services",
+      "links": {
+        "self": {
+          "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/health_care_service_taxonomy/8e336e3c-0b74-45a0-b1e8-4971a543bf58?resourceVersion=id%3A1268"
+        }
+      },
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 1026
+      },
+      "vid": {
+        "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+        "id": "1ae4c52e-f750-44eb-9e53-e10234617743",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_service_taxonomy"
+        }
+      },
+      "revision_user": {
+        "type": "user--user",
+        "id": "20b2bc97-2210-4def-9a0f-46c22d250eb7",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 0
+        }
+      },
+      "parent": [
+        {
+          "type": "taxonomy_term--health_care_service_taxonomy",
+          "id": "virtual",
+          "resourceIdObjMeta": {
+            "links": {
+              "help": {
+                "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#virtual",
+                "meta": {
+                  "about": "Usage and meaning of the 'virtual' resource identifier."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "content_translation_uid": null,
+      "field_vba_service_regions": [],
+      "field_owner": {
+        "type": "taxonomy_term--administration",
+        "id": "missing",
+        "resourceIdObjMeta": {
+          "links": {
+            "help": {
+              "href": "https://www.drupal.org/docs/8/modules/json-api/core-concepts#missing",
+              "meta": {
+                "about": "Usage and meaning of the 'missing' resource identifier."
+              }
+            }
+          }
+        }
+      },
+      "relationshipNames": [
+        "vid",
+        "revision_user",
+        "parent",
+        "content_translation_uid",
+        "field_vba_service_regions",
+        "field_owner"
+      ]
+    },
+    "field_administration": {
+      "type": "taxonomy_term--administration",
+      "id": "ae0fcb10-f7fa-4ffe-8f35-b631815301a9",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 335
+      }
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_facility_location",
+      "field_service_location",
+      "field_service_name_and_descripti",
+      "field_administration"
+    ]
+  }
+]
