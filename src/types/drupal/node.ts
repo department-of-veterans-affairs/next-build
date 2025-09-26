@@ -236,9 +236,9 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_featured_content: Array<ParagraphQA | ParagraphWysiwyg>
   field_related_links: ParagraphListOfLinkTeasers
   field_office: Pick<
-  NodeHealthCareRegionPage,
-  'id' | 'title' | 'field_system_menu'
->
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu'
+  >
 }
 
 export interface NodeLandingPage extends DrupalNode {
