@@ -5,34 +5,13 @@
  */
 
 import { DrupalClient } from 'next-drupal'
-
-/* eslint-disable import/no-extraneous-dependencies */
-import { SocksProxyAgent } from 'socks-proxy-agent'
-import fetch from 'node-fetch'
-
-const syswideCas = await import('syswide-cas')
-syswideCas.addCAs('certs/VA-Internal-S2-RCA-combined.pem')
-syswideCas.addCAs('certs/rootCA.pem')
+import { getFetcher } from 'proxy-fetcher'
 
 const baseUrl =
   process.env.NEXT_PUBLIC_DRUPAL_BASE_URL || 'https://va-gov-cms.ddev.site'
 
-const proxyFetch = (input: RequestInfo, init: RequestInit = {}) => {
-  const agent = new SocksProxyAgent('socks5h://127.0.0.1:2001')
-  const initParams = { ...init }
-  const url = input instanceof Request ? input.url : input
-  if (url.match('va-gov-cms.ddev.site')) {
-    syswideCas.addCAs('certs/rootCA.pem')
-  } else {
-    // @ts-expect-error We don't have any TS types for node-fetch, so it doesn't
-    // know that this is a thing we can add.
-    initParams.agent = agent
-  }
-  return fetch(input, initParams)
-}
-
 export const drupalClient = new DrupalClient(baseUrl, {
-  fetcher: proxyFetch,
+  fetcher: getFetcher(baseUrl),
   useDefaultResourceTypeEntry: true,
   throwJsonApiErrors: false,
   auth: {

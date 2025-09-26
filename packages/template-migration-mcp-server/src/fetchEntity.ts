@@ -47,7 +47,7 @@ export async function fetchEntity(
     const scriptPath = path.join(
       __dirname,
       '../../..',
-      'scripts/fetch-entity/fetch-entity.sh'
+      'scripts/fetch-entity/src/index.ts'
     )
 
     // Build command args
@@ -56,7 +56,7 @@ export async function fetchEntity(
       args.push(uuid)
     }
 
-    let command = `${scriptPath} ${args.join(' ')}`
+    let command = `npx tsx ${scriptPath} ${args.join(' ')}`
 
     // Add collection flag if no UUID is provided
     if (!uuid) {
