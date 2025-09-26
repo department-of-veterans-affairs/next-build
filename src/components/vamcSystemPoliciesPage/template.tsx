@@ -21,9 +21,8 @@ export function VamcSystemPoliciesPage({
   generalVisitationPolicy,
   bottomOfPageContent,
   lastUpdated,
-  // TODO: Add these props when we have the data from the formatter
-  // lovellVariant,
-  // lovellSwitchPath,
+  lovellVariant,
+  lovellSwitchPath,
 }: FormattedVamcSystemPoliciesPage) {
   // Populate the side nav data for the side nav widget to fill in
   useEffect(() => {
@@ -47,11 +46,10 @@ export function VamcSystemPoliciesPage({
                 role="region"
                 className="usa-content"
               >
-                {/* TODO: Add Lovell Switcher when we have the data */}
-                {/* <LovellSwitcher
+                <LovellSwitcher
                   currentVariant={lovellVariant}
                   switchPath={lovellSwitchPath}
-                /> */}
+                />
 
                 <h1 id="article-heading">{title}</h1>
 
