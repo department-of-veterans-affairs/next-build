@@ -137,9 +137,23 @@ export const formatter: QueryFormatter<VetCenterData, FormattedVetCenter> = ({
       featuredContentObject,
       ...vetCenterFeatureContentArray,
     ]
-    const formattedFeaturedContentArray = combinedArray.map((item) =>
-      queries.formatData(PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT, item)
-    )
+    const formattedFeaturedContentArray = combinedArray.map((item) => {
+      const formattedItem = queries.formatData(
+        PARAGRAPH_RESOURCE_TYPES.FEATURED_CONTENT,
+        item
+      )
+      if (formattedItem?.link) {
+        const originalItem = item.field_cta || item
+        return {
+          ...formattedItem,
+          link: {
+            ...formattedItem.link,
+            url: originalItem.field_button_link?.url || formattedItem.link.url,
+          },
+        }
+      }
+      return formattedItem
+    })
     return formattedFeaturedContentArray
   }
   // Similarly, this formats centralized content FAQs to match what our QA components are expecting

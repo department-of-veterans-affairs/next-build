@@ -35,6 +35,7 @@ export const params: QueryParams<null> = () => {
     ),
   ])
 }
+
 export const serviceParams: QueryParams<string> = (facilityId: string) => {
   return new DrupalJsonApiParams()
     .addInclude([
@@ -48,6 +49,7 @@ export const serviceParams: QueryParams<string> = (facilityId: string) => {
     ])
     .addFilter('field_office.id', facilityId)
 }
+
 // Define the option types for the data loader.
 export type VbaFacilityDataOpts = {
   id: string
@@ -57,6 +59,7 @@ type VbaFacilityData = {
   entity: NodeVbaFacility
   services: NodeVbaService[]
 }
+
 // Implement the data loader.
 export const data: QueryData<VbaFacilityDataOpts, VbaFacilityData> = async (
   opts
@@ -78,50 +81,75 @@ export const data: QueryData<VbaFacilityDataOpts, VbaFacilityData> = async (
     services,
   }
 }
+
 export const formatter: QueryFormatter<VbaFacilityData, VbaFacility> = ({
   entity,
   services,
 }) => {
+  const withFallbackLink = (
+    content: ReturnType<typeof formatFeaturedContent>,
+    originalLink: string
+  ) => {
+    if (!content?.link) {
+      return content
+    }
+
+    return {
+      ...content,
+      link: {
+        ...content.link,
+        url: originalLink || content.link.url,
+      },
+    }
+  }
+
   const featuredContent = [
-    formatFeaturedContent({
-      type: 'paragraph--featured_content',
-      id: entity.field_cc_national_spotlight_1.target_id,
-      field_section_header:
-        entity.field_cc_national_spotlight_1.fetched.field_section_header[0]
-          .value,
-      field_description: {
-        ...entity.field_cc_national_spotlight_1.fetched.field_description[0],
-      },
-      drupal_internal__id: null,
-      drupal_internal__revision_id: null,
-      langcode: null,
-      status: true,
-      field_cta: {
-        type: 'paragraph--button',
-        field_button_label:
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0]
-            .field_button_label[0].value,
-        field_button_link: {
-          ...entity.field_cc_national_spotlight_1.fetched.field_cta[0]
-            .field_button_link[0],
-          options: [],
+    withFallbackLink(
+      formatFeaturedContent({
+        type: 'paragraph--featured_content',
+        id: entity.field_cc_national_spotlight_1.target_id,
+        field_section_header:
+          entity.field_cc_national_spotlight_1.fetched.field_section_header[0]
+            .value,
+        field_description: {
+          ...entity.field_cc_national_spotlight_1.fetched.field_description[0],
         },
-        drupal_internal__id: parseInt(
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0].target_id
-        ),
-        drupal_internal__revision_id: parseInt(
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0]
-            .target_revision_id
-        ),
-        langcode:
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0].langcode,
-        status:
-          entity.field_cc_national_spotlight_1.fetched.field_cta[0].status,
-        id: null,
-      },
-    }),
+        drupal_internal__id: null,
+        drupal_internal__revision_id: null,
+        langcode: null,
+        status: true,
+        field_cta: {
+          type: 'paragraph--button',
+          field_button_label:
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+              .field_button_label[0].value,
+          field_button_link: {
+            ...entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+              .field_button_link[0],
+            options: [],
+          },
+          drupal_internal__id: parseInt(
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0].target_id
+          ),
+          drupal_internal__revision_id: parseInt(
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+              .target_revision_id
+          ),
+          langcode:
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0].langcode,
+          status:
+            entity.field_cc_national_spotlight_1.fetched.field_cta[0].status,
+          id: null,
+        },
+      }),
+      entity.field_cc_national_spotlight_1.fetched.field_cta[0]
+        .field_button_link[0].uri
+    ),
     ...entity.field_local_spotlight.map((feature) => {
-      return formatFeaturedContent(feature)
+      return withFallbackLink(
+        formatFeaturedContent(feature),
+        feature.field_cta?.field_button_link?.url
+      )
     }),
   ]
   return {
