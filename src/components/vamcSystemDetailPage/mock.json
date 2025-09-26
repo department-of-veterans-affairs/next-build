@@ -1,0 +1,223 @@
+{
+  "type": "node--health_care_region_detail_page",
+  "id": "d95d8029-159b-49a1-ac16-0c124adff3ca",
+  "drupal_internal__nid": 19534,
+  "drupal_internal__vid": 423628,
+  "langcode": "en",
+  "revision_timestamp": "2021-05-18T14:39:29+00:00",
+  "revision_log": null,
+  "status": false,
+  "title": "Research",
+  "created": "2021-05-10T16:35:12+00:00",
+  "changed": "2021-05-18T14:39:29+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/bronx-health-care",
+      "title": "VA Bronx health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "ABOUT VA BRONX",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "Research",
+      "options": []
+    }
+  ],
+  "moderation_state": "archived",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/bronx-health-care/research",
+    "pid": 24151,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_description": "Learn about our research initiatives in areas such as",
+  "field_intro_text": "Explore VA Bronx's research initiatives with specialty programs in [List research here] . You can also volunteer to participate in a research study.",
+  "field_last_saved_by_an_editor": null,
+  "field_meta_tags": null,
+  "field_table_of_contents_boolean": false,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_detail_page/d95d8029-159b-49a1-ac16-0c124adff3ca?resourceVersion=id%3A423628"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "093d91d4-a093-4c47-8f15-fcfed3138476",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "health_care_region_detail_page"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1270
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "42b77c61-aabd-4182-8a0e-2d19f0267eff",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1270
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "c82fd93a-925b-4170-b8e6-97b0bdb65b9b",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 251
+    }
+  },
+  "field_alert": null,
+  "field_content_block": [
+    {
+      "type": "paragraph--wysiwyg",
+      "id": "b53460d0-b5ef-4bcc-9744-b81734e27731",
+      "resourceIdObjMeta": {
+        "target_revision_id": 300308,
+        "drupal_internal__target_id": 40153
+      }
+    }
+  ],
+  "field_featured_content": [],
+  "field_office": {
+    "type": "node--health_care_region_page",
+    "id": "683e09f7-ffa8-483f-a218-b8af11fe4ea5",
+    "title": "VA Bronx health care",
+    "drupal_internal__nid": 8508,
+    "drupal_internal__vid": 915208,
+    "langcode": "en",
+    "field_system_menu": {
+      "type": "menu--menu",
+      "id": "9e6ca422-1057-4414-874f-3100915e9993",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "va-bronx-health-care"
+      }
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_clinical_health_services",
+      "field_media",
+      "field_related_links",
+      "field_system_menu"
+    ]
+  },
+  "field_related_links": {
+    "type": "paragraph--list_of_link_teasers",
+    "id": "b644de63-a5f8-413a-80cc-c6d07edec719",
+    "drupal_internal__id": 85075,
+    "drupal_internal__revision_id": 1832417,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-03-23T18:35:52+00:00",
+    "parent_id": "36290",
+    "parent_type": "node",
+    "parent_field_name": "field_related_links",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": null,
+    "field_title": "More information",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/list_of_link_teasers/b644de63-a5f8-413a-80cc-c6d07edec719?resourceVersion=id%3A1832417"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 1832417,
+      "drupal_internal__target_id": 85075
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "17be725c-343b-4050-a3c0-4e953226233e",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "list_of_link_teasers"
+      }
+    },
+    "field_va_paragraphs": [
+      {
+        "type": "paragraph--link_teaser",
+        "id": "87794538-07fc-462f-833a-6b837f546cff",
+        "drupal_internal__id": 85076,
+        "drupal_internal__revision_id": 1832416,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-03-23T18:35:52+00:00",
+        "parent_id": "85075",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": null,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "https://tricare.mil/records",
+          "title": "My Military Health Records - TRICARE",
+          "options": {
+            "href": "https://tricare.mil/records",
+            "data-entity-type": "",
+            "data-entity-uuid": "",
+            "data-entity-substitution": ""
+          },
+          "url": "https://tricare.mil/records"
+        },
+        "field_link_summary": "You should keep copies of your medical documentation, records, and health care history information for your own reference. Learn about how to get access to your military health records through MHS Genesis.",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/87794538-07fc-462f-833a-6b837f546cff?resourceVersion=id%3A1832416"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 1832416,
+          "drupal_internal__target_id": 85076
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      }
+    ],
+    "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_alert",
+    "field_content_block",
+    "field_featured_content",
+    "field_office",
+    "field_related_links"
+  ]
+}
