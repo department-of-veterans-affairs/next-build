@@ -24,7 +24,7 @@ export const params: QueryParams<null> = () => {
     .addInclude([
       'field_office',
       'field_related_links',
-      'field_related_links. field_va_paragraphs',
+      'field_related_links.field_va_paragraphs',
     ])
 }
 
