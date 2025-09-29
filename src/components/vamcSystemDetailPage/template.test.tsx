@@ -91,4 +91,32 @@ describe('VamcSystemDetailPage', () => {
       ).not.toBeInTheDocument()
     })
   })
+
+  describe('Top tasks', () => {
+    const getLink = (text: string) =>
+      document.querySelector(`va-link-action[text="${text}"]`)
+
+    it('renders top tasks when this is a contact page', () => {
+      render(
+        <VamcSystemDetailPage {...formattedMockData} entityPath="/contact-us" />
+      )
+      expect(getLink('Make an appointment')).toBeInTheDocument()
+      expect(getLink('Register for care')).toBeInTheDocument()
+      expect(getLink('Learn about pharmacy services')).toBeInTheDocument()
+    })
+
+    it('renders the TRICARE variant with the MHS link when this is a TRICARE contact page', () => {
+      render(
+        <VamcSystemDetailPage
+          {...formattedMockData}
+          entityPath="/contact-us"
+          administration={LOVELL.tricare.administration}
+          vamcEhrSystem="cerner"
+        />
+      )
+      expect(getLink('MHS Genesis Patient Portal')).toBeInTheDocument()
+      expect(getLink('Register for care')).toBeInTheDocument()
+      expect(getLink('Learn about pharmacy services')).toBeInTheDocument()
+    })
+  })
 })

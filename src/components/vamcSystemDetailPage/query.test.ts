@@ -7,8 +7,9 @@ import mockMenu from './mock.menu.json'
 import { queries } from '@/lib/drupal/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { VamcSystemDetailPageDataOpts } from './query'
+import { NodeVamcSystemDetailPage } from '@/types/drupal/node'
 
-const mockPageQuery = jest.fn(() => mockPage)
+const mockPageQuery = jest.fn(() => mockPage as NodeVamcSystemDetailPage)
 
 jest.mock('@/lib/drupal/query', () => ({
   ...jest.requireActual('@/lib/drupal/query'),
@@ -26,7 +27,7 @@ function runQuery(options: Partial<VamcSystemDetailPageDataOpts> = {}) {
 describe('VamcSystemDetailPage query module', () => {
   beforeEach(() => {
     // Reset to default mock data before each test
-    mockPageQuery.mockReturnValue(mockPage)
+    mockPageQuery.mockReturnValue(mockPage as NodeVamcSystemDetailPage)
   })
 
   test('outputs formatted data', async () => {
@@ -38,7 +39,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         field_intro_text: null,
-      })
+      } as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -49,7 +50,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         field_table_of_contents_boolean: null,
-      })
+      } as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -60,7 +61,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         field_related_links: null,
-      })
+      } as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -71,7 +72,7 @@ describe('VamcSystemDetailPage query module', () => {
       mockPageQuery.mockReturnValue({
         ...mockPage,
         breadcrumbs: null,
-      })
+      } as NodeVamcSystemDetailPage)
 
       const result = await runQuery()
 
@@ -96,5 +97,20 @@ describe('VamcSystemDetailPage query module', () => {
       expect(result.lovellSwitchPath).toBeNull()
       expect(result.breadcrumbs).toEqual(mockPage.breadcrumbs)
     })
+  })
+
+  test('formats vamcEhrSystem', async () => {
+    mockPageQuery.mockReturnValue({
+      ...mockPage,
+      field_office: {
+        ...mockPage.field_office,
+        field_vamc_ehr_system: 'vista',
+      },
+    } as NodeVamcSystemDetailPage)
+
+    const result = await runQuery()
+
+    expect(result.administration).toBeDefined()
+    expect(result.vamcEhrSystem).toBeDefined()
   })
 })
