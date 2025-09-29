@@ -7,7 +7,7 @@ import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/contactInfo/mock.json'
 import { params } from './query'
 
-const ContactInfoMock: ParagraphContactInformation = mockData
+const ContactInfoMock = mockData as ParagraphContactInformation
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {

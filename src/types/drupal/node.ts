@@ -219,7 +219,8 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_operating_status: FieldLink
   field_other_va_locations: string
   field_intro_text: string
-  field_clinical_health_services: NodeHealthCareLocalHealthService[]
+  // This data is unreliable. Don't use it.
+  // field_clinical_health_services: NodeRegionalHealthCareServiceDes[]
   field_twitter: FieldLink
   field_va_health_connect_phone: string
   field_vamc_system_official_name: string
@@ -396,7 +397,7 @@ export interface NodeQA extends NodeAbstractResource {
 export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
-  field_region_page: NodeHealthCareRegionPage
+  field_region_page: Pick<NodeHealthCareRegionPage, 'id'>
   field_body: FieldFormattedText
 }
 
@@ -615,9 +616,14 @@ export interface NodeVetCenterOutstation
 }
 
 export interface NodeVamcHealthServicesListing extends DrupalNode {
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system'
+  >
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]
+  field_administration: FieldAdministration
   breadcrumbs: BreadcrumbItem[]
 }
 

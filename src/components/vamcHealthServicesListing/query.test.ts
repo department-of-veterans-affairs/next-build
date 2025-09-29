@@ -2,15 +2,25 @@
  * @jest-environment node
  */
 
-import { NodeVamcHealthServicesListing } from '@/types/drupal/node'
+import {
+  NodeVamcHealthServicesListing,
+  NodeHealthCareRegionPage,
+} from '@/types/drupal/node'
 import { formatter, params } from './query'
 import { queries } from '@/lib/drupal/queries'
-import mockData from './mock.json'
+import mockServicesListingPartial from './mock.json'
+import mockSystem from '@/components/vamcSystem/mock.json'
 import { DrupalMenuLinkContent } from 'next-drupal'
+import { createMockServicesForGrouping } from './mockServiceDes'
 
 // Use type assertion to bypass strict type checking for test data
-const VamcHealthServicesListingMock =
-  mockData[0] as NodeVamcHealthServicesListing
+const mockServicesListing = {
+  ...mockServicesListingPartial,
+  field_office: {
+    ...(mockSystem as unknown as NodeHealthCareRegionPage),
+    field_system_menu: {},
+  },
+} as NodeVamcHealthServicesListing
 
 // Mock menu data for testing - providing realistic structure
 const menuItem: DrupalMenuLinkContent = {
@@ -36,7 +46,8 @@ const mockMenu = {
 }
 
 const mockDataWrapper = {
-  entity: VamcHealthServicesListingMock,
+  entity: mockServicesListing,
+  services: createMockServicesForGrouping(),
   menu: mockMenu,
   lovell: undefined,
 }
@@ -46,10 +57,6 @@ describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
     const paramsInstance = params()
     const queryString = decodeURIComponent(paramsInstance.getQueryString())
-    expect(queryString).toMatch(/include=field_administration,field_office/)
-    expect(queryString).toMatch(
-      /fields\[node--health_care_region_page\]=field_vamc_ehr_system,field_system_menu/
-    )
     expect(queryString).toMatchSnapshot()
   })
 })
@@ -63,15 +70,14 @@ describe('VamcHealthServicesListing formatData', () => {
 
   test('handles empty description correctly', () => {
     const mockWithEmptyDescription = {
-      ...VamcHealthServicesListingMock,
+      ...mockServicesListing,
       field_description: '',
       field_intro_text: '',
     }
 
     const mockDataWrapperWithEmptyDescription = {
+      ...mockDataWrapper,
       entity: mockWithEmptyDescription,
-      menu: mockMenu,
-      lovell: undefined,
     }
 
     const result = queries.formatData(
@@ -83,31 +89,38 @@ describe('VamcHealthServicesListing formatData', () => {
   })
 
   test('includes path, administration, and vamcEhrSystem fields', () => {
-    const result = formatter({
-      entity: VamcHealthServicesListingMock,
-      menu: mockMenu,
-    })
+    const result = formatter(mockDataWrapper)
     expect(result.path).toBeDefined()
     expect(result.administration).toBeDefined()
     expect(result.vamcEhrSystem).toBeDefined()
   })
 
   test('correctly formats menu data', () => {
-    const result = formatter({
-      entity: VamcHealthServicesListingMock,
-      menu: mockMenu,
-    })
+    const result = formatter(mockDataWrapper)
     expect(result.menu).toBeDefined()
     expect(result.menu).toHaveProperty('rootPath')
     expect(result.menu).toHaveProperty('data')
   })
 
-  test('handles null menu gracefully', () => {
-    const result = formatter({
-      entity: VamcHealthServicesListingMock,
-      menu: null,
-    })
+  test('groups health services by type of care', () => {
+    const result = formatter(mockDataWrapper)
 
-    expect(result.menu).toBeNull()
+    expect(result.healthServiceGroups).toBeDefined()
+    expect(result.healthServiceGroups).toHaveLength(5) // 5 different types of care
+
+    // Check that services are grouped correctly
+    const primaryCareGroup = result.healthServiceGroups.find(
+      (group) => group.typeOfCare === 'Primary care'
+    )
+    expect(primaryCareGroup).toBeDefined()
+    expect(primaryCareGroup?.services).toHaveLength(1)
+    expect(primaryCareGroup?.services[0].title).toBe('Primary Care Service')
+
+    const mentalHealthGroup = result.healthServiceGroups.find(
+      (group) => group.typeOfCare === 'Mental health care'
+    )
+    expect(mentalHealthGroup).toBeDefined()
+    expect(mentalHealthGroup?.services).toHaveLength(1)
+    expect(mentalHealthGroup?.services[0].title).toBe('Mental Health Service')
   })
 })

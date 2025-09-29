@@ -578,6 +578,11 @@ const mockData: VamcSystemMedicalRecordsOffice = {
     id: '82634',
     html: '<h2 id="get-your-records-online">Get your records online</h2><p>Access your VA medical records online. Sign in to view, organize, and share your VA medical records and other personal health information.&nbsp;We don\'t charge any fees to send copies directly to health care providers.</p>',
   },
+  getRecordsInPersonContent: {
+    type: 'paragraph--wysiwyg',
+    id: '82639',
+    html: '<h2 id="get-your-records-in-person">Get your records in person</h2><p>We can help you get copies of your VA medical records. We can also help you update your records. Call or visit one of our release of information offices.</p><p><strong>What to bring</strong></p><ul><li>A signed written request for a copy of your records to be provided to you. For your convenience you may download and complete the “Individuals’ Request For a Copy of Their Own Health Information” (VA Form 10-5345a).  <a href="https://www.va.gov/vaforms/medical/pdf/VHA%20Form%2010-5345a%20Fill-revision.pdf" hreflang="en">Download VA Form 10-5345a (PDF)</a></li><li>Your Veteran Health Identification Card (VHIC)</li></ul>',
+  },
   bottomOfPageContent: null,
   relatedLinks: {
     type: 'paragraph--list_of_link_teasers',

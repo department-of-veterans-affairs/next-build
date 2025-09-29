@@ -12,6 +12,7 @@ export interface VamcSystemMedicalRecordsOffice extends PublishedEntity {
   vamcSystem: Pick<VamcSystem, 'id' | 'title'>
   menu: SideNavMenu
   topOfPageContent: Wysiwyg
+  getRecordsInPersonContent: Wysiwyg
   bottomOfPageContent: Wysiwyg
   relatedLinks: ListOfLinkTeasers
   services: Array<{

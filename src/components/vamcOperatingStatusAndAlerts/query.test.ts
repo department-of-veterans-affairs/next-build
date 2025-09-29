@@ -29,8 +29,8 @@ const mockMenu = {
   items: [menuItem],
   tree: [menuItem],
 }
-const VamcOperatingStatusAndAlertsMock: NodeVamcOperatingStatusAndAlerts =
-  mockData
+const VamcOperatingStatusAndAlertsMock =
+  mockData as NodeVamcOperatingStatusAndAlerts
 
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {

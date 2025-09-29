@@ -27,6 +27,7 @@ export function WysiwygField({ className, html }: FormattedWysiwygField) {
 export function Wysiwyg({
   entityId,
   html,
+  className,
 }: ParagraphComponent<FormattedWysiwyg>) {
   if (!isValidData(html)) return
 
@@ -36,7 +37,7 @@ export function Wysiwyg({
       data-template="paragraphs/wysiwyg"
       data-paragraph-type="paragraph--wysiwyg"
     >
-      <WysiwygField html={html} />
+      <WysiwygField html={html} className={className} />
     </div>
   )
 }
