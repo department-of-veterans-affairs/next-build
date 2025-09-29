@@ -25,17 +25,13 @@ export const VamcSystemRegisterForCare = ({
 }: FormattedVamcSystemRegisterForCare) => {
   return (
     <SideNavLayout menu={menu} data-template="vamc_system_register_for_care">
-      <article
-        aria-labelledby="article-heading"
-        role="region"
-        className="usa-content"
-      >
+      <article className="usa-content">
         <LovellSwitcher
           currentVariant={lovellVariant}
           switchPath={lovellSwitchPath}
         />
 
-        <h1 id="article-heading">{title}</h1>
+        <h1>{title}</h1>
         <div className="va-introtext">
           <p>
             Register to get care at one of our {vamcSystem?.title} facilities.

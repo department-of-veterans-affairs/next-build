@@ -29,11 +29,7 @@ export const VamcSystemMedicalRecordsOffice = ({
       menu={menu}
       data-template="vamc_system_medical_records_office"
     >
-      <article
-        aria-labelledby="article-heading"
-        role="region"
-        className="usa-content"
-      >
+      <article className="usa-content">
         <LovellSwitcher
           currentVariant={lovellVariant}
           switchPath={lovellSwitchPath}

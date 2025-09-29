@@ -186,10 +186,6 @@ describe('VamcSystemPoliciesPage with valid data', () => {
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
       formattedData.title
     )
-    expect(screen.getByRole('heading', { level: 1 })).toHaveAttribute(
-      'id',
-      'article-heading'
-    )
 
     // Check for intro text styling
     const introElement = document.querySelector('.va-introtext')
