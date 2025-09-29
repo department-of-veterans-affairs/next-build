@@ -84,7 +84,7 @@ export function OperatingStatuses({
     }
   }
   return (
-    <section className="clearfix" id="operating-statuses">
+    <section id="operating-statuses">
       <h2 id="facility-operating-statuses">Facility operating statuses</h2>
       <ul className="usa-unstyled-list vads-u-border-bottom--1px vads-u-border-color--gray-light vads-u-padding-x--0">
         {operatingStatuses.map((operatingStatus, index) => (
