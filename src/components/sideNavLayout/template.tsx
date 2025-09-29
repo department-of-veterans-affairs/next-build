@@ -17,15 +17,17 @@ export function SideNavLayout({
   className,
   ...props
 }: SideNavLayoutProps) {
-  // Populate the side nav data for the side nav widget to fill in
-  // Note: The side nav widget is in a separate app in the static-pages bundle
+  // Populate the side nav data for the side nav widget to fill in. The side nav widget
+  // is a "React widget" from the `static-pages` "app" in `vets-website`. It is not part
+  // of next-build. We load our data into `window.sideNav`, and that app reads it and
+  // renders the widget into our `[data-widget-type="side-nav"]` element.
   useEffect(() => {
     window.sideNav = menu
   }, [menu])
 
   return (
     <div className={clsx('vads-grid-container', className)} {...props}>
-      {/* Nav data filled in by a separate script from `window.sideNav` */}
+      {/* See comment above for more details about the side nav widget */}
       <nav aria-label="secondary" data-widget-type="side-nav" />
       <div className="vads-grid-row">
         <div className="vads-grid-col-12">{children}</div>
