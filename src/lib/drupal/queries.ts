@@ -148,7 +148,7 @@ export const QUERIES_MAP = {
   'banner-data': Banners,
   'header-data': Header,
   'footer-data': Footer,
-  'benefits-hub-links': BenefitsHubLinks, // "Benefits Hub Links formatter"
+  'benefits-hub-links': BenefitsHubLinks,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,
