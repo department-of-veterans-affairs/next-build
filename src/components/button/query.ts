@@ -10,7 +10,7 @@ export const formatter: QueryFormatter<ParagraphButton, Button> = (
     type: entity.type as Button['type'],
     id: entity.id || null,
     entityId: entity.drupal_internal__id || null,
-    url: entity.field_button_link?.uri || null,
+    url: entity.field_button_link?.url || entity.field_button_link?.uri || null,
     label: entity.field_button_label || null,
   }
 }
