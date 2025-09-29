@@ -11,9 +11,18 @@ const linkTeaserMock = mockData as ParagraphLinkTeaser[]
 describe('paragraph--link_teaser formatData', () => {
   test('outputs formatted data', () => {
     expect(
-      linkTeaserMock.map((linkTeaser) => {
-        return queries.formatData('paragraph--link_teaser', linkTeaser)
-      })
+      linkTeaserMock.map((linkTeaser) =>
+        queries.formatData('paragraph--link_teaser', linkTeaser)
+      )
     ).toMatchSnapshot()
+  })
+
+  test('returns null if the field_link is null', () => {
+    expect(
+      queries.formatData('paragraph--link_teaser', {
+        ...linkTeaserMock[0],
+        field_link: null,
+      } as ParagraphLinkTeaser)
+    ).toEqual(null)
   })
 })
