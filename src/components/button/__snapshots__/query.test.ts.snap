@@ -21,7 +21,7 @@ exports[`paragraph--button formatData outputs formatted data 1`] = `
     "id": "17510f2e-1aa2-4d30-93d6-273073ac2bad",
     "label": "Change VA direct deposit information",
     "type": "paragraph--button",
-    "url": "entity:node/710",
+    "url": "/change-direct-deposit",
   },
   {
     "entityId": 13572,
