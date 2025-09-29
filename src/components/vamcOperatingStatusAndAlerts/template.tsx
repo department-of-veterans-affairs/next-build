@@ -44,7 +44,6 @@ export function VamcOperatingStatusAndAlerts({
                 {operatingStatuses && (
                   <OperatingStatuses {...{ operatingStatuses }} />
                 )}
-                <div>TODO: add fieldFacilityOperatingStatus</div>
                 <div>TODO: add fieldLink or fieldOperatingStatusEmergInf</div>
                 <ContentFooter />
               </article>
