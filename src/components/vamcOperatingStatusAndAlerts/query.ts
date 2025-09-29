@@ -110,16 +110,18 @@ export const formatter: QueryFormatter<
     facilityName: entity.field_office.field_system_menu.label,
     situationUpdates: buildSituationUpdates(entity.field_banner_alert),
     operatingStatuses:
-      entity.field_facility_operating_status?.map((facilityEntity) => ({
-        title: facilityEntity?.title,
-        url: facilityEntity?.path?.alias,
-        status: facilityEntity?.field_operating_status_facility,
-        statusInfo: facilityEntity?.field_operating_status_more_info
-          ? getHtmlFromDrupalContent(
-              facilityEntity.field_operating_status_more_info
-            )
-          : null,
-      })) || null,
+      entity.field_facility_operating_status
+        ?.map((facilityEntity) => ({
+          title: facilityEntity?.title || null,
+          url: facilityEntity?.path?.alias || null,
+          status: facilityEntity?.field_operating_status_facility || null,
+          statusInfo: facilityEntity?.field_operating_status_more_info
+            ? getHtmlFromDrupalContent(
+                facilityEntity.field_operating_status_more_info
+              )
+            : null,
+        }))
+        .filter((operatingStatus) => operatingStatus.title !== null) || null,
     menu: formattedMenu,
   }
 }
