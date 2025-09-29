@@ -20,20 +20,15 @@ export function VamcSystemDetailPage({
   const isContactPage = entityPath?.includes('contact-us') || false
 
   return (
-    <SideNavLayout menu={menu}>
-      <article
-        aria-labelledby="article-heading"
-        role="region"
-        className="usa-content"
-        data-template="vamc-system-detail-page"
-      >
+    <SideNavLayout menu={menu} data-template="vamc-system-detail-page">
+      <article className="usa-content">
         {/* TODO: Add Lovell switcher in the right scenarios */}
         {/* <LovellSwitcher
               currentVariant={lovellVariant}
               switchPath={lovellSwitchPath}
             /> */}
 
-        <h1 id="article-heading">{title}</h1>
+        <h1>{title}</h1>
 
         {introText && (
           <div className="va-introtext">
