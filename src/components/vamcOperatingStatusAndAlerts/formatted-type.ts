@@ -12,7 +12,7 @@ export type OperatingStatus = {
   title: string
   url: string
   status: FacilityOperatingStatusFlags
-  statusInfo: string
+  statusInfo: string | null
 }
 
 export type SituationUpdates = {

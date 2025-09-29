@@ -1,4 +1,5 @@
 import { OperatingStatus as FormattedOperatingStatus } from './formatted-type'
+import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 
 interface OperatingStatusesProps {
   operatingStatuses: FormattedOperatingStatus[]
@@ -6,7 +7,7 @@ interface OperatingStatusesProps {
 export function OperatingStatuses({
   operatingStatuses,
 }: OperatingStatusesProps) {
-  const formatStatus = (status) => {
+  const formatStatus = (status: FacilityOperatingStatusFlags) => {
     switch (status) {
       case 'notice':
         return (
@@ -110,9 +111,10 @@ export function OperatingStatuses({
                   <p
                     className="vads-u-margin-bottom--0"
                     data-testid="status-info"
-                  >
-                    {operatingStatus.statusInfo}
-                  </p>
+                    dangerouslySetInnerHTML={{
+                      __html: operatingStatus.statusInfo,
+                    }}
+                  />
                 )}
             </div>
           </li>
