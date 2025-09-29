@@ -10,49 +10,72 @@ export function OperatingStatuses({
     switch (status) {
       case 'notice':
         return (
-          <va-alert slim status="info" visible>
+          <va-alert slim status="info" visible data-testid="notice-status">
             Facility notice
           </va-alert>
         )
       case 'normal':
         return (
-          <span className="operating-status vads-u-margin-top--1p5 vads-u-display--block">
+          <span
+            className="operating-status vads-u-margin-top--1p5 vads-u-display--block"
+            data-testid="normal-status"
+          >
             Normal services and hours
           </span>
         )
       case 'limited':
         return (
-          <va-alert slim status="info" visible>
+          <va-alert slim status="info" visible data-testid="limited-status">
             Limited services and hours
           </va-alert>
         )
       case 'closed':
         return (
-          <va-alert slim status="warning" visible>
+          <va-alert slim status="warning" visible data-testid="closed-status">
             Facility Closed
           </va-alert>
         )
       case 'temporary_closure':
         return (
-          <va-alert slim status="warning" visible>
+          <va-alert
+            slim
+            status="warning"
+            visible
+            data-testid="temporary_closure-status"
+          >
             Temporary facility closure
           </va-alert>
         )
       case 'temporary_location':
         return (
-          <va-alert slim status="warning" visible>
+          <va-alert
+            slim
+            status="warning"
+            visible
+            data-testid="temporary_location-status"
+          >
             Temporary location
           </va-alert>
         )
       case 'virtual_care':
         return (
-          <va-alert slim status="warning" visible>
+          <va-alert
+            slim
+            status="warning"
+            visible
+            data-testid="virtual_care-status"
+          >
             Virtual care only
           </va-alert>
         )
       case 'coming_soon':
         return (
-          <va-alert slim status="warning" visible>
+          <va-alert
+            slim
+            status="warning"
+            visible
+            data-testid="coming_soon-status"
+          >
             Coming soon
           </va-alert>
         )
@@ -84,7 +107,10 @@ export function OperatingStatuses({
               </p>
               {operatingStatus.statusInfo &&
                 operatingStatus.status !== 'normal' && (
-                  <p className="vads-u-margin-bottom--0">
+                  <p
+                    className="vads-u-margin-bottom--0"
+                    data-testid="status-info"
+                  >
                     {operatingStatus.statusInfo}
                   </p>
                 )}

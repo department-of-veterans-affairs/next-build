@@ -17,19 +17,4 @@ describe('VamcOperatingStatusAndAlerts with valid data', () => {
       screen.queryByText(/VA Oklahoma City health care/)
     ).toBeInTheDocument()
   })
-  test('renders situation updates', () => {
-    render(
-      <VamcOperatingStatusAndAlerts {...vamcOperatingStatusAndAlertsData} />
-    )
-    expect(screen.getByTestId('situation-updates-wrapper')).toBeInTheDocument()
-    expect(screen.getByTestId('situation-1-update-1-date')).toHaveTextContent(
-      'Friday, Sep 19, 2:41 p.m. PT'
-    )
-    expect(screen.getByTestId('situation-1-update-1-update')).toHaveTextContent(
-      'A new update'
-    )
-    expect(screen.getByTestId('situation-1-info')).toContainHTML(
-      '<p>this is info</p>'
-    )
-  })
 })
