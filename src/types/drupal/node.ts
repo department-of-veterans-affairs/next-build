@@ -94,6 +94,7 @@ export type NodeTypes =
   | NodeVbaFacility
   | NodeVbaService
   | NodeVamcOperatingStatusAndAlerts
+  | NodeBenefitsHub
 
 /** Shared type structure for resource nodes. */
 export interface NodeAbstractResource extends DrupalNode {
@@ -630,4 +631,21 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
   field_banner_alert?: NodeFullWidthBannerAlert[]
+}
+
+export interface NodeBenefitsHub extends DrupalNode {
+  field_related_office: NodeOffice
+  field_alert: BlockAlert
+  field_title_icon: string
+  field_home_page_hub_label: string
+  field_teaser_text: string
+  field_links: FieldLink[]
+  field_description: string
+  field_meta_title: string
+  field_intro_text: string
+  field_plainlanguage_date: string
+  field_promo: BlockPromo
+  field_related_links: ParagraphListOfLinks
+  field_spokes: ParagraphListOfLinks
+  field_support_services: NodeSupportService[]
 }

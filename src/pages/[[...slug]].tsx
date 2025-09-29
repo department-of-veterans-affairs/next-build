@@ -64,6 +64,7 @@ import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from 
 import { VbaFacility as FormattedVbaFacility } from '../components/vbaFacility/formatted-type'
 import { VamcOperatingStatusAndAlerts as FormattedVamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/formatted-type'
 import { VamcSystemPoliciesPage as FormattedVamcSystemPoliciesPage } from '../components/vamcSystemPoliciesPage/formatted-type'
+import { BenefitsHub as FormattedBenefitsHub } from '../components/benefitsHub/formatted-type'
 
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
@@ -93,6 +94,7 @@ import { VetCenterLocationListing } from '../components/vetCenterLocationListing
 import { VamcHealthServicesListing } from '../components/vamcHealthServicesListing/template'
 import { VamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/template'
 import { VamcSystemPoliciesPage } from '../components/vamcSystemPoliciesPage/template'
+import { BenefitsHub } from '../components/benefitsHub/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -270,6 +272,9 @@ export default function ResourcePage({
             <VamcSystemPoliciesPage
               {...(resource as FormattedVamcSystemPoliciesPage)}
             />
+          )}
+          {resource.type === RESOURCE_TYPES.BENEFITS_HUB && (
+            <BenefitsHub {...(resource as FormattedBenefitsHub)} />
           )}
         </div>
       </main>
