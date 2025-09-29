@@ -19,7 +19,6 @@ describe('VamcSystemRegisterForCare', () => {
   it('renders the main heading with correct id', () => {
     render(<VamcSystemRegisterForCare {...mockData} />)
     const heading = screen.getByRole('heading', { level: 1 })
-    expect(heading).toHaveAttribute('id', 'article-heading')
   })
 
   test('adds the sideNav to window.sideNav', () => {

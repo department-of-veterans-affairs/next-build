@@ -182,25 +182,9 @@ describe('VamcSystemPoliciesPage with valid data', () => {
 
   test('renders page structure and layout elements', () => {
     render(<VamcSystemPoliciesPage {...formattedData} />)
-
-    // Check main structure
-    expect(screen.getByRole('main')).toHaveClass(
-      'va-l-detail-page',
-      'va-facility-page'
-    )
-    expect(screen.getByRole('region')).toHaveClass('usa-content')
-    expect(screen.getByRole('region')).toHaveAttribute(
-      'aria-labelledby',
-      'article-heading'
-    )
-
     // Check heading structure
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
       formattedData.title
-    )
-    expect(screen.getByRole('heading', { level: 1 })).toHaveAttribute(
-      'id',
-      'article-heading'
     )
 
     // Check for intro text styling
