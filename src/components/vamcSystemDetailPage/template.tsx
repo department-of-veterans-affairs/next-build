@@ -39,10 +39,11 @@ export function VamcSystemDetailPage({
             className="usa-content"
             data-template="vamc-system-detail-page"
           >
-            <LovellSwitcher
+            {/* TODO: Add Lovell switcher in the right scenarios */}
+            {/* <LovellSwitcher
               currentVariant={lovellVariant}
               switchPath={lovellSwitchPath}
-            />
+            /> */}
 
             <h1 id="article-heading">{title}</h1>
 
