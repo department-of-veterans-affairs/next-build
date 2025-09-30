@@ -17,14 +17,14 @@ describe('VamcSystemDetailPage', () => {
 
   it('renders the title', () => {
     render(<VamcSystemDetailPage {...formattedMockData} />)
-    expect(screen.getByText('Research')).toBeInTheDocument()
+    expect(screen.getByText('Mission and vision')).toBeInTheDocument()
   })
 
   it('renders intro text when provided', () => {
     render(<VamcSystemDetailPage {...formattedMockData} />)
     expect(
       screen.getByText(
-        "Explore VA Bronx's research initiatives with specialty programs in [List research here] . You can also volunteer to participate in a research study."
+        /The mission of the Durham VA Medical Center and clinics is to make a positive difference/
       )
     ).toBeInTheDocument()
   })
@@ -39,9 +39,8 @@ describe('VamcSystemDetailPage', () => {
       render(<VamcSystemDetailPage {...formattedMockData} />)
 
       // Check that the related links section is rendered
-      expect(screen.getByText('More information')).toBeInTheDocument()
       expect(
-        screen.getByText(/You should keep copies of your medical/)
+        screen.getByText('Learn more about how we serve Veterans')
       ).toBeInTheDocument()
     })
 
@@ -51,9 +50,8 @@ describe('VamcSystemDetailPage', () => {
       )
 
       // Check that the related links section is not rendered
-      expect(screen.queryByText('More information')).not.toBeInTheDocument()
       expect(
-        screen.queryByText(/You should keep copies of your medical/)
+        screen.queryByText('Learn more about how we serve Veterans')
       ).not.toBeInTheDocument()
     })
   })
