@@ -6,6 +6,7 @@ type TopTasksProps = {
   path: string
   vamcEhrSystem: VamcEhrSystem
   administration?: Administration
+  className?: string
 }
 
 /**
@@ -17,6 +18,7 @@ export const FacilityTopTasks = ({
   path,
   administration,
   vamcEhrSystem,
+  className = 'vads-u-margin-bottom--6',
 }: TopTasksProps) => {
   path = normalizePath(path)
 
@@ -28,27 +30,29 @@ export const FacilityTopTasks = ({
   })
 
   return (
-    <div data-testid="facility-top-tasks" className="vads-u-margin-bottom--6">
-      <div data-template="facilities/facilities_health_services_buttons">
-        <va-link-action
-          class="vads-u-display--block"
-          href={`${topTask.url}`}
-          text={`${topTask.text}`}
-          type="secondary"
-        ></va-link-action>
-        <va-link-action
-          class="vads-u-display--block"
-          href={`${path}/register-for-care`}
-          text="Register for care"
-          type="secondary"
-        ></va-link-action>
-        <va-link-action
-          class="vads-u-display--block"
-          href={`${path}/pharmacy`}
-          text="Learn about pharmacy services"
-          type="secondary"
-        ></va-link-action>
-      </div>
+    <div
+      data-template="facilities/facilities_health_services_buttons"
+      data-testid="facility-top-tasks"
+      className={className}
+    >
+      <va-link-action
+        class="vads-u-display--block"
+        href={`${topTask.url}`}
+        text={`${topTask.text}`}
+        type="secondary"
+      ></va-link-action>
+      <va-link-action
+        class="vads-u-display--block"
+        href={`${path}/register-for-care`}
+        text="Register for care"
+        type="secondary"
+      ></va-link-action>
+      <va-link-action
+        class="vads-u-display--block"
+        href={`${path}/pharmacy`}
+        text="Learn about pharmacy services"
+        type="secondary"
+      ></va-link-action>
     </div>
   )
 }
