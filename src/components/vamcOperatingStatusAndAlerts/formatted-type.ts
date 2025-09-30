@@ -1,10 +1,18 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { SideNavMenu } from '@/types/formatted/sideNav'
+import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
 
 type Update = {
   dateTime: string
   timezone: string
   updateText: string
+}
+
+export type OperatingStatus = {
+  title: string
+  url: string
+  status: FacilityOperatingStatusFlags
+  statusInfo: string | null
 }
 
 export type SituationUpdates = {
@@ -16,4 +24,5 @@ export type VamcOperatingStatusAndAlerts = PublishedEntity & {
   facilityName: string
   menu?: SideNavMenu
   situationUpdates: SituationUpdates[]
+  operatingStatuses: OperatingStatus[]
 }
