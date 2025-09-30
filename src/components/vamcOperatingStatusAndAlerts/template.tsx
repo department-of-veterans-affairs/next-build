@@ -9,6 +9,8 @@ export function VamcOperatingStatusAndAlerts({
   menu,
   situationUpdates,
   operatingStatuses,
+  emergencyInformation,
+  localEmergencyLinks,
 }: FormattedVamcOperatingStatusAndAlerts) {
   const dateFormat = 'EEEE, MMM d, h:mm aaaa'
   return (
@@ -25,7 +27,36 @@ export function VamcOperatingStatusAndAlerts({
         </section>
         {situationUpdates && <SituationUpdates {...{ situationUpdates }} />}
         {operatingStatuses && <OperatingStatuses {...{ operatingStatuses }} />}
-        <div>TODO: add fieldLink or fieldOperatingStatusEmergInf</div>
+        {(emergencyInformation || localEmergencyLinks) && (
+          <section id="emergency-resources">
+            <h2 id="emergency-information">Emergency information</h2>
+            {emergencyInformation && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: emergencyInformation,
+                }}
+              />
+            )}
+            {localEmergencyLinks && (
+              <>
+                <h3
+                  id="local-emergency-resources"
+                  className="vads-u-margin-top--3 vads-u-margin-bottom--2 "
+                >
+                  Local emergency resources
+                </h3>
+                {localEmergencyLinks.map((localEmergencyLink, index) => (
+                  <p key={index}>
+                    <va-link
+                      href={localEmergencyLink.url.path}
+                      text={localEmergencyLink.label}
+                    />
+                  </p>
+                ))}
+              </>
+            )}
+          </section>
+        )}
         <ContentFooter />
       </article>
     </SideNavLayout>
