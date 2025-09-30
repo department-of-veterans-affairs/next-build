@@ -8,7 +8,7 @@
 export const createPhoneLinks = (content: string) => {
   // Change phone to tap to dial.
   const replacePattern =
-    /\(?(\d{3})\)?[- ]*(\d{3})[- ]*(\d{4}),?(?: ?x\.? ?(\d*)| ?ext\.? ?(\d*))?(?!([^<]*>)|(((?!<v?a).)*<\/v?a.*>))/gi
+    /\(?(\d{3})\)?[- ]*(\d{3})[- ]*(\d{4}),?(?: ?(?:x\.?|ext\.?|extension\.?) ?(\d+))?(?!([^<]*>)|(((?!<v?a).)*<\/v?a.*>))/gi
 
   const matches = content?.match(replacePattern)
   if (!matches) {
