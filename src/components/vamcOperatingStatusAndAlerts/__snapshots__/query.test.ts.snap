@@ -107,8 +107,8 @@ exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
     {
       "status": "normal",
       "statusInfo": null,
-      "title": "Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System",
-      "url": "/alaska-health-care/locations/colonel-mary-louise-rasmuson-campus-of-the-alaska-va-healthcare-system",
+      "title": "Framingham VA Clinic",
+      "url": "/boston-health-care/locations/framingham-va-clinic",
     },
   ],
   "published": true,

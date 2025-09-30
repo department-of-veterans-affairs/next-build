@@ -630,11 +630,4 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
   field_banner_alert?: NodeFullWidthBannerAlert[]
-  field_facility_operating_status: Pick<
-    NodeHealthCareLocalFacility,
-    | 'title'
-    | 'path'
-    | 'field_operating_status_facility'
-    | 'field_operating_status_more_info'
-  >[]
 }
