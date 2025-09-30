@@ -56,6 +56,7 @@ import { VamcFacility as FormattedVamcFacility } from '../components/vamcFacilit
 import { VamcSystem as FormattedVamcSystem } from '../components/vamcSystem/formatted-type'
 import { VamcSystemRegisterForCare as FormattedVamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/formatted-type'
 import { VamcSystemBillingAndInsurance as FormattedVamcSystemBillingAndInsurance } from '../components/vamcSystemBillingAndInsurance/formatted-type'
+import { VamcSystemMedicalRecordsOffice as FormattedVamcSystemMedicalRecordsOffice } from '../components/vamcSystemMedicalRecordsOffice/formatted-type'
 import { VamcSystemVaPolice as FormattedVamcSystemVaPolice } from '../components/vamcSystemVaPolice/formatted-type'
 import { LeadershipListing as FormattedLeadershipListing } from '../components/leadershipListing/formatted-type'
 import { VetCenterLocationListing as FormattedVetCenterLocationListing } from '../components/vetCenterLocationListing/formatted-type'
@@ -63,6 +64,7 @@ import { VamcHealthServicesListing as FormattedVamcHealthServicesListing } from 
 import { VbaFacility as FormattedVbaFacility } from '../components/vbaFacility/formatted-type'
 import { VamcOperatingStatusAndAlerts as FormattedVamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/formatted-type'
 import { VamcSystemPoliciesPage as FormattedVamcSystemPoliciesPage } from '../components/vamcSystemPoliciesPage/formatted-type'
+import { VamcSystemDetailPage as FormattedVamcSystemDetailPage } from '../components/vamcSystemDetailPage/formatted-type'
 
 // Templates
 import HTMLComment from '@/components/htmlComment/template'
@@ -84,6 +86,7 @@ import { DoNotPublishError } from '@/lib/drupal/query'
 import { VamcSystem } from '../components/vamcSystem/template'
 import { VamcSystemRegisterForCare } from '../components/vamcSystemRegisterForCare/template'
 import { VamcSystemBillingAndInsurance } from '../components/vamcSystemBillingAndInsurance/template'
+import { VamcSystemMedicalRecordsOffice } from '../components/vamcSystemMedicalRecordsOffice/template'
 import { VamcSystemVaPolice } from '../components/vamcSystemVaPolice/template'
 import { LeadershipListing } from '../components/leadershipListing/template'
 import { VbaFacility } from '../components/vbaFacility/template'
@@ -91,6 +94,7 @@ import { VetCenterLocationListing } from '../components/vetCenterLocationListing
 import { VamcHealthServicesListing } from '../components/vamcHealthServicesListing/template'
 import { VamcOperatingStatusAndAlerts } from '../components/vamcOperatingStatusAndAlerts/template'
 import { VamcSystemPoliciesPage } from '../components/vamcSystemPoliciesPage/template'
+import { VamcSystemDetailPage } from '../components/vamcSystemDetailPage/template'
 
 // IMPORTANT: in order for a content type to build in Next Build, it must have an appropriate
 // environment variable set in one of two places:
@@ -231,6 +235,12 @@ export default function ResourcePage({
               {...(resource as FormattedVamcSystemBillingAndInsurance)}
             />
           )}
+          {resource.type ===
+            RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE && (
+            <VamcSystemMedicalRecordsOffice
+              {...(resource as FormattedVamcSystemMedicalRecordsOffice)}
+            />
+          )}
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE && (
             <VamcSystemVaPolice
               {...(resource as FormattedVamcSystemVaPolice)}
@@ -261,6 +271,11 @@ export default function ResourcePage({
           {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE && (
             <VamcSystemPoliciesPage
               {...(resource as FormattedVamcSystemPoliciesPage)}
+            />
+          )}
+          {resource.type === RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE && (
+            <VamcSystemDetailPage
+              {...(resource as FormattedVamcSystemDetailPage)}
             />
           )}
         </div>

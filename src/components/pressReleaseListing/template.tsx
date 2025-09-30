@@ -11,21 +11,14 @@
  */
 
 import { VaPagination } from '@department-of-veterans-affairs/component-library/dist/react-bindings'
-import { SideNavMenu } from '@/types/formatted/sideNav'
 import { PressReleaseListing as FormattedPressReleaseListing } from './formatted-type'
 import { PressReleaseTeaser as FormattedPressReleaseTeaser } from '../pressRelease/formatted-type'
 import { PressReleaseTeaser } from '@/components/pressReleaseTeaser/template'
 import { ContentFooter } from '@/components/contentFooter/template'
-import { useEffect } from 'react'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { DEFAULT_PAGE_LIST_LENGTH } from '../../lib/constants/pagination'
-
-// Allows additions to window object without overwriting global type
-interface customWindow extends Window {
-  sideNav?: SideNavMenu
-}
-declare const window: customWindow
+import { SideNavLayout } from '@/components/sideNavLayout/template'
 
 export function PressReleaseListing(
   props: LovellStaticPropsResource<FormattedPressReleaseListing>
@@ -41,10 +34,6 @@ export function PressReleaseListing(
     lovellSwitchPath,
   } = props
   const releases = props['news-releases']
-  // Add data to the window object for the sidebar widget
-  useEffect(() => {
-    window.sideNav = menu
-  }, [menu])
 
   const pressReleaseTeasers =
     releases?.length > 0 ? (
@@ -58,47 +47,37 @@ export function PressReleaseListing(
     )
 
   return (
-    <div key={id} className="vads-grid-container">
-      {/* Widget coming from vets-website */}
-      <nav
-        data-template="navigation/facility_sidebar_nav"
-        aria-label="secondary"
-        data-widget-type="side-nav"
-      ></nav>
-      <div className="vads-grid-row">
-        <div className="vads-grid-col-12">
-          <article className="usa-content">
-            <LovellSwitcher
-              currentVariant={lovellVariant}
-              switchPath={lovellSwitchPath}
+    <SideNavLayout key={id} menu={menu}>
+      <article className="usa-content">
+        <LovellSwitcher
+          currentVariant={lovellVariant}
+          switchPath={lovellSwitchPath}
+        />
+        <h1 id="article-heading">{title}</h1>
+        <div className="vads-grid-container--full">
+          <div className="va-introtext">
+            {introText && <p id="office-events-description">{introText}</p>}
+          </div>
+          <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
+          {totalPages > 1 && (
+            <VaPagination
+              page={currentPage}
+              pages={totalPages}
+              maxPageListLength={DEFAULT_PAGE_LIST_LENGTH}
+              onPageSelect={(page) => {
+                const newPage =
+                  page.detail.page > 1 ? `page-${page.detail.page}` : ''
+                const newUrl = window.location.href.replace(
+                  /(?<=news-releases\/).*/, // everything after /news-releases/
+                  newPage
+                )
+                window.location.assign(newUrl)
+              }}
             />
-            <h1 id="article-heading">{title}</h1>
-            <div className="vads-grid-container--full">
-              <div className="va-introtext">
-                {introText && <p id="office-events-description">{introText}</p>}
-              </div>
-              <ul className="usa-unstyled-list">{pressReleaseTeasers}</ul>
-              {totalPages > 1 && (
-                <VaPagination
-                  page={currentPage}
-                  pages={totalPages}
-                  maxPageListLength={DEFAULT_PAGE_LIST_LENGTH}
-                  onPageSelect={(page) => {
-                    const newPage =
-                      page.detail.page > 1 ? `page-${page.detail.page}` : ''
-                    const newUrl = window.location.href.replace(
-                      /(?<=news-releases\/).*/, // everything after /news-releases/
-                      newPage
-                    )
-                    window.location.assign(newUrl)
-                  }}
-                />
-              )}
-            </div>
-          </article>
-          <ContentFooter />
+          )}
         </div>
-      </div>
-    </div>
+      </article>
+      <ContentFooter />
+    </SideNavLayout>
   )
 }

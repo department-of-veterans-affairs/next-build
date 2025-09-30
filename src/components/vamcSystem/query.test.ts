@@ -593,7 +593,6 @@ describe('getVamcSystemSocialLinks', () => {
       field_description: 'Test description',
       field_other_va_locations: 'Other locations',
       field_intro_text: 'Intro text',
-      field_clinical_health_services: [],
       field_va_health_connect_phone: '1-800-123-4567',
       field_vamc_system_official_name: 'Official Name',
       field_govdelivery_id_news: 'NEWS123',

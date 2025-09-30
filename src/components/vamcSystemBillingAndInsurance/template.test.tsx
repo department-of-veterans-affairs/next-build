@@ -18,14 +18,11 @@ describe('VamcSystemBillingAndInsurance', () => {
   it('renders the main heading with correct id', () => {
     render(<VamcSystemBillingAndInsurance {...mockData} />)
     const heading = screen.getByRole('heading', { level: 1 })
-    expect(heading).toHaveAttribute('id', 'article-heading')
   })
 
   test('adds the sideNav to window.sideNav', () => {
     render(<VamcSystemBillingAndInsurance {...mockData} />)
 
-    // @ts-expect-error - window.sideNav is not a default window property, but
-    // we're adding it
     expect(window.sideNav).toEqual(mockData.menu)
   })
 

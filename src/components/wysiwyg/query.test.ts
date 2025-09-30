@@ -8,8 +8,8 @@ import { ParagraphRichTextCharLimit1000 } from '@/types/drupal/paragraph'
 import wysiwygMockData from './mock.json'
 import richTextMockData from './mock.richTextCharLimit1000.json'
 
-const wysiwygMock: ParagraphWysiwyg[] = wysiwygMockData
-const richTextMock: ParagraphRichTextCharLimit1000[] = richTextMockData
+const wysiwygMock = wysiwygMockData as ParagraphWysiwyg[]
+const richTextMock = richTextMockData as ParagraphRichTextCharLimit1000[]
 
 describe('paragraph--wysiwyg formatData', () => {
   test('outputs formatted data', () => {

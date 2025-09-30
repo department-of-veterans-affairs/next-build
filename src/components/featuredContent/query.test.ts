@@ -7,7 +7,7 @@ import { queries } from '@/lib/drupal/queries'
 import mockData from '@/components/featuredContent/mock.json'
 import { params } from './query'
 
-const FeaturedContentMock: ParagraphFeaturedContent = mockData
+const featuredContentMock = mockData as ParagraphFeaturedContent
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {
@@ -24,12 +24,12 @@ test('returns null when entity is null', () => {
 describe('FeaturedContent formatData', () => {
   test('outputs formatted data', () => {
     expect(
-      queries.formatData('paragraph--featured_content', FeaturedContentMock)
+      queries.formatData('paragraph--featured_content', featuredContentMock)
     ).toMatchSnapshot()
   })
   test('handles undefined fields gracefully', () => {
     const modifiedMock = {
-      ...FeaturedContentMock,
+      ...featuredContentMock,
       field_description: { value: null, format: null, processed: null },
       field_cta: null,
     }
