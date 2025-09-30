@@ -6,7 +6,7 @@ import { ParagraphCollapsiblePanel } from '@/types/drupal/paragraph'
 import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '@/components/collapsiblePanel/mock'
 import { params } from './query'
-const CollapsiblePanel: ParagraphCollapsiblePanel = mockResponse
+const CollapsiblePanel = mockResponse as ParagraphCollapsiblePanel
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {

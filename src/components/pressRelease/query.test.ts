@@ -8,7 +8,7 @@ import mockData from '@/components/pressRelease/mock.json'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { params } from './query'
 
-const nodePressReleaseMock: NodePressRelease = {
+const nodePressReleaseMock = {
   ...mockData,
   field_pdf_version: {
     ...mockData.field_pdf_version,
@@ -17,7 +17,7 @@ const nodePressReleaseMock: NodePressRelease = {
     drupal_internal__vid:
       mockData.field_pdf_version.drupal_internal__vid.toString(),
   },
-}
+} as NodePressRelease
 
 describe(`${RESOURCE_TYPES.PRESS_RELEASE} formatData`, () => {
   test('output formatted data', () => {

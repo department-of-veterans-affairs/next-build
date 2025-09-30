@@ -7,6 +7,7 @@ import {
   listingParams,
   data,
   formatter,
+  StoryListingData,
 } from './query'
 import * as queryModule from '@/lib/drupal/query'
 
@@ -82,7 +83,7 @@ describe('data function for StoryListing', () => {
   })
 
   describe('formatter variant detection and menu handling', () => {
-    const mockData = {
+    const mockData: StoryListingData = {
       entity: {
         id: 'test-id',
         type: 'node--story_listing',
@@ -97,7 +98,6 @@ describe('data function for StoryListing', () => {
           alias: '/test-story',
           pid: 1,
           langcode: 'en',
-          severity: 0,
         },
         field_description: 'Test description',
         field_intro_text: 'Test intro',
@@ -115,7 +115,6 @@ describe('data function for StoryListing', () => {
             alias: '/test-path',
             pid: 1,
             langcode: 'en',
-            severity: 1,
           },
           field_description: 'Test Description',
           field_intro_text: 'Test Intro Text',
@@ -137,7 +136,7 @@ describe('data function for StoryListing', () => {
             behavior_settings: [],
             default_langcode: true,
             revision_translation_affected: true,
-            type: 'paragraph--list_of_links',
+            type: 'paragraph--list_of_link_teasers',
           },
           field_vamc_ehr_system: null,
           field_facebook: null,
@@ -154,7 +153,6 @@ describe('data function for StoryListing', () => {
           field_govdelivery_id_emerg: null,
           field_govdelivery_id_news: null,
           field_other_va_locations: null,
-          field_clinical_health_services: [],
           field_mental_health_services: [],
           field_specialty_care_services: [],
           field_va_health_connect_phone: null,
@@ -184,7 +182,6 @@ describe('data function for StoryListing', () => {
             },
             parent: '',
             provider: 'menu_link_content',
-            route_name: 'entity.node.canonical',
             weight: '0',
             options: {},
             route: {
@@ -192,7 +189,6 @@ describe('data function for StoryListing', () => {
               parameters: {},
             },
             type: 'menu_link_content',
-            severity: 0,
           },
         ],
         tree: [
@@ -212,7 +208,6 @@ describe('data function for StoryListing', () => {
             },
             parent: '',
             provider: 'menu_link_content',
-            route_name: 'entity.node.canonical',
             weight: '0',
             options: {},
             route: {
@@ -220,7 +215,6 @@ describe('data function for StoryListing', () => {
               parameters: {},
             },
             type: 'menu_link_content',
-            severity: 0,
           },
         ],
       },

@@ -8,7 +8,7 @@ import { mockResponse } from '../vetCenter/mock'
 import { params } from './query'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
-const VetCenterMock: NodeVetCenter = mockResponse
+const VetCenterMock = mockResponse as NodeVetCenter
 
 describe('DrupalJsonApiParams configuration', () => {
   it('should include the correct fields', () => {

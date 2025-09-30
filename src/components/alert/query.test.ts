@@ -6,7 +6,7 @@ import { ParagraphAlert } from '@/types/drupal/paragraph'
 import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '@/components/alert/mock.js'
 
-const AlertMock: ParagraphAlert = mockResponse
+const AlertMock = mockResponse as ParagraphAlert
 
 describe('alert formatData', () => {
   test('outputs formatted data', () => {

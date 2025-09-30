@@ -185,6 +185,11 @@ export default function ApiExplorer() {
     }))
   }, []) // Only run once on mount
 
+  // Update document title when queryState changes
+  useEffect(() => {
+    document.title = `API Explorer - ${queryState.resourceType}`
+  }, [queryState.resourceType])
+
   const handleResourceTypeChange = (
     e: React.ChangeEvent<HTMLSelectElement>
   ) => {
