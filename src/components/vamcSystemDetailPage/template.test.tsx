@@ -101,8 +101,8 @@ describe('VamcSystemDetailPage', () => {
         <VamcSystemDetailPage {...formattedMockData} entityPath="/contact-us" />
       )
       expect(getLink('Make an appointment')).toBeInTheDocument()
+      expect(getLink('View all health services')).toBeInTheDocument()
       expect(getLink('Register for care')).toBeInTheDocument()
-      expect(getLink('Learn about pharmacy services')).toBeInTheDocument()
     })
 
     it('renders the TRICARE variant with the MHS link when this is a TRICARE contact page', () => {
@@ -115,8 +115,8 @@ describe('VamcSystemDetailPage', () => {
         />
       )
       expect(getLink('MHS Genesis Patient Portal')).toBeInTheDocument()
+      expect(getLink('View all health services')).toBeInTheDocument()
       expect(getLink('Register for care')).toBeInTheDocument()
-      expect(getLink('Learn about pharmacy services')).toBeInTheDocument()
     })
   })
 })

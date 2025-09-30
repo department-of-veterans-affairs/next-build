@@ -4,7 +4,7 @@ import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
-import { FacilityTopTasks } from '../topTasks/template'
+import { RegionalTopTasks } from '../topTasks/template'
 
 export function VamcSystemDetailPage({
   entityPath,
@@ -41,7 +41,7 @@ export function VamcSystemDetailPage({
         {/* Main action buttons for contact pages */}
         {isContactPage && (
           <div className="usa-grid usa-grid-full vads-u-margin-y--1p5">
-            <FacilityTopTasks
+            <RegionalTopTasks
               path={entityPath}
               administration={administration}
               vamcEhrSystem={vamcEhrSystem}
