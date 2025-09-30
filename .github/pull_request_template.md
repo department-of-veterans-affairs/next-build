@@ -1,4 +1,9 @@
-# Description
+## Notice about main branch
+Until further notice, the main branch of this repo is locked. Pull requests should be made against the [integration-202510](https://github.com/department-of-veterans-affairs/next-build/tree/integration-202510) branch. 
+
+Merges to the main branch for critical bugs or security updates are allowed. Please contact CMS Team in the [#platform-cms-team](https://dsva.slack.com/archives/CT4GZBM8F) channel if you need assistance. 
+
+## Description
 
 What does this PR address?
 
