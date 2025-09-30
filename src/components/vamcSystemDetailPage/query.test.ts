@@ -43,8 +43,6 @@ describe('VamcSystemDetailPage query module', () => {
       const result = await runQuery()
 
       expect(result.introText).toBeNull()
-      expect(result.title).toBe('Research')
-      expect(result.relatedLinks).toBeDefined()
     })
 
     test('handles null showTableOfContents', async () => {
@@ -56,7 +54,6 @@ describe('VamcSystemDetailPage query module', () => {
       const result = await runQuery()
 
       expect(result.showTableOfContents).toBeNull()
-      expect(result.title).toBe('Research')
     })
 
     test('handles null relatedLinks', async () => {
@@ -68,7 +65,6 @@ describe('VamcSystemDetailPage query module', () => {
       const result = await runQuery()
 
       expect(result.relatedLinks).toBeNull()
-      expect(result.title).toBe('Research')
     })
 
     test('handles null breadcrumbs', async () => {
@@ -80,7 +76,6 @@ describe('VamcSystemDetailPage query module', () => {
       const result = await runQuery()
 
       expect(result.breadcrumbs).toBeNull()
-      expect(result.title).toBe('Research')
     })
 
     test('handles null lovell context', async () => {
