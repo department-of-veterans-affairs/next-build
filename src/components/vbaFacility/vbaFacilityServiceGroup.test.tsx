@@ -4,10 +4,11 @@ import { VbaFacilityServiceGroup } from './vbaFacilityServiceGroup'
 import mockService from './vbaFacilityService.mock.json'
 import mockVbaFacility from '@/components/vbaFacility/mock.json'
 import { formatter as formatVbaData } from './query'
+import { NodeVbaFacility, NodeVbaService } from '@/types/drupal/node'
 
 const formattedMock = formatVbaData({
-  entity: mockVbaFacility,
-  services: [mockService],
+  entity: mockVbaFacility as NodeVbaFacility,
+  services: [mockService as NodeVbaService],
 })
 const mockGroup = {
   headingId: 'group1',

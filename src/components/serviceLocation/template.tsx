@@ -239,13 +239,12 @@ export const ServiceLocation = ({
       {/* Service location address */}
       {location.serviceLocationAddress && (
         <ServiceAddress
-          useH5={serviceHeader && serviceHeader.length > 0}
+          headingLevel={subHeadingLevel as 4 | 5 | 6}
           serviceLocationAddress={location.serviceLocationAddress}
         />
       )}
 
       {/* Main facility phone for contact */}
-
       {location.useMainFacilityPhone && mainPhone && (
         <div data-testid="service-location-main-facility-phone-for-contact">
           <PhoneNumber

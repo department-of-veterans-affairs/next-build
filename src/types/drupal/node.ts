@@ -22,6 +22,7 @@ import {
   FieldMissionExplainer,
   FieldVetCenterBannerImage,
   FieldCCListOfLinkTeasers,
+  FieldContentBlock,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -47,6 +48,8 @@ import {
   ParagraphCCQaSection,
   ParagraphFeaturedContent,
   ParagraphListOfLinkTeasers,
+  ParagraphSituationUpdate,
+  ParagraphQA,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -87,6 +90,7 @@ export type NodeTypes =
   | NodeVamcSystemVaPolice
   | NodeVamcSystemRegisterForCare
   | NodeVamcSystemBillingAndInsurance
+  | NodeVamcSystemMedicalRecordsOffice
   | NodeVamcSystemPoliciesPage
   | NodeLeadershipListing
   | NodeVbaFacility
@@ -117,13 +121,14 @@ export interface NodeFullWidthBannerAlert extends DrupalNode {
   field_body: FieldFormattedText
   field_alert_dismissable: boolean
   field_alert_type: string
-  field_banner_alert_situationinfo: FieldFormattedText
+  field_banner_alert_situationinfo: string
   field_alert_find_facilities_cta: boolean
   field_alert_operating_status_cta: boolean
   field_alert_email_updates_button: boolean
   field_alert_inheritance_subpages: boolean
-  field_operating_status_sendemail: boolean
-  field_banner_alert_vamcs: NodeBannerAlertVAMCS[]
+  field_operating_status_sendemail?: boolean
+  field_banner_alert_vamcs?: NodeBannerAlertVAMCS[]
+  field_situation_updates?: ParagraphSituationUpdate[]
 }
 
 export interface NodeBannerAlertVAMCS extends DrupalNode {
@@ -216,10 +221,24 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_operating_status: FieldLink
   field_other_va_locations: string
   field_intro_text: string
-  field_clinical_health_services: NodeHealthCareLocalHealthService[]
+  // This data is unreliable. Don't use it.
+  // field_clinical_health_services: NodeRegionalHealthCareServiceDes[]
   field_twitter: FieldLink
   field_va_health_connect_phone: string
   field_vamc_system_official_name: string
+}
+
+export interface NodeVamcSystemDetailPage extends DrupalNode {
+  field_intro_text: string
+  field_table_of_contents_boolean: boolean
+  field_alert: BlockAlert[]
+  field_content_block: FieldContentBlock
+  field_featured_content: Array<ParagraphQA | ParagraphWysiwyg>
+  field_related_links: ParagraphListOfLinkTeasers
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu'
+  >
 }
 
 export interface NodeLandingPage extends DrupalNode {
@@ -393,7 +412,7 @@ export interface NodeQA extends NodeAbstractResource {
 export interface NodeRegionalHealthCareServiceDes extends NodeAbstractResource {
   field_local_health_care_service_: NodeHealthCareLocalHealthService[]
   field_service_name_and_descripti: TaxonomyTermHealthCareServiceTaxonomy
-  field_region_page: NodeHealthCareRegionPage
+  field_region_page: Pick<NodeHealthCareRegionPage, 'id'>
   field_body: FieldFormattedText
 }
 
@@ -410,13 +429,7 @@ export interface NodeStoryListing extends DrupalNode {
 
 export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
   field_table_of_contents_boolean: boolean
-  field_content_block: (
-    | ParagraphWysiwyg
-    | ParagraphTable
-    | ParagraphCollapsiblePanel
-    | ParagraphReactWidget
-    | ParagraphQaGroup
-  )[]
+  field_content_block: FieldContentBlock
   field_buttons_repeat: boolean
 }
 
@@ -459,11 +472,31 @@ export interface NodeVamcSystemBillingAndInsurance extends DrupalNode {
   field_cc_related_links?: FieldCCListOfLinkTeasers
 }
 
+export interface NodeVamcSystemMedicalRecordsOffice extends DrupalNode {
+  title: string
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu'
+  >
+  field_cc_top_of_page_content?: FieldCCText
+  field_cc_bottom_of_page_content?: FieldCCText
+  field_cc_related_links?: FieldCCListOfLinkTeasers
+  // TODO: Add additional centralized content fields from medical records template
+  // field_cc_react_widget?: FieldCCText
+  // field_cc_get_records_in_person?: FieldCCText
+  // field_cc_get_records_mail_or_fax?: FieldCCText
+  // field_cc_how_we_share_records?: FieldCCText
+  // field_cc_faqs?: FieldCCText
+  // TODO: Add individual node fields from medical records template
+  // field_vamc_med_records_mailing?: FieldAddress
+  // field_fax_number?: string
+}
+
 export interface NodeVamcSystemPoliciesPage extends DrupalNode {
   breadcrumbs: BreadcrumbItem[]
-  field_administration: FieldAdministration
-  // TODO: Hydrate this entity reference
-  field_office: Pick<NodeHealthCareRegionPage, 'id' | 'type'>
+  // The field_administration is here, but we don't use it.
+  // field_administration: FieldAdministration
+  field_office: NodeHealthCareRegionPage
   field_cc_intro_text?: FieldCCText
   field_cc_top_of_page_content?: FieldCCText
   field_cc_gen_visitation_policy?: FieldCCText
@@ -592,12 +625,18 @@ export interface NodeVetCenterOutstation
 }
 
 export interface NodeVamcHealthServicesListing extends DrupalNode {
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system'
+  >
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]
+  field_administration: FieldAdministration
   breadcrumbs: BreadcrumbItem[]
 }
 
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
+  field_banner_alert?: NodeFullWidthBannerAlert[]
 }

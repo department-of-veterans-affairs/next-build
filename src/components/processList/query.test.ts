@@ -6,7 +6,7 @@ import { ParagraphProcessList } from '@/types/drupal/paragraph'
 import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '@/components/processList/mock'
 
-const ProcessListMock: ParagraphProcessList = mockResponse
+const ProcessListMock = mockResponse as ParagraphProcessList
 
 describe('ProcessList formatData', () => {
   test('outputs formatted data', () => {

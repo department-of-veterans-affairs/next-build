@@ -3,12 +3,34 @@
  */
 
 import { NodeVamcOperatingStatusAndAlerts } from '@/types/drupal/node'
+import { DrupalMenuLinkContent } from 'next-drupal'
 import { queries } from '@/lib/drupal/queries'
 import mockData from './mock.json'
-import { params } from './query'
+import { formatter, params } from './query'
 
-const VamcOperatingStatusAndAlertsMock: NodeVamcOperatingStatusAndAlerts =
-  mockData
+const menuItem: DrupalMenuLinkContent = {
+  title: 'Test Menu Item',
+  type: 'menu_link_content',
+  url: '/test-facility/test-service',
+  id: 'test-menu-item',
+  description: 'Test description',
+  enabled: true,
+  expanded: false,
+  menu_name: 'test-menu',
+  meta: {},
+  options: {},
+  parent: null,
+  provider: null,
+  route: null,
+  weight: '0',
+}
+
+const mockMenu = {
+  items: [menuItem],
+  tree: [menuItem],
+}
+const VamcOperatingStatusAndAlertsMock =
+  mockData as NodeVamcOperatingStatusAndAlerts
 
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {
@@ -29,5 +51,106 @@ describe('VamcOperatingStatusAndAlerts formatData', () => {
         menu: null,
       })
     ).toMatchSnapshot()
+  })
+})
+
+describe('VamcOperatingStatusAndAlerts format situation updates', () => {
+  test('ignores unpublished banners', () => {
+    const formattedData = formatter({
+      entity: {
+        ...VamcOperatingStatusAndAlertsMock,
+        field_banner_alert: [
+          {
+            ...VamcOperatingStatusAndAlertsMock.field_banner_alert[0],
+            status: false,
+          },
+        ],
+      },
+      menu: mockMenu,
+    })
+    expect(formattedData.situationUpdates).toBeNull()
+  })
+  test('ignores published with no situation updates', () => {
+    const formattedData = formatter({
+      entity: {
+        ...VamcOperatingStatusAndAlertsMock,
+        field_banner_alert: [
+          {
+            ...VamcOperatingStatusAndAlertsMock.field_banner_alert[0],
+            field_situation_updates: null,
+            field_banner_alert_situationinfo: null,
+          },
+        ],
+      },
+      menu: mockMenu,
+    })
+    expect(formattedData.situationUpdates).toBeNull()
+  })
+  test('sorts updates by most recent date', () => {
+    const extraSituationUpdates = [
+      ...VamcOperatingStatusAndAlertsMock.field_banner_alert[0]
+        .field_situation_updates,
+      {
+        ...VamcOperatingStatusAndAlertsMock.field_banner_alert[0]
+          .field_situation_updates[0],
+        field_datetime_range_timezone: {
+          value: '2025-09-18T21:41:00+00:00',
+          end_value: '2025-09-18T22:41:00+00:00',
+          duration: 60,
+          rrule: null,
+          rrule_index: null,
+          timezone: 'America/Los_Angeles',
+        },
+      },
+      {
+        ...VamcOperatingStatusAndAlertsMock.field_banner_alert[0]
+          .field_situation_updates[0],
+        field_datetime_range_timezone: {
+          value: '2025-09-20T21:41:00+00:00',
+          end_value: '2025-09-20T22:41:00+00:00',
+          duration: 60,
+          rrule: null,
+          rrule_index: null,
+          timezone: 'America/Los_Angeles',
+        },
+      },
+    ]
+    const formattedData = formatter({
+      entity: {
+        ...VamcOperatingStatusAndAlertsMock,
+        field_banner_alert: [
+          {
+            ...VamcOperatingStatusAndAlertsMock.field_banner_alert[0],
+            field_situation_updates: extraSituationUpdates,
+          },
+        ],
+      },
+      menu: mockMenu,
+    })
+    expect(formattedData.situationUpdates[0].updates[0].dateTime).toBe(
+      '2025-09-20T21:41:00+00:00'
+    )
+    expect(formattedData.situationUpdates[0].updates[1].dateTime).toBe(
+      '2025-09-19T21:41:00+00:00'
+    )
+    expect(formattedData.situationUpdates[0].updates[2].dateTime).toBe(
+      '2025-09-18T21:41:00+00:00'
+    )
+  })
+  test('generates a situation update if there is only info', () => {
+    const formattedData = formatter({
+      entity: {
+        ...VamcOperatingStatusAndAlertsMock,
+        field_banner_alert: [
+          {
+            ...VamcOperatingStatusAndAlertsMock.field_banner_alert[0],
+            field_situation_updates: null,
+            field_banner_alert_situationinfo: '<p>update</p>',
+          },
+        ],
+      },
+      menu: mockMenu,
+    })
+    expect(formattedData.situationUpdates).toHaveLength(1)
   })
 })
