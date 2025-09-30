@@ -6,6 +6,7 @@ import { NodeVamcOperatingStatusAndAlerts } from '@/types/drupal/node'
 import { DrupalMenuLinkContent } from 'next-drupal'
 import { queries } from '@/lib/drupal/queries'
 import mockData from './mock.json'
+import facilityMock from '../vamcFacility/mock'
 import { formatter, params } from './query'
 
 const menuItem: DrupalMenuLinkContent = {
@@ -49,6 +50,7 @@ describe('VamcOperatingStatusAndAlerts formatData', () => {
       queries.formatData('node--vamc_operating_status_and_alerts', {
         entity: VamcOperatingStatusAndAlertsMock,
         menu: null,
+        facilities: [facilityMock],
       })
     ).toMatchSnapshot()
   })
@@ -67,6 +69,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
         ],
       },
       menu: mockMenu,
+      facilities: [facilityMock],
     })
     expect(formattedData.situationUpdates).toBeNull()
   })
@@ -83,6 +86,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
         ],
       },
       menu: mockMenu,
+      facilities: [facilityMock],
     })
     expect(formattedData.situationUpdates).toBeNull()
   })
@@ -126,6 +130,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
         ],
       },
       menu: mockMenu,
+      facilities: [facilityMock],
     })
     expect(formattedData.situationUpdates[0].updates[0].dateTime).toBe(
       '2025-09-20T21:41:00+00:00'
@@ -150,6 +155,7 @@ describe('VamcOperatingStatusAndAlerts format situation updates', () => {
         ],
       },
       menu: mockMenu,
+      facilities: [facilityMock],
     })
     expect(formattedData.situationUpdates).toHaveLength(1)
   })

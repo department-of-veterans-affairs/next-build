@@ -40,13 +40,12 @@ export function VamcHealthServicesListing({
 
         {/* Top Task links */}
         {path && (
-          <div>
-            <FacilityTopTasks
-              path={regionBasePath}
-              administration={administration}
-              vamcEhrSystem={vamcEhrSystem}
-            />
-          </div>
+          <FacilityTopTasks
+            path={regionBasePath}
+            administration={administration}
+            vamcEhrSystem={vamcEhrSystem}
+            className="vads-u-margin-bottom--4"
+          />
         )}
 
         <va-on-this-page />

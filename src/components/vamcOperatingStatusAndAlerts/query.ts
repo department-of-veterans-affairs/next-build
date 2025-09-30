@@ -1,6 +1,9 @@
 import { QueryData, QueryFormatter, QueryParams } from 'next-drupal-query'
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params'
-import { NodeVamcOperatingStatusAndAlerts } from '@/types/drupal/node'
+import {
+  NodeVamcOperatingStatusAndAlerts,
+  NodeHealthCareLocalFacility,
+} from '@/types/drupal/node'
 import { VamcOperatingStatusAndAlerts } from './formatted-type'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
@@ -8,11 +11,13 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
   getMenu,
+  fetchAndConcatAllResourceCollectionPages,
 } from '@/lib/drupal/query'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
+import { PAGE_SIZES } from '@/lib/constants/pageSizes'
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -21,7 +26,11 @@ export const params: QueryParams<null> = () => {
     'field_banner_alert.field_situation_updates',
   ])
 }
-
+export const facilityParams: QueryParams<string> = (vamcSystemId: string) => {
+  return new DrupalJsonApiParams()
+    .addFilter('status', '1')
+    .addFilter('field_region_page.id', vamcSystemId)
+}
 // Define the option types for the data loader.
 export type VamcOperatingStatusAndAlertsDataOpts = {
   id: string
@@ -31,6 +40,7 @@ export type VamcOperatingStatusAndAlertsDataOpts = {
 export type VamcOperatingStatusAndAlertsData = {
   entity: NodeVamcOperatingStatusAndAlerts
   menu: Menu | null
+  facilities: NodeHealthCareLocalFacility[]
 }
 
 // Implement the data loader.
@@ -50,13 +60,19 @@ export const data: QueryData<
           .drupal_internal__target_id
       )
     : null
-  return { entity, menu }
+  const { data: facilities } =
+    await fetchAndConcatAllResourceCollectionPages<NodeHealthCareLocalFacility>(
+      RESOURCE_TYPES.VAMC_FACILITY,
+      facilityParams(entity.field_office.id),
+      PAGE_SIZES.MAX
+    )
+  return { entity, menu, facilities }
 }
 
 export const formatter: QueryFormatter<
   VamcOperatingStatusAndAlertsData,
   VamcOperatingStatusAndAlerts
-> = ({ entity, menu }) => {
+> = ({ entity, menu, facilities }) => {
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
 
@@ -108,6 +124,18 @@ export const formatter: QueryFormatter<
     ...entityBaseFields(entity),
     facilityName: entity.field_office.field_system_menu.label,
     situationUpdates: buildSituationUpdates(entity.field_banner_alert),
+    operatingStatuses: facilities
+      ?.map((facilityEntity) => ({
+        title: facilityEntity?.title || null,
+        url: facilityEntity?.path?.alias || null,
+        status: facilityEntity?.field_operating_status_facility || null,
+        statusInfo: facilityEntity?.field_operating_status_more_info
+          ? getHtmlFromDrupalContent(
+              facilityEntity.field_operating_status_more_info
+            )
+          : null,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title)),
     menu: formattedMenu,
   }
 }
