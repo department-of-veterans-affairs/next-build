@@ -80,10 +80,11 @@ export const formatter: QueryFormatter<
     title: entity.title,
     intro: entity.field_intro_text_limited_html.processed,
     alert: formatParagraph(entity.field_alert_single) as AlertSingle,
-    buttons: entity.field_buttons.map?.(formatParagraph) as Button[],
+    buttons: entity.field_buttons.map?.((p) => formatParagraph(p)) as Button[],
     repeatButtons: entity.field_buttons_repeat,
     toc: entity.field_table_of_contents_boolean,
-    mainContent: entity.field_content_block.map?.(formatParagraph) || [],
+    mainContent:
+      entity.field_content_block.map?.((p) => formatParagraph(p)) || [],
     tags: formatParagraph(entity.field_tags) as AudienceTopics,
     contactInformation: formatParagraph(
       entity.field_contact_information

@@ -1,0 +1,294 @@
+{
+  "type": "node--health_care_region_detail_page",
+  "id": "6f66f92d-4e84-476b-83fb-0457ce0ab4ae",
+  "drupal_internal__nid": 6983,
+  "drupal_internal__vid": 697722,
+  "langcode": "en",
+  "revision_timestamp": "2022-10-13T00:46:56+00:00",
+  "revision_log": "Saved to create linkies where applicable",
+  "status": true,
+  "title": "Mission and vision",
+  "created": "2020-02-19T12:36:46+00:00",
+  "changed": "2022-10-13T00:46:56+00:00",
+  "promote": false,
+  "sticky": false,
+  "default_langcode": true,
+  "revision_translation_affected": true,
+  "breadcrumbs": [
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+      "title": "Home",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/durham-health-care",
+      "title": "VA Durham health care",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "ABOUT VA DURHAM",
+      "options": []
+    },
+    {
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/durham-health-care/about-us",
+      "title": "About us",
+      "options": []
+    },
+    {
+      "uri": "internal:#",
+      "title": "Mission and vision",
+      "options": []
+    }
+  ],
+  "moderation_state": "published",
+  "expiration_date": null,
+  "warning_date": null,
+  "metatag": [],
+  "path": {
+    "alias": "/durham-health-care/about-us/mission-and-vision",
+    "pid": 8322,
+    "langcode": "en"
+  },
+  "content_translation_source": "und",
+  "content_translation_outdated": false,
+  "field_description": "The mission of Durham VA Medical Center is to provide exceptional health care to Veterans.",
+  "field_intro_text": "The mission of the Durham VA Medical Center and clinics is to make a positive difference in the lives of the Veterans we serve by providing compassionate, comprehensive, and quality healthcare.  The Durham VA Medical Center and clinics promote a community of integrity, respect, stewardship, and excellence by understanding and respecting the diversity of those whom we serve.",
+  "field_last_saved_by_an_editor": "2021-03-18T15:01:54+00:00",
+  "field_meta_tags": null,
+  "field_table_of_contents_boolean": true,
+  "links": {
+    "self": {
+      "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/node/health_care_region_detail_page/6f66f92d-4e84-476b-83fb-0457ce0ab4ae?resourceVersion=id%3A697722"
+    }
+  },
+  "node_type": {
+    "type": "node_type--node_type",
+    "id": "093d91d4-a093-4c47-8f15-fcfed3138476",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": "health_care_region_detail_page"
+    }
+  },
+  "revision_uid": {
+    "type": "user--user",
+    "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1317
+    }
+  },
+  "uid": {
+    "type": "user--user",
+    "id": "33f010c8-bb3a-4ed6-8d8f-5dcc68c9fee9",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 1268
+    }
+  },
+  "field_administration": {
+    "type": "taxonomy_term--administration",
+    "id": "ddfadf16-7428-4c17-abaa-53bb96492dd7",
+    "resourceIdObjMeta": {
+      "drupal_internal__target_id": 218
+    }
+  },
+  "field_alert": null,
+  "field_content_block": [
+    {
+      "type": "paragraph--wysiwyg",
+      "id": "09c28282-c690-4ece-8545-dba9b4434c3a",
+      "resourceIdObjMeta": {
+        "target_revision_id": 215167,
+        "drupal_internal__target_id": 15353
+      }
+    }
+  ],
+  "field_featured_content": [],
+  "field_office": {
+    "type": "node--health_care_region_page",
+    "id": "d86e1929-2284-47ce-8da8-a4e02610d7c8",
+    "drupal_internal__nid": 6928,
+    "drupal_internal__vid": 986883,
+    "langcode": "en",
+    "revision_timestamp": "2024-09-16T22:09:32+00:00",
+    "revision_log": "Added Health Connect phone number",
+    "status": true,
+    "title": "VA Durham health care",
+    "created": "2020-08-28T04:48:32+00:00",
+    "changed": "2025-06-16T12:40:45+00:00",
+    "promote": false,
+    "sticky": false,
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "VA Durham health care",
+        "options": []
+      }
+    ],
+    "moderation_state": "published",
+    "path": {
+      "alias": "/durham-health-care",
+      "pid": 8244,
+      "langcode": "en"
+    },
+    "field_vamc_ehr_system": "vista",
+    "field_system_menu": {
+      "type": "menu--menu",
+      "id": "1b4fa231-d59b-41de-aee0-72e0a7c3e0ae",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "va-durham-health-care"
+      }
+    },
+    "relationshipNames": [
+      "node_type",
+      "revision_uid",
+      "uid",
+      "field_administration",
+      "field_clinical_health_services",
+      "field_media",
+      "field_related_links",
+      "field_system_menu"
+    ]
+  },
+  "field_related_links": {
+    "type": "paragraph--list_of_link_teasers",
+    "id": "928ec63a-97b3-460d-a869-1d0b1ca9fa04",
+    "drupal_internal__id": 19369,
+    "drupal_internal__revision_id": 205470,
+    "langcode": "en",
+    "status": true,
+    "created": "2020-03-03T21:07:33+00:00",
+    "parent_id": "6983",
+    "parent_type": "node",
+    "parent_field_name": "field_related_links",
+    "behavior_settings": [],
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [],
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_changed": null,
+    "field_title": "Learn more about how we serve Veterans",
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/list_of_link_teasers/928ec63a-97b3-460d-a869-1d0b1ca9fa04?resourceVersion=id%3A205470"
+      }
+    },
+    "resourceIdObjMeta": {
+      "target_revision_id": 205470,
+      "drupal_internal__target_id": 19369
+    },
+    "paragraph_type": {
+      "type": "paragraphs_type--paragraphs_type",
+      "id": "17be725c-343b-4050-a3c0-4e953226233e",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "list_of_link_teasers"
+      }
+    },
+    "field_va_paragraphs": [
+      {
+        "type": "paragraph--link_teaser",
+        "id": "95f2a5f6-82b3-447d-afa3-be1a4560fa03",
+        "drupal_internal__id": 19367,
+        "drupal_internal__revision_id": 205469,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-03-03T21:07:33+00:00",
+        "parent_id": "19369",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "entity:node/6226",
+          "title": "Our leadership",
+          "options": [],
+          "url": "/durham-health-care/about-us/leadership"
+        },
+        "field_link_summary": "Learn more about the VA Durham leadership team.",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/95f2a5f6-82b3-447d-afa3-be1a4560fa03?resourceVersion=id%3A205469"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 205469,
+          "drupal_internal__target_id": 19367
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      },
+      {
+        "type": "paragraph--link_teaser",
+        "id": "2ef38bb5-0c45-4ba6-bd02-e1900880bb4a",
+        "drupal_internal__id": 19368,
+        "drupal_internal__revision_id": 177099,
+        "langcode": "en",
+        "status": true,
+        "created": "2020-03-03T21:19:20+00:00",
+        "parent_id": "19369",
+        "parent_type": "paragraph",
+        "parent_field_name": "field_va_paragraphs",
+        "behavior_settings": [],
+        "default_langcode": true,
+        "revision_translation_affected": true,
+        "breadcrumbs": [],
+        "content_translation_source": "und",
+        "content_translation_outdated": false,
+        "content_translation_changed": null,
+        "field_link": {
+          "uri": "entity:node/6962",
+          "title": "Health services",
+          "options": [],
+          "url": "/durham-health-care/health-services"
+        },
+        "field_link_summary": "Find health care and services you need to stay healthy.",
+        "links": {
+          "self": {
+            "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/paragraph/link_teaser/2ef38bb5-0c45-4ba6-bd02-e1900880bb4a?resourceVersion=id%3A177099"
+          }
+        },
+        "resourceIdObjMeta": {
+          "target_revision_id": 177099,
+          "drupal_internal__target_id": 19368
+        },
+        "paragraph_type": {
+          "type": "paragraphs_type--paragraphs_type",
+          "id": "072db7a4-476e-41a6-ab49-c44184281451",
+          "resourceIdObjMeta": {
+            "drupal_internal__target_id": "link_teaser"
+          }
+        },
+        "relationshipNames": ["paragraph_type"]
+      }
+    ],
+    "relationshipNames": ["paragraph_type", "field_va_paragraphs"]
+  },
+  "relationshipNames": [
+    "node_type",
+    "revision_uid",
+    "uid",
+    "field_administration",
+    "field_alert",
+    "field_content_block",
+    "field_featured_content",
+    "field_office",
+    "field_related_links"
+  ]
+}

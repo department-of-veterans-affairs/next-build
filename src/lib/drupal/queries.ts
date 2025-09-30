@@ -50,6 +50,7 @@ import * as VamcEhr from '@/components/vamcEhr/query'
 import * as VamcSystem from '../../components/vamcSystem/query'
 import * as VamcSystemRegisterForCare from '../../components/vamcSystemRegisterForCare/query'
 import * as VamcSystemBillingAndInsurance from '../../components/vamcSystemBillingAndInsurance/query'
+import * as VamcSystemMedicalRecordsOffice from '../../components/vamcSystemMedicalRecordsOffice/query'
 import * as VamcSystemVaPolice from '../../components/vamcSystemVaPolice/query'
 import * as VetCenter from '../../components/vetCenter/query'
 import * as VetCenterHealthServices from '@/components/vetCenterHealthServices/query'
@@ -61,6 +62,7 @@ import * as VbaFacility from '../../components/vbaFacility/query'
 import * as HealthServicesListing from '../../components/vamcHealthServicesListing/query'
 import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingStatusAndAlerts/query'
 import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
+import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
 import {
   ResourceType,
@@ -93,6 +95,8 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_SYSTEM]: VamcSystem,
   [RESOURCE_TYPES.VAMC_SYSTEM_REGISTER_FOR_CARE]: VamcSystemRegisterForCare,
   [RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE]: VamcSystemBillingAndInsurance,
+  [RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE]:
+    VamcSystemMedicalRecordsOffice,
   [RESOURCE_TYPES.VAMC_SYSTEM_VA_POLICE]: VamcSystemVaPolice,
   [RESOURCE_TYPES.VET_CENTER]: VetCenter,
   [RESOURCE_TYPES.VET_CENTER_OUTSTATION]: VetCenterOutstation,
@@ -103,6 +107,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS]:
     VamcOperatingStatusAndAlerts,
   [RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE]: VamcSystemPoliciesPage,
+  [RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE]: VamcSystemDetailPage,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,

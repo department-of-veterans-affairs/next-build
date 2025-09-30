@@ -7,7 +7,7 @@ import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '@/components/alertSingle/mock'
 import { params } from './query'
 
-const AlertSingle: ParagraphAlertSingle = mockResponse
+const AlertSingle = mockResponse as ParagraphAlertSingle
 
 describe('DrupalJsonApiParams configuration', () => {
   test('params function sets the correct include fields', () => {

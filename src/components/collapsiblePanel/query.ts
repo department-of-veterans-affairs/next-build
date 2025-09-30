@@ -24,9 +24,11 @@ export const formatter: QueryFormatter<
     type: entity.type as CollapsiblePanel['type'],
     id: entity.id,
     entityId: entity.drupal_internal__id,
-    paragraphs: entity.field_va_paragraphs?.map?.(
-      formatParagraph<'paragraph--collapsible_panel_item'>
-    ),
+    // NOTE: The collapsible panel item should always be the child of this, but
+    // that constraint isn't enforced in the schema, so we're typecasting here.
+    paragraphs: entity.field_va_paragraphs?.map?.((paragraph) =>
+      formatParagraph(paragraph)
+    ) as CollapsiblePanel['paragraphs'],
     bordered: entity.field_collapsible_panel_bordered,
     startExpanded: entity.field_collapsible_panel_expand,
     multiSelect: entity.field_collapsible_panel_multi,

@@ -6,7 +6,7 @@ import { ParagraphReactWidget } from '@/types/drupal/paragraph'
 import { queries } from '@/lib/drupal/queries'
 import { mockResponse } from '@/components/reactWidget/mock'
 
-const ReactWidgetMock: ParagraphReactWidget = mockResponse
+const ReactWidgetMock = mockResponse as ParagraphReactWidget
 
 describe('React widget formatData', () => {
   test('outputs formatted data', () => {

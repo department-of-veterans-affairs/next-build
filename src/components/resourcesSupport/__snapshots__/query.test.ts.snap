@@ -42,7 +42,7 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
       "id": "b5c88633-834f-4fc6-b119-2d1f95999820",
       "label": "Explore VA life insurance ",
       "type": "paragraph--button",
-      "url": "entity:node/77",
+      "url": "/life-insurance",
     },
   ],
   "contactInformation": {
@@ -66,7 +66,7 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
   "lastUpdated": "2020-12-22T17:31:57+00:00",
   "mainContent": [
     {
-      "html": "<h2>United States Government Life Insurance (USGLI)</h2>
+      "html": "<h2 id="united-states-government-life-insurance-usgli">United States Government Life Insurance (USGLI)</h2>
 
 <p><strong>Veterans insured: </strong>WWI<br>
 <strong>Years issued: </strong>1919 to 1951<br>
@@ -89,7 +89,7 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
 
 <p>It doesn't provide a waiver of premium once in force, though a waiver of premium provision could have been purchased at the time this plan was exchanged for the 5-Year Level Premium plan.</p>
 
-<h2>National Service Life Insurance (NSLI)</h2>
+<h2 id="national-service-life-insurance-nsli">National Service Life Insurance (NSLI)</h2>
 
 <p><strong>Veterans insured:</strong> WWII<br>
 <strong>Years issued:</strong> 1940 to 1951<br>
@@ -102,7 +102,7 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
 
 <p>Effective September 11, 2000, "capped" NSLI term policies receive a termination dividend if a policy lapses, or if the policyholder voluntarily cancels their policy. The termination dividend will be used to purchase paid-up additional whole life insurance.</p>
 
-<h2>Veterans' Special Life Insurance (VSLI)</h2>
+<h2 id="veterans-special-life-insurance-vsli">Veterans' Special Life Insurance (VSLI)</h2>
 
 <p><strong>Veterans insured:</strong> Korean War<br>
 <strong>Years issued:</strong> 1951 to 1956<br>
@@ -115,7 +115,7 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
 
 <p>Effective September 11, 2000, "capped" VSLI term policies receive a termination dividend if a policy lapses, or if the policyholder voluntarily cancels their policy. The termination dividend will be used to purchase paid-up additional whole life insurance.</p>
 
-<h2>Veterans' Reopened Insurance</h2>
+<h2 id="veterans-reopened-insurance">Veterans' Reopened Insurance</h2>
 
 <p><strong>Veterans insured:</strong> Disabled WWII and Korean War<br>
 <strong>Years issued:</strong> 1965 to 1966<br>

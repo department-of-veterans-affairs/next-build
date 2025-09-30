@@ -149,7 +149,7 @@ describe('ServiceAddress', () => {
   it('uses an h5 if useH5 true', () => {
     render(
       <ServiceAddress
-        useH5={true}
+        headingLevel={5}
         serviceLocationAddress={{
           ...mockServiceLocationAddress,
           field_clinic_name: 'Orthopedics Clinic',
