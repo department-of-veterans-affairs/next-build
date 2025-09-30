@@ -28,10 +28,11 @@ export function VamcOperatingStatusAndAlerts({
         {situationUpdates && <SituationUpdates {...{ situationUpdates }} />}
         {operatingStatuses && <OperatingStatuses {...{ operatingStatuses }} />}
         {(emergencyInformation || localEmergencyLinks) && (
-          <section id="emergency-resources">
+          <section id="emergency-resources" data-testid="emergency-resources">
             <h2 id="emergency-information">Emergency information</h2>
             {emergencyInformation && (
               <div
+                data-testid="emergency-information"
                 dangerouslySetInnerHTML={{
                   __html: emergencyInformation,
                 }}
@@ -41,7 +42,8 @@ export function VamcOperatingStatusAndAlerts({
               <>
                 <h3
                   id="local-emergency-resources"
-                  className="vads-u-margin-top--3 vads-u-margin-bottom--2 "
+                  className="vads-u-margin-top--3 vads-u-margin-bottom--2"
+                  data-testid="local-emergency-resources"
                 >
                   Local emergency resources
                 </h3>

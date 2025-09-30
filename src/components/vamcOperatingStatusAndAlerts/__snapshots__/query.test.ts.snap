@@ -9,7 +9,20 @@ exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
   "facilityName": "VA Oklahoma City health care",
   "id": "9167ccca-96f2-4809-b93e-d72414bfbbbf",
   "lastUpdated": "2024-02-20T19:58:39+00:00",
-  "localEmergencyLinks": null,
+  "localEmergencyLinks": [
+    {
+      "label": "Disasters and Emergencies - USA.gov",
+      "url": {
+        "path": "https://www.usa.gov/disasters-and-emergencies",
+      },
+    },
+    {
+      "label": "National Weather Service",
+      "url": {
+        "path": "https://www.weather.gov/",
+      },
+    },
+  ],
   "menu": null,
   "metatags": [
     {
