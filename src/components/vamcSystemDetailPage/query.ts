@@ -18,6 +18,7 @@ import {
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatAdministration } from '@/components/administration/query'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
@@ -40,6 +41,7 @@ export type VamcSystemDetailPageDataOpts = {
 type VamcSystemDetailPageData = {
   entity: NodeVamcSystemDetailPage
   menu: Menu | null
+  hasLovellCounterpart: boolean
   lovell?: ExpandedStaticPropsContext['lovell']
 }
 
@@ -62,19 +64,39 @@ export const data: QueryData<
 
   // TODO: There seems to be some difference between a "facilitySidebar" and "outreachSidebar" in the original template
 
+  // Determine if there is a Lovell counterpart to this page so we can show or hide the Lovell switcher
+  let hasLovellCounterpart = false
+  if (opts.context?.lovell?.isLovellVariantPage) {
+    try {
+      const counterpartPath = getLovellVariantOfUrl(
+        entity.path.alias,
+        getOppositeChildVariant(opts.context?.lovell?.variant)
+      )
+      hasLovellCounterpart =
+        (await drupalClient.translatePath(counterpartPath)) !== null
+    } catch (error) {
+      // If we're using proxy-fetcher, it'll actually throw an error for these
+      if ([404, 403].includes(error.cause?.status)) {
+        hasLovellCounterpart = false
+      } else {
+        throw error
+      }
+    }
+  }
+
   // Fetch the menu name dynamically off of the field_region_page reference if available.
   const menu = await getMenu(
     entity.field_office.field_system_menu.resourceIdObjMeta
       .drupal_internal__target_id
   )
 
-  return { entity, menu, lovell: opts.context?.lovell }
+  return { entity, menu, lovell: opts.context?.lovell, hasLovellCounterpart }
 }
 
 export const formatter: QueryFormatter<
   VamcSystemDetailPageData,
   VamcSystemDetailPage
-> = ({ entity, menu, lovell }) => {
+> = ({ entity, menu, lovell, hasLovellCounterpart }) => {
   return {
     ...entityBaseFields(entity),
     breadcrumbs: lovell?.isLovellVariantPage
@@ -100,5 +122,6 @@ export const formatter: QueryFormatter<
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
+    showLovellSwitcher: hasLovellCounterpart,
   }
 }
