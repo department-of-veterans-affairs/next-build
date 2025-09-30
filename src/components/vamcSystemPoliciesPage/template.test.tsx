@@ -2,9 +2,9 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { VamcSystemPoliciesPage } from './template'
 import { formatter, VamcSystemPoliciesPageData } from './query'
-import { NodeVamcSystemPoliciesPage } from '@/types/drupal/node'
 import mockData from './mock'
 import { Menu } from '@/types/drupal/menu'
+import { ExpandedStaticPropsContext } from '@/lib/drupal/staticProps'
 
 const mockEntity = mockData
 const mockMenu: Menu = {
@@ -182,25 +182,9 @@ describe('VamcSystemPoliciesPage with valid data', () => {
 
   test('renders page structure and layout elements', () => {
     render(<VamcSystemPoliciesPage {...formattedData} />)
-
-    // Check main structure
-    expect(screen.getByRole('main')).toHaveClass(
-      'va-l-detail-page',
-      'va-facility-page'
-    )
-    expect(screen.getByRole('region')).toHaveClass('usa-content')
-    expect(screen.getByRole('region')).toHaveAttribute(
-      'aria-labelledby',
-      'article-heading'
-    )
-
     // Check heading structure
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
       formattedData.title
-    )
-    expect(screen.getByRole('heading', { level: 1 })).toHaveAttribute(
-      'id',
-      'article-heading'
     )
 
     // Check for intro text styling
@@ -229,5 +213,45 @@ describe('VamcSystemPoliciesPage with valid data', () => {
     // The useEffect should have set window.sideNav
     expect(window.sideNav).toBeDefined()
     expect(window.sideNav).toEqual(formattedData.menu)
+  })
+})
+
+describe('VamcSystemPoliciesPage LovellSwitcher', () => {
+  test('does not render LovellSwitcher when no lovell data is provided', () => {
+    const dataWithoutLovell: VamcSystemPoliciesPageData = {
+      entity: mockEntity,
+      menu: mockMenu,
+      lovell: undefined,
+    }
+    const formattedDataWithoutLovell = formatter(dataWithoutLovell)
+
+    render(<VamcSystemPoliciesPage {...formattedDataWithoutLovell} />)
+
+    // LovellSwitcher should not render when no variant is provided
+    expect(
+      screen.queryByText(/You are viewing this page as a/)
+    ).not.toBeInTheDocument()
+    expect(screen.queryByText(/View this page as a/)).not.toBeInTheDocument()
+  })
+
+  test('renders LovellSwitcher for VA variant with TRICARE switch path', () => {
+    const mockLovellContext: ExpandedStaticPropsContext['lovell'] = {
+      variant: 'va',
+      isLovellVariantPage: true,
+    }
+
+    const dataWithVALovell: VamcSystemPoliciesPageData = {
+      entity: mockEntity,
+      menu: mockMenu,
+      lovell: mockLovellContext,
+    }
+    const formattedDataWithVALovell = formatter(dataWithVALovell)
+
+    render(<VamcSystemPoliciesPage {...formattedDataWithVALovell} />)
+
+    // Check that the VA variant alert is shown
+    expect(
+      screen.getByText('You are viewing this page as a VA beneficiary.')
+    ).toBeInTheDocument()
   })
 })

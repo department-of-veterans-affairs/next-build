@@ -42,7 +42,7 @@ exports[`Resources Support formatData outputs formatted data 1`] = `
       "id": "b5c88633-834f-4fc6-b119-2d1f95999820",
       "label": "Explore VA life insurance ",
       "type": "paragraph--button",
-      "url": "entity:node/77",
+      "url": "/life-insurance",
     },
   ],
   "contactInformation": {

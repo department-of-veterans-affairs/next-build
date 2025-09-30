@@ -18,6 +18,11 @@ import { FieldCCText } from '@/types/drupal/field_type'
 import { Wysiwyg } from '../wysiwyg/formatted-type'
 import { Menu } from '@/types/drupal/menu'
 import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
+import {
+  getLovellVariantOfBreadcrumbs,
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+} from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--vamc_system_policies_page.
 export const params: QueryParams<null> = () => {
@@ -70,7 +75,12 @@ export const data: QueryData<
 export const formatter: QueryFormatter<
   VamcSystemPoliciesPageData,
   VamcSystemPoliciesPage
-> = ({ entity, menu }) => {
+> = ({ entity, menu, lovell }) => {
+  let { breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
+
   const formatCcWysiwyg = (field: FieldCCText) =>
     formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
 
@@ -78,6 +88,7 @@ export const formatter: QueryFormatter<
 
   const formattedEntity: VamcSystemPoliciesPage = {
     ...entityBaseFields(entity),
+    breadcrumbs,
     menu: formattedMenu,
     introText: formatCcWysiwyg(entity.field_cc_intro_text),
     topOfPageContent: formatCcWysiwyg(entity.field_cc_top_of_page_content),
@@ -89,6 +100,13 @@ export const formatter: QueryFormatter<
     bottomOfPageContent: formatCcWysiwyg(
       entity.field_cc_bottom_of_page_content
     ),
+    lovellVariant: lovell?.variant,
+    lovellSwitchPath: lovell?.variant
+      ? getLovellVariantOfUrl(
+          entity.path.alias,
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : null,
   }
 
   return formattedEntity

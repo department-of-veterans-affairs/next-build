@@ -6,21 +6,19 @@ describe('ListOfLinkTeasers', () => {
   it('renders the component with title and link teasers', () => {
     const { container } = render(<ListOfLinkTeasers {...mockData} />)
 
-    const heading = screen.getByText('More information')
-    expect(heading).toHaveAttribute('id', 'more-information')
+    const heading = screen.getByText('Other VA Benefits and Services')
+    expect(heading).toHaveAttribute('id', 'other-va-benefits-and-services')
 
     const getLink = (text: string) =>
       container.querySelector(`va-link[text="${text}"]`)
 
-    expect(getLink('VA health care copay rates')).toBeInTheDocument()
-    expect(getLink('Financial hardship assistance')).toBeInTheDocument()
-    expect(getLink('Dispute your VA copay charges')).toBeInTheDocument()
-    expect(getLink('Change your address on file with VA')).toBeInTheDocument()
+    expect(getLink('GI Bill Benefits')).toBeInTheDocument()
+    expect(getLink('Other Educational Assistance Programs')).toBeInTheDocument()
+    expect(getLink('Home Loans')).toBeInTheDocument()
+    expect(getLink('Life Insurance')).toBeInTheDocument()
 
     expect(
-      screen.getByText(
-        'Review copay rates for outpatient care, hospital stays, medications, and other health services.'
-      )
+      screen.getByText(/Explore options for using GI Bill benefits/)
     ).toBeInTheDocument()
   })
 
@@ -32,11 +30,11 @@ describe('ListOfLinkTeasers', () => {
 
     render(<ListOfLinkTeasers {...componentWithoutTitle} />)
 
-    expect(screen.queryByText('More information')).not.toBeInTheDocument()
     expect(
-      screen.getByText(
-        'Review copay rates for outpatient care, hospital stays, medications, and other health services.'
-      )
+      screen.queryByText('Other VA Benefits and Services')
+    ).not.toBeInTheDocument()
+    expect(
+      screen.getByText(/Explore options for using GI Bill benefits/)
     ).toBeInTheDocument()
   })
 })

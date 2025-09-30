@@ -118,14 +118,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@axe-core/playwright@npm:^4.8.2":
-  version: 4.10.0
-  resolution: "@axe-core/playwright@npm:4.10.0"
+"@axe-core/playwright@npm:^4.10.2":
+  version: 4.10.2
+  resolution: "@axe-core/playwright@npm:4.10.2"
   dependencies:
-    axe-core: ~4.10.0
+    axe-core: ~4.10.3
   peerDependencies:
     playwright-core: ">= 1.0.0"
-  checksum: cba9b7f625c8ed510e661d8d014f7e924fb85175b918b818cb808eec848c3e8a2cbbe2960ccf8dd4b9f84a4a4ea33eeeace48de2560a4a5777dd0ee6281d0c81
+  checksum: fd5b560783aa6c70adc3e2b66d1a5985f18dddf548b99069f67bf2dd79f82e7debd3d7560c4deea4445ba8ee81a15aef3c3b4f953a975a029fa00313fd550e0f
   languageName: node
   linkType: hard
 
@@ -5550,14 +5550,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.10.0, axe-core@npm:~4.10.0":
+"axe-core@npm:^4.10.0":
   version: 4.10.0
   resolution: "axe-core@npm:4.10.0"
   checksum: 7eca827fd8d98d7e4b561df65437be608155c613d8f262ae9e4a6ade02c156c7362dcbc3f71b4b526edce686f7c686280236bcff1d6725e2ef8327def72a8c41
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.10.3":
+"axe-core@npm:^4.10.3, axe-core@npm:~4.10.3":
   version: 4.10.3
   resolution: "axe-core@npm:4.10.3"
   checksum: e89fa5bcad9216f2de29bbdf95d6211d8c5b1025cbdcf56b6695c18b2e9a1eebd0b997a0141334169f6f062fc68fd39a5b97f86348d9f5be05958eade5c1ec78
@@ -12583,7 +12583,7 @@ __metadata:
   dependencies:
     "@actions/core": ^1.10.1
     "@actions/github": ^6.0.1
-    "@axe-core/playwright": ^4.8.2
+    "@axe-core/playwright": ^4.10.2
     "@datadog/browser-rum": ^6.19.0
     "@date-fns/tz": ^1.4.1
     "@department-of-veterans-affairs/component-library": 50.2.1

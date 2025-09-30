@@ -43,6 +43,8 @@ exports[`VamcSystemPoliciesPage data fetching fetches and formats data correctly
     "type": "paragraph--wysiwyg",
   },
   "lastUpdated": "2022-09-29T20:06:10+00:00",
+  "lovellSwitchPath": null,
+  "lovellVariant": undefined,
   "menu": {
     "data": null,
     "rootPath": "/augusta-health-care/policies/",
