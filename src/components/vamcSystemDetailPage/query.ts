@@ -87,6 +87,9 @@ export const formatter: QueryFormatter<
     menu: buildSideNavDataFromMenu(entity.path.alias, menu),
     administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
+    vamcSystem: {
+      path: entity.field_office?.path.alias || null,
+    },
     relatedLinks: entity.field_related_links
       ? formatListOfLinkTeasers(entity.field_related_links)
       : null,

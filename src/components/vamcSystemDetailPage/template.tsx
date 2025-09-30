@@ -14,6 +14,7 @@ export function VamcSystemDetailPage({
   menu,
   administration,
   vamcEhrSystem,
+  vamcSystem,
   lovellVariant,
   lovellSwitchPath,
   relatedLinks,
@@ -42,7 +43,7 @@ export function VamcSystemDetailPage({
         {isContactPage && (
           <div className="usa-grid usa-grid-full vads-u-margin-y--1p5">
             <RegionalTopTasks
-              path={entityPath}
+              path={vamcSystem.path}
               administration={administration}
               vamcEhrSystem={vamcEhrSystem}
             />

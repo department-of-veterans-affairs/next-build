@@ -132,5 +132,8 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
   "title": "Mission and vision",
   "type": "node--health_care_region_detail_page",
   "vamcEhrSystem": "vista",
+  "vamcSystem": {
+    "path": "/durham-health-care",
+  },
 }
 `;

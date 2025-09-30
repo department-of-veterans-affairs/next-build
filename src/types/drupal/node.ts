@@ -237,7 +237,7 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_related_links: ParagraphListOfLinkTeasers
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system'
+    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system' | 'path'
   >
 }
 
