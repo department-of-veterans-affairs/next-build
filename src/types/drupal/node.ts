@@ -237,7 +237,7 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_related_links: ParagraphListOfLinkTeasers
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu'
+    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system' | 'path'
   >
 }
 
@@ -627,8 +627,9 @@ export interface NodeVetCenterOutstation
 export interface NodeVamcHealthServicesListing extends DrupalNode {
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system'
-  >
+    'id' | 'title' | 'field_system_menu'
+  > &
+    Partial<Pick<NodeHealthCareRegionPage, 'field_vamc_ehr_system'>> // The field_vamc_ehr_system is optional because it's not always present
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]
