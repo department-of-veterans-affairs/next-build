@@ -35,7 +35,7 @@ const nextConfig = {
     reactCompiler: true,
 
     // Throttle static generation proccesses.
-    staticGenerationRetryCount: 0,
+    staticGenerationRetryCount: 1,
     staticGenerationMaxConcurrency: 3,
     staticGenerationMinPagesPerWorker: 3,
   },
