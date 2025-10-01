@@ -3,6 +3,8 @@ import { ContentFooter } from '../contentFooter/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
 import { OperatingStatuses } from './OperatingStatuses'
 import { SituationUpdates } from './SituationUpdates'
+import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
+import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 
 export function VamcOperatingStatusAndAlerts({
   facilityName,
@@ -11,12 +13,17 @@ export function VamcOperatingStatusAndAlerts({
   operatingStatuses,
   emergencyInformation,
   localEmergencyLinks,
+  lovellVariant,
+  lovellSwitchPath,
 }: FormattedVamcOperatingStatusAndAlerts) {
   const dateFormat = 'EEEE, MMM d, h:mm aaaa'
   return (
     <SideNavLayout menu={menu}>
       <article className="usa-content">
-        <div>TODO: add Lovell switch</div>
+        <LovellSwitcher
+          currentVariant={lovellVariant}
+          switchPath={lovellSwitchPath}
+        />
         <h1 className="vads-u-margin-bottom--2">Operating status</h1>
         <div className="va-introtext vads-u-margin-bottom--0">
           {`${facilityName} facility operating statuses and emergency information.`}

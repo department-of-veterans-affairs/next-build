@@ -18,6 +18,12 @@ import { buildSideNavDataFromMenu } from '@/lib/drupal/facilitySideNav'
 import { getHtmlFromDrupalContent } from '@/lib/utils/getHtmlFromDrupalContent'
 import { getHtmlFromField } from '@/lib/utils/getHtmlFromField'
 import { PAGE_SIZES } from '@/lib/constants/pageSizes'
+import {
+  getLovellVariantOfUrl,
+  getOppositeChildVariant,
+  getLovellVariantOfBreadcrumbs,
+} from '@/lib/drupal/lovell/utils'
+
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams().addInclude([
@@ -41,6 +47,7 @@ export type VamcOperatingStatusAndAlertsData = {
   entity: NodeVamcOperatingStatusAndAlerts
   menu: Menu | null
   facilities: NodeHealthCareLocalFacility[]
+  lovell?: ExpandedStaticPropsContext['lovell']
 }
 
 // Implement the data loader.
@@ -66,13 +73,17 @@ export const data: QueryData<
       facilityParams(entity.field_office.id),
       PAGE_SIZES.MAX
     )
-  return { entity, menu, facilities }
+  return { entity, menu, facilities, lovell: opts.context?.lovell }
 }
 
 export const formatter: QueryFormatter<
   VamcOperatingStatusAndAlertsData,
   VamcOperatingStatusAndAlerts
-> = ({ entity, menu, facilities }) => {
+> = ({ entity, menu, facilities, lovell }) => {
+  let { breadcrumbs } = entity
+  if (lovell?.isLovellVariantPage) {
+    breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+  }
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
 
@@ -122,6 +133,7 @@ export const formatter: QueryFormatter<
 
   return {
     ...entityBaseFields(entity),
+    breadcrumbs,
     facilityName: entity.field_office.field_system_menu.label,
     situationUpdates: buildSituationUpdates(entity.field_banner_alert),
     operatingStatuses: facilities
@@ -147,5 +159,12 @@ export const formatter: QueryFormatter<
         }))
       : null,
     menu: formattedMenu,
+    lovellVariant: lovell?.variant ?? null,
+    lovellSwitchPath: lovell?.isLovellVariantPage
+      ? getLovellVariantOfUrl(
+          entity.path.alias,
+          getOppositeChildVariant(lovell?.variant)
+        )
+      : null,
   }
 }
