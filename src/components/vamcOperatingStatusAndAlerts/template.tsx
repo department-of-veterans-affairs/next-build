@@ -15,7 +15,7 @@ export function VamcOperatingStatusAndAlerts({
   localEmergencyLinks,
   lovellVariant,
   lovellSwitchPath,
-}: FormattedVamcOperatingStatusAndAlerts) {
+}: LovellStaticPropsResource<FormattedVamcOperatingStatusAndAlerts>) {
   const dateFormat = 'EEEE, MMM d, h:mm aaaa'
   return (
     <SideNavLayout menu={menu}>
