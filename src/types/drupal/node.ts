@@ -22,6 +22,7 @@ import {
   FieldMissionExplainer,
   FieldVetCenterBannerImage,
   FieldCCListOfLinkTeasers,
+  FieldContentBlock,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -48,6 +49,7 @@ import {
   ParagraphFeaturedContent,
   ParagraphListOfLinkTeasers,
   ParagraphSituationUpdate,
+  ParagraphQA,
 } from './paragraph'
 import {
   TaxonomyTermLcCategories,
@@ -225,6 +227,19 @@ export interface NodeHealthCareRegionPage extends DrupalNode {
   field_twitter: FieldLink
   field_va_health_connect_phone: string
   field_vamc_system_official_name: string
+}
+
+export interface NodeVamcSystemDetailPage extends DrupalNode {
+  field_intro_text: string
+  field_table_of_contents_boolean: boolean
+  field_alert: BlockAlert[]
+  field_content_block: FieldContentBlock
+  field_featured_content: Array<ParagraphQA | ParagraphWysiwyg>
+  field_related_links: ParagraphListOfLinkTeasers
+  field_office: Pick<
+    NodeHealthCareRegionPage,
+    'id' | 'title' | 'field_system_menu'
+  >
 }
 
 export interface NodeLandingPage extends DrupalNode {
@@ -415,13 +430,7 @@ export interface NodeStoryListing extends DrupalNode {
 
 export interface NodeSupportResourcesDetailPage extends NodeAbstractResource {
   field_table_of_contents_boolean: boolean
-  field_content_block: (
-    | ParagraphWysiwyg
-    | ParagraphTable
-    | ParagraphCollapsiblePanel
-    | ParagraphReactWidget
-    | ParagraphQaGroup
-  )[]
+  field_content_block: FieldContentBlock
   field_buttons_repeat: boolean
 }
 

@@ -13,23 +13,7 @@
   "sticky": false,
   "default_langcode": true,
   "revision_translation_affected": true,
-  "breadcrumbs": [
-    {
-      "uri": "https://va-gov-cms.ddev.site/",
-      "title": "Home",
-      "options": []
-    },
-    {
-      "uri": "https://va-gov-cms.ddev.site/oklahoma-city-health-care",
-      "title": "VA Oklahoma City health care",
-      "options": []
-    },
-    {
-      "uri": "internal:#",
-      "title": "Operating Status",
-      "options": []
-    }
-  ],
+  "breadcrumbs": [],
   "moderation_state": "published",
   "expiration_date": null,
   "warning_date": null,
@@ -354,122 +338,265 @@
   "field_facility_operating_status": [
     {
       "type": "node--health_care_local_facility",
-      "id": "6cc55b46-6628-4481-b6ef-f086908fe1f5",
+      "id": "2393efde-14ec-4aa0-91af-17736e31c759",
+      "drupal_internal__nid": 1141,
+      "drupal_internal__vid": 941202,
+      "langcode": "en",
+      "revision_timestamp": "2024-11-25T18:40:49+00:00",
+      "status": true,
+      "title": "Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System",
+      "created": "2019-10-31T19:52:20+00:00",
+      "changed": "2024-11-25T18:40:48+00:00",
+      "promote": false,
+      "sticky": false,
+      "default_langcode": true,
+      "revision_translation_affected": true,
+      "breadcrumbs": [
+        {
+          "uri": "https://va-gov-cms.ddev.site/",
+          "title": "Home",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/alaska-health-care",
+          "title": "VA Alaska health care",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "SERVICES AND LOCATIONS",
+          "options": []
+        },
+        {
+          "uri": "https://va-gov-cms.ddev.site/alaska-health-care/locations",
+          "title": "Locations",
+          "options": []
+        },
+        {
+          "uri": "internal:#",
+          "title": "Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System",
+          "options": []
+        }
+      ],
+      "moderation_state": "published",
+      "expiration_date": null,
+      "warning_date": null,
+      "metatag": [
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "title",
+            "content": "Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System | VA Alaska health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System, formerly Anchorage VA Medical Center."
+          }
+        },
+        {
+          "tag": "link",
+          "attributes": {
+            "rel": "image_src",
+            "href": "https://www.va.gov/img/design/logo/va-og-image.png"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:site_name",
+            "content": "Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:title",
+            "content": "Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System | VA Alaska health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System, formerly Anchorage VA Medical Center."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-06/Anchorage%20VA%20Medical%20Center.jpg"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "property": "og:image:alt",
+            "content": "Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System, formerly Anchorage VA Medical Center"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:card",
+            "content": "summary_large_image"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:site",
+            "content": "@DeptVetAffairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:description",
+            "content": "Get address and hours, parking and transportation information, and health services offered at Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System, formerly Anchorage VA Medical Center."
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:title",
+            "content": "Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System | VA Alaska health care | Veterans Affairs"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image",
+            "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2021-06/Anchorage%20VA%20Medical%20Center.jpg"
+          }
+        },
+        {
+          "tag": "meta",
+          "attributes": {
+            "name": "twitter:image:alt",
+            "content": "Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System, formerly Anchorage VA Medical Center"
+          }
+        }
+      ],
+      "path": {
+        "alias": "/alaska-health-care/locations/colonel-mary-louise-rasmuson-campus-of-the-alaska-va-healthcare-system",
+        "pid": 1868,
+        "langcode": "en"
+      },
+      "content_translation_source": "und",
+      "content_translation_outdated": false,
+      "field_address": {
+        "langcode": null,
+        "country_code": "US",
+        "administrative_area": "AK",
+        "locality": "Anchorage",
+        "dependent_locality": null,
+        "postal_code": "99504-6104",
+        "address_line1": "1201 North Muldoon Road",
+        "additional_name": null
+      },
+      "field_description": "Get address and hours, parking and transportation information, and health services offered at Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System, formerly Anchorage VA Medical Center.",
+      "field_facility_classification": "1",
+      "field_facility_locator_api_id": "vha_463",
+      "field_geolocation": {
+        "value": "POINT (-149.74442494 61.23134107)",
+        "geo_type": "Point",
+        "lat": 61.23134107,
+        "lon": -149.74442494,
+        "left": -149.74442494,
+        "top": 61.23134107,
+        "right": -149.74442494,
+        "bottom": 61.23134107,
+        "geohash": "bdvs26z6mvrbvj",
+        "latlon": "61.23134107,-149.74442494"
+      },
+      "field_intro_text": "Our hospital provides primary care and specialty health services, including mental health services, programs for Veterans who are homeless, and more. Below, you’ll find our address and hours, parking and transportation information, and the other health services we offer at Colonel Mary Louise Rasmuson Campus of the Alaska VA Healthcare System, formerly Anchorage VA Medical Center.",
+      "field_last_saved_by_an_editor": "2024-02-06T16:27:57+00:00",
+      "field_main_location": true,
+      "field_meta_tags": null,
+      "field_mobile": false,
+      "field_office_hours": [],
+      "field_operating_status_facility": "normal",
+      "field_operating_status_more_info": null,
+      "field_phone_number": "888-353-7574",
+      "field_supplemental_status_more_i": null,
+      "field_timezone": "America/Anchorage",
+      "links": {
+        "self": {
+          "href": "https://va-gov-cms.ddev.site/jsonapi/node/health_care_local_facility/2393efde-14ec-4aa0-91af-17736e31c759?resourceVersion=id%3A941202"
+        }
+      },
       "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1920
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "f99df578-84d4-4979-832c-52eab2a0f1c3",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1922
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "1897c28b-c441-4218-b835-4c94017c2eec",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1924
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "f8af50dd-a3cb-41cd-80de-52e8fa4b7cc5",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1919
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "c984405a-b2f4-4f21-8d32-95effeef62ca",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 4402
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "09e4929f-f3ba-4b92-9493-9d441ec8e2c7",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1923
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "555a1e5c-b6e4-41ee-8dca-283ef63c2ba5",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1927
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "0248b9c1-1ed2-4b90-95a7-1cf422a4cb7b",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 4403
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "7379d2da-a38b-43d0-b431-ed4754a883d2",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1917
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "571b1a04-9a05-44fe-8607-f370cd147a84",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 7236
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "33c771d4-6715-4791-b431-7fb8df2a4ca4",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1925
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "6f8e05fe-9322-4284-b4a8-ac5a520d31f0",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1916
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "8ee92839-afbf-40a3-bad3-396338f2e852",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1926
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "55105b96-df70-476c-b8c9-74ee378ddb75",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1921
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "0d39e2b0-46d3-49a7-8834-b71d6f849b11",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 5415
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "d660c37e-924b-4f06-b036-28e58b4c84b5",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 1918
-      }
-    },
-    {
-      "type": "node--health_care_local_facility",
-      "id": "580b32aa-6d00-48c7-81f0-b0d5e3fd52ce",
-      "resourceIdObjMeta": {
-        "drupal_internal__target_id": 7735
-      }
+        "drupal_internal__target_id": 1141
+      },
+      "node_type": {
+        "type": "node_type--node_type",
+        "id": "5ecbcf0c-b701-49d5-a47e-08803d42dd80",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": "health_care_local_facility"
+        }
+      },
+      "revision_uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "uid": {
+        "type": "user--user",
+        "id": "c564bd69-e8da-4ac3-905c-dd94f4bf7b35",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 1317
+        }
+      },
+      "field_administration": {
+        "type": "taxonomy_term--administration",
+        "id": "5aafac9b-afc8-491c-a0b7-f82242d2701a",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 372
+        }
+      },
+      "field_local_health_care_service_": [],
+      "field_location_services": [],
+      "field_media": {
+        "type": "media--image",
+        "id": "be994738-d4c0-48b3-8b8b-0c6ee6214a0d",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 4384
+        }
+      },
+      "field_region_page": {
+        "type": "node--health_care_region_page",
+        "id": "8543d382-e977-4525-9c70-3f19ec4b9475",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 15032
+        }
+      },
+      "field_supplemental_status": null,
+      "field_telephone": {
+        "type": "paragraph--phone_number",
+        "id": "32bc5739-5f7d-489c-950b-eb0e93da3982",
+        "resourceIdObjMeta": {
+          "target_revision_id": 1574286,
+          "drupal_internal__target_id": 169861
+        }
+      },
+      "relationshipNames": [
+        "node_type",
+        "revision_uid",
+        "uid",
+        "field_administration",
+        "field_local_health_care_service_",
+        "field_location_services",
+        "field_media",
+        "field_region_page",
+        "field_supplemental_status",
+        "field_telephone"
+      ]
     }
   ],
   "field_office": {
@@ -502,106 +629,7 @@
     "moderation_state": "published",
     "expiration_date": null,
     "warning_date": null,
-    "metatag": [
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "title",
-          "content": "VA Oklahoma City health care | Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "description",
-          "content": "VA Oklahoma City Healthcare System offers a wide range of health and support services for you, your family, and caregivers throughout the state. Find a medical center or clinic near you and manage your health online."
-        }
-      },
-      {
-        "tag": "link",
-        "attributes": {
-          "rel": "image_src",
-          "href": "https://www.va.gov/img/design/logo/va-og-image.png"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:site_name",
-          "content": "Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:title",
-          "content": "VA Oklahoma City health care | Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:description",
-          "content": "VA Oklahoma City Healthcare System offers a wide range of health and support services for you, your family, and caregivers throughout the state. Find a medical center or clinic near you and manage your health online."
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:image",
-          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-08/Oklahoma%20City.jpg"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "property": "og:image:alt",
-          "content": "Oklahoma City"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:card",
-          "content": "summary_large_image"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:site",
-          "content": "@DeptVetAffairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:description",
-          "content": "VA Oklahoma City Healthcare System offers a wide range of health and support services for you, your family, and caregivers throughout the state. Find a medical center or clinic near you and manage your health online."
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:title",
-          "content": "VA Oklahoma City health care | Veterans Affairs"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:image",
-          "content": "https://dsva-vagov-staging-cms-files.s3.us-gov-west-1.amazonaws.com/styles/3_2_medium_thumbnail/public/2020-08/Oklahoma%20City.jpg"
-        }
-      },
-      {
-        "tag": "meta",
-        "attributes": {
-          "name": "twitter:image:alt",
-          "content": "Oklahoma City"
-        }
-      }
-    ],
+    "metatag": [],
     "path": {
       "alias": "/oklahoma-city-health-care",
       "pid": 7274,

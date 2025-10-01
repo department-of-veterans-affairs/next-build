@@ -33,6 +33,14 @@ describe('createPhoneLinks', () => {
     )
   })
 
+  it('wraps phone numbers with extension using extension', () => {
+    const input = 'please dial 800-555-1234 extension 456'
+    const output = createPhoneLinks(input)
+    expect(output).toContain(
+      '<va-telephone contact="800-555-1234" extension="456"></va-telephone>'
+    )
+  })
+
   it('does not wrap numbers inside <va-telephone>', () => {
     const input = 'Call <va-telephone contact="800-555-1234"></va-telephone>'
     const output = createPhoneLinks(input)

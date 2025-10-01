@@ -2,23 +2,7 @@
 
 exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
 {
-  "breadcrumbs": [
-    {
-      "options": [],
-      "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
-    },
-    {
-      "options": [],
-      "title": "VA Oklahoma City health care",
-      "uri": "https://va-gov-cms.ddev.site/oklahoma-city-health-care",
-    },
-    {
-      "options": [],
-      "title": "Operating Status",
-      "uri": "internal:#",
-    },
-  ],
+  "breadcrumbs": [],
   "entityId": 6834,
   "entityPath": "/oklahoma-city-health-care/operating-status",
   "facilityName": "VA Oklahoma City health care",
@@ -119,6 +103,14 @@ exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "published",
+  "operatingStatuses": [
+    {
+      "status": "normal",
+      "statusInfo": null,
+      "title": "Framingham VA Clinic",
+      "url": "/boston-health-care/locations/framingham-va-clinic",
+    },
+  ],
   "published": true,
   "situationUpdates": [
     {
