@@ -142,7 +142,7 @@ export const formatter: QueryFormatter<
       }) || null,
     localEmergencyLinks: entity.field_links.length
       ? entity.field_links.map((link) => ({
-          url: { path: link.url },
+          url: link.url,
           label: link.title,
         }))
       : null,

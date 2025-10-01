@@ -1,14 +1,16 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
-import { Link } from '../staffProfile/formatted-type'
 
 type Update = {
   dateTime: string
   timezone: string
   updateText: string
 }
-
+type Link = {
+  label: string
+  url: string
+}
 export type OperatingStatus = {
   title: string
   url: string

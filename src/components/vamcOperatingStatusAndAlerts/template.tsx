@@ -50,7 +50,7 @@ export function VamcOperatingStatusAndAlerts({
                 {localEmergencyLinks.map((localEmergencyLink, index) => (
                   <p key={index}>
                     <va-link
-                      href={localEmergencyLink.url.path}
+                      href={localEmergencyLink.url}
                       text={localEmergencyLink.label}
                     />
                   </p>

@@ -12,15 +12,11 @@ exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
   "localEmergencyLinks": [
     {
       "label": "Disasters and Emergencies - USA.gov",
-      "url": {
-        "path": "https://www.usa.gov/disasters-and-emergencies",
-      },
+      "url": "https://www.usa.gov/disasters-and-emergencies",
     },
     {
       "label": "National Weather Service",
-      "url": {
-        "path": "https://www.weather.gov/",
-      },
+      "url": "https://www.weather.gov/",
     },
   ],
   "menu": null,
