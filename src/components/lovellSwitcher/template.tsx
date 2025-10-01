@@ -23,7 +23,7 @@ export function LovellSwitcher({
       class="vads-u-margin-bottom--2"
       id="va-info-alert"
     >
-      <h2 slot="headline" id="you-are-viewing-this-page-as-a">
+      <h2 slot="headline">
         You are viewing this page as a {currentVariant.toUpperCase()}{' '}
         beneficiary.
       </h2>
