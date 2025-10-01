@@ -137,7 +137,9 @@ export const formatter: QueryFormatter<
       }))
       .sort((a, b) => a.title.localeCompare(b.title)),
     emergencyInformation:
-      getHtmlFromField(entity.field_operating_status_emerg_inf) || null,
+      getHtmlFromField(entity.field_operating_status_emerg_inf, {
+        addH3Ids: true,
+      }) || null,
     localEmergencyLinks: entity.field_links.length
       ? entity.field_links.map((link) => ({
           url: { path: link.url },
