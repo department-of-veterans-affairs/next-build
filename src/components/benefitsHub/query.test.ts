@@ -2,12 +2,12 @@
  * @jest-environment node
  */
 
-import { NodeBenefitsHub } from '@/types/drupal/node'
+import { NodeLandingPage } from '@/types/drupal/node'
 import { queries } from '@/lib/drupal/queries'
 import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 import mockData from './mock.json'
 
-const BenefitsHubMock: NodeBenefitsHub = mockData
+const BenefitsHubMock: NodeLandingPage = mockData
 
 // remove if this component does not have a data fetch
 describe('DrupalJsonApiParams configuration', () => {

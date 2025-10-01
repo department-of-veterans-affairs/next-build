@@ -165,6 +165,7 @@ export default function ResourcePage({
       },
     ]
   }
+
   return (
     <PageLayout
       bannerData={[...bannerData, ...contentBanner]}
