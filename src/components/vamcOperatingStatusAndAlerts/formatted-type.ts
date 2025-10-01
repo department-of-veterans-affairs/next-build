@@ -28,6 +28,7 @@ export type VamcOperatingStatusAndAlerts = PublishedEntity & {
   menu?: SideNavMenu
   situationUpdates: SituationUpdates[]
   operatingStatuses: OperatingStatus[]
+  /** Raw HTML string containing the emergency information */
   emergencyInformation: string
   localEmergencyLinks: Link[]
 }
