@@ -23,6 +23,7 @@ import {
   getOppositeChildVariant,
   getLovellVariantOfBreadcrumbs,
 } from '@/lib/drupal/lovell/utils'
+import { getLovellVariantOfTitle } from '@/lib/drupal/lovell/utils'
 
 // Define the query params for fetching node--vamc_operating_status_and_alerts.
 export const params: QueryParams<null> = () => {
@@ -81,8 +82,13 @@ export const formatter: QueryFormatter<
   VamcOperatingStatusAndAlerts
 > = ({ entity, menu, facilities, lovell }) => {
   let { breadcrumbs } = entity
+  let title = entity.field_office.field_system_menu.label
   if (lovell?.isLovellVariantPage) {
     breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
+    title = getLovellVariantOfTitle(
+      entity.field_office.field_system_menu.label,
+      lovell.variant
+    )
   }
   const formattedMenu =
     menu !== null ? buildSideNavDataFromMenu(entity.path.alias, menu) : null
@@ -134,7 +140,7 @@ export const formatter: QueryFormatter<
   return {
     ...entityBaseFields(entity),
     breadcrumbs,
-    facilityName: entity.field_office.field_system_menu.label,
+    facilityName: title,
     situationUpdates: buildSituationUpdates(entity.field_banner_alert),
     operatingStatuses: facilities
       ?.map((facilityEntity) => ({
