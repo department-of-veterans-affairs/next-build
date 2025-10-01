@@ -10,16 +10,12 @@ import {
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
 
-// Define the query params for fetching node--benefit_hub_landing.
+// Define the query params for fetching node--landing_page for benefits hub.
+// Only include fields that are actually used in the formatter to avoid 400 errors.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams().addInclude([
-    'field_related_office',
-    'field_alert',
-    'field_promo',
-    'field_support_services',
-    'field_related_links',
-    'field_spokes',
-  ])
+  return new DrupalJsonApiParams()
+  // Note: All the fields we need (field_intro_text, field_home_page_hub_label,
+  // field_teaser_text, field_title_icon) are basic fields that don't need to be included
 }
 
 // Define the option types for the data loader.

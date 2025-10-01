@@ -8,9 +8,10 @@ export const getNestedIncludes = (
     ? resourceType
     : [resourceType]
 
-  const includedFields = resourceTypes.flatMap((resourceType) =>
-    queries.getParams(resourceType).getQueryObject().include.split(',')
-  )
+  const includedFields = resourceTypes.flatMap((resourceType) => {
+    const include = queries.getParams(resourceType).getQueryObject().include
+    return include ? include.split(',') : []
+  })
 
   return fieldName
     ? [
