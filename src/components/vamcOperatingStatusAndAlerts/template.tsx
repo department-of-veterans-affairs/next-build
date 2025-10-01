@@ -59,8 +59,8 @@ export function VamcOperatingStatusAndAlerts({
             )}
           </section>
         )}
-        <ContentFooter />
       </article>
+      <ContentFooter />
     </SideNavLayout>
   )
 }
