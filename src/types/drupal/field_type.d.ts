@@ -1,4 +1,6 @@
 import { TaxonomyTermHealthCareServiceTaxonomy } from './taxonomy_term'
+import { ParagraphReactWidget } from './paragraph'
+import { DrupalParagraph } from 'next-drupal'
 
 export interface FieldAddress {
   langcode: string
@@ -172,6 +174,22 @@ export type FieldNestedButton = {
   field_button_label: FieldNestedText[]
   field_button_link: FieldCCNestedLink[]
 }
+
+export type EntityFieldFetched<FetchedType extends object> = {
+  target_type: string
+  target_id: string
+  fetched_bundle: string
+  fetched: {
+    // [key in keyof FetchedType]: Array<FetchedType[key]>
+    [key in Exclude<keyof FetchedType, keyof DrupalParagraph>]: Array<
+      FetchedType[key]
+    >
+    // [key in keyof FetchedType]: key extends keyof DrupalParagraph
+    //   ? Array<FetchedType[key]> | undefined
+    //   : Array<FetchedType[key]>
+  }
+}
+
 export interface FieldCCText {
   target_type: string
   target_id: string
@@ -180,6 +198,7 @@ export interface FieldCCText {
     field_wysiwyg: FieldFormattedText[]
   }
 }
+
 export interface FieldCCPhone {
   target_type: string
   target_id: string
@@ -226,6 +245,15 @@ export interface FieldCCListOfLinkTeasers {
     field_va_paragraphs: FieldCCNestedLinkTeaser[]
   }
 }
+
+export type FieldCCReactWidget = EntityFieldFetched<ParagraphReactWidget>
+// export type FieldCCReactWidget = EntityFieldFetched<Pick<ParagraphReactWidget, 'field_cta_widget'
+// | 'field_default_link'
+// | 'field_button_format'
+// | 'field_error_message'
+// | 'field_loading_message'
+// | 'field_timeout'
+// | 'field_widget_type'>>
 
 export interface FieldMissionExplainer {
   target_id: string
