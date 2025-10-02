@@ -28,7 +28,6 @@ export function VamcOperatingStatusAndAlerts({
         <div className="va-introtext vads-u-margin-bottom--0">
           {`${facilityName} facility operating statuses and emergency information.`}
         </div>
-        <div>TODO: add conditional fieldLinkFacilityEmergList action link</div>
         <section className="table-of-contents vads-u-margin-bottom--5">
           <va-on-this-page />
         </section>
