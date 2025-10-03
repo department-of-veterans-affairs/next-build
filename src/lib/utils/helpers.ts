@@ -209,3 +209,27 @@ export const addHeadingIds = (content: string, level: string): string => {
     }
   )
 }
+
+/**
+ * Converts action link style defined in wysiwyg to web-component
+ */
+export const convertActionLinks = (content: string): string => {
+  if (!content) return content
+  return content.replace(
+    /<a([^>]*class="[^"]*vads-c-action-link--(blue|green)[^"]*"[^>]*)>([\s\S]*?)<\/a>/gi,
+    (match, attrs, color, inner) => {
+      const type = color === 'blue' ? 'secondary' : 'primary'
+      // Remove class attribute for either blue or green
+      const newAttrs = attrs
+        .replace(/class="[^"]*vads-c-action-link--(blue|green)[^"]*"/, '')
+        .trim()
+      // Strip HTML tags from inner to get only the text
+      // Also remove any remaining angle brackets to avoid incomplete tag fragments
+      const innerText = inner
+        .replace(/<[^>]+>/g, '')
+        .replace(/[<>]/g, '')
+        .trim()
+      return `<va-link-action ${newAttrs} text="${innerText}" type="${type}" />`
+    }
+  )
+}
