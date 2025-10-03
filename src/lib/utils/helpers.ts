@@ -224,7 +224,8 @@ export const convertActionLinks = (content: string): string => {
         .replace(/class="[^"]*vads-c-action-link--(blue|green)[^"]*"/, '')
         .trim()
       // Strip HTML tags from inner to get only the text
-      const innerText = inner.replace(/<[^>]+>/g, '').trim()
+      // Also remove any remaining angle brackets to avoid incomplete tag fragments
+      const innerText = inner.replace(/<[^>]+>/g, '').replace(/[<>]/g, '').trim()
       return `<va-link-action ${newAttrs} text="${innerText}" type="${type}" />`
     }
   )
