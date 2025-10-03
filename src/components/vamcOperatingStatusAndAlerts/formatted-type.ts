@@ -1,6 +1,7 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
 import { SideNavMenu } from '@/types/formatted/sideNav'
 import { FacilityOperatingStatusFlags } from '@/types/drupal/node'
+import { LovellChildVariant } from '@/lib/drupal/lovell/types'
 
 type Update = {
   dateTime: string
@@ -31,4 +32,6 @@ export type VamcOperatingStatusAndAlerts = PublishedEntity & {
   /** Raw HTML string containing the emergency information */
   emergencyInformation: string
   localEmergencyLinks: Link[]
+  lovellVariant?: LovellChildVariant
+  lovellSwitchPath?: string
 }
