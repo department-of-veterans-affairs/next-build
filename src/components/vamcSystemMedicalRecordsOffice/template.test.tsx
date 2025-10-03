@@ -66,4 +66,12 @@ describe('VamcSystemMedicalRecordsOffice', () => {
     )
     expect(reactWidget).toBeInTheDocument()
   })
+
+  it('renders the howWeShareRecordsContent', () => {
+    render(<VamcSystemMedicalRecordsOffice {...mockData} />)
+    const howWeShareRecordsContent = screen.getByText(
+      /Per VHA Directives, we have 20 business days to process all requests./
+    )
+    expect(howWeShareRecordsContent).toBeInTheDocument()
+  })
 })

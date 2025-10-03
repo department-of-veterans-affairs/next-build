@@ -14,6 +14,7 @@ export interface VamcSystemMedicalRecordsOffice extends PublishedEntity {
   menu: SideNavMenu
   topOfPageContent: Wysiwyg
   getRecordsInPersonContent: Wysiwyg
+  howWeShareRecordsContent: Wysiwyg
   reactWidget: ReactWidget
   relatedLinks: ListOfLinkTeasers
   services: Array<{
