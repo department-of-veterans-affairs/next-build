@@ -55,6 +55,16 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
     )
   })
 
+  it('formats faqsContent field correctly', () => {
+    const result = formatter(defaultData)
+
+    expect(result.faqsContent).toBeDefined()
+    expect(result.faqsContent.header).toContain(
+      'Questions about medical records'
+    )
+    expect(result.faqsContent.displayAccordion).toBe(true)
+  })
+
   it('formats relatedLinks field correctly', () => {
     const result = formatter(defaultData)
 
