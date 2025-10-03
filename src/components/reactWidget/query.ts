@@ -2,7 +2,7 @@ import { ParagraphReactWidget } from '@/types/drupal/paragraph'
 import { QueryFormatter } from 'next-drupal-query'
 import { ReactWidget } from '@/components/reactWidget/formatted-type'
 
-const parseBoolean = (value: string | boolean) => {
+const toBoolean = (value: string | boolean) => {
   if (typeof value === 'string') {
     return value === '1'
   }
@@ -17,7 +17,7 @@ export const formatter: QueryFormatter<ParagraphReactWidget, ReactWidget> = (
     id: entity.id ?? null,
     entityId: entity.drupal_internal__id ?? null,
     widgetType: entity.field_widget_type,
-    ctaWidget: parseBoolean(entity.field_cta_widget),
+    ctaWidget: toBoolean(entity.field_cta_widget),
     loadingMessage: entity.field_loading_message,
     // TODO: Until we come across an example of a react widget that isn't pulled in via
     // entity_field_fetch, we won't know if the regular Drupal API parses these number
@@ -35,6 +35,6 @@ export const formatter: QueryFormatter<ParagraphReactWidget, ReactWidget> = (
           title: entity.field_default_link.title,
         }
       : null,
-    buttonFormat: parseBoolean(entity.field_button_format),
+    buttonFormat: toBoolean(entity.field_button_format),
   }
 }
