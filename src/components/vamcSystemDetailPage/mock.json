@@ -86,9 +86,102 @@
   "field_administration": {
     "type": "taxonomy_term--administration",
     "id": "ddfadf16-7428-4c17-abaa-53bb96492dd7",
+    "drupal_internal__tid": 218,
+    "drupal_internal__revision_id": 2354,
+    "langcode": "en",
+    "revision_created": "2024-08-13T20:05:29+00:00",
+    "revision_log_message": null,
+    "status": true,
+    "name": "VA Durham health care",
+    "description": null,
+    "weight": 1,
+    "changed": "2024-08-13T20:05:29+00:00",
+    "default_langcode": true,
+    "revision_translation_affected": true,
+    "breadcrumbs": [
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+        "title": "Home",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha",
+        "title": "VHA",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vamc-facilities",
+        "title": "VAMC facilities",
+        "options": []
+      },
+      {
+        "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/section/vha/visn-6",
+        "title": "VISN 6",
+        "options": []
+      },
+      {
+        "uri": "internal:#",
+        "title": "VA Durham health care",
+        "options": []
+      }
+    ],
+    "moderation_state": null,
+    "metatag": [],
+    "path": {
+      "alias": "/section/vha/vamc-facilities/va-durham-health-care",
+      "pid": 7756,
+      "langcode": "en"
+    },
+    "content_translation_source": "und",
+    "content_translation_outdated": false,
+    "content_translation_created": null,
+    "field_description": null,
+    "links": {
+      "self": {
+        "href": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/jsonapi/taxonomy_term/administration/ddfadf16-7428-4c17-abaa-53bb96492dd7?resourceVersion=id%3A2354"
+      }
+    },
     "resourceIdObjMeta": {
       "drupal_internal__target_id": 218
-    }
+    },
+    "vid": {
+      "type": "taxonomy_vocabulary--taxonomy_vocabulary",
+      "id": "645055c5-e567-4683-b6db-459ce04522ce",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": "administration"
+      }
+    },
+    "revision_user": {
+      "type": "user--user",
+      "id": "3ad0956c-0561-4c79-a25c-b6bf3a6fe05c",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 4942
+      }
+    },
+    "parent": [
+      {
+        "type": "taxonomy_term--administration",
+        "id": "10d71348-6091-4a73-a3d7-4bf993414166",
+        "resourceIdObjMeta": {
+          "drupal_internal__target_id": 165
+        }
+      }
+    ],
+    "content_translation_uid": null,
+    "field_product": {
+      "type": "taxonomy_term--products",
+      "id": "2fe1cb98-c03e-49fe-bb09-d73b66b99c8d",
+      "resourceIdObjMeta": {
+        "drupal_internal__target_id": 284
+      }
+    },
+    "relationshipNames": [
+      "vid",
+      "revision_user",
+      "parent",
+      "content_translation_uid",
+      "field_product"
+    ]
   },
   "field_alert": null,
   "field_content_block": [
@@ -144,6 +237,7 @@
         "drupal_internal__target_id": "va-durham-health-care"
       }
     },
+    "field_vamc_ehr_system": "vista",
     "relationshipNames": [
       "node_type",
       "revision_uid",

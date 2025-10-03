@@ -56,6 +56,7 @@ import {
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 import { VamcEhrSystem } from './vamcEhr'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 
 /** Union of all node types.  */
 export type NodeTypes =
@@ -237,7 +238,7 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_related_links: ParagraphListOfLinkTeasers
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu'
+    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system' | 'path'
   >
 }
 
@@ -627,8 +628,9 @@ export interface NodeVetCenterOutstation
 export interface NodeVamcHealthServicesListing extends DrupalNode {
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system'
-  >
+    'id' | 'title' | 'field_system_menu'
+  > &
+    Partial<Pick<NodeHealthCareRegionPage, 'field_vamc_ehr_system'>> // The field_vamc_ehr_system is optional because it's not always present
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]
@@ -639,4 +641,6 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
   field_banner_alert?: NodeFullWidthBannerAlert[]
+  field_operating_status_emerg_inf: FieldFormattedText
+  field_links: FieldLink[]
 }

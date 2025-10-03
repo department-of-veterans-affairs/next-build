@@ -1,10 +1,10 @@
 import React from 'react'
 import { VamcSystemDetailPage as FormattedVamcSystemDetailPage } from './formatted-type'
 import { LovellStaticPropsResource } from '@/lib/drupal/lovell/types'
-import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import { ContentFooter } from '@/components/contentFooter/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
+import { RegionalTopTasks } from '../topTasks/template'
 
 export function VamcSystemDetailPage({
   entityPath,
@@ -12,6 +12,9 @@ export function VamcSystemDetailPage({
   introText,
   showTableOfContents,
   menu,
+  administration,
+  vamcEhrSystem,
+  vamcSystem,
   lovellVariant,
   lovellSwitchPath,
   relatedLinks,
@@ -39,7 +42,11 @@ export function VamcSystemDetailPage({
         {/* Main action buttons for contact pages */}
         {isContactPage && (
           <div className="usa-grid usa-grid-full vads-u-margin-y--1p5">
-            <div>TODO: Main action buttons</div>
+            <RegionalTopTasks
+              path={vamcSystem.path}
+              administration={administration}
+              vamcEhrSystem={vamcEhrSystem}
+            />
           </div>
         )}
 

@@ -136,6 +136,16 @@ export const formatter: QueryFormatter<
           : null,
       }))
       .sort((a, b) => a.title.localeCompare(b.title)),
+    emergencyInformation:
+      getHtmlFromField(entity.field_operating_status_emerg_inf, {
+        addH3Ids: true,
+      }) || null,
+    localEmergencyLinks: entity.field_links.length
+      ? entity.field_links.map((link) => ({
+          url: link.url,
+          label: link.title,
+        }))
+      : null,
     menu: formattedMenu,
   }
 }
