@@ -118,12 +118,18 @@ const EXPECTED_ARRAY_FIELDS = [
   'field_topics',
 ]
 
+/**
+ * Automatically convert `"0"` and `"1"` to `false` and `true`.
+ */
 const EXPECTED_BOOLEAN_FIELDS = [
   'field_accordion_display',
   'field_cta_widget',
   'field_button_format',
 ]
 
+/**
+ * Automatically parse the strings in these fields to numbers.
+ */
 const EXPECTED_NUMBER_FIELDS = ['field_timeout']
 
 /**
