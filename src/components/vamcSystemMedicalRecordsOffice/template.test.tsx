@@ -74,4 +74,18 @@ describe('VamcSystemMedicalRecordsOffice', () => {
     )
     expect(howWeShareRecordsContent).toBeInTheDocument()
   })
+
+  it('renders the faqsContent', () => {
+    const { container } = render(
+      <VamcSystemMedicalRecordsOffice {...mockData} />
+    )
+    const faqsContent = screen.getByText(/Questions about medical records/)
+    expect(faqsContent).toBeInTheDocument()
+
+    // console.log(container.innerHTML)
+    const accordionDiv = container.querySelector(
+      '[data-template="paragraphs/q_a.collapsible_panel"]'
+    )
+    expect(accordionDiv).toBeInTheDocument()
+  })
 })
