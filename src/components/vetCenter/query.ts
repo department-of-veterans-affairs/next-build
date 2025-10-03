@@ -26,6 +26,7 @@ import {
 import { ParagraphCCQaSection } from '@/types/drupal/paragraph'
 import { QaSection } from '@/components/qaSection/formatted-type'
 import { DrupalMediaImage } from '@/types/drupal/media'
+import { drupalClient } from '@/lib/drupal/drupalClient'
 
 // Define the query params for fetching node--vet_center.
 export const params: QueryParams<null> = () => {
@@ -79,6 +80,25 @@ export const data: QueryData<VetCenterDataOpts, VetCenterData> = async (
         1
       )
     ).data[0]
+  }
+  // Fix CTA links that come through as entity:node/###
+  const fixCta = async (link?: { uri?: string }) => {
+    if (link?.uri?.startsWith('entity:')) {
+      const internal = link.uri.replace('entity:', '')
+      const pathInfo = await drupalClient.translatePath(internal)
+      link.uri = pathInfo?.entity?.path ?? link.uri
+    }
+  }
+  if (Array.isArray(entity.field_vet_center_feature_content)) {
+    await Promise.all(
+      entity.field_vet_center_feature_content.map(async (p) => {
+        await fixCta(p?.field_cta?.[0]?.field_button_link?.[0])
+      })
+    )
+  }
+  const cc = entity.field_cc_vet_center_featured_con?.fetched
+  if (cc?.field_cta?.[0]?.field_button_link?.[0]) {
+    await fixCta(cc.field_cta[0].field_button_link[0])
   }
 
   return { entity, bannerMedia }
