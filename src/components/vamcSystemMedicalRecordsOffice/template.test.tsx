@@ -58,4 +58,12 @@ describe('VamcSystemMedicalRecordsOffice', () => {
     )
     expect(paragraphContent).toBeInTheDocument()
   })
+
+  it('renders the reactWidget', () => {
+    render(<VamcSystemMedicalRecordsOffice {...mockData} />)
+    const reactWidget = document.querySelector(
+      '[data-template="paragraphs/react_widget"]'
+    )
+    expect(reactWidget).toBeInTheDocument()
+  })
 })
