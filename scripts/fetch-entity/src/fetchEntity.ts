@@ -8,7 +8,7 @@ process.env = {
   ...getEnvFileVars(),
 }
 
-const { drupalClient } = await import('./drupalClient')
+const { drupalClient } = await import('../../../src/lib/drupal/drupalClient')
 
 // The username & password will let us apply filters, so prefer that
 // Fall back to the client ID and secret otherwise
