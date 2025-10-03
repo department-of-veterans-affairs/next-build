@@ -46,6 +46,15 @@ describe('VamcSystemMedicalRecordsOffice formatter', () => {
     )
   })
 
+  it('formats howWeShareRecordsContent field correctly', () => {
+    const result = formatter(defaultData)
+
+    expect(result.howWeShareRecordsContent).toBeDefined()
+    expect(result.howWeShareRecordsContent.html).toContain(
+      '<p>Per VHA Directives, we have 20 business days to process all requests.'
+    )
+  })
+
   it('formats relatedLinks field correctly', () => {
     const result = formatter(defaultData)
 
