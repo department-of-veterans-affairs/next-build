@@ -35,6 +35,13 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
   ],
   "entityId": 6983,
   "entityPath": "/durham-health-care/about-us/mission-and-vision",
+  "featuredContent": [
+    {
+      "html": "<p>Beginning Sept. 6 and continuing through November, our 'Blue Canopy' entrance to Bldgs. 133CA and 134 will be closed. The adjacent parking lot will also be closed. The Metra train shuttle stop at the 'Blue Canopy' entrance will be closed starting Friday, Sept. 5, 2025. Please instead use the shuttle stop at the entrance of Bldg. 131.</p>",
+      "id": "55e4001e-1727-4c9c-970d-f985da93dfa8",
+      "type": "paragraph--wysiwyg",
+    },
+  ],
   "id": "6f66f92d-4e84-476b-83fb-0457ce0ab4ae",
   "introText": "The mission of the Durham VA Medical Center and clinics is to make a positive difference in the lives of the Veterans we serve by providing compassionate, comprehensive, and quality healthcare.  The Durham VA Medical Center and clinics promote a community of integrity, respect, stewardship, and excellence by understanding and respecting the diversity of those whom we serve.",
   "lastUpdated": "2021-03-18T15:01:54+00:00",
