@@ -19,6 +19,7 @@ import {
 } from '@/lib/drupal/lovell/utils'
 import { formatter as formatAdministration } from '@/components/administration/query'
 import { drupalClient } from '@/lib/drupal/drupalClient'
+import { formatParagraph } from '@/lib/drupal/paragraphs'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
@@ -28,6 +29,8 @@ export const params: QueryParams<null> = () => {
       'field_office',
       'field_related_links',
       'field_related_links.field_va_paragraphs',
+      'field_featured_content',
+      'field_featured_content.field_answer',
     ])
 }
 
@@ -118,6 +121,10 @@ export const formatter: QueryFormatter<
     vamcSystem: {
       path: entity.field_office?.path.alias || null,
     },
+    featuredContent:
+      entity.field_featured_content?.map((paragraph) =>
+        formatParagraph(paragraph)
+      ) || null,
     relatedLinks: entity.field_related_links
       ? formatListOfLinkTeasers(entity.field_related_links)
       : null,
