@@ -18,4 +18,5 @@ export interface VamcSystemDetailPage extends PublishedEntity {
   relatedLinks: ListOfLinkTeasers | null
   lovellVariant?: LovellChildVariant | null
   lovellSwitchPath?: string | null
+  showLovellSwitcher: boolean
 }
