@@ -13,6 +13,7 @@ import {
   addHeadingIds,
   addH2Ids,
   addH3Ids,
+  convertActionLinks,
 } from './helpers'
 
 describe('truncateWordsOrChar', () => {
@@ -470,5 +471,40 @@ describe('addH3Ids', () => {
     const input = '<h3>Hello World</h3>'
     const result = addH3Ids(input)
     expect(result).toBe('<h3 id="hello-world">Hello World</h3>')
+  })
+})
+
+describe('convertActionLinks', () => {
+  test('finds and converts action links', () => {
+    const input =
+      '<p>Hello World <a class="vads-c-action-link--green" href="/pay">Pay online, by phone, or by mail</a> <a class="vads-c-action-link--blue" href="/dont-pay">Do not pay</a></p>'
+    const result = convertActionLinks(input)
+    expect(result).toBe(
+      '<p>Hello World <va-link-action href="/pay" text="Pay online, by phone, or by mail" type="primary" /> <va-link-action href="/dont-pay" text="Do not pay" type="secondary" /></p>'
+    )
+  })
+  test('leaves other links alone', () => {
+    const input =
+      '<p>Hello World <a href="/pay">Pay online, by phone, or by mail</a></p>'
+    const result = convertActionLinks(input)
+    expect(result).toBe(
+      '<p>Hello World <a href="/pay">Pay online, by phone, or by mail</a></p>'
+    )
+  })
+  test('strips tags in inner text', () => {
+    const input =
+      '<a class="vads-c-action-link--blue" href="/foo"><strong>Pay</strong> <em>now</em></a>'
+    const result = convertActionLinks(input)
+    expect(result).toBe(
+      '<va-link-action href="/foo" text="Pay now" type="secondary" />'
+    )
+  })
+  test('passes attrs to component', () => {
+    const input =
+      '<a class="vads-c-action-link--blue" data-testid="test-me" href="/foo">Pay now</a>'
+    const result = convertActionLinks(input)
+    expect(result).toBe(
+      '<va-link-action data-testid="test-me" href="/foo" text="Pay now" type="secondary" />'
+    )
   })
 })
