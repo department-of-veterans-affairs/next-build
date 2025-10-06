@@ -491,4 +491,20 @@ describe('convertActionLinks', () => {
       '<p>Hello World <a href="/pay">Pay online, by phone, or by mail</a></p>'
     )
   })
+  test('strips tags in inner text', () => {
+    const input =
+      '<a class="vads-c-action-link--blue" href="/foo"><strong>Pay</strong> <em>now</em></a>'
+    const result = convertActionLinks(input)
+    expect(result).toBe(
+      '<va-link-action href="/foo" text="Pay now" type="secondary" />'
+    )
+  })
+  test('passes attrs to component', () => {
+    const input =
+      '<a class="vads-c-action-link--blue" data-testid="test-me" href="/foo">Pay now</a>'
+    const result = convertActionLinks(input)
+    expect(result).toBe(
+      '<va-link-action data-testid="test-me" href="/foo" text="Pay now" type="secondary" />'
+    )
+  })
 })
