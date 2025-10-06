@@ -23,6 +23,7 @@ import {
   FieldVetCenterBannerImage,
   FieldCCListOfLinkTeasers,
   FieldContentBlock,
+  FieldCCReactWidget,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -479,16 +480,14 @@ export interface NodeVamcSystemMedicalRecordsOffice extends DrupalNode {
     NodeHealthCareRegionPage,
     'id' | 'title' | 'field_system_menu'
   >
-  field_cc_top_of_page_content?: FieldCCText
-  field_cc_bottom_of_page_content?: FieldCCText
-  field_cc_related_links?: FieldCCListOfLinkTeasers
-  // TODO: Add additional centralized content fields from medical records template
-  // field_cc_react_widget?: FieldCCText
+  field_cc_top_of_page_content: FieldCCText
+  field_cc_related_links: FieldCCListOfLinkTeasers
+  field_cc_react_widget: FieldCCReactWidget
+
   // field_cc_get_records_in_person?: FieldCCText
   // field_cc_get_records_mail_or_fax?: FieldCCText
   // field_cc_how_we_share_records?: FieldCCText
   // field_cc_faqs?: FieldCCText
-  // TODO: Add individual node fields from medical records template
   // field_vamc_med_records_mailing?: FieldAddress
   // field_fax_number?: string
 }
