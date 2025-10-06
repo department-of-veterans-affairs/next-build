@@ -73,11 +73,10 @@ va-button#mdFormButton::part(button) {
 }
 
 /* Benefits Hub icon styles */
-.hub-icon
- {
-    border-radius: 50%;
-    height: 40px !important;
-    width: 40px !important;
-    min-width: 40px !important;
-    max-width: 40px !important;
+.hub-icon {
+  border-radius: 50%;
+  height: 40px !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
 }
