@@ -22,16 +22,22 @@ import { drupalClient } from '@/lib/drupal/drupalClient'
 import { formatParagraph } from '@/lib/drupal/paragraphs'
 
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-    .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE)
-    .addInclude([
-      'field_administration',
-      'field_office',
-      'field_related_links',
-      'field_related_links.field_va_paragraphs',
-      'field_featured_content',
-      'field_featured_content.field_answer',
-    ])
+  return new DrupalJsonApiParams().addInclude([
+    'field_administration',
+    'field_office',
+    'field_related_links',
+    'field_related_links.field_va_paragraphs',
+    'field_featured_content',
+    'field_featured_content.field_answer',
+    'field_featured_content.field_answer.field_va_paragraphs',
+  ])
+  // I would like to be able to use just these recursive fields, but it doesn't seem to
+  // work, at least with this version of Drupal. According to the documentation here
+  // https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module/fetching-resources-get#s-get-article-media-entity-reference-field-image-url-uri-by-including-references
+  // there's an "older syntax" and "new syntax" for the query string this produces.
+  // .addFields('paragraph--list_of_link_teasers', ['field_va_paragraphs'])
+  // .addFields('paragraph--collapsible_panel', ['field_va_paragraphs'])
+  // .addFields('paragraph--q_a', ['field_answer'])
 }
 
 // Define the option types for the data loader.
@@ -55,7 +61,7 @@ export const data: QueryData<
 > = async (opts): Promise<VamcSystemDetailPageData> => {
   const entity = (await fetchSingleEntityOrPreview(
     opts,
-    RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE,
+    RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE,
     params
   )) as NodeVamcSystemDetailPage
 
