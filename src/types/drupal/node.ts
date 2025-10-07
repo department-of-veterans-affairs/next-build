@@ -23,6 +23,7 @@ import {
   FieldVetCenterBannerImage,
   FieldCCListOfLinkTeasers,
   FieldContentBlock,
+  FieldCCReactWidget,
 } from './field_type'
 import { DrupalMediaDocument, DrupalMediaImage } from './media'
 import {
@@ -56,6 +57,7 @@ import {
   TaxonomyTermHealthCareServiceTaxonomy,
 } from './taxonomy_term'
 import { VamcEhrSystem } from './vamcEhr'
+import { Wysiwyg } from '@/components/wysiwyg/formatted-type'
 
 /** Union of all node types.  */
 export type NodeTypes =
@@ -237,7 +239,7 @@ export interface NodeVamcSystemDetailPage extends DrupalNode {
   field_related_links: ParagraphListOfLinkTeasers
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu'
+    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system' | 'path'
   >
 }
 
@@ -478,16 +480,14 @@ export interface NodeVamcSystemMedicalRecordsOffice extends DrupalNode {
     NodeHealthCareRegionPage,
     'id' | 'title' | 'field_system_menu'
   >
-  field_cc_top_of_page_content?: FieldCCText
-  field_cc_bottom_of_page_content?: FieldCCText
-  field_cc_related_links?: FieldCCListOfLinkTeasers
-  // TODO: Add additional centralized content fields from medical records template
-  // field_cc_react_widget?: FieldCCText
+  field_cc_top_of_page_content: FieldCCText
+  field_cc_related_links: FieldCCListOfLinkTeasers
+  field_cc_react_widget: FieldCCReactWidget
+
   // field_cc_get_records_in_person?: FieldCCText
   // field_cc_get_records_mail_or_fax?: FieldCCText
   // field_cc_how_we_share_records?: FieldCCText
   // field_cc_faqs?: FieldCCText
-  // TODO: Add individual node fields from medical records template
   // field_vamc_med_records_mailing?: FieldAddress
   // field_fax_number?: string
 }
@@ -627,8 +627,9 @@ export interface NodeVetCenterOutstation
 export interface NodeVamcHealthServicesListing extends DrupalNode {
   field_office: Pick<
     NodeHealthCareRegionPage,
-    'id' | 'title' | 'field_system_menu' | 'field_vamc_ehr_system'
-  >
+    'id' | 'title' | 'field_system_menu'
+  > &
+    Partial<Pick<NodeHealthCareRegionPage, 'field_vamc_ehr_system'>> // The field_vamc_ehr_system is optional because it's not always present
   field_description: string
   field_intro_text: string
   field_featured_content_healthser?: ParagraphLinkTeaser[]
@@ -639,4 +640,6 @@ export interface NodeVamcHealthServicesListing extends DrupalNode {
 export interface NodeVamcOperatingStatusAndAlerts extends DrupalNode {
   field_office: DrupalNode
   field_banner_alert?: NodeFullWidthBannerAlert[]
+  field_operating_status_emerg_inf: FieldFormattedText
+  field_links: FieldLink[]
 }

@@ -17,11 +17,13 @@ import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import { formatter as formatAdministration } from '@/components/administration/query'
 
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE)
     .addInclude([
+      'field_administration',
       'field_office',
       'field_related_links',
       'field_related_links.field_va_paragraphs',
@@ -83,6 +85,11 @@ export const formatter: QueryFormatter<
     introText: entity.field_intro_text,
     showTableOfContents: entity.field_table_of_contents_boolean,
     menu: buildSideNavDataFromMenu(entity.path.alias, menu),
+    administration: formatAdministration(entity.field_administration),
+    vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
+    vamcSystem: {
+      path: entity.field_office?.path.alias || null,
+    },
     relatedLinks: entity.field_related_links
       ? formatListOfLinkTeasers(entity.field_related_links)
       : null,
