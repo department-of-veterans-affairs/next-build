@@ -29,6 +29,7 @@ export interface VamcSystemMedicalRecordsOffice extends PublishedEntity {
   }>
   getRecordsMailOrFaxContent: Wysiwyg
   vamcMedRecordsMailing: FieldAddress
+  faxNumber: string | null
   lovellVariant?: LovellChildVariant | null
   lovellSwitchPath?: string | null
 

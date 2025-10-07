@@ -175,6 +175,7 @@ export const formatter: QueryFormatter<
       entity.field_cc_get_records_mail_or_fax
     ),
     vamcMedRecordsMailing: entity.field_vamc_med_records_mailing,
+    faxNumber: entity.field_fax_number,
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(

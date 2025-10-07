@@ -602,6 +602,7 @@ const mockData: VamcSystemMedicalRecordsOffice = {
     address_line1: 'VA Boston ATTN: HIMS Medical Records',
     address_line2: '940 Belmont Street',
   },
+  faxNumber: '774-826-1446',
   faqsContent: {
     header: 'Questions about medical records',
     intro: null,

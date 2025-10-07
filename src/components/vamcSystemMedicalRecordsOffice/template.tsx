@@ -12,6 +12,7 @@ import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
 import { ReactWidget } from '@/components/reactWidget/template'
 import { QaSection } from '../qaSection/template'
+import { PhoneNumber } from '../phoneNumber/template'
 
 export const VamcSystemMedicalRecordsOffice = ({
   title,
@@ -27,6 +28,7 @@ export const VamcSystemMedicalRecordsOffice = ({
   services,
   getRecordsMailOrFaxContent,
   vamcMedRecordsMailing,
+  faxNumber,
   lovellVariant,
   lovellSwitchPath,
 }: FormattedVamcSystemMedicalRecordsOffice) => {
@@ -87,10 +89,16 @@ export const VamcSystemMedicalRecordsOffice = ({
         )}
 
         <Wysiwyg {...getRecordsMailOrFaxContent} />
-        <p>
-          <b>Mail your signed form to</b>
-        </p>
+        <h3>Mail your signed form to</h3>
         <Address address={vamcMedRecordsMailing} showDirections={false} />
+        {faxNumber && (
+          <PhoneNumber
+            number={faxNumber}
+            phoneType="fax"
+            label="Fax your signed form to"
+            treatment="h3"
+          />
+        )}
 
         <Wysiwyg {...howWeShareRecordsContent} />
 
