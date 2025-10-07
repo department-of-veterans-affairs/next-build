@@ -171,6 +171,10 @@ export const formatter: QueryFormatter<
       normalizeEntityFetchedParagraphs(entity.field_cc_related_links)
     ),
     services: formattedServices,
+    getRecordsMailOrFaxContent: formatCcWysiwyg(
+      entity.field_cc_get_records_mail_or_fax
+    ),
+    vamcMedRecordsMailing: entity.field_vamc_med_records_mailing,
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(

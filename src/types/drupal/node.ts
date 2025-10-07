@@ -485,10 +485,11 @@ export interface NodeVamcSystemMedicalRecordsOffice extends DrupalNode {
   field_cc_react_widget: FieldCCReactWidget
   field_cc_how_we_share_records: FieldCCText
   field_cc_faqs: ParagraphCCQaSection
+  field_cc_get_records_mail_or_fax: FieldCCText
+  field_vamc_med_records_mailing: FieldAddress
 
   // field_cc_get_records_in_person?: FieldCCText
   // field_cc_get_records_mail_or_fax?: FieldCCText
-  // field_vamc_med_records_mailing?: FieldAddress
   // field_fax_number?: string
 }
 

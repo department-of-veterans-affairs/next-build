@@ -25,6 +25,8 @@ export const VamcSystemMedicalRecordsOffice = ({
   reactWidget,
   relatedLinks,
   services,
+  getRecordsMailOrFaxContent,
+  vamcMedRecordsMailing,
   lovellVariant,
   lovellSwitchPath,
 }: FormattedVamcSystemMedicalRecordsOffice) => {
@@ -84,18 +86,20 @@ export const VamcSystemMedicalRecordsOffice = ({
           </>
         )}
 
+        <Wysiwyg {...getRecordsMailOrFaxContent} />
+
+        {vamcMedRecordsMailing && (
+          <>
+            <p>
+              <b>Mail your signed form to</b>
+            </p>
+            <Address address={vamcMedRecordsMailing} showDirections={false} />
+          </>
+        )}
+
         <Wysiwyg {...howWeShareRecordsContent} />
 
         <QaSection {...faqsContent} />
-
-        {/* TODO: Add centralized content sections from medical records template
-              - fieldCcGetRecordsMailOrFax
-            */}
-
-        {/* TODO: Add individual node fields from medical records template
-              - fieldVamcMedRecordsMailing (mailing address)
-              - fieldFaxNumber (fax number)
-            */}
 
         <div className="va-nav-linkslist va-nav-linkslist--related">
           <ListOfLinkTeasers {...relatedLinks} />
