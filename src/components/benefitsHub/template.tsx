@@ -1,12 +1,13 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
+import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
 
-type BenefitsHubProps = {
-  title: string
-  titleIcon?: string
-}
+export function BenefitsHub({
+  title,
+  titleIcon,
+  fieldIntroText,
+}: FormattedBenefitsHub) {
+  const iconConfig = getHubIcon(titleIcon)
 
-export function BenefitsHub({ title, titleIcon }: BenefitsHubProps) {
-  const iconConfig = getHubIcon(titleIcon, '3')
   return (
     <div id="content" className="interior" data-template="layouts/landing_page">
       <main>
@@ -28,6 +29,9 @@ export function BenefitsHub({ title, titleIcon }: BenefitsHubProps) {
             ) : (
               <h1>{title}</h1>
             )}
+            <div className="va-introtext">
+              <p>{fieldIntroText}</p>
+            </div>
           </article>
         </div>
       </main>
