@@ -97,16 +97,22 @@ export const formatter: QueryFormatter<
   VamcSystemDetailPageData,
   VamcSystemDetailPage
 > = ({ entity, menu, lovell, hasLovellCounterpart }) => {
+  // For this particular content type, which can be bifurcated, the entity path doesn't
+  // always match the path of the page; it could be the opposite Lovell variant's path.
+  const normalizedPath = lovell?.isLovellVariantPage
+    ? getLovellVariantOfUrl(entity.path.alias, lovell.variant)
+    : entity.path.alias
+
   return {
     ...entityBaseFields(entity),
     breadcrumbs: lovell?.isLovellVariantPage
       ? getLovellVariantOfBreadcrumbs(entity.breadcrumbs, lovell.variant)
       : entity.breadcrumbs,
     title: entity.title,
-    path: entity.path.alias,
+    path: normalizedPath,
     introText: entity.field_intro_text,
     showTableOfContents: entity.field_table_of_contents_boolean,
-    menu: buildSideNavDataFromMenu(entity.path.alias, menu),
+    menu: buildSideNavDataFromMenu(normalizedPath, menu),
     administration: formatAdministration(entity.field_administration),
     vamcEhrSystem: entity.field_office?.field_vamc_ehr_system || null,
     vamcSystem: {
@@ -118,7 +124,7 @@ export const formatter: QueryFormatter<
     lovellVariant: lovell?.variant ?? null,
     lovellSwitchPath: lovell?.isLovellVariantPage
       ? getLovellVariantOfUrl(
-          entity.path.alias,
+          normalizedPath,
           getOppositeChildVariant(lovell?.variant)
         )
       : null,
