@@ -71,13 +71,11 @@ const hubIcons: Record<string, HubIconData> = {
  * Gets hub icon configuration for styling va-icon web component
  *
  * @param titleIcon - The hub key from the CMS (e.g. "disability", "health-care")
- * @param iconSize - Size of the icon (default: "3")
  * @param additionalClasses - Additional CSS classes to apply
  * @returns Configuration object for the styled hub icon, or null if no mapping exists
  */
 export function getHubIcon(
   titleIcon?: string,
-  iconSize: string = '3',
   additionalClasses: string = ''
 ): HubIconConfig | null {
   if (!titleIcon) return null
@@ -85,23 +83,22 @@ export function getHubIcon(
   const hubData = hubIcons[titleIcon]
   if (!hubData) return null
 
+  const baseClasses = [
+    'hub-icon',
+    'vads-u-color--white',
+    `vads-u-background-color--${hubData.backgroundColor}`,
+    'vads-u-display--flex',
+    'vads-u-align-items--center',
+    'vads-u-justify-content--center',
+  ]
+
+  const className = additionalClasses
+    ? `${baseClasses.join(' ')} ${additionalClasses}`
+    : baseClasses.join(' ')
+
   return {
     icon: hubData.icon,
     backgroundColor: hubData.backgroundColor,
-    className:
-      `hub-icon vads-u-color--white vads-u-background-color--${hubData.backgroundColor} vads-u-display--flex vads-u-align-items--center vads-u-justify-content--center ${additionalClasses}`.trim(),
+    className,
   }
-}
-
-/**
- * Legacy function - Maps hub key to va-icon icon names only
- * @deprecated Use getHubIcon() instead for full styling support
- */
-export function getHubIconName(titleIcon?: string): string | null {
-  if (!titleIcon) return null
-
-  const hubData = hubIcons[titleIcon]
-  if (!hubData) return null
-
-  return hubData.icon
 }

@@ -2,11 +2,11 @@
  * @jest-environment node
  */
 
-import { getHubIcon, getHubIconName } from './benefitsHub'
+import { getHubIcon } from './benefitsHub'
 
 describe('getHubIcon', () => {
   test('returns correct icon configuration for valid hub keys', () => {
-    const healthCareIcon = getHubIcon('health-care', '3')
+    const healthCareIcon = getHubIcon('health-care', '')
     expect(healthCareIcon).toEqual({
       icon: 'medical_services',
       backgroundColor: 'hub-health-care',
@@ -24,7 +24,7 @@ describe('getHubIcon', () => {
   })
 
   test('includes additional classes when provided', () => {
-    const icon = getHubIcon('education', '2', 'custom-class another-class')
+    const icon = getHubIcon('education', 'custom-class another-class')
     expect(icon?.className).toContain('custom-class another-class')
   })
 
@@ -43,27 +43,5 @@ describe('getHubIcon', () => {
     const icon = getHubIcon('housing')
     expect(icon).toBeTruthy()
     // Icon size is not in the returned config, it's passed to the component
-  })
-})
-
-describe('getHubIconName (legacy)', () => {
-  test('returns correct icon name for valid hub keys', () => {
-    expect(getHubIconName('health-care')).toBe('medical_services')
-    expect(getHubIconName('disability')).toBe('description')
-    expect(getHubIconName('education')).toBe('school')
-    expect(getHubIconName('records')).toBe('identification')
-    expect(getHubIconName('careers')).toBe('work')
-    expect(getHubIconName('pension')).toBe('handshake')
-    expect(getHubIconName('housing')).toBe('home')
-    expect(getHubIconName('life-insurance')).toBe('shield')
-    expect(getHubIconName('burials')).toBe('star')
-    expect(getHubIconName('family-member')).toBe('groups')
-    expect(getHubIconName('service-member')).toBe('flag')
-  })
-
-  test('returns null for invalid hub keys', () => {
-    expect(getHubIconName('Invalid Type')).toBe(null)
-    expect(getHubIconName('random text')).toBe(null)
-    expect(getHubIconName('Health care')).toBe(null) // expects hub key, not display name
   })
 })
