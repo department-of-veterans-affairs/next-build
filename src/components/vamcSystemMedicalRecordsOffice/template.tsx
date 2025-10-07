@@ -87,15 +87,10 @@ export const VamcSystemMedicalRecordsOffice = ({
         )}
 
         <Wysiwyg {...getRecordsMailOrFaxContent} />
-
-        {vamcMedRecordsMailing && (
-          <>
-            <p>
-              <b>Mail your signed form to</b>
-            </p>
-            <Address address={vamcMedRecordsMailing} showDirections={false} />
-          </>
-        )}
+        <p>
+          <b>Mail your signed form to</b>
+        </p>
+        <Address address={vamcMedRecordsMailing} showDirections={false} />
 
         <Wysiwyg {...howWeShareRecordsContent} />
 
