@@ -23,6 +23,7 @@ import {
   getLovellVariantOfUrl,
   getOppositeChildVariant,
 } from '@/lib/drupal/lovell/utils'
+import { getHeadingIdDeduper } from '@/lib/utils/headingIdDeduper'
 
 // Define the query params for fetching node--vamc_system_policies_page.
 export const params: QueryParams<null> = () => {
@@ -81,8 +82,17 @@ export const formatter: QueryFormatter<
     breadcrumbs = getLovellVariantOfBreadcrumbs(breadcrumbs, lovell.variant)
   }
 
-  const formatCcWysiwyg = (field: FieldCCText) =>
-    formatParagraph(normalizeEntityFetchedParagraphs(field)) as Wysiwyg
+  const headingIdDeduper = getHeadingIdDeduper()
+
+  const formatCcWysiwyg = (field: FieldCCText) => {
+    const formattedField = formatParagraph(
+      normalizeEntityFetchedParagraphs(field)
+    ) as Wysiwyg
+    return {
+      ...formattedField,
+      html: headingIdDeduper(formattedField.html),
+    }
+  }
 
   const formattedMenu = buildSideNavDataFromMenu(entity.path.alias, menu)
 
