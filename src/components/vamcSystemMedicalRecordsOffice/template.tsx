@@ -97,6 +97,7 @@ export const VamcSystemMedicalRecordsOffice = ({
             phoneType="fax"
             label="Fax your signed form to"
             treatment="h3"
+            testId="fax-number"
           />
         )}
 
