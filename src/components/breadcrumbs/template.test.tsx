@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Breadcrumbs from './template'
+import { RESOURCE_TYPES } from '@/lib/constants/resourceTypes'
 
 describe('<Breadcrumbs />', () => {
   const defaultProps = {
@@ -83,5 +84,32 @@ describe('<Breadcrumbs />', () => {
       <Breadcrumbs breadcrumbs={breadcrumbsWithInvalid} />
     )
     expect(queryByText('Invalid')).not.toBeInTheDocument()
+  })
+
+  it('should add page title as final breadcrumb using deriveLastBreadcrumbFromPath logic', () => {
+    const breadcrumbs = [
+      { uri: '/', title: 'Home', options: [] },
+      { uri: '/health-care', title: 'Health care', options: [] },
+    ]
+
+    // Test using deriveBreadcrumbsFromUrl which uses the same logic as BenefitsHub
+    const { container } = render(
+      <Breadcrumbs
+        breadcrumbs={breadcrumbs}
+        entityPath="/health-care"
+        deriveBreadcrumbsFromUrl={true}
+        breadcrumbTitle="VA health care"
+      />
+    )
+
+    // Should include the page title as final breadcrumb
+    const breadcrumbsJson = container
+      .querySelector('va-breadcrumbs')
+      ?.getAttribute('breadcrumb-list')
+    expect(breadcrumbsJson).toBeTruthy()
+
+    const parsedBreadcrumbs = JSON.parse(breadcrumbsJson || '[]')
+    expect(parsedBreadcrumbs).toHaveLength(3)
+    expect(parsedBreadcrumbs[2].label).toBe('VA health care')
   })
 })
