@@ -78,3 +78,4 @@ logs/
 
 # link checker
 lychee-pages/*
+scripts/tools/*
