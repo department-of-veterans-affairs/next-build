@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-08T14:49:09.428Z",
+  "generated_at": "2025-10-08T21:36:50.116Z",
   "pages": [
     {
       "page": "https://www.va.gov/milwaukee-health-care/stories/milwaukee-va-marks-hanukkah-with-menorah-lighting-ceremony/",
@@ -25,6 +25,17 @@
         {
           "page": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
           "page_title": "",
+          "url": "https://www.epilepsy.com/manage/tracking/seizure-diaries",
+          "status_text": "Rejected status code (this depends on your \"accept\" configuration)",
+          "code": 403,
+          "final_url": "https://www.epilepsy.com/manage/tracking/seizure-diaries",
+          "response_time_ms": "",
+          "notes": "",
+          "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/"
+        },
+        {
+          "page": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
+          "page_title": "",
           "url": "https://www.epilepsy.com/",
           "status_text": "Rejected status code (this depends on your \"accept\" configuration)",
           "code": 403,
@@ -40,17 +51,6 @@
           "status_text": "Rejected status code (this depends on your \"accept\" configuration)",
           "code": 403,
           "final_url": "https://www.epilepsy.com/lifestyle/driving-and-transportation/laws",
-          "response_time_ms": "",
-          "notes": "",
-          "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/"
-        },
-        {
-          "page": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
-          "page_title": "",
-          "url": "https://www.epilepsy.com/manage/tracking/seizure-diaries",
-          "status_text": "Rejected status code (this depends on your \"accept\" configuration)",
-          "code": 403,
-          "final_url": "https://www.epilepsy.com/manage/tracking/seizure-diaries",
           "response_time_ms": "",
           "notes": "",
           "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/"
@@ -92,6 +92,23 @@
       ]
     },
     {
+      "page": "https://www.va.gov/hines-health-care/news-releases/hines-va-begins-covid-19-vaccinations-for-department-of-homeland-security/",
+      "title": "",
+      "broken": [
+        {
+          "page": "https://www.va.gov/hines-health-care/news-releases/hines-va-begins-covid-19-vaccinations-for-department-of-homeland-security/",
+          "page_title": "",
+          "url": "https://uscode.house.gov/view.xhtml?req=%28title%3A31%20section%3A1535%20edition%3Aprelim%29",
+          "status_text": "Timeout",
+          "code": "",
+          "final_url": "https://uscode.house.gov/view.xhtml?req=%28title%3A31%20section%3A1535%20edition%3Aprelim%29",
+          "response_time_ms": "",
+          "notes": "",
+          "parent_from_error_map": "https://www.va.gov/hines-health-care/news-releases/hines-va-begins-covid-19-vaccinations-for-department-of-homeland-security/"
+        }
+      ]
+    },
+    {
       "page": "https://www.va.gov/puget-sound-health-care/health-services/",
       "title": "",
       "broken": [
@@ -115,10 +132,10 @@
         {
           "page": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/",
           "page_title": "",
-          "url": "https://exclusions.oig.hhs.gov/",
-          "status_text": "Too many redirects",
-          "code": "",
-          "final_url": "https://exclusions.oig.hhs.gov/",
+          "url": "https://www.cdc.gov/tb/topic/testing/healthcareworkers.htm",
+          "status_text": "Rejected status code (this depends on your \"accept\" configuration)",
+          "code": 404,
+          "final_url": "https://www.cdc.gov/tb/topic/testing/healthcareworkers.htm",
           "response_time_ms": "",
           "notes": "",
           "parent_from_error_map": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/"
@@ -126,10 +143,10 @@
         {
           "page": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/",
           "page_title": "",
-          "url": "https://www.cdc.gov/tb/topic/testing/healthcareworkers.htm",
-          "status_text": "Rejected status code (this depends on your \"accept\" configuration)",
-          "code": 404,
-          "final_url": "https://www.cdc.gov/tb/topic/testing/healthcareworkers.htm",
+          "url": "https://exclusions.oig.hhs.gov/",
+          "status_text": "Too many redirects",
+          "code": "",
+          "final_url": "https://exclusions.oig.hhs.gov/",
           "response_time_ms": "",
           "notes": "",
           "parent_from_error_map": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/"

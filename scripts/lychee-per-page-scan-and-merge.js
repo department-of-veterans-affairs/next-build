@@ -38,10 +38,6 @@ for (let i = 0; i < urls.length; i++) {
   const url = urls[i]
   const name = safeName(url)
   const outPath = path.join(OUT_DIR, `lychee-${name}.json`)
-  if (fs.existsSync(outPath)) {
-    console.log(`[${i + 1}/${urls.length}] Skipping (exists): ${url}`)
-    continue
-  }
   // Run lychee and capture JSON on stdout. Write per-page file only if there are failures.
   const args = [url, '--format', 'json']
   const res = spawnSync('lychee', args, {
@@ -79,7 +75,9 @@ for (let i = 0; i < urls.length; i++) {
     (parsed.error_map && Object.keys(parsed.error_map).length > 0)
 
   if (hasErrors) {
-    fs.writeFileSync(outPath, stdout, 'utf8')
+    // ensure the page URL is recorded inside the per-page JSON for later merging
+    if (!parsed.page_url) parsed.page_url = url
+    fs.writeFileSync(outPath, JSON.stringify(parsed, null, 2), 'utf8')
     console.log(`Wrote failures to ${outPath}`)
   } else {
     console.log(`No failures for ${url} — skipping file write`)
@@ -131,19 +129,6 @@ for (const f of files) {
       links = errorEntries
     }
 
-    // fallback: if we didn't find pageUrl, try to decode from filename (base64url)
-    if (!pageUrl) {
-      const b = f.replace(/^lychee-/, '').replace(/\.json$/, '')
-      try {
-        pageUrl = Buffer.from(
-          b.replace(/-/g, '+').replace(/_/g, '/'),
-          'base64'
-        ).toString('utf8')
-      } catch (e) {
-        pageUrl = `unknown:${f}`
-      }
-    }
-
     // collect broken links for this page
     const broken = []
     for (const l of links || []) {
@@ -169,7 +154,8 @@ for (const f of files) {
         (!statusCode && statusText && !statusText.match(/^OK|^2/))
       if (isBroken) {
         broken.push({
-          page: pageUrl,
+          // prefer the explicit parent recorded by the per-page error_map; fall back to pageUrl
+          page: l._parent_page || pageUrl,
           page_title: pageTitle || '',
           url: linkUrl,
           status_text: statusText || '',
@@ -183,8 +169,13 @@ for (const f of files) {
       }
     }
 
-    if (broken.length > 0)
-      combined.push({ page: pageUrl, title: pageTitle || '', broken })
+    if (broken.length > 0) {
+      // compute a sensible page value for the combined JSON:
+      // prefer pageUrl, otherwise take parent_from_error_map from the first broken entry
+      const pageForCombined =
+        pageUrl || (broken[0] && broken[0].parent_from_error_map) || null
+      combined.push({ page: pageForCombined, title: pageTitle || '', broken })
+    }
   } catch (e) {
     console.warn('Failed to parse', p, e.message)
   }
@@ -218,7 +209,8 @@ for (const page of combined) {
   for (const b of page.broken) {
     const row = [
       `"${String(page.title || '').replace(/"/g, '""')}"`,
-      `"${String(b.page).replace(/"/g, '""')}"`,
+      // use parent_from_error_map when present as the authoritative page path
+      `"${String(b.parent_from_error_map || b.page || '').replace(/"/g, '""')}"`,
       `"${String(b.url || '').replace(/"/g, '""')}"`,
       `""`, // link_text not provided by lychee (you can augment later)
       `"${String(b.status_text || '').replace(/"/g, '""')}"`,
