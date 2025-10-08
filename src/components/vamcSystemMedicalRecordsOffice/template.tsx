@@ -1,15 +1,16 @@
 import { Fragment } from 'react'
 import { VamcSystemMedicalRecordsOffice as FormattedVamcSystemMedicalRecordsOffice } from './formatted-type'
-import { ContentFooter } from '../contentFooter/template'
-import { Wysiwyg } from '../wysiwyg/template'
-import { ListOfLinkTeasers } from '../listOfLinkTeasers/template'
+import { ContentFooter } from '@/components/contentFooter/template'
+import { Wysiwyg } from '@/components/wysiwyg/template'
+import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 import {
   ServiceLocation,
   ServiceLocationType,
-} from '../serviceLocation/template'
+} from '@/components/serviceLocation/template'
 import { Address } from '@/components/address/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
+import { ReactWidget } from '@/components/reactWidget/template'
 
 export const VamcSystemMedicalRecordsOffice = ({
   title,
@@ -18,7 +19,8 @@ export const VamcSystemMedicalRecordsOffice = ({
   menu,
   topOfPageContent,
   getRecordsInPersonContent,
-  bottomOfPageContent,
+  howWeShareRecordsContent,
+  reactWidget,
   relatedLinks,
   services,
   lovellVariant,
@@ -49,6 +51,8 @@ export const VamcSystemMedicalRecordsOffice = ({
           <Wysiwyg {...topOfPageContent} />
         </div>
 
+        <ReactWidget {...reactWidget} />
+
         <div className="usa-content">
           <Wysiwyg {...getRecordsInPersonContent} />
         </div>
@@ -78,9 +82,10 @@ export const VamcSystemMedicalRecordsOffice = ({
           </>
         )}
 
+        <Wysiwyg {...howWeShareRecordsContent} />
+
         {/* TODO: Add centralized content sections from medical records template
               - fieldCcGetRecordsMailOrFax
-              - fieldCcHowWeShareRecords
               - fieldCcFaqs
             */}
 
@@ -89,9 +94,6 @@ export const VamcSystemMedicalRecordsOffice = ({
               - fieldFaxNumber (fax number)
             */}
 
-        <Wysiwyg {...bottomOfPageContent} />
-
-        {/* TODO: Related links */}
         <div className="va-nav-linkslist va-nav-linkslist--related">
           <ListOfLinkTeasers {...relatedLinks} />
         </div>

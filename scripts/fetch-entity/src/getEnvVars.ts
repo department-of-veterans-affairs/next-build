@@ -7,6 +7,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import dotenv from 'dotenv'
 import dotenvExpand from 'dotenv-expand'
+import path from 'path'
 
 export type EnvVars = {
   [key: string]: string
@@ -14,9 +15,10 @@ export type EnvVars = {
 
 export const getEnvFileVars = (): EnvVars => {
   const envVars = {}
+  const __dirname = new URL('.', import.meta.url).pathname
   dotenvExpand.expand(
     dotenv.config({
-      path: 'envs/.env.local',
+      path: path.join(__dirname, '../../../envs/.env.local'),
       override: true,
       processEnv: envVars,
     })

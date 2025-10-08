@@ -13,8 +13,9 @@ add the following to your MCP server settings in `.vscode/mcp.json`:
   "servers": {
     "template-migration-mcp-server": {
       "type": "stdio",
-      "command": "node",
+      "command": "npx",
       "args": [
+        "tsx",
         "${workspaceFolder}/packages/template-migration-mcp-server/src/server.ts"
       ],
       "envFile": "${workspaceFolder}/envs/.env.local"
@@ -25,7 +26,7 @@ add the following to your MCP server settings in `.vscode/mcp.json`:
 
 Other MCP clients will have similar configuration, but you likely won't be able
 to use the `${workspaceFolder}` variable, which is a [VS Code-specific
-feature](https://code.visualstudio.com/docs/reference/variables-reference).
+feature](https://code.visualstudio.com/docs/reference/variables-reference). If your tool does not support the `${workspaceFolder}` part, you may need to make this an absolute path.
 
 ### Usage
 
