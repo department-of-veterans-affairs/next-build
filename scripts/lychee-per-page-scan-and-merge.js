@@ -1,54 +1,7 @@
 /* eslint-disable no-console */
-import fs, { link } from 'fs'
+import fs from 'fs'
 import path from 'path'
 import { spawnSync } from 'child_process'
-
-// --- fetch parent HTML (global fetch only) + extract anchor text ---
-const parentHtmlCache = new Map()
-async function fetchParentHtml(url) {
-  if (parentHtmlCache.has(url)) return parentHtmlCache.get(url)
-  try {
-    const res = await fetch(url, { redirect: 'follow' })
-    const text = await res.text()
-    parentHtmlCache.set(url, text)
-    return text
-  } catch (e) {
-    parentHtmlCache.set(url, null)
-    return null
-  }
-}
-
-async function extractAnchorTextFromHtml(html, parentUrl, targetUrl) {
-  if (!html) return ''
-  // try cheerio if available
-  const mod = await import('cheerio').catch(() => null)
-  const cheerio = mod && (mod.default || mod)
-  if (cheerio) {
-    const $ = cheerio.load(html)
-    for (const a of $('a[href]').toArray()) {
-      const raw = $(a).attr('href') || ''
-      let resolved = raw
-      try { resolved = new URL(raw, parentUrl).toString() } catch (_) {}
-      if (
-        resolved === targetUrl ||
-        resolved.replace(/\/$/, '') === String(targetUrl).replace(/\/$/, '') ||
-        String(targetUrl).includes(resolved) ||
-        resolved.includes(String(targetUrl))
-      ) {
-        return $(a).text().trim()
-      }
-    }
-    return ''
-  }
-  // regex fallback (best-effort)
-  try {
-    const esc = String(targetUrl).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const re = new RegExp(`<a[^>]*href=["']([^"']*${esc}[^"']*)["'][^>]*>([\\s\\S]*?)<\\/a>`, 'i')
-    const m = html.match(re)
-    if (m) return m[2].replace(/<[^>]+>/g, '').trim()
-  } catch (_) {}
-  return ''
-}
 
 const URLS_TXT = path.resolve('./urls.txt')
 const OUT_DIR = path.resolve('./lychee-pages')
@@ -132,19 +85,17 @@ for (let i = 0; i < urls.length; i++) {
 }
 
 // combine per-page outputs
-// combine per-page outputs (async so we can await fetchParentHtml)
-;(async function combineAndAugment() {
-  const files = fs.readdirSync(OUT_DIR).filter((f) => f.endsWith('.json'))
-  const combined = []
-  for (const f of files) {
-    const p = path.join(OUT_DIR, f)
-    try {
-      const raw = fs.readFileSync(p, 'utf8')
-      const json = JSON.parse(raw)
-      // deduce page URL / title / links shape (handle .links or .error_map forms)
-      let pageUrl = json.page_url || json.url || json.page || null
-      let pageTitle = json.title || ''
-      let links = []
+const files = fs.readdirSync(OUT_DIR).filter((f) => f.endsWith('.json'))
+const combined = []
+for (const f of files) {
+  const p = path.join(OUT_DIR, f)
+  try {
+    const raw = fs.readFileSync(p, 'utf8')
+    const json = JSON.parse(raw)
+    // deduce page URL / title / links shape (handle .links or .error_map forms)
+    let pageUrl = json.page_url || json.url || json.page || null
+    let pageTitle = json.title || ''
+    let links = []
 
     if (Array.isArray(json)) {
       // array of page objects: flatten entry.links / entry.results
@@ -214,33 +165,17 @@ for (let i = 0; i < urls.length; i++) {
           notes: l.error || l.reason || '',
           // if this row came from error_map include the exact parent page key
           parent_from_error_map: l._parent_page || undefined,
-          link_text: '', // to be filled in below
         })
       }
     }
 
     if (broken.length > 0) {
-      // gather unique parents to minimize requests
-        const parents = {}
-        for (const br of broken) {
-          const parentKey = br.parent_from_error_map || br.page
-          if (!parents[parentKey]) parents[parentKey] = []
-          parents[parentKey].push(br)
-        }
-        for (const [parentUrlKey, rows] of Object.entries(parents)) {
-          const html = await fetchParentHtml(parentUrlKey)
-          if (!html) continue
-          for (const r of rows) {
-            const txt = await extractAnchorTextFromHtml(html, parentUrlKey, r.url)
-            if (txt) r.link_text = txt
-          }
-        }
-        // compute combined page value (prefer pageUrl, otherwise first parent_from_error_map)
-        const pageForCombined =
-          pageUrl || (broken[0] && broken[0].parent_from_error_map) || null
-        combined.push({ page: pageForCombined, title: pageTitle || '', broken })
-      }
-      // -- end inserted block
+      // compute a sensible page value for the combined JSON:
+      // prefer pageUrl, otherwise take parent_from_error_map from the first broken entry
+      const pageForCombined =
+        pageUrl || (broken[0] && broken[0].parent_from_error_map) || null
+      combined.push({ page: pageForCombined, title: pageTitle || '', broken })
+    }
   } catch (e) {
     console.warn('Failed to parse', p, e.message)
   }
@@ -277,7 +212,7 @@ for (const page of combined) {
       // use parent_from_error_map when present as the authoritative page path
       `"${String(b.parent_from_error_map || b.page || '').replace(/"/g, '""')}"`,
       `"${String(b.url || '').replace(/"/g, '""')}"`,
-      `"${String(b.link_text || '').replace(/"/g, '""')}"`,
+      `""`, // link_text not provided by lychee (you can augment later)
       `"${String(b.status_text || '').replace(/"/g, '""')}"`,
       `"${String(b.final_url || '').replace(/"/g, '""')}"`,
       `"${String(b.response_time_ms || '').replace(/"/g, '""')}"`,
@@ -288,5 +223,5 @@ for (const page of combined) {
 }
 fs.writeFileSync(COMBINED_CSV, lines.join('\n'), 'utf8')
 console.log('Wrote CSV:', COMBINED_CSV)
-})()
+
 console.log('Done.')

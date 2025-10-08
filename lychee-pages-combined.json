@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-08T22:32:02.931Z",
+  "generated_at": "2025-10-08T21:36:50.116Z",
   "pages": [
     {
       "page": "https://www.va.gov/milwaukee-health-care/stories/milwaukee-va-marks-hanukkah-with-menorah-lighting-ceremony/",
@@ -14,8 +14,7 @@
           "final_url": "https://www.nytimes.com/2017/12/12/opinion/happy-hanukkah-candles-swastikas.html",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/milwaukee-health-care/stories/milwaukee-va-marks-hanukkah-with-menorah-lighting-ceremony/",
-          "link_text": "famous photo taken by Rachel Posner in Germany in 1931"
+          "parent_from_error_map": "https://www.va.gov/milwaukee-health-care/stories/milwaukee-va-marks-hanukkah-with-menorah-lighting-ceremony/"
         }
       ]
     },
@@ -26,14 +25,13 @@
         {
           "page": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
           "page_title": "",
-          "url": "https://www.epilepsy.com/lifestyle/driving-and-transportation/laws",
+          "url": "https://www.epilepsy.com/manage/tracking/seizure-diaries",
           "status_text": "Rejected status code (this depends on your \"accept\" configuration)",
           "code": 403,
-          "final_url": "https://www.epilepsy.com/lifestyle/driving-and-transportation/laws",
+          "final_url": "https://www.epilepsy.com/manage/tracking/seizure-diaries",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
-          "link_text": "Epilepsy Foundation"
+          "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/"
         },
         {
           "page": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
@@ -44,20 +42,18 @@
           "final_url": "https://www.epilepsy.com/",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
-          "link_text": "Epilepsy Foundation"
+          "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/"
         },
         {
           "page": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
           "page_title": "",
-          "url": "https://www.epilepsy.com/manage/tracking/seizure-diaries",
+          "url": "https://www.epilepsy.com/lifestyle/driving-and-transportation/laws",
           "status_text": "Rejected status code (this depends on your \"accept\" configuration)",
           "code": 403,
-          "final_url": "https://www.epilepsy.com/manage/tracking/seizure-diaries",
+          "final_url": "https://www.epilepsy.com/lifestyle/driving-and-transportation/laws",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/",
-          "link_text": "Epilepsy Foundation"
+          "parent_from_error_map": "https://www.va.gov/minneapolis-health-care/programs/va-epilepsy-center-of-excellence/"
         }
       ]
     },
@@ -74,8 +70,7 @@
           "final_url": "https://gcc02.safelinks.protection.outlook.com/?url=https%3A//vets.force.com/VAVERA/s/&data=05%7C01%7C%7C38e401fea8d147050faa08dae9c4767f%7Ce95f1b23abaf45ee821db7ab251ab3bf%7C0%7C0%7C638079327251844786%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=zaFU3W275eEUPvPIJ3UXpfJr49GzC0tgmdMaNdKa6%2Bs%3D&reserved=0",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/birmingham-health-care/stories/birmingham-va-pact-act-open-house-provides-information-toxic-exposure-screening-to-veterans/",
-          "link_text": "https://vets.force.com/VAVERA/s/"
+          "parent_from_error_map": "https://www.va.gov/birmingham-health-care/stories/birmingham-va-pact-act-open-house-provides-information-toxic-exposure-screening-to-veterans/"
         }
       ]
     },
@@ -92,8 +87,7 @@
           "final_url": "https://www.nuecesco.com/county-services/veterans-services",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/corpus-christi-vet-center/",
-          "link_text": "Veterans Services"
+          "parent_from_error_map": "https://www.va.gov/corpus-christi-vet-center/"
         }
       ]
     },
@@ -110,8 +104,7 @@
           "final_url": "https://uscode.house.gov/view.xhtml?req=%28title%3A31%20section%3A1535%20edition%3Aprelim%29",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/hines-health-care/news-releases/hines-va-begins-covid-19-vaccinations-for-department-of-homeland-security/",
-          "link_text": "Economy Act"
+          "parent_from_error_map": "https://www.va.gov/hines-health-care/news-releases/hines-va-begins-covid-19-vaccinations-for-department-of-homeland-security/"
         }
       ]
     },
@@ -128,8 +121,7 @@
           "final_url": "https://www.sci.va.gov/Why_Choose_VA.asp",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/puget-sound-health-care/health-services/",
-          "link_text": "Why choose VA's spinal cord injuries and disorders for care?"
+          "parent_from_error_map": "https://www.va.gov/puget-sound-health-care/health-services/"
         }
       ]
     },
@@ -146,8 +138,7 @@
           "final_url": "https://www.cdc.gov/tb/topic/testing/healthcareworkers.htm",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/",
-          "link_text": "CDC health care personnel guidelines"
+          "parent_from_error_map": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/"
         },
         {
           "page": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/",
@@ -158,8 +149,7 @@
           "final_url": "https://exclusions.oig.hhs.gov/",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/",
-          "link_text": "List of Excluded Individuals and Entities (LEIE)"
+          "parent_from_error_map": "https://www.va.gov/puget-sound-health-care/work-with-us/internships-and-fellowships/mental-health-nurse-practitioner-residency/"
         }
       ]
     },
@@ -176,8 +166,7 @@
           "final_url": "https://rainn.org/about-national-sexual-assault-online-hotline",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/pacific-islands-health-care/stories/directors-message-october-13-2023/",
-          "link_text": "Sexual Assault Hotline"
+          "parent_from_error_map": "https://www.va.gov/pacific-islands-health-care/stories/directors-message-october-13-2023/"
         }
       ]
     },
@@ -194,8 +183,7 @@
           "final_url": "https://www.va.gov/portland-health-care/programs/covid-19-vaccines",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/portland-health-care/programs/covid-19-vaccines/visitor-policy-for-va-portland-health-care-system/",
-          "link_text": "Skip to Content"
+          "parent_from_error_map": "https://www.va.gov/portland-health-care/programs/covid-19-vaccines/visitor-policy-for-va-portland-health-care-system/"
         }
       ]
     },
@@ -212,8 +200,7 @@
           "final_url": "https://www.va.gov/osdbu/about/contacts.asp#sbl",
           "response_time_ms": "",
           "notes": "",
-          "parent_from_error_map": "https://www.va.gov/spokane-health-care/work-with-us/",
-          "link_text": ""
+          "parent_from_error_map": "https://www.va.gov/spokane-health-care/work-with-us/"
         }
       ]
     }
