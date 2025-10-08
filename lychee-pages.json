@@ -1,0 +1,90 @@
+{
+  "total": 24294,
+  "successful": 24284,
+  "unknown": 0,
+  "unsupported": 0,
+  "timeouts": 0,
+  "redirects": 0,
+  "excludes": 0,
+  "errors": 10,
+  "cached": 0,
+  "success_map": {},
+  "error_map": {
+    "urls.txt": [
+      {
+        "url": "https://www.va.gov/north-texas-health-care/locations/dallas-va-medical-center/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://www.va.gov/north-texas-health-care/locations/dallas-va-medical-center/) Maybe a certificate error?"
+        }
+      },
+      {
+        "url": "https://www.va.gov/san-francisco-health-care/work-with-us/internships-and-fellowships/gpr-how-to-apply/overview/",
+        "status": {
+          "text": "Rejected status code (this depends on your \"accept\" configuration)",
+          "code": 404
+        }
+      },
+      {
+        "url": "https://www.va.gov/fargo-vet-center/locations/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://www.va.gov/fargo-vet-center/locations/) Maybe a certificate error?"
+        }
+      },
+      {
+        "url": "https://www.va.gov/hines-health-care/news-releases/new-nation-wide-veterans-crisis-line-number-begins-july-16-988-and-press-1/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://www.va.gov/hines-health-care/news-releases/new-nation-wide-veterans-crisis-line-number-begins-july-16-988-and-press-1/) Maybe a certificate error?"
+        }
+      },
+      {
+        "url": "https://www.va.gov/milwaukee-health-care/stories/filling-a-need-milwaukee-va-progressive-care-unit-marks-10-year-anniversary/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://www.va.gov/milwaukee-health-care/stories/filling-a-need-milwaukee-va-progressive-care-unit-marks-10-year-anniversary/) Maybe a certificate error?"
+        }
+      },
+      {
+        "url": "https://www.va.gov/minneapolis-health-care/stories/a-high-standard-of-care-to-veterans/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://www.va.gov/minneapolis-health-care/stories/a-high-standard-of-care-to-veterans/) Maybe a certificate error?"
+        }
+      },
+      {
+        "url": "https://www.va.gov/white-river-junction-health-care/work-with-us/jobs-and-careers/va-white-river-junction-inpatient-ward-renovation-information/",
+        "status": {
+          "text": "Rejected status code (this depends on your \"accept\" configuration)",
+          "code": 404
+        }
+      },
+      {
+        "url": "https://www.va.gov/north-texas-health-care/work-with-us/internships-and-fellowships/pharmacy-residency-programs/pgy2-ambulatory-care-residency-program/",
+        "status": {
+          "text": "Rejected status code (this depends on your \"accept\" configuration)",
+          "code": 404
+        }
+      },
+      {
+        "url": "https://www.va.gov/fayetteville-coastal-health-care/news-releases/fayetteville-va-updates-visitation-policy-effective-january-10/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://www.va.gov/fayetteville-coastal-health-care/news-releases/fayetteville-va-updates-visitation-policy-effective-january-10/) Maybe a certificate error?"
+        }
+      },
+      {
+        "url": "https://www.va.gov/salt-lake-city-health-care/stories/supply-chain-disruptions-affecting-ct-scans-at-va-salt-lake-city-hcs/",
+        "status": {
+          "text": "Network error",
+          "details": "error sending request for url (https://www.va.gov/salt-lake-city-health-care/stories/supply-chain-disruptions-affecting-ct-scans-at-va-salt-lake-city-hcs/) Maybe a certificate error?"
+        }
+      }
+    ]
+  },
+  "suggestion_map": {},
+  "excluded_map": {},
+  "duration_secs": 141,
+  "detailed_stats": false
+}
