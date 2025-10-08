@@ -89,13 +89,14 @@ export const VamcSystemMedicalRecordsOffice = ({
         )}
 
         <Wysiwyg {...getRecordsMailOrFaxContent} />
-        <h3>Mail your signed form to</h3>
+        <h3 className="vads-u-font-size--h4">Mail your signed form to</h3>
         <Address address={vamcMedRecordsMailing} showDirections={false} />
         {faxNumber && (
           <PhoneNumber
             number={faxNumber}
             phoneType="fax"
             label="Fax your signed form to"
+            labelClassName="vads-u-font-size--h4"
             treatment="h3"
             testId="fax-number"
           />
