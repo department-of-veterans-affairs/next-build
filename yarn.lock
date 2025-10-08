@@ -5742,6 +5742,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"boolbase@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "boolbase@npm:1.0.0"
+  checksum: 3e25c80ef626c3a3487c73dbfc70ac322ec830666c9ad915d11b701142fab25ec1e63eff2c450c74347acfd2de854ccde865cd79ef4db1683f7c7b046ea43bb0
+  languageName: node
+  linkType: hard
+
 "brace-expansion@npm:^1.1.7":
   version: 1.1.11
   resolution: "brace-expansion@npm:1.1.11"
@@ -6060,6 +6067,39 @@ __metadata:
   version: 0.7.0
   resolution: "chardet@npm:0.7.0"
   checksum: 6fd5da1f5d18ff5712c1e0aed41da200d7c51c28f11b36ee3c7b483f3696dabc08927fc6b227735eb8f0e1215c9a8abd8154637f3eff8cada5959df7f58b024d
+  languageName: node
+  linkType: hard
+
+"cheerio-select@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "cheerio-select@npm:2.1.0"
+  dependencies:
+    boolbase: ^1.0.0
+    css-select: ^5.1.0
+    css-what: ^6.1.0
+    domelementtype: ^2.3.0
+    domhandler: ^5.0.3
+    domutils: ^3.0.1
+  checksum: 843d6d479922f28a6c5342c935aff1347491156814de63c585a6eb73baf7bb4185c1b4383a1195dca0f12e3946d737c7763bcef0b9544c515d905c5c44c5308b
+  languageName: node
+  linkType: hard
+
+"cheerio@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "cheerio@npm:1.1.2"
+  dependencies:
+    cheerio-select: ^2.1.0
+    dom-serializer: ^2.0.0
+    domhandler: ^5.0.3
+    domutils: ^3.2.2
+    encoding-sniffer: ^0.2.1
+    htmlparser2: ^10.0.0
+    parse5: ^7.3.0
+    parse5-htmlparser2-tree-adapter: ^7.1.0
+    parse5-parser-stream: ^7.1.2
+    undici: ^7.12.0
+    whatwg-mimetype: ^4.0.0
+  checksum: 84fec985143d81323d39f13bbe1b65ff4f934bfbfcfe586ab7674f4a54b13b3e9c6aa9b23e4a54e7147e08fafaed12f5f9bad554bb707579b3db464eeccc158f
   languageName: node
   linkType: hard
 
@@ -6598,6 +6638,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-select@npm:^5.1.0":
+  version: 5.2.2
+  resolution: "css-select@npm:5.2.2"
+  dependencies:
+    boolbase: ^1.0.0
+    css-what: ^6.1.0
+    domhandler: ^5.0.2
+    domutils: ^3.0.1
+    nth-check: ^2.0.1
+  checksum: 0ab672620c6bdfe4129dfecf202f6b90f92018b24a1a93cfbb295c24026d0163130ba4b98d7443f87246a2c1d67413798a7a5920cd102b0cfecfbc89896515aa
+  languageName: node
+  linkType: hard
+
 "css-tree@npm:^3.1.0":
   version: 3.1.0
   resolution: "css-tree@npm:3.1.0"
@@ -6605,6 +6658,13 @@ __metadata:
     mdn-data: 2.12.2
     source-map-js: ^1.0.1
   checksum: 6b8c713c22b7223c0e71179575c3bbf421a13a61641204645d6c3b560bdc4ffed8d676220bbcb83777e07b46a934ec3b1c629aa61d57422c196c8e2e7417ee1a
+  languageName: node
+  linkType: hard
+
+"css-what@npm:^6.1.0":
+  version: 6.2.2
+  resolution: "css-what@npm:6.2.2"
+  checksum: 4d1f07b348a638e1f8b4c72804a1e93881f35e0f541256aec5ac0497c5855df7db7ab02da030de950d4813044f6d029a14ca657e0f92c3987e4b604246235b2b
   languageName: node
   linkType: hard
 
@@ -7159,6 +7219,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"domutils@npm:^3.0.1, domutils@npm:^3.2.1, domutils@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "domutils@npm:3.2.2"
+  dependencies:
+    dom-serializer: ^2.0.0
+    domelementtype: ^2.3.0
+    domhandler: ^5.0.3
+  checksum: ae941d56f03d857077d55dde9297e960a625229fc2b933187cc4123084d7c2d2517f58283a7336567127029f1e008449bac8ac8506d44341e29e3bb18e02f906
+  languageName: node
+  linkType: hard
+
 "domutils@npm:^3.1.0":
   version: 3.1.0
   resolution: "domutils@npm:3.1.0"
@@ -7292,6 +7363,16 @@ __metadata:
   version: 2.0.0
   resolution: "encodeurl@npm:2.0.0"
   checksum: abf5cd51b78082cf8af7be6785813c33b6df2068ce5191a40ca8b1afe6a86f9230af9a9ce694a5ce4665955e5c1120871826df9c128a642e09c58d592e2807fe
+  languageName: node
+  linkType: hard
+
+"encoding-sniffer@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "encoding-sniffer@npm:0.2.1"
+  dependencies:
+    iconv-lite: ^0.6.3
+    whatwg-encoding: ^3.1.1
+  checksum: d96cc88bbab6a88f57805491fa948b7b1c30f8488939fe4397c58c79ce766a1027f4c10de1893a9b5e489c4ad8ed927f6a8a87f1d114b6f3d5cb3bbbc73601d7
   languageName: node
   linkType: hard
 
@@ -9278,6 +9359,18 @@ __metadata:
   version: 2.0.2
   resolution: "html-escaper@npm:2.0.2"
   checksum: d2df2da3ad40ca9ee3a39c5cc6475ef67c8f83c234475f24d8e9ce0dc80a2c82df8e1d6fa78ddd1e9022a586ea1bd247a615e80a5cd9273d90111ddda7d9e974
+  languageName: node
+  linkType: hard
+
+"htmlparser2@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "htmlparser2@npm:10.0.0"
+  dependencies:
+    domelementtype: ^2.3.0
+    domhandler: ^5.0.3
+    domutils: ^3.2.1
+    entities: ^6.0.0
+  checksum: ba81aca5d344437e791ffddf61d498972fc0e7dd2d41f59f920e93aedb64667a0f38fed88e0d81fe23ea5a10825991caa020212fdd72a0dc287ab2aaad95fbf5
   languageName: node
   linkType: hard
 
@@ -12426,6 +12519,7 @@ __metadata:
     axios: ^1.6.3
     babel-plugin-react-compiler: ^19.1.0-rc.2
     chalk: ^5.4.1
+    cheerio: ^1.1.2
     chrome-launcher: ^1.1.2
     clsx: ^2.1.0
     commander: ^14.0.0
@@ -13150,6 +13244,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nth-check@npm:^2.0.1":
+  version: 2.1.1
+  resolution: "nth-check@npm:2.1.1"
+  dependencies:
+    boolbase: ^1.0.0
+  checksum: 5afc3dafcd1573b08877ca8e6148c52abd565f1d06b1eb08caf982e3fa289a82f2cae697ffb55b5021e146d60443f1590a5d6b944844e944714a5b549675bcd3
+  languageName: node
+  linkType: hard
+
 "nwsapi@npm:^2.2.16":
   version: 2.2.20
   resolution: "nwsapi@npm:2.2.20"
@@ -13646,6 +13749,25 @@ __metadata:
   version: 1.0.0
   resolution: "parse-passwd@npm:1.0.0"
   checksum: 4e55e0231d58f828a41d0f1da2bf2ff7bcef8f4cb6146e69d16ce499190de58b06199e6bd9b17fbf0d4d8aef9052099cdf8c4f13a6294b1a522e8e958073066e
+  languageName: node
+  linkType: hard
+
+"parse5-htmlparser2-tree-adapter@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "parse5-htmlparser2-tree-adapter@npm:7.1.0"
+  dependencies:
+    domhandler: ^5.0.3
+    parse5: ^7.0.0
+  checksum: 98326fc5443e2149e10695adbfd0b0b3383c54398799f858b4ac2914adb199af8fcc90c2143aa5f7fd5f9482338f26ef253b468722f34d50bb215ec075d89fe9
+  languageName: node
+  linkType: hard
+
+"parse5-parser-stream@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "parse5-parser-stream@npm:7.1.2"
+  dependencies:
+    parse5: ^7.0.0
+  checksum: 75b232d460bce6bd0e35012750a78ef034f40ccf550b7c6cec3122395af6b4553202ad3663ad468cf537ead5a2e13b6727670395fd0ff548faccad1dc2dc93cf
   languageName: node
   linkType: hard
 
@@ -16869,6 +16991,13 @@ __metadata:
   dependencies:
     "@fastify/busboy": ^2.0.0
   checksum: a25b5462c1b6ffb974f5ffc492ffd64146a9983aad0cbda6fde65e2b22f6f1acd43f09beacc66cc47624a113bd0c684ffc60366102b6a21b038fbfafb7d75195
+  languageName: node
+  linkType: hard
+
+"undici@npm:^7.12.0":
+  version: 7.16.0
+  resolution: "undici@npm:7.16.0"
+  checksum: dca60e323e44c2d408e0d1f5eb540632ad4e75631d5b6fcd7791876bab54e0e263a66e5606eaa717d436b2db5988c2f4af912dfa221ce53e3fc7fcb7d224c9cd
   languageName: node
   linkType: hard
 

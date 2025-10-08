@@ -110,6 +110,7 @@
     "@typescript-eslint/parser": "^8.34.0",
     "axe-core": "^4.10.3",
     "babel-plugin-react-compiler": "^19.1.0-rc.2",
+    "cheerio": "^1.1.2",
     "debug": "^4.3.4",
     "eslint": "8.57.0",
     "eslint-config-next": "15.5.3",
