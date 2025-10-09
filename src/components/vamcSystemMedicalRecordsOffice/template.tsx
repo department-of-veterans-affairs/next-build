@@ -11,6 +11,7 @@ import { Address } from '@/components/address/template'
 import { LovellSwitcher } from '@/components/lovellSwitcher/template'
 import { SideNavLayout } from '@/components/sideNavLayout/template'
 import { ReactWidget } from '@/components/reactWidget/template'
+import { QaSection } from '../qaSection/template'
 
 export const VamcSystemMedicalRecordsOffice = ({
   title,
@@ -19,6 +20,8 @@ export const VamcSystemMedicalRecordsOffice = ({
   menu,
   topOfPageContent,
   getRecordsInPersonContent,
+  howWeShareRecordsContent,
+  faqsContent,
   reactWidget,
   relatedLinks,
   services,
@@ -81,10 +84,12 @@ export const VamcSystemMedicalRecordsOffice = ({
           </>
         )}
 
+        <Wysiwyg {...howWeShareRecordsContent} />
+
+        <QaSection {...faqsContent} />
+
         {/* TODO: Add centralized content sections from medical records template
               - fieldCcGetRecordsMailOrFax
-              - fieldCcHowWeShareRecords
-              - fieldCcFaqs
             */}
 
         {/* TODO: Add individual node fields from medical records template

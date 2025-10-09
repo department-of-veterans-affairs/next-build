@@ -2,6 +2,8 @@
  * Utility functions for Benefits Hub components
  */
 
+import clsx from 'clsx'
+
 interface HubIconData {
   icon: string
   backgroundColor: string
@@ -83,18 +85,15 @@ export function getHubIcon(
   const hubData = hubIcons[titleIcon]
   if (!hubData) return null
 
-  const baseClasses = [
+  const className = clsx(
     'hub-icon',
     'vads-u-color--white',
     `vads-u-background-color--${hubData.backgroundColor}`,
     'vads-u-display--flex',
     'vads-u-align-items--center',
     'vads-u-justify-content--center',
-  ]
-
-  const className = additionalClasses
-    ? `${baseClasses.join(' ')} ${additionalClasses}`
-    : baseClasses.join(' ')
+    additionalClasses
+  )
 
   return {
     icon: hubData.icon,
