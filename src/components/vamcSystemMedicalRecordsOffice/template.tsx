@@ -19,6 +19,7 @@ export const VamcSystemMedicalRecordsOffice = ({
   menu,
   topOfPageContent,
   getRecordsInPersonContent,
+  howWeShareRecordsContent,
   reactWidget,
   relatedLinks,
   services,
@@ -81,9 +82,10 @@ export const VamcSystemMedicalRecordsOffice = ({
           </>
         )}
 
+        <Wysiwyg {...howWeShareRecordsContent} />
+
         {/* TODO: Add centralized content sections from medical records template
               - fieldCcGetRecordsMailOrFax
-              - fieldCcHowWeShareRecords
               - fieldCcFaqs
             */}
 
