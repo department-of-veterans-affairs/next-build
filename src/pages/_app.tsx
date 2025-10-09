@@ -31,6 +31,10 @@ export default function MyApp({
 
   useEffect(() => {
     TagManager.initialize(TAG_MANAGER_ARGS)
+
+    // Define custom elements after React hydration is complete
+    // This prevents race conditions where custom elements are upgraded
+    // before React finishes hydrating, which could cause hydration mismatches
     defineCustomElements()
 
     const handleRouteChange = (url: string) => {
