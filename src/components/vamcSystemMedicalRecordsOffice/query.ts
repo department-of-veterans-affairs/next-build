@@ -40,11 +40,7 @@ import { formatter as formatReactWidget } from '@/components/reactWidget/query'
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_MEDICAL_RECORDS_OFFICE)
-    .addInclude([
-      'field_office',
-      'field_cc_related_links',
-      'field_cc_related_links.field_va_paragraphs',
-    ])
+    .addInclude(['field_office'])
 }
 
 export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {

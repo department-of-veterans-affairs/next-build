@@ -40,12 +40,7 @@ import {
 export const params: QueryParams<null> = () => {
   return new DrupalJsonApiParams()
     .addFilter('type', RESOURCE_TYPES.VAMC_SYSTEM_BILLING_INSURANCE)
-    .addInclude([
-      'field_office',
-      'field_telephone',
-      'field_cc_related_links',
-      'field_cc_related_links.field_va_paragraphs',
-    ])
+    .addInclude(['field_office', 'field_telephone'])
 }
 
 export const serviceParams: QueryParams<string> = (vamcSystemId: string) => {
