@@ -1,6 +1,8 @@
 import { PublishedParagraph } from '@/types/formatted/publishedEntity'
+import { ParagraphLinkTeaser } from '@/types/drupal/paragraph'
 
-export type LinkTeaser = PublishedParagraph & {
+// Formatted LinkTeaser for use in most components
+export type FormattedLinkTeaser = PublishedParagraph & {
   type: 'paragraph--link_teaser'
   title: string
   summary: string
@@ -12,3 +14,6 @@ export type LinkTeaser = PublishedParagraph & {
     sectionHeader: string
   }
 }
+
+// Union type that can handle both formatted and raw Drupal data
+export type LinkTeaser = FormattedLinkTeaser | ParagraphLinkTeaser

@@ -9,6 +9,8 @@ import { ParagraphComponent } from '@/components/paragraph/formatted-type'
 describe('<LinkTeaser> component', () => {
   const baseProps: ParagraphComponent<FormattedLinkTeaser> = {
     id: 'cb0c2019-0f48-448f-98ca-205d80c8f6fe',
+    entityId: 123,
+    type: 'paragraph--link_teaser',
     uri: '/health-care/eligibility/',
     title: 'Health Care Benefits Eligibility',
     options: null,
