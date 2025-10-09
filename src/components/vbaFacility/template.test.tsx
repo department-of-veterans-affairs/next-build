@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { axe } from '@/test-utils'
 import { VbaFacility } from './template'
 import mockData from '@/components/vbaFacility/mock.json'
 import mockServiceData from './vbaFacilityService.mock.json'
@@ -14,8 +15,8 @@ describe('VbaFacility with valid data', () => {
     ],
   }
   const formattedMockData = formatter(mockWithService)
-  test('renders VbaFacility component', () => {
-    render(<VbaFacility {...formattedMockData} />)
+  test('renders VbaFacility component', async () => {
+    const { container } = render(<VbaFacility {...formattedMockData} />)
 
     expect(
       screen.queryByText(
@@ -52,6 +53,9 @@ describe('VbaFacility with valid data', () => {
       'href',
       '/claim-or-appeal-status'
     )
+
+    const axeResults = await axe(container)
+    expect(axeResults).toHaveNoViolations()
   })
   test('renders ExpandableOperatingStatus when operating status is provided', () => {
     const testDataWithOperatingStatus = {
