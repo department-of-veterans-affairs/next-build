@@ -13,6 +13,7 @@ describe('VamcSystemDetailPage', () => {
     entity: mockPage as NodeVamcSystemDetailPage,
     menu: mockMenu as unknown as Menu,
     lovell: null,
+    hasLovellCounterpart: false,
   })
 
   it('renders the title', () => {
@@ -56,15 +57,18 @@ describe('VamcSystemDetailPage', () => {
     })
   })
 
-  describe.skip('LovellSwitcher integration', () => {
-    test('renders LovellSwitcher for TRICARE variant', () => {
-      const dataWithLovell = {
-        ...formattedMockData,
-        lovellVariant: LOVELL.tricare.variant,
-        lovellSwitchPath: '/lovell-federal-health-care-va',
-      }
+  describe('LovellSwitcher integration', () => {
+    const dataWithLovell = {
+      ...formattedMockData,
+      lovellVariant: LOVELL.tricare.variant,
+      lovellSwitchPath: '/lovell-federal-health-care-va',
+      showLovellSwitcher: true,
+    }
 
-      const { container } = render(<VamcSystemDetailPage {...dataWithLovell} />)
+    test('renders LovellSwitcher for TRICARE variant when showLovellSwitcher is true', () => {
+      const { container } = render(
+        <VamcSystemDetailPage {...dataWithLovell} showLovellSwitcher={true} />
+      )
 
       // Look for the LovellSwitcher content
       expect(
@@ -82,8 +86,10 @@ describe('VamcSystemDetailPage', () => {
       )
     })
 
-    test('does not render LovellSwitcher when lovellVariant is missing', () => {
-      render(<VamcSystemDetailPage {...formattedMockData} />)
+    test('does not render LovellSwitcher when showLovellSwitcher is false', () => {
+      render(
+        <VamcSystemDetailPage {...dataWithLovell} showLovellSwitcher={false} />
+      )
 
       // Should not find LovellSwitcher content
       expect(
