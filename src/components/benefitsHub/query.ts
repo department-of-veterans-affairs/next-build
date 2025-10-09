@@ -9,13 +9,15 @@ import {
   entityBaseFields,
   fetchSingleEntityOrPreview,
 } from '@/lib/drupal/query'
+import { getNestedIncludes } from '@/lib/utils/queries'
+import { formatter as formatListOfLinkTeasers } from '@/components/listOfLinkTeasers/query'
 
 // Define the query params for fetching node--landing_page for benefits hub.
-// Only include fields that are actually used in the formatter to avoid 400 errors.
 export const params: QueryParams<null> = () => {
-  return new DrupalJsonApiParams()
-  // Note: All the fields we need (field_intro_text, field_home_page_hub_label,
-  // field_teaser_text, field_title_icon) are basic fields that don't need to be included
+  return new DrupalJsonApiParams().addInclude([
+    'field_spokes',
+    'field_spokes.field_va_paragraphs',
+  ])
 }
 
 // Define the option types for the data loader.
@@ -40,6 +42,13 @@ export const data: QueryData<BenefitsHubDataOpts, NodeLandingPage> = async (
 export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
   entity: NodeLandingPage
 ) => {
+  // Only return field_spokes if it's the correct type (ParagraphListOfLinkTeasers)
+  const fieldSpokes = Array.isArray(entity.field_spokes)
+    ? entity.field_spokes.filter(
+        (spoke) => spoke.type === 'paragraph--list_of_link_teasers'
+      )
+    : []
+
   return {
     ...entityBaseFields(entity),
     title: entity.title,
@@ -47,5 +56,6 @@ export const formatter: QueryFormatter<NodeLandingPage, BenefitsHub> = (
     hubLabel: entity.field_home_page_hub_label,
     teaserText: entity.field_teaser_text,
     titleIcon: entity.field_title_icon,
+    fieldSpokes: fieldSpokes,
   }
 }

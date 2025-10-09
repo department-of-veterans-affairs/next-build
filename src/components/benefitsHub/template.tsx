@@ -1,10 +1,12 @@
 import { getHubIcon } from '@/lib/utils/benefitsHub'
 import { BenefitsHub as FormattedBenefitsHub } from './formatted-type'
+import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/template'
 
 export function BenefitsHub({
   title,
   titleIcon,
   fieldIntroText,
+  fieldSpokes,
 }: FormattedBenefitsHub) {
   const iconConfig = getHubIcon(titleIcon)
 
@@ -32,6 +34,19 @@ export function BenefitsHub({
             <div className="va-introtext">
               <p>{fieldIntroText}</p>
             </div>
+            {fieldSpokes?.map((spokeSection) => (
+              <div key={spokeSection.id}>
+                <section className="usa-grid">
+                  <div className="va-h-ruled--stars"></div>
+                </section>
+                <ListOfLinkTeasers
+                  id={spokeSection.id}
+                  title={spokeSection.field_title}
+                  linkTeasers={spokeSection.field_va_paragraphs}
+                  parentField="field_spokes"
+                />
+              </div>
+            ))}
           </article>
         </div>
       </main>

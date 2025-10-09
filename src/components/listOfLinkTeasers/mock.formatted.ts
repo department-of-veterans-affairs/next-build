@@ -5,6 +5,7 @@ export default {
   id: 'fd090f35-1c89-4bc6-9525-3e8c8221a87e',
   entityId: 471,
   title: 'Other VA Benefits and Services',
+  parentField: 'field_related_links',
   linkTeasers: [
     {
       type: 'paragraph--link_teaser',

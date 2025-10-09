@@ -125,6 +125,7 @@ exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
         "uri": "entity:node/6962",
       },
     ],
+    "parentField": "field_related_links",
     "title": "Learn more about how we serve Veterans",
     "type": "paragraph--list_of_link_teasers",
   },
