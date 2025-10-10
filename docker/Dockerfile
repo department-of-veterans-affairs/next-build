@@ -4,6 +4,11 @@
 
 FROM node:18-alpine as build
 
+RUN apk add wget ca-certificates bash file
+ADD next-build/docker/install-va-certs.sh /usr/local/bin/install-va-certs.sh
+RUN chmod +x /usr/local/bin/install-va-certs.sh
+RUN /usr/local/bin/install-va-certs.sh && update-ca-certificates
+
 RUN mkdir -p /app/content-build
 RUN mkdir -p /app/vets-website
 
@@ -25,6 +30,7 @@ WORKDIR $HOME
 RUN addgroup --gid 1001 nextjs \
   && adduser --uid 1001 --system --home $HOME --ingroup nextjs nextjs
 
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 # TODO: refine copy to only necessary app components
 COPY --chown=nextjs:nextjs --from=build /app/next-build $HOME
 RUN chmod +x docker-run.sh
