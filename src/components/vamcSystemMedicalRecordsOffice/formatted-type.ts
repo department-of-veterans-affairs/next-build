@@ -6,6 +6,8 @@ import { ListOfLinkTeasers } from '../listOfLinkTeasers/formatted-type'
 import { ServiceLocation } from '../serviceLocation/formatted-type'
 import { FieldAddress } from '@/types/drupal/field_type'
 import { LovellChildVariant } from '@/lib/drupal/lovell/types'
+import { ReactWidget } from '../reactWidget/formatted-type'
+import { QaSection } from '../qaSection/formatted-type'
 
 export interface VamcSystemMedicalRecordsOffice extends PublishedEntity {
   title: string
@@ -13,7 +15,9 @@ export interface VamcSystemMedicalRecordsOffice extends PublishedEntity {
   menu: SideNavMenu
   topOfPageContent: Wysiwyg
   getRecordsInPersonContent: Wysiwyg
-  bottomOfPageContent: Wysiwyg
+  howWeShareRecordsContent: Wysiwyg
+  faqsContent: QaSection
+  reactWidget: ReactWidget
   relatedLinks: ListOfLinkTeasers
   services: Array<{
     id: string

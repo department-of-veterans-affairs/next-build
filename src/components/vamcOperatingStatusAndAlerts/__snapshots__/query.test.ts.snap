@@ -1,29 +1,26 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
+exports[`VamcOperatingStatusAndAlerts formatData Lovell variant handling outputs formatted data with Lovell variant 1`] = `
 {
-  "breadcrumbs": [
-    {
-      "options": [],
-      "title": "Home",
-      "uri": "https://va-gov-cms.ddev.site/",
-    },
-    {
-      "options": [],
-      "title": "VA Oklahoma City health care",
-      "uri": "https://va-gov-cms.ddev.site/oklahoma-city-health-care",
-    },
-    {
-      "options": [],
-      "title": "Operating Status",
-      "uri": "internal:#",
-    },
-  ],
+  "breadcrumbs": [],
+  "emergencyInformation": "<h3 id="patient-resources">Patient resources</h3><p><strong>Emergency:</strong> <a href="tel:911" aria-label="9 1 1.">911</a></p><p><strong>Veterans Crisis Line: </strong><a href="tel:988" aria-label="9 8 8">988</a>, select 1</p><p><strong>24-hour nurse:</strong> <a href="tel:+14054561000" aria-label="4 0 5. 4 5 6. 1 0 0 0.">405-456-1000</a>, select 3</p><p><strong>Change your appointment:</strong> <a href="tel:+14054561000" aria-label="4 0 5. 4 5 6. 1 0 0 0.">405-456-1000</a>, select 2</p><p><strong>Media inquires:</strong> <a href="tel:+14052155428" aria-label="4 0 5. 2 1 5. 5 4 2 8.">405-215-5428</a></p><p><strong>National Veterans Helpline: </strong><a href="tel:+18005074571" aria-label="8 0 0. 5 0 7. 4 5 7 1.">800-507-4571</a></p><p><strong>Patient locator: </strong>Not available</p><p><strong>Pharmacy refill:</strong> <a href="tel:+14054563700" aria-label="4 0 5. 4 5 6. 3 7 0 0.">405-456-3700</a></p><p><strong>Staff locator:</strong> Not available</p><p><strong>Telephone care: </strong>Call your provider</p>",
   "entityId": 6834,
   "entityPath": "/oklahoma-city-health-care/operating-status",
   "facilityName": "VA Oklahoma City health care",
   "id": "9167ccca-96f2-4809-b93e-d72414bfbbbf",
   "lastUpdated": "2024-02-20T19:58:39+00:00",
+  "localEmergencyLinks": [
+    {
+      "label": "Disasters and Emergencies - USA.gov",
+      "url": "https://www.usa.gov/disasters-and-emergencies",
+    },
+    {
+      "label": "National Weather Service",
+      "url": "https://www.weather.gov/",
+    },
+  ],
+  "lovellSwitchPath": "/oklahoma-city-health-care/operating-status",
+  "lovellVariant": "tricare",
   "menu": null,
   "metatags": [
     {
@@ -119,6 +116,156 @@ exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
     },
   ],
   "moderationState": "published",
+  "operatingStatuses": [
+    {
+      "status": "normal",
+      "statusInfo": null,
+      "title": "Framingham VA Clinic",
+      "url": "/boston-health-care/locations/framingham-va-clinic",
+    },
+  ],
+  "published": true,
+  "situationUpdates": [
+    {
+      "info": "<p>this is info</p>",
+      "updates": [
+        {
+          "dateTime": "2025-09-19T21:41:00+00:00",
+          "timezone": "America/Los_Angeles",
+          "updateText": "<p>A new update</p>",
+        },
+      ],
+    },
+  ],
+  "title": "Operating status | VA Oklahoma City health care",
+  "type": "node--vamc_operating_status_and_alerts",
+}
+`;
+
+exports[`VamcOperatingStatusAndAlerts formatData outputs formatted data 1`] = `
+{
+  "breadcrumbs": [],
+  "emergencyInformation": "<h3 id="patient-resources">Patient resources</h3><p><strong>Emergency:</strong> <a href="tel:911" aria-label="9 1 1.">911</a></p><p><strong>Veterans Crisis Line: </strong><a href="tel:988" aria-label="9 8 8">988</a>, select 1</p><p><strong>24-hour nurse:</strong> <a href="tel:+14054561000" aria-label="4 0 5. 4 5 6. 1 0 0 0.">405-456-1000</a>, select 3</p><p><strong>Change your appointment:</strong> <a href="tel:+14054561000" aria-label="4 0 5. 4 5 6. 1 0 0 0.">405-456-1000</a>, select 2</p><p><strong>Media inquires:</strong> <a href="tel:+14052155428" aria-label="4 0 5. 2 1 5. 5 4 2 8.">405-215-5428</a></p><p><strong>National Veterans Helpline: </strong><a href="tel:+18005074571" aria-label="8 0 0. 5 0 7. 4 5 7 1.">800-507-4571</a></p><p><strong>Patient locator: </strong>Not available</p><p><strong>Pharmacy refill:</strong> <a href="tel:+14054563700" aria-label="4 0 5. 4 5 6. 3 7 0 0.">405-456-3700</a></p><p><strong>Staff locator:</strong> Not available</p><p><strong>Telephone care: </strong>Call your provider</p>",
+  "entityId": 6834,
+  "entityPath": "/oklahoma-city-health-care/operating-status",
+  "facilityName": "VA Oklahoma City health care",
+  "id": "9167ccca-96f2-4809-b93e-d72414bfbbbf",
+  "lastUpdated": "2024-02-20T19:58:39+00:00",
+  "localEmergencyLinks": [
+    {
+      "label": "Disasters and Emergencies - USA.gov",
+      "url": "https://www.usa.gov/disasters-and-emergencies",
+    },
+    {
+      "label": "National Weather Service",
+      "url": "https://www.weather.gov/",
+    },
+  ],
+  "lovellSwitchPath": null,
+  "lovellVariant": null,
+  "menu": null,
+  "metatags": [
+    {
+      "attributes": {
+        "content": "Operating status | VA Oklahoma City health care | Veterans Affairs",
+        "name": "title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA Oklahoma City health care facility operating statuses and emergency information.",
+        "name": "description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "href": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "rel": "image_src",
+      },
+      "tag": "link",
+    },
+    {
+      "attributes": {
+        "content": "Veterans Affairs",
+        "property": "og:site_name",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Operating status | VA Oklahoma City health care | Veterans Affairs",
+        "property": "og:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "VA Oklahoma City health care facility operating statuses and emergency information.",
+        "property": "og:description",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "property": "og:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "property": "og:image:alt",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "summary_large_image",
+        "name": "twitter:card",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "@DeptVetAffairs",
+        "name": "twitter:site",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "Operating status | VA Oklahoma City health care | Veterans Affairs",
+        "name": "twitter:title",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "https://www.va.gov/img/design/logo/va-og-image.png",
+        "name": "twitter:image",
+      },
+      "tag": "meta",
+    },
+    {
+      "attributes": {
+        "content": "U.S. Department of Veterans Affairs",
+        "name": "twitter:image:alt",
+      },
+      "tag": "meta",
+    },
+  ],
+  "moderationState": "published",
+  "operatingStatuses": [
+    {
+      "status": "normal",
+      "statusInfo": null,
+      "title": "Framingham VA Clinic",
+      "url": "/boston-health-care/locations/framingham-va-clinic",
+    },
+  ],
   "published": true,
   "situationUpdates": [
     {

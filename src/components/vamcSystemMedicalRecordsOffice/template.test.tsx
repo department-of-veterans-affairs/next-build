@@ -58,4 +58,34 @@ describe('VamcSystemMedicalRecordsOffice', () => {
     )
     expect(paragraphContent).toBeInTheDocument()
   })
+
+  it('renders the reactWidget', () => {
+    render(<VamcSystemMedicalRecordsOffice {...mockData} />)
+    const reactWidget = document.querySelector(
+      '[data-template="paragraphs/react_widget"]'
+    )
+    expect(reactWidget).toBeInTheDocument()
+  })
+
+  it('renders the howWeShareRecordsContent', () => {
+    render(<VamcSystemMedicalRecordsOffice {...mockData} />)
+    const howWeShareRecordsContent = screen.getByText(
+      /Per VHA Directives, we have 20 business days to process all requests./
+    )
+    expect(howWeShareRecordsContent).toBeInTheDocument()
+  })
+
+  it('renders the faqsContent', () => {
+    const { container } = render(
+      <VamcSystemMedicalRecordsOffice {...mockData} />
+    )
+    const faqsContent = screen.getByText(/Questions about medical records/)
+    expect(faqsContent).toBeInTheDocument()
+
+    // console.log(container.innerHTML)
+    const accordionDiv = container.querySelector(
+      '[data-template="paragraphs/q_a.collapsible_panel"]'
+    )
+    expect(accordionDiv).toBeInTheDocument()
+  })
 })

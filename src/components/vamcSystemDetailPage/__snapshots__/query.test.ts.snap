@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`VamcSystemDetailPage query module outputs formatted data 1`] = `
+{
+  "administration": {
+    "entityId": 218,
+    "name": "VA Durham health care",
+  },
+  "breadcrumbs": [
+    {
+      "options": [],
+      "title": "Home",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/",
+    },
+    {
+      "options": [],
+      "title": "VA Durham health care",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/durham-health-care",
+    },
+    {
+      "options": [],
+      "title": "ABOUT VA DURHAM",
+      "uri": "internal:#",
+    },
+    {
+      "options": [],
+      "title": "About us",
+      "uri": "https://content-build-medc0xjkxm4jmpzxl3tfbcs7qcddsivh.ci.cms.va.gov/durham-health-care/about-us",
+    },
+    {
+      "options": [],
+      "title": "Mission and vision",
+      "uri": "internal:#",
+    },
+  ],
+  "entityId": 6983,
+  "entityPath": "/durham-health-care/about-us/mission-and-vision",
+  "id": "6f66f92d-4e84-476b-83fb-0457ce0ab4ae",
+  "introText": "The mission of the Durham VA Medical Center and clinics is to make a positive difference in the lives of the Veterans we serve by providing compassionate, comprehensive, and quality healthcare.  The Durham VA Medical Center and clinics promote a community of integrity, respect, stewardship, and excellence by understanding and respecting the diversity of those whom we serve.",
+  "lastUpdated": "2021-03-18T15:01:54+00:00",
+  "lovellSwitchPath": null,
+  "lovellVariant": null,
+  "menu": {
+    "data": {
+      "description": null,
+      "links": [
+        {
+          "description": null,
+          "expanded": false,
+          "label": "VA Bronx health care",
+          "links": [
+            {
+              "description": null,
+              "expanded": false,
+              "label": "SERVICES AND LOCATIONS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "NEWS AND EVENTS",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+            {
+              "description": null,
+              "expanded": false,
+              "label": "ABOUT VA RICHMOND",
+              "links": [],
+              "lovellSection": null,
+              "url": {
+                "path": "",
+              },
+            },
+          ],
+          "lovellSection": null,
+          "url": {
+            "path": "/louisville-health-care",
+          },
+        },
+      ],
+      "name": "VA Bronx health care",
+    },
+    "rootPath": "/durham-health-care/about-us/mission-and-vision/",
+  },
+  "metatags": [],
+  "moderationState": "published",
+  "path": "/durham-health-care/about-us/mission-and-vision",
+  "published": true,
+  "relatedLinks": {
+    "entityId": 19369,
+    "id": "928ec63a-97b3-460d-a869-1d0b1ca9fa04",
+    "linkTeasers": [
+      {
+        "componentParams": {
+          "sectionHeader": "",
+        },
+        "entityId": 19367,
+        "id": "95f2a5f6-82b3-447d-afa3-be1a4560fa03",
+        "options": [],
+        "parentField": "field_va_paragraphs",
+        "summary": "Learn more about the VA Durham leadership team.",
+        "title": "Our leadership",
+        "type": "paragraph--link_teaser",
+        "uri": "entity:node/6226",
+      },
+      {
+        "componentParams": {
+          "sectionHeader": "",
+        },
+        "entityId": 19368,
+        "id": "2ef38bb5-0c45-4ba6-bd02-e1900880bb4a",
+        "options": [],
+        "parentField": "field_va_paragraphs",
+        "summary": "Find health care and services you need to stay healthy.",
+        "title": "Health services",
+        "type": "paragraph--link_teaser",
+        "uri": "entity:node/6962",
+      },
+    ],
+    "title": "Learn more about how we serve Veterans",
+    "type": "paragraph--list_of_link_teasers",
+  },
+  "showLovellSwitcher": false,
+  "showTableOfContents": true,
+  "title": "Mission and vision",
+  "type": "node--health_care_region_detail_page",
+  "vamcEhrSystem": "vista",
+  "vamcSystem": {
+    "path": "/durham-health-care",
+  },
+}
+`;

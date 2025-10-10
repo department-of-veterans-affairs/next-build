@@ -6,7 +6,8 @@ import * as AlertNonReusable from '@/components/alertNonReusable/query'
 import * as AlertSingle from '@/components/alertSingle/query'
 import * as AudienceTopics from '@/components/audienceTopics/query'
 import * as Banners from '@/components/banner/query'
-import * as BenefitsHub from '@/components/benefitsHubLinks/query'
+import * as BenefitsHub from '@/components/benefitsHub/query'
+import * as BenefitsHubLinks from '@/components/benefitsHubLinks/query'
 import * as Button from '@/components/button/query'
 import * as CollapsiblePanel from '@/components/collapsiblePanel/query'
 import * as CollapsiblePanelItem from '@/components/collapsiblePanelItem/query'
@@ -62,6 +63,7 @@ import * as VbaFacility from '../../components/vbaFacility/query'
 import * as HealthServicesListing from '../../components/vamcHealthServicesListing/query'
 import * as VamcOperatingStatusAndAlerts from '../../components/vamcOperatingStatusAndAlerts/query'
 import * as VamcSystemPoliciesPage from '../../components/vamcSystemPoliciesPage/query'
+import * as VamcSystemDetailPage from '../../components/vamcSystemDetailPage/query'
 import * as ServiceLocation from '@/components/serviceLocation/query'
 import {
   ResourceType,
@@ -106,6 +108,7 @@ export const QUERIES_MAP = {
   [RESOURCE_TYPES.VAMC_OPERATING_STATUS_AND_ALERTS]:
     VamcOperatingStatusAndAlerts,
   [RESOURCE_TYPES.VAMC_SYSTEM_POLICIES_PAGE]: VamcSystemPoliciesPage,
+  [RESOURCE_TYPES.VAMC_SYSTEM_DETAIL_PAGE]: VamcSystemDetailPage,
 
   // Paragraphs
   [PARAGRAPH_RESOURCE_TYPES.ACCORDION_ITEM]: Accordion,
@@ -147,6 +150,7 @@ export const QUERIES_MAP = {
   'banner-data': Banners,
   'header-data': Header,
   'footer-data': Footer,
+  'benefits-hub-links': BenefitsHubLinks,
 
   // Static Path Generation
   'static-path-resources': StaticPathResources,
