@@ -34,7 +34,7 @@ export const VbaFacilityServiceGroup = ({
               <p>{service.serviceDescription}</p>
               {service.onlineSelfService && (
                 <>
-                  <h3>Manage your benefits online</h3>
+                  <h4>Manage your benefits online</h4>
 
                   <p>
                     You always have the option to apply for and manage your VA
