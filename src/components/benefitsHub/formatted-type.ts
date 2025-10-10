@@ -1,9 +1,9 @@
 import { PublishedEntity } from '@/types/formatted/publishedEntity'
-import { ParagraphListOfLinkTeasers } from '@/types/drupal/paragraph'
+import { ListOfLinkTeasers } from '@/components/listOfLinkTeasers/formatted-type'
 
 export interface BenefitsHub extends PublishedEntity {
   title: string
   titleIcon: string | null
   fieldIntroText: string | null
-  fieldSpokes: ParagraphListOfLinkTeasers[]
+  fieldSpokes: ListOfLinkTeasers[]
 }

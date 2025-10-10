@@ -39,12 +39,7 @@ export function BenefitsHub({
                 <section className="usa-grid">
                   <div className="va-h-ruled--stars"></div>
                 </section>
-                <ListOfLinkTeasers
-                  id={spokeSection.id}
-                  title={spokeSection.field_title}
-                  linkTeasers={spokeSection.field_va_paragraphs}
-                  parentField="field_spokes"
-                />
+                <ListOfLinkTeasers {...spokeSection} />
               </div>
             ))}
           </article>
